@@ -80,6 +80,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionCommand extends $Command
@@ -90,9 +91,7 @@ export class CreateConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class CreateConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectionCommand)
   .de(de_CreateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectionInput;
+      output: CreateConnectionOutput;
+    };
+    sdk: {
+      input: CreateConnectionCommandInput;
+      output: CreateConnectionCommandOutput;
+    };
+  };
+}

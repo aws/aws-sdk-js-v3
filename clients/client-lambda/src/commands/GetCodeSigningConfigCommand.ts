@@ -77,6 +77,7 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class GetCodeSigningConfigCommand extends $Command
@@ -87,9 +88,7 @@ export class GetCodeSigningConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCodeSigningConfigCommand)
   .de(de_GetCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCodeSigningConfigRequest;
+      output: GetCodeSigningConfigResponse;
+    };
+    sdk: {
+      input: GetCodeSigningConfigCommandInput;
+      output: GetCodeSigningConfigCommandOutput;
+    };
+  };
+}

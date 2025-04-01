@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
 
@@ -91,57 +91,60 @@ export interface Actuator {
    * <p>A brief description of the actuator.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The scientific unit for the actuator.</p>
    * @public
    */
-  unit?: string;
+  unit?: string | undefined;
 
   /**
    * <p>A list of possible values an actuator can take.</p>
    * @public
    */
-  allowedValues?: string[];
+  allowedValues?: string[] | undefined;
 
   /**
    * <p>The specified possible minimum value of an actuator.</p>
    * @public
    */
-  min?: number;
+  min?: number | undefined;
 
   /**
    * <p>The specified possible maximum value of an actuator.</p>
    * @public
    */
-  max?: number;
+  max?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A specified value for the actuator.</p>
+   *
+   * @deprecated
    * @public
    */
-  assignedValue?: string;
+  assignedValue?: string | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
-   * <p>The fully qualified name of the struct node for the actuator if the data type of the actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct fully qualified name of an actuator might be <code>Vehicle.Door.LockStruct</code>.</p>
+   * <p>The fully qualified name of the struct node for the actuator if the data type of the
+   *             actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct
+   *             fully qualified name of an actuator might be
+   *             <code>Vehicle.Door.LockStruct</code>.</p>
    * @public
    */
-  structFullyQualifiedName?: string;
+  structFullyQualifiedName?: string | undefined;
 }
 
 /**
@@ -177,7 +180,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to wait before retrying the command.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -272,19 +275,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The quota identifier of the applied throttling rules for this request.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The code for the service that couldn't be completed due to throttling.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The number of seconds to wait before retrying the command.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -345,16 +348,18 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services
+   *             service.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services
+   *             service.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -394,57 +399,57 @@ export interface Attribute {
    * <p>A brief description of the attribute.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The scientific unit for the attribute.</p>
    * @public
    */
-  unit?: string;
+  unit?: string | undefined;
 
   /**
    * <p>A list of possible values an attribute can be assigned.</p>
    * @public
    */
-  allowedValues?: string[];
+  allowedValues?: string[] | undefined;
 
   /**
    * <p>The specified possible minimum value of the attribute.</p>
    * @public
    */
-  min?: number;
+  min?: number | undefined;
 
   /**
    * <p>The specified possible maximum value of the attribute.</p>
    * @public
    */
-  max?: number;
+  max?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A specified value for the attribute.</p>
+   *
+   * @deprecated
    * @public
    */
-  assignedValue?: string;
+  assignedValue?: string | undefined;
 
   /**
    * <p>The default value of the attribute.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 }
 
 /**
@@ -460,6 +465,140 @@ export const VehicleAssociationBehavior = {
  * @public
  */
 export type VehicleAssociationBehavior = (typeof VehicleAssociationBehavior)[keyof typeof VehicleAssociationBehavior];
+
+/**
+ * <p>Vehicles associated with the state template will stream telemetry data when there is a change.</p>
+ * @public
+ */
+export interface OnChangeStateTemplateUpdateStrategy {}
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  HOUR: "HOUR",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  SECOND: "SECOND",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
+
+/**
+ * <p>The length of time between state template updates.</p>
+ * @public
+ */
+export interface TimePeriod {
+  /**
+   * <p>A unit of time.</p>
+   * @public
+   */
+  unit: TimeUnit | undefined;
+
+  /**
+   * <p>A number of time units.</p>
+   * @public
+   */
+  value: number | undefined;
+}
+
+/**
+ * <p>Vehicles associated with the state template will stream telemetry data during a specified time period.</p>
+ * @public
+ */
+export interface PeriodicStateTemplateUpdateStrategy {
+  /**
+   * <p>The length of time between state template updates.</p>
+   * @public
+   */
+  stateTemplateUpdateRate: TimePeriod | undefined;
+}
+
+/**
+ * <p>The update strategy for the state template. Vehicles associated with the state template can stream telemetry data with either an <code>onChange</code> or <code>periodic</code> update strategy. </p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export type StateTemplateUpdateStrategy =
+  | StateTemplateUpdateStrategy.OnChangeMember
+  | StateTemplateUpdateStrategy.PeriodicMember
+  | StateTemplateUpdateStrategy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StateTemplateUpdateStrategy {
+  /**
+   * <p>Vehicles associated with the state template will stream telemetry data during a specified time period.</p>
+   * @public
+   */
+  export interface PeriodicMember {
+    periodic: PeriodicStateTemplateUpdateStrategy;
+    onChange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Vehicles associated with the state template will stream telemetry data when there is a change.</p>
+   * @public
+   */
+  export interface OnChangeMember {
+    periodic?: never;
+    onChange: OnChangeStateTemplateUpdateStrategy;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    periodic?: never;
+    onChange?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    periodic: (value: PeriodicStateTemplateUpdateStrategy) => T;
+    onChange: (value: OnChangeStateTemplateUpdateStrategy) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: StateTemplateUpdateStrategy, visitor: Visitor<T>): T => {
+    if (value.periodic !== undefined) return visitor.periodic(value.periodic);
+    if (value.onChange !== undefined) return visitor.onChange(value.onChange);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The state template associated with a vehicle. State templates contain state properties, which are signals that belong to a signal catalog that is synchronized between the Amazon Web Services IoT FleetWise Edge and the Amazon Web Services Cloud.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface StateTemplateAssociation {
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The update strategy for the state template. Vehicles associated with the state template can stream telemetry data with either an <code>onChange</code> or <code>periodic</code> update strategy. </p>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  stateTemplateUpdateStrategy: StateTemplateUpdateStrategy | undefined;
+}
 
 /**
  * <p>A set of key/value pairs that are used to manage the resource.</p>
@@ -509,20 +648,26 @@ export interface CreateVehicleRequestItem {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing thing as a vehicle.</p>
    * @public
    */
-  associationBehavior?: VehicleAssociationBehavior;
+  associationBehavior?: VehicleAssociationBehavior | undefined;
 
   /**
    * <p>Metadata which can be used to manage the vehicle.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>Associate state templates to track the state of the vehicle. State templates determine which signal updates the vehicle sends to the cloud.</p>
+   * @public
+   */
+  stateTemplates?: StateTemplateAssociation[] | undefined;
 }
 
 /**
@@ -546,19 +691,19 @@ export interface CreateVehicleError {
    * <p>The ID of the vehicle with the error.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p>An HTTP error code.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>A description of the HTTP error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -570,19 +715,19 @@ export interface CreateVehicleResponseItem {
    * <p>The unique ID of the vehicle to create.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p>The ARN of the created vehicle.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ARN of a created or validated Amazon Web Services IoT thing.</p>
    * @public
    */
-  thingArn?: string;
+  thingArn?: string | undefined;
 }
 
 /**
@@ -594,14 +739,14 @@ export interface BatchCreateVehicleResponse {
    *             the  API data type.</p>
    * @public
    */
-  vehicles?: CreateVehicleResponseItem[];
+  vehicles?: CreateVehicleResponseItem[] | undefined;
 
   /**
    * <p>A list of information about creation errors, or an empty list if there aren't any
    *             errors. </p>
    * @public
    */
-  errors?: CreateVehicleError[];
+  errors?: CreateVehicleError[] | undefined;
 }
 
 /**
@@ -630,16 +775,17 @@ export interface UpdateVehicleRequestItem {
   vehicleName: string | undefined;
 
   /**
-   * <p>The ARN of the vehicle model (model manifest) associated with the vehicle to update.</p>
+   * <p>The ARN of the vehicle model (model manifest) associated with the vehicle to
+   *             update.</p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p>The ARN of the signal decoder manifest associated with the vehicle to update.</p>
    * @public
    */
-  decoderManifestArn?: string;
+  decoderManifestArn?: string | undefined;
 
   /**
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
@@ -648,7 +794,7 @@ export interface UpdateVehicleRequestItem {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The method the specified attributes will update the existing attributes on the
@@ -657,7 +803,19 @@ export interface UpdateVehicleRequestItem {
    *          <p>This is required if attributes are present in the input.</p>
    * @public
    */
-  attributeUpdateMode?: UpdateMode;
+  attributeUpdateMode?: UpdateMode | undefined;
+
+  /**
+   * <p>Associate additional state templates to track the state of the vehicle. State templates determine which signal updates the vehicle sends to the cloud.</p>
+   * @public
+   */
+  stateTemplatesToAdd?: StateTemplateAssociation[] | undefined;
+
+  /**
+   * <p>Remove existing state template associations from the vehicle.</p>
+   * @public
+   */
+  stateTemplatesToRemove?: string[] | undefined;
 }
 
 /**
@@ -681,19 +839,19 @@ export interface UpdateVehicleError {
    * <p>The ID of the vehicle with the error.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p>The relevant HTTP error code (400+).</p>
    * @public
    */
-  code?: number;
+  code?: number | undefined;
 
   /**
    * <p>A message associated with the error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -705,13 +863,13 @@ export interface UpdateVehicleResponseItem {
    * <p>The unique ID of the updated vehicle.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the updated vehicle.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -725,14 +883,14 @@ export interface BatchUpdateVehicleResponse {
    *          </note>
    * @public
    */
-  vehicles?: UpdateVehicleResponseItem[];
+  vehicles?: UpdateVehicleResponseItem[] | undefined;
 
   /**
    * <p>A list of information about errors returned while updating a batch of vehicles, or, if
    *             there aren't any errors, an empty list.</p>
    * @public
    */
-  errors?: UpdateVehicleError[];
+  errors?: UpdateVehicleError[] | undefined;
 }
 
 /**
@@ -751,19 +909,19 @@ export interface Branch {
    * <p>A brief description of the branch.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 }
 
 /**
@@ -822,8 +980,7 @@ export type TriggerMode = (typeof TriggerMode)[keyof typeof TriggerMode];
  */
 export interface ConditionBasedCollectionScheme {
   /**
-   * <p>The logical expression used to recognize what data to collect. For example,
-   *             <code>$variable.`Vehicle.OutsideAirTemperature` &gt;= 105.0</code>.</p>
+   * <p>The logical expression used to recognize what data to collect. For example, <code>$variable.`Vehicle.OutsideAirTemperature` &gt;= 105.0</code>.</p>
    * @public
    */
   expression: string | undefined;
@@ -836,7 +993,7 @@ export interface ConditionBasedCollectionScheme {
    *          </note>
    * @public
    */
-  minimumTriggerIntervalMs?: number;
+  minimumTriggerIntervalMs?: number | undefined;
 
   /**
    * <p>Whether to collect data for all triggering events (<code>ALWAYS</code>). Specify
@@ -846,13 +1003,13 @@ export interface ConditionBasedCollectionScheme {
    *             deployed =&gt; deployed.</p>
    * @public
    */
-  triggerMode?: TriggerMode;
+  triggerMode?: TriggerMode | undefined;
 
   /**
    * <p>Specifies the version of the conditional expression language.</p>
    * @public
    */
-  conditionLanguageVersion?: number;
+  conditionLanguageVersion?: number | undefined;
 }
 
 /**
@@ -862,9 +1019,9 @@ export interface ConditionBasedCollectionScheme {
  */
 export interface TimeBasedCollectionScheme {
   /**
-   * <p>The time period (in milliseconds) to decide how often to collect data. For example,
-   *             if the time period is <code>60000</code>, the Edge Agent software collects data once
-   *             every minute.</p>
+   * <p>The time period (in milliseconds) to decide how often to collect data. For example, if
+   *             the time period is <code>60000</code>, the Edge Agent software collects data once every
+   *             minute.</p>
    * @public
    */
   periodMs: number | undefined;
@@ -944,6 +1101,29 @@ export const Compression = {
 export type Compression = (typeof Compression)[keyof typeof Compression];
 
 /**
+ * <p>The MQTT topic to which the Amazon Web Services IoT FleetWise campaign routes data. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication
+ *           protocols</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface MqttTopicConfig {
+  /**
+   * <p>The ARN of the MQTT topic.</p>
+   * @public
+   */
+  mqttTopicArn: string | undefined;
+
+  /**
+   * <p>The ARN of the role that grants Amazon Web Services IoT FleetWise permission to access and act on messages sent to
+   *           the MQTT topic.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -972,7 +1152,9 @@ export const StorageCompressionFormat = {
 export type StorageCompressionFormat = (typeof StorageCompressionFormat)[keyof typeof StorageCompressionFormat];
 
 /**
- * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data. Amazon S3 is an object storage service that stores data as objects within buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data. Amazon S3 is an object storage
+ *             service that stores data as objects within buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3 buckets</a> in the
+ *                 <i>Amazon Simple Storage Service User Guide</i>.</p>
  * @public
  */
 export interface S3Config {
@@ -983,7 +1165,8 @@ export interface S3Config {
   bucketArn: string | undefined;
 
   /**
-   * <p>Specify the format that files are saved in the Amazon S3 bucket. You can save files in an Apache Parquet or JSON format.</p>
+   * <p>Specify the format that files are saved in the Amazon S3 bucket. You can save files in an
+   *             Apache Parquet or JSON format.</p>
    *          <ul>
    *             <li>
    *                <p>Parquet - Store data in a columnar storage file format. Parquet is optimal for
@@ -996,25 +1179,35 @@ export interface S3Config {
    *          </ul>
    * @public
    */
-  dataFormat?: DataFormat;
+  dataFormat?: DataFormat | undefined;
 
   /**
    * <p>By default, stored data is compressed as a .gzip file. Compressed files have a reduced
    *             file size, which can optimize the cost of data storage.</p>
    * @public
    */
-  storageCompressionFormat?: StorageCompressionFormat;
+  storageCompressionFormat?: StorageCompressionFormat | undefined;
 
   /**
-   * <p>(Optional) Enter an S3 bucket prefix. The prefix is the string of characters after the bucket name and before the object name. You can use the prefix to organize data stored in Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
-   *          <p>By default, Amazon Web Services IoT FleetWise sets the prefix <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For example, if you enter the prefix <code>vehicles</code>, the prefix will be <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
+   * <p>Enter an S3 bucket prefix. The prefix is the string of characters after the
+   *             bucket name and before the object name. You can use the prefix to organize data stored
+   *             in Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using
+   *                 prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>By default, Amazon Web Services IoT FleetWise sets the prefix
+   *                 <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it
+   *             delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For
+   *             example, if you enter the prefix <code>vehicles</code>, the prefix will be
+   *                 <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
- * <p>The Amazon Timestream table where the Amazon Web Services IoT FleetWise campaign sends data. Timestream stores and organizes data to optimize query processing time and to reduce storage costs. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/data-modeling.html">Data modeling</a> in the <i>Amazon Timestream Developer Guide</i>.</p>
+ * <p>The Amazon Timestream table where the Amazon Web Services IoT FleetWise campaign sends data. Timestream stores and organizes
+ *             data to optimize query processing time and to reduce storage costs. For more
+ *             information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/data-modeling.html">Data modeling</a> in
+ *             the <i>Amazon Timestream Developer Guide</i>.</p>
  * @public
  */
 export interface TimestreamConfig {
@@ -1025,17 +1218,20 @@ export interface TimestreamConfig {
   timestreamTableArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution role that grants Amazon Web Services IoT FleetWise permission to deliver data to the Amazon Timestream table.</p>
+   * <p>The Amazon Resource Name (ARN) of the task execution role that grants Amazon Web Services IoT FleetWise permission to
+   *             deliver data to the Amazon Timestream table.</p>
    * @public
    */
   executionRoleArn: string | undefined;
 }
 
 /**
- * <p>The destination where the Amazon Web Services IoT FleetWise campaign sends data. You can send data to be stored in Amazon S3 or Amazon Timestream.</p>
+ * <p>The destination where the campaign sends data. You can send data to an MQTT topic,
+ *             or store it in Amazon S3 or Amazon Timestream.</p>
  * @public
  */
 export type DataDestinationConfig =
+  | DataDestinationConfig.MqttTopicConfigMember
   | DataDestinationConfig.S3ConfigMember
   | DataDestinationConfig.TimestreamConfigMember
   | DataDestinationConfig.$UnknownMember;
@@ -1051,6 +1247,7 @@ export namespace DataDestinationConfig {
   export interface S3ConfigMember {
     s3Config: S3Config;
     timestreamConfig?: never;
+    mqttTopicConfig?: never;
     $unknown?: never;
   }
 
@@ -1061,6 +1258,21 @@ export namespace DataDestinationConfig {
   export interface TimestreamConfigMember {
     s3Config?: never;
     timestreamConfig: TimestreamConfig;
+    mqttTopicConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MQTT topic to which the Amazon Web Services IoT FleetWise campaign routes data.</p>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  export interface MqttTopicConfigMember {
+    s3Config?: never;
+    timestreamConfig?: never;
+    mqttTopicConfig: MqttTopicConfig;
     $unknown?: never;
   }
 
@@ -1070,20 +1282,191 @@ export namespace DataDestinationConfig {
   export interface $UnknownMember {
     s3Config?: never;
     timestreamConfig?: never;
+    mqttTopicConfig?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     s3Config: (value: S3Config) => T;
     timestreamConfig: (value: TimestreamConfig) => T;
+    mqttTopicConfig: (value: MqttTopicConfig) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: DataDestinationConfig, visitor: Visitor<T>): T => {
     if (value.s3Config !== undefined) return visitor.s3Config(value.s3Config);
     if (value.timestreamConfig !== undefined) return visitor.timestreamConfig(value.timestreamConfig);
+    if (value.mqttTopicConfig !== undefined) return visitor.mqttTopicConfig(value.mqttTopicConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageMaximumSizeUnit = {
+  GB: "GB",
+  MB: "MB",
+  TB: "TB",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageMaximumSizeUnit = (typeof StorageMaximumSizeUnit)[keyof typeof StorageMaximumSizeUnit];
+
+/**
+ * <p>The maximum storage size for the data partition.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface StorageMaximumSize {
+  /**
+   * <p>The data type of the data to store.</p>
+   * @public
+   */
+  unit: StorageMaximumSizeUnit | undefined;
+
+  /**
+   * <p>The maximum amount of time to store data.</p>
+   * @public
+   */
+  value: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageMinimumTimeToLiveUnit = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+  WEEKS: "WEEKS",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageMinimumTimeToLiveUnit =
+  (typeof StorageMinimumTimeToLiveUnit)[keyof typeof StorageMinimumTimeToLiveUnit];
+
+/**
+ * <p>Information about the minimum amount of time that data will be kept.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface StorageMinimumTimeToLive {
+  /**
+   * <p>The time increment type.</p>
+   * @public
+   */
+  unit: StorageMinimumTimeToLiveUnit | undefined;
+
+  /**
+   * <p>The minimum amount of time to store the data.</p>
+   * @public
+   */
+  value: number | undefined;
+}
+
+/**
+ * <p>Size, time, and location options for the data partition.</p>
+ * @public
+ */
+export interface DataPartitionStorageOptions {
+  /**
+   * <p>The maximum storage size of the data stored in the data partition.</p>
+   *          <note>
+   *             <p>Newer data overwrites older data when the partition reaches the maximum
+   *                 size.</p>
+   *          </note>
+   * @public
+   */
+  maximumSize: StorageMaximumSize | undefined;
+
+  /**
+   * <p>The folder name for the data partition under the campaign storage folder.</p>
+   * @public
+   */
+  storageLocation: string | undefined;
+
+  /**
+   * <p>The amount of time that data in this partition will be kept on disk.</p>
+   *          <ul>
+   *             <li>
+   *                <p>After the designated amount of time passes, the data can be removed, but it's
+   *                     not guaranteed to be removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>Before the time expires, data in this partition can still be deleted if the
+   *                     partition reaches its configured maximum size.</p>
+   *             </li>
+   *             <li>
+   *                <p>Newer data will overwrite older data when the partition reaches the maximum
+   *                     size.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  minimumTimeToLive: StorageMinimumTimeToLive | undefined;
+}
+
+/**
+ * <p>The upload options for the data partition. If upload options are specified, you must
+ *             also specify storage options. See <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DataPartitionStorageOptions.html">DataPartitionStorageOptions</a>.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface DataPartitionUploadOptions {
+  /**
+   * <p>The logical expression used to recognize what data to collect. For example, <code>$variable.`Vehicle.OutsideAirTemperature` &gt;= 105.0</code>.</p>
+   * @public
+   */
+  expression: string | undefined;
+
+  /**
+   * <p>The version of the condition language. Defaults to the most recent condition language
+   *             version.</p>
+   * @public
+   */
+  conditionLanguageVersion?: number | undefined;
+}
+
+/**
+ * <p>The configuration for signal data storage and upload options. You can only specify these
+ *             options when the campaign's spooling mode is <code>TO_DISK</code>.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface DataPartition {
+  /**
+   * <p>The ID of the data partition. The data partition ID must be unique within a campaign.
+   *             You can establish a data partition as the default partition for a campaign by using
+   *                 <code>default</code> as the ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The storage options for a data partition.</p>
+   * @public
+   */
+  storageOptions: DataPartitionStorageOptions | undefined;
+
+  /**
+   * <p>The upload options for the data partition.</p>
+   * @public
+   */
+  uploadOptions?: DataPartitionUploadOptions | undefined;
 }
 
 /**
@@ -1115,7 +1498,7 @@ export interface SignalInformation {
    * <p>The maximum number of samples to collect.</p>
    * @public
    */
-  maxSampleCount?: number;
+  maxSampleCount?: number | undefined;
 
   /**
    * <p>The minimum duration of time (in milliseconds) between two triggering events to
@@ -1125,7 +1508,145 @@ export interface SignalInformation {
    *          </note>
    * @public
    */
-  minimumSamplingIntervalMs?: number;
+  minimumSamplingIntervalMs?: number | undefined;
+
+  /**
+   * <p>The ID of the data partition this signal is associated with.</p>
+   *          <p>The ID must match one of the IDs provided in <code>dataPartitions</code>. This is
+   *             accomplished either by specifying a particular data partition ID or by using
+   *                 <code>default</code> for an established default partition. You can establish a
+   *             default partition in the <code>DataPartition</code> data type.</p>
+   *          <note>
+   *             <p>If you upload a signal as a condition for a campaign's data partition,
+   *                 the same signal must be included in <code>signalsToCollect</code>.</p>
+   *          </note>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  dataPartitionId?: string | undefined;
+}
+
+/**
+ * <p>Specifies the condition under which a signal fetch occurs.</p>
+ * @public
+ */
+export interface ConditionBasedSignalFetchConfig {
+  /**
+   * <p>The condition that must be satisfied to trigger a signal fetch.</p>
+   * @public
+   */
+  conditionExpression: string | undefined;
+
+  /**
+   * <p>Indicates the mode in which the signal fetch is triggered.</p>
+   * @public
+   */
+  triggerMode: TriggerMode | undefined;
+}
+
+/**
+ * <p>Used to configure a frequency-based vehicle signal fetch.</p>
+ * @public
+ */
+export interface TimeBasedSignalFetchConfig {
+  /**
+   * <p>The frequency with which the signal fetch will be executed.</p>
+   * @public
+   */
+  executionFrequencyMs: number | undefined;
+}
+
+/**
+ * <p>The configuration of the signal fetch operation.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export type SignalFetchConfig =
+  | SignalFetchConfig.ConditionBasedMember
+  | SignalFetchConfig.TimeBasedMember
+  | SignalFetchConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SignalFetchConfig {
+  /**
+   * <p>The configuration of a time-based signal fetch operation.</p>
+   * @public
+   */
+  export interface TimeBasedMember {
+    timeBased: TimeBasedSignalFetchConfig;
+    conditionBased?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration of a condition-based signal fetch operation.</p>
+   * @public
+   */
+  export interface ConditionBasedMember {
+    timeBased?: never;
+    conditionBased: ConditionBasedSignalFetchConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    timeBased?: never;
+    conditionBased?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    timeBased: (value: TimeBasedSignalFetchConfig) => T;
+    conditionBased: (value: ConditionBasedSignalFetchConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SignalFetchConfig, visitor: Visitor<T>): T => {
+    if (value.timeBased !== undefined) return visitor.timeBased(value.timeBased);
+    if (value.conditionBased !== undefined) return visitor.conditionBased(value.conditionBased);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Information about the signal to be fetched.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface SignalFetchInformation {
+  /**
+   * <p>The fully qualified name of the signal to be fetched.</p>
+   * @public
+   */
+  fullyQualifiedName: string | undefined;
+
+  /**
+   * <p>The configuration of the signal fetch operation.</p>
+   * @public
+   */
+  signalFetchConfig: SignalFetchConfig | undefined;
+
+  /**
+   * <p>The version of the condition language used.</p>
+   * @public
+   */
+  conditionLanguageVersion?: number | undefined;
+
+  /**
+   * <p>The actions to be performed by the signal fetch.</p>
+   * @public
+   */
+  actions: string[] | undefined;
 }
 
 /**
@@ -1156,7 +1677,7 @@ export interface CreateCampaignRequest {
    * <p>An optional description of the campaign to help identify its purpose.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the signal catalog to associate with the campaign.
@@ -1172,43 +1693,43 @@ export interface CreateCampaignRequest {
   targetArn: string | undefined;
 
   /**
-   * <p>(Optional) The time, in milliseconds, to deliver a campaign after it was approved. If
+   * <p>The time, in milliseconds, to deliver a campaign after it was approved. If
    *             it's not specified, <code>0</code> is used.</p>
    *          <p>Default: <code>0</code>
    *          </p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
-   * <p> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at
+   * <p>The time the campaign expires, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). Vehicle data isn't collected after the campaign expires. </p>
    *          <p>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</p>
    * @public
    */
-  expiryTime?: Date;
+  expiryTime?: Date | undefined;
 
   /**
-   * <p> (Optional) How long (in milliseconds) to collect raw data after a triggering event
+   * <p>How long (in milliseconds) to collect raw data after a triggering event
    *             initiates the collection. If it's not specified, <code>0</code> is used.</p>
    *          <p>Default: <code>0</code>
    *          </p>
    * @public
    */
-  postTriggerCollectionDuration?: number;
+  postTriggerCollectionDuration?: number | undefined;
 
   /**
-   * <p> (Optional) Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. If you
+   * <p>Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. If you
    *             want to send diagnostic trouble codes, use <code>SEND_ACTIVE_DTCS</code>. If it's not
    *             specified, <code>OFF</code> is used.</p>
    *          <p>Default: <code>OFF</code>
    *          </p>
    * @public
    */
-  diagnosticsMode?: DiagnosticsMode;
+  diagnosticsMode?: DiagnosticsMode | undefined;
 
   /**
-   * <p>(Optional) Whether to store collected data after a vehicle lost a connection with the
+   * <p>Determines whether to store collected data after a vehicle lost a connection with the
    *             cloud. After a connection is re-established, the data is automatically forwarded to
    *             Amazon Web Services IoT FleetWise. If you want to store collected data when a vehicle loses connection with the
    *             cloud, use <code>TO_DISK</code>. If it's not specified, <code>OFF</code> is used.</p>
@@ -1216,33 +1737,39 @@ export interface CreateCampaignRequest {
    *          </p>
    * @public
    */
-  spoolingMode?: SpoolingMode;
+  spoolingMode?: SpoolingMode | undefined;
 
   /**
-   * <p> (Optional) Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If you
+   * <p>Determines whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If you
    *             don't want to compress the signals, use <code>OFF</code>. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
    *          <p>Default: <code>SNAPPY</code>
    *          </p>
    * @public
    */
-  compression?: Compression;
+  compression?: Compression | undefined;
 
   /**
-   * <p>(Optional) A number indicating the priority of one campaign over another campaign for
+   * <p>A number indicating the priority of one campaign over another campaign for
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
    *          <p>Default: <code>0</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
-   * <p>(Optional) A list of information about signals to collect. </p>
+   * <p>A list of information about signals to collect. </p>
+   *          <note>
+   *             <p>If you upload a signal as a condition in a data partition for a campaign, then
+   *                 those same signals must be included in <code>signalsToCollect</code>.</p>
+   *          </note>
    * @public
    */
-  signalsToCollect?: SignalInformation[];
+  signalsToCollect?: SignalInformation[] | undefined;
 
   /**
    * <p> The data collection scheme associated with the campaign. You can specify a scheme
@@ -1252,27 +1779,48 @@ export interface CreateCampaignRequest {
   collectionScheme: CollectionScheme | undefined;
 
   /**
-   * <p> (Optional) A list of vehicle attributes to associate with a campaign. </p>
-   *          <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code> and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against <code>make</code> and <code>model</code>.</p>
+   * <p>A list of vehicle attributes to associate with a campaign. </p>
+   *          <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code>
+   *             and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those
+   *             attributes as dimensions in Amazon Timestream. You can then query the data against
+   *                 <code>make</code> and <code>model</code>.</p>
    *          <p>Default: An empty array</p>
    * @public
    */
-  dataExtraDimensions?: string[];
+  dataExtraDimensions?: string[] | undefined;
 
   /**
    * <p>Metadata that can be used to manage the campaign.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
-   * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
-   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. Amazon Web Services IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple Amazon Web Services IoT FleetWise servers for redundancy and high availability.</p>
+   * <p>The destination where the campaign sends data. You can send data to an MQTT topic,
+   *             or store it in Amazon S3 or Amazon Timestream.</p>
+   *          <p>MQTT is the publish/subscribe messaging protocol used by Amazon Web Services IoT to communicate with
+   *             your devices.</p>
+   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle
+   *             data, such as data lakes, centralized data storage, data processing pipelines, and analytics.
+   *             Amazon Web Services IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple
+   *             Amazon Web Services IoT FleetWise servers for redundancy and high availability.</p>
    *          <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
    *             vehicle data so that you can identify trends and patterns.</p>
    * @public
    */
-  dataDestinationConfigs?: DataDestinationConfig[];
+  dataDestinationConfigs?: DataDestinationConfig[] | undefined;
+
+  /**
+   * <p>The data partitions associated with the signals collected from the vehicle.</p>
+   * @public
+   */
+  dataPartitions?: DataPartition[] | undefined;
+
+  /**
+   * <p>A list of information about signals to fetch.</p>
+   * @public
+   */
+  signalsToFetch?: SignalFetchInformation[] | undefined;
 }
 
 /**
@@ -1283,13 +1831,13 @@ export interface CreateCampaignResponse {
    * <p>The name of the created campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The ARN of the created campaign. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1311,7 +1859,7 @@ export interface DeleteCampaignResponse {
    * <p>The name of the deleted campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted campaign.</p>
@@ -1320,7 +1868,7 @@ export interface DeleteCampaignResponse {
    *          </note>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1358,31 +1906,31 @@ export interface GetCampaignResponse {
    * <p>The name of the campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The description of the campaign.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The ARN of a signal catalog. </p>
    * @public
    */
-  signalCatalogArn?: string;
+  signalCatalogArn?: string | undefined;
 
   /**
    * <p> The ARN of the vehicle or the fleet targeted by the campaign. </p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>The state of the campaign. The status can be one of: <code>CREATING</code>,
@@ -1390,33 +1938,33 @@ export interface GetCampaignResponse {
    *         </p>
    * @public
    */
-  status?: CampaignStatus;
+  status?: CampaignStatus | undefined;
 
   /**
    * <p> The time, in milliseconds, to deliver a campaign after it was approved.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p> The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight
    *             UTC time). Vehicle data won't be collected after the campaign expires.</p>
    * @public
    */
-  expiryTime?: Date;
+  expiryTime?: Date | undefined;
 
   /**
    * <p> How long (in seconds) to collect raw data after a triggering event initiates the
    *             collection. </p>
    * @public
    */
-  postTriggerCollectionDuration?: number;
+  postTriggerCollectionDuration?: number | undefined;
 
   /**
    * <p> Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. </p>
    * @public
    */
-  diagnosticsMode?: DiagnosticsMode;
+  diagnosticsMode?: DiagnosticsMode | undefined;
 
   /**
    * <p> Whether to store collected data after a vehicle lost a connection with the cloud.
@@ -1424,7 +1972,7 @@ export interface GetCampaignResponse {
    *         </p>
    * @public
    */
-  spoolingMode?: SpoolingMode;
+  spoolingMode?: SpoolingMode | undefined;
 
   /**
    * <p> Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If
@@ -1432,7 +1980,7 @@ export interface GetCampaignResponse {
    *                 <code>SNAPPY</code> is used. </p>
    * @public
    */
-  compression?: Compression;
+  compression?: Compression | undefined;
 
   /**
    * <p> A number indicating the priority of one campaign over another campaign for a certain
@@ -1440,48 +1988,77 @@ export interface GetCampaignResponse {
    *             other campaigns.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p> Information about a list of signals to collect data on. </p>
    * @public
    */
-  signalsToCollect?: SignalInformation[];
+  signalsToCollect?: SignalInformation[] | undefined;
 
   /**
    * <p> Information about the data collection scheme associated with the campaign. </p>
    * @public
    */
-  collectionScheme?: CollectionScheme;
+  collectionScheme?: CollectionScheme | undefined;
 
   /**
    * <p> A list of vehicle attributes associated with the campaign. </p>
    * @public
    */
-  dataExtraDimensions?: string[];
+  dataExtraDimensions?: string[] | undefined;
 
   /**
    * <p> The time the campaign was created in seconds since epoch (January 1, 1970 at midnight
    *             UTC time). </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the campaign was modified.</p>
    * @public
    */
-  lastModificationTime?: Date;
+  lastModificationTime?: Date | undefined;
 
   /**
-   * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
-   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
+   * <p>The destination where the campaign sends data. You can send data to an MQTT topic,
+   *             or store it in Amazon S3 or Amazon Timestream.</p>
+   *          <p>MQTT is the publish/subscribe messaging protocol used by Amazon Web Services IoT to communicate with
+   *             your devices.</p>
+   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data,
+   *             such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
    *          <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
    *             vehicle data so that you can identify trends and patterns.</p>
    * @public
    */
-  dataDestinationConfigs?: DataDestinationConfig[];
+  dataDestinationConfigs?: DataDestinationConfig[] | undefined;
+
+  /**
+   * <p>The data partitions associated with the signals collected from the vehicle.</p>
+   * @public
+   */
+  dataPartitions?: DataPartition[] | undefined;
+
+  /**
+   * <p>Information about a list of signals to fetch data from.</p>
+   * @public
+   */
+  signalsToFetch?: SignalFetchInformation[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ListResponseScope = {
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ListResponseScope = (typeof ListResponseScope)[keyof typeof ListResponseScope];
 
 /**
  * @public
@@ -1492,22 +2069,28 @@ export interface ListCampaignsRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
-   * <p>Optional parameter to filter the results by the status of each created campaign in
+   * <p>An optional parameter to filter the results by the status of each created campaign in
    *             your account. The status can be one of: <code>CREATING</code>,
    *                 <code>WAITING_FOR_APPROVAL</code>, <code>RUNNING</code>, or
    *             <code>SUSPENDED</code>.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: campaign name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -1521,31 +2104,31 @@ export interface CampaignSummary {
    * <p>The Amazon Resource Name (ARN) of a campaign.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of a campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the campaign.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN of the signal catalog associated with the campaign.</p>
    * @public
    */
-  signalCatalogArn?: string;
+  signalCatalogArn?: string | undefined;
 
   /**
    * <p>The ARN of a vehicle or fleet to which the campaign is deployed.</p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>The state of a campaign. The status can be one of the following:</p>
@@ -1574,7 +2157,7 @@ export interface CampaignSummary {
    *          </ul>
    * @public
    */
-  status?: CampaignStatus;
+  status?: CampaignStatus | undefined;
 
   /**
    * <p>The time the campaign was created.</p>
@@ -1597,13 +2180,13 @@ export interface ListCampaignsResponse {
    * <p> A summary of information about each campaign. </p>
    * @public
    */
-  campaignSummaries?: CampaignSummary[];
+  campaignSummaries?: CampaignSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1636,14 +2219,14 @@ export interface UpdateCampaignRequest {
    * <p>The description of the campaign.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of vehicle attributes to associate with a signal. </p>
    *          <p>Default: An empty array</p>
    * @public
    */
-  dataExtraDimensions?: string[];
+  dataExtraDimensions?: string[] | undefined;
 
   /**
    * <p> Specifies how to update a campaign. The action can be one of the following:</p>
@@ -1655,11 +2238,15 @@ export interface UpdateCampaignRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUSPEND</code> - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.</p>
+   *                   <code>SUSPEND</code> - To suspend collecting signal data. The campaign is
+   *                     deleted from vehicles and all vehicles in the suspended campaign will stop
+   *                     sending data.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.</p>
+   *                   <code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The
+   *                     campaign is redeployed to all vehicles and the vehicles will resume sending
+   *                     data.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1679,13 +2266,13 @@ export interface UpdateCampaignResponse {
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the updated campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The state of a campaign. The status can be one of:</p>
@@ -1714,7 +2301,7 @@ export interface UpdateCampaignResponse {
    *          </ul>
    * @public
    */
-  status?: CampaignStatus;
+  status?: CampaignStatus | undefined;
 }
 
 /**
@@ -1730,7 +2317,8 @@ export interface CanDbcDefinition {
 
   /**
    * <p>A list of DBC files. You can upload only one DBC file for each network interface and
-   *             specify up to five (inclusive) files in the list. The DBC file can be a maximum size of 200 MB.</p>
+   *             specify up to five (inclusive) files in the list. The DBC file can be a maximum size of
+   *             200 MB.</p>
    * @public
    */
   canDbcFiles: Uint8Array[] | undefined;
@@ -1739,7 +2327,7 @@ export interface CanDbcDefinition {
    * <p>Pairs every signal specified in your vehicle model with a signal decoder.</p>
    * @public
    */
-  signalsMap?: Record<string, string>;
+  signalsMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -1757,14 +2345,28 @@ export interface CanInterface {
    * <p>The name of the communication protocol for the interface.</p>
    * @public
    */
-  protocolName?: string;
+  protocolName?: string | undefined;
 
   /**
    * <p>The version of the communication protocol for the interface.</p>
    * @public
    */
-  protocolVersion?: string;
+  protocolVersion?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SignalValueType = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalValueType = (typeof SignalValueType)[keyof typeof SignalValueType];
 
 /**
  * <p>Information about a single controller area network (CAN) signal and the messages it
@@ -1785,13 +2387,14 @@ export interface CanSignal {
   isBigEndian: boolean | undefined;
 
   /**
-   * <p>Whether the message data is specified as a signed value.</p>
+   * <p>Determines whether the message is signed (<code>true</code>) or not (<code>false</code>). If it's signed, the message can represent both positive and negative numbers. The <code>isSigned</code> parameter only applies to the <code>INTEGER</code> raw signal type, and it doesn't affect the <code>FLOATING_POINT</code> raw signal type.</p>
    * @public
    */
   isSigned: boolean | undefined;
 
   /**
-   * <p>Indicates the beginning of the CAN signal. This should always be the least significant bit (LSB).</p>
+   * <p>Indicates the beginning of the CAN signal. This should always be the least significant
+   *             bit (LSB).</p>
    *          <p>This value might be different from the value in a DBC file. For little endian signals,
    *                 <code>startBit</code> is the same value as in the DBC file. For big endian signals
    *             in a DBC file, the start bit is the most significant bit (MSB). You will have to
@@ -1801,7 +2404,8 @@ export interface CanSignal {
   startBit: number | undefined;
 
   /**
-   * <p>The offset used to calculate the signal value. Combined with factor, the calculation is <code>value = raw_value * factor + offset</code>.</p>
+   * <p>The offset used to calculate the signal value. Combined with factor, the calculation
+   *             is <code>value = raw_value * factor + offset</code>.</p>
    * @public
    */
   offset: number | undefined;
@@ -1822,7 +2426,13 @@ export interface CanSignal {
    * <p>The name of the signal.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
+
+  /**
+   * <p>The value type of the signal. The default value is <code>INTEGER</code>.</p>
+   * @public
+   */
+  signalValueType?: SignalValueType | undefined;
 }
 
 /**
@@ -1854,11 +2464,41 @@ export interface CloudWatchLogDeliveryOptions {
    * <p>The Amazon CloudWatch Logs group the operation sends data to.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 }
 
 /**
- * <p>A network interface that specifies the On-board diagnostic (OBD) II network protocol.</p>
+ * @public
+ * @enum
+ */
+export const DefaultForUnmappedSignalsType = {
+  CUSTOM_DECODING: "CUSTOM_DECODING",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultForUnmappedSignalsType =
+  (typeof DefaultForUnmappedSignalsType)[keyof typeof DefaultForUnmappedSignalsType];
+
+/**
+ * <p>Represents a custom network interface as defined by the customer.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface CustomDecodingInterface {
+  /**
+   * <p>The name of the interface.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>A network interface that specifies the on-board diagnostic (OBD) II network
+ *             protocol.</p>
  * @public
  */
 export interface ObdInterface {
@@ -1878,31 +2518,31 @@ export interface ObdInterface {
    * <p>The standard OBD II PID.</p>
    * @public
    */
-  obdStandard?: string;
+  obdStandard?: string | undefined;
 
   /**
    * <p>The maximum number message requests per second.</p>
    * @public
    */
-  pidRequestIntervalSeconds?: number;
+  pidRequestIntervalSeconds?: number | undefined;
 
   /**
    * <p>The maximum number message requests per diagnostic trouble code per second.</p>
    * @public
    */
-  dtcRequestIntervalSeconds?: number;
+  dtcRequestIntervalSeconds?: number | undefined;
 
   /**
    * <p>Whether to use extended IDs in the message.</p>
    * @public
    */
-  useExtendedIds?: boolean;
+  useExtendedIds?: boolean | undefined;
 
   /**
    * <p>Whether the vehicle has a transmission control module (TCM).</p>
    * @public
    */
-  hasTransmissionEcu?: boolean;
+  hasTransmissionEcu?: boolean | undefined;
 }
 
 /**
@@ -1911,6 +2551,7 @@ export interface ObdInterface {
  */
 export const NetworkInterfaceType = {
   CAN_INTERFACE: "CAN_INTERFACE",
+  CUSTOM_DECODING_INTERFACE: "CUSTOM_DECODING_INTERFACE",
   OBD_INTERFACE: "OBD_INTERFACE",
   VEHICLE_MIDDLEWARE: "VEHICLE_MIDDLEWARE",
 } as const;
@@ -1934,7 +2575,8 @@ export const VehicleMiddlewareProtocol = {
 export type VehicleMiddlewareProtocol = (typeof VehicleMiddlewareProtocol)[keyof typeof VehicleMiddlewareProtocol];
 
 /**
- * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
+ * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle
+ *             middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
  * @public
  */
 export interface VehicleMiddleware {
@@ -1967,10 +2609,10 @@ export interface NetworkInterface {
   interfaceId: string | undefined;
 
   /**
-   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
-   *             a protocol that defines how data is communicated between electronic control units
-   *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
-   *             data is communicated between ECUs.</p>
+   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies a
+   *             protocol that defines how data is communicated between electronic control units (ECUs).
+   *                 <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic data
+   *             is communicated between ECUs.</p>
    * @public
    */
   type: NetworkInterfaceType | undefined;
@@ -1980,20 +2622,43 @@ export interface NetworkInterface {
    *             protocol.</p>
    * @public
    */
-  canInterface?: CanInterface;
+  canInterface?: CanInterface | undefined;
 
   /**
-   * <p>Information about a network interface specified by the On-board diagnostic (OBD) II
+   * <p>Information about a network interface specified by the on-board diagnostic (OBD) II
    *             protocol.</p>
    * @public
    */
-  obdInterface?: ObdInterface;
+  obdInterface?: ObdInterface | undefined;
 
   /**
-   * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
+   * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle
+   *             middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
    * @public
    */
-  vehicleMiddleware?: VehicleMiddleware;
+  vehicleMiddleware?: VehicleMiddleware | undefined;
+
+  /**
+   * <p>Information about a <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CustomDecodingInterface.html">custom network
+   *           interface</a>.</p>
+   * @public
+   */
+  customDecodingInterface?: CustomDecodingInterface | undefined;
+}
+
+/**
+ * <p>Information about signals using a custom decoding protocol as defined by the customer.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface CustomDecodingSignal {
+  /**
+   * <p>The ID of the signal.</p>
+   * @public
+   */
+  id: string | undefined;
 }
 
 /**
@@ -2024,33 +2689,37 @@ export const ROS2PrimitiveType = {
 export type ROS2PrimitiveType = (typeof ROS2PrimitiveType)[keyof typeof ROS2PrimitiveType];
 
 /**
- * <p>Represents a ROS 2 compliant primitive type message of the complex data structure.</p>
+ * <p>Represents a ROS 2 compliant primitive type message of the complex data
+ *             structure.</p>
  * @public
  */
 export interface ROS2PrimitiveMessageDefinition {
   /**
-   * <p>The primitive type (integer, floating point, boolean, etc.) for the ROS 2 primitive message definition.</p>
+   * <p>The primitive type (integer, floating point, boolean, etc.) for the ROS 2 primitive
+   *             message definition.</p>
    * @public
    */
   primitiveType: ROS2PrimitiveType | undefined;
 
   /**
-   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation is <code>value = raw_value * scaling + offset</code>.</p>
+   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation
+   *             is <code>value = raw_value * scaling + offset</code>.</p>
    * @public
    */
-  offset?: number;
+  offset?: number | undefined;
 
   /**
    * <p>A multiplier used to decode the message.</p>
    * @public
    */
-  scaling?: number;
+  scaling?: number | undefined;
 
   /**
-   * <p>An optional attribute specifying the upper bound for <code>STRING</code> and <code>WSTRING</code>.</p>
+   * <p>An optional attribute specifying the upper bound for <code>STRING</code> and
+   *                 <code>WSTRING</code>.</p>
    * @public
    */
-  upperBound?: number;
+  upperBound?: number | undefined;
 }
 
 /**
@@ -2066,7 +2735,8 @@ export type PrimitiveMessageDefinition =
  */
 export namespace PrimitiveMessageDefinition {
   /**
-   * <p>Information about a <code>PrimitiveMessage</code> using a ROS 2 compliant primitive type message of the complex data structure.</p>
+   * <p>Information about a <code>PrimitiveMessage</code> using a ROS 2 compliant primitive
+   *             type message of the complex data structure.</p>
    * @public
    */
   export interface Ros2PrimitiveMessageDefinitionMember {
@@ -2140,7 +2810,8 @@ export interface ObdSignal {
   scaling: number | undefined;
 
   /**
-   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation is <code>value = raw_value * scaling + offset</code>.</p>
+   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation
+   *             is <code>value = raw_value * scaling + offset</code>.</p>
    * @public
    */
   offset: number | undefined;
@@ -2161,13 +2832,25 @@ export interface ObdSignal {
    * <p>The number of positions to shift bits in the message.</p>
    * @public
    */
-  bitRightShift?: number;
+  bitRightShift?: number | undefined;
 
   /**
    * <p>The number of bits to mask in a message.</p>
    * @public
    */
-  bitMaskLength?: number;
+  bitMaskLength?: number | undefined;
+
+  /**
+   * <p>Determines whether the message is signed (<code>true</code>) or not (<code>false</code>). If it's signed, the message can represent both positive and negative numbers. The <code>isSigned</code> parameter only applies to the <code>INTEGER</code> raw signal type, and it doesn't affect the <code>FLOATING_POINT</code> raw signal type. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isSigned?: boolean | undefined;
+
+  /**
+   * <p>The value type of the signal. The default value is <code>INTEGER</code>.</p>
+   * @public
+   */
+  signalValueType?: SignalValueType | undefined;
 }
 
 /**
@@ -2176,6 +2859,7 @@ export interface ObdSignal {
  */
 export const SignalDecoderType = {
   CAN_SIGNAL: "CAN_SIGNAL",
+  CUSTOM_DECODING_SIGNAL: "CUSTOM_DECODING_SIGNAL",
   MESSAGE_SIGNAL: "MESSAGE_SIGNAL",
   OBD_SIGNAL: "OBD_SIGNAL",
 } as const;
@@ -2209,6 +2893,7 @@ export interface CreateDecoderManifestResponse {
 export const NetworkInterfaceFailureReason = {
   CAN_NETWORK_INTERFACE_INFO_IS_NULL: "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
   CONFLICTING_NETWORK_INTERFACE: "CONFLICTING_NETWORK_INTERFACE",
+  CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL: "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL",
   DUPLICATE_INTERFACE: "DUPLICATE_NETWORK_INTERFACE",
   NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
   NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
@@ -2231,13 +2916,13 @@ export interface InvalidNetworkInterface {
    * <p>The ID of the interface that isn't valid.</p>
    * @public
    */
-  interfaceId?: string;
+  interfaceId?: string | undefined;
 
   /**
    * <p>A message about why the interface isn't valid. </p>
    * @public
    */
-  reason?: NetworkInterfaceFailureReason;
+  reason?: NetworkInterfaceFailureReason | undefined;
 }
 
 /**
@@ -2247,6 +2932,7 @@ export interface InvalidNetworkInterface {
 export const SignalDecoderFailureReason = {
   CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
   CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
+  CUSTOM_DECODING_SIGNAL_INFO_IS_NULL: "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL",
   DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
   EMPTY_MESSAGE_SIGNAL: "EMPTY_MESSAGE_SIGNAL",
   MESSAGE_SIGNAL_INFO_IS_NULL: "MESSAGE_SIGNAL_INFO_IS_NULL",
@@ -2278,23 +2964,24 @@ export interface InvalidSignalDecoder {
    * <p>The name of a signal decoder that isn't valid.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A message about why the signal decoder isn't valid.</p>
    * @public
    */
-  reason?: SignalDecoderFailureReason;
+  reason?: SignalDecoderFailureReason | undefined;
 
   /**
    * <p>The possible cause for the invalid signal decoder.</p>
    * @public
    */
-  hint?: string;
+  hint?: string | undefined;
 }
 
 /**
- * <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
+ * <p>The request couldn't be completed because it contains signal decoders with one or more
+ *             validation errors.</p>
  * @public
  */
 export class DecoderManifestValidationException extends __BaseException {
@@ -2304,13 +2991,14 @@ export class DecoderManifestValidationException extends __BaseException {
    * <p>The request couldn't be completed because of invalid signals in the request.</p>
    * @public
    */
-  invalidSignals?: InvalidSignalDecoder[];
+  invalidSignals?: InvalidSignalDecoder[] | undefined;
 
   /**
-   * <p>The request couldn't be completed because of invalid network interfaces in the request.</p>
+   * <p>The request couldn't be completed because of invalid network interfaces in the
+   *             request.</p>
    * @public
    */
-  invalidNetworkInterfaces?: InvalidNetworkInterface[];
+  invalidNetworkInterfaces?: InvalidNetworkInterface[] | undefined;
 
   /**
    * @internal
@@ -2341,7 +3029,7 @@ export interface CreateFleetRequest {
    * <p> A brief description of the fleet to create. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of a signal catalog. </p>
@@ -2353,7 +3041,7 @@ export interface CreateFleetRequest {
    * <p>Metadata that can be used to manage the fleet.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2387,7 +3075,7 @@ export interface CreateModelManifestRequest {
    * <p> A brief description of the vehicle model. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of nodes, which are a general abstraction of signals. </p>
@@ -2405,7 +3093,7 @@ export interface CreateModelManifestRequest {
    * <p>Metadata that can be used to manage the vehicle model.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2434,17 +3122,18 @@ export interface InvalidSignal {
    * <p>The name of the signal that isn't valid.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A message about why the signal isn't valid.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
- * <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ * <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  * @public
  */
 export class InvalidSignalsException extends __BaseException {
@@ -2454,7 +3143,7 @@ export class InvalidSignalsException extends __BaseException {
    * <p>The signals which caused the exception.</p>
    * @public
    */
-  invalidSignals?: InvalidSignal[];
+  invalidSignals?: InvalidSignal[] | undefined;
 
   /**
    * @internal
@@ -2485,12 +3174,15 @@ export const NodeDataEncoding = {
 export type NodeDataEncoding = (typeof NodeDataEncoding)[keyof typeof NodeDataEncoding];
 
 /**
- * <p>Represents a member of the complex data structure. The data type of the property can be either primitive or another <code>struct</code>.</p>
+ * <p>Represents a member of the complex data structure. The data type of the property can
+ *             be either primitive or another <code>struct</code>.</p>
  * @public
  */
 export interface CustomProperty {
   /**
-   * <p>The fully qualified name of the custom property. For example, the fully qualified name of a custom property might be <code>ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS</code>.</p>
+   * <p>The fully qualified name of the custom property. For example, the fully qualified name
+   *             of a custom property might be
+   *                 <code>ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS</code>.</p>
    * @public
    */
   fullyQualifiedName: string | undefined;
@@ -2505,31 +3197,32 @@ export interface CustomProperty {
    * <p>Indicates whether the property is binary data.</p>
    * @public
    */
-  dataEncoding?: NodeDataEncoding;
+  dataEncoding?: NodeDataEncoding | undefined;
 
   /**
    * <p>A brief description of the custom property.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
-   * <p>The fully qualified name of the struct node for the custom property if the data type of the custom property is <code>Struct</code> or <code>StructArray</code>. </p>
+   * <p>The fully qualified name of the struct node for the custom property if the data type
+   *             of the custom property is <code>Struct</code> or <code>StructArray</code>. </p>
    * @public
    */
-  structFullyQualifiedName?: string;
+  structFullyQualifiedName?: string | undefined;
 }
 
 /**
@@ -2558,49 +3251,51 @@ export interface Sensor {
    * <p>A brief description of a sensor.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The scientific unit of measurement for data collected by the sensor.</p>
    * @public
    */
-  unit?: string;
+  unit?: string | undefined;
 
   /**
    * <p>A list of possible values a sensor can take.</p>
    * @public
    */
-  allowedValues?: string[];
+  allowedValues?: string[] | undefined;
 
   /**
    * <p>The specified possible minimum value of the sensor.</p>
    * @public
    */
-  min?: number;
+  min?: number | undefined;
 
   /**
    * <p>The specified possible maximum value of the sensor.</p>
    * @public
    */
-  max?: number;
+  max?: number | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
-   * <p>The fully qualified name of the struct node for a sensor if the data type of the actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct fully qualified name of a sensor might be <code>Vehicle.ADAS.CameraStruct</code>.</p>
+   * <p>The fully qualified name of the struct node for a sensor if the data type of the
+   *             actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct
+   *             fully qualified name of a sensor might be <code>Vehicle.ADAS.CameraStruct</code>.</p>
    * @public
    */
-  structFullyQualifiedName?: string;
+  structFullyQualifiedName?: string | undefined;
 }
 
 /**
@@ -2609,7 +3304,9 @@ export interface Sensor {
  */
 export interface CustomStruct {
   /**
-   * <p>The fully qualified name of the custom structure. For example, the fully qualified name of a custom structure might be <code>ComplexDataTypes.VehicleDataTypes.SVMCamera</code>.</p>
+   * <p>The fully qualified name of the custom structure. For example, the fully qualified
+   *             name of a custom structure might be
+   *                 <code>ComplexDataTypes.VehicleDataTypes.SVMCamera</code>.</p>
    * @public
    */
   fullyQualifiedName: string | undefined;
@@ -2618,19 +3315,19 @@ export interface CustomStruct {
    * <p>A brief description of the custom structure.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    * @public
    */
-  deprecationMessage?: string;
+  deprecationMessage?: string | undefined;
 
   /**
    * <p>A comment in addition to the description.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 }
 
 /**
@@ -2735,7 +3432,8 @@ export namespace Node {
   }
 
   /**
-   * <p>Represents a member of the complex data structure. The <code>datatype</code> of the property can be either primitive or another <code>struct</code>.</p>
+   * <p>Represents a member of the complex data structure. The <code>datatype</code> of the
+   *             property can be either primitive or another <code>struct</code>.</p>
    * @public
    */
   export interface PropertyMember {
@@ -2796,20 +3494,20 @@ export interface CreateSignalCatalogRequest {
    * <p>A brief description of the signal catalog.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of information about nodes, which are a general abstraction of signals. For
    *             more information, see the  API data type.</p>
    * @public
    */
-  nodes?: Node[];
+  nodes?: Node[] | undefined;
 
   /**
    * <p>Metadata that can be used to manage the signal catalog.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2841,13 +3539,13 @@ export class InvalidNodeException extends __BaseException {
    * <p>The specified node type isn't valid.</p>
    * @public
    */
-  invalidNodes?: Node[];
+  invalidNodes?: Node[] | undefined;
 
   /**
    * <p>The reason the node validation failed.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * @internal
@@ -2862,6 +3560,86 @@ export class InvalidNodeException extends __BaseException {
     this.invalidNodes = opts.invalidNodes;
     this.reason = opts.reason;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateStateTemplateRequest {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A brief description of the state template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the signal catalog associated with the state template.</p>
+   * @public
+   */
+  signalCatalogArn: string | undefined;
+
+  /**
+   * <p>A list of signals from which data is collected. The state template properties contain the fully qualified names of the signals.</p>
+   * @public
+   */
+  stateTemplateProperties: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes to associate with the payload published on the state template's
+   *           MQTT topic. (See <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data">
+   *           Processing last known state vehicle data using MQTT messaging</a>). For example, if you add
+   *           <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise
+   *           will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code>
+   *           field.</p>
+   * @public
+   */
+  dataExtraDimensions?: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes to associate with user properties of the messages published on the
+   *           state template's MQTT topic. (See <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data">
+   *           Processing last known state vehicle data using MQTT messaging</a>). For example, if you add
+   *           <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise
+   *           will include these attributes as User Properties with the MQTT message.</p>
+   *          <p>Default: An empty array</p>
+   * @public
+   */
+  metadataExtraDimensions?: string[] | undefined;
+
+  /**
+   * <p>Metadata that can be used to manage the state template.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStateTemplateResponse {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state template.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -2888,12 +3666,14 @@ export interface CreateVehicleRequest {
 
   /**
    * <p>Static information about a vehicle in a key-value pair. For example:
-   *                 <code>"engineType"</code> : <code>"1.3 L R2"</code>
+   *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
-   *          <p>A campaign must include the keys (attribute names) in <code>dataExtraDimensions</code> for them to display in Amazon Timestream.</p>
+   *          <p>To use attributes with Campaigns or State Templates, you must include them using the
+   *             request parameters <code>dataExtraDimensions</code> and/or <code>metadataExtraDimensions</code>
+   *             (for state templates only) when creating your campaign/state template. </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p> An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
@@ -2902,13 +3682,19 @@ export interface CreateVehicleRequest {
    *          </p>
    * @public
    */
-  associationBehavior?: VehicleAssociationBehavior;
+  associationBehavior?: VehicleAssociationBehavior | undefined;
 
   /**
    * <p>Metadata that can be used to manage the vehicle.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>Associate state templates with the vehicle. You can monitor the last known state of the vehicle in near real time.</p>
+   * @public
+   */
+  stateTemplates?: StateTemplateAssociation[] | undefined;
 }
 
 /**
@@ -2919,19 +3705,19 @@ export interface CreateVehicleResponse {
    * <p>The unique ID of the created vehicle.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p> The ARN of the created vehicle. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The ARN of a created or validated Amazon Web Services IoT thing. </p>
    * @public
    */
-  thingArn?: string;
+  thingArn?: string | undefined;
 }
 
 /**
@@ -3009,14 +3795,14 @@ export interface GetDecoderManifestResponse {
    * <p> A brief description of the decoder manifest.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The ARN of a vehicle model (model manifest) associated with the decoder
    *             manifest.</p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
@@ -3024,7 +3810,7 @@ export interface GetDecoderManifestResponse {
    *             decoder manifest.</p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
 
   /**
    * <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
@@ -3039,10 +3825,12 @@ export interface GetDecoderManifestResponse {
   lastModificationTime: Date | undefined;
 
   /**
-   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an <code>INVALID</code> status, the message contains detailed reason and help information.</p>
+   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an
+   *                 <code>INVALID</code> status, the message contains detailed reason and help
+   *             information.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -3133,13 +3921,13 @@ export interface ListDecoderManifestNetworkInterfacesRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3150,13 +3938,13 @@ export interface ListDecoderManifestNetworkInterfacesResponse {
    * <p> A list of information about network interfaces. </p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3168,20 +3956,26 @@ export interface ListDecoderManifestsRequest {
    *             the decoder manifest. </p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: decoder manifest name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -3194,27 +3988,27 @@ export interface DecoderManifestSummary {
    * <p>The name of the decoder manifest.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of a vehicle model (model manifest) associated with the decoder manifest.
    *         </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ARN of a vehicle model (model manifest) associated with the decoder
    *             manifest.</p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p>A brief description of the decoder manifest.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
@@ -3222,7 +4016,7 @@ export interface DecoderManifestSummary {
    *             decoder manifest.</p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
 
   /**
    * <p>The time the decoder manifest was created in seconds since epoch (January 1, 1970 at
@@ -3232,17 +4026,19 @@ export interface DecoderManifestSummary {
   creationTime: Date | undefined;
 
   /**
-   * <p>The time the decoder manifest was last updated in seconds since epoch (January 1,
-   *             1970 at midnight UTC time).</p>
+   * <p>The time the decoder manifest was last updated in seconds since epoch (January 1, 1970
+   *             at midnight UTC time).</p>
    * @public
    */
   lastModificationTime: Date | undefined;
 
   /**
-   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an <code>INVALID</code> status, the message contains detailed reason and help information.</p>
+   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an
+   *                 <code>INVALID</code> status, the message contains detailed reason and help
+   *             information.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -3253,13 +4049,13 @@ export interface ListDecoderManifestsResponse {
    * <p> A list of information about each decoder manifest. </p>
    * @public
    */
-  summaries?: DecoderManifestSummary[];
+  summaries?: DecoderManifestSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3277,13 +4073,13 @@ export interface ListDecoderManifestSignalsRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3322,13 +4118,13 @@ export interface DeleteFleetResponse {
    * <p>The ID of the deleted fleet.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted fleet.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -3385,6 +4181,40 @@ export interface DeleteSignalCatalogResponse {
    * @public
    */
   arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStateTemplateRequest {
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStateTemplateResponse {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state template.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -3481,13 +4311,13 @@ export interface ListFleetsForVehicleRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3498,13 +4328,13 @@ export interface ListFleetsForVehicleResponse {
    * <p> A list of fleet IDs that the vehicle is associated with. </p>
    * @public
    */
-  fleets?: string[];
+  fleets?: string[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3538,7 +4368,7 @@ export interface GetFleetResponse {
    * <p> A brief description of the fleet. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The ARN of a signal catalog associated with the fleet. </p>
@@ -3570,13 +4400,19 @@ export interface ListFleetsRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: fleet ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -3602,7 +4438,7 @@ export interface FleetSummary {
    * <p>A brief description of the fleet.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN of the signal catalog associated with the fleet.</p>
@@ -3622,7 +4458,7 @@ export interface FleetSummary {
    *             midnight UTC time).</p>
    * @public
    */
-  lastModificationTime?: Date;
+  lastModificationTime?: Date | undefined;
 }
 
 /**
@@ -3633,13 +4469,13 @@ export interface ListFleetsResponse {
    * <p> A list of information for each fleet. </p>
    * @public
    */
-  fleetSummaries?: FleetSummary[];
+  fleetSummaries?: FleetSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3656,7 +4492,7 @@ export interface UpdateFleetRequest {
    * <p> An updated description of the fleet. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3667,13 +4503,13 @@ export interface UpdateFleetResponse {
    * <p>The ID of the updated fleet.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the updated fleet.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -3691,13 +4527,13 @@ export interface ListVehiclesInFleetRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3708,20 +4544,20 @@ export interface ListVehiclesInFleetResponse {
    * <p> A list of vehicles associated with the fleet. </p>
    * @public
    */
-  vehicles?: string[];
+  vehicles?: string[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
  * <p>
- *             <a href="https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec">Vehicle Signal Specification (VSS)</a> is a precise language used to describe and model
- *             signals in vehicle networks. The JSON file collects signal specificiations in a VSS
- *             format.</p>
+ *             <a href="https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec">Vehicle Signal Specification (VSS)</a> is a precise language used to describe
+ *             and model signals in vehicle networks. The JSON file collects signal specificiations in
+ *             a VSS format.</p>
  * @public
  */
 export type FormattedVss = FormattedVss.VssJsonMember | FormattedVss.$UnknownMember;
@@ -3771,7 +4607,7 @@ export interface GetEncryptionConfigurationResponse {
    * <p>The ID of the KMS key that is used for encryption.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The encryption status.</p>
@@ -3780,28 +4616,33 @@ export interface GetEncryptionConfigurationResponse {
   encryptionStatus: EncryptionStatus | undefined;
 
   /**
-   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use a KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use a KMS key
+   *             that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an
+   *             Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
    * @public
    */
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The error message that describes why encryption settings couldn't be configured, if applicable.</p>
+   * <p>The error message that describes why encryption settings couldn't be configured, if
+   *             applicable.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
-   * <p>The time when encryption was configured in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * <p>The time when encryption was configured in seconds since epoch (January 1, 1970 at
+   *             midnight UTC time).</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
-   * <p>The time when encryption was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * <p>The time when encryption was last updated in seconds since epoch (January 1, 1970 at
+   *             midnight UTC time).</p>
    * @public
    */
-  lastModificationTime?: Date;
+  lastModificationTime?: Date | undefined;
 }
 
 /**
@@ -3851,13 +4692,13 @@ export interface GetModelManifestResponse {
    * <p> A brief description of the vehicle model. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The ARN of the signal catalog associated with the vehicle model. </p>
    * @public
    */
-  signalCatalogArn?: string;
+  signalCatalogArn?: string | undefined;
 
   /**
    * <p> The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
@@ -3865,7 +4706,7 @@ export interface GetModelManifestResponse {
    *                 <code>DRAFT</code>.</p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
 
   /**
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
@@ -3925,7 +4766,7 @@ export interface IamRegistrationResponse {
    * <p>A message associated with a registration error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -3949,13 +4790,13 @@ export interface TimestreamRegistrationResponse {
    * <p>The Amazon Resource Name (ARN) of the Timestream database.</p>
    * @public
    */
-  timestreamDatabaseArn?: string;
+  timestreamDatabaseArn?: string | undefined;
 
   /**
    * <p>The ARN of the Timestream database table.</p>
    * @public
    */
-  timestreamTableArn?: string;
+  timestreamTableArn?: string | undefined;
 
   /**
    * <p>The status of registering your Amazon Timestream resources. The status can be one of
@@ -3969,7 +4810,7 @@ export interface TimestreamRegistrationResponse {
    * <p>A message associated with a registration error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -4010,7 +4851,7 @@ export interface GetRegisterAccountStatusResponse {
    * <p> Information about the registered Amazon Timestream resources or errors, if any.</p>
    * @public
    */
-  timestreamRegistrationResponse?: TimestreamRegistrationResponse;
+  timestreamRegistrationResponse?: TimestreamRegistrationResponse | undefined;
 
   /**
    * <p> Information about the registered IAM resources or errors, if any. </p>
@@ -4053,43 +4894,43 @@ export interface NodeCounts {
    * <p>The total number of nodes in a vehicle network.</p>
    * @public
    */
-  totalNodes?: number;
+  totalNodes?: number | undefined;
 
   /**
    * <p>The total number of nodes in a vehicle network that represent branches.</p>
    * @public
    */
-  totalBranches?: number;
+  totalBranches?: number | undefined;
 
   /**
    * <p>The total number of nodes in a vehicle network that represent sensors.</p>
    * @public
    */
-  totalSensors?: number;
+  totalSensors?: number | undefined;
 
   /**
    * <p>The total number of nodes in a vehicle network that represent attributes.</p>
    * @public
    */
-  totalAttributes?: number;
+  totalAttributes?: number | undefined;
 
   /**
    * <p>The total number of nodes in a vehicle network that represent actuators.</p>
    * @public
    */
-  totalActuators?: number;
+  totalActuators?: number | undefined;
 
   /**
    * <p>The total structure for the node.</p>
    * @public
    */
-  totalStructs?: number;
+  totalStructs?: number | undefined;
 
   /**
    * <p>The total properties for the node.</p>
    * @public
    */
-  totalProperties?: number;
+  totalProperties?: number | undefined;
 }
 
 /**
@@ -4112,13 +4953,13 @@ export interface GetSignalCatalogResponse {
    * <p> A brief description of the signal catalog. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The total number of network nodes specified in a signal catalog. </p>
    * @public
    */
-  nodeCounts?: NodeCounts;
+  nodeCounts?: NodeCounts | undefined;
 
   /**
    * <p> The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
@@ -4131,6 +4972,86 @@ export interface GetSignalCatalogResponse {
    * @public
    */
   lastModificationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStateTemplateRequest {
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStateTemplateResponse {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state template.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>A brief description of the state template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the signal catalog associated with the state template.</p>
+   * @public
+   */
+  signalCatalogArn?: string | undefined;
+
+  /**
+   * <p>A list of signals from which data is collected. The state template properties contain the fully qualified names of the signals.</p>
+   * @public
+   */
+  stateTemplateProperties?: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes associated with the payload published on the state template's
+   *           MQTT topic. </p>
+   *          <p>Default: An empty array</p>
+   * @public
+   */
+  dataExtraDimensions?: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes to associate with user properties of the messages published on the
+   *           state template's MQTT topic.</p>
+   *          <p>Default: An empty array</p>
+   * @public
+   */
+  metadataExtraDimensions?: string[] | undefined;
+
+  /**
+   * <p>The time the state template was created in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time the state template was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * @public
+   */
+  lastModificationTime?: Date | undefined;
+
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -4152,25 +5073,25 @@ export interface GetVehicleResponse {
    * <p>The ID of the vehicle.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the vehicle to retrieve information about. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The ARN of a vehicle model (model manifest) associated with the vehicle. </p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p> The ARN of a decoder manifest associated with the vehicle. </p>
    * @public
    */
-  decoderManifestArn?: string;
+  decoderManifestArn?: string | undefined;
 
   /**
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
@@ -4179,19 +5100,25 @@ export interface GetVehicleResponse {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>State templates associated with the vehicle.</p>
+   * @public
+   */
+  stateTemplates?: StateTemplateAssociation[] | undefined;
 
   /**
    * <p> The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
    * @public
    */
-  lastModificationTime?: Date;
+  lastModificationTime?: Date | undefined;
 }
 
 /**
@@ -4200,16 +5127,21 @@ export interface GetVehicleResponse {
 export interface GetVehicleStatusRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
-   *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
+   *          <p>If the results of a search are large, only a portion of the results are returned, and a
+   *             <code>nextToken</code> pagination token is returned in the response. To retrieve the next
+   *             set of results, reissue the search request and include the returned token. When all results
+   *             have been returned, the response does not contain a pagination token value. This parameter
+   *             is only supported for resources of type <code>CAMPAIGN</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive. This parameter is only
+   *             supported for resources of type <code>CAMPAIGN</code>.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p> The ID of the vehicle to retrieve information about. </p>
@@ -4236,8 +5168,7 @@ export const VehicleState = {
 export type VehicleState = (typeof VehicleState)[keyof typeof VehicleState];
 
 /**
- * <p>Information about the state of a vehicle and how it relates to the status of a
- *             campaign.</p>
+ * <p>Information about a campaign associated with a vehicle.</p>
  * @public
  */
 export interface VehicleStatus {
@@ -4245,45 +5176,44 @@ export interface VehicleStatus {
    * <p>The name of a campaign.</p>
    * @public
    */
-  campaignName?: string;
+  campaignName?: string | undefined;
 
   /**
    * <p>The unique ID of the vehicle.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
-   * <p>The state of a vehicle, which can be one of the following:</p>
+   * <p>The status of a campaign, which can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATED</code> - Amazon Web Services IoT FleetWise sucessfully created the vehicle. </p>
+   *                   <code>CREATED</code> - The campaign has been created successfully but has not been
+   *                     approved. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>READY</code> - The vehicle is ready to receive a campaign deployment.
-   *                 </p>
+   *                   <code>READY</code> - The campaign has been approved but has not been deployed to
+   *                     the vehicle.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HEALTHY</code> - A campaign deployment was delivered to the vehicle.
-   *                 </p>
+   *                   <code>HEALTHY</code> - The campaign has been deployed to the vehicle.  </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUSPENDED</code> - A campaign associated with the vehicle was suspended
-   *                     and data collection was paused. </p>
+   *                   <code>SUSPENDED</code> - The campaign has been suspended and data collection is
+   *                     paused. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - Amazon Web Services IoT FleetWise is removing a campaign from the vehicle.
-   *                 </p>
+   *                   <code>DELETING</code> - The campaign is being removed from the vehicle.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  status?: VehicleState;
+  status?: VehicleState | undefined;
 }
 
 /**
@@ -4294,13 +5224,13 @@ export interface GetVehicleStatusResponse {
    * <p> Lists information about the state of the vehicle with deployed campaigns. </p>
    * @public
    */
-  campaigns?: VehicleStatus[];
+  campaigns?: VehicleStatus[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4334,20 +5264,20 @@ export interface ImportSignalCatalogRequest {
    * <p> A brief description of the signal catalog. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The contents of the Vehicle Signal Specification (VSS) configuration. VSS is a precise
    *             language used to describe and model signals in vehicle networks.</p>
    * @public
    */
-  vss?: FormattedVss;
+  vss?: FormattedVss | undefined;
 
   /**
    * <p>Metadata that can be used to manage the signal catalog.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4386,7 +5316,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags assigned to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4404,13 +5334,13 @@ export interface ListModelManifestNodesRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4421,13 +5351,13 @@ export interface ListModelManifestNodesResponse {
    * <p> A list of information about nodes. </p>
    * @public
    */
-  nodes?: Node[];
+  nodes?: Node[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4439,20 +5369,26 @@ export interface ListModelManifestsRequest {
    *             associated with it are returned.</p>
    * @public
    */
-  signalCatalogArn?: string;
+  signalCatalogArn?: string | undefined;
 
   /**
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: model manifest name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -4465,25 +5401,25 @@ export interface ModelManifestSummary {
    * <p>The name of the vehicle model.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the vehicle model.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ARN of the signal catalog associated with the vehicle model.</p>
    * @public
    */
-  signalCatalogArn?: string;
+  signalCatalogArn?: string | undefined;
 
   /**
    * <p>A brief description of the vehicle model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
@@ -4491,7 +5427,7 @@ export interface ModelManifestSummary {
    *             model.</p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
 
   /**
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
@@ -4516,13 +5452,13 @@ export interface ListModelManifestsResponse {
    * <p> A list of information about vehicle models.</p>
    * @public
    */
-  summaries?: ModelManifestSummary[];
+  summaries?: ModelManifestSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4539,21 +5475,21 @@ export interface UpdateModelManifestRequest {
    * <p> A brief description of the vehicle model. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of <code>fullyQualifiedName</code> of nodes, which are a general abstraction
    *             of signals, to add to the vehicle model. </p>
    * @public
    */
-  nodesToAdd?: string[];
+  nodesToAdd?: string[] | undefined;
 
   /**
    * <p> A list of <code>fullyQualifiedName</code> of nodes, which are a general abstraction
    *             of signals, to remove from the vehicle model. </p>
    * @public
    */
-  nodesToRemove?: string[];
+  nodesToRemove?: string[] | undefined;
 
   /**
    * <p> The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
@@ -4561,7 +5497,7 @@ export interface UpdateModelManifestRequest {
    *             model. </p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
 }
 
 /**
@@ -4589,10 +5525,11 @@ export interface PutEncryptionConfigurationRequest {
    * <p>The ID of the KMS key that is used for encryption.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
-   * <p>The type of encryption. Choose <code>KMS_BASED_ENCRYPTION</code> to use a KMS key or <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key.</p>
+   * <p>The type of encryption. Choose <code>KMS_BASED_ENCRYPTION</code> to use a KMS key or
+   *                 <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key.</p>
    * @public
    */
   encryptionType: EncryptionType | undefined;
@@ -4606,7 +5543,7 @@ export interface PutEncryptionConfigurationResponse {
    * <p>The ID of the KMS key that is used for encryption.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The encryption status.</p>
@@ -4615,7 +5552,9 @@ export interface PutEncryptionConfigurationResponse {
   encryptionStatus: EncryptionStatus | undefined;
 
   /**
-   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use an KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use an KMS key that
+   *             you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed
+   *             key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
    * @public
    */
   encryptionType: EncryptionType | undefined;
@@ -4661,21 +5600,21 @@ export interface TimestreamResources {
  */
 export interface RegisterAccountRequest {
   /**
-   * @deprecated
-   *
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
+   *
+   * @deprecated
    * @public
    */
-  timestreamResources?: TimestreamResources;
+  timestreamResources?: TimestreamResources | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
+   *
+   * @deprecated
    * @public
    */
-  iamResources?: IamResources;
+  iamResources?: IamResources | undefined;
 }
 
 /**
@@ -4694,7 +5633,7 @@ export interface RegisterAccountResponse {
    *             your vehicle data to.</p>
    * @public
    */
-  timestreamResources?: TimestreamResources;
+  timestreamResources?: TimestreamResources | undefined;
 
   /**
    * <p> The registered IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream. </p>
@@ -4750,19 +5689,19 @@ export interface ListSignalCatalogNodesRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The type of node in the signal catalog.</p>
    * @public
    */
-  signalNodeType?: SignalNodeType;
+  signalNodeType?: SignalNodeType | undefined;
 }
 
 /**
@@ -4773,13 +5712,13 @@ export interface ListSignalCatalogNodesResponse {
    * <p> A list of information about nodes. </p>
    * @public
    */
-  nodes?: Node[];
+  nodes?: Node[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4791,13 +5730,13 @@ export interface ListSignalCatalogsRequest {
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4810,25 +5749,25 @@ export interface SignalCatalogSummary {
    * <p>The name of the signal catalog.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the signal catalog.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time the signal catalog was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    * @public
    */
-  lastModificationTime?: Date;
+  lastModificationTime?: Date | undefined;
 }
 
 /**
@@ -4839,13 +5778,13 @@ export interface ListSignalCatalogsResponse {
    * <p> A list of information about each signal catalog. </p>
    * @public
    */
-  summaries?: SignalCatalogSummary[];
+  summaries?: SignalCatalogSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4862,26 +5801,26 @@ export interface UpdateSignalCatalogRequest {
    * <p> A brief description of the signal catalog to update.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of information about nodes to add to the signal catalog. </p>
    * @public
    */
-  nodesToAdd?: Node[];
+  nodesToAdd?: Node[] | undefined;
 
   /**
    * <p> A list of information about nodes to update in the signal catalog. </p>
    * @public
    */
-  nodesToUpdate?: Node[];
+  nodesToUpdate?: Node[] | undefined;
 
   /**
    * <p> A list of <code>fullyQualifiedName</code> of nodes to remove from the signal catalog.
    *         </p>
    * @public
    */
-  nodesToRemove?: string[];
+  nodesToRemove?: string[] | undefined;
 }
 
 /**
@@ -4899,6 +5838,171 @@ export interface UpdateSignalCatalogResponse {
    * @public
    */
   arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStateTemplatesRequest {
+  /**
+   * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: state template ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
+}
+
+/**
+ * <p>Information about a state template.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
+ * @public
+ */
+export interface StateTemplateSummary {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state template.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signal catalog associated with the state template.</p>
+   * @public
+   */
+  signalCatalogArn?: string | undefined;
+
+  /**
+   * <p>A brief description of the state template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time the state template was created, in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time the state template was last updated, in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   * @public
+   */
+  lastModificationTime?: Date | undefined;
+
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStateTemplatesResponse {
+  /**
+   * <p>A list of information about each state template.</p>
+   * @public
+   */
+  summaries?: StateTemplateSummary[] | undefined;
+
+  /**
+   * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStateTemplateRequest {
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A brief description of the state template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Add signals from which data is collected as part of the state template.</p>
+   * @public
+   */
+  stateTemplatePropertiesToAdd?: string[] | undefined;
+
+  /**
+   * <p>Remove signals from which data is collected as part of the state template.</p>
+   * @public
+   */
+  stateTemplatePropertiesToRemove?: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes to associate with the payload published on the state template's
+   *           MQTT topic. (See <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data">
+   *           Processing last known state vehicle data using MQTT messaging</a>). For example, if you add
+   *           <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise
+   *           will enrich the protobuf encoded payload with those attributes in the <code>extraDimensions</code>
+   *           field.</p>
+   *          <p>Default: An empty array</p>
+   * @public
+   */
+  dataExtraDimensions?: string[] | undefined;
+
+  /**
+   * <p>A list of vehicle attributes to associate with user properties of the messages published on the
+   *           state template's MQTT topic. (See <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/process-visualize-data.html#process-last-known-state-vehicle-data">
+   *           Processing last known state vehicle data using MQTT messaging</a>). For example, if you add
+   *           <code>Vehicle.Attributes.Make</code> and <code>Vehicle.Attributes.Model</code> attributes, Amazon Web Services IoT FleetWise
+   *           will include these attributes as User Properties with the MQTT message.</p>
+   * @public
+   */
+  metadataExtraDimensions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStateTemplateResponse {
+  /**
+   * <p>The name of the state template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state template.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the state template.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -4954,35 +6058,55 @@ export interface ListVehiclesRequest {
    *             parameter to list only the vehicles created from a certain vehicle model. </p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
-   * <p>The fully qualified names of the attributes. For example, the fully qualified name of an attribute might be <code>Vehicle.Body.Engine.Type</code>.</p>
+   * <p>The fully qualified names of the attributes. You can use this optional parameter to list the
+   *             vehicles containing all the attributes in the request. For example, <code>attributeNames</code>
+   *             could be "<code>Vehicle.Body.Engine.Type, Vehicle.Color</code>" and the corresponding
+   *             <code>attributeValues</code> could be "<code>1.3 L R2, Blue</code>" . In this case, the API
+   *             will filter vehicles with an attribute name <code>Vehicle.Body.Engine.Type</code> that contains
+   *             a value of <code>1.3 L R2</code> AND an attribute name <code>Vehicle.Color</code> that contains
+   *             a value of "<code>Blue</code>". A request must contain unique values for the <code>attributeNames</code>
+   *             filter and the matching number of <code>attributeValues</code> filters to return the subset
+   *             of vehicles that match the attributes filter condition.</p>
    * @public
    */
-  attributeNames?: string[];
+  attributeNames?: string[] | undefined;
 
   /**
-   * <p>Static information about a vehicle attribute value in string format. For example:</p>
-   *          <p>
-   *             <code>"1.3 L R2"</code>
-   *          </p>
+   * <p>Static information about a vehicle attribute value in string format. You can use this optional
+   *             parameter in conjunction with <code>attributeNames</code> to list the vehicles containing all
+   *             the <code>attributeValues</code> corresponding to the <code>attributeNames</code> filter. For
+   *             example, <code>attributeValues</code> could be "<code>1.3 L R2, Blue</code>" and the corresponding
+   *             <code>attributeNames</code> filter could be "<code>Vehicle.Body.Engine.Type, Vehicle.Color</code>".
+   *             In this case, the API will filter vehicles with attribute name <code>Vehicle.Body.Engine.Type</code>
+   *             that contains a value of <code>1.3 L R2</code> AND an attribute name <code>Vehicle.Color</code> that
+   *             contains a value of "<code>Blue</code>". A request must contain unique values for the
+   *             <code>attributeNames</code> filter and the matching number of <code>attributeValues</code>
+   *             filter to return the subset of vehicles that match the attributes filter condition.</p>
    * @public
    */
-  attributeValues?: string[];
+  attributeValues?: string[] | undefined;
 
   /**
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
+   * <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: vehicle name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -5034,7 +6158,7 @@ export interface VehicleSummary {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -5045,13 +6169,13 @@ export interface ListVehiclesResponse {
    * <p> A list of vehicles and information about them. </p>
    * @public
    */
-  vehicleSummaries?: VehicleSummary[];
+  vehicleSummaries?: VehicleSummary[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5068,13 +6192,13 @@ export interface UpdateVehicleRequest {
    * <p>The ARN of a vehicle model (model manifest) associated with the vehicle.</p>
    * @public
    */
-  modelManifestArn?: string;
+  modelManifestArn?: string | undefined;
 
   /**
    * <p>The ARN of the decoder manifest associated with this vehicle.</p>
    * @public
    */
-  decoderManifestArn?: string;
+  decoderManifestArn?: string | undefined;
 
   /**
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
@@ -5083,7 +6207,7 @@ export interface UpdateVehicleRequest {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The method the specified attributes will update the existing attributes on the
@@ -5092,7 +6216,19 @@ export interface UpdateVehicleRequest {
    *          <p>This is required if attributes are present in the input.</p>
    * @public
    */
-  attributeUpdateMode?: UpdateMode;
+  attributeUpdateMode?: UpdateMode | undefined;
+
+  /**
+   * <p>Associate state templates with the vehicle.</p>
+   * @public
+   */
+  stateTemplatesToAdd?: StateTemplateAssociation[] | undefined;
+
+  /**
+   * <p>Remove state templates from the vehicle.</p>
+   * @public
+   */
+  stateTemplatesToRemove?: string[] | undefined;
 }
 
 /**
@@ -5103,17 +6239,20 @@ export interface UpdateVehicleResponse {
    * <p>The ID of the updated vehicle.</p>
    * @public
    */
-  vehicleName?: string;
+  vehicleName?: string | undefined;
 
   /**
    * <p>The ARN of the updated vehicle.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
- * <p>The structured message for the message signal. It can be defined with either a <code>primitiveMessageDefinition</code>, <code>structuredMessageListDefinition</code>, or <code>structuredMessageDefinition</code> recursively.</p>
+ * <p>The structured message for the message signal. It can be defined with either a
+ *                 <code>primitiveMessageDefinition</code>,
+ *                 <code>structuredMessageListDefinition</code>, or
+ *                 <code>structuredMessageDefinition</code> recursively.</p>
  * @public
  */
 export type StructuredMessage =
@@ -5188,12 +6327,14 @@ export namespace StructuredMessage {
 }
 
 /**
- * <p>Represents a <code>StructureMessageName</code> to <code>DataType</code> map element.</p>
+ * <p>Represents a <code>StructureMessageName</code> to <code>DataType</code> map
+ *             element.</p>
  * @public
  */
 export interface StructuredMessageFieldNameAndDataTypePair {
   /**
-   * <p>The field name of the structured message. It determines how a data value is referenced in the target language. </p>
+   * <p>The field name of the structured message. It determines how a data value is referenced
+   *             in the target language. </p>
    * @public
    */
   fieldName: string | undefined;
@@ -5229,14 +6370,16 @@ export interface StructuredMessageListDefinition {
   listType: StructuredMessageListType | undefined;
 
   /**
-   * <p>The capacity of the structured message list definition when the list type is <code>FIXED_CAPACITY</code> or <code>DYNAMIC_BOUNDED_CAPACITY</code>.</p>
+   * <p>The capacity of the structured message list definition when the list type is
+   *                 <code>FIXED_CAPACITY</code> or <code>DYNAMIC_BOUNDED_CAPACITY</code>.</p>
    * @public
    */
-  capacity?: number;
+  capacity?: number | undefined;
 }
 
 /**
- * <p>The decoding information for a specific message which support higher order data types. </p>
+ * <p>The decoding information for a specific message which support higher order data types.
+ *         </p>
  * @public
  */
 export interface MessageSignal {
@@ -5247,7 +6390,10 @@ export interface MessageSignal {
   topicName: string | undefined;
 
   /**
-   * <p>The structured message for the message signal. It can be defined with either a <code>primitiveMessageDefinition</code>, <code>structuredMessageListDefinition</code>, or <code>structuredMessageDefinition</code> recursively.</p>
+   * <p>The structured message for the message signal. It can be defined with either a
+   *                 <code>primitiveMessageDefinition</code>,
+   *                 <code>structuredMessageListDefinition</code>, or
+   *                 <code>structuredMessageDefinition</code> recursively.</p>
    * @public
    */
   structuredMessage: StructuredMessage | undefined;
@@ -5265,37 +6411,51 @@ export interface SignalDecoder {
   fullyQualifiedName: string | undefined;
 
   /**
-   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
-   *             a protocol that defines how data is communicated between electronic control units
-   *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
-   *             data is communicated between ECUs.</p>
+   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies a
+   *             protocol that defines how data is communicated between electronic control units (ECUs).
+   *                 <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic data
+   *             is communicated between ECUs.</p>
    * @public
    */
   type: SignalDecoderType | undefined;
 
   /**
-   * <p>The ID of a network interface that specifies what network protocol a vehicle follows.</p>
+   * <p>The ID of a network interface that specifies what network protocol a vehicle
+   *             follows.</p>
    * @public
    */
   interfaceId: string | undefined;
 
   /**
-   * <p>Information about signal decoder using the Controller Area Network (CAN) protocol.</p>
+   * <p>Information about signal decoder using the Controller Area Network (CAN)
+   *             protocol.</p>
    * @public
    */
-  canSignal?: CanSignal;
+  canSignal?: CanSignal | undefined;
 
   /**
-   * <p>Information about signal decoder using the On-board diagnostic (OBD) II protocol.</p>
+   * <p>Information about signal decoder using the on-board diagnostic (OBD) II
+   *             protocol.</p>
    * @public
    */
-  obdSignal?: ObdSignal;
+  obdSignal?: ObdSignal | undefined;
 
   /**
-   * <p>The decoding information for a specific message which supports higher order data types. </p>
+   * <p>The decoding information for a specific message which supports higher order data
+   *             types. </p>
    * @public
    */
-  messageSignal?: MessageSignal;
+  messageSignal?: MessageSignal | undefined;
+
+  /**
+   * <p>Information about a <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CustomDecodingSignal.html">custom signal
+   *           decoder</a>.</p>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  customDecodingSignal?: CustomDecodingSignal | undefined;
 }
 
 /**
@@ -5309,10 +6469,10 @@ export interface CreateDecoderManifestRequest {
   name: string | undefined;
 
   /**
-   * <p> A brief description of the decoder manifest. </p>
+   * <p>A brief description of the decoder manifest. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the vehicle model (model manifest). </p>
@@ -5324,19 +6484,28 @@ export interface CreateDecoderManifestRequest {
    * <p> A list of information about signal decoders. </p>
    * @public
    */
-  signalDecoders?: SignalDecoder[];
+  signalDecoders?: SignalDecoder[] | undefined;
 
   /**
    * <p> A list of information about available network interfaces. </p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
+
+  /**
+   * <p>Use default decoders for all unmapped signals in the model. You don't need to provide any detailed decoding information.</p>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  defaultForUnmappedSignals?: DefaultForUnmappedSignalsType | undefined;
 
   /**
    * <p>Metadata that can be used to manage the decoder manifest.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5347,13 +6516,13 @@ export interface ListDecoderManifestSignalsResponse {
    * <p> Information about a list of signals to decode. </p>
    * @public
    */
-  signalDecoders?: SignalDecoder[];
+  signalDecoders?: SignalDecoder[] | undefined;
 
   /**
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5370,47 +6539,47 @@ export interface UpdateDecoderManifestRequest {
    * <p> A brief description of the decoder manifest to update. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of information about decoding additional signals to add to the decoder
    *             manifest. </p>
    * @public
    */
-  signalDecodersToAdd?: SignalDecoder[];
+  signalDecodersToAdd?: SignalDecoder[] | undefined;
 
   /**
    * <p> A list of updated information about decoding signals to update in the decoder
    *             manifest. </p>
    * @public
    */
-  signalDecodersToUpdate?: SignalDecoder[];
+  signalDecodersToUpdate?: SignalDecoder[] | undefined;
 
   /**
    * <p> A list of signal decoders to remove from the decoder manifest. </p>
    * @public
    */
-  signalDecodersToRemove?: string[];
+  signalDecodersToRemove?: string[] | undefined;
 
   /**
    * <p> A list of information about the network interfaces to add to the decoder manifest.
    *         </p>
    * @public
    */
-  networkInterfacesToAdd?: NetworkInterface[];
+  networkInterfacesToAdd?: NetworkInterface[] | undefined;
 
   /**
    * <p> A list of information about the network interfaces to update in the decoder manifest.
    *         </p>
    * @public
    */
-  networkInterfacesToUpdate?: NetworkInterface[];
+  networkInterfacesToUpdate?: NetworkInterface[] | undefined;
 
   /**
    * <p> A list of network interfaces to remove from the decoder manifest.</p>
    * @public
    */
-  networkInterfacesToRemove?: string[];
+  networkInterfacesToRemove?: string[] | undefined;
 
   /**
    * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
@@ -5418,5 +6587,126 @@ export interface UpdateDecoderManifestRequest {
    *             manifest. </p>
    * @public
    */
-  status?: ManifestStatus;
+  status?: ManifestStatus | undefined;
+
+  /**
+   * <p>Use default decoders for all unmapped signals in the model. You don't need to provide any detailed decoding information.</p>
+   *          <important>
+   *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  defaultForUnmappedSignals?: DefaultForUnmappedSignalsType | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ConditionBasedCollectionSchemeFilterSensitiveLog = (obj: ConditionBasedCollectionScheme): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CollectionSchemeFilterSensitiveLog = (obj: CollectionScheme): any => {
+  if (obj.timeBasedCollectionScheme !== undefined) return { timeBasedCollectionScheme: obj.timeBasedCollectionScheme };
+  if (obj.conditionBasedCollectionScheme !== undefined)
+    return {
+      conditionBasedCollectionScheme: ConditionBasedCollectionSchemeFilterSensitiveLog(
+        obj.conditionBasedCollectionScheme
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DataPartitionStorageOptionsFilterSensitiveLog = (obj: DataPartitionStorageOptions): any => ({
+  ...obj,
+  ...(obj.storageLocation && { storageLocation: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataPartitionUploadOptionsFilterSensitiveLog = (obj: DataPartitionUploadOptions): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataPartitionFilterSensitiveLog = (obj: DataPartition): any => ({
+  ...obj,
+  ...(obj.storageOptions && { storageOptions: DataPartitionStorageOptionsFilterSensitiveLog(obj.storageOptions) }),
+  ...(obj.uploadOptions && { uploadOptions: DataPartitionUploadOptionsFilterSensitiveLog(obj.uploadOptions) }),
+});
+
+/**
+ * @internal
+ */
+export const ConditionBasedSignalFetchConfigFilterSensitiveLog = (obj: ConditionBasedSignalFetchConfig): any => ({
+  ...obj,
+  ...(obj.conditionExpression && { conditionExpression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SignalFetchConfigFilterSensitiveLog = (obj: SignalFetchConfig): any => {
+  if (obj.timeBased !== undefined) return { timeBased: obj.timeBased };
+  if (obj.conditionBased !== undefined)
+    return { conditionBased: ConditionBasedSignalFetchConfigFilterSensitiveLog(obj.conditionBased) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SignalFetchInformationFilterSensitiveLog = (obj: SignalFetchInformation): any => ({
+  ...obj,
+  ...(obj.signalFetchConfig && { signalFetchConfig: SignalFetchConfigFilterSensitiveLog(obj.signalFetchConfig) }),
+  ...(obj.actions && { actions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.signalsToCollect && { signalsToCollect: SENSITIVE_STRING }),
+  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+  ...(obj.dataDestinationConfigs && { dataDestinationConfigs: obj.dataDestinationConfigs.map((item) => item) }),
+  ...(obj.dataPartitions && {
+    dataPartitions: obj.dataPartitions.map((item) => DataPartitionFilterSensitiveLog(item)),
+  }),
+  ...(obj.signalsToFetch && { signalsToFetch: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignResponseFilterSensitiveLog = (obj: GetCampaignResponse): any => ({
+  ...obj,
+  ...(obj.signalsToCollect && { signalsToCollect: SENSITIVE_STRING }),
+  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+  ...(obj.dataDestinationConfigs && { dataDestinationConfigs: obj.dataDestinationConfigs.map((item) => item) }),
+  ...(obj.dataPartitions && {
+    dataPartitions: obj.dataPartitions.map((item) => DataPartitionFilterSensitiveLog(item)),
+  }),
+  ...(obj.signalsToFetch && { signalsToFetch: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+});

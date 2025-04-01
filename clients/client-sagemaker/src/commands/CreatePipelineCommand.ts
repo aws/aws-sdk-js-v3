@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_1";
+import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_2";
 import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -85,6 +85,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreatePipelineCommand extends $Command
@@ -95,9 +96,7 @@ export class CreatePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class CreatePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePipelineCommand)
   .de(de_CreatePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePipelineRequest;
+      output: CreatePipelineResponse;
+    };
+    sdk: {
+      input: CreatePipelineCommandInput;
+      output: CreatePipelineCommandOutput;
+    };
+  };
+}

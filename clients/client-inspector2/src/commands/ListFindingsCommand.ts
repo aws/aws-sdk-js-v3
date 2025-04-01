@@ -141,6 +141,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         architecture: "<StringFilter>",
  *         sourceLayerHash: "<StringFilter>",
  *         sourceLambdaLayerArn: "<StringFilter>",
+ *         filePath: "<StringFilter>",
  *       },
  *     ],
  *     relatedVulnerabilities: "<StringFilterList>",
@@ -285,6 +286,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //             { // Step
  * //               componentId: "STRING_VALUE", // required
  * //               componentType: "STRING_VALUE", // required
+ * //               componentArn: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -380,6 +382,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsCommand extends $Command
@@ -390,9 +393,7 @@ export class ListFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -404,4 +405,16 @@ export class ListFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingsCommand)
   .de(de_ListFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingsRequest;
+      output: ListFindingsResponse;
+    };
+    sdk: {
+      input: ListFindingsCommandInput;
+      output: ListFindingsCommandOutput;
+    };
+  };
+}

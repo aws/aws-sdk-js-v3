@@ -99,37 +99,37 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: List services
  * ```javascript
  * // Example: List services
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Services": [
+ *   Services: [
  *     {
- *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
- *       "CreateDate": 1587081768.334,
- *       "DnsConfig": {
- *         "DnsRecords": [
+ *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
+ *       CreateDate: 1.587081768334E9,
+ *       DnsConfig: {
+ *         DnsRecords: [
  *           {
- *             "TTL": 60,
- *             "Type": "A"
+ *             TTL: 60,
+ *             Type: "A"
  *           }
  *         ],
- *         "RoutingPolicy": "MULTIVALUE"
+ *         RoutingPolicy: "MULTIVALUE"
  *       },
- *       "Id": "srv-p5zdwlg5uvvzjita",
- *       "Name": "myservice"
+ *       Id: "srv-p5zdwlg5uvvzjita",
+ *       Name: "myservice"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-list-services-1587236889840
  * ```
  *
+ * @public
  */
 export class ListServicesCommand extends $Command
   .classBuilder<
@@ -139,9 +139,7 @@ export class ListServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +151,16 @@ export class ListServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServicesCommand)
   .de(de_ListServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServicesRequest;
+      output: ListServicesResponse;
+    };
+    sdk: {
+      input: ListServicesCommandInput;
+      output: ListServicesCommandOutput;
+    };
+  };
+}

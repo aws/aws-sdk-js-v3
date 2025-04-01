@@ -59,6 +59,7 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DeleteUsageLimitCommand extends $Command
@@ -69,9 +70,7 @@ export class DeleteUsageLimitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class DeleteUsageLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUsageLimitCommand)
   .de(de_DeleteUsageLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUsageLimitMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUsageLimitCommandInput;
+      output: DeleteUsageLimitCommandOutput;
+    };
+  };
+}

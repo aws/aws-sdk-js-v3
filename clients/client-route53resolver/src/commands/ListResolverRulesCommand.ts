@@ -68,6 +68,7 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * //           Port: Number("int"),
  * //           Ipv6: "STRING_VALUE",
  * //           Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ * //           ServerNameIndication: "STRING_VALUE",
  * //         },
  * //       ],
  * //       ResolverEndpointId: "STRING_VALUE",
@@ -105,6 +106,7 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListResolverRulesCommand extends $Command
@@ -115,9 +117,7 @@ export class ListResolverRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class ListResolverRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverRulesCommand)
   .de(de_ListResolverRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverRulesRequest;
+      output: ListResolverRulesResponse;
+    };
+    sdk: {
+      input: ListResolverRulesCommandInput;
+      output: ListResolverRulesCommandOutput;
+    };
+  };
+}

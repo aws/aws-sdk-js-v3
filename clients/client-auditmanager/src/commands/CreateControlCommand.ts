@@ -134,6 +134,7 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class CreateControlCommand extends $Command
@@ -144,9 +145,7 @@ export class CreateControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class CreateControlCommand extends $Command
   .f(CreateControlRequestFilterSensitiveLog, CreateControlResponseFilterSensitiveLog)
   .ser(se_CreateControlCommand)
   .de(de_CreateControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateControlRequest;
+      output: CreateControlResponse;
+    };
+    sdk: {
+      input: CreateControlCommandInput;
+      output: CreateControlCommandOutput;
+    };
+  };
+}

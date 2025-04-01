@@ -54,6 +54,7 @@ export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __Metada
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class HttpEnumPayloadCommand extends $Command
   .classBuilder<
@@ -71,4 +72,16 @@ export class HttpEnumPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpEnumPayloadCommand)
   .de(de_HttpEnumPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnumPayloadInput;
+      output: EnumPayloadInput;
+    };
+    sdk: {
+      input: HttpEnumPayloadCommandInput;
+      output: HttpEnumPayloadCommandOutput;
+    };
+  };
+}

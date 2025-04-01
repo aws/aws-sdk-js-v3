@@ -71,6 +71,7 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class DeleteProfilingGroupCommand extends $Command
@@ -81,9 +82,7 @@ export class DeleteProfilingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DeleteProfilingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProfilingGroupCommand)
   .de(de_DeleteProfilingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProfilingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProfilingGroupCommandInput;
+      output: DeleteProfilingGroupCommandOutput;
+    };
+  };
+}

@@ -46,7 +46,7 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * //     { // Run
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ * //       type: "BUILTIN_FUZZ" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "INSTRUMENTATION" || "XCTEST" || "XCTEST_UI",
  * //       platform: "ANDROID" || "IOS",
  * //       created: new Date("TIMESTAMP"),
  * //       status: "PENDING" || "PENDING_CONCURRENCY" || "PENDING_DEVICE" || "PROCESSING" || "SCHEDULING" || "PREPARING" || "RUNNING" || "COMPLETED" || "STOPPING",
@@ -84,6 +84,10 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * //         downlinkJitterMs: Number("long"),
  * //         uplinkLossPercent: Number("int"),
  * //         downlinkLossPercent: Number("int"),
+ * //       },
+ * //       deviceProxy: { // DeviceProxy
+ * //         host: "STRING_VALUE", // required
+ * //         port: Number("int"), // required
  * //       },
  * //       parsingResultUrl: "STRING_VALUE",
  * //       resultCode: "PARSING_FAILED" || "VPC_ENDPOINT_SETUP_FAILED",
@@ -167,51 +171,8 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To get information about a test run
- * ```javascript
- * // The following example returns information about a specific test run.
- * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/0fcac17b-6122-44d7-ae5a-12345EXAMPLE",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
- * };
- * const command = new ListRunsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "runs": [
- *     {
- *       "name": "My Test Run",
- *       "type": "BUILTIN_EXPLORER",
- *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/0fcac17b-6122-44d7-ae5a-12345EXAMPLE",
- *       "billingMethod": "METERED",
- *       "completedJobs": 0,
- *       "counters": {
- *         "errored": 0,
- *         "failed": 0,
- *         "passed": 0,
- *         "skipped": 0,
- *         "stopped": 0,
- *         "total": 0,
- *         "warned": 0
- *       },
- *       "created": "1472667509.852",
- *       "deviceMinutes": {
- *         "metered": 0,
- *         "total": 0,
- *         "unmetered": 0
- *       },
- *       "platform": "ANDROID",
- *       "result": "PENDING",
- *       "status": "RUNNING",
- *       "totalJobs": 3
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-information-about-test-runs-1472582711069
- * ```
  *
+ * @public
  */
 export class ListRunsCommand extends $Command
   .classBuilder<
@@ -221,9 +182,7 @@ export class ListRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -235,4 +194,16 @@ export class ListRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRunsCommand)
   .de(de_ListRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRunsRequest;
+      output: ListRunsResult;
+    };
+    sdk: {
+      input: ListRunsCommandInput;
+      output: ListRunsCommandOutput;
+    };
+  };
+}

@@ -75,7 +75,8 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  *             more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
@@ -95,6 +96,7 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class CreateModelManifestCommand extends $Command
@@ -105,9 +107,7 @@ export class CreateModelManifestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class CreateModelManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelManifestCommand)
   .de(de_CreateModelManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelManifestRequest;
+      output: CreateModelManifestResponse;
+    };
+    sdk: {
+      input: CreateModelManifestCommandInput;
+      output: CreateModelManifestCommandOutput;
+    };
+  };
+}

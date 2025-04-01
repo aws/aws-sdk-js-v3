@@ -98,6 +98,7 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainAssociationCommand extends $Command
@@ -108,9 +109,7 @@ export class DeleteDomainAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DeleteDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainAssociationCommand)
   .de(de_DeleteDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainAssociationRequest;
+      output: DeleteDomainAssociationResult;
+    };
+    sdk: {
+      input: DeleteDomainAssociationCommandInput;
+      output: DeleteDomainAssociationCommandOutput;
+    };
+  };
+}

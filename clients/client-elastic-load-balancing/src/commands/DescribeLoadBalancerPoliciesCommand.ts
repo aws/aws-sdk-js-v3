@@ -85,37 +85,37 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe a policy associated with a load balancer
  * ```javascript
  * // This example describes the specified policy associated with the specified load balancer.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyNames": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyNames: [
  *     "my-authentication-policy"
  *   ]
  * };
  * const command = new DescribeLoadBalancerPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyDescriptions": [
+ *   PolicyDescriptions: [
  *     {
- *       "PolicyAttributeDescriptions": [
+ *       PolicyAttributeDescriptions: [
  *         {
- *           "AttributeName": "PublicKeyPolicyName",
- *           "AttributeValue": "my-PublicKey-policy"
+ *           AttributeName: "PublicKeyPolicyName",
+ *           AttributeValue: "my-PublicKey-policy"
  *         }
  *       ],
- *       "PolicyName": "my-authentication-policy",
- *       "PolicyTypeName": "BackendServerAuthenticationPolicyType"
+ *       PolicyName: "my-authentication-policy",
+ *       PolicyTypeName: "BackendServerAuthenticationPolicyType"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-load-balancer-policies-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerPoliciesCommand extends $Command
   .classBuilder<
@@ -125,9 +125,7 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancerPoliciesCommand)
   .de(de_DescribeLoadBalancerPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoadBalancerPoliciesInput;
+      output: DescribeLoadBalancerPoliciesOutput;
+    };
+    sdk: {
+      input: DescribeLoadBalancerPoliciesCommandInput;
+      output: DescribeLoadBalancerPoliciesCommandOutput;
+    };
+  };
+}

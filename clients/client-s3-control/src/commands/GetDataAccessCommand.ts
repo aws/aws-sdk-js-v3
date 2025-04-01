@@ -65,6 +65,10 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  * //     Expiration: new Date("TIMESTAMP"),
  * //   },
  * //   MatchedGrantTarget: "STRING_VALUE",
+ * //   Grantee: { // Grantee
+ * //     GranteeType: "DIRECTORY_USER" || "DIRECTORY_GROUP" || "IAM",
+ * //     GranteeIdentifier: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -77,6 +81,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  *
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
+ *
  *
  * @public
  */
@@ -106,4 +111,16 @@ export class GetDataAccessCommand extends $Command
   .f(void 0, GetDataAccessResultFilterSensitiveLog)
   .ser(se_GetDataAccessCommand)
   .de(de_GetDataAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataAccessRequest;
+      output: GetDataAccessResult;
+    };
+    sdk: {
+      input: GetDataAccessCommandInput;
+      output: GetDataAccessCommandOutput;
+    };
+  };
+}

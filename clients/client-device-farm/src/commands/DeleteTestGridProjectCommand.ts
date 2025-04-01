@@ -72,6 +72,7 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class DeleteTestGridProjectCommand extends $Command
@@ -82,9 +83,7 @@ export class DeleteTestGridProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeleteTestGridProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTestGridProjectCommand)
   .de(de_DeleteTestGridProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTestGridProjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTestGridProjectCommandInput;
+      output: DeleteTestGridProjectCommandOutput;
+    };
+  };
+}

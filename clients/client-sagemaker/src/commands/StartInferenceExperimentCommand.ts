@@ -62,6 +62,7 @@ export interface StartInferenceExperimentCommandOutput extends StartInferenceExp
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StartInferenceExperimentCommand extends $Command
@@ -72,9 +73,7 @@ export class StartInferenceExperimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class StartInferenceExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInferenceExperimentCommand)
   .de(de_StartInferenceExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInferenceExperimentRequest;
+      output: StartInferenceExperimentResponse;
+    };
+    sdk: {
+      input: StartInferenceExperimentCommandInput;
+      output: StartInferenceExperimentCommandOutput;
+    };
+  };
+}

@@ -29,6 +29,18 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
 
 /**
  * <p>Gets a list of Cloud9 development environment identifiers.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,24 +92,24 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example ListEnvironments
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "environmentIds": [
+ *   environmentIds: [
  *     "349c86d4579e4e7298d500ff57a6b2EX",
  *     "45a3da47af0840f2b0c0824f5ee232EX"
  *   ]
  * }
  * *\/
- * // example id: listenvironments-1516823687205
  * ```
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<
@@ -107,9 +119,7 @@ export class ListEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +131,16 @@ export class ListEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentsCommand)
   .de(de_ListEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentsRequest;
+      output: ListEnvironmentsResult;
+    };
+    sdk: {
+      input: ListEnvironmentsCommandInput;
+      output: ListEnvironmentsCommandOutput;
+    };
+  };
+}

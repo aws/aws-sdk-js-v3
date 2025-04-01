@@ -78,6 +78,7 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class ListRumMetricsDestinationsCommand extends $Command
@@ -88,9 +89,7 @@ export class ListRumMetricsDestinationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ListRumMetricsDestinationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRumMetricsDestinationsCommand)
   .de(de_ListRumMetricsDestinationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRumMetricsDestinationsRequest;
+      output: ListRumMetricsDestinationsResponse;
+    };
+    sdk: {
+      input: ListRumMetricsDestinationsCommandInput;
+      output: ListRumMetricsDestinationsCommandOutput;
+    };
+  };
+}

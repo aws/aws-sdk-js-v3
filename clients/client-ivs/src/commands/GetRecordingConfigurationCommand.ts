@@ -56,7 +56,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * //     thumbnailConfiguration: { // ThumbnailConfiguration
  * //       recordingMode: "STRING_VALUE",
  * //       targetIntervalSeconds: Number("long"),
- * //       resolution: "STRING_VALUE",
+ * //       resolution: "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //       storage: [ // ThumbnailConfigurationStorageList
  * //         "STRING_VALUE",
  * //       ],
@@ -65,7 +65,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * //     renditionConfiguration: { // RenditionConfiguration
  * //       renditionSelection: "STRING_VALUE",
  * //       renditions: [ // RenditionConfigurationRenditionList
- * //         "STRING_VALUE",
+ * //         "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //       ],
  * //     },
  * //   },
@@ -94,6 +94,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetRecordingConfigurationCommand extends $Command
@@ -104,9 +105,7 @@ export class GetRecordingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class GetRecordingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecordingConfigurationCommand)
   .de(de_GetRecordingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecordingConfigurationRequest;
+      output: GetRecordingConfigurationResponse;
+    };
+    sdk: {
+      input: GetRecordingConfigurationCommandInput;
+      output: GetRecordingConfigurationCommandOutput;
+    };
+  };
+}

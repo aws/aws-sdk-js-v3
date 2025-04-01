@@ -75,6 +75,13 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
  * //               },
  * //             },
  * //           ],
+ * //           S3AccessGrants: [ // S3AccessGrantsServiceIntegrations
+ * //             { // S3AccessGrantsScopeUnion Union: only one key present
+ * //               ReadWriteAccess: { // ReadWriteAccess
+ * //                 Authorization: "Enabled" || "Disabled", // required
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //     },
@@ -106,6 +113,7 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeRedshiftIdcApplicationsCommand extends $Command
@@ -116,9 +124,7 @@ export class DescribeRedshiftIdcApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +136,16 @@ export class DescribeRedshiftIdcApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRedshiftIdcApplicationsCommand)
   .de(de_DescribeRedshiftIdcApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRedshiftIdcApplicationsMessage;
+      output: DescribeRedshiftIdcApplicationsResult;
+    };
+    sdk: {
+      input: DescribeRedshiftIdcApplicationsCommandInput;
+      output: DescribeRedshiftIdcApplicationsCommandOutput;
+    };
+  };
+}

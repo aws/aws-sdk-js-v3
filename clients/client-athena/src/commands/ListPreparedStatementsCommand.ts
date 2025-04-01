@@ -71,6 +71,7 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListPreparedStatementsCommand extends $Command
@@ -81,9 +82,7 @@ export class ListPreparedStatementsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class ListPreparedStatementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPreparedStatementsCommand)
   .de(de_ListPreparedStatementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPreparedStatementsInput;
+      output: ListPreparedStatementsOutput;
+    };
+    sdk: {
+      input: ListPreparedStatementsCommandInput;
+      output: ListPreparedStatementsCommandOutput;
+    };
+  };
+}

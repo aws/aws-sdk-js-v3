@@ -37,8 +37,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * const client = new DeadlineClient(config);
  * const input = { // GetJobRequest
  *   farmId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
  * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
@@ -86,6 +86,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     fileSystem: "COPIED" || "VIRTUAL",
  * //   },
  * //   description: "STRING_VALUE",
+ * //   maxWorkerCount: Number("int"),
+ * //   sourceJobId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -115,6 +117,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetJobCommand extends $Command
@@ -125,9 +128,7 @@ export class GetJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +140,16 @@ export class GetJobCommand extends $Command
   .f(void 0, GetJobResponseFilterSensitiveLog)
   .ser(se_GetJobCommand)
   .de(de_GetJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRequest;
+      output: GetJobResponse;
+    };
+    sdk: {
+      input: GetJobCommandInput;
+      output: GetJobCommandOutput;
+    };
+  };
+}

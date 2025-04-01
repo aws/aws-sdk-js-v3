@@ -80,31 +80,31 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript
  * // This example describes the available adjustment types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AdjustmentTypes": [
+ *   AdjustmentTypes: [
  *     {
- *       "AdjustmentType": "ChangeInCapacity"
+ *       AdjustmentType: "ChangeInCapacity"
  *     },
  *     {
- *       "AdjustmentType": "ExactCapcity"
+ *       AdjustmentType: "ExactCapcity"
  *     },
  *     {
- *       "AdjustmentType": "PercentChangeInCapacity"
+ *       AdjustmentType: "PercentChangeInCapacity"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-adjustment-types-1
  * ```
  *
+ * @public
  */
 export class DescribeAdjustmentTypesCommand extends $Command
   .classBuilder<
@@ -114,9 +114,7 @@ export class DescribeAdjustmentTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +126,16 @@ export class DescribeAdjustmentTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAdjustmentTypesCommand)
   .de(de_DescribeAdjustmentTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAdjustmentTypesAnswer;
+    };
+    sdk: {
+      input: DescribeAdjustmentTypesCommandInput;
+      output: DescribeAdjustmentTypesCommandOutput;
+    };
+  };
+}

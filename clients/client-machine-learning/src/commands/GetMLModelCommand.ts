@@ -94,6 +94,7 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class GetMLModelCommand extends $Command
@@ -104,9 +105,7 @@ export class GetMLModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class GetMLModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLModelCommand)
   .de(de_GetMLModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLModelInput;
+      output: GetMLModelOutput;
+    };
+    sdk: {
+      input: GetMLModelCommandInput;
+      output: GetMLModelCommandOutput;
+    };
+  };
+}

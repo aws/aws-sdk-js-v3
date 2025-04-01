@@ -86,6 +86,7 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class CreateEventBusCommand extends $Command
@@ -96,9 +97,7 @@ export class CreateEventBusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class CreateEventBusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventBusCommand)
   .de(de_CreateEventBusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventBusRequest;
+      output: CreateEventBusResponse;
+    };
+    sdk: {
+      input: CreateEventBusCommandInput;
+      output: CreateEventBusCommandOutput;
+    };
+  };
+}

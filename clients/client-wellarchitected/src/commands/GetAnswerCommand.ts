@@ -130,6 +130,7 @@ export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBeare
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetAnswerCommand extends $Command
@@ -140,9 +141,7 @@ export class GetAnswerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class GetAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnswerCommand)
   .de(de_GetAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnswerInput;
+      output: GetAnswerOutput;
+    };
+    sdk: {
+      input: GetAnswerCommandInput;
+      output: GetAnswerCommandOutput;
+    };
+  };
+}

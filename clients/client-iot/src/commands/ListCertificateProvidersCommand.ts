@@ -79,6 +79,7 @@ export interface ListCertificateProvidersCommandOutput extends ListCertificatePr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListCertificateProvidersCommand extends $Command
@@ -89,9 +90,7 @@ export class ListCertificateProvidersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListCertificateProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCertificateProvidersCommand)
   .de(de_ListCertificateProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCertificateProvidersRequest;
+      output: ListCertificateProvidersResponse;
+    };
+    sdk: {
+      input: ListCertificateProvidersCommandInput;
+      output: ListCertificateProvidersCommandOutput;
+    };
+  };
+}

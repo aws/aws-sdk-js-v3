@@ -90,6 +90,7 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class UndeprecateDomainCommand extends $Command
@@ -100,9 +101,7 @@ export class UndeprecateDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UndeprecateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UndeprecateDomainCommand)
   .de(de_UndeprecateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UndeprecateDomainInput;
+      output: {};
+    };
+    sdk: {
+      input: UndeprecateDomainCommandInput;
+      output: UndeprecateDomainCommandOutput;
+    };
+  };
+}

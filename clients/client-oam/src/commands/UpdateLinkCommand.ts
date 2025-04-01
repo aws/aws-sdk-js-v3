@@ -43,7 +43,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * const input = { // UpdateLinkInput
  *   Identifier: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor" || "AWS::ApplicationSignals::Service" || "AWS::ApplicationSignals::ServiceLevelObjective",
  *   ],
  *   LinkConfiguration: { // LinkConfiguration
  *     LogGroupConfiguration: { // LogGroupConfiguration
@@ -101,6 +101,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateLinkCommand extends $Command
@@ -111,9 +112,7 @@ export class UpdateLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class UpdateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLinkCommand)
   .de(de_UpdateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLinkInput;
+      output: UpdateLinkOutput;
+    };
+    sdk: {
+      input: UpdateLinkCommandInput;
+      output: UpdateLinkCommandOutput;
+    };
+  };
+}

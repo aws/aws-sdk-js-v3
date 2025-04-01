@@ -45,6 +45,8 @@ const node_libraries = [
   "zlib",
 ];
 
+const ignored = [...node_libraries, "vitest"];
+
 (async () => {
   const errors = [];
 
@@ -85,7 +87,7 @@ const node_libraries = [
         ...new Set(
           [...(contents.toString().match(/(from |import\()"(.*?)"\)?;/g) ?? [])]
             .map((_) => _.replace(/(from ")|(import\(")/g, "").replace(/"\)?;$/, ""))
-            .filter((_) => !_.startsWith(".") && !node_libraries.includes(_))
+            .filter((_) => !_.startsWith(".") && !ignored.includes(_))
         )
       );
 
@@ -99,6 +101,12 @@ const node_libraries = [
           !(dependencyPackageName in (pkgJson.peerDependencies ?? {})) &&
           dependencyPackageName !== pkgJson.name
         ) {
+          if (
+            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc"].includes(dependency) &&
+            ["@aws-sdk/nested-clients"].includes(pkgJson.name)
+          ) {
+            continue;
+          }
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
       }

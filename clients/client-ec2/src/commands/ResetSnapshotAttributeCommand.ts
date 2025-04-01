@@ -57,19 +57,22 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To reset a snapshot attribute
  * ```javascript
  * // This example resets the create volume permissions for snapshot ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "SnapshotId": "snap-1234567890abcdef0"
+ *   Attribute: "createVolumePermission",
+ *   SnapshotId: "snap-1234567890abcdef0"
  * };
  * const command = new ResetSnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-reset-a-snapshot-attribute-1472508825735
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ResetSnapshotAttributeCommand extends $Command
   .classBuilder<
@@ -79,9 +82,7 @@ export class ResetSnapshotAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class ResetSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetSnapshotAttributeCommand)
   .de(de_ResetSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetSnapshotAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetSnapshotAttributeCommandInput;
+      output: ResetSnapshotAttributeCommandOutput;
+    };
+  };
+}

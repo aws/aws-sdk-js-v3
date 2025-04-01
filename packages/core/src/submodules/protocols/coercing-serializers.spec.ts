@@ -1,3 +1,5 @@
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+
 import { _toBool, _toNum, _toStr } from "./coercing-serializers";
 
 const consoleWarn = console.warn;

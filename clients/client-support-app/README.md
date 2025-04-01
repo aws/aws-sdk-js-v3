@@ -64,7 +64,7 @@ Reference</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-support-app
+To install this package, simply type add or install @aws-sdk/client-support-app
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-support-app`

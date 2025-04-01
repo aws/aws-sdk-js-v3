@@ -40,7 +40,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *       constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
  *       9,223,372,036,854,775,807.</p>
  *          <note>
- *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
+ *             <p>PutEvents will only process nested JSON up to 1000 levels deep.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +91,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class PutEventsCommand extends $Command
@@ -116,4 +117,16 @@ export class PutEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEventsCommand)
   .de(de_PutEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsRequest;
+      output: PutEventsResponse;
+    };
+    sdk: {
+      input: PutEventsCommandInput;
+      output: PutEventsCommandOutput;
+    };
+  };
+}

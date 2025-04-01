@@ -1,10 +1,11 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { EndpointV2 } from "@smithy/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentials, MockSha256, region } from "./fixture";
 import { copySnapshotPresignedUrlMiddleware } from "./index";
 
-const nextHandler = jest.fn();
+const nextHandler = vi.fn();
 const handler = copySnapshotPresignedUrlMiddleware({
   credentials,
   region,
@@ -20,7 +21,7 @@ const handler = copySnapshotPresignedUrlMiddleware({
 
 describe("middleware-sdk-ec2", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("generates PresignedUrl and DestinationRegion parameters", async () => {

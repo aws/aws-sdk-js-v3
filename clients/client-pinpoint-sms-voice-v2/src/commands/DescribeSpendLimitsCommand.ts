@@ -32,13 +32,13 @@ export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequ
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
+ * <p>Describes the current monthly spend limits for sending voice and
  *             text messages.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial monthly
  *             spend limit in a given Region. For more information on increasing your monthly spend
- *             limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
- *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ *             limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html">
+ *                 Requesting increases to your monthly SMS, MMS, or Voice spending quota
+ *             </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +89,7 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeSpendLimitsCommand extends $Command
@@ -99,9 +100,7 @@ export class DescribeSpendLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeSpendLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpendLimitsCommand)
   .de(de_DescribeSpendLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpendLimitsRequest;
+      output: DescribeSpendLimitsResult;
+    };
+    sdk: {
+      input: DescribeSpendLimitsCommandInput;
+      output: DescribeSpendLimitsCommandOutput;
+    };
+  };
+}

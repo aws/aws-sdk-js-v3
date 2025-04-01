@@ -74,6 +74,7 @@ export interface AssociateProfilesCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class AssociateProfilesCommand extends $Command
@@ -84,9 +85,7 @@ export class AssociateProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class AssociateProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateProfilesCommand)
   .de(de_AssociateProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateProfilesInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateProfilesCommandInput;
+      output: AssociateProfilesCommandOutput;
+    };
+  };
+}

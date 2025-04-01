@@ -54,7 +54,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //       AwsManaged: true || false,
  * //     },
  * //     Content: "STRING_VALUE",
@@ -130,6 +130,11 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -273,9 +278,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -337,6 +341,9 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -377,6 +384,9 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -415,62 +425,61 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To update the details of a policy
- * ```javascript
- * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n
- * const input = {
- *   "Description": "This description replaces the original.",
- *   "Name": "Renamed-Policy",
- *   "PolicyId": "p-examplepolicyid111"
- * };
- * const command = new UpdatePolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Policy": {
- *     "Content": "{ \"Version\": \"2012-10-17\", \"Statement\": { \"Effect\": \"Allow\", \"Action\": \"ec2:*\", \"Resource\": \"*\" } }",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "This description replaces the original.",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "Renamed-Policy",
- *       "Type": "SERVICE_CONTROL_POLICY"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-update-the-details-of-a-policy
- * ```
  *
  * @example To update the content of a policy
  * ```javascript
  * // The following example shows how to replace the JSON text of the SCP from the preceding example with a new JSON policy text string that allows S3 actions instead of EC2 actions:/n/n
  * const input = {
- *   "Content": "{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": {\\\"Effect\\\": \\\"Allow\\\", \\\"Action\\\": \\\"s3:*\\\", \\\"Resource\\\": \\\"*\\\" } }",
- *   "PolicyId": "p-examplepolicyid111"
+ *   Content: `{ \"Version\": \"2012-10-17\", \"Statement\": {\"Effect\": \"Allow\", \"Action\": \"s3:*\", \"Resource\": \"*\" } }`,
+ *   PolicyId: "p-examplepolicyid111"
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": {
- *     "Content": "{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": { \\\"Effect\\\": \\\"Allow\\\", \\\"Action\\\": \\\"s3:*\\\", \\\"Resource\\\": \\\"*\\\" } }",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "This description replaces the original.",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "Renamed-Policy",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *   Policy: {
+ *     Content: `{ \"Version\": \"2012-10-17\", \"Statement\": { \"Effect\": \"Allow\", \"Action\": \"s3:*\", \"Resource\": \"*\" } }`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "This description replaces the original.",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "Renamed-Policy",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-update-the-content-of-a-policy
  * ```
  *
+ * @example To update the details of a policy
+ * ```javascript
+ * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n
+ * const input = {
+ *   Description: "This description replaces the original.",
+ *   Name: "Renamed-Policy",
+ *   PolicyId: "p-examplepolicyid111"
+ * };
+ * const command = new UpdatePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Policy: {
+ *     Content: `{ "Version": "2012-10-17", "Statement": { "Effect": "Allow", "Action": "ec2:*", "Resource": "*" } }`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "This description replaces the original.",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "Renamed-Policy",
+ *       Type: "SERVICE_CONTROL_POLICY"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class UpdatePolicyCommand extends $Command
   .classBuilder<
@@ -480,9 +489,7 @@ export class UpdatePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -494,4 +501,16 @@ export class UpdatePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePolicyCommand)
   .de(de_UpdatePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePolicyRequest;
+      output: UpdatePolicyResponse;
+    };
+    sdk: {
+      input: UpdatePolicyCommandInput;
+      output: UpdatePolicyCommandOutput;
+    };
+  };
+}

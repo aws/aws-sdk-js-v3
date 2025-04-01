@@ -74,6 +74,9 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
@@ -89,6 +92,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamCommand extends $Command
@@ -99,9 +103,7 @@ export class UpdateStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class UpdateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStreamCommand)
   .de(de_UpdateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamRequest;
+      output: UpdateStreamResponse;
+    };
+    sdk: {
+      input: UpdateStreamCommandInput;
+      output: UpdateStreamCommandOutput;
+    };
+  };
+}

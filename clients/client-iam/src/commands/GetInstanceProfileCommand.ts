@@ -104,39 +104,39 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get information about an instance profile
  * ```javascript
  * // The following command gets information about the instance profile named ExampleInstanceProfile.
  * const input = {
- *   "InstanceProfileName": "ExampleInstanceProfile"
+ *   InstanceProfileName: "ExampleInstanceProfile"
  * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceProfile": {
- *     "Arn": "arn:aws:iam::336924118301:instance-profile/ExampleInstanceProfile",
- *     "CreateDate": "2013-06-12T23:52:02Z",
- *     "InstanceProfileId": "AID2MAB8DPLSRHEXAMPLE",
- *     "InstanceProfileName": "ExampleInstanceProfile",
- *     "Path": "/",
- *     "Roles": [
+ *   InstanceProfile: {
+ *     Arn: "arn:aws:iam::336924118301:instance-profile/ExampleInstanceProfile",
+ *     CreateDate: "2013-06-12T23:52:02Z",
+ *     InstanceProfileId: "AID2MAB8DPLSRHEXAMPLE",
+ *     InstanceProfileName: "ExampleInstanceProfile",
+ *     Path: "/",
+ *     Roles: [
  *       {
- *         "Arn": "arn:aws:iam::336924118301:role/Test-Role",
- *         "AssumeRolePolicyDocument": "<URL-encoded-JSON>",
- *         "CreateDate": "2013-01-09T06:33:26Z",
- *         "Path": "/",
- *         "RoleId": "AIDGPMS9RO4H3FEXAMPLE",
- *         "RoleName": "Test-Role"
+ *         Arn: "arn:aws:iam::336924118301:role/Test-Role",
+ *         AssumeRolePolicyDocument: "<URL-encoded-JSON>",
+ *         CreateDate: "2013-01-09T06:33:26Z",
+ *         Path: "/",
+ *         RoleId: "AIDGPMS9RO4H3FEXAMPLE",
+ *         RoleName: "Test-Role"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: 463b9ba5-18cc-4608-9ccb-5a7c6b6e5fe7
  * ```
  *
+ * @public
  */
 export class GetInstanceProfileCommand extends $Command
   .classBuilder<
@@ -146,9 +146,7 @@ export class GetInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +158,16 @@ export class GetInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceProfileCommand)
   .de(de_GetInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceProfileRequest;
+      output: GetInstanceProfileResponse;
+    };
+    sdk: {
+      input: GetInstanceProfileCommandInput;
+      output: GetInstanceProfileCommandOutput;
+    };
+  };
+}

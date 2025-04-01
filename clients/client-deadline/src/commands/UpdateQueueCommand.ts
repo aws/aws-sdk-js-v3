@@ -102,6 +102,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateQueueCommand extends $Command
@@ -112,9 +113,7 @@ export class UpdateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class UpdateQueueCommand extends $Command
   .f(UpdateQueueRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateQueueCommand)
   .de(de_UpdateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQueueCommandInput;
+      output: UpdateQueueCommandOutput;
+    };
+  };
+}

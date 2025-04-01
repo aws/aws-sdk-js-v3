@@ -59,6 +59,7 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectoryConfigCommand extends $Command
@@ -69,9 +70,7 @@ export class DeleteDirectoryConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class DeleteDirectoryConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectoryConfigCommand)
   .de(de_DeleteDirectoryConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectoryConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDirectoryConfigCommandInput;
+      output: DeleteDirectoryConfigCommandOutput;
+    };
+  };
+}

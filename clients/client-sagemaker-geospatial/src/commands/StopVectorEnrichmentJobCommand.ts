@@ -75,6 +75,7 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class StopVectorEnrichmentJobCommand extends $Command
@@ -85,9 +86,7 @@ export class StopVectorEnrichmentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StopVectorEnrichmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopVectorEnrichmentJobCommand)
   .de(de_StopVectorEnrichmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopVectorEnrichmentJobInput;
+      output: {};
+    };
+    sdk: {
+      input: StopVectorEnrichmentJobCommandInput;
+      output: StopVectorEnrichmentJobCommandOutput;
+    };
+  };
+}

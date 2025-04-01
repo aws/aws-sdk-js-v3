@@ -60,7 +60,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *       jobTimeout: Number("int"),
  *     },
  *     id: { // ActionTypeIdentifier
- *       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *       owner: "STRING_VALUE", // required
  *       provider: "STRING_VALUE", // required
  *       version: "STRING_VALUE", // required
@@ -120,6 +120,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class UpdateActionTypeCommand extends $Command
@@ -130,9 +131,7 @@ export class UpdateActionTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class UpdateActionTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateActionTypeCommand)
   .de(de_UpdateActionTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateActionTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateActionTypeCommandInput;
+      output: UpdateActionTypeCommandOutput;
+    };
+  };
+}

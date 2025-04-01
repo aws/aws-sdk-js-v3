@@ -104,6 +104,7 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppBlocksCommand extends $Command
@@ -114,9 +115,7 @@ export class DescribeAppBlocksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class DescribeAppBlocksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppBlocksCommand)
   .de(de_DescribeAppBlocksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppBlocksRequest;
+      output: DescribeAppBlocksResult;
+    };
+    sdk: {
+      input: DescribeAppBlocksCommandInput;
+      output: DescribeAppBlocksCommandOutput;
+    };
+  };
+}

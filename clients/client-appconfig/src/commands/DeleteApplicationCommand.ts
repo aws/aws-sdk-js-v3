@@ -28,8 +28,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an application. Deleting an application does not delete a configuration from a
- *          host.</p>
+ * <p>Deletes an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,19 +62,22 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To delete an application
  * ```javascript
  * // The following delete-application example deletes the specified application.
- * //
+ *
  * const input = {
- *   "ApplicationId": "339ohji"
+ *   ApplicationId: "339ohji"
  * };
  * const command = new DeleteApplicationCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-application-1632265343951
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<
@@ -85,9 +87,7 @@ export class DeleteApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DeleteApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationCommand)
   .de(de_DeleteApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationCommandInput;
+      output: DeleteApplicationCommandOutput;
+    };
+  };
+}

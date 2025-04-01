@@ -120,6 +120,7 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class CreatePermissionCommand extends $Command
@@ -130,9 +131,7 @@ export class CreatePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class CreatePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePermissionCommand)
   .de(de_CreatePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePermissionRequest;
+      output: CreatePermissionResponse;
+    };
+    sdk: {
+      input: CreatePermissionCommandInput;
+      output: CreatePermissionCommandOutput;
+    };
+  };
+}

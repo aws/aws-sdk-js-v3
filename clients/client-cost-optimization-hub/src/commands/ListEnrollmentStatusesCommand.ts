@@ -86,6 +86,7 @@ export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatu
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ *
  * @public
  */
 export class ListEnrollmentStatusesCommand extends $Command
@@ -96,9 +97,7 @@ export class ListEnrollmentStatusesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListEnrollmentStatusesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnrollmentStatusesCommand)
   .de(de_ListEnrollmentStatusesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnrollmentStatusesRequest;
+      output: ListEnrollmentStatusesResponse;
+    };
+    sdk: {
+      input: ListEnrollmentStatusesCommandInput;
+      output: ListEnrollmentStatusesCommandOutput;
+    };
+  };
+}

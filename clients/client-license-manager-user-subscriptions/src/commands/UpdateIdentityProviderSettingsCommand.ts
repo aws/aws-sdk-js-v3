@@ -38,7 +38,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
 
 /**
  * <p>Updates additional product configuration settings for the registered identity
- *       provider.</p>
+ * 			provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +49,29 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
+ *   Product: "STRING_VALUE",
+ *   IdentityProviderArn: "STRING_VALUE",
  *   UpdateSettings: { // UpdateSettings
- *     AddSubnets: [ // Subnets // required
+ *     AddSubnets: [ // required
  *       "STRING_VALUE",
  *     ],
  *     RemoveSubnets: [ // required
@@ -69,16 +87,34 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Settings: { // Settings
- * //       Subnets: [ // Subnets // required
+ * //       Subnets: [ // required
  * //         "STRING_VALUE",
  * //       ],
  * //       SecurityGroupId: "STRING_VALUE", // required
  * //     },
  * //     Product: "STRING_VALUE", // required
  * //     Status: "STRING_VALUE", // required
+ * //     IdentityProviderArn: "STRING_VALUE",
  * //     FailureMessage: "STRING_VALUE",
  * //   },
  * // };
@@ -106,6 +142,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class UpdateIdentityProviderSettingsCommand extends $Command
@@ -116,9 +153,7 @@ export class UpdateIdentityProviderSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +165,16 @@ export class UpdateIdentityProviderSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdentityProviderSettingsCommand)
   .de(de_UpdateIdentityProviderSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentityProviderSettingsRequest;
+      output: UpdateIdentityProviderSettingsResponse;
+    };
+    sdk: {
+      input: UpdateIdentityProviderSettingsCommandInput;
+      output: UpdateIdentityProviderSettingsCommandOutput;
+    };
+  };
+}

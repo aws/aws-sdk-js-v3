@@ -62,6 +62,7 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppBlockCommand extends $Command
@@ -72,9 +73,7 @@ export class DeleteAppBlockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class DeleteAppBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppBlockCommand)
   .de(de_DeleteAppBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppBlockRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppBlockCommandInput;
+      output: DeleteAppBlockCommandOutput;
+    };
+  };
+}

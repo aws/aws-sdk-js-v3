@@ -33,7 +33,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *          </p>
  *          <p>Creates an Auto Scaling group with the specified name and attributes. </p>
  *          <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
- *             call the <a>DescribeAccountLimits</a> API. For information about updating
+ *             call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> API. For information about updating
  *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html">Get started
@@ -137,6 +137,15 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             AllowedInstanceTypes: [ // AllowedInstanceTypes
  *               "STRING_VALUE",
  *             ],
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *               Cpu: { // CpuPerformanceFactorRequest
+ *                 References: [ // PerformanceFactorReferenceSetRequest
+ *                   { // PerformanceFactorReferenceRequest
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *         },
  *       ],
@@ -208,6 +217,25 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     MinHealthyPercentage: Number("int"),
  *     MaxHealthyPercentage: Number("int"),
  *   },
+ *   AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
+ *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
+ *   },
+ *   AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
+ *     ZonalShiftEnabled: true || false,
+ *     ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
+ *   },
+ *   SkipZonalShiftValidation: true || false,
+ *   CapacityReservationSpecification: { // CapacityReservationSpecification
+ *     CapacityReservationPreference: "capacity-reservations-only" || "capacity-reservations-first" || "none" || "default",
+ *     CapacityReservationTarget: { // CapacityReservationTarget
+ *       CapacityReservationIds: [ // CapacityReservationIds
+ *         "STRING_VALUE",
+ *       ],
+ *       CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
@@ -240,137 +268,146 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
- * @example To create an Auto Scaling group
- * ```javascript
- * // This example creates an Auto Scaling group.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DefaultInstanceWarmup": 120,
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Default"
- *   },
- *   "MaxInstanceLifetime": 2592000,
- *   "MaxSize": 3,
- *   "MinSize": 1,
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE"
- * };
- * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-1
- * ```
  *
  * @example To create an Auto Scaling group with an attached target group
  * ```javascript
  * // This example creates an Auto Scaling group and attaches the specified target group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "HealthCheckGracePeriod": 300,
- *   "HealthCheckType": "ELB",
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Default"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   HealthCheckGracePeriod: 300,
+ *   HealthCheckType: "ELB",
+ *   LaunchTemplate: {
+ *     LaunchTemplateName: "my-template-for-auto-scaling",
+ *     Version: "$Default"
  *   },
- *   "MaxSize": 3,
- *   "MinSize": 1,
- *   "TargetGroupARNs": [
+ *   MaxSize: 3,
+ *   MinSize: 1,
+ *   TargetGroupARNs: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *   ],
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create an Auto Scaling group with a mixed instances policy
  * ```javascript
  * // This example creates an Auto Scaling group with a mixed instances policy. It specifies the c5.large, c5a.large, and c6g.large instance types and defines a different launch template for the c6g.large instance type.
  * const input = {
- *   "AutoScalingGroupName": "my-asg",
- *   "DesiredCapacity": 3,
- *   "MaxSize": 5,
- *   "MinSize": 1,
- *   "MixedInstancesPolicy": {
- *     "InstancesDistribution": {
- *       "OnDemandBaseCapacity": 1,
- *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *   AutoScalingGroupName: "my-asg",
+ *   DesiredCapacity: 3,
+ *   MaxSize: 5,
+ *   MinSize: 1,
+ *   MixedInstancesPolicy: {
+ *     InstancesDistribution: {
+ *       OnDemandBaseCapacity: 1,
+ *       OnDemandPercentageAboveBaseCapacity: 50,
+ *       SpotAllocationStrategy: "price-capacity-optimized"
  *     },
- *     "LaunchTemplate": {
- *       "LaunchTemplateSpecification": {
- *         "LaunchTemplateName": "my-launch-template-for-x86",
- *         "Version": "$Default"
+ *     LaunchTemplate: {
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateName: "my-launch-template-for-x86",
+ *         Version: "$Default"
  *       },
- *       "Overrides": [
+ *       Overrides: [
  *         {
- *           "InstanceType": "c6g.large",
- *           "LaunchTemplateSpecification": {
- *             "LaunchTemplateName": "my-launch-template-for-arm",
- *             "Version": "$Default"
+ *           InstanceType: "c6g.large",
+ *           LaunchTemplateSpecification: {
+ *             LaunchTemplateName: "my-launch-template-for-arm",
+ *             Version: "$Default"
  *           }
  *         },
  *         {
- *           "InstanceType": "c5.large"
+ *           InstanceType: "c5.large"
  *         },
  *         {
- *           "InstanceType": "c5a.large"
+ *           InstanceType: "c5a.large"
  *         }
  *       ]
  *     }
  *   },
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create an Auto Scaling group using attribute-based instance type selection
  * ```javascript
  * // This example creates an Auto Scaling group using attribute-based instance type selection. It requires the instance types to have a minimum of four vCPUs and a maximum of eight vCPUs, a minimum of 16,384 MiB of memory, and an Intel manufactured CPU.
  * const input = {
- *   "AutoScalingGroupName": "my-asg",
- *   "DesiredCapacity": 4,
- *   "DesiredCapacityType": "units",
- *   "MaxSize": 100,
- *   "MinSize": 0,
- *   "MixedInstancesPolicy": {
- *     "InstancesDistribution": {
- *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *   AutoScalingGroupName: "my-asg",
+ *   DesiredCapacity: 4,
+ *   DesiredCapacityType: "units",
+ *   MaxSize: 100,
+ *   MinSize: 0,
+ *   MixedInstancesPolicy: {
+ *     InstancesDistribution: {
+ *       OnDemandPercentageAboveBaseCapacity: 50,
+ *       SpotAllocationStrategy: "price-capacity-optimized"
  *     },
- *     "LaunchTemplate": {
- *       "LaunchTemplateSpecification": {
- *         "LaunchTemplateName": "my-template-for-auto-scaling",
- *         "Version": "$Default"
+ *     LaunchTemplate: {
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateName: "my-template-for-auto-scaling",
+ *         Version: "$Default"
  *       },
- *       "Overrides": [
+ *       Overrides: [
  *         {
- *           "InstanceRequirements": {
- *             "CpuManufacturers": [
+ *           InstanceRequirements: {
+ *             CpuManufacturers: [
  *               "intel"
  *             ],
- *             "MemoryMiB": {
- *               "Min": 16384
+ *             MemoryMiB: {
+ *               Min: 16384
  *             },
- *             "VCpuCount": {
- *               "Max": 8,
- *               "Min": 4
+ *             VCpuCount: {
+ *               Max: 8,
+ *               Min: 4
  *             }
  *           }
  *         }
  *       ]
  *     }
  *   },
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @example To create an Auto Scaling group
+ * ```javascript
+ * // This example creates an Auto Scaling group.
+ * const input = {
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DefaultInstanceWarmup: 120,
+ *   LaunchTemplate: {
+ *     LaunchTemplateName: "my-template-for-auto-scaling",
+ *     Version: "$Default"
+ *   },
+ *   MaxInstanceLifetime: 2592000,
+ *   MaxSize: 3,
+ *   MinSize: 1,
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class CreateAutoScalingGroupCommand extends $Command
   .classBuilder<
@@ -380,9 +417,7 @@ export class CreateAutoScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -394,4 +429,16 @@ export class CreateAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAutoScalingGroupCommand)
   .de(de_CreateAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutoScalingGroupType;
+      output: {};
+    };
+    sdk: {
+      input: CreateAutoScalingGroupCommandInput;
+      output: CreateAutoScalingGroupCommandOutput;
+    };
+  };
+}

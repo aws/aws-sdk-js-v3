@@ -53,7 +53,7 @@ export interface ListAppComponentCompliancesCommandOutput
  * //       cost: { // Cost
  * //         amount: Number("double"), // required
  * //         currency: "STRING_VALUE", // required
- * //         frequency: "STRING_VALUE", // required
+ * //         frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //       },
  * //       appComponentName: "STRING_VALUE",
  * //       compliance: { // AssessmentCompliance
@@ -65,13 +65,13 @@ export interface ListAppComponentCompliancesCommandOutput
  * //           currentRpoInSecs: Number("int"),
  * //           rpoReferenceId: "STRING_VALUE",
  * //           rpoDescription: "STRING_VALUE",
- * //           complianceStatus: "STRING_VALUE", // required
+ * //           complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //           achievableRpoInSecs: Number("int"),
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
  * //       message: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
  * //       resiliencyScore: { // ResiliencyScore
  * //         score: Number("double"), // required
  * //         disruptionScore: { // DisruptionResiliencyScore // required
@@ -120,6 +120,7 @@ export interface ListAppComponentCompliancesCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppComponentCompliancesCommand extends $Command
@@ -130,9 +131,7 @@ export class ListAppComponentCompliancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class ListAppComponentCompliancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppComponentCompliancesCommand)
   .de(de_ListAppComponentCompliancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppComponentCompliancesRequest;
+      output: ListAppComponentCompliancesResponse;
+    };
+    sdk: {
+      input: ListAppComponentCompliancesCommandInput;
+      output: ListAppComponentCompliancesCommandOutput;
+    };
+  };
+}

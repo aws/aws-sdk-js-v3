@@ -38,7 +38,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * const client = new OpenSearchClient(config);
  * const input = { // AuthorizeVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE",
+ *   Service: "application.opensearchservice.amazonaws.com",
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,7 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command
@@ -88,9 +90,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeVpcEndpointAccessCommand)
   .de(de_AuthorizeVpcEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeVpcEndpointAccessRequest;
+      output: AuthorizeVpcEndpointAccessResponse;
+    };
+    sdk: {
+      input: AuthorizeVpcEndpointAccessCommandInput;
+      output: AuthorizeVpcEndpointAccessCommandOutput;
+    };
+  };
+}

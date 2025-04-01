@@ -122,6 +122,11 @@ export interface DescribeReplicationInstancesCommandOutput
  * //       FreeUntil: new Date("TIMESTAMP"),
  * //       DnsNameServers: "STRING_VALUE",
  * //       NetworkType: "STRING_VALUE",
+ * //       KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //         KeyCacheSecretId: "STRING_VALUE",
+ * //         KeyCacheSecretIamArn: "STRING_VALUE",
+ * //         Krb5FileContents: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -140,34 +145,34 @@ export interface DescribeReplicationInstancesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe replication instances
  * ```javascript
  * // Returns the status of the refresh-schemas operation.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeReplicationInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationInstances": []
+ *   Marker: "",
+ *   ReplicationInstances:   []
  * }
  * *\/
- * // example id: describe-replication-instances-1481755443952
  * ```
  *
+ * @public
  */
 export class DescribeReplicationInstancesCommand extends $Command
   .classBuilder<
@@ -177,9 +182,7 @@ export class DescribeReplicationInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +194,16 @@ export class DescribeReplicationInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationInstancesCommand)
   .de(de_DescribeReplicationInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationInstancesMessage;
+      output: DescribeReplicationInstancesResponse;
+    };
+    sdk: {
+      input: DescribeReplicationInstancesCommandInput;
+      output: DescribeReplicationInstancesCommandOutput;
+    };
+  };
+}

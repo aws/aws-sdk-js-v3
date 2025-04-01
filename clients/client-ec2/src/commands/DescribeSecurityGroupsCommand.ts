@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/models_4";
+import { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/models_5";
 import { de_DescribeSecurityGroupsCommand, se_DescribeSecurityGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -36,6 +36,15 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * // const { EC2Client, DescribeSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSecurityGroupsRequest
+ *   GroupIds: [ // GroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupNames: [ // GroupNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -44,93 +53,46 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  *       ],
  *     },
  *   ],
- *   GroupIds: [ // GroupIdStringList
- *     "STRING_VALUE",
- *   ],
- *   GroupNames: [ // GroupNameStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSecurityGroupsResult
+ * //   NextToken: "STRING_VALUE",
  * //   SecurityGroups: [ // SecurityGroupList
  * //     { // SecurityGroup
- * //       Description: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       IpPermissions: [ // IpPermissionList
+ * //       GroupId: "STRING_VALUE",
+ * //       IpPermissionsEgress: [ // IpPermissionList
  * //         { // IpPermission
- * //           FromPort: Number("int"),
  * //           IpProtocol: "STRING_VALUE",
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //           UserIdGroupPairs: [ // UserIdGroupPairList
+ * //             { // UserIdGroupPair
+ * //               Description: "STRING_VALUE",
+ * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
+ * //               VpcId: "STRING_VALUE",
+ * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //           IpRanges: [ // IpRangeList
  * //             { // IpRange
- * //               CidrIp: "STRING_VALUE",
  * //               Description: "STRING_VALUE",
+ * //               CidrIp: "STRING_VALUE",
  * //             },
  * //           ],
  * //           Ipv6Ranges: [ // Ipv6RangeList
  * //             { // Ipv6Range
- * //               CidrIpv6: "STRING_VALUE",
  * //               Description: "STRING_VALUE",
+ * //               CidrIpv6: "STRING_VALUE",
  * //             },
  * //           ],
  * //           PrefixListIds: [ // PrefixListIdList
  * //             { // PrefixListId
  * //               Description: "STRING_VALUE",
  * //               PrefixListId: "STRING_VALUE",
- * //             },
- * //           ],
- * //           ToPort: Number("int"),
- * //           UserIdGroupPairs: [ // UserIdGroupPairList
- * //             { // UserIdGroupPair
- * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
- * //               UserId: "STRING_VALUE",
- * //               VpcId: "STRING_VALUE",
- * //               VpcPeeringConnectionId: "STRING_VALUE",
- * //             },
- * //           ],
- * //         },
- * //       ],
- * //       OwnerId: "STRING_VALUE",
- * //       GroupId: "STRING_VALUE",
- * //       IpPermissionsEgress: [
- * //         {
- * //           FromPort: Number("int"),
- * //           IpProtocol: "STRING_VALUE",
- * //           IpRanges: [
- * //             {
- * //               CidrIp: "STRING_VALUE",
- * //               Description: "STRING_VALUE",
- * //             },
- * //           ],
- * //           Ipv6Ranges: [
- * //             {
- * //               CidrIpv6: "STRING_VALUE",
- * //               Description: "STRING_VALUE",
- * //             },
- * //           ],
- * //           PrefixListIds: [
- * //             {
- * //               Description: "STRING_VALUE",
- * //               PrefixListId: "STRING_VALUE",
- * //             },
- * //           ],
- * //           ToPort: Number("int"),
- * //           UserIdGroupPairs: [
- * //             {
- * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
- * //               UserId: "STRING_VALUE",
- * //               VpcId: "STRING_VALUE",
- * //               VpcPeeringConnectionId: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -142,9 +104,48 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * //         },
  * //       ],
  * //       VpcId: "STRING_VALUE",
+ * //       SecurityGroupArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       IpPermissions: [
+ * //         {
+ * //           IpProtocol: "STRING_VALUE",
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //           UserIdGroupPairs: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
+ * //               VpcId: "STRING_VALUE",
+ * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           IpRanges: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               CidrIp: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           Ipv6Ranges: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               CidrIpv6: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           PrefixListIds: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               PrefixListId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -158,38 +159,43 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a security group
  * ```javascript
  * // This example describes the specified security group.
  * const input = {
- *   "GroupIds": [
+ *   GroupIds: [
  *     "sg-903004f8"
  *   ]
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: to-describe-a-security-group-1529354426314
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To describe a tagged security group
  * ```javascript
  * // This example describes the security groups that include the specified tag (Purpose=test).
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "tag:Purpose",
- *       "Values": [
+ *       Name: "tag:Purpose",
+ *       Values: [
  *         "test"
  *       ]
  *     }
  *   ]
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: to-describe-a-tagged-security-group-1529354553880
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeSecurityGroupsCommand extends $Command
   .classBuilder<
@@ -199,9 +205,7 @@ export class DescribeSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +217,16 @@ export class DescribeSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityGroupsCommand)
   .de(de_DescribeSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityGroupsRequest;
+      output: DescribeSecurityGroupsResult;
+    };
+    sdk: {
+      input: DescribeSecurityGroupsCommandInput;
+      output: DescribeSecurityGroupsCommandOutput;
+    };
+  };
+}

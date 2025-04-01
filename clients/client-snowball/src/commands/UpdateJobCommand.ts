@@ -155,22 +155,25 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To update a job
  * ```javascript
  * // This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
  * const input = {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *   "Description": "updated-job-name",
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000",
- *   "ShippingOption": "NEXT_DAY",
- *   "SnowballCapacityPreference": "T100"
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *   Description: "updated-job-name",
+ *   JobId: "JID123e4567-e89b-12d3-a456-426655440000",
+ *   ShippingOption: "NEXT_DAY",
+ *   SnowballCapacityPreference: "T100"
  * };
  * const command = new UpdateJobCommand(input);
- * await client.send(command);
- * // example id: to-update-a-job-1482863556886
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateJobCommand extends $Command
   .classBuilder<
@@ -180,9 +183,7 @@ export class UpdateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +195,16 @@ export class UpdateJobCommand extends $Command
   .f(UpdateJobRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateJobCommand)
   .de(de_UpdateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateJobCommandInput;
+      output: UpdateJobCommandOutput;
+    };
+  };
+}

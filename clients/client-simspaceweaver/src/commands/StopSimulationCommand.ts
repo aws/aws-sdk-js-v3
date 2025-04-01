@@ -72,6 +72,7 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class StopSimulationCommand extends $Command
@@ -82,9 +83,7 @@ export class StopSimulationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class StopSimulationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopSimulationCommand)
   .de(de_StopSimulationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSimulationInput;
+      output: {};
+    };
+    sdk: {
+      input: StopSimulationCommandInput;
+      output: StopSimulationCommandOutput;
+    };
+  };
+}

@@ -84,6 +84,14 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * //           ],
  * //         },
  * //       ],
+ * //       addonCompatibilityDetails: [ // AddonCompatibilityDetails
+ * //         { // AddonCompatibilityDetail
+ * //           name: "STRING_VALUE",
+ * //           compatibleVersions: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };
@@ -107,13 +115,15 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -125,9 +135,7 @@ export class DescribeInsightCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +147,16 @@ export class DescribeInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInsightCommand)
   .de(de_DescribeInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInsightRequest;
+      output: DescribeInsightResponse;
+    };
+    sdk: {
+      input: DescribeInsightCommandInput;
+      output: DescribeInsightCommandOutput;
+    };
+  };
+}

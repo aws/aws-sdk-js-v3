@@ -119,6 +119,7 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CancelEnvironmentDeploymentCommand extends $Command
@@ -129,9 +130,7 @@ export class CancelEnvironmentDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class CancelEnvironmentDeploymentCommand extends $Command
   .f(void 0, CancelEnvironmentDeploymentOutputFilterSensitiveLog)
   .ser(se_CancelEnvironmentDeploymentCommand)
   .de(de_CancelEnvironmentDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelEnvironmentDeploymentInput;
+      output: CancelEnvironmentDeploymentOutput;
+    };
+    sdk: {
+      input: CancelEnvironmentDeploymentCommandInput;
+      output: CancelEnvironmentDeploymentCommandOutput;
+    };
+  };
+}

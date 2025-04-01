@@ -77,6 +77,7 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetUploadStatusCommand extends $Command
@@ -87,9 +88,7 @@ export class GetUploadStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetUploadStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUploadStatusCommand)
   .de(de_GetUploadStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUploadStatusRequest;
+      output: GetUploadStatusResponse;
+    };
+    sdk: {
+      input: GetUploadStatusCommandInput;
+      output: GetUploadStatusCommandOutput;
+    };
+  };
+}

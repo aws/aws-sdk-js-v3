@@ -28,7 +28,7 @@ export interface DeleteImageVersionCommandInput extends DeleteImageVersionReques
 export interface DeleteImageVersionCommandOutput extends DeleteImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
+ * <p>Deletes a version of a SageMaker AI image. The container image the version represents isn't
  *         deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +62,7 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageVersionCommand extends $Command
@@ -72,9 +73,7 @@ export class DeleteImageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class DeleteImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageVersionCommand)
   .de(de_DeleteImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImageVersionCommandInput;
+      output: DeleteImageVersionCommandOutput;
+    };
+  };
+}

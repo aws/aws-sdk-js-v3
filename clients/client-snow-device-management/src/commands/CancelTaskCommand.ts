@@ -79,6 +79,7 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class CancelTaskCommand extends $Command
@@ -89,9 +90,7 @@ export class CancelTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class CancelTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelTaskCommand)
   .de(de_CancelTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelTaskInput;
+      output: CancelTaskOutput;
+    };
+    sdk: {
+      input: CancelTaskCommandInput;
+      output: CancelTaskCommandOutput;
+    };
+  };
+}

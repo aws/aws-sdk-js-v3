@@ -73,6 +73,7 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdatePartnerAccountCommand extends $Command
@@ -83,9 +84,7 @@ export class UpdatePartnerAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class UpdatePartnerAccountCommand extends $Command
   .f(UpdatePartnerAccountRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePartnerAccountCommand)
   .de(de_UpdatePartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePartnerAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePartnerAccountCommandInput;
+      output: UpdatePartnerAccountCommandOutput;
+    };
+  };
+}

@@ -88,6 +88,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Command
@@ -98,9 +99,7 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
   .f(void 0, void 0)
   .ser(se_ListSavingsPlansPurchaseRecommendationGenerationCommand)
   .de(de_ListSavingsPlansPurchaseRecommendationGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSavingsPlansPurchaseRecommendationGenerationRequest;
+      output: ListSavingsPlansPurchaseRecommendationGenerationResponse;
+    };
+    sdk: {
+      input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput;
+      output: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput;
+    };
+  };
+}

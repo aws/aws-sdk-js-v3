@@ -96,6 +96,7 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentTemplateVersionsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command
   .f(void 0, ListEnvironmentTemplateVersionsOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentTemplateVersionsCommand)
   .de(de_ListEnvironmentTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentTemplateVersionsInput;
+      output: ListEnvironmentTemplateVersionsOutput;
+    };
+    sdk: {
+      input: ListEnvironmentTemplateVersionsCommandInput;
+      output: ListEnvironmentTemplateVersionsCommandOutput;
+    };
+  };
+}

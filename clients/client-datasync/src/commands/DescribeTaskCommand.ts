@@ -133,6 +133,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //     DisabledReason: "STRING_VALUE",
  * //     DisabledBy: "USER" || "SERVICE",
  * //   },
+ * //   TaskMode: "BASIC" || "ENHANCED",
  * // };
  *
  * ```
@@ -153,6 +154,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeTaskCommand extends $Command
@@ -163,9 +165,7 @@ export class DescribeTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +177,16 @@ export class DescribeTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTaskCommand)
   .de(de_DescribeTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTaskRequest;
+      output: DescribeTaskResponse;
+    };
+    sdk: {
+      input: DescribeTaskCommandInput;
+      output: DescribeTaskCommandOutput;
+    };
+  };
+}

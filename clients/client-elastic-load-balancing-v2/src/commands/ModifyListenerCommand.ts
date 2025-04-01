@@ -124,6 +124,8 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *     Mode: "STRING_VALUE",
  *     TrustStoreArn: "STRING_VALUE",
  *     IgnoreClientCertificateExpiry: true || false,
+ *     TrustStoreAssociationStatus: "active" || "removed",
+ *     AdvertiseTrustStoreCaNames: "on" || "off",
  *   },
  * };
  * const command = new ModifyListenerCommand(input);
@@ -209,6 +211,8 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * //         Mode: "STRING_VALUE",
  * //         TrustStoreArn: "STRING_VALUE",
  * //         IgnoreClientCertificateExpiry: true || false,
+ * //         TrustStoreAssociationStatus: "active" || "removed",
+ * //         AdvertiseTrustStoreCaNames: "on" || "off",
  * //       },
  * //     },
  * //   ],
@@ -285,82 +289,81 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To change the default action for a listener
  * ```javascript
  * // This example changes the default action for the specified listener.
  * const input = {
- *   "DefaultActions": [
+ *   DefaultActions: [
  *     {
- *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
- *       "Type": "forward"
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
+ *       Type: "forward"
  *     }
  *   ],
- *   "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ *   ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
  * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Listeners": [
+ *   Listeners: [
  *     {
- *       "DefaultActions": [
+ *       DefaultActions: [
  *         {
- *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
- *           "Type": "forward"
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
+ *           Type: "forward"
  *         }
  *       ],
- *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
- *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "Port": 80,
- *       "Protocol": "HTTP"
+ *       ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+ *       LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       Port: 80,
+ *       Protocol: "HTTP"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-listener-1
  * ```
  *
  * @example To change the server certificate
  * ```javascript
  * // This example changes the server certificate for the specified HTTPS listener.
  * const input = {
- *   "Certificates": [
+ *   Certificates: [
  *     {
- *       "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+ *       CertificateArn: "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
  *     }
  *   ],
- *   "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65"
+ *   ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65"
  * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Listeners": [
+ *   Listeners: [
  *     {
- *       "Certificates": [
+ *       Certificates: [
  *         {
- *           "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+ *           CertificateArn: "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
  *         }
  *       ],
- *       "DefaultActions": [
+ *       DefaultActions: [
  *         {
- *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *           "Type": "forward"
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           Type: "forward"
  *         }
  *       ],
- *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65",
- *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "Port": 443,
- *       "Protocol": "HTTPS",
- *       "SslPolicy": "ELBSecurityPolicy-2015-05"
+ *       ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65",
+ *       LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       Port: 443,
+ *       Protocol: "HTTPS",
+ *       SslPolicy: "ELBSecurityPolicy-2015-05"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-listener-2
  * ```
  *
+ * @public
  */
 export class ModifyListenerCommand extends $Command
   .classBuilder<
@@ -370,9 +373,7 @@ export class ModifyListenerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -384,4 +385,16 @@ export class ModifyListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyListenerCommand)
   .de(de_ModifyListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyListenerInput;
+      output: ModifyListenerOutput;
+    };
+    sdk: {
+      input: ModifyListenerCommandInput;
+      output: ModifyListenerCommandOutput;
+    };
+  };
+}

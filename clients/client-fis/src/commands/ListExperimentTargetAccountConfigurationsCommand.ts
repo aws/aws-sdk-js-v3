@@ -78,6 +78,7 @@ export interface ListExperimentTargetAccountConfigurationsCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class ListExperimentTargetAccountConfigurationsCommand extends $Command
@@ -88,9 +89,7 @@ export class ListExperimentTargetAccountConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ListExperimentTargetAccountConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExperimentTargetAccountConfigurationsCommand)
   .de(de_ListExperimentTargetAccountConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperimentTargetAccountConfigurationsRequest;
+      output: ListExperimentTargetAccountConfigurationsResponse;
+    };
+    sdk: {
+      input: ListExperimentTargetAccountConfigurationsCommandInput;
+      output: ListExperimentTargetAccountConfigurationsCommandOutput;
+    };
+  };
+}

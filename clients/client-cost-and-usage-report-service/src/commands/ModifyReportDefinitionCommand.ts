@@ -85,6 +85,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ *
  * @public
  */
 export class ModifyReportDefinitionCommand extends $Command
@@ -95,9 +96,7 @@ export class ModifyReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ModifyReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReportDefinitionCommand)
   .de(de_ModifyReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReportDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyReportDefinitionCommandInput;
+      output: ModifyReportDefinitionCommandOutput;
+    };
+  };
+}

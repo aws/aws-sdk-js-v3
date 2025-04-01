@@ -10,7 +10,7 @@ AWS SDK for JavaScript Macie2 Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-macie2
+To install this package, simply type add or install @aws-sdk/client-macie2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-macie2`

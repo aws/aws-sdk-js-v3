@@ -94,6 +94,7 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class ListMobileSdkReleasesCommand extends $Command
@@ -104,9 +105,7 @@ export class ListMobileSdkReleasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ListMobileSdkReleasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMobileSdkReleasesCommand)
   .de(de_ListMobileSdkReleasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMobileSdkReleasesRequest;
+      output: ListMobileSdkReleasesResponse;
+    };
+    sdk: {
+      input: ListMobileSdkReleasesCommandInput;
+      output: ListMobileSdkReleasesCommandOutput;
+    };
+  };
+}

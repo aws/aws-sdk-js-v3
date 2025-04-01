@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptResourceGroupingRecommendationsCommandInput,
+  AcceptResourceGroupingRecommendationsCommandOutput,
+} from "./commands/AcceptResourceGroupingRecommendationsCommand";
+import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
@@ -130,9 +134,17 @@ import {
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "./commands/DescribeDraftAppVersionResourcesImportStatusCommand";
 import {
+  DescribeMetricsExportCommandInput,
+  DescribeMetricsExportCommandOutput,
+} from "./commands/DescribeMetricsExportCommand";
+import {
   DescribeResiliencyPolicyCommandInput,
   DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
+import {
+  DescribeResourceGroupingRecommendationTaskCommandInput,
+  DescribeResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/DescribeResourceGroupingRecommendationTaskCommand";
 import {
   ImportResourcesToDraftAppVersionCommandInput,
   ImportResourcesToDraftAppVersionCommandOutput,
@@ -176,6 +188,7 @@ import {
   ListAppVersionResourcesCommandOutput,
 } from "./commands/ListAppVersionResourcesCommand";
 import { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "./commands/ListAppVersionsCommand";
+import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListRecommendationTemplatesCommandInput,
   ListRecommendationTemplatesCommandOutput,
@@ -184,6 +197,10 @@ import {
   ListResiliencyPoliciesCommandInput,
   ListResiliencyPoliciesCommandOutput,
 } from "./commands/ListResiliencyPoliciesCommand";
+import {
+  ListResourceGroupingRecommendationsCommandInput,
+  ListResourceGroupingRecommendationsCommandOutput,
+} from "./commands/ListResourceGroupingRecommendationsCommand";
 import {
   ListSopRecommendationsCommandInput,
   ListSopRecommendationsCommandOutput,
@@ -210,6 +227,10 @@ import {
   PutDraftAppVersionTemplateCommandOutput,
 } from "./commands/PutDraftAppVersionTemplateCommand";
 import {
+  RejectResourceGroupingRecommendationsCommandInput,
+  RejectResourceGroupingRecommendationsCommandOutput,
+} from "./commands/RejectResourceGroupingRecommendationsCommand";
+import {
   RemoveDraftAppVersionResourceMappingsCommandInput,
   RemoveDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/RemoveDraftAppVersionResourceMappingsCommand";
@@ -218,6 +239,11 @@ import {
   ResolveAppVersionResourcesCommandOutput,
 } from "./commands/ResolveAppVersionResourcesCommand";
 import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "./commands/StartAppAssessmentCommand";
+import { StartMetricsExportCommandInput, StartMetricsExportCommandOutput } from "./commands/StartMetricsExportCommand";
+import {
+  StartResourceGroupingRecommendationTaskCommandInput,
+  StartResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/StartResourceGroupingRecommendationTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
@@ -249,6 +275,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptResourceGroupingRecommendationsCommandInput
   | AddDraftAppVersionResourceMappingsCommandInput
   | BatchUpdateRecommendationStatusCommandInput
   | CreateAppCommandInput
@@ -271,7 +298,9 @@ export type ServiceInputTypes =
   | DescribeAppVersionResourcesResolutionStatusCommandInput
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
+  | DescribeMetricsExportCommandInput
   | DescribeResiliencyPolicyCommandInput
+  | DescribeResourceGroupingRecommendationTaskCommandInput
   | ImportResourcesToDraftAppVersionCommandInput
   | ListAlarmRecommendationsCommandInput
   | ListAppAssessmentComplianceDriftsCommandInput
@@ -285,8 +314,10 @@ export type ServiceInputTypes =
   | ListAppVersionResourcesCommandInput
   | ListAppVersionsCommandInput
   | ListAppsCommandInput
+  | ListMetricsCommandInput
   | ListRecommendationTemplatesCommandInput
   | ListResiliencyPoliciesCommandInput
+  | ListResourceGroupingRecommendationsCommandInput
   | ListSopRecommendationsCommandInput
   | ListSuggestedResiliencyPoliciesCommandInput
   | ListTagsForResourceCommandInput
@@ -294,9 +325,12 @@ export type ServiceInputTypes =
   | ListUnsupportedAppVersionResourcesCommandInput
   | PublishAppVersionCommandInput
   | PutDraftAppVersionTemplateCommandInput
+  | RejectResourceGroupingRecommendationsCommandInput
   | RemoveDraftAppVersionResourceMappingsCommandInput
   | ResolveAppVersionResourcesCommandInput
   | StartAppAssessmentCommandInput
+  | StartMetricsExportCommandInput
+  | StartResourceGroupingRecommendationTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAppCommandInput
@@ -309,6 +343,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptResourceGroupingRecommendationsCommandOutput
   | AddDraftAppVersionResourceMappingsCommandOutput
   | BatchUpdateRecommendationStatusCommandOutput
   | CreateAppCommandOutput
@@ -331,7 +366,9 @@ export type ServiceOutputTypes =
   | DescribeAppVersionResourcesResolutionStatusCommandOutput
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
+  | DescribeMetricsExportCommandOutput
   | DescribeResiliencyPolicyCommandOutput
+  | DescribeResourceGroupingRecommendationTaskCommandOutput
   | ImportResourcesToDraftAppVersionCommandOutput
   | ListAlarmRecommendationsCommandOutput
   | ListAppAssessmentComplianceDriftsCommandOutput
@@ -345,8 +382,10 @@ export type ServiceOutputTypes =
   | ListAppVersionResourcesCommandOutput
   | ListAppVersionsCommandOutput
   | ListAppsCommandOutput
+  | ListMetricsCommandOutput
   | ListRecommendationTemplatesCommandOutput
   | ListResiliencyPoliciesCommandOutput
+  | ListResourceGroupingRecommendationsCommandOutput
   | ListSopRecommendationsCommandOutput
   | ListSuggestedResiliencyPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -354,9 +393,12 @@ export type ServiceOutputTypes =
   | ListUnsupportedAppVersionResourcesCommandOutput
   | PublishAppVersionCommandOutput
   | PutDraftAppVersionTemplateCommandOutput
+  | RejectResourceGroupingRecommendationsCommandOutput
   | RemoveDraftAppVersionResourceMappingsCommandOutput
   | ResolveAppVersionResourcesCommandOutput
   | StartAppAssessmentCommandOutput
+  | StartMetricsExportCommandOutput
+  | StartResourceGroupingRecommendationTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAppCommandOutput
@@ -457,6 +499,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -502,11 +563,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -522,11 +583,11 @@ export interface ResiliencehubClientConfig extends ResiliencehubClientConfigType
 export type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -557,26 +618,30 @@ export class ResiliencehubClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<ResiliencehubClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultResiliencehubHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: ResiliencehubClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -589,14 +654,5 @@ export class ResiliencehubClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultResiliencehubHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: ResiliencehubClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

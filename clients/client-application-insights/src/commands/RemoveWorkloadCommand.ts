@@ -68,6 +68,7 @@ export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __M
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class RemoveWorkloadCommand extends $Command
@@ -78,9 +79,7 @@ export class RemoveWorkloadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class RemoveWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveWorkloadCommand)
   .de(de_RemoveWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveWorkloadRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveWorkloadCommandInput;
+      output: RemoveWorkloadCommandOutput;
+    };
+  };
+}

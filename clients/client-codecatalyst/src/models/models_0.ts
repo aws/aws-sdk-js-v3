@@ -58,7 +58,7 @@ export interface CreateAccessTokenRequest {
    * <p>The date and time the personal access token expires, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  expiresTime?: Date;
+  expiresTime?: Date | undefined;
 }
 
 /**
@@ -196,13 +196,13 @@ export interface ListAccessTokensRequest {
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface AccessTokenSummary {
    * <p>The date and time when the personal access token will expire, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  expiresTime?: Date;
+  expiresTime?: Date | undefined;
 }
 
 /**
@@ -243,7 +243,7 @@ export interface ListAccessTokensResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -254,13 +254,13 @@ export interface GetUserDetailsRequest {
    * <p>The system-generated unique ID of the user. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the user as displayed in Amazon CodeCatalyst.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 }
 
 /**
@@ -272,13 +272,13 @@ export interface EmailAddress {
    * <p>The email address.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Whether the email address has been verified.</p>
    * @public
    */
-  verified?: boolean;
+  verified?: boolean | undefined;
 }
 
 /**
@@ -289,31 +289,31 @@ export interface GetUserDetailsResponse {
    * <p>The system-generated unique ID of the user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The name of the user as displayed in Amazon CodeCatalyst.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p>The friendly name displayed for the user in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The email address provided by the user when they signed up.</p>
    * @public
    */
-  primaryEmail?: EmailAddress;
+  primaryEmail?: EmailAddress | undefined;
 
   /**
    * <p/>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 }
 
 /**
@@ -341,7 +341,7 @@ export interface DeleteSpaceResponse {
    * <p>The friendly name of the space displayed to users of the space in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -370,19 +370,19 @@ export interface ListEventLogsRequest {
    * <p>The name of the event.</p>
    * @public
    */
-  eventName?: string;
+  eventName?: string | undefined;
 
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -408,13 +408,13 @@ export interface ProjectInformation {
    * <p>The name of the project in the space.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The system-generated unique ID of the project.</p>
    * @public
    */
-  projectId?: string;
+  projectId?: string | undefined;
 }
 
 /**
@@ -426,13 +426,13 @@ export interface EventPayload {
    * <p>The type of content in the event payload.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The data included in the event payload.</p>
    * @public
    */
-  data?: string;
+  data?: string | undefined;
 }
 
 /**
@@ -471,13 +471,13 @@ export interface UserIdentity {
    * <p>The display name of the user in Amazon CodeCatalyst.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account number of the user in Amazon Web Services, if any.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 }
 
 /**
@@ -537,43 +537,43 @@ export interface EventLogEntry {
    * <p>Information about the project where the event occurred.</p>
    * @public
    */
-  projectInformation?: ProjectInformation;
+  projectInformation?: ProjectInformation | undefined;
 
   /**
    * <p>The system-generated unique ID of the request.</p>
    * @public
    */
-  requestId?: string;
+  requestId?: string | undefined;
 
   /**
    * <p>Information about the payload of the request.</p>
    * @public
    */
-  requestPayload?: EventPayload;
+  requestPayload?: EventPayload | undefined;
 
   /**
    * <p>Information about the payload of the response, if any.</p>
    * @public
    */
-  responsePayload?: EventPayload;
+  responsePayload?: EventPayload | undefined;
 
   /**
    * <p>The code of the error, if any.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>The IP address of the user whose actions are recorded in the event.</p>
    * @public
    */
-  sourceIpAddress?: string;
+  sourceIpAddress?: string | undefined;
 
   /**
    * <p>The user agent whose actions are recorded in the event.</p>
    * @public
    */
-  userAgent?: string;
+  userAgent?: string | undefined;
 }
 
 /**
@@ -584,7 +584,7 @@ export interface ListEventLogsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about each event retrieved in the list.</p>
@@ -624,13 +624,13 @@ export interface GetSpaceResponse {
    * <p>The friendly name of the space displayed to users.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the space.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -654,7 +654,7 @@ export interface Filter {
    * <p>The operator used to compare the fields.</p>
    * @public
    */
-  comparisonOperator?: string;
+  comparisonOperator?: string | undefined;
 }
 
 /**
@@ -671,25 +671,25 @@ export interface ListDevEnvironmentsRequest {
    * <p>The name of the project in the space.</p>
    * @public
    */
-  projectName?: string;
+  projectName?: string | undefined;
 
   /**
    * <p>Information about filters to apply to narrow the results returned in the list.</p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -701,13 +701,13 @@ export interface Ide {
    * <p>A link to the IDE runtime image.</p>
    * @public
    */
-  runtime?: string;
+  runtime?: string | undefined;
 
   /**
    * <p>The name of the IDE.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -757,7 +757,7 @@ export interface DevEnvironmentRepositorySummary {
    * <p>The name of the branch in a source repository cloned into the Dev Environment. </p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 }
 
 /**
@@ -789,13 +789,13 @@ export interface DevEnvironmentSummary {
    * <p>The name of the space.</p>
    * @public
    */
-  spaceName?: string;
+  spaceName?: string | undefined;
 
   /**
    * <p>The name of the project in the space.</p>
    * @public
    */
-  projectName?: string;
+  projectName?: string | undefined;
 
   /**
    * <p>The system-generated unique ID for the Dev Environment. </p>
@@ -825,7 +825,7 @@ export interface DevEnvironmentSummary {
    * <p>The reason for the status.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>Information about the repositories that will be cloned into the Dev Environment. If no rvalue is specified, no repository is cloned.</p>
@@ -837,13 +837,13 @@ export interface DevEnvironmentSummary {
    * <p>The user-specified alias for the Dev Environment.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
    * @public
    */
-  ides?: Ide[];
+  ides?: Ide[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type used for the Dev Environment. </p>
@@ -867,7 +867,7 @@ export interface DevEnvironmentSummary {
    * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
    * @public
    */
-  vpcConnectionName?: string;
+  vpcConnectionName?: string | undefined;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface ListDevEnvironmentsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -895,7 +895,7 @@ export interface ListSpacesRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -920,13 +920,13 @@ export interface SpaceSummary {
    * <p>The friendly name of the space displayed to users.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the space.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -937,13 +937,13 @@ export interface ListSpacesResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about the spaces. </p>
    * @public
    */
-  items?: SpaceSummary[];
+  items?: SpaceSummary[] | undefined;
 }
 
 /**
@@ -966,7 +966,7 @@ export interface CreateProjectRequest {
    * <p>The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -977,7 +977,7 @@ export interface CreateProjectResponse {
    * <p>The name of the space.</p>
    * @public
    */
-  spaceName?: string;
+  spaceName?: string | undefined;
 
   /**
    * <p>The name of the project in the space.</p>
@@ -989,13 +989,13 @@ export interface CreateProjectResponse {
    * <p>The friendly name of the project.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface DeleteProjectResponse {
    * <p>The friendly name displayed to users of the project in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -1050,13 +1050,13 @@ export interface IdeConfiguration {
    *          </note>
    * @public
    */
-  runtime?: string;
+  runtime?: string | undefined;
 
   /**
    * <p>The name of the IDE. Valid values include <code>Cloud9</code>, <code>IntelliJ</code>, <code>PyCharm</code>, <code>GoLand</code>, and <code>VSCode</code>.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1090,7 +1090,7 @@ export interface RepositoryInput {
    * <p>The name of the branch in a source repository.</p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 }
 
 /**
@@ -1113,20 +1113,20 @@ export interface CreateDevEnvironmentRequest {
    * <p>The source repository that contains the branch to clone into the Dev Environment. </p>
    * @public
    */
-  repositories?: RepositoryInput[];
+  repositories?: RepositoryInput[] | undefined;
 
   /**
    * <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
    *        With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The user-defined alias for a Dev Environment.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Information about the integrated development environment (IDE) configured for a
@@ -1137,7 +1137,7 @@ export interface CreateDevEnvironmentRequest {
    *          </note>
    * @public
    */
-  ides?: IdeConfiguration[];
+  ides?: IdeConfiguration[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
@@ -1149,7 +1149,7 @@ export interface CreateDevEnvironmentRequest {
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>
    * @public
    */
-  inactivityTimeoutMinutes?: number;
+  inactivityTimeoutMinutes?: number | undefined;
 
   /**
    * <p>Information about the amount of storage allocated to the Dev Environment. </p>
@@ -1167,7 +1167,7 @@ export interface CreateDevEnvironmentRequest {
    * <p>The name of the connection that will be used to connect to Amazon VPC, if any.</p>
    * @public
    */
-  vpcConnectionName?: string;
+  vpcConnectionName?: string | undefined;
 }
 
 /**
@@ -1196,7 +1196,7 @@ export interface CreateDevEnvironmentResponse {
    * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
    * @public
    */
-  vpcConnectionName?: string;
+  vpcConnectionName?: string | undefined;
 }
 
 /**
@@ -1312,7 +1312,7 @@ export interface GetDevEnvironmentResponse {
    * <p>The reason for the status.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The source repository that contains the branch cloned into the Dev Environment. </p>
@@ -1324,13 +1324,13 @@ export interface GetDevEnvironmentResponse {
    * <p>The user-specified alias for the Dev Environment. </p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Information about the integrated development environment (IDE) configured for the Dev Environment. </p>
    * @public
    */
-  ides?: Ide[];
+  ides?: Ide[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
@@ -1354,7 +1354,7 @@ export interface GetDevEnvironmentResponse {
    * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
    * @public
    */
-  vpcConnectionName?: string;
+  vpcConnectionName?: string | undefined;
 }
 
 /**
@@ -1383,13 +1383,13 @@ export interface ListDevEnvironmentSessionsRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1443,7 +1443,7 @@ export interface ListDevEnvironmentSessionsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1472,19 +1472,19 @@ export interface StartDevEnvironmentRequest {
    * <p>Information about the integrated development environment (IDE) configured for a Dev Environment. </p>
    * @public
    */
-  ides?: IdeConfiguration[];
+  ides?: IdeConfiguration[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>
    * @public
    */
-  inactivityTimeoutMinutes?: number;
+  inactivityTimeoutMinutes?: number | undefined;
 }
 
 /**
@@ -1531,7 +1531,7 @@ export interface ExecuteCommandSessionConfiguration {
    * <p>An array of arguments containing arguments and members.</p>
    * @public
    */
-  arguments?: string[];
+  arguments?: string[] | undefined;
 }
 
 /**
@@ -1563,7 +1563,7 @@ export interface DevEnvironmentSessionConfiguration {
    * <p>Information about optional commands that will be run on the Dev Environment when the SSH session begins.</p>
    * @public
    */
-  executeCommandSessionConfiguration?: ExecuteCommandSessionConfiguration;
+  executeCommandSessionConfiguration?: ExecuteCommandSessionConfiguration | undefined;
 }
 
 /**
@@ -1627,7 +1627,7 @@ export interface StartDevEnvironmentSessionResponse {
    * <p>The system-generated unique ID of the Dev Environment session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The name of the space.</p>
@@ -1784,13 +1784,13 @@ export interface UpdateDevEnvironmentRequest {
    * <p>The user-specified alias for the Dev Environment. Changing this value will not cause a restart.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
    * @public
    */
-  ides?: IdeConfiguration[];
+  ides?: IdeConfiguration[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
@@ -1799,7 +1799,7 @@ export interface UpdateDevEnvironmentRequest {
    *          </note>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes.
@@ -1809,14 +1809,14 @@ export interface UpdateDevEnvironmentRequest {
    *          </note>
    * @public
    */
-  inactivityTimeoutMinutes?: number;
+  inactivityTimeoutMinutes?: number | undefined;
 
   /**
    * <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
    *        With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1845,32 +1845,32 @@ export interface UpdateDevEnvironmentResponse {
    * <p>The user-specified alias for the Dev Environment.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Information about the integrated development environment (IDE) configured for the Dev Environment.</p>
    * @public
    */
-  ides?: IdeConfiguration[];
+  ides?: IdeConfiguration[] | undefined;
 
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. </p>
    * @public
    */
-  inactivityTimeoutMinutes?: number;
+  inactivityTimeoutMinutes?: number | undefined;
 
   /**
    * <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
    *        With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1898,7 +1898,7 @@ export interface GetProjectResponse {
    * <p>The name of the space.</p>
    * @public
    */
-  spaceName?: string;
+  spaceName?: string | undefined;
 
   /**
    * <p>The name of the project in the space.</p>
@@ -1910,13 +1910,13 @@ export interface GetProjectResponse {
    * <p>The friendly name of the project displayed to users in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1972,7 +1972,7 @@ export interface ProjectListFilter {
    * <p>The operator used to compare the fields.</p>
    * @public
    */
-  comparisonOperator?: ComparisonOperator;
+  comparisonOperator?: ComparisonOperator | undefined;
 }
 
 /**
@@ -1989,19 +1989,19 @@ export interface ListProjectsRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Information about filters to apply to narrow the results returned in the list.</p>
    * @public
    */
-  filters?: ProjectListFilter[];
+  filters?: ProjectListFilter[] | undefined;
 }
 
 /**
@@ -2019,13 +2019,13 @@ export interface ProjectSummary {
    * <p>The friendly name displayed to users of the project in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2036,13 +2036,13 @@ export interface ListProjectsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about the projects.</p>
    * @public
    */
-  items?: ProjectSummary[];
+  items?: ProjectSummary[] | undefined;
 }
 
 /**
@@ -2071,7 +2071,7 @@ export interface CreateSourceRepositoryRequest {
    * <p>The description of the source repository.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface CreateSourceRepositoryResponse {
    * <p>The description of the source repository.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2198,7 +2198,7 @@ export interface GetSourceRepositoryResponse {
    * <p>The description of the source repository.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time the source repository was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
@@ -2267,13 +2267,13 @@ export interface ListSourceRepositoriesRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2297,7 +2297,7 @@ export interface ListSourceRepositoriesItem {
    * <p>The description of the repository, if any.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time the source repository was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
@@ -2320,13 +2320,13 @@ export interface ListSourceRepositoriesResponse {
    * <p>Information about the source repositories.</p>
    * @public
    */
-  items?: ListSourceRepositoriesItem[];
+  items?: ListSourceRepositoriesItem[] | undefined;
 
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2361,7 +2361,7 @@ export interface CreateSourceRepositoryBranchRequest {
    * <p>The commit ID in an existing branch from which you want to create the new branch.</p>
    * @public
    */
-  headCommitId?: string;
+  headCommitId?: string | undefined;
 }
 
 /**
@@ -2372,25 +2372,25 @@ export interface CreateSourceRepositoryBranchResponse {
    * <p>The Git reference name of the branch.</p>
    * @public
    */
-  ref?: string;
+  ref?: string | undefined;
 
   /**
    * <p>The name of the newly created branch.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The time the branch was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The commit ID of the tip of the newly created branch.</p>
    * @public
    */
-  headCommitId?: string;
+  headCommitId?: string | undefined;
 }
 
 /**
@@ -2419,13 +2419,13 @@ export interface ListSourceRepositoryBranchesRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2437,25 +2437,25 @@ export interface ListSourceRepositoryBranchesItem {
    * <p>The Git reference name of the branch.</p>
    * @public
    */
-  ref?: string;
+  ref?: string | undefined;
 
   /**
    * <p>The name of the branch.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The time the branch was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The commit ID of the tip of the branch at the time of the request, also known as the head commit.</p>
    * @public
    */
-  headCommitId?: string;
+  headCommitId?: string | undefined;
 }
 
 /**
@@ -2466,7 +2466,7 @@ export interface ListSourceRepositoryBranchesResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about the source branches.</p>
@@ -2495,7 +2495,7 @@ export interface UpdateProjectRequest {
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2506,25 +2506,25 @@ export interface UpdateProjectResponse {
    * <p>The name of the space.</p>
    * @public
    */
-  spaceName?: string;
+  spaceName?: string | undefined;
 
   /**
    * <p>The name of the project.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The friendly name of the project displayed to users in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2623,13 +2623,13 @@ export interface GetWorkflowResponse {
    * <p>The name of the source repository where the workflow YAML is stored.</p>
    * @public
    */
-  sourceRepositoryName?: string;
+  sourceRepositoryName?: string | undefined;
 
   /**
    * <p>The name of the branch that contains the workflow YAML.</p>
    * @public
    */
-  sourceBranchName?: string;
+  sourceBranchName?: string | undefined;
 
   /**
    * <p>Information about the workflow definition file for the workflow.</p>
@@ -2691,19 +2691,19 @@ export interface ListWorkflowsRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Information used to sort the items in the returned list.</p>
    * @public
    */
-  sortBy?: WorkflowSortCriteria[];
+  sortBy?: WorkflowSortCriteria[] | undefined;
 }
 
 /**
@@ -2788,13 +2788,13 @@ export interface ListWorkflowsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about the workflows in a project.</p>
    * @public
    */
-  items?: WorkflowSummary[];
+  items?: WorkflowSummary[] | undefined;
 }
 
 /**
@@ -2887,7 +2887,7 @@ export interface GetWorkflowRunResponse {
    * <p>Information about the reasons for the status of the workflow run.</p>
    * @public
    */
-  statusReasons?: WorkflowRunStatusReason[];
+  statusReasons?: WorkflowRunStatusReason[] | undefined;
 
   /**
    * <p>The date and time the workflow run began, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
@@ -2900,7 +2900,7 @@ export interface GetWorkflowRunResponse {
    * <p>The date and time the workflow run ended, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The date and time the workflow run status was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
@@ -2930,7 +2930,7 @@ export interface ListWorkflowRunsRequest {
    * <p>The ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.</p>
    * @public
    */
-  workflowId?: string;
+  workflowId?: string | undefined;
 
   /**
    * <p>The name of the project in the space.</p>
@@ -2942,19 +2942,19 @@ export interface ListWorkflowRunsRequest {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Information used to sort the items in the returned list.</p>
    * @public
    */
-  sortBy?: WorkflowRunSortCriteria[];
+  sortBy?: WorkflowRunSortCriteria[] | undefined;
 }
 
 /**
@@ -2990,7 +2990,7 @@ export interface WorkflowRunSummary {
    * <p>The reasons for the workflow run status.</p>
    * @public
    */
-  statusReasons?: WorkflowRunStatusReason[];
+  statusReasons?: WorkflowRunStatusReason[] | undefined;
 
   /**
    * <p>The date and time the workflow run began, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
@@ -3003,7 +3003,7 @@ export interface WorkflowRunSummary {
    *          </p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The date and time the workflow was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
@@ -3021,13 +3021,13 @@ export interface ListWorkflowRunsResponse {
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Information about the runs of a workflow.</p>
    * @public
    */
-  items?: WorkflowRunSummary[];
+  items?: WorkflowRunSummary[] | undefined;
 }
 
 /**
@@ -3057,7 +3057,7 @@ export interface StartWorkflowRunRequest {
    *        With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3108,13 +3108,13 @@ export interface GetSubscriptionResponse {
    * <p>The type of the billing plan for the space.</p>
    * @public
    */
-  subscriptionType?: string;
+  subscriptionType?: string | undefined;
 
   /**
    * <p>The display name of the Amazon Web Services account used for billing for the space.</p>
    * @public
    */
-  awsAccountName?: string;
+  awsAccountName?: string | undefined;
 
   /**
    * <p>The type of the billing plan that the space will be changed to at the start of the next billing cycle. This applies
@@ -3122,13 +3122,13 @@ export interface GetSubscriptionResponse {
    *     are applied immediately. For more information, see <a href="https://codecatalyst.aws/explore/pricing">Pricing</a>.</p>
    * @public
    */
-  pendingSubscriptionType?: string;
+  pendingSubscriptionType?: string | undefined;
 
   /**
    * <p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
    * @public
    */
-  pendingSubscriptionStartTime?: Date;
+  pendingSubscriptionStartTime?: Date | undefined;
 }
 
 /**
@@ -3145,7 +3145,7 @@ export interface UpdateSpaceRequest {
    * <p>The description of the space.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3156,19 +3156,19 @@ export interface UpdateSpaceResponse {
    * <p>The name of the space.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The friendly name of the space displayed to users in Amazon CodeCatalyst.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the space.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3179,7 +3179,7 @@ export interface VerifySessionResponse {
    * <p>The system-generated unique ID of the user in Amazon CodeCatalyst.</p>
    * @public
    */
-  identity?: string;
+  identity?: string | undefined;
 }
 
 /**

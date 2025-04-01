@@ -80,36 +80,36 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a custom DB cluster endpoint
  * ```javascript
  * // The following example deletes the specified custom DB cluster endpoint.
  * const input = {
- *   "DBClusterEndpointIdentifier": "mycustomendpoint"
+ *   DBClusterEndpointIdentifier: "mycustomendpoint"
  * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomEndpointType": "READER",
- *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
- *   "EndpointType": "CUSTOM",
- *   "ExcludedMembers": [],
- *   "StaticMembers": [
+ *   CustomEndpointType: "READER",
+ *   DBClusterEndpointArn: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
+ *   DBClusterEndpointIdentifier: "mycustomendpoint",
+ *   DBClusterEndpointResourceIdentifier: "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
+ *   DBClusterIdentifier: "mydbcluster",
+ *   Endpoint: "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
+ *   EndpointType: "CUSTOM",
+ *   ExcludedMembers:   [],
+ *   StaticMembers: [
  *     "dbinstance1",
  *     "dbinstance2",
  *     "dbinstance3"
  *   ],
- *   "Status": "deleting"
+ *   Status: "deleting"
  * }
  * *\/
- * // example id: to-delete-a-custom-db-cluster-endpoint-1679960663390
  * ```
  *
+ * @public
  */
 export class DeleteDBClusterEndpointCommand extends $Command
   .classBuilder<
@@ -119,9 +119,7 @@ export class DeleteDBClusterEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +131,16 @@ export class DeleteDBClusterEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterEndpointCommand)
   .de(de_DeleteDBClusterEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterEndpointMessage;
+      output: DBClusterEndpoint;
+    };
+    sdk: {
+      input: DeleteDBClusterEndpointCommandInput;
+      output: DeleteDBClusterEndpointCommandOutput;
+    };
+  };
+}

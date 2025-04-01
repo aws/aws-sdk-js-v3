@@ -35,11 +35,11 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  *          <p>The reboot causes the contents of the cache (for each cache node being rebooted) to be
  *             lost.</p>
  *          <p>When the reboot is complete, a cluster event is created.</p>
- *          <p>Rebooting a cluster is currently supported on Memcached and Redis (cluster mode
- *             disabled) clusters. Rebooting is not supported on Redis (cluster mode enabled)
+ *          <p>Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode
+ *             disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled)
  *             clusters.</p>
- *          <p>If you make changes to parameters that require a Redis (cluster mode enabled) cluster
- *             reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html">Rebooting a Cluster</a> for an alternate process.</p>
+ *          <p>If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster
+ *             reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html">Rebooting a Cluster</a> for an alternate process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -186,51 +186,51 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example RebootCacheCluster
  * ```javascript
  * // Reboots the specified nodes in the names cluster.
  * const input = {
- *   "CacheClusterId": "custom-mem1-4  ",
- *   "CacheNodeIdsToReboot": [
+ *   CacheClusterId: "custom-mem1-4  ",
+ *   CacheNodeIdsToReboot: [
  *     "0001",
  *     "0002"
  *   ]
  * };
  * const command = new RebootCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-21T21:59:43.794Z",
- *     "CacheClusterId": "my-mem-cluster",
- *     "CacheClusterStatus": "rebooting cache cluster nodes",
- *     "CacheNodeType": "cache.t2.medium",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.memcached1.4",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-21T21:59:43.794Z",
+ *     CacheClusterId: "my-mem-cluster",
+ *     CacheClusterStatus: "rebooting cache cluster nodes",
+ *     CacheNodeType: "cache.t2.medium",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.memcached1.4",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "ConfigurationEndpoint": {
- *       "Address": "my-mem-cluster.abcdef.cfg.use1.cache.amazonaws.com",
- *       "Port": 11211
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     ConfigurationEndpoint: {
+ *       Address: "my-mem-cluster.abcdef.cfg.use1.cache.amazonaws.com",
+ *       Port: 11211
  *     },
- *     "Engine": "memcached",
- *     "EngineVersion": "1.4.24",
- *     "NumCacheNodes": 2,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "Multiple",
- *     "PreferredMaintenanceWindow": "wed:06:00-wed:07:00"
+ *     Engine: "memcached",
+ *     EngineVersion: "1.4.24",
+ *     NumCacheNodes: 2,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "Multiple",
+ *     PreferredMaintenanceWindow: "wed:06:00-wed:07:00"
  *   }
  * }
  * *\/
- * // example id: rebootcachecluster-1482969019505
  * ```
  *
+ * @public
  */
 export class RebootCacheClusterCommand extends $Command
   .classBuilder<
@@ -240,9 +240,7 @@ export class RebootCacheClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -254,4 +252,16 @@ export class RebootCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootCacheClusterCommand)
   .de(de_RebootCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootCacheClusterMessage;
+      output: RebootCacheClusterResult;
+    };
+    sdk: {
+      input: RebootCacheClusterCommandInput;
+      output: RebootCacheClusterCommandOutput;
+    };
+  };
+}

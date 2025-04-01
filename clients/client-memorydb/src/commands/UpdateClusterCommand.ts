@@ -48,6 +48,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *   SnapshotWindow: "STRING_VALUE",
  *   SnapshotRetentionLimit: Number("int"),
  *   NodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   ReplicaConfiguration: { // ReplicaConfigurationRequest
  *     ReplicaCount: Number("int"),
@@ -80,6 +81,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     MultiRegionClusterName: "STRING_VALUE",
  * //     NumberOfShards: Number("int"),
  * //     Shards: [ // ShardList
  * //       { // Shard
@@ -107,6 +109,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",
@@ -191,6 +194,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterCommand extends $Command
@@ -201,9 +205,7 @@ export class UpdateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -215,4 +217,16 @@ export class UpdateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClusterCommand)
   .de(de_UpdateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterRequest;
+      output: UpdateClusterResponse;
+    };
+    sdk: {
+      input: UpdateClusterCommandInput;
+      output: UpdateClusterCommandOutput;
+    };
+  };
+}

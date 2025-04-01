@@ -117,6 +117,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateReplicationConfigurationTemplateCommand extends $Command
@@ -127,9 +128,7 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command
   )
   .ser(se_UpdateReplicationConfigurationTemplateCommand)
   .de(de_UpdateReplicationConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationConfigurationTemplateRequest;
+      output: ReplicationConfigurationTemplate;
+    };
+    sdk: {
+      input: UpdateReplicationConfigurationTemplateCommandInput;
+      output: UpdateReplicationConfigurationTemplateCommandOutput;
+    };
+  };
+}

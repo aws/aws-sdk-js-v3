@@ -64,42 +64,42 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The key value store entity was not found.</p>
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To describe a KeyValueStore
  * ```javascript
  * // Use the following command to describe a KeyValueStore.
  * const input = {
- *   "Name": "my-keyvaluestore-name"
+ *   Name: "my-keyvaluestore-name"
  * };
  * const command = new DescribeKeyValueStoreCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "ETVPDKIKX0DER",
- *   "KeyValueStore": {
- *     "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "Comment": "my-key-valuestore-comment",
- *     "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "LastModifiedTime": "2023-11-07T18:20:33.056Z",
- *     "Name": "my-keyvaluestore-name",
- *     "Status": "READY"
+ *   ETag: "ETVPDKIKX0DER",
+ *   KeyValueStore: {
+ *     ARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     Comment: "my-key-valuestore-comment",
+ *     Id: "54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     LastModifiedTime: "2023-11-07T18:20:33.056Z",
+ *     Name: "my-keyvaluestore-name",
+ *     Status: "READY"
  *   }
  * }
  * *\/
- * // example id: to-describe-a-key-value-store-1699751788152
  * ```
  *
+ * @public
  */
 export class DescribeKeyValueStoreCommand extends $Command
   .classBuilder<
@@ -109,9 +109,7 @@ export class DescribeKeyValueStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +121,16 @@ export class DescribeKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyValueStoreCommand)
   .de(de_DescribeKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyValueStoreRequest;
+      output: DescribeKeyValueStoreResult;
+    };
+    sdk: {
+      input: DescribeKeyValueStoreCommandInput;
+      output: DescribeKeyValueStoreCommandOutput;
+    };
+  };
+}

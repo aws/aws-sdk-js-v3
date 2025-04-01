@@ -66,6 +66,12 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -80,6 +86,7 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteVerifiedAccessInstanceCommand extends $Command
@@ -90,9 +97,7 @@ export class DeleteVerifiedAccessInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +109,16 @@ export class DeleteVerifiedAccessInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedAccessInstanceCommand)
   .de(de_DeleteVerifiedAccessInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedAccessInstanceRequest;
+      output: DeleteVerifiedAccessInstanceResult;
+    };
+    sdk: {
+      input: DeleteVerifiedAccessInstanceCommandInput;
+      output: DeleteVerifiedAccessInstanceCommandOutput;
+    };
+  };
+}

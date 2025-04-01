@@ -85,6 +85,7 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListHostKeysCommand extends $Command
@@ -95,9 +96,7 @@ export class ListHostKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListHostKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostKeysCommand)
   .de(de_ListHostKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostKeysRequest;
+      output: ListHostKeysResponse;
+    };
+    sdk: {
+      input: ListHostKeysCommandInput;
+      output: ListHostKeysCommandOutput;
+    };
+  };
+}

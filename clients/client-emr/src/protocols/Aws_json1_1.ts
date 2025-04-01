@@ -832,7 +832,7 @@ export const se_ModifyInstanceFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyInstanceFleet");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2407,6 +2407,7 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
  */
 const se_InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeContext): any => {
   return take(input, {
+    Context: [],
     InstanceFleetType: [],
     InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
     LaunchSpecifications: _json,
@@ -2428,7 +2429,19 @@ const se_InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __Ser
     });
 };
 
-// se_InstanceFleetModifyConfig omitted.
+/**
+ * serializeAws_json1_1InstanceFleetModifyConfig
+ */
+const se_InstanceFleetModifyConfig = (input: InstanceFleetModifyConfig, context: __SerdeContext): any => {
+  return take(input, {
+    Context: [],
+    InstanceFleetId: [],
+    InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
+    ResizeSpecifications: _json,
+    TargetOnDemandCapacity: [],
+    TargetSpotCapacity: [],
+  });
+};
 
 // se_InstanceFleetProvisioningSpecifications omitted.
 
@@ -2609,7 +2622,15 @@ const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, cont
 
 // se_ModifyClusterInput omitted.
 
-// se_ModifyInstanceFleetInput omitted.
+/**
+ * serializeAws_json1_1ModifyInstanceFleetInput
+ */
+const se_ModifyInstanceFleetInput = (input: ModifyInstanceFleetInput, context: __SerdeContext): any => {
+  return take(input, {
+    ClusterId: [],
+    InstanceFleet: (_) => se_InstanceFleetModifyConfig(_, context),
+  });
+};
 
 /**
  * serializeAws_json1_1ModifyInstanceGroupsInput
@@ -3191,6 +3212,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
  */
 const de_InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
   return take(output, {
+    Context: __expectString,
     Id: __expectString,
     InstanceFleetType: __expectString,
     InstanceTypeSpecifications: (_: any) => de_InstanceTypeSpecificationList(_, context),

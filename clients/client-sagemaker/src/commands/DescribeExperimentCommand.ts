@@ -87,6 +87,7 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeExperimentCommand extends $Command
@@ -97,9 +98,7 @@ export class DescribeExperimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DescribeExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExperimentCommand)
   .de(de_DescribeExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExperimentRequest;
+      output: DescribeExperimentResponse;
+    };
+    sdk: {
+      input: DescribeExperimentCommandInput;
+      output: DescribeExperimentCommandOutput;
+    };
+  };
+}

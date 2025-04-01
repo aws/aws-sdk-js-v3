@@ -135,6 +135,7 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  *       Key: "STRING_VALUE",
  *     },
  *   ],
+ *   BillingViewArn: "STRING_VALUE",
  *   NextPageToken: "STRING_VALUE",
  * };
  * const command = new GetCostAndUsageWithResourcesCommand(input);
@@ -209,8 +210,12 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
+ *
  *
  * @public
  */
@@ -222,9 +227,7 @@ export class GetCostAndUsageWithResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -236,4 +239,16 @@ export class GetCostAndUsageWithResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostAndUsageWithResourcesCommand)
   .de(de_GetCostAndUsageWithResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostAndUsageWithResourcesRequest;
+      output: GetCostAndUsageWithResourcesResponse;
+    };
+    sdk: {
+      input: GetCostAndUsageWithResourcesCommandInput;
+      output: GetCostAndUsageWithResourcesCommandOutput;
+    };
+  };
+}

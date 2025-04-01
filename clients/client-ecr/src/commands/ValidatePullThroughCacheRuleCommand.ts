@@ -54,6 +54,8 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * //   registryId: "STRING_VALUE",
  * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   credentialArn: "STRING_VALUE",
+ * //   customRoleArn: "STRING_VALUE",
+ * //   upstreamRepositoryPrefix: "STRING_VALUE",
  * //   isValid: true || false,
  * //   failure: "STRING_VALUE",
  * // };
@@ -83,6 +85,7 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class ValidatePullThroughCacheRuleCommand extends $Command
@@ -93,9 +96,7 @@ export class ValidatePullThroughCacheRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class ValidatePullThroughCacheRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidatePullThroughCacheRuleCommand)
   .de(de_ValidatePullThroughCacheRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidatePullThroughCacheRuleRequest;
+      output: ValidatePullThroughCacheRuleResponse;
+    };
+    sdk: {
+      input: ValidatePullThroughCacheRuleCommandInput;
+      output: ValidatePullThroughCacheRuleCommandOutput;
+    };
+  };
+}

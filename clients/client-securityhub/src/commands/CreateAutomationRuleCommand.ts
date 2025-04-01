@@ -259,76 +259,76 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To create an automation rule
  * ```javascript
  * // The following example creates an automation rule.
  * const input = {
- *   "Actions": [
+ *   Actions: [
  *     {
- *       "FindingFieldsUpdate": {
- *         "Note": {
- *           "Text": "This is a critical S3 bucket, please look into this ASAP",
- *           "UpdatedBy": "test-user"
+ *       FindingFieldsUpdate: {
+ *         Note: {
+ *           Text: "This is a critical S3 bucket, please look into this ASAP",
+ *           UpdatedBy: "test-user"
  *         },
- *         "Severity": {
- *           "Label": "CRITICAL"
+ *         Severity: {
+ *           Label: "CRITICAL"
  *         }
  *       },
- *       "Type": "FINDING_FIELDS_UPDATE"
+ *       Type: "FINDING_FIELDS_UPDATE"
  *     }
  *   ],
- *   "Criteria": {
- *     "ComplianceStatus": [
+ *   Criteria: {
+ *     ComplianceStatus: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "FAILED"
+ *         Comparison: "EQUALS",
+ *         Value: "FAILED"
  *       }
  *     ],
- *     "ProductName": [
+ *     ProductName: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "Security Hub"
+ *         Comparison: "EQUALS",
+ *         Value: "Security Hub"
  *       }
  *     ],
- *     "RecordState": [
+ *     RecordState: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "ACTIVE"
+ *         Comparison: "EQUALS",
+ *         Value: "ACTIVE"
  *       }
  *     ],
- *     "ResourceId": [
+ *     ResourceId: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "arn:aws:s3:::examplebucket/developers/design_info.doc"
+ *         Comparison: "EQUALS",
+ *         Value: "arn:aws:s3:::examplebucket/developers/design_info.doc"
  *       }
  *     ],
- *     "WorkflowStatus": [
+ *     WorkflowStatus: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "NEW"
+ *         Comparison: "EQUALS",
+ *         Value: "NEW"
  *       }
  *     ]
  *   },
- *   "Description": "Elevate finding severity to Critical for important resources",
- *   "IsTerminal": false,
- *   "RuleName": "Elevate severity for important resources",
- *   "RuleOrder": 1,
- *   "RuleStatus": "ENABLED",
- *   "Tags": {
- *     "important-resources-rule": "s3-bucket"
+ *   Description: "Elevate finding severity to Critical for important resources",
+ *   IsTerminal: false,
+ *   RuleName: "Elevate severity for important resources",
+ *   RuleOrder: 1,
+ *   RuleStatus: "ENABLED",
+ *   Tags: {
+ *     important-resources-rule: "s3-bucket"
  *   }
  * };
  * const command = new CreateAutomationRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
- * // example id: to-create-an-automation-rule-1684768393507
  * ```
  *
+ * @public
  */
 export class CreateAutomationRuleCommand extends $Command
   .classBuilder<
@@ -338,9 +338,7 @@ export class CreateAutomationRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -352,4 +350,16 @@ export class CreateAutomationRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAutomationRuleCommand)
   .de(de_CreateAutomationRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutomationRuleRequest;
+      output: CreateAutomationRuleResponse;
+    };
+    sdk: {
+      input: CreateAutomationRuleCommandInput;
+      output: CreateAutomationRuleCommandOutput;
+    };
+  };
+}

@@ -83,6 +83,39 @@ export interface ListWorkloadDeploymentPatternsCommandOutput
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List all available workloads supported by AWS Launch Wizard.
+ * ```javascript
+ * //
+ * const input = {
+ *   workloadName: "SAP"
+ * };
+ * const command = new ListWorkloadDeploymentPatternsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloadDeploymentPatterns: [
+ *     {
+ *       deploymentPatternName: "SapHanaHA",
+ *       description: "Deployment Option Description",
+ *       displayName: "Deployment Option Display Name",
+ *       status: "ACTIVE",
+ *       workloadName: "SAP",
+ *       workloadVersionName: "2023-08-02-01-00-00"
+ *     },
+ *     {
+ *       deploymentPatternName: "SapHanaMulti",
+ *       description: "Deployment Option Description",
+ *       displayName: "Deployment Option Display Name",
+ *       status: "ACTIVE",
+ *       workloadName: "SAP",
+ *       workloadVersionName: "2023-08-02-01-00-00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListWorkloadDeploymentPatternsCommand extends $Command
@@ -93,9 +126,7 @@ export class ListWorkloadDeploymentPatternsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +138,16 @@ export class ListWorkloadDeploymentPatternsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadDeploymentPatternsCommand)
   .de(de_ListWorkloadDeploymentPatternsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadDeploymentPatternsInput;
+      output: ListWorkloadDeploymentPatternsOutput;
+    };
+    sdk: {
+      input: ListWorkloadDeploymentPatternsCommandInput;
+      output: ListWorkloadDeploymentPatternsCommandOutput;
+    };
+  };
+}

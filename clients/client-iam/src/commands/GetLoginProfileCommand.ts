@@ -45,7 +45,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * // const { IAMClient, GetLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
  * };
  * const command = new GetLoginProfileCommand(input);
  * const response = await client.send(command);
@@ -76,26 +76,26 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get password information for an IAM user
  * ```javascript
  * // The following command gets information about the password for the IAM user named Anika.
  * const input = {
- *   "UserName": "Anika"
+ *   UserName: "Anika"
  * };
  * const command = new GetLoginProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoginProfile": {
- *     "CreateDate": "2012-09-21T23:03:39Z",
- *     "UserName": "Anika"
+ *   LoginProfile: {
+ *     CreateDate: "2012-09-21T23:03:39Z",
+ *     UserName: "Anika"
  *   }
  * }
  * *\/
- * // example id: d6b580cc-909f-4925-9caa-d425cbc1ad47
  * ```
  *
+ * @public
  */
 export class GetLoginProfileCommand extends $Command
   .classBuilder<
@@ -105,9 +105,7 @@ export class GetLoginProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +117,16 @@ export class GetLoginProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoginProfileCommand)
   .de(de_GetLoginProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoginProfileRequest;
+      output: GetLoginProfileResponse;
+    };
+    sdk: {
+      input: GetLoginProfileCommandInput;
+      output: GetLoginProfileCommandOutput;
+    };
+  };
+}

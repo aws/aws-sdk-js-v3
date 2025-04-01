@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteProjectInput, DeleteProjectOutput } from "../models/models_0";
+import { DeleteProjectInput, DeleteProjectOutput } from "../models/models_1";
 import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -73,6 +73,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteProjectCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectCommand)
   .de(de_DeleteProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectCommandInput;
+      output: DeleteProjectCommandOutput;
+    };
+  };
+}

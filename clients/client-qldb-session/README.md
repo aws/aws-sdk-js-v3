@@ -30,7 +30,7 @@ QLDB shell</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-qldb-session
+To install this package, simply type add or install @aws-sdk/client-qldb-session
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-qldb-session`

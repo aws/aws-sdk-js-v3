@@ -81,6 +81,7 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceLocationCommand extends $Command
@@ -91,9 +92,7 @@ export class DescribeSourceLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DescribeSourceLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSourceLocationCommand)
   .de(de_DescribeSourceLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSourceLocationRequest;
+      output: DescribeSourceLocationResponse;
+    };
+    sdk: {
+      input: DescribeSourceLocationCommandInput;
+      output: DescribeSourceLocationCommandOutput;
+    };
+  };
+}

@@ -33,17 +33,23 @@ export interface CreateAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a custom composite model from specified property and hierarchy definitions. There are two types of custom composite models,
- *       <code>inline</code> and <code>component-model-based</code>. </p>
- *          <p>Use component-model-based custom composite models to define standard, reusable components.  A component-model-based custom composite model consists of a name,
- *       a description, and the ID of the component model it references. A component-model-based custom composite model has no properties of its own; its referenced
- *       component model provides its associated properties to any created assets. For more information, see
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a> in the
- *       <i>IoT SiteWise User Guide</i>.</p>
- *          <p>Use inline custom composite models to organize the properties of an asset model. The properties of inline custom composite models are local to the asset model where they are
- *     included and can't be used to create multiple assets.</p>
- *          <p>To create a component-model-based model, specify the <code>composedAssetModelId</code> of an existing asset model with <code>assetModelType</code> of <code>COMPONENT_MODEL</code>.</p>
- *          <p>To create an inline model, specify the <code>assetModelCompositeModelProperties</code> and don't include an <code>composedAssetModelId</code>.</p>
+ * <p>Creates a custom composite model from specified property and hierarchy definitions. There
+ *       are two types of custom composite models, <code>inline</code> and
+ *         <code>component-model-based</code>. </p>
+ *          <p>Use component-model-based custom composite models to define standard, reusable components.
+ *       A component-model-based custom composite model consists of a name, a description, and the ID
+ *       of the component model it references. A component-model-based custom composite model has no
+ *       properties of its own; its referenced component model provides its associated properties to
+ *       any created assets. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a>
+ *       in the <i>IoT SiteWise User Guide</i>.</p>
+ *          <p>Use inline custom composite models to organize the properties of an asset model. The
+ *       properties of inline custom composite models are local to the asset model where they are
+ *       included and can't be used to create multiple assets.</p>
+ *          <p>To create a component-model-based model, specify the <code>composedAssetModelId</code> of
+ *       an existing asset model with <code>assetModelType</code> of
+ *       <code>COMPONENT_MODEL</code>.</p>
+ *          <p>To create an inline model, specify the <code>assetModelCompositeModelProperties</code> and
+ *       don't include an <code>composedAssetModelId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +58,8 @@ export interface CreateAssetModelCompositeModelCommandOutput
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAssetModelCompositeModelRequest
  *   assetModelId: "STRING_VALUE", // required
- *   parentAssetModelCompositeModelId: "STRING_VALUE",
  *   assetModelCompositeModelExternalId: "STRING_VALUE",
+ *   parentAssetModelCompositeModelId: "STRING_VALUE",
  *   assetModelCompositeModelId: "STRING_VALUE",
  *   assetModelCompositeModelDescription: "STRING_VALUE",
  *   assetModelCompositeModelName: "STRING_VALUE", // required
@@ -62,6 +68,8 @@ export interface CreateAssetModelCompositeModelCommandOutput
  *   composedAssetModelId: "STRING_VALUE",
  *   assetModelCompositeModelProperties: [ // AssetModelPropertyDefinitions
  *     { // AssetModelPropertyDefinition
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -129,10 +137,11 @@ export interface CreateAssetModelCompositeModelCommandOutput
  *           },
  *         },
  *       },
- *       id: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new CreateAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -184,6 +193,10 @@ export interface CreateAssetModelCompositeModelCommandOutput
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
+ *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>
  *
@@ -199,6 +212,7 @@ export interface CreateAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreateAssetModelCompositeModelCommand extends $Command
@@ -209,9 +223,7 @@ export class CreateAssetModelCompositeModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -223,4 +235,16 @@ export class CreateAssetModelCompositeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssetModelCompositeModelCommand)
   .de(de_CreateAssetModelCompositeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetModelCompositeModelRequest;
+      output: CreateAssetModelCompositeModelResponse;
+    };
+    sdk: {
+      input: CreateAssetModelCompositeModelCommandInput;
+      output: CreateAssetModelCompositeModelCommandOutput;
+    };
+  };
+}

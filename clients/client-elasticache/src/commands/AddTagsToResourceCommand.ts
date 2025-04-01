@@ -31,13 +31,13 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * <p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags
  *             to categorize and track all your ElastiCache resources, with the exception of global
  *             replication group. When you add or remove tags on replication groups, those actions will
- *             be replicated to all nodes in the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+ *             be replicated to all nodes in the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
  *          <p> For example, you can use cost-allocation tags to your ElastiCache resources, Amazon
  *             generates a cost allocation report as a comma-separated value (CSV) file with your usage
  *             and costs aggregated by your tags. You can apply tags that represent business categories
  *             (such as cost centers, application names, or owners) to organize your costs across
  *             multiple services.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Using Cost Allocation Tags in
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Tagging.html">Using Cost Allocation Tags in
  *                 Amazon ElastiCache</a> in the <i>ElastiCache User
  *             Guide</i>.</p>
  * @example
@@ -97,7 +97,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *  <p>The requested replication group is not in the <code>available</code> state.</p>
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ *  <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
  *  <p>The account for these credentials is not currently active.</p>
@@ -112,7 +112,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
@@ -131,42 +131,42 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example AddTagsToResource
  * ```javascript
  * // Adds up to 10 tags, key/value pairs, to a cluster or snapshot resource.
  * const input = {
- *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
- *   "Tags": [
+ *   ResourceName: "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
+ *   Tags: [
  *     {
- *       "Key": "APIVersion",
- *       "Value": "20150202"
+ *       Key: "APIVersion",
+ *       Value: "20150202"
  *     },
  *     {
- *       "Key": "Service",
- *       "Value": "ElastiCache"
+ *       Key: "Service",
+ *       Value: "ElastiCache"
  *     }
  *   ]
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "APIVersion",
- *       "Value": "20150202"
+ *       Key: "APIVersion",
+ *       Value: "20150202"
  *     },
  *     {
- *       "Key": "Service",
- *       "Value": "ElastiCache"
+ *       Key: "Service",
+ *       Value: "ElastiCache"
  *     }
  *   ]
  * }
  * *\/
- * // example id: addtagstoresource-1482430264385
  * ```
  *
+ * @public
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<
@@ -176,9 +176,7 @@ export class AddTagsToResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +188,16 @@ export class AddTagsToResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToResourceCommand)
   .de(de_AddTagsToResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToResourceMessage;
+      output: TagListMessage;
+    };
+    sdk: {
+      input: AddTagsToResourceCommandInput;
+      output: AddTagsToResourceCommandOutput;
+    };
+  };
+}

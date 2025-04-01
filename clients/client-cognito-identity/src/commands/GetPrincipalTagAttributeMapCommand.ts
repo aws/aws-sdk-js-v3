@@ -30,7 +30,8 @@ export interface GetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+ * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between
+ *             <code>PrincipalTags</code> and user attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +80,7 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class GetPrincipalTagAttributeMapCommand extends $Command
@@ -89,9 +91,7 @@ export class GetPrincipalTagAttributeMapCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetPrincipalTagAttributeMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPrincipalTagAttributeMapCommand)
   .de(de_GetPrincipalTagAttributeMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrincipalTagAttributeMapInput;
+      output: GetPrincipalTagAttributeMapResponse;
+    };
+    sdk: {
+      input: GetPrincipalTagAttributeMapCommandInput;
+      output: GetPrincipalTagAttributeMapCommandOutput;
+    };
+  };
+}

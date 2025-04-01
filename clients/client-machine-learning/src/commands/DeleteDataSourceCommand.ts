@@ -67,6 +67,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSourceCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataSourceCommand)
   .de(de_DeleteDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSourceInput;
+      output: DeleteDataSourceOutput;
+    };
+    sdk: {
+      input: DeleteDataSourceCommandInput;
+      output: DeleteDataSourceCommandOutput;
+    };
+  };
+}

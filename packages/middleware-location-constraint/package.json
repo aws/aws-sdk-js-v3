@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-location-constraint",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-location-constraint",
@@ -9,8 +9,10 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest",
-    "test:integration": "jest -c jest.config.integ.js"
+    "test": "yarn g:vitest run",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "test:watch": "yarn g:vitest watch",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,11 +24,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^3.3.0",
+    "@smithy/types": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -49,6 +51,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   }
 }

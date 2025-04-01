@@ -74,6 +74,7 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class ListExtensionsCommand extends $Command
@@ -84,9 +85,7 @@ export class ListExtensionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class ListExtensionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExtensionsCommand)
   .de(de_ListExtensionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExtensionsRequest;
+      output: Extensions;
+    };
+    sdk: {
+      input: ListExtensionsCommandInput;
+      output: ListExtensionsCommandOutput;
+    };
+  };
+}

@@ -57,7 +57,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       workerCount: Number("int"), // required
  *     },
  *   },
- *   connectorConfiguration: { // __sensitive__mapOf__string // required
+ *   connectorConfiguration: { // ConnectorConfiguration // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   connectorDescription: "STRING_VALUE",
@@ -166,6 +166,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command
@@ -176,9 +177,7 @@ export class CreateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +189,16 @@ export class CreateConnectorCommand extends $Command
   .f(CreateConnectorRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectorCommand)
   .de(de_CreateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorRequest;
+      output: CreateConnectorResponse;
+    };
+    sdk: {
+      input: CreateConnectorCommandInput;
+      output: CreateConnectorCommandOutput;
+    };
+  };
+}

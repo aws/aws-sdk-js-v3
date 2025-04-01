@@ -13,10 +13,13 @@ define data collection rules to transfer only high-value data to the cloud.
 </p>
 <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+<important>
+<p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+</important>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotfleetwise
+To install this package, simply type add or install @aws-sdk/client-iotfleetwise
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotfleetwise`
@@ -275,6 +278,14 @@ CreateSignalCatalog
 </details>
 <details>
 <summary>
+CreateStateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateStateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateStateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateStateTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateVehicle
 </summary>
 
@@ -319,6 +330,14 @@ DeleteSignalCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteSignalCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteStateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteStateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteStateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteStateTemplateCommandOutput/)
 
 </details>
 <details>
@@ -399,6 +418,14 @@ GetSignalCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetSignalCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetStateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetStateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetStateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetStateTemplateCommandOutput/)
 
 </details>
 <details>
@@ -515,6 +542,14 @@ ListSignalCatalogs
 </details>
 <details>
 <summary>
+ListStateTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListStateTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListStateTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListStateTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -615,6 +650,14 @@ UpdateSignalCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateSignalCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateStateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateStateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateStateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateStateTemplateCommandOutput/)
 
 </details>
 <details>

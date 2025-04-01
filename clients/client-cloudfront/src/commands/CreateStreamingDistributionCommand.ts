@@ -178,6 +178,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class CreateStreamingDistributionCommand extends $Command
@@ -188,9 +189,7 @@ export class CreateStreamingDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +201,16 @@ export class CreateStreamingDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStreamingDistributionCommand)
   .de(de_CreateStreamingDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamingDistributionRequest;
+      output: CreateStreamingDistributionResult;
+    };
+    sdk: {
+      input: CreateStreamingDistributionCommandInput;
+      output: CreateStreamingDistributionCommandOutput;
+    };
+  };
+}

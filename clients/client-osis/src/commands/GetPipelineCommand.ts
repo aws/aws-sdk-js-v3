@@ -136,6 +136,7 @@ export interface GetPipelineCommandOutput extends GetPipelineResponse, __Metadat
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class GetPipelineCommand extends $Command
@@ -146,9 +147,7 @@ export class GetPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class GetPipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPipelineCommand)
   .de(de_GetPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPipelineRequest;
+      output: GetPipelineResponse;
+    };
+    sdk: {
+      input: GetPipelineCommandInput;
+      output: GetPipelineCommandOutput;
+    };
+  };
+}

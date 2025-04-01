@@ -45,6 +45,7 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *   HubContentDescription: "STRING_VALUE",
  *   HubContentMarkdown: "STRING_VALUE",
  *   HubContentDocument: "STRING_VALUE", // required
+ *   SupportStatus: "Supported" || "Deprecated" || "Restricted",
  *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  *     "STRING_VALUE",
  *   ],
@@ -83,6 +84,7 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ImportHubContentCommand extends $Command
@@ -93,9 +95,7 @@ export class ImportHubContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ImportHubContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportHubContentCommand)
   .de(de_ImportHubContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportHubContentRequest;
+      output: ImportHubContentResponse;
+    };
+    sdk: {
+      input: ImportHubContentCommandInput;
+      output: ImportHubContentCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/models_0";
+import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/models_1";
 import { de_GetThreatIntelSetCommand, se_GetThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -68,6 +68,7 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetThreatIntelSetCommand extends $Command
@@ -78,9 +79,7 @@ export class GetThreatIntelSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class GetThreatIntelSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetThreatIntelSetCommand)
   .de(de_GetThreatIntelSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThreatIntelSetRequest;
+      output: GetThreatIntelSetResponse;
+    };
+    sdk: {
+      input: GetThreatIntelSetCommandInput;
+      output: GetThreatIntelSetCommandOutput;
+    };
+  };
+}

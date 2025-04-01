@@ -134,6 +134,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlUnionsCommand extends $Command
   .classBuilder<
@@ -151,4 +152,16 @@ export class XmlUnionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlUnionsCommand)
   .de(de_XmlUnionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlUnionsRequest;
+      output: XmlUnionsResponse;
+    };
+    sdk: {
+      input: XmlUnionsCommandInput;
+      output: XmlUnionsCommandOutput;
+    };
+  };
+}

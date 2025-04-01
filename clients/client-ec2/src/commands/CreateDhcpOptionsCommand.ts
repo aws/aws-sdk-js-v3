@@ -95,7 +95,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *   ],
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "vpc-encryption-control" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -110,6 +110,14 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * const response = await client.send(command);
  * // { // CreateDhcpOptionsResult
  * //   DhcpOptions: { // DhcpOptions
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DhcpOptionsId: "STRING_VALUE",
  * //     DhcpConfigurations: [ // DhcpConfigurationList
  * //       { // DhcpConfiguration
  * //         Key: "STRING_VALUE",
@@ -118,14 +126,6 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * //             Value: "STRING_VALUE",
  * //           },
  * //         ],
- * //       },
- * //     ],
- * //     DhcpOptionsId: "STRING_VALUE",
- * //     OwnerId: "STRING_VALUE",
- * //     Tags: [ // TagList
- * //       { // Tag
- * //         Key: "STRING_VALUE",
- * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -142,15 +142,15 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a DHCP options set
  * ```javascript
  * // This example creates a DHCP options set.
  * const input = {
- *   "DhcpConfigurations": [
+ *   DhcpConfigurations: [
  *     {
- *       "Key": "domain-name-servers",
- *       "Values": [
+ *       Key: "domain-name-servers",
+ *       Values: [
  *         "10.2.5.1",
  *         "10.2.5.2"
  *       ]
@@ -159,29 +159,29 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * };
  * const command = new CreateDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DhcpOptions": {
- *     "DhcpConfigurations": [
+ *   DhcpOptions: {
+ *     DhcpConfigurations: [
  *       {
- *         "Key": "domain-name-servers",
- *         "Values": [
+ *         Key: "domain-name-servers",
+ *         Values: [
  *           {
- *             "Value": "10.2.5.2"
+ *             Value: "10.2.5.2"
  *           },
  *           {
- *             "Value": "10.2.5.1"
+ *             Value: "10.2.5.1"
  *           }
  *         ]
  *       }
  *     ],
- *     "DhcpOptionsId": "dopt-d9070ebb"
+ *     DhcpOptionsId: "dopt-d9070ebb"
  *   }
  * }
  * *\/
- * // example id: ec2-create-dhcp-options-1
  * ```
  *
+ * @public
  */
 export class CreateDhcpOptionsCommand extends $Command
   .classBuilder<
@@ -191,9 +191,7 @@ export class CreateDhcpOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -205,4 +203,16 @@ export class CreateDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDhcpOptionsCommand)
   .de(de_CreateDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDhcpOptionsRequest;
+      output: CreateDhcpOptionsResult;
+    };
+    sdk: {
+      input: CreateDhcpOptionsCommandInput;
+      output: CreateDhcpOptionsCommandOutput;
+    };
+  };
+}

@@ -97,6 +97,7 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateUserCommand extends $Command
@@ -107,9 +108,7 @@ export class BatchUpdateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class BatchUpdateUserCommand extends $Command
   .f(BatchUpdateUserRequestFilterSensitiveLog, void 0)
   .ser(se_BatchUpdateUserCommand)
   .de(de_BatchUpdateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateUserRequest;
+      output: BatchUpdateUserResponse;
+    };
+    sdk: {
+      input: BatchUpdateUserCommandInput;
+      output: BatchUpdateUserCommandOutput;
+    };
+  };
+}

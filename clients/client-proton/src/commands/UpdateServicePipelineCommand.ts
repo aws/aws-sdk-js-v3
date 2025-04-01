@@ -135,6 +135,7 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateServicePipelineCommand extends $Command
@@ -145,9 +146,7 @@ export class UpdateServicePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class UpdateServicePipelineCommand extends $Command
   .f(UpdateServicePipelineInputFilterSensitiveLog, UpdateServicePipelineOutputFilterSensitiveLog)
   .ser(se_UpdateServicePipelineCommand)
   .de(de_UpdateServicePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServicePipelineInput;
+      output: UpdateServicePipelineOutput;
+    };
+    sdk: {
+      input: UpdateServicePipelineCommandInput;
+      output: UpdateServicePipelineCommandOutput;
+    };
+  };
+}

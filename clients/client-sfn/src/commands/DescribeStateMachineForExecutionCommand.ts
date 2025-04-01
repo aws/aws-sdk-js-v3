@@ -39,9 +39,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
 /**
  * <p>Provides information about a state machine's definition, its execution role ARN, and
  *       configuration. If a Map Run dispatched the execution, this action returns the Map Run
- *       Amazon Resource Name (ARN) in the response.
- *       The
- *       state machine returned is the state machine associated with the
+ *       Amazon Resource Name (ARN) in the response. The state machine returned is the state machine associated with the
  *       Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -55,6 +53,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineForExecutionInput
  *   executionArn: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new DescribeStateMachineForExecutionCommand(input);
  * const response = await client.send(command);
@@ -81,6 +80,16 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * //   mapRunArn: "STRING_VALUE",
  * //   label: "STRING_VALUE",
  * //   revisionId: "STRING_VALUE",
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     kmsDataKeyReusePeriodSeconds: Number("int"),
+ * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //   },
+ * //   variableReferences: { // VariableReferences
+ * //     "<keys>": [ // VariableNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
@@ -97,8 +106,18 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -110,9 +129,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +141,16 @@ export class DescribeStateMachineForExecutionCommand extends $Command
   .f(void 0, DescribeStateMachineForExecutionOutputFilterSensitiveLog)
   .ser(se_DescribeStateMachineForExecutionCommand)
   .de(de_DescribeStateMachineForExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStateMachineForExecutionInput;
+      output: DescribeStateMachineForExecutionOutput;
+    };
+    sdk: {
+      input: DescribeStateMachineForExecutionCommandInput;
+      output: DescribeStateMachineForExecutionCommandOutput;
+    };
+  };
+}

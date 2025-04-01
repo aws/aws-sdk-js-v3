@@ -82,6 +82,7 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class SearchSchemasCommand extends $Command
@@ -92,9 +93,7 @@ export class SearchSchemasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class SearchSchemasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchSchemasCommand)
   .de(de_SearchSchemasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchSchemasRequest;
+      output: SearchSchemasResponse;
+    };
+    sdk: {
+      input: SearchSchemasCommandInput;
+      output: SearchSchemasCommandOutput;
+    };
+  };
+}

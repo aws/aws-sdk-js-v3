@@ -87,6 +87,7 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationPolicyCommand extends $Command
@@ -97,9 +98,7 @@ export class GetApplicationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class GetApplicationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationPolicyCommand)
   .de(de_GetApplicationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationPolicyRequest;
+      output: GetApplicationPolicyResponse;
+    };
+    sdk: {
+      input: GetApplicationPolicyCommandInput;
+      output: GetApplicationPolicyCommandOutput;
+    };
+  };
+}

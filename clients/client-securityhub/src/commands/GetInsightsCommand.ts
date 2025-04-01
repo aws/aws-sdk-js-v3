@@ -351,45 +351,45 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get details of a Security Hub insight
  * ```javascript
  * // The following example returns details of the Security Hub insight with the specified ARN.
  * const input = {
- *   "InsightArns": [
+ *   InsightArns: [
  *     "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *   ]
  * };
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Insights": [
+ *   Insights: [
  *     {
- *       "Filters": {
- *         "ResourceType": [
+ *       Filters: {
+ *         ResourceType: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "AwsIamRole"
+ *             Comparison: "EQUALS",
+ *             Value: "AwsIamRole"
  *           }
  *         ],
- *         "SeverityLabel": [
+ *         SeverityLabel: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "CRITICAL"
+ *             Comparison: "EQUALS",
+ *             Value: "CRITICAL"
  *           }
  *         ]
  *       },
- *       "GroupByAttribute": "ResourceId",
- *       "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "Name": "Critical role findings"
+ *       GroupByAttribute: "ResourceId",
+ *       InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       Name: "Critical role findings"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-details-of-a-security-hub-insight-1677774127203
  * ```
  *
+ * @public
  */
 export class GetInsightsCommand extends $Command
   .classBuilder<
@@ -399,9 +399,7 @@ export class GetInsightsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -413,4 +411,16 @@ export class GetInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightsCommand)
   .de(de_GetInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightsRequest;
+      output: GetInsightsResponse;
+    };
+    sdk: {
+      input: GetInsightsCommandInput;
+      output: GetInsightsCommandOutput;
+    };
+  };
+}

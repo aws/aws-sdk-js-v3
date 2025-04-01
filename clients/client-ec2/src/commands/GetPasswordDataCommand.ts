@@ -59,8 +59,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * const response = await client.send(command);
  * // { // GetPasswordDataResult
  * //   InstanceId: "STRING_VALUE",
- * //   PasswordData: "STRING_VALUE",
  * //   Timestamp: new Date("TIMESTAMP"),
+ * //   PasswordData: "STRING_VALUE",
  * // };
  *
  * ```
@@ -74,6 +74,7 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetPasswordDataCommand extends $Command
@@ -84,9 +85,7 @@ export class GetPasswordDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class GetPasswordDataCommand extends $Command
   .f(void 0, GetPasswordDataResultFilterSensitiveLog)
   .ser(se_GetPasswordDataCommand)
   .de(de_GetPasswordDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPasswordDataRequest;
+      output: GetPasswordDataResult;
+    };
+    sdk: {
+      input: GetPasswordDataCommandInput;
+      output: GetPasswordDataCommandOutput;
+    };
+  };
+}

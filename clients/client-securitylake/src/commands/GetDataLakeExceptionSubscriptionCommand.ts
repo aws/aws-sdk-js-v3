@@ -33,7 +33,7 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
+ * <p>Retrieves the protocol and endpoint that were provided when subscribing to Amazon SNS topics for exception notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +85,7 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class GetDataLakeExceptionSubscriptionCommand extends $Command
@@ -95,9 +96,7 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataLakeExceptionSubscriptionCommand)
   .de(de_GetDataLakeExceptionSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDataLakeExceptionSubscriptionResponse;
+    };
+    sdk: {
+      input: GetDataLakeExceptionSubscriptionCommandInput;
+      output: GetDataLakeExceptionSubscriptionCommandOutput;
+    };
+  };
+}

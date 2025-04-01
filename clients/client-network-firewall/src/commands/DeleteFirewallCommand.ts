@@ -78,6 +78,9 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     EnabledAnalysisTypes: [ // EnabledAnalysisTypes
+ * //       "TLS_SNI" || "HTTP_HOST",
+ * //     ],
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
@@ -156,6 +159,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DeleteFirewallCommand extends $Command
@@ -166,9 +170,7 @@ export class DeleteFirewallCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +182,16 @@ export class DeleteFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFirewallCommand)
   .de(de_DeleteFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFirewallRequest;
+      output: DeleteFirewallResponse;
+    };
+    sdk: {
+      input: DeleteFirewallCommandInput;
+      output: DeleteFirewallCommandOutput;
+    };
+  };
+}

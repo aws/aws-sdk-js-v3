@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSnapshotsInRecycleBinRequest, ListSnapshotsInRecycleBinResult } from "../models/models_6";
+import { ListSnapshotsInRecycleBinRequest, ListSnapshotsInRecycleBinResult } from "../models/models_7";
 import { de_ListSnapshotsInRecycleBinCommand, se_ListSnapshotsInRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -69,6 +69,7 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ListSnapshotsInRecycleBinCommand extends $Command
@@ -79,9 +80,7 @@ export class ListSnapshotsInRecycleBinCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class ListSnapshotsInRecycleBinCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSnapshotsInRecycleBinCommand)
   .de(de_ListSnapshotsInRecycleBinCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSnapshotsInRecycleBinRequest;
+      output: ListSnapshotsInRecycleBinResult;
+    };
+    sdk: {
+      input: ListSnapshotsInRecycleBinCommandInput;
+      output: ListSnapshotsInRecycleBinCommandOutput;
+    };
+  };
+}

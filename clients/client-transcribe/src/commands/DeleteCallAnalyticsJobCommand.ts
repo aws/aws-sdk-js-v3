@@ -69,6 +69,7 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class DeleteCallAnalyticsJobCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteCallAnalyticsJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteCallAnalyticsJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCallAnalyticsJobCommand)
   .de(de_DeleteCallAnalyticsJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCallAnalyticsJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCallAnalyticsJobCommandInput;
+      output: DeleteCallAnalyticsJobCommandOutput;
+    };
+  };
+}

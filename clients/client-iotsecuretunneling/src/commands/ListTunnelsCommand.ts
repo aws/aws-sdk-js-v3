@@ -73,6 +73,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class ListTunnelsCommand extends $Command
@@ -83,9 +84,7 @@ export class ListTunnelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class ListTunnelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTunnelsCommand)
   .de(de_ListTunnelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTunnelsRequest;
+      output: ListTunnelsResponse;
+    };
+    sdk: {
+      input: ListTunnelsCommandInput;
+      output: ListTunnelsCommandOutput;
+    };
+  };
+}

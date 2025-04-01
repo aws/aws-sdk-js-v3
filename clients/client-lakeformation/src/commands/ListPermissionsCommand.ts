@@ -42,9 +42,11 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *   Principal: { // DataLakePrincipal
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
- *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE",
+ *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE" || "LF_NAMED_TAG_EXPRESSION",
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -88,7 +90,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -96,6 +98,11 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   NextToken: "STRING_VALUE",
@@ -111,7 +118,9 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
  * //       },
  * //       Resource: { // Resource
- * //         Catalog: {},
+ * //         Catalog: { // CatalogResource
+ * //           Id: "STRING_VALUE",
+ * //         },
  * //         Database: { // DatabaseResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
@@ -155,7 +164,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //         LFTagPolicy: { // LFTagPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           ResourceType: "DATABASE" || "TABLE", // required
- * //           Expression: [ // Expression // required
+ * //           Expression: [ // Expression
  * //             { // LFTag
  * //               TagKey: "STRING_VALUE", // required
  * //               TagValues: [ // required
@@ -163,13 +172,21 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //               ],
  * //             },
  * //           ],
+ * //           ExpressionName: "STRING_VALUE",
+ * //         },
+ * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       Condition: { // Condition
+ * //         Expression: "STRING_VALUE",
+ * //       },
  * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //       ],
  * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //       ],
  * //       AdditionalDetails: { // DetailsMap
  * //         ResourceShare: [ // ResourceShareList
@@ -203,6 +220,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionsCommand extends $Command
@@ -213,9 +231,7 @@ export class ListPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +243,16 @@ export class ListPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionsCommand)
   .de(de_ListPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionsRequest;
+      output: ListPermissionsResponse;
+    };
+    sdk: {
+      input: ListPermissionsCommandInput;
+      output: ListPermissionsCommandOutput;
+    };
+  };
+}

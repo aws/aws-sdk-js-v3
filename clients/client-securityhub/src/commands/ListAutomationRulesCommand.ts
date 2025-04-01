@@ -88,46 +88,46 @@ export interface ListAutomationRulesCommandOutput extends ListAutomationRulesRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To list automation rules
  * ```javascript
  * // The following example lists automation rules and rule metadata in the calling account.
  * const input = {
- *   "MaxResults": 2,
- *   "NextToken": "example-token"
+ *   MaxResults: 2,
+ *   NextToken: "example-token"
  * };
  * const command = new ListAutomationRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutomationRulesMetadata": [
+ *   AutomationRulesMetadata: [
  *     {
- *       "CreatedAt": "2022-08-31T01:52:33.250Z",
- *       "CreatedBy": "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
- *       "Description": "IAM.8 is a known issue and can be resolved",
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "RuleName": "sample-rule-name-1",
- *       "RuleOrder": 1,
- *       "RuleStatus": "ENABLED",
- *       "UpdatedAt": "2022-08-31T01:52:33.250Z"
+ *       CreatedAt: "2022-08-31T01:52:33.250Z",
+ *       CreatedBy: "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
+ *       Description: "IAM.8 is a known issue and can be resolved",
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       RuleName: "sample-rule-name-1",
+ *       RuleOrder: 1,
+ *       RuleStatus: "ENABLED",
+ *       UpdatedAt: "2022-08-31T01:52:33.250Z"
  *     },
  *     {
- *       "CreatedAt": "2022-08-31T01:52:33.250Z",
- *       "CreatedBy": "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
- *       "Description": "Lambda.2 is a known issue and can be resolved",
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "RuleName": "sample-rule-name-2",
- *       "RuleOrder": 2,
- *       "RuleStatus": "ENABLED",
- *       "UpdatedAt": "2022-08-31T01:52:33.250Z"
+ *       CreatedAt: "2022-08-31T01:52:33.250Z",
+ *       CreatedBy: "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
+ *       Description: "Lambda.2 is a known issue and can be resolved",
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       RuleName: "sample-rule-name-2",
+ *       RuleOrder: 2,
+ *       RuleStatus: "ENABLED",
+ *       UpdatedAt: "2022-08-31T01:52:33.250Z"
  *     }
  *   ],
- *   "NextToken": "example-token"
+ *   NextToken: "example-token"
  * }
  * *\/
- * // example id: to-list-automation-rules-1684770582059
  * ```
  *
+ * @public
  */
 export class ListAutomationRulesCommand extends $Command
   .classBuilder<
@@ -137,9 +137,7 @@ export class ListAutomationRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +149,16 @@ export class ListAutomationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutomationRulesCommand)
   .de(de_ListAutomationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutomationRulesRequest;
+      output: ListAutomationRulesResponse;
+    };
+    sdk: {
+      input: ListAutomationRulesCommandInput;
+      output: ListAutomationRulesCommandOutput;
+    };
+  };
+}

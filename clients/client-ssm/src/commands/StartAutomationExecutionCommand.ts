@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_2";
 import { de_StartAutomationExecutionCommand, se_StartAutomationExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -82,6 +82,20 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *           },
  *         ],
  *       },
+ *       IncludeChildOrganizationUnits: true || false,
+ *       ExcludeAccounts: [ // ExcludeAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *       Targets: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetsMaxConcurrency: "STRING_VALUE",
+ *       TargetsMaxErrors: "STRING_VALUE",
  *     },
  *   ],
  *   Tags: [ // TagList
@@ -98,6 +112,7 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *       },
  *     ],
  *   },
+ *   TargetLocationsURL: "STRING_VALUE",
  * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);
@@ -142,6 +157,7 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class StartAutomationExecutionCommand extends $Command
@@ -152,9 +168,7 @@ export class StartAutomationExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +180,16 @@ export class StartAutomationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAutomationExecutionCommand)
   .de(de_StartAutomationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAutomationExecutionRequest;
+      output: StartAutomationExecutionResult;
+    };
+    sdk: {
+      input: StartAutomationExecutionCommandInput;
+      output: StartAutomationExecutionCommandOutput;
+    };
+  };
+}

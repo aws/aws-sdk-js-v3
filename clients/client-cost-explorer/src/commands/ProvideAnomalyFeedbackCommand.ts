@@ -59,6 +59,7 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class ProvideAnomalyFeedbackCommand extends $Command
@@ -69,9 +70,7 @@ export class ProvideAnomalyFeedbackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class ProvideAnomalyFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ProvideAnomalyFeedbackCommand)
   .de(de_ProvideAnomalyFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ProvideAnomalyFeedbackRequest;
+      output: ProvideAnomalyFeedbackResponse;
+    };
+    sdk: {
+      input: ProvideAnomalyFeedbackCommandInput;
+      output: ProvideAnomalyFeedbackCommandOutput;
+    };
+  };
+}

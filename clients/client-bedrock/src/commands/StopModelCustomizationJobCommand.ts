@@ -28,7 +28,7 @@ export interface StopModelCustomizationJobCommandInput extends StopModelCustomiz
 export interface StopModelCustomizationJobCommandOutput extends StopModelCustomizationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an active model customization job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Stops an active model customization job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,7 @@ export interface StopModelCustomizationJobCommandOutput extends StopModelCustomi
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class StopModelCustomizationJobCommand extends $Command
@@ -81,9 +82,7 @@ export class StopModelCustomizationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class StopModelCustomizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopModelCustomizationJobCommand)
   .de(de_StopModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopModelCustomizationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopModelCustomizationJobCommandInput;
+      output: StopModelCustomizationJobCommandOutput;
+    };
+  };
+}

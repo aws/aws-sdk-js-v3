@@ -8,7 +8,7 @@ import { JSONRPC10ServiceException as __BaseException } from "./JSONRPC10Service
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -37,14 +37,14 @@ export enum IntegerEnum {
  * @public
  */
 export interface ClientOptionalDefaults {
-  member?: number;
+  member?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -54,8 +54,8 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -75,7 +75,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export interface ContentTypeParametersInput {
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -106,50 +106,50 @@ export enum TestIntEnum {
  * @public
  */
 export interface Defaults {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultDocumentMap?: __DocumentType;
-  defaultDocumentString?: __DocumentType;
-  defaultDocumentBoolean?: __DocumentType;
-  defaultDocumentList?: __DocumentType;
-  defaultNullDocument?: __DocumentType;
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultDocumentMap?: __DocumentType | undefined;
+  defaultDocumentString?: __DocumentType | undefined;
+  defaultDocumentBoolean?: __DocumentType | undefined;
+  defaultDocumentList?: __DocumentType | undefined;
+  defaultNullDocument?: __DocumentType | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface Farewell {
-  phrase?: string;
+  phrase?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface Dialog {
-  language?: string;
-  greeting?: string;
-  farewell?: Farewell;
+  language?: string | undefined;
+  greeting?: string | undefined;
+  farewell?: Farewell | undefined;
 }
 
 /**
@@ -194,14 +194,14 @@ export class FooError extends __BaseException {
  * @public
  */
 export interface GreetingWithErrorsInput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -441,7 +441,7 @@ export interface JsonUnionsInput {
    * A union with a representative set of types for members.
    * @public
    */
-  contents?: MyUnion;
+  contents?: MyUnion | undefined;
 }
 
 /**
@@ -452,7 +452,7 @@ export interface JsonUnionsOutput {
    * A union with a representative set of types for members.
    * @public
    */
-  contents?: MyUnion;
+  contents?: MyUnion | undefined;
 }
 
 /**
@@ -464,44 +464,44 @@ export interface NoInputAndOutputOutput {}
  * @public
  */
 export interface OperationWithDefaultsInput {
-  defaults?: Defaults;
-  clientOptionalDefaults?: ClientOptionalDefaults;
-  topLevelDefault?: string;
-  otherTopLevelDefault?: number;
+  defaults?: Defaults | undefined;
+  clientOptionalDefaults?: ClientOptionalDefaults | undefined;
+  topLevelDefault?: string | undefined;
+  otherTopLevelDefault?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithDefaultsOutput {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultDocumentMap?: __DocumentType;
-  defaultDocumentString?: __DocumentType;
-  defaultDocumentBoolean?: __DocumentType;
-  defaultDocumentList?: __DocumentType;
-  defaultNullDocument?: __DocumentType;
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultDocumentMap?: __DocumentType | undefined;
+  defaultDocumentString?: __DocumentType | undefined;
+  defaultDocumentBoolean?: __DocumentType | undefined;
+  defaultDocumentList?: __DocumentType | undefined;
+  defaultNullDocument?: __DocumentType | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
@@ -509,8 +509,8 @@ export interface OperationWithDefaultsOutput {
  */
 export interface TopLevel {
   dialog: Dialog | undefined;
-  dialogList?: Dialog[];
-  dialogMap?: Record<string, Dialog>;
+  dialogList?: Dialog[] | undefined;
+  dialogMap?: Record<string, Dialog> | undefined;
 }
 
 /**
@@ -525,8 +525,8 @@ export interface OperationWithNestedStructureInput {
  */
 export interface OperationWithNestedStructureOutput {
   dialog: Dialog | undefined;
-  dialogList?: Dialog[];
-  dialogMap?: Record<string, Dialog>;
+  dialogList?: Dialog[] | undefined;
+  dialogMap?: Record<string, Dialog> | undefined;
 }
 
 /**
@@ -549,24 +549,63 @@ export interface OperationWithRequiredMembersOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const RequiredEnum = {
+  BAR: "BAR",
+  BAZ: "BAZ",
+  FOO: "FOO",
+} as const;
+/**
+ * @public
+ */
+export type RequiredEnum = (typeof RequiredEnum)[keyof typeof RequiredEnum];
+
+export enum RequiredIntEnum {
+  ONE = 1,
+  TWO = 2,
+}
+
+/**
+ * @public
+ */
+export interface OperationWithRequiredMembersWithDefaultsOutput {
+  requiredString: string | undefined;
+  requiredBoolean: boolean | undefined;
+  requiredList: string[] | undefined;
+  requiredTimestamp: Date | undefined;
+  requiredBlob: Uint8Array | undefined;
+  requiredByte: number | undefined;
+  requiredShort: number | undefined;
+  requiredInteger: number | undefined;
+  requiredLong: number | undefined;
+  requiredFloat: number | undefined;
+  requiredDouble: number | undefined;
+  requiredMap: Record<string, string> | undefined;
+  requiredEnum: RequiredEnum | undefined;
+  requiredIntEnum: RequiredIntEnum | undefined;
+}
+
+/**
+ * @public
  */
 export interface PutWithContentEncodingInput {
-  encoding?: string;
-  data?: string;
+  encoding?: string | undefined;
+  data?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesInput {
-  floatValue?: number;
-  doubleValue?: number;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesOutput {
-  floatValue?: number;
-  doubleValue?: number;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }

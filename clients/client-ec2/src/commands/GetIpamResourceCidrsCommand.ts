@@ -83,6 +83,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * //       ManagementState: "managed" || "unmanaged" || "ignored",
  * //       OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
  * //       VpcId: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -98,6 +99,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetIpamResourceCidrsCommand extends $Command
@@ -108,9 +110,7 @@ export class GetIpamResourceCidrsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class GetIpamResourceCidrsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamResourceCidrsCommand)
   .de(de_GetIpamResourceCidrsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamResourceCidrsRequest;
+      output: GetIpamResourceCidrsResult;
+    };
+    sdk: {
+      input: GetIpamResourceCidrsCommandInput;
+      output: GetIpamResourceCidrsCommandOutput;
+    };
+  };
+}

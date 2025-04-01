@@ -12,7 +12,7 @@ const checkState = async (client: IAMClient, input: GetPolicyCommandInput): Prom
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NoSuchEntity") {
+    if (exception.name && exception.name == "NoSuchEntityException") {
       return { state: WaiterState.RETRY, reason };
     }
   }

@@ -76,6 +76,7 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class GetBackendCommand extends $Command
@@ -86,9 +87,7 @@ export class GetBackendCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GetBackendCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackendCommand)
   .de(de_GetBackendCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackendRequest;
+      output: GetBackendResponse;
+    };
+    sdk: {
+      input: GetBackendCommandInput;
+      output: GetBackendCommandOutput;
+    };
+  };
+}

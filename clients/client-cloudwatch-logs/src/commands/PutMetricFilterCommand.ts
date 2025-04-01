@@ -33,6 +33,12 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
+ *          <p>Using regular expressions in filter patterns is supported. For these filters,
+ *       there is a quota of two regular expression patterns within a single filter pattern. There
+ *       is also a quota of five regular expression patterns per log group.
+ *     For more information about using regular expressions in filter patterns,
+ *     see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
+ *       Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
  *          <p>When you create a metric filter, you can also optionally assign a unit and dimensions
  *     to the metric that is created.</p>
  *          <important>
@@ -72,6 +78,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
  *     },
  *   ],
+ *   applyOnTransformedLogs: true || false,
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);
@@ -84,6 +91,9 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is not valid on the specified resource.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>A parameter is specified incorrectly.</p>
@@ -103,6 +113,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutMetricFilterCommand extends $Command
@@ -113,9 +124,7 @@ export class PutMetricFilterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +136,16 @@ export class PutMetricFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricFilterCommand)
   .de(de_PutMetricFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMetricFilterCommandInput;
+      output: PutMetricFilterCommandOutput;
+    };
+  };
+}

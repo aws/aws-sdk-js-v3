@@ -29,7 +29,7 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
 
 /**
  * <p>Stop the service update. For more information on service updates and stopping them,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping
+ *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/stopping-self-service-updates.html">Stopping
  *                 Service Updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +85,7 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class BatchStopUpdateActionCommand extends $Command
@@ -95,9 +96,7 @@ export class BatchStopUpdateActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class BatchStopUpdateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStopUpdateActionCommand)
   .de(de_BatchStopUpdateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStopUpdateActionMessage;
+      output: UpdateActionResultsMessage;
+    };
+    sdk: {
+      input: BatchStopUpdateActionCommandInput;
+      output: BatchStopUpdateActionCommandOutput;
+    };
+  };
+}

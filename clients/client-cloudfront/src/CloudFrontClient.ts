@@ -55,6 +55,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
 import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
+import {
+  CreateAnycastIpListCommandInput,
+  CreateAnycastIpListCommandOutput,
+} from "./commands/CreateAnycastIpListCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -113,6 +117,11 @@ import {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
+import { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "./commands/CreateVpcOriginCommand";
+import {
+  DeleteAnycastIpListCommandInput,
+  DeleteAnycastIpListCommandOutput,
+} from "./commands/DeleteAnycastIpListCommand";
 import { DeleteCachePolicyCommandInput, DeleteCachePolicyCommandOutput } from "./commands/DeleteCachePolicyCommand";
 import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
@@ -162,11 +171,13 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
+import { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "./commands/DeleteVpcOriginCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand";
 import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
+import { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "./commands/GetAnycastIpListCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand";
 import {
   GetCachePolicyConfigCommandInput,
@@ -255,6 +266,8 @@ import {
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
+import { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "./commands/GetVpcOriginCommand";
+import { ListAnycastIpListsCommandInput, ListAnycastIpListsCommandOutput } from "./commands/ListAnycastIpListsCommand";
 import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "./commands/ListCachePoliciesCommand";
 import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
@@ -268,6 +281,10 @@ import {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
+import {
+  ListDistributionsByAnycastIpListIdCommandInput,
+  ListDistributionsByAnycastIpListIdCommandOutput,
+} from "./commands/ListDistributionsByAnycastIpListIdCommand";
 import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
@@ -288,6 +305,10 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
+  ListDistributionsByVpcOriginIdCommandInput,
+  ListDistributionsByVpcOriginIdCommandOutput,
+} from "./commands/ListDistributionsByVpcOriginIdCommand";
 import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
@@ -330,6 +351,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "./commands/ListVpcOriginsCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand";
@@ -383,6 +405,7 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
+import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "./commands/UpdateVpcOriginCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -400,6 +423,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateAliasCommandInput
   | CopyDistributionCommandInput
+  | CreateAnycastIpListCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
   | CreateContinuousDeploymentPolicyCommandInput
@@ -419,6 +443,8 @@ export type ServiceInputTypes =
   | CreateResponseHeadersPolicyCommandInput
   | CreateStreamingDistributionCommandInput
   | CreateStreamingDistributionWithTagsCommandInput
+  | CreateVpcOriginCommandInput
+  | DeleteAnycastIpListCommandInput
   | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
   | DeleteContinuousDeploymentPolicyCommandInput
@@ -435,8 +461,10 @@ export type ServiceInputTypes =
   | DeleteRealtimeLogConfigCommandInput
   | DeleteResponseHeadersPolicyCommandInput
   | DeleteStreamingDistributionCommandInput
+  | DeleteVpcOriginCommandInput
   | DescribeFunctionCommandInput
   | DescribeKeyValueStoreCommandInput
+  | GetAnycastIpListCommandInput
   | GetCachePolicyCommandInput
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
@@ -465,15 +493,19 @@ export type ServiceInputTypes =
   | GetResponseHeadersPolicyConfigCommandInput
   | GetStreamingDistributionCommandInput
   | GetStreamingDistributionConfigCommandInput
+  | GetVpcOriginCommandInput
+  | ListAnycastIpListsCommandInput
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListConflictingAliasesCommandInput
   | ListContinuousDeploymentPoliciesCommandInput
+  | ListDistributionsByAnycastIpListIdCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
   | ListDistributionsByResponseHeadersPolicyIdCommandInput
+  | ListDistributionsByVpcOriginIdCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
@@ -489,6 +521,7 @@ export type ServiceInputTypes =
   | ListResponseHeadersPoliciesCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcOriginsCommandInput
   | PublishFunctionCommandInput
   | TagResourceCommandInput
   | TestFunctionCommandInput
@@ -508,7 +541,8 @@ export type ServiceInputTypes =
   | UpdatePublicKeyCommandInput
   | UpdateRealtimeLogConfigCommandInput
   | UpdateResponseHeadersPolicyCommandInput
-  | UpdateStreamingDistributionCommandInput;
+  | UpdateStreamingDistributionCommandInput
+  | UpdateVpcOriginCommandInput;
 
 /**
  * @public
@@ -516,6 +550,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateAliasCommandOutput
   | CopyDistributionCommandOutput
+  | CreateAnycastIpListCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
   | CreateContinuousDeploymentPolicyCommandOutput
@@ -535,6 +570,8 @@ export type ServiceOutputTypes =
   | CreateResponseHeadersPolicyCommandOutput
   | CreateStreamingDistributionCommandOutput
   | CreateStreamingDistributionWithTagsCommandOutput
+  | CreateVpcOriginCommandOutput
+  | DeleteAnycastIpListCommandOutput
   | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
   | DeleteContinuousDeploymentPolicyCommandOutput
@@ -551,8 +588,10 @@ export type ServiceOutputTypes =
   | DeleteRealtimeLogConfigCommandOutput
   | DeleteResponseHeadersPolicyCommandOutput
   | DeleteStreamingDistributionCommandOutput
+  | DeleteVpcOriginCommandOutput
   | DescribeFunctionCommandOutput
   | DescribeKeyValueStoreCommandOutput
+  | GetAnycastIpListCommandOutput
   | GetCachePolicyCommandOutput
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
@@ -581,15 +620,19 @@ export type ServiceOutputTypes =
   | GetResponseHeadersPolicyConfigCommandOutput
   | GetStreamingDistributionCommandOutput
   | GetStreamingDistributionConfigCommandOutput
+  | GetVpcOriginCommandOutput
+  | ListAnycastIpListsCommandOutput
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListConflictingAliasesCommandOutput
   | ListContinuousDeploymentPoliciesCommandOutput
+  | ListDistributionsByAnycastIpListIdCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
   | ListDistributionsByResponseHeadersPolicyIdCommandOutput
+  | ListDistributionsByVpcOriginIdCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
@@ -605,6 +648,7 @@ export type ServiceOutputTypes =
   | ListResponseHeadersPoliciesCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcOriginsCommandOutput
   | PublishFunctionCommandOutput
   | TagResourceCommandOutput
   | TestFunctionCommandOutput
@@ -624,7 +668,8 @@ export type ServiceOutputTypes =
   | UpdatePublicKeyCommandOutput
   | UpdateRealtimeLogConfigCommandOutput
   | UpdateResponseHeadersPolicyCommandOutput
-  | UpdateStreamingDistributionCommandOutput;
+  | UpdateStreamingDistributionCommandOutput
+  | UpdateVpcOriginCommandOutput;
 
 /**
  * @public
@@ -718,6 +763,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -763,11 +827,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CloudFrontClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -783,11 +847,11 @@ export interface CloudFrontClientConfig extends CloudFrontClientConfigType {}
 export type CloudFrontClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -818,26 +882,30 @@ export class CloudFrontClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CloudFrontClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCloudFrontHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CloudFrontClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -850,14 +918,5 @@ export class CloudFrontClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCloudFrontHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CloudFrontClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

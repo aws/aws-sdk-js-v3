@@ -30,12 +30,12 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
 /**
  * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region,
  *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services
- *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
- *    		resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with Route 53 ARC
+ *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in ARC only for managed
+ *    		resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with ARC
  *    		by Amazon Web Services services.</p>
  *          <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
  *          <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The
- *    		zonal shift is created immediately in Route 53 ARC. However, it can take a short time, typically up to a few minutes,
+ *    		zonal shift is created immediately in ARC. However, it can take a short time, typically up to a few minutes,
  *    		for existing, in-progress connections in the Availability Zone to complete.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal shift</a>
  *    		in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
@@ -92,6 +92,7 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class StartZonalShiftCommand extends $Command
@@ -102,9 +103,7 @@ export class StartZonalShiftCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class StartZonalShiftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartZonalShiftCommand)
   .de(de_StartZonalShiftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartZonalShiftRequest;
+      output: ZonalShift;
+    };
+    sdk: {
+      input: StartZonalShiftCommandInput;
+      output: StartZonalShiftCommandOutput;
+    };
+  };
+}

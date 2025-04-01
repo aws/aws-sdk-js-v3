@@ -10,7 +10,7 @@ AWS SDK for JavaScript MarketplaceDeployment Client for Node.js, Browser and Rea
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-deployment
+To install this package, simply type add or install @aws-sdk/client-marketplace-deployment
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-deployment`

@@ -45,6 +45,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   Tags: { // __mapOf__stringMin0Max256PatternS
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   NetworkType: "IPV4" || "DUALSTACK",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -60,6 +61,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     Name: "STRING_VALUE",
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
  * //     Owner: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //   },
  * // };
  *
@@ -95,6 +97,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterCommand extends $Command
@@ -105,9 +108,7 @@ export class CreateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class CreateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterRequest;
+      output: CreateClusterResponse;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

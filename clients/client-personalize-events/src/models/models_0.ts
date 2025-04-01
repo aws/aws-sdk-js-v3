@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -30,7 +30,7 @@ export interface Action {
    *       separate each category with a pipe separator (<code>|</code>). For example, <code>\"Deluxe|Premium\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -51,7 +51,7 @@ export interface ActionInteraction {
    *       field of the Action interaction schema.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The ID associated with the user's visit.
@@ -80,13 +80,13 @@ export interface ActionInteraction {
    *       same event ID are not used in model training.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>The ID of the list of recommendations that contains the action the user interacted with.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 
   /**
    * <p>A list of action IDs that represents the sequence of actions you have shown the user. For example, <code>["actionId1", "actionId2", "actionId3"]</code>.
@@ -94,7 +94,7 @@ export interface ActionInteraction {
    *     </p>
    * @public
    */
-  impression?: string[];
+  impression?: string[] | undefined;
 
   /**
    * <p>A string map of event-specific data that you might choose to record. For example, if a
@@ -135,7 +135,7 @@ export interface ActionInteraction {
    *          </ul>
    * @public
    */
-  properties?: __LazyJsonString | string;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface Event {
    *       same event ID are not used in model training.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>The type of event, such as click or download. This property corresponds to the <code>EVENT_TYPE</code>
@@ -271,13 +271,13 @@ export interface Event {
    * <p>The event value that corresponds to the <code>EVENT_VALUE</code> field of the Item interactions schema.</p>
    * @public
    */
-  eventValue?: number;
+  eventValue?: number | undefined;
 
   /**
    * <p>The item ID key that corresponds to the <code>ITEM_ID</code> field of the Item interactions dataset's schema.</p>
    * @public
    */
-  itemId?: string;
+  itemId?: string | undefined;
 
   /**
    * <p>A string map of event-specific data that you might choose to record. For example, if a
@@ -320,7 +320,7 @@ export interface Event {
    *          </ul>
    * @public
    */
-  properties?: __LazyJsonString | string;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The timestamp (in Unix time) on the client side when the event occurred.</p>
@@ -338,7 +338,7 @@ export interface Event {
    *     </p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 
   /**
    * <p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>["itemId1", "itemId2", "itemId3"]</code>. Provide a list of
@@ -346,13 +346,13 @@ export interface Event {
    *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data">Recording impressions data</a>. </p>
    * @public
    */
-  impression?: string[];
+  impression?: string[] | undefined;
 
   /**
    * <p>Contains information about the metric attribution associated with an event. For more information about metric attributions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
    * @public
    */
-  metricAttribution?: MetricAttribution;
+  metricAttribution?: MetricAttribution | undefined;
 }
 
 /**
@@ -371,7 +371,7 @@ export interface PutEventsRequest {
    * <p>The user associated with the event.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The session ID associated with the user's visit. Your application generates the sessionId when a user first visits your website or uses your application.
@@ -411,7 +411,7 @@ export interface Item {
    *       separate each category with a pipe separator (<code>|</code>). For example, <code>\"Horror|Action\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -454,7 +454,7 @@ export interface User {
    *       For example, <code>\"Member|Frequent shopper\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

@@ -176,6 +176,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *     ],
  *     PolicyDescription: "STRING_VALUE",
  *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *     ResourceTagLogicalOperator: "AND" || "OR",
  *   },
  *   TagList: [ // TagList
  *     { // Tag
@@ -271,6 +272,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * //     ],
  * //     PolicyDescription: "STRING_VALUE",
  * //     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     ResourceTagLogicalOperator: "AND" || "OR",
  * //   },
  * //   PolicyArn: "STRING_VALUE",
  * // };
@@ -312,6 +314,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class PutPolicyCommand extends $Command
@@ -322,9 +325,7 @@ export class PutPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -336,4 +337,16 @@ export class PutPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPolicyCommand)
   .de(de_PutPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPolicyRequest;
+      output: PutPolicyResponse;
+    };
+    sdk: {
+      input: PutPolicyCommandInput;
+      output: PutPolicyCommandOutput;
+    };
+  };
+}

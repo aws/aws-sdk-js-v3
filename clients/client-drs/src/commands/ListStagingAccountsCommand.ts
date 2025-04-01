@@ -76,6 +76,7 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class ListStagingAccountsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListStagingAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListStagingAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStagingAccountsCommand)
   .de(de_ListStagingAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStagingAccountsRequest;
+      output: ListStagingAccountsResponse;
+    };
+    sdk: {
+      input: ListStagingAccountsCommandInput;
+      output: ListStagingAccountsCommandOutput;
+    };
+  };
+}

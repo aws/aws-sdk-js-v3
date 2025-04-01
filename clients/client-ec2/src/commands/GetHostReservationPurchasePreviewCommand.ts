@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_5";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_6";
 import {
   de_GetHostReservationPurchasePreviewCommand,
   se_GetHostReservationPurchasePreviewCommand,
@@ -83,6 +83,7 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetHostReservationPurchasePreviewCommand extends $Command
@@ -93,9 +94,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetHostReservationPurchasePreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostReservationPurchasePreviewCommand)
   .de(de_GetHostReservationPurchasePreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostReservationPurchasePreviewRequest;
+      output: GetHostReservationPurchasePreviewResult;
+    };
+    sdk: {
+      input: GetHostReservationPurchasePreviewCommandInput;
+      output: GetHostReservationPurchasePreviewCommandOutput;
+    };
+  };
+}

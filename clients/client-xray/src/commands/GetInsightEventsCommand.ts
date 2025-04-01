@@ -93,6 +93,7 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetInsightEventsCommand extends $Command
@@ -103,9 +104,7 @@ export class GetInsightEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class GetInsightEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightEventsCommand)
   .de(de_GetInsightEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightEventsRequest;
+      output: GetInsightEventsResult;
+    };
+    sdk: {
+      input: GetInsightEventsCommandInput;
+      output: GetInsightEventsCommandOutput;
+    };
+  };
+}

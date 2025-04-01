@@ -89,6 +89,9 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -114,45 +117,45 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create Instance Profile
  * ```javascript
  * // Creates the instance profile using the specified parameters.
  * const input = {
- *   "Description": "Description",
- *   "InstanceProfileName": "my-instance-profile",
- *   "KmsKeyArn": "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *   "NetworkType": "DUAL",
- *   "PubliclyAccessible": true,
- *   "SubnetGroupIdentifier": "my-subnet-group",
- *   "Tags": [
+ *   Description: "Description",
+ *   InstanceProfileName: "my-instance-profile",
+ *   KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
+ *   NetworkType: "DUAL",
+ *   PubliclyAccessible: true,
+ *   SubnetGroupIdentifier: "my-subnet-group",
+ *   Tags: [
  *     {
- *       "Key": "access",
- *       "Value": "authorizedusers"
+ *       Key: "access",
+ *       Value: "authorizedusers"
  *     }
  *   ]
  * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceProfile": {
- *     "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
- *     "InstanceProfileCreationTime": "2022-12-16T09:44:43.543246Z",
- *     "InstanceProfileName": "my-instance-profile",
- *     "KmsKeyArn": "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *     "PubliclyAccessible": true,
- *     "SubnetGroupIdentifier": "public-subnets",
- *     "VpcIdentifier": "vpc-0a1b2c3d4e5f6g7h8",
- *     "VpcSecurityGroups": [
+ *   InstanceProfile: {
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
+ *     InstanceProfileCreationTime: "2022-12-16T09:44:43.543246Z",
+ *     InstanceProfileName: "my-instance-profile",
+ *     KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
+ *     PubliclyAccessible: true,
+ *     SubnetGroupIdentifier: "public-subnets",
+ *     VpcIdentifier: "vpc-0a1b2c3d4e5f6g7h8",
+ *     VpcSecurityGroups: [
  *       "sg-0123456"
  *     ]
  *   }
  * }
  * *\/
- * // example id: create-instance-profile-1689716070633
  * ```
  *
+ * @public
  */
 export class CreateInstanceProfileCommand extends $Command
   .classBuilder<
@@ -162,9 +165,7 @@ export class CreateInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +177,16 @@ export class CreateInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceProfileCommand)
   .de(de_CreateInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceProfileMessage;
+      output: CreateInstanceProfileResponse;
+    };
+    sdk: {
+      input: CreateInstanceProfileCommandInput;
+      output: CreateInstanceProfileCommandOutput;
+    };
+  };
+}

@@ -94,6 +94,7 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBSubnetGroupCommand extends $Command
@@ -104,9 +105,7 @@ export class ModifyDBSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ModifyDBSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBSubnetGroupCommand)
   .de(de_ModifyDBSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBSubnetGroupMessage;
+      output: ModifyDBSubnetGroupResult;
+    };
+    sdk: {
+      input: ModifyDBSubnetGroupCommandInput;
+      output: ModifyDBSubnetGroupCommandOutput;
+    };
+  };
+}

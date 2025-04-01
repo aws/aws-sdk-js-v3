@@ -1,10 +1,13 @@
 import { HttpResponse } from "@smithy/protocol-http";
+import { Checksum, ChecksumConstructor, HashConstructor, Logger } from "@smithy/types";
+import { createChecksumStream } from "@smithy/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
@@ -15,11 +18,13 @@ export interface ValidateChecksumFromResponseOptions {
    * returned in the HTTP response.
    */
   responseAlgorithms?: string[];
+
+  logger?: Logger;
 }
 
 export const validateChecksumFromResponse = async (
   response: HttpResponse,
-  { config, responseAlgorithms }: ValidateChecksumFromResponseOptions
+  { config, responseAlgorithms, logger }: ValidateChecksumFromResponseOptions
 ) => {
   // Verify checksum in response header.
   const checksumAlgorithms = getChecksumAlgorithmListForResponse(responseAlgorithms);
@@ -28,10 +33,31 @@ export const validateChecksumFromResponse = async (
     const responseHeader = getChecksumLocationName(algorithm);
     const checksumFromResponse = responseHeaders[responseHeader];
     if (checksumFromResponse) {
-      const checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
-      const { streamHasher, base64Encoder } = config;
-      const checksum = await getChecksum(responseBody, { streamHasher, checksumAlgorithmFn, base64Encoder });
+      let checksumAlgorithmFn: ChecksumConstructor | HashConstructor;
+      try {
+        checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
+      } catch (error) {
+        if (algorithm === ChecksumAlgorithm.CRC64NVME) {
+          logger?.warn(`Skipping ${ChecksumAlgorithm.CRC64NVME} checksum validation: ${error.message}`);
+          continue;
+        }
+        throw error;
+      }
 
+      const { base64Encoder } = config;
+
+      if (isStreaming(responseBody)) {
+        response.body = createChecksumStream({
+          expectedChecksum: checksumFromResponse,
+          checksumSourceLocation: responseHeader,
+          checksum: new checksumAlgorithmFn() as Checksum,
+          source: responseBody,
+          base64Encoder,
+        });
+        return;
+      }
+
+      const checksum = await getChecksum(responseBody, { checksumAlgorithmFn, base64Encoder });
       if (checksum === checksumFromResponse) {
         // The checksum for response payload is valid.
         break;

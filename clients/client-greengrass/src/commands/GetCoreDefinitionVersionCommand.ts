@@ -73,6 +73,7 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class GetCoreDefinitionVersionCommand extends $Command
@@ -83,9 +84,7 @@ export class GetCoreDefinitionVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetCoreDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreDefinitionVersionCommand)
   .de(de_GetCoreDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreDefinitionVersionRequest;
+      output: GetCoreDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetCoreDefinitionVersionCommandInput;
+      output: GetCoreDefinitionVersionCommandOutput;
+    };
+  };
+}

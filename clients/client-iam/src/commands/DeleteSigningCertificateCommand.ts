@@ -74,19 +74,22 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete a signing certificate for an IAM user
  * ```javascript
  * // The following command deletes the specified signing certificate for the IAM user named Anika.
  * const input = {
- *   "CertificateId": "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
- *   "UserName": "Anika"
+ *   CertificateId: "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
+ *   UserName: "Anika"
  * };
  * const command = new DeleteSigningCertificateCommand(input);
- * await client.send(command);
- * // example id: e3357586-ba9c-4070-b35b-d1a899b71987
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSigningCertificateCommand extends $Command
   .classBuilder<
@@ -96,9 +99,7 @@ export class DeleteSigningCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class DeleteSigningCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSigningCertificateCommand)
   .de(de_DeleteSigningCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSigningCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSigningCertificateCommandInput;
+      output: DeleteSigningCertificateCommandOutput;
+    };
+  };
+}

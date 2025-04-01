@@ -76,31 +76,31 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To update a deployment strategy
  * ```javascript
  * // The following update-deployment-strategy example updates final bake time to 20 minutes in the specified deployment strategy. ::
- * //
+ *
  * const input = {
- *   "DeploymentStrategyId": "1225qzk",
- *   "FinalBakeTimeInMinutes": 20
+ *   DeploymentStrategyId: "1225qzk",
+ *   FinalBakeTimeInMinutes: 20
  * };
  * const command = new UpdateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DeploymentDurationInMinutes": 15,
- *   "FinalBakeTimeInMinutes": 20,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "Id": "1225qzk",
- *   "Name": "Example-Deployment",
- *   "ReplicateTo": "SSM_DOCUMENT"
+ *   DeploymentDurationInMinutes: 15,
+ *   FinalBakeTimeInMinutes: 20,
+ *   GrowthFactor: 25,
+ *   GrowthType: "LINEAR",
+ *   Id: "1225qzk",
+ *   Name: "Example-Deployment",
+ *   ReplicateTo: "SSM_DOCUMENT"
  * }
  * *\/
- * // example id: to-update-a-deployment-strategy-1632330896602
  * ```
  *
+ * @public
  */
 export class UpdateDeploymentStrategyCommand extends $Command
   .classBuilder<
@@ -110,9 +110,7 @@ export class UpdateDeploymentStrategyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +122,16 @@ export class UpdateDeploymentStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeploymentStrategyCommand)
   .de(de_UpdateDeploymentStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeploymentStrategyRequest;
+      output: DeploymentStrategy;
+    };
+    sdk: {
+      input: UpdateDeploymentStrategyCommandInput;
+      output: UpdateDeploymentStrategyCommandOutput;
+    };
+  };
+}

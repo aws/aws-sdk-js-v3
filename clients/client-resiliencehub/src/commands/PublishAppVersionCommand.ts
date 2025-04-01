@@ -83,6 +83,7 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class PublishAppVersionCommand extends $Command
@@ -93,9 +94,7 @@ export class PublishAppVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class PublishAppVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishAppVersionCommand)
   .de(de_PublishAppVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishAppVersionRequest;
+      output: PublishAppVersionResponse;
+    };
+    sdk: {
+      input: PublishAppVersionCommandInput;
+      output: PublishAppVersionCommandOutput;
+    };
+  };
+}

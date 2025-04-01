@@ -54,7 +54,8 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  *  <p>Access to the resource is denied.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -71,6 +72,7 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSetCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataSetCommand)
   .de(de_DeleteDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataSetCommandInput;
+      output: DeleteDataSetCommandOutput;
+    };
+  };
+}

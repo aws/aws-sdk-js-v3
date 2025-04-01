@@ -32,7 +32,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the
  *          metrics configuration ID) from the bucket. Note that this doesn't include the daily storage
@@ -94,6 +94,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketMetricsConfigurationCommand extends $Command
@@ -120,4 +121,16 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketMetricsConfigurationCommand)
   .de(de_DeleteBucketMetricsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketMetricsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketMetricsConfigurationCommandInput;
+      output: DeleteBucketMetricsConfigurationCommandOutput;
+    };
+  };
+}

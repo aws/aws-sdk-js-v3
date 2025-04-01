@@ -93,6 +93,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainCommand extends $Command
@@ -103,9 +104,7 @@ export class DescribeDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DescribeDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainCommand)
   .de(de_DescribeDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainRequest;
+      output: DescribeDomainResult;
+    };
+    sdk: {
+      input: DescribeDomainCommandInput;
+      output: DescribeDomainCommandOutput;
+    };
+  };
+}

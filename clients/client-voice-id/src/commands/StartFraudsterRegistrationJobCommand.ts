@@ -139,6 +139,7 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class StartFraudsterRegistrationJobCommand extends $Command
@@ -149,9 +150,7 @@ export class StartFraudsterRegistrationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class StartFraudsterRegistrationJobCommand extends $Command
   .f(StartFraudsterRegistrationJobRequestFilterSensitiveLog, StartFraudsterRegistrationJobResponseFilterSensitiveLog)
   .ser(se_StartFraudsterRegistrationJobCommand)
   .de(de_StartFraudsterRegistrationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFraudsterRegistrationJobRequest;
+      output: StartFraudsterRegistrationJobResponse;
+    };
+    sdk: {
+      input: StartFraudsterRegistrationJobCommandInput;
+      output: StartFraudsterRegistrationJobCommandOutput;
+    };
+  };
+}

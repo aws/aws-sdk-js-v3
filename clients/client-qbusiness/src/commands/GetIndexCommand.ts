@@ -45,9 +45,9 @@ export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBeare
  * //   applicationId: "STRING_VALUE",
  * //   indexId: "STRING_VALUE",
  * //   displayName: "STRING_VALUE",
- * //   type: "ENTERPRISE" || "STARTER",
  * //   indexArn: "STRING_VALUE",
  * //   status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
+ * //   type: "ENTERPRISE" || "STARTER",
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
@@ -90,8 +90,8 @@ export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBeare
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -104,6 +104,7 @@ export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBeare
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class GetIndexCommand extends $Command
@@ -114,9 +115,7 @@ export class GetIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class GetIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIndexCommand)
   .de(de_GetIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIndexRequest;
+      output: GetIndexResponse;
+    };
+    sdk: {
+      input: GetIndexCommandInput;
+      output: GetIndexCommandOutput;
+    };
+  };
+}

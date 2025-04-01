@@ -58,6 +58,10 @@ import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./com
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
 import {
+  CreateContainerFleetCommandInput,
+  CreateContainerFleetCommandOutput,
+} from "./commands/CreateContainerFleetCommand";
+import {
   CreateContainerGroupDefinitionCommandInput,
   CreateContainerGroupDefinitionCommandOutput,
 } from "./commands/CreateContainerGroupDefinitionCommand";
@@ -103,6 +107,10 @@ import {
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import {
+  DeleteContainerFleetCommandInput,
+  DeleteContainerFleetCommandOutput,
+} from "./commands/DeleteContainerFleetCommand";
 import {
   DeleteContainerGroupDefinitionCommandInput,
   DeleteContainerGroupDefinitionCommandOutput,
@@ -151,6 +159,10 @@ import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./command
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
 import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "./commands/DescribeComputeCommand";
 import {
+  DescribeContainerFleetCommandInput,
+  DescribeContainerFleetCommandOutput,
+} from "./commands/DescribeContainerFleetCommand";
+import {
   DescribeContainerGroupDefinitionCommandInput,
   DescribeContainerGroupDefinitionCommandOutput,
 } from "./commands/DescribeContainerGroupDefinitionCommand";
@@ -166,6 +178,10 @@ import {
   DescribeFleetCapacityCommandInput,
   DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand";
+import {
+  DescribeFleetDeploymentCommandInput,
+  DescribeFleetDeploymentCommandOutput,
+} from "./commands/DescribeFleetDeploymentCommand";
 import {
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
@@ -263,9 +279,21 @@ import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/Li
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
 import {
+  ListContainerFleetsCommandInput,
+  ListContainerFleetsCommandOutput,
+} from "./commands/ListContainerFleetsCommand";
+import {
   ListContainerGroupDefinitionsCommandInput,
   ListContainerGroupDefinitionsCommandOutput,
 } from "./commands/ListContainerGroupDefinitionsCommand";
+import {
+  ListContainerGroupDefinitionVersionsCommandInput,
+  ListContainerGroupDefinitionVersionsCommandOutput,
+} from "./commands/ListContainerGroupDefinitionVersionsCommand";
+import {
+  ListFleetDeploymentsCommandInput,
+  ListFleetDeploymentsCommandOutput,
+} from "./commands/ListFleetDeploymentsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
@@ -309,9 +337,21 @@ import {
   SuspendGameServerGroupCommandOutput,
 } from "./commands/SuspendGameServerGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TerminateGameSessionCommandInput,
+  TerminateGameSessionCommandOutput,
+} from "./commands/TerminateGameSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
+import {
+  UpdateContainerFleetCommandInput,
+  UpdateContainerFleetCommandOutput,
+} from "./commands/UpdateContainerFleetCommand";
+import {
+  UpdateContainerGroupDefinitionCommandInput,
+  UpdateContainerGroupDefinitionCommandOutput,
+} from "./commands/UpdateContainerGroupDefinitionCommand";
 import {
   UpdateFleetAttributesCommandInput,
   UpdateFleetAttributesCommandOutput,
@@ -366,6 +406,7 @@ export type ServiceInputTypes =
   | ClaimGameServerCommandInput
   | CreateAliasCommandInput
   | CreateBuildCommandInput
+  | CreateContainerFleetCommandInput
   | CreateContainerGroupDefinitionCommandInput
   | CreateFleetCommandInput
   | CreateFleetLocationsCommandInput
@@ -382,6 +423,7 @@ export type ServiceInputTypes =
   | CreateVpcPeeringConnectionCommandInput
   | DeleteAliasCommandInput
   | DeleteBuildCommandInput
+  | DeleteContainerFleetCommandInput
   | DeleteContainerGroupDefinitionCommandInput
   | DeleteFleetCommandInput
   | DeleteFleetLocationsCommandInput
@@ -399,10 +441,12 @@ export type ServiceInputTypes =
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
   | DescribeComputeCommandInput
+  | DescribeContainerFleetCommandInput
   | DescribeContainerGroupDefinitionCommandInput
   | DescribeEC2InstanceLimitsCommandInput
   | DescribeFleetAttributesCommandInput
   | DescribeFleetCapacityCommandInput
+  | DescribeFleetDeploymentCommandInput
   | DescribeFleetEventsCommandInput
   | DescribeFleetLocationAttributesCommandInput
   | DescribeFleetLocationCapacityCommandInput
@@ -433,7 +477,10 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListComputeCommandInput
+  | ListContainerFleetsCommandInput
+  | ListContainerGroupDefinitionVersionsCommandInput
   | ListContainerGroupDefinitionsCommandInput
+  | ListFleetDeploymentsCommandInput
   | ListFleetsCommandInput
   | ListGameServerGroupsCommandInput
   | ListGameServersCommandInput
@@ -456,9 +503,12 @@ export type ServiceInputTypes =
   | StopMatchmakingCommandInput
   | SuspendGameServerGroupCommandInput
   | TagResourceCommandInput
+  | TerminateGameSessionCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
   | UpdateBuildCommandInput
+  | UpdateContainerFleetCommandInput
+  | UpdateContainerGroupDefinitionCommandInput
   | UpdateFleetAttributesCommandInput
   | UpdateFleetCapacityCommandInput
   | UpdateFleetPortSettingsCommandInput
@@ -479,6 +529,7 @@ export type ServiceOutputTypes =
   | ClaimGameServerCommandOutput
   | CreateAliasCommandOutput
   | CreateBuildCommandOutput
+  | CreateContainerFleetCommandOutput
   | CreateContainerGroupDefinitionCommandOutput
   | CreateFleetCommandOutput
   | CreateFleetLocationsCommandOutput
@@ -495,6 +546,7 @@ export type ServiceOutputTypes =
   | CreateVpcPeeringConnectionCommandOutput
   | DeleteAliasCommandOutput
   | DeleteBuildCommandOutput
+  | DeleteContainerFleetCommandOutput
   | DeleteContainerGroupDefinitionCommandOutput
   | DeleteFleetCommandOutput
   | DeleteFleetLocationsCommandOutput
@@ -512,10 +564,12 @@ export type ServiceOutputTypes =
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
   | DescribeComputeCommandOutput
+  | DescribeContainerFleetCommandOutput
   | DescribeContainerGroupDefinitionCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
   | DescribeFleetAttributesCommandOutput
   | DescribeFleetCapacityCommandOutput
+  | DescribeFleetDeploymentCommandOutput
   | DescribeFleetEventsCommandOutput
   | DescribeFleetLocationAttributesCommandOutput
   | DescribeFleetLocationCapacityCommandOutput
@@ -546,7 +600,10 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListComputeCommandOutput
+  | ListContainerFleetsCommandOutput
+  | ListContainerGroupDefinitionVersionsCommandOutput
   | ListContainerGroupDefinitionsCommandOutput
+  | ListFleetDeploymentsCommandOutput
   | ListFleetsCommandOutput
   | ListGameServerGroupsCommandOutput
   | ListGameServersCommandOutput
@@ -569,9 +626,12 @@ export type ServiceOutputTypes =
   | StopMatchmakingCommandOutput
   | SuspendGameServerGroupCommandOutput
   | TagResourceCommandOutput
+  | TerminateGameSessionCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
   | UpdateBuildCommandOutput
+  | UpdateContainerFleetCommandOutput
+  | UpdateContainerGroupDefinitionCommandOutput
   | UpdateFleetAttributesCommandOutput
   | UpdateFleetCapacityCommandOutput
   | UpdateFleetPortSettingsCommandOutput
@@ -676,6 +736,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -721,11 +800,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type GameLiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -741,11 +820,11 @@ export interface GameLiftClientConfig extends GameLiftClientConfigType {}
 export type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -775,8 +854,8 @@ export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConf
  *                     FlexMatch for matchmaking.</p>
  *             </li>
  *             <li>
- *                <p>Managed hosting with Realtime Servers -- With Amazon GameLift Realtime Servers, you can quickly configure
- *                     and set up ready-to-go game servers for your game. Realtime Servers provides a game server
+ *                <p>Managed hosting with Amazon GameLift Realtime -- With Amazon GameLift Amazon GameLift Realtime, you can quickly configure
+ *                     and set up ready-to-go game servers for your game. Amazon GameLift Realtime provides a game server
  *                     framework with core Amazon GameLift infrastructure already built in. Then use the full
  *                     range of Amazon GameLift managed hosting features, including FlexMatch, for your
  *                     game.</p>
@@ -829,26 +908,30 @@ export class GameLiftClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<GameLiftClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultGameLiftHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: GameLiftClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -861,14 +944,5 @@ export class GameLiftClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultGameLiftHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: GameLiftClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

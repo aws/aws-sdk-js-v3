@@ -28,7 +28,7 @@ export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
 export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
+ * <p>Attaches an available virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -47,8 +47,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * const response = await client.send(command);
  * // { // AttachVpnGatewayResult
  * //   VpcAttachment: { // VpcAttachment
- * //     State: "attaching" || "attached" || "detaching" || "detached",
  * //     VpcId: "STRING_VALUE",
+ * //     State: "attaching" || "attached" || "detaching" || "detached",
  * //   },
  * // };
  *
@@ -63,6 +63,7 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AttachVpnGatewayCommand extends $Command
@@ -73,9 +74,7 @@ export class AttachVpnGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class AttachVpnGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachVpnGatewayCommand)
   .de(de_AttachVpnGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachVpnGatewayRequest;
+      output: AttachVpnGatewayResult;
+    };
+    sdk: {
+      input: AttachVpnGatewayCommandInput;
+      output: AttachVpnGatewayCommandOutput;
+    };
+  };
+}

@@ -53,7 +53,10 @@ export interface PostLineageEventCommandOutput extends PostLineageEventOutput, _
  * };
  * const command = new PostLineageEventCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // PostLineageEventOutput
+ * //   id: "STRING_VALUE",
+ * //   domainId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -90,6 +93,7 @@ export interface PostLineageEventCommandOutput extends PostLineageEventOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class PostLineageEventCommand extends $Command
@@ -100,9 +104,7 @@ export class PostLineageEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +116,16 @@ export class PostLineageEventCommand extends $Command
   .f(PostLineageEventInputFilterSensitiveLog, void 0)
   .ser(se_PostLineageEventCommand)
   .de(de_PostLineageEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostLineageEventInput;
+      output: PostLineageEventOutput;
+    };
+    sdk: {
+      input: PostLineageEventCommandInput;
+      output: PostLineageEventCommandOutput;
+    };
+  };
+}

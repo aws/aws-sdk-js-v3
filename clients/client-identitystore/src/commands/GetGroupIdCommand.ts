@@ -86,6 +86,7 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class GetGroupIdCommand extends $Command
@@ -96,9 +97,7 @@ export class GetGroupIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetGroupIdCommand extends $Command
   .f(GetGroupIdRequestFilterSensitiveLog, void 0)
   .ser(se_GetGroupIdCommand)
   .de(de_GetGroupIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupIdRequest;
+      output: GetGroupIdResponse;
+    };
+    sdk: {
+      input: GetGroupIdCommandInput;
+      output: GetGroupIdCommandOutput;
+    };
+  };
+}

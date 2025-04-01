@@ -11,7 +11,7 @@ import { CodestarNotificationsServiceException as __BaseException } from "./Code
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -34,7 +34,7 @@ export class AccessDeniedException extends __BaseException {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -56,7 +56,7 @@ export class ConcurrentModificationException extends __BaseException {
 export class ConfigurationException extends __BaseException {
   readonly name: "ConfigurationException" = "ConfigurationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -116,13 +116,13 @@ export interface Target {
    *          </ul>
    * @public
    */
-  TargetType?: string;
+  TargetType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
    * @public
    */
-  TargetAddress?: string;
+  TargetAddress?: string | undefined;
 }
 
 /**
@@ -175,20 +175,20 @@ export interface CreateNotificationRuleRequest {
    *          </note>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>A list of tags to apply to this notification rule. Key names cannot start with "<code>aws</code>". </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the notification rule. The default value is <code>ENABLED</code>. If the status is
    *             set to <code>DISABLED</code>, notifications aren't sent for the notification rule.</p>
    * @public
    */
-  Status?: NotificationRuleStatus;
+  Status?: NotificationRuleStatus | undefined;
 }
 
 /**
@@ -199,7 +199,7 @@ export interface CreateNotificationRuleResult {
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface CreateNotificationRuleResult {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -234,7 +234,7 @@ export class LimitExceededException extends __BaseException {
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -256,7 +256,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -290,7 +290,7 @@ export interface DeleteNotificationRuleResult {
    * <p>The Amazon Resource Name (ARN) of the deleted notification rule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -309,7 +309,7 @@ export interface DeleteTargetRequest {
    *             notification rule in your Amazon Web Services account are deleted.</p>
    * @public
    */
-  ForceUnsubscribeAll?: boolean;
+  ForceUnsubscribeAll?: boolean | undefined;
 }
 
 /**
@@ -339,25 +339,25 @@ export interface EventTypeSummary {
    *           in the <i>Developer Tools Console User Guide</i>.</p>
    * @public
    */
-  EventTypeId?: string;
+  EventTypeId?: string | undefined;
 
   /**
    * <p>The name of the service for which the event applies.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>The name of the event.</p>
    * @public
    */
-  EventTypeName?: string;
+  EventTypeName?: string | undefined;
 
   /**
    * <p>The resource type of the event.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -386,7 +386,7 @@ export interface TargetSummary {
    * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
    * @public
    */
-  TargetAddress?: string;
+  TargetAddress?: string | undefined;
 
   /**
    * <p>The type of the target (for example, <code>SNS</code>).</p>
@@ -400,13 +400,13 @@ export interface TargetSummary {
    *          </ul>
    * @public
    */
-  TargetType?: string;
+  TargetType?: string | undefined;
 
   /**
    * <p>The status of the target.</p>
    * @public
    */
-  TargetStatus?: TargetStatus;
+  TargetStatus?: TargetStatus | undefined;
 }
 
 /**
@@ -423,26 +423,26 @@ export interface DescribeNotificationRuleResult {
    * <p>The name of the notification rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A list of the event types associated with the notification rule.</p>
    * @public
    */
-  EventTypes?: EventTypeSummary[];
+  EventTypes?: EventTypeSummary[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the notification
    *       rule.</p>
    * @public
    */
-  Resource?: string;
+  Resource?: string | undefined;
 
   /**
    * <p>A list of the Chatbot topics and Chatbot clients associated with the notification rule.</p>
    * @public
    */
-  Targets?: TargetSummary[];
+  Targets?: TargetSummary[] | undefined;
 
   /**
    * <p>The level of detail included in the notifications for this resource. BASIC will include only the
@@ -450,39 +450,39 @@ export interface DescribeNotificationRuleResult {
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    * @public
    */
-  DetailType?: DetailType;
+  DetailType?: DetailType | undefined;
 
   /**
    * <p>The name or email alias of the person who created the notification rule.</p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 
   /**
    * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
    *       (not sending notifications).</p>
    * @public
    */
-  Status?: NotificationRuleStatus;
+  Status?: NotificationRuleStatus | undefined;
 
   /**
    * <p>The date and time the notification rule was created, in timestamp format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time the notification rule was most recently updated, in timestamp
    *             format.</p>
    * @public
    */
-  LastModifiedTimestamp?: Date;
+  LastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>The tags associated with the notification rule.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -492,7 +492,7 @@ export interface DescribeNotificationRuleResult {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -514,7 +514,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -571,21 +571,21 @@ export interface ListEventTypesRequest {
    * <p>The filters to use to return information by service or resource type.</p>
    * @public
    */
-  Filters?: ListEventTypesFilter[];
+  Filters?: ListEventTypesFilter[] | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of
    *       results that can be returned is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -597,13 +597,13 @@ export interface ListEventTypesResult {
    *       name.</p>
    * @public
    */
-  EventTypes?: EventTypeSummary[];
+  EventTypes?: EventTypeSummary[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -655,21 +655,21 @@ export interface ListNotificationRulesRequest {
    *          </note>
    * @public
    */
-  Filters?: ListNotificationRulesFilter[];
+  Filters?: ListNotificationRulesFilter[] | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The maximum number of
    *       results that can be returned is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -681,13 +681,13 @@ export interface NotificationRuleSummary {
    * <p>The unique ID of the notification rule.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -698,13 +698,13 @@ export interface ListNotificationRulesResult {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of notification rules for the Amazon Web Services account, by Amazon Resource Name (ARN) and ID. </p>
    * @public
    */
-  NotificationRules?: NotificationRuleSummary[];
+  NotificationRules?: NotificationRuleSummary[] | undefined;
 }
 
 /**
@@ -726,7 +726,7 @@ export interface ListTagsForResourceResult {
    * <p>The tags associated with the notification rule.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -780,21 +780,21 @@ export interface ListTargetsRequest {
    *          </note>
    * @public
    */
-  Filters?: ListTargetsFilter[];
+  Filters?: ListTargetsFilter[] | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The maximum number of
    *       results that can be returned is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -805,14 +805,14 @@ export interface ListTargetsResult {
    * <p>The list of notification rule targets. </p>
    * @public
    */
-  Targets?: TargetSummary[];
+  Targets?: TargetSummary[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -836,7 +836,7 @@ export interface SubscribeRequest {
    *             results.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -847,7 +847,7 @@ export interface SubscribeResult {
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you have created assocations.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -875,7 +875,7 @@ export interface TagResourceResult {
    * <p>The list of tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -943,14 +943,14 @@ export interface UpdateNotificationRuleRequest {
    * <p>The name of the notification rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the notification rule. Valid statuses include enabled (sending notifications) or
    *       disabled (not sending notifications).</p>
    * @public
    */
-  Status?: NotificationRuleStatus;
+  Status?: NotificationRuleStatus | undefined;
 
   /**
    * <p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see
@@ -958,14 +958,14 @@ export interface UpdateNotificationRuleRequest {
    *        in the <i>Developer Tools Console User Guide</i>.</p>
    * @public
    */
-  EventTypeIds?: string[];
+  EventTypeIds?: string[] | undefined;
 
   /**
    * <p>The address and type of the targets to receive notifications from this notification
    *       rule.</p>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
@@ -973,7 +973,7 @@ export interface UpdateNotificationRuleRequest {
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    * @public
    */
-  DetailType?: DetailType;
+  DetailType?: DetailType | undefined;
 }
 
 /**

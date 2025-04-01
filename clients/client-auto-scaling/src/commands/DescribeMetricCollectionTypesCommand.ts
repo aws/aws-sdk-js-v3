@@ -71,51 +71,51 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Auto Scaling metric collection types
  * ```javascript
  * // This example describes the available metric collection types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Granularities": [
+ *   Granularities: [
  *     {
- *       "Granularity": "1Minute"
+ *       Granularity: "1Minute"
  *     }
  *   ],
- *   "Metrics": [
+ *   Metrics: [
  *     {
- *       "Metric": "GroupMinSize"
+ *       Metric: "GroupMinSize"
  *     },
  *     {
- *       "Metric": "GroupMaxSize"
+ *       Metric: "GroupMaxSize"
  *     },
  *     {
- *       "Metric": "GroupDesiredCapacity"
+ *       Metric: "GroupDesiredCapacity"
  *     },
  *     {
- *       "Metric": "GroupInServiceInstances"
+ *       Metric: "GroupInServiceInstances"
  *     },
  *     {
- *       "Metric": "GroupPendingInstances"
+ *       Metric: "GroupPendingInstances"
  *     },
  *     {
- *       "Metric": "GroupTerminatingInstances"
+ *       Metric: "GroupTerminatingInstances"
  *     },
  *     {
- *       "Metric": "GroupStandbyInstances"
+ *       Metric: "GroupStandbyInstances"
  *     },
  *     {
- *       "Metric": "GroupTotalInstances"
+ *       Metric: "GroupTotalInstances"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-metric-collection-types-1
  * ```
  *
+ * @public
  */
 export class DescribeMetricCollectionTypesCommand extends $Command
   .classBuilder<
@@ -125,9 +125,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class DescribeMetricCollectionTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetricCollectionTypesCommand)
   .de(de_DescribeMetricCollectionTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeMetricCollectionTypesAnswer;
+    };
+    sdk: {
+      input: DescribeMetricCollectionTypesCommandInput;
+      output: DescribeMetricCollectionTypesCommandOutput;
+    };
+  };
+}

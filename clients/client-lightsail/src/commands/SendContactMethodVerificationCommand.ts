@@ -38,7 +38,7 @@ export interface SendContactMethodVerificationCommandOutput
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
- *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *       see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  *          <p>A verification request is sent to the contact method when you initially create it. Use
  *       this action to send another verification request if a previous verification request was
  *       deleted, or has expired.</p>
@@ -116,6 +116,7 @@ export interface SendContactMethodVerificationCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class SendContactMethodVerificationCommand extends $Command
@@ -126,9 +127,7 @@ export class SendContactMethodVerificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class SendContactMethodVerificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendContactMethodVerificationCommand)
   .de(de_SendContactMethodVerificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendContactMethodVerificationRequest;
+      output: SendContactMethodVerificationResult;
+    };
+    sdk: {
+      input: SendContactMethodVerificationCommandInput;
+      output: SendContactMethodVerificationCommandOutput;
+    };
+  };
+}

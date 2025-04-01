@@ -136,6 +136,7 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StartExportTaskCommand extends $Command
@@ -146,9 +147,7 @@ export class StartExportTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class StartExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExportTaskCommand)
   .de(de_StartExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExportTaskRequest;
+      output: StartExportTaskResponse;
+    };
+    sdk: {
+      input: StartExportTaskCommandInput;
+      output: StartExportTaskCommandOutput;
+    };
+  };
+}

@@ -89,6 +89,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListEventIntegrationAssociationsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListEventIntegrationAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListEventIntegrationAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventIntegrationAssociationsCommand)
   .de(de_ListEventIntegrationAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventIntegrationAssociationsRequest;
+      output: ListEventIntegrationAssociationsResponse;
+    };
+    sdk: {
+      input: ListEventIntegrationAssociationsCommandInput;
+      output: ListEventIntegrationAssociationsCommandOutput;
+    };
+  };
+}

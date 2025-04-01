@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
+import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_1";
 import { de_DeleteAuthorizerCommand, se_DeleteAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,6 +76,7 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteAuthorizerCommand extends $Command
@@ -86,9 +87,7 @@ export class DeleteAuthorizerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeleteAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAuthorizerCommand)
   .de(de_DeleteAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAuthorizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAuthorizerCommandInput;
+      output: DeleteAuthorizerCommandOutput;
+    };
+  };
+}

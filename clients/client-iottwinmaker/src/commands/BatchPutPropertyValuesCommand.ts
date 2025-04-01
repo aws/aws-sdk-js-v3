@@ -182,6 +182,7 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class BatchPutPropertyValuesCommand extends $Command
@@ -192,9 +193,7 @@ export class BatchPutPropertyValuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +205,16 @@ export class BatchPutPropertyValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutPropertyValuesCommand)
   .de(de_BatchPutPropertyValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutPropertyValuesRequest;
+      output: BatchPutPropertyValuesResponse;
+    };
+    sdk: {
+      input: BatchPutPropertyValuesCommandInput;
+      output: BatchPutPropertyValuesCommandOutput;
+    };
+  };
+}

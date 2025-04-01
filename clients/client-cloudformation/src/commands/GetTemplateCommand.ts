@@ -28,9 +28,10 @@ export interface GetTemplateCommandInput extends GetTemplateInput {}
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the template body for a specified stack. You can get the template for running or deleted stacks.</p>
- *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days after the stack has been
- *    deleted.</p>
+ * <p>Returns the template body for a specified stack. You can get the template for running or
+ *       deleted stacks.</p>
+ *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days after
+ *       the stack has been deleted.</p>
  *          <note>
  *             <p>If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
  *          </note>
@@ -69,6 +70,7 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateCommand extends $Command
@@ -79,9 +81,7 @@ export class GetTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class GetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateCommand)
   .de(de_GetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateInput;
+      output: GetTemplateOutput;
+    };
+    sdk: {
+      input: GetTemplateCommandInput;
+      output: GetTemplateCommandOutput;
+    };
+  };
+}

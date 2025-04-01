@@ -24,7 +24,6 @@ import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.knowledge.EventStreamIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -48,7 +47,11 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(AddHttpAuthSchemePlugin.class.getCanonicalName());
+        return List.of(
+            AddHttpAuthSchemePlugin.class.getCanonicalName(),
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
     }
 
     @Override
@@ -58,7 +61,8 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_WEBSOCKET.dependency,
                                 "WebSocket", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
                         .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
-                        .operationPredicate((m, s, o) -> isWebsocketSupported(s) && hasEventStreamRequest(m, o))
+                        .operationPredicate((m, s, o) -> isWebsocketSupported(s)
+                            && AddEventStreamHandlingDependency.hasEventStreamInput(m, o))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_WEBSOCKET.dependency, "WebSocket",
@@ -127,11 +131,6 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         return websocketServices.contains(serviceId);
     }
-
-    private static boolean hasEventStreamRequest(Model model, OperationShape operation) {
-        EventStreamIndex eventStreamIndex = EventStreamIndex.of(model);
-        return eventStreamIndex.getInputInfo(operation).isPresent();
-  }
 
     private static Map<String, Object> getPluginFunctionParams(
         Model model,

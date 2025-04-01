@@ -35,7 +35,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *             read from the same stream.</p>
  *          <p>You can register up to 20 consumers per stream. A given consumer can only be
  *             registered with one stream at a time.</p>
- *          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
  *          <p>The use of this operation has a limit of five transactions per second per account.
  *             Also, only 5 consumers can be created simultaneously. In other words, you cannot have
@@ -90,6 +90,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class RegisterStreamConsumerCommand extends $Command
@@ -116,4 +117,16 @@ export class RegisterStreamConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterStreamConsumerCommand)
   .de(de_RegisterStreamConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterStreamConsumerInput;
+      output: RegisterStreamConsumerOutput;
+    };
+    sdk: {
+      input: RegisterStreamConsumerCommandInput;
+      output: RegisterStreamConsumerCommandOutput;
+    };
+  };
+}

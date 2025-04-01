@@ -86,6 +86,7 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketLifecycleConfigurationCommand extends $Command
@@ -114,4 +115,16 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketLifecycleConfigurationCommand)
   .de(de_DeleteBucketLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketLifecycleConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketLifecycleConfigurationCommandInput;
+      output: DeleteBucketLifecycleConfigurationCommandOutput;
+    };
+  };
+}

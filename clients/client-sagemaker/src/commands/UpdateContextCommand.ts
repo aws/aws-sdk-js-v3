@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContextRequest, UpdateContextResponse } from "../models/models_4";
+import { UpdateContextRequest, UpdateContextResponse } from "../models/models_5";
 import { de_UpdateContextCommand, se_UpdateContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -69,6 +69,7 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateContextCommand extends $Command
@@ -79,9 +80,7 @@ export class UpdateContextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class UpdateContextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContextCommand)
   .de(de_UpdateContextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContextRequest;
+      output: UpdateContextResponse;
+    };
+    sdk: {
+      input: UpdateContextCommandInput;
+      output: UpdateContextCommandOutput;
+    };
+  };
+}

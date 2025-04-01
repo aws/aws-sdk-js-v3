@@ -46,7 +46,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const client = new KendraClient(config);
  * const input = { // CreateIndexRequest
  *   Name: "STRING_VALUE", // required
- *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION" || "GEN_AI_ENTERPRISE_EDITION",
  *   RoleArn: "STRING_VALUE", // required
  *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     KmsKeyId: "STRING_VALUE",
@@ -128,6 +128,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class CreateIndexCommand extends $Command
@@ -138,9 +139,7 @@ export class CreateIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class CreateIndexCommand extends $Command
   .f(CreateIndexRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIndexCommand)
   .de(de_CreateIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIndexRequest;
+      output: CreateIndexResponse;
+    };
+    sdk: {
+      input: CreateIndexCommandInput;
+      output: CreateIndexCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class DeleteRumMetricsDestinationCommand extends $Command
@@ -89,9 +90,7 @@ export class DeleteRumMetricsDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeleteRumMetricsDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRumMetricsDestinationCommand)
   .de(de_DeleteRumMetricsDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRumMetricsDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRumMetricsDestinationCommandInput;
+      output: DeleteRumMetricsDestinationCommandOutput;
+    };
+  };
+}

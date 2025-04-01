@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_4";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_5";
 import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -89,6 +89,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupCommand extends $Command
@@ -99,9 +100,7 @@ export class UpdateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class UpdateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGroupCommand)
   .de(de_UpdateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupRequest;
+      output: UpdateGroupResponse;
+    };
+    sdk: {
+      input: UpdateGroupCommandInput;
+      output: UpdateGroupCommandOutput;
+    };
+  };
+}

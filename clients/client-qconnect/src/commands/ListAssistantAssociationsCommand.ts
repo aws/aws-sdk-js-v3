@@ -84,6 +84,7 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListAssistantAssociationsCommand extends $Command
@@ -94,9 +95,7 @@ export class ListAssistantAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListAssistantAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssistantAssociationsCommand)
   .de(de_ListAssistantAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssistantAssociationsRequest;
+      output: ListAssistantAssociationsResponse;
+    };
+    sdk: {
+      input: ListAssistantAssociationsCommandInput;
+      output: ListAssistantAssociationsCommandOutput;
+    };
+  };
+}

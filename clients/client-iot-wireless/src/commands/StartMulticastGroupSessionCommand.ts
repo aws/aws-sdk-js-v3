@@ -78,6 +78,7 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class StartMulticastGroupSessionCommand extends $Command
@@ -88,9 +89,7 @@ export class StartMulticastGroupSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class StartMulticastGroupSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMulticastGroupSessionCommand)
   .de(de_StartMulticastGroupSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMulticastGroupSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMulticastGroupSessionCommandInput;
+      output: StartMulticastGroupSessionCommandOutput;
+    };
+  };
+}

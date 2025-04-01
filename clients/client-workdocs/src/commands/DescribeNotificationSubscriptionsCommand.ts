@@ -81,6 +81,7 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeNotificationSubscriptionsCommand extends $Command
@@ -91,9 +92,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DescribeNotificationSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotificationSubscriptionsCommand)
   .de(de_DescribeNotificationSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotificationSubscriptionsRequest;
+      output: DescribeNotificationSubscriptionsResponse;
+    };
+    sdk: {
+      input: DescribeNotificationSubscriptionsCommandInput;
+      output: DescribeNotificationSubscriptionsCommandOutput;
+    };
+  };
+}

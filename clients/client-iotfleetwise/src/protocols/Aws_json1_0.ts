@@ -49,6 +49,10 @@ import {
   CreateSignalCatalogCommandInput,
   CreateSignalCatalogCommandOutput,
 } from "../commands/CreateSignalCatalogCommand";
+import {
+  CreateStateTemplateCommandInput,
+  CreateStateTemplateCommandOutput,
+} from "../commands/CreateStateTemplateCommand";
 import { CreateVehicleCommandInput, CreateVehicleCommandOutput } from "../commands/CreateVehicleCommand";
 import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "../commands/DeleteCampaignCommand";
 import {
@@ -64,6 +68,10 @@ import {
   DeleteSignalCatalogCommandInput,
   DeleteSignalCatalogCommandOutput,
 } from "../commands/DeleteSignalCatalogCommand";
+import {
+  DeleteStateTemplateCommandInput,
+  DeleteStateTemplateCommandOutput,
+} from "../commands/DeleteStateTemplateCommand";
 import { DeleteVehicleCommandInput, DeleteVehicleCommandOutput } from "../commands/DeleteVehicleCommand";
 import {
   DisassociateVehicleFleetCommandInput,
@@ -83,6 +91,7 @@ import {
   GetRegisterAccountStatusCommandOutput,
 } from "../commands/GetRegisterAccountStatusCommand";
 import { GetSignalCatalogCommandInput, GetSignalCatalogCommandOutput } from "../commands/GetSignalCatalogCommand";
+import { GetStateTemplateCommandInput, GetStateTemplateCommandOutput } from "../commands/GetStateTemplateCommand";
 import { GetVehicleCommandInput, GetVehicleCommandOutput } from "../commands/GetVehicleCommand";
 import { GetVehicleStatusCommandInput, GetVehicleStatusCommandOutput } from "../commands/GetVehicleStatusCommand";
 import {
@@ -121,6 +130,7 @@ import {
   ListSignalCatalogNodesCommandOutput,
 } from "../commands/ListSignalCatalogNodesCommand";
 import { ListSignalCatalogsCommandInput, ListSignalCatalogsCommandOutput } from "../commands/ListSignalCatalogsCommand";
+import { ListStateTemplatesCommandInput, ListStateTemplatesCommandOutput } from "../commands/ListStateTemplatesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -152,6 +162,10 @@ import {
   UpdateSignalCatalogCommandInput,
   UpdateSignalCatalogCommandOutput,
 } from "../commands/UpdateSignalCatalogCommand";
+import {
+  UpdateStateTemplateCommandInput,
+  UpdateStateTemplateCommandOutput,
+} from "../commands/UpdateStateTemplateCommand";
 import { UpdateVehicleCommandInput, UpdateVehicleCommandOutput } from "../commands/UpdateVehicleCommand";
 import { IoTFleetWiseServiceException as __BaseException } from "../models/IoTFleetWiseServiceException";
 import {
@@ -169,17 +183,24 @@ import {
   CloudWatchLogDeliveryOptions,
   CollectionScheme,
   ConditionBasedCollectionScheme,
+  ConditionBasedSignalFetchConfig,
   ConflictException,
   CreateCampaignRequest,
   CreateDecoderManifestRequest,
   CreateFleetRequest,
   CreateModelManifestRequest,
   CreateSignalCatalogRequest,
+  CreateStateTemplateRequest,
   CreateVehicleRequest,
   CreateVehicleRequestItem,
+  CustomDecodingInterface,
+  CustomDecodingSignal,
   CustomProperty,
   CustomStruct,
   DataDestinationConfig,
+  DataPartition,
+  DataPartitionStorageOptions,
+  DataPartitionUploadOptions,
   DecoderManifestSummary,
   DecoderManifestValidationException,
   DeleteCampaignRequest,
@@ -187,6 +208,7 @@ import {
   DeleteFleetRequest,
   DeleteModelManifestRequest,
   DeleteSignalCatalogRequest,
+  DeleteStateTemplateRequest,
   DeleteVehicleRequest,
   DisassociateVehicleFleetRequest,
   FleetSummary,
@@ -206,6 +228,8 @@ import {
   GetRegisterAccountStatusResponse,
   GetSignalCatalogRequest,
   GetSignalCatalogResponse,
+  GetStateTemplateRequest,
+  GetStateTemplateResponse,
   GetVehicleRequest,
   GetVehicleResponse,
   GetVehicleStatusRequest,
@@ -234,17 +258,22 @@ import {
   ListSignalCatalogNodesResponse,
   ListSignalCatalogsRequest,
   ListSignalCatalogsResponse,
+  ListStateTemplatesRequest,
+  ListStateTemplatesResponse,
   ListTagsForResourceRequest,
   ListVehiclesInFleetRequest,
   ListVehiclesRequest,
   ListVehiclesResponse,
   MessageSignal,
   ModelManifestSummary,
+  MqttTopicConfig,
   NetworkFileDefinition,
   NetworkInterface,
   Node,
   ObdInterface,
   ObdSignal,
+  OnChangeStateTemplateUpdateStrategy,
+  PeriodicStateTemplateUpdateStrategy,
   PrimitiveMessageDefinition,
   PutEncryptionConfigurationRequest,
   PutLoggingOptionsRequest,
@@ -256,7 +285,14 @@ import {
   Sensor,
   SignalCatalogSummary,
   SignalDecoder,
+  SignalFetchConfig,
+  SignalFetchInformation,
   SignalInformation,
+  StateTemplateAssociation,
+  StateTemplateSummary,
+  StateTemplateUpdateStrategy,
+  StorageMaximumSize,
+  StorageMinimumTimeToLive,
   StructuredMessage,
   StructuredMessageFieldNameAndDataTypePair,
   StructuredMessageListDefinition,
@@ -264,6 +300,8 @@ import {
   TagResourceRequest,
   ThrottlingException,
   TimeBasedCollectionScheme,
+  TimeBasedSignalFetchConfig,
+  TimePeriod,
   TimestreamConfig,
   TimestreamResources,
   UntagResourceRequest,
@@ -272,6 +310,7 @@ import {
   UpdateFleetRequest,
   UpdateModelManifestRequest,
   UpdateSignalCatalogRequest,
+  UpdateStateTemplateRequest,
   UpdateVehicleRequest,
   UpdateVehicleRequestItem,
   ValidationException,
@@ -384,6 +423,19 @@ export const se_CreateSignalCatalogCommand = async (
 };
 
 /**
+ * serializeAws_json1_0CreateStateTemplateCommand
+ */
+export const se_CreateStateTemplateCommand = async (
+  input: CreateStateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateStateTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0CreateVehicleCommand
  */
 export const se_CreateVehicleCommand = async (
@@ -456,6 +508,19 @@ export const se_DeleteSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSignalCatalog");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteStateTemplateCommand
+ */
+export const se_DeleteStateTemplateCommand = async (
+  input: DeleteStateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteStateTemplate");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -586,6 +651,19 @@ export const se_GetSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSignalCatalog");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetStateTemplateCommand
+ */
+export const se_GetStateTemplateCommand = async (
+  input: GetStateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetStateTemplate");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -774,6 +852,19 @@ export const se_ListSignalCatalogsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListStateTemplatesCommand
+ */
+export const se_ListStateTemplatesCommand = async (
+  input: ListStateTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListStateTemplates");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -939,6 +1030,19 @@ export const se_UpdateSignalCatalogCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateSignalCatalog");
   let body: any;
   body = JSON.stringify(se_UpdateSignalCatalogRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateStateTemplateCommand
+ */
+export const se_UpdateStateTemplateCommand = async (
+  input: UpdateStateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateStateTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1116,6 +1220,26 @@ export const de_CreateSignalCatalogCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateStateTemplateCommand
+ */
+export const de_CreateStateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStateTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateStateTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0CreateVehicleCommand
  */
 export const de_CreateVehicleCommand = async (
@@ -1229,6 +1353,26 @@ export const de_DeleteSignalCatalogCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteSignalCatalogCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateTemplateCommand
+ */
+export const de_DeleteStateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1429,6 +1573,26 @@ export const de_GetSignalCatalogCommand = async (
   let contents: any = {};
   contents = de_GetSignalCatalogResponse(data, context);
   const response: GetSignalCatalogCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetStateTemplateCommand
+ */
+export const de_GetStateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStateTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetStateTemplateResponse(data, context);
+  const response: GetStateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1716,6 +1880,26 @@ export const de_ListSignalCatalogsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListStateTemplatesCommand
+ */
+export const de_ListStateTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateTemplatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateTemplatesResponse(data, context);
+  const response: ListStateTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1969,6 +2153,26 @@ export const de_UpdateSignalCatalogCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UpdateSignalCatalogCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateStateTemplateCommand
+ */
+export const de_UpdateStateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStateTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateStateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2273,6 +2477,7 @@ const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
     messageId: [],
     name: [],
     offset: __serializeFloat,
+    signalValueType: [],
     startBit: [],
   });
 };
@@ -2283,6 +2488,8 @@ const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
 
 // se_ConditionBasedCollectionScheme omitted.
 
+// se_ConditionBasedSignalFetchConfig omitted.
+
 /**
  * serializeAws_json1_0CreateCampaignRequest
  */
@@ -2292,6 +2499,7 @@ const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __Serde
     compression: [],
     dataDestinationConfigs: _json,
     dataExtraDimensions: _json,
+    dataPartitions: _json,
     description: [],
     diagnosticsMode: [],
     expiryTime: (_) => _.getTime() / 1_000,
@@ -2300,6 +2508,7 @@ const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __Serde
     priority: [],
     signalCatalogArn: [],
     signalsToCollect: _json,
+    signalsToFetch: _json,
     spoolingMode: [],
     startTime: (_) => _.getTime() / 1_000,
     tags: _json,
@@ -2312,6 +2521,7 @@ const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __Serde
  */
 const se_CreateDecoderManifestRequest = (input: CreateDecoderManifestRequest, context: __SerdeContext): any => {
   return take(input, {
+    defaultForUnmappedSignals: [],
     description: [],
     modelManifestArn: [],
     name: [],
@@ -2337,11 +2547,17 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
   });
 };
 
+// se_CreateStateTemplateRequest omitted.
+
 // se_CreateVehicleRequest omitted.
 
 // se_CreateVehicleRequestItem omitted.
 
 // se_createVehicleRequestItems omitted.
+
+// se_CustomDecodingInterface omitted.
+
+// se_CustomDecodingSignal omitted.
 
 // se_CustomProperty omitted.
 
@@ -2353,6 +2569,14 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 
 // se_DataExtraDimensionNodePathList omitted.
 
+// se_DataPartition omitted.
+
+// se_DataPartitions omitted.
+
+// se_DataPartitionStorageOptions omitted.
+
+// se_DataPartitionUploadOptions omitted.
+
 // se_DeleteCampaignRequest omitted.
 
 // se_DeleteDecoderManifestRequest omitted.
@@ -2363,9 +2587,13 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 
 // se_DeleteSignalCatalogRequest omitted.
 
+// se_DeleteStateTemplateRequest omitted.
+
 // se_DeleteVehicleRequest omitted.
 
 // se_DisassociateVehicleFleetRequest omitted.
+
+// se_EventExpressionList omitted.
 
 // se_FormattedVss omitted.
 
@@ -2386,6 +2614,8 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 // se_GetRegisterAccountStatusRequest omitted.
 
 // se_GetSignalCatalogRequest omitted.
+
+// se_GetStateTemplateRequest omitted.
 
 // se_GetVehicleRequest omitted.
 
@@ -2429,6 +2659,8 @@ const se_ImportDecoderManifestRequest = (input: ImportDecoderManifestRequest, co
 
 // se_ListSignalCatalogsRequest omitted.
 
+// se_ListStateTemplatesRequest omitted.
+
 // se_ListTagsForResourceRequest omitted.
 
 // se_ListVehiclesInFleetRequest omitted.
@@ -2447,13 +2679,15 @@ const se_MessageSignal = (input: MessageSignal, context: __SerdeContext): any =>
 
 // se_ModelSignalsMap omitted.
 
+// se_MqttTopicConfig omitted.
+
 /**
  * serializeAws_json1_0NetworkFileDefinition
  */
 const se_NetworkFileDefinition = (input: NetworkFileDefinition, context: __SerdeContext): any => {
   return NetworkFileDefinition.visit(input, {
     canDbc: (value) => ({ canDbc: se_CanDbcDefinition(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2494,7 +2728,7 @@ const se_Node = (input: Node, context: __SerdeContext): any => {
     property: (value) => ({ property: _json(value) }),
     sensor: (value) => ({ sensor: se_Sensor(value, context) }),
     struct: (value) => ({ struct: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2521,14 +2755,20 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
     bitMaskLength: [],
     bitRightShift: [],
     byteLength: [],
+    isSigned: [],
     offset: __serializeFloat,
     pid: [],
     pidResponseLength: [],
     scaling: __serializeFloat,
     serviceMode: [],
+    signalValueType: [],
     startByte: [],
   });
 };
+
+// se_OnChangeStateTemplateUpdateStrategy omitted.
+
+// se_PeriodicStateTemplateUpdateStrategy omitted.
 
 /**
  * serializeAws_json1_0PrimitiveMessageDefinition
@@ -2538,7 +2778,7 @@ const se_PrimitiveMessageDefinition = (input: PrimitiveMessageDefinition, contex
     ros2PrimitiveMessageDefinition: (value) => ({
       ros2PrimitiveMessageDefinition: se_ROS2PrimitiveMessageDefinition(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2586,6 +2826,7 @@ const se_Sensor = (input: Sensor, context: __SerdeContext): any => {
 const se_SignalDecoder = (input: SignalDecoder, context: __SerdeContext): any => {
   return take(input, {
     canSignal: (_) => se_CanSignal(_, context),
+    customDecodingSignal: _json,
     fullyQualifiedName: [],
     interfaceId: [],
     messageSignal: (_) => se_MessageSignal(_, context),
@@ -2605,9 +2846,33 @@ const se_SignalDecoders = (input: SignalDecoder[], context: __SerdeContext): any
     });
 };
 
+// se_SignalFetchConfig omitted.
+
+// se_SignalFetchInformation omitted.
+
+// se_SignalFetchInformationList omitted.
+
 // se_SignalInformation omitted.
 
 // se_SignalInformationList omitted.
+
+// se_StateTemplateAssociation omitted.
+
+// se_StateTemplateAssociationIdentifiers omitted.
+
+// se_StateTemplateAssociations omitted.
+
+// se_StateTemplateDataExtraDimensionNodePathList omitted.
+
+// se_StateTemplateMetadataExtraDimensionNodePathList omitted.
+
+// se_StateTemplateProperties omitted.
+
+// se_StateTemplateUpdateStrategy omitted.
+
+// se_StorageMaximumSize omitted.
+
+// se_StorageMinimumTimeToLive omitted.
 
 /**
  * serializeAws_json1_0StructuredMessage
@@ -2623,7 +2888,7 @@ const se_StructuredMessage = (input: StructuredMessage, context: __SerdeContext)
     structuredMessageListDefinition: (value) => ({
       structuredMessageListDefinition: se_StructuredMessageListDefinition(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2676,6 +2941,10 @@ const se_StructuredMessageListDefinition = (input: StructuredMessageListDefiniti
 
 // se_TimeBasedCollectionScheme omitted.
 
+// se_TimeBasedSignalFetchConfig omitted.
+
+// se_TimePeriod omitted.
+
 // se_TimestreamConfig omitted.
 
 // se_TimestreamResources omitted.
@@ -2689,6 +2958,7 @@ const se_StructuredMessageListDefinition = (input: StructuredMessageListDefiniti
  */
 const se_UpdateDecoderManifestRequest = (input: UpdateDecoderManifestRequest, context: __SerdeContext): any => {
   return take(input, {
+    defaultForUnmappedSignals: [],
     description: [],
     name: [],
     networkInterfacesToAdd: _json,
@@ -2717,6 +2987,8 @@ const se_UpdateSignalCatalogRequest = (input: UpdateSignalCatalogRequest, contex
     nodesToUpdate: (_) => se_Nodes(_, context),
   });
 };
+
+// se_UpdateStateTemplateRequest omitted.
 
 // se_UpdateVehicleRequest omitted.
 
@@ -2818,6 +3090,7 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
     messageId: __expectInt32,
     name: __expectString,
     offset: __limitedParseDouble,
+    signalValueType: __expectString,
     startBit: __expectInt32,
   }) as any;
 };
@@ -2827,6 +3100,8 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
 // de_CollectionScheme omitted.
 
 // de_ConditionBasedCollectionScheme omitted.
+
+// de_ConditionBasedSignalFetchConfig omitted.
 
 // de_ConflictException omitted.
 
@@ -2840,6 +3115,8 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
 
 // de_CreateSignalCatalogResponse omitted.
 
+// de_CreateStateTemplateResponse omitted.
+
 // de_CreateVehicleError omitted.
 
 // de_createVehicleErrors omitted.
@@ -2850,6 +3127,10 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
 
 // de_createVehicleResponses omitted.
 
+// de_CustomDecodingInterface omitted.
+
+// de_CustomDecodingSignal omitted.
+
 // de_CustomProperty omitted.
 
 // de_CustomStruct omitted.
@@ -2859,6 +3140,14 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
 // de_DataDestinationConfigs omitted.
 
 // de_DataExtraDimensionNodePathList omitted.
+
+// de_DataPartition omitted.
+
+// de_DataPartitions omitted.
+
+// de_DataPartitionStorageOptions omitted.
+
+// de_DataPartitionUploadOptions omitted.
 
 /**
  * deserializeAws_json1_0decoderManifestSummaries
@@ -2900,9 +3189,13 @@ const de_DecoderManifestSummary = (output: any, context: __SerdeContext): Decode
 
 // de_DeleteSignalCatalogResponse omitted.
 
+// de_DeleteStateTemplateResponse omitted.
+
 // de_DeleteVehicleResponse omitted.
 
 // de_DisassociateVehicleFleetResponse omitted.
+
+// de_EventExpressionList omitted.
 
 // de_fleets omitted.
 
@@ -2943,6 +3236,7 @@ const de_GetCampaignResponse = (output: any, context: __SerdeContext): GetCampai
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataDestinationConfigs: _json,
     dataExtraDimensions: _json,
+    dataPartitions: _json,
     description: __expectString,
     diagnosticsMode: __expectString,
     expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2952,6 +3246,7 @@ const de_GetCampaignResponse = (output: any, context: __SerdeContext): GetCampai
     priority: __expectInt32,
     signalCatalogArn: __expectString,
     signalsToCollect: _json,
+    signalsToFetch: _json,
     spoolingMode: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
@@ -3055,6 +3350,24 @@ const de_GetSignalCatalogResponse = (output: any, context: __SerdeContext): GetS
 };
 
 /**
+ * deserializeAws_json1_0GetStateTemplateResponse
+ */
+const de_GetStateTemplateResponse = (output: any, context: __SerdeContext): GetStateTemplateResponse => {
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataExtraDimensions: _json,
+    description: __expectString,
+    id: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadataExtraDimensions: _json,
+    name: __expectString,
+    signalCatalogArn: __expectString,
+    stateTemplateProperties: _json,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0GetVehicleResponse
  */
 const de_GetVehicleResponse = (output: any, context: __SerdeContext): GetVehicleResponse => {
@@ -3065,6 +3378,7 @@ const de_GetVehicleResponse = (output: any, context: __SerdeContext): GetVehicle
     decoderManifestArn: __expectString,
     lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     modelManifestArn: __expectString,
+    stateTemplates: _json,
     vehicleName: __expectString,
   }) as any;
 };
@@ -3197,6 +3511,16 @@ const de_ListSignalCatalogsResponse = (output: any, context: __SerdeContext): Li
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0ListStateTemplatesResponse
+ */
+const de_ListStateTemplatesResponse = (output: any, context: __SerdeContext): ListStateTemplatesResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_StateTemplateSummaries(_, context),
+  }) as any;
+};
+
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListVehiclesInFleetResponse omitted.
@@ -3247,6 +3571,8 @@ const de_ModelManifestSummary = (output: any, context: __SerdeContext): ModelMan
     status: __expectString,
   }) as any;
 };
+
+// de_MqttTopicConfig omitted.
 
 // de_NetworkInterface omitted.
 
@@ -3313,14 +3639,20 @@ const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
     bitMaskLength: __expectInt32,
     bitRightShift: __expectInt32,
     byteLength: __expectInt32,
+    isSigned: __expectBoolean,
     offset: __limitedParseDouble,
     pid: __expectInt32,
     pidResponseLength: __expectInt32,
     scaling: __limitedParseDouble,
     serviceMode: __expectInt32,
+    signalValueType: __expectString,
     startByte: __expectInt32,
   }) as any;
 };
+
+// de_OnChangeStateTemplateUpdateStrategy omitted.
+
+// de_PeriodicStateTemplateUpdateStrategy omitted.
 
 /**
  * deserializeAws_json1_0PrimitiveMessageDefinition
@@ -3415,6 +3747,7 @@ const de_SignalCatalogSummary = (output: any, context: __SerdeContext): SignalCa
 const de_SignalDecoder = (output: any, context: __SerdeContext): SignalDecoder => {
   return take(output, {
     canSignal: (_: any) => de_CanSignal(_, context),
+    customDecodingSignal: _json,
     fullyQualifiedName: __expectString,
     interfaceId: __expectString,
     messageSignal: (_: any) => de_MessageSignal(_, context),
@@ -3435,9 +3768,58 @@ const de_SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[
   return retVal;
 };
 
+// de_SignalFetchConfig omitted.
+
+// de_SignalFetchInformation omitted.
+
+// de_SignalFetchInformationList omitted.
+
 // de_SignalInformation omitted.
 
 // de_SignalInformationList omitted.
+
+// de_StateTemplateAssociation omitted.
+
+// de_StateTemplateAssociations omitted.
+
+// de_StateTemplateDataExtraDimensionNodePathList omitted.
+
+// de_StateTemplateMetadataExtraDimensionNodePathList omitted.
+
+// de_StateTemplateProperties omitted.
+
+/**
+ * deserializeAws_json1_0StateTemplateSummaries
+ */
+const de_StateTemplateSummaries = (output: any, context: __SerdeContext): StateTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StateTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0StateTemplateSummary
+ */
+const de_StateTemplateSummary = (output: any, context: __SerdeContext): StateTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    signalCatalogArn: __expectString,
+  }) as any;
+};
+
+// de_StateTemplateUpdateStrategy omitted.
+
+// de_StorageMaximumSize omitted.
+
+// de_StorageMinimumTimeToLive omitted.
 
 /**
  * deserializeAws_json1_0StructuredMessage
@@ -3517,6 +3899,10 @@ const de_StructuredMessageListDefinition = (output: any, context: __SerdeContext
 
 // de_TimeBasedCollectionScheme omitted.
 
+// de_TimeBasedSignalFetchConfig omitted.
+
+// de_TimePeriod omitted.
+
 // de_TimestreamConfig omitted.
 
 // de_TimestreamRegistrationResponse omitted.
@@ -3534,6 +3920,8 @@ const de_StructuredMessageListDefinition = (output: any, context: __SerdeContext
 // de_UpdateModelManifestResponse omitted.
 
 // de_UpdateSignalCatalogResponse omitted.
+
+// de_UpdateStateTemplateResponse omitted.
 
 // de_UpdateVehicleError omitted.
 

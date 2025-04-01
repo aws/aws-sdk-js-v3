@@ -60,6 +60,9 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
+ *          <important>
+ *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,30 +142,30 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To store a secret value in a new version of a secret
  * ```javascript
  * // The following example shows how to create a new version of the secret. Alternatively, you can use the update-secret command.
  * const input = {
- *   "ClientRequestToken": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
- *   "SecretId": "MyTestDatabaseSecret",
- *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ *   ClientRequestToken: "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   SecretId: "MyTestDatabaseSecret",
+ *   SecretString: `{"username":"david","password":"EXAMPLE-PASSWORD"}`
  * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
- *   "VersionStages": [
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   VersionStages: [
  *     "AWSCURRENT"
  *   ]
  * }
  * *\/
- * // example id: to-store-a-secret-value-in-a-new-version-of-a-secret-1524001393971
  * ```
  *
+ * @public
  */
 export class PutSecretValueCommand extends $Command
   .classBuilder<
@@ -172,9 +175,7 @@ export class PutSecretValueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +187,16 @@ export class PutSecretValueCommand extends $Command
   .f(PutSecretValueRequestFilterSensitiveLog, void 0)
   .ser(se_PutSecretValueCommand)
   .de(de_PutSecretValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSecretValueRequest;
+      output: PutSecretValueResponse;
+    };
+    sdk: {
+      input: PutSecretValueCommandInput;
+      output: PutSecretValueCommandOutput;
+    };
+  };
+}

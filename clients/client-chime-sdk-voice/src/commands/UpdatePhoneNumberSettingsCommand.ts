@@ -77,6 +77,7 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command
@@ -87,9 +88,7 @@ export class UpdatePhoneNumberSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command
   .f(UpdatePhoneNumberSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePhoneNumberSettingsCommand)
   .de(de_UpdatePhoneNumberSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePhoneNumberSettingsCommandInput;
+      output: UpdatePhoneNumberSettingsCommandOutput;
+    };
+  };
+}

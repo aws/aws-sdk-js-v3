@@ -48,7 +48,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
  * // { // InitializeClusterResponse
- * //   State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
+ * //   State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "MODIFY_IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //   StateMessage: "STRING_VALUE",
  * // };
  *
@@ -81,6 +81,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class InitializeClusterCommand extends $Command
@@ -91,9 +92,7 @@ export class InitializeClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class InitializeClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitializeClusterCommand)
   .de(de_InitializeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitializeClusterRequest;
+      output: InitializeClusterResponse;
+    };
+    sdk: {
+      input: InitializeClusterCommandInput;
+      output: InitializeClusterCommandOutput;
+    };
+  };
+}

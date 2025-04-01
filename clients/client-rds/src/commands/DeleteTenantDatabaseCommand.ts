@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteTenantDatabaseMessage } from "../models/models_0";
-import { DeleteTenantDatabaseResult, DeleteTenantDatabaseResultFilterSensitiveLog } from "../models/models_1";
+import {
+  DeleteTenantDatabaseMessage,
+  DeleteTenantDatabaseResult,
+  DeleteTenantDatabaseResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_DeleteTenantDatabaseCommand, se_DeleteTenantDatabaseCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -94,6 +97,7 @@ export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DeleteTenantDatabaseCommand extends $Command
@@ -104,9 +108,7 @@ export class DeleteTenantDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class DeleteTenantDatabaseCommand extends $Command
   .f(void 0, DeleteTenantDatabaseResultFilterSensitiveLog)
   .ser(se_DeleteTenantDatabaseCommand)
   .de(de_DeleteTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTenantDatabaseMessage;
+      output: DeleteTenantDatabaseResult;
+    };
+    sdk: {
+      input: DeleteTenantDatabaseCommandInput;
+      output: DeleteTenantDatabaseCommandOutput;
+    };
+  };
+}

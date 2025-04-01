@@ -41,23 +41,28 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *   singleSignOn: { // SingleSignOn
  *     type: "IAM_IDC" || "DISABLED",
  *     userAssignment: "AUTOMATIC" || "MANUAL",
+ *     idcInstanceArn: "STRING_VALUE",
  *   },
  *   domainExecutionRole: "STRING_VALUE", // required
  *   kmsKeyIdentifier: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   domainVersion: "V1" || "V2",
+ *   serviceRole: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * // { // CreateDomainOutput
  * //   id: "STRING_VALUE", // required
+ * //   rootDomainUnitId: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
@@ -67,6 +72,8 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   domainVersion: "V1" || "V2",
+ * //   serviceRole: "STRING_VALUE",
  * // };
  *
  * ```
@@ -104,6 +111,7 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateDomainCommand extends $Command
@@ -114,9 +122,7 @@ export class CreateDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +134,16 @@ export class CreateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainCommand)
   .de(de_CreateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainInput;
+      output: CreateDomainOutput;
+    };
+    sdk: {
+      input: CreateDomainCommandInput;
+      output: CreateDomainCommandOutput;
+    };
+  };
+}

@@ -75,6 +75,7 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListLandingZonesCommand extends $Command
@@ -85,9 +86,7 @@ export class ListLandingZonesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListLandingZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLandingZonesCommand)
   .de(de_ListLandingZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLandingZonesInput;
+      output: ListLandingZonesOutput;
+    };
+    sdk: {
+      input: ListLandingZonesCommandInput;
+      output: ListLandingZonesCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 import { PassThrough } from "stream";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { streamReader } from "./index";
 import { ReadFromBuffers } from "./readable.fixture";
@@ -8,7 +9,7 @@ describe("streamReader", () => {
     const buffers = [Buffer.alloc(1024, 0), Buffer.alloc(1024, 1), Buffer.alloc(1024, 2), Buffer.alloc(1024, 3)];
     const mockStream = new ReadFromBuffers({ buffers });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await streamReader(mockStream, mockChunkReader, 1024);
     const mockChunkCalls = mockChunkReader.mock.calls;
@@ -28,7 +29,7 @@ describe("streamReader", () => {
     ];
     const mockStream = new ReadFromBuffers({ buffers });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await streamReader(mockStream, mockChunkReader);
     const mockChunkCalls = mockChunkReader.mock.calls;
@@ -43,7 +44,7 @@ describe("streamReader", () => {
     const buffers = [Buffer.alloc(1000, 0), Buffer.alloc(1000, 1), Buffer.alloc(1000, 2), Buffer.alloc(600, 3)];
     const mockStream = new ReadFromBuffers({ buffers });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await streamReader(mockStream, mockChunkReader, 500);
 
@@ -69,7 +70,7 @@ describe("streamReader", () => {
     ];
     const mockStream = new ReadFromBuffers({ buffers });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await streamReader(mockStream, mockChunkReader, 500);
 
@@ -83,7 +84,7 @@ describe("streamReader", () => {
     const buffers = [Buffer.alloc(100, 0), Buffer.alloc(100, 1), Buffer.alloc(100, 2)];
     const mockStream = new ReadFromBuffers({ buffers });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await streamReader(mockStream, mockChunkReader, 500);
 
@@ -98,7 +99,7 @@ describe("streamReader", () => {
     const payload = Buffer.alloc(700, 0);
     mockStream.end(payload);
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
     await streamReader(mockStream, mockChunkReader, 500);
 
     const mockChunkCalls = mockChunkReader.mock.calls;
@@ -123,7 +124,7 @@ describe("streamReader", () => {
       errorAfter: 2, // throw error after 2 chunks have been read
     });
 
-    const mockChunkReader = jest.fn();
+    const mockChunkReader = vi.fn();
 
     await expect(streamReader(mockStream, mockChunkReader, 500)).rejects.toHaveProperty("message");
   });

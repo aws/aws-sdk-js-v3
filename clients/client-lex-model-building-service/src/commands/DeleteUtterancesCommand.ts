@@ -84,6 +84,7 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class DeleteUtterancesCommand extends $Command
@@ -94,9 +95,7 @@ export class DeleteUtterancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DeleteUtterancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUtterancesCommand)
   .de(de_DeleteUtterancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUtterancesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUtterancesCommandInput;
+      output: DeleteUtterancesCommandOutput;
+    };
+  };
+}

@@ -89,6 +89,7 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class ListIndexesCommand extends $Command
@@ -99,9 +100,7 @@ export class ListIndexesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListIndexesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndexesCommand)
   .de(de_ListIndexesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndexesInput;
+      output: ListIndexesOutput;
+    };
+    sdk: {
+      input: ListIndexesCommandInput;
+      output: ListIndexesCommandOutput;
+    };
+  };
+}

@@ -220,6 +220,168 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example ListPolicies - Example 1
+ * ```javascript
+ * // The following example lists all policies in the policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policies: [
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       definition: {
+ *         static: {
+ *           description: "Grant members of janeFriends UserGroup access to the vacationFolder Album"
+ *         }
+ *       },
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyType: "STATIC",
+ *       principal: {
+ *         entityId: "janeFriends",
+ *         entityType: "UserGroup"
+ *       },
+ *       resource: {
+ *         entityId: "vacationFolder",
+ *         entityType: "Album"
+ *       }
+ *     },
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       definition: {
+ *         static: {
+ *           description: "Grant everyone access to the publicFolder Album"
+ *         }
+ *       },
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyId: "Et9KxMplyaDdyurDw8TeFa",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyType: "STATIC",
+ *       resource: {
+ *         entityId: "publicFolder",
+ *         entityType: "Album"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListPolicies - Example 2
+ * ```javascript
+ * // The following example lists all policies for a specified principal.
+ * const input = {
+ *   filter: {
+ *     principal: {
+ *       identifier: {
+ *         entityId: "alice",
+ *         entityType: "User"
+ *       }
+ *     }
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policies: [
+ *     {
+ *       createdDate: "2022-12-09T22:55:16.067533Z",
+ *       definition: {
+ *         static: {
+ *           description: "An example policy"
+ *         }
+ *       },
+ *       lastUpdatedDate: "2022-12-09T22:55:16.067533Z",
+ *       policyId: "Et9KxMplyaDdyurDw8TeFa",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyType: "STATIC",
+ *       principal: {
+ *         entityId: "alice",
+ *         entityType: "User"
+ *       },
+ *       resource: {
+ *         entityId: "bob_folder",
+ *         entityType: "Album"
+ *       }
+ *     },
+ *     {
+ *       createdDate: "2022-12-09T23:00:24.66266Z",
+ *       definition: {
+ *         static:         { /* empty *\/ }
+ *       },
+ *       lastUpdatedDate: "2022-12-09T23:00:24.66266Z",
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyType: "STATIC",
+ *       principal: {
+ *         entityId: "alice",
+ *         entityType: "User"
+ *       },
+ *       resource: {
+ *         entityId: "alice_folder",
+ *         entityType: "Album"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListPolicies - Example 3
+ * ```javascript
+ * // The following example uses the Filter parameter to list only the template-linked policies in the specified policy store.
+ * const input = {
+ *   filter: {
+ *     policyType: "TEMPLATE_LINKED"
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policies: [
+ *     {
+ *       createdDate: "2023-06-13T16:03:07.620867Z",
+ *       definition: {
+ *         templateLinked: {
+ *           policyTemplateId: "PTEXAMPLEabcdefg111111",
+ *           principal: {
+ *             entityId: "alice",
+ *             entityType: "User"
+ *           },
+ *           resource: {
+ *             entityId: "pic.jpg",
+ *             entityType: "Photo"
+ *           }
+ *         }
+ *       },
+ *       lastUpdatedDate: "2023-06-13T16:03:07.620867Z",
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyType: "TEMPLATE_LINKED",
+ *       principal: {
+ *         entityId: "alice",
+ *         entityType: "User"
+ *       },
+ *       resource: {
+ *         entityId: "pic.jpg",
+ *         entityType: "Photo"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListPoliciesCommand extends $Command
@@ -230,9 +392,7 @@ export class ListPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -244,4 +404,16 @@ export class ListPoliciesCommand extends $Command
   .f(ListPoliciesInputFilterSensitiveLog, ListPoliciesOutputFilterSensitiveLog)
   .ser(se_ListPoliciesCommand)
   .de(de_ListPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesInput;
+      output: ListPoliciesOutput;
+    };
+    sdk: {
+      input: ListPoliciesCommandInput;
+      output: ListPoliciesCommandOutput;
+    };
+  };
+}

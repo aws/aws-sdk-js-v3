@@ -88,6 +88,7 @@ export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer 
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetProbeCommand extends $Command
@@ -98,9 +99,7 @@ export class GetProbeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProbeCommand)
   .de(de_GetProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProbeInput;
+      output: GetProbeOutput;
+    };
+    sdk: {
+      input: GetProbeCommandInput;
+      output: GetProbeCommandOutput;
+    };
+  };
+}

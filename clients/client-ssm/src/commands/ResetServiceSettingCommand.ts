@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_1";
+import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_2";
 import { de_ResetServiceSettingCommand, se_ResetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -86,6 +86,7 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ResetServiceSettingCommand extends $Command
@@ -96,9 +97,7 @@ export class ResetServiceSettingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ResetServiceSettingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetServiceSettingCommand)
   .de(de_ResetServiceSettingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetServiceSettingRequest;
+      output: ResetServiceSettingResult;
+    };
+    sdk: {
+      input: ResetServiceSettingCommandInput;
+      output: ResetServiceSettingCommandOutput;
+    };
+  };
+}

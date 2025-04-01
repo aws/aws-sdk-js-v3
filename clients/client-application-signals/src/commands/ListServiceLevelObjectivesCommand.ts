@@ -46,6 +46,8 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *   OperationName: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   SloOwnerAwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServiceLevelObjectivesCommand(input);
  * const response = await client.send(command);
@@ -81,6 +83,7 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class ListServiceLevelObjectivesCommand extends $Command
@@ -91,9 +94,7 @@ export class ListServiceLevelObjectivesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class ListServiceLevelObjectivesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceLevelObjectivesCommand)
   .de(de_ListServiceLevelObjectivesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceLevelObjectivesInput;
+      output: ListServiceLevelObjectivesOutput;
+    };
+    sdk: {
+      input: ListServiceLevelObjectivesCommandInput;
+      output: ListServiceLevelObjectivesCommandOutput;
+    };
+  };
+}

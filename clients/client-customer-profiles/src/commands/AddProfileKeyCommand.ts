@@ -81,6 +81,7 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class AddProfileKeyCommand extends $Command
@@ -91,9 +92,7 @@ export class AddProfileKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class AddProfileKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddProfileKeyCommand)
   .de(de_AddProfileKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddProfileKeyRequest;
+      output: AddProfileKeyResponse;
+    };
+    sdk: {
+      input: AddProfileKeyCommandInput;
+      output: AddProfileKeyCommandOutput;
+    };
+  };
+}

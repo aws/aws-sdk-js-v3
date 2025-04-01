@@ -349,6 +349,11 @@ import {
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
 import { GetDocumentCommand, GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
 import {
+  GetExecutionPreviewCommand,
+  GetExecutionPreviewCommandInput,
+  GetExecutionPreviewCommandOutput,
+} from "./commands/GetExecutionPreviewCommand";
+import {
   GetInventoryCommand,
   GetInventoryCommandInput,
   GetInventoryCommandOutput,
@@ -489,6 +494,12 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import {
+  ListNodesSummaryCommand,
+  ListNodesSummaryCommandInput,
+  ListNodesSummaryCommandOutput,
+} from "./commands/ListNodesSummaryCommand";
 import {
   ListOpsItemEventsCommand,
   ListOpsItemEventsCommandInput,
@@ -600,6 +611,11 @@ import {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "./commands/StartChangeRequestExecutionCommand";
+import {
+  StartExecutionPreviewCommand,
+  StartExecutionPreviewCommandInput,
+  StartExecutionPreviewCommandOutput,
+} from "./commands/StartExecutionPreviewCommand";
 import {
   StartSessionCommand,
   StartSessionCommandInput,
@@ -763,6 +779,7 @@ const commands = {
   GetDefaultPatchBaselineCommand,
   GetDeployablePatchSnapshotForInstanceCommand,
   GetDocumentCommand,
+  GetExecutionPreviewCommand,
   GetInventoryCommand,
   GetInventorySchemaCommand,
   GetMaintenanceWindowCommand,
@@ -792,6 +809,8 @@ const commands = {
   ListDocumentsCommand,
   ListDocumentVersionsCommand,
   ListInventoryEntriesCommand,
+  ListNodesCommand,
+  ListNodesSummaryCommand,
   ListOpsItemEventsCommand,
   ListOpsItemRelatedItemsCommand,
   ListOpsMetadataCommand,
@@ -815,6 +834,7 @@ const commands = {
   StartAssociationsOnceCommand,
   StartAutomationExecutionCommand,
   StartChangeRequestExecutionCommand,
+  StartExecutionPreviewCommand,
   StartSessionCommand,
   StopAutomationExecutionCommand,
   TerminateSessionCommand,
@@ -2006,6 +2026,23 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link GetExecutionPreviewCommand}
+   */
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExecutionPreviewCommandOutput>;
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    cb: (err: any, data?: GetExecutionPreviewCommandOutput) => void
+  ): void;
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExecutionPreviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInventoryCommand}
    */
   getInventory(): Promise<GetInventoryCommandOutput>;
@@ -2463,6 +2500,35 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link ListNodesCommand}
+   */
+  listNodes(): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNodesSummaryCommand}
+   */
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesSummaryCommandOutput>;
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    cb: (err: any, data?: ListNodesSummaryCommandOutput) => void
+  ): void;
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOpsItemEventsCommand}
    */
   listOpsItemEvents(): Promise<ListOpsItemEventsCommandOutput>;
@@ -2832,6 +2898,23 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link StartExecutionPreviewCommand}
+   */
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExecutionPreviewCommandOutput>;
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    cb: (err: any, data?: StartExecutionPreviewCommandOutput) => void
+  ): void;
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExecutionPreviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartSessionCommand}
    */
   startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
@@ -3133,16 +3216,17 @@ export interface SSM {
  *          </p>
  *          <ul>
  *             <li>
- *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *                <p>For information about each of the tools that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-tools.html">Using
+ *       Systems Manager tools</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the
+ *                <p>For details about predefined runbooks for Automation, a tool in Amazon Web Services Systems Manager, see the
  *        <i>
  *                      <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation runbook reference</a>
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about AppConfig, a capability of Systems Manager, see the <i>
+ *                <p>For information about AppConfig, a tool in Systems Manager, see the <i>
  *                      <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig User Guide</a>
  *                   </i>
  *      and the <i>
@@ -3151,7 +3235,7 @@ export interface SSM {
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about Incident Manager, a capability of Systems Manager, see the <i>
+ *                <p>For information about Incident Manager, a tool in Systems Manager, see the <i>
  *                      <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Systems Manager Incident Manager User
  *        Guide</a>
  *                   </i> and the <i>

@@ -36,7 +36,8 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List of compliance drifts that were detected while running an assessment.</p>
+ * <p>List of compliance drifts that were detected while running an
+ *       assessment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +56,7 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
  * //     { // ComplianceDrift
  * //       entityId: "STRING_VALUE",
  * //       entityType: "STRING_VALUE",
- * //       driftType: "STRING_VALUE",
+ * //       driftType: "ApplicationCompliance" || "AppComponentResiliencyComplianceStatus",
  * //       appId: "STRING_VALUE",
  * //       appVersion: "STRING_VALUE",
  * //       expectedReferenceId: "STRING_VALUE",
@@ -68,7 +69,7 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
  * //           currentRpoInSecs: Number("int"),
  * //           rpoReferenceId: "STRING_VALUE",
  * //           rpoDescription: "STRING_VALUE",
- * //           complianceStatus: "STRING_VALUE", // required
+ * //           complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //           achievableRpoInSecs: Number("int"),
  * //           message: "STRING_VALUE",
  * //         },
@@ -83,12 +84,12 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
  * //           currentRpoInSecs: Number("int"),
  * //           rpoReferenceId: "STRING_VALUE",
  * //           rpoDescription: "STRING_VALUE",
- * //           complianceStatus: "STRING_VALUE", // required
+ * //           complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //           achievableRpoInSecs: Number("int"),
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
- * //       diffType: "STRING_VALUE",
+ * //       diffType: "NotEqual" || "Added" || "Removed",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -120,6 +121,7 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppAssessmentComplianceDriftsCommand extends $Command
@@ -130,9 +132,7 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppAssessmentComplianceDriftsCommand)
   .de(de_ListAppAssessmentComplianceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppAssessmentComplianceDriftsRequest;
+      output: ListAppAssessmentComplianceDriftsResponse;
+    };
+    sdk: {
+      input: ListAppAssessmentComplianceDriftsCommandInput;
+      output: ListAppAssessmentComplianceDriftsCommandOutput;
+    };
+  };
+}

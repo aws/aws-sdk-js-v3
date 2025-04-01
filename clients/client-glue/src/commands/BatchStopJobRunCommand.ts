@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
+import { BatchStopJobRunRequest } from "../models/models_0";
+import { BatchStopJobRunResponse } from "../models/models_1";
 import { de_BatchStopJobRunCommand, se_BatchStopJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -82,6 +83,7 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchStopJobRunCommand extends $Command
@@ -92,9 +94,7 @@ export class BatchStopJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class BatchStopJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStopJobRunCommand)
   .de(de_BatchStopJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStopJobRunRequest;
+      output: BatchStopJobRunResponse;
+    };
+    sdk: {
+      input: BatchStopJobRunCommandInput;
+      output: BatchStopJobRunCommandOutput;
+    };
+  };
+}

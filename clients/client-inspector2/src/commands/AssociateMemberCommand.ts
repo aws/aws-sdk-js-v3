@@ -58,6 +58,10 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of
+ *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
@@ -67,6 +71,7 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  *
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
+ *
  *
  * @public
  */
@@ -78,9 +83,7 @@ export class AssociateMemberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +95,16 @@ export class AssociateMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateMemberCommand)
   .de(de_AssociateMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateMemberRequest;
+      output: AssociateMemberResponse;
+    };
+    sdk: {
+      input: AssociateMemberCommandInput;
+      output: AssociateMemberCommandOutput;
+    };
+  };
+}

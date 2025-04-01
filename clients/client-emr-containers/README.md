@@ -33,7 +33,7 @@ information, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-Deve
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-emr-containers
+To install this package, simply type add or install @aws-sdk/client-emr-containers
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-emr-containers`

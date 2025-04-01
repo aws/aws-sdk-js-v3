@@ -51,6 +51,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlBlobsCommand extends $Command
@@ -69,4 +70,16 @@ export class XmlBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlBlobsCommand)
   .de(de_XmlBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlBlobsOutput;
+    };
+    sdk: {
+      input: XmlBlobsCommandInput;
+      output: XmlBlobsCommandOutput;
+    };
+  };
+}

@@ -30,7 +30,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
 /**
  * <p>Starts a Composition from a stage based on the configuration provided in the
  *          request.</p>
- *          <p>A Composition is an ephemeral resource that exists after this endpoint returns
+ *          <p>A Composition is an ephemeral resource that exists after this operation returns
  *          successfully. Composition stops and the resource is deleted:</p>
  *          <ul>
  *             <li>
@@ -95,8 +95,19 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  *           "STRING_VALUE",
  *         ],
  *         recordingConfiguration: { // RecordingConfiguration
+ *           hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ *             targetSegmentDurationSeconds: Number("int"),
+ *           },
  *           format: "STRING_VALUE",
  *         },
+ *         thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ *           { // CompositionThumbnailConfiguration
+ *             targetIntervalSeconds: Number("int"),
+ *             storage: [ // ThumbnailStorageTypeList
+ *               "SEQUENTIAL" || "LATEST",
+ *             ],
+ *           },
+ *         ],
  *       },
  *     },
  *   ],
@@ -150,8 +161,19 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //             recordingConfiguration: { // RecordingConfiguration
+ * //               hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ * //                 targetSegmentDurationSeconds: Number("int"),
+ * //               },
  * //               format: "STRING_VALUE",
  * //             },
+ * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ * //               { // CompositionThumbnailConfiguration
+ * //                 targetIntervalSeconds: Number("int"),
+ * //                 storage: [ // ThumbnailStorageTypeList
+ * //                   "SEQUENTIAL" || "LATEST",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         detail: { // DestinationDetail
@@ -201,6 +223,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class StartCompositionCommand extends $Command
@@ -211,9 +234,7 @@ export class StartCompositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -225,4 +246,16 @@ export class StartCompositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCompositionCommand)
   .de(de_StartCompositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCompositionRequest;
+      output: StartCompositionResponse;
+    };
+    sdk: {
+      input: StartCompositionCommandInput;
+      output: StartCompositionCommandOutput;
+    };
+  };
+}

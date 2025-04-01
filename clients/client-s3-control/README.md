@@ -10,7 +10,7 @@ AWS SDK for JavaScript S3Control Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-s3-control
+To install this package, simply type add or install @aws-sdk/client-s3-control
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-s3-control`
@@ -349,6 +349,14 @@ DeleteAccessPointPolicyForObjectLambda
 </details>
 <details>
 <summary>
+DeleteAccessPointScope
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessPointScopeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointScopeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointScopeCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteBucket
 </summary>
 
@@ -557,6 +565,14 @@ GetAccessPointPolicyStatusForObjectLambda
 </details>
 <details>
 <summary>
+GetAccessPointScope
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointScopeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointScopeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointScopeCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetBucket
 </summary>
 
@@ -717,10 +733,26 @@ ListAccessPoints
 </details>
 <details>
 <summary>
+ListAccessPointsForDirectoryBuckets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessPointsForDirectoryBucketsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForDirectoryBucketsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForDirectoryBucketsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAccessPointsForObjectLambda
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessPointsForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForObjectLambdaCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCallerAccessGrants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListCallerAccessGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListCallerAccessGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListCallerAccessGrantsCommandOutput/)
 
 </details>
 <details>
@@ -801,6 +833,14 @@ PutAccessPointPolicyForObjectLambda
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessPointPolicyForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyForObjectLambdaCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutAccessPointScope
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessPointScopeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointScopeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointScopeCommandOutput/)
 
 </details>
 <details>

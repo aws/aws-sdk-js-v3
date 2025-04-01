@@ -94,30 +94,30 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To update a configuration profile
  * ```javascript
  * // The following update-configuration-profile example updates the description of the specified configuration profile.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "Description": "Configuration profile used for examples."
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f",
+ *   Description: "Configuration profile used for examples."
  * };
  * const command = new UpdateConfigurationProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Description": "Configuration profile used for examples.",
- *   "Id": "ur8hx2f",
- *   "LocationUri": "ssm-parameter://Example-Parameter",
- *   "Name": "Example-Configuration-Profile",
- *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ *   ApplicationId: "339ohji",
+ *   Description: "Configuration profile used for examples.",
+ *   Id: "ur8hx2f",
+ *   LocationUri: "ssm-parameter://Example-Parameter",
+ *   Name: "Example-Configuration-Profile",
+ *   RetrievalRoleArn: "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
- * // example id: to-update-a-configuration-profile-1632330721974
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationProfileCommand extends $Command
   .classBuilder<
@@ -127,9 +127,7 @@ export class UpdateConfigurationProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +139,16 @@ export class UpdateConfigurationProfileCommand extends $Command
   .f(UpdateConfigurationProfileRequestFilterSensitiveLog, ConfigurationProfileFilterSensitiveLog)
   .ser(se_UpdateConfigurationProfileCommand)
   .de(de_UpdateConfigurationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationProfileRequest;
+      output: ConfigurationProfile;
+    };
+    sdk: {
+      input: UpdateConfigurationProfileCommandInput;
+      output: UpdateConfigurationProfileCommandOutput;
+    };
+  };
+}

@@ -120,6 +120,7 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class GetPullRequestCommand extends $Command
@@ -130,9 +131,7 @@ export class GetPullRequestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class GetPullRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPullRequestCommand)
   .de(de_GetPullRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPullRequestInput;
+      output: GetPullRequestOutput;
+    };
+    sdk: {
+      input: GetPullRequestCommandInput;
+      output: GetPullRequestCommandOutput;
+    };
+  };
+}

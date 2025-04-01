@@ -40,10 +40,9 @@ export interface DescribeExtensionPackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of extension pack associations for the specified migration project.
- *          An extension pack is an add-on module
- *          that emulates functions present in a source database that are required when converting objects
- *          to the target database.</p>
+ * <p>Returns a paginated list of extension pack associations for the specified migration
+ *          project. An extension pack is an add-on module that emulates functions present in a source
+ *          database that are required when converting objects to the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,40 +95,40 @@ export interface DescribeExtensionPackAssociationsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Extension Pack Associations
  * ```javascript
  * // Returns a paginated list of extension pack associations for the specified migration project.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "instance-profile-identifier",
- *       "Values": [
+ *       Name: "instance-profile-identifier",
+ *       Values: [
  *         "arn:aws:dms:us-east-1:012345678901:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
  *       ]
  *     }
  *   ],
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "MaxRecords": 20,
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   MaxRecords: 20,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * };
  * const command = new DescribeExtensionPackAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "Requests": [
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   Requests: [
  *     {
- *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
- *       "Status": "SUCCESS"
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       Status: "SUCCESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-extension-pack-associations-1689718322580
  * ```
  *
+ * @public
  */
 export class DescribeExtensionPackAssociationsCommand extends $Command
   .classBuilder<
@@ -139,9 +138,7 @@ export class DescribeExtensionPackAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +150,16 @@ export class DescribeExtensionPackAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExtensionPackAssociationsCommand)
   .de(de_DescribeExtensionPackAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExtensionPackAssociationsMessage;
+      output: DescribeExtensionPackAssociationsResponse;
+    };
+    sdk: {
+      input: DescribeExtensionPackAssociationsCommandInput;
+      output: DescribeExtensionPackAssociationsCommandOutput;
+    };
+  };
+}

@@ -28,10 +28,10 @@ export interface CreateCompilationJobCommandInput extends CreateCompilationJobRe
 export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
+ * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker AI saves the
  *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
  *          <p>If
- *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
+ *             you choose to host your model using Amazon SageMaker AI hosting services, you can use the resulting
  *             model artifacts as part of the model. You can also use the artifacts with
  *                 Amazon Web Services IoT Greengrass. In that case, deploy them as an ML
  *             resource.</p>
@@ -48,7 +48,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *                     model runs on </p>
  *             </li>
  *             <li>
- *                <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
+ *                <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker AI assumes to perform
  *                     the model compilation job. </p>
  *             </li>
  *          </ul>
@@ -130,6 +130,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateCompilationJobCommand extends $Command
@@ -140,9 +141,7 @@ export class CreateCompilationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class CreateCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCompilationJobCommand)
   .de(de_CreateCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCompilationJobRequest;
+      output: CreateCompilationJobResponse;
+    };
+    sdk: {
+      input: CreateCompilationJobCommandInput;
+      output: CreateCompilationJobCommandOutput;
+    };
+  };
+}

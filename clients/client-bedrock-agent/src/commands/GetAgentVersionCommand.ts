@@ -10,7 +10,7 @@ import {
   GetAgentVersionRequest,
   GetAgentVersionResponse,
   GetAgentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetAgentVersionCommand, se_GetAgentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -69,7 +69,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //     promptOverrideConfiguration: { // PromptOverrideConfiguration
  * //       promptConfigurations: [ // PromptConfigurations // required
  * //         { // PromptConfiguration
- * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  * //           promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //           promptState: "ENABLED" || "DISABLED",
  * //           basePromptTemplate: "STRING_VALUE",
@@ -83,6 +83,8 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //             ],
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //           foundationModel: "STRING_VALUE",
+ * //           additionalModelRequestFields: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
@@ -91,6 +93,16 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //       guardrailIdentifier: "STRING_VALUE",
  * //       guardrailVersion: "STRING_VALUE",
  * //     },
+ * //     memoryConfiguration: { // MemoryConfiguration
+ * //       enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ * //         "SESSION_SUMMARY",
+ * //       ],
+ * //       storageDays: Number("int"),
+ * //       sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ * //         maxRecentSessions: Number("int"),
+ * //       },
+ * //     },
+ * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },
  * // };
  *
@@ -120,6 +132,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetAgentVersionCommand extends $Command
@@ -130,9 +143,7 @@ export class GetAgentVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +155,16 @@ export class GetAgentVersionCommand extends $Command
   .f(void 0, GetAgentVersionResponseFilterSensitiveLog)
   .ser(se_GetAgentVersionCommand)
   .de(de_GetAgentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentVersionRequest;
+      output: GetAgentVersionResponse;
+    };
+    sdk: {
+      input: GetAgentVersionCommandInput;
+      output: GetAgentVersionCommandOutput;
+    };
+  };
+}

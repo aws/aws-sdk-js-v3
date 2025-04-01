@@ -305,49 +305,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
- * @example To describe a job you've created for AWS Snowball
- * ```javascript
- * // This operation describes a job you've created for AWS Snowball.
- * const input = {
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
- * };
- * const command = new DescribeJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobMetadata": {
- *     "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *     "CreationDate": "1475626164",
- *     "Description": "My Job",
- *     "JobId": "JID123e4567-e89b-12d3-a456-426655440000",
- *     "JobState": "New",
- *     "JobType": "IMPORT",
- *     "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
- *     "Notification": {
- *       "JobStatesToNotify": [],
- *       "NotifyAll": false
- *     },
- *     "Resources": {
- *       "S3Resources": [
- *         {
- *           "BucketArn": "arn:aws:s3:::MyBucket",
- *           "KeyRange": {}
- *         }
- *       ]
- *     },
- *     "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
- *     "ShippingDetails": {
- *       "ShippingOption": "SECOND_DAY"
- *     },
- *     "SnowballCapacityPreference": "T80",
- *     "SnowballType": "STANDARD"
- *   }
- * }
- * *\/
- * // example id: to-describe-a-job-youve-created-for-aws-snowball-1482539500180
- * ```
  *
+ * @public
  */
 export class DescribeJobCommand extends $Command
   .classBuilder<
@@ -357,9 +316,7 @@ export class DescribeJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -371,4 +328,16 @@ export class DescribeJobCommand extends $Command
   .f(void 0, DescribeJobResultFilterSensitiveLog)
   .ser(se_DescribeJobCommand)
   .de(de_DescribeJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobRequest;
+      output: DescribeJobResult;
+    };
+    sdk: {
+      input: DescribeJobCommandInput;
+      output: DescribeJobCommandOutput;
+    };
+  };
+}

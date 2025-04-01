@@ -90,6 +90,7 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetPricingPlanCommand extends $Command
@@ -100,9 +101,7 @@ export class GetPricingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class GetPricingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPricingPlanCommand)
   .de(de_GetPricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPricingPlanResponse;
+    };
+    sdk: {
+      input: GetPricingPlanCommandInput;
+      output: GetPricingPlanCommandOutput;
+    };
+  };
+}

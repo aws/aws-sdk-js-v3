@@ -42,7 +42,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       { // ArchiveFilterCondition Union: only one key present
  *         StringExpression: { // ArchiveStringExpression
  *           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // StringValueList // required
@@ -61,7 +61,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       {//  Union: only one key present
  *         StringExpression: {
  *           Evaluate: {//  Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // required
@@ -85,6 +85,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       S3Location: "STRING_VALUE",
  *     },
  *   },
+ *   IncludeMetadata: true || false,
  * };
  * const command = new StartArchiveExportCommand(input);
  * const response = await client.send(command);
@@ -118,6 +119,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class StartArchiveExportCommand extends $Command
@@ -128,9 +130,7 @@ export class StartArchiveExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class StartArchiveExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartArchiveExportCommand)
   .de(de_StartArchiveExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartArchiveExportRequest;
+      output: StartArchiveExportResponse;
+    };
+    sdk: {
+      input: StartArchiveExportCommandInput;
+      output: StartArchiveExportCommandOutput;
+    };
+  };
+}

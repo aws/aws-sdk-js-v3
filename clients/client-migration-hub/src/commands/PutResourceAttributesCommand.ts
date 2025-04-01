@@ -48,7 +48,6 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *                </li>
  *             </ul>
  *          </important>
- *
  *          <note>
  *             <p>Because this is an asynchronous call, it will always return 200, whether an
  *             association occurs or not. To confirm if an association was found based on the provided
@@ -120,6 +119,7 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class PutResourceAttributesCommand extends $Command
@@ -130,9 +130,7 @@ export class PutResourceAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +142,16 @@ export class PutResourceAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourceAttributesCommand)
   .de(de_PutResourceAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourceAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutResourceAttributesCommandInput;
+      output: PutResourceAttributesCommandOutput;
+    };
+  };
+}

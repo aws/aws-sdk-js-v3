@@ -83,19 +83,22 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To change the password for an IAM user
  * ```javascript
  * // The following command creates or changes the password for the IAM user named Bob.
  * const input = {
- *   "Password": "SomeKindOfPassword123!@#",
- *   "UserName": "Bob"
+ *   Password: "SomeKindOfPassword123!@#",
+ *   UserName: "Bob"
  * };
  * const command = new UpdateLoginProfileCommand(input);
- * await client.send(command);
- * // example id: 036d9498-ecdb-4ed6-a8d8-366c383d1487
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateLoginProfileCommand extends $Command
   .classBuilder<
@@ -105,9 +108,7 @@ export class UpdateLoginProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class UpdateLoginProfileCommand extends $Command
   .f(UpdateLoginProfileRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLoginProfileCommand)
   .de(de_UpdateLoginProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLoginProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLoginProfileCommandInput;
+      output: UpdateLoginProfileCommandOutput;
+    };
+  };
+}

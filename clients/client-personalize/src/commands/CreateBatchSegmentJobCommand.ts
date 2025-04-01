@@ -97,6 +97,7 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchSegmentJobCommand extends $Command
@@ -107,9 +108,7 @@ export class CreateBatchSegmentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class CreateBatchSegmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBatchSegmentJobCommand)
   .de(de_CreateBatchSegmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchSegmentJobRequest;
+      output: CreateBatchSegmentJobResponse;
+    };
+    sdk: {
+      input: CreateBatchSegmentJobCommandInput;
+      output: CreateBatchSegmentJobCommandOutput;
+    };
+  };
+}

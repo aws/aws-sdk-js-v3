@@ -28,8 +28,8 @@ export interface DisableInsightRulesCommandInput extends DisableInsightRulesInpu
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
- * 		not incur costs.</p>
+ * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do
+ *             not analyze log groups and do not incur costs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,7 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DisableInsightRulesCommand extends $Command
@@ -81,9 +82,7 @@ export class DisableInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DisableInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableInsightRulesCommand)
   .de(de_DisableInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableInsightRulesInput;
+      output: DisableInsightRulesOutput;
+    };
+    sdk: {
+      input: DisableInsightRulesCommandInput;
+      output: DisableInsightRulesCommandOutput;
+    };
+  };
+}

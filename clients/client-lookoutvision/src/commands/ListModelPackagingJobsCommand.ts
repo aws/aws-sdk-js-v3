@@ -93,6 +93,7 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class ListModelPackagingJobsCommand extends $Command
@@ -103,9 +104,7 @@ export class ListModelPackagingJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class ListModelPackagingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelPackagingJobsCommand)
   .de(de_ListModelPackagingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelPackagingJobsRequest;
+      output: ListModelPackagingJobsResponse;
+    };
+    sdk: {
+      input: ListModelPackagingJobsCommandInput;
+      output: ListModelPackagingJobsCommandOutput;
+    };
+  };
+}

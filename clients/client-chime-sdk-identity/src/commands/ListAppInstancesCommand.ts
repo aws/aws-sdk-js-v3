@@ -87,6 +87,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class ListAppInstancesCommand extends $Command
@@ -97,9 +98,7 @@ export class ListAppInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListAppInstancesCommand extends $Command
   .f(ListAppInstancesRequestFilterSensitiveLog, ListAppInstancesResponseFilterSensitiveLog)
   .ser(se_ListAppInstancesCommand)
   .de(de_ListAppInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInstancesRequest;
+      output: ListAppInstancesResponse;
+    };
+    sdk: {
+      input: ListAppInstancesCommandInput;
+      output: ListAppInstancesCommandOutput;
+    };
+  };
+}

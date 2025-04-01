@@ -104,6 +104,7 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class PutPermissionCommand extends $Command
@@ -114,9 +115,7 @@ export class PutPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class PutPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPermissionCommand)
   .de(de_PutPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPermissionRequest;
+      output: PutPermissionResponse;
+    };
+    sdk: {
+      input: PutPermissionCommandInput;
+      output: PutPermissionCommandOutput;
+    };
+  };
+}

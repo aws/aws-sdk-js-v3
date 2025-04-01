@@ -70,6 +70,7 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteTransitGatewayRouteCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteTransitGatewayRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteTransitGatewayRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayRouteCommand)
   .de(de_DeleteTransitGatewayRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayRouteRequest;
+      output: DeleteTransitGatewayRouteResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayRouteCommandInput;
+      output: DeleteTransitGatewayRouteCommandOutput;
+    };
+  };
+}

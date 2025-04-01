@@ -81,144 +81,142 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To enable deletion protection
  * ```javascript
  * // This example enables deletion protection for the specified load balancer.
  * const input = {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "deletion_protection.enabled",
- *       "Value": "true"
+ *       Key: "deletion_protection.enabled",
+ *       Value: "true"
  *     }
  *   ],
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "deletion_protection.enabled",
- *       "Value": "true"
+ *       Key: "deletion_protection.enabled",
+ *       Value: "true"
  *     },
  *     {
- *       "Key": "access_logs.s3.enabled",
- *       "Value": "false"
+ *       Key: "access_logs.s3.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "idle_timeout.timeout_seconds",
- *       "Value": "60"
+ *       Key: "idle_timeout.timeout_seconds",
+ *       Value: "60"
  *     },
  *     {
- *       "Key": "access_logs.s3.prefix",
- *       "Value": ""
+ *       Key: "access_logs.s3.prefix",
+ *       Value: ""
  *     },
  *     {
- *       "Key": "access_logs.s3.bucket",
- *       "Value": ""
+ *       Key: "access_logs.s3.bucket",
+ *       Value: ""
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-load-balancer-attributes-1
  * ```
  *
  * @example To change the idle timeout
  * ```javascript
  * // This example changes the idle timeout value for the specified load balancer.
  * const input = {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "idle_timeout.timeout_seconds",
- *       "Value": "30"
+ *       Key: "idle_timeout.timeout_seconds",
+ *       Value: "30"
  *     }
  *   ],
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "idle_timeout.timeout_seconds",
- *       "Value": "30"
+ *       Key: "idle_timeout.timeout_seconds",
+ *       Value: "30"
  *     },
  *     {
- *       "Key": "access_logs.s3.enabled",
- *       "Value": "false"
+ *       Key: "access_logs.s3.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "access_logs.s3.prefix",
- *       "Value": ""
+ *       Key: "access_logs.s3.prefix",
+ *       Value: ""
  *     },
  *     {
- *       "Key": "deletion_protection.enabled",
- *       "Value": "true"
+ *       Key: "deletion_protection.enabled",
+ *       Value: "true"
  *     },
  *     {
- *       "Key": "access_logs.s3.bucket",
- *       "Value": ""
+ *       Key: "access_logs.s3.bucket",
+ *       Value: ""
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-load-balancer-attributes-2
  * ```
  *
  * @example To enable access logs
  * ```javascript
  * // This example enables access logs for the specified load balancer. Note that the S3 bucket must exist in the same region as the load balancer and must have a policy attached that grants access to the Elastic Load Balancing service.
  * const input = {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "access_logs.s3.enabled",
- *       "Value": "true"
+ *       Key: "access_logs.s3.enabled",
+ *       Value: "true"
  *     },
  *     {
- *       "Key": "access_logs.s3.bucket",
- *       "Value": "my-loadbalancer-logs"
+ *       Key: "access_logs.s3.bucket",
+ *       Value: "my-loadbalancer-logs"
  *     },
  *     {
- *       "Key": "access_logs.s3.prefix",
- *       "Value": "myapp"
+ *       Key: "access_logs.s3.prefix",
+ *       Value: "myapp"
  *     }
  *   ],
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "access_logs.s3.enabled",
- *       "Value": "true"
+ *       Key: "access_logs.s3.enabled",
+ *       Value: "true"
  *     },
  *     {
- *       "Key": "access_logs.s3.bucket",
- *       "Value": "my-load-balancer-logs"
+ *       Key: "access_logs.s3.bucket",
+ *       Value: "my-load-balancer-logs"
  *     },
  *     {
- *       "Key": "access_logs.s3.prefix",
- *       "Value": "myapp"
+ *       Key: "access_logs.s3.prefix",
+ *       Value: "myapp"
  *     },
  *     {
- *       "Key": "idle_timeout.timeout_seconds",
- *       "Value": "60"
+ *       Key: "idle_timeout.timeout_seconds",
+ *       Value: "60"
  *     },
  *     {
- *       "Key": "deletion_protection.enabled",
- *       "Value": "false"
+ *       Key: "deletion_protection.enabled",
+ *       Value: "false"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-load-balancer-attributes-3
  * ```
  *
+ * @public
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command
   .classBuilder<
@@ -228,9 +226,7 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +238,16 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyLoadBalancerAttributesCommand)
   .de(de_ModifyLoadBalancerAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyLoadBalancerAttributesInput;
+      output: ModifyLoadBalancerAttributesOutput;
+    };
+    sdk: {
+      input: ModifyLoadBalancerAttributesCommandInput;
+      output: ModifyLoadBalancerAttributesCommandOutput;
+    };
+  };
+}

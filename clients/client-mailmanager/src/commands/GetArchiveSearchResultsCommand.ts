@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import { GetArchiveSearchResultsRequest, GetArchiveSearchResultsResponse } from "../models/models_0";
+import {
+  GetArchiveSearchResultsRequest,
+  GetArchiveSearchResultsResponse,
+  GetArchiveSearchResultsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetArchiveSearchResultsCommand, se_GetArchiveSearchResultsCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -59,6 +63,17 @@ export interface GetArchiveSearchResultsCommandOutput extends GetArchiveSearchRe
  * //       XMailer: "STRING_VALUE",
  * //       XOriginalMailer: "STRING_VALUE",
  * //       XPriority: "STRING_VALUE",
+ * //       IngressPointId: "STRING_VALUE",
+ * //       SenderHostname: "STRING_VALUE",
+ * //       SenderIpAddress: "STRING_VALUE",
+ * //       Envelope: { // Envelope
+ * //         Helo: "STRING_VALUE",
+ * //         From: "STRING_VALUE",
+ * //         To: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       SourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -86,6 +101,7 @@ export interface GetArchiveSearchResultsCommandOutput extends GetArchiveSearchRe
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveSearchResultsCommand extends $Command
@@ -96,9 +112,7 @@ export class GetArchiveSearchResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,7 +121,19 @@ export class GetArchiveSearchResultsCommand extends $Command
   })
   .s("MailManagerSvc", "GetArchiveSearchResults", {})
   .n("MailManagerClient", "GetArchiveSearchResultsCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetArchiveSearchResultsResponseFilterSensitiveLog)
   .ser(se_GetArchiveSearchResultsCommand)
   .de(de_GetArchiveSearchResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveSearchResultsRequest;
+      output: GetArchiveSearchResultsResponse;
+    };
+    sdk: {
+      input: GetArchiveSearchResultsCommandInput;
+      output: GetArchiveSearchResultsCommandOutput;
+    };
+  };
+}

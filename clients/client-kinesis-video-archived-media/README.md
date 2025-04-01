@@ -10,7 +10,7 @@ AWS SDK for JavaScript KinesisVideoArchivedMedia Client for Node.js, Browser and
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-video-archived-media
+To install this package, simply type add or install @aws-sdk/client-kinesis-video-archived-media
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-video-archived-media`

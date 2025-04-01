@@ -59,10 +59,10 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //   VpcEndpoints: [ // VpcEndpointSet
  * //     { // VpcEndpoint
  * //       VpcEndpointId: "STRING_VALUE",
- * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
  * //       VpcId: "STRING_VALUE",
  * //       ServiceName: "STRING_VALUE",
- * //       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
  * //       PolicyDocument: "STRING_VALUE",
  * //       RouteTableIds: [ // ValueStringList
  * //         "STRING_VALUE",
@@ -104,6 +104,26 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //         Message: "STRING_VALUE",
  * //         Code: "STRING_VALUE",
  * //       },
+ * //       Ipv4Prefixes: [ // SubnetIpPrefixesList
+ * //         { // SubnetIpPrefixes
+ * //           SubnetId: "STRING_VALUE",
+ * //           IpPrefixes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Ipv6Prefixes: [
+ * //         {
+ * //           SubnetId: "STRING_VALUE",
+ * //           IpPrefixes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       FailureReason: "STRING_VALUE",
+ * //       ServiceNetworkArn: "STRING_VALUE",
+ * //       ResourceConfigurationArn: "STRING_VALUE",
+ * //       ServiceRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -120,6 +140,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcEndpointsCommand extends $Command
@@ -130,9 +151,7 @@ export class DescribeVpcEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +163,16 @@ export class DescribeVpcEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointsCommand)
   .de(de_DescribeVpcEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointsRequest;
+      output: DescribeVpcEndpointsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointsCommandInput;
+      output: DescribeVpcEndpointsCommandOutput;
+    };
+  };
+}

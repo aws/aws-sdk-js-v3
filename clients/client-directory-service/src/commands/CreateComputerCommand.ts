@@ -81,7 +81,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The specified entity already exists.</p>
@@ -101,6 +101,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class CreateComputerCommand extends $Command
@@ -111,9 +112,7 @@ export class CreateComputerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class CreateComputerCommand extends $Command
   .f(CreateComputerRequestFilterSensitiveLog, void 0)
   .ser(se_CreateComputerCommand)
   .de(de_CreateComputerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComputerRequest;
+      output: CreateComputerResult;
+    };
+    sdk: {
+      input: CreateComputerCommandInput;
+      output: CreateComputerCommandOutput;
+    };
+  };
+}

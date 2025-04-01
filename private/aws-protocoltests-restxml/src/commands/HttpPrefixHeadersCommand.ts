@@ -59,6 +59,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOu
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPrefixHeadersCommand extends $Command
@@ -77,4 +78,16 @@ export class HttpPrefixHeadersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPrefixHeadersCommand)
   .de(de_HttpPrefixHeadersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPrefixHeadersInputOutput;
+      output: HttpPrefixHeadersInputOutput;
+    };
+    sdk: {
+      input: HttpPrefixHeadersCommandInput;
+      output: HttpPrefixHeadersCommandOutput;
+    };
+  };
+}

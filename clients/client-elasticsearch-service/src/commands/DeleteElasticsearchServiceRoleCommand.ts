@@ -66,6 +66,7 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class DeleteElasticsearchServiceRoleCommand extends $Command
@@ -76,9 +77,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteElasticsearchServiceRoleCommand)
   .de(de_DeleteElasticsearchServiceRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteElasticsearchServiceRoleCommandInput;
+      output: DeleteElasticsearchServiceRoleCommandOutput;
+    };
+  };
+}

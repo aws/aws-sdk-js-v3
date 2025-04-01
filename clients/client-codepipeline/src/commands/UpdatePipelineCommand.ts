@@ -73,7 +73,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *           { // ActionDeclaration
  *             name: "STRING_VALUE", // required
  *             actionTypeId: { // ActionTypeId
- *               category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *               category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *               owner: "AWS" || "ThirdParty" || "Custom", // required
  *               provider: "STRING_VALUE", // required
  *               version: "STRING_VALUE", // required
@@ -82,9 +82,15 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *             configuration: { // ActionConfigurationMap
  *               "<keys>": "STRING_VALUE",
  *             },
+ *             commands: [ // CommandList
+ *               "STRING_VALUE",
+ *             ],
  *             outputArtifacts: [ // OutputArtifactList
  *               { // OutputArtifact
  *                 name: "STRING_VALUE", // required
+ *                 files: [ // FilePathList
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *             ],
  *             inputArtifacts: [ // InputArtifactList
@@ -92,14 +98,120 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *                 name: "STRING_VALUE", // required
  *               },
  *             ],
+ *             outputVariables: [ // OutputVariableList
+ *               "STRING_VALUE",
+ *             ],
  *             roleArn: "STRING_VALUE",
  *             region: "STRING_VALUE",
  *             namespace: "STRING_VALUE",
  *             timeoutInMinutes: Number("int"),
+ *             environmentVariables: [ // EnvironmentVariableList
+ *               { // EnvironmentVariable
+ *                 name: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
  *           },
  *         ],
  *         onFailure: { // FailureConditions
- *           result: "ROLLBACK",
+ *           result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ *           retryConfiguration: { // RetryConfiguration
+ *             retryMode: "FAILED_ACTIONS" || "ALL_ACTIONS",
+ *           },
+ *           conditions: [ // ConditionList
+ *             { // Condition
+ *               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ *               rules: [ // RuleDeclarationList
+ *                 { // RuleDeclaration
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: { // RuleTypeId
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: { // RuleConfigurationMap
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         onSuccess: { // SuccessConditions
+ *           conditions: [ // required
+ *             {
+ *               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ *               rules: [
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: {
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         beforeEntry: { // BeforeEntryConditions
+ *           conditions: [ // required
+ *             {
+ *               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ *               rules: [
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: {
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *         },
  *       },
  *     ],
@@ -211,7 +323,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //           { // ActionDeclaration
  * //             name: "STRING_VALUE", // required
  * //             actionTypeId: { // ActionTypeId
- * //               category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //               category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //               owner: "AWS" || "ThirdParty" || "Custom", // required
  * //               provider: "STRING_VALUE", // required
  * //               version: "STRING_VALUE", // required
@@ -220,9 +332,15 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //             configuration: { // ActionConfigurationMap
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             commands: [ // CommandList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             outputArtifacts: [ // OutputArtifactList
  * //               { // OutputArtifact
  * //                 name: "STRING_VALUE", // required
+ * //                 files: [ // FilePathList
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             ],
  * //             inputArtifacts: [ // InputArtifactList
@@ -230,14 +348,120 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //                 name: "STRING_VALUE", // required
  * //               },
  * //             ],
+ * //             outputVariables: [ // OutputVariableList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             roleArn: "STRING_VALUE",
  * //             region: "STRING_VALUE",
  * //             namespace: "STRING_VALUE",
  * //             timeoutInMinutes: Number("int"),
+ * //             environmentVariables: [ // EnvironmentVariableList
+ * //               { // EnvironmentVariable
+ * //                 name: "STRING_VALUE", // required
+ * //                 value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         onFailure: { // FailureConditions
- * //           result: "ROLLBACK",
+ * //           result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ * //           retryConfiguration: { // RetryConfiguration
+ * //             retryMode: "FAILED_ACTIONS" || "ALL_ACTIONS",
+ * //           },
+ * //           conditions: [ // ConditionList
+ * //             { // Condition
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ * //               rules: [ // RuleDeclarationList
+ * //                 { // RuleDeclaration
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: { // RuleTypeId
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: { // RuleConfigurationMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //         onSuccess: { // SuccessConditions
+ * //           conditions: [ // required
+ * //             {
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ * //               rules: [
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: {
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //         beforeEntry: { // BeforeEntryConditions
+ * //           conditions: [ // required
+ * //             {
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ * //               rules: [
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: {
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //     ],
@@ -343,6 +567,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipelineCommand extends $Command
@@ -353,9 +578,7 @@ export class UpdatePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -367,4 +590,16 @@ export class UpdatePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePipelineCommand)
   .de(de_UpdatePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipelineInput;
+      output: UpdatePipelineOutput;
+    };
+    sdk: {
+      input: UpdatePipelineCommandInput;
+      output: UpdatePipelineCommandOutput;
+    };
+  };
+}

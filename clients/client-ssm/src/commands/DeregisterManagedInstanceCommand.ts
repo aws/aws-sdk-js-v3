@@ -28,9 +28,13 @@ export interface DeregisterManagedInstanceCommandInput extends DeregisterManaged
 export interface DeregisterManagedInstanceCommandOutput extends DeregisterManagedInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Removes the server or virtual machine from the list of registered servers. You can
- *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
- *    suggest uninstalling SSM Agent first.</p>
+ * <p>Removes the server or virtual machine from the list of registered servers.</p>
+ *          <p>If you want to reregister an on-premises server, edge device, or VM, you must use a
+ *    different Activation Code and Activation ID than used to register the machine previously. The
+ *    Activation Code and Activation ID must not have already been used on the maximum number of
+ *    activations specified when they were created. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-deregister-hybrid-nodes.html">Deregistering
+ *     managed nodes in a hybrid and multicloud environment</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +82,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeregisterManagedInstanceCommand extends $Command
@@ -88,9 +93,7 @@ export class DeregisterManagedInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +105,16 @@ export class DeregisterManagedInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterManagedInstanceCommand)
   .de(de_DeregisterManagedInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterManagedInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterManagedInstanceCommandInput;
+      output: DeregisterManagedInstanceCommandOutput;
+    };
+  };
+}

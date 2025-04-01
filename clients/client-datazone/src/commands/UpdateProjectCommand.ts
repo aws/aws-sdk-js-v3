@@ -11,7 +11,7 @@ import {
   UpdateProjectInputFilterSensitiveLog,
   UpdateProjectOutput,
   UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -48,6 +48,30 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ *     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ *     environmentFailureReasons: { // EnvironmentFailureReasons
+ *       "<keys>": [ // EnvironmentFailureReasonsList
+ *         { // EnvironmentError
+ *           code: "STRING_VALUE",
+ *           message: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   userParameters: [ // EnvironmentConfigurationUserParametersList
+ *     { // EnvironmentConfigurationUserParameter
+ *       environmentId: "STRING_VALUE",
+ *       environmentConfigurationName: "STRING_VALUE",
+ *       environmentParameters: [ // EnvironmentParametersList
+ *         { // EnvironmentParameter
+ *           name: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   projectProfileVersion: "STRING_VALUE",
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -56,7 +80,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED" || "UPDATING" || "UPDATE_FAILED",
  * //   failureReasons: [ // FailureReasons
  * //     { // ProjectDeletionError
  * //       code: "STRING_VALUE",
@@ -69,6 +93,31 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   domainUnitId: "STRING_VALUE",
+ * //   projectProfileId: "STRING_VALUE",
+ * //   userParameters: [ // EnvironmentConfigurationUserParametersList
+ * //     { // EnvironmentConfigurationUserParameter
+ * //       environmentId: "STRING_VALUE",
+ * //       environmentConfigurationName: "STRING_VALUE",
+ * //       environmentParameters: [ // EnvironmentParametersList
+ * //         { // EnvironmentParameter
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ * //     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ * //     environmentFailureReasons: { // EnvironmentFailureReasons
+ * //       "<keys>": [ // EnvironmentFailureReasonsList
+ * //         { // EnvironmentError
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -106,6 +155,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateProjectCommand extends $Command
@@ -116,9 +166,7 @@ export class UpdateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +178,16 @@ export class UpdateProjectCommand extends $Command
   .f(UpdateProjectInputFilterSensitiveLog, UpdateProjectOutputFilterSensitiveLog)
   .ser(se_UpdateProjectCommand)
   .de(de_UpdateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProjectInput;
+      output: UpdateProjectOutput;
+    };
+    sdk: {
+      input: UpdateProjectCommandInput;
+      output: UpdateProjectCommandOutput;
+    };
+  };
+}

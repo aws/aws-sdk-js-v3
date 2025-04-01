@@ -95,6 +95,7 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeploymentCommand extends $Command
@@ -105,9 +106,7 @@ export class UpdateDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class UpdateDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeploymentCommand)
   .de(de_UpdateDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeploymentRequest;
+      output: Deployment;
+    };
+    sdk: {
+      input: UpdateDeploymentCommandInput;
+      output: UpdateDeploymentCommandOutput;
+    };
+  };
+}

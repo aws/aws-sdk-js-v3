@@ -55,7 +55,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *     },
  *   ],
  *   IdentityProviderConfiguration: { // IdentityProviderConfiguration
- *     AuthorizationStrategy: "SMART_ON_FHIR_V1" || "AWS_AUTH", // required
+ *     AuthorizationStrategy: "SMART_ON_FHIR_V1" || "SMART_ON_FHIR" || "AWS_AUTH", // required
  *     FineGrainedAuthorizationEnabled: true || false,
  *     Metadata: "STRING_VALUE",
  *     IdpLambdaArn: "STRING_VALUE",
@@ -93,6 +93,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class CreateFHIRDatastoreCommand extends $Command
@@ -103,9 +104,7 @@ export class CreateFHIRDatastoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class CreateFHIRDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFHIRDatastoreCommand)
   .de(de_CreateFHIRDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFHIRDatastoreRequest;
+      output: CreateFHIRDatastoreResponse;
+    };
+    sdk: {
+      input: CreateFHIRDatastoreCommandInput;
+      output: CreateFHIRDatastoreCommandOutput;
+    };
+  };
+}

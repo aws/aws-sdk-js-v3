@@ -32,12 +32,14 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
+ *          <note>
+ *             <p>Amazon Elastic Inference (EI) is no longer available to customers.</p>
+ *          </note>
  *          <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
  * 			tasks using placement constraints and placement strategies. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
- * 			place tasks manually on specific container instances.</p>
- *          <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *          <p>Alternatively, you can use <code>StartTask</code> to use your own scheduler or place
+ * 			tasks manually on specific container instances.</p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
  * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>The Amazon ECS API follows an eventual consistency model. This is because of the
@@ -188,7 +190,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
  *           deleteOnTermination: true || false, // required
  *         },
- *         filesystemType: "ext3" || "ext4" || "xfs",
+ *         filesystemType: "ext3" || "ext4" || "xfs" || "ntfs",
  *       },
  *     },
  *   ],
@@ -380,15 +382,25 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *
  * @throws {@link BlockedException} (client fault)
  *  <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
- * 				Amazon Web Services Support</a>.</p>
+ * 				Amazon Web ServicesSupport</a>.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The <code>RunTask</code> request could not be processed due to conflicts. The provided
@@ -409,6 +421,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
  *  <p>The specified platform version doesn't satisfy the required capabilities of the task
@@ -426,47 +439,47 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To run a task on your default cluster
  * ```javascript
  * // This example runs the specified task definition on your default cluster.
  * const input = {
- *   "cluster": "default",
- *   "taskDefinition": "sleep360:1"
+ *   cluster: "default",
+ *   taskDefinition: "sleep360:1"
  * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tasks": [
+ *   tasks: [
  *     {
- *       "containerInstanceArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/default/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
- *       "containers": [
+ *       containerInstanceArn: "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/default/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
+ *       containers: [
  *         {
- *           "name": "sleep",
- *           "containerArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container/default/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
- *           "lastStatus": "PENDING",
- *           "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
+ *           containerArn: "arn:aws:ecs:us-east-1:<aws_account_id>:container/default/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
+ *           lastStatus: "PENDING",
+ *           name: "sleep",
+ *           taskArn: "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
  *         }
  *       ],
- *       "desiredStatus": "RUNNING",
- *       "lastStatus": "PENDING",
- *       "overrides": {
- *         "containerOverrides": [
+ *       desiredStatus: "RUNNING",
+ *       lastStatus: "PENDING",
+ *       overrides: {
+ *         containerOverrides: [
  *           {
- *             "name": "sleep"
+ *             name: "sleep"
  *           }
  *         ]
  *       },
- *       "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
- *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1"
+ *       taskArn: "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
+ *       taskDefinitionArn: "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: 6f238c83-a133-42cd-ab3d-abeca0560445
  * ```
  *
+ * @public
  */
 export class RunTaskCommand extends $Command
   .classBuilder<
@@ -476,9 +489,7 @@ export class RunTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -490,4 +501,16 @@ export class RunTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RunTaskCommand)
   .de(de_RunTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunTaskRequest;
+      output: RunTaskResponse;
+    };
+    sdk: {
+      input: RunTaskCommandInput;
+      output: RunTaskCommandOutput;
+    };
+  };
+}

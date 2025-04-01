@@ -82,6 +82,7 @@ export interface ListApplicationOperationsCommandOutput extends ListApplicationO
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationOperationsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListApplicationOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListApplicationOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationOperationsCommand)
   .de(de_ListApplicationOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationOperationsRequest;
+      output: ListApplicationOperationsResponse;
+    };
+    sdk: {
+      input: ListApplicationOperationsCommandInput;
+      output: ListApplicationOperationsCommandOutput;
+    };
+  };
+}

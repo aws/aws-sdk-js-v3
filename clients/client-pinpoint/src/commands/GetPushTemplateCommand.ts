@@ -139,6 +139,7 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetPushTemplateCommand extends $Command
@@ -149,9 +150,7 @@ export class GetPushTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class GetPushTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPushTemplateCommand)
   .de(de_GetPushTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPushTemplateRequest;
+      output: GetPushTemplateResponse;
+    };
+    sdk: {
+      input: GetPushTemplateCommandInput;
+      output: GetPushTemplateCommandOutput;
+    };
+  };
+}

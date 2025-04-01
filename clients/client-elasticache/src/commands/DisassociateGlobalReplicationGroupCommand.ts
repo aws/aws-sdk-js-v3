@@ -106,6 +106,7 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DisassociateGlobalReplicationGroupCommand extends $Command
@@ -116,9 +117,7 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateGlobalReplicationGroupCommand)
   .de(de_DisassociateGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateGlobalReplicationGroupMessage;
+      output: DisassociateGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: DisassociateGlobalReplicationGroupCommandInput;
+      output: DisassociateGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

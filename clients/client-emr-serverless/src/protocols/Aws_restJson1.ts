@@ -83,6 +83,7 @@ import {
   ResourceUtilization,
   RetryPolicy,
   S3MonitoringConfiguration,
+  SchedulerConfiguration,
   ServiceQuotaExceededException,
   SparkSubmit,
   TotalResourceUtilization,
@@ -136,6 +137,7 @@ export const se_CreateApplicationCommand = async (
       networkConfiguration: (_) => _json(_),
       releaseLabel: [],
       runtimeConfiguration: (_) => se_ConfigurationList(_, context),
+      schedulerConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
       type: [],
       workerTypeSpecifications: (_) => _json(_),
@@ -191,6 +193,7 @@ export const se_GetDashboardForJobRunCommand = async (
   b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
   const query: any = map({
     [_a]: [() => input.attempt !== void 0, () => input[_a]!.toString()],
+    [_aSPL]: [() => input.accessSystemProfileLogs !== void 0, () => input[_aSPL]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -230,7 +233,7 @@ export const se_ListApplicationsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -274,7 +277,7 @@ export const se_ListJobRunsCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_cAA]: [() => input.createdAtAfter !== void 0, () => __serializeDateTime(input[_cAA]!).toString()],
     [_cAB]: [() => input.createdAtBefore !== void 0, () => __serializeDateTime(input[_cAB]!).toString()],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
     [_m]: [, input[_m]!],
   });
   let body: any;
@@ -396,10 +399,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -434,6 +434,7 @@ export const se_UpdateApplicationCommand = async (
       networkConfiguration: (_) => _json(_),
       releaseLabel: [],
       runtimeConfiguration: (_) => se_ConfigurationList(_, context),
+      schedulerConfiguration: (_) => _json(_),
       workerTypeSpecifications: (_) => _json(_),
     })
   );
@@ -965,6 +966,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_S3MonitoringConfiguration omitted.
 
+// se_SchedulerConfiguration omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_SensitivePropertiesMap omitted.
@@ -1001,6 +1004,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     networkConfiguration: _json,
     releaseLabel: __expectString,
     runtimeConfiguration: (_: any) => de_ConfigurationList(_, context),
+    schedulerConfiguration: _json,
     state: __expectString,
     stateDetails: __expectString,
     tags: _json,
@@ -1107,6 +1111,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
+    endedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     executionRole: __expectString,
     executionTimeoutMinutes: __expectLong,
     jobDriver: (_: any) => _json(__expectUnion(_)),
@@ -1114,8 +1119,10 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     mode: __expectString,
     name: __expectString,
     networkConfiguration: _json,
+    queuedDurationMilliseconds: __expectLong,
     releaseLabel: __expectString,
     retryPolicy: _json,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     state: __expectString,
     stateDetails: __expectString,
     tags: _json,
@@ -1225,6 +1232,8 @@ const de_ResourceUtilization = (output: any, context: __SerdeContext): ResourceU
 
 // de_S3MonitoringConfiguration omitted.
 
+// de_SchedulerConfiguration omitted.
+
 // de_SecurityGroupIds omitted.
 
 // de_SensitivePropertiesMap omitted.
@@ -1264,14 +1273,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _a = "attempt";
+const _aSPL = "accessSystemProfileLogs";
 const _cAA = "createdAtAfter";
 const _cAB = "createdAtBefore";
 const _m = "mode";

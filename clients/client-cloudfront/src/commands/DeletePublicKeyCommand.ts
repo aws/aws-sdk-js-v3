@@ -70,6 +70,7 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeletePublicKeyCommand extends $Command
@@ -80,9 +81,7 @@ export class DeletePublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeletePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePublicKeyCommand)
   .de(de_DeletePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePublicKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePublicKeyCommandInput;
+      output: DeletePublicKeyCommandOutput;
+    };
+  };
+}

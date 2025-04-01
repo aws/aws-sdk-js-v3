@@ -99,6 +99,7 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class AssociateDelegationSignerToDomainCommand extends $Command
@@ -109,9 +110,7 @@ export class AssociateDelegationSignerToDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class AssociateDelegationSignerToDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDelegationSignerToDomainCommand)
   .de(de_AssociateDelegationSignerToDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDelegationSignerToDomainRequest;
+      output: AssociateDelegationSignerToDomainResponse;
+    };
+    sdk: {
+      input: AssociateDelegationSignerToDomainCommandInput;
+      output: AssociateDelegationSignerToDomainCommandOutput;
+    };
+  };
+}

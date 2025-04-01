@@ -1,13 +1,16 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 vi.mock("@smithy/signature-v4");
+vi.mock("@aws-sdk/middleware-sdk-s3");
 vi.mock("@aws-sdk/signature-v4-crt");
 vi.mock("@smithy/signature-v4a");
 
+import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { SignatureV4a } from "@smithy/signature-v4a";
+import { Checksum } from "@smithy/types";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
 import { signatureV4aContainer } from "./signature-v4a-container";
@@ -21,7 +24,21 @@ describe("SignatureV4MultiRegion", () => {
       accessKeyId: "akid",
       secretAccessKey: "secret",
     },
-    sha256: (() => {}) as any,
+    sha256: class implements Checksum {
+      public data = new Uint8Array();
+      public async digest() {
+        return this.data;
+      }
+      public update(bytes: Uint8Array) {
+        const oldData = this.data;
+        this.data = new Uint8Array(this.data.byteLength + bytes.byteLength);
+        this.data.set(oldData);
+        this.data.set(bytes, oldData.byteLength);
+      }
+      public reset() {
+        this.data = new Uint8Array();
+      }
+    },
     runtime: "node",
   };
   const minimalRequest = new HttpRequest({

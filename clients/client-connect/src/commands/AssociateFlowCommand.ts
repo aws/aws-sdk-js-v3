@@ -39,7 +39,7 @@ export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __Met
  *   InstanceId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  *   FlowId: "STRING_VALUE", // required
- *   ResourceType: "SMS_PHONE_NUMBER", // required
+ *   ResourceType: "SMS_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR" || "WHATSAPP_MESSAGING_PHONE_NUMBER", // required
  * };
  * const command = new AssociateFlowCommand(input);
  * const response = await client.send(command);
@@ -74,6 +74,7 @@ export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateFlowCommand extends $Command
@@ -84,9 +85,7 @@ export class AssociateFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class AssociateFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateFlowCommand)
   .de(de_AssociateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateFlowCommandInput;
+      output: AssociateFlowCommandOutput;
+    };
+  };
+}

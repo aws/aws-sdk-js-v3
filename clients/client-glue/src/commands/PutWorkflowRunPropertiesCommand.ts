@@ -78,6 +78,7 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class PutWorkflowRunPropertiesCommand extends $Command
@@ -88,9 +89,7 @@ export class PutWorkflowRunPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class PutWorkflowRunPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWorkflowRunPropertiesCommand)
   .de(de_PutWorkflowRunPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWorkflowRunPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutWorkflowRunPropertiesCommandInput;
+      output: PutWorkflowRunPropertiesCommandOutput;
+    };
+  };
+}

@@ -80,6 +80,10 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * //         },
  * //       ],
  * //       monitoringConfiguration: { // MonitoringConfiguration
+ * //         managedLogs: { // ManagedLogs
+ * //           allowAWSToRetainLogs: "ENABLED" || "DISABLED",
+ * //           encryptionKeyArn: "STRING_VALUE",
+ * //         },
  * //         persistentAppUI: "ENABLED" || "DISABLED",
  * //         cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
  * //           logGroupName: "STRING_VALUE", // required
@@ -128,6 +132,7 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class DescribeManagedEndpointCommand extends $Command
@@ -138,9 +143,7 @@ export class DescribeManagedEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +155,16 @@ export class DescribeManagedEndpointCommand extends $Command
   .f(void 0, DescribeManagedEndpointResponseFilterSensitiveLog)
   .ser(se_DescribeManagedEndpointCommand)
   .de(de_DescribeManagedEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeManagedEndpointRequest;
+      output: DescribeManagedEndpointResponse;
+    };
+    sdk: {
+      input: DescribeManagedEndpointCommandInput;
+      output: DescribeManagedEndpointCommandOutput;
+    };
+  };
+}

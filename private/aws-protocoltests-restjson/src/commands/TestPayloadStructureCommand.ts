@@ -63,6 +63,7 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class TestPayloadStructureCommand extends $Command
@@ -81,4 +82,16 @@ export class TestPayloadStructureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestPayloadStructureCommand)
   .de(de_TestPayloadStructureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestPayloadStructureInputOutput;
+      output: TestPayloadStructureInputOutput;
+    };
+    sdk: {
+      input: TestPayloadStructureCommandInput;
+      output: TestPayloadStructureCommandOutput;
+    };
+  };
+}

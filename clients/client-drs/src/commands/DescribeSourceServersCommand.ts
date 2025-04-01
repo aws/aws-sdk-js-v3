@@ -189,6 +189,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceServersCommand extends $Command
@@ -199,9 +200,7 @@ export class DescribeSourceServersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +212,16 @@ export class DescribeSourceServersCommand extends $Command
   .f(void 0, DescribeSourceServersResponseFilterSensitiveLog)
   .ser(se_DescribeSourceServersCommand)
   .de(de_DescribeSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSourceServersRequest;
+      output: DescribeSourceServersResponse;
+    };
+    sdk: {
+      input: DescribeSourceServersCommandInput;
+      output: DescribeSourceServersCommandOutput;
+    };
+  };
+}

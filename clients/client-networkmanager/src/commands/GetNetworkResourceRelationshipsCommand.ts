@@ -89,6 +89,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command
@@ -99,9 +100,7 @@ export class GetNetworkResourceRelationshipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class GetNetworkResourceRelationshipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkResourceRelationshipsCommand)
   .de(de_GetNetworkResourceRelationshipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkResourceRelationshipsRequest;
+      output: GetNetworkResourceRelationshipsResponse;
+    };
+    sdk: {
+      input: GetNetworkResourceRelationshipsCommandInput;
+      output: GetNetworkResourceRelationshipsCommandOutput;
+    };
+  };
+}

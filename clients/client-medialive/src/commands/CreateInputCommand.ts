@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateInputRequest, CreateInputResponse } from "../models/models_1";
+import { CreateInputRequest, CreateInputResponse } from "../models/models_2";
 import { de_CreateInputCommand, se_CreateInputCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -39,6 +39,14 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Destinations: [ // __listOfInputDestinationRequest
  *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
+ *       Network: "STRING_VALUE",
+ *       NetworkRoutes: [ // __listOfInputRequestDestinationRoute
+ *         { // InputRequestDestinationRoute
+ *           Cidr: "STRING_VALUE",
+ *           Gateway: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StaticIpAddress: "STRING_VALUE",
  *     },
  *   ],
  *   InputDevices: [ // __listOfInputDeviceSettings
@@ -67,13 +75,36 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  *   Vpc: { // InputVpcRequest
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],
  *     SubnetIds: [ // required
  *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SrtSettings: { // SrtSettingsRequest
+ *     SrtCallerSources: [ // __listOfSrtCallerSourceRequest
+ *       { // SrtCallerSourceRequest
+ *         Decryption: { // SrtCallerDecryptionRequest
+ *           Algorithm: "AES128" || "AES192" || "AES256",
+ *           PassphraseSecretArn: "STRING_VALUE",
+ *         },
+ *         MinimumLatency: Number("int"),
+ *         SrtListenerAddress: "STRING_VALUE",
+ *         SrtListenerPort: "STRING_VALUE",
+ *         StreamId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   InputNetworkLocation: "AWS" || "ON_PREMISES",
+ *   MulticastSettings: { // MulticastSettingsCreateRequest
+ *     Sources: [ // __listOfMulticastSourceCreateRequest
+ *       { // MulticastSourceCreateRequest
+ *         SourceIp: "STRING_VALUE",
+ *         Url: "STRING_VALUE", // required
+ *       },
  *     ],
  *   },
  * };
@@ -94,6 +125,13 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //           AvailabilityZone: "STRING_VALUE",
  * //           NetworkInterfaceId: "STRING_VALUE",
  * //         },
+ * //         Network: "STRING_VALUE",
+ * //         NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //           { // InputDestinationRoute
+ * //             Cidr: "STRING_VALUE",
+ * //             Gateway: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
@@ -128,7 +166,30 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
+ * //     SrtSettings: { // SrtSettings
+ * //       SrtCallerSources: [ // __listOfSrtCallerSource
+ * //         { // SrtCallerSource
+ * //           Decryption: { // SrtCallerDecryption
+ * //             Algorithm: "AES128" || "AES192" || "AES256",
+ * //             PassphraseSecretArn: "STRING_VALUE",
+ * //           },
+ * //           MinimumLatency: Number("int"),
+ * //           SrtListenerAddress: "STRING_VALUE",
+ * //           SrtListenerPort: "STRING_VALUE",
+ * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
+ * //     MulticastSettings: { // MulticastSettings
+ * //       Sources: [ // __listOfMulticastSource
+ * //         { // MulticastSource
+ * //           SourceIp: "STRING_VALUE",
+ * //           Url: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -161,6 +222,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class CreateInputCommand extends $Command
@@ -171,9 +233,7 @@ export class CreateInputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +245,16 @@ export class CreateInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInputCommand)
   .de(de_CreateInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInputRequest;
+      output: CreateInputResponse;
+    };
+    sdk: {
+      input: CreateInputCommandInput;
+      output: CreateInputCommandOutput;
+    };
+  };
+}

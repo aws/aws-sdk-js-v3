@@ -128,6 +128,10 @@ import {
   DeleteProtectConfigurationCommandOutput,
 } from "./commands/DeleteProtectConfigurationCommand";
 import {
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
 } from "./commands/DeleteRegistrationAttachmentCommand";
@@ -136,6 +140,10 @@ import {
   DeleteRegistrationFieldValueCommandInput,
   DeleteRegistrationFieldValueCommandOutput,
 } from "./commands/DeleteRegistrationFieldValueCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
@@ -231,10 +239,15 @@ import {
   GetProtectConfigurationCountryRuleSetCommandInput,
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/GetProtectConfigurationCountryRuleSetCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
+import {
+  ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
+} from "./commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
 import {
   ListRegistrationAssociationsCommandInput,
   ListRegistrationAssociationsCommandOutput,
@@ -244,11 +257,17 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
+import { PutMessageFeedbackCommandInput, PutMessageFeedbackCommandOutput } from "./commands/PutMessageFeedbackCommand";
 import { PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput } from "./commands/PutOptedOutNumberCommand";
+import {
+  PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
 import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "./commands/PutRegistrationFieldValueCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "./commands/ReleaseSenderIdCommand";
 import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "./commands/RequestPhoneNumberCommand";
@@ -264,6 +283,10 @@ import {
   SetAccountDefaultProtectConfigurationCommandInput,
   SetAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/SetAccountDefaultProtectConfigurationCommand";
+import {
+  SetDefaultMessageFeedbackEnabledCommandInput,
+  SetDefaultMessageFeedbackEnabledCommandOutput,
+} from "./commands/SetDefaultMessageFeedbackEnabledCommand";
 import {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
@@ -344,9 +367,11 @@ export type ServiceInputTypes =
   | DeleteOptedOutNumberCommandInput
   | DeletePoolCommandInput
   | DeleteProtectConfigurationCommandInput
+  | DeleteProtectConfigurationRuleSetNumberOverrideCommandInput
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteTextMessageSpendLimitOverrideCommandInput
   | DeleteVerifiedDestinationNumberCommandInput
   | DeleteVoiceMessageSpendLimitOverrideCommandInput
@@ -373,12 +398,17 @@ export type ServiceInputTypes =
   | DisassociateProtectConfigurationCommandInput
   | DiscardRegistrationVersionCommandInput
   | GetProtectConfigurationCountryRuleSetCommandInput
+  | GetResourcePolicyCommandInput
   | ListPoolOriginationIdentitiesCommandInput
+  | ListProtectConfigurationRuleSetNumberOverridesCommandInput
   | ListRegistrationAssociationsCommandInput
   | ListTagsForResourceCommandInput
   | PutKeywordCommandInput
+  | PutMessageFeedbackCommandInput
   | PutOptedOutNumberCommandInput
+  | PutProtectConfigurationRuleSetNumberOverrideCommandInput
   | PutRegistrationFieldValueCommandInput
+  | PutResourcePolicyCommandInput
   | ReleasePhoneNumberCommandInput
   | ReleaseSenderIdCommandInput
   | RequestPhoneNumberCommandInput
@@ -388,6 +418,7 @@ export type ServiceInputTypes =
   | SendTextMessageCommandInput
   | SendVoiceMessageCommandInput
   | SetAccountDefaultProtectConfigurationCommandInput
+  | SetDefaultMessageFeedbackEnabledCommandInput
   | SetDefaultMessageTypeCommandInput
   | SetDefaultSenderIdCommandInput
   | SetMediaMessageSpendLimitOverrideCommandInput
@@ -431,9 +462,11 @@ export type ServiceOutputTypes =
   | DeleteOptedOutNumberCommandOutput
   | DeletePoolCommandOutput
   | DeleteProtectConfigurationCommandOutput
+  | DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteTextMessageSpendLimitOverrideCommandOutput
   | DeleteVerifiedDestinationNumberCommandOutput
   | DeleteVoiceMessageSpendLimitOverrideCommandOutput
@@ -460,12 +493,17 @@ export type ServiceOutputTypes =
   | DisassociateProtectConfigurationCommandOutput
   | DiscardRegistrationVersionCommandOutput
   | GetProtectConfigurationCountryRuleSetCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
+  | ListProtectConfigurationRuleSetNumberOverridesCommandOutput
   | ListRegistrationAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutKeywordCommandOutput
+  | PutMessageFeedbackCommandOutput
   | PutOptedOutNumberCommandOutput
+  | PutProtectConfigurationRuleSetNumberOverrideCommandOutput
   | PutRegistrationFieldValueCommandOutput
+  | PutResourcePolicyCommandOutput
   | ReleasePhoneNumberCommandOutput
   | ReleaseSenderIdCommandOutput
   | RequestPhoneNumberCommandOutput
@@ -475,6 +513,7 @@ export type ServiceOutputTypes =
   | SendTextMessageCommandOutput
   | SendVoiceMessageCommandOutput
   | SetAccountDefaultProtectConfigurationCommandOutput
+  | SetDefaultMessageFeedbackEnabledCommandOutput
   | SetDefaultMessageTypeCommandOutput
   | SetDefaultSenderIdCommandOutput
   | SetMediaMessageSpendLimitOverrideCommandOutput
@@ -583,6 +622,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -628,11 +686,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type PinpointSMSVoiceV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -648,11 +706,11 @@ export interface PinpointSMSVoiceV2ClientConfig extends PinpointSMSVoiceV2Client
 export type PinpointSMSVoiceV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -663,25 +721,24 @@ export type PinpointSMSVoiceV2ClientResolvedConfigType = __SmithyResolvedConfigu
 export interface PinpointSMSVoiceV2ClientResolvedConfig extends PinpointSMSVoiceV2ClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i>.
- *             This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
+ * <p>Welcome to the <i>AWS End User Messaging SMS and Voice, version 2 API Reference</i>.
+ *             This guide provides information about AWS End User Messaging SMS and Voice, version 2 API
  *             resources, including supported HTTP methods, parameters, and schemas.</p>
  *          <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
- *             your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
- *             Voice, version 2 API provides programmatic access to options that are unique to the SMS
- *             and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
- *          <p>If you're new to Amazon Pinpoint SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
- *                 Amazon Pinpoint SMS User Guide</a>. The <i>Amazon Pinpoint
- *                 Developer Guide</i> provides tutorials, code samples, and procedures that
- *             demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate
- *                 Amazon Pinpoint functionality into mobile apps and other types of applications.
- *             The guide also provides key information, such as Amazon Pinpoint integration with
+ *             your recipients across multiple messaging channels. The AWS End User Messaging SMS and Voice, version 2 API provides programmatic access to options that are unique to the SMS
+ *             and voice channels. AWS End User Messaging SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
+ *          <p>If you're new to AWS End User Messaging SMS and Voice, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
+ *             AWS End User Messaging SMS User Guide</a>. The <i>AWS End User Messaging SMS User Guide
+ *                 </i> provides tutorials, code samples, and procedures that
+ *             demonstrate how to use AWS End User Messaging SMS and Voice features programmatically and how to integrate
+ *                 functionality into mobile apps and other types of applications.
+ *                 The guide also provides key information, such as AWS End User Messaging SMS and Voice integration with
  *             other Amazon Web Services services, and the quotas that apply to use of the
  *             service.</p>
  *          <p>
  *             <b>Regional availability</b>
  *          </p>
- *          <p>The <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i> is
+ *          <p>The <i>AWS End User Messaging SMS and Voice version 2 API Reference</i> is
  *             available in several Amazon Web Services Regions and it provides an endpoint for each of
  *             these Regions. For a list of all the Regions and endpoints where the API is currently
  *             available, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint
@@ -712,26 +769,30 @@ export class PinpointSMSVoiceV2Client extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<PinpointSMSVoiceV2ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultPinpointSMSVoiceV2HttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: PinpointSMSVoiceV2ClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -744,14 +805,5 @@ export class PinpointSMSVoiceV2Client extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultPinpointSMSVoiceV2HttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: PinpointSMSVoiceV2ClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

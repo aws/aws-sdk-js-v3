@@ -88,6 +88,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class CreateHITTypeCommand extends $Command
@@ -98,9 +99,7 @@ export class CreateHITTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class CreateHITTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHITTypeCommand)
   .de(de_CreateHITTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHITTypeRequest;
+      output: CreateHITTypeResponse;
+    };
+    sdk: {
+      input: CreateHITTypeCommandInput;
+      output: CreateHITTypeCommandOutput;
+    };
+  };
+}

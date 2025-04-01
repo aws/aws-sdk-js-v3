@@ -48,13 +48,13 @@ export interface AccountEnrollmentStatus {
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The account enrollment status.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The reason for the account enrollment status.</p>
@@ -62,15 +62,43 @@ export interface AccountEnrollmentStatus {
    *             accounts of an organization require more time to be enrolled in the service.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp, in seconds, of when the account enrollment status was last
    *             updated.</p>
    * @public
    */
-  lastUpdatedTimestamp?: Date;
+  lastUpdatedTimestamp?: Date | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationStrategy = {
+  LOWEST_PRICE: "LowestPrice",
+  PRIORITIZED: "Prioritized",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AsgType = {
+  MIXED_INSTANCE_TYPE: "MixedInstanceTypes",
+  SINGLE_INSTANCE_TYPE: "SingleInstanceType",
+} as const;
+
+/**
+ * @public
+ */
+export type AsgType = (typeof AsgType)[keyof typeof AsgType];
 
 /**
  * @public
@@ -87,35 +115,67 @@ export const AutoScalingConfiguration = {
 export type AutoScalingConfiguration = (typeof AutoScalingConfiguration)[keyof typeof AutoScalingConfiguration];
 
 /**
- * <p>Describes the configuration of an Auto Scaling group.</p>
+ * <p>Describes the configuration of an EC2 Auto Scaling group.</p>
  * @public
  */
 export interface AutoScalingGroupConfiguration {
   /**
-   * <p>The desired capacity, or number of instances, for the Auto Scaling group.</p>
+   * <p>The desired capacity, or number of instances, for the EC2 Auto Scaling group.</p>
    * @public
    */
-  desiredCapacity?: number;
+  desiredCapacity?: number | undefined;
 
   /**
-   * <p>The minimum size, or minimum number of instances, for the Auto Scaling
+   * <p>The minimum size, or minimum number of instances, for the EC2 Auto Scaling
    *             group.</p>
    * @public
    */
-  minSize?: number;
+  minSize?: number | undefined;
 
   /**
-   * <p>The maximum size, or maximum number of instances, for the Auto Scaling
+   * <p>The maximum size, or maximum number of instances, for the EC2 Auto Scaling
    *             group.</p>
    * @public
    */
-  maxSize?: number;
+  maxSize?: number | undefined;
 
   /**
-   * <p>The instance type for the Auto Scaling group.</p>
+   * <p>The instance type for the EC2 Auto Scaling group.</p>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
+
+  /**
+   * <p>
+   *             Describes the allocation strategy that the EC2 Auto Scaling group uses. This field is only available for EC2 Auto Scaling groups with mixed instance types.
+   *         </p>
+   * @public
+   */
+  allocationStrategy?: AllocationStrategy | undefined;
+
+  /**
+   * <p>
+   *             Describes the projected percentage reduction in instance hours after adopting the recommended configuration. This field is only available for EC2 Auto Scaling groups with scaling policies.
+   *         </p>
+   * @public
+   */
+  estimatedInstanceHourReductionPercentage?: number | undefined;
+
+  /**
+   * <p>
+   *             Describes whether the EC2 Auto Scaling group has a single instance type or a mixed instance type configuration.
+   *         </p>
+   * @public
+   */
+  type?: AsgType | undefined;
+
+  /**
+   * <p>
+   *             List the instance types within an EC2 Auto Scaling group that has mixed instance types.
+   *         </p>
+   * @public
+   */
+  mixedInstanceTypes?: string[] | undefined;
 }
 
 /**
@@ -146,7 +206,7 @@ export interface AutoScalingGroupEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -154,7 +214,7 @@ export interface AutoScalingGroupEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -170,7 +230,7 @@ export interface Gpu {
    *         </p>
    * @public
    */
-  gpuCount?: number;
+  gpuCount?: number | undefined;
 
   /**
    * <p>
@@ -178,7 +238,7 @@ export interface Gpu {
    *         </p>
    * @public
    */
-  gpuMemorySizeInMiB?: number;
+  gpuMemorySizeInMiB?: number | undefined;
 }
 
 /**
@@ -194,7 +254,7 @@ export interface GpuInfo {
    *         </p>
    * @public
    */
-  gpus?: Gpu[];
+  gpus?: Gpu[] | undefined;
 }
 
 /**
@@ -268,7 +328,7 @@ export interface ExternalMetricsPreference {
    * <p> Contains the source options for external metrics preferences. </p>
    * @public
    */
-  source?: ExternalMetricsSource;
+  source?: ExternalMetricsSource | undefined;
 }
 
 /**
@@ -330,7 +390,7 @@ export interface EffectivePreferredResource {
    *         </p>
    * @public
    */
-  name?: PreferredResourceName;
+  name?: PreferredResourceName | undefined;
 
   /**
    * <p>
@@ -338,7 +398,7 @@ export interface EffectivePreferredResource {
    *         </p>
    * @public
    */
-  includeList?: string[];
+  includeList?: string[] | undefined;
 
   /**
    * <p>
@@ -346,7 +406,7 @@ export interface EffectivePreferredResource {
    *         </p>
    * @public
    */
-  effectiveIncludeList?: string[];
+  effectiveIncludeList?: string[] | undefined;
 
   /**
    * <p>
@@ -354,7 +414,7 @@ export interface EffectivePreferredResource {
    *         </p>
    * @public
    */
-  excludeList?: string[];
+  excludeList?: string[] | undefined;
 }
 
 /**
@@ -386,7 +446,7 @@ export interface InstanceSavingsEstimationMode {
    *         </p>
    * @public
    */
-  source?: InstanceSavingsEstimationModeSource;
+  source?: InstanceSavingsEstimationModeSource | undefined;
 }
 
 /**
@@ -451,7 +511,7 @@ export interface CustomizableMetricParameters {
    *          </note>
    * @public
    */
-  threshold?: CustomizableMetricThreshold;
+  threshold?: CustomizableMetricThreshold | undefined;
 
   /**
    * <p>
@@ -470,7 +530,7 @@ export interface CustomizableMetricParameters {
    *          </ul>
    * @public
    */
-  headroom?: CustomizableMetricHeadroom;
+  headroom?: CustomizableMetricHeadroom | undefined;
 }
 
 /**
@@ -489,7 +549,7 @@ export interface UtilizationPreference {
    *         </p>
    * @public
    */
-  metricName?: CustomizableMetricName;
+  metricName?: CustomizableMetricName | undefined;
 
   /**
    * <p>
@@ -497,7 +557,7 @@ export interface UtilizationPreference {
    *         </p>
    * @public
    */
-  metricParameters?: CustomizableMetricParameters;
+  metricParameters?: CustomizableMetricParameters | undefined;
 }
 
 /**
@@ -525,7 +585,7 @@ export interface EffectiveRecommendationPreferences {
    *          </ul>
    * @public
    */
-  cpuVendorArchitectures?: CpuVendorArchitecture[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[] | undefined;
 
   /**
    * <p>Describes the activation status of the enhanced infrastructure metrics
@@ -538,7 +598,7 @@ export interface EffectiveRecommendationPreferences {
    *                 Guide</i>.</p>
    * @public
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | undefined;
 
   /**
    * <p>Describes the activation status of the inferred workload types preference.</p>
@@ -547,7 +607,7 @@ export interface EffectiveRecommendationPreferences {
    *             applied to recommendations.</p>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | undefined;
 
   /**
    * <p> An object that describes the external metrics recommendation preference. </p>
@@ -556,7 +616,7 @@ export interface EffectiveRecommendationPreferences {
    *             to the recommendations already, then this object doesn't appear in the response. </p>
    * @public
    */
-  externalMetricsPreference?: ExternalMetricsPreference;
+  externalMetricsPreference?: ExternalMetricsPreference | undefined;
 
   /**
    * <p>
@@ -564,7 +624,7 @@ export interface EffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  lookBackPeriod?: LookBackPeriodPreference;
+  lookBackPeriod?: LookBackPeriodPreference | undefined;
 
   /**
    * <p>
@@ -576,7 +636,7 @@ export interface EffectiveRecommendationPreferences {
    *          </note>
    * @public
    */
-  utilizationPreferences?: UtilizationPreference[];
+  utilizationPreferences?: UtilizationPreference[] | undefined;
 
   /**
    * <p>
@@ -584,7 +644,7 @@ export interface EffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  preferredResources?: EffectivePreferredResource[];
+  preferredResources?: EffectivePreferredResource[] | undefined;
 
   /**
    * <p>
@@ -592,7 +652,7 @@ export interface EffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  savingsEstimationMode?: InstanceSavingsEstimationMode;
+  savingsEstimationMode?: InstanceSavingsEstimationMode | undefined;
 }
 
 /**
@@ -827,7 +887,7 @@ export interface UtilizationMetric {
    *          </ul>
    * @public
    */
-  name?: MetricName;
+  name?: MetricName | undefined;
 
   /**
    * <p>The statistic of the utilization metric.</p>
@@ -844,13 +904,13 @@ export interface UtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: MetricStatistic;
+  statistic?: MetricStatistic | undefined;
 
   /**
    * <p>The value of the utilization metric.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -866,13 +926,13 @@ export interface EstimatedMonthlySavings {
    *             savings.</p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>The value of the estimated monthly savings.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -900,14 +960,14 @@ export interface SavingsOpportunity {
    *                 Compute Optimizer recommendations for a given resource.</p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
    *             resource. This is based on the On-Demand instance pricing..</p>
    * @public
    */
-  estimatedMonthlySavings?: EstimatedMonthlySavings;
+  estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -925,7 +985,7 @@ export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -934,7 +994,7 @@ export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: AutoScalingGroupEstimatedMonthlySavings;
+  estimatedMonthlySavings?: AutoScalingGroupEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -946,7 +1006,7 @@ export interface AutoScalingGroupRecommendationOption {
    * <p>An array of objects that describe an Auto Scaling group configuration.</p>
    * @public
    */
-  configuration?: AutoScalingGroupConfiguration;
+  configuration?: AutoScalingGroupConfiguration | undefined;
 
   /**
    * <p>
@@ -954,7 +1014,7 @@ export interface AutoScalingGroupRecommendationOption {
    *         </p>
    * @public
    */
-  instanceGpuInfo?: GpuInfo;
+  instanceGpuInfo?: GpuInfo | undefined;
 
   /**
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option.</p>
@@ -967,7 +1027,7 @@ export interface AutoScalingGroupRecommendationOption {
    *          </note>
    * @public
    */
-  projectedUtilizationMetrics?: UtilizationMetric[];
+  projectedUtilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
    * <p>The performance risk of the Auto Scaling group configuration
@@ -987,14 +1047,14 @@ export interface AutoScalingGroupRecommendationOption {
    *             your resource.</p>
    * @public
    */
-  performanceRisk?: number;
+  performanceRisk?: number | undefined;
 
   /**
    * <p>The rank of the Auto Scaling group recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>An object that describes the savings opportunity for the Auto Scaling group
@@ -1002,7 +1062,7 @@ export interface AutoScalingGroupRecommendationOption {
    *             and percentage.</p>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -1011,7 +1071,7 @@ export interface AutoScalingGroupRecommendationOption {
    *         </p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts | undefined;
 
   /**
    * <p>The level of effort required to migrate from the current instance type to the
@@ -1024,7 +1084,7 @@ export interface AutoScalingGroupRecommendationOption {
    *             same CPU architecture.</p>
    * @public
    */
-  migrationEffort?: MigrationEffort;
+  migrationEffort?: MigrationEffort | undefined;
 }
 
 /**
@@ -1036,19 +1096,19 @@ export interface AutoScalingGroupRecommendation {
    * <p>The Amazon Web Services account ID of the Auto Scaling group.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
    * @public
    */
-  autoScalingGroupArn?: string;
+  autoScalingGroupArn?: string | undefined;
 
   /**
    * <p>The name of the Auto Scaling group.</p>
    * @public
    */
-  autoScalingGroupName?: string;
+  autoScalingGroupName?: string | undefined;
 
   /**
    * <p>The finding classification of the Auto Scaling group.</p>
@@ -1074,27 +1134,27 @@ export interface AutoScalingGroupRecommendation {
    *          </ul>
    * @public
    */
-  finding?: Finding;
+  finding?: Finding | undefined;
 
   /**
    * <p>An array of objects that describe the utilization metrics of the Auto Scaling
    *             group.</p>
    * @public
    */
-  utilizationMetrics?: UtilizationMetric[];
+  utilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the Auto Scaling group.</p>
    * @public
    */
-  lookBackPeriodInDays?: number;
+  lookBackPeriodInDays?: number | undefined;
 
   /**
    * <p>An array of objects that describe the current configuration of the Auto Scaling
    *             group.</p>
    * @public
    */
-  currentConfiguration?: AutoScalingGroupConfiguration;
+  currentConfiguration?: AutoScalingGroupConfiguration | undefined;
 
   /**
    * <p>
@@ -1102,21 +1162,21 @@ export interface AutoScalingGroupRecommendation {
    *         </p>
    * @public
    */
-  currentInstanceGpuInfo?: GpuInfo;
+  currentInstanceGpuInfo?: GpuInfo | undefined;
 
   /**
    * <p>An array of objects that describe the recommendation options for the Auto Scaling
    *             group.</p>
    * @public
    */
-  recommendationOptions?: AutoScalingGroupRecommendationOption[];
+  recommendationOptions?: AutoScalingGroupRecommendationOption[] | undefined;
 
   /**
    * <p>The timestamp of when the Auto Scaling group recommendation was last
    *             generated.</p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>The risk of the current Auto Scaling group not meeting the performance needs of
@@ -1124,13 +1184,13 @@ export interface AutoScalingGroupRecommendation {
    *             configuration has insufficient capacity and cannot meet workload requirements.</p>
    * @public
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk;
+  currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
    * <p>An object that describes the effective recommendation preferences for the Auto Scaling group.</p>
    * @public
    */
-  effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: EffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>The applications that might be running on the instances in the Auto Scaling group
@@ -1186,7 +1246,7 @@ export interface AutoScalingGroupRecommendation {
    *          </ul>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadType[];
+  inferredWorkloadTypes?: InferredWorkloadType[] | undefined;
 }
 
 /**
@@ -1217,6 +1277,7 @@ export const ResourceType = {
   EBS_VOLUME: "EbsVolume",
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
+  IDLE: "Idle",
   LAMBDA_FUNCTION: "LambdaFunction",
   LICENSE: "License",
   NOT_APPLICABLE: "NotApplicable",
@@ -1287,7 +1348,7 @@ export interface Scope {
    *          </ul>
    * @public
    */
-  name?: ScopeName;
+  name?: ScopeName | undefined;
 
   /**
    * <p>The value of the scope.</p>
@@ -1311,7 +1372,7 @@ export interface Scope {
    *          <p>Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1336,7 +1397,7 @@ export interface DeleteRecommendationPreferencesRequest {
    *                 Guide</i>.</p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>The name of the recommendation preference to delete.</p>
@@ -1523,7 +1584,7 @@ export interface JobFilter {
    *                 <code>Complete</code>).</p>
    * @public
    */
-  name?: JobFilterName;
+  name?: JobFilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -1544,7 +1605,7 @@ export interface JobFilter {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -1558,20 +1619,20 @@ export interface DescribeRecommendationExportJobsRequest {
    *             omitted.</p>
    * @public
    */
-  jobIds?: string[];
+  jobIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of export
    *             jobs.</p>
    * @public
    */
-  filters?: JobFilter[];
+  filters?: JobFilter[] | undefined;
 
   /**
    * <p>The token to advance to the next page of export jobs.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of export jobs to return with a single request.</p>
@@ -1579,7 +1640,7 @@ export interface DescribeRecommendationExportJobsRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1593,21 +1654,21 @@ export interface S3Destination {
    *             file.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket key of an export file.</p>
    *          <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket key of a metadata file.</p>
    *          <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
    * @public
    */
-  metadataKey?: string;
+  metadataKey?: string | undefined;
 }
 
 /**
@@ -1621,7 +1682,7 @@ export interface ExportDestination {
    *             metadata file.</p>
    * @public
    */
-  s3?: S3Destination;
+  s3?: S3Destination | undefined;
 }
 
 /**
@@ -1653,43 +1714,43 @@ export interface RecommendationExportJob {
    * <p>The identification number of the export job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>An object that describes the destination of the export file.</p>
    * @public
    */
-  destination?: ExportDestination;
+  destination?: ExportDestination | undefined;
 
   /**
    * <p>The resource type of the exported recommendations.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The status of the export job.</p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>The timestamp of when the export job was created.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export job was last updated.</p>
    * @public
    */
-  lastUpdatedTimestamp?: Date;
+  lastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The reason for an export job failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -1700,14 +1761,14 @@ export interface DescribeRecommendationExportJobsResponse {
    * <p>An array of objects that describe recommendation export jobs.</p>
    * @public
    */
-  recommendationExportJobs?: RecommendationExportJob[];
+  recommendationExportJobs?: RecommendationExportJob[] | undefined;
 
   /**
    * <p>The token to use to advance to the next page of export jobs.</p>
    *          <p>This value is null when there are no more pages of export jobs to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1718,10 +1779,13 @@ export const ExportableAutoScalingGroupField = {
   ACCOUNT_ID: "AccountId",
   AUTO_SCALING_GROUP_ARN: "AutoScalingGroupArn",
   AUTO_SCALING_GROUP_NAME: "AutoScalingGroupName",
+  CURRENT_CONFIGURATION_ALLOCATION_STRATEGY: "CurrentConfigurationAllocationStrategy",
   CURRENT_CONFIGURATION_DESIRED_CAPACITY: "CurrentConfigurationDesiredCapacity",
   CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
   CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
   CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_CONFIGURATION_MIXED_INSTANCE_TYPES: "CurrentConfigurationMixedInstanceTypes",
+  CURRENT_CONFIGURATION_TYPE: "CurrentConfigurationType",
   CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
@@ -1745,10 +1809,15 @@ export const ExportableAutoScalingGroupField = {
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_ALLOCATION_STRATEGY: "RecommendationOptionsConfigurationAllocationStrategy",
   RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY: "RecommendationOptionsConfigurationDesiredCapacity",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_ESTIMATED_INSTANCE_HOUR_REDUCTION_PERCENTAGE:
+    "RecommendationOptionsConfigurationEstimatedInstanceHourReductionPercentage",
   RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE: "RecommendationOptionsConfigurationInstanceType",
   RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: "RecommendationOptionsConfigurationMaxSize",
   RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MIXED_INSTANCE_TYPES: "RecommendationOptionsConfigurationMixedInstanceTypes",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_TYPE: "RecommendationOptionsConfigurationType",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
     "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
@@ -1863,7 +1932,7 @@ export interface Filter {
    *             keys assigned.</p>
    * @public
    */
-  name?: FilterName;
+  name?: FilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -2034,7 +2103,7 @@ export interface Filter {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2061,7 +2130,7 @@ export interface RecommendationPreferences {
    *          </ul>
    * @public
    */
-  cpuVendorArchitectures?: CpuVendorArchitecture[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[] | undefined;
 }
 
 /**
@@ -2082,13 +2151,13 @@ export interface S3DestinationConfig {
    *             job.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket prefix for an export job.</p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 }
 
 /**
@@ -2107,13 +2176,13 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that exports a more specific set of Auto Scaling group recommendations.</p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -2121,7 +2190,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *             Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableAutoScalingGroupField[];
+  fieldsToExport?: ExportableAutoScalingGroupField[] | undefined;
 
   /**
    * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket
@@ -2142,7 +2211,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
@@ -2159,14 +2228,14 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *             or the account IDs parameter, is omitted.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 
   /**
    * <p>An object to specify the preferences for the Auto Scaling group recommendations
    *             to export.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -2179,14 +2248,14 @@ export interface ExportAutoScalingGroupRecommendationsResponse {
    *             ID to view the status of an export job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>An object that describes the destination Amazon S3 bucket of a recommendations
    *             export file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -2302,14 +2371,14 @@ export interface EBSFilter {
    *             keys assigned.</p>
    * @public
    */
-  name?: EBSFilterName;
+  name?: EBSFilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
    *          <p>The valid values are <code>Optimized</code>, or <code>NotOptimized</code>.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2328,13 +2397,13 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that exports a more specific set of Amazon EBS volume recommendations.</p>
    * @public
    */
-  filters?: EBSFilter[];
+  filters?: EBSFilter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -2342,7 +2411,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *             Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableVolumeField[];
+  fieldsToExport?: ExportableVolumeField[] | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
@@ -2363,7 +2432,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
@@ -2380,7 +2449,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *             or the account IDs parameter, is omitted.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 }
 
 /**
@@ -2393,14 +2462,14 @@ export interface ExportEBSVolumeRecommendationsResponse {
    *             ID to view the status of an export job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -2517,14 +2586,14 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that exports a more specific set of instance
    *             recommendations.</p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -2532,7 +2601,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *             Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableInstanceField[];
+  fieldsToExport?: ExportableInstanceField[] | undefined;
 
   /**
    * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket
@@ -2554,7 +2623,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
@@ -2569,14 +2638,14 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *             or the account IDs parameter, is omitted.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 
   /**
    * <p>An object to specify the preferences for the Amazon EC2 instance
    *             recommendations to export.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -2589,14 +2658,14 @@ export interface ExportEC2InstanceRecommendationsResponse {
    *             ID to view the status of an export job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>An object that describes the destination Amazon S3 bucket of a recommendations
    *             export file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -2692,7 +2761,7 @@ export interface ECSServiceRecommendationFilter {
    *             keys assigned.</p>
    * @public
    */
-  name?: ECSServiceRecommendationFilterName;
+  name?: ECSServiceRecommendationFilterName | undefined;
 
   /**
    * <p>
@@ -2702,7 +2771,7 @@ export interface ECSServiceRecommendationFilter {
    *          <ul>
    *             <li>
    *                <p>If you specify the <code>name</code> parameter as <code>Finding</code>, specify
-   *                     <code>Optimized</code>, <code>NotOptimized</code>, or <code>Unavailable</code>.</p>
+   *                     <code>Optimized</code>, <code>Underprovisioned</code>, or <code>Overprovisioned</code>.</p>
    *             </li>
    *             <li>
    *                <p>If you specify the <code>name</code> parameter as <code>FindingReasonCode</code>, specify
@@ -2712,7 +2781,7 @@ export interface ECSServiceRecommendationFilter {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2733,7 +2802,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>
@@ -2742,7 +2811,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: ECSServiceRecommendationFilter[];
+  filters?: ECSServiceRecommendationFilter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -2750,7 +2819,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableECSServiceField[];
+  fieldsToExport?: ExportableECSServiceField[] | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
@@ -2773,7 +2842,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *          <p>The CSV file is the only export file format currently supported.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>If your account is the management account or the delegated administrator of an organization,
@@ -2789,7 +2858,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *             member accounts aren't included in the export.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 }
 
 /**
@@ -2805,14 +2874,190 @@ export interface ExportECSServiceRecommendationsResponse {
    *         </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportableIdleField = {
+  ACCOUNT_ID: "AccountId",
+  FINDING: "Finding",
+  FINDING_DESCRIPTION: "FindingDescription",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RESOURCE_ARN: "ResourceArn",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_TYPE: "ResourceType",
+  SAVINGS_OPPORTUNITY: "SavingsOpportunity",
+  SAVINGS_OPPORTUNITY_AFTER_DISCOUNT: "SavingsOpportunityAfterDiscount",
+  TAGS: "Tags",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeWriteIOPSMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableIdleField = (typeof ExportableIdleField)[keyof typeof ExportableIdleField];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleRecommendationFilterName = {
+  FINDING: "Finding",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleRecommendationFilterName =
+  (typeof IdleRecommendationFilterName)[keyof typeof IdleRecommendationFilterName];
+
+/**
+ * <p>Describes a filter that returns a more specific list of idle resource recommendations.</p>
+ * @public
+ */
+export interface IdleRecommendationFilter {
+  /**
+   * <p>
+   *             The name of the filter.
+   *         </p>
+   *          <p>
+   *             Specify <code>Finding</code> to return recommendations with a specific finding classification.
+   *         </p>
+   *          <p>You can filter your idle resource recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             idle resource recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all idle resource service recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your idle resource recommendations. Use
+   *             this filter to find all of your idle resource recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your idle resource service recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
+   * @public
+   */
+  name?: IdleRecommendationFilterName | undefined;
+
+  /**
+   * <p>The value of the filter.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportIdleRecommendationsRequest {
+  /**
+   * <p>
+   *             The Amazon Web Services account IDs for the export idle resource recommendations.
+   *         </p>
+   *          <p>If your account is the management account or the delegated administrator
+   *             of an organization, use this parameter to specify the member account you want to
+   *             export recommendations to.</p>
+   *          <p>This parameter can't be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
+   *          <p>If this parameter or the include member accounts parameter is omitted,
+   *             the recommendations for member accounts aren't included in the export.</p>
+   *          <p>You can specify multiple account IDs per request.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>An array of objects to specify a filter that exports a more specific set of idle resource recommendations.</p>
+   * @public
+   */
+  filters?: IdleRecommendationFilter[] | undefined;
+
+  /**
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  fieldsToExport?: ExportableIdleField[] | undefined;
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             key prefix for a recommendations export job.</p>
+   *          <p>You must create the destination Amazon S3 bucket for your recommendations
+   *             export before you create the export job. Compute Optimizer does not create the S3 bucket
+   *             for you. After you create the S3 bucket, ensure that it has the required permission
+   *             policy to allow Compute Optimizer to write the export file to it. If you plan to specify
+   *             an object prefix when you create the export job, you must include the object prefix in
+   *             the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the
+   *                     <i>Compute Optimizer User Guide</i>.</p>
+   * @public
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * <p>The format of the export file. The CSV file is the only export file format currently supported.</p>
+   * @public
+   */
+  fileFormat?: FileFormat | undefined;
+
+  /**
+   * <p>If your account is the management account or the delegated administrator of an organization,
+   *             this parameter indicates whether to include recommendations for resources in all member accounts of
+   *             the organization.</p>
+   *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
+   *             Compute Optimizer must be enabled in the organization account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the
+   *             <i>Compute Optimizer User Guide</i>.</p>
+   *          <p>If this parameter is omitted, recommendations for member accounts of the
+   *             organization aren't included in the export file.</p>
+   *          <p>If this parameter or the account ID parameter is omitted, recommendations for
+   *             member accounts aren't included in the export.</p>
+   * @public
+   */
+  includeMemberAccounts?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportIdleRecommendationsResponse {
+  /**
+   * <p>
+   *             The identification number of the export job.
+   *         </p>
+   *          <p>To view the status of an export job, use the
+   *             <a>DescribeRecommendationExportJobs</a> action and specify the job ID.
+   *         </p>
+   * @public
+   */
+  jobId?: string | undefined;
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             object keys of a recommendations export file, and its associated metadata file.</p>
+   * @public
+   */
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -2910,7 +3155,7 @@ export interface LambdaFunctionRecommendationFilter {
    *             keys assigned.</p>
    * @public
    */
-  name?: LambdaFunctionRecommendationFilterName;
+  name?: LambdaFunctionRecommendationFilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -2931,7 +3176,7 @@ export interface LambdaFunctionRecommendationFilter {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2950,13 +3195,13 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that exports a more specific set of Lambda function recommendations.</p>
    * @public
    */
-  filters?: LambdaFunctionRecommendationFilter[];
+  filters?: LambdaFunctionRecommendationFilter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -2964,7 +3209,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *             Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableLambdaFunctionField[];
+  fieldsToExport?: ExportableLambdaFunctionField[] | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
@@ -2985,7 +3230,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
@@ -3002,7 +3247,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *             or the account IDs parameter, is omitted.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 }
 
 /**
@@ -3015,14 +3260,14 @@ export interface ExportLambdaFunctionRecommendationsResponse {
    *             ID to view the status of an export job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -3102,7 +3347,7 @@ export interface LicenseRecommendationFilter {
    *             keys assigned.</p>
    * @public
    */
-  name?: LicenseRecommendationFilterName;
+  name?: LicenseRecommendationFilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -3123,7 +3368,7 @@ export interface LicenseRecommendationFilter {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -3142,7 +3387,7 @@ export interface ExportLicenseRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>
@@ -3150,7 +3395,7 @@ export interface ExportLicenseRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: LicenseRecommendationFilter[];
+  filters?: LicenseRecommendationFilter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -3158,7 +3403,7 @@ export interface ExportLicenseRecommendationsRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableLicenseField[];
+  fieldsToExport?: ExportableLicenseField[] | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
@@ -3179,7 +3424,7 @@ export interface ExportLicenseRecommendationsRequest {
    *          <p>A CSV file is the only export format currently supported.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
@@ -3194,7 +3439,7 @@ export interface ExportLicenseRecommendationsRequest {
    *             parameters are mutually exclusive.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 }
 
 /**
@@ -3209,14 +3454,14 @@ export interface ExportLicenseRecommendationsResponse {
    *             action and specify the job ID.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -3227,12 +3472,14 @@ export const ExportableRDSDBField = {
   ACCOUNT_ID: "AccountId",
   CURRENT_DB_INSTANCE_CLASS: "CurrentDBInstanceClass",
   CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE: "CurrentInstanceOnDemandHourlyPrice",
+  CURRENT_INSTANCE_PERFORMANCE_RISK: "CurrentInstancePerformanceRisk",
   CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE: "CurrentStorageConfigurationAllocatedStorage",
   CURRENT_STORAGE_CONFIGURATION_IOPS: "CurrentStorageConfigurationIOPS",
   CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE: "CurrentStorageConfigurationMaxAllocatedStorage",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT: "CurrentStorageConfigurationStorageThroughput",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE: "CurrentStorageConfigurationStorageType",
   CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE: "CurrentStorageOnDemandMonthlyPrice",
+  DB_CLUSTER_IDENTIFIER: "DBClusterIdentifier",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
@@ -3267,6 +3514,7 @@ export const ExportableRDSDBField = {
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
   MULTI_AZ_DB_INSTANCE: "MultiAZDBInstance",
+  PROMOTION_TIER: "PromotionTier",
   RESOURCE_ARN: "ResourceArn",
   STORAGE_FINDING: "StorageFinding",
   STORAGE_FINDING_REASON_CODES: "StorageFindingReasonCodes",
@@ -3290,6 +3538,13 @@ export const ExportableRDSDBField = {
   STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT: "StorageRecommendationOptionsStorageThroughput",
   STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE: "StorageRecommendationOptionsStorageType",
   TAGS: "Tags",
+  UTILIZATION_METRICS_AURORA_MEMORY_HEALTH_STATE_MAXIMUM: "UtilizationMetricsAuroraMemoryHealthStateMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_DECLINED_SQL_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_CONN_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_QUERY_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum",
   UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
   UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
   UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
@@ -3301,6 +3556,12 @@ export const ExportableRDSDBField = {
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkReceiveThroughputMaximum",
   UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkTransmitThroughputMaximum",
+  UTILIZATION_METRICS_READ_IOPS_EPHEMERAL_STORAGE_MAXIMUM: "UtilizationMetricsReadIOPSEphemeralStorageMaximum",
+  UTILIZATION_METRICS_STORAGE_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM:
+    "UtilizationMetricsStorageNetworkReceiveThroughputMaximum",
+  UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM:
+    "UtilizationMetricsStorageNetworkTransmitThroughputMaximum",
+  UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM: "UtilizationMetricsWriteIOPSEphemeralStorageMaximum",
 } as const;
 
 /**
@@ -3355,7 +3616,7 @@ export interface RDSDBRecommendationFilter {
    *             keys assigned.</p>
    * @public
    */
-  name?: RDSDBRecommendationFilterName;
+  name?: RDSDBRecommendationFilterName | undefined;
 
   /**
    * <p>
@@ -3363,7 +3624,7 @@ export interface RDSDBRecommendationFilter {
    *         </p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -3384,7 +3645,7 @@ export interface ExportRDSDatabaseRecommendationsRequest {
    *          <p>You can specify multiple account IDs per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>
@@ -3393,7 +3654,7 @@ export interface ExportRDSDatabaseRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: RDSDBRecommendationFilter[];
+  filters?: RDSDBRecommendationFilter[] | undefined;
 
   /**
    * <p>The recommendations data to include in the export file. For more information about the
@@ -3401,7 +3662,7 @@ export interface ExportRDSDatabaseRecommendationsRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  fieldsToExport?: ExportableRDSDBField[];
+  fieldsToExport?: ExportableRDSDBField[] | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
@@ -3424,7 +3685,7 @@ export interface ExportRDSDatabaseRecommendationsRequest {
    *          <p>The CSV file is the only export file format currently supported.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * <p>If your account is the management account or the delegated administrator of an organization,
@@ -3440,13 +3701,13 @@ export interface ExportRDSDatabaseRecommendationsRequest {
    *             member accounts aren't included in the export.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 
   /**
    * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -3462,14 +3723,14 @@ export interface ExportRDSDatabaseRecommendationsResponse {
    *         </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 }
 
 /**
@@ -3485,21 +3746,21 @@ export interface GetAutoScalingGroupRecommendationsRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
    *             recommendations.</p>
    * @public
    */
-  autoScalingGroupArns?: string[];
+  autoScalingGroupArns?: string[] | undefined;
 
   /**
    * <p>The token to advance to the next page of Auto Scaling group
    *             recommendations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of Auto Scaling group recommendations to return with a single
@@ -3508,20 +3769,20 @@ export interface GetAutoScalingGroupRecommendationsRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of Auto Scaling group recommendations.</p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>An object to specify the preferences for the Auto Scaling group recommendations
    *             to return in the response.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -3536,19 +3797,19 @@ export interface GetRecommendationError {
    * <p>The ID of the error.</p>
    * @public
    */
-  identifier?: string;
+  identifier?: string | undefined;
 
   /**
    * <p>The error code.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>The message, or reason, for the error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -3562,13 +3823,13 @@ export interface GetAutoScalingGroupRecommendationsResponse {
    *             recommendations to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that describe Auto Scaling group recommendations.</p>
    * @public
    */
-  autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[];
+  autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[] | undefined;
 
   /**
    * <p>An array of objects that describe errors of the request.</p>
@@ -3576,7 +3837,7 @@ export interface GetAutoScalingGroupRecommendationsResponse {
    *                 Auto Scaling group.</p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -3588,13 +3849,13 @@ export interface GetEBSVolumeRecommendationsRequest {
    *             recommendations.</p>
    * @public
    */
-  volumeArns?: string[];
+  volumeArns?: string[] | undefined;
 
   /**
    * <p>The token to advance to the next page of volume recommendations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of volume recommendations to return with a single request.</p>
@@ -3602,14 +3863,14 @@ export interface GetEBSVolumeRecommendationsRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of volume
    *             recommendations.</p>
    * @public
    */
-  filters?: EBSFilter[];
+  filters?: EBSFilter[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account for which to return volume
@@ -3619,7 +3880,7 @@ export interface GetEBSVolumeRecommendationsRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 }
 
 /**
@@ -3630,43 +3891,62 @@ export interface GetEBSVolumeRecommendationsRequest {
 export interface VolumeConfiguration {
   /**
    * <p>The volume type.</p>
-   *          <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or
-   *                 <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized
-   *             HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic
-   *             volumes.</p>
+   *          <p>The volume types can be the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose SSD <code>gp2</code> and <code>gp3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Provisioned IOPS SSD <code>io1</code>, <code>io2</code>, and <code>io2 Block Express</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Throughput Optimized HDD <code>st1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Cold HDD <code>sc1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Magnetic volumes <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  volumeType?: string;
+  volumeType?: string | undefined;
 
   /**
    * <p>The size of the volume, in GiB.</p>
    * @public
    */
-  volumeSize?: number;
+  volumeSize?: number | undefined;
 
   /**
    * <p>The baseline IOPS of the volume.</p>
    * @public
    */
-  volumeBaselineIOPS?: number;
+  volumeBaselineIOPS?: number | undefined;
 
   /**
    * <p>The burst IOPS of the volume.</p>
    * @public
    */
-  volumeBurstIOPS?: number;
+  volumeBurstIOPS?: number | undefined;
 
   /**
    * <p>The baseline throughput of the volume.</p>
    * @public
    */
-  volumeBaselineThroughput?: number;
+  volumeBaselineThroughput?: number | undefined;
 
   /**
    * <p>The burst throughput of the volume.</p>
    * @public
    */
-  volumeBurstThroughput?: number;
+  volumeBurstThroughput?: number | undefined;
 
   /**
    * <p>
@@ -3674,7 +3954,7 @@ export interface VolumeConfiguration {
    *         </p>
    * @public
    */
-  rootVolume?: boolean;
+  rootVolume?: boolean | undefined;
 }
 
 /**
@@ -3706,7 +3986,7 @@ export interface EBSSavingsEstimationMode {
    *         </p>
    * @public
    */
-  source?: EBSSavingsEstimationModeSource;
+  source?: EBSSavingsEstimationModeSource | undefined;
 }
 
 /**
@@ -3722,7 +4002,7 @@ export interface EBSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  savingsEstimationMode?: EBSSavingsEstimationMode;
+  savingsEstimationMode?: EBSSavingsEstimationMode | undefined;
 }
 
 /**
@@ -3753,7 +4033,7 @@ export interface Tag {
    *         </p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>
@@ -3762,7 +4042,7 @@ export interface Tag {
    *         </p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -3821,7 +4101,7 @@ export interface EBSUtilizationMetric {
    *          </ul>
    * @public
    */
-  name?: EBSMetricName;
+  name?: EBSMetricName | undefined;
 
   /**
    * <p>The statistic of the utilization metric.</p>
@@ -3838,13 +4118,13 @@ export interface EBSUtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: MetricStatistic;
+  statistic?: MetricStatistic | undefined;
 
   /**
    * <p>The value of the utilization metric.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -3861,7 +4141,7 @@ export interface EBSEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -3869,7 +4149,7 @@ export interface EBSEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -3886,7 +4166,7 @@ export interface EBSSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -3895,7 +4175,7 @@ export interface EBSSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: EBSEstimatedMonthlySavings;
+  estimatedMonthlySavings?: EBSEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -3908,7 +4188,7 @@ export interface VolumeRecommendationOption {
    * <p>An array of objects that describe a volume configuration.</p>
    * @public
    */
-  configuration?: VolumeConfiguration;
+  configuration?: VolumeConfiguration | undefined;
 
   /**
    * <p>The performance risk of the volume recommendation option.</p>
@@ -3921,14 +4201,14 @@ export interface VolumeRecommendationOption {
    *             your resource.</p>
    * @public
    */
-  performanceRisk?: number;
+  performanceRisk?: number | undefined;
 
   /**
    * <p>The rank of the volume recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>An object that describes the savings opportunity for the EBS volume recommendation
@@ -3936,7 +4216,7 @@ export interface VolumeRecommendationOption {
    *             percentage.</p>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -3945,7 +4225,7 @@ export interface VolumeRecommendationOption {
    *         </p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: EBSSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: EBSSavingsOpportunityAfterDiscounts | undefined;
 }
 
 /**
@@ -3957,19 +4237,19 @@ export interface VolumeRecommendation {
    * <p>The Amazon Resource Name (ARN) of the current volume.</p>
    * @public
    */
-  volumeArn?: string;
+  volumeArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the volume.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>An array of objects that describe the current configuration of the volume.</p>
    * @public
    */
-  currentConfiguration?: VolumeConfiguration;
+  currentConfiguration?: VolumeConfiguration | undefined;
 
   /**
    * <p>The finding classification of the volume.</p>
@@ -3996,31 +4276,31 @@ export interface VolumeRecommendation {
    *          </ul>
    * @public
    */
-  finding?: EBSFinding;
+  finding?: EBSFinding | undefined;
 
   /**
    * <p>An array of objects that describe the utilization metrics of the volume.</p>
    * @public
    */
-  utilizationMetrics?: EBSUtilizationMetric[];
+  utilizationMetrics?: EBSUtilizationMetric[] | undefined;
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the volume.</p>
    * @public
    */
-  lookBackPeriodInDays?: number;
+  lookBackPeriodInDays?: number | undefined;
 
   /**
    * <p>An array of objects that describe the recommendation options for the volume.</p>
    * @public
    */
-  volumeRecommendationOptions?: VolumeRecommendationOption[];
+  volumeRecommendationOptions?: VolumeRecommendationOption[] | undefined;
 
   /**
    * <p>The timestamp of when the volume recommendation was last generated.</p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>The risk of the current EBS volume not meeting the performance needs of its workloads.
@@ -4028,7 +4308,7 @@ export interface VolumeRecommendation {
    *             capacity.</p>
    * @public
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk;
+  currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
    * <p>
@@ -4036,7 +4316,7 @@ export interface VolumeRecommendation {
    *         </p>
    * @public
    */
-  effectiveRecommendationPreferences?: EBSEffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: EBSEffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>
@@ -4044,7 +4324,7 @@ export interface VolumeRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4057,13 +4337,13 @@ export interface GetEBSVolumeRecommendationsResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that describe volume recommendations.</p>
    * @public
    */
-  volumeRecommendations?: VolumeRecommendation[];
+  volumeRecommendations?: VolumeRecommendation[] | undefined;
 
   /**
    * <p>An array of objects that describe errors of the request.</p>
@@ -4071,7 +4351,7 @@ export interface GetEBSVolumeRecommendationsResponse {
    *             volume.</p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -4083,13 +4363,13 @@ export interface GetEC2InstanceRecommendationsRequest {
    *             recommendations.</p>
    * @public
    */
-  instanceArns?: string[];
+  instanceArns?: string[] | undefined;
 
   /**
    * <p>The token to advance to the next page of instance recommendations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of instance recommendations to return with a single request.</p>
@@ -4097,14 +4377,14 @@ export interface GetEC2InstanceRecommendationsRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of instance
    *             recommendations.</p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account for which to return instance
@@ -4114,14 +4394,14 @@ export interface GetEC2InstanceRecommendationsRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An object to specify the preferences for the Amazon EC2 instance
    *             recommendations to return in the response.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -4159,7 +4439,7 @@ export interface ExternalMetricStatus {
    *         </p>
    * @public
    */
-  statusCode?: ExternalMetricStatusCode;
+  statusCode?: ExternalMetricStatusCode | undefined;
 
   /**
    * <p>
@@ -4167,7 +4447,7 @@ export interface ExternalMetricStatus {
    *         </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -4267,7 +4547,7 @@ export interface InstanceEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -4275,7 +4555,7 @@ export interface InstanceEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -4294,7 +4574,7 @@ export interface InstanceSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -4303,7 +4583,7 @@ export interface InstanceSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: InstanceEstimatedMonthlySavings;
+  estimatedMonthlySavings?: InstanceEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -4315,7 +4595,7 @@ export interface InstanceRecommendationOption {
    * <p>The instance type of the instance recommendation.</p>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>
@@ -4323,7 +4603,7 @@ export interface InstanceRecommendationOption {
    *         </p>
    * @public
    */
-  instanceGpuInfo?: GpuInfo;
+  instanceGpuInfo?: GpuInfo | undefined;
 
   /**
    * <p>An array of objects that describe the projected utilization metrics of the instance
@@ -4337,7 +4617,7 @@ export interface InstanceRecommendationOption {
    *          </note>
    * @public
    */
-  projectedUtilizationMetrics?: UtilizationMetric[];
+  projectedUtilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
    * <p>Describes the configuration differences between the current instance and the
@@ -4438,7 +4718,7 @@ export interface InstanceRecommendationOption {
    *          </ul>
    * @public
    */
-  platformDifferences?: PlatformDifference[];
+  platformDifferences?: PlatformDifference[] | undefined;
 
   /**
    * <p>The performance risk of the instance recommendation option.</p>
@@ -4457,14 +4737,14 @@ export interface InstanceRecommendationOption {
    *             your resource.</p>
    * @public
    */
-  performanceRisk?: number;
+  performanceRisk?: number | undefined;
 
   /**
    * <p>The rank of the instance recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>An object that describes the savings opportunity for the instance recommendation
@@ -4472,7 +4752,7 @@ export interface InstanceRecommendationOption {
    *             percentage.</p>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -4481,7 +4761,7 @@ export interface InstanceRecommendationOption {
    *         </p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: InstanceSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: InstanceSavingsOpportunityAfterDiscounts | undefined;
 
   /**
    * <p>The level of effort required to migrate from the current instance type to the
@@ -4494,7 +4774,7 @@ export interface InstanceRecommendationOption {
    *             same CPU architecture.</p>
    * @public
    */
-  migrationEffort?: MigrationEffort;
+  migrationEffort?: MigrationEffort | undefined;
 }
 
 /**
@@ -4527,13 +4807,13 @@ export interface RecommendationSource {
    * <p>The Amazon Resource Name (ARN) of the recommendation source.</p>
    * @public
    */
-  recommendationSourceArn?: string;
+  recommendationSourceArn?: string | undefined;
 
   /**
    * <p>The resource type of the recommendation source.</p>
    * @public
    */
-  recommendationSourceType?: RecommendationSourceType;
+  recommendationSourceType?: RecommendationSourceType | undefined;
 }
 
 /**
@@ -4545,25 +4825,25 @@ export interface InstanceRecommendation {
    * <p>The Amazon Resource Name (ARN) of the current instance.</p>
    * @public
    */
-  instanceArn?: string;
+  instanceArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the instance.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The name of the current instance.</p>
    * @public
    */
-  instanceName?: string;
+  instanceName?: string | undefined;
 
   /**
    * <p>The instance type of the current instance.</p>
    * @public
    */
-  currentInstanceType?: string;
+  currentInstanceType?: string | undefined;
 
   /**
    * <p>The finding classification of the instance.</p>
@@ -4606,7 +4886,7 @@ export interface InstanceRecommendation {
    *          </note>
    * @public
    */
-  finding?: Finding;
+  finding?: Finding | undefined;
 
   /**
    * <p>The reason for the finding classification of the instance.</p>
@@ -4806,38 +5086,38 @@ export interface InstanceRecommendation {
    *          </note>
    * @public
    */
-  findingReasonCodes?: InstanceRecommendationFindingReasonCode[];
+  findingReasonCodes?: InstanceRecommendationFindingReasonCode[] | undefined;
 
   /**
    * <p>An array of objects that describe the utilization metrics of the instance.</p>
    * @public
    */
-  utilizationMetrics?: UtilizationMetric[];
+  utilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the
    *             instance.</p>
    * @public
    */
-  lookBackPeriodInDays?: number;
+  lookBackPeriodInDays?: number | undefined;
 
   /**
    * <p>An array of objects that describe the recommendation options for the instance.</p>
    * @public
    */
-  recommendationOptions?: InstanceRecommendationOption[];
+  recommendationOptions?: InstanceRecommendationOption[] | undefined;
 
   /**
    * <p>An array of objects that describe the source resource of the recommendation.</p>
    * @public
    */
-  recommendationSources?: RecommendationSource[];
+  recommendationSources?: RecommendationSource[] | undefined;
 
   /**
    * <p>The timestamp of when the instance recommendation was last generated.</p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>The risk of the current instance not meeting the performance needs of its workloads.
@@ -4845,14 +5125,14 @@ export interface InstanceRecommendation {
    *             requirements of its workload.</p>
    * @public
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk;
+  currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
    * <p>An object that describes the effective recommendation preferences for the
    *             instance.</p>
    * @public
    */
-  effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: EffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p>
@@ -4907,7 +5187,7 @@ export interface InstanceRecommendation {
    *          </ul>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadType[];
+  inferredWorkloadTypes?: InferredWorkloadType[] | undefined;
 
   /**
    * <p>
@@ -4915,7 +5195,7 @@ export interface InstanceRecommendation {
    *         </p>
    * @public
    */
-  instanceState?: InstanceState;
+  instanceState?: InstanceState | undefined;
 
   /**
    * <p>
@@ -4923,7 +5203,7 @@ export interface InstanceRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -4931,7 +5211,7 @@ export interface InstanceRecommendation {
    *         </p>
    * @public
    */
-  externalMetricStatus?: ExternalMetricStatus;
+  externalMetricStatus?: ExternalMetricStatus | undefined;
 
   /**
    * <p>
@@ -4939,7 +5219,7 @@ export interface InstanceRecommendation {
    *         </p>
    * @public
    */
-  currentInstanceGpuInfo?: GpuInfo;
+  currentInstanceGpuInfo?: GpuInfo | undefined;
 
   /**
    * <p>
@@ -4947,7 +5227,7 @@ export interface InstanceRecommendation {
    *         </p>
    * @public
    */
-  idle?: InstanceIdle;
+  idle?: InstanceIdle | undefined;
 }
 
 /**
@@ -4960,13 +5240,13 @@ export interface GetEC2InstanceRecommendationsResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that describe instance recommendations.</p>
    * @public
    */
-  instanceRecommendations?: InstanceRecommendation[];
+  instanceRecommendations?: InstanceRecommendation[] | undefined;
 
   /**
    * <p>An array of objects that describe errors of the request.</p>
@@ -4974,7 +5254,7 @@ export interface GetEC2InstanceRecommendationsResponse {
    *             unsupported instance family.</p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -5017,7 +5297,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
    *             projected metrics to return in the response.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -5085,19 +5365,19 @@ export interface ProjectedMetric {
    *          </ul>
    * @public
    */
-  name?: MetricName;
+  name?: MetricName | undefined;
 
   /**
    * <p>The timestamps of the projected utilization metric.</p>
    * @public
    */
-  timestamps?: Date[];
+  timestamps?: Date[] | undefined;
 
   /**
    * <p>The values of the projected utilization metrics.</p>
    * @public
    */
-  values?: number[];
+  values?: number[] | undefined;
 }
 
 /**
@@ -5115,7 +5395,7 @@ export interface RecommendedOptionProjectedMetric {
    * <p>The recommended instance type.</p>
    * @public
    */
-  recommendedInstanceType?: string;
+  recommendedInstanceType?: string | undefined;
 
   /**
    * <p>The rank of the recommendation option projected metric.</p>
@@ -5125,13 +5405,13 @@ export interface RecommendedOptionProjectedMetric {
    *             that is also ranked as <code>1</code> in the same response.</p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>An array of objects that describe a projected utilization metric.</p>
    * @public
    */
-  projectedMetrics?: ProjectedMetric[];
+  projectedMetrics?: ProjectedMetric[] | undefined;
 }
 
 /**
@@ -5142,7 +5422,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
    * <p>An array of objects that describes projected metrics.</p>
    * @public
    */
-  recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[];
+  recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[] | undefined;
 }
 
 /**
@@ -5238,7 +5518,7 @@ export interface ECSServiceProjectedMetric {
    *          </ul>
    * @public
    */
-  name?: ECSServiceMetricName;
+  name?: ECSServiceMetricName | undefined;
 
   /**
    * <p>
@@ -5246,7 +5526,7 @@ export interface ECSServiceProjectedMetric {
    *         </p>
    * @public
    */
-  timestamps?: Date[];
+  timestamps?: Date[] | undefined;
 
   /**
    * <p>
@@ -5254,7 +5534,7 @@ export interface ECSServiceProjectedMetric {
    *         </p>
    * @public
    */
-  upperBoundValues?: number[];
+  upperBoundValues?: number[] | undefined;
 
   /**
    * <p>
@@ -5262,7 +5542,7 @@ export interface ECSServiceProjectedMetric {
    *         </p>
    * @public
    */
-  lowerBoundValues?: number[];
+  lowerBoundValues?: number[] | undefined;
 }
 
 /**
@@ -5280,7 +5560,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  recommendedCpuUnits?: number;
+  recommendedCpuUnits?: number | undefined;
 
   /**
    * <p>
@@ -5288,7 +5568,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  recommendedMemorySize?: number;
+  recommendedMemorySize?: number | undefined;
 
   /**
    * <p>
@@ -5296,7 +5576,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  projectedMetrics?: ECSServiceProjectedMetric[];
+  projectedMetrics?: ECSServiceProjectedMetric[] | undefined;
 }
 
 /**
@@ -5309,7 +5589,7 @@ export interface GetECSServiceRecommendationProjectedMetricsResponse {
    *         </p>
    * @public
    */
-  recommendedOptionProjectedMetrics?: ECSServiceRecommendedOptionProjectedMetric[];
+  recommendedOptionProjectedMetrics?: ECSServiceRecommendedOptionProjectedMetric[] | undefined;
 }
 
 /**
@@ -5328,7 +5608,7 @@ export interface GetECSServiceRecommendationsRequest {
    *          </p>
    * @public
    */
-  serviceArns?: string[];
+  serviceArns?: string[] | undefined;
 
   /**
    * <p>
@@ -5336,7 +5616,7 @@ export interface GetECSServiceRecommendationsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -5346,7 +5626,7 @@ export interface GetECSServiceRecommendationsRequest {
    *             <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -5354,7 +5634,7 @@ export interface GetECSServiceRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: ECSServiceRecommendationFilter[];
+  filters?: ECSServiceRecommendationFilter[] | undefined;
 
   /**
    * <p>
@@ -5366,7 +5646,7 @@ export interface GetECSServiceRecommendationsRequest {
    *          <p>You can only specify one account ID per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 }
 
 /**
@@ -5382,7 +5662,7 @@ export interface MemorySizeConfiguration {
    *         </p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>
@@ -5390,7 +5670,7 @@ export interface MemorySizeConfiguration {
    *         </p>
    * @public
    */
-  memoryReservation?: number;
+  memoryReservation?: number | undefined;
 }
 
 /**
@@ -5406,7 +5686,7 @@ export interface ContainerConfiguration {
    *         </p>
    * @public
    */
-  containerName?: string;
+  containerName?: string | undefined;
 
   /**
    * <p>
@@ -5414,7 +5694,7 @@ export interface ContainerConfiguration {
    *         </p>
    * @public
    */
-  memorySizeConfiguration?: MemorySizeConfiguration;
+  memorySizeConfiguration?: MemorySizeConfiguration | undefined;
 
   /**
    * <p>
@@ -5422,7 +5702,7 @@ export interface ContainerConfiguration {
    *         </p>
    * @public
    */
-  cpu?: number;
+  cpu?: number | undefined;
 }
 
 /**
@@ -5438,7 +5718,7 @@ export interface ServiceConfiguration {
    *         </p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>
@@ -5446,7 +5726,7 @@ export interface ServiceConfiguration {
    *         </p>
    * @public
    */
-  cpu?: number;
+  cpu?: number | undefined;
 
   /**
    * <p>
@@ -5454,7 +5734,7 @@ export interface ServiceConfiguration {
    *         </p>
    * @public
    */
-  containerConfigurations?: ContainerConfiguration[];
+  containerConfigurations?: ContainerConfiguration[] | undefined;
 
   /**
    * <p>
@@ -5483,7 +5763,7 @@ export interface ServiceConfiguration {
    *             <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  autoScalingConfiguration?: AutoScalingConfiguration;
+  autoScalingConfiguration?: AutoScalingConfiguration | undefined;
 
   /**
    * <p>
@@ -5491,7 +5771,7 @@ export interface ServiceConfiguration {
    *         </p>
    * @public
    */
-  taskDefinitionArn?: string;
+  taskDefinitionArn?: string | undefined;
 }
 
 /**
@@ -5523,7 +5803,7 @@ export interface ECSSavingsEstimationMode {
    *         </p>
    * @public
    */
-  source?: ECSSavingsEstimationModeSource;
+  source?: ECSSavingsEstimationModeSource | undefined;
 }
 
 /**
@@ -5539,7 +5819,7 @@ export interface ECSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  savingsEstimationMode?: ECSSavingsEstimationMode;
+  savingsEstimationMode?: ECSSavingsEstimationMode | undefined;
 }
 
 /**
@@ -5602,7 +5882,7 @@ export interface ContainerRecommendation {
    *         </p>
    * @public
    */
-  containerName?: string;
+  containerName?: string | undefined;
 
   /**
    * <p>
@@ -5610,7 +5890,7 @@ export interface ContainerRecommendation {
    *         </p>
    * @public
    */
-  memorySizeConfiguration?: MemorySizeConfiguration;
+  memorySizeConfiguration?: MemorySizeConfiguration | undefined;
 
   /**
    * <p>
@@ -5618,7 +5898,7 @@ export interface ContainerRecommendation {
    *         </p>
    * @public
    */
-  cpu?: number;
+  cpu?: number | undefined;
 }
 
 /**
@@ -5663,7 +5943,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *          </ul>
    * @public
    */
-  name?: ECSServiceMetricName;
+  name?: ECSServiceMetricName | undefined;
 
   /**
    * <p>The statistic of the projected utilization metric.</p>
@@ -5680,7 +5960,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: ECSServiceMetricStatistic;
+  statistic?: ECSServiceMetricStatistic | undefined;
 
   /**
    * <p>
@@ -5688,7 +5968,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *         </p>
    * @public
    */
-  lowerBoundValue?: number;
+  lowerBoundValue?: number | undefined;
 
   /**
    * <p>
@@ -5696,7 +5976,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *         </p>
    * @public
    */
-  upperBoundValue?: number;
+  upperBoundValue?: number | undefined;
 }
 
 /**
@@ -5713,7 +5993,7 @@ export interface ECSEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -5721,7 +6001,7 @@ export interface ECSEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -5740,7 +6020,7 @@ export interface ECSSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -5749,7 +6029,7 @@ export interface ECSSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: ECSEstimatedMonthlySavings;
+  estimatedMonthlySavings?: ECSEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -5765,7 +6045,7 @@ export interface ECSServiceRecommendationOption {
    *         </p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>
@@ -5773,7 +6053,7 @@ export interface ECSServiceRecommendationOption {
    *         </p>
    * @public
    */
-  cpu?: number;
+  cpu?: number | undefined;
 
   /**
    * <p>Describes the savings opportunity for recommendations of a given resource type or for
@@ -5794,7 +6074,7 @@ export interface ECSServiceRecommendationOption {
    *          </important>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -5804,7 +6084,7 @@ export interface ECSServiceRecommendationOption {
    *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: ECSSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: ECSSavingsOpportunityAfterDiscounts | undefined;
 
   /**
    * <p>
@@ -5812,7 +6092,7 @@ export interface ECSServiceRecommendationOption {
    *         </p>
    * @public
    */
-  projectedUtilizationMetrics?: ECSServiceProjectedUtilizationMetric[];
+  projectedUtilizationMetrics?: ECSServiceProjectedUtilizationMetric[] | undefined;
 
   /**
    * <p>
@@ -5820,7 +6100,7 @@ export interface ECSServiceRecommendationOption {
    *         </p>
    * @public
    */
-  containerRecommendations?: ContainerRecommendation[];
+  containerRecommendations?: ContainerRecommendation[] | undefined;
 }
 
 /**
@@ -5849,7 +6129,7 @@ export interface ECSServiceUtilizationMetric {
    *          </ul>
    * @public
    */
-  name?: ECSServiceMetricName;
+  name?: ECSServiceMetricName | undefined;
 
   /**
    * <p>The statistic of the utilization metric.</p>
@@ -5866,7 +6146,7 @@ export interface ECSServiceUtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: ECSServiceMetricStatistic;
+  statistic?: ECSServiceMetricStatistic | undefined;
 
   /**
    * <p>
@@ -5874,7 +6154,7 @@ export interface ECSServiceUtilizationMetric {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -5896,7 +6176,7 @@ export interface ECSServiceRecommendation {
    *          </p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>
@@ -5904,7 +6184,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>
@@ -5912,7 +6192,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  currentServiceConfiguration?: ServiceConfiguration;
+  currentServiceConfiguration?: ServiceConfiguration | undefined;
 
   /**
    * <p>
@@ -5920,7 +6200,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  utilizationMetrics?: ECSServiceUtilizationMetric[];
+  utilizationMetrics?: ECSServiceUtilizationMetric[] | undefined;
 
   /**
    * <p>
@@ -5928,7 +6208,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  lookbackPeriodInDays?: number;
+  lookbackPeriodInDays?: number | undefined;
 
   /**
    * <p>
@@ -5939,7 +6219,7 @@ export interface ECSServiceRecommendation {
    *          </note>
    * @public
    */
-  launchType?: ECSServiceLaunchType;
+  launchType?: ECSServiceLaunchType | undefined;
 
   /**
    * <p>
@@ -5947,7 +6227,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -5984,7 +6264,7 @@ export interface ECSServiceRecommendation {
    *          </ul>
    * @public
    */
-  finding?: ECSServiceRecommendationFinding;
+  finding?: ECSServiceRecommendationFinding | undefined;
 
   /**
    * <p>
@@ -6031,7 +6311,7 @@ export interface ECSServiceRecommendation {
    *          </ul>
    * @public
    */
-  findingReasonCodes?: ECSServiceRecommendationFindingReasonCode[];
+  findingReasonCodes?: ECSServiceRecommendationFindingReasonCode[] | undefined;
 
   /**
    * <p>
@@ -6039,7 +6319,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  serviceRecommendationOptions?: ECSServiceRecommendationOption[];
+  serviceRecommendationOptions?: ECSServiceRecommendationOption[] | undefined;
 
   /**
    * <p>
@@ -6049,7 +6329,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk;
+  currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
    * <p>
@@ -6057,7 +6337,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  effectiveRecommendationPreferences?: ECSEffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: ECSEffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>
@@ -6065,7 +6345,7 @@ export interface ECSServiceRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -6078,7 +6358,7 @@ export interface GetECSServiceRecommendationsResponse {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6086,7 +6366,7 @@ export interface GetECSServiceRecommendationsResponse {
    *         </p>
    * @public
    */
-  ecsServiceRecommendations?: ECSServiceRecommendation[];
+  ecsServiceRecommendations?: ECSServiceRecommendation[] | undefined;
 
   /**
    * <p>
@@ -6094,7 +6374,7 @@ export interface GetECSServiceRecommendationsResponse {
    *         </p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -6129,7 +6409,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 Guide</i>.</p>
    * @public
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | undefined;
 
   /**
    * <p>The provider of the external metrics recommendation preference. Considers all
@@ -6146,7 +6426,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 Guide</i>.</p>
    * @public
    */
-  externalMetricsPreference?: ExternalMetricsPreference;
+  externalMetricsPreference?: ExternalMetricsPreference | undefined;
 
   /**
    * <p>
@@ -6157,7 +6437,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *             GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>
    * @public
    */
-  lookBackPeriod?: LookBackPeriodPreference;
+  lookBackPeriod?: LookBackPeriodPreference | undefined;
 
   /**
    * <p>
@@ -6170,7 +6450,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *             GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>
    * @public
    */
-  utilizationPreferences?: UtilizationPreference[];
+  utilizationPreferences?: UtilizationPreference[] | undefined;
 
   /**
    * <p>
@@ -6184,7 +6464,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *             or GetEC2InstanceRecommendations actions.</p>
    * @public
    */
-  preferredResources?: EffectivePreferredResource[];
+  preferredResources?: EffectivePreferredResource[] | undefined;
 }
 
 /**
@@ -6200,7 +6480,7 @@ export interface GetEnrollmentStatusResponse {
    * <p>The enrollment status of the account.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The reason for the enrollment status of the account.</p>
@@ -6208,28 +6488,28 @@ export interface GetEnrollmentStatusResponse {
    *             accounts of an organization require more time to be enrolled in the service.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>Confirms the enrollment status of member accounts of the organization, if the account
    *             is a management account of an organization.</p>
    * @public
    */
-  memberAccountsEnrolled?: boolean;
+  memberAccountsEnrolled?: boolean | undefined;
 
   /**
    * <p>The Unix epoch timestamp, in seconds, of when the account enrollment status was last
    *             updated.</p>
    * @public
    */
-  lastUpdatedTimestamp?: Date;
+  lastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The count of organization member accounts that are opted in to the service, if your
    *             account is an organization management account.</p>
    * @public
    */
-  numberOfMemberAccountsOptedIn?: number;
+  numberOfMemberAccountsOptedIn?: number | undefined;
 }
 
 /**
@@ -6258,7 +6538,7 @@ export interface EnrollmentFilter {
    *             example, <code>Active</code>).</p>
    * @public
    */
-  name?: EnrollmentFilterName;
+  name?: EnrollmentFilterName | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -6266,7 +6546,7 @@ export interface EnrollmentFilter {
    *             and <code>Failed</code>.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -6278,13 +6558,13 @@ export interface GetEnrollmentStatusesForOrganizationRequest {
    *             enrollment statuses.</p>
    * @public
    */
-  filters?: EnrollmentFilter[];
+  filters?: EnrollmentFilter[] | undefined;
 
   /**
    * <p>The token to advance to the next page of account enrollment statuses.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of account enrollment statuses to return with a single request. You
@@ -6293,7 +6573,7 @@ export interface GetEnrollmentStatusesForOrganizationRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6305,7 +6585,7 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
    *             accounts.</p>
    * @public
    */
-  accountEnrollmentStatuses?: AccountEnrollmentStatus[];
+  accountEnrollmentStatuses?: AccountEnrollmentStatus[] | undefined;
 
   /**
    * <p>The token to use to advance to the next page of account enrollment statuses.</p>
@@ -6313,7 +6593,376 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Dimension = {
+  SAVINGS_VALUE: "SavingsValue",
+  SAVINGS_VALUE_AFTER_DISCOUNT: "SavingsValueAfterDiscount",
+} as const;
+
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASC: "Asc",
+  DESC: "Desc",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
+
+/**
+ * <p>Describes how the recommendations are ordered.</p>
+ * @public
+ */
+export interface OrderBy {
+  /**
+   * <p>The dimension values to sort the recommendations.</p>
+   * @public
+   */
+  dimension?: Dimension | undefined;
+
+  /**
+   * <p>The order to sort the recommendations.</p>
+   * @public
+   */
+  order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdleRecommendationsRequest {
+  /**
+   * <p>The ARN that identifies the idle resource.</p>
+   * @public
+   */
+  resourceArns?: string[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of idle resource recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of idle resource recommendations to return with a single request. </p>
+   *          <p>To retrieve the remaining results,
+   *             make another request with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An array of objects to specify a filter that returns a more specific list of idle resource recommendations.</p>
+   * @public
+   */
+  filters?: IdleRecommendationFilter[] | undefined;
+
+  /**
+   * <p>Return the idle resource recommendations to the specified Amazon Web Services account IDs.</p>
+   *          <p>If your account is the management account
+   *             or the delegated administrator of an organization, use this parameter to return the idle resource recommendations to
+   *             specific member accounts.</p>
+   *          <p>You can only specify one account ID per request.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>The order to sort the idle resource recommendations.</p>
+   * @public
+   */
+  orderBy?: OrderBy | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleRecommendationResourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EBSVolume",
+  EC2_INSTANCE: "EC2Instance",
+  ECS_SERVICE: "ECSService",
+  RDS_DB_INSTANCE: "RDSDBInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleRecommendationResourceType =
+  (typeof IdleRecommendationResourceType)[keyof typeof IdleRecommendationResourceType];
+
+/**
+ * <p>Returns of list of resources that doesn't have idle recommendations.</p>
+ * @public
+ */
+export interface IdleRecommendationError {
+  /**
+   * <p>The ID of the error.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The type of resource associated with the error.</p>
+   * @public
+   */
+  resourceType?: IdleRecommendationResourceType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleFinding = {
+  IDLE: "Idle",
+  UNATTACHED: "Unattached",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleFinding = (typeof IdleFinding)[keyof typeof IdleFinding];
+
+/**
+ * <p>Describes the estimated monthly savings possible for idle resources by adopting Compute Optimizer recommendations.</p>
+ * @public
+ */
+export interface IdleEstimatedMonthlySavings {
+  /**
+   * <p>The currency of the estimated monthly savings.</p>
+   * @public
+   */
+  currency?: Currency | undefined;
+
+  /**
+   * <p>The value of the estimated monthly savings for Idle resources.</p>
+   * @public
+   */
+  value?: number | undefined;
+}
+
+/**
+ * <p>Describes the savings opportunity for idle resource recommendations.</p>
+ * @public
+ */
+export interface IdleSavingsOpportunity {
+  /**
+   * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer's idle resource recommendations.</p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number | undefined;
+
+  /**
+   * <p>The estimated monthly savings possible by adopting Compute Optimizer's idle resource recommendations.</p>
+   * @public
+   */
+  estimatedMonthlySavings?: IdleEstimatedMonthlySavings | undefined;
+}
+
+/**
+ * <p>Describes the savings opportunity for idle resource recommendations after applying discounts.</p>
+ *          <p>Savings opportunity represents the estimated monthly savings after applying discounts. You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+ * @public
+ */
+export interface IdleSavingsOpportunityAfterDiscounts {
+  /**
+   * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer's idle resource recommendations. This includes any applicable discounts.</p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number | undefined;
+
+  /**
+   * <p>The estimated monthly savings possible by adopting Compute Optimizer's idle resource recommendations. This includes any applicable discounts.</p>
+   * @public
+   */
+  estimatedMonthlySavings?: IdleEstimatedMonthlySavings | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleMetricName = {
+  CPU: "CPU",
+  DATABASE_CONNECTIONS: "DatabaseConnections",
+  EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
+  EBS_VOLUME_WRITE_IOPS: "EBSVolumeWriteIOPS",
+  MEMORY: "Memory",
+  NETWORK_IN_BYTES_PER_SECOND: "NetworkInBytesPerSecond",
+  NETWORK_OUT_BYTES_PER_SECOND: "NetworkOutBytesPerSecond",
+  VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
+  VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleMetricName = (typeof IdleMetricName)[keyof typeof IdleMetricName];
+
+/**
+ * <p>Describes the utilization metric of an idle resource.</p>
+ * @public
+ */
+export interface IdleUtilizationMetric {
+  /**
+   * <p>The name of the utilization metric.</p>
+   * @public
+   */
+  name?: IdleMetricName | undefined;
+
+  /**
+   * <p>
+   *             The statistic of the utilization metric.
+   *         </p>
+   *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
+   *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
+   *             highest value observed during the specified period.</p>
+   *          <p>The Compute Optimizer console displays graphs for some utilization metrics using the
+   *             <code>Average</code> statistic, which is the value of <code>Sum</code> /
+   *             <code>SampleCount</code> during the specified period. For more information, see
+   *             <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-recommendations.html">Viewing resource
+   *                 recommendations</a> in the <i>Compute Optimizer User
+   *                     Guide</i>. You can also get averaged utilization metric data for your resources
+   *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
+   *                 User Guide</a>.</p>
+   * @public
+   */
+  statistic?: MetricStatistic | undefined;
+
+  /**
+   * <p>The value of the utilization metric.</p>
+   * @public
+   */
+  value?: number | undefined;
+}
+
+/**
+ * <p>Describes an Idle resource recommendation.</p>
+ * @public
+ */
+export interface IdleRecommendation {
+  /**
+   * <p>The ARN of the current idle resource.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource that is idle.</p>
+   * @public
+   */
+  resourceType?: IdleRecommendationResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the idle resource.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The finding classification of an idle resource.</p>
+   * @public
+   */
+  finding?: IdleFinding | undefined;
+
+  /**
+   * <p>A summary of the findings for the resource.</p>
+   * @public
+   */
+  findingDescription?: string | undefined;
+
+  /**
+   * <p>The savings opportunity for the idle resource.</p>
+   * @public
+   */
+  savingsOpportunity?: IdleSavingsOpportunity | undefined;
+
+  /**
+   * <p>The savings opportunity for the idle resource after any applying discounts.</p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: IdleSavingsOpportunityAfterDiscounts | undefined;
+
+  /**
+   * <p>An array of objects that describe the utilization metrics of the idle resource.</p>
+   * @public
+   */
+  utilizationMetrics?: IdleUtilizationMetric[] | undefined;
+
+  /**
+   * <p>The number of days the idle resource utilization metrics were analyzed.</p>
+   * @public
+   */
+  lookBackPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The timestamp of when the idle resource recommendation was last generated.</p>
+   * @public
+   */
+  lastRefreshTimestamp?: Date | undefined;
+
+  /**
+   * <p>A list of tags assigned to your idle resource recommendations.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdleRecommendationsResponse {
+  /**
+   * <p>The token to advance to the next page of idle resource recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the idle resource recommendations.</p>
+   * @public
+   */
+  idleRecommendations?: IdleRecommendation[] | undefined;
+
+  /**
+   * <p>An array of objects that describe errors of the request.</p>
+   * @public
+   */
+  errors?: IdleRecommendationError[] | undefined;
 }
 
 /**
@@ -6332,7 +6981,7 @@ export interface GetLambdaFunctionRecommendationsRequest {
    *             Guide</i>.</p>
    * @public
    */
-  functionArns?: string[];
+  functionArns?: string[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account for which to return function
@@ -6342,20 +6991,20 @@ export interface GetLambdaFunctionRecommendationsRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of function
    *             recommendations.</p>
    * @public
    */
-  filters?: LambdaFunctionRecommendationFilter[];
+  filters?: LambdaFunctionRecommendationFilter[] | undefined;
 
   /**
    * <p>The token to advance to the next page of function recommendations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of function recommendations to return with a single request.</p>
@@ -6363,7 +7012,7 @@ export interface GetLambdaFunctionRecommendationsRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6395,7 +7044,7 @@ export interface LambdaSavingsEstimationMode {
    *         </p>
    * @public
    */
-  source?: LambdaSavingsEstimationModeSource;
+  source?: LambdaSavingsEstimationModeSource | undefined;
 }
 
 /**
@@ -6411,7 +7060,7 @@ export interface LambdaEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  savingsEstimationMode?: LambdaSavingsEstimationMode;
+  savingsEstimationMode?: LambdaSavingsEstimationMode | undefined;
 }
 
 /**
@@ -6487,19 +7136,19 @@ export interface LambdaFunctionMemoryProjectedMetric {
    * <p>The name of the projected utilization metric.</p>
    * @public
    */
-  name?: LambdaFunctionMemoryMetricName;
+  name?: LambdaFunctionMemoryMetricName | undefined;
 
   /**
    * <p>The statistic of the projected utilization metric.</p>
    * @public
    */
-  statistic?: LambdaFunctionMemoryMetricStatistic;
+  statistic?: LambdaFunctionMemoryMetricStatistic | undefined;
 
   /**
    * <p>The values of the projected utilization metrics.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -6516,7 +7165,7 @@ export interface LambdaEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -6524,7 +7173,7 @@ export interface LambdaEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -6543,7 +7192,7 @@ export interface LambdaSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -6552,7 +7201,7 @@ export interface LambdaSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: LambdaEstimatedMonthlySavings;
+  estimatedMonthlySavings?: LambdaEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -6565,20 +7214,20 @@ export interface LambdaFunctionMemoryRecommendationOption {
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>The memory size, in MB, of the function recommendation option.</p>
    * @public
    */
-  memorySize?: number;
+  memorySize?: number | undefined;
 
   /**
    * <p>An array of objects that describe the projected utilization metrics of the function
    *             recommendation option.</p>
    * @public
    */
-  projectedUtilizationMetrics?: LambdaFunctionMemoryProjectedMetric[];
+  projectedUtilizationMetrics?: LambdaFunctionMemoryProjectedMetric[] | undefined;
 
   /**
    * <p>An object that describes the savings opportunity for the Lambda function
@@ -6586,7 +7235,7 @@ export interface LambdaFunctionMemoryRecommendationOption {
    *             and percentage.</p>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -6595,7 +7244,7 @@ export interface LambdaFunctionMemoryRecommendationOption {
    *         </p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: LambdaSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: LambdaSavingsOpportunityAfterDiscounts | undefined;
 }
 
 /**
@@ -6648,7 +7297,7 @@ export interface LambdaFunctionUtilizationMetric {
    *          </ul>
    * @public
    */
-  name?: LambdaFunctionMetricName;
+  name?: LambdaFunctionMetricName | undefined;
 
   /**
    * <p>The statistic of the utilization metric.</p>
@@ -6665,13 +7314,13 @@ export interface LambdaFunctionUtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: LambdaFunctionMetricStatistic;
+  statistic?: LambdaFunctionMetricStatistic | undefined;
 
   /**
    * <p>The value of the utilization metric.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -6683,50 +7332,50 @@ export interface LambdaFunctionRecommendation {
    * <p>The Amazon Resource Name (ARN) of the current function.</p>
    * @public
    */
-  functionArn?: string;
+  functionArn?: string | undefined;
 
   /**
    * <p>The version number of the current function.</p>
    * @public
    */
-  functionVersion?: string;
+  functionVersion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the function.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The amount of memory, in MB, that's allocated to the current function.</p>
    * @public
    */
-  currentMemorySize?: number;
+  currentMemorySize?: number | undefined;
 
   /**
    * <p>The number of times your function code was applied during the look-back period.</p>
    * @public
    */
-  numberOfInvocations?: number;
+  numberOfInvocations?: number | undefined;
 
   /**
    * <p>An array of objects that describe the utilization metrics of the function.</p>
    * @public
    */
-  utilizationMetrics?: LambdaFunctionUtilizationMetric[];
+  utilizationMetrics?: LambdaFunctionUtilizationMetric[] | undefined;
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the
    *             function.</p>
    * @public
    */
-  lookbackPeriodInDays?: number;
+  lookbackPeriodInDays?: number | undefined;
 
   /**
    * <p>The timestamp of when the function recommendation was last generated.</p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>The finding classification of the function.</p>
@@ -6774,7 +7423,7 @@ export interface LambdaFunctionRecommendation {
    *          </ul>
    * @public
    */
-  finding?: LambdaFunctionRecommendationFinding;
+  finding?: LambdaFunctionRecommendationFinding | undefined;
 
   /**
    * <p>The reason for the finding classification of the function.</p>
@@ -6828,14 +7477,14 @@ export interface LambdaFunctionRecommendation {
    *          </ul>
    * @public
    */
-  findingReasonCodes?: LambdaFunctionRecommendationFindingReasonCode[];
+  findingReasonCodes?: LambdaFunctionRecommendationFindingReasonCode[] | undefined;
 
   /**
    * <p>An array of objects that describe the memory configuration recommendation options for
    *             the function.</p>
    * @public
    */
-  memorySizeRecommendationOptions?: LambdaFunctionMemoryRecommendationOption[];
+  memorySizeRecommendationOptions?: LambdaFunctionMemoryRecommendationOption[] | undefined;
 
   /**
    * <p>The risk of the current Lambda function not meeting the performance needs
@@ -6843,7 +7492,7 @@ export interface LambdaFunctionRecommendation {
    *             function requires more memory.</p>
    * @public
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk;
+  currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
    * <p>
@@ -6851,7 +7500,7 @@ export interface LambdaFunctionRecommendation {
    *         </p>
    * @public
    */
-  effectiveRecommendationPreferences?: LambdaEffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: LambdaEffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>
@@ -6859,7 +7508,7 @@ export interface LambdaFunctionRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -6872,13 +7521,13 @@ export interface GetLambdaFunctionRecommendationsResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that describe function recommendations.</p>
    * @public
    */
-  lambdaFunctionRecommendations?: LambdaFunctionRecommendation[];
+  lambdaFunctionRecommendations?: LambdaFunctionRecommendation[] | undefined;
 }
 
 /**
@@ -6897,7 +7546,7 @@ export interface GetLicenseRecommendationsRequest {
    *          </p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>
@@ -6905,7 +7554,7 @@ export interface GetLicenseRecommendationsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6917,7 +7566,7 @@ export interface GetLicenseRecommendationsRequest {
    *         </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -6925,7 +7574,7 @@ export interface GetLicenseRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: LicenseRecommendationFilter[];
+  filters?: LicenseRecommendationFilter[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account for which to return license recommendations.</p>
@@ -6934,7 +7583,7 @@ export interface GetLicenseRecommendationsRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 }
 
 /**
@@ -7006,7 +7655,7 @@ export interface MetricSource {
    *         </p>
    * @public
    */
-  provider?: MetricSourceProvider;
+  provider?: MetricSourceProvider | undefined;
 
   /**
    * <p>
@@ -7014,7 +7663,7 @@ export interface MetricSource {
    *         </p>
    * @public
    */
-  providerArn?: string;
+  providerArn?: string | undefined;
 }
 
 /**
@@ -7030,7 +7679,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  numberOfCores?: number;
+  numberOfCores?: number | undefined;
 
   /**
    * <p>
@@ -7038,7 +7687,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>
@@ -7046,7 +7695,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  operatingSystem?: string;
+  operatingSystem?: string | undefined;
 
   /**
    * <p>
@@ -7054,7 +7703,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  licenseEdition?: LicenseEdition;
+  licenseEdition?: LicenseEdition | undefined;
 
   /**
    * <p>
@@ -7062,7 +7711,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  licenseName?: LicenseName;
+  licenseName?: LicenseName | undefined;
 
   /**
    * <p>
@@ -7070,7 +7719,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  licenseModel?: LicenseModel;
+  licenseModel?: LicenseModel | undefined;
 
   /**
    * <p>
@@ -7078,7 +7727,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  licenseVersion?: string;
+  licenseVersion?: string | undefined;
 
   /**
    * <p>
@@ -7086,7 +7735,7 @@ export interface LicenseConfiguration {
    *         </p>
    * @public
    */
-  metricsSource?: MetricSource[];
+  metricsSource?: MetricSource[] | undefined;
 }
 
 /**
@@ -7136,7 +7785,7 @@ export interface LicenseRecommendationOption {
    *         </p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>
@@ -7144,7 +7793,7 @@ export interface LicenseRecommendationOption {
    *         </p>
    * @public
    */
-  operatingSystem?: string;
+  operatingSystem?: string | undefined;
 
   /**
    * <p>
@@ -7152,7 +7801,7 @@ export interface LicenseRecommendationOption {
    *         </p>
    * @public
    */
-  licenseEdition?: LicenseEdition;
+  licenseEdition?: LicenseEdition | undefined;
 
   /**
    * <p>
@@ -7160,7 +7809,7 @@ export interface LicenseRecommendationOption {
    *         </p>
    * @public
    */
-  licenseModel?: LicenseModel;
+  licenseModel?: LicenseModel | undefined;
 
   /**
    * <p>Describes the savings opportunity for recommendations of a given resource type or for
@@ -7181,7 +7830,7 @@ export interface LicenseRecommendationOption {
    *          </important>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 }
 
 /**
@@ -7197,7 +7846,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>
@@ -7205,7 +7854,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>
@@ -7213,7 +7862,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  currentLicenseConfiguration?: LicenseConfiguration;
+  currentLicenseConfiguration?: LicenseConfiguration | undefined;
 
   /**
    * <p>
@@ -7221,7 +7870,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  lookbackPeriodInDays?: number;
+  lookbackPeriodInDays?: number | undefined;
 
   /**
    * <p>
@@ -7229,7 +7878,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -7256,7 +7905,7 @@ export interface LicenseRecommendation {
    *          </ul>
    * @public
    */
-  finding?: LicenseFinding;
+  finding?: LicenseFinding | undefined;
 
   /**
    * <p>
@@ -7287,7 +7936,7 @@ export interface LicenseRecommendation {
    *          </ul>
    * @public
    */
-  findingReasonCodes?: LicenseFindingReasonCode[];
+  findingReasonCodes?: LicenseFindingReasonCode[] | undefined;
 
   /**
    * <p>
@@ -7295,7 +7944,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  licenseRecommendationOptions?: LicenseRecommendationOption[];
+  licenseRecommendationOptions?: LicenseRecommendationOption[] | undefined;
 
   /**
    * <p>
@@ -7303,7 +7952,7 @@ export interface LicenseRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -7316,7 +7965,7 @@ export interface GetLicenseRecommendationsResponse {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -7324,7 +7973,7 @@ export interface GetLicenseRecommendationsResponse {
    *         </p>
    * @public
    */
-  licenseRecommendations?: LicenseRecommendation[];
+  licenseRecommendations?: LicenseRecommendation[] | undefined;
 
   /**
    * <p>
@@ -7332,7 +7981,7 @@ export interface GetLicenseRecommendationsResponse {
    *         </p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -7389,7 +8038,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsRequest {
    * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
 
 /**
@@ -7397,6 +8046,10 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsRequest {
  * @enum
  */
 export const RDSDBMetricName = {
+  AURORA_MEMORY_HEALTH_STATE: "AuroraMemoryHealthState",
+  AURORA_MEMORY_NUM_DECLINED_SQL: "AuroraMemoryNumDeclinedSql",
+  AURORA_MEMORY_NUM_KILL_CONN_TOTAL: "AuroraMemoryNumKillConnTotal",
+  AURORA_MEMORY_NUM_KILL_QUERY_TOTAL: "AuroraMemoryNumKillQueryTotal",
   CPU: "CPU",
   DATABASE_CONNECTIONS: "DatabaseConnections",
   EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
@@ -7407,6 +8060,10 @@ export const RDSDBMetricName = {
   MEMORY: "Memory",
   NETWORK_RECEIVE_THROUGHPUT: "NetworkReceiveThroughput",
   NETWORK_TRANSMIT_THROUGHPUT: "NetworkTransmitThroughput",
+  READ_IOPS_EPHEMERAL_STORAGE: "ReadIOPSEphemeralStorage",
+  STORAGE_NETWORK_RECEIVE_THROUGHPUT: "StorageNetworkReceiveThroughput",
+  STORAGE_NETWORK_TRANSMIT_THROUGHPUT: "StorageNetworkTransmitThroughput",
+  WRITE_IOPS_EPHEMERAL_STORAGE: "WriteIOPSEphemeralStorage",
 } as const;
 
 /**
@@ -7432,7 +8089,7 @@ export interface RDSDatabaseProjectedMetric {
    *         </p>
    * @public
    */
-  name?: RDSDBMetricName;
+  name?: RDSDBMetricName | undefined;
 
   /**
    * <p>
@@ -7440,7 +8097,7 @@ export interface RDSDatabaseProjectedMetric {
    *         </p>
    * @public
    */
-  timestamps?: Date[];
+  timestamps?: Date[] | undefined;
 
   /**
    * <p>
@@ -7448,7 +8105,7 @@ export interface RDSDatabaseProjectedMetric {
    *         </p>
    * @public
    */
-  values?: number[];
+  values?: number[] | undefined;
 }
 
 /**
@@ -7468,7 +8125,7 @@ export interface RDSDatabaseRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  recommendedDBInstanceClass?: string;
+  recommendedDBInstanceClass?: string | undefined;
 
   /**
    * <p>
@@ -7476,7 +8133,7 @@ export interface RDSDatabaseRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>
@@ -7484,7 +8141,7 @@ export interface RDSDatabaseRecommendedOptionProjectedMetric {
    *         </p>
    * @public
    */
-  projectedMetrics?: RDSDatabaseProjectedMetric[];
+  projectedMetrics?: RDSDatabaseProjectedMetric[] | undefined;
 }
 
 /**
@@ -7497,7 +8154,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsResponse {
    *         </p>
    * @public
    */
-  recommendedOptionProjectedMetrics?: RDSDatabaseRecommendedOptionProjectedMetric[];
+  recommendedOptionProjectedMetrics?: RDSDatabaseRecommendedOptionProjectedMetric[] | undefined;
 }
 
 /**
@@ -7520,7 +8177,7 @@ export interface GetRDSDatabaseRecommendationsRequest {
    *          </p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>
@@ -7528,7 +8185,7 @@ export interface GetRDSDatabaseRecommendationsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of Amazon RDS recommendations to return with a single
@@ -7537,7 +8194,7 @@ export interface GetRDSDatabaseRecommendationsRequest {
    *             <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -7545,7 +8202,7 @@ export interface GetRDSDatabaseRecommendationsRequest {
    *         </p>
    * @public
    */
-  filters?: RDSDBRecommendationFilter[];
+  filters?: RDSDBRecommendationFilter[] | undefined;
 
   /**
    * <p>
@@ -7557,14 +8214,31 @@ export interface GetRDSDatabaseRecommendationsRequest {
    *          <p>You can only specify one account ID per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
    * @public
    */
-  recommendationPreferences?: RecommendationPreferences;
+  recommendationPreferences?: RecommendationPreferences | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSCurrentInstancePerformanceRisk = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSCurrentInstancePerformanceRisk =
+  (typeof RDSCurrentInstancePerformanceRisk)[keyof typeof RDSCurrentInstancePerformanceRisk];
 
 /**
  * <p>
@@ -7579,7 +8253,7 @@ export interface DBStorageConfiguration {
    *         </p>
    * @public
    */
-  storageType?: string;
+  storageType?: string | undefined;
 
   /**
    * <p>
@@ -7587,7 +8261,7 @@ export interface DBStorageConfiguration {
    *         </p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>
@@ -7595,7 +8269,7 @@ export interface DBStorageConfiguration {
    *         </p>
    * @public
    */
-  iops?: number;
+  iops?: number | undefined;
 
   /**
    * <p>
@@ -7603,7 +8277,7 @@ export interface DBStorageConfiguration {
    *         </p>
    * @public
    */
-  maxAllocatedStorage?: number;
+  maxAllocatedStorage?: number | undefined;
 
   /**
    * <p>
@@ -7611,7 +8285,7 @@ export interface DBStorageConfiguration {
    *         </p>
    * @public
    */
-  storageThroughput?: number;
+  storageThroughput?: number | undefined;
 }
 
 /**
@@ -7643,7 +8317,7 @@ export interface RDSSavingsEstimationMode {
    *         </p>
    * @public
    */
-  source?: RDSSavingsEstimationModeSource;
+  source?: RDSSavingsEstimationModeSource | undefined;
 }
 
 /**
@@ -7659,7 +8333,7 @@ export interface RDSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  cpuVendorArchitectures?: CpuVendorArchitecture[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[] | undefined;
 
   /**
    * <p>Describes the activation status of the enhanced infrastructure metrics
@@ -7675,7 +8349,7 @@ export interface RDSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | undefined;
 
   /**
    * <p>
@@ -7683,7 +8357,7 @@ export interface RDSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  lookBackPeriod?: LookBackPeriodPreference;
+  lookBackPeriod?: LookBackPeriodPreference | undefined;
 
   /**
    * <p>
@@ -7691,7 +8365,7 @@ export interface RDSEffectiveRecommendationPreferences {
    *         </p>
    * @public
    */
-  savingsEstimationMode?: RDSSavingsEstimationMode;
+  savingsEstimationMode?: RDSSavingsEstimationMode | undefined;
 }
 
 /**
@@ -7730,9 +8404,14 @@ export type RDSInstanceFinding = (typeof RDSInstanceFinding)[keyof typeof RDSIns
 export const RDSInstanceFindingReasonCode = {
   CPU_OVER_PROVISIONED: "CPUOverprovisioned",
   CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  DB_CLUSTER_WRITER_UNDER_PROVISIONED: "DBClusterWriterUnderprovisioned",
   EBS_IOPS_OVER_PROVISIONED: "EBSIOPSOverprovisioned",
+  EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
   EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
   EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  INSTANCE_STORAGE_READ_IOPS_UNDER_PROVISIONED: "InstanceStorageReadIOPSUnderprovisioned",
+  INSTANCE_STORAGE_WRITE_IOPS_UNDER_PROVISIONED: "InstanceStorageWriteIOPSUnderprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
   NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
   NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NetworkBandwidthUnderprovisioned",
   NEW_ENGINE_VERSION_AVAILABLE: "NewEngineVersionAvailable",
@@ -7777,7 +8456,7 @@ export interface RDSDBUtilizationMetric {
    *         </p>
    * @public
    */
-  name?: RDSDBMetricName;
+  name?: RDSDBMetricName | undefined;
 
   /**
    * <p>
@@ -7796,7 +8475,7 @@ export interface RDSDBUtilizationMetric {
    *                 User Guide</a>.</p>
    * @public
    */
-  statistic?: RDSDBMetricStatistic;
+  statistic?: RDSDBMetricStatistic | undefined;
 
   /**
    * <p>
@@ -7804,7 +8483,7 @@ export interface RDSDBUtilizationMetric {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -7822,7 +8501,7 @@ export interface RDSInstanceEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -7830,7 +8509,7 @@ export interface RDSInstanceEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -7851,7 +8530,7 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -7860,7 +8539,7 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: RDSInstanceEstimatedMonthlySavings;
+  estimatedMonthlySavings?: RDSInstanceEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -7876,7 +8555,7 @@ export interface RDSDBInstanceRecommendationOption {
    *         </p>
    * @public
    */
-  dbInstanceClass?: string;
+  dbInstanceClass?: string | undefined;
 
   /**
    * <p>
@@ -7884,7 +8563,7 @@ export interface RDSDBInstanceRecommendationOption {
    *         </p>
    * @public
    */
-  projectedUtilizationMetrics?: RDSDBUtilizationMetric[];
+  projectedUtilizationMetrics?: RDSDBUtilizationMetric[] | undefined;
 
   /**
    * <p>
@@ -7892,7 +8571,7 @@ export interface RDSDBInstanceRecommendationOption {
    *         </p>
    * @public
    */
-  performanceRisk?: number;
+  performanceRisk?: number | undefined;
 
   /**
    * <p>
@@ -7900,7 +8579,7 @@ export interface RDSDBInstanceRecommendationOption {
    *         </p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>Describes the savings opportunity for recommendations of a given resource type or for
@@ -7921,7 +8600,7 @@ export interface RDSDBInstanceRecommendationOption {
    *          </important>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -7931,7 +8610,7 @@ export interface RDSDBInstanceRecommendationOption {
    *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: RDSInstanceSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: RDSInstanceSavingsOpportunityAfterDiscounts | undefined;
 }
 
 /**
@@ -7981,7 +8660,7 @@ export interface RDSStorageEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 
   /**
    * <p>
@@ -7989,7 +8668,7 @@ export interface RDSStorageEstimatedMonthlySavings {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -8010,7 +8689,7 @@ export interface RDSStorageSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  savingsOpportunityPercentage?: number;
+  savingsOpportunityPercentage?: number | undefined;
 
   /**
    * <p>
@@ -8018,7 +8697,7 @@ export interface RDSStorageSavingsOpportunityAfterDiscounts {
    *         </p>
    * @public
    */
-  estimatedMonthlySavings?: RDSStorageEstimatedMonthlySavings;
+  estimatedMonthlySavings?: RDSStorageEstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -8034,7 +8713,7 @@ export interface RDSDBStorageRecommendationOption {
    *         </p>
    * @public
    */
-  storageConfiguration?: DBStorageConfiguration;
+  storageConfiguration?: DBStorageConfiguration | undefined;
 
   /**
    * <p>
@@ -8042,7 +8721,7 @@ export interface RDSDBStorageRecommendationOption {
    *         </p>
    * @public
    */
-  rank?: number;
+  rank?: number | undefined;
 
   /**
    * <p>Describes the savings opportunity for recommendations of a given resource type or for
@@ -8063,7 +8742,7 @@ export interface RDSDBStorageRecommendationOption {
    *          </important>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>
@@ -8075,7 +8754,7 @@ export interface RDSDBStorageRecommendationOption {
    *         </p>
    * @public
    */
-  savingsOpportunityAfterDiscounts?: RDSStorageSavingsOpportunityAfterDiscounts;
+  savingsOpportunityAfterDiscounts?: RDSStorageSavingsOpportunityAfterDiscounts | undefined;
 }
 
 /**
@@ -8097,7 +8776,7 @@ export interface RDSDBRecommendation {
    *          </p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>
@@ -8105,7 +8784,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>
@@ -8113,7 +8792,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  engine?: string;
+  engine?: string | undefined;
 
   /**
    * <p>
@@ -8121,7 +8800,13 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  engineVersion?: string;
+  engineVersion?: string | undefined;
+
+  /**
+   * <p>The promotion tier for the Aurora instance.</p>
+   * @public
+   */
+  promotionTier?: number | undefined;
 
   /**
    * <p>
@@ -8129,7 +8814,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  currentDBInstanceClass?: string;
+  currentDBInstanceClass?: string | undefined;
 
   /**
    * <p>
@@ -8137,7 +8822,13 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  currentStorageConfiguration?: DBStorageConfiguration;
+  currentStorageConfiguration?: DBStorageConfiguration | undefined;
+
+  /**
+   * <p>The identifier for DB cluster.</p>
+   * @public
+   */
+  dbClusterIdentifier?: string | undefined;
 
   /**
    * <p>
@@ -8145,7 +8836,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  idle?: Idle;
+  idle?: Idle | undefined;
 
   /**
    * <p>
@@ -8180,7 +8871,7 @@ export interface RDSDBRecommendation {
    *          </ul>
    * @public
    */
-  instanceFinding?: RDSInstanceFinding;
+  instanceFinding?: RDSInstanceFinding | undefined;
 
   /**
    * <p>
@@ -8215,7 +8906,7 @@ export interface RDSDBRecommendation {
    *          </ul>
    * @public
    */
-  storageFinding?: RDSStorageFinding;
+  storageFinding?: RDSStorageFinding | undefined;
 
   /**
    * <p>
@@ -8223,7 +8914,13 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  instanceFindingReasonCodes?: RDSInstanceFindingReasonCode[];
+  instanceFindingReasonCodes?: RDSInstanceFindingReasonCode[] | undefined;
+
+  /**
+   * <p>The performance risk for the current DB instance.</p>
+   * @public
+   */
+  currentInstancePerformanceRisk?: RDSCurrentInstancePerformanceRisk | undefined;
 
   /**
    * <p>
@@ -8231,7 +8928,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  storageFindingReasonCodes?: RDSStorageFindingReasonCode[];
+  storageFindingReasonCodes?: RDSStorageFindingReasonCode[] | undefined;
 
   /**
    * <p>
@@ -8239,7 +8936,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  instanceRecommendationOptions?: RDSDBInstanceRecommendationOption[];
+  instanceRecommendationOptions?: RDSDBInstanceRecommendationOption[] | undefined;
 
   /**
    * <p>
@@ -8247,7 +8944,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  storageRecommendationOptions?: RDSDBStorageRecommendationOption[];
+  storageRecommendationOptions?: RDSDBStorageRecommendationOption[] | undefined;
 
   /**
    * <p>
@@ -8255,7 +8952,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  utilizationMetrics?: RDSDBUtilizationMetric[];
+  utilizationMetrics?: RDSDBUtilizationMetric[] | undefined;
 
   /**
    * <p>
@@ -8263,7 +8960,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  effectiveRecommendationPreferences?: RDSEffectiveRecommendationPreferences;
+  effectiveRecommendationPreferences?: RDSEffectiveRecommendationPreferences | undefined;
 
   /**
    * <p>
@@ -8271,7 +8968,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  lookbackPeriodInDays?: number;
+  lookbackPeriodInDays?: number | undefined;
 
   /**
    * <p>
@@ -8279,7 +8976,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  lastRefreshTimestamp?: Date;
+  lastRefreshTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -8287,7 +8984,7 @@ export interface RDSDBRecommendation {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -8300,7 +8997,7 @@ export interface GetRDSDatabaseRecommendationsResponse {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -8308,7 +9005,7 @@ export interface GetRDSDatabaseRecommendationsResponse {
    *         </p>
    * @public
    */
-  rdsDBRecommendations?: RDSDBRecommendation[];
+  rdsDBRecommendations?: RDSDBRecommendation[] | undefined;
 
   /**
    * <p>
@@ -8316,7 +9013,7 @@ export interface GetRDSDatabaseRecommendationsResponse {
    *         </p>
    * @public
    */
-  errors?: GetRecommendationError[];
+  errors?: GetRecommendationError[] | undefined;
 }
 
 /**
@@ -8342,13 +9039,13 @@ export interface GetRecommendationPreferencesRequest {
    *                 Guide</i>.</p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>The token to advance to the next page of recommendation preferences.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of recommendation preferences to return with a single
@@ -8357,7 +9054,7 @@ export interface GetRecommendationPreferencesRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -8388,7 +9085,7 @@ export interface RecommendationPreferencesDetail {
    *                 Guide</i>.</p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>The target resource type of the recommendation preference to create.</p>
@@ -8397,7 +9094,7 @@ export interface RecommendationPreferencesDetail {
    *             encompasses only instances that are part of an Auto Scaling group.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The status of the enhanced infrastructure metrics recommendation preference.</p>
@@ -8410,7 +9107,7 @@ export interface RecommendationPreferencesDetail {
    *                 Guide</i>.</p>
    * @public
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | undefined;
 
   /**
    * <p>The status of the inferred workload types recommendation preference.</p>
@@ -8420,7 +9117,7 @@ export interface RecommendationPreferencesDetail {
    *             recommendations.</p>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | undefined;
 
   /**
    * <p> An object that describes the external metrics recommendation preference. </p>
@@ -8429,7 +9126,7 @@ export interface RecommendationPreferencesDetail {
    *             to the recommendations already, then this object doesn't appear in the response. </p>
    * @public
    */
-  externalMetricsPreference?: ExternalMetricsPreference;
+  externalMetricsPreference?: ExternalMetricsPreference | undefined;
 
   /**
    * <p>
@@ -8438,7 +9135,7 @@ export interface RecommendationPreferencesDetail {
    *         </p>
    * @public
    */
-  lookBackPeriod?: LookBackPeriodPreference;
+  lookBackPeriod?: LookBackPeriodPreference | undefined;
 
   /**
    * <p>
@@ -8450,7 +9147,7 @@ export interface RecommendationPreferencesDetail {
    *          </note>
    * @public
    */
-  utilizationPreferences?: UtilizationPreference[];
+  utilizationPreferences?: UtilizationPreference[] | undefined;
 
   /**
    * <p>
@@ -8460,7 +9157,7 @@ export interface RecommendationPreferencesDetail {
    *         </p>
    * @public
    */
-  preferredResources?: EffectivePreferredResource[];
+  preferredResources?: EffectivePreferredResource[] | undefined;
 
   /**
    * <p>
@@ -8469,7 +9166,7 @@ export interface RecommendationPreferencesDetail {
    *          <p>Only the account manager or delegated administrator of your organization can activate this preference.</p>
    * @public
    */
-  savingsEstimationMode?: SavingsEstimationMode;
+  savingsEstimationMode?: SavingsEstimationMode | undefined;
 }
 
 /**
@@ -8482,13 +9179,13 @@ export interface GetRecommendationPreferencesResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that describe recommendation preferences.</p>
    * @public
    */
-  recommendationPreferencesDetails?: RecommendationPreferencesDetail[];
+  recommendationPreferencesDetails?: RecommendationPreferencesDetail[] | undefined;
 }
 
 /**
@@ -8503,13 +9200,13 @@ export interface GetRecommendationSummariesRequest {
    *          <p>Only one account ID can be specified per request.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>The token to advance to the next page of recommendation summaries.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of recommendation summaries to return with a single request.</p>
@@ -8517,7 +9214,7 @@ export interface GetRecommendationSummariesRequest {
    *                 <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -8532,26 +9229,44 @@ export interface CurrentPerformanceRiskRatings {
    * <p>A count of the applicable resource types with a high performance risk rating.</p>
    * @public
    */
-  high?: number;
+  high?: number | undefined;
 
   /**
    * <p>A count of the applicable resource types with a medium performance risk rating.</p>
    * @public
    */
-  medium?: number;
+  medium?: number | undefined;
 
   /**
    * <p>A count of the applicable resource types with a low performance risk rating.</p>
    * @public
    */
-  low?: number;
+  low?: number | undefined;
 
   /**
    * <p>A count of the applicable resource types with a very low performance risk
    *             rating.</p>
    * @public
    */
-  veryLow?: number;
+  veryLow?: number | undefined;
+}
+
+/**
+ * <p>Describes the findings summary of the idle resources.</p>
+ * @public
+ */
+export interface IdleSummary {
+  /**
+   * <p>The name of the finding group for the idle resources.</p>
+   * @public
+   */
+  name?: IdleFinding | undefined;
+
+  /**
+   * <p>The count of idle resources in the finding group.</p>
+   * @public
+   */
+  value?: number | undefined;
 }
 
 /**
@@ -8617,14 +9332,14 @@ export interface InferredWorkloadSaving {
    *          </ul>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadType[];
+  inferredWorkloadTypes?: InferredWorkloadType[] | undefined;
 
   /**
    * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
    *             resource. This is based on the On-Demand instance pricing.</p>
    * @public
    */
-  estimatedMonthlySavings?: EstimatedMonthlySavings;
+  estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
 
 /**
@@ -8650,13 +9365,13 @@ export interface ReasonCodeSummary {
    * <p>The name of the finding reason code.</p>
    * @public
    */
-  name?: FindingReasonCode;
+  name?: FindingReasonCode | undefined;
 
   /**
    * <p>The value of the finding reason code summary.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -8668,19 +9383,19 @@ export interface Summary {
    * <p>The finding classification of the recommendation.</p>
    * @public
    */
-  name?: Finding;
+  name?: Finding | undefined;
 
   /**
    * <p>The value of the recommendation summary.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 
   /**
    * <p>An array of objects that summarize a finding reason code.</p>
    * @public
    */
-  reasonCodeSummaries?: ReasonCodeSummary[];
+  reasonCodeSummaries?: ReasonCodeSummary[] | undefined;
 }
 
 /**
@@ -8692,33 +9407,83 @@ export interface RecommendationSummary {
    * <p>An array of objects that describe a recommendation summary.</p>
    * @public
    */
-  summaries?: Summary[];
+  summaries?: Summary[] | undefined;
+
+  /**
+   * <p>
+   *             Describes the findings summary of the idle resources.
+   *         </p>
+   * @public
+   */
+  idleSummaries?: IdleSummary[] | undefined;
 
   /**
    * <p>The resource type that the recommendation summary applies to.</p>
    * @public
    */
-  recommendationResourceType?: RecommendationSourceType;
+  recommendationResourceType?: RecommendationSourceType | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the recommendation summary.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>An object that describes the savings opportunity for a given resource type. Savings
    *             opportunity includes the estimated monthly savings amount and percentage.</p>
    * @public
    */
-  savingsOpportunity?: SavingsOpportunity;
+  savingsOpportunity?: SavingsOpportunity | undefined;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  idleSavingsOpportunity?: SavingsOpportunity | undefined;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  aggregatedSavingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>An object that describes the performance risk ratings for a given resource
    *             type.</p>
    * @public
    */
-  currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings;
+  currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings | undefined;
 
   /**
    * <p>
@@ -8728,7 +9493,7 @@ export interface RecommendationSummary {
    *         </p>
    * @public
    */
-  inferredWorkloadSavings?: InferredWorkloadSaving[];
+  inferredWorkloadSavings?: InferredWorkloadSaving[] | undefined;
 }
 
 /**
@@ -8741,13 +9506,13 @@ export interface GetRecommendationSummariesResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of objects that summarize a recommendation.</p>
    * @public
    */
-  recommendationSummaries?: RecommendationSummary[];
+  recommendationSummaries?: RecommendationSummary[] | undefined;
 }
 
 /**
@@ -8781,7 +9546,7 @@ export interface PreferredResource {
    *          </note>
    * @public
    */
-  name?: PreferredResourceName;
+  name?: PreferredResourceName | undefined;
 
   /**
    * <p>
@@ -8791,7 +9556,7 @@ export interface PreferredResource {
    *         </p>
    * @public
    */
-  includeList?: string[];
+  includeList?: string[] | undefined;
 
   /**
    * <p>
@@ -8800,7 +9565,7 @@ export interface PreferredResource {
    *         </p>
    * @public
    */
-  excludeList?: string[];
+  excludeList?: string[] | undefined;
 }
 
 /**
@@ -8835,7 +9600,7 @@ export interface PutRecommendationPreferencesRequest {
    *          </note>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>The status of the enhanced infrastructure metrics recommendation preference to create
@@ -8847,7 +9612,7 @@ export interface PutRecommendationPreferencesRequest {
    *                 Guide</i>.</p>
    * @public
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | undefined;
 
   /**
    * <p>The status of the inferred workload types recommendation preference to create or
@@ -8862,7 +9627,7 @@ export interface PutRecommendationPreferencesRequest {
    *                 types</a> in the <i>Compute Optimizer User Guide</i>.</p>
    * @public
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | undefined;
 
   /**
    * <p>The provider of the external metrics recommendation preference to create or
@@ -8876,19 +9641,28 @@ export interface PutRecommendationPreferencesRequest {
    *             Guide</i>.</p>
    * @public
    */
-  externalMetricsPreference?: ExternalMetricsPreference;
+  externalMetricsPreference?: ExternalMetricsPreference | undefined;
 
   /**
    * <p>
    *             The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed.
    *             When this preference isn't specified, we use the default value <code>DAYS_14</code>.
    *         </p>
+   *          <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.
+   *             </p>
    *          <note>
-   *             <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Amazon EC2 instance lookback preferences can be set at the organization, account, and resource levels.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Auto Scaling group lookback preferences can only be set at the resource level.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
-  lookBackPeriod?: LookBackPeriodPreference;
+  lookBackPeriod?: LookBackPeriodPreference | undefined;
 
   /**
    * <p>
@@ -8925,7 +9699,7 @@ export interface PutRecommendationPreferencesRequest {
    *          </note>
    * @public
    */
-  utilizationPreferences?: UtilizationPreference[];
+  utilizationPreferences?: UtilizationPreference[] | undefined;
 
   /**
    * <p>
@@ -8939,7 +9713,7 @@ export interface PutRecommendationPreferencesRequest {
    *          </note>
    * @public
    */
-  preferredResources?: PreferredResource[];
+  preferredResources?: PreferredResource[] | undefined;
 
   /**
    * <p>
@@ -8951,7 +9725,7 @@ export interface PutRecommendationPreferencesRequest {
    *             Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</p>
    * @public
    */
-  savingsEstimationMode?: SavingsEstimationMode;
+  savingsEstimationMode?: SavingsEstimationMode | undefined;
 }
 
 /**
@@ -8995,7 +9769,7 @@ export interface UpdateEnrollmentStatusRequest {
    *             management account of an organization.</p>
    * @public
    */
-  includeMemberAccounts?: boolean;
+  includeMemberAccounts?: boolean | undefined;
 }
 
 /**
@@ -9006,7 +9780,7 @@ export interface UpdateEnrollmentStatusResponse {
    * <p>The enrollment status of the account.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The reason for the enrollment status of the account. For example, an account might
@@ -9014,5 +9788,5 @@ export interface UpdateEnrollmentStatusResponse {
    *             more time to be enrolled in the service.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }

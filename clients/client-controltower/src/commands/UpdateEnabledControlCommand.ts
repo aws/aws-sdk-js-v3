@@ -32,7 +32,7 @@ export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlO
  *          Updates the configuration of an already enabled control.</p>
  *          <p>If the enabled control shows an <code>EnablementStatus</code> of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request.</p>
  *          <p>If the enabled control shows an <code>EnablementStatus</code> of FAILED, Amazon Web Services Control Tower updates the control to match any valid parameters that you supply.</p>
- *          <p>If the <code>DriftSummary</code> status for the control shows as DRIFTED, you cannot call this API. Instead, you can update the control by calling <code>DisableControl</code> and again calling <code>EnableControl</code>, or you can run an extending governance operation. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
+ *          <p>If the <code>DriftSummary</code> status for the control shows as <code>DRIFTED</code>, you cannot call this API. Instead, you can update the control by calling the <code>ResetEnabledControl</code> API. Alternatively, you can call <code>DisableControl</code> and then call <code>EnableControl</code> again. Also, you can run an extending governance operation to repair drift. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
  *                <i>Controls Reference Guide</i>
  *             </a>.
  *       </p>
@@ -89,6 +89,7 @@ export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnabledControlCommand extends $Command
@@ -99,9 +100,7 @@ export class UpdateEnabledControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class UpdateEnabledControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnabledControlCommand)
   .de(de_UpdateEnabledControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnabledControlInput;
+      output: UpdateEnabledControlOutput;
+    };
+    sdk: {
+      input: UpdateEnabledControlCommandInput;
+      output: UpdateEnabledControlCommandOutput;
+    };
+  };
+}

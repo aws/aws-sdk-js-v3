@@ -31,7 +31,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * <p>Creates a copy of an entire cluster or replication group at a specific moment in
  *             time.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey or Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,12 +141,12 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Valkey or Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>
@@ -163,96 +163,137 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
+ * @example CreateSnapshot - NonClustered Redis, 2 read-replicas
+ * ```javascript
+ * // Creates a snapshot of a non-clustered Redis cluster that has only three nodes, primary and two read-replicas. CacheClusterId must be a specific node in the cluster.
+ * const input = {
+ *   CacheClusterId: "threenoderedis-001",
+ *   SnapshotName: "snapshot-2"
+ * };
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Snapshot: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2017-02-03T15:43:36.278Z",
+ *     CacheClusterId: "threenoderedis-001",
+ *     CacheNodeType: "cache.m3.medium",
+ *     CacheParameterGroupName: "default.redis3.2",
+ *     CacheSubnetGroupName: "default",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NodeSnapshots: [
+ *       {
+ *         CacheNodeCreateTime: "2017-02-03T15:43:36.278Z",
+ *         CacheNodeId: "0001",
+ *         CacheSize: ""
+ *       }
+ *     ],
+ *     NumCacheNodes: 1,
+ *     Port: 6379,
+ *     PreferredAvailabilityZone: "us-west-2c",
+ *     PreferredMaintenanceWindow: "sat:08:00-sat:09:00",
+ *     SnapshotName: "snapshot-2",
+ *     SnapshotRetentionLimit: 1,
+ *     SnapshotSource: "manual",
+ *     SnapshotStatus: "creating",
+ *     SnapshotWindow: "00:00-01:00",
+ *     VpcId: "vpc-73c3cd17"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @example CreateSnapshot - NonClustered Redis, no read-replicas
  * ```javascript
  * // Creates a snapshot of a non-clustered Redis cluster that has only one node.
  * const input = {
- *   "CacheClusterId": "onenoderedis",
- *   "SnapshotName": "snapshot-1"
+ *   CacheClusterId: "onenoderedis",
+ *   SnapshotName: "snapshot-1"
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Snapshot": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2017-02-03T15:43:36.278Z",
- *     "CacheClusterId": "onenoderedis",
- *     "CacheNodeType": "cache.m3.medium",
- *     "CacheParameterGroupName": "default.redis3.2",
- *     "CacheSubnetGroupName": "default",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NodeSnapshots": [
+ *   Snapshot: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2017-02-03T15:43:36.278Z",
+ *     CacheClusterId: "onenoderedis",
+ *     CacheNodeType: "cache.m3.medium",
+ *     CacheParameterGroupName: "default.redis3.2",
+ *     CacheSubnetGroupName: "default",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NodeSnapshots: [
  *       {
- *         "CacheNodeCreateTime": "2017-02-03T15:43:36.278Z",
- *         "CacheNodeId": "0001",
- *         "CacheSize": ""
+ *         CacheNodeCreateTime: "2017-02-03T15:43:36.278Z",
+ *         CacheNodeId: "0001",
+ *         CacheSize: ""
  *       }
  *     ],
- *     "NumCacheNodes": 1,
- *     "Port": 6379,
- *     "PreferredAvailabilityZone": "us-west-2c",
- *     "PreferredMaintenanceWindow": "sat:08:00-sat:09:00",
- *     "SnapshotName": "snapshot-1",
- *     "SnapshotRetentionLimit": 1,
- *     "SnapshotSource": "manual",
- *     "SnapshotStatus": "creating",
- *     "SnapshotWindow": "00:00-01:00",
- *     "VpcId": "vpc-73c3cd17"
+ *     NumCacheNodes: 1,
+ *     Port: 6379,
+ *     PreferredAvailabilityZone: "us-west-2c",
+ *     PreferredMaintenanceWindow: "sat:08:00-sat:09:00",
+ *     SnapshotName: "snapshot-1",
+ *     SnapshotRetentionLimit: 1,
+ *     SnapshotSource: "manual",
+ *     SnapshotStatus: "creating",
+ *     SnapshotWindow: "00:00-01:00",
+ *     VpcId: "vpc-73c3cd17"
  *   }
  * }
  * *\/
- * // example id: createsnapshot-1474999681024
  * ```
  *
  * @example CreateSnapshot-clustered Redis
  * ```javascript
  * // Creates a snapshot of a clustered Redis cluster that has 2 shards, each with a primary and 4 read-replicas.
  * const input = {
- *   "ReplicationGroupId": "clusteredredis",
- *   "SnapshotName": "snapshot-2x5"
+ *   ReplicationGroupId: "clusteredredis",
+ *   SnapshotName: "snapshot-2x5"
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Snapshot": {
- *     "AutoMinorVersionUpgrade": true,
- *     "AutomaticFailover": "enabled",
- *     "CacheNodeType": "cache.m3.medium",
- *     "CacheParameterGroupName": "default.redis3.2.cluster.on",
- *     "CacheSubnetGroupName": "default",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NodeSnapshots": [
+ *   Snapshot: {
+ *     AutoMinorVersionUpgrade: true,
+ *     AutomaticFailover: "enabled",
+ *     CacheNodeType: "cache.m3.medium",
+ *     CacheParameterGroupName: "default.redis3.2.cluster.on",
+ *     CacheSubnetGroupName: "default",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NodeSnapshots: [
  *       {
- *         "CacheSize": "",
- *         "NodeGroupId": "0001"
+ *         CacheSize: "",
+ *         NodeGroupId: "0001"
  *       },
  *       {
- *         "CacheSize": "",
- *         "NodeGroupId": "0002"
+ *         CacheSize: "",
+ *         NodeGroupId: "0002"
  *       }
  *     ],
- *     "NumNodeGroups": 2,
- *     "Port": 6379,
- *     "PreferredMaintenanceWindow": "mon:09:30-mon:10:30",
- *     "ReplicationGroupDescription": "Redis cluster with 2 shards.",
- *     "ReplicationGroupId": "clusteredredis",
- *     "SnapshotName": "snapshot-2x5",
- *     "SnapshotRetentionLimit": 1,
- *     "SnapshotSource": "manual",
- *     "SnapshotStatus": "creating",
- *     "SnapshotWindow": "12:00-13:00",
- *     "VpcId": "vpc-73c3cd17"
+ *     NumNodeGroups: 2,
+ *     Port: 6379,
+ *     PreferredMaintenanceWindow: "mon:09:30-mon:10:30",
+ *     ReplicationGroupDescription: "Redis cluster with 2 shards.",
+ *     ReplicationGroupId: "clusteredredis",
+ *     SnapshotName: "snapshot-2x5",
+ *     SnapshotRetentionLimit: 1,
+ *     SnapshotSource: "manual",
+ *     SnapshotStatus: "creating",
+ *     SnapshotWindow: "12:00-13:00",
+ *     VpcId: "vpc-73c3cd17"
  *   }
  * }
  * *\/
- * // example id: createsnapshot-clustered-redis-1486144841758
  * ```
  *
+ * @public
  */
 export class CreateSnapshotCommand extends $Command
   .classBuilder<
@@ -262,9 +303,7 @@ export class CreateSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -276,4 +315,16 @@ export class CreateSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSnapshotCommand)
   .de(de_CreateSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSnapshotMessage;
+      output: CreateSnapshotResult;
+    };
+    sdk: {
+      input: CreateSnapshotCommandInput;
+      output: CreateSnapshotCommandOutput;
+    };
+  };
+}

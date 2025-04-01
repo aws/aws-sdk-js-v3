@@ -28,8 +28,9 @@ export interface StopStackSetOperationCommandInput extends StopStackSetOperation
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets will cancel all the
- *    unstarted stack instance deployments and wait for those are in-progress to complete.</p>
+ * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets
+ *    will cancel all the unstarted stack instance deployments and wait for those are in-progress to
+ *    complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,7 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class StopStackSetOperationCommand extends $Command
@@ -75,9 +77,7 @@ export class StopStackSetOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class StopStackSetOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopStackSetOperationCommand)
   .de(de_StopStackSetOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopStackSetOperationInput;
+      output: {};
+    };
+    sdk: {
+      input: StopStackSetOperationCommandInput;
+      output: StopStackSetOperationCommandOutput;
+    };
+  };
+}

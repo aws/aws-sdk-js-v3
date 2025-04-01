@@ -125,6 +125,10 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
+ * //     },
  * //   },
  * // };
  *
@@ -151,23 +155,23 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get a remote access session
  * ```javascript
  * // The following example gets a specific remote access session.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
  * };
  * const command = new GetRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "remoteAccessSession": {}
+ *   remoteAccessSession:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-get-a-remote-access-session-1471014119414
  * ```
  *
+ * @public
  */
 export class GetRemoteAccessSessionCommand extends $Command
   .classBuilder<
@@ -177,9 +181,7 @@ export class GetRemoteAccessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +193,16 @@ export class GetRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRemoteAccessSessionCommand)
   .de(de_GetRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRemoteAccessSessionRequest;
+      output: GetRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: GetRemoteAccessSessionCommandInput;
+      output: GetRemoteAccessSessionCommandOutput;
+    };
+  };
+}

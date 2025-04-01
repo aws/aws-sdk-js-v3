@@ -28,10 +28,12 @@ export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Deactivates a public extension that was previously activated in this account and Region.</p>
- *          <p>Once deactivated, an extension can't be used in any CloudFormation operation. This includes stack update operations
- *    where the stack template includes the extension, even if no updates are being made to the extension. In addition,
- *    deactivated extensions aren't automatically updated if a new version of the extension is released.</p>
+ * <p>Deactivates a public extension that was previously activated in this account and
+ *       Region.</p>
+ *          <p>Once deactivated, an extension can't be used in any CloudFormation operation. This includes
+ *       stack update operations where the stack template includes the extension, even if no updates
+ *       are being made to the extension. In addition, deactivated extensions aren't automatically
+ *       updated if a new version of the extension is released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +66,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeactivateTypeCommand extends $Command
@@ -74,9 +77,7 @@ export class DeactivateTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +89,16 @@ export class DeactivateTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateTypeCommand)
   .de(de_DeactivateTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateTypeCommandInput;
+      output: DeactivateTypeCommandOutput;
+    };
+  };
+}

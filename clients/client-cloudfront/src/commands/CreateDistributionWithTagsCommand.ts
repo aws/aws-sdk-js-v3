@@ -96,6 +96,11 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *               OriginReadTimeout: Number("int"),
  *               OriginKeepaliveTimeout: Number("int"),
  *             },
+ *             VpcOriginConfig: { // VpcOriginConfig
+ *               VpcOriginId: "STRING_VALUE", // required
+ *               OriginReadTimeout: Number("int"),
+ *               OriginKeepaliveTimeout: Number("int"),
+ *             },
  *             ConnectionAttempts: Number("int"),
  *             ConnectionTimeout: Number("int"),
  *             OriginShield: { // OriginShield
@@ -127,6 +132,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *                 },
  *               ],
  *             },
+ *             SelectionCriteria: "default" || "media-quality-based",
  *           },
  *         ],
  *       },
@@ -185,6 +191,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *         CachePolicyId: "STRING_VALUE",
  *         OriginRequestPolicyId: "STRING_VALUE",
  *         ResponseHeadersPolicyId: "STRING_VALUE",
+ *         GrpcConfig: { // GrpcConfig
+ *           Enabled: true || false, // required
+ *         },
  *         ForwardedValues: { // ForwardedValues
  *           QueryString: true || false, // required
  *           Cookies: { // CookiePreference
@@ -268,6 +277,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *             CachePolicyId: "STRING_VALUE",
  *             OriginRequestPolicyId: "STRING_VALUE",
  *             ResponseHeadersPolicyId: "STRING_VALUE",
+ *             GrpcConfig: {
+ *               Enabled: true || false, // required
+ *             },
  *             ForwardedValues: {
  *               QueryString: true || false, // required
  *               Cookies: {
@@ -311,10 +323,10 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *       },
  *       Comment: "STRING_VALUE", // required
  *       Logging: { // LoggingConfig
- *         Enabled: true || false, // required
- *         IncludeCookies: true || false, // required
- *         Bucket: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE", // required
+ *         Enabled: true || false,
+ *         IncludeCookies: true || false,
+ *         Bucket: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
  *       },
  *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  *       Enabled: true || false, // required
@@ -341,6 +353,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *       IsIPV6Enabled: true || false,
  *       ContinuousDeploymentPolicyId: "STRING_VALUE",
  *       Staging: true || false,
+ *       AnycastIpListId: "STRING_VALUE",
  *     },
  *     Tags: { // Tags
  *       Items: [ // TagList
@@ -433,6 +446,11 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
+ * //               OriginKeepaliveTimeout: Number("int"),
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -464,6 +482,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },
@@ -522,6 +541,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -605,6 +627,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -648,10 +673,10 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
  * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  * //       Enabled: true || false, // required
@@ -678,6 +703,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -711,6 +737,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * @throws {@link DistributionAlreadyExists} (client fault)
  *  <p>The caller reference you attempted to create the distribution with is associated with
  * 			another distribution.</p>
+ *
+ * @throws {@link EntityNotFound} (client fault)
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior} (client fault)
  *  <p>The specified configuration for field-level encryption can't be associated with the
@@ -941,6 +970,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class CreateDistributionWithTagsCommand extends $Command
@@ -951,9 +981,7 @@ export class CreateDistributionWithTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -965,4 +993,16 @@ export class CreateDistributionWithTagsCommand extends $Command
   .f(CreateDistributionWithTagsRequestFilterSensitiveLog, CreateDistributionWithTagsResultFilterSensitiveLog)
   .ser(se_CreateDistributionWithTagsCommand)
   .de(de_CreateDistributionWithTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDistributionWithTagsRequest;
+      output: CreateDistributionWithTagsResult;
+    };
+    sdk: {
+      input: CreateDistributionWithTagsCommandInput;
+      output: CreateDistributionWithTagsCommandOutput;
+    };
+  };
+}

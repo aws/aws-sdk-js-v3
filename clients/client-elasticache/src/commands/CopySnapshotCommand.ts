@@ -30,15 +30,15 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
 /**
  * <p>Makes a copy of an existing snapshot.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey or Redis OSS only.</p>
  *          </note>
  *          <important>
  *             <p>Users or groups that have permissions to use the <code>CopySnapshot</code>
  *                 operation can create their own Amazon S3 buckets and copy snapshots to it. To
  *                 control access to your snapshots, use an IAM policy to control who has the ability
  *                 to use the <code>CopySnapshot</code> operation. For more information about using IAM
- *                 to control the use of ElastiCache operations, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting
- *                     Snapshots</a> and <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.html">Authentication & Access
+ *                 to control the use of ElastiCache operations, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html">Exporting
+ *                     Snapshots</a> and <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.html">Authentication & Access
  *                     Control</a>.</p>
  *          </important>
  *          <p>You could receive the following error messages.</p>
@@ -52,7 +52,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     the region.</p>
  *                <p>
  *                   <b>Solution:</b> Create an Amazon S3 bucket in the
- *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
+ *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
  *                     Guide.</p>
  *             </li>
  *             <li>
@@ -61,7 +61,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     exist.</p>
  *                <p>
  *                   <b>Solution:</b> Create an Amazon S3 bucket in the
- *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
+ *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
  *                     Guide.</p>
  *             </li>
  *             <li>
@@ -70,7 +70,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     by the authenticated user.</p>
  *                <p>
  *                   <b>Solution:</b> Create an Amazon S3 bucket in the
- *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
+ *                     same region as your snapshot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket">Step 1: Create an Amazon S3 Bucket</a> in the ElastiCache User
  *                     Guide.</p>
  *             </li>
  *             <li>
@@ -97,7 +97,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     granted READ permissions %s on the S3 Bucket.</p>
  *                <p>
  *                   <b>Solution:</b> Add List and Read permissions on
- *                     the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
+ *                     the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
  *                     ElastiCache User Guide.</p>
  *             </li>
  *             <li>
@@ -106,7 +106,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     granted WRITE permissions %s on the S3 Bucket.</p>
  *                <p>
  *                   <b>Solution:</b> Add Upload/Delete permissions on
- *                     the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
+ *                     the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
  *                     ElastiCache User Guide.</p>
  *             </li>
  *             <li>
@@ -115,7 +115,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                     granted READ_ACP permissions %s on the S3 Bucket.</p>
  *                <p>
  *                   <b>Solution:</b> Add View Permissions on the bucket.
- *                     For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
+ *                     For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
  *                     ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
@@ -230,52 +230,52 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CopySnapshot
  * ```javascript
  * // Copies a snapshot to a specified name.
  * const input = {
- *   "SourceSnapshotName": "my-snapshot",
- *   "TargetBucket": "",
- *   "TargetSnapshotName": "my-snapshot-copy"
+ *   SourceSnapshotName: "my-snapshot",
+ *   TargetBucket: "",
+ *   TargetSnapshotName: "my-snapshot-copy"
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Snapshot": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-21T22:24:04.955Z",
- *     "CacheClusterId": "my-redis4",
- *     "CacheNodeType": "cache.m3.large",
- *     "CacheParameterGroupName": "default.redis3.2",
- *     "CacheSubnetGroupName": "default",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NodeSnapshots": [
+ *   Snapshot: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-21T22:24:04.955Z",
+ *     CacheClusterId: "my-redis4",
+ *     CacheNodeType: "cache.m3.large",
+ *     CacheParameterGroupName: "default.redis3.2",
+ *     CacheSubnetGroupName: "default",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NodeSnapshots: [
  *       {
- *         "CacheNodeCreateTime": "2016-12-21T22:24:04.955Z",
- *         "CacheNodeId": "0001",
- *         "CacheSize": "3 MB",
- *         "SnapshotCreateTime": "2016-12-28T07:00:52Z"
+ *         CacheNodeCreateTime: "2016-12-21T22:24:04.955Z",
+ *         CacheNodeId: "0001",
+ *         CacheSize: "3 MB",
+ *         SnapshotCreateTime: "2016-12-28T07:00:52Z"
  *       }
  *     ],
- *     "NumCacheNodes": 1,
- *     "Port": 6379,
- *     "PreferredAvailabilityZone": "us-east-1c",
- *     "PreferredMaintenanceWindow": "tue:09:30-tue:10:30",
- *     "SnapshotName": "my-snapshot-copy",
- *     "SnapshotRetentionLimit": 7,
- *     "SnapshotSource": "manual",
- *     "SnapshotStatus": "creating",
- *     "SnapshotWindow": "07:00-08:00",
- *     "VpcId": "vpc-3820329f3"
+ *     NumCacheNodes: 1,
+ *     Port: 6379,
+ *     PreferredAvailabilityZone: "us-east-1c",
+ *     PreferredMaintenanceWindow: "tue:09:30-tue:10:30",
+ *     SnapshotName: "my-snapshot-copy",
+ *     SnapshotRetentionLimit: 7,
+ *     SnapshotSource: "manual",
+ *     SnapshotStatus: "creating",
+ *     SnapshotWindow: "07:00-08:00",
+ *     VpcId: "vpc-3820329f3"
  *   }
  * }
  * *\/
- * // example id: copysnapshot-1482961393820
  * ```
  *
+ * @public
  */
 export class CopySnapshotCommand extends $Command
   .classBuilder<
@@ -285,9 +285,7 @@ export class CopySnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -299,4 +297,16 @@ export class CopySnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopySnapshotCommand)
   .de(de_CopySnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopySnapshotMessage;
+      output: CopySnapshotResult;
+    };
+    sdk: {
+      input: CopySnapshotCommandInput;
+      output: CopySnapshotCommandOutput;
+    };
+  };
+}

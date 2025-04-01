@@ -28,9 +28,8 @@ export interface ImportPhoneNumberCommandInput extends ImportPhoneNumberRequest 
 export interface ImportPhoneNumberCommandOutput extends ImportPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Imports a claimed phone number from an external service, such as Amazon Pinpoint, into an
- *     Amazon Connect instance. You can call this API only in the same Amazon Web Services Region
- *    where the Amazon Connect instance was created.</p>
+ * <p>Imports a claimed phone number from an external service, such as Amazon Web Services End User
+ *    Messaging, into an Amazon Connect instance. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance was created.</p>
  *          <important>
  *             <p>Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
  *     to verify the status of a previous <code>ImportPhoneNumber</code> operation. </p>
@@ -46,7 +45,7 @@ export interface ImportPhoneNumberCommandOutput extends ImportPhoneNumberRespons
  *          <p>For example, if you already have 99 claimed or imported numbers and a service level quota of
  *    99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you
  *    will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers
- *    until you open an Amazon Web Services Support ticket. </p>
+ *    until you open an Amazon Web ServicesSupport ticket. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,6 +97,7 @@ export interface ImportPhoneNumberCommandOutput extends ImportPhoneNumberRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ImportPhoneNumberCommand extends $Command
@@ -108,9 +108,7 @@ export class ImportPhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class ImportPhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportPhoneNumberCommand)
   .de(de_ImportPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportPhoneNumberRequest;
+      output: ImportPhoneNumberResponse;
+    };
+    sdk: {
+      input: ImportPhoneNumberCommandInput;
+      output: ImportPhoneNumberCommandOutput;
+    };
+  };
+}

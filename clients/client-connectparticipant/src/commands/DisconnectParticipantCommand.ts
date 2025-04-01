@@ -33,6 +33,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
 
 /**
  * <p>Disconnects a participant. </p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -77,6 +78,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class DisconnectParticipantCommand extends $Command
@@ -87,9 +89,7 @@ export class DisconnectParticipantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DisconnectParticipantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisconnectParticipantCommand)
   .de(de_DisconnectParticipantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectParticipantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectParticipantCommandInput;
+      output: DisconnectParticipantCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,7 @@ and settings to meet specific IT standards.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-imagebuilder
+To install this package, simply type add or install @aws-sdk/client-imagebuilder
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-imagebuilder`
@@ -472,6 +472,14 @@ GetLifecyclePolicy
 </details>
 <details>
 <summary>
+GetMarketplaceResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetMarketplaceResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetMarketplaceResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetMarketplaceResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetWorkflow
 </summary>
 
@@ -500,6 +508,14 @@ ImportComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ImportComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportComponentCommandOutput/)
+
+</details>
+<details>
+<summary>
+ImportDiskImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ImportDiskImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportDiskImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportDiskImageCommandOutput/)
 
 </details>
 <details>

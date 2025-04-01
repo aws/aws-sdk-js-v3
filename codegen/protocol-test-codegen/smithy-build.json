@@ -21,8 +21,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -46,8 +45,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -71,8 +69,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -96,8 +93,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -121,8 +117,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -146,8 +141,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         },
         "typescript-ssdk-codegen": {
           "package": "@aws-sdk/aws-restjson-server",
@@ -177,8 +171,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -202,8 +195,7 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
         }
       }
     },
@@ -244,8 +236,31 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true,
-          "experimentalIdentityAndAuth": true
+          "private": true
+        }
+      }
+    },
+    "aws-smithy-rpcv2-cbor": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["smithy.protocoltests.rpcv2Cbor#RpcV2Protocol"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
         }
       }
     }

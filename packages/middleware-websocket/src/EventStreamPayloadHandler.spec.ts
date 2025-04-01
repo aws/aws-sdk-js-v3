@@ -1,43 +1,41 @@
-/**
- * @jest-environment jsdom
- */
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import { ReadableStream, TransformStream } from "web-streams-polyfill";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
-jest.mock("./get-event-signing-stream");
-jest.mock("@smithy/eventstream-codec");
+vi.mock("./get-event-signing-stream");
+vi.mock("@smithy/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
   const mockSigner: MessageSigner = {
-    sign: jest.fn(),
-    signMessage: jest.fn(),
+    sign: vi.fn(),
+    signMessage: vi.fn(),
   };
-  const mockUtf8Decoder: Decoder = jest.fn();
-  const mockUtf8encoder: Encoder = jest.fn();
-  const mockNextHandler: FinalizeHandler<any, any> = jest.fn();
+  const mockUtf8Decoder: Decoder = vi.fn();
+  const mockUtf8encoder: Encoder = vi.fn();
+  const mockNextHandler: FinalizeHandler<any, any> = vi.fn();
   const originalTransformStreamCtor = window.TransformStream;
 
   beforeEach(() => {
     window.TransformStream = TransformStream;
-    (getEventSigningTransformStream as unknown as jest.Mock).mockImplementation(() => new TransformStream());
-    (EventStreamCodec as jest.Mock).mockImplementation(() => {});
+    (getEventSigningTransformStream as unknown as any).mockImplementation(() => new TransformStream());
+    vi.mocked(EventStreamCodec).mockImplementation((() => {}) as any);
   });
 
   afterEach(() => {
     window.TransformStream = originalTransformStreamCtor;
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  it("should throw if request payload is not a stream", () => {
+  it("should throw if request payload is not a stream", async () => {
     const handler = new EventStreamPayloadHandler({
       messageSigner: () => Promise.resolve(mockSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
-    expect(
+    await expect(
       handler.handle(mockNextHandler, {
         request: { body: "body" } as HttpRequest,
         input: {},

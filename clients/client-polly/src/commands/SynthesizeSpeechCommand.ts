@@ -47,7 +47,7 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * const client = new PollyClient(config);
  * const input = { // SynthesizeSpeechInput
  *   Engine: "standard" || "neural" || "long-form" || "generative",
- *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE",
+ *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE" || "cs-CZ" || "de-CH" || "en-SG",
  *   LexiconNames: [ // LexiconNameList
  *     "STRING_VALUE",
  *   ],
@@ -58,10 +58,15 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  *   ],
  *   Text: "STRING_VALUE", // required
  *   TextType: "ssml" || "text",
- *   VoiceId: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko" || "Niamh" || "Sofie" || "Lisa" || "Isabelle" || "Zayd" || "Danielle" || "Gregory" || "Burcu", // required
+ *   VoiceId: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko" || "Niamh" || "Sofie" || "Lisa" || "Isabelle" || "Zayd" || "Danielle" || "Gregory" || "Burcu" || "Jitka" || "Sabrina" || "Jasmine" || "Jihye", // required
  * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.AudioStream.transformToByteArray();
+ * // const str = await response.AudioStream.transformToString();
+ * // response.AudioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // SynthesizeSpeechOutput
  * //   AudioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   ContentType: "STRING_VALUE",
@@ -123,32 +128,37 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To synthesize speech
  * ```javascript
  * // Synthesizes plain text or SSML into a file of human-like speech.
  * const input = {
- *   "LexiconNames": [
+ *   LexiconNames: [
  *     "example"
  *   ],
- *   "OutputFormat": "mp3",
- *   "SampleRate": "8000",
- *   "Text": "All Gaul is divided into three parts",
- *   "TextType": "text",
- *   "VoiceId": "Joanna"
+ *   OutputFormat: "mp3",
+ *   SampleRate: "8000",
+ *   Text: "All Gaul is divided into three parts",
+ *   TextType: "text",
+ *   VoiceId: "Joanna"
  * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.AudioStream.transformToByteArray();
+ * // const str = await response.AudioStream.transformToString();
+ * // response.AudioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
+ * /* response is
  * {
- *   "AudioStream": "TEXT",
- *   "ContentType": "audio/mpeg",
- *   "RequestCharacters": 37
+ *   AudioStream: "TEXT",
+ *   ContentType: "audio/mpeg",
+ *   RequestCharacters: 37
  * }
  * *\/
- * // example id: to-synthesize-speech-1482186064046
  * ```
  *
+ * @public
  */
 export class SynthesizeSpeechCommand extends $Command
   .classBuilder<
@@ -158,9 +168,7 @@ export class SynthesizeSpeechCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +180,16 @@ export class SynthesizeSpeechCommand extends $Command
   .f(void 0, SynthesizeSpeechOutputFilterSensitiveLog)
   .ser(se_SynthesizeSpeechCommand)
   .de(de_SynthesizeSpeechCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SynthesizeSpeechInput;
+      output: SynthesizeSpeechOutput;
+    };
+    sdk: {
+      input: SynthesizeSpeechCommandInput;
+      output: SynthesizeSpeechCommandOutput;
+    };
+  };
+}

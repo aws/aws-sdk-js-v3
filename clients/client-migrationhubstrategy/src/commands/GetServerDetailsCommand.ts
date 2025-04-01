@@ -137,6 +137,7 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetServerDetailsCommand extends $Command
@@ -147,9 +148,7 @@ export class GetServerDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class GetServerDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServerDetailsCommand)
   .de(de_GetServerDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServerDetailsRequest;
+      output: GetServerDetailsResponse;
+    };
+    sdk: {
+      input: GetServerDetailsCommandInput;
+      output: GetServerDetailsCommandOutput;
+    };
+  };
+}

@@ -51,7 +51,7 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * const input = { // DescribeComponentConfigurationRecommendationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   ComponentName: "STRING_VALUE", // required
- *   Tier: "CUSTOM" || "DEFAULT" || "DOT_NET_CORE" || "DOT_NET_WORKER" || "DOT_NET_WEB_TIER" || "DOT_NET_WEB" || "SQL_SERVER" || "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" || "MYSQL" || "POSTGRESQL" || "JAVA_JMX" || "ORACLE" || "SAP_HANA_MULTI_NODE" || "SAP_HANA_SINGLE_NODE" || "SAP_HANA_HIGH_AVAILABILITY" || "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" || "SHAREPOINT" || "ACTIVE_DIRECTORY" || "SAP_NETWEAVER_STANDARD" || "SAP_NETWEAVER_DISTRIBUTED" || "SAP_NETWEAVER_HIGH_AVAILABILITY", // required
+ *   Tier: "CUSTOM" || "DEFAULT" || "DOT_NET_CORE" || "DOT_NET_WORKER" || "DOT_NET_WEB_TIER" || "DOT_NET_WEB" || "SQL_SERVER" || "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" || "MYSQL" || "POSTGRESQL" || "JAVA_JMX" || "ORACLE" || "SAP_HANA_MULTI_NODE" || "SAP_HANA_SINGLE_NODE" || "SAP_HANA_HIGH_AVAILABILITY" || "SAP_ASE_SINGLE_NODE" || "SAP_ASE_HIGH_AVAILABILITY" || "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" || "SHAREPOINT" || "ACTIVE_DIRECTORY" || "SAP_NETWEAVER_STANDARD" || "SAP_NETWEAVER_DISTRIBUTED" || "SAP_NETWEAVER_HIGH_AVAILABILITY", // required
  *   WorkloadName: "STRING_VALUE",
  *   RecommendationType: "INFRA_ONLY" || "WORKLOAD_ONLY" || "ALL",
  * };
@@ -81,6 +81,7 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DescribeComponentConfigurationRecommendationCommand extends $Command
@@ -91,9 +92,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeComponentConfigurationRecommendationCommand)
   .de(de_DescribeComponentConfigurationRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComponentConfigurationRecommendationRequest;
+      output: DescribeComponentConfigurationRecommendationResponse;
+    };
+    sdk: {
+      input: DescribeComponentConfigurationRecommendationCommandInput;
+      output: DescribeComponentConfigurationRecommendationCommandOutput;
+    };
+  };
+}

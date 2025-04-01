@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutBucketNotificationConfigurationRequest } from "../models/models_0";
+import { PutBucketNotificationConfigurationRequest } from "../models/models_1";
 import {
   de_PutBucketNotificationConfigurationCommand,
   se_PutBucketNotificationConfigurationCommand,
@@ -32,7 +32,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Enables notifications of specified events for a bucket. For more information about event
  *          notifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event
@@ -172,28 +172,31 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set notification configuration for a bucket
  * ```javascript
  * // The following example sets notification configuration on a bucket to publish the object created events to an SNS topic.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "NotificationConfiguration": {
- *     "TopicConfigurations": [
+ *   Bucket: "examplebucket",
+ *   NotificationConfiguration: {
+ *     TopicConfigurations: [
  *       {
- *         "Events": [
+ *         Events: [
  *           "s3:ObjectCreated:*"
  *         ],
- *         "TopicArn": "arn:aws:sns:us-west-2:123456789012:s3-notification-topic"
+ *         TopicArn: "arn:aws:sns:us-west-2:123456789012:s3-notification-topic"
  *       }
  *     ]
  *   }
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
- * await client.send(command);
- * // example id: set-notification-configuration-for-a-bucket-1482270296426
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketNotificationConfigurationCommand extends $Command
   .classBuilder<
@@ -219,4 +222,16 @@ export class PutBucketNotificationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketNotificationConfigurationCommand)
   .de(de_PutBucketNotificationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketNotificationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketNotificationConfigurationCommandInput;
+      output: PutBucketNotificationConfigurationCommandOutput;
+    };
+  };
+}

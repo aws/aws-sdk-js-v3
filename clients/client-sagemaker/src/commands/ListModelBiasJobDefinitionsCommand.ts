@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_3";
+import { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_4";
 import { de_ListModelBiasJobDefinitionsCommand, se_ListModelBiasJobDefinitionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -72,6 +72,7 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelBiasJobDefinitionsCommand extends $Command
@@ -82,9 +83,7 @@ export class ListModelBiasJobDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class ListModelBiasJobDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelBiasJobDefinitionsCommand)
   .de(de_ListModelBiasJobDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelBiasJobDefinitionsRequest;
+      output: ListModelBiasJobDefinitionsResponse;
+    };
+    sdk: {
+      input: ListModelBiasJobDefinitionsCommandInput;
+      output: ListModelBiasJobDefinitionsCommandOutput;
+    };
+  };
+}

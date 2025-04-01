@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchInput, SearchOutput, SearchOutputFilterSensitiveLog } from "../models/models_1";
+import { SearchInput, SearchOutput, SearchOutputFilterSensitiveLog } from "../models/models_2";
 import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -40,7 +40,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *   owningProjectIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   searchScope: "ASSET" || "GLOSSARY" || "GLOSSARY_TERM", // required
+ *   searchScope: "ASSET" || "GLOSSARY" || "GLOSSARY_TERM" || "DATA_PRODUCT", // required
  *   searchText: "STRING_VALUE",
  *   searchIn: [ // SearchInList
  *     { // SearchInItem
@@ -161,7 +161,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //           ],
  * //         },
  * //       },
- * //       dataProductItem: { // DataProductSummary
+ * //       dataProductItem: { // DataProductResultItem
  * //         domainId: "STRING_VALUE", // required
  * //         id: "STRING_VALUE", // required
  * //         name: "STRING_VALUE", // required
@@ -170,16 +170,10 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         glossaryTerms: [
  * //           "STRING_VALUE",
  * //         ],
- * //         dataProductItems: [ // DataProductItems
- * //           { // DataProductItem
- * //             itemId: "STRING_VALUE",
- * //             domainId: "STRING_VALUE",
- * //           },
- * //         ],
  * //         createdAt: new Date("TIMESTAMP"),
  * //         createdBy: "STRING_VALUE",
- * //         updatedAt: new Date("TIMESTAMP"),
- * //         updatedBy: "STRING_VALUE",
+ * //         firstRevisionCreatedAt: new Date("TIMESTAMP"),
+ * //         firstRevisionCreatedBy: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -213,6 +207,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class SearchCommand extends $Command
@@ -223,9 +218,7 @@ export class SearchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -237,4 +230,16 @@ export class SearchCommand extends $Command
   .f(void 0, SearchOutputFilterSensitiveLog)
   .ser(se_SearchCommand)
   .de(de_SearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchInput;
+      output: SearchOutput;
+    };
+    sdk: {
+      input: SearchCommandInput;
+      output: SearchCommandOutput;
+    };
+  };
+}

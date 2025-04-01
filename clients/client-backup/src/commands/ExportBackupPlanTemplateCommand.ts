@@ -68,6 +68,7 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ExportBackupPlanTemplateCommand extends $Command
@@ -78,9 +79,7 @@ export class ExportBackupPlanTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class ExportBackupPlanTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportBackupPlanTemplateCommand)
   .de(de_ExportBackupPlanTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportBackupPlanTemplateInput;
+      output: ExportBackupPlanTemplateOutput;
+    };
+    sdk: {
+      input: ExportBackupPlanTemplateCommandInput;
+      output: ExportBackupPlanTemplateCommandOutput;
+    };
+  };
+}

@@ -79,33 +79,33 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ModifyCacheParameterGroup
  * ```javascript
  * // Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4",
- *   "ParameterNameValues": [
+ *   CacheParameterGroupName: "custom-mem1-4",
+ *   ParameterNameValues: [
  *     {
- *       "ParameterName": "binding_protocol",
- *       "ParameterValue": "ascii"
+ *       ParameterName: "binding_protocol",
+ *       ParameterValue: "ascii"
  *     },
  *     {
- *       "ParameterName": "chunk_size",
- *       "ParameterValue": "96"
+ *       ParameterName: "chunk_size",
+ *       ParameterValue: "96"
  *     }
  *   ]
  * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * }
  * *\/
- * // example id: modifycacheparametergroup-1482966746787
  * ```
  *
+ * @public
  */
 export class ModifyCacheParameterGroupCommand extends $Command
   .classBuilder<
@@ -115,9 +115,7 @@ export class ModifyCacheParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +127,16 @@ export class ModifyCacheParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCacheParameterGroupCommand)
   .de(de_ModifyCacheParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCacheParameterGroupMessage;
+      output: CacheParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ModifyCacheParameterGroupCommandInput;
+      output: ModifyCacheParameterGroupCommandOutput;
+    };
+  };
+}

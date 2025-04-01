@@ -27,6 +27,300 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const Role = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+  EXPERT: "EXPERT",
+  MODERATOR: "MODERATOR",
+  SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
+} as const;
+
+/**
+ * @public
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+/**
+ * @public
+ */
+export interface BatchAddRoleInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The user or group accessor identifiers to add the role to.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The role to add to the users or groups.</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * <p>An error that occurred during a batch operation.</p>
+ * @public
+ */
+export interface BatchError {
+  /**
+   * <p>The accessor identifier that's related to the error.</p>
+   * @public
+   */
+  accessorId: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  error: number | undefined;
+
+  /**
+   * <p>Description of the error.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAddRoleOutput {
+  /**
+   * <p>An array of successfully updated accessor identifiers.</p>
+   * @public
+   */
+  addedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were added.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * <p>Unexpected error during processing of request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
+   */
+  retryAfterSeconds?: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>Request references a resource which does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>Request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * <p>The code to identify the service.</p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p>The code to identify the quota.</p>
+   * @public
+   */
+  quotaCode?: string | undefined;
+
+  /**
+   * <p> Advice to clients on when the call can be safely retried.</p>
+   * @public
+   */
+  retryAfterSeconds?: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>Message describing why the field failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The reason why the request failed validation.</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The field that caused the error, if applicable.</p>
+   * @public
+   */
+  fieldList?: ValidationExceptionField[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveRoleInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The user or group accessor identifiers to remove the role from.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The role to remove from the users or groups.</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveRoleOutput {
+  /**
+   * <p>An array of successfully updated accessor identifiers.</p>
+   * @public
+   */
+  removedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were removed.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfigurationStatus = {
   CONFIGURED: "CONFIGURED",
   UNCONFIGURED: "UNCONFIGURED",
@@ -111,25 +405,25 @@ export interface CreateSpaceInput {
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The AWS KMS key ARN that’s used for the AWS KMS encryption. If you don't provide a key, your data is encrypted by default with a key that AWS owns and manages for you.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The list of tags associated with the private re:Post.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -141,68 +435,6 @@ export interface CreateSpaceOutput {
    * @public
    */
   spaceId: string | undefined;
-}
-
-/**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -250,118 +482,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code to identify the service.</p>
-   * @public
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>The code to identify the quota.</p>
-   * @public
-   */
-  quotaCode?: string;
-
-  /**
-   * <p> Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>Message describing why the field failed validation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason why the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error, if applicable.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
   }
 }
 
@@ -463,7 +583,7 @@ export interface GetSpaceOutput {
    * <p>The description of the private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The approval status of the custom subdomain.</p>
@@ -487,7 +607,7 @@ export interface GetSpaceOutput {
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  customerRoleArn?: string;
+  customerRoleArn?: string | undefined;
 
   /**
    * <p>The date when the private re:Post was created.</p>
@@ -499,7 +619,7 @@ export interface GetSpaceOutput {
    * <p>The date when the private re:Post was deleted.</p>
    * @public
    */
-  deleteDateTime?: Date;
+  deleteDateTime?: Date | undefined;
 
   /**
    * <p>The pricing tier of the private re:Post.</p>
@@ -515,33 +635,43 @@ export interface GetSpaceOutput {
 
   /**
    * <p>The list of users that are administrators of the private re:Post.</p>
+   *
+   * @deprecated
    * @public
    */
-  userAdmins?: string[];
+  userAdmins?: string[] | undefined;
 
   /**
    * <p>The list of groups that are administrators of the private re:Post.</p>
+   *
+   * @deprecated
    * @public
    */
-  groupAdmins?: string[];
+  groupAdmins?: string[] | undefined;
+
+  /**
+   * <p>A map of accessor identifiers and their roles.</p>
+   * @public
+   */
+  roles?: Record<string, Role[]> | undefined;
 
   /**
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The number of users that have onboarded to the private re:Post.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>The content size of the private re:Post.</p>
    * @public
    */
-  contentSize?: number;
+  contentSize?: number | undefined;
 }
 
 /**
@@ -552,13 +682,13 @@ export interface ListSpacesInput {
    * <p>The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of private re:Posts to include in the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -588,7 +718,7 @@ export interface SpaceData {
    * <p>The description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The creation/deletion status of the private re:Post.</p>
@@ -642,25 +772,25 @@ export interface SpaceData {
    * <p>The date when the private re:Post was deleted.</p>
    * @public
    */
-  deleteDateTime?: Date;
+  deleteDateTime?: Date | undefined;
 
   /**
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The number of onboarded users to the private re:Post.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>The content size of the private re:Post.</p>
    * @public
    */
-  contentSize?: number;
+  contentSize?: number | undefined;
 }
 
 /**
@@ -677,7 +807,7 @@ export interface ListSpacesOutput {
    * <p>The token that you use when you request the next set of private re:Posts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -699,7 +829,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags that are associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -806,19 +936,19 @@ export interface UpdateSpaceInput {
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The pricing tier of this private re:Post.</p>
    * @public
    */
-  tier?: TierLevel;
+  tier?: TierLevel | undefined;
 
   /**
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**

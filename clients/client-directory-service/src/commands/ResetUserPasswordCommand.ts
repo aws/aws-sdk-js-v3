@@ -33,7 +33,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
 
 /**
  * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
- *       directory.</p>
+ *       directory. Disabled users will become enabled and can be authenticated following the API call.</p>
  *          <p>You can reset the password for any user in your directory with the following
  *       exceptions:</p>
  *          <ul>
@@ -77,7 +77,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>
@@ -98,6 +98,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ResetUserPasswordCommand extends $Command
@@ -108,9 +109,7 @@ export class ResetUserPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ResetUserPasswordCommand extends $Command
   .f(ResetUserPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ResetUserPasswordCommand)
   .de(de_ResetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetUserPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetUserPasswordCommandInput;
+      output: ResetUserPasswordCommandOutput;
+    };
+  };
+}

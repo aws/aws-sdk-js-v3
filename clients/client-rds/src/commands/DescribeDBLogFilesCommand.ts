@@ -77,57 +77,60 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBInstanceNotReadyFault} (server fault)
+ *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+ *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the log files for a DB instance
  * ```javascript
  * // The following example retrieves details about the log files for the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance"
  * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DescribeDBLogFiles": [
+ *   DescribeDBLogFiles: [
  *     {
- *       "LastWritten": 1533060000000,
- *       "LogFileName": "error/mysql-error-running.log",
- *       "Size": 0
+ *       LastWritten: 1533060000000,
+ *       LogFileName: "error/mysql-error-running.log",
+ *       Size: 0
  *     },
  *     {
- *       "LastWritten": 1532994300000,
- *       "LogFileName": "error/mysql-error-running.log.0",
- *       "Size": 2683
+ *       LastWritten: 1532994300000,
+ *       LogFileName: "error/mysql-error-running.log.0",
+ *       Size: 2683
  *     },
  *     {
- *       "LastWritten": 1533057300000,
- *       "LogFileName": "error/mysql-error-running.log.18",
- *       "Size": 107
+ *       LastWritten: 1533057300000,
+ *       LogFileName: "error/mysql-error-running.log.18",
+ *       Size: 107
  *     },
  *     {
- *       "LastWritten": 1532991000000,
- *       "LogFileName": "error/mysql-error-running.log.23",
- *       "Size": 13105
+ *       LastWritten: 1532991000000,
+ *       LogFileName: "error/mysql-error-running.log.23",
+ *       Size: 13105
  *     },
  *     {
- *       "LastWritten": 1533061200000,
- *       "LogFileName": "error/mysql-error.log",
- *       "Size": 0
+ *       LastWritten: 1533061200000,
+ *       LogFileName: "error/mysql-error.log",
+ *       Size: 0
  *     },
  *     {
- *       "LastWritten": 1532989252000,
- *       "LogFileName": "mysqlUpgrade",
- *       "Size": 3519
+ *       LastWritten: 1532989252000,
+ *       LogFileName: "mysqlUpgrade",
+ *       Size: 3519
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-log-files-for-a-db-instance-1680217710149
  * ```
  *
+ * @public
  */
 export class DescribeDBLogFilesCommand extends $Command
   .classBuilder<
@@ -137,9 +140,7 @@ export class DescribeDBLogFilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +152,16 @@ export class DescribeDBLogFilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBLogFilesCommand)
   .de(de_DescribeDBLogFilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBLogFilesMessage;
+      output: DescribeDBLogFilesResponse;
+    };
+    sdk: {
+      input: DescribeDBLogFilesCommandInput;
+      output: DescribeDBLogFilesCommandOutput;
+    };
+  };
+}

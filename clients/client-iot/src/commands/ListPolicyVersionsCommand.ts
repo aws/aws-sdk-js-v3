@@ -81,6 +81,7 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListPolicyVersionsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListPolicyVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListPolicyVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPolicyVersionsCommand)
   .de(de_ListPolicyVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyVersionsRequest;
+      output: ListPolicyVersionsResponse;
+    };
+    sdk: {
+      input: ListPolicyVersionsCommandInput;
+      output: ListPolicyVersionsCommandOutput;
+    };
+  };
+}

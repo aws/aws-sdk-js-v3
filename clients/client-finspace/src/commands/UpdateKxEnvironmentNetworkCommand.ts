@@ -143,6 +143,7 @@ export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnviron
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class UpdateKxEnvironmentNetworkCommand extends $Command
@@ -153,9 +154,7 @@ export class UpdateKxEnvironmentNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class UpdateKxEnvironmentNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxEnvironmentNetworkCommand)
   .de(de_UpdateKxEnvironmentNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxEnvironmentNetworkRequest;
+      output: UpdateKxEnvironmentNetworkResponse;
+    };
+    sdk: {
+      input: UpdateKxEnvironmentNetworkCommandInput;
+      output: UpdateKxEnvironmentNetworkCommandOutput;
+    };
+  };
+}

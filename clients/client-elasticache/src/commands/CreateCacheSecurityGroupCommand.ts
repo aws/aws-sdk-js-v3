@@ -96,19 +96,22 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheSecurityGroup
  * ```javascript
  * // Creates an ElastiCache security group. ElastiCache security groups are only for clusters not running in an AWS VPC.
  * const input = {
- *   "CacheSecurityGroupName": "my-cache-sec-grp",
- *   "Description": "Example ElastiCache security group."
+ *   CacheSecurityGroupName: "my-cache-sec-grp",
+ *   Description: "Example ElastiCache security group."
  * };
  * const command = new CreateCacheSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: createcachesecuritygroup-1483041506604
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateCacheSecurityGroupCommand extends $Command
   .classBuilder<
@@ -118,9 +121,7 @@ export class CreateCacheSecurityGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +133,16 @@ export class CreateCacheSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheSecurityGroupCommand)
   .de(de_CreateCacheSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheSecurityGroupMessage;
+      output: CreateCacheSecurityGroupResult;
+    };
+    sdk: {
+      input: CreateCacheSecurityGroupCommandInput;
+      output: CreateCacheSecurityGroupCommandOutput;
+    };
+  };
+}

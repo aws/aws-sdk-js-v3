@@ -114,6 +114,7 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class ModifyReplicationTaskCommand extends $Command
@@ -124,9 +125,7 @@ export class ModifyReplicationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class ModifyReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationTaskCommand)
   .de(de_ModifyReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationTaskMessage;
+      output: ModifyReplicationTaskResponse;
+    };
+    sdk: {
+      input: ModifyReplicationTaskCommandInput;
+      output: ModifyReplicationTaskCommandOutput;
+    };
+  };
+}

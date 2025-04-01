@@ -70,6 +70,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteMonitorCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMonitorCommand)
   .de(de_DeleteMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMonitorInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMonitorCommandInput;
+      output: DeleteMonitorCommandOutput;
+    };
+  };
+}

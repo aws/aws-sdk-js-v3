@@ -84,6 +84,7 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class AbortDocumentVersionUploadCommand extends $Command
@@ -94,9 +95,7 @@ export class AbortDocumentVersionUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class AbortDocumentVersionUploadCommand extends $Command
   .f(AbortDocumentVersionUploadRequestFilterSensitiveLog, void 0)
   .ser(se_AbortDocumentVersionUploadCommand)
   .de(de_AbortDocumentVersionUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortDocumentVersionUploadRequest;
+      output: {};
+    };
+    sdk: {
+      input: AbortDocumentVersionUploadCommandInput;
+      output: AbortDocumentVersionUploadCommandOutput;
+    };
+  };
+}

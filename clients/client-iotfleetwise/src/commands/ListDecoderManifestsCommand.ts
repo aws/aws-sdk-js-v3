@@ -42,6 +42,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  *   modelManifestArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);
@@ -84,6 +85,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListDecoderManifestsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListDecoderManifestsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListDecoderManifestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDecoderManifestsCommand)
   .de(de_ListDecoderManifestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDecoderManifestsRequest;
+      output: ListDecoderManifestsResponse;
+    };
+    sdk: {
+      input: ListDecoderManifestsCommandInput;
+      output: ListDecoderManifestsCommandOutput;
+    };
+  };
+}

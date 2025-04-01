@@ -48,7 +48,7 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * // const { IAMClient, DeleteLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
  * };
  * const command = new DeleteLoginProfileCommand(input);
  * const response = await client.send(command);
@@ -83,18 +83,21 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete a password for an IAM user
  * ```javascript
  * // The following command deletes the password for the IAM user named Bob.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new DeleteLoginProfileCommand(input);
- * await client.send(command);
- * // example id: 1fe57059-fc73-42e2-b992-517b7d573b5c
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLoginProfileCommand extends $Command
   .classBuilder<
@@ -104,9 +107,7 @@ export class DeleteLoginProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +119,16 @@ export class DeleteLoginProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoginProfileCommand)
   .de(de_DeleteLoginProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoginProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoginProfileCommandInput;
+      output: DeleteLoginProfileCommandOutput;
+    };
+  };
+}

@@ -212,6 +212,7 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentAnalysisCommand extends $Command
@@ -222,9 +223,7 @@ export class GetDocumentAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -236,4 +235,16 @@ export class GetDocumentAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDocumentAnalysisCommand)
   .de(de_GetDocumentAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentAnalysisRequest;
+      output: GetDocumentAnalysisResponse;
+    };
+    sdk: {
+      input: GetDocumentAnalysisCommandInput;
+      output: GetDocumentAnalysisCommandOutput;
+    };
+  };
+}

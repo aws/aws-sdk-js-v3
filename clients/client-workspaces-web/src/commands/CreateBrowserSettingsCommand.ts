@@ -93,6 +93,7 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateBrowserSettingsCommand extends $Command
@@ -103,9 +104,7 @@ export class CreateBrowserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class CreateBrowserSettingsCommand extends $Command
   .f(CreateBrowserSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBrowserSettingsCommand)
   .de(de_CreateBrowserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBrowserSettingsRequest;
+      output: CreateBrowserSettingsResponse;
+    };
+    sdk: {
+      input: CreateBrowserSettingsCommandInput;
+      output: CreateBrowserSettingsCommandOutput;
+    };
+  };
+}

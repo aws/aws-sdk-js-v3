@@ -45,6 +45,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * //     webhookArn: "STRING_VALUE", // required
  * //     webhookId: "STRING_VALUE", // required
  * //     webhookUrl: "STRING_VALUE", // required
+ * //     appId: "STRING_VALUE",
  * //     branchName: "STRING_VALUE", // required
  * //     description: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
@@ -78,6 +79,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteWebhookCommand extends $Command
@@ -88,9 +90,7 @@ export class DeleteWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class DeleteWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebhookCommand)
   .de(de_DeleteWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebhookRequest;
+      output: DeleteWebhookResult;
+    };
+    sdk: {
+      input: DeleteWebhookCommandInput;
+      output: DeleteWebhookCommandOutput;
+    };
+  };
+}

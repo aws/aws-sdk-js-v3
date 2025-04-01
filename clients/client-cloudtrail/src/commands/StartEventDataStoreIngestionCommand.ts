@@ -34,7 +34,7 @@ export interface StartEventDataStoreIngestionCommandOutput
 
 /**
  * <p>Starts the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To start ingestion, the event data store <code>Status</code> must be <code>STOPPED_INGESTION</code>
- *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, or <code>ConfigurationItem</code>.</p>
+ *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, <code>NetworkActivity</code>, or <code>ConfigurationItem</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +96,7 @@ export interface StartEventDataStoreIngestionCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class StartEventDataStoreIngestionCommand extends $Command
@@ -106,9 +107,7 @@ export class StartEventDataStoreIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class StartEventDataStoreIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartEventDataStoreIngestionCommand)
   .de(de_StartEventDataStoreIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEventDataStoreIngestionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartEventDataStoreIngestionCommandInput;
+      output: StartEventDataStoreIngestionCommandOutput;
+    };
+  };
+}

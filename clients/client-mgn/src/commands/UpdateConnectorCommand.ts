@@ -83,6 +83,7 @@ export interface UpdateConnectorCommandOutput extends Connector, __MetadataBeare
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectorCommand extends $Command
@@ -93,9 +94,7 @@ export class UpdateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class UpdateConnectorCommand extends $Command
   .f(void 0, ConnectorFilterSensitiveLog)
   .ser(se_UpdateConnectorCommand)
   .de(de_UpdateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectorRequest;
+      output: Connector;
+    };
+    sdk: {
+      input: UpdateConnectorCommandInput;
+      output: UpdateConnectorCommandOutput;
+    };
+  };
+}

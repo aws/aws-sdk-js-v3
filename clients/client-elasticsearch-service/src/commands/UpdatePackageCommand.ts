@@ -96,6 +96,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageCommand extends $Command
@@ -106,9 +107,7 @@ export class UpdatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class UpdatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageCommand)
   .de(de_UpdatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageRequest;
+      output: UpdatePackageResponse;
+    };
+    sdk: {
+      input: UpdatePackageCommandInput;
+      output: UpdatePackageCommandOutput;
+    };
+  };
+}

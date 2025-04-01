@@ -98,6 +98,7 @@ export interface DescribeApplicationInstanceCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationInstanceCommand extends $Command
@@ -108,9 +109,7 @@ export class DescribeApplicationInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DescribeApplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationInstanceCommand)
   .de(de_DescribeApplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationInstanceRequest;
+      output: DescribeApplicationInstanceResponse;
+    };
+    sdk: {
+      input: DescribeApplicationInstanceCommandInput;
+      output: DescribeApplicationInstanceCommandOutput;
+    };
+  };
+}

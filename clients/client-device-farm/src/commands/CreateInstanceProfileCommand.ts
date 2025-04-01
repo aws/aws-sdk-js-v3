@@ -83,6 +83,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class CreateInstanceProfileCommand extends $Command
@@ -93,9 +94,7 @@ export class CreateInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class CreateInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceProfileCommand)
   .de(de_CreateInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceProfileRequest;
+      output: CreateInstanceProfileResult;
+    };
+    sdk: {
+      input: CreateInstanceProfileCommandInput;
+      output: CreateInstanceProfileCommandOutput;
+    };
+  };
+}

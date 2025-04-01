@@ -129,6 +129,7 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class ImportTerminologyCommand extends $Command
@@ -139,9 +140,7 @@ export class ImportTerminologyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class ImportTerminologyCommand extends $Command
   .f(ImportTerminologyRequestFilterSensitiveLog, void 0)
   .ser(se_ImportTerminologyCommand)
   .de(de_ImportTerminologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportTerminologyRequest;
+      output: ImportTerminologyResponse;
+    };
+    sdk: {
+      input: ImportTerminologyCommandInput;
+      output: ImportTerminologyCommandOutput;
+    };
+  };
+}

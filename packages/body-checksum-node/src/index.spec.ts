@@ -5,6 +5,7 @@ import { createReadStream, mkdtempSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { bodyChecksumGenerator } from ".";
 

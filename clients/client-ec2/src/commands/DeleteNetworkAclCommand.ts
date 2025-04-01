@@ -54,18 +54,21 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a network ACL
  * ```javascript
  * // This example deletes the specified network ACL.
  * const input = {
- *   "NetworkAclId": "acl-5fb85d36"
+ *   NetworkAclId: "acl-5fb85d36"
  * };
  * const command = new DeleteNetworkAclCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-acl-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteNetworkAclCommand extends $Command
   .classBuilder<
@@ -75,9 +78,7 @@ export class DeleteNetworkAclCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +90,16 @@ export class DeleteNetworkAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkAclCommand)
   .de(de_DeleteNetworkAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkAclRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNetworkAclCommandInput;
+      output: DeleteNetworkAclCommandOutput;
+    };
+  };
+}

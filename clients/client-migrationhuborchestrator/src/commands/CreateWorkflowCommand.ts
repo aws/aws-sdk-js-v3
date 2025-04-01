@@ -122,6 +122,7 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkflowCommand extends $Command
@@ -132,9 +133,7 @@ export class CreateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class CreateWorkflowCommand extends $Command
   .f(CreateMigrationWorkflowRequestFilterSensitiveLog, CreateMigrationWorkflowResponseFilterSensitiveLog)
   .ser(se_CreateWorkflowCommand)
   .de(de_CreateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMigrationWorkflowRequest;
+      output: CreateMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: CreateWorkflowCommandInput;
+      output: CreateWorkflowCommandOutput;
+    };
+  };
+}

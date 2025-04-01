@@ -82,6 +82,7 @@ export interface DescribeDeliverySourcesCommandOutput extends DescribeDeliverySo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliverySourcesCommand extends $Command
@@ -92,9 +93,7 @@ export class DescribeDeliverySourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DescribeDeliverySourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliverySourcesCommand)
   .de(de_DescribeDeliverySourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliverySourcesRequest;
+      output: DescribeDeliverySourcesResponse;
+    };
+    sdk: {
+      input: DescribeDeliverySourcesCommandInput;
+      output: DescribeDeliverySourcesCommandOutput;
+    };
+  };
+}

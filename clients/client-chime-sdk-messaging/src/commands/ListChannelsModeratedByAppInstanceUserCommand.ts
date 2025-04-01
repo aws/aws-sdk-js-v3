@@ -108,6 +108,7 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
@@ -118,9 +119,7 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
   )
   .ser(se_ListChannelsModeratedByAppInstanceUserCommand)
   .de(de_ListChannelsModeratedByAppInstanceUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelsModeratedByAppInstanceUserRequest;
+      output: ListChannelsModeratedByAppInstanceUserResponse;
+    };
+    sdk: {
+      input: ListChannelsModeratedByAppInstanceUserCommandInput;
+      output: ListChannelsModeratedByAppInstanceUserCommandOutput;
+    };
+  };
+}

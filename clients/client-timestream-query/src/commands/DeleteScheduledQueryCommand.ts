@@ -52,27 +52,26 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *  <p>You do not have the necessary permissions to access the account settings.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
+ *
  *
  * @public
  */
@@ -84,14 +83,16 @@ export class DeleteScheduledQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "DeleteScheduledQuery", {})
@@ -99,4 +100,16 @@ export class DeleteScheduledQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScheduledQueryCommand)
   .de(de_DeleteScheduledQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScheduledQueryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScheduledQueryCommandInput;
+      output: DeleteScheduledQueryCommandOutput;
+    };
+  };
+}

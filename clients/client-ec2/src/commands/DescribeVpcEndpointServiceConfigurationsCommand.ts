@@ -104,6 +104,13 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SupportedRegions: [ // SupportedRegionSet
+ * //         { // SupportedRegionDetail
+ * //           Region: "STRING_VALUE",
+ * //           ServiceState: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       RemoteAccessEnabled: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -120,6 +127,7 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
@@ -130,9 +138,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +150,16 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointServiceConfigurationsCommand)
   .de(de_DescribeVpcEndpointServiceConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointServiceConfigurationsRequest;
+      output: DescribeVpcEndpointServiceConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointServiceConfigurationsCommandInput;
+      output: DescribeVpcEndpointServiceConfigurationsCommandOutput;
+    };
+  };
+}

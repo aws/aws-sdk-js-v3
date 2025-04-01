@@ -25,25 +25,31 @@ export interface PerformanceInsightsMetric {
    * <p>The Performance Insights metric.</p>
    * @public
    */
-  Metric?: string;
+  Metric?: string | undefined;
 
   /**
    * <p>The Performance Insights metric name.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>A dimension map that contains the dimensions for this partition.</p>
    * @public
    */
-  Dimensions?: Record<string, string>;
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>The filter for the Performance Insights metric.</p>
+   * @public
+   */
+  Filter?: Record<string, string> | undefined;
 
   /**
    * <p>The value of the metric. For example, <code>9</code> for <code>db.load.avg</code>.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -61,7 +67,7 @@ export interface Data {
    *         </p>
    * @public
    */
-  PerformanceInsightsMetric?: PerformanceInsightsMetric;
+  PerformanceInsightsMetric?: PerformanceInsightsMetric | undefined;
 }
 
 /**
@@ -87,7 +93,7 @@ export interface Recommendation {
    * <p>The unique identifier for the recommendation.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>The recommendation details to help resolve the performance issue. For example,
@@ -95,7 +101,7 @@ export interface Recommendation {
    *          </p>
    * @public
    */
-  RecommendationDescription?: string;
+  RecommendationDescription?: string | undefined;
 }
 
 /**
@@ -175,37 +181,37 @@ export interface AnalysisReportSummary {
    * <p>The name of the analysis report.</p>
    * @public
    */
-  AnalysisReportId?: string;
+  AnalysisReportId?: string | undefined;
 
   /**
    * <p>The time you created the analysis report.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The start time of the analysis in the report.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time of the analysis in the report.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of the analysis report.</p>
    * @public
    */
-  Status?: AnalysisStatus;
+  Status?: AnalysisStatus | undefined;
 
   /**
    * <p>List of all the tags added to the analysis report.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -258,7 +264,7 @@ export interface CreatePerformanceAnalysisReportRequest {
    * <p>The metadata assigned to the analysis report consisting of a key-value pair.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -269,7 +275,7 @@ export interface CreatePerformanceAnalysisReportResponse {
    * <p>A unique identifier for the created analysis report.</p>
    * @public
    */
-  AnalysisReportId?: string;
+  AnalysisReportId?: string | undefined;
 }
 
 /**
@@ -279,7 +285,7 @@ export interface CreatePerformanceAnalysisReportResponse {
 export class InternalServiceError extends __BaseException {
   readonly name: "InternalServiceError" = "InternalServiceError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -301,7 +307,7 @@ export class InternalServiceError extends __BaseException {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -323,7 +329,7 @@ export class InvalidArgumentException extends __BaseException {
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -463,7 +469,23 @@ export interface DimensionGroup {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>db.blocking_sql</code> - The SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_session</code> - The sessions blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object</code> - The object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.host</code> - The host name of the connected client (all engines).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.plans</code> - The execution plans for the query (only Aurora PostgreSQL).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -526,6 +548,30 @@ export interface DimensionGroup {
    *                      <p>Amazon DocumentDB</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_sql.id</code> - The ID for each of the SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_sql.sql</code> - The SQL text for each of the SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_session.id</code> - The ID for each of the sessions blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.id</code> - The ID for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.type</code> - The object type for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.value</code> - The value for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -608,8 +654,9 @@ export interface DimensionGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.sql.tokenized_id</code>
-   *                </p>
+   *                   <code>db.sql.tokenized_id</code> - The hash of the SQL digest generated by Performance Insights (all engines except Amazon DocumentDB). The <code>db.sql.tokenized_id</code> dimension
+   *                     fetches the value of the <code>db.sql_tokenized.id</code> dimension. Amazon RDS returns <code>db.sql.tokenized_id</code> from the <code>db.sql</code> dimension group.
+   *                 </p>
    *             </li>
    *             <li>
    *                <p>
@@ -655,13 +702,13 @@ export interface DimensionGroup {
    *          </ul>
    * @public
    */
-  Dimensions?: string[];
+  Dimensions?: string[] | undefined;
 
   /**
    * <p>The maximum number of items to fetch for this dimension group.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -771,7 +818,7 @@ export interface DescribeDimensionKeysRequest {
    *         </p>
    * @public
    */
-  PeriodInSeconds?: number;
+  PeriodInSeconds?: number | undefined;
 
   /**
    * <p>A specification for how to aggregate the data points from a query result. You must specify a valid dimension group. Performance Insights returns all
@@ -784,10 +831,11 @@ export interface DescribeDimensionKeysRequest {
   /**
    * <p>Additional metrics for the top <code>N</code> dimension keys. If the specified dimension group in the <code>GroupBy</code> parameter is
    *                 <code>db.sql_tokenized</code>, you can specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response
-   *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>. </p>
+   *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>.</p>
+   *          <p>The only supported statistic function is <code>.avg</code>.</p>
    * @public
    */
-  AdditionalMetrics?: string[];
+  AdditionalMetrics?: string[] | undefined;
 
   /**
    * <p>For each dimension specified in <code>GroupBy</code>, specify a secondary dimension
@@ -795,7 +843,7 @@ export interface DescribeDimensionKeysRequest {
    *         </p>
    * @public
    */
-  PartitionBy?: DimensionGroup;
+  PartitionBy?: DimensionGroup | undefined;
 
   /**
    * <p>One or more filters to apply in the request. Restrictions:</p>
@@ -813,21 +861,21 @@ export interface DescribeDimensionKeysRequest {
    *          </note>
    * @public
    */
-  Filter?: Record<string, string>;
+  Filter?: Record<string, string> | undefined;
 
   /**
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
    *             pagination token is included in the response so that the remaining results can be retrieved. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond
    *             the token, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -840,25 +888,25 @@ export interface DimensionKeyDescription {
    * <p>A map of name-value pairs for the dimensions in the group.</p>
    * @public
    */
-  Dimensions?: Record<string, string>;
+  Dimensions?: Record<string, string> | undefined;
 
   /**
    * <p>The aggregated metric value for the dimensions, over the requested time range.</p>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 
   /**
    * <p>A map that contains the value for each additional metric.</p>
    * @public
    */
-  AdditionalMetrics?: Record<string, number>;
+  AdditionalMetrics?: Record<string, number> | undefined;
 
   /**
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
    * @public
    */
-  Partitions?: number[];
+  Partitions?: number[] | undefined;
 }
 
 /**
@@ -884,34 +932,34 @@ export interface DescribeDimensionKeysResponse {
    *             <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>. </p>
    * @public
    */
-  AlignedStartTime?: Date;
+  AlignedStartTime?: Date | undefined;
 
   /**
    * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *             <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>. </p>
    * @public
    */
-  AlignedEndTime?: Date;
+  AlignedEndTime?: Date | undefined;
 
   /**
    * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the
    *             specified partitions. </p>
    * @public
    */
-  PartitionKeys?: ResponsePartitionKey[];
+  PartitionKeys?: ResponsePartitionKey[] | undefined;
 
   /**
    * <p>The dimension keys that were requested.</p>
    * @public
    */
-  Keys?: DimensionKeyDescription[];
+  Keys?: DimensionKeyDescription[] | undefined;
 
   /**
    * <p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -938,7 +986,7 @@ export interface DimensionDetail {
    * <p>The identifier of a dimension.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 }
 
 /**
@@ -950,13 +998,13 @@ export interface DimensionGroupDetail {
    * <p>The name of the dimension group.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>The dimensions within a dimension group.</p>
    * @public
    */
-  Dimensions?: DimensionDetail[];
+  Dimensions?: DimensionDetail[] | undefined;
 }
 
 /**
@@ -979,7 +1027,7 @@ export interface DimensionKeyDetail {
    *          </ul>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The full name of the dimension. The full name includes the group name and key name. The following values are valid:</p>
@@ -995,7 +1043,7 @@ export interface DimensionKeyDetail {
    *          </ul>
    * @public
    */
-  Dimension?: string;
+  Dimension?: string | undefined;
 
   /**
    * <p>The status of the dimension detail data. Possible values include the following:</p>
@@ -1016,7 +1064,7 @@ export interface DimensionKeyDetail {
    *          </ul>
    * @public
    */
-  Status?: DetailStatus;
+  Status?: DetailStatus | undefined;
 }
 
 /**
@@ -1073,7 +1121,7 @@ export interface FeatureMetadata {
    *          </ul>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 }
 
 /**
@@ -1101,6 +1149,14 @@ export interface GetDimensionKeyDetailsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>db.execution_plan</code> (Amazon RDS and Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.lock_snapshot</code> (Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.query</code> (Amazon DocumentDB only)</p>
    *             </li>
    *             <li>
@@ -1118,11 +1174,19 @@ export interface GetDimensionKeyDetailsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>db.execution_plan.id</code> for dimension group <code>db.execution_plan</code> (Aurora and RDS only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.sql.id</code> for dimension group <code>db.sql</code> (Aurora and RDS only)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</p>
+   *             </li>
+   *             <li>
+   *                <p>For the dimension group <code>db.lock_snapshot</code>, the <code>GroupIdentifier</code> is the epoch timestamp when Performance Insights captured the snapshot, in seconds.
+   *                     You can retrieve this value with the <code>GetResourceMetrics</code> operation for a 1 second period.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1133,6 +1197,14 @@ export interface GetDimensionKeyDetailsRequest {
    * <p>A list of dimensions to retrieve the detail data for within the given dimension group. If you don't specify this parameter, Performance Insights returns
    *             all dimension data within the specified dimension group. Specify dimension names for the following dimension groups:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db.execution_plan</code> - Specify the dimension name <code>db.execution_plan.raw_plan</code> or the short dimension name <code>raw_plan</code> (Amazon RDS and Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.lock_snapshot</code> - Specify the dimension name <code>db.lock_snapshot.lock_trees</code> or the short dimension name <code>lock_trees</code>. (Aurora only)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>db.sql</code> - Specify either the full dimension name <code>db.sql.statement</code> or the short dimension name
@@ -1146,7 +1218,7 @@ export interface GetDimensionKeyDetailsRequest {
    *          </ul>
    * @public
    */
-  RequestedDimensions?: string[];
+  RequestedDimensions?: string[] | undefined;
 }
 
 /**
@@ -1157,7 +1229,7 @@ export interface GetDimensionKeyDetailsResponse {
    * <p>The details for the requested dimensions.</p>
    * @public
    */
-  Dimensions?: DimensionKeyDetail[];
+  Dimensions?: DimensionKeyDetail[] | undefined;
 }
 
 /**
@@ -1209,14 +1281,14 @@ export interface GetPerformanceAnalysisReportRequest {
    *             value is <code>plain text</code>.</p>
    * @public
    */
-  TextFormat?: TextFormat;
+  TextFormat?: TextFormat | undefined;
 
   /**
    * <p>The text language in the report. The default language is <code>EN_US</code> (English).
    *         </p>
    * @public
    */
-  AcceptLanguage?: AcceptLanguage;
+  AcceptLanguage?: AcceptLanguage | undefined;
 }
 
 /**
@@ -1251,14 +1323,14 @@ export interface GetResourceMetadataResponse {
    *         </p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>The metadata for different features. For example, the metadata might indicate that a feature is
    *             turned on or off on a specific DB instance.</p>
    * @public
    */
-  Features?: Record<string, FeatureMetadata>;
+  Features?: Record<string, FeatureMetadata> | undefined;
 }
 
 /**
@@ -1309,7 +1381,7 @@ export interface MetricQuery {
    *       that Performance Insights return a limited number of values for a dimension.</p>
    * @public
    */
-  GroupBy?: DimensionGroup;
+  GroupBy?: DimensionGroup | undefined;
 
   /**
    * <p>One or more filters to apply in the request.  Restrictions:</p>
@@ -1326,7 +1398,7 @@ export interface MetricQuery {
    *          </note>
    * @public
    */
-  Filter?: Record<string, string>;
+  Filter?: Record<string, string> | undefined;
 }
 
 /**
@@ -1433,27 +1505,26 @@ export interface GetResourceMetricsRequest {
    *             points in the response.</p>
    * @public
    */
-  PeriodInSeconds?: number;
+  PeriodInSeconds?: number | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
-   *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * <p>The maximum number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond
    *             the token, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>
    * @public
    */
-  PeriodAlignment?: PeriodAlignment;
+  PeriodAlignment?: PeriodAlignment | undefined;
 }
 
 /**
@@ -1496,7 +1567,7 @@ export interface ResponseResourceMetricKey {
    * <p>The valid dimensions for the metric.</p>
    * @public
    */
-  Dimensions?: Record<string, string>;
+  Dimensions?: Record<string, string> | undefined;
 }
 
 /**
@@ -1509,13 +1580,13 @@ export interface MetricKeyDataPoints {
    * <p>The dimensions to which the data points apply.</p>
    * @public
    */
-  Key?: ResponseResourceMetricKey;
+  Key?: ResponseResourceMetricKey | undefined;
 
   /**
    * <p>An array of timestamp-value pairs, representing measurements over a period of time.</p>
    * @public
    */
-  DataPoints?: DataPoint[];
+  DataPoints?: DataPoint[] | undefined;
 }
 
 /**
@@ -1527,14 +1598,14 @@ export interface GetResourceMetricsResponse {
    *                 <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>.</p>
    * @public
    */
-  AlignedStartTime?: Date;
+  AlignedStartTime?: Date | undefined;
 
   /**
    * <p>The end time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *                 <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>.</p>
    * @public
    */
-  AlignedEndTime?: Date;
+  AlignedEndTime?: Date | undefined;
 
   /**
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
@@ -1542,14 +1613,14 @@ export interface GetResourceMetricsResponse {
    *             returned as <code>DbiResourceId</code>.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>An array of metric results, where each array element contains all of the data points for a
    *           particular dimension.</p>
    * @public
    */
-  MetricList?: MetricKeyDataPoints[];
+  MetricList?: MetricKeyDataPoints[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
@@ -1557,7 +1628,7 @@ export interface GetResourceMetricsResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1590,7 +1661,7 @@ export interface ListAvailableResourceDimensionsRequest {
    *             results can be retrieved.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
@@ -1598,7 +1669,7 @@ export interface ListAvailableResourceDimensionsRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The actions to discover the dimensions you are authorized to access. If you specify multiple actions, then the response will
@@ -1607,7 +1678,7 @@ export interface ListAvailableResourceDimensionsRequest {
    *             available dimensions for the target database engine whether or not you are authorized to access them.</p>
    * @public
    */
-  AuthorizedActions?: FineGrainedAction[];
+  AuthorizedActions?: FineGrainedAction[] | undefined;
 }
 
 /**
@@ -1619,13 +1690,13 @@ export interface MetricDimensionGroups {
    * <p>The metric type to which the dimension information belongs.</p>
    * @public
    */
-  Metric?: string;
+  Metric?: string | undefined;
 
   /**
    * <p>The available dimension groups for a metric type.</p>
    * @public
    */
-  Groups?: DimensionGroupDetail[];
+  Groups?: DimensionGroupDetail[] | undefined;
 }
 
 /**
@@ -1636,14 +1707,14 @@ export interface ListAvailableResourceDimensionsResponse {
    * <p>The dimension information returned for requested metric types.</p>
    * @public
    */
-  MetricDimensions?: MetricDimensionGroups[];
+  MetricDimensions?: MetricDimensionGroups[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1694,14 +1765,14 @@ export interface ListAvailableResourceMetricsRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return. If the <code>MaxRecords</code> value is less than the number
    *             of existing items, the response includes a pagination token. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1714,19 +1785,19 @@ export interface ResponseResourceMetric {
    * <p>The full name of the metric.</p>
    * @public
    */
-  Metric?: string;
+  Metric?: string | undefined;
 
   /**
    * <p>The description of the metric.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unit of the metric.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -1739,14 +1810,14 @@ export interface ListAvailableResourceMetricsResponse {
    *         </p>
    * @public
    */
-  Metrics?: ResponseResourceMetric[];
+  Metrics?: ResponseResourceMetric[] | undefined;
 
   /**
    * <p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1776,20 +1847,20 @@ export interface ListPerformanceAnalysisReportsRequest {
    *             the token, up to the value specified by <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a
    *             pagination token is included in the response so that the remaining results can be retrieved. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies whether or not to include the list of tags in the response.</p>
    * @public
    */
-  ListTags?: boolean;
+  ListTags?: boolean | undefined;
 }
 
 /**
@@ -1801,7 +1872,7 @@ export interface ListPerformanceAnalysisReportsResponse {
    *             and status.</p>
    * @public
    */
-  AnalysisReports?: AnalysisReportSummary[];
+  AnalysisReports?: AnalysisReportSummary[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request.
@@ -1809,7 +1880,7 @@ export interface ListPerformanceAnalysisReportsResponse {
    *             up to the value specified by <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1840,7 +1911,7 @@ export interface ListTagsForResourceResponse {
    * <p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1918,37 +1989,37 @@ export interface Insight {
    * <p>The type of insight. For example, <code>HighDBLoad</code>, <code>HighCPU</code>, or <code>DominatingSQLs</code>.</p>
    * @public
    */
-  InsightType?: string;
+  InsightType?: string | undefined;
 
   /**
    * <p>Indicates if the insight is causal or correlated insight.</p>
    * @public
    */
-  Context?: ContextType;
+  Context?: ContextType | undefined;
 
   /**
    * <p>The start time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The severity of the insight. The values are: <code>Low</code>, <code>Medium</code>, or <code>High</code>.</p>
    * @public
    */
-  Severity?: Severity;
+  Severity?: Severity | undefined;
 
   /**
    * <p>List of supporting insights that provide additional factors for the insight.</p>
    * @public
    */
-  SupportingInsights?: Insight[];
+  SupportingInsights?: Insight[] | undefined;
 
   /**
    * <p>Description of the insight. For example:
@@ -1957,7 +2028,7 @@ export interface Insight {
    *                 Likely performance impact</code>.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>List of recommendations for the insight.
@@ -1965,13 +2036,13 @@ export interface Insight {
    *                 to 100% of the total DBLoad during that time period: sql-id</code>.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 
   /**
    * <p>List of data objects containing metrics and references from the time range while generating the insight.</p>
    * @public
    */
-  InsightData?: Data[];
+  InsightData?: Data[] | undefined;
 
   /**
    * <p>
@@ -1979,7 +2050,7 @@ export interface Insight {
    *             used as baseline to generate the insight.</p>
    * @public
    */
-  BaselineData?: Data[];
+  BaselineData?: Data[] | undefined;
 }
 
 /**
@@ -1997,7 +2068,7 @@ export interface AnalysisReport {
    * <p>The unique identifier of the analysis report.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>
@@ -2015,37 +2086,37 @@ export interface AnalysisReport {
    *          </ul>
    * @public
    */
-  ServiceType?: ServiceType;
+  ServiceType?: ServiceType | undefined;
 
   /**
    * <p>The time you created the analysis report.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The analysis start time in the report.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The analysis end time in the report.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of the created analysis report.</p>
    * @public
    */
-  Status?: AnalysisStatus;
+  Status?: AnalysisStatus | undefined;
 
   /**
    * <p>The list of identified insights in the analysis report.</p>
    * @public
    */
-  Insights?: Insight[];
+  Insights?: Insight[] | undefined;
 }
 
 /**
@@ -2056,7 +2127,7 @@ export interface GetPerformanceAnalysisReportResponse {
    * <p>The summary of the performance analysis report created for a time period.</p>
    * @public
    */
-  AnalysisReport?: AnalysisReport;
+  AnalysisReport?: AnalysisReport | undefined;
 }
 
 /**

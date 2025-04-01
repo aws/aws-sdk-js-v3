@@ -101,6 +101,7 @@ export interface ListWorkspaceServiceAccountTokensCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class ListWorkspaceServiceAccountTokensCommand extends $Command
@@ -111,9 +112,7 @@ export class ListWorkspaceServiceAccountTokensCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class ListWorkspaceServiceAccountTokensCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkspaceServiceAccountTokensCommand)
   .de(de_ListWorkspaceServiceAccountTokensCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkspaceServiceAccountTokensRequest;
+      output: ListWorkspaceServiceAccountTokensResponse;
+    };
+    sdk: {
+      input: ListWorkspaceServiceAccountTokensCommandInput;
+      output: ListWorkspaceServiceAccountTokensCommandOutput;
+    };
+  };
+}

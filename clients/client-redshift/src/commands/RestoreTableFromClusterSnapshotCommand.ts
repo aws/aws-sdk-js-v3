@@ -122,6 +122,7 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class RestoreTableFromClusterSnapshotCommand extends $Command
@@ -132,9 +133,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableFromClusterSnapshotCommand)
   .de(de_RestoreTableFromClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableFromClusterSnapshotMessage;
+      output: RestoreTableFromClusterSnapshotResult;
+    };
+    sdk: {
+      input: RestoreTableFromClusterSnapshotCommandInput;
+      output: RestoreTableFromClusterSnapshotCommandOutput;
+    };
+  };
+}

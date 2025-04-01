@@ -82,6 +82,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class GetCanaryRunsCommand extends $Command
@@ -92,9 +93,7 @@ export class GetCanaryRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class GetCanaryRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCanaryRunsCommand)
   .de(de_GetCanaryRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCanaryRunsRequest;
+      output: GetCanaryRunsResponse;
+    };
+    sdk: {
+      input: GetCanaryRunsCommandInput;
+      output: GetCanaryRunsCommandOutput;
+    };
+  };
+}

@@ -33,7 +33,7 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  *          <p>
  *             <code>CreateKeyspace</code> is an asynchronous operation. You can monitor the creation status of the new keyspace
  *           by using the <code>GetKeyspace</code> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create">Creating keyspaces</a> in the <i>Amazon Keyspaces Developer
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html">Create a keyspace</a> in the <i>Amazon Keyspaces Developer
  *              Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +91,7 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class CreateKeyspaceCommand extends $Command
@@ -101,9 +102,7 @@ export class CreateKeyspaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class CreateKeyspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyspaceCommand)
   .de(de_CreateKeyspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyspaceRequest;
+      output: CreateKeyspaceResponse;
+    };
+    sdk: {
+      input: CreateKeyspaceCommandInput;
+      output: CreateKeyspaceCommandOutput;
+    };
+  };
+}

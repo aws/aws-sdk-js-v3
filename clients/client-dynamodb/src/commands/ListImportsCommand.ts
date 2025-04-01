@@ -89,6 +89,7 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ListImportsCommand extends $Command
@@ -101,6 +102,7 @@ export class ListImportsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -113,4 +115,16 @@ export class ListImportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImportsCommand)
   .de(de_ListImportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImportsInput;
+      output: ListImportsOutput;
+    };
+    sdk: {
+      input: ListImportsCommandInput;
+      output: ListImportsCommandOutput;
+    };
+  };
+}

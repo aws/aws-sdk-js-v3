@@ -69,6 +69,12 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
  *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
+ *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
  *
@@ -81,6 +87,7 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteDatabaseCommand extends $Command
@@ -91,9 +98,7 @@ export class DeleteDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +110,16 @@ export class DeleteDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDatabaseCommand)
   .de(de_DeleteDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDatabaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDatabaseCommandInput;
+      output: DeleteDatabaseCommandOutput;
+    };
+  };
+}

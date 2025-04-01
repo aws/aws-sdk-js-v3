@@ -37,8 +37,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
- * 			in scheduled event notifications for resources in the Region.</p>
+ * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being
+ *          included in scheduled event notifications for resources in the Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,7 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command
@@ -86,9 +87,7 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeregisterInstanceEventNotificationAttributesCommand)
   .de(de_DeregisterInstanceEventNotificationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterInstanceEventNotificationAttributesRequest;
+      output: DeregisterInstanceEventNotificationAttributesResult;
+    };
+    sdk: {
+      input: DeregisterInstanceEventNotificationAttributesCommandInput;
+      output: DeregisterInstanceEventNotificationAttributesCommandOutput;
+    };
+  };
+}

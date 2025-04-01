@@ -83,6 +83,7 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeExpressionsCommand extends $Command
@@ -93,9 +94,7 @@ export class DescribeExpressionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DescribeExpressionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExpressionsCommand)
   .de(de_DescribeExpressionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExpressionsRequest;
+      output: DescribeExpressionsResponse;
+    };
+    sdk: {
+      input: DescribeExpressionsCommandInput;
+      output: DescribeExpressionsCommandOutput;
+    };
+  };
+}

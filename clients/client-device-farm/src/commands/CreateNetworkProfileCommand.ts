@@ -91,6 +91,7 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkProfileCommand extends $Command
@@ -101,9 +102,7 @@ export class CreateNetworkProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class CreateNetworkProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkProfileCommand)
   .de(de_CreateNetworkProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkProfileRequest;
+      output: CreateNetworkProfileResult;
+    };
+    sdk: {
+      input: CreateNetworkProfileCommandInput;
+      output: CreateNetworkProfileCommandOutput;
+    };
+  };
+}

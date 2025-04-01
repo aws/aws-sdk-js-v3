@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/ec2-metadata-service",
-  "version": "3.609.0",
+  "version": "3.778.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline ec2-metadata-service",
@@ -9,8 +9,10 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --passWithNoTests",
-    "test:e2e": "jest -c jest.config.e2e.js"
+    "test": "yarn g:vitest run --passWithNoTests",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
+    "test:watch": "yarn g:vitest watch --passWithNoTests",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,24 +24,24 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.3",
-    "@smithy/node-http-handler": "^3.1.1",
-    "@smithy/protocol-http": "^4.0.3",
-    "@smithy/types": "^3.3.0",
-    "@smithy/util-stream": "^3.0.5",
+    "@smithy/node-config-provider": "^4.0.2",
+    "@smithy/node-http-handler": "^4.0.4",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/types": "^4.2.0",
+    "@smithy/util-stream": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/credential-providers": "*",
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

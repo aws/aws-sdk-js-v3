@@ -128,6 +128,7 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class UpdatePullRequestApprovalRuleContentCommand extends $Command
@@ -138,9 +139,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePullRequestApprovalRuleContentCommand)
   .de(de_UpdatePullRequestApprovalRuleContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePullRequestApprovalRuleContentInput;
+      output: UpdatePullRequestApprovalRuleContentOutput;
+    };
+    sdk: {
+      input: UpdatePullRequestApprovalRuleContentCommandInput;
+      output: UpdatePullRequestApprovalRuleContentCommandOutput;
+    };
+  };
+}

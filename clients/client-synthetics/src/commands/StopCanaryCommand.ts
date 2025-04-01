@@ -69,6 +69,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class StopCanaryCommand extends $Command
@@ -79,9 +80,7 @@ export class StopCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class StopCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCanaryCommand)
   .de(de_StopCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCanaryCommandInput;
+      output: StopCanaryCommandOutput;
+    };
+  };
+}

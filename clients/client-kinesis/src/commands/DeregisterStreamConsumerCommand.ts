@@ -74,6 +74,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class DeregisterStreamConsumerCommand extends $Command
@@ -101,4 +102,16 @@ export class DeregisterStreamConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterStreamConsumerCommand)
   .de(de_DeregisterStreamConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterStreamConsumerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterStreamConsumerCommandInput;
+      output: DeregisterStreamConsumerCommandOutput;
+    };
+  };
+}

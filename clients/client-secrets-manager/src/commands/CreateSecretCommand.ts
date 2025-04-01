@@ -64,6 +64,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  *          <p>To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you need <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permission to the key. </p>
+ *          <important>
+ *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,28 +169,28 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To create a basic secret
  * ```javascript
  * // The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.
  * const input = {
- *   "ClientRequestToken": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "Description": "My test database secret created with the CLI",
- *   "Name": "MyTestDatabaseSecret",
- *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ *   ClientRequestToken: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   Description: "My test database secret created with the CLI",
+ *   Name: "MyTestDatabaseSecret",
+ *   SecretString: `{"username":"david","password":"EXAMPLE-PASSWORD"}`
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
  * }
  * *\/
- * // example id: to-create-a-basic-secret-1523996473658
  * ```
  *
+ * @public
  */
 export class CreateSecretCommand extends $Command
   .classBuilder<
@@ -197,9 +200,7 @@ export class CreateSecretCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -211,4 +212,16 @@ export class CreateSecretCommand extends $Command
   .f(CreateSecretRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSecretCommand)
   .de(de_CreateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecretRequest;
+      output: CreateSecretResponse;
+    };
+    sdk: {
+      input: CreateSecretCommandInput;
+      output: CreateSecretCommandOutput;
+    };
+  };
+}

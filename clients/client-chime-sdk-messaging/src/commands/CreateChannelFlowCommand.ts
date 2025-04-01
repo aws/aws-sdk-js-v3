@@ -128,6 +128,7 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelFlowCommand extends $Command
@@ -138,9 +139,7 @@ export class CreateChannelFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class CreateChannelFlowCommand extends $Command
   .f(CreateChannelFlowRequestFilterSensitiveLog, void 0)
   .ser(se_CreateChannelFlowCommand)
   .de(de_CreateChannelFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelFlowRequest;
+      output: CreateChannelFlowResponse;
+    };
+    sdk: {
+      input: CreateChannelFlowCommandInput;
+      output: CreateChannelFlowCommandOutput;
+    };
+  };
+}

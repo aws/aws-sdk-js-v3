@@ -10,7 +10,7 @@ import {
   SearchQuickResponsesRequestFilterSensitiveLog,
   SearchQuickResponsesResponse,
   SearchQuickResponsesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_SearchQuickResponsesCommand, se_SearchQuickResponsesCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
@@ -150,6 +150,7 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class SearchQuickResponsesCommand extends $Command
@@ -160,9 +161,7 @@ export class SearchQuickResponsesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +173,16 @@ export class SearchQuickResponsesCommand extends $Command
   .f(SearchQuickResponsesRequestFilterSensitiveLog, SearchQuickResponsesResponseFilterSensitiveLog)
   .ser(se_SearchQuickResponsesCommand)
   .de(de_SearchQuickResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchQuickResponsesRequest;
+      output: SearchQuickResponsesResponse;
+    };
+    sdk: {
+      input: SearchQuickResponsesCommandInput;
+      output: SearchQuickResponsesCommandOutput;
+    };
+  };
+}

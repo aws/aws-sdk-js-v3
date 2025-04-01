@@ -29,10 +29,6 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
 
 /**
  * <p> Updates the description of an existing fleet. </p>
- *          <note>
- *             <p>If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
- *                 with an empty HTTP body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +76,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateFleetCommand extends $Command
@@ -90,9 +87,7 @@ export class UpdateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +99,16 @@ export class UpdateFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetCommand)
   .de(de_UpdateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetRequest;
+      output: UpdateFleetResponse;
+    };
+    sdk: {
+      input: UpdateFleetCommandInput;
+      output: UpdateFleetCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class DisassociateResolverRuleCommand extends $Command
@@ -89,9 +90,7 @@ export class DisassociateResolverRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DisassociateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateResolverRuleCommand)
   .de(de_DisassociateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateResolverRuleRequest;
+      output: DisassociateResolverRuleResponse;
+    };
+    sdk: {
+      input: DisassociateResolverRuleCommandInput;
+      output: DisassociateResolverRuleCommandOutput;
+    };
+  };
+}

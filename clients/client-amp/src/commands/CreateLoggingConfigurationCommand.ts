@@ -75,6 +75,7 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class CreateLoggingConfigurationCommand extends $Command
@@ -85,9 +86,7 @@ export class CreateLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class CreateLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoggingConfigurationCommand)
   .de(de_CreateLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoggingConfigurationRequest;
+      output: CreateLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLoggingConfigurationCommandInput;
+      output: CreateLoggingConfigurationCommandOutput;
+    };
+  };
+}

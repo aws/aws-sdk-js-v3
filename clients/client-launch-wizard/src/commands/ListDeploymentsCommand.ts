@@ -81,6 +81,38 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List deployments in the account with filters.
+ * ```javascript
+ * //
+ * const input = {
+ *   filters: [
+ *     {
+ *       name: "DEPLOYMENT_STATUS",
+ *       values: [
+ *         "IN_PROGRESS"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new ListDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   deployments: [
+ *     {
+ *       createdAt: "2023-04-24T13:10:09.857Z",
+ *       id: "4c1b59c1-659c-467f-b6e9-6ef6f9d28e1d",
+ *       name: "SapHanaSingleForTest",
+ *       patternName: "SapHanaSingle",
+ *       status: "IN_PROGRESS",
+ *       workloadName: "SAP"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListDeploymentsCommand extends $Command
@@ -91,9 +123,7 @@ export class ListDeploymentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +135,16 @@ export class ListDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentsCommand)
   .de(de_ListDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentsInput;
+      output: ListDeploymentsOutput;
+    };
+    sdk: {
+      input: ListDeploymentsCommandInput;
+      output: ListDeploymentsCommandOutput;
+    };
+  };
+}

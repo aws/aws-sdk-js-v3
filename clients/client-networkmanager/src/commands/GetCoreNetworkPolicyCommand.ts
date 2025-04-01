@@ -87,6 +87,7 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkPolicyCommand extends $Command
@@ -97,9 +98,7 @@ export class GetCoreNetworkPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class GetCoreNetworkPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkPolicyCommand)
   .de(de_GetCoreNetworkPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkPolicyRequest;
+      output: GetCoreNetworkPolicyResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkPolicyCommandInput;
+      output: GetCoreNetworkPolicyCommandOutput;
+    };
+  };
+}

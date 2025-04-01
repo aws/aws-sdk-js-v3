@@ -158,6 +158,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppCommand extends $Command
@@ -168,9 +169,7 @@ export class UpdateAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +181,16 @@ export class UpdateAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppCommand)
   .de(de_UpdateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppRequest;
+      output: UpdateAppResponse;
+    };
+    sdk: {
+      input: UpdateAppCommandInput;
+      output: UpdateAppCommandOutput;
+    };
+  };
+}

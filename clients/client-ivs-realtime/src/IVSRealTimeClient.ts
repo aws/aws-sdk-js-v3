@@ -58,6 +58,10 @@ import {
   CreateEncoderConfigurationCommandOutput,
 } from "./commands/CreateEncoderConfigurationCommand";
 import {
+  CreateIngestConfigurationCommandInput,
+  CreateIngestConfigurationCommandOutput,
+} from "./commands/CreateIngestConfigurationCommand";
+import {
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
@@ -70,6 +74,10 @@ import {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
+import {
+  DeleteIngestConfigurationCommandInput,
+  DeleteIngestConfigurationCommandOutput,
+} from "./commands/DeleteIngestConfigurationCommand";
 import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
@@ -85,6 +93,10 @@ import {
   GetEncoderConfigurationCommandInput,
   GetEncoderConfigurationCommandOutput,
 } from "./commands/GetEncoderConfigurationCommand";
+import {
+  GetIngestConfigurationCommandInput,
+  GetIngestConfigurationCommandOutput,
+} from "./commands/GetIngestConfigurationCommand";
 import { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
 import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
@@ -99,6 +111,10 @@ import {
   ListEncoderConfigurationsCommandInput,
   ListEncoderConfigurationsCommandOutput,
 } from "./commands/ListEncoderConfigurationsCommand";
+import {
+  ListIngestConfigurationsCommandInput,
+  ListIngestConfigurationsCommandOutput,
+} from "./commands/ListIngestConfigurationsCommand";
 import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
@@ -119,6 +135,10 @@ import { StartCompositionCommandInput, StartCompositionCommandOutput } from "./c
 import { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateIngestConfigurationCommandInput,
+  UpdateIngestConfigurationCommandOutput,
+} from "./commands/UpdateIngestConfigurationCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import {
   ClientInputEndpointParameters,
@@ -136,16 +156,19 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateEncoderConfigurationCommandInput
+  | CreateIngestConfigurationCommandInput
   | CreateParticipantTokenCommandInput
   | CreateStageCommandInput
   | CreateStorageConfigurationCommandInput
   | DeleteEncoderConfigurationCommandInput
+  | DeleteIngestConfigurationCommandInput
   | DeletePublicKeyCommandInput
   | DeleteStageCommandInput
   | DeleteStorageConfigurationCommandInput
   | DisconnectParticipantCommandInput
   | GetCompositionCommandInput
   | GetEncoderConfigurationCommandInput
+  | GetIngestConfigurationCommandInput
   | GetParticipantCommandInput
   | GetPublicKeyCommandInput
   | GetStageCommandInput
@@ -154,6 +177,7 @@ export type ServiceInputTypes =
   | ImportPublicKeyCommandInput
   | ListCompositionsCommandInput
   | ListEncoderConfigurationsCommandInput
+  | ListIngestConfigurationsCommandInput
   | ListParticipantEventsCommandInput
   | ListParticipantsCommandInput
   | ListPublicKeysCommandInput
@@ -165,6 +189,7 @@ export type ServiceInputTypes =
   | StopCompositionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateIngestConfigurationCommandInput
   | UpdateStageCommandInput;
 
 /**
@@ -172,16 +197,19 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateEncoderConfigurationCommandOutput
+  | CreateIngestConfigurationCommandOutput
   | CreateParticipantTokenCommandOutput
   | CreateStageCommandOutput
   | CreateStorageConfigurationCommandOutput
   | DeleteEncoderConfigurationCommandOutput
+  | DeleteIngestConfigurationCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteStageCommandOutput
   | DeleteStorageConfigurationCommandOutput
   | DisconnectParticipantCommandOutput
   | GetCompositionCommandOutput
   | GetEncoderConfigurationCommandOutput
+  | GetIngestConfigurationCommandOutput
   | GetParticipantCommandOutput
   | GetPublicKeyCommandOutput
   | GetStageCommandOutput
@@ -190,6 +218,7 @@ export type ServiceOutputTypes =
   | ImportPublicKeyCommandOutput
   | ListCompositionsCommandOutput
   | ListEncoderConfigurationsCommandOutput
+  | ListIngestConfigurationsCommandOutput
   | ListParticipantEventsCommandOutput
   | ListParticipantsCommandOutput
   | ListPublicKeysCommandOutput
@@ -201,6 +230,7 @@ export type ServiceOutputTypes =
   | StopCompositionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateIngestConfigurationCommandOutput
   | UpdateStageCommandOutput;
 
 /**
@@ -295,6 +325,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -340,11 +389,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type IVSRealTimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -360,11 +409,11 @@ export interface IVSRealTimeClientConfig extends IVSRealTimeClientConfigType {}
 export type IVSRealTimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -406,7 +455,7 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *                <p>
  *                   <b>Composition process</b> — Composites participants
  *             of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
- *             Composition endpoints support this process.</p>
+ *             Composition operations support this process.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -421,13 +470,13 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *          <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
  *       comprises a <i>key</i> and a <i>value</i>, both set by you. For
  *       example, you might set a tag as <code>topic:nature</code> to label a particular video
- *       category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
- *       tags and "Tag naming limits and requirements"; Amazon IVS stages has no service-specific
- *       constraints beyond what is documented there.</p>
+ *       category. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+ *       in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+ *       limits and requirements"; Amazon IVS stages has no service-specific constraints beyond what is documented there.</p>
  *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
  *       same tag for different resources to indicate that they are related. You can also use tags to
  *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
- *          <p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *          <p>The Amazon IVS real-time API has these tag-related operations: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
  * @public
@@ -445,26 +494,30 @@ export class IVSRealTimeClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<IVSRealTimeClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultIVSRealTimeHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: IVSRealTimeClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -477,14 +530,5 @@ export class IVSRealTimeClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultIVSRealTimeHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: IVSRealTimeClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

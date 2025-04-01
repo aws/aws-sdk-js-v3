@@ -46,6 +46,12 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  *        <code>SEVERITY</code>
  *                </p>
  *             </dd>
+ *             <dt>AMAZON_LINUX_2023</dt>
+ *             <dd>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
+ *             </dd>
  *             <dt>CENTOS</dt>
  *             <dd>
  *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
@@ -130,6 +136,7 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribePatchPropertiesCommand extends $Command
@@ -140,9 +147,7 @@ export class DescribePatchPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +159,16 @@ export class DescribePatchPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePatchPropertiesCommand)
   .de(de_DescribePatchPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePatchPropertiesRequest;
+      output: DescribePatchPropertiesResult;
+    };
+    sdk: {
+      input: DescribePatchPropertiesCommandInput;
+      output: DescribePatchPropertiesCommandOutput;
+    };
+  };
+}

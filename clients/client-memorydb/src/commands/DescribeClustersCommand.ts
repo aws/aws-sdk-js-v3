@@ -66,6 +66,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //           },
  * //         ],
  * //       },
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //       NumberOfShards: Number("int"),
  * //       Shards: [ // ShardList
  * //         { // Shard
@@ -93,6 +94,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //         Port: Number("int"),
  * //       },
  * //       NodeType: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
  * //       EngineVersion: "STRING_VALUE",
  * //       EnginePatchVersion: "STRING_VALUE",
  * //       ParameterGroupName: "STRING_VALUE",
@@ -142,6 +144,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeClustersCommand extends $Command
@@ -152,9 +155,7 @@ export class DescribeClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +167,16 @@ export class DescribeClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClustersCommand)
   .de(de_DescribeClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClustersRequest;
+      output: DescribeClustersResponse;
+    };
+    sdk: {
+      input: DescribeClustersCommandInput;
+      output: DescribeClustersCommandOutput;
+    };
+  };
+}

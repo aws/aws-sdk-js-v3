@@ -48,7 +48,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * //     { // Plugin
  * //       pluginId: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
- * //       type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //       type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //       serverUrl: "STRING_VALUE",
  * //       state: "ENABLED" || "DISABLED",
  * //       buildStatus: "READY" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
@@ -75,8 +75,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -89,6 +89,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListPluginsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListPluginsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListPluginsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPluginsCommand)
   .de(de_ListPluginsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPluginsRequest;
+      output: ListPluginsResponse;
+    };
+    sdk: {
+      input: ListPluginsCommandInput;
+      output: ListPluginsCommandOutput;
+    };
+  };
+}

@@ -72,6 +72,7 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class GetResourceMetadataCommand extends $Command
@@ -82,9 +83,7 @@ export class GetResourceMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class GetResourceMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceMetadataCommand)
   .de(de_GetResourceMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceMetadataRequest;
+      output: GetResourceMetadataResponse;
+    };
+    sdk: {
+      input: GetResourceMetadataCommandInput;
+      output: GetResourceMetadataCommandOutput;
+    };
+  };
+}

@@ -123,6 +123,7 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class UpdateNetworkSiteCommand extends $Command
@@ -133,9 +134,7 @@ export class UpdateNetworkSiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class UpdateNetworkSiteCommand extends $Command
   .f(void 0, UpdateNetworkSiteResponseFilterSensitiveLog)
   .ser(se_UpdateNetworkSiteCommand)
   .de(de_UpdateNetworkSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNetworkSiteRequest;
+      output: UpdateNetworkSiteResponse;
+    };
+    sdk: {
+      input: UpdateNetworkSiteCommandInput;
+      output: UpdateNetworkSiteCommandOutput;
+    };
+  };
+}

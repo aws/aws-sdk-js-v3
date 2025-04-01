@@ -61,7 +61,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: STSHttpAuthSchemeParam
       name: "sts",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: STSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<STSClientConfig>, context) => ({
       /**
        * @internal
        */
@@ -115,23 +115,23 @@ export interface StsAuthResolvedConfig {
   stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
 }
 
-export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsAuthResolvedConfig => ({
-  ...input,
-  stsClientCtor: STSClient,
-});
+export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsAuthResolvedConfig =>
+  Object.assign(input, {
+    stsClientCtor: STSClient,
+  });
 
 /**
  * @internal
  */
 export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSigV4AuthInputConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   httpAuthSchemes?: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   httpAuthSchemeProvider?: STSHttpAuthSchemeProvider;
@@ -142,13 +142,13 @@ export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSig
  */
 export interface HttpAuthSchemeResolvedConfig extends StsAuthResolvedConfig, AwsSdkSigV4AuthResolvedConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   readonly httpAuthSchemes: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   readonly httpAuthSchemeProvider: STSHttpAuthSchemeProvider;
@@ -162,7 +162,5 @@ export const resolveHttpAuthSchemeConfig = <T>(
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveStsAuthConfig(config);
   const config_1 = resolveAwsSdkSigV4Config(config_0);
-  return {
-    ...config_1,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_1, {}) as T & HttpAuthSchemeResolvedConfig;
 };

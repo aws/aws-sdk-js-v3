@@ -28,7 +28,7 @@ export interface GetDetectorCommandInput extends GetDetectorRequest {}
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
+ * <p>Retrieves a GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
@@ -113,6 +113,7 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetDetectorCommand extends $Command
@@ -123,9 +124,7 @@ export class GetDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class GetDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDetectorCommand)
   .de(de_GetDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDetectorRequest;
+      output: GetDetectorResponse;
+    };
+    sdk: {
+      input: GetDetectorCommandInput;
+      output: GetDetectorCommandOutput;
+    };
+  };
+}

@@ -166,7 +166,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: { // NegativeFormat
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",
@@ -208,7 +208,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: {
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",
@@ -285,12 +285,18 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *         ],
  *       },
  *     ],
+ *     ConfigOptions: { // TopicConfigOptions
+ *       QBusinessInsightsEnabled: true || false,
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
+ *   ],
+ *   FolderArns: [ // FolderArnList
+ *     "STRING_VALUE",
  *   ],
  * };
  * const command = new CreateTopicCommand(input);
@@ -341,6 +347,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateTopicCommand extends $Command
@@ -351,9 +358,7 @@ export class CreateTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -365,4 +370,16 @@ export class CreateTopicCommand extends $Command
   .f(CreateTopicRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTopicCommand)
   .de(de_CreateTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTopicRequest;
+      output: CreateTopicResponse;
+    };
+    sdk: {
+      input: CreateTopicCommandInput;
+      output: CreateTopicCommandOutput;
+    };
+  };
+}

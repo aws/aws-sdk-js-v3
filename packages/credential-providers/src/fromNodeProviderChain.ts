@@ -15,8 +15,14 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  * // const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
  *
  * const credentialProvider = fromNodeProviderChain({
- *   //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
+ *   // init properties for fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
  *   // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
+ *
+ *   // For instance, to ignore the ini shared cache, change the credentials filepath for all
+ *   // providers, and set the sso start id:
+ *   ignoreCache: true,
+ *   filepath: "~/.config/aws/credentials",
+ *   ssoStartUrl: "https://d-abc123.awsapps.com/start"
  *
  *   // Optional. Custom STS client configurations overriding the default ones.
  *   clientConfig: { region },
@@ -25,6 +31,8 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *   clientPlugins: [addFooHeadersPlugin],
  * })
  * ```
+ *
+ * @public
  */
 export const fromNodeProviderChain = (init: DefaultProviderInit = {}): AwsCredentialIdentityProvider =>
   defaultProvider({

@@ -80,25 +80,25 @@ export interface StopRetrainingSchedulerCommandOutput extends StopRetrainingSche
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Stops a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new StopRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "STOPPING"
+ *   ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ModelName: "sample-model",
+ *   Status: "STOPPING"
  * }
  * *\/
- * // example id: stops-a-retraining-scheduler-1694019734149
  * ```
  *
+ * @public
  */
 export class StopRetrainingSchedulerCommand extends $Command
   .classBuilder<
@@ -108,9 +108,7 @@ export class StopRetrainingSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class StopRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopRetrainingSchedulerCommand)
   .de(de_StopRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopRetrainingSchedulerRequest;
+      output: StopRetrainingSchedulerResponse;
+    };
+    sdk: {
+      input: StopRetrainingSchedulerCommandInput;
+      output: StopRetrainingSchedulerCommandOutput;
+    };
+  };
+}

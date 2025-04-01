@@ -73,7 +73,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         },
  * //         ResourceId: "STRING_VALUE", // required
  * //         DrmSystems: [ // DrmSystems // required
- * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE",
+ * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE" || "IRDETO",
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
@@ -82,6 +82,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
+ * //   ResetAt: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
  * //   StartoverWindowSeconds: Number("int"),
  * //   HlsManifests: [ // GetHlsManifests
@@ -99,7 +100,13 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
+ * //       StartTag: { // StartTag
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
+ * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -117,7 +124,13 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
+ * //       StartTag: {
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
+ * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   DashManifests: [ // GetDashManifests
@@ -130,6 +143,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
  * //       MinUpdatePeriodSeconds: Number("int"),
  * //       MinBufferTimeSeconds: Number("int"),
@@ -185,122 +199,122 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Getting an OriginEndpoint
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpointTS"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpointTS"
  * };
  * const command = new GetOriginEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointTS",
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "ContainerType": "TS",
- *   "CreatedAt": "2022-10-18T09:36:00.00Z",
- *   "Description": "Description for exampleOriginEndpointTS",
- *   "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
- *   "ForceEndpointErrorConfiguration": {
- *     "EndpointErrorConditions": [
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointTS",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   ContainerType: "TS",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleOriginEndpointTS",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   ForceEndpointErrorConfiguration: {
+ *     EndpointErrorConditions: [
  *       "STALE_MANIFEST",
  *       "INCOMPLETE_MANIFEST",
  *       "MISSING_DRM_KEY",
  *       "SLATE_INPUT"
  *     ]
  *   },
- *   "HlsManifests": [
+ *   HlsManifests: [
  *     {
- *       "ChildManifestName": "exampleChildManifest1",
- *       "ManifestName": "exampleManifest1",
- *       "ManifestWindowSeconds": 30,
- *       "ProgramDateTimeIntervalSeconds": 60,
- *       "ScteHls": {
- *         "AdMarkerHls": "DATERANGE"
+ *       ChildManifestName: "exampleChildManifest1",
+ *       ManifestName: "exampleManifest1",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
  *       },
- *       "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
  *     },
  *     {
- *       "ChildManifestName": "exampleManifest2",
- *       "ManifestName": "exampleManifest2",
- *       "ManifestWindowSeconds": 30,
- *       "ProgramDateTimeIntervalSeconds": 60,
- *       "ScteHls": {
- *         "AdMarkerHls": "DATERANGE"
+ *       ChildManifestName: "exampleManifest2",
+ *       ManifestName: "exampleManifest2",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
  *       },
- *       "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
  *     }
  *   ],
- *   "LowLatencyHlsManifests": [
+ *   LowLatencyHlsManifests: [
  *     {
- *       "ChildManifestName": "exampleLLChildManifest1",
- *       "ManifestName": "exampleLLManifest1",
- *       "ManifestWindowSeconds": 30,
- *       "ProgramDateTimeIntervalSeconds": 60,
- *       "ScteHls": {
- *         "AdMarkerHls": "DATERANGE"
+ *       ChildManifestName: "exampleLLChildManifest1",
+ *       ManifestName: "exampleLLManifest1",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
  *       },
- *       "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
  *     },
  *     {
- *       "ChildManifestName": "exampleLLManifest2",
- *       "ManifestName": "exampleLLManifest2",
- *       "ManifestWindowSeconds": 30,
- *       "ProgramDateTimeIntervalSeconds": 60,
- *       "ScteHls": {
- *         "AdMarkerHls": "DATERANGE"
+ *       ChildManifestName: "exampleLLManifest2",
+ *       ManifestName: "exampleLLManifest2",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
  *       },
- *       "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
  *     }
  *   ],
- *   "ModifiedAt": "2022-10-18T09:36:00.00Z",
- *   "OriginEndpointName": "exampleOriginEndpointTS",
- *   "Segment": {
- *     "Encryption": {
- *       "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
- *       "EncryptionMethod": {
- *         "TsEncryptionMethod": "AES_128"
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   OriginEndpointName: "exampleOriginEndpointTS",
+ *   Segment: {
+ *     Encryption: {
+ *       ConstantInitializationVector: "A382A901F3C1F7718512266CFFBB0B7E",
+ *       EncryptionMethod: {
+ *         TsEncryptionMethod: "AES_128"
  *       },
- *       "KeyRotationIntervalSeconds": 300,
- *       "SpekeKeyProvider": {
- *         "DrmSystems": [
+ *       KeyRotationIntervalSeconds: 300,
+ *       SpekeKeyProvider: {
+ *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
- *         "EncryptionContractConfiguration": {
- *           "PresetSpeke20Audio": "SHARED",
- *           "PresetSpeke20Video": "SHARED"
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "SHARED",
+ *           PresetSpeke20Video: "SHARED"
  *         },
- *         "ResourceId": "ResourceId",
- *         "RoleArn": "arn:aws:iam::123456789012:role/empRole",
- *         "Url": "https://foo.com"
+ *         ResourceId: "ResourceId",
+ *         RoleArn: "arn:aws:iam::123456789012:role/empRole",
+ *         Url: "https://foo.com"
  *       }
  *     },
- *     "IncludeIframeOnlyStreams": true,
- *     "Scte": {
- *       "ScteFilter": [
+ *     IncludeIframeOnlyStreams: true,
+ *     Scte: {
+ *       ScteFilter: [
  *         "SPLICE_INSERT",
  *         "BREAK"
  *       ]
  *     },
- *     "SegmentDurationSeconds": 6,
- *     "SegmentName": "segmentName",
- *     "TsIncludeDvbSubtitles": true,
- *     "TsUseAudioRenditionGroup": true
+ *     SegmentDurationSeconds: 6,
+ *     SegmentName: "segmentName",
+ *     TsIncludeDvbSubtitles: true,
+ *     TsUseAudioRenditionGroup: true
  *   },
- *   "StartoverWindowSeconds": 300,
- *   "Tags": {
- *     "key1": "value1",
- *     "key2": "value2"
+ *   StartoverWindowSeconds: 300,
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetOriginEndpointCommand extends $Command
   .classBuilder<
@@ -310,9 +324,7 @@ export class GetOriginEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -324,4 +336,16 @@ export class GetOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginEndpointCommand)
   .de(de_GetOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginEndpointRequest;
+      output: GetOriginEndpointResponse;
+    };
+    sdk: {
+      input: GetOriginEndpointCommandInput;
+      output: GetOriginEndpointCommandOutput;
+    };
+  };
+}

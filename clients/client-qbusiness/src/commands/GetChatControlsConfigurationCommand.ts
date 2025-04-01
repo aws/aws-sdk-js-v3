@@ -33,7 +33,7 @@ export interface GetChatControlsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about an chat controls configured for an existing Amazon Q Business
+ * <p>Gets information about chat controls configured for an existing Amazon Q Business
  *             application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +50,9 @@ export interface GetChatControlsConfigurationCommandOutput
  * const response = await client.send(command);
  * // { // GetChatControlsConfigurationResponse
  * //   responseScope: "ENTERPRISE_CONTENT_ONLY" || "EXTENDED_KNOWLEDGE_ENABLED",
+ * //   orchestrationConfiguration: { // AppliedOrchestrationConfiguration
+ * //     control: "ENABLED" || "DISABLED", // required
+ * //   },
  * //   blockedPhrases: { // BlockedPhrasesConfiguration
  * //     blockedPhrases: [ // BlockedPhrases
  * //       "STRING_VALUE",
@@ -122,8 +125,8 @@ export interface GetChatControlsConfigurationCommandOutput
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -136,6 +139,7 @@ export interface GetChatControlsConfigurationCommandOutput
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class GetChatControlsConfigurationCommand extends $Command
@@ -146,9 +150,7 @@ export class GetChatControlsConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +162,16 @@ export class GetChatControlsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChatControlsConfigurationCommand)
   .de(de_GetChatControlsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChatControlsConfigurationRequest;
+      output: GetChatControlsConfigurationResponse;
+    };
+    sdk: {
+      input: GetChatControlsConfigurationCommandInput;
+      output: GetChatControlsConfigurationCommandOutput;
+    };
+  };
+}

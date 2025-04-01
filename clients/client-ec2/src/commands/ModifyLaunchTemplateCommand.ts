@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyLaunchTemplateRequest, ModifyLaunchTemplateResult } from "../models/models_6";
+import { ModifyLaunchTemplateRequest, ModifyLaunchTemplateResult } from "../models/models_7";
 import { de_ModifyLaunchTemplateCommand, se_ModifyLaunchTemplateCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -60,6 +60,10 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -74,31 +78,31 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To change the default version of a launch template
  * ```javascript
  * // This example specifies version 2 as the default version of the specified launch template.
  * const input = {
- *   "DefaultVersion": "2",
- *   "LaunchTemplateId": "lt-0abcd290751193123"
+ *   DefaultVersion: "2",
+ *   LaunchTemplateId: "lt-0abcd290751193123"
  * };
  * const command = new ModifyLaunchTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplate": {
- *     "CreateTime": "2017-12-01T13:35:46.000Z",
- *     "CreatedBy": "arn:aws:iam::123456789012:root",
- *     "DefaultVersionNumber": 2,
- *     "LatestVersionNumber": 2,
- *     "LaunchTemplateId": "lt-0abcd290751193123",
- *     "LaunchTemplateName": "WebServers"
+ *   LaunchTemplate: {
+ *     CreateTime: "2017-12-01T13:35:46.000Z",
+ *     CreatedBy: "arn:aws:iam::123456789012:root",
+ *     DefaultVersionNumber: 2,
+ *     LatestVersionNumber: 2,
+ *     LaunchTemplateId: "lt-0abcd290751193123",
+ *     LaunchTemplateName: "WebServers"
  *   }
  * }
  * *\/
- * // example id: to-change-the-default-version-of-a-launch-template-1529358440364
  * ```
  *
+ * @public
  */
 export class ModifyLaunchTemplateCommand extends $Command
   .classBuilder<
@@ -108,9 +112,7 @@ export class ModifyLaunchTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +124,16 @@ export class ModifyLaunchTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyLaunchTemplateCommand)
   .de(de_ModifyLaunchTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyLaunchTemplateRequest;
+      output: ModifyLaunchTemplateResult;
+    };
+    sdk: {
+      input: ModifyLaunchTemplateCommandInput;
+      output: ModifyLaunchTemplateCommandOutput;
+    };
+  };
+}

@@ -32,14 +32,19 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *          <p>You can only create a node group for your cluster that is equal to the current Kubernetes
  *             version for the cluster. All node groups are created with the latest AMI release version
  *             for the respective minor Kubernetes version of the cluster, unless you deploy a custom AMI
- *             using a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a>.</p>
- *          <p>An Amazon EKS managed node group is an Amazon EC2
- *             Auto Scaling group and associated Amazon EC2 instances that are managed by
- *                 Amazon Web Services for an Amazon EKS cluster. For more information, see
- *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed node groups</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             using a launch template.</p>
+ *          <p>For later updates, you will only be able to update a node group using a launch
+ *             template only if it was originally deployed with a launch template. Additionally, the
+ *             launch template ID or name must match what was used when the node group was created. You
+ *             can update the launch template version with necessary changes. For more information
+ *             about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with
+ *                 launch templates</a>.</p>
+ *          <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
+ *             are managed by Amazon Web Services for an Amazon EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+ *                 node groups</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <note>
- *             <p>Windows AMI types are only supported for commercial Amazon Web Services Regions
- *                 that support Windows on Amazon EKS.</p>
+ *             <p>Windows AMI types are only supported for commercial Amazon Web Services Regions that support
+ *                 Windows on Amazon EKS.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,7 +67,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   instanceTypes: [
  *     "STRING_VALUE",
  *   ],
- *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD",
+ *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA",
  *   remoteAccess: { // RemoteAccessConfig
  *     ec2SshKey: "STRING_VALUE",
  *     sourceSecurityGroups: [
@@ -92,6 +97,10 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   updateConfig: { // NodegroupUpdateConfig
  *     maxUnavailable: Number("int"),
  *     maxUnavailablePercentage: Number("int"),
+ *     updateStrategy: "DEFAULT" || "MINIMAL",
+ *   },
+ *   nodeRepairConfig: { // NodeRepairConfig
+ *     enabled: true || false,
  *   },
  *   capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   version: "STRING_VALUE",
@@ -127,7 +136,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD",
+ * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA",
  * //     nodeRole: "STRING_VALUE",
  * //     labels: { // labelsMap
  * //       "<keys>": "STRING_VALUE",
@@ -151,7 +160,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     health: { // NodegroupHealth
  * //       issues: [ // IssueList
  * //         { // Issue
- * //           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "Ec2SubnetMissingIpv6Assignment" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "AmiIdNotFound" || "AutoScalingGroupOptInRequired" || "AutoScalingGroupRateLimitExceeded" || "Ec2LaunchTemplateDeletionFailure" || "Ec2LaunchTemplateInvalidConfiguration" || "Ec2LaunchTemplateMaxLimitExceeded" || "Ec2SubnetListTooLong" || "IamThrottling" || "NodeTerminationFailure" || "PodEvictionFailure" || "SourceEc2LaunchTemplateNotFound" || "LimitExceeded" || "Unknown" || "AutoScalingGroupInstanceRefreshActive" || "KubernetesLabelInvalid" || "Ec2LaunchTemplateVersionMaxLimitExceeded",
+ * //           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "Ec2SubnetMissingIpv6Assignment" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "AmiIdNotFound" || "AutoScalingGroupOptInRequired" || "AutoScalingGroupRateLimitExceeded" || "Ec2LaunchTemplateDeletionFailure" || "Ec2LaunchTemplateInvalidConfiguration" || "Ec2LaunchTemplateMaxLimitExceeded" || "Ec2SubnetListTooLong" || "IamThrottling" || "NodeTerminationFailure" || "PodEvictionFailure" || "SourceEc2LaunchTemplateNotFound" || "LimitExceeded" || "Unknown" || "AutoScalingGroupInstanceRefreshActive" || "KubernetesLabelInvalid" || "Ec2LaunchTemplateVersionMaxLimitExceeded" || "Ec2InstanceTypeDoesNotExist",
  * //           message: "STRING_VALUE",
  * //           resourceIds: "<StringList>",
  * //         },
@@ -160,6 +169,10 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     updateConfig: { // NodegroupUpdateConfig
  * //       maxUnavailable: Number("int"),
  * //       maxUnavailablePercentage: Number("int"),
+ * //       updateStrategy: "DEFAULT" || "MINIMAL",
+ * //     },
+ * //     nodeRepairConfig: { // NodeRepairConfig
+ * //       enabled: true || false,
  * //     },
  * //     launchTemplate: { // LaunchTemplateSpecification
  * //       name: "STRING_VALUE",
@@ -208,6 +221,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class CreateNodegroupCommand extends $Command
@@ -218,9 +232,7 @@ export class CreateNodegroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -232,4 +244,16 @@ export class CreateNodegroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNodegroupCommand)
   .de(de_CreateNodegroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNodegroupRequest;
+      output: CreateNodegroupResponse;
+    };
+    sdk: {
+      input: CreateNodegroupCommandInput;
+      output: CreateNodegroupCommandOutput;
+    };
+  };
+}

@@ -13,6 +13,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -49,6 +50,10 @@ import {
 import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "../commands/ClaimDeviceCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import {
+  CreateChannelPlacementGroupCommandInput,
+  CreateChannelPlacementGroupCommandOutput,
+} from "../commands/CreateChannelPlacementGroupCommand";
+import {
   CreateCloudWatchAlarmTemplateCommandInput,
   CreateCloudWatchAlarmTemplateCommandOutput,
 } from "../commands/CreateCloudWatchAlarmTemplateCommand";
@@ -56,6 +61,7 @@ import {
   CreateCloudWatchAlarmTemplateGroupCommandInput,
   CreateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "../commands/CreateCloudWatchAlarmTemplateGroupCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
   CreateEventBridgeRuleTemplateCommandInput,
   CreateEventBridgeRuleTemplateCommandOutput,
@@ -74,10 +80,20 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput,
 } from "../commands/CreateMultiplexProgramCommand";
+import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "../commands/CreateNetworkCommand";
+import { CreateNodeCommandInput, CreateNodeCommandOutput } from "../commands/CreateNodeCommand";
+import {
+  CreateNodeRegistrationScriptCommandInput,
+  CreateNodeRegistrationScriptCommandOutput,
+} from "../commands/CreateNodeRegistrationScriptCommand";
 import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "../commands/CreatePartnerInputCommand";
 import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "../commands/CreateSignalMapCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
+import {
+  DeleteChannelPlacementGroupCommandInput,
+  DeleteChannelPlacementGroupCommandOutput,
+} from "../commands/DeleteChannelPlacementGroupCommand";
 import {
   DeleteCloudWatchAlarmTemplateCommandInput,
   DeleteCloudWatchAlarmTemplateCommandOutput,
@@ -86,6 +102,7 @@ import {
   DeleteCloudWatchAlarmTemplateGroupCommandInput,
   DeleteCloudWatchAlarmTemplateGroupCommandOutput,
 } from "../commands/DeleteCloudWatchAlarmTemplateGroupCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
   DeleteEventBridgeRuleTemplateCommandInput,
   DeleteEventBridgeRuleTemplateCommandOutput,
@@ -104,6 +121,8 @@ import {
   DeleteMultiplexProgramCommandInput,
   DeleteMultiplexProgramCommandOutput,
 } from "../commands/DeleteMultiplexProgramCommand";
+import { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "../commands/DeleteNetworkCommand";
+import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "../commands/DeleteNodeCommand";
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "../commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "../commands/DeleteScheduleCommand";
 import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "../commands/DeleteSignalMapCommand";
@@ -113,6 +132,11 @@ import {
   DescribeAccountConfigurationCommandOutput,
 } from "../commands/DescribeAccountConfigurationCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
+import {
+  DescribeChannelPlacementGroupCommandInput,
+  DescribeChannelPlacementGroupCommandOutput,
+} from "../commands/DescribeChannelPlacementGroupCommand";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import { DescribeInputCommandInput, DescribeInputCommandOutput } from "../commands/DescribeInputCommand";
 import {
   DescribeInputDeviceCommandInput,
@@ -131,6 +155,8 @@ import {
   DescribeMultiplexProgramCommandInput,
   DescribeMultiplexProgramCommandOutput,
 } from "../commands/DescribeMultiplexProgramCommand";
+import { DescribeNetworkCommandInput, DescribeNetworkCommandOutput } from "../commands/DescribeNetworkCommand";
+import { DescribeNodeCommandInput, DescribeNodeCommandOutput } from "../commands/DescribeNodeCommand";
 import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "../commands/DescribeOfferingCommand";
 import {
   DescribeReservationCommandInput,
@@ -155,6 +181,10 @@ import {
   GetEventBridgeRuleTemplateGroupCommandOutput,
 } from "../commands/GetEventBridgeRuleTemplateGroupCommand";
 import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "../commands/GetSignalMapCommand";
+import {
+  ListChannelPlacementGroupsCommandInput,
+  ListChannelPlacementGroupsCommandOutput,
+} from "../commands/ListChannelPlacementGroupsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListCloudWatchAlarmTemplateGroupsCommandInput,
@@ -164,6 +194,7 @@ import {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "../commands/ListCloudWatchAlarmTemplatesCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListEventBridgeRuleTemplateGroupsCommandInput,
   ListEventBridgeRuleTemplateGroupsCommandOutput,
@@ -187,6 +218,8 @@ import {
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput,
 } from "../commands/ListMultiplexProgramsCommand";
+import { ListNetworksCommandInput, ListNetworksCommandOutput } from "../commands/ListNetworksCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
 import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "../commands/ListSignalMapsCommand";
@@ -194,6 +227,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
 import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "../commands/RebootInputDeviceCommand";
 import {
@@ -237,6 +271,10 @@ import {
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "../commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import {
+  UpdateChannelPlacementGroupCommandInput,
+  UpdateChannelPlacementGroupCommandOutput,
+} from "../commands/UpdateChannelPlacementGroupCommand";
+import {
   UpdateCloudWatchAlarmTemplateCommandInput,
   UpdateCloudWatchAlarmTemplateCommandOutput,
 } from "../commands/UpdateCloudWatchAlarmTemplateCommand";
@@ -244,6 +282,7 @@ import {
   UpdateCloudWatchAlarmTemplateGroupCommandInput,
   UpdateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "../commands/UpdateCloudWatchAlarmTemplateGroupCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import {
   UpdateEventBridgeRuleTemplateCommandInput,
   UpdateEventBridgeRuleTemplateCommandOutput,
@@ -263,17 +302,17 @@ import {
   UpdateMultiplexProgramCommandInput,
   UpdateMultiplexProgramCommandOutput,
 } from "../commands/UpdateMultiplexProgramCommand";
+import { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "../commands/UpdateNetworkCommand";
+import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "../commands/UpdateNodeCommand";
+import { UpdateNodeStateCommandInput, UpdateNodeStateCommandOutput } from "../commands/UpdateNodeStateCommand";
 import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "../commands/UpdateReservationCommand";
 import { MediaLiveServiceException as __BaseException } from "../models/MediaLiveServiceException";
 import {
   AacSettings,
   Ac3Settings,
   AncillarySourceSettings,
-  ArchiveCdnSettings,
   ArchiveContainerSettings,
-  ArchiveGroupSettings,
   ArchiveOutputSettings,
-  ArchiveS3Settings,
   AribDestinationSettings,
   AribSourceSettings,
   AudioChannelMapping,
@@ -283,7 +322,6 @@ import {
   AudioHlsRenditionSelection,
   AudioLanguageSelection,
   AudioNormalizationSettings,
-  AudioOnlyHlsSettings,
   AudioPidSelection,
   AudioSelector,
   AudioSelectorSettings,
@@ -303,14 +341,20 @@ import {
   CaptionSelectorSettings,
   CdiInputSpecification,
   ChannelEgressEndpoint,
+  ChannelEngineVersionResponse,
   ChannelPipelineIdToRestart,
   ChannelSummary,
   CloudWatchAlarmTemplateGroupSummary,
   CloudWatchAlarmTemplateSummary,
-  CmafIngestOutputSettings,
+  ClusterNetworkSettings,
   ColorCorrection,
   DashRoleAudio,
   DashRoleCaption,
+  DescribeAnywhereSettings,
+  DescribeChannelPlacementGroupSummary,
+  DescribeClusterSummary,
+  DescribeNetworkSummary,
+  DescribeNodeSummary,
   DvbNitSettings,
   DvbSdtSettings,
   DvbSubDestinationSettings,
@@ -327,20 +371,15 @@ import {
   EventBridgeRuleTemplateTarget,
   FailoverCondition,
   FailoverConditionSettings,
-  FecOutputSettings,
-  Fmp4HlsSettings,
-  FrameCaptureHlsSettings,
-  FrameCaptureOutputSettings,
   Hdr10Settings,
   HlsAdMarkers,
   HlsInputSettings,
-  HlsOutputSettings,
-  HlsSettings,
   Input,
   InputAttachment,
   InputChannelLevel,
   InputDestination,
   InputDestinationRequest,
+  InputDestinationRoute,
   InputDestinationVpc,
   InputDeviceConfigurableAudioChannelPairConfig,
   InputDeviceHdSettings,
@@ -353,6 +392,7 @@ import {
   InputDeviceUhdSettings,
   InputLocation,
   InputLossFailoverSettings,
+  InputRequestDestinationRoute,
   InputSecurityGroup,
   InputSettings,
   InputSource,
@@ -360,19 +400,26 @@ import {
   InputSpecification,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
+  InterfaceMapping,
+  InterfaceMappingCreateRequest,
+  InterfaceMappingUpdateRequest,
+  IpPool,
+  IpPoolCreateRequest,
+  IpPoolUpdateRequest,
   M2tsSettings,
-  M3u8Settings,
   MaintenanceStatus,
   MediaConnectFlow,
   MediaConnectFlowRequest,
   MediaPackageOutputDestinationSettings,
-  MediaPackageOutputSettings,
   MediaResourceNeighbor,
   Mp2Settings,
-  MsSmoothOutputSettings,
+  MulticastInputSettings,
+  MulticastSettings,
+  MulticastSource,
+  MulticastSourceCreateRequest,
+  MulticastSourceUpdateRequest,
   MultiplexMediaConnectOutputDestinationSettings,
   MultiplexOutputDestination,
-  MultiplexOutputSettings,
   MultiplexProgramChannelDestinationSettings,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -382,29 +429,29 @@ import {
   NielsenCBET,
   NielsenNaesIiNw,
   NielsenWatermarksSettings,
+  NodeInterfaceMapping,
+  NodeInterfaceMappingCreateRequest,
   Offering,
-  Output,
   OutputDestination,
   OutputDestinationSettings,
-  OutputLocationRef,
-  OutputSettings,
   PassThroughSettings,
   RawSettings,
   RemixSettings,
   ReservationResourceSpecification,
+  Route,
   RtmpCaptionInfoDestinationSettings,
-  RtmpOutputSettings,
   Scte20PlusEmbeddedDestinationSettings,
   Scte20SourceSettings,
   Scte27DestinationSettings,
   Scte27SourceSettings,
   SmpteTtDestinationSettings,
-  StandardHlsSettings,
+  SrtCallerDecryption,
+  SrtCallerSource,
+  SrtOutputDestinationSettings,
+  SrtSettings,
   TeletextDestinationSettings,
   TeletextSourceSettings,
   TtmlDestinationSettings,
-  UdpContainerSettings,
-  UdpOutputSettings,
   VideoBlackFailoverSettings,
   VideoSelector,
   VideoSelectorColorSpaceSettings,
@@ -417,35 +464,44 @@ import {
 } from "../models/models_0";
 import {
   AccountConfiguration,
+  AnywhereSettings,
+  ArchiveCdnSettings,
+  ArchiveGroupSettings,
+  ArchiveS3Settings,
+  AudioOnlyHlsSettings,
+  Av1ColorSpaceSettings,
+  Av1Settings,
   AvailBlanking,
   AvailConfiguration,
   AvailSettings,
   BadGatewayException,
   BadRequestException,
+  BandwidthReductionFilterSettings,
   BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
   BatchScheduleActionDeleteRequest,
   BatchScheduleActionDeleteResult,
   BlackoutSlate,
-  Channel,
   CmafIngestGroupSettings,
+  CmafIngestOutputSettings,
   ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
   DolbyVision81Settings,
-  EncoderSettings,
-  EpochLockingSettings,
   Esam,
   FeatureActivations,
+  FecOutputSettings,
   FixedModeScheduleActionStartSettings,
+  Fmp4HlsSettings,
   FollowModeScheduleActionStartSettings,
   ForbiddenException,
   FrameCaptureCdnSettings,
   FrameCaptureGroupSettings,
+  FrameCaptureHlsSettings,
+  FrameCaptureOutputSettings,
   FrameCaptureS3Settings,
   FrameCaptureSettings,
   GatewayTimeoutException,
-  GlobalConfiguration,
   H264ColorSpaceSettings,
   H264FilterSettings,
   H264Settings,
@@ -458,53 +514,50 @@ import {
   HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
   HlsMediaStoreSettings,
+  HlsOutputSettings,
   HlsS3Settings,
+  HlsSettings,
   HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
-  HtmlMotionGraphicsSettings,
+  Id3SegmentTaggingScheduleActionSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSwitchScheduleActionSettings,
-  InputVpcRequest,
   InternalServerErrorException,
   KeyProviderSettings,
-  MaintenanceCreateSettings,
+  M3u8Settings,
   MediaPackageGroupSettings,
-  MediaResource,
-  MonitorDeployment,
+  MediaPackageOutputSettings,
   MotionGraphicsActivateScheduleActionSettings,
-  MotionGraphicsConfiguration,
   MotionGraphicsDeactivateScheduleActionSettings,
-  MotionGraphicsSettings,
   Mpeg2FilterSettings,
   Mpeg2Settings,
   MsSmoothGroupSettings,
-  Multiplex,
+  MsSmoothOutputSettings,
+  MultiplexContainerSettings,
   MultiplexGroupSettings,
-  MultiplexProgram,
-  MultiplexProgramPacketIdentifiersMap,
-  MultiplexProgramServiceDescriptor,
-  MultiplexProgramSettings,
-  MultiplexSettings,
-  MultiplexStatmuxVideoSettings,
-  MultiplexVideoSettings,
-  NielsenConfiguration,
+  MultiplexM2tsSettings,
+  MultiplexOutputSettings,
   NotFoundException,
+  Output,
   OutputGroup,
   OutputGroupSettings,
-  OutputLockingSettings,
+  OutputLocationRef,
+  OutputSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
-  PipelineLockingSettings,
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
   RenewalSettings,
   Reservation,
+  RouteCreateRequest,
+  RouteUpdateRequest,
   RtmpAdMarkers,
   RtmpGroupSettings,
+  RtmpOutputSettings,
   ScheduleAction,
   ScheduleActionSettings,
   ScheduleActionStartSettings,
@@ -519,6 +572,11 @@ import {
   Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
   SignalMapSummary,
+  SrtCallerDecryptionRequest,
+  SrtCallerSourceRequest,
+  SrtGroupSettings,
+  SrtOutputSettings,
+  StandardHlsSettings,
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
@@ -526,26 +584,57 @@ import {
   StaticImageOutputDeactivateScheduleActionSettings,
   StaticKeySettings,
   StopTimecode,
-  SuccessfulMonitorDeployment,
   TemporalFilterSettings,
   Thumbnail,
-  ThumbnailConfiguration,
   ThumbnailDetail,
   TimecodeBurninSettings,
-  TimecodeConfig,
+  TimedMetadataScheduleActionSettings,
   TooManyRequestsException,
   TransferringInputDeviceSummary,
+  UdpContainerSettings,
   UdpGroupSettings,
+  UdpOutputSettings,
   UnprocessableEntityException,
   ValidationError,
   VideoCodecSettings,
   VideoDescription,
-  VpcOutputSettings,
 } from "../models/models_1";
 import {
+  Channel,
+  ChannelEngineVersionRequest,
+  ClusterNetworkSettingsCreateRequest,
+  ClusterNetworkSettingsUpdateRequest,
+  EncoderSettings,
+  EpochLockingSettings,
+  GlobalConfiguration,
+  HtmlMotionGraphicsSettings,
   InputDeviceConfigurableSettings,
   InputDeviceMediaConnectConfigurableSettings,
+  InputVpcRequest,
+  MaintenanceCreateSettings,
   MaintenanceUpdateSettings,
+  MediaResource,
+  MonitorDeployment,
+  MotionGraphicsConfiguration,
+  MotionGraphicsSettings,
+  MulticastSettingsCreateRequest,
+  MulticastSettingsUpdateRequest,
+  Multiplex,
+  MultiplexProgram,
+  MultiplexProgramPacketIdentifiersMap,
+  MultiplexProgramServiceDescriptor,
+  MultiplexProgramSettings,
+  MultiplexSettings,
+  MultiplexStatmuxVideoSettings,
+  MultiplexVideoSettings,
+  NielsenConfiguration,
+  OutputLockingSettings,
+  PipelineLockingSettings,
+  SrtSettingsRequest,
+  SuccessfulMonitorDeployment,
+  ThumbnailConfiguration,
+  TimecodeConfig,
+  VpcOutputSettings,
 } from "../models/models_2";
 
 /**
@@ -712,9 +801,12 @@ export const se_CreateChannelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      anywhereSettings: [, (_) => se_AnywhereSettings(_, context), `AnywhereSettings`],
       cdiInputSpecification: [, (_) => se_CdiInputSpecification(_, context), `CdiInputSpecification`],
       channelClass: [, , `ChannelClass`],
+      channelEngineVersion: [, (_) => se_ChannelEngineVersionRequest(_, context), `ChannelEngineVersion`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
+      dryRun: [, , `DryRun`],
       encoderSettings: [, (_) => se_EncoderSettings(_, context), `EncoderSettings`],
       inputAttachments: [, (_) => se___listOfInputAttachment(_, context), `InputAttachments`],
       inputSpecification: [, (_) => se_InputSpecification(_, context), `InputSpecification`],
@@ -726,6 +818,32 @@ export const se_CreateChannelCommand = async (
       roleArn: [, , `RoleArn`],
       tags: [, (_) => _json(_), `Tags`],
       vpc: [, (_) => se_VpcOutputSettings(_, context), `Vpc`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateChannelPlacementGroupCommand
+ */
+export const se_CreateChannelPlacementGroupCommand = async (
+  input: CreateChannelPlacementGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/channelplacementgroups");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [, , `Name`],
+      nodes: [, (_) => _json(_), `Nodes`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      tags: [, (_) => _json(_), `Tags`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -755,6 +873,7 @@ export const se_CreateCloudWatchAlarmTemplateCommand = async (
       metricName: [, , `MetricName`],
       name: [, , `Name`],
       period: [, , `Period`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       statistic: [, , `Statistic`],
       tags: [, (_) => _json(_), `Tags`],
       targetResourceType: [, , `TargetResourceType`],
@@ -783,6 +902,34 @@ export const se_CreateCloudWatchAlarmTemplateGroupCommand = async (
     take(input, {
       description: [, , `Description`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateClusterCommand
+ */
+export const se_CreateClusterCommand = async (
+  input: CreateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clusterType: [, , `ClusterType`],
+      instanceRoleArn: [, , `InstanceRoleArn`],
+      name: [, , `Name`],
+      networkSettings: [, (_) => se_ClusterNetworkSettingsCreateRequest(_, context), `NetworkSettings`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -810,6 +957,7 @@ export const se_CreateEventBridgeRuleTemplateCommand = async (
       eventType: [, , `EventType`],
       groupIdentifier: [, , `GroupIdentifier`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -834,6 +982,7 @@ export const se_CreateEventBridgeRuleTemplateGroupCommand = async (
     take(input, {
       description: [, , `Description`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -858,12 +1007,15 @@ export const se_CreateInputCommand = async (
     take(input, {
       destinations: [, (_) => se___listOfInputDestinationRequest(_, context), `Destinations`],
       inputDevices: [, (_) => se___listOfInputDeviceSettings(_, context), `InputDevices`],
+      inputNetworkLocation: [, , `InputNetworkLocation`],
       inputSecurityGroups: [, (_) => _json(_), `InputSecurityGroups`],
       mediaConnectFlows: [, (_) => se___listOfMediaConnectFlowRequest(_, context), `MediaConnectFlows`],
+      multicastSettings: [, (_) => se_MulticastSettingsCreateRequest(_, context), `MulticastSettings`],
       name: [, , `Name`],
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       roleArn: [, , `RoleArn`],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
+      srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
       tags: [, (_) => _json(_), `Tags`],
       type: [, , `Type`],
       vpc: [, (_) => se_InputVpcRequest(_, context), `Vpc`],
@@ -948,6 +1100,90 @@ export const se_CreateMultiplexProgramCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateNetworkCommand
+ */
+export const se_CreateNetworkCommand = async (
+  input: CreateNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/networks");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ipPools: [, (_) => se___listOfIpPoolCreateRequest(_, context), `IpPools`],
+      name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      routes: [, (_) => se___listOfRouteCreateRequest(_, context), `Routes`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateNodeCommand
+ */
+export const se_CreateNodeCommand = async (
+  input: CreateNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/nodes");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [, , `Name`],
+      nodeInterfaceMappings: [
+        ,
+        (_) => se___listOfNodeInterfaceMappingCreateRequest(_, context),
+        `NodeInterfaceMappings`,
+      ],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      role: [, , `Role`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateNodeRegistrationScriptCommand
+ */
+export const se_CreateNodeRegistrationScriptCommand = async (
+  input: CreateNodeRegistrationScriptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/nodeRegistrationScript");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      id: [, , `Id`],
+      name: [, , `Name`],
+      nodeInterfaceMappings: [, (_) => se___listOfNodeInterfaceMapping(_, context), `NodeInterfaceMappings`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      role: [, , `Role`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreatePartnerInputCommand
  */
 export const se_CreatePartnerInputCommand = async (
@@ -991,6 +1227,7 @@ export const se_CreateSignalMapCommand = async (
       discoveryEntryPointArn: [, , `DiscoveryEntryPointArn`],
       eventBridgeRuleTemplateGroupIdentifiers: [, (_) => _json(_), `EventBridgeRuleTemplateGroupIdentifiers`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -1038,6 +1275,23 @@ export const se_DeleteChannelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteChannelPlacementGroupCommand
+ */
+export const se_DeleteChannelPlacementGroupCommand = async (
+  input: DeleteChannelPlacementGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}");
+  b.p("ChannelPlacementGroupId", () => input.ChannelPlacementGroupId!, "{ChannelPlacementGroupId}", false);
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteCloudWatchAlarmTemplateCommand
  */
 export const se_DeleteCloudWatchAlarmTemplateCommand = async (
@@ -1064,6 +1318,22 @@ export const se_DeleteCloudWatchAlarmTemplateGroupCommand = async (
   const headers: any = {};
   b.bp("/prod/cloudwatch-alarm-template-groups/{Identifier}");
   b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteClusterCommand
+ */
+export const se_DeleteClusterCommand = async (
+  input: DeleteClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1167,6 +1437,39 @@ export const se_DeleteMultiplexProgramCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteNetworkCommand
+ */
+export const se_DeleteNetworkCommand = async (
+  input: DeleteNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/networks/{NetworkId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteNodeCommand
+ */
+export const se_DeleteNodeCommand = async (
+  input: DeleteNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/nodes/{NodeId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteReservationCommand
  */
 export const se_DeleteReservationCommand = async (
@@ -1226,10 +1529,7 @@ export const se_DeleteTagsCommand = async (
   b.bp("/prod/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1262,6 +1562,39 @@ export const se_DescribeChannelCommand = async (
   const headers: any = {};
   b.bp("/prod/channels/{ChannelId}");
   b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeChannelPlacementGroupCommand
+ */
+export const se_DescribeChannelPlacementGroupCommand = async (
+  input: DescribeChannelPlacementGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}");
+  b.p("ChannelPlacementGroupId", () => input.ChannelPlacementGroupId!, "{ChannelPlacementGroupId}", false);
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeClusterCommand
+ */
+export const se_DescribeClusterCommand = async (
+  input: DescribeClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1361,6 +1694,39 @@ export const se_DescribeMultiplexProgramCommand = async (
   b.bp("/prod/multiplexes/{MultiplexId}/programs/{ProgramName}");
   b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeNetworkCommand
+ */
+export const se_DescribeNetworkCommand = async (
+  input: DescribeNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/networks/{NetworkId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeNodeCommand
+ */
+export const se_DescribeNodeCommand = async (
+  input: DescribeNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/nodes/{NodeId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1519,6 +1885,26 @@ export const se_GetSignalMapCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListChannelPlacementGroupsCommand
+ */
+export const se_ListChannelPlacementGroupsCommand = async (
+  input: ListChannelPlacementGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/channelplacementgroups");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListChannelsCommand
  */
 export const se_ListChannelsCommand = async (
@@ -1574,6 +1960,25 @@ export const se_ListCloudWatchAlarmTemplatesCommand = async (
     [_nT]: [, input[_NT]!],
     [_s]: [, input[_S]!],
     [_sMI]: [, input[_SMI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListClustersCommand
+ */
+export const se_ListClustersCommand = async (
+  input: ListClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1738,6 +2143,45 @@ export const se_ListMultiplexProgramsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListNetworksCommand
+ */
+export const se_ListNetworksCommand = async (
+  input: ListNetworksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/networks");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListNodesCommand
+ */
+export const se_ListNodesCommand = async (
+  input: ListNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/nodes");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListOfferingsCommand
  */
 export const se_ListOfferingsCommand = async (
@@ -1825,6 +2269,21 @@ export const se_ListTagsForResourceCommand = async (
   const headers: any = {};
   b.bp("/prod/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListVersionsCommand
+ */
+export const se_ListVersionsCommand = async (
+  input: ListVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/versions");
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -2163,7 +2622,9 @@ export const se_UpdateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       cdiInputSpecification: [, (_) => se_CdiInputSpecification(_, context), `CdiInputSpecification`],
+      channelEngineVersion: [, (_) => se_ChannelEngineVersionRequest(_, context), `ChannelEngineVersion`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
+      dryRun: [, , `DryRun`],
       encoderSettings: [, (_) => se_EncoderSettings(_, context), `EncoderSettings`],
       inputAttachments: [, (_) => se___listOfInputAttachment(_, context), `InputAttachments`],
       inputSpecification: [, (_) => se_InputSpecification(_, context), `InputSpecification`],
@@ -2195,6 +2656,31 @@ export const se_UpdateChannelClassCommand = async (
     take(input, {
       channelClass: [, , `ChannelClass`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateChannelPlacementGroupCommand
+ */
+export const se_UpdateChannelPlacementGroupCommand = async (
+  input: UpdateChannelPlacementGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}");
+  b.p("ChannelPlacementGroupId", () => input.ChannelPlacementGroupId!, "{ChannelPlacementGroupId}", false);
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [, , `Name`],
+      nodes: [, (_) => _json(_), `Nodes`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2255,6 +2741,30 @@ export const se_UpdateCloudWatchAlarmTemplateGroupCommand = async (
     })
   );
   b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateClusterCommand
+ */
+export const se_UpdateClusterCommand = async (
+  input: UpdateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [, , `Name`],
+      networkSettings: [, (_) => se_ClusterNetworkSettingsUpdateRequest(_, context), `NetworkSettings`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2328,9 +2838,11 @@ export const se_UpdateInputCommand = async (
       inputDevices: [, (_) => se___listOfInputDeviceRequest(_, context), `InputDevices`],
       inputSecurityGroups: [, (_) => _json(_), `InputSecurityGroups`],
       mediaConnectFlows: [, (_) => se___listOfMediaConnectFlowRequest(_, context), `MediaConnectFlows`],
+      multicastSettings: [, (_) => se_MulticastSettingsUpdateRequest(_, context), `MulticastSettings`],
       name: [, , `Name`],
       roleArn: [, , `RoleArn`],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
+      srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2405,6 +2917,7 @@ export const se_UpdateMultiplexCommand = async (
     take(input, {
       multiplexSettings: [, (_) => se_MultiplexSettings(_, context), `MultiplexSettings`],
       name: [, , `Name`],
+      packetIdentifiersMapping: [, (_) => se_MultiplexPacketIdentifiersMapping(_, context), `PacketIdentifiersMapping`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2429,6 +2942,80 @@ export const se_UpdateMultiplexProgramCommand = async (
   body = JSON.stringify(
     take(input, {
       multiplexProgramSettings: [, (_) => se_MultiplexProgramSettings(_, context), `MultiplexProgramSettings`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateNetworkCommand
+ */
+export const se_UpdateNetworkCommand = async (
+  input: UpdateNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/networks/{NetworkId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ipPools: [, (_) => se___listOfIpPoolUpdateRequest(_, context), `IpPools`],
+      name: [, , `Name`],
+      routes: [, (_) => se___listOfRouteUpdateRequest(_, context), `Routes`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateNodeCommand
+ */
+export const se_UpdateNodeCommand = async (
+  input: UpdateNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/nodes/{NodeId}");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [, , `Name`],
+      role: [, , `Role`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateNodeStateCommand
+ */
+export const se_UpdateNodeStateCommand = async (
+  input: UpdateNodeStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/clusters/{ClusterId}/nodes/{NodeId}/state");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      state: [, , `State`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2620,6 +3207,33 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateChannelPlacementGroupCommand
+ */
+export const de_CreateChannelPlacementGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelPlacementGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Channels: [, _json, `channels`],
+    ClusterId: [, __expectString, `clusterId`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    Nodes: [, _json, `nodes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateCloudWatchAlarmTemplateCommand
  */
 export const de_CreateCloudWatchAlarmTemplateCommand = async (
@@ -2678,6 +3292,34 @@ export const de_CreateCloudWatchAlarmTemplateGroupCommand = async (
     ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
     Name: [, __expectString, `name`],
     Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelIds: [, _json, `channelIds`],
+    ClusterType: [, __expectString, `clusterType`],
+    Id: [, __expectString, `id`],
+    InstanceRoleArn: [, __expectString, `instanceRoleArn`],
+    Name: [, __expectString, `name`],
+    NetworkSettings: [, (_) => de_ClusterNetworkSettings(_, context), `networkSettings`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -2825,6 +3467,84 @@ export const de_CreateMultiplexProgramCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateNetworkCommand
+ */
+export const de_CreateNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNetworkCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AssociatedClusterIds: [, _json, `associatedClusterIds`],
+    Id: [, __expectString, `id`],
+    IpPools: [, (_) => de___listOfIpPool(_, context), `ipPools`],
+    Name: [, __expectString, `name`],
+    Routes: [, (_) => de___listOfRoute(_, context), `routes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateNodeCommand
+ */
+export const de_CreateNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNodeCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateNodeRegistrationScriptCommand
+ */
+export const de_CreateNodeRegistrationScriptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNodeRegistrationScriptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NodeRegistrationScript: [, __expectString, `nodeRegistrationScript`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreatePartnerInputCommand
  */
 export const de_CreatePartnerInputCommand = async (
@@ -2919,9 +3639,11 @@ export const de_DeleteChannelCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AnywhereSettings: [, (_) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -2937,6 +3659,33 @@ export const de_DeleteChannelCommand = async (
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Vpc: [, (_) => de_VpcOutputSettingsDescription(_, context), `vpc`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelPlacementGroupCommand
+ */
+export const de_DeleteChannelPlacementGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelPlacementGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Channels: [, _json, `channels`],
+    ClusterId: [, __expectString, `clusterId`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    Nodes: [, _json, `nodes`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -2973,6 +3722,34 @@ export const de_DeleteCloudWatchAlarmTemplateGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelIds: [, _json, `channelIds`],
+    ClusterType: [, __expectString, `clusterType`],
+    Id: [, __expectString, `id`],
+    InstanceRoleArn: [, __expectString, `instanceRoleArn`],
+    Name: [, __expectString, `name`],
+    NetworkSettings: [, (_) => de_ClusterNetworkSettings(_, context), `networkSettings`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3094,6 +3871,63 @@ export const de_DeleteMultiplexProgramCommand = async (
     PacketIdentifiersMap: [, (_) => de_MultiplexProgramPacketIdentifiersMap(_, context), `packetIdentifiersMap`],
     PipelineDetails: [, (_) => de___listOfMultiplexProgramPipelineDetail(_, context), `pipelineDetails`],
     ProgramName: [, __expectString, `programName`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteNetworkCommand
+ */
+export const de_DeleteNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AssociatedClusterIds: [, _json, `associatedClusterIds`],
+    Id: [, __expectString, `id`],
+    IpPools: [, (_) => de___listOfIpPool(_, context), `ipPools`],
+    Name: [, __expectString, `name`],
+    Routes: [, (_) => de___listOfRoute(_, context), `routes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteNodeCommand
+ */
+export const de_DeleteNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNodeCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3225,9 +4059,11 @@ export const de_DescribeChannelCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AnywhereSettings: [, (_) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -3243,6 +4079,61 @@ export const de_DescribeChannelCommand = async (
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Vpc: [, (_) => de_VpcOutputSettingsDescription(_, context), `vpc`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeChannelPlacementGroupCommand
+ */
+export const de_DescribeChannelPlacementGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChannelPlacementGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Channels: [, _json, `channels`],
+    ClusterId: [, __expectString, `clusterId`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    Nodes: [, _json, `nodes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeClusterCommand
+ */
+export const de_DescribeClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelIds: [, _json, `channelIds`],
+    ClusterType: [, __expectString, `clusterType`],
+    Id: [, __expectString, `id`],
+    InstanceRoleArn: [, __expectString, `instanceRoleArn`],
+    Name: [, __expectString, `name`],
+    NetworkSettings: [, (_) => de_ClusterNetworkSettings(_, context), `networkSettings`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3269,13 +4160,16 @@ export const de_DescribeInputCommand = async (
     Id: [, __expectString, `id`],
     InputClass: [, __expectString, `inputClass`],
     InputDevices: [, (_) => de___listOfInputDeviceSettings(_, context), `inputDevices`],
+    InputNetworkLocation: [, __expectString, `inputNetworkLocation`],
     InputPartnerIds: [, _json, `inputPartnerIds`],
     InputSourceType: [, __expectString, `inputSourceType`],
     MediaConnectFlows: [, (_) => de___listOfMediaConnectFlow(_, context), `mediaConnectFlows`],
+    MulticastSettings: [, (_) => de_MulticastSettings(_, context), `multicastSettings`],
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
     Sources: [, (_) => de___listOfInputSource(_, context), `sources`],
+    SrtSettings: [, (_) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -3419,6 +4313,63 @@ export const de_DescribeMultiplexProgramCommand = async (
     PacketIdentifiersMap: [, (_) => de_MultiplexProgramPacketIdentifiersMap(_, context), `packetIdentifiersMap`],
     PipelineDetails: [, (_) => de___listOfMultiplexProgramPipelineDetail(_, context), `pipelineDetails`],
     ProgramName: [, __expectString, `programName`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNetworkCommand
+ */
+export const de_DescribeNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AssociatedClusterIds: [, _json, `associatedClusterIds`],
+    Id: [, __expectString, `id`],
+    IpPools: [, (_) => de___listOfIpPool(_, context), `ipPools`],
+    Name: [, __expectString, `name`],
+    Routes: [, (_) => de___listOfRoute(_, context), `routes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNodeCommand
+ */
+export const de_DescribeNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNodeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3701,6 +4652,32 @@ export const de_GetSignalMapCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListChannelPlacementGroupsCommand
+ */
+export const de_ListChannelPlacementGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelPlacementGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelPlacementGroups: [
+      ,
+      (_) => de___listOfDescribeChannelPlacementGroupSummary(_, context),
+      `channelPlacementGroups`,
+    ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -3768,6 +4745,28 @@ export const de_ListCloudWatchAlarmTemplatesCommand = async (
       (_) => de___listOfCloudWatchAlarmTemplateSummary(_, context),
       `cloudWatchAlarmTemplates`,
     ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListClustersCommand
+ */
+export const de_ListClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Clusters: [, (_) => de___listOfDescribeClusterSummary(_, context), `clusters`],
     NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
@@ -3959,6 +4958,50 @@ export const de_ListMultiplexProgramsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListNetworksCommand
+ */
+export const de_ListNetworksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNetworksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Networks: [, (_) => de___listOfDescribeNetworkSummary(_, context), `networks`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListNodesCommand
+ */
+export const de_ListNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNodesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Nodes: [, (_) => de___listOfDescribeNodeSummary(_, context), `nodes`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListOfferingsCommand
  */
 export const de_ListOfferingsCommand = async (
@@ -4046,6 +5089,27 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListVersionsCommand
+ */
+export const de_ListVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Versions: [, (_) => de___listOfChannelEngineVersionResponse(_, context), `versions`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PurchaseOfferingCommand
  */
 export const de_PurchaseOfferingCommand = async (
@@ -4115,9 +5179,11 @@ export const de_RestartChannelPipelinesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AnywhereSettings: [, (_) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -4154,9 +5220,11 @@ export const de_StartChannelCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AnywhereSettings: [, (_) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -4382,9 +5450,11 @@ export const de_StopChannelCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AnywhereSettings: [, (_) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -4533,6 +5603,33 @@ export const de_UpdateChannelClassCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateChannelPlacementGroupCommand
+ */
+export const de_UpdateChannelPlacementGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelPlacementGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Channels: [, _json, `channels`],
+    ClusterId: [, __expectString, `clusterId`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    Nodes: [, _json, `nodes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateCloudWatchAlarmTemplateCommand
  */
 export const de_UpdateCloudWatchAlarmTemplateCommand = async (
@@ -4591,6 +5688,33 @@ export const de_UpdateCloudWatchAlarmTemplateGroupCommand = async (
     ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
     Name: [, __expectString, `name`],
     Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelIds: [, _json, `channelIds`],
+    ClusterType: [, __expectString, `clusterType`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    NetworkSettings: [, (_) => de_ClusterNetworkSettings(_, context), `networkSettings`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -4768,6 +5892,93 @@ export const de_UpdateMultiplexProgramCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     MultiplexProgram: [, (_) => de_MultiplexProgram(_, context), `multiplexProgram`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateNetworkCommand
+ */
+export const de_UpdateNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AssociatedClusterIds: [, _json, `associatedClusterIds`],
+    Id: [, __expectString, `id`],
+    IpPools: [, (_) => de___listOfIpPool(_, context), `ipPools`],
+    Name: [, __expectString, `name`],
+    Routes: [, (_) => de___listOfRoute(_, context), `routes`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateNodeCommand
+ */
+export const de_UpdateNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNodeCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateNodeStateCommand
+ */
+export const de_UpdateNodeStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNodeStateCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -5008,6 +6219,8 @@ const de_UnprocessableEntityExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se___listOf__integer omitted.
+
 // se___listOf__string omitted.
 
 // se___listOf__stringPatternS omitted.
@@ -5203,6 +6416,20 @@ const se___listOfInputDeviceSettings = (input: InputDeviceSettings[], context: _
 };
 
 /**
+ * serializeAws_restJson1__listOfInputRequestDestinationRoute
+ */
+const se___listOfInputRequestDestinationRoute = (
+  input: InputRequestDestinationRoute[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InputRequestDestinationRoute(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfInputSourceRequest
  */
 const se___listOfInputSourceRequest = (input: InputSourceRequest[], context: __SerdeContext): any => {
@@ -5221,6 +6448,56 @@ const se___listOfInputWhitelistRuleCidr = (input: InputWhitelistRuleCidr[], cont
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_InputWhitelistRuleCidr(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfInterfaceMappingCreateRequest
+ */
+const se___listOfInterfaceMappingCreateRequest = (
+  input: InterfaceMappingCreateRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InterfaceMappingCreateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfInterfaceMappingUpdateRequest
+ */
+const se___listOfInterfaceMappingUpdateRequest = (
+  input: InterfaceMappingUpdateRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InterfaceMappingUpdateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfIpPoolCreateRequest
+ */
+const se___listOfIpPoolCreateRequest = (input: IpPoolCreateRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_IpPoolCreateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfIpPoolUpdateRequest
+ */
+const se___listOfIpPoolUpdateRequest = (input: IpPoolUpdateRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_IpPoolUpdateRequest(entry, context);
     });
 };
 
@@ -5246,6 +6523,59 @@ const se___listOfMediaPackageOutputDestinationSettings = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_MediaPackageOutputDestinationSettings(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfMulticastSourceCreateRequest
+ */
+const se___listOfMulticastSourceCreateRequest = (
+  input: MulticastSourceCreateRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MulticastSourceCreateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfMulticastSourceUpdateRequest
+ */
+const se___listOfMulticastSourceUpdateRequest = (
+  input: MulticastSourceUpdateRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MulticastSourceUpdateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfNodeInterfaceMapping
+ */
+const se___listOfNodeInterfaceMapping = (input: NodeInterfaceMapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NodeInterfaceMapping(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfNodeInterfaceMappingCreateRequest
+ */
+const se___listOfNodeInterfaceMappingCreateRequest = (
+  input: NodeInterfaceMappingCreateRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NodeInterfaceMappingCreateRequest(entry, context);
     });
 };
 
@@ -5304,6 +6634,28 @@ const se___listOfPipelinePauseStateSettings = (input: PipelinePauseStateSettings
     });
 };
 
+/**
+ * serializeAws_restJson1__listOfRouteCreateRequest
+ */
+const se___listOfRouteCreateRequest = (input: RouteCreateRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RouteCreateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfRouteUpdateRequest
+ */
+const se___listOfRouteUpdateRequest = (input: RouteUpdateRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RouteUpdateRequest(entry, context);
+    });
+};
+
 // se___listOfRtmpAdMarkers omitted.
 
 /**
@@ -5325,6 +6677,31 @@ const se___listOfScte35Descriptor = (input: Scte35Descriptor[], context: __Serde
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_Scte35Descriptor(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfSrtCallerSourceRequest
+ */
+const se___listOfSrtCallerSourceRequest = (input: SrtCallerSourceRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SrtCallerSourceRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfSrtOutputDestinationSettings
+ */
+const se___listOfSrtOutputDestinationSettings = (
+  input: SrtOutputDestinationSettings[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SrtOutputDestinationSettings(entry, context);
     });
 };
 
@@ -5387,6 +6764,16 @@ const se_AccountConfiguration = (input: AccountConfiguration, context: __SerdeCo
 const se_AncillarySourceSettings = (input: AncillarySourceSettings, context: __SerdeContext): any => {
   return take(input, {
     sourceAncillaryChannelNumber: [, , `SourceAncillaryChannelNumber`],
+  });
+};
+
+/**
+ * serializeAws_restJson1AnywhereSettings
+ */
+const se_AnywhereSettings = (input: AnywhereSettings, context: __SerdeContext): any => {
+  return take(input, {
+    channelPlacementGroupId: [, , `ChannelPlacementGroupId`],
+    clusterId: [, , `ClusterId`],
   });
 };
 
@@ -5624,6 +7011,43 @@ const se_AutomaticInputFailoverSettings = (input: AutomaticInputFailoverSettings
 };
 
 /**
+ * serializeAws_restJson1Av1ColorSpaceSettings
+ */
+const se_Av1ColorSpaceSettings = (input: Av1ColorSpaceSettings, context: __SerdeContext): any => {
+  return take(input, {
+    colorSpacePassthroughSettings: [, _json, `ColorSpacePassthroughSettings`],
+    hdr10Settings: [, (_) => se_Hdr10Settings(_, context), `Hdr10Settings`],
+    rec601Settings: [, _json, `Rec601Settings`],
+    rec709Settings: [, _json, `Rec709Settings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1Av1Settings
+ */
+const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
+  return take(input, {
+    afdSignaling: [, , `AfdSignaling`],
+    bufSize: [, , `BufSize`],
+    colorSpaceSettings: [, (_) => se_Av1ColorSpaceSettings(_, context), `ColorSpaceSettings`],
+    fixedAfd: [, , `FixedAfd`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
+    gopSize: [, __serializeFloat, `GopSize`],
+    gopSizeUnits: [, , `GopSizeUnits`],
+    level: [, , `Level`],
+    lookAheadRateControl: [, , `LookAheadRateControl`],
+    maxBitrate: [, , `MaxBitrate`],
+    minIInterval: [, , `MinIInterval`],
+    parDenominator: [, , `ParDenominator`],
+    parNumerator: [, , `ParNumerator`],
+    qvbrQualityLevel: [, , `QvbrQualityLevel`],
+    sceneChangeDetect: [, , `SceneChangeDetect`],
+    timecodeBurninSettings: [, (_) => se_TimecodeBurninSettings(_, context), `TimecodeBurninSettings`],
+  });
+};
+
+/**
  * serializeAws_restJson1AvailBlanking
  */
 const se_AvailBlanking = (input: AvailBlanking, context: __SerdeContext): any => {
@@ -5651,6 +7075,16 @@ const se_AvailSettings = (input: AvailSettings, context: __SerdeContext): any =>
     esam: [, (_) => se_Esam(_, context), `Esam`],
     scte35SpliceInsert: [, (_) => se_Scte35SpliceInsert(_, context), `Scte35SpliceInsert`],
     scte35TimeSignalApos: [, (_) => se_Scte35TimeSignalApos(_, context), `Scte35TimeSignalApos`],
+  });
+};
+
+/**
+ * serializeAws_restJson1BandwidthReductionFilterSettings
+ */
+const se_BandwidthReductionFilterSettings = (input: BandwidthReductionFilterSettings, context: __SerdeContext): any => {
+  return take(input, {
+    postFilterSharpening: [, , `PostFilterSharpening`],
+    strength: [, , `Strength`],
   });
 };
 
@@ -5806,12 +7240,53 @@ const se_CdiInputSpecification = (input: CdiInputSpecification, context: __Serde
 };
 
 /**
+ * serializeAws_restJson1ChannelEngineVersionRequest
+ */
+const se_ChannelEngineVersionRequest = (input: ChannelEngineVersionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    version: [, , `Version`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ClusterNetworkSettingsCreateRequest
+ */
+const se_ClusterNetworkSettingsCreateRequest = (
+  input: ClusterNetworkSettingsCreateRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    defaultRoute: [, , `DefaultRoute`],
+    interfaceMappings: [, (_) => se___listOfInterfaceMappingCreateRequest(_, context), `InterfaceMappings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ClusterNetworkSettingsUpdateRequest
+ */
+const se_ClusterNetworkSettingsUpdateRequest = (
+  input: ClusterNetworkSettingsUpdateRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    defaultRoute: [, , `DefaultRoute`],
+    interfaceMappings: [, (_) => se___listOfInterfaceMappingUpdateRequest(_, context), `InterfaceMappings`],
+  });
+};
+
+/**
  * serializeAws_restJson1CmafIngestGroupSettings
  */
 const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
   return take(input, {
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    id3Behavior: [, , `Id3Behavior`],
+    id3NameModifier: [, , `Id3NameModifier`],
+    klvBehavior: [, , `KlvBehavior`],
+    klvNameModifier: [, , `KlvNameModifier`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    nielsenId3NameModifier: [, , `NielsenId3NameModifier`],
+    scte35NameModifier: [, , `Scte35NameModifier`],
     scte35Type: [, , `Scte35Type`],
     segmentLength: [, , `SegmentLength`],
     segmentLengthUnits: [, , `SegmentLengthUnits`],
@@ -5968,6 +7443,8 @@ const se_Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
 const se_EbuTtDDestinationSettings = (input: EbuTtDDestinationSettings, context: __SerdeContext): any => {
   return take(input, {
     copyrightHolder: [, , `CopyrightHolder`],
+    defaultFontSize: [, , `DefaultFontSize`],
+    defaultLineHeight: [, , `DefaultLineHeight`],
     fillLineGap: [, , `FillLineGap`],
     fontFamily: [, , `FontFamily`],
     styleControl: [, , `StyleControl`],
@@ -6203,6 +7680,11 @@ const se_H264ColorSpaceSettings = (input: H264ColorSpaceSettings, context: __Ser
  */
 const se_H264FilterSettings = (input: H264FilterSettings, context: __SerdeContext): any => {
   return take(input, {
+    bandwidthReductionFilterSettings: [
+      ,
+      (_) => se_BandwidthReductionFilterSettings(_, context),
+      `BandwidthReductionFilterSettings`,
+    ],
     temporalFilterSettings: [, (_) => se_TemporalFilterSettings(_, context), `TemporalFilterSettings`],
   });
 };
@@ -6236,6 +7718,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     lookAheadRateControl: [, , `LookAheadRateControl`],
     maxBitrate: [, , `MaxBitrate`],
     minIInterval: [, , `MinIInterval`],
+    minQp: [, , `MinQp`],
     numRefFrames: [, , `NumRefFrames`],
     parControl: [, , `ParControl`],
     parDenominator: [, , `ParDenominator`],
@@ -6275,6 +7758,11 @@ const se_H265ColorSpaceSettings = (input: H265ColorSpaceSettings, context: __Ser
  */
 const se_H265FilterSettings = (input: H265FilterSettings, context: __SerdeContext): any => {
   return take(input, {
+    bandwidthReductionFilterSettings: [
+      ,
+      (_) => se_BandwidthReductionFilterSettings(_, context),
+      `BandwidthReductionFilterSettings`,
+    ],
     temporalFilterSettings: [, (_) => se_TemporalFilterSettings(_, context), `TemporalFilterSettings`],
   });
 };
@@ -6291,6 +7779,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     bufSize: [, , `BufSize`],
     colorMetadata: [, , `ColorMetadata`],
     colorSpaceSettings: [, (_) => se_H265ColorSpaceSettings(_, context), `ColorSpaceSettings`],
+    deblocking: [, , `Deblocking`],
     filterSettings: [, (_) => se_H265FilterSettings(_, context), `FilterSettings`],
     fixedAfd: [, , `FixedAfd`],
     flickerAq: [, , `FlickerAq`],
@@ -6303,6 +7792,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     lookAheadRateControl: [, , `LookAheadRateControl`],
     maxBitrate: [, , `MaxBitrate`],
     minIInterval: [, , `MinIInterval`],
+    minQp: [, , `MinQp`],
     mvOverPictureBoundaries: [, , `MvOverPictureBoundaries`],
     mvTemporalPredictor: [, , `MvTemporalPredictor`],
     parDenominator: [, , `ParDenominator`],
@@ -6523,6 +8013,19 @@ const se_HlsWebdavSettings = (input: HlsWebdavSettings, context: __SerdeContext)
 
 // se_HtmlMotionGraphicsSettings omitted.
 
+/**
+ * serializeAws_restJson1Id3SegmentTaggingScheduleActionSettings
+ */
+const se_Id3SegmentTaggingScheduleActionSettings = (
+  input: Id3SegmentTaggingScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id3: [, , `Id3`],
+    tag: [, , `Tag`],
+  });
+};
+
 // se_ImmediateModeScheduleActionStartSettings omitted.
 
 /**
@@ -6538,6 +8041,7 @@ const se_InputAttachment = (input: InputAttachment, context: __SerdeContext): an
     inputAttachmentName: [, , `InputAttachmentName`],
     inputId: [, , `InputId`],
     inputSettings: [, (_) => se_InputSettings(_, context), `InputSettings`],
+    logicalInterfaceNames: [, _json, `LogicalInterfaceNames`],
   });
 };
 
@@ -6567,6 +8071,9 @@ const se_InputClippingSettings = (input: InputClippingSettings, context: __Serde
  */
 const se_InputDestinationRequest = (input: InputDestinationRequest, context: __SerdeContext): any => {
   return take(input, {
+    network: [, , `Network`],
+    networkRoutes: [, (_) => se___listOfInputRequestDestinationRoute(_, context), `NetworkRoutes`],
+    staticIpAddress: [, , `StaticIpAddress`],
     streamName: [, , `StreamName`],
   });
 };
@@ -6683,6 +8190,16 @@ const se_InputPrepareScheduleActionSettings = (
 };
 
 /**
+ * serializeAws_restJson1InputRequestDestinationRoute
+ */
+const se_InputRequestDestinationRoute = (input: InputRequestDestinationRoute, context: __SerdeContext): any => {
+  return take(input, {
+    cidr: [, , `Cidr`],
+    gateway: [, , `Gateway`],
+  });
+};
+
+/**
  * serializeAws_restJson1InputSettings
  */
 const se_InputSettings = (input: InputSettings, context: __SerdeContext): any => {
@@ -6751,6 +8268,44 @@ const se_InputVpcRequest = (input: InputVpcRequest, context: __SerdeContext): an
  * serializeAws_restJson1InputWhitelistRuleCidr
  */
 const se_InputWhitelistRuleCidr = (input: InputWhitelistRuleCidr, context: __SerdeContext): any => {
+  return take(input, {
+    cidr: [, , `Cidr`],
+  });
+};
+
+/**
+ * serializeAws_restJson1InterfaceMappingCreateRequest
+ */
+const se_InterfaceMappingCreateRequest = (input: InterfaceMappingCreateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    logicalInterfaceName: [, , `LogicalInterfaceName`],
+    networkId: [, , `NetworkId`],
+  });
+};
+
+/**
+ * serializeAws_restJson1InterfaceMappingUpdateRequest
+ */
+const se_InterfaceMappingUpdateRequest = (input: InterfaceMappingUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    logicalInterfaceName: [, , `LogicalInterfaceName`],
+    networkId: [, , `NetworkId`],
+  });
+};
+
+/**
+ * serializeAws_restJson1IpPoolCreateRequest
+ */
+const se_IpPoolCreateRequest = (input: IpPoolCreateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    cidr: [, , `Cidr`],
+  });
+};
+
+/**
+ * serializeAws_restJson1IpPoolUpdateRequest
+ */
+const se_IpPoolUpdateRequest = (input: IpPoolUpdateRequest, context: __SerdeContext): any => {
   return take(input, {
     cidr: [, , `Cidr`],
   });
@@ -6895,7 +8450,9 @@ const se_MediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    channelGroup: [, , `ChannelGroup`],
     channelId: [, , `ChannelId`],
+    channelName: [, , `ChannelName`],
   });
 };
 
@@ -7019,15 +8576,110 @@ const se_MsSmoothOutputSettings = (input: MsSmoothOutputSettings, context: __Ser
   });
 };
 
+/**
+ * serializeAws_restJson1MulticastInputSettings
+ */
+const se_MulticastInputSettings = (input: MulticastInputSettings, context: __SerdeContext): any => {
+  return take(input, {
+    sourceIpAddress: [, , `SourceIpAddress`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MulticastSettingsCreateRequest
+ */
+const se_MulticastSettingsCreateRequest = (input: MulticastSettingsCreateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    sources: [, (_) => se___listOfMulticastSourceCreateRequest(_, context), `Sources`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MulticastSettingsUpdateRequest
+ */
+const se_MulticastSettingsUpdateRequest = (input: MulticastSettingsUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    sources: [, (_) => se___listOfMulticastSourceUpdateRequest(_, context), `Sources`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MulticastSourceCreateRequest
+ */
+const se_MulticastSourceCreateRequest = (input: MulticastSourceCreateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    sourceIp: [, , `SourceIp`],
+    url: [, , `Url`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MulticastSourceUpdateRequest
+ */
+const se_MulticastSourceUpdateRequest = (input: MulticastSourceUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    sourceIp: [, , `SourceIp`],
+    url: [, , `Url`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MultiplexContainerSettings
+ */
+const se_MultiplexContainerSettings = (input: MultiplexContainerSettings, context: __SerdeContext): any => {
+  return take(input, {
+    multiplexM2tsSettings: [, (_) => se_MultiplexM2tsSettings(_, context), `MultiplexM2tsSettings`],
+  });
+};
+
 // se_MultiplexGroupSettings omitted.
+
+/**
+ * serializeAws_restJson1MultiplexM2tsSettings
+ */
+const se_MultiplexM2tsSettings = (input: MultiplexM2tsSettings, context: __SerdeContext): any => {
+  return take(input, {
+    absentInputAudioBehavior: [, , `AbsentInputAudioBehavior`],
+    arib: [, , `Arib`],
+    audioBufferModel: [, , `AudioBufferModel`],
+    audioFramesPerPes: [, , `AudioFramesPerPes`],
+    audioStreamType: [, , `AudioStreamType`],
+    ccDescriptor: [, , `CcDescriptor`],
+    ebif: [, , `Ebif`],
+    esRateInPes: [, , `EsRateInPes`],
+    klv: [, , `Klv`],
+    nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    pcrControl: [, , `PcrControl`],
+    pcrPeriod: [, , `PcrPeriod`],
+    scte35Control: [, , `Scte35Control`],
+    scte35PrerollPullupMilliseconds: [, __serializeFloat, `Scte35PrerollPullupMilliseconds`],
+  });
+};
 
 /**
  * serializeAws_restJson1MultiplexOutputSettings
  */
 const se_MultiplexOutputSettings = (input: MultiplexOutputSettings, context: __SerdeContext): any => {
   return take(input, {
+    containerSettings: [, (_) => se_MultiplexContainerSettings(_, context), `ContainerSettings`],
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
   });
+};
+
+/**
+ * serializeAws_restJson1MultiplexPacketIdentifiersMapping
+ */
+const se_MultiplexPacketIdentifiersMapping = (
+  input: Record<string, MultiplexProgramPacketIdentifiersMap>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_MultiplexProgramPacketIdentifiersMap(value, context);
+    return acc;
+  }, {});
 };
 
 /**
@@ -7040,6 +8692,34 @@ const se_MultiplexProgramChannelDestinationSettings = (
   return take(input, {
     multiplexId: [, , `MultiplexId`],
     programName: [, , `ProgramName`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MultiplexProgramPacketIdentifiersMap
+ */
+const se_MultiplexProgramPacketIdentifiersMap = (
+  input: MultiplexProgramPacketIdentifiersMap,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    aribCaptionsPid: [, , `AribCaptionsPid`],
+    audioPids: [, _json, `AudioPids`],
+    dvbSubPids: [, _json, `DvbSubPids`],
+    dvbTeletextPid: [, , `DvbTeletextPid`],
+    dvbTeletextPids: [, _json, `DvbTeletextPids`],
+    ecmPid: [, , `EcmPid`],
+    etvPlatformPid: [, , `EtvPlatformPid`],
+    etvSignalPid: [, , `EtvSignalPid`],
+    klvDataPids: [, _json, `KlvDataPids`],
+    pcrPid: [, , `PcrPid`],
+    pmtPid: [, , `PmtPid`],
+    privateMetadataPid: [, , `PrivateMetadataPid`],
+    scte27Pids: [, _json, `Scte27Pids`],
+    scte35Pid: [, , `Scte35Pid`],
+    smpte2038Pid: [, , `Smpte2038Pid`],
+    timedMetadataPid: [, , `TimedMetadataPid`],
+    videoPid: [, , `VideoPid`],
   });
 };
 
@@ -7107,6 +8787,7 @@ const se_MultiplexVideoSettings = (input: MultiplexVideoSettings, context: __Ser
 const se_NetworkInputSettings = (input: NetworkInputSettings, context: __SerdeContext): any => {
   return take(input, {
     hlsInputSettings: [, (_) => se_HlsInputSettings(_, context), `HlsInputSettings`],
+    multicastInputSettings: [, (_) => se_MulticastInputSettings(_, context), `MulticastInputSettings`],
     serverValidation: [, , `ServerValidation`],
   });
 };
@@ -7155,6 +8836,31 @@ const se_NielsenWatermarksSettings = (input: NielsenWatermarksSettings, context:
 };
 
 /**
+ * serializeAws_restJson1NodeInterfaceMapping
+ */
+const se_NodeInterfaceMapping = (input: NodeInterfaceMapping, context: __SerdeContext): any => {
+  return take(input, {
+    logicalInterfaceName: [, , `LogicalInterfaceName`],
+    networkInterfaceMode: [, , `NetworkInterfaceMode`],
+    physicalInterfaceName: [, , `PhysicalInterfaceName`],
+  });
+};
+
+/**
+ * serializeAws_restJson1NodeInterfaceMappingCreateRequest
+ */
+const se_NodeInterfaceMappingCreateRequest = (
+  input: NodeInterfaceMappingCreateRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    logicalInterfaceName: [, , `LogicalInterfaceName`],
+    networkInterfaceMode: [, , `NetworkInterfaceMode`],
+    physicalInterfaceName: [, , `PhysicalInterfaceName`],
+  });
+};
+
+/**
  * serializeAws_restJson1Output
  */
 const se_Output = (input: Output, context: __SerdeContext): any => {
@@ -7180,6 +8886,7 @@ const se_OutputDestination = (input: OutputDestination, context: __SerdeContext)
     ],
     multiplexSettings: [, (_) => se_MultiplexProgramChannelDestinationSettings(_, context), `MultiplexSettings`],
     settings: [, (_) => se___listOfOutputDestinationSettings(_, context), `Settings`],
+    srtSettings: [, (_) => se___listOfSrtOutputDestinationSettings(_, context), `SrtSettings`],
   });
 };
 
@@ -7219,6 +8926,7 @@ const se_OutputGroupSettings = (input: OutputGroupSettings, context: __SerdeCont
     msSmoothGroupSettings: [, (_) => se_MsSmoothGroupSettings(_, context), `MsSmoothGroupSettings`],
     multiplexGroupSettings: [, _json, `MultiplexGroupSettings`],
     rtmpGroupSettings: [, (_) => se_RtmpGroupSettings(_, context), `RtmpGroupSettings`],
+    srtGroupSettings: [, (_) => se_SrtGroupSettings(_, context), `SrtGroupSettings`],
     udpGroupSettings: [, (_) => se_UdpGroupSettings(_, context), `UdpGroupSettings`],
   });
 };
@@ -7255,6 +8963,7 @@ const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any 
     msSmoothOutputSettings: [, (_) => se_MsSmoothOutputSettings(_, context), `MsSmoothOutputSettings`],
     multiplexOutputSettings: [, (_) => se_MultiplexOutputSettings(_, context), `MultiplexOutputSettings`],
     rtmpOutputSettings: [, (_) => se_RtmpOutputSettings(_, context), `RtmpOutputSettings`],
+    srtOutputSettings: [, (_) => se_SrtOutputSettings(_, context), `SrtOutputSettings`],
     udpOutputSettings: [, (_) => se_UdpOutputSettings(_, context), `UdpOutputSettings`],
   });
 };
@@ -7305,6 +9014,26 @@ const se_RenewalSettings = (input: RenewalSettings, context: __SerdeContext): an
   return take(input, {
     automaticRenewal: [, , `AutomaticRenewal`],
     renewalCount: [, , `RenewalCount`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RouteCreateRequest
+ */
+const se_RouteCreateRequest = (input: RouteCreateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    cidr: [, , `Cidr`],
+    gateway: [, , `Gateway`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RouteUpdateRequest
+ */
+const se_RouteUpdateRequest = (input: RouteUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    cidr: [, , `Cidr`],
+    gateway: [, , `Gateway`],
   });
 };
 
@@ -7364,6 +9093,11 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_HlsTimedMetadataScheduleActionSettings(_, context),
       `HlsTimedMetadataSettings`,
     ],
+    id3SegmentTaggingSettings: [
+      ,
+      (_) => se_Id3SegmentTaggingScheduleActionSettings(_, context),
+      `Id3SegmentTaggingSettings`,
+    ],
     inputPrepareSettings: [, (_) => se_InputPrepareScheduleActionSettings(_, context), `InputPrepareSettings`],
     inputSwitchSettings: [, (_) => se_InputSwitchScheduleActionSettings(_, context), `InputSwitchSettings`],
     motionGraphicsImageActivateSettings: [
@@ -7409,6 +9143,7 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_StaticImageOutputDeactivateScheduleActionSettings(_, context),
       `StaticImageOutputDeactivateSettings`,
     ],
+    timedMetadataSettings: [, (_) => se_TimedMetadataScheduleActionSettings(_, context), `TimedMetadataSettings`],
   });
 };
 
@@ -7583,6 +9318,71 @@ const se_Scte35TimeSignalScheduleActionSettings = (
 // se_SmpteTtDestinationSettings omitted.
 
 /**
+ * serializeAws_restJson1SrtCallerDecryptionRequest
+ */
+const se_SrtCallerDecryptionRequest = (input: SrtCallerDecryptionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    algorithm: [, , `Algorithm`],
+    passphraseSecretArn: [, , `PassphraseSecretArn`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtCallerSourceRequest
+ */
+const se_SrtCallerSourceRequest = (input: SrtCallerSourceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    decryption: [, (_) => se_SrtCallerDecryptionRequest(_, context), `Decryption`],
+    minimumLatency: [, , `MinimumLatency`],
+    srtListenerAddress: [, , `SrtListenerAddress`],
+    srtListenerPort: [, , `SrtListenerPort`],
+    streamId: [, , `StreamId`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtGroupSettings
+ */
+const se_SrtGroupSettings = (input: SrtGroupSettings, context: __SerdeContext): any => {
+  return take(input, {
+    inputLossAction: [, , `InputLossAction`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtOutputDestinationSettings
+ */
+const se_SrtOutputDestinationSettings = (input: SrtOutputDestinationSettings, context: __SerdeContext): any => {
+  return take(input, {
+    encryptionPassphraseSecretArn: [, , `EncryptionPassphraseSecretArn`],
+    streamId: [, , `StreamId`],
+    url: [, , `Url`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtOutputSettings
+ */
+const se_SrtOutputSettings = (input: SrtOutputSettings, context: __SerdeContext): any => {
+  return take(input, {
+    bufferMsec: [, , `BufferMsec`],
+    containerSettings: [, (_) => se_UdpContainerSettings(_, context), `ContainerSettings`],
+    destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    encryptionType: [, , `EncryptionType`],
+    latency: [, , `Latency`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtSettingsRequest
+ */
+const se_SrtSettingsRequest = (input: SrtSettingsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    srtCallerSources: [, (_) => se___listOfSrtCallerSourceRequest(_, context), `SrtCallerSources`],
+  });
+};
+
+/**
  * serializeAws_restJson1StandardHlsSettings
  */
 const se_StandardHlsSettings = (input: StandardHlsSettings, context: __SerdeContext): any => {
@@ -7748,6 +9548,18 @@ const se_TimecodeConfig = (input: TimecodeConfig, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1TimedMetadataScheduleActionSettings
+ */
+const se_TimedMetadataScheduleActionSettings = (
+  input: TimedMetadataScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id3: [, , `Id3`],
+  });
+};
+
+/**
  * serializeAws_restJson1TtmlDestinationSettings
  */
 const se_TtmlDestinationSettings = (input: TtmlDestinationSettings, context: __SerdeContext): any => {
@@ -7803,6 +9615,7 @@ const se_VideoBlackFailoverSettings = (input: VideoBlackFailoverSettings, contex
  */
 const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContext): any => {
   return take(input, {
+    av1Settings: [, (_) => se_Av1Settings(_, context), `Av1Settings`],
     frameCaptureSettings: [, (_) => se_FrameCaptureSettings(_, context), `FrameCaptureSettings`],
     h264Settings: [, (_) => se_H264Settings(_, context), `H264Settings`],
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
@@ -8032,6 +9845,21 @@ const de___listOfChannelEgressEndpoint = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1__listOfChannelEngineVersionResponse
+ */
+const de___listOfChannelEngineVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): ChannelEngineVersionResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChannelEngineVersionResponse(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfChannelSummary
  */
 const de___listOfChannelSummary = (output: any, context: __SerdeContext): ChannelSummary[] => {
@@ -8088,6 +9916,57 @@ const de___listOfColorCorrection = (output: any, context: __SerdeContext): Color
 // de___listOfDashRoleAudio omitted.
 
 // de___listOfDashRoleCaption omitted.
+
+/**
+ * deserializeAws_restJson1__listOfDescribeChannelPlacementGroupSummary
+ */
+const de___listOfDescribeChannelPlacementGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): DescribeChannelPlacementGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DescribeChannelPlacementGroupSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfDescribeClusterSummary
+ */
+const de___listOfDescribeClusterSummary = (output: any, context: __SerdeContext): DescribeClusterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DescribeClusterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfDescribeNetworkSummary
+ */
+const de___listOfDescribeNetworkSummary = (output: any, context: __SerdeContext): DescribeNetworkSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DescribeNetworkSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfDescribeNodeSummary
+ */
+const de___listOfDescribeNodeSummary = (output: any, context: __SerdeContext): DescribeNodeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DescribeNodeSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfEventBridgeRuleTemplateGroupSummary
@@ -8197,6 +10076,18 @@ const de___listOfInputDestination = (output: any, context: __SerdeContext): Inpu
 };
 
 /**
+ * deserializeAws_restJson1__listOfInputDestinationRoute
+ */
+const de___listOfInputDestinationRoute = (output: any, context: __SerdeContext): InputDestinationRoute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InputDestinationRoute(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfInputDeviceSettings
  */
 const de___listOfInputDeviceSettings = (output: any, context: __SerdeContext): InputDeviceSettings[] => {
@@ -8272,6 +10163,30 @@ const de___listOfInputWhitelistRule = (output: any, context: __SerdeContext): In
 };
 
 /**
+ * deserializeAws_restJson1__listOfInterfaceMapping
+ */
+const de___listOfInterfaceMapping = (output: any, context: __SerdeContext): InterfaceMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InterfaceMapping(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfIpPool
+ */
+const de___listOfIpPool = (output: any, context: __SerdeContext): IpPool[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpPool(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfMediaConnectFlow
  */
 const de___listOfMediaConnectFlow = (output: any, context: __SerdeContext): MediaConnectFlow[] => {
@@ -8306,6 +10221,18 @@ const de___listOfMediaResourceNeighbor = (output: any, context: __SerdeContext):
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_MediaResourceNeighbor(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfMulticastSource
+ */
+const de___listOfMulticastSource = (output: any, context: __SerdeContext): MulticastSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MulticastSource(entry, context);
     });
   return retVal;
 };
@@ -8357,6 +10284,18 @@ const de___listOfMultiplexSummary = (output: any, context: __SerdeContext): Mult
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_MultiplexSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfNodeInterfaceMapping
+ */
+const de___listOfNodeInterfaceMapping = (output: any, context: __SerdeContext): NodeInterfaceMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NodeInterfaceMapping(entry, context);
     });
   return retVal;
 };
@@ -8457,6 +10396,18 @@ const de___listOfReservation = (output: any, context: __SerdeContext): Reservati
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1__listOfRoute
+ */
+const de___listOfRoute = (output: any, context: __SerdeContext): Route[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Route(entry, context);
+    });
+  return retVal;
+};
+
 // de___listOfRtmpAdMarkers omitted.
 
 /**
@@ -8491,6 +10442,33 @@ const de___listOfSignalMapSummary = (output: any, context: __SerdeContext): Sign
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SignalMapSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfSrtCallerSource
+ */
+const de___listOfSrtCallerSource = (output: any, context: __SerdeContext): SrtCallerSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SrtCallerSource(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfSrtOutputDestinationSettings
+ */
+const de___listOfSrtOutputDestinationSettings = (
+  output: any,
+  context: __SerdeContext
+): SrtOutputDestinationSettings[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SrtOutputDestinationSettings(entry, context);
     });
   return retVal;
 };
@@ -8843,6 +10821,43 @@ const de_AutomaticInputFailoverSettings = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_restJson1Av1ColorSpaceSettings
+ */
+const de_Av1ColorSpaceSettings = (output: any, context: __SerdeContext): Av1ColorSpaceSettings => {
+  return take(output, {
+    ColorSpacePassthroughSettings: [, _json, `colorSpacePassthroughSettings`],
+    Hdr10Settings: [, (_: any) => de_Hdr10Settings(_, context), `hdr10Settings`],
+    Rec601Settings: [, _json, `rec601Settings`],
+    Rec709Settings: [, _json, `rec709Settings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Av1Settings
+ */
+const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
+  return take(output, {
+    AfdSignaling: [, __expectString, `afdSignaling`],
+    BufSize: [, __expectInt32, `bufSize`],
+    ColorSpaceSettings: [, (_: any) => de_Av1ColorSpaceSettings(_, context), `colorSpaceSettings`],
+    FixedAfd: [, __expectString, `fixedAfd`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    GopSize: [, __limitedParseDouble, `gopSize`],
+    GopSizeUnits: [, __expectString, `gopSizeUnits`],
+    Level: [, __expectString, `level`],
+    LookAheadRateControl: [, __expectString, `lookAheadRateControl`],
+    MaxBitrate: [, __expectInt32, `maxBitrate`],
+    MinIInterval: [, __expectInt32, `minIInterval`],
+    ParDenominator: [, __expectInt32, `parDenominator`],
+    ParNumerator: [, __expectInt32, `parNumerator`],
+    QvbrQualityLevel: [, __expectInt32, `qvbrQualityLevel`],
+    SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
+    TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AvailBlanking
  */
 const de_AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking => {
@@ -8870,6 +10885,19 @@ const de_AvailSettings = (output: any, context: __SerdeContext): AvailSettings =
     Esam: [, (_: any) => de_Esam(_, context), `esam`],
     Scte35SpliceInsert: [, (_: any) => de_Scte35SpliceInsert(_, context), `scte35SpliceInsert`],
     Scte35TimeSignalApos: [, (_: any) => de_Scte35TimeSignalApos(_, context), `scte35TimeSignalApos`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BandwidthReductionFilterSettings
+ */
+const de_BandwidthReductionFilterSettings = (
+  output: any,
+  context: __SerdeContext
+): BandwidthReductionFilterSettings => {
+  return take(output, {
+    PostFilterSharpening: [, __expectString, `postFilterSharpening`],
+    Strength: [, __expectString, `strength`],
   }) as any;
 };
 
@@ -9052,9 +11080,11 @@ const de_CdiInputSpecification = (output: any, context: __SerdeContext): CdiInpu
  */
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
   return take(output, {
+    AnywhereSettings: [, (_: any) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_: any) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -9083,13 +11113,25 @@ const de_ChannelEgressEndpoint = (output: any, context: __SerdeContext): Channel
 };
 
 /**
+ * deserializeAws_restJson1ChannelEngineVersionResponse
+ */
+const de_ChannelEngineVersionResponse = (output: any, context: __SerdeContext): ChannelEngineVersionResponse => {
+  return take(output, {
+    ExpirationDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `expirationDate`],
+    Version: [, __expectString, `version`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ChannelSummary
  */
 const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return take(output, {
+    AnywhereSettings: [, (_: any) => de_DescribeAnywhereSettings(_, context), `anywhereSettings`],
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     Id: [, __expectString, `id`],
@@ -9102,6 +11144,11 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
     RoleArn: [, __expectString, `roleArn`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
+    UsedChannelEngineVersions: [
+      ,
+      (_: any) => de___listOfChannelEngineVersionResponse(_, context),
+      `usedChannelEngineVersions`,
+    ],
     Vpc: [, (_: any) => de_VpcOutputSettingsDescription(_, context), `vpc`],
   }) as any;
 };
@@ -9151,12 +11198,28 @@ const de_CloudWatchAlarmTemplateSummary = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_restJson1ClusterNetworkSettings
+ */
+const de_ClusterNetworkSettings = (output: any, context: __SerdeContext): ClusterNetworkSettings => {
+  return take(output, {
+    DefaultRoute: [, __expectString, `defaultRoute`],
+    InterfaceMappings: [, (_: any) => de___listOfInterfaceMapping(_, context), `interfaceMappings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1CmafIngestGroupSettings
  */
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
   return take(output, {
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    Id3Behavior: [, __expectString, `id3Behavior`],
+    Id3NameModifier: [, __expectString, `id3NameModifier`],
+    KlvBehavior: [, __expectString, `klvBehavior`],
+    KlvNameModifier: [, __expectString, `klvNameModifier`],
     NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    NielsenId3NameModifier: [, __expectString, `nielsenId3NameModifier`],
+    Scte35NameModifier: [, __expectString, `scte35NameModifier`],
     Scte35Type: [, __expectString, `scte35Type`],
     SegmentLength: [, __expectInt32, `segmentLength`],
     SegmentLengthUnits: [, __expectString, `segmentLengthUnits`],
@@ -9194,6 +11257,84 @@ const de_ColorCorrectionSettings = (output: any, context: __SerdeContext): Color
 };
 
 // de_ColorSpacePassthroughSettings omitted.
+
+/**
+ * deserializeAws_restJson1DescribeAnywhereSettings
+ */
+const de_DescribeAnywhereSettings = (output: any, context: __SerdeContext): DescribeAnywhereSettings => {
+  return take(output, {
+    ChannelPlacementGroupId: [, __expectString, `channelPlacementGroupId`],
+    ClusterId: [, __expectString, `clusterId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DescribeChannelPlacementGroupSummary
+ */
+const de_DescribeChannelPlacementGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): DescribeChannelPlacementGroupSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Channels: [, _json, `channels`],
+    ClusterId: [, __expectString, `clusterId`],
+    Id: [, __expectString, `id`],
+    Name: [, __expectString, `name`],
+    Nodes: [, _json, `nodes`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DescribeClusterSummary
+ */
+const de_DescribeClusterSummary = (output: any, context: __SerdeContext): DescribeClusterSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    ChannelIds: [, _json, `channelIds`],
+    ClusterType: [, __expectString, `clusterType`],
+    Id: [, __expectString, `id`],
+    InstanceRoleArn: [, __expectString, `instanceRoleArn`],
+    Name: [, __expectString, `name`],
+    NetworkSettings: [, (_: any) => de_ClusterNetworkSettings(_, context), `networkSettings`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNetworkSummary
+ */
+const de_DescribeNetworkSummary = (output: any, context: __SerdeContext): DescribeNetworkSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    AssociatedClusterIds: [, _json, `associatedClusterIds`],
+    Id: [, __expectString, `id`],
+    IpPools: [, (_: any) => de___listOfIpPool(_, context), `ipPools`],
+    Name: [, __expectString, `name`],
+    Routes: [, (_: any) => de___listOfRoute(_, context), `routes`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNodeSummary
+ */
+const de_DescribeNodeSummary = (output: any, context: __SerdeContext): DescribeNodeSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    ChannelPlacementGroups: [, _json, `channelPlacementGroups`],
+    ClusterId: [, __expectString, `clusterId`],
+    ConnectionState: [, __expectString, `connectionState`],
+    Id: [, __expectString, `id`],
+    InstanceArn: [, __expectString, `instanceArn`],
+    ManagedInstanceId: [, __expectString, `managedInstanceId`],
+    Name: [, __expectString, `name`],
+    NodeInterfaceMappings: [, (_: any) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
+    Role: [, __expectString, `role`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
 
 // de_DolbyVision81Settings omitted.
 
@@ -9313,6 +11454,8 @@ const de_Eac3Settings = (output: any, context: __SerdeContext): Eac3Settings => 
 const de_EbuTtDDestinationSettings = (output: any, context: __SerdeContext): EbuTtDDestinationSettings => {
   return take(output, {
     CopyrightHolder: [, __expectString, `copyrightHolder`],
+    DefaultFontSize: [, __expectInt32, `defaultFontSize`],
+    DefaultLineHeight: [, __expectInt32, `defaultLineHeight`],
     FillLineGap: [, __expectString, `fillLineGap`],
     FontFamily: [, __expectString, `fontFamily`],
     StyleControl: [, __expectString, `styleControl`],
@@ -9602,6 +11745,11 @@ const de_H264ColorSpaceSettings = (output: any, context: __SerdeContext): H264Co
  */
 const de_H264FilterSettings = (output: any, context: __SerdeContext): H264FilterSettings => {
   return take(output, {
+    BandwidthReductionFilterSettings: [
+      ,
+      (_: any) => de_BandwidthReductionFilterSettings(_, context),
+      `bandwidthReductionFilterSettings`,
+    ],
     TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
@@ -9635,6 +11783,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     LookAheadRateControl: [, __expectString, `lookAheadRateControl`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     MinIInterval: [, __expectInt32, `minIInterval`],
+    MinQp: [, __expectInt32, `minQp`],
     NumRefFrames: [, __expectInt32, `numRefFrames`],
     ParControl: [, __expectString, `parControl`],
     ParDenominator: [, __expectInt32, `parDenominator`],
@@ -9674,6 +11823,11 @@ const de_H265ColorSpaceSettings = (output: any, context: __SerdeContext): H265Co
  */
 const de_H265FilterSettings = (output: any, context: __SerdeContext): H265FilterSettings => {
   return take(output, {
+    BandwidthReductionFilterSettings: [
+      ,
+      (_: any) => de_BandwidthReductionFilterSettings(_, context),
+      `bandwidthReductionFilterSettings`,
+    ],
     TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
@@ -9690,6 +11844,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     BufSize: [, __expectInt32, `bufSize`],
     ColorMetadata: [, __expectString, `colorMetadata`],
     ColorSpaceSettings: [, (_: any) => de_H265ColorSpaceSettings(_, context), `colorSpaceSettings`],
+    Deblocking: [, __expectString, `deblocking`],
     FilterSettings: [, (_: any) => de_H265FilterSettings(_, context), `filterSettings`],
     FixedAfd: [, __expectString, `fixedAfd`],
     FlickerAq: [, __expectString, `flickerAq`],
@@ -9702,6 +11857,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     LookAheadRateControl: [, __expectString, `lookAheadRateControl`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     MinIInterval: [, __expectInt32, `minIInterval`],
+    MinQp: [, __expectInt32, `minQp`],
     MvOverPictureBoundaries: [, __expectString, `mvOverPictureBoundaries`],
     MvTemporalPredictor: [, __expectString, `mvTemporalPredictor`],
     ParDenominator: [, __expectInt32, `parDenominator`],
@@ -9922,6 +12078,19 @@ const de_HlsWebdavSettings = (output: any, context: __SerdeContext): HlsWebdavSe
 
 // de_HtmlMotionGraphicsSettings omitted.
 
+/**
+ * deserializeAws_restJson1Id3SegmentTaggingScheduleActionSettings
+ */
+const de_Id3SegmentTaggingScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): Id3SegmentTaggingScheduleActionSettings => {
+  return take(output, {
+    Id3: [, __expectString, `id3`],
+    Tag: [, __expectString, `tag`],
+  }) as any;
+};
+
 // de_ImmediateModeScheduleActionStartSettings omitted.
 
 /**
@@ -9935,13 +12104,16 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     Id: [, __expectString, `id`],
     InputClass: [, __expectString, `inputClass`],
     InputDevices: [, (_: any) => de___listOfInputDeviceSettings(_, context), `inputDevices`],
+    InputNetworkLocation: [, __expectString, `inputNetworkLocation`],
     InputPartnerIds: [, _json, `inputPartnerIds`],
     InputSourceType: [, __expectString, `inputSourceType`],
     MediaConnectFlows: [, (_: any) => de___listOfMediaConnectFlow(_, context), `mediaConnectFlows`],
+    MulticastSettings: [, (_: any) => de_MulticastSettings(_, context), `multicastSettings`],
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
     Sources: [, (_: any) => de___listOfInputSource(_, context), `sources`],
+    SrtSettings: [, (_: any) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -9961,6 +12133,7 @@ const de_InputAttachment = (output: any, context: __SerdeContext): InputAttachme
     InputAttachmentName: [, __expectString, `inputAttachmentName`],
     InputId: [, __expectString, `inputId`],
     InputSettings: [, (_: any) => de_InputSettings(_, context), `inputSettings`],
+    LogicalInterfaceNames: [, _json, `logicalInterfaceNames`],
   }) as any;
 };
 
@@ -9991,9 +12164,21 @@ const de_InputClippingSettings = (output: any, context: __SerdeContext): InputCl
 const de_InputDestination = (output: any, context: __SerdeContext): InputDestination => {
   return take(output, {
     Ip: [, __expectString, `ip`],
+    Network: [, __expectString, `network`],
+    NetworkRoutes: [, (_: any) => de___listOfInputDestinationRoute(_, context), `networkRoutes`],
     Port: [, __expectString, `port`],
     Url: [, __expectString, `url`],
     Vpc: [, (_: any) => de_InputDestinationVpc(_, context), `vpc`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InputDestinationRoute
+ */
+const de_InputDestinationRoute = (output: any, context: __SerdeContext): InputDestinationRoute => {
+  return take(output, {
+    Cidr: [, __expectString, `cidr`],
+    Gateway: [, __expectString, `gateway`],
   }) as any;
 };
 
@@ -10241,6 +12426,25 @@ const de_InputWhitelistRule = (output: any, context: __SerdeContext): InputWhite
 };
 
 /**
+ * deserializeAws_restJson1InterfaceMapping
+ */
+const de_InterfaceMapping = (output: any, context: __SerdeContext): InterfaceMapping => {
+  return take(output, {
+    LogicalInterfaceName: [, __expectString, `logicalInterfaceName`],
+    NetworkId: [, __expectString, `networkId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IpPool
+ */
+const de_IpPool = (output: any, context: __SerdeContext): IpPool => {
+  return take(output, {
+    Cidr: [, __expectString, `cidr`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1KeyProviderSettings
  */
 const de_KeyProviderSettings = (output: any, context: __SerdeContext): KeyProviderSettings => {
@@ -10370,7 +12574,9 @@ const de_MediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): MediaPackageOutputDestinationSettings => {
   return take(output, {
+    ChannelGroup: [, __expectString, `channelGroup`],
     ChannelId: [, __expectString, `channelId`],
+    ChannelName: [, __expectString, `channelName`],
   }) as any;
 };
 
@@ -10540,6 +12746,34 @@ const de_MsSmoothOutputSettings = (output: any, context: __SerdeContext): MsSmoo
 };
 
 /**
+ * deserializeAws_restJson1MulticastInputSettings
+ */
+const de_MulticastInputSettings = (output: any, context: __SerdeContext): MulticastInputSettings => {
+  return take(output, {
+    SourceIpAddress: [, __expectString, `sourceIpAddress`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MulticastSettings
+ */
+const de_MulticastSettings = (output: any, context: __SerdeContext): MulticastSettings => {
+  return take(output, {
+    Sources: [, (_: any) => de___listOfMulticastSource(_, context), `sources`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MulticastSource
+ */
+const de_MulticastSource = (output: any, context: __SerdeContext): MulticastSource => {
+  return take(output, {
+    SourceIp: [, __expectString, `sourceIp`],
+    Url: [, __expectString, `url`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Multiplex
  */
 const de_Multiplex = (output: any, context: __SerdeContext): Multiplex => {
@@ -10557,7 +12791,38 @@ const de_Multiplex = (output: any, context: __SerdeContext): Multiplex => {
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1MultiplexContainerSettings
+ */
+const de_MultiplexContainerSettings = (output: any, context: __SerdeContext): MultiplexContainerSettings => {
+  return take(output, {
+    MultiplexM2tsSettings: [, (_: any) => de_MultiplexM2tsSettings(_, context), `multiplexM2tsSettings`],
+  }) as any;
+};
+
 // de_MultiplexGroupSettings omitted.
+
+/**
+ * deserializeAws_restJson1MultiplexM2tsSettings
+ */
+const de_MultiplexM2tsSettings = (output: any, context: __SerdeContext): MultiplexM2tsSettings => {
+  return take(output, {
+    AbsentInputAudioBehavior: [, __expectString, `absentInputAudioBehavior`],
+    Arib: [, __expectString, `arib`],
+    AudioBufferModel: [, __expectString, `audioBufferModel`],
+    AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
+    AudioStreamType: [, __expectString, `audioStreamType`],
+    CcDescriptor: [, __expectString, `ccDescriptor`],
+    Ebif: [, __expectString, `ebif`],
+    EsRateInPes: [, __expectString, `esRateInPes`],
+    Klv: [, __expectString, `klv`],
+    NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    PcrControl: [, __expectString, `pcrControl`],
+    PcrPeriod: [, __expectInt32, `pcrPeriod`],
+    Scte35Control: [, __expectString, `scte35Control`],
+    Scte35PrerollPullupMilliseconds: [, __limitedParseDouble, `scte35PrerollPullupMilliseconds`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1MultiplexMediaConnectOutputDestinationSettings
@@ -10589,6 +12854,7 @@ const de_MultiplexOutputDestination = (output: any, context: __SerdeContext): Mu
  */
 const de_MultiplexOutputSettings = (output: any, context: __SerdeContext): MultiplexOutputSettings => {
   return take(output, {
+    ContainerSettings: [, (_: any) => de_MultiplexContainerSettings(_, context), `containerSettings`],
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
   }) as any;
 };
@@ -10627,9 +12893,12 @@ const de_MultiplexProgramPacketIdentifiersMap = (
   context: __SerdeContext
 ): MultiplexProgramPacketIdentifiersMap => {
   return take(output, {
+    AribCaptionsPid: [, __expectInt32, `aribCaptionsPid`],
     AudioPids: [, _json, `audioPids`],
     DvbSubPids: [, _json, `dvbSubPids`],
     DvbTeletextPid: [, __expectInt32, `dvbTeletextPid`],
+    DvbTeletextPids: [, _json, `dvbTeletextPids`],
+    EcmPid: [, __expectInt32, `ecmPid`],
     EtvPlatformPid: [, __expectInt32, `etvPlatformPid`],
     EtvSignalPid: [, __expectInt32, `etvSignalPid`],
     KlvDataPids: [, _json, `klvDataPids`],
@@ -10638,6 +12907,7 @@ const de_MultiplexProgramPacketIdentifiersMap = (
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     Scte27Pids: [, _json, `scte27Pids`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
+    Smpte2038Pid: [, __expectInt32, `smpte2038Pid`],
     TimedMetadataPid: [, __expectInt32, `timedMetadataPid`],
     VideoPid: [, __expectInt32, `videoPid`],
   }) as any;
@@ -10753,6 +13023,7 @@ const de_MultiplexVideoSettings = (output: any, context: __SerdeContext): Multip
 const de_NetworkInputSettings = (output: any, context: __SerdeContext): NetworkInputSettings => {
   return take(output, {
     HlsInputSettings: [, (_: any) => de_HlsInputSettings(_, context), `hlsInputSettings`],
+    MulticastInputSettings: [, (_: any) => de_MulticastInputSettings(_, context), `multicastInputSettings`],
     ServerValidation: [, __expectString, `serverValidation`],
   }) as any;
 };
@@ -10801,6 +13072,17 @@ const de_NielsenWatermarksSettings = (output: any, context: __SerdeContext): Nie
 };
 
 /**
+ * deserializeAws_restJson1NodeInterfaceMapping
+ */
+const de_NodeInterfaceMapping = (output: any, context: __SerdeContext): NodeInterfaceMapping => {
+  return take(output, {
+    LogicalInterfaceName: [, __expectString, `logicalInterfaceName`],
+    NetworkInterfaceMode: [, __expectString, `networkInterfaceMode`],
+    PhysicalInterfaceName: [, __expectString, `physicalInterfaceName`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Offering
  */
 const de_Offering = (output: any, context: __SerdeContext): Offering => {
@@ -10845,6 +13127,7 @@ const de_OutputDestination = (output: any, context: __SerdeContext): OutputDesti
     ],
     MultiplexSettings: [, (_: any) => de_MultiplexProgramChannelDestinationSettings(_, context), `multiplexSettings`],
     Settings: [, (_: any) => de___listOfOutputDestinationSettings(_, context), `settings`],
+    SrtSettings: [, (_: any) => de___listOfSrtOutputDestinationSettings(_, context), `srtSettings`],
   }) as any;
 };
 
@@ -10884,6 +13167,7 @@ const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGro
     MsSmoothGroupSettings: [, (_: any) => de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
     MultiplexGroupSettings: [, _json, `multiplexGroupSettings`],
     RtmpGroupSettings: [, (_: any) => de_RtmpGroupSettings(_, context), `rtmpGroupSettings`],
+    SrtGroupSettings: [, (_: any) => de_SrtGroupSettings(_, context), `srtGroupSettings`],
     UdpGroupSettings: [, (_: any) => de_UdpGroupSettings(_, context), `udpGroupSettings`],
   }) as any;
 };
@@ -10920,6 +13204,7 @@ const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings
     MsSmoothOutputSettings: [, (_: any) => de_MsSmoothOutputSettings(_, context), `msSmoothOutputSettings`],
     MultiplexOutputSettings: [, (_: any) => de_MultiplexOutputSettings(_, context), `multiplexOutputSettings`],
     RtmpOutputSettings: [, (_: any) => de_RtmpOutputSettings(_, context), `rtmpOutputSettings`],
+    SrtOutputSettings: [, (_: any) => de_SrtOutputSettings(_, context), `srtOutputSettings`],
     UdpOutputSettings: [, (_: any) => de_UdpOutputSettings(_, context), `udpOutputSettings`],
   }) as any;
 };
@@ -10947,6 +13232,7 @@ const de_PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail
     ActiveInputSwitchActionName: [, __expectString, `activeInputSwitchActionName`],
     ActiveMotionGraphicsActionName: [, __expectString, `activeMotionGraphicsActionName`],
     ActiveMotionGraphicsUri: [, __expectString, `activeMotionGraphicsUri`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     PipelineId: [, __expectString, `pipelineId`],
   }) as any;
 };
@@ -11035,6 +13321,16 @@ const de_ReservationResourceSpecification = (
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1Route
+ */
+const de_Route = (output: any, context: __SerdeContext): Route => {
+  return take(output, {
+    Cidr: [, __expectString, `cidr`],
+    Gateway: [, __expectString, `gateway`],
+  }) as any;
+};
+
 // de_RtmpCaptionInfoDestinationSettings omitted.
 
 /**
@@ -11095,6 +13391,11 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       (_: any) => de_HlsTimedMetadataScheduleActionSettings(_, context),
       `hlsTimedMetadataSettings`,
     ],
+    Id3SegmentTaggingSettings: [
+      ,
+      (_: any) => de_Id3SegmentTaggingScheduleActionSettings(_, context),
+      `id3SegmentTaggingSettings`,
+    ],
     InputPrepareSettings: [, (_: any) => de_InputPrepareScheduleActionSettings(_, context), `inputPrepareSettings`],
     InputSwitchSettings: [, (_: any) => de_InputSwitchScheduleActionSettings(_, context), `inputSwitchSettings`],
     MotionGraphicsImageActivateSettings: [
@@ -11140,6 +13441,7 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       (_: any) => de_StaticImageOutputDeactivateScheduleActionSettings(_, context),
       `staticImageOutputDeactivateSettings`,
     ],
+    TimedMetadataSettings: [, (_: any) => de_TimedMetadataScheduleActionSettings(_, context), `timedMetadataSettings`],
   }) as any;
 };
 
@@ -11329,6 +13631,71 @@ const de_SignalMapSummary = (output: any, context: __SerdeContext): SignalMapSum
 };
 
 // de_SmpteTtDestinationSettings omitted.
+
+/**
+ * deserializeAws_restJson1SrtCallerDecryption
+ */
+const de_SrtCallerDecryption = (output: any, context: __SerdeContext): SrtCallerDecryption => {
+  return take(output, {
+    Algorithm: [, __expectString, `algorithm`],
+    PassphraseSecretArn: [, __expectString, `passphraseSecretArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtCallerSource
+ */
+const de_SrtCallerSource = (output: any, context: __SerdeContext): SrtCallerSource => {
+  return take(output, {
+    Decryption: [, (_: any) => de_SrtCallerDecryption(_, context), `decryption`],
+    MinimumLatency: [, __expectInt32, `minimumLatency`],
+    SrtListenerAddress: [, __expectString, `srtListenerAddress`],
+    SrtListenerPort: [, __expectString, `srtListenerPort`],
+    StreamId: [, __expectString, `streamId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtGroupSettings
+ */
+const de_SrtGroupSettings = (output: any, context: __SerdeContext): SrtGroupSettings => {
+  return take(output, {
+    InputLossAction: [, __expectString, `inputLossAction`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtOutputDestinationSettings
+ */
+const de_SrtOutputDestinationSettings = (output: any, context: __SerdeContext): SrtOutputDestinationSettings => {
+  return take(output, {
+    EncryptionPassphraseSecretArn: [, __expectString, `encryptionPassphraseSecretArn`],
+    StreamId: [, __expectString, `streamId`],
+    Url: [, __expectString, `url`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtOutputSettings
+ */
+const de_SrtOutputSettings = (output: any, context: __SerdeContext): SrtOutputSettings => {
+  return take(output, {
+    BufferMsec: [, __expectInt32, `bufferMsec`],
+    ContainerSettings: [, (_: any) => de_UdpContainerSettings(_, context), `containerSettings`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    EncryptionType: [, __expectString, `encryptionType`],
+    Latency: [, __expectInt32, `latency`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtSettings
+ */
+const de_SrtSettings = (output: any, context: __SerdeContext): SrtSettings => {
+  return take(output, {
+    SrtCallerSources: [, (_: any) => de___listOfSrtCallerSource(_, context), `srtCallerSources`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1StandardHlsSettings
@@ -11528,6 +13895,18 @@ const de_TimecodeConfig = (output: any, context: __SerdeContext): TimecodeConfig
 };
 
 /**
+ * deserializeAws_restJson1TimedMetadataScheduleActionSettings
+ */
+const de_TimedMetadataScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): TimedMetadataScheduleActionSettings => {
+  return take(output, {
+    Id3: [, __expectString, `id3`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1TransferringInputDeviceSummary
  */
 const de_TransferringInputDeviceSummary = (output: any, context: __SerdeContext): TransferringInputDeviceSummary => {
@@ -11605,6 +13984,7 @@ const de_VideoBlackFailoverSettings = (output: any, context: __SerdeContext): Vi
  */
 const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodecSettings => {
   return take(output, {
+    Av1Settings: [, (_: any) => de_Av1Settings(_, context), `av1Settings`],
     FrameCaptureSettings: [, (_: any) => de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
     H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
@@ -11719,13 +14099,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Accept";
 const _C = "Codec";

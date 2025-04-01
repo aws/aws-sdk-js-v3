@@ -137,6 +137,7 @@ export interface GetRelationalDatabaseCommandOutput extends GetRelationalDatabas
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetRelationalDatabaseCommand extends $Command
@@ -147,9 +148,7 @@ export class GetRelationalDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class GetRelationalDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseCommand)
   .de(de_GetRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseRequest;
+      output: GetRelationalDatabaseResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseCommandInput;
+      output: GetRelationalDatabaseCommandOutput;
+    };
+  };
+}

@@ -30,6 +30,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
  *          identified by an Amazon Resource Name (ARN)</p>
+ *          <p>This API is not supported for recovery points for resource types
+ *          including Aurora, Amazon DocumentDB. Amazon EBS,
+ *          Amazon FSx, Neptune, and Amazon RDS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +73,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -80,9 +84,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +96,16 @@ export class UntagResourceCommand extends $Command
   .f(UntagResourceInputFilterSensitiveLog, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

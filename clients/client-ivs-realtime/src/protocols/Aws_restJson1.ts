@@ -32,6 +32,10 @@ import {
   CreateEncoderConfigurationCommandOutput,
 } from "../commands/CreateEncoderConfigurationCommand";
 import {
+  CreateIngestConfigurationCommandInput,
+  CreateIngestConfigurationCommandOutput,
+} from "../commands/CreateIngestConfigurationCommand";
+import {
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "../commands/CreateParticipantTokenCommand";
@@ -44,6 +48,10 @@ import {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "../commands/DeleteEncoderConfigurationCommand";
+import {
+  DeleteIngestConfigurationCommandInput,
+  DeleteIngestConfigurationCommandOutput,
+} from "../commands/DeleteIngestConfigurationCommand";
 import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "../commands/DeletePublicKeyCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "../commands/DeleteStageCommand";
 import {
@@ -59,6 +67,10 @@ import {
   GetEncoderConfigurationCommandInput,
   GetEncoderConfigurationCommandOutput,
 } from "../commands/GetEncoderConfigurationCommand";
+import {
+  GetIngestConfigurationCommandInput,
+  GetIngestConfigurationCommandOutput,
+} from "../commands/GetIngestConfigurationCommand";
 import { GetParticipantCommandInput, GetParticipantCommandOutput } from "../commands/GetParticipantCommand";
 import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "../commands/GetPublicKeyCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "../commands/GetStageCommand";
@@ -73,6 +85,10 @@ import {
   ListEncoderConfigurationsCommandInput,
   ListEncoderConfigurationsCommandOutput,
 } from "../commands/ListEncoderConfigurationsCommand";
+import {
+  ListIngestConfigurationsCommandInput,
+  ListIngestConfigurationsCommandOutput,
+} from "../commands/ListIngestConfigurationsCommand";
 import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
@@ -93,6 +109,10 @@ import { StartCompositionCommandInput, StartCompositionCommandOutput } from "../
 import { StopCompositionCommandInput, StopCompositionCommandOutput } from "../commands/StopCompositionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateIngestConfigurationCommandInput,
+  UpdateIngestConfigurationCommandOutput,
+} from "../commands/UpdateIngestConfigurationCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "../commands/UpdateStageCommand";
 import { IVSRealTimeServiceException as __BaseException } from "../models/IVSRealTimeServiceException";
 import {
@@ -100,7 +120,9 @@ import {
   AutoParticipantRecordingConfiguration,
   ChannelDestinationConfiguration,
   Composition,
+  CompositionRecordingHlsConfiguration,
   CompositionSummary,
+  CompositionThumbnailConfiguration,
   ConflictException,
   Destination,
   DestinationConfiguration,
@@ -111,8 +133,10 @@ import {
   InternalServerException,
   LayoutConfiguration,
   Participant,
+  ParticipantRecordingHlsConfiguration,
   ParticipantRecordingMediaType,
   ParticipantSummary,
+  ParticipantThumbnailConfiguration,
   ParticipantToken,
   ParticipantTokenCapability,
   ParticipantTokenConfiguration,
@@ -125,6 +149,7 @@ import {
   ServiceQuotaExceededException,
   StageSession,
   StageSessionSummary,
+  ThumbnailStorageType,
   ValidationException,
   Video,
 } from "../models/models_0";
@@ -147,6 +172,34 @@ export const se_CreateEncoderConfigurationCommand = async (
       name: [],
       tags: (_) => _json(_),
       video: (_) => se_Video(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateIngestConfigurationCommand
+ */
+export const se_CreateIngestConfigurationCommand = async (
+  input: CreateIngestConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateIngestConfiguration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+      ingestProtocol: [],
+      insecureIngest: [],
+      name: [],
+      stageArn: [],
+      tags: (_) => _json(_),
+      userId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -244,6 +297,29 @@ export const se_DeleteEncoderConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteIngestConfigurationCommand
+ */
+export const se_DeleteIngestConfigurationCommand = async (
+  input: DeleteIngestConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteIngestConfiguration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+      force: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -374,6 +450,28 @@ export const se_GetEncoderConfigurationCommand = async (
     "content-type": "application/json",
   };
   b.bp("/GetEncoderConfiguration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIngestConfigurationCommand
+ */
+export const se_GetIngestConfigurationCommand = async (
+  input: GetIngestConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetIngestConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -561,6 +659,31 @@ export const se_ListEncoderConfigurationsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIngestConfigurationsCommand
+ */
+export const se_ListIngestConfigurationsCommand = async (
+  input: ListIngestConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListIngestConfigurations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterByStageArn: [],
+      filterByState: [],
       maxResults: [],
       nextToken: [],
     })
@@ -816,13 +939,33 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateIngestConfigurationCommand
+ */
+export const se_UpdateIngestConfigurationCommand = async (
+  input: UpdateIngestConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateIngestConfiguration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+      stageArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -866,6 +1009,27 @@ export const de_CreateEncoderConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     encoderConfiguration: (_) => de_EncoderConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateIngestConfigurationCommand
+ */
+export const de_CreateIngestConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIngestConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ingestConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -942,6 +1106,23 @@ export const de_DeleteEncoderConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEncoderConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIngestConfigurationCommand
+ */
+export const de_DeleteIngestConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIngestConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1057,6 +1238,27 @@ export const de_GetEncoderConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     encoderConfiguration: (_) => de_EncoderConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIngestConfigurationCommand
+ */
+export const de_GetIngestConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIngestConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ingestConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1226,6 +1428,28 @@ export const de_ListEncoderConfigurationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     encoderConfigurations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIngestConfigurationsCommand
+ */
+export const de_ListIngestConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIngestConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ingestConfigurations: _json,
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1458,6 +1682,27 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIngestConfigurationCommand
+ */
+export const de_UpdateIngestConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIngestConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ingestConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateStageCommand
  */
 export const de_UpdateStageCommand = async (
@@ -1527,7 +1772,16 @@ const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1544,7 +1798,16 @@ const de_AccessDeniedExceptionRes = async (
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1564,7 +1827,16 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1581,7 +1853,16 @@ const de_InternalServerExceptionRes = async (
  * deserializeAws_restJson1PendingVerificationRes
  */
 const de_PendingVerificationRes = async (parsedOutput: any, context: __SerdeContext): Promise<PendingVerification> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1601,7 +1882,16 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1621,7 +1911,16 @@ const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1638,7 +1937,16 @@ const de_ServiceQuotaExceededExceptionRes = async (
  * deserializeAws_restJson1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1655,6 +1963,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChannelDestinationConfiguration omitted.
 
+// se_CompositionRecordingHlsConfiguration omitted.
+
+// se_CompositionThumbnailConfiguration omitted.
+
+// se_CompositionThumbnailConfigurationList omitted.
+
 // se_DestinationConfiguration omitted.
 
 // se_DestinationConfigurationList omitted.
@@ -1665,7 +1979,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_LayoutConfiguration omitted.
 
+// se_ParticipantAttributes omitted.
+
+// se_ParticipantRecordingHlsConfiguration omitted.
+
 // se_ParticipantRecordingMediaTypeList omitted.
+
+// se_ParticipantThumbnailConfiguration omitted.
 
 // se_ParticipantTokenAttributes omitted.
 
@@ -1684,6 +2004,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_S3StorageConfiguration omitted.
 
 // se_Tags omitted.
+
+// se_ThumbnailStorageTypeList omitted.
 
 /**
  * serializeAws_restJson1Video
@@ -1717,6 +2039,8 @@ const de_Composition = (output: any, context: __SerdeContext): Composition => {
   }) as any;
 };
 
+// de_CompositionRecordingHlsConfiguration omitted.
+
 /**
  * deserializeAws_restJson1CompositionSummary
  */
@@ -1743,6 +2067,10 @@ const de_CompositionSummaryList = (output: any, context: __SerdeContext): Compos
     });
   return retVal;
 };
+
+// de_CompositionThumbnailConfiguration omitted.
+
+// de_CompositionThumbnailConfigurationList omitted.
 
 /**
  * deserializeAws_restJson1Destination
@@ -1843,6 +2171,12 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
 
 // de_GridConfiguration omitted.
 
+// de_IngestConfiguration omitted.
+
+// de_IngestConfigurationList omitted.
+
+// de_IngestConfigurationSummary omitted.
+
 // de_LayoutConfiguration omitted.
 
 /**
@@ -1858,6 +2192,7 @@ const de_Participant = (output: any, context: __SerdeContext): Participant => {
     osName: __expectString,
     osVersion: __expectString,
     participantId: __expectString,
+    protocol: __expectString,
     published: __expectBoolean,
     recordingS3BucketName: __expectString,
     recordingS3Prefix: __expectString,
@@ -1882,6 +2217,8 @@ const de_ParticipantList = (output: any, context: __SerdeContext): ParticipantSu
   return retVal;
 };
 
+// de_ParticipantRecordingHlsConfiguration omitted.
+
 // de_ParticipantRecordingMediaTypeList omitted.
 
 /**
@@ -1897,6 +2234,8 @@ const de_ParticipantSummary = (output: any, context: __SerdeContext): Participan
     userId: __expectString,
   }) as any;
 };
+
+// de_ParticipantThumbnailConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ParticipantToken
@@ -1995,6 +2334,8 @@ const de_StageSessionSummary = (output: any, context: __SerdeContext): StageSess
 
 // de_Tags omitted.
 
+// de_ThumbnailStorageTypeList omitted.
+
 /**
  * deserializeAws_restJson1Video
  */
@@ -2019,11 +2360,20 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
+const _aCAO = "accessControlAllowOrigin";
+const _aCEH = "accessControlExposeHeaders";
+const _acao = "access-control-allow-origin";
+const _aceh = "access-control-expose-headers";
+const _cC = "cacheControl";
+const _cSP = "contentSecurityPolicy";
+const _cc = "cache-control";
+const _csp = "content-security-policy";
+const _sTS = "strictTransportSecurity";
+const _sts = "strict-transport-security";
 const _tK = "tagKeys";
+const _xAET = "xAmznErrorType";
+const _xCTO = "xContentTypeOptions";
+const _xFO = "xFrameOptions";
+const _xae = "x-amzn-errortype";
+const _xcto = "x-content-type-options";
+const _xfo = "x-frame-options";

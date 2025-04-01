@@ -28,7 +28,7 @@ export interface GetLogAnomalyDetectorCommandInput extends GetLogAnomalyDetector
 export interface GetLogAnomalyDetectorCommandOutput extends GetLogAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the log anomaly detector that you specify.</p>
+ * <p>Retrieves information about the log anomaly detector that you specify. The KMS key ARN detected is valid.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +77,7 @@ export interface GetLogAnomalyDetectorCommandOutput extends GetLogAnomalyDetecto
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetLogAnomalyDetectorCommand extends $Command
@@ -87,9 +88,7 @@ export class GetLogAnomalyDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetLogAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLogAnomalyDetectorCommand)
   .de(de_GetLogAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLogAnomalyDetectorRequest;
+      output: GetLogAnomalyDetectorResponse;
+    };
+    sdk: {
+      input: GetLogAnomalyDetectorCommandInput;
+      output: GetLogAnomalyDetectorCommandOutput;
+    };
+  };
+}

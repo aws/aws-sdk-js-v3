@@ -18,5 +18,5 @@ export interface LocationConstraintResolvedConfig {
 export function resolveLocationConstraintConfig<T>(
   input: T & LocationConstraintInputConfig & PreviouslyResolved
 ): T & LocationConstraintResolvedConfig {
-  return { ...input };
+  return input;
 }

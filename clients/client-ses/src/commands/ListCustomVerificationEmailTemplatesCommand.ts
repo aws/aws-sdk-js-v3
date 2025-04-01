@@ -78,6 +78,7 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command
@@ -88,9 +89,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomVerificationEmailTemplatesCommand)
   .de(de_ListCustomVerificationEmailTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomVerificationEmailTemplatesRequest;
+      output: ListCustomVerificationEmailTemplatesResponse;
+    };
+    sdk: {
+      input: ListCustomVerificationEmailTemplatesCommandInput;
+      output: ListCustomVerificationEmailTemplatesCommandOutput;
+    };
+  };
+}

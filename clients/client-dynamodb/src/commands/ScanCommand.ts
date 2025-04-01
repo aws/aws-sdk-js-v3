@@ -31,26 +31,26 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * <p>The <code>Scan</code> operation returns one or more items and item attributes by
  *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
  *             items, you can provide a <code>FilterExpression</code> operation.</p>
- *          <p>If the total size of scanned items exceeds the maximum dataset size limit of 1 MB,
- *             the scan completes and results are returned to the user. The <code>LastEvaluatedKey</code>
- *             value is also returned and the requestor can use the <code>LastEvaluatedKey</code> to continue
- *             the scan in a subsequent operation. Each scan response also includes number of items that were
- *             scanned (ScannedCount) as part of the request. If using a <code>FilterExpression</code>, a scan result
- *             can result in no items meeting the criteria and the <code>Count</code> will result in zero. If
- *             you did not use a <code>FilterExpression</code> in the scan request, then <code>Count</code> is
- *             the same as <code>ScannedCount</code>.</p>
+ *          <p>If the total size of scanned items exceeds the maximum dataset size limit of 1 MB, the
+ *             scan completes and results are returned to the user. The <code>LastEvaluatedKey</code>
+ *             value is also returned and the requestor can use the <code>LastEvaluatedKey</code> to
+ *             continue the scan in a subsequent operation. Each scan response also includes number of
+ *             items that were scanned (ScannedCount) as part of the request. If using a
+ *                 <code>FilterExpression</code>, a scan result can result in no items meeting the
+ *             criteria and the <code>Count</code> will result in zero. If you did not use a
+ *                 <code>FilterExpression</code> in the scan request, then <code>Count</code> is the
+ *             same as <code>ScannedCount</code>.</p>
  *          <note>
  *             <p>
- *                <code>Count</code> and <code>ScannedCount</code> only return the count of items specific to a
- *                 single scan request and, unless the table is less than 1MB, do not represent the total number
- *                 of items in the table.
- *             </p>
+ *                <code>Count</code> and <code>ScannedCount</code> only return the count of items
+ *                 specific to a single scan request and, unless the table is less than 1MB, do not
+ *                 represent the total number of items in the table. </p>
  *          </note>
- *          <p>A single <code>Scan</code> operation first reads up to the maximum number of items set (if
- *             using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then applies any
- *             filtering to the results if a <code>FilterExpression</code> is provided. If
- *                 <code>LastEvaluatedKey</code> is present in the response, pagination is required to complete the
- *             full table scan. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating the
+ *          <p>A single <code>Scan</code> operation first reads up to the maximum number of items set
+ *             (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then
+ *             applies any filtering to the results if a <code>FilterExpression</code> is provided. If
+ *                 <code>LastEvaluatedKey</code> is present in the response, pagination is required to
+ *             complete the full table scan. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating the
  *                 Results</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *          <p>
  *             <code>Scan</code> operations proceed sequentially; however, for faster performance on
@@ -58,17 +58,18 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *             operation by providing the <code>Segment</code> and <code>TotalSegments</code>
  *             parameters. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan">Parallel
  *                 Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- *          <p>By default, a <code>Scan</code> uses eventually consistent reads when accessing the items in a table.
- *             Therefore, the results from an eventually consistent <code>Scan</code> may not include the latest item
- *             changes at the time the scan iterates through each item in the table. If you require a strongly consistent
- *             read of each item as the scan iterates through the items in the table, you can set the <code>ConsistentRead</code>
- *             parameter to true. Strong consistency only relates to the consistency of the read at the item level.</p>
+ *          <p>By default, a <code>Scan</code> uses eventually consistent reads when accessing the
+ *             items in a table. Therefore, the results from an eventually consistent <code>Scan</code>
+ *             may not include the latest item changes at the time the scan iterates through each item
+ *             in the table. If you require a strongly consistent read of each item as the scan
+ *             iterates through the items in the table, you can set the <code>ConsistentRead</code>
+ *             parameter to true. Strong consistency only relates to the consistency of the read at the
+ *             item level.</p>
  *          <note>
- *             <p>
- *                 DynamoDB does not provide snapshot isolation for a scan operation when the <code>ConsistentRead</code>
- *                 parameter is set to true. Thus, a DynamoDB scan operation does not guarantee that all reads in a scan
- *                 see a consistent snapshot of the table when the scan operation was requested.
- *             </p>
+ *             <p> DynamoDB does not provide snapshot isolation for a scan operation when the
+ *                     <code>ConsistentRead</code> parameter is set to true. Thus, a DynamoDB scan
+ *                 operation does not guarantee that all reads in a scan see a consistent snapshot of
+ *                 the table when the scan operation was requested. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -264,54 +265,54 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To scan a table
  * ```javascript
  * // This example scans the entire Music table, and then narrows the results to songs by the artist "No One You Know". For each item, only the album title and song title are returned.
  * const input = {
- *   "ExpressionAttributeNames": {
- *     "#AT": "AlbumTitle",
- *     "#ST": "SongTitle"
+ *   ExpressionAttributeNames: {
+ *     #AT: "AlbumTitle",
+ *     #ST: "SongTitle"
  *   },
- *   "ExpressionAttributeValues": {
- *     ":a": {
- *       "S": "No One You Know"
+ *   ExpressionAttributeValues: {
+ *     :a: {
+ *       S: "No One You Know"
  *     }
  *   },
- *   "FilterExpression": "Artist = :a",
- *   "ProjectionExpression": "#ST, #AT",
- *   "TableName": "Music"
+ *   FilterExpression: "Artist = :a",
+ *   ProjectionExpression: "#ST, #AT",
+ *   TableName: "Music"
  * };
  * const command = new ScanCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConsumedCapacity": {},
- *   "Count": 2,
- *   "Items": [
+ *   ConsumedCapacity:   { /* empty *\/ },
+ *   Count: 2,
+ *   Items: [
  *     {
- *       "AlbumTitle": {
- *         "S": "Somewhat Famous"
+ *       AlbumTitle: {
+ *         S: "Somewhat Famous"
  *       },
- *       "SongTitle": {
- *         "S": "Call Me Today"
+ *       SongTitle: {
+ *         S: "Call Me Today"
  *       }
  *     },
  *     {
- *       "AlbumTitle": {
- *         "S": "Blue Sky Blues"
+ *       AlbumTitle: {
+ *         S: "Blue Sky Blues"
  *       },
- *       "SongTitle": {
- *         "S": "Scared of My Shadow"
+ *       SongTitle: {
+ *         S: "Scared of My Shadow"
  *       }
  *     }
  *   ],
- *   "ScannedCount": 3
+ *   ScannedCount: 3
  * }
  * *\/
- * // example id: to-scan-a-table-1475883652470
  * ```
  *
+ * @public
  */
 export class ScanCommand extends $Command
   .classBuilder<
@@ -323,6 +324,7 @@ export class ScanCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -335,4 +337,16 @@ export class ScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScanCommand)
   .de(de_ScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScanInput;
+      output: ScanOutput;
+    };
+    sdk: {
+      input: ScanCommandInput;
+      output: ScanCommandOutput;
+    };
+  };
+}

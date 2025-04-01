@@ -117,6 +117,7 @@ export interface GetMLModelTransformJobCommandOutput extends GetMLModelTransform
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetMLModelTransformJobCommand extends $Command
@@ -127,9 +128,7 @@ export class GetMLModelTransformJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class GetMLModelTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLModelTransformJobCommand)
   .de(de_GetMLModelTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLModelTransformJobInput;
+      output: GetMLModelTransformJobOutput;
+    };
+    sdk: {
+      input: GetMLModelTransformJobCommandInput;
+      output: GetMLModelTransformJobCommandOutput;
+    };
+  };
+}

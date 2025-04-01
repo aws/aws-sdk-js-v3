@@ -85,6 +85,7 @@ export interface GetQueueEnvironmentCommandOutput extends GetQueueEnvironmentRes
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetQueueEnvironmentCommand extends $Command
@@ -95,9 +96,7 @@ export class GetQueueEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetQueueEnvironmentCommand extends $Command
   .f(void 0, GetQueueEnvironmentResponseFilterSensitiveLog)
   .ser(se_GetQueueEnvironmentCommand)
   .de(de_GetQueueEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueEnvironmentRequest;
+      output: GetQueueEnvironmentResponse;
+    };
+    sdk: {
+      input: GetQueueEnvironmentCommandInput;
+      output: GetQueueEnvironmentCommandOutput;
+    };
+  };
+}

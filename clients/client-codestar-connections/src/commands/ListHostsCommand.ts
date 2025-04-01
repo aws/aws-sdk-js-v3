@@ -80,6 +80,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class ListHostsCommand extends $Command
@@ -90,9 +91,7 @@ export class ListHostsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListHostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostsCommand)
   .de(de_ListHostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostsInput;
+      output: ListHostsOutput;
+    };
+    sdk: {
+      input: ListHostsCommandInput;
+      output: ListHostsCommandOutput;
+    };
+  };
+}

@@ -166,6 +166,7 @@ export interface TestMigrationCommandOutput extends TestMigrationResponse, __Met
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -192,6 +193,7 @@ export interface TestMigrationCommandOutput extends TestMigrationResponse, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class TestMigrationCommand extends $Command
@@ -202,9 +204,7 @@ export class TestMigrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +216,16 @@ export class TestMigrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestMigrationCommand)
   .de(de_TestMigrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestMigrationMessage;
+      output: TestMigrationResponse;
+    };
+    sdk: {
+      input: TestMigrationCommandInput;
+      output: TestMigrationCommandOutput;
+    };
+  };
+}

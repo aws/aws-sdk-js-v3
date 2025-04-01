@@ -75,6 +75,7 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class StopDataSourceSyncJobCommand extends $Command
@@ -85,9 +86,7 @@ export class StopDataSourceSyncJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StopDataSourceSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDataSourceSyncJobCommand)
   .de(de_StopDataSourceSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDataSourceSyncJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopDataSourceSyncJobCommandInput;
+      output: StopDataSourceSyncJobCommandOutput;
+    };
+  };
+}

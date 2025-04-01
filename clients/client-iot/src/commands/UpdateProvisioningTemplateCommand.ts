@@ -79,6 +79,7 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateProvisioningTemplateCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateProvisioningTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateProvisioningTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisioningTemplateCommand)
   .de(de_UpdateProvisioningTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisioningTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateProvisioningTemplateCommandInput;
+      output: UpdateProvisioningTemplateCommandOutput;
+    };
+  };
+}

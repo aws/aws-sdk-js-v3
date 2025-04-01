@@ -10,7 +10,7 @@ AWS SDK for JavaScript KafkaConnect Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kafkaconnect
+To install this package, simply type add or install @aws-sdk/client-kafkaconnect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kafkaconnect`
@@ -261,6 +261,14 @@ DescribeConnector
 </details>
 <details>
 <summary>
+DescribeConnectorOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafkaconnect/command/DescribeConnectorOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/DescribeConnectorOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/DescribeConnectorOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCustomPlugin
 </summary>
 
@@ -273,6 +281,14 @@ DescribeWorkerConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafkaconnect/command/DescribeWorkerConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/DescribeWorkerConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/DescribeWorkerConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConnectorOperations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafkaconnect/command/ListConnectorOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/ListConnectorOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/ListConnectorOperationsCommandOutput/)
 
 </details>
 <details>

@@ -81,6 +81,7 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class ListLocationsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLocationsCommand)
   .de(de_ListLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLocationsRequest;
+      output: ListLocationsResponse;
+    };
+    sdk: {
+      input: ListLocationsCommandInput;
+      output: ListLocationsCommandOutput;
+    };
+  };
+}

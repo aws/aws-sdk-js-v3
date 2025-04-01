@@ -156,6 +156,7 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetStorageLensConfigurationCommand extends $Command
@@ -183,4 +184,16 @@ export class GetStorageLensConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStorageLensConfigurationCommand)
   .de(de_GetStorageLensConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStorageLensConfigurationRequest;
+      output: GetStorageLensConfigurationResult;
+    };
+    sdk: {
+      input: GetStorageLensConfigurationCommandInput;
+      output: GetStorageLensConfigurationCommandOutput;
+    };
+  };
+}

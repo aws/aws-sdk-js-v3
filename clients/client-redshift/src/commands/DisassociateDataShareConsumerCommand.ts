@@ -64,6 +64,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```
@@ -83,6 +84,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DisassociateDataShareConsumerCommand extends $Command
@@ -93,9 +95,7 @@ export class DisassociateDataShareConsumerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DisassociateDataShareConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateDataShareConsumerCommand)
   .de(de_DisassociateDataShareConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateDataShareConsumerMessage;
+      output: DataShare;
+    };
+    sdk: {
+      input: DisassociateDataShareConsumerCommandInput;
+      output: DisassociateDataShareConsumerCommandOutput;
+    };
+  };
+}

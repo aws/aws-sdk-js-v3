@@ -79,6 +79,7 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkflowCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkflowCommand)
   .de(de_UpdateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkflowRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkflowCommandInput;
+      output: UpdateWorkflowCommandOutput;
+    };
+  };
+}

@@ -190,6 +190,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class StartMedicalTranscriptionJobCommand extends $Command
@@ -200,9 +201,7 @@ export class StartMedicalTranscriptionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +213,16 @@ export class StartMedicalTranscriptionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMedicalTranscriptionJobCommand)
   .de(de_StartMedicalTranscriptionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMedicalTranscriptionJobRequest;
+      output: StartMedicalTranscriptionJobResponse;
+    };
+    sdk: {
+      input: StartMedicalTranscriptionJobCommandInput;
+      output: StartMedicalTranscriptionJobCommandOutput;
+    };
+  };
+}

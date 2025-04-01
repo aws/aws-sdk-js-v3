@@ -38,6 +38,11 @@ import {
   CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
+  CreateRepositoryCreationTemplateCommand,
+  CreateRepositoryCreationTemplateCommandInput,
+  CreateRepositoryCreationTemplateCommandOutput,
+} from "./commands/CreateRepositoryCreationTemplateCommand";
+import {
   DeleteLifecyclePolicyCommand,
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
@@ -57,6 +62,11 @@ import {
   DeleteRepositoryCommandInput,
   DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
+import {
+  DeleteRepositoryCreationTemplateCommand,
+  DeleteRepositoryCreationTemplateCommandInput,
+  DeleteRepositoryCreationTemplateCommandOutput,
+} from "./commands/DeleteRepositoryCreationTemplateCommand";
 import {
   DeleteRepositoryPolicyCommand,
   DeleteRepositoryPolicyCommandInput,
@@ -92,6 +102,16 @@ import {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
+import {
+  DescribeRepositoryCreationTemplatesCommand,
+  DescribeRepositoryCreationTemplatesCommandInput,
+  DescribeRepositoryCreationTemplatesCommandOutput,
+} from "./commands/DescribeRepositoryCreationTemplatesCommand";
+import {
+  GetAccountSettingCommand,
+  GetAccountSettingCommandInput,
+  GetAccountSettingCommandOutput,
+} from "./commands/GetAccountSettingCommand";
 import {
   GetAuthorizationTokenCommand,
   GetAuthorizationTokenCommandInput,
@@ -138,6 +158,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccountSettingCommand,
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput,
+} from "./commands/PutAccountSettingCommand";
 import { PutImageCommand, PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommand,
@@ -196,6 +221,11 @@ import {
   UpdatePullThroughCacheRuleCommandOutput,
 } from "./commands/UpdatePullThroughCacheRuleCommand";
 import {
+  UpdateRepositoryCreationTemplateCommand,
+  UpdateRepositoryCreationTemplateCommandInput,
+  UpdateRepositoryCreationTemplateCommandOutput,
+} from "./commands/UpdateRepositoryCreationTemplateCommand";
+import {
   UploadLayerPartCommand,
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
@@ -215,10 +245,12 @@ const commands = {
   CompleteLayerUploadCommand,
   CreatePullThroughCacheRuleCommand,
   CreateRepositoryCommand,
+  CreateRepositoryCreationTemplateCommand,
   DeleteLifecyclePolicyCommand,
   DeletePullThroughCacheRuleCommand,
   DeleteRegistryPolicyCommand,
   DeleteRepositoryCommand,
+  DeleteRepositoryCreationTemplateCommand,
   DeleteRepositoryPolicyCommand,
   DescribeImageReplicationStatusCommand,
   DescribeImagesCommand,
@@ -226,6 +258,8 @@ const commands = {
   DescribePullThroughCacheRulesCommand,
   DescribeRegistryCommand,
   DescribeRepositoriesCommand,
+  DescribeRepositoryCreationTemplatesCommand,
+  GetAccountSettingCommand,
   GetAuthorizationTokenCommand,
   GetDownloadUrlForLayerCommand,
   GetLifecyclePolicyCommand,
@@ -236,6 +270,7 @@ const commands = {
   InitiateLayerUploadCommand,
   ListImagesCommand,
   ListTagsForResourceCommand,
+  PutAccountSettingCommand,
   PutImageCommand,
   PutImageScanningConfigurationCommand,
   PutImageTagMutabilityCommand,
@@ -249,6 +284,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdatePullThroughCacheRuleCommand,
+  UpdateRepositoryCreationTemplateCommand,
   UploadLayerPartCommand,
   ValidatePullThroughCacheRuleCommand,
 };
@@ -368,6 +404,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link CreateRepositoryCreationTemplateCommand}
+   */
+  createRepositoryCreationTemplate(
+    args: CreateRepositoryCreationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRepositoryCreationTemplateCommandOutput>;
+  createRepositoryCreationTemplate(
+    args: CreateRepositoryCreationTemplateCommandInput,
+    cb: (err: any, data?: CreateRepositoryCreationTemplateCommandOutput) => void
+  ): void;
+  createRepositoryCreationTemplate(
+    args: CreateRepositoryCreationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRepositoryCreationTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteLifecyclePolicyCommand}
    */
   deleteLifecyclePolicy(
@@ -434,6 +487,23 @@ export interface ECR {
     args: DeleteRepositoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRepositoryCreationTemplateCommand}
+   */
+  deleteRepositoryCreationTemplate(
+    args: DeleteRepositoryCreationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRepositoryCreationTemplateCommandOutput>;
+  deleteRepositoryCreationTemplate(
+    args: DeleteRepositoryCreationTemplateCommandInput,
+    cb: (err: any, data?: DeleteRepositoryCreationTemplateCommandOutput) => void
+  ): void;
+  deleteRepositoryCreationTemplate(
+    args: DeleteRepositoryCreationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRepositoryCreationTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -553,6 +623,41 @@ export interface ECR {
     args: DescribeRepositoriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRepositoriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRepositoryCreationTemplatesCommand}
+   */
+  describeRepositoryCreationTemplates(): Promise<DescribeRepositoryCreationTemplatesCommandOutput>;
+  describeRepositoryCreationTemplates(
+    args: DescribeRepositoryCreationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRepositoryCreationTemplatesCommandOutput>;
+  describeRepositoryCreationTemplates(
+    args: DescribeRepositoryCreationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeRepositoryCreationTemplatesCommandOutput) => void
+  ): void;
+  describeRepositoryCreationTemplates(
+    args: DescribeRepositoryCreationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRepositoryCreationTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountSettingCommand}
+   */
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingCommandOutput>;
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    cb: (err: any, data?: GetAccountSettingCommandOutput) => void
+  ): void;
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingCommandOutput) => void
   ): void;
 
   /**
@@ -720,6 +825,23 @@ export interface ECR {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountSettingCommand}
+   */
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountSettingCommandOutput>;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
+  ): void;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
   ): void;
 
   /**
@@ -921,6 +1043,23 @@ export interface ECR {
     args: UpdatePullThroughCacheRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRepositoryCreationTemplateCommand}
+   */
+  updateRepositoryCreationTemplate(
+    args: UpdateRepositoryCreationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRepositoryCreationTemplateCommandOutput>;
+  updateRepositoryCreationTemplate(
+    args: UpdateRepositoryCreationTemplateCommandInput,
+    cb: (err: any, data?: UpdateRepositoryCreationTemplateCommandOutput) => void
+  ): void;
+  updateRepositoryCreationTemplate(
+    args: UpdateRepositoryCreationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRepositoryCreationTemplateCommandOutput) => void
   ): void;
 
   /**

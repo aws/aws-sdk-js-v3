@@ -96,6 +96,7 @@ export interface ListMLEndpointsCommandOutput extends ListMLEndpointsOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ListMLEndpointsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListMLEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListMLEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLEndpointsCommand)
   .de(de_ListMLEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLEndpointsInput;
+      output: ListMLEndpointsOutput;
+    };
+    sdk: {
+      input: ListMLEndpointsCommandInput;
+      output: ListMLEndpointsCommandOutput;
+    };
+  };
+}

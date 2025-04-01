@@ -90,6 +90,7 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class ListInputRoutingsCommand extends $Command
@@ -100,9 +101,7 @@ export class ListInputRoutingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListInputRoutingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputRoutingsCommand)
   .de(de_ListInputRoutingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputRoutingsRequest;
+      output: ListInputRoutingsResponse;
+    };
+    sdk: {
+      input: ListInputRoutingsCommandInput;
+      output: ListInputRoutingsCommandOutput;
+    };
+  };
+}

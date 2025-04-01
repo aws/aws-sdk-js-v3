@@ -24,7 +24,7 @@ programmatically. For more information about IAM Roles Anywhere, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rolesanywhere
+To install this package, simply type add or install @aws-sdk/client-rolesanywhere
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rolesanywhere`

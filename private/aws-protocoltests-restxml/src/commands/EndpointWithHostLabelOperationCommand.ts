@@ -55,6 +55,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelOperationCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EndpointWithHostLabelOperationCommand)
   .de(de_EndpointWithHostLabelOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EndpointWithHostLabelOperationRequest;
+      output: {};
+    };
+    sdk: {
+      input: EndpointWithHostLabelOperationCommandInput;
+      output: EndpointWithHostLabelOperationCommandOutput;
+    };
+  };
+}

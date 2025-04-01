@@ -49,25 +49,25 @@ export interface AutoBranchCreationConfig {
    * <p>Describes the current stage for the autocreated branch. </p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 
   /**
    * <p>The framework for the autocreated branch. </p>
    * @public
    */
-  framework?: string;
+  framework?: string | undefined;
 
   /**
    * <p>Enables auto building for the autocreated branch. </p>
    * @public
    */
-  enableAutoBuild?: boolean;
+  enableAutoBuild?: boolean | undefined;
 
   /**
    * <p>The environment variables for the autocreated branch. </p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p>The basic authorization credentials for the autocreated branch. You must base64-encode
@@ -75,13 +75,13 @@ export interface AutoBranchCreationConfig {
    *             <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p>Enables basic authorization for the autocreated branch. </p>
    * @public
    */
-  enableBasicAuth?: boolean;
+  enableBasicAuth?: boolean | undefined;
 
   /**
    * <p>Enables performance mode for the branch.</p>
@@ -90,25 +90,59 @@ export interface AutoBranchCreationConfig {
    *             or code changes can take up to 10 minutes to roll out. </p>
    * @public
    */
-  enablePerformanceMode?: boolean;
+  enablePerformanceMode?: boolean | undefined;
 
   /**
    * <p>The build specification (build spec) for the autocreated branch. </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p>Enables pull request previews for the autocreated branch. </p>
    * @public
    */
-  enablePullRequestPreview?: boolean;
+  enablePullRequestPreview?: boolean | undefined;
 
   /**
    * <p>The Amplify environment name for the pull request. </p>
    * @public
    */
-  pullRequestEnvironmentName?: string;
+  pullRequestEnvironmentName?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CacheConfigType = {
+  AMPLIFY_MANAGED: "AMPLIFY_MANAGED",
+  AMPLIFY_MANAGED_NO_COOKIES: "AMPLIFY_MANAGED_NO_COOKIES",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheConfigType = (typeof CacheConfigType)[keyof typeof CacheConfigType];
+
+/**
+ * <p>Describes the cache configuration for an Amplify app.</p>
+ *          <p>For more
+ *             information about how Amplify applies an optimal cache configuration for
+ *             your app based on the type of content that is being served, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/managing-cache-configuration">Managing cache configuration</a> in the <i>Amplify User
+ *                 guide</i>.</p>
+ * @public
+ */
+export interface CacheConfig {
+  /**
+   * <p>The type of cache configuration to use for an Amplify app.</p>
+   *          <p>The <code>AMPLIFY_MANAGED</code> cache configuration automatically applies an
+   *             optimized cache configuration for your app based on its platform, routing rules, and
+   *             rewrite rules. This is the default setting.</p>
+   *          <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache key.</p>
+   * @public
+   */
+  type: CacheConfigType | undefined;
 }
 
 /**
@@ -155,13 +189,13 @@ export interface CustomRule {
    *          </dl>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The condition for a URL rewrite or redirect rule, such as a country code. </p>
    * @public
    */
-  condition?: string;
+  condition?: string | undefined;
 }
 
 /**
@@ -194,28 +228,43 @@ export interface CreateAppRequest {
    * <p>The description of the Amplify app. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Git repository for the Amplify app. </p>
    * @public
    */
-  repository?: string;
+  repository?: string | undefined;
 
   /**
    * <p>The platform for the Amplify app. For a static app, set the platform type to
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+   *             the platform type to <code>WEB_COMPUTE</code> and set the artifacts
+   *                 <code>baseDirectory</code> to <code>.next</code> in the application's build
+   *             settings. For an example of the build specification settings, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14">Amplify build
+   *                 settings for a Next.js 14 SSG application</a> in the <i>Amplify Hosting User Guide</i>.</p>
    * @public
    */
-  platform?: Platform;
+  platform?: Platform | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *                 <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
-  iamServiceRoleArn?: string;
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * @public
+   */
+  iamServiceRoleArn?: string | undefined;
 
   /**
    * <p>The OAuth token for a third-party source control system for an Amplify app. The OAuth
@@ -232,7 +281,7 @@ export interface CreateAppRequest {
    *                 <i>Amplify User Guide</i> .</p>
    * @public
    */
-  oauthToken?: string;
+  oauthToken?: string | undefined;
 
   /**
    * <p>The personal access token for a GitHub repository for an Amplify app. The personal
@@ -248,7 +297,7 @@ export interface CreateAppRequest {
    *                 <i>Amplify User Guide</i> .</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
 
   /**
    * <p>The environment variables map for an Amplify app. </p>
@@ -258,27 +307,27 @@ export interface CreateAppRequest {
    *             Guide</i>.</p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p>Enables the auto building of branches for an Amplify app. </p>
    * @public
    */
-  enableBranchAutoBuild?: boolean;
+  enableBranchAutoBuild?: boolean | undefined;
 
   /**
    * <p>Automatically disconnects a branch in the Amplify console when you delete a branch
    *             from your Git repository. </p>
    * @public
    */
-  enableBranchAutoDeletion?: boolean;
+  enableBranchAutoDeletion?: boolean | undefined;
 
   /**
    * <p>Enables basic authorization for an Amplify app. This will apply to all branches that
    *             are part of this app. </p>
    * @public
    */
-  enableBasicAuth?: boolean;
+  enableBasicAuth?: boolean | undefined;
 
   /**
    * <p>The credentials for basic authorization for an Amplify app. You must base64-encode the
@@ -286,49 +335,55 @@ export interface CreateAppRequest {
    *             <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p>The custom rewrite and redirect rules for an Amplify app. </p>
    * @public
    */
-  customRules?: CustomRule[];
+  customRules?: CustomRule[] | undefined;
 
   /**
    * <p>The tag for an Amplify app. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The build specification (build spec) for an Amplify app. </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p>The custom HTTP headers for an Amplify app.</p>
    * @public
    */
-  customHeaders?: string;
+  customHeaders?: string | undefined;
 
   /**
    * <p>Enables automated branch creation for an Amplify app. </p>
    * @public
    */
-  enableAutoBranchCreation?: boolean;
+  enableAutoBranchCreation?: boolean | undefined;
 
   /**
    * <p>The automated branch creation glob patterns for an Amplify app. </p>
    * @public
    */
-  autoBranchCreationPatterns?: string[];
+  autoBranchCreationPatterns?: string[] | undefined;
 
   /**
    * <p>The automated branch creation configuration for an Amplify app. </p>
    * @public
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
+  autoBranchCreationConfig?: AutoBranchCreationConfig | undefined;
+
+  /**
+   * <p>The cache configuration for the Amplify app.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig | undefined;
 }
 
 /**
@@ -340,25 +395,25 @@ export interface ProductionBranch {
    * <p>The last deploy time of the production branch. </p>
    * @public
    */
-  lastDeployTime?: Date;
+  lastDeployTime?: Date | undefined;
 
   /**
    * <p>The status of the production branch. </p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The thumbnail URL for the production branch. </p>
    * @public
    */
-  thumbnailUrl?: string;
+  thumbnailUrl?: string | undefined;
 
   /**
    * <p>The branch name for the production branch. </p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 }
 
 /**
@@ -375,6 +430,51 @@ export const RepositoryCloneMethod = {
  * @public
  */
 export type RepositoryCloneMethod = (typeof RepositoryCloneMethod)[keyof typeof RepositoryCloneMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const WafStatus = {
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  ASSOCIATION_SUCCESS: "ASSOCIATION_SUCCESS",
+  DISASSOCIATING: "DISASSOCIATING",
+  DISASSOCIATION_FAILED: "DISASSOCIATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type WafStatus = (typeof WafStatus)[keyof typeof WafStatus];
+
+/**
+ * <p>Describes the Firewall configuration for a hosted Amplify application.
+ *             Firewall support enables you to protect your web applications with a direct integration
+ *             with WAF. For more information about using WAF protections for an Amplify application, see
+ *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/WAF-integration.html">Firewall support for hosted sites</a> in the <i>Amplify
+ *                     User Guide</i>. </p>
+ * @public
+ */
+export interface WafConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the web ACL associated with an Amplify app.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The status of the process to associate or disassociate a web ACL to an Amplify app.</p>
+   * @public
+   */
+  wafStatus?: WafStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the Firewall configuration.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
 
 /**
  * <p>Represents the different branches of a repository for building, deploying, and hosting
@@ -404,7 +504,7 @@ export interface App {
    * <p>The tag for the Amplify app. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description for the Amplify app. </p>
@@ -423,28 +523,39 @@ export interface App {
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js 14 or later, you must use the
+   *             platform type <code>WEB_COMPUTE</code>.</p>
    * @public
    */
   platform: Platform | undefined;
 
   /**
-   * <p>Creates a date and time for the Amplify app. </p>
+   * <p>A timestamp of when Amplify created the application.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>Updates the date and time for the Amplify app. </p>
+   * <p>A timestamp of when Amplify updated the application.</p>
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name
-   *             (ARN) of the Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
    * @public
    */
-  iamServiceRoleArn?: string;
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * @public
+   */
+  iamServiceRoleArn?: string | undefined;
 
   /**
    * <p>The environment variables for the Amplify app. </p>
@@ -473,7 +584,7 @@ export interface App {
    *             your Git repository.</p>
    * @public
    */
-  enableBranchAutoDeletion?: boolean;
+  enableBranchAutoDeletion?: boolean | undefined;
 
   /**
    * <p>Enables basic authorization for the Amplify app's branches. </p>
@@ -487,50 +598,50 @@ export interface App {
    *                 <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p>Describes the custom redirect and rewrite rules for the Amplify app. </p>
    * @public
    */
-  customRules?: CustomRule[];
+  customRules?: CustomRule[] | undefined;
 
   /**
    * <p>Describes the information about a production branch of the Amplify app. </p>
    * @public
    */
-  productionBranch?: ProductionBranch;
+  productionBranch?: ProductionBranch | undefined;
 
   /**
    * <p>Describes the content of the build specification (build spec) for the Amplify app.
    *         </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p>Describes the custom HTTP headers for the Amplify app.</p>
    * @public
    */
-  customHeaders?: string;
+  customHeaders?: string | undefined;
 
   /**
    * <p>Enables automated branch creation for the Amplify app. </p>
    * @public
    */
-  enableAutoBranchCreation?: boolean;
+  enableAutoBranchCreation?: boolean | undefined;
 
   /**
    * <p>Describes the automated branch creation glob patterns for the Amplify app. </p>
    * @public
    */
-  autoBranchCreationPatterns?: string[];
+  autoBranchCreationPatterns?: string[] | undefined;
 
   /**
    * <p>Describes the automated branch creation configuration for the Amplify app. </p>
    * @public
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
+  autoBranchCreationConfig?: AutoBranchCreationConfig | undefined;
 
   /**
    * <note>
@@ -542,7 +653,28 @@ export interface App {
    *             repository, and <code>SSH</code> for GitLab and Bitbucket repositories.</p>
    * @public
    */
-  repositoryCloneMethod?: RepositoryCloneMethod;
+  repositoryCloneMethod?: RepositoryCloneMethod | undefined;
+
+  /**
+   * <p>The cache configuration for the Amplify app. If you don't specify the
+   *             cache configuration <code>type</code>, Amplify uses the default
+   *                 <code>AMPLIFY_MANAGED</code> setting.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig | undefined;
+
+  /**
+   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
+   * @public
+   */
+  webhookCreateTime?: Date | undefined;
+
+  /**
+   * <p>Describes the Firewall configuration for the Amplify app. Firewall support enables you to protect your hosted applications with a direct integration
+   *             with WAF.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -658,13 +790,13 @@ export interface CreateBackendEnvironmentRequest {
    * <p>The AWS CloudFormation stack name of a backend environment. </p>
    * @public
    */
-  stackName?: string;
+  stackName?: string | undefined;
 
   /**
    * <p>The name of deployment artifacts. </p>
    * @public
    */
-  deploymentArtifacts?: string;
+  deploymentArtifacts?: string | undefined;
 }
 
 /**
@@ -692,13 +824,13 @@ export interface BackendEnvironment {
    * <p>The AWS CloudFormation stack name of a backend environment. </p>
    * @public
    */
-  stackName?: string;
+  stackName?: string | undefined;
 
   /**
    * <p>The name of deployment artifacts. </p>
    * @public
    */
-  deploymentArtifacts?: string;
+  deploymentArtifacts?: string | undefined;
 
   /**
    * <p>The creation date and time for a backend environment that is part of an Amplify app.
@@ -760,7 +892,7 @@ export interface Backend {
    * <p>The Amazon Resource Name (ARN) for the CloudFormation stack.</p>
    * @public
    */
-  stackArn?: string;
+  stackArn?: string | undefined;
 }
 
 /**
@@ -784,37 +916,48 @@ export interface CreateBranchRequest {
    * <p>The description for the branch. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Describes the current stage for the branch. </p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 
   /**
    * <p> The framework for the branch. </p>
    * @public
    */
-  framework?: string;
+  framework?: string | undefined;
 
   /**
    * <p> Enables notifications for the branch. </p>
    * @public
    */
-  enableNotification?: boolean;
+  enableNotification?: boolean | undefined;
 
   /**
    * <p> Enables auto building for the branch. </p>
    * @public
    */
-  enableAutoBuild?: boolean;
+  enableAutoBuild?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
 
   /**
    * <p> The environment variables for the branch. </p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p> The basic authorization credentials for the branch. You must base64-encode the
@@ -822,13 +965,13 @@ export interface CreateBranchRequest {
    *             <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p> Enables basic authorization for the branch. </p>
    * @public
    */
-  enableBasicAuth?: boolean;
+  enableBasicAuth?: boolean | undefined;
 
   /**
    * <p>Enables performance mode for the branch.</p>
@@ -837,43 +980,43 @@ export interface CreateBranchRequest {
    *             or code changes can take up to 10 minutes to roll out. </p>
    * @public
    */
-  enablePerformanceMode?: boolean;
+  enablePerformanceMode?: boolean | undefined;
 
   /**
    * <p> The tag for the branch. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p> The build specification (build spec) for the branch. </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p> The content Time To Live (TTL) for the website in seconds. </p>
    * @public
    */
-  ttl?: string;
+  ttl?: string | undefined;
 
   /**
    * <p> The display name for a branch. This is used as the default domain prefix. </p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p> Enables pull request previews for this branch. </p>
    * @public
    */
-  enablePullRequestPreview?: boolean;
+  enablePullRequestPreview?: boolean | undefined;
 
   /**
    * <p> The Amplify environment name for the pull request. </p>
    * @public
    */
-  pullRequestEnvironmentName?: string;
+  pullRequestEnvironmentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
@@ -883,7 +1026,7 @@ export interface CreateBranchRequest {
    *             command line interface (CLI).</p>
    * @public
    */
-  backendEnvironmentArn?: string;
+  backendEnvironmentArn?: string | undefined;
 
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
@@ -893,7 +1036,16 @@ export interface CreateBranchRequest {
    *             code.</p>
    * @public
    */
-  backend?: Backend;
+  backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**
@@ -923,7 +1075,7 @@ export interface Branch {
    * <p> The tag for the branch of an Amplify app. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p> The current stage for the branch that is part of an Amplify app. </p>
@@ -944,13 +1096,13 @@ export interface Branch {
   enableNotification: boolean | undefined;
 
   /**
-   * <p> The creation date and time for a branch that is part of an Amplify app. </p>
+   * <p>A timestamp of when Amplify created the branch.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p> The last updated date and time for a branch that is part of an Amplify app. </p>
+   * <p>A timestamp for the last updated time for a branch.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -966,6 +1118,17 @@ export interface Branch {
    * @public
    */
   enableAutoBuild: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
 
   /**
    * <p> The custom domains for a branch of an Amplify app. </p>
@@ -1004,13 +1167,13 @@ export interface Branch {
    *             or code changes can take up to 10 minutes to roll out. </p>
    * @public
    */
-  enablePerformanceMode?: boolean;
+  enablePerformanceMode?: boolean | undefined;
 
   /**
    * <p> The thumbnail URL for the branch of an Amplify app. </p>
    * @public
    */
-  thumbnailUrl?: string;
+  thumbnailUrl?: string | undefined;
 
   /**
    * <p> The basic authorization credentials for a branch of an Amplify app. You must
@@ -1018,14 +1181,14 @@ export interface Branch {
    *                 <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p> The build specification (build spec) content for the branch of an Amplify app.
    *         </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p> The content Time to Live (TTL) for the website in seconds. </p>
@@ -1037,7 +1200,7 @@ export interface Branch {
    * <p> A list of custom resources that are linked to this branch. </p>
    * @public
    */
-  associatedResources?: string[];
+  associatedResources?: string[] | undefined;
 
   /**
    * <p> Enables pull request previews for the branch. </p>
@@ -1049,19 +1212,19 @@ export interface Branch {
    * <p> The Amplify environment name for the pull request. </p>
    * @public
    */
-  pullRequestEnvironmentName?: string;
+  pullRequestEnvironmentName?: string | undefined;
 
   /**
    * <p> The destination branch if the branch is a pull request branch. </p>
    * @public
    */
-  destinationBranch?: string;
+  destinationBranch?: string | undefined;
 
   /**
    * <p> The source branch if the branch is a pull request branch. </p>
    * @public
    */
-  sourceBranch?: string;
+  sourceBranch?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app. </p>
@@ -1070,7 +1233,7 @@ export interface Branch {
    *             code.</p>
    * @public
    */
-  backendEnvironmentArn?: string;
+  backendEnvironmentArn?: string | undefined;
 
   /**
    * <p>Describes the backend associated with an Amplify
@@ -1080,7 +1243,16 @@ export interface Branch {
    *             code.</p>
    * @public
    */
-  backend?: Backend;
+  backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**
@@ -1120,7 +1292,7 @@ export interface CreateDeploymentRequest {
    *             the zipped files. </p>
    * @public
    */
-  fileMap?: Record<string, string>;
+  fileMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -1132,7 +1304,7 @@ export interface CreateDeploymentResult {
    * <p> The job ID for this deployment. will supply to start deployment api. </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p> When the <code>fileMap</code> argument is provided in the request,
@@ -1190,7 +1362,7 @@ export interface CertificateSettings {
    *          <p>This field is required only when the certificate type is <code>CUSTOM</code>.</p>
    * @public
    */
-  customCertificateArn?: string;
+  customCertificateArn?: string | undefined;
 }
 
 /**
@@ -1232,7 +1404,7 @@ export interface CreateDomainAssociationRequest {
    * <p> Enables the automated creation of subdomains for branches. </p>
    * @public
    */
-  enableAutoSubDomain?: boolean;
+  enableAutoSubDomain?: boolean | undefined;
 
   /**
    * <p> The setting for the subdomain. </p>
@@ -1244,14 +1416,14 @@ export interface CreateDomainAssociationRequest {
    * <p> Sets the branch patterns for automatic subdomain creation. </p>
    * @public
    */
-  autoSubDomainCreationPatterns?: string[];
+  autoSubDomainCreationPatterns?: string[] | undefined;
 
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
    *             Resource Name (ARN) for automatically creating subdomains. </p>
    * @public
    */
-  autoSubDomainIAMRole?: string;
+  autoSubDomainIAMRole?: string | undefined;
 
   /**
    * <p>The type of SSL/TLS certificate to use for your custom domain. If you don't specify a
@@ -1259,7 +1431,7 @@ export interface CreateDomainAssociationRequest {
    *             for you.</p>
    * @public
    */
-  certificateSettings?: CertificateSettings;
+  certificateSettings?: CertificateSettings | undefined;
 }
 
 /**
@@ -1278,7 +1450,7 @@ export interface Certificate {
    *             import) the certificate in the US East (N. Virginia) Region (us-east-1). For more
    *             information about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into
    *                     Certificate Manager</a> in the <i>ACM User
-   *                 guide</i> .</p>
+   *                 guide</i>.</p>
    * @public
    */
   type: CertificateType | undefined;
@@ -1289,13 +1461,13 @@ export interface Certificate {
    *          <p>This field is required only when the certificate type is <code>CUSTOM</code>.</p>
    * @public
    */
-  customCertificateArn?: string;
+  customCertificateArn?: string | undefined;
 
   /**
    * <p>The DNS record for certificate verification.</p>
    * @public
    */
-  certificateVerificationDNSRecord?: string;
+  certificateVerificationDNSRecord?: string | undefined;
 }
 
 /**
@@ -1390,14 +1562,14 @@ export interface DomainAssociation {
    * <p> Sets branch patterns for automatic subdomain creation. </p>
    * @public
    */
-  autoSubDomainCreationPatterns?: string[];
+  autoSubDomainCreationPatterns?: string[] | undefined;
 
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
    *             Resource Name (ARN) for automatically creating subdomains. </p>
    * @public
    */
-  autoSubDomainIAMRole?: string;
+  autoSubDomainIAMRole?: string | undefined;
 
   /**
    * <p> The current status of the domain association. </p>
@@ -1453,7 +1625,7 @@ export interface DomainAssociation {
    *          </dl>
    * @public
    */
-  updateStatus?: UpdateStatus;
+  updateStatus?: UpdateStatus | undefined;
 
   /**
    * <p> Additional information that describes why the domain association is in the current
@@ -1466,7 +1638,7 @@ export interface DomainAssociation {
    * <p> The DNS record for certificate verification. </p>
    * @public
    */
-  certificateVerificationDNSRecord?: string;
+  certificateVerificationDNSRecord?: string | undefined;
 
   /**
    * <p> The subdomains for the domain association. </p>
@@ -1484,7 +1656,7 @@ export interface DomainAssociation {
    *             current active certificate.</p>
    * @public
    */
-  certificate?: Certificate;
+  certificate?: Certificate | undefined;
 }
 
 /**
@@ -1521,7 +1693,7 @@ export interface CreateWebhookRequest {
    * <p>The description for a webhook. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1548,6 +1720,12 @@ export interface Webhook {
   webhookUrl: string | undefined;
 
   /**
+   * <p>The unique ID of an Amplify app.</p>
+   * @public
+   */
+  appId?: string | undefined;
+
+  /**
    * <p>The name for a branch that is part of an Amplify app. </p>
    * @public
    */
@@ -1560,13 +1738,13 @@ export interface Webhook {
   description: string | undefined;
 
   /**
-   * <p>The create date and time for a webhook. </p>
+   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>Updates the date and time for a webhook. </p>
+   * <p>A timestamp of when Amplify updated the webhook in your Git repository.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -1742,9 +1920,24 @@ export type JobType = (typeof JobType)[keyof typeof JobType];
  * @public
  * @enum
  */
+export const SourceUrlType = {
+  BUCKET_PREFIX: "BUCKET_PREFIX",
+  ZIP: "ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceUrlType = (typeof SourceUrlType)[keyof typeof SourceUrlType];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobStatus = {
   CANCELLED: "CANCELLED",
   CANCELLING: "CANCELLING",
+  CREATED: "CREATED",
   FAILED: "FAILED",
   PENDING: "PENDING",
   PROVISIONING: "PROVISIONING",
@@ -1787,7 +1980,7 @@ export interface JobSummary {
   commitMessage: string | undefined;
 
   /**
-   * <p> The commit date and time for the job. </p>
+   * <p>The commit date and time for the job. </p>
    * @public
    */
   commitTime: Date | undefined;
@@ -1808,17 +2001,34 @@ export interface JobSummary {
    * <p> The end date and time for the job. </p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p> The type for the job. If the value is <code>RELEASE</code>, the job was manually
-   *             released from its source by using the <code>StartJob</code> API. If the value is
-   *                 <code>RETRY</code>, the job was manually retried using the <code>StartJob</code>
+   *             released from its source by using the <code>StartJob</code> API. This value is available only for apps
+   *             that are connected to a repository.</p>
+   *          <p>If the value is <code>RETRY</code>, the job was manually retried using the <code>StartJob</code>
    *             API. If the value is <code>WEB_HOOK</code>, the job was automatically triggered by
-   *             webhooks. </p>
+   *             webhooks. If the value is <code>MANUAL</code>, the job is for a manually deployed app. Manually deployed apps are not connected to a Git repository.</p>
    * @public
    */
   jobType: JobType | undefined;
+
+  /**
+   * <p>The source URL for the files to deploy. The source URL can be either an HTTP GET URL that is publicly accessible and
+   *             downloads a single .zip file, or an Amazon S3 bucket and prefix.</p>
+   * @public
+   */
+  sourceUrl?: string | undefined;
+
+  /**
+   * <p>The type of source specified by the <code>sourceURL</code>.
+   *             If the value is <code>ZIP</code>, the source is a .zip file.
+   *             If the value is <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and
+   *             prefix. If no value is specified, the default is <code>ZIP</code>.</p>
+   * @public
+   */
+  sourceUrlType?: SourceUrlType | undefined;
 }
 
 /**
@@ -1867,14 +2077,14 @@ export interface GenerateAccessLogsRequest {
    *             start time. </p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The time at which the logs should end. The time range specified is inclusive of the
    *             end time. </p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The name of the domain. </p>
@@ -1898,7 +2108,7 @@ export interface GenerateAccessLogsResult {
    * <p>The pre-signed URL for the requested access logs. </p>
    * @public
    */
-  logUrl?: string;
+  logUrl?: string | undefined;
 }
 
 /**
@@ -2102,44 +2312,44 @@ export interface Step {
    * <p> The URL to the logs for the execution step. </p>
    * @public
    */
-  logUrl?: string;
+  logUrl?: string | undefined;
 
   /**
-   * <p> The URL to the artifact for the execution step. </p>
+   * <p> The URL to the build artifact for the execution step. </p>
    * @public
    */
-  artifactsUrl?: string;
+  artifactsUrl?: string | undefined;
 
   /**
    * <p> The URL to the test artifact for the execution step. </p>
    * @public
    */
-  testArtifactsUrl?: string;
+  testArtifactsUrl?: string | undefined;
 
   /**
    * <p> The URL to the test configuration for the execution step. </p>
    * @public
    */
-  testConfigUrl?: string;
+  testConfigUrl?: string | undefined;
 
   /**
    * <p> The list of screenshot URLs for the execution step, if relevant. </p>
    * @public
    */
-  screenshots?: Record<string, string>;
+  screenshots?: Record<string, string> | undefined;
 
   /**
    * <p> The reason for the current step status. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p> The context for the current step. Includes a build image if the step is build.
    *         </p>
    * @public
    */
-  context?: string;
+  context?: string | undefined;
 }
 
 /**
@@ -2205,13 +2415,13 @@ export interface ListAppsRequest {
    *             its value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2231,7 +2441,7 @@ export interface ListAppsResult {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2263,13 +2473,13 @@ export interface ListArtifactsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2306,7 +2516,7 @@ export interface ListArtifactsResult {
    *             value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2324,7 +2534,7 @@ export interface ListBackendEnvironmentsRequest {
    * <p>The name of the backend environment </p>
    * @public
    */
-  environmentName?: string;
+  environmentName?: string | undefined;
 
   /**
    * <p>A pagination token. Set to null to start listing backend environments from the start.
@@ -2332,13 +2542,13 @@ export interface ListBackendEnvironmentsRequest {
    *             more backend environments. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2357,7 +2567,7 @@ export interface ListBackendEnvironmentsResult {
    *             value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2377,13 +2587,13 @@ export interface ListBranchesRequest {
    *             branches. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2402,7 +2612,7 @@ export interface ListBranchesResult {
    *             value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2422,13 +2632,13 @@ export interface ListDomainAssociationsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2447,7 +2657,7 @@ export interface ListDomainAssociationsResult {
    *             value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2473,13 +2683,13 @@ export interface ListJobsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2498,7 +2708,7 @@ export interface ListJobsResult {
    *             value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2522,7 +2732,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags for the specified The Amazon Resource Name (ARN). </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2564,13 +2774,13 @@ export interface ListWebhooksRequest {
    *             more webhooks. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of records to list in a single response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2589,7 +2799,7 @@ export interface ListWebhooksResult {
    *             its value in another request to retrieve more entries. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2604,24 +2814,32 @@ export interface StartDeploymentRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the branch to use for the job. </p>
+   * <p>The name of the branch to use for the deployment job. </p>
    * @public
    */
   branchName: string | undefined;
 
   /**
-   * <p>The job ID for this deployment, generated by the create deployment request. </p>
+   * <p>The job ID for this deployment that is generated by the <code>CreateDeployment</code> request. </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
-   * <p>The source URL for this deployment, used when calling start deployment without create
-   *             deployment. The source URL can be any HTTP GET URL that is publicly accessible and
-   *             downloads a single .zip file. </p>
+   * <p>The source URL for the deployment that is used when calling <code>StartDeployment</code> without <code>CreateDeployment</code>. The source URL can be either an HTTP GET URL that is publicly accessible and
+   *             downloads a single .zip file, or an Amazon S3 bucket and prefix.</p>
    * @public
    */
-  sourceUrl?: string;
+  sourceUrl?: string | undefined;
+
+  /**
+   * <p>The type of source specified by the <code>sourceURL</code>.
+   *             If the value is <code>ZIP</code>, the source is a .zip file.
+   *             If the value is <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and
+   *             prefix. If no value is specified, the default is <code>ZIP</code>.</p>
+   * @public
+   */
+  sourceUrlType?: SourceUrlType | undefined;
 }
 
 /**
@@ -2658,7 +2876,7 @@ export interface StartJobRequest {
    *                 <code>jobType</code> is <code>RETRY</code>. </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Describes the type for the job. The job type <code>RELEASE</code> starts a new job
@@ -2674,25 +2892,25 @@ export interface StartJobRequest {
    * <p>A descriptive reason for starting the job.</p>
    * @public
    */
-  jobReason?: string;
+  jobReason?: string | undefined;
 
   /**
    * <p> The commit ID from a third-party repository provider for the job. </p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p> The commit message from a third-party repository provider for the job. </p>
    * @public
    */
-  commitMessage?: string;
+  commitMessage?: string | undefined;
 
   /**
    * <p> The commit date and time for the job. </p>
    * @public
    */
-  commitTime?: Date;
+  commitTime?: Date | undefined;
 }
 
 /**
@@ -2806,53 +3024,65 @@ export interface UpdateAppRequest {
    * <p>The name for an Amplify app. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description for an Amplify app. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The platform for the Amplify app. For a static app, set the platform type to
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+   *             the platform type to <code>WEB_COMPUTE</code>.</p>
    * @public
    */
-  platform?: Platform;
+  platform?: Platform | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
    * @public
    */
-  iamServiceRoleArn?: string;
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * @public
+   */
+  iamServiceRoleArn?: string | undefined;
 
   /**
    * <p>The environment variables for an Amplify app. </p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p>Enables branch auto-building for an Amplify app. </p>
    * @public
    */
-  enableBranchAutoBuild?: boolean;
+  enableBranchAutoBuild?: boolean | undefined;
 
   /**
    * <p>Automatically disconnects a branch in the Amplify console when you delete a branch
    *             from your Git repository. </p>
    * @public
    */
-  enableBranchAutoDeletion?: boolean;
+  enableBranchAutoDeletion?: boolean | undefined;
 
   /**
    * <p>Enables basic authorization for an Amplify app. </p>
    * @public
    */
-  enableBasicAuth?: boolean;
+  enableBasicAuth?: boolean | undefined;
 
   /**
    * <p>The basic authorization credentials for an Amplify app. You must base64-encode the
@@ -2860,49 +3090,49 @@ export interface UpdateAppRequest {
    *             <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p>The custom redirect and rewrite rules for an Amplify app. </p>
    * @public
    */
-  customRules?: CustomRule[];
+  customRules?: CustomRule[] | undefined;
 
   /**
    * <p>The build specification (build spec) for an Amplify app. </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p>The custom HTTP headers for an Amplify app.</p>
    * @public
    */
-  customHeaders?: string;
+  customHeaders?: string | undefined;
 
   /**
    * <p>Enables automated branch creation for an Amplify app. </p>
    * @public
    */
-  enableAutoBranchCreation?: boolean;
+  enableAutoBranchCreation?: boolean | undefined;
 
   /**
    * <p>Describes the automated branch creation glob patterns for an Amplify app. </p>
    * @public
    */
-  autoBranchCreationPatterns?: string[];
+  autoBranchCreationPatterns?: string[] | undefined;
 
   /**
    * <p>The automated branch creation configuration for an Amplify app. </p>
    * @public
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
+  autoBranchCreationConfig?: AutoBranchCreationConfig | undefined;
 
   /**
    * <p>The name of the Git repository for an Amplify app.</p>
    * @public
    */
-  repository?: string;
+  repository?: string | undefined;
 
   /**
    * <p>The OAuth token for a third-party source control system for an Amplify app. The OAuth
@@ -2920,7 +3150,7 @@ export interface UpdateAppRequest {
    *                 <i>Amplify User Guide</i> .</p>
    * @public
    */
-  oauthToken?: string;
+  oauthToken?: string | undefined;
 
   /**
    * <p>The personal access token for a GitHub repository for an Amplify app. The personal
@@ -2936,7 +3166,13 @@ export interface UpdateAppRequest {
    *                 <i>Amplify User Guide</i> .</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
+
+  /**
+   * <p>The cache configuration for the Amplify app.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig | undefined;
 }
 
 /**
@@ -2972,37 +3208,48 @@ export interface UpdateBranchRequest {
    * <p> The description for the branch. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The framework for the branch. </p>
    * @public
    */
-  framework?: string;
+  framework?: string | undefined;
 
   /**
    * <p> Describes the current stage for the branch. </p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 
   /**
    * <p> Enables notifications for the branch. </p>
    * @public
    */
-  enableNotification?: boolean;
+  enableNotification?: boolean | undefined;
 
   /**
    * <p> Enables auto building for the branch. </p>
    * @public
    */
-  enableAutoBuild?: boolean;
+  enableAutoBuild?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
 
   /**
    * <p> The environment variables for the branch. </p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p> The basic authorization credentials for the branch. You must base64-encode the
@@ -3010,13 +3257,13 @@ export interface UpdateBranchRequest {
    *             <code>user:password</code>.</p>
    * @public
    */
-  basicAuthCredentials?: string;
+  basicAuthCredentials?: string | undefined;
 
   /**
    * <p> Enables basic authorization for the branch. </p>
    * @public
    */
-  enableBasicAuth?: boolean;
+  enableBasicAuth?: boolean | undefined;
 
   /**
    * <p>Enables performance mode for the branch.</p>
@@ -3025,37 +3272,37 @@ export interface UpdateBranchRequest {
    *             or code changes can take up to 10 minutes to roll out. </p>
    * @public
    */
-  enablePerformanceMode?: boolean;
+  enablePerformanceMode?: boolean | undefined;
 
   /**
    * <p> The build specification (build spec) for the branch. </p>
    * @public
    */
-  buildSpec?: string;
+  buildSpec?: string | undefined;
 
   /**
    * <p> The content Time to Live (TTL) for the website in seconds. </p>
    * @public
    */
-  ttl?: string;
+  ttl?: string | undefined;
 
   /**
    * <p> The display name for a branch. This is used as the default domain prefix. </p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p> Enables pull request previews for this branch. </p>
    * @public
    */
-  enablePullRequestPreview?: boolean;
+  enablePullRequestPreview?: boolean | undefined;
 
   /**
    * <p> The Amplify environment name for the pull request. </p>
    * @public
    */
-  pullRequestEnvironmentName?: string;
+  pullRequestEnvironmentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
@@ -3065,7 +3312,7 @@ export interface UpdateBranchRequest {
    *             command line interface (CLI).</p>
    * @public
    */
-  backendEnvironmentArn?: string;
+  backendEnvironmentArn?: string | undefined;
 
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
@@ -3075,7 +3322,16 @@ export interface UpdateBranchRequest {
    *             code.</p>
    * @public
    */
-  backend?: Backend;
+  backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**
@@ -3111,32 +3367,32 @@ export interface UpdateDomainAssociationRequest {
    * <p> Enables the automated creation of subdomains for branches. </p>
    * @public
    */
-  enableAutoSubDomain?: boolean;
+  enableAutoSubDomain?: boolean | undefined;
 
   /**
    * <p> Describes the settings for the subdomain. </p>
    * @public
    */
-  subDomainSettings?: SubDomainSetting[];
+  subDomainSettings?: SubDomainSetting[] | undefined;
 
   /**
    * <p> Sets the branch patterns for automatic subdomain creation. </p>
    * @public
    */
-  autoSubDomainCreationPatterns?: string[];
+  autoSubDomainCreationPatterns?: string[] | undefined;
 
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
    *             Resource Name (ARN) for automatically creating subdomains. </p>
    * @public
    */
-  autoSubDomainIAMRole?: string;
+  autoSubDomainIAMRole?: string | undefined;
 
   /**
    * <p>The type of SSL/TLS certificate to use for your custom domain.</p>
    * @public
    */
-  certificateSettings?: CertificateSettings;
+  certificateSettings?: CertificateSettings | undefined;
 }
 
 /**
@@ -3167,13 +3423,13 @@ export interface UpdateWebhookRequest {
    * <p>The name for a branch that is part of an Amplify app. </p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 
   /**
    * <p>The description for a webhook. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**

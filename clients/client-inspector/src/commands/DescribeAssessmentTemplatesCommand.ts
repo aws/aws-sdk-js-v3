@@ -92,39 +92,8 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte assessment templates
- * ```javascript
- * // Describes the assessment templates that are specified by the ARNs of the assessment templates.
- * const input = {
- *   "assessmentTemplateArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
- *   ]
- * };
- * const command = new DescribeAssessmentTemplatesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentTemplates": [
- *     {
- *       "name": "ExampleAssessmentTemplate",
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
- *       "assessmentRunCount": 0,
- *       "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
- *       "createdAt": "1458074191.844",
- *       "durationInSeconds": 3600,
- *       "rulesPackageArns": [
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
- *       ],
- *       "userAttributesForFindings": []
- *     }
- *   ],
- *   "failedItems": {}
- * }
- * *\/
- * // example id: describte-assessment-templates-1481064606829
- * ```
  *
+ * @public
  */
 export class DescribeAssessmentTemplatesCommand extends $Command
   .classBuilder<
@@ -134,9 +103,7 @@ export class DescribeAssessmentTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +115,16 @@ export class DescribeAssessmentTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssessmentTemplatesCommand)
   .de(de_DescribeAssessmentTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssessmentTemplatesRequest;
+      output: DescribeAssessmentTemplatesResponse;
+    };
+    sdk: {
+      input: DescribeAssessmentTemplatesCommandInput;
+      output: DescribeAssessmentTemplatesCommandOutput;
+    };
+  };
+}

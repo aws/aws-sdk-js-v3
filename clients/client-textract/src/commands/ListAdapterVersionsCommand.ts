@@ -98,6 +98,7 @@ export interface ListAdapterVersionsCommandOutput extends ListAdapterVersionsRes
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class ListAdapterVersionsCommand extends $Command
@@ -108,9 +109,7 @@ export class ListAdapterVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ListAdapterVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAdapterVersionsCommand)
   .de(de_ListAdapterVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAdapterVersionsRequest;
+      output: ListAdapterVersionsResponse;
+    };
+    sdk: {
+      input: ListAdapterVersionsCommandInput;
+      output: ListAdapterVersionsCommandOutput;
+    };
+  };
+}

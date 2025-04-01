@@ -89,6 +89,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command
@@ -99,9 +100,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBClusterSnapshotAttributeCommand)
   .de(de_ModifyDBClusterSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBClusterSnapshotAttributeMessage;
+      output: ModifyDBClusterSnapshotAttributeResult;
+    };
+    sdk: {
+      input: ModifyDBClusterSnapshotAttributeCommandInput;
+      output: ModifyDBClusterSnapshotAttributeCommandOutput;
+    };
+  };
+}

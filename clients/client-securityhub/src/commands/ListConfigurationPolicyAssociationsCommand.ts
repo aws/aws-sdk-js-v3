@@ -100,37 +100,37 @@ export interface ListConfigurationPolicyAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To list configuration associations
  * ```javascript
  * // This operation lists all of the associations between targets and configuration policies or self-managed behavior. Targets can include accounts, organizational units, or the root.
  * const input = {
- *   "Filters": {
- *     "AssociationType": "APPLIED"
+ *   Filters: {
+ *     AssociationType: "APPLIED"
  *   },
- *   "MaxResults": 1,
- *   "NextToken": "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOhvw3o2JqjI86QDxdf"
+ *   MaxResults: 1,
+ *   NextToken: "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOhvw3o2JqjI86QDxdf"
  * };
  * const command = new ListConfigurationPolicyAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConfigurationPolicyAssociationSummaries": [
+ *   ConfigurationPolicyAssociationSummaries: [
  *     {
- *       "AssociationStatus": "PENDING",
- *       "AssociationType": "APPLIED",
- *       "ConfigurationPolicyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "TargetId": "123456789012",
- *       "TargetType": "ACCOUNT",
- *       "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *       AssociationStatus: "PENDING",
+ *       AssociationType: "APPLIED",
+ *       ConfigurationPolicyId: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       TargetId: "123456789012",
+ *       TargetType: "ACCOUNT",
+ *       UpdatedAt: "2023-01-11T06:17:17.154Z"
  *     }
  *   ],
- *   "NextToken": "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOfvw3o2JqjI86QDxef"
+ *   NextToken: "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOfvw3o2JqjI86QDxef"
  * }
  * *\/
- * // example id: to-list-configuration-associations-1695177309791
  * ```
  *
+ * @public
  */
 export class ListConfigurationPolicyAssociationsCommand extends $Command
   .classBuilder<
@@ -140,9 +140,7 @@ export class ListConfigurationPolicyAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +152,16 @@ export class ListConfigurationPolicyAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationPolicyAssociationsCommand)
   .de(de_ListConfigurationPolicyAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationPolicyAssociationsRequest;
+      output: ListConfigurationPolicyAssociationsResponse;
+    };
+    sdk: {
+      input: ListConfigurationPolicyAssociationsCommandInput;
+      output: ListConfigurationPolicyAssociationsCommandOutput;
+    };
+  };
+}

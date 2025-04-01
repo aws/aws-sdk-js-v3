@@ -28,8 +28,9 @@ export interface CreateGeneratedTemplateCommandInput extends CreateGeneratedTemp
 export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a template from existing resources that are not already managed with CloudFormation. You can check the status of
- *    the template generation using the <code>DescribeGeneratedTemplate</code> API action.</p>
+ * <p>Creates a template from existing resources that are not already managed with CloudFormation.
+ *       You can check the status of the template generation using the
+ *         <code>DescribeGeneratedTemplate</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,37 +84,37 @@ export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTem
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To create a generated template
  * ```javascript
  * // This example creates a generated template with a resources file.
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate",
- *   "Resources": [
+ *   GeneratedTemplateName: "JazzyTemplate",
+ *   Resources: [
  *     {
- *       "ResourceIdentifier": {
- *         "BucketName": "jazz-bucket"
+ *       ResourceIdentifier: {
+ *         BucketName: "jazz-bucket"
  *       },
- *       "ResourceType": "AWS::S3::Bucket"
+ *       ResourceType: "AWS::S3::Bucket"
  *     },
  *     {
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "random-id123"
+ *       ResourceIdentifier: {
+ *         DhcpOptionsId: "random-id123"
  *       },
- *       "ResourceType": "AWS::EC2::DHCPOptions"
+ *       ResourceType: "AWS::EC2::DHCPOptions"
  *     }
  *   ]
  * };
  * const command = new CreateGeneratedTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
+ *   GeneratedTemplateId: "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
  * }
  * *\/
- * // example id: to-create-a-generated-template
  * ```
  *
+ * @public
  */
 export class CreateGeneratedTemplateCommand extends $Command
   .classBuilder<
@@ -123,9 +124,7 @@ export class CreateGeneratedTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class CreateGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGeneratedTemplateCommand)
   .de(de_CreateGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGeneratedTemplateInput;
+      output: CreateGeneratedTemplateOutput;
+    };
+    sdk: {
+      input: CreateGeneratedTemplateCommandInput;
+      output: CreateGeneratedTemplateCommandOutput;
+    };
+  };
+}

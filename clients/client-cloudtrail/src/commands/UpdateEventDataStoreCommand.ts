@@ -34,7 +34,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *             <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and
  *          3653 if the <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code> is enabled.</p>
  *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
- *          includes or excludes management or data events in your event data store. For more
+ *          includes or excludes management, data, or network activity events in your event data store. For more
  *          information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
  *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
  *             <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
@@ -158,7 +158,11 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *          organization resource in a required service.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InvalidEventSelectorsException} (client fault)
@@ -245,6 +249,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventDataStoreCommand extends $Command
@@ -255,9 +260,7 @@ export class UpdateEventDataStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +272,16 @@ export class UpdateEventDataStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventDataStoreCommand)
   .de(de_UpdateEventDataStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventDataStoreRequest;
+      output: UpdateEventDataStoreResponse;
+    };
+    sdk: {
+      input: UpdateEventDataStoreCommandInput;
+      output: UpdateEventDataStoreCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,7 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command
@@ -86,9 +87,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class RegisterDefaultPatchBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDefaultPatchBaselineCommand)
   .de(de_RegisterDefaultPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDefaultPatchBaselineRequest;
+      output: RegisterDefaultPatchBaselineResult;
+    };
+    sdk: {
+      input: RegisterDefaultPatchBaselineCommandInput;
+      output: RegisterDefaultPatchBaselineCommandOutput;
+    };
+  };
+}

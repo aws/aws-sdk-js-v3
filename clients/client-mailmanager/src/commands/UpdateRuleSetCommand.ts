@@ -32,7 +32,7 @@ export interface UpdateRuleSetCommandInput extends UpdateRuleSetRequest {}
 export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>&gt;Update attributes of an already provisioned rule set.</p>
+ * <p>Update attributes of an already provisioned rule set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +50,27 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *           BooleanExpression: { // RuleBooleanExpression
  *             Evaluate: { // RuleBooleanToEvaluate Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: { // Analysis
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: { // RuleIsInAddressList
+ *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ *                 AddressLists: [ // RuleAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },
  *           StringExpression: { // RuleStringExpression
  *             Evaluate: { // RuleStringToEvaluate Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // RuleStringList // required
@@ -81,7 +96,7 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *           VerdictExpression: { // RuleVerdictExpression
  *             Evaluate: { // RuleVerdictToEvaluate Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: { // Analysis
+ *               Analysis: {
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
@@ -104,12 +119,27 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *           BooleanExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: {
+ *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ *                 AddressLists: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },
  *           StringExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // required
@@ -135,10 +165,7 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *           VerdictExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: {
- *                 Analyzer: "STRING_VALUE", // required
- *                 ResultField: "STRING_VALUE", // required
- *               },
+ *               Analysis: "<Analysis>",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS", // required
  *             Values: [ // required
@@ -190,6 +217,12 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *             MailboxArn: "STRING_VALUE", // required
  *             RoleArn: "STRING_VALUE", // required
  *           },
+ *           DeliverToQBusiness: { // DeliverToQBusinessAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             ApplicationId: "STRING_VALUE", // required
+ *             IndexId: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },
@@ -219,6 +252,7 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleSetCommand extends $Command
@@ -229,9 +263,7 @@ export class UpdateRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -243,4 +275,16 @@ export class UpdateRuleSetCommand extends $Command
   .f(UpdateRuleSetRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRuleSetCommand)
   .de(de_UpdateRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRuleSetCommandInput;
+      output: UpdateRuleSetCommandOutput;
+    };
+  };
+}

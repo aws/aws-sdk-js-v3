@@ -62,6 +62,7 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ReleaseIpamPoolAllocationCommand extends $Command
@@ -72,9 +73,7 @@ export class ReleaseIpamPoolAllocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class ReleaseIpamPoolAllocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseIpamPoolAllocationCommand)
   .de(de_ReleaseIpamPoolAllocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseIpamPoolAllocationRequest;
+      output: ReleaseIpamPoolAllocationResult;
+    };
+    sdk: {
+      input: ReleaseIpamPoolAllocationCommandInput;
+      output: ReleaseIpamPoolAllocationCommandOutput;
+    };
+  };
+}

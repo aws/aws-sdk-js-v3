@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAssetRevisionsInput, ListAssetRevisionsOutput } from "../models/models_0";
+import { ListAssetRevisionsInput, ListAssetRevisionsOutput } from "../models/models_1";
 import { de_ListAssetRevisionsCommand, se_ListAssetRevisionsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -85,6 +85,7 @@ export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListAssetRevisionsCommand extends $Command
@@ -95,9 +96,7 @@ export class ListAssetRevisionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListAssetRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetRevisionsCommand)
   .de(de_ListAssetRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetRevisionsInput;
+      output: ListAssetRevisionsOutput;
+    };
+    sdk: {
+      input: ListAssetRevisionsCommandInput;
+      output: ListAssetRevisionsCommandOutput;
+    };
+  };
+}

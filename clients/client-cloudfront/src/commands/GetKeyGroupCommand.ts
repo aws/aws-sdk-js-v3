@@ -75,6 +75,7 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetKeyGroupCommand extends $Command
@@ -85,9 +86,7 @@ export class GetKeyGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class GetKeyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyGroupCommand)
   .de(de_GetKeyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyGroupRequest;
+      output: GetKeyGroupResult;
+    };
+    sdk: {
+      input: GetKeyGroupCommandInput;
+      output: GetKeyGroupCommandOutput;
+    };
+  };
+}

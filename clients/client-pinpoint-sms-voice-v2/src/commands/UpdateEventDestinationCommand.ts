@@ -33,11 +33,11 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
 
 /**
  * <p>Updates an existing event destination in a configuration set. You can update the
- *                 IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can
+ *                 IAM role ARN for CloudWatch Logs and Firehose. You can
  *             also enable or disable the event destination.</p>
  *          <p>You may want to update an event destination to change its matching event types or
  *             updating the destination resource ARN. You can't change an event destination's type
- *             between CloudWatch Logs, Kinesis Data Firehose, and Amazon SNS.</p>
+ *             between CloudWatch Logs, Firehose, and Amazon SNS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,6 +123,7 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventDestinationCommand extends $Command
@@ -133,9 +134,7 @@ export class UpdateEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class UpdateEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventDestinationCommand)
   .de(de_UpdateEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventDestinationRequest;
+      output: UpdateEventDestinationResult;
+    };
+    sdk: {
+      input: UpdateEventDestinationCommandInput;
+      output: UpdateEventDestinationCommandOutput;
+    };
+  };
+}

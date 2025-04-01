@@ -71,6 +71,7 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ListReleaseLabelsCommand extends $Command
@@ -81,9 +82,7 @@ export class ListReleaseLabelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class ListReleaseLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReleaseLabelsCommand)
   .de(de_ListReleaseLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReleaseLabelsInput;
+      output: ListReleaseLabelsOutput;
+    };
+    sdk: {
+      input: ListReleaseLabelsCommandInput;
+      output: ListReleaseLabelsCommandOutput;
+    };
+  };
+}

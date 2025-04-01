@@ -2,47 +2,768 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AggregationFunction,
   AxisBinding,
   AxisDisplayOptions,
   BarChartFieldWells,
   BarChartOrientation,
-  BarChartSortConfiguration,
   BarsArrangement,
   ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
-  ColumnTooltipItem,
   ContributionAnalysisDefault,
+  CustomActionFilterOperation,
+  CustomActionNavigationOperation,
+  CustomActionSetParametersOperation,
+  CustomActionSetParametersOperationFilterSensitiveLog,
+  CustomActionURLOperation,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
   DataLabelPosition,
   DimensionField,
-  FieldSort,
-  FieldSortOptions,
   FontConfiguration,
   FormatConfiguration,
   FormatConfigurationFilterSensitiveLog,
-  HorizontalTextAlignment,
-  ItemsLimitConfiguration,
   LegendOptions,
   MeasureField,
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
+  NumericFormatConfiguration,
+  NumericFormatConfigurationFilterSensitiveLog,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
-  ReferenceLine,
-  ReferenceLineFilterSensitiveLog,
-  SmallMultiplesOptions,
+  ReferenceLineDynamicDataConfiguration,
   SortDirection,
   TimeGranularity,
-  TooltipTarget,
-  URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineSeriesType = {
+  BAR: "BAR",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineSeriesType = (typeof ReferenceLineSeriesType)[keyof typeof ReferenceLineSeriesType];
+
+/**
+ * <p>The static data configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineStaticDataConfiguration {
+  /**
+   * <p>The double input of the static data.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The data configuration of the reference line.</p>
+ * @public
+ */
+export interface ReferenceLineDataConfiguration {
+  /**
+   * <p>The static data configuration of the reference line data configuration.</p>
+   * @public
+   */
+  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
+
+  /**
+   * <p>The dynamic configuration of the reference line data configuration.</p>
+   * @public
+   */
+  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
+
+  /**
+   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AxisBinding?: AxisBinding | undefined;
+
+  /**
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SeriesType?: ReferenceLineSeriesType | undefined;
+}
+
+/**
+ * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
+ * @public
+ */
+export interface ReferenceLineCustomLabelConfiguration {
+  /**
+   * <p>The string text of the custom label.</p>
+   * @public
+   */
+  CustomLabel: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelHorizontalPosition = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineLabelHorizontalPosition =
+  (typeof ReferenceLineLabelHorizontalPosition)[keyof typeof ReferenceLineLabelHorizontalPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineValueLabelRelativePosition = {
+  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
+  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineValueLabelRelativePosition =
+  (typeof ReferenceLineValueLabelRelativePosition)[keyof typeof ReferenceLineValueLabelRelativePosition];
+
+/**
+ * <p>The value label configuration of the label in a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineValueLabelConfiguration {
+  /**
+   * <p>The relative position of the value label. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BEFORE_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AFTER_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
+
+  /**
+   * <p>The format configuration of the value label.</p>
+   * @public
+   */
+  FormatConfiguration?: NumericFormatConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelVerticalPosition = {
+  ABOVE: "ABOVE",
+  BELOW: "BELOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineLabelVerticalPosition =
+  (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
+
+/**
+ * <p>The label configuration of a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineLabelConfiguration {
+  /**
+   * <p>The value label configuration of the label in a reference line.</p>
+   * @public
+   */
+  ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
+
+  /**
+   * <p>The custom label configuration of the label in a reference line.</p>
+   * @public
+   */
+  CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
+
+  /**
+   * <p>The font configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The font color configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontColor?: string | undefined;
+
+  /**
+   * <p>The horizontal position configuration of the label in a reference line. Choose one of
+   *             the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CENTER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
+
+  /**
+   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ABOVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BELOW</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLinePatternType = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLinePatternType = (typeof ReferenceLinePatternType)[keyof typeof ReferenceLinePatternType];
+
+/**
+ * <p>The style configuration of the reference
+ *             line.</p>
+ * @public
+ */
+export interface ReferenceLineStyleConfiguration {
+  /**
+   * <p>The pattern type of the line style. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SOLID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DOTTED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Pattern?: ReferenceLinePatternType | undefined;
+
+  /**
+   * <p>The hex color of the reference line.</p>
+   * @public
+   */
+  Color?: string | undefined;
+}
+
+/**
+ * <p>The reference line visual display options.</p>
+ * @public
+ */
+export interface ReferenceLine {
+  /**
+   * <p>The status of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The data configuration of the reference line.</p>
+   * @public
+   */
+  DataConfiguration: ReferenceLineDataConfiguration | undefined;
+
+  /**
+   * <p>The style configuration of the reference line.</p>
+   * @public
+   */
+  StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
+
+  /**
+   * <p>The label configuration of the reference line.</p>
+   * @public
+   */
+  LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PanelBorderStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type PanelBorderStyle = (typeof PanelBorderStyle)[keyof typeof PanelBorderStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const HorizontalTextAlignment = {
+  AUTO: "AUTO",
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type HorizontalTextAlignment = (typeof HorizontalTextAlignment)[keyof typeof HorizontalTextAlignment];
+
+/**
+ * <p>The options that determine the title styles for each small multiples
+ *             panel.</p>
+ * @public
+ */
+export interface PanelTitleOptions {
+  /**
+   * <p>Determines whether or not panel titles are displayed.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Sets the horizontal text alignment of the title within each panel.</p>
+   * @public
+   */
+  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
+}
+
+/**
+ * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
+ * @public
+ */
+export interface PanelConfiguration {
+  /**
+   * <p>Configures the title display within each small multiples panel.</p>
+   * @public
+   */
+  Title?: PanelTitleOptions | undefined;
+
+  /**
+   * <p>Determines whether or not each panel displays a border.</p>
+   * @public
+   */
+  BorderVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the line thickness of panel borders.</p>
+   * @public
+   */
+  BorderThickness?: string | undefined;
+
+  /**
+   * <p>Sets the line style of panel borders.</p>
+   * @public
+   */
+  BorderStyle?: PanelBorderStyle | undefined;
+
+  /**
+   * <p>Sets the line color of panel borders.</p>
+   * @public
+   */
+  BorderColor?: string | undefined;
+
+  /**
+   * <p>Determines whether or not negative space between sibling panels is rendered.</p>
+   * @public
+   */
+  GutterVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the total amount of negative space to display between sibling panels.</p>
+   * @public
+   */
+  GutterSpacing?: string | undefined;
+
+  /**
+   * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
+   * @public
+   */
+  BackgroundVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the background color for each panel.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SmallMultiplesAxisPlacement = {
+  INSIDE: "INSIDE",
+  OUTSIDE: "OUTSIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type SmallMultiplesAxisPlacement =
+  (typeof SmallMultiplesAxisPlacement)[keyof typeof SmallMultiplesAxisPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmallMultiplesAxisScale = {
+  INDEPENDENT: "INDEPENDENT",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type SmallMultiplesAxisScale = (typeof SmallMultiplesAxisScale)[keyof typeof SmallMultiplesAxisScale];
+
+/**
+ * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
+ * @public
+ */
+export interface SmallMultiplesAxisProperties {
+  /**
+   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
+   * @public
+   */
+  Scale?: SmallMultiplesAxisScale | undefined;
+
+  /**
+   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
+   * @public
+   */
+  Placement?: SmallMultiplesAxisPlacement | undefined;
+}
+
+/**
+ * <p>Options that determine the layout and display options of a chart's small multiples.</p>
+ * @public
+ */
+export interface SmallMultiplesOptions {
+  /**
+   * <p>Sets the maximum number of visible rows to display in the grid of small multiples panels.</p>
+   *          <p>The default value is <code>Auto</code>,
+   *             which automatically adjusts the rows in the grid
+   *             to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleRows?: number | undefined;
+
+  /**
+   * <p>Sets the maximum number of visible columns to display in the grid of small multiples panels.</p>
+   *          <p>The default is <code>Auto</code>, which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleColumns?: number | undefined;
+
+  /**
+   * <p>Configures the display options for each small multiples panel.</p>
+   * @public
+   */
+  PanelConfiguration?: PanelConfiguration | undefined;
+
+  /**
+   * <p>The properties of a small multiples X axis.</p>
+   * @public
+   */
+  XAxis?: SmallMultiplesAxisProperties | undefined;
+
+  /**
+   * <p>The properties of a small multiples Y axis.</p>
+   * @public
+   */
+  YAxis?: SmallMultiplesAxisProperties | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OtherCategories = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
+
+/**
+ * <p>The limit configuration of the visual display for an axis.</p>
+ * @public
+ */
+export interface ItemsLimitConfiguration {
+  /**
+   * <p>The limit on how many items of a field are showed in the chart. For
+   *             example, the number of slices that are displayed in a pie chart.</p>
+   * @public
+   */
+  ItemsLimit?: number | undefined;
+
+  /**
+   * <p>The <code>Show
+   *                 other</code> of an axis in the chart. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INCLUDE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUDE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OtherCategories?: OtherCategories | undefined;
+}
+
+/**
+ * <p>The sort configuration for a field in a
+ *             field well.</p>
+ * @public
+ */
+export interface FieldSort {
+  /**
+   * <p>The sort configuration target field.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The sort direction. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code>: Ascending</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code>: Descending</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Direction: SortDirection | undefined;
+}
+
+/**
+ * <p>The field sort options in a chart configuration.</p>
+ * @public
+ */
+export interface FieldSortOptions {
+  /**
+   * <p>The sort configuration for a field in a field well.</p>
+   * @public
+   */
+  FieldSort?: FieldSort | undefined;
+
+  /**
+   * <p>The sort configuration for a column that is not used in a field well.</p>
+   * @public
+   */
+  ColumnSort?: ColumnSort | undefined;
+}
+
+/**
+ * <p>sort-configuration-description</p>
+ * @public
+ */
+export interface BarChartSortConfiguration {
+  /**
+   * <p>The sort configuration of category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of categories displayed in a bar chart.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of color fields in a bar chart.</p>
+   * @public
+   */
+  ColorSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of values displayed in a bar chart.</p>
+   * @public
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of the small multiples field.</p>
+   * @public
+   */
+  SmallMultiplesSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of small multiples panels that are displayed.</p>
+   * @public
+   */
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TooltipTarget = {
+  BAR: "BAR",
+  BOTH: "BOTH",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type TooltipTarget = (typeof TooltipTarget)[keyof typeof TooltipTarget];
+
+/**
+ * <p>The tooltip item for the columns that are not part of a field well.</p>
+ * @public
+ */
+export interface ColumnTooltipItem {
+  /**
+   * <p>The target column of the tooltip item.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The aggregation function of the column tooltip item.</p>
+   * @public
+   */
+  Aggregation?: AggregationFunction | undefined;
+
+  /**
+   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget | undefined;
+}
 
 /**
  * <p>The tooltip item for the fields.</p>
@@ -59,19 +780,19 @@ export interface FieldTooltipItem {
    * <p>The label of the tooltip item.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The visibility of the tooltip item.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
    * @public
    */
-  TooltipTarget?: TooltipTarget;
+  TooltipTarget?: TooltipTarget | undefined;
 }
 
 /**
@@ -84,13 +805,13 @@ export interface TooltipItem {
    * <p>The tooltip item for the fields.</p>
    * @public
    */
-  FieldTooltipItem?: FieldTooltipItem;
+  FieldTooltipItem?: FieldTooltipItem | undefined;
 
   /**
    * <p>The tooltip item for the columns that are not part of a field well.</p>
    * @public
    */
-  ColumnTooltipItem?: ColumnTooltipItem;
+  ColumnTooltipItem?: ColumnTooltipItem | undefined;
 }
 
 /**
@@ -116,7 +837,7 @@ export interface FieldBasedTooltip {
    * <p>The visibility of <code>Show aggregations</code>.</p>
    * @public
    */
-  AggregationVisibility?: Visibility;
+  AggregationVisibility?: Visibility | undefined;
 
   /**
    * <p>The type for the >tooltip title. Choose one of the following options:</p>
@@ -132,14 +853,14 @@ export interface FieldBasedTooltip {
    *          </ul>
    * @public
    */
-  TooltipTitleType?: TooltipTitleType;
+  TooltipTitleType?: TooltipTitleType | undefined;
 
   /**
    * <p>The fields configuration in the
    *             tooltip.</p>
    * @public
    */
-  TooltipFields?: TooltipItem[];
+  TooltipFields?: TooltipItem[] | undefined;
 }
 
 /**
@@ -165,7 +886,7 @@ export interface TooltipOptions {
    * <p>Determines whether or not the tooltip is visible.</p>
    * @public
    */
-  TooltipVisibility?: Visibility;
+  TooltipVisibility?: Visibility | undefined;
 
   /**
    * <p>The selected type for the tooltip. Choose one of the following options:</p>
@@ -181,13 +902,13 @@ export interface TooltipOptions {
    *          </ul>
    * @public
    */
-  SelectedTooltipType?: SelectedTooltipType;
+  SelectedTooltipType?: SelectedTooltipType | undefined;
 
   /**
    * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
    * @public
    */
-  FieldBasedTooltip?: FieldBasedTooltip;
+  FieldBasedTooltip?: FieldBasedTooltip | undefined;
 }
 
 /**
@@ -233,7 +954,7 @@ export interface DataPathType {
    *          </ul>
    * @public
    */
-  PivotTableDataPathType?: PivotTableDataPathType;
+  PivotTableDataPathType?: PivotTableDataPathType | undefined;
 }
 
 /**
@@ -245,19 +966,19 @@ export interface DataPathValue {
    * <p>The field ID of the field that needs to be sorted.</p>
    * @public
    */
-  FieldId?: string;
+  FieldId?: string | undefined;
 
   /**
    * <p>The actual value of the field that needs to be sorted.</p>
    * @public
    */
-  FieldValue?: string;
+  FieldValue?: string | undefined;
 
   /**
    * <p>The type configuration of the field.</p>
    * @public
    */
-  DataPathType?: DataPathType;
+  DataPathType?: DataPathType | undefined;
 }
 
 /**
@@ -281,7 +1002,7 @@ export interface DataPathColor {
    * <p>The time granularity of the field that the color needs to be applied to.</p>
    * @public
    */
-  TimeGranularity?: TimeGranularity;
+  TimeGranularity?: TimeGranularity | undefined;
 }
 
 /**
@@ -293,13 +1014,13 @@ export interface VisualPalette {
    * <p>The chart color options for the visual palette.</p>
    * @public
    */
-  ChartColor?: string;
+  ChartColor?: string | undefined;
 
   /**
    * <p>The color map options for the visual palette.</p>
    * @public
    */
-  ColorMap?: DataPathColor[];
+  ColorMap?: DataPathColor[] | undefined;
 }
 
 /**
@@ -311,13 +1032,13 @@ export interface BarChartConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: BarChartFieldWells;
+  FieldWells?: BarChartFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: BarChartSortConfiguration;
+  SortConfiguration?: BarChartSortConfiguration | undefined;
 
   /**
    * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
@@ -333,91 +1054,91 @@ export interface BarChartConfiguration {
    *          </ul>
    * @public
    */
-  Orientation?: BarChartOrientation;
+  Orientation?: BarChartOrientation | undefined;
 
   /**
    * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
    * @public
    */
-  BarsArrangement?: BarsArrangement;
+  BarsArrangement?: BarsArrangement | undefined;
 
   /**
    * <p>The palette (chart color) display setup of the visual.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The small multiples setup for the visual.</p>
    * @public
    */
-  SmallMultiplesOptions?: SmallMultiplesOptions;
+  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
    * @public
    */
-  CategoryAxis?: AxisDisplayOptions;
+  CategoryAxis?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
    * @public
    */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
    * @public
    */
-  ValueAxis?: AxisDisplayOptions;
+  ValueAxis?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
    * @public
    */
-  ValueLabelOptions?: ChartAxisLabelOptions;
+  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
    * @public
    */
-  ColorLabelOptions?: ChartAxisLabelOptions;
+  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The options that determine if visual data labels are displayed.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The reference line setup of the visual.</p>
    * @public
    */
-  ReferenceLines?: ReferenceLine[];
+  ReferenceLines?: ReferenceLine[] | undefined;
 
   /**
    * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
    * @public
    */
-  ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -496,19 +1217,19 @@ export interface DrillDownFilter {
    * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
    * @public
    */
-  NumericEqualityFilter?: NumericEqualityDrillDownFilter;
+  NumericEqualityFilter?: NumericEqualityDrillDownFilter | undefined;
 
   /**
    * <p>The category type drill down filter. This filter is used for string type columns.</p>
    * @public
    */
-  CategoryFilter?: CategoryDrillDownFilter;
+  CategoryFilter?: CategoryDrillDownFilter | undefined;
 
   /**
    * <p>The time range drill down filter. This filter is used for date time columns.</p>
    * @public
    */
-  TimeRangeFilter?: TimeRangeDrillDownFilter;
+  TimeRangeFilter?: TimeRangeDrillDownFilter | undefined;
 }
 
 /**
@@ -527,7 +1248,7 @@ export interface DateTimeHierarchy {
    *                 <code>DateTime</code> hierarchy.</p>
    * @public
    */
-  DrillDownFilters?: DrillDownFilter[];
+  DrillDownFilters?: DrillDownFilter[] | undefined;
 }
 
 /**
@@ -551,7 +1272,7 @@ export interface ExplicitHierarchy {
    * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
    * @public
    */
-  DrillDownFilters?: DrillDownFilter[];
+  DrillDownFilters?: DrillDownFilter[] | undefined;
 }
 
 /**
@@ -575,7 +1296,7 @@ export interface PredefinedHierarchy {
    * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
    * @public
    */
-  DrillDownFilters?: DrillDownFilter[];
+  DrillDownFilters?: DrillDownFilter[] | undefined;
 }
 
 /**
@@ -587,19 +1308,19 @@ export interface ColumnHierarchy {
    * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
    * @public
    */
-  ExplicitHierarchy?: ExplicitHierarchy;
+  ExplicitHierarchy?: ExplicitHierarchy | undefined;
 
   /**
    * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
    * @public
    */
-  DateTimeHierarchy?: DateTimeHierarchy;
+  DateTimeHierarchy?: DateTimeHierarchy | undefined;
 
   /**
    * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
    * @public
    */
-  PredefinedHierarchy?: PredefinedHierarchy;
+  PredefinedHierarchy?: PredefinedHierarchy | undefined;
 }
 
 /**
@@ -612,13 +1333,13 @@ export interface LongFormatText {
    * <p>Plain text format.</p>
    * @public
    */
-  PlainText?: string;
+  PlainText?: string | undefined;
 
   /**
    * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
    * @public
    */
-  RichText?: string;
+  RichText?: string | undefined;
 }
 
 /**
@@ -630,13 +1351,13 @@ export interface VisualSubtitleLabelOptions {
    * <p>The visibility of the subtitle label.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
    * @public
    */
-  FormatText?: LongFormatText;
+  FormatText?: LongFormatText | undefined;
 }
 
 /**
@@ -649,13 +1370,13 @@ export interface ShortFormatText {
    * <p>Plain text format.</p>
    * @public
    */
-  PlainText?: string;
+  PlainText?: string | undefined;
 
   /**
    * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
    * @public
    */
-  RichText?: string;
+  RichText?: string | undefined;
 }
 
 /**
@@ -667,13 +1388,13 @@ export interface VisualTitleLabelOptions {
    * <p>The visibility of the title label.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The short text format of the title label, such as plain text or rich text.</p>
    * @public
    */
-  FormatText?: ShortFormatText;
+  FormatText?: ShortFormatText | undefined;
 }
 
 /**
@@ -713,31 +1434,37 @@ export interface BarChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration settings of the visual.</p>
    * @public
    */
-  ChartConfiguration?: BarChartConfiguration;
+  ChartConfiguration?: BarChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -763,7 +1490,7 @@ export interface BoxPlotStyleOptions {
    * <p>The fill styles (solid, transparent) of the box plot.</p>
    * @public
    */
-  FillStyle?: BoxPlotFillStyle;
+  FillStyle?: BoxPlotFillStyle | undefined;
 }
 
 /**
@@ -775,19 +1502,19 @@ export interface BoxPlotOptions {
    * <p>The style options of the box plot.</p>
    * @public
    */
-  StyleOptions?: BoxPlotStyleOptions;
+  StyleOptions?: BoxPlotStyleOptions | undefined;
 
   /**
    * <p>Determines the visibility of the outlier in a box plot.</p>
    * @public
    */
-  OutlierVisibility?: Visibility;
+  OutlierVisibility?: Visibility | undefined;
 
   /**
    * <p>Determines the visibility of all data points of the box plot.</p>
    * @public
    */
-  AllDataPointsVisibility?: Visibility;
+  AllDataPointsVisibility?: Visibility | undefined;
 }
 
 /**
@@ -799,13 +1526,13 @@ export interface BoxPlotAggregatedFieldWells {
    * <p>The group by field well of a box plot chart. Values are grouped based on group by fields.</p>
    * @public
    */
-  GroupBy?: DimensionField[];
+  GroupBy?: DimensionField[] | undefined;
 
   /**
    * <p>The value field well of a box plot chart. Values are aggregated based on group by fields.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -818,7 +1545,7 @@ export interface BoxPlotFieldWells {
    * <p>The aggregated field wells of a box plot.</p>
    * @public
    */
-  BoxPlotAggregatedFieldWells?: BoxPlotAggregatedFieldWells;
+  BoxPlotAggregatedFieldWells?: BoxPlotAggregatedFieldWells | undefined;
 }
 
 /**
@@ -848,13 +1575,13 @@ export interface BoxPlotSortConfiguration {
    * <p>The sort configuration of a group by fields.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The pagination configuration of a table visual or box plot.</p>
    * @public
    */
-  PaginationConfiguration?: PaginationConfiguration;
+  PaginationConfiguration?: PaginationConfiguration | undefined;
 }
 
 /**
@@ -866,73 +1593,73 @@ export interface BoxPlotChartConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: BoxPlotFieldWells;
+  FieldWells?: BoxPlotFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: BoxPlotSortConfiguration;
+  SortConfiguration?: BoxPlotSortConfiguration | undefined;
 
   /**
    * <p>The box plot chart options for a box plot visual</p>
    * @public
    */
-  BoxPlotOptions?: BoxPlotOptions;
+  BoxPlotOptions?: BoxPlotOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
    * @public
    */
-  CategoryAxis?: AxisDisplayOptions;
+  CategoryAxis?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility and sort Icon visibility) of a box plot category.</p>
    * @public
    */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
    * @public
    */
-  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility and sort icon visibility) of a box plot value.</p>
    * @public
    */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The options for the legend setup of a visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The reference line setup of the visual.</p>
    * @public
    */
-  ReferenceLines?: ReferenceLine[];
+  ReferenceLines?: ReferenceLine[] | undefined;
 
   /**
    * <p>The palette (chart color) display setup of the visual.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -951,31 +1678,37 @@ export interface BoxPlotVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration settings of the visual.</p>
    * @public
    */
-  ChartConfiguration?: BoxPlotChartConfiguration;
+  ChartConfiguration?: BoxPlotChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -987,25 +1720,25 @@ export interface ComboChartAggregatedFieldWells {
    * <p>The aggregated category field wells of a combo chart.</p>
    * @public
    */
-  Category?: DimensionField[];
+  Category?: DimensionField[] | undefined;
 
   /**
    * <p>The aggregated <code>BarValues</code> field well of a combo chart.</p>
    * @public
    */
-  BarValues?: MeasureField[];
+  BarValues?: MeasureField[] | undefined;
 
   /**
    * <p>The aggregated colors field well of a combo chart.</p>
    * @public
    */
-  Colors?: DimensionField[];
+  Colors?: DimensionField[] | undefined;
 
   /**
    * <p>The aggregated <code>LineValues</code> field well of a combo chart.</p>
    * @public
    */
-  LineValues?: MeasureField[];
+  LineValues?: MeasureField[] | undefined;
 }
 
 /**
@@ -1018,7 +1751,7 @@ export interface ComboChartFieldWells {
    * <p>The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.</p>
    * @public
    */
-  ComboChartAggregatedFieldWells?: ComboChartAggregatedFieldWells;
+  ComboChartAggregatedFieldWells?: ComboChartAggregatedFieldWells | undefined;
 }
 
 /**
@@ -1056,7 +1789,7 @@ export interface SingleAxisOptions {
    * <p>The Y axis options of a single axis configuration.</p>
    * @public
    */
-  YAxisOptions?: YAxisOptions;
+  YAxisOptions?: YAxisOptions | undefined;
 }
 
 /**
@@ -1068,25 +1801,25 @@ export interface ComboChartSortConfiguration {
    * <p>The sort configuration of the category field well in a combo chart.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The item limit configuration for the category field well of a combo chart.</p>
    * @public
    */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
 
   /**
    * <p>The sort configuration of the color field well in a combo chart.</p>
    * @public
    */
-  ColorSort?: FieldSortOptions[];
+  ColorSort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The item limit configuration of the color field well in a combo chart.</p>
    * @public
    */
-  ColorItemsLimit?: ItemsLimitConfiguration;
+  ColorItemsLimit?: ItemsLimitConfiguration | undefined;
 }
 
 /**
@@ -1098,13 +1831,13 @@ export interface ComboChartConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: ComboChartFieldWells;
+  FieldWells?: ComboChartFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: ComboChartSortConfiguration;
+  SortConfiguration?: ComboChartSortConfiguration | undefined;
 
   /**
    * <p>Determines the bar arrangement in a combo chart. The following are valid values in this structure:</p>
@@ -1124,99 +1857,99 @@ export interface ComboChartConfiguration {
    *          </ul>
    * @public
    */
-  BarsArrangement?: BarsArrangement;
+  BarsArrangement?: BarsArrangement | undefined;
 
   /**
    * <p>The category axis of a combo chart.</p>
    * @public
    */
-  CategoryAxis?: AxisDisplayOptions;
+  CategoryAxis?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.</p>
    * @public
    */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.</p>
    * @public
    */
-  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.</p>
    * @public
    */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.</p>
    * @public
    */
-  SecondaryYAxisDisplayOptions?: AxisDisplayOptions;
+  SecondaryYAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.</p>
    * @public
    */
-  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The settings of a chart's single axis configuration.</p>
    * @public
    */
-  SingleAxisOptions?: SingleAxisOptions;
+  SingleAxisOptions?: SingleAxisOptions | undefined;
 
   /**
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.</p>
    * @public
    */
-  ColorLabelOptions?: ChartAxisLabelOptions;
+  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The options that determine if visual data labels are displayed.</p>
    *          <p>The data label options for a bar in a combo chart.</p>
    * @public
    */
-  BarDataLabels?: DataLabelOptions;
+  BarDataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The options that determine if visual data labels are displayed.</p>
    *          <p>The data label options for a line in a combo chart.</p>
    * @public
    */
-  LineDataLabels?: DataLabelOptions;
+  LineDataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The reference line setup of the visual.</p>
    * @public
    */
-  ReferenceLines?: ReferenceLine[];
+  ReferenceLines?: ReferenceLine[] | undefined;
 
   /**
    * <p>The palette (chart color) display setup of the visual.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -1236,31 +1969,37 @@ export interface ComboChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration settings of the visual.</p>
    * @public
    */
-  ChartConfiguration?: ComboChartConfiguration;
+  ChartConfiguration?: ComboChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -1303,25 +2042,25 @@ export interface CustomContentConfiguration {
    * <p>The input URL that links to the custom content that you want in the custom visual.</p>
    * @public
    */
-  ContentUrl?: string;
+  ContentUrl?: string | undefined;
 
   /**
    * <p>The content type of the custom content visual. You can use this to have the visual render as an image.</p>
    * @public
    */
-  ContentType?: CustomContentType;
+  ContentType?: CustomContentType | undefined;
 
   /**
    * <p>The sizing options for the size of the custom content visual. This structure is required when the <code>ContentType</code> of the visual is <code>'IMAGE'</code>.</p>
    * @public
    */
-  ImageScaling?: CustomContentImageScalingConfiguration;
+  ImageScaling?: CustomContentImageScalingConfiguration | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -1340,31 +2079,37 @@ export interface CustomContentVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a <code>CustomContentVisual</code>.</p>
    * @public
    */
-  ChartConfiguration?: CustomContentConfiguration;
+  ChartConfiguration?: CustomContentConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The dataset that is used to create the custom content visual. You can't create a visual without a dataset.</p>
    * @public
    */
   DataSetIdentifier: string | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -1389,7 +2134,7 @@ export interface EmptyVisual {
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 }
 
 /**
@@ -1401,13 +2146,13 @@ export interface FilledMapAggregatedFieldWells {
    * <p>The aggregated location field well of the filled map. Values are grouped by location fields.</p>
    * @public
    */
-  Geospatial?: DimensionField[];
+  Geospatial?: DimensionField[] | undefined;
 
   /**
    * <p>The aggregated color field well of a filled map. Values are aggregated based on location fields.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -1420,7 +2165,7 @@ export interface FilledMapFieldWells {
    * <p>The aggregated field well of the filled map.</p>
    * @public
    */
-  FilledMapAggregatedFieldWells?: FilledMapAggregatedFieldWells;
+  FilledMapAggregatedFieldWells?: FilledMapAggregatedFieldWells | undefined;
 }
 
 /**
@@ -1448,7 +2193,7 @@ export interface GeospatialMapStyleOptions {
    * <p>The base map style of the geospatial map.</p>
    * @public
    */
-  BaseMapStyle?: BaseMapStyleType;
+  BaseMapStyle?: BaseMapStyleType | undefined;
 }
 
 /**
@@ -1460,7 +2205,7 @@ export interface FilledMapSortConfiguration {
    * <p>The sort configuration of the location fields.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 }
 
 /**
@@ -1517,13 +2262,13 @@ export interface GeospatialWindowOptions {
    * <p>The bounds options (north, south, west, east) of the geospatial window options.</p>
    * @public
    */
-  Bounds?: GeospatialCoordinateBounds;
+  Bounds?: GeospatialCoordinateBounds | undefined;
 
   /**
    * <p>The map zoom modes (manual, auto) of the geospatial window options.</p>
    * @public
    */
-  MapZoomMode?: MapZoomMode;
+  MapZoomMode?: MapZoomMode | undefined;
 }
 
 /**
@@ -1535,43 +2280,43 @@ export interface FilledMapConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: FilledMapFieldWells;
+  FieldWells?: FilledMapFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a <code>FilledMapVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: FilledMapSortConfiguration;
+  SortConfiguration?: FilledMapSortConfiguration | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The window options of the filled map visual.</p>
    * @public
    */
-  WindowOptions?: GeospatialWindowOptions;
+  WindowOptions?: GeospatialWindowOptions | undefined;
 
   /**
    * <p>The map style options of the filled map visual.</p>
    * @public
    */
-  MapStyleOptions?: GeospatialMapStyleOptions;
+  MapStyleOptions?: GeospatialMapStyleOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -1589,13 +2334,13 @@ export interface GradientStop {
    * <p>Determines the data value.</p>
    * @public
    */
-  DataValue?: number;
+  DataValue?: number | undefined;
 
   /**
    * <p>Determines the color.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 }
 
 /**
@@ -1607,7 +2352,7 @@ export interface GradientColor {
    * <p>The list of gradient color stops.</p>
    * @public
    */
-  Stops?: GradientStop[];
+  Stops?: GradientStop[] | undefined;
 }
 
 /**
@@ -1643,7 +2388,7 @@ export interface ConditionalFormattingSolidColor {
    * <p>Determines the color.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 }
 
 /**
@@ -1655,13 +2400,13 @@ export interface ConditionalFormattingColor {
    * <p>Formatting configuration for solid color.</p>
    * @public
    */
-  Solid?: ConditionalFormattingSolidColor;
+  Solid?: ConditionalFormattingSolidColor | undefined;
 
   /**
    * <p>Formatting configuration for gradient color.</p>
    * @public
    */
-  Gradient?: ConditionalFormattingGradientColor;
+  Gradient?: ConditionalFormattingGradientColor | undefined;
 }
 
 /**
@@ -1691,7 +2436,7 @@ export interface FilledMapShapeConditionalFormatting {
    * <p>The conditional formatting that determines the background color of a filled map's shape.</p>
    * @public
    */
-  Format?: ShapeConditionalFormat;
+  Format?: ShapeConditionalFormat | undefined;
 }
 
 /**
@@ -1734,37 +2479,43 @@ export interface FilledMapVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration settings of the visual.</p>
    * @public
    */
-  ChartConfiguration?: FilledMapConfiguration;
+  ChartConfiguration?: FilledMapConfiguration | undefined;
 
   /**
    * <p>The conditional formatting of a <code>FilledMapVisual</code>.</p>
    * @public
    */
-  ConditionalFormatting?: FilledMapConditionalFormatting;
+  ConditionalFormatting?: FilledMapConditionalFormatting | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -1794,44 +2545,44 @@ export interface FunnelChartDataLabelOptions {
    * <p>The visibility option that determines if data labels are displayed.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The visibility of the category labels within the data labels.</p>
    * @public
    */
-  CategoryLabelVisibility?: Visibility;
+  CategoryLabelVisibility?: Visibility | undefined;
 
   /**
    * <p>The visibility of the measure labels within the data labels.</p>
    * @public
    */
-  MeasureLabelVisibility?: Visibility;
+  MeasureLabelVisibility?: Visibility | undefined;
 
   /**
    * <p>Determines the positioning of the data label relative to a section of the funnel.</p>
    * @public
    */
-  Position?: DataLabelPosition;
+  Position?: DataLabelPosition | undefined;
 
   /**
    * <p>The font configuration for the data labels.</p>
    *          <p>Only the <code>FontSize</code> attribute of the font configuration is used for data labels.</p>
    * @public
    */
-  LabelFontConfiguration?: FontConfiguration;
+  LabelFontConfiguration?: FontConfiguration | undefined;
 
   /**
    * <p>The color of the data label text.</p>
    * @public
    */
-  LabelColor?: string;
+  LabelColor?: string | undefined;
 
   /**
    * <p>Determines the style of the metric labels.</p>
    * @public
    */
-  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle;
+  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle | undefined;
 }
 
 /**
@@ -1843,13 +2594,13 @@ export interface FunnelChartAggregatedFieldWells {
    * <p>The category field wells of a funnel chart. Values are grouped by category fields.</p>
    * @public
    */
-  Category?: DimensionField[];
+  Category?: DimensionField[] | undefined;
 
   /**
    * <p>The value field wells of a funnel chart. Values are aggregated based on categories.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -1862,7 +2613,7 @@ export interface FunnelChartFieldWells {
    * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  FunnelChartAggregatedFieldWells?: FunnelChartAggregatedFieldWells;
+  FunnelChartAggregatedFieldWells?: FunnelChartAggregatedFieldWells | undefined;
 }
 
 /**
@@ -1874,13 +2625,13 @@ export interface FunnelChartSortConfiguration {
    * <p>The sort configuration of the category fields.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of categories displayed.</p>
    * @public
    */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
 }
 
 /**
@@ -1892,49 +2643,49 @@ export interface FunnelChartConfiguration {
    * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  FieldWells?: FunnelChartFieldWells;
+  FieldWells?: FunnelChartFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: FunnelChartSortConfiguration;
+  SortConfiguration?: FunnelChartSortConfiguration | undefined;
 
   /**
    * <p>The label options of the categories that are displayed in a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label options for the values that are displayed in a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  ValueLabelOptions?: ChartAxisLabelOptions;
+  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The tooltip configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the data labels.</p>
    * @public
    */
-  DataLabelOptions?: FunnelChartDataLabelOptions;
+  DataLabelOptions?: FunnelChartDataLabelOptions | undefined;
 
   /**
    * <p>The visual palette configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -1953,31 +2704,37 @@ export interface FunnelChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a <code>FunnelChartVisual</code>.</p>
    * @public
    */
-  ChartConfiguration?: FunnelChartConfiguration;
+  ChartConfiguration?: FunnelChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -1989,13 +2746,13 @@ export interface GaugeChartColorConfiguration {
    * <p>The foreground color configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ForegroundColor?: string;
+  ForegroundColor?: string | undefined;
 
   /**
    * <p>The background color configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  BackgroundColor?: string;
+  BackgroundColor?: string | undefined;
 }
 
 /**
@@ -2007,13 +2764,13 @@ export interface GaugeChartFieldWells {
    * <p>The value field wells of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 
   /**
    * <p>The target value field wells of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  TargetValues?: MeasureField[];
+  TargetValues?: MeasureField[] | undefined;
 }
 
 /**
@@ -2040,13 +2797,13 @@ export interface ArcConfiguration {
    * <p>The option that determines the arc angle of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ArcAngle?: number;
+  ArcAngle?: number | undefined;
 
   /**
    * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ArcThickness?: ArcThicknessOptions;
+  ArcThickness?: ArcThicknessOptions | undefined;
 }
 
 /**
@@ -2058,13 +2815,13 @@ export interface ArcAxisDisplayRange {
    * <p>The minimum value of the arc axis range.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>The maximum value of the arc axis range.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -2076,13 +2833,13 @@ export interface ArcAxisConfiguration {
    * <p>The arc axis range of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  Range?: ArcAxisDisplayRange;
+  Range?: ArcAxisDisplayRange | undefined;
 
   /**
    * <p>The reserved range of the arc axis.</p>
    * @public
    */
-  ReserveRange?: number;
+  ReserveRange?: number | undefined;
 }
 
 /**
@@ -2095,13 +2852,13 @@ export interface ComparisonFormatConfiguration {
    * <p>The number display format.</p>
    * @public
    */
-  NumberDisplayFormatConfiguration?: NumberDisplayFormatConfiguration;
+  NumberDisplayFormatConfiguration?: NumberDisplayFormatConfiguration | undefined;
 
   /**
    * <p>The percentage display format.</p>
    * @public
    */
-  PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration;
+  PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration | undefined;
 }
 
 /**
@@ -2145,13 +2902,13 @@ export interface ComparisonConfiguration {
    *          </ul>
    * @public
    */
-  ComparisonMethod?: ComparisonMethod;
+  ComparisonMethod?: ComparisonMethod | undefined;
 
   /**
    * <p>The format of the comparison.</p>
    * @public
    */
-  ComparisonFormat?: ComparisonFormatConfiguration;
+  ComparisonFormat?: ComparisonFormatConfiguration | undefined;
 }
 
 /**
@@ -2178,31 +2935,31 @@ export interface GaugeChartOptions {
    * <p>The options that determine the primary value display type.</p>
    * @public
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType | undefined;
 
   /**
    * <p>The comparison configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  Comparison?: ComparisonConfiguration;
+  Comparison?: ComparisonConfiguration | undefined;
 
   /**
    * <p>The arc axis configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ArcAxis?: ArcAxisConfiguration;
+  ArcAxis?: ArcAxisConfiguration | undefined;
 
   /**
    * <p>The arc configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  Arc?: ArcConfiguration;
+  Arc?: ArcConfiguration | undefined;
 
   /**
    * <p>The options that determine the primary value font configuration.</p>
    * @public
    */
-  PrimaryValueFontConfiguration?: FontConfiguration;
+  PrimaryValueFontConfiguration?: FontConfiguration | undefined;
 }
 
 /**
@@ -2214,43 +2971,43 @@ export interface GaugeChartConfiguration {
    * <p>The field well configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  FieldWells?: GaugeChartFieldWells;
+  FieldWells?: GaugeChartFieldWells | undefined;
 
   /**
    * <p>The options that determine the presentation of the <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  GaugeChartOptions?: GaugeChartOptions;
+  GaugeChartOptions?: GaugeChartOptions | undefined;
 
   /**
    * <p>The data label configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The tooltip configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  TooltipOptions?: TooltipOptions;
+  TooltipOptions?: TooltipOptions | undefined;
 
   /**
    * <p>The visual palette configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The color configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ColorConfiguration?: GaugeChartColorConfiguration;
+  ColorConfiguration?: GaugeChartColorConfiguration | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -2262,7 +3019,7 @@ export interface GaugeChartArcConditionalFormatting {
    * <p>The conditional formatting of the arc foreground color.</p>
    * @public
    */
-  ForegroundColor?: ConditionalFormattingColor;
+  ForegroundColor?: ConditionalFormattingColor | undefined;
 }
 
 /**
@@ -2288,7 +3045,7 @@ export interface ConditionalFormattingIconDisplayConfiguration {
    * <p>Determines the icon display configuration.</p>
    * @public
    */
-  IconDisplayOption?: ConditionalFormattingIconDisplayOption;
+  IconDisplayOption?: ConditionalFormattingIconDisplayOption | undefined;
 }
 
 /**
@@ -2338,13 +3095,13 @@ export interface ConditionalFormattingCustomIconOptions {
    * <p>Determines the type of icon.</p>
    * @public
    */
-  Icon?: Icon;
+  Icon?: Icon | undefined;
 
   /**
    * <p>Determines the Unicode icon type.</p>
    * @public
    */
-  UnicodeIcon?: string;
+  UnicodeIcon?: string | undefined;
 }
 
 /**
@@ -2368,13 +3125,13 @@ export interface ConditionalFormattingCustomIconCondition {
    * <p>Determines the color of the icon.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 
   /**
    * <p>Determines the icon display configuration.</p>
    * @public
    */
-  DisplayConfiguration?: ConditionalFormattingIconDisplayConfiguration;
+  DisplayConfiguration?: ConditionalFormattingIconDisplayConfiguration | undefined;
 }
 
 /**
@@ -2416,7 +3173,7 @@ export interface ConditionalFormattingIconSet {
    * <p>Determines the icon set type.</p>
    * @public
    */
-  IconSetType?: ConditionalFormattingIconSetType;
+  IconSetType?: ConditionalFormattingIconSetType | undefined;
 }
 
 /**
@@ -2428,13 +3185,13 @@ export interface ConditionalFormattingIcon {
    * <p>Formatting configuration for icon set.</p>
    * @public
    */
-  IconSet?: ConditionalFormattingIconSet;
+  IconSet?: ConditionalFormattingIconSet | undefined;
 
   /**
    * <p>Determines the custom condition for an icon set.</p>
    * @public
    */
-  CustomCondition?: ConditionalFormattingCustomIconCondition;
+  CustomCondition?: ConditionalFormattingCustomIconCondition | undefined;
 }
 
 /**
@@ -2446,13 +3203,13 @@ export interface GaugeChartPrimaryValueConditionalFormatting {
    * <p>The conditional formatting of the primary value text color.</p>
    * @public
    */
-  TextColor?: ConditionalFormattingColor;
+  TextColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting of the primary value icon.</p>
    * @public
    */
-  Icon?: ConditionalFormattingIcon;
+  Icon?: ConditionalFormattingIcon | undefined;
 }
 
 /**
@@ -2464,13 +3221,13 @@ export interface GaugeChartConditionalFormattingOption {
    * <p>The conditional formatting for the primary value of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  PrimaryValue?: GaugeChartPrimaryValueConditionalFormatting;
+  PrimaryValue?: GaugeChartPrimaryValueConditionalFormatting | undefined;
 
   /**
    * <p>The options that determine the presentation of the arc of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  Arc?: GaugeChartArcConditionalFormatting;
+  Arc?: GaugeChartArcConditionalFormatting | undefined;
 }
 
 /**
@@ -2482,7 +3239,7 @@ export interface GaugeChartConditionalFormatting {
    * <p>Conditional formatting options of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ConditionalFormattingOptions?: GaugeChartConditionalFormattingOption[];
+  ConditionalFormattingOptions?: GaugeChartConditionalFormattingOption[] | undefined;
 }
 
 /**
@@ -2501,31 +3258,37 @@ export interface GaugeChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ChartConfiguration?: GaugeChartConfiguration;
+  ChartConfiguration?: GaugeChartConfiguration | undefined;
 
   /**
    * <p>The conditional formatting of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ConditionalFormatting?: GaugeChartConditionalFormatting;
+  ConditionalFormatting?: GaugeChartConditionalFormatting | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -2537,19 +3300,19 @@ export interface GeospatialMapAggregatedFieldWells {
    * <p>The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.</p>
    * @public
    */
-  Geospatial?: DimensionField[];
+  Geospatial?: DimensionField[] | undefined;
 
   /**
    * <p>The size field wells of a geospatial map. Values are aggregated based on geospatial fields.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 
   /**
    * <p>The color field wells of a geospatial map.</p>
    * @public
    */
-  Colors?: DimensionField[];
+  Colors?: DimensionField[] | undefined;
 }
 
 /**
@@ -2562,7 +3325,7 @@ export interface GeospatialMapFieldWells {
    * <p>The aggregated field well for a geospatial map.</p>
    * @public
    */
-  GeospatialMapAggregatedFieldWells?: GeospatialMapAggregatedFieldWells;
+  GeospatialMapAggregatedFieldWells?: GeospatialMapAggregatedFieldWells | undefined;
 }
 
 /**
@@ -2574,7 +3337,7 @@ export interface SimpleClusterMarker {
    * <p>The color of the simple cluster marker.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 }
 
 /**
@@ -2587,7 +3350,7 @@ export interface ClusterMarker {
    * <p>The simple cluster marker of the cluster marker.</p>
    * @public
    */
-  SimpleClusterMarker?: SimpleClusterMarker;
+  SimpleClusterMarker?: SimpleClusterMarker | undefined;
 }
 
 /**
@@ -2599,7 +3362,7 @@ export interface ClusterMarkerConfiguration {
    * <p>The cluster marker that is a part of the cluster marker configuration.</p>
    * @public
    */
-  ClusterMarker?: ClusterMarker;
+  ClusterMarker?: ClusterMarker | undefined;
 }
 
 /**
@@ -2623,7 +3386,7 @@ export interface GeospatialHeatmapColorScale {
    * <p>The list of colors to be used in heatmap point style.</p>
    * @public
    */
-  Colors?: GeospatialHeatmapDataColor[];
+  Colors?: GeospatialHeatmapDataColor[] | undefined;
 }
 
 /**
@@ -2635,7 +3398,7 @@ export interface GeospatialHeatmapConfiguration {
    * <p>The color scale specification for the heatmap point style.</p>
    * @public
    */
-  HeatmapColor?: GeospatialHeatmapColorScale;
+  HeatmapColor?: GeospatialHeatmapColorScale | undefined;
 }
 
 /**
@@ -2663,19 +3426,19 @@ export interface GeospatialPointStyleOptions {
    * <p>The selected point styles (point, cluster) of the geospatial map.</p>
    * @public
    */
-  SelectedPointStyle?: GeospatialSelectedPointStyle;
+  SelectedPointStyle?: GeospatialSelectedPointStyle | undefined;
 
   /**
    * <p>The cluster marker configuration of the geospatial point style.</p>
    * @public
    */
-  ClusterMarkerConfiguration?: ClusterMarkerConfiguration;
+  ClusterMarkerConfiguration?: ClusterMarkerConfiguration | undefined;
 
   /**
    * <p>The heatmap configuration of the geospatial point style.</p>
    * @public
    */
-  HeatmapConfiguration?: GeospatialHeatmapConfiguration;
+  HeatmapConfiguration?: GeospatialHeatmapConfiguration | undefined;
 }
 
 /**
@@ -2687,49 +3450,49 @@ export interface GeospatialMapConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: GeospatialMapFieldWells;
+  FieldWells?: GeospatialMapFieldWells | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The window options of the geospatial map.</p>
    * @public
    */
-  WindowOptions?: GeospatialWindowOptions;
+  WindowOptions?: GeospatialWindowOptions | undefined;
 
   /**
    * <p>The map style options of the geospatial map.</p>
    * @public
    */
-  MapStyleOptions?: GeospatialMapStyleOptions;
+  MapStyleOptions?: GeospatialMapStyleOptions | undefined;
 
   /**
    * <p>The point style options of the geospatial map.</p>
    * @public
    */
-  PointStyleOptions?: GeospatialPointStyleOptions;
+  PointStyleOptions?: GeospatialPointStyleOptions | undefined;
 
   /**
    * <p>The visual display options for the visual palette.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -2748,31 +3511,37 @@ export interface GeospatialMapVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration settings of the visual.</p>
    * @public
    */
-  ChartConfiguration?: GeospatialMapConfiguration;
+  ChartConfiguration?: GeospatialMapConfiguration | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -2798,13 +3567,13 @@ export interface DataColor {
    * <p>The color that is applied to the data value.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 
   /**
    * <p>The data value that the color is applied to.</p>
    * @public
    */
-  DataValue?: number;
+  DataValue?: number | undefined;
 }
 
 /**
@@ -2828,7 +3597,7 @@ export interface ColorScale {
    * <p>Determines the color that is applied to null values.</p>
    * @public
    */
-  NullValueColor?: DataColor;
+  NullValueColor?: DataColor | undefined;
 }
 
 /**
@@ -2840,19 +3609,19 @@ export interface HeatMapAggregatedFieldWells {
    * <p>The rows field well of a heat map.</p>
    * @public
    */
-  Rows?: DimensionField[];
+  Rows?: DimensionField[] | undefined;
 
   /**
    * <p>The columns field well of a heat map.</p>
    * @public
    */
-  Columns?: DimensionField[];
+  Columns?: DimensionField[] | undefined;
 
   /**
    * <p>The values field well of a heat map.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -2865,7 +3634,7 @@ export interface HeatMapFieldWells {
    * <p>The aggregated field wells of a heat map.</p>
    * @public
    */
-  HeatMapAggregatedFieldWells?: HeatMapAggregatedFieldWells;
+  HeatMapAggregatedFieldWells?: HeatMapAggregatedFieldWells | undefined;
 }
 
 /**
@@ -2877,25 +3646,25 @@ export interface HeatMapSortConfiguration {
    * <p>The field sort configuration of the rows fields.</p>
    * @public
    */
-  HeatMapRowSort?: FieldSortOptions[];
+  HeatMapRowSort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The column sort configuration for heat map for columns that aren't a part of a field well.</p>
    * @public
    */
-  HeatMapColumnSort?: FieldSortOptions[];
+  HeatMapColumnSort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of rows that are displayed in a heat map.</p>
    * @public
    */
-  HeatMapRowItemsLimitConfiguration?: ItemsLimitConfiguration;
+  HeatMapRowItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
 
   /**
    * <p>The limit on the number of columns that are displayed in a heat map.</p>
    * @public
    */
-  HeatMapColumnItemsLimitConfiguration?: ItemsLimitConfiguration;
+  HeatMapColumnItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
 }
 
 /**
@@ -2907,55 +3676,55 @@ export interface HeatMapConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: HeatMapFieldWells;
+  FieldWells?: HeatMapFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a heat map.</p>
    * @public
    */
-  SortConfiguration?: HeatMapSortConfiguration;
+  SortConfiguration?: HeatMapSortConfiguration | undefined;
 
   /**
    * <p>The label options of the row that is displayed in a <code>heat map</code>.</p>
    * @public
    */
-  RowLabelOptions?: ChartAxisLabelOptions;
+  RowLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label options of the column that is displayed in a heat map.</p>
    * @public
    */
-  ColumnLabelOptions?: ChartAxisLabelOptions;
+  ColumnLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The color options (gradient color, point of divergence) in a heat map.</p>
    * @public
    */
-  ColorScale?: ColorScale;
+  ColorScale?: ColorScale | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The options that determine if visual data labels are displayed.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -2974,31 +3743,37 @@ export interface HeatMapVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a heat map.</p>
    * @public
    */
-  ChartConfiguration?: HeatMapConfiguration;
+  ChartConfiguration?: HeatMapConfiguration | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -3010,7 +3785,7 @@ export interface BinCountOptions {
    * <p>The options that determine the bin count value.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -3022,13 +3797,13 @@ export interface BinWidthOptions {
    * <p>The options that determine the bin width value.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 
   /**
    * <p>The options that determine the bin count limit.</p>
    * @public
    */
-  BinCountLimit?: number;
+  BinCountLimit?: number | undefined;
 }
 
 /**
@@ -3054,25 +3829,25 @@ export interface HistogramBinOptions {
    * <p>The options that determine the selected bin type.</p>
    * @public
    */
-  SelectedBinType?: HistogramBinType;
+  SelectedBinType?: HistogramBinType | undefined;
 
   /**
    * <p>The options that determine the bin count of a histogram.</p>
    * @public
    */
-  BinCount?: BinCountOptions;
+  BinCount?: BinCountOptions | undefined;
 
   /**
    * <p>The options that determine the bin width of a histogram.</p>
    * @public
    */
-  BinWidth?: BinWidthOptions;
+  BinWidth?: BinWidthOptions | undefined;
 
   /**
    * <p>The options that determine the bin start value.</p>
    * @public
    */
-  StartValue?: number;
+  StartValue?: number | undefined;
 }
 
 /**
@@ -3084,7 +3859,7 @@ export interface HistogramAggregatedFieldWells {
    * <p>The value field wells of a histogram. Values are aggregated by <code>COUNT</code> or <code>DISTINCT_COUNT</code>.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -3096,7 +3871,7 @@ export interface HistogramFieldWells {
    * <p>The field well configuration of a histogram.</p>
    * @public
    */
-  HistogramAggregatedFieldWells?: HistogramAggregatedFieldWells;
+  HistogramAggregatedFieldWells?: HistogramAggregatedFieldWells | undefined;
 }
 
 /**
@@ -3108,55 +3883,55 @@ export interface HistogramConfiguration {
    * <p>The field well configuration of a histogram.</p>
    * @public
    */
-  FieldWells?: HistogramFieldWells;
+  FieldWells?: HistogramFieldWells | undefined;
 
   /**
    * <p>The options that determine the presentation of the x-axis.</p>
    * @public
    */
-  XAxisDisplayOptions?: AxisDisplayOptions;
+  XAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the x-axis label.</p>
    * @public
    */
-  XAxisLabelOptions?: ChartAxisLabelOptions;
+  XAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the y-axis.</p>
    * @public
    */
-  YAxisDisplayOptions?: AxisDisplayOptions;
+  YAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of histogram bins.</p>
    * @public
    */
-  BinOptions?: HistogramBinOptions;
+  BinOptions?: HistogramBinOptions | undefined;
 
   /**
    * <p>The data label configuration of a histogram.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The tooltip configuration of a histogram.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The visual palette configuration of a histogram.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -3175,25 +3950,31 @@ export interface HistogramVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration for a <code>HistogramVisual</code>.</p>
    * @public
    */
-  ChartConfiguration?: HistogramConfiguration;
+  ChartConfiguration?: HistogramConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -3226,49 +4007,49 @@ export interface ForecastComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The periods forward setup of a forecast computation.</p>
    * @public
    */
-  PeriodsForward?: number;
+  PeriodsForward?: number | undefined;
 
   /**
    * <p>The periods backward setup of a forecast computation.</p>
    * @public
    */
-  PeriodsBackward?: number;
+  PeriodsBackward?: number | undefined;
 
   /**
    * <p>The upper boundary setup of a forecast computation.</p>
    * @public
    */
-  UpperBoundary?: number;
+  UpperBoundary?: number | undefined;
 
   /**
    * <p>The lower boundary setup of a forecast computation.</p>
    * @public
    */
-  LowerBoundary?: number;
+  LowerBoundary?: number | undefined;
 
   /**
    * <p>The prediction interval setup of a forecast computation.</p>
    * @public
    */
-  PredictionInterval?: number;
+  PredictionInterval?: number | undefined;
 
   /**
    * <p>The seasonality setup of a forecast computation. Choose one of the following options:</p>
@@ -3285,13 +4066,13 @@ export interface ForecastComputation {
    *          </ul>
    * @public
    */
-  Seasonality?: ForecastComputationSeasonality;
+  Seasonality?: ForecastComputationSeasonality | undefined;
 
   /**
    * <p>The custom seasonality value setup of a forecast computation.</p>
    * @public
    */
-  CustomSeasonalityValue?: number;
+  CustomSeasonalityValue?: number | undefined;
 }
 
 /**
@@ -3309,25 +4090,25 @@ export interface GrowthRateComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The period size setup of a growth rate computation.</p>
    * @public
    */
-  PeriodSize?: number;
+  PeriodSize?: number | undefined;
 }
 
 /**
@@ -3360,19 +4141,19 @@ export interface MaximumMinimumComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The type of computation. Choose one of the following options:</p>
@@ -3404,25 +4185,25 @@ export interface MetricComparisonComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The field that is used in a metric comparison from value setup.</p>
    * @public
    */
-  FromValue?: MeasureField;
+  FromValue?: MeasureField | undefined;
 
   /**
    * <p>The field that is used in a metric comparison to value setup.</p>
    * @public
    */
-  TargetValue?: MeasureField;
+  TargetValue?: MeasureField | undefined;
 }
 
 /**
@@ -3440,19 +4221,19 @@ export interface PeriodOverPeriodComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 }
 
 /**
@@ -3470,19 +4251,19 @@ export interface PeriodToDateComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The time granularity setup of period to date computation. Choose from the following options:</p>
@@ -3496,7 +4277,7 @@ export interface PeriodToDateComputation {
    *          </ul>
    * @public
    */
-  PeriodTimeGranularity?: TimeGranularity;
+  PeriodTimeGranularity?: TimeGranularity | undefined;
 }
 
 /**
@@ -3542,37 +4323,37 @@ export interface TopBottomMoversComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time field that is used in a computation.</p>
    * @public
    */
-  Time?: DimensionField;
+  Time?: DimensionField | undefined;
 
   /**
    * <p>The category field that is used in a computation.</p>
    * @public
    */
-  Category?: DimensionField;
+  Category?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The mover size setup of the top and bottom movers computation.</p>
    * @public
    */
-  MoverSize?: number;
+  MoverSize?: number | undefined;
 
   /**
    * <p>The sort order setup of the top and bottom movers computation.</p>
    * @public
    */
-  SortOrder?: TopBottomSortOrder;
+  SortOrder?: TopBottomSortOrder | undefined;
 
   /**
    * <p>The computation type. Choose from the following options:</p>
@@ -3604,25 +4385,25 @@ export interface TopBottomRankedComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The category field that is used in a computation.</p>
    * @public
    */
-  Category?: DimensionField;
+  Category?: DimensionField | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 
   /**
    * <p>The result size of a top and bottom ranked computation.</p>
    * @public
    */
-  ResultSize?: number;
+  ResultSize?: number | undefined;
 
   /**
    * <p>The computation type. Choose one of the following options:</p>
@@ -3654,13 +4435,13 @@ export interface TotalAggregationComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value field that is used in a computation.</p>
    * @public
    */
-  Value?: MeasureField;
+  Value?: MeasureField | undefined;
 }
 
 /**
@@ -3678,13 +4459,13 @@ export interface UniqueValuesComputation {
    * <p>The name of a computation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The category field that is used in a computation.</p>
    * @public
    */
-  Category?: DimensionField;
+  Category?: DimensionField | undefined;
 }
 
 /**
@@ -3697,61 +4478,61 @@ export interface Computation {
    * <p>The top ranked and bottom ranked computation configuration.</p>
    * @public
    */
-  TopBottomRanked?: TopBottomRankedComputation;
+  TopBottomRanked?: TopBottomRankedComputation | undefined;
 
   /**
    * <p>The top movers and bottom movers computation configuration.</p>
    * @public
    */
-  TopBottomMovers?: TopBottomMoversComputation;
+  TopBottomMovers?: TopBottomMoversComputation | undefined;
 
   /**
    * <p>The total aggregation computation configuration.</p>
    * @public
    */
-  TotalAggregation?: TotalAggregationComputation;
+  TotalAggregation?: TotalAggregationComputation | undefined;
 
   /**
    * <p>The maximum and minimum computation configuration.</p>
    * @public
    */
-  MaximumMinimum?: MaximumMinimumComputation;
+  MaximumMinimum?: MaximumMinimumComputation | undefined;
 
   /**
    * <p>The metric comparison computation configuration.</p>
    * @public
    */
-  MetricComparison?: MetricComparisonComputation;
+  MetricComparison?: MetricComparisonComputation | undefined;
 
   /**
    * <p>The period over period computation configuration.</p>
    * @public
    */
-  PeriodOverPeriod?: PeriodOverPeriodComputation;
+  PeriodOverPeriod?: PeriodOverPeriodComputation | undefined;
 
   /**
    * <p>The period to <code>DataSetIdentifier</code> computation configuration.</p>
    * @public
    */
-  PeriodToDate?: PeriodToDateComputation;
+  PeriodToDate?: PeriodToDateComputation | undefined;
 
   /**
    * <p>The growth rate computation configuration.</p>
    * @public
    */
-  GrowthRate?: GrowthRateComputation;
+  GrowthRate?: GrowthRateComputation | undefined;
 
   /**
    * <p>The unique values computation configuration.</p>
    * @public
    */
-  UniqueValues?: UniqueValuesComputation;
+  UniqueValues?: UniqueValuesComputation | undefined;
 
   /**
    * <p>The forecast computation configuration.</p>
    * @public
    */
-  Forecast?: ForecastComputation;
+  Forecast?: ForecastComputation | undefined;
 }
 
 /**
@@ -3775,19 +4556,19 @@ export interface InsightConfiguration {
    * <p>The computations configurations of the insight visual</p>
    * @public
    */
-  Computations?: Computation[];
+  Computations?: Computation[] | undefined;
 
   /**
    * <p>The custom narrative of the insight visual.</p>
    * @public
    */
-  CustomNarrative?: CustomNarrativeOptions;
+  CustomNarrative?: CustomNarrativeOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -3806,31 +4587,37 @@ export interface InsightVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of an insight visual.</p>
    * @public
    */
-  InsightConfiguration?: InsightConfiguration;
+  InsightConfiguration?: InsightConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The dataset that is used in the insight visual.</p>
    * @public
    */
   DataSetIdentifier: string | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -3842,19 +4629,19 @@ export interface KPIFieldWells {
    * <p>The value field wells of a KPI visual.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 
   /**
    * <p>The target value field wells of a KPI visual.</p>
    * @public
    */
-  TargetValues?: MeasureField[];
+  TargetValues?: MeasureField[] | undefined;
 
   /**
    * <p>The trend group field wells of a KPI visual.</p>
    * @public
    */
-  TrendGroups?: DimensionField[];
+  TrendGroups?: DimensionField[] | undefined;
 }
 
 /**
@@ -3866,7 +4653,7 @@ export interface ProgressBarOptions {
    * <p>The visibility of the progress bar.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 }
 
 /**
@@ -3878,7 +4665,7 @@ export interface SecondaryValueOptions {
    * <p>Determines the visibility of the secondary value.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 }
 
 /**
@@ -3904,7 +4691,7 @@ export interface KPISparklineOptions {
    * <p>The visibility of the sparkline.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The type of the sparkline.</p>
@@ -3916,13 +4703,13 @@ export interface KPISparklineOptions {
    * <p>The color of the sparkline.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 
   /**
    * <p>The tooltip visibility of the sparkline.</p>
    * @public
    */
-  TooltipVisibility?: Visibility;
+  TooltipVisibility?: Visibility | undefined;
 }
 
 /**
@@ -3934,7 +4721,7 @@ export interface TrendArrowOptions {
    * <p>The visibility of the trend arrows.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 }
 
 /**
@@ -3973,7 +4760,7 @@ export interface KPIVisualLayoutOptions {
    * <p>The standard layout of the KPI visual.</p>
    * @public
    */
-  StandardLayout?: KPIVisualStandardLayout;
+  StandardLayout?: KPIVisualStandardLayout | undefined;
 }
 
 /**
@@ -3985,55 +4772,55 @@ export interface KPIOptions {
    * <p>The options that determine the presentation of the progress bar of a KPI visual.</p>
    * @public
    */
-  ProgressBar?: ProgressBarOptions;
+  ProgressBar?: ProgressBarOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of trend arrows in a KPI visual.</p>
    * @public
    */
-  TrendArrows?: TrendArrowOptions;
+  TrendArrows?: TrendArrowOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the secondary value of a KPI visual.</p>
    * @public
    */
-  SecondaryValue?: SecondaryValueOptions;
+  SecondaryValue?: SecondaryValueOptions | undefined;
 
   /**
    * <p>The comparison configuration of a KPI visual.</p>
    * @public
    */
-  Comparison?: ComparisonConfiguration;
+  Comparison?: ComparisonConfiguration | undefined;
 
   /**
    * <p>The options that determine the primary value display type.</p>
    * @public
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType | undefined;
 
   /**
    * <p>The options that determine the primary value font configuration.</p>
    * @public
    */
-  PrimaryValueFontConfiguration?: FontConfiguration;
+  PrimaryValueFontConfiguration?: FontConfiguration | undefined;
 
   /**
    * <p>The options that determine the secondary value font configuration.</p>
    * @public
    */
-  SecondaryValueFontConfiguration?: FontConfiguration;
+  SecondaryValueFontConfiguration?: FontConfiguration | undefined;
 
   /**
    * <p>The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.</p>
    * @public
    */
-  Sparkline?: KPISparklineOptions;
+  Sparkline?: KPISparklineOptions | undefined;
 
   /**
    * <p>The options that determine the layout a KPI visual.</p>
    * @public
    */
-  VisualLayoutOptions?: KPIVisualLayoutOptions;
+  VisualLayoutOptions?: KPIVisualLayoutOptions | undefined;
 }
 
 /**
@@ -4045,7 +4832,7 @@ export interface KPISortConfiguration {
    * <p>The sort configuration of the trend group fields.</p>
    * @public
    */
-  TrendGroupSort?: FieldSortOptions[];
+  TrendGroupSort?: FieldSortOptions[] | undefined;
 }
 
 /**
@@ -4057,25 +4844,25 @@ export interface KPIConfiguration {
    * <p>The field well configuration of a KPI visual.</p>
    * @public
    */
-  FieldWells?: KPIFieldWells;
+  FieldWells?: KPIFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a KPI visual.</p>
    * @public
    */
-  SortConfiguration?: KPISortConfiguration;
+  SortConfiguration?: KPISortConfiguration | undefined;
 
   /**
    * <p>The options that determine the presentation of a KPI visual.</p>
    * @public
    */
-  KPIOptions?: KPIOptions;
+  KPIOptions?: KPIOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -4087,13 +4874,13 @@ export interface KPIActualValueConditionalFormatting {
    * <p>The conditional formatting of the actual value's text color.</p>
    * @public
    */
-  TextColor?: ConditionalFormattingColor;
+  TextColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting of the actual value's icon.</p>
    * @public
    */
-  Icon?: ConditionalFormattingIcon;
+  Icon?: ConditionalFormattingIcon | undefined;
 }
 
 /**
@@ -4105,13 +4892,13 @@ export interface KPIComparisonValueConditionalFormatting {
    * <p>The conditional formatting of the comparison value's text color.</p>
    * @public
    */
-  TextColor?: ConditionalFormattingColor;
+  TextColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting of the comparison value's icon.</p>
    * @public
    */
-  Icon?: ConditionalFormattingIcon;
+  Icon?: ConditionalFormattingIcon | undefined;
 }
 
 /**
@@ -4123,13 +4910,13 @@ export interface KPIPrimaryValueConditionalFormatting {
    * <p>The conditional formatting of the  primary value's text color.</p>
    * @public
    */
-  TextColor?: ConditionalFormattingColor;
+  TextColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting of the primary value's icon.</p>
    * @public
    */
-  Icon?: ConditionalFormattingIcon;
+  Icon?: ConditionalFormattingIcon | undefined;
 }
 
 /**
@@ -4141,7 +4928,7 @@ export interface KPIProgressBarConditionalFormatting {
    * <p>The conditional formatting of the progress bar's foreground color.</p>
    * @public
    */
-  ForegroundColor?: ConditionalFormattingColor;
+  ForegroundColor?: ConditionalFormattingColor | undefined;
 }
 
 /**
@@ -4153,25 +4940,25 @@ export interface KPIConditionalFormattingOption {
    * <p>The conditional formatting for the primary value of a KPI visual.</p>
    * @public
    */
-  PrimaryValue?: KPIPrimaryValueConditionalFormatting;
+  PrimaryValue?: KPIPrimaryValueConditionalFormatting | undefined;
 
   /**
    * <p>The conditional formatting for the progress bar of a KPI visual.</p>
    * @public
    */
-  ProgressBar?: KPIProgressBarConditionalFormatting;
+  ProgressBar?: KPIProgressBarConditionalFormatting | undefined;
 
   /**
    * <p>The conditional formatting for the actual value of a KPI visual.</p>
    * @public
    */
-  ActualValue?: KPIActualValueConditionalFormatting;
+  ActualValue?: KPIActualValueConditionalFormatting | undefined;
 
   /**
    * <p>The conditional formatting for the comparison value of a KPI visual.</p>
    * @public
    */
-  ComparisonValue?: KPIComparisonValueConditionalFormatting;
+  ComparisonValue?: KPIComparisonValueConditionalFormatting | undefined;
 }
 
 /**
@@ -4183,7 +4970,7 @@ export interface KPIConditionalFormatting {
    * <p>The conditional formatting options of a KPI visual.</p>
    * @public
    */
-  ConditionalFormattingOptions?: KPIConditionalFormattingOption[];
+  ConditionalFormattingOptions?: KPIConditionalFormattingOption[] | undefined;
 }
 
 /**
@@ -4202,37 +4989,817 @@ export interface KPIVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a KPI visual.</p>
    * @public
    */
-  ChartConfiguration?: KPIConfiguration;
+  ChartConfiguration?: KPIConfiguration | undefined;
 
   /**
    * <p>The conditional formatting of a KPI visual.</p>
    * @public
    */
-  ConditionalFormatting?: KPIConditionalFormatting;
+  ConditionalFormatting?: KPIConditionalFormatting | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
+
+/**
+ * <p>The operation that is defined by the custom action.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface LayerCustomActionOperation {
+  /**
+   * <p>The filter operation that filters data included in a visual or in an entire sheet.</p>
+   * @public
+   */
+  FilterOperation?: CustomActionFilterOperation | undefined;
+
+  /**
+   * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  NavigationOperation?: CustomActionNavigationOperation | undefined;
+
+  /**
+   * <p>The URL operation that opens a link to another webpage.</p>
+   * @public
+   */
+  URLOperation?: CustomActionURLOperation | undefined;
+
+  /**
+   * <p>The set parameter operation that sets parameters in custom action.</p>
+   * @public
+   */
+  SetParametersOperation?: CustomActionSetParametersOperation | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LayerCustomActionTrigger = {
+  DATA_POINT_CLICK: "DATA_POINT_CLICK",
+  DATA_POINT_MENU: "DATA_POINT_MENU",
+} as const;
+
+/**
+ * @public
+ */
+export type LayerCustomActionTrigger = (typeof LayerCustomActionTrigger)[keyof typeof LayerCustomActionTrigger];
+
+/**
+ * <p>A layer custom action.</p>
+ * @public
+ */
+export interface LayerCustomAction {
+  /**
+   * <p>The ID of the custom action.</p>
+   * @public
+   */
+  CustomActionId: string | undefined;
+
+  /**
+   * <p>The name of the custom action.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the <code>LayerCustomAction</code>.</p>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The trigger of the <code>LayerCustomAction</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DATA_POINT_CLICK</code>: Initiates a custom action by a left pointer click on a data point.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATA_POINT_MENU</code>: Initiates a custom action by right pointer click from the menu.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Trigger: LayerCustomActionTrigger | undefined;
+
+  /**
+   * <p>A list of <code>LayerCustomActionOperations</code>.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  ActionOperations: LayerCustomActionOperation[] | undefined;
+}
+
+/**
+ * <p>The source properties for a geospatial static file.</p>
+ * @public
+ */
+export interface GeospatialStaticFileSource {
+  /**
+   * <p>The ID of the static file.</p>
+   * @public
+   */
+  StaticFileId: string | undefined;
+}
+
+/**
+ * <p>The data source properties for the geospatial data.</p>
+ * @public
+ */
+export interface GeospatialDataSourceItem {
+  /**
+   * <p>The static file data source properties for the geospatial data.</p>
+   * @public
+   */
+  StaticFileDataSource?: GeospatialStaticFileSource | undefined;
+}
+
+/**
+ * <p>The color field that defines a gradient or categorical style.</p>
+ * @public
+ */
+export interface GeospatialLayerColorField {
+  /**
+   * <p>A list of color dimension fields.</p>
+   * @public
+   */
+  ColorDimensionsFields?: DimensionField[] | undefined;
+
+  /**
+   * <p>A list of color measure fields.</p>
+   * @public
+   */
+  ColorValuesFields?: MeasureField[] | undefined;
+}
+
+/**
+ * <p>The unaggregated field for a table.</p>
+ * @public
+ */
+export interface UnaggregatedField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>UnaggregatedField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: FormatConfiguration | undefined;
+}
+
+/**
+ * <p>The custom actions for a layer.</p>
+ * @public
+ */
+export interface GeospatialLayerJoinDefinition {
+  /**
+   * <p>The name of the field or property in the geospatial data source.</p>
+   * @public
+   */
+  ShapeKeyField?: string | undefined;
+
+  /**
+   * <p>The unaggregated field for a table.</p>
+   * @public
+   */
+  DatasetKeyField?: UnaggregatedField | undefined;
+
+  /**
+   * <p>The geospatial color field for the join definition.</p>
+   * @public
+   */
+  ColorField?: GeospatialLayerColorField | undefined;
+}
+
+/**
+ * <p>The categorical data color for a single category.</p>
+ * @public
+ */
+export interface GeospatialCategoricalDataColor {
+  /**
+   * <p>The color and opacity values for the category data color.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The data value for the category data color.</p>
+   * @public
+   */
+  DataValue: string | undefined;
+}
+
+/**
+ * <p>The symbol style for null data.</p>
+ * @public
+ */
+export interface GeospatialNullSymbolStyle {
+  /**
+   * <p>The color and opacity values for the fill color.</p>
+   * @public
+   */
+  FillColor?: string | undefined;
+
+  /**
+   * <p>The color and opacity values for the stroke color.</p>
+   * @public
+   */
+  StrokeColor?: string | undefined;
+
+  /**
+   * <p>The width of the border stroke.</p>
+   * @public
+   */
+  StrokeWidth?: number | undefined;
+}
+
+/**
+ * <p>The properties for the visualization of null data.</p>
+ * @public
+ */
+export interface GeospatialNullDataSettings {
+  /**
+   * <p>The symbol style for null data.</p>
+   * @public
+   */
+  SymbolStyle: GeospatialNullSymbolStyle | undefined;
+}
+
+/**
+ * <p>The definition for a categorical color.</p>
+ * @public
+ */
+export interface GeospatialCategoricalColor {
+  /**
+   * <p>A list of categorical data colors for each category.</p>
+   * @public
+   */
+  CategoryDataColors: GeospatialCategoricalDataColor[] | undefined;
+
+  /**
+   * <p>The state of visibility for null data.</p>
+   * @public
+   */
+  NullDataVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The null data visualization settings.</p>
+   * @public
+   */
+  NullDataSettings?: GeospatialNullDataSettings | undefined;
+
+  /**
+   * <p>The default opacity of a categorical color.</p>
+   * @public
+   */
+  DefaultOpacity?: number | undefined;
+}
+
+/**
+ * <p>The gradient step color for a single step.</p>
+ * @public
+ */
+export interface GeospatialGradientStepColor {
+  /**
+   * <p>The color and opacity values for the gradient step color.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The data value for the gradient step color.</p>
+   * @public
+   */
+  DataValue: number | undefined;
+}
+
+/**
+ * <p>The definition for a gradient color.</p>
+ * @public
+ */
+export interface GeospatialGradientColor {
+  /**
+   * <p>A list of gradient step colors for the gradient.</p>
+   * @public
+   */
+  StepColors: GeospatialGradientStepColor[] | undefined;
+
+  /**
+   * <p>The state of visibility for null data.</p>
+   * @public
+   */
+  NullDataVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The null data visualization settings.</p>
+   * @public
+   */
+  NullDataSettings?: GeospatialNullDataSettings | undefined;
+
+  /**
+   * <p>The default opacity for the gradient color.</p>
+   * @public
+   */
+  DefaultOpacity?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeospatialColorState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type GeospatialColorState = (typeof GeospatialColorState)[keyof typeof GeospatialColorState];
+
+/**
+ * <p>The definition for a solid color.</p>
+ * @public
+ */
+export interface GeospatialSolidColor {
+  /**
+   * <p>The color and opacity values for the color.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>Enables and disables the view state of the color.</p>
+   * @public
+   */
+  State?: GeospatialColorState | undefined;
+}
+
+/**
+ * <p>The visualization properties for solid, gradient, and categorical colors.</p>
+ * @public
+ */
+export interface GeospatialColor {
+  /**
+   * <p>The visualization properties for the solid color.</p>
+   * @public
+   */
+  Solid?: GeospatialSolidColor | undefined;
+
+  /**
+   * <p>The visualization properties for the gradient color.</p>
+   * @public
+   */
+  Gradient?: GeospatialGradientColor | undefined;
+
+  /**
+   * <p>The visualization properties for the categorical color.</p>
+   * @public
+   */
+  Categorical?: GeospatialCategoricalColor | undefined;
+}
+
+/**
+ * <p>The width properties for a line.</p>
+ * @public
+ */
+export interface GeospatialLineWidth {
+  /**
+   * <p>The positive value for the width of a line.</p>
+   * @public
+   */
+  LineWidth?: number | undefined;
+}
+
+/**
+ * <p>The symbol style for a line layer.</p>
+ * @public
+ */
+export interface GeospatialLineSymbolStyle {
+  /**
+   * <p>The color and opacity values for the fill color.</p>
+   * @public
+   */
+  FillColor?: GeospatialColor | undefined;
+
+  /**
+   * <p>The width value for a line.</p>
+   * @public
+   */
+  LineWidth?: GeospatialLineWidth | undefined;
+}
+
+/**
+ * <p>The visualization style for a line layer.</p>
+ * @public
+ */
+export interface GeospatialLineStyle {
+  /**
+   * <p>The symbol style for a line style.</p>
+   * @public
+   */
+  LineSymbolStyle?: GeospatialLineSymbolStyle | undefined;
+}
+
+/**
+ * <p>The geospatial Line layer.</p>
+ * @public
+ */
+export interface GeospatialLineLayer {
+  /**
+   * <p>The visualization style for a line layer.</p>
+   * @public
+   */
+  Style: GeospatialLineStyle | undefined;
+}
+
+/**
+ * <p>The geospatial radius for a circle.</p>
+ * @public
+ */
+export interface GeospatialCircleRadius {
+  /**
+   * <p>The positive value for the radius of a circle.</p>
+   * @public
+   */
+  Radius?: number | undefined;
+}
+
+/**
+ * <p>The properties for a circle symbol style.</p>
+ * @public
+ */
+export interface GeospatialCircleSymbolStyle {
+  /**
+   * <p>The color and opacity values for the fill color.</p>
+   * @public
+   */
+  FillColor?: GeospatialColor | undefined;
+
+  /**
+   * <p>The color and opacity values for the stroke color.</p>
+   * @public
+   */
+  StrokeColor?: GeospatialColor | undefined;
+
+  /**
+   * <p>The width of the stroke (border).</p>
+   * @public
+   */
+  StrokeWidth?: GeospatialLineWidth | undefined;
+
+  /**
+   * <p>The radius of the circle.</p>
+   * @public
+   */
+  CircleRadius?: GeospatialCircleRadius | undefined;
+}
+
+/**
+ * <p>The point style for a point layer.</p>
+ * @public
+ */
+export interface GeospatialPointStyle {
+  /**
+   * <p>The circle symbol style for a point layer.</p>
+   * @public
+   */
+  CircleSymbolStyle?: GeospatialCircleSymbolStyle | undefined;
+}
+
+/**
+ * <p>The geospatial Point layer.</p>
+ * @public
+ */
+export interface GeospatialPointLayer {
+  /**
+   * <p>The visualization style for a point layer.</p>
+   * @public
+   */
+  Style: GeospatialPointStyle | undefined;
+}
+
+/**
+ * <p>The polygon symbol style for a polygon layer.</p>
+ * @public
+ */
+export interface GeospatialPolygonSymbolStyle {
+  /**
+   * <p>The color and opacity values for the fill color.</p>
+   * @public
+   */
+  FillColor?: GeospatialColor | undefined;
+
+  /**
+   * <p>The color and opacity values for the stroke color.</p>
+   * @public
+   */
+  StrokeColor?: GeospatialColor | undefined;
+
+  /**
+   * <p>The width of the border stroke.</p>
+   * @public
+   */
+  StrokeWidth?: GeospatialLineWidth | undefined;
+}
+
+/**
+ * <p>The polygon style for a polygon layer.</p>
+ * @public
+ */
+export interface GeospatialPolygonStyle {
+  /**
+   * <p>The polygon symbol style for a polygon layer.</p>
+   * @public
+   */
+  PolygonSymbolStyle?: GeospatialPolygonSymbolStyle | undefined;
+}
+
+/**
+ * <p>The geospatial polygon layer.</p>
+ * @public
+ */
+export interface GeospatialPolygonLayer {
+  /**
+   * <p>The visualization style for a polygon layer.</p>
+   * @public
+   */
+  Style: GeospatialPolygonStyle | undefined;
+}
+
+/**
+ * <p>The definition properties for a geospatial layer.</p>
+ * @public
+ */
+export interface GeospatialLayerDefinition {
+  /**
+   * <p>The definition for a point layer.</p>
+   * @public
+   */
+  PointLayer?: GeospatialPointLayer | undefined;
+
+  /**
+   * <p>The definition for a line layer.</p>
+   * @public
+   */
+  LineLayer?: GeospatialLineLayer | undefined;
+
+  /**
+   * <p>The definition for a polygon layer.</p>
+   * @public
+   */
+  PolygonLayer?: GeospatialPolygonLayer | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeospatialLayerType = {
+  LINE: "LINE",
+  POINT: "POINT",
+  POLYGON: "POLYGON",
+} as const;
+
+/**
+ * @public
+ */
+export type GeospatialLayerType = (typeof GeospatialLayerType)[keyof typeof GeospatialLayerType];
+
+/**
+ * <p>The properties for a single geospatial layer.</p>
+ * @public
+ */
+export interface GeospatialLayerItem {
+  /**
+   * <p>The ID of the layer.</p>
+   * @public
+   */
+  LayerId: string | undefined;
+
+  /**
+   * <p>The layer type.</p>
+   * @public
+   */
+  LayerType?: GeospatialLayerType | undefined;
+
+  /**
+   * <p>The data source for the layer.</p>
+   * @public
+   */
+  DataSource?: GeospatialDataSourceItem | undefined;
+
+  /**
+   * <p>The label that is displayed for the layer.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The state of visibility for the layer.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The definition properties for a layer.</p>
+   * @public
+   */
+  LayerDefinition?: GeospatialLayerDefinition | undefined;
+
+  /**
+   * <p>The display options for the visual tooltip.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
+   * <p>The join definition properties for a layer.</p>
+   * @public
+   */
+  JoinDefinition?: GeospatialLayerJoinDefinition | undefined;
+
+  /**
+   * <p>A list of custom actions for a layer.</p>
+   * @public
+   */
+  Actions?: LayerCustomAction[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeospatialMapNavigation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type GeospatialMapNavigation = (typeof GeospatialMapNavigation)[keyof typeof GeospatialMapNavigation];
+
+/**
+ * <p>The map state properties for a map.</p>
+ * @public
+ */
+export interface GeospatialMapState {
+  /**
+   * <p>The bound
+   *             options (north, south, west, east) of the geospatial window options.</p>
+   * @public
+   */
+  Bounds?: GeospatialCoordinateBounds | undefined;
+
+  /**
+   * <p>Enables or disables map navigation for a map.</p>
+   * @public
+   */
+  MapNavigation?: GeospatialMapNavigation | undefined;
+}
+
+/**
+ * <p>The map style properties for a map.</p>
+ * @public
+ */
+export interface GeospatialMapStyle {
+  /**
+   * <p>The selected base map style.</p>
+   * @public
+   */
+  BaseMapStyle?: BaseMapStyleType | undefined;
+
+  /**
+   * <p>The background color and opacity values for a map.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+
+  /**
+   * <p>The state of visibility for the base map.</p>
+   * @public
+   */
+  BaseMapVisibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The map definition that defines map state, map style, and geospatial layers.</p>
+ * @public
+ */
+export interface GeospatialLayerMapConfiguration {
+  /**
+   * <p>The options for the legend setup of a visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions | undefined;
+
+  /**
+   * <p>The geospatial layers to visualize on the map.</p>
+   * @public
+   */
+  MapLayers?: GeospatialLayerItem[] | undefined;
+
+  /**
+   * <p>The map state properties for the map.</p>
+   * @public
+   */
+  MapState?: GeospatialMapState | undefined;
+
+  /**
+   * <p>The map style properties for the map.</p>
+   * @public
+   */
+  MapStyle?: GeospatialMapStyle | undefined;
+
+  /**
+   * <p>The general visual interactions setup for visual publish options</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>A layer map visual.</p>
+ * @public
+ */
+export interface LayerMapVisual {
+  /**
+   * <p>The ID of the visual.</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title label options for a visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle label options for a visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: GeospatialLayerMapConfiguration | undefined;
+
+  /**
+   * <p>The dataset that is used to create the layer map visual. You can't create a visual without a dataset.</p>
+   * @public
+   */
+  DataSetIdentifier: string | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -4274,7 +5841,7 @@ export interface LineChartLineStyleSettings {
    * <p>Configuration option that determines whether to show the line for the series.</p>
    * @public
    */
-  LineVisibility?: Visibility;
+  LineVisibility?: Visibility | undefined;
 
   /**
    * <p>Interpolation style for line series.</p>
@@ -4294,7 +5861,7 @@ export interface LineChartLineStyleSettings {
    *          </ul>
    * @public
    */
-  LineInterpolation?: LineInterpolation;
+  LineInterpolation?: LineInterpolation | undefined;
 
   /**
    * <p>Line style for line series.</p>
@@ -4314,13 +5881,13 @@ export interface LineChartLineStyleSettings {
    *          </ul>
    * @public
    */
-  LineStyle?: LineChartLineStyle;
+  LineStyle?: LineChartLineStyle | undefined;
 
   /**
    * <p>Width that determines the line thickness.</p>
    * @public
    */
-  LineWidth?: string;
+  LineWidth?: string | undefined;
 }
 
 /**
@@ -4349,7 +5916,7 @@ export interface LineChartMarkerStyleSettings {
    * <p>Configuration option that determines whether to show the markers in the series.</p>
    * @public
    */
-  MarkerVisibility?: Visibility;
+  MarkerVisibility?: Visibility | undefined;
 
   /**
    * <p>Shape option for markers in the series.</p>
@@ -4377,19 +5944,19 @@ export interface LineChartMarkerStyleSettings {
    *          </ul>
    * @public
    */
-  MarkerShape?: LineChartMarkerShape;
+  MarkerShape?: LineChartMarkerShape | undefined;
 
   /**
    * <p>Size of marker in the series.</p>
    * @public
    */
-  MarkerSize?: string;
+  MarkerSize?: string | undefined;
 
   /**
    * <p>Color of marker in the series.</p>
    * @public
    */
-  MarkerColor?: string;
+  MarkerColor?: string | undefined;
 }
 
 /**
@@ -4401,19 +5968,19 @@ export interface LineChartDefaultSeriesSettings {
    * <p>The axis to which you are binding all line series to.</p>
    * @public
    */
-  AxisBinding?: AxisBinding;
+  AxisBinding?: AxisBinding | undefined;
 
   /**
    * <p>Line styles options for all line series in the visual.</p>
    * @public
    */
-  LineStyleSettings?: LineChartLineStyleSettings;
+  LineStyleSettings?: LineChartLineStyleSettings | undefined;
 
   /**
    * <p>Marker styles options for all line series in the visual.</p>
    * @public
    */
-  MarkerStyleSettings?: LineChartMarkerStyleSettings;
+  MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
 }
 
 /**
@@ -4425,25 +5992,25 @@ export interface LineChartAggregatedFieldWells {
    * <p>The category field wells of a line chart. Values are grouped by category fields.</p>
    * @public
    */
-  Category?: DimensionField[];
+  Category?: DimensionField[] | undefined;
 
   /**
    * <p>The value field wells of a line chart. Values are aggregated based on categories.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 
   /**
    * <p>The color field wells of a line chart. Values are grouped by category fields.</p>
    * @public
    */
-  Colors?: DimensionField[];
+  Colors?: DimensionField[] | undefined;
 
   /**
    * <p>The small multiples field well of a line chart.</p>
    * @public
    */
-  SmallMultiples?: DimensionField[];
+  SmallMultiples?: DimensionField[] | undefined;
 }
 
 /**
@@ -4455,7 +6022,7 @@ export interface LineChartFieldWells {
    * <p>The field well configuration of a line chart.</p>
    * @public
    */
-  LineChartAggregatedFieldWells?: LineChartAggregatedFieldWells;
+  LineChartAggregatedFieldWells?: LineChartAggregatedFieldWells | undefined;
 }
 
 /**
@@ -4467,31 +6034,31 @@ export interface TimeBasedForecastProperties {
    * <p>The periods forward setup of a forecast computation.</p>
    * @public
    */
-  PeriodsForward?: number;
+  PeriodsForward?: number | undefined;
 
   /**
    * <p>The periods backward setup of a forecast computation.</p>
    * @public
    */
-  PeriodsBackward?: number;
+  PeriodsBackward?: number | undefined;
 
   /**
    * <p>The upper boundary setup of a forecast computation.</p>
    * @public
    */
-  UpperBoundary?: number;
+  UpperBoundary?: number | undefined;
 
   /**
    * <p>The lower boundary setup of a forecast computation.</p>
    * @public
    */
-  LowerBoundary?: number;
+  LowerBoundary?: number | undefined;
 
   /**
    * <p>The prediction interval setup of a forecast computation.</p>
    * @public
    */
-  PredictionInterval?: number;
+  PredictionInterval?: number | undefined;
 
   /**
    * <p>The seasonality setup of a forecast computation. Choose one of the following options:</p>
@@ -4507,7 +6074,7 @@ export interface TimeBasedForecastProperties {
    *          </ul>
    * @public
    */
-  Seasonality?: number;
+  Seasonality?: number | undefined;
 }
 
 /**
@@ -4561,13 +6128,13 @@ export interface ForecastScenario {
    * <p>The what-if analysis forecast setup with the target date.</p>
    * @public
    */
-  WhatIfPointScenario?: WhatIfPointScenario;
+  WhatIfPointScenario?: WhatIfPointScenario | undefined;
 
   /**
    * <p>The what-if analysis forecast setup with the date range.</p>
    * @public
    */
-  WhatIfRangeScenario?: WhatIfRangeScenario;
+  WhatIfRangeScenario?: WhatIfRangeScenario | undefined;
 }
 
 /**
@@ -4580,13 +6147,13 @@ export interface ForecastConfiguration {
    *             chart.</p>
    * @public
    */
-  ForecastProperties?: TimeBasedForecastProperties;
+  ForecastProperties?: TimeBasedForecastProperties | undefined;
 
   /**
    * <p>The forecast scenario of a forecast in the line chart.</p>
    * @public
    */
-  Scenario?: ForecastScenario;
+  Scenario?: ForecastScenario | undefined;
 }
 
 /**
@@ -4628,7 +6195,7 @@ export interface MissingDataConfiguration {
    *          </ul>
    * @public
    */
-  TreatmentOption?: MissingDataTreatmentOption;
+  TreatmentOption?: MissingDataTreatmentOption | undefined;
 }
 
 /**
@@ -4640,13 +6207,13 @@ export interface LineSeriesAxisDisplayOptions {
    * <p>The options that determine the presentation of the line series axis.</p>
    * @public
    */
-  AxisOptions?: AxisDisplayOptions;
+  AxisOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The configuration options that determine how missing data is treated during the rendering of a line chart.</p>
    * @public
    */
-  MissingDataConfigurations?: MissingDataConfiguration[];
+  MissingDataConfigurations?: MissingDataConfiguration[] | undefined;
 }
 
 /**
@@ -4658,13 +6225,13 @@ export interface LineChartSeriesSettings {
    * <p>Line styles options for a line series in <code>LineChartVisual</code>.</p>
    * @public
    */
-  LineStyleSettings?: LineChartLineStyleSettings;
+  LineStyleSettings?: LineChartLineStyleSettings | undefined;
 
   /**
    * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
    * @public
    */
-  MarkerStyleSettings?: LineChartMarkerStyleSettings;
+  MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
 }
 
 /**
@@ -4682,7 +6249,7 @@ export interface DataFieldSeriesItem {
    * <p>The field value of the field that you are setting the axis binding to.</p>
    * @public
    */
-  FieldValue?: string;
+  FieldValue?: string | undefined;
 
   /**
    * <p>The axis that you are binding the field to.</p>
@@ -4694,7 +6261,7 @@ export interface DataFieldSeriesItem {
    * <p>The options that determine the presentation of line series associated to the field.</p>
    * @public
    */
-  Settings?: LineChartSeriesSettings;
+  Settings?: LineChartSeriesSettings | undefined;
 }
 
 /**
@@ -4718,7 +6285,7 @@ export interface FieldSeriesItem {
    * <p>The options that determine the presentation of line series associated to the field.</p>
    * @public
    */
-  Settings?: LineChartSeriesSettings;
+  Settings?: LineChartSeriesSettings | undefined;
 }
 
 /**
@@ -4731,13 +6298,13 @@ export interface SeriesItem {
    * <p>The field series item configuration of a line chart.</p>
    * @public
    */
-  FieldSeriesItem?: FieldSeriesItem;
+  FieldSeriesItem?: FieldSeriesItem | undefined;
 
   /**
    * <p>The data field series item configuration of a line chart.</p>
    * @public
    */
-  DataFieldSeriesItem?: DataFieldSeriesItem;
+  DataFieldSeriesItem?: DataFieldSeriesItem | undefined;
 }
 
 /**
@@ -4749,31 +6316,31 @@ export interface LineChartSortConfiguration {
    * <p>The sort configuration of the category fields.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of categories that are displayed in a line chart.</p>
    * @public
    */
-  CategoryItemsLimitConfiguration?: ItemsLimitConfiguration;
+  CategoryItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
 
   /**
    * <p>The limit on the number of lines that are displayed in a line chart.</p>
    * @public
    */
-  ColorItemsLimitConfiguration?: ItemsLimitConfiguration;
+  ColorItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
 
   /**
    * <p>The sort configuration of the small multiples field.</p>
    * @public
    */
-  SmallMultiplesSort?: FieldSortOptions[];
+  SmallMultiplesSort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of small multiples panels that are displayed.</p>
    * @public
    */
-  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
 }
 
 /**
@@ -4800,127 +6367,127 @@ export interface LineChartConfiguration {
    * <p>The field well configuration of a line chart.</p>
    * @public
    */
-  FieldWells?: LineChartFieldWells;
+  FieldWells?: LineChartFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a line chart.</p>
    * @public
    */
-  SortConfiguration?: LineChartSortConfiguration;
+  SortConfiguration?: LineChartSortConfiguration | undefined;
 
   /**
    * <p>The forecast configuration of a line chart.</p>
    * @public
    */
-  ForecastConfigurations?: ForecastConfiguration[];
+  ForecastConfigurations?: ForecastConfiguration[] | undefined;
 
   /**
    * <p>Determines the type of the line chart.</p>
    * @public
    */
-  Type?: LineChartType;
+  Type?: LineChartType | undefined;
 
   /**
    * <p>The small multiples setup for the visual.</p>
    * @public
    */
-  SmallMultiplesOptions?: SmallMultiplesOptions;
+  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the x-axis.</p>
    * @public
    */
-  XAxisDisplayOptions?: AxisDisplayOptions;
+  XAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the x-axis label.</p>
    * @public
    */
-  XAxisLabelOptions?: ChartAxisLabelOptions;
+  XAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The series axis configuration of a line chart.</p>
    * @public
    */
-  PrimaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions;
+  PrimaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the y-axis label.</p>
    * @public
    */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The series axis configuration of a line chart.</p>
    * @public
    */
-  SecondaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions;
+  SecondaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions | undefined;
 
   /**
    * <p>The options that determine the presentation of the secondary y-axis label.</p>
    * @public
    */
-  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The settings of a chart's single axis configuration.</p>
    * @public
    */
-  SingleAxisOptions?: SingleAxisOptions;
+  SingleAxisOptions?: SingleAxisOptions | undefined;
 
   /**
    * <p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>
    * @public
    */
-  DefaultSeriesSettings?: LineChartDefaultSeriesSettings;
+  DefaultSeriesSettings?: LineChartDefaultSeriesSettings | undefined;
 
   /**
    * <p>The series item configuration of a line chart.</p>
    * @public
    */
-  Series?: SeriesItem[];
+  Series?: SeriesItem[] | undefined;
 
   /**
    * <p>The legend configuration of a line chart.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The data label configuration of a line chart.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The reference lines configuration of a line chart.</p>
    * @public
    */
-  ReferenceLines?: ReferenceLine[];
+  ReferenceLines?: ReferenceLine[] | undefined;
 
   /**
    * <p>The tooltip configuration of a line chart.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The default configuration of a line chart's contribution analysis.</p>
    * @public
    */
-  ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
 
   /**
    * <p>The visual palette configuration of a line chart.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -4939,31 +6506,37 @@ export interface LineChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a line chart.</p>
    * @public
    */
-  ChartConfiguration?: LineChartConfiguration;
+  ChartConfiguration?: LineChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -4991,7 +6564,7 @@ export interface ArcOptions {
    * <p>The arc thickness of a <code>GaugeChartVisual</code>.</p>
    * @public
    */
-  ArcThickness?: ArcThickness;
+  ArcThickness?: ArcThickness | undefined;
 }
 
 /**
@@ -5003,7 +6576,7 @@ export interface DonutCenterOptions {
    * <p>Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called <code>'Show total'</code>.</p>
    * @public
    */
-  LabelVisibility?: Visibility;
+  LabelVisibility?: Visibility | undefined;
 }
 
 /**
@@ -5033,13 +6606,13 @@ export interface DonutOptions {
    *          </ul>
    * @public
    */
-  ArcOptions?: ArcOptions;
+  ArcOptions?: ArcOptions | undefined;
 
   /**
    * <p>The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.</p>
    * @public
    */
-  DonutCenterOptions?: DonutCenterOptions;
+  DonutCenterOptions?: DonutCenterOptions | undefined;
 }
 
 /**
@@ -5051,19 +6624,19 @@ export interface PieChartAggregatedFieldWells {
    * <p>The category (group/color) field wells of a pie chart.</p>
    * @public
    */
-  Category?: DimensionField[];
+  Category?: DimensionField[] | undefined;
 
   /**
    * <p>The value field wells of a pie chart. Values are aggregated based on categories.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 
   /**
    * <p>The small multiples field well of a pie chart.</p>
    * @public
    */
-  SmallMultiples?: DimensionField[];
+  SmallMultiples?: DimensionField[] | undefined;
 }
 
 /**
@@ -5076,7 +6649,7 @@ export interface PieChartFieldWells {
    * <p>The field well configuration of a pie chart.</p>
    * @public
    */
-  PieChartAggregatedFieldWells?: PieChartAggregatedFieldWells;
+  PieChartAggregatedFieldWells?: PieChartAggregatedFieldWells | undefined;
 }
 
 /**
@@ -5088,25 +6661,25 @@ export interface PieChartSortConfiguration {
    * <p>The sort configuration of the category fields.</p>
    * @public
    */
-  CategorySort?: FieldSortOptions[];
+  CategorySort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of categories that are displayed in a pie chart.</p>
    * @public
    */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
 
   /**
    * <p>The sort configuration of the small multiples field.</p>
    * @public
    */
-  SmallMultiplesSort?: FieldSortOptions[];
+  SmallMultiplesSort?: FieldSortOptions[] | undefined;
 
   /**
    * <p>The limit on the number of small multiples panels that are displayed.</p>
    * @public
    */
-  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
 }
 
 /**
@@ -5118,73 +6691,73 @@ export interface PieChartConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: PieChartFieldWells;
+  FieldWells?: PieChartFieldWells | undefined;
 
   /**
    * <p>The sort configuration of a pie chart.</p>
    * @public
    */
-  SortConfiguration?: PieChartSortConfiguration;
+  SortConfiguration?: PieChartSortConfiguration | undefined;
 
   /**
    * <p>The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.</p>
    * @public
    */
-  DonutOptions?: DonutOptions;
+  DonutOptions?: DonutOptions | undefined;
 
   /**
    * <p>The small multiples setup for the visual.</p>
    * @public
    */
-  SmallMultiplesOptions?: SmallMultiplesOptions;
+  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
 
   /**
    * <p>The label options of the group/color that is displayed in a pie chart.</p>
    * @public
    */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The label options for the value that is displayed in a pie chart.</p>
    * @public
    */
-  ValueLabelOptions?: ChartAxisLabelOptions;
+  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
-  Legend?: LegendOptions;
+  Legend?: LegendOptions | undefined;
 
   /**
    * <p>The options that determine if visual data labels are displayed.</p>
    * @public
    */
-  DataLabels?: DataLabelOptions;
+  DataLabels?: DataLabelOptions | undefined;
 
   /**
    * <p>The tooltip display setup of the visual.</p>
    * @public
    */
-  Tooltip?: TooltipOptions;
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The palette (chart color) display setup of the visual.</p>
    * @public
    */
-  VisualPalette?: VisualPalette;
+  VisualPalette?: VisualPalette | undefined;
 
   /**
    * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
    * @public
    */
-  ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -5214,31 +6787,37 @@ export interface PieChartVisual {
    * <p>The title that is displayed on the visual.</p>
    * @public
    */
-  Title?: VisualTitleLabelOptions;
+  Title?: VisualTitleLabelOptions | undefined;
 
   /**
    * <p>The subtitle that is displayed on the visual.</p>
    * @public
    */
-  Subtitle?: VisualSubtitleLabelOptions;
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
 
   /**
    * <p>The configuration of a pie chart.</p>
    * @public
    */
-  ChartConfiguration?: PieChartConfiguration;
+  ChartConfiguration?: PieChartConfiguration | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
    * @public
    */
-  Actions?: VisualCustomAction[];
+  Actions?: VisualCustomAction[] | undefined;
 
   /**
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    * @public
    */
-  ColumnHierarchies?: ColumnHierarchy[];
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
 }
 
 /**
@@ -5265,13 +6844,13 @@ export interface PivotTableFieldCollapseStateTarget {
    * <p>The field ID of the pivot table that the collapse state needs to be set to.</p>
    * @public
    */
-  FieldId?: string;
+  FieldId?: string | undefined;
 
   /**
    * <p>The data path of the pivot table's header. Used to set the collapse state.</p>
    * @public
    */
-  FieldDataPathValues?: DataPathValue[];
+  FieldDataPathValues?: DataPathValue[] | undefined;
 }
 
 /**
@@ -5301,7 +6880,7 @@ export interface PivotTableFieldCollapseStateOption {
    *          </ul>
    * @public
    */
-  State?: PivotTableFieldCollapseState;
+  State?: PivotTableFieldCollapseState | undefined;
 }
 
 /**
@@ -5319,7 +6898,7 @@ export interface PivotTableDataPathOption {
    * <p>The width of the data path option.</p>
    * @public
    */
-  Width?: string;
+  Width?: string | undefined;
 }
 
 /**
@@ -5337,13 +6916,13 @@ export interface PivotTableFieldOption {
    * <p>The custom label of the pivot table field.</p>
    * @public
    */
-  CustomLabel?: string;
+  CustomLabel?: string | undefined;
 
   /**
    * <p>The visibility of the pivot table field.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 }
 
 /**
@@ -5355,19 +6934,19 @@ export interface PivotTableFieldOptions {
    * <p>The selected field options for the pivot table field options.</p>
    * @public
    */
-  SelectedFieldOptions?: PivotTableFieldOption[];
+  SelectedFieldOptions?: PivotTableFieldOption[] | undefined;
 
   /**
    * <p>The data path options for the pivot table field options.</p>
    * @public
    */
-  DataPathOptions?: PivotTableDataPathOption[];
+  DataPathOptions?: PivotTableDataPathOption[] | undefined;
 
   /**
    * <p>The collapse state options for the pivot table field options.</p>
    * @public
    */
-  CollapseStateOptions?: PivotTableFieldCollapseStateOption[];
+  CollapseStateOptions?: PivotTableFieldCollapseStateOption[] | undefined;
 }
 
 /**
@@ -5379,19 +6958,19 @@ export interface PivotTableAggregatedFieldWells {
    * <p>The rows field well for a pivot table. Values are grouped by rows fields.</p>
    * @public
    */
-  Rows?: DimensionField[];
+  Rows?: DimensionField[] | undefined;
 
   /**
    * <p>The columns field well for a pivot table. Values are grouped by columns fields.</p>
    * @public
    */
-  Columns?: DimensionField[];
+  Columns?: DimensionField[] | undefined;
 
   /**
    * <p>The values field well for a pivot table. Values are aggregated based on rows and columns fields.</p>
    * @public
    */
-  Values?: MeasureField[];
+  Values?: MeasureField[] | undefined;
 }
 
 /**
@@ -5404,7 +6983,7 @@ export interface PivotTableFieldWells {
    * <p>The aggregated field well for the pivot table.</p>
    * @public
    */
-  PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells;
+  PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells | undefined;
 }
 
 /**
@@ -5416,13 +6995,13 @@ export interface PivotTablePaginatedReportOptions {
    * <p>The visibility of the printing table overflow across pages.</p>
    * @public
    */
-  VerticalOverflowVisibility?: Visibility;
+  VerticalOverflowVisibility?: Visibility | undefined;
 
   /**
    * <p>The visibility of the repeating header rows on each page.</p>
    * @public
    */
-  OverflowColumnHeaderVisibility?: Visibility;
+  OverflowColumnHeaderVisibility?: Visibility | undefined;
 }
 
 /**
@@ -5452,19 +7031,19 @@ export interface PivotTableSortBy {
    * <p>The field sort (field id, direction) for the pivot table sort by options.</p>
    * @public
    */
-  Field?: FieldSort;
+  Field?: FieldSort | undefined;
 
   /**
    * <p>The column sort (field id, direction) for the pivot table sort by options.</p>
    * @public
    */
-  Column?: ColumnSort;
+  Column?: ColumnSort | undefined;
 
   /**
    * <p>The data path sort (data path value, direction) for the pivot table sort by options.</p>
    * @public
    */
-  DataPath?: DataPathSort;
+  DataPath?: DataPathSort | undefined;
 }
 
 /**
@@ -5494,7 +7073,7 @@ export interface PivotTableSortConfiguration {
    * <p>The field sort options for a pivot table sort configuration.</p>
    * @public
    */
-  FieldSortOptions?: PivotFieldSortOptions[];
+  FieldSortOptions?: PivotFieldSortOptions[] | undefined;
 }
 
 /**
@@ -5520,19 +7099,19 @@ export interface TableBorderOptions {
    * <p>The color of a table border.</p>
    * @public
    */
-  Color?: string;
+  Color?: string | undefined;
 
   /**
    * <p>The thickness of a table border.</p>
    * @public
    */
-  Thickness?: number;
+  Thickness?: number | undefined;
 
   /**
    * <p>The style (none, solid) of a table border.</p>
    * @public
    */
-  Style?: TableBorderStyle;
+  Style?: TableBorderStyle | undefined;
 }
 
 /**
@@ -5544,37 +7123,37 @@ export interface TableSideBorderOptions {
    * <p>The table border options of the inner vertical border.</p>
    * @public
    */
-  InnerVertical?: TableBorderOptions;
+  InnerVertical?: TableBorderOptions | undefined;
 
   /**
    * <p>The table border options of the inner horizontal border.</p>
    * @public
    */
-  InnerHorizontal?: TableBorderOptions;
+  InnerHorizontal?: TableBorderOptions | undefined;
 
   /**
    * <p>The table border options of the left border.</p>
    * @public
    */
-  Left?: TableBorderOptions;
+  Left?: TableBorderOptions | undefined;
 
   /**
    * <p>The table border options of the right border.</p>
    * @public
    */
-  Right?: TableBorderOptions;
+  Right?: TableBorderOptions | undefined;
 
   /**
    * <p>The table border options of the top border.</p>
    * @public
    */
-  Top?: TableBorderOptions;
+  Top?: TableBorderOptions | undefined;
 
   /**
    * <p>The table border options of the bottom border.</p>
    * @public
    */
-  Bottom?: TableBorderOptions;
+  Bottom?: TableBorderOptions | undefined;
 }
 
 /**
@@ -5586,13 +7165,13 @@ export interface GlobalTableBorderOptions {
    * <p>Determines the options for uniform border.</p>
    * @public
    */
-  UniformBorder?: TableBorderOptions;
+  UniformBorder?: TableBorderOptions | undefined;
 
   /**
    * <p>Determines the options for side specific border.</p>
    * @public
    */
-  SideSpecificBorder?: TableSideBorderOptions;
+  SideSpecificBorder?: TableSideBorderOptions | undefined;
 }
 
 /**
@@ -5634,49 +7213,49 @@ export interface TableCellStyle {
    * <p>The visibility of the table cells.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The font configuration of the table cells.</p>
    * @public
    */
-  FontConfiguration?: FontConfiguration;
+  FontConfiguration?: FontConfiguration | undefined;
 
   /**
    * <p>The text wrap (none, wrap) for the table cells.</p>
    * @public
    */
-  TextWrap?: TextWrap;
+  TextWrap?: TextWrap | undefined;
 
   /**
    * <p>The horizontal text alignment (left, center, right, auto) for the table cells.</p>
    * @public
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment;
+  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
 
   /**
    * <p>The vertical text alignment (top, middle, bottom) for the table cells.</p>
    * @public
    */
-  VerticalTextAlignment?: VerticalTextAlignment;
+  VerticalTextAlignment?: VerticalTextAlignment | undefined;
 
   /**
    * <p>The background color for the table cells.</p>
    * @public
    */
-  BackgroundColor?: string;
+  BackgroundColor?: string | undefined;
 
   /**
    * <p>The height color for the table cells.</p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>The borders for the table cells.</p>
    * @public
    */
-  Border?: GlobalTableBorderOptions;
+  Border?: GlobalTableBorderOptions | undefined;
 }
 
 /**
@@ -5702,19 +7281,19 @@ export interface RowAlternateColorOptions {
    * <p>Determines the widget status.</p>
    * @public
    */
-  Status?: WidgetStatus;
+  Status?: WidgetStatus | undefined;
 
   /**
    * <p>Determines the list of row alternate colors.</p>
    * @public
    */
-  RowAlternateColors?: string[];
+  RowAlternateColors?: string[] | undefined;
 
   /**
    * <p>The primary background color options for alternate rows.</p>
    * @public
    */
-  UsePrimaryBackgroundColor?: WidgetStatus;
+  UsePrimaryBackgroundColor?: WidgetStatus | undefined;
 }
 
 /**
@@ -5726,13 +7305,13 @@ export interface PivotTableRowsLabelOptions {
    * <p>The visibility of the rows label.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The custom label string for the rows label.</p>
    * @public
    */
-  CustomLabel?: string;
+  CustomLabel?: string | undefined;
 }
 
 /**
@@ -5758,61 +7337,61 @@ export interface PivotTableOptions {
    * <p>The metric placement (row, column) options.</p>
    * @public
    */
-  MetricPlacement?: PivotTableMetricPlacement;
+  MetricPlacement?: PivotTableMetricPlacement | undefined;
 
   /**
    * <p>The visibility of the single metric options.</p>
    * @public
    */
-  SingleMetricVisibility?: Visibility;
+  SingleMetricVisibility?: Visibility | undefined;
 
   /**
    * <p>The visibility of the column names.</p>
    * @public
    */
-  ColumnNamesVisibility?: Visibility;
+  ColumnNamesVisibility?: Visibility | undefined;
 
   /**
    * <p>Determines the visibility of the pivot table.</p>
    * @public
    */
-  ToggleButtonsVisibility?: Visibility;
+  ToggleButtonsVisibility?: Visibility | undefined;
 
   /**
    * <p>The table cell style of the column header.</p>
    * @public
    */
-  ColumnHeaderStyle?: TableCellStyle;
+  ColumnHeaderStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The table cell style of the row headers.</p>
    * @public
    */
-  RowHeaderStyle?: TableCellStyle;
+  RowHeaderStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The table cell style of cells.</p>
    * @public
    */
-  CellStyle?: TableCellStyle;
+  CellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The table cell style of row field names.</p>
    * @public
    */
-  RowFieldNamesStyle?: TableCellStyle;
+  RowFieldNamesStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The row alternate color options (widget status, row alternate colors).</p>
    * @public
    */
-  RowAlternateColorOptions?: RowAlternateColorOptions;
+  RowAlternateColorOptions?: RowAlternateColorOptions | undefined;
 
   /**
    * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
    * @public
    */
-  CollapsedRowDimensionsVisibility?: Visibility;
+  CollapsedRowDimensionsVisibility?: Visibility | undefined;
 
   /**
    * <p>The layout for the row dimension headers of a pivot table. Choose one of the following options.</p>
@@ -5828,19 +7407,19 @@ export interface PivotTableOptions {
    *          </ul>
    * @public
    */
-  RowsLayout?: PivotTableRowsLayout;
+  RowsLayout?: PivotTableRowsLayout | undefined;
 
   /**
    * <p>The options for the label that is located above the row headers. This option is only applicable when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
    * @public
    */
-  RowsLabelOptions?: PivotTableRowsLabelOptions;
+  RowsLabelOptions?: PivotTableRowsLabelOptions | undefined;
 
   /**
    * <p>The default cell width of the pivot table.</p>
    * @public
    */
-  DefaultCellWidth?: string;
+  DefaultCellWidth?: string | undefined;
 }
 
 /**
@@ -5867,7 +7446,7 @@ export interface PivotTableFieldSubtotalOptions {
    * <p>The field ID of the subtotal options.</p>
    * @public
    */
-  FieldId?: string;
+  FieldId?: string | undefined;
 }
 
 /**
@@ -5906,49 +7485,49 @@ export interface SubtotalOptions {
    * <p>The visibility configuration for the subtotal cells.</p>
    * @public
    */
-  TotalsVisibility?: Visibility;
+  TotalsVisibility?: Visibility | undefined;
 
   /**
    * <p>The custom label string for the subtotal cells.</p>
    * @public
    */
-  CustomLabel?: string;
+  CustomLabel?: string | undefined;
 
   /**
    * <p>The field level (all, custom, last) for the subtotal cells.</p>
    * @public
    */
-  FieldLevel?: PivotTableSubtotalLevel;
+  FieldLevel?: PivotTableSubtotalLevel | undefined;
 
   /**
    * <p>The optional configuration of subtotal cells.</p>
    * @public
    */
-  FieldLevelOptions?: PivotTableFieldSubtotalOptions[];
+  FieldLevelOptions?: PivotTableFieldSubtotalOptions[] | undefined;
 
   /**
    * <p>The cell styling options for the subtotal cells.</p>
    * @public
    */
-  TotalCellStyle?: TableCellStyle;
+  TotalCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The cell styling options for the subtotals of value cells.</p>
    * @public
    */
-  ValueCellStyle?: TableCellStyle;
+  ValueCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The cell styling options for the subtotals of header cells.</p>
    * @public
    */
-  MetricHeaderCellStyle?: TableCellStyle;
+  MetricHeaderCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The style targets options for subtotals.</p>
    * @public
    */
-  StyleTargets?: TableStyleTarget[];
+  StyleTargets?: TableStyleTarget[] | undefined;
 }
 
 /**
@@ -6008,7 +7587,7 @@ export interface TotalAggregationFunction {
    * <p>A built in aggregation function for total values.</p>
    * @public
    */
-  SimpleTotalAggregationFunction?: SimpleTotalAggregationFunction;
+  SimpleTotalAggregationFunction?: SimpleTotalAggregationFunction | undefined;
 }
 
 /**
@@ -6038,49 +7617,49 @@ export interface PivotTotalOptions {
    * <p>The visibility configuration for the total cells.</p>
    * @public
    */
-  TotalsVisibility?: Visibility;
+  TotalsVisibility?: Visibility | undefined;
 
   /**
    * <p>The placement (start, end) for the total cells.</p>
    * @public
    */
-  Placement?: TableTotalsPlacement;
+  Placement?: TableTotalsPlacement | undefined;
 
   /**
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    * @public
    */
-  ScrollStatus?: TableTotalsScrollStatus;
+  ScrollStatus?: TableTotalsScrollStatus | undefined;
 
   /**
    * <p>The custom label string for the total cells.</p>
    * @public
    */
-  CustomLabel?: string;
+  CustomLabel?: string | undefined;
 
   /**
    * <p>The cell styling options for the total cells.</p>
    * @public
    */
-  TotalCellStyle?: TableCellStyle;
+  TotalCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The cell styling options for the totals of value cells.</p>
    * @public
    */
-  ValueCellStyle?: TableCellStyle;
+  ValueCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The cell styling options for the total of header cells.</p>
    * @public
    */
-  MetricHeaderCellStyle?: TableCellStyle;
+  MetricHeaderCellStyle?: TableCellStyle | undefined;
 
   /**
    * <p>The total aggregation options for each value field.</p>
    * @public
    */
-  TotalAggregationOptions?: TotalAggregationOption[];
+  TotalAggregationOptions?: TotalAggregationOption[] | undefined;
 }
 
 /**
@@ -6092,25 +7671,25 @@ export interface PivotTableTotalOptions {
    * <p>The row subtotal options.</p>
    * @public
    */
-  RowSubtotalOptions?: SubtotalOptions;
+  RowSubtotalOptions?: SubtotalOptions | undefined;
 
   /**
    * <p>The column subtotal options.</p>
    * @public
    */
-  ColumnSubtotalOptions?: SubtotalOptions;
+  ColumnSubtotalOptions?: SubtotalOptions | undefined;
 
   /**
    * <p>The row total options.</p>
    * @public
    */
-  RowTotalOptions?: PivotTotalOptions;
+  RowTotalOptions?: PivotTotalOptions | undefined;
 
   /**
    * <p>The column total options.</p>
    * @public
    */
-  ColumnTotalOptions?: PivotTotalOptions;
+  ColumnTotalOptions?: PivotTotalOptions | undefined;
 }
 
 /**
@@ -6122,43 +7701,43 @@ export interface PivotTableConfiguration {
    * <p>The field wells of the visual.</p>
    * @public
    */
-  FieldWells?: PivotTableFieldWells;
+  FieldWells?: PivotTableFieldWells | undefined;
 
   /**
    * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
    * @public
    */
-  SortConfiguration?: PivotTableSortConfiguration;
+  SortConfiguration?: PivotTableSortConfiguration | undefined;
 
   /**
    * <p>The table options for a pivot table visual.</p>
    * @public
    */
-  TableOptions?: PivotTableOptions;
+  TableOptions?: PivotTableOptions | undefined;
 
   /**
    * <p>The total options for a pivot table visual.</p>
    * @public
    */
-  TotalOptions?: PivotTableTotalOptions;
+  TotalOptions?: PivotTableTotalOptions | undefined;
 
   /**
    * <p>The field options for a pivot table visual.</p>
    * @public
    */
-  FieldOptions?: PivotTableFieldOptions;
+  FieldOptions?: PivotTableFieldOptions | undefined;
 
   /**
    * <p>The paginated report options for a pivot table visual.</p>
    * @public
    */
-  PaginatedReportOptions?: PivotTablePaginatedReportOptions;
+  PaginatedReportOptions?: PivotTablePaginatedReportOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
-  Interactions?: VisualInteractionOptions;
+  Interactions?: VisualInteractionOptions | undefined;
 }
 
 /**
@@ -6186,7 +7765,7 @@ export interface PivotTableConditionalFormattingScope {
    * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
    * @public
    */
-  Role?: PivotTableConditionalFormattingScopeRole;
+  Role?: PivotTableConditionalFormattingScopeRole | undefined;
 }
 
 /**
@@ -6198,1587 +7777,75 @@ export interface TextConditionalFormat {
    * <p>The conditional formatting for the text background color.</p>
    * @public
    */
-  BackgroundColor?: ConditionalFormattingColor;
+  BackgroundColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting for the text color.</p>
    * @public
    */
-  TextColor?: ConditionalFormattingColor;
+  TextColor?: ConditionalFormattingColor | undefined;
 
   /**
    * <p>The conditional formatting for the icon.</p>
    * @public
    */
-  Icon?: ConditionalFormattingIcon;
+  Icon?: ConditionalFormattingIcon | undefined;
 }
 
 /**
- * <p>The cell conditional formatting option for a pivot table.</p>
- * @public
- */
-export interface PivotTableCellConditionalFormatting {
-  /**
-   * <p>The field ID of the cell for conditional formatting.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The text format of the cell for conditional formatting.</p>
-   * @public
-   */
-  TextFormat?: TextConditionalFormat;
-
-  /**
-   * <p>The scope of the cell for conditional formatting.</p>
-   * @public
-   */
-  Scope?: PivotTableConditionalFormattingScope;
-
-  /**
-   * <p>A list of cell scopes for conditional formatting.</p>
-   * @public
-   */
-  Scopes?: PivotTableConditionalFormattingScope[];
-}
-
-/**
- * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface PivotTableConditionalFormattingOption {
-  /**
-   * <p>The cell conditional formatting option for a pivot table.</p>
-   * @public
-   */
-  Cell?: PivotTableCellConditionalFormatting;
-}
-
-/**
- * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface PivotTableConditionalFormatting {
-  /**
-   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormattingOptions?: PivotTableConditionalFormattingOption[];
-}
-
-/**
- * <p>A pivot table.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface PivotTableVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: PivotTableConfiguration;
-
-  /**
-   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormatting?: PivotTableConditionalFormatting;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-}
-
-/**
- * @public
- * @enum
- */
-export const RadarChartAxesRangeScale = {
-  AUTO: "AUTO",
-  INDEPENDENT: "INDEPENDENT",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type RadarChartAxesRangeScale = (typeof RadarChartAxesRangeScale)[keyof typeof RadarChartAxesRangeScale];
-
-/**
- * <p>The configured style settings of a radar chart.</p>
- * @public
- */
-export interface RadarChartAreaStyleSettings {
-  /**
-   * <p>The visibility settings of a radar chart.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-}
-
-/**
- * <p>The series settings of a radar chart.</p>
- * @public
- */
-export interface RadarChartSeriesSettings {
-  /**
-   * <p>The area style settings of a radar chart.</p>
-   * @public
-   */
-  AreaStyleSettings?: RadarChartAreaStyleSettings;
-}
-
-/**
- * <p>The aggregated field well configuration of a <code>RadarChartVisual</code>.</p>
- * @public
- */
-export interface RadarChartAggregatedFieldWells {
-  /**
-   * <p>The aggregated field well categories of a radar chart.</p>
-   * @public
-   */
-  Category?: DimensionField[];
-
-  /**
-   * <p>The color that are assigned to the aggregated field wells of a radar chart.</p>
-   * @public
-   */
-  Color?: DimensionField[];
-
-  /**
-   * <p>The values that are assigned to the aggregated field wells of a radar chart.</p>
-   * @public
-   */
-  Values?: MeasureField[];
-}
-
-/**
- * <p>The field wells of a radar chart visual.</p>
- * @public
- */
-export interface RadarChartFieldWells {
-  /**
-   * <p>The aggregated field wells of a radar chart visual.</p>
-   * @public
-   */
-  RadarChartAggregatedFieldWells?: RadarChartAggregatedFieldWells;
-}
-
-/**
- * @public
- * @enum
- */
-export const RadarChartShape = {
-  CIRCLE: "CIRCLE",
-  POLYGON: "POLYGON",
-} as const;
-
-/**
- * @public
- */
-export type RadarChartShape = (typeof RadarChartShape)[keyof typeof RadarChartShape];
-
-/**
- * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
- * @public
- */
-export interface RadarChartSortConfiguration {
-  /**
-   * <p>The category sort options of a radar chart.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The category items limit for a radar chart.</p>
-   * @public
-   */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
-
-  /**
-   * <p>The color sort configuration of a radar chart.</p>
-   * @public
-   */
-  ColorSort?: FieldSortOptions[];
-
-  /**
-   * <p>The color items limit of a radar chart.</p>
-   * @public
-   */
-  ColorItemsLimit?: ItemsLimitConfiguration;
-}
-
-/**
- * <p>The configuration of a <code>RadarChartVisual</code>.</p>
- * @public
- */
-export interface RadarChartConfiguration {
-  /**
-   * <p>The field well configuration of a <code>RadarChartVisual</code>.</p>
-   * @public
-   */
-  FieldWells?: RadarChartFieldWells;
-
-  /**
-   * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: RadarChartSortConfiguration;
-
-  /**
-   * <p>The shape of the radar chart.</p>
-   * @public
-   */
-  Shape?: RadarChartShape;
-
-  /**
-   * <p>The base sreies settings of a radar chart.</p>
-   * @public
-   */
-  BaseSeriesSettings?: RadarChartSeriesSettings;
-
-  /**
-   * <p>The start angle of a radar chart's axis.</p>
-   * @public
-   */
-  StartAngle?: number;
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   * @public
-   */
-  VisualPalette?: VisualPalette;
-
-  /**
-   * <p>Determines the visibility of the colors of alternatign bands in a radar chart.</p>
-   * @public
-   */
-  AlternateBandColorsVisibility?: Visibility;
-
-  /**
-   * <p>The color of the even-numbered alternate bands of a radar chart.</p>
-   * @public
-   */
-  AlternateBandEvenColor?: string;
-
-  /**
-   * <p>The color of the odd-numbered alternate bands of a radar chart.</p>
-   * @public
-   */
-  AlternateBandOddColor?: string;
-
-  /**
-   * <p>The category axis of a radar chart.</p>
-   * @public
-   */
-  CategoryAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The category label options of a radar chart.</p>
-   * @public
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The color axis of a radar chart.</p>
-   * @public
-   */
-  ColorAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The color label options of a radar chart.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The axis behavior options of a radar chart.</p>
-   * @public
-   */
-  AxesRangeScale?: RadarChartAxesRangeScale;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>A radar chart visual.</p>
- * @public
- */
-export interface RadarChartVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: RadarChartConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * <p>The field well configuration of a sankey diagram.</p>
- * @public
- */
-export interface SankeyDiagramAggregatedFieldWells {
-  /**
-   * <p>The source field wells of a sankey diagram.</p>
-   * @public
-   */
-  Source?: DimensionField[];
-
-  /**
-   * <p>The destination field wells of a sankey diagram.</p>
-   * @public
-   */
-  Destination?: DimensionField[];
-
-  /**
-   * <p>The weight field wells of a sankey diagram.</p>
-   * @public
-   */
-  Weight?: MeasureField[];
-}
-
-/**
- * <p>The field well configuration of a sankey diagram.</p>
- * @public
- */
-export interface SankeyDiagramFieldWells {
-  /**
-   * <p>The field well configuration of a sankey diagram.</p>
-   * @public
-   */
-  SankeyDiagramAggregatedFieldWells?: SankeyDiagramAggregatedFieldWells;
-}
-
-/**
- * <p>The sort configuration of a sankey diagram.</p>
- * @public
- */
-export interface SankeyDiagramSortConfiguration {
-  /**
-   * <p>The sort configuration of the weight fields.</p>
-   * @public
-   */
-  WeightSort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of source nodes that are displayed in a sankey diagram.</p>
-   * @public
-   */
-  SourceItemsLimit?: ItemsLimitConfiguration;
-
-  /**
-   * <p>The limit on the number of destination nodes that are displayed in a sankey diagram.</p>
-   * @public
-   */
-  DestinationItemsLimit?: ItemsLimitConfiguration;
-}
-
-/**
- * <p>The configuration of a sankey diagram.</p>
- * @public
- */
-export interface SankeyDiagramChartConfiguration {
-  /**
-   * <p>The field well configuration of a sankey diagram.</p>
-   * @public
-   */
-  FieldWells?: SankeyDiagramFieldWells;
-
-  /**
-   * <p>The sort configuration of a sankey diagram.</p>
-   * @public
-   */
-  SortConfiguration?: SankeyDiagramSortConfiguration;
-
-  /**
-   * <p>The data label configuration of a sankey diagram.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>A sankey diagram.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface SankeyDiagramVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration of a sankey diagram.</p>
-   * @public
-   */
-  ChartConfiguration?: SankeyDiagramChartConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-}
-
-/**
- * <p>The aggregated field well of a scatter plot.</p>
- * @public
- */
-export interface ScatterPlotCategoricallyAggregatedFieldWells {
-  /**
-   * <p>The x-axis field well of a scatter plot.</p>
-   *          <p>The x-axis is aggregated by category.</p>
-   * @public
-   */
-  XAxis?: MeasureField[];
-
-  /**
-   * <p>The y-axis field well of a scatter plot.</p>
-   *          <p>The y-axis is aggregated by category.</p>
-   * @public
-   */
-  YAxis?: MeasureField[];
-
-  /**
-   * <p>The category field well of a scatter plot.</p>
-   * @public
-   */
-  Category?: DimensionField[];
-
-  /**
-   * <p>The size field well of a scatter plot.</p>
-   * @public
-   */
-  Size?: MeasureField[];
-
-  /**
-   * <p>The label field well of a scatter plot.</p>
-   * @public
-   */
-  Label?: DimensionField[];
-}
-
-/**
- * <p>The unaggregated field wells of a scatter plot.</p>
- * @public
- */
-export interface ScatterPlotUnaggregatedFieldWells {
-  /**
-   * <p>The x-axis field well of a scatter plot.</p>
-   *          <p>The x-axis is a dimension field and cannot be aggregated.</p>
-   * @public
-   */
-  XAxis?: DimensionField[];
-
-  /**
-   * <p>The y-axis field well of a scatter plot.</p>
-   *          <p>The y-axis is a dimension field and cannot be aggregated.</p>
-   * @public
-   */
-  YAxis?: DimensionField[];
-
-  /**
-   * <p>The size field well of a scatter plot.</p>
-   * @public
-   */
-  Size?: MeasureField[];
-
-  /**
-   * <p>The category field well of a scatter plot.</p>
-   * @public
-   */
-  Category?: DimensionField[];
-
-  /**
-   * <p>The label field well of a scatter plot.</p>
-   * @public
-   */
-  Label?: DimensionField[];
-}
-
-/**
- * <p>The field well configuration of a scatter plot.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface ScatterPlotFieldWells {
-  /**
-   * <p>The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.</p>
-   * @public
-   */
-  ScatterPlotCategoricallyAggregatedFieldWells?: ScatterPlotCategoricallyAggregatedFieldWells;
-
-  /**
-   * <p>The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are
-   *             unaggregated.</p>
-   * @public
-   */
-  ScatterPlotUnaggregatedFieldWells?: ScatterPlotUnaggregatedFieldWells;
-}
-
-/**
- * <p>The sort configuration of a scatter plot.</p>
- * @public
- */
-export interface ScatterPlotSortConfiguration {
-  /**
-   * <p>The limit configuration of the visual display for an axis.</p>
-   * @public
-   */
-  ScatterPlotLimitConfiguration?: ItemsLimitConfiguration;
-}
-
-/**
- * <p>The configuration of a scatter plot.</p>
- * @public
- */
-export interface ScatterPlotConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: ScatterPlotFieldWells;
-
-  /**
-   * <p>The sort configuration of a scatter plot.</p>
-   * @public
-   */
-  SortConfiguration?: ScatterPlotSortConfiguration;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.</p>
-   * @public
-   */
-  XAxisLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.</p>
-   * @public
-   */
-  XAxisDisplayOptions?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.</p>
-   * @public
-   */
-  YAxisLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.</p>
-   * @public
-   */
-  YAxisDisplayOptions?: AxisDisplayOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   * @public
-   */
-  VisualPalette?: VisualPalette;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>A scatter plot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface ScatterPlotVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: ScatterPlotConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * <p>The settings for the pinned columns of a table visual.</p>
- * @public
- */
-export interface TablePinnedFieldOptions {
-  /**
-   * <p>A list of columns to be pinned to the left of a table visual.</p>
-   * @public
-   */
-  PinnedLeftFields?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const TableCellImageScalingConfiguration = {
-  DO_NOT_SCALE: "DO_NOT_SCALE",
-  FIT_TO_CELL_HEIGHT: "FIT_TO_CELL_HEIGHT",
-  FIT_TO_CELL_WIDTH: "FIT_TO_CELL_WIDTH",
-} as const;
-
-/**
- * @public
- */
-export type TableCellImageScalingConfiguration =
-  (typeof TableCellImageScalingConfiguration)[keyof typeof TableCellImageScalingConfiguration];
-
-/**
- * <p>The sizing options for the table image configuration.</p>
- * @public
- */
-export interface TableCellImageSizingConfiguration {
-  /**
-   * <p>The cell scaling configuration of the sizing options for the table image configuration.</p>
-   * @public
-   */
-  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration;
-}
-
-/**
- * <p>The image configuration of a table field URL.</p>
- * @public
- */
-export interface TableFieldImageConfiguration {
-  /**
-   * <p>The sizing options for the table image configuration.</p>
-   * @public
-   */
-  SizingOptions?: TableCellImageSizingConfiguration;
-}
-
-/**
- * @public
- * @enum
- */
-export const TableFieldIconSetType = {
-  LINK: "LINK",
-} as const;
-
-/**
- * @public
- */
-export type TableFieldIconSetType = (typeof TableFieldIconSetType)[keyof typeof TableFieldIconSetType];
-
-/**
- * <p>The custom icon content for the table link content configuration.</p>
- * @public
- */
-export interface TableFieldCustomIconContent {
-  /**
-   * <p>The icon set type (link) of the custom icon content for table URL link content.</p>
-   * @public
-   */
-  Icon?: TableFieldIconSetType;
-}
-
-/**
- * <p>The custom text content (value, font configuration) for the table link content configuration.</p>
- * @public
- */
-export interface TableFieldCustomTextContent {
-  /**
-   * <p>The string value of the custom text content for the table URL link content.</p>
-   * @public
-   */
-  Value?: string;
-
-  /**
-   * <p>The font configuration of the custom text content for the table URL link content.</p>
-   * @public
-   */
-  FontConfiguration: FontConfiguration | undefined;
-}
-
-/**
- * <p>The URL content (text, icon) for the table link configuration.</p>
- * @public
- */
-export interface TableFieldLinkContentConfiguration {
-  /**
-   * <p>The custom text content (value, font configuration) for the table link content configuration.</p>
-   * @public
-   */
-  CustomTextContent?: TableFieldCustomTextContent;
-
-  /**
-   * <p>The custom icon content for the table link content configuration.</p>
-   * @public
-   */
-  CustomIconContent?: TableFieldCustomIconContent;
-}
-
-/**
- * <p>The link configuration of a table field URL.</p>
- * @public
- */
-export interface TableFieldLinkConfiguration {
-  /**
-   * <p>The URL target (new tab, new window, same tab) for the table link configuration.</p>
-   * @public
-   */
-  Target: URLTargetConfiguration | undefined;
-
-  /**
-   * <p>The URL content (text, icon) for the table link configuration.</p>
-   * @public
-   */
-  Content: TableFieldLinkContentConfiguration | undefined;
-}
-
-/**
- * <p>The URL configuration for a table field.</p>
- * @public
- */
-export interface TableFieldURLConfiguration {
-  /**
-   * <p>The link configuration of a table field URL.</p>
-   * @public
-   */
-  LinkConfiguration?: TableFieldLinkConfiguration;
-
-  /**
-   * <p>The image configuration of a table field URL.</p>
-   * @public
-   */
-  ImageConfiguration?: TableFieldImageConfiguration;
-}
-
-/**
- * <p>The options for a table field.</p>
- * @public
- */
-export interface TableFieldOption {
-  /**
-   * <p>The field ID for a table field.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The width for a table field.</p>
-   * @public
-   */
-  Width?: string;
-
-  /**
-   * <p>The custom label for a table field.</p>
-   * @public
-   */
-  CustomLabel?: string;
-
-  /**
-   * <p>The visibility of a table field.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-
-  /**
-   * <p>The URL configuration for a table field.</p>
-   * @public
-   */
-  URLStyling?: TableFieldURLConfiguration;
-}
-
-/**
- * <p>The field options of a table visual.</p>
- * @public
- */
-export interface TableFieldOptions {
-  /**
-   * <p>The field options to be configured to a table.</p>
-   * @public
-   */
-  SelectedFieldOptions?: TableFieldOption[];
-
-  /**
-   * <p>The order of the field IDs that are configured as field options for a table visual.</p>
-   * @public
-   */
-  Order?: string[];
-
-  /**
-   * <p>The settings for the pinned columns of a table visual.</p>
-   * @public
-   */
-  PinnedFieldOptions?: TablePinnedFieldOptions;
-}
-
-/**
- * <p>The aggregated field well for the table.</p>
- * @public
- */
-export interface TableAggregatedFieldWells {
-  /**
-   * <p>The group by field well for a pivot table. Values are grouped by group by fields.</p>
-   * @public
-   */
-  GroupBy?: DimensionField[];
-
-  /**
-   * <p>The values field well for a pivot table. Values are aggregated based on group by fields.</p>
-   * @public
-   */
-  Values?: MeasureField[];
-}
-
-/**
- * <p>The unaggregated field for a table.</p>
- * @public
- */
-export interface UnaggregatedField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>UnaggregatedField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: FormatConfiguration;
-}
-
-/**
- * <p>The unaggregated field well for the table.</p>
- * @public
- */
-export interface TableUnaggregatedFieldWells {
-  /**
-   * <p>The values field well for a pivot table. Values are unaggregated for an unaggregated table.</p>
-   * @public
-   */
-  Values?: UnaggregatedField[];
-}
-
-/**
- * <p>The field wells for a table visual.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TableFieldWells {
-  /**
-   * <p>The aggregated field well for the table.</p>
-   * @public
-   */
-  TableAggregatedFieldWells?: TableAggregatedFieldWells;
-
-  /**
-   * <p>The unaggregated field well for the table.</p>
-   * @public
-   */
-  TableUnaggregatedFieldWells?: TableUnaggregatedFieldWells;
-}
-
-/**
- * <p>The paginated report options for a table visual.</p>
- * @public
- */
-export interface TablePaginatedReportOptions {
-  /**
-   * <p>The visibility of printing table overflow across pages.</p>
-   * @public
-   */
-  VerticalOverflowVisibility?: Visibility;
-
-  /**
-   * <p>The visibility of repeating header rows on each page.</p>
-   * @public
-   */
-  OverflowColumnHeaderVisibility?: Visibility;
-}
-
-/**
- * <p>The sort configuration for a <code>TableVisual</code>.</p>
- * @public
- */
-export interface TableSortConfiguration {
-  /**
-   * <p>The field sort options for rows in the table.</p>
-   * @public
-   */
-  RowSort?: FieldSortOptions[];
-
-  /**
-   * <p>The pagination configuration (page size, page number) for the table.</p>
-   * @public
-   */
-  PaginationConfiguration?: PaginationConfiguration;
-}
-
-/**
- * <p>The options for data bars.</p>
- * @public
- */
-export interface DataBarsOptions {
-  /**
-   * <p>The field ID for the data bars options.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The color of the positive data bar.</p>
-   * @public
-   */
-  PositiveColor?: string;
-
-  /**
-   * <p>The color of the negative data bar.</p>
-   * @public
-   */
-  NegativeColor?: string;
-}
-
-/**
- * <p>The inline visualization of a specific type to display within a chart.</p>
- * @public
- */
-export interface TableInlineVisualization {
-  /**
-   * <p>The configuration of the inline visualization of the data bars within a chart.</p>
-   * @public
-   */
-  DataBars?: DataBarsOptions;
-}
-
-/**
- * @public
- * @enum
- */
-export const TableOrientation = {
-  HORIZONTAL: "HORIZONTAL",
-  VERTICAL: "VERTICAL",
-} as const;
-
-/**
- * @public
- */
-export type TableOrientation = (typeof TableOrientation)[keyof typeof TableOrientation];
-
-/**
- * <p>The table options for a table visual.</p>
- * @public
- */
-export interface TableOptions {
-  /**
-   * <p>The orientation (vertical, horizontal) for a table.</p>
-   * @public
-   */
-  Orientation?: TableOrientation;
-
-  /**
-   * <p>The table cell style of a table header.</p>
-   * @public
-   */
-  HeaderStyle?: TableCellStyle;
-
-  /**
-   * <p>The table cell style of table cells.</p>
-   * @public
-   */
-  CellStyle?: TableCellStyle;
-
-  /**
-   * <p>The row alternate color options (widget status, row alternate colors) for a table.</p>
-   * @public
-   */
-  RowAlternateColorOptions?: RowAlternateColorOptions;
-}
-
-/**
- * <p>The total options for a table visual.</p>
- * @public
- */
-export interface TotalOptions {
-  /**
-   * <p>The visibility configuration for the total cells.</p>
-   * @public
-   */
-  TotalsVisibility?: Visibility;
-
-  /**
-   * <p>The placement (start, end) for the total cells.</p>
-   * @public
-   */
-  Placement?: TableTotalsPlacement;
-
-  /**
-   * <p>The scroll status (pinned, scrolled) for the total cells.</p>
-   * @public
-   */
-  ScrollStatus?: TableTotalsScrollStatus;
-
-  /**
-   * <p>The custom label string for the total cells.</p>
-   * @public
-   */
-  CustomLabel?: string;
-
-  /**
-   * <p>Cell styling options for the total cells.</p>
-   * @public
-   */
-  TotalCellStyle?: TableCellStyle;
-
-  /**
-   * <p>The total aggregation settings for each value field.</p>
-   * @public
-   */
-  TotalAggregationOptions?: TotalAggregationOption[];
-}
-
-/**
- * <p>The configuration for a <code>TableVisual</code>.</p>
- * @public
- */
-export interface TableConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: TableFieldWells;
-
-  /**
-   * <p>The sort configuration for a <code>TableVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: TableSortConfiguration;
-
-  /**
-   * <p>The table options for a table visual.</p>
-   * @public
-   */
-  TableOptions?: TableOptions;
-
-  /**
-   * <p>The total options for a table visual.</p>
-   * @public
-   */
-  TotalOptions?: TotalOptions;
-
-  /**
-   * <p>The field options for a table visual.</p>
-   * @public
-   */
-  FieldOptions?: TableFieldOptions;
-
-  /**
-   * <p>The paginated report options for a table visual.</p>
-   * @public
-   */
-  PaginatedReportOptions?: TablePaginatedReportOptions;
-
-  /**
-   * <p>A collection of inline visualizations to display within a chart.</p>
-   * @public
-   */
-  TableInlineVisualizations?: TableInlineVisualization[];
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>The cell conditional formatting option for a table.</p>
- * @public
- */
-export interface TableCellConditionalFormatting {
-  /**
-   * <p>The field ID of the cell for conditional formatting.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The text format of the cell for conditional formatting.</p>
-   * @public
-   */
-  TextFormat?: TextConditionalFormat;
-}
-
-/**
- * <p>The conditional formatting of a table row.</p>
- * @public
- */
-export interface TableRowConditionalFormatting {
-  /**
-   * <p>The conditional formatting color (solid, gradient) of the background for a table row.</p>
-   * @public
-   */
-  BackgroundColor?: ConditionalFormattingColor;
-
-  /**
-   * <p>The conditional formatting color (solid, gradient) of the text for a table row.</p>
-   * @public
-   */
-  TextColor?: ConditionalFormattingColor;
-}
-
-/**
- * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface TableConditionalFormattingOption {
-  /**
-   * <p>The cell conditional formatting option for a table.</p>
-   * @public
-   */
-  Cell?: TableCellConditionalFormatting;
-
-  /**
-   * <p>The row conditional formatting option for a table.</p>
-   * @public
-   */
-  Row?: TableRowConditionalFormatting;
-}
-
-/**
- * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface TableConditionalFormatting {
-  /**
-   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormattingOptions?: TableConditionalFormattingOption[];
-}
-
-/**
- * <p>A table visual.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface TableVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: TableConfiguration;
-
-  /**
-   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormatting?: TableConditionalFormatting;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-}
-
-/**
- * <p>Aggregated field wells of a tree map.</p>
- * @public
- */
-export interface TreeMapAggregatedFieldWells {
-  /**
-   * <p>The group by field well of a tree map. Values are grouped based on group by fields.</p>
-   * @public
-   */
-  Groups?: DimensionField[];
-
-  /**
-   * <p>The size field well of a tree map. Values are aggregated based on group by fields.</p>
-   * @public
-   */
-  Sizes?: MeasureField[];
-
-  /**
-   * <p>The color field well of a tree map. Values are grouped by aggregations based on group by fields.</p>
-   * @public
-   */
-  Colors?: MeasureField[];
-}
-
-/**
- * <p>The field wells of a tree map.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TreeMapFieldWells {
-  /**
-   * <p>The aggregated field wells of a tree map.</p>
-   * @public
-   */
-  TreeMapAggregatedFieldWells?: TreeMapAggregatedFieldWells;
-}
-
-/**
- * <p>The sort configuration of a tree map.</p>
- * @public
- */
-export interface TreeMapSortConfiguration {
-  /**
-   * <p>The sort configuration of group by fields.</p>
-   * @public
-   */
-  TreeMapSort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of groups that are displayed.</p>
-   * @public
-   */
-  TreeMapGroupItemsLimitConfiguration?: ItemsLimitConfiguration;
-}
-
-/**
- * <p>The configuration of a tree map.</p>
- * @public
- */
-export interface TreeMapConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: TreeMapFieldWells;
-
-  /**
-   * <p>The sort configuration of a tree map.</p>
-   * @public
-   */
-  SortConfiguration?: TreeMapSortConfiguration;
-
-  /**
-   * <p>The label options (label text, label visibility) of the groups that are displayed in a tree map.</p>
-   * @public
-   */
-  GroupLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility) of the sizes that are displayed in a tree map.</p>
-   * @public
-   */
-  SizeLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility) for the colors displayed in a tree map.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The color options (gradient color, point of divergence) of a tree map.</p>
-   * @public
-   */
-  ColorScale?: ColorScale;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>A tree map.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface TreeMapVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: TreeMapConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * <p>The color configuration for individual groups within a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartGroupColorConfiguration {
-  /**
-   * <p>Defines the color for the positive bars of a waterfall chart.</p>
-   * @public
-   */
-  PositiveBarColor?: string;
-
-  /**
-   * <p>Defines the color for the negative bars of a waterfall chart.</p>
-   * @public
-   */
-  NegativeBarColor?: string;
-
-  /**
-   * <p>Defines the color for the total bars of a waterfall chart.</p>
-   * @public
-   */
-  TotalBarColor?: string;
-}
-
-/**
- * <p>The color configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartColorConfiguration {
-  /**
-   * <p>The color configuration for individual groups within a waterfall visual.</p>
-   * @public
-   */
-  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration;
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartAggregatedFieldWells {
-  /**
-   * <p>The category field wells of a waterfall visual.</p>
-   * @public
-   */
-  Categories?: DimensionField[];
-
-  /**
-   * <p>The value field wells of a waterfall visual.</p>
-   * @public
-   */
-  Values?: MeasureField[];
-
-  /**
-   * <p>The breakdown field wells of a waterfall visual.</p>
-   * @public
-   */
-  Breakdowns?: DimensionField[];
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartFieldWells {
-  /**
-   * <p>The field well configuration of a waterfall visual.</p>
-   * @public
-   */
-  WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells;
-}
-
-/**
- * <p>The sort configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartSortConfiguration {
-  /**
-   * <p>The sort configuration of the category fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of bar groups that are displayed.</p>
-   * @public
-   */
-  BreakdownItemsLimit?: ItemsLimitConfiguration;
-}
+ * @internal
+ */
+export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
+  obj: ReferenceLineStaticDataConfiguration
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ReferenceLineDataConfigurationFilterSensitiveLog = (obj: ReferenceLineDataConfiguration): any => ({
+  ...obj,
+  ...(obj.StaticConfiguration && {
+    StaticConfiguration: ReferenceLineStaticDataConfigurationFilterSensitiveLog(obj.StaticConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ReferenceLineValueLabelConfigurationFilterSensitiveLog = (
+  obj: ReferenceLineValueLabelConfiguration
+): any => ({
+  ...obj,
+  ...(obj.FormatConfiguration && {
+    FormatConfiguration: NumericFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ReferenceLineLabelConfigurationFilterSensitiveLog = (obj: ReferenceLineLabelConfiguration): any => ({
+  ...obj,
+  ...(obj.ValueLabelConfiguration && {
+    ValueLabelConfiguration: ReferenceLineValueLabelConfigurationFilterSensitiveLog(obj.ValueLabelConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
+  ...obj,
+  ...(obj.DataConfiguration && {
+    DataConfiguration: ReferenceLineDataConfigurationFilterSensitiveLog(obj.DataConfiguration),
+  }),
+  ...(obj.LabelConfiguration && {
+    LabelConfiguration: ReferenceLineLabelConfigurationFilterSensitiveLog(obj.LabelConfiguration),
+  }),
+});
 
 /**
  * @internal
@@ -8500,6 +8567,77 @@ export const KPIVisualFilterSensitiveLog = (obj: KPIVisual): any => ({
 /**
  * @internal
  */
+export const LayerCustomActionOperationFilterSensitiveLog = (obj: LayerCustomActionOperation): any => ({
+  ...obj,
+  ...(obj.SetParametersOperation && {
+    SetParametersOperation: CustomActionSetParametersOperationFilterSensitiveLog(obj.SetParametersOperation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const LayerCustomActionFilterSensitiveLog = (obj: LayerCustomAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeospatialLayerColorFieldFilterSensitiveLog = (obj: GeospatialLayerColorField): any => ({
+  ...obj,
+  ...(obj.ColorValuesFields && {
+    ColorValuesFields: obj.ColorValuesFields.map((item) => MeasureFieldFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UnaggregatedFieldFilterSensitiveLog = (obj: UnaggregatedField): any => ({
+  ...obj,
+  ...(obj.FormatConfiguration && {
+    FormatConfiguration: FormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GeospatialLayerJoinDefinitionFilterSensitiveLog = (obj: GeospatialLayerJoinDefinition): any => ({
+  ...obj,
+  ...(obj.DatasetKeyField && { DatasetKeyField: UnaggregatedFieldFilterSensitiveLog(obj.DatasetKeyField) }),
+});
+
+/**
+ * @internal
+ */
+export const GeospatialLayerItemFilterSensitiveLog = (obj: GeospatialLayerItem): any => ({
+  ...obj,
+  ...(obj.JoinDefinition && { JoinDefinition: GeospatialLayerJoinDefinitionFilterSensitiveLog(obj.JoinDefinition) }),
+});
+
+/**
+ * @internal
+ */
+export const GeospatialLayerMapConfigurationFilterSensitiveLog = (obj: GeospatialLayerMapConfiguration): any => ({
+  ...obj,
+  ...(obj.MapLayers && { MapLayers: obj.MapLayers.map((item) => GeospatialLayerItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const LayerMapVisualFilterSensitiveLog = (obj: LayerMapVisual): any => ({
+  ...obj,
+  ...(obj.ChartConfiguration && {
+    ChartConfiguration: GeospatialLayerMapConfigurationFilterSensitiveLog(obj.ChartConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const LineChartAggregatedFieldWellsFilterSensitiveLog = (obj: LineChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -8675,295 +8813,4 @@ export const TextConditionalFormatFilterSensitiveLog = (obj: TextConditionalForm
   ...(obj.BackgroundColor && { BackgroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.BackgroundColor) }),
   ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
   ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableCellConditionalFormattingFilterSensitiveLog = (
-  obj: PivotTableCellConditionalFormatting
-): any => ({
-  ...obj,
-  ...(obj.TextFormat && { TextFormat: TextConditionalFormatFilterSensitiveLog(obj.TextFormat) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingOptionFilterSensitiveLog = (
-  obj: PivotTableConditionalFormattingOption
-): any => ({
-  ...obj,
-  ...(obj.Cell && { Cell: PivotTableCellConditionalFormattingFilterSensitiveLog(obj.Cell) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingFilterSensitiveLog = (obj: PivotTableConditionalFormatting): any => ({
-  ...obj,
-  ...(obj.ConditionalFormattingOptions && {
-    ConditionalFormattingOptions: obj.ConditionalFormattingOptions.map((item) =>
-      PivotTableConditionalFormattingOptionFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any => ({
-  ...obj,
-  ...(obj.ConditionalFormatting && {
-    ConditionalFormatting: PivotTableConditionalFormattingFilterSensitiveLog(obj.ConditionalFormatting),
-  }),
-});
-
-/**
- * @internal
- */
-export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChartAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const RadarChartFieldWellsFilterSensitiveLog = (obj: RadarChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadarChartConfigurationFilterSensitiveLog = (obj: RadarChartConfiguration): any => ({
-  ...obj,
-  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
-});
-
-/**
- * @internal
- */
-export const RadarChartVisualFilterSensitiveLog = (obj: RadarChartVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramAggregatedFieldWellsFilterSensitiveLog = (obj: SankeyDiagramAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Weight && { Weight: obj.Weight.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramFieldWellsFilterSensitiveLog = (obj: SankeyDiagramFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramChartConfigurationFilterSensitiveLog = (obj: SankeyDiagramChartConfiguration): any => ({
-  ...obj,
-  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramVisualFilterSensitiveLog = (obj: SankeyDiagramVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScatterPlotCategoricallyAggregatedFieldWellsFilterSensitiveLog = (
-  obj: ScatterPlotCategoricallyAggregatedFieldWells
-): any => ({
-  ...obj,
-  ...(obj.XAxis && { XAxis: obj.XAxis.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-  ...(obj.YAxis && { YAxis: obj.YAxis.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-  ...(obj.Size && { Size: obj.Size.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ScatterPlotUnaggregatedFieldWellsFilterSensitiveLog = (obj: ScatterPlotUnaggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Size && { Size: obj.Size.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ScatterPlotFieldWellsFilterSensitiveLog = (obj: ScatterPlotFieldWells): any => ({
-  ...obj,
-  ...(obj.ScatterPlotCategoricallyAggregatedFieldWells && {
-    ScatterPlotCategoricallyAggregatedFieldWells: ScatterPlotCategoricallyAggregatedFieldWellsFilterSensitiveLog(
-      obj.ScatterPlotCategoricallyAggregatedFieldWells
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ScatterPlotConfigurationFilterSensitiveLog = (obj: ScatterPlotConfiguration): any => ({
-  ...obj,
-  ...(obj.FieldWells && { FieldWells: ScatterPlotFieldWellsFilterSensitiveLog(obj.FieldWells) }),
-  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
-  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
-});
-
-/**
- * @internal
- */
-export const ScatterPlotVisualFilterSensitiveLog = (obj: ScatterPlotVisual): any => ({
-  ...obj,
-  ...(obj.ChartConfiguration && {
-    ChartConfiguration: ScatterPlotConfigurationFilterSensitiveLog(obj.ChartConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const TableAggregatedFieldWellsFilterSensitiveLog = (obj: TableAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UnaggregatedFieldFilterSensitiveLog = (obj: UnaggregatedField): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: FormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const TableUnaggregatedFieldWellsFilterSensitiveLog = (obj: TableUnaggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => UnaggregatedFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TableFieldWellsFilterSensitiveLog = (obj: TableFieldWells): any => ({
-  ...obj,
-  ...(obj.TableUnaggregatedFieldWells && {
-    TableUnaggregatedFieldWells: TableUnaggregatedFieldWellsFilterSensitiveLog(obj.TableUnaggregatedFieldWells),
-  }),
-});
-
-/**
- * @internal
- */
-export const TableConfigurationFilterSensitiveLog = (obj: TableConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableCellConditionalFormattingFilterSensitiveLog = (obj: TableCellConditionalFormatting): any => ({
-  ...obj,
-  ...(obj.TextFormat && { TextFormat: TextConditionalFormatFilterSensitiveLog(obj.TextFormat) }),
-});
-
-/**
- * @internal
- */
-export const TableRowConditionalFormattingFilterSensitiveLog = (obj: TableRowConditionalFormatting): any => ({
-  ...obj,
-  ...(obj.BackgroundColor && { BackgroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.BackgroundColor) }),
-  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
-});
-
-/**
- * @internal
- */
-export const TableConditionalFormattingOptionFilterSensitiveLog = (obj: TableConditionalFormattingOption): any => ({
-  ...obj,
-  ...(obj.Cell && { Cell: TableCellConditionalFormattingFilterSensitiveLog(obj.Cell) }),
-  ...(obj.Row && { Row: TableRowConditionalFormattingFilterSensitiveLog(obj.Row) }),
-});
-
-/**
- * @internal
- */
-export const TableConditionalFormattingFilterSensitiveLog = (obj: TableConditionalFormatting): any => ({
-  ...obj,
-  ...(obj.ConditionalFormattingOptions && {
-    ConditionalFormattingOptions: obj.ConditionalFormattingOptions.map((item) =>
-      TableConditionalFormattingOptionFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const TableVisualFilterSensitiveLog = (obj: TableVisual): any => ({
-  ...obj,
-  ...(obj.ConditionalFormatting && {
-    ConditionalFormatting: TableConditionalFormattingFilterSensitiveLog(obj.ConditionalFormatting),
-  }),
-});
-
-/**
- * @internal
- */
-export const TreeMapAggregatedFieldWellsFilterSensitiveLog = (obj: TreeMapAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Sizes && { Sizes: obj.Sizes.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-  ...(obj.Colors && { Colors: obj.Colors.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TreeMapFieldWellsFilterSensitiveLog = (obj: TreeMapFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
-  ...obj,
-  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
-});
-
-/**
- * @internal
- */
-export const TreeMapVisualFilterSensitiveLog = (obj: TreeMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartAggregatedFieldWellsFilterSensitiveLog = (obj: WaterfallChartAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const WaterfallChartFieldWellsFilterSensitiveLog = (obj: WaterfallChartFieldWells): any => ({
-  ...obj,
 });

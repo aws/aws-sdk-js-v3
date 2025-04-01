@@ -89,6 +89,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectSyntaxCommand extends $Command
@@ -99,9 +100,7 @@ export class DetectSyntaxCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DetectSyntaxCommand extends $Command
   .f(DetectSyntaxRequestFilterSensitiveLog, DetectSyntaxResponseFilterSensitiveLog)
   .ser(se_DetectSyntaxCommand)
   .de(de_DetectSyntaxCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectSyntaxRequest;
+      output: DetectSyntaxResponse;
+    };
+    sdk: {
+      input: DetectSyntaxCommandInput;
+      output: DetectSyntaxCommandOutput;
+    };
+  };
+}

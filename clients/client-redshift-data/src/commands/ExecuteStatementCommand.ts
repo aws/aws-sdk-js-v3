@@ -76,7 +76,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   ClusterIdentifier: "STRING_VALUE",
  *   SecretArn: "STRING_VALUE",
  *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
+ *   Database: "STRING_VALUE",
  *   WithEvent: true || false,
  *   StatementName: "STRING_VALUE",
  *   Parameters: [ // SqlParametersList
@@ -87,6 +87,9 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   ],
  *   WorkgroupName: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
+ *   SessionKeepAliveSeconds: Number("int"),
+ *   SessionId: "STRING_VALUE",
+ *   ResultFormat: "STRING_VALUE",
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
@@ -95,9 +98,13 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   ClusterIdentifier: "STRING_VALUE",
  * //   DbUser: "STRING_VALUE",
+ * //   DbGroups: [ // DbGroupList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   Database: "STRING_VALUE",
  * //   SecretArn: "STRING_VALUE",
  * //   WorkgroupName: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -108,17 +115,24 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
+ * @throws {@link ActiveSessionsExceededException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ *
  * @throws {@link ActiveStatementsExceededException} (client fault)
  *  <p>The number of active statements exceeds the limit.</p>
  *
  * @throws {@link ExecuteStatementException} (server fault)
  *  <p>The SQL statement encountered an environmental error while running.</p>
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
+ *
  *
  * @public
  */
@@ -130,9 +144,7 @@ export class ExecuteStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +156,16 @@ export class ExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteStatementCommand)
   .de(de_ExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteStatementInput;
+      output: ExecuteStatementOutput;
+    };
+    sdk: {
+      input: ExecuteStatementCommandInput;
+      output: ExecuteStatementCommandOutput;
+    };
+  };
+}

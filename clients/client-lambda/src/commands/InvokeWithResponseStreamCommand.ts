@@ -118,7 +118,8 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link InvalidRequestContentException} (client fault)
- *  <p>The request body could not be parsed as JSON.</p>
+ *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
+ *       header is not a valid UUID string.</p>
  *
  * @throws {@link InvalidRuntimeException} (server fault)
  *  <p>The runtime or runtime version specified is not supported.</p>
@@ -190,6 +191,7 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class InvokeWithResponseStreamCommand extends $Command
@@ -200,9 +202,7 @@ export class InvokeWithResponseStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -221,4 +221,16 @@ export class InvokeWithResponseStreamCommand extends $Command
   .f(InvokeWithResponseStreamRequestFilterSensitiveLog, InvokeWithResponseStreamResponseFilterSensitiveLog)
   .ser(se_InvokeWithResponseStreamCommand)
   .de(de_InvokeWithResponseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeWithResponseStreamRequest;
+      output: InvokeWithResponseStreamResponse;
+    };
+    sdk: {
+      input: InvokeWithResponseStreamCommandInput;
+      output: InvokeWithResponseStreamCommandOutput;
+    };
+  };
+}

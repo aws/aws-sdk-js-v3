@@ -130,6 +130,7 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DescribeBudgetCommand extends $Command
@@ -140,9 +141,7 @@ export class DescribeBudgetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DescribeBudgetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBudgetCommand)
   .de(de_DescribeBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetRequest;
+      output: DescribeBudgetResponse;
+    };
+    sdk: {
+      input: DescribeBudgetCommandInput;
+      output: DescribeBudgetCommandOutput;
+    };
+  };
+}

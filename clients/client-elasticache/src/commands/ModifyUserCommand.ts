@@ -49,6 +49,7 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Engine: "STRING_VALUE",
  * };
  * const command = new ModifyUserCommand(input);
  * const response = await client.send(command);
@@ -95,6 +96,7 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class ModifyUserCommand extends $Command
@@ -105,9 +107,7 @@ export class ModifyUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class ModifyUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyUserCommand)
   .de(de_ModifyUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyUserMessage;
+      output: User;
+    };
+    sdk: {
+      input: ModifyUserCommandInput;
+      output: ModifyUserCommandOutput;
+    };
+  };
+}

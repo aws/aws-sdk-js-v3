@@ -35,21 +35,21 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          scale in the table lower than its minimum capacity.</p>
    * @public
    */
-  disableScaleIn?: boolean;
+  disableScaleIn?: boolean | undefined;
 
   /**
    * <p>Specifies a <code>scale-in</code> cool down period.</p>
    *          <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
    * @public
    */
-  scaleInCooldown?: number;
+  scaleInCooldown?: number | undefined;
 
   /**
    * <p>Specifies a scale out cool down period.</p>
    *          <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
    * @public
    */
-  scaleOutCooldown?: number;
+  scaleOutCooldown?: number | undefined;
 
   /**
    * <p>Specifies the target value for the target tracking auto scaling policy.</p>
@@ -74,7 +74,7 @@ export interface AutoScalingPolicy {
    *          when it falls below the target. A <code>double</code> between 20 and 90.</p>
    * @public
    */
-  targetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
+  targetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
 }
 
 /**
@@ -144,21 +144,21 @@ export interface AutoScalingSettings {
    * <p>This optional parameter enables auto scaling for the table if set to <code>false</code>.</p>
    * @public
    */
-  autoScalingDisabled?: boolean;
+  autoScalingDisabled?: boolean | undefined;
 
   /**
    * <p>The minimum level of throughput the table should always be ready to support. The value must be between 1
    *          and the max throughput per second quota for your account (40,000 by default).</p>
    * @public
    */
-  minimumUnits?: number;
+  minimumUnits?: number | undefined;
 
   /**
    * <p>Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1
    *          and the max throughput per second quota for your account (40,000 by default).</p>
    * @public
    */
-  maximumUnits?: number;
+  maximumUnits?: number | undefined;
 
   /**
    * <p>Amazon Keyspaces supports the <code>target tracking</code> auto scaling policy. With this policy, Amazon Keyspaces auto scaling
@@ -166,7 +166,7 @@ export interface AutoScalingSettings {
    *       define the target value as a percentage between 20 and 90.</p>
    * @public
    */
-  scalingPolicy?: AutoScalingPolicy;
+  scalingPolicy?: AutoScalingPolicy | undefined;
 }
 
 /**
@@ -178,13 +178,13 @@ export interface AutoScalingSpecification {
    * <p>The auto scaling settings for the table's write capacity.</p>
    * @public
    */
-  writeCapacityAutoScaling?: AutoScalingSettings;
+  writeCapacityAutoScaling?: AutoScalingSettings | undefined;
 
   /**
    * <p>The auto scaling settings for the table's read capacity.</p>
    * @public
    */
-  readCapacityAutoScaling?: AutoScalingSettings;
+  readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
@@ -243,14 +243,14 @@ export interface CapacitySpecification {
    *             <code>(RCUs)</code>.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    * @public
    */
-  writeCapacityUnits?: number;
+  writeCapacityUnits?: number | undefined;
 }
 
 /**
@@ -295,20 +295,20 @@ export interface CapacitySpecificationSummary {
    *             <code>(RCUs)</code>.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    * @public
    */
-  writeCapacityUnits?: number;
+  writeCapacityUnits?: number | undefined;
 
   /**
    * <p>The timestamp of the last operation that changed the provisioned throughput capacity of a table.</p>
    * @public
    */
-  lastUpdateToPayPerRequestTimestamp?: Date;
+  lastUpdateToPayPerRequestTimestamp?: Date | undefined;
 }
 
 /**
@@ -443,7 +443,7 @@ export type Rs = (typeof Rs)[keyof typeof Rs];
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>regionList</code> - up to six Amazon Web Services Regions where the keyspace is replicated in.</p>
+ *                   <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -465,11 +465,11 @@ export interface ReplicationSpecification {
 
   /**
    * <p>
-   *          The <code>regionList</code> can contain up to six Amazon Web Services Regions where the keyspace is replicated in.
+   *          The <code>regionList</code> contains the Amazon Web Services Regions where the keyspace is replicated in.
    *       </p>
    * @public
    */
-  regionList?: string[];
+  regionList?: string[] | undefined;
 }
 
 /**
@@ -512,7 +512,7 @@ export interface CreateKeyspaceRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -527,13 +527,12 @@ export interface CreateKeyspaceRequest {
    *                <p>
    *                   <code>regionList</code> - if the <code>replicationStrategy</code> is <code>MULTI_REGION</code>, the
    *             <code>regionList</code> requires the current Region and at least one additional Amazon Web Services Region where
-   *             the keyspace is going to be replicated in. The maximum number of supported replication Regions including the current
-   *             Region is six.</p>
+   *             the keyspace is going to be replicated in.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  replicationSpecification?: ReplicationSpecification;
+  replicationSpecification?: ReplicationSpecification | undefined;
 }
 
 /**
@@ -665,7 +664,7 @@ export interface EncryptionSpecification {
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</p>
    * @public
    */
-  kmsKeyIdentifier?: string;
+  kmsKeyIdentifier?: string | undefined;
 }
 
 /**
@@ -738,14 +737,14 @@ export interface ReplicaSpecification {
    * <p>The provisioned read capacity units for the multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The read capacity auto scaling settings for the multi-Region
    *          table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  readCapacityAutoScaling?: AutoScalingSettings;
+  readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
@@ -795,13 +794,13 @@ export interface SchemaDefinition {
    * <p>The columns that are part of the clustering key of the table.</p>
    * @public
    */
-  clusteringKeys?: ClusteringKey[];
+  clusteringKeys?: ClusteringKey[] | undefined;
 
   /**
    * <p>The columns that have been defined as <code>STATIC</code>. Static columns store values that are shared by all rows in the same partition.</p>
    * @public
    */
-  staticColumns?: StaticColumn[];
+  staticColumns?: StaticColumn[] | undefined;
 }
 
 /**
@@ -914,7 +913,7 @@ export interface CreateTableRequest {
    * <p>This parameter allows to enter a description of the table.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 
   /**
    * <p>Specifies the read/write throughput capacity mode for the table. The options are:</p>
@@ -935,7 +934,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecification;
+  capacitySpecification?: CapacitySpecification | undefined;
 
   /**
    * <p>Specifies how the encryption key for encryption at rest is managed for the table.
@@ -957,7 +956,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>Specifies if <code>pointInTimeRecovery</code> is enabled or disabled for the
@@ -980,7 +979,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecovery;
+  pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
    * <p>Enables Time to Live custom settings for the
@@ -1004,7 +1003,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live setting in seconds for the
@@ -1013,7 +1012,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>A list of key-value pair tags to be
@@ -1022,7 +1021,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -1038,7 +1037,7 @@ export interface CreateTableRequest {
    *          <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>The optional auto scaling settings for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity
@@ -1049,7 +1048,7 @@ export interface CreateTableRequest {
    *          <p>By default, auto scaling is disabled for a table. </p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The optional Amazon Web Services Region specific settings of a multi-Region table.
@@ -1073,7 +1072,7 @@ export interface CreateTableRequest {
    *          </ul>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**
@@ -1088,17 +1087,18 @@ export interface CreateTableResponse {
 }
 
 /**
- * <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ * <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
+ *          or its status might not be <code>ACTIVE</code>.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The unique identifier in the format of Amazon Resource Name (ARN), for the resource not found.</p>
+   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn’t be found.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * @internal
@@ -1112,6 +1112,92 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.resourceArn = opts.resourceArn;
   }
+}
+
+/**
+ * <p>
+ *          A field definition consists out of a name and a type.
+ *       </p>
+ * @public
+ */
+export interface FieldDefinition {
+  /**
+   * <p>
+   *          The identifier.
+   *       </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *          Any supported Cassandra data type, including collections and other user-defined types that are
+   *          contained in the same keyspace.
+   *       </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type">Cassandra data type support</a> in the <i>Amazon Keyspaces Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  type: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the user-defined type.
+   *       </p>
+   *          <p>UDT names must contain 48 characters or less, must begin with an alphabetic character, and
+   *          can only contain alpha-numeric characters and underscores. Amazon Keyspaces converts upper case characters automatically
+   *          into lower case characters. </p>
+   *          <p>Alternatively, you can declare a UDT name in double quotes. When declaring a UDT name inside double quotes,
+   *          Amazon Keyspaces preserves upper casing and allows special characters.</p>
+   *          <p>You can also use double quotes as part of the
+   *          name when you create the UDT, but you must escape each double quote character with an additional
+   *          double quote character.</p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>
+   *          The field definitions, consisting of names and types, that define this type.
+   *       </p>
+   * @public
+   */
+  fieldDefinitions: FieldDefinition[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTypeResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace that contains the new type in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The formatted name of the user-defined type that was created. Note that Amazon Keyspaces requires the formatted name of the type for
+   *          other operations, for example <code>GetType</code>.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
 }
 
 /**
@@ -1155,12 +1241,103 @@ export interface DeleteTableResponse {}
 /**
  * @public
  */
+export interface DeleteTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace of the to be deleted type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type to be deleted.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTypeResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace from which the type was deleted in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type that was deleted.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetKeyspaceRequest {
   /**
    * <p>The name of the keyspace.</p>
    * @public
    */
   keyspaceName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyspaceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyspaceStatus = (typeof KeyspaceStatus)[keyof typeof KeyspaceStatus];
+
+/**
+ * <p>
+ *          This shows the summary status of the keyspace after a new Amazon Web Services Region was added.
+ *       </p>
+ * @public
+ */
+export interface ReplicationGroupStatus {
+  /**
+   * <p>
+   *          The name of the Region that was added to the keyspace.
+   *       </p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>
+   *          The status of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceStatus: KeyspaceStatus | undefined;
+
+  /**
+   * <p>
+   *          This shows the replication progress of tables in the keyspace. The value is expressed as a percentage of the newly replicated tables
+   *          with status <code>Active</code> compared to the total number of tables in the keyspace.
+   *       </p>
+   * @public
+   */
+  tablesReplicationProgress?: string | undefined;
 }
 
 /**
@@ -1193,7 +1370,15 @@ export interface GetKeyspaceResponse {
    *       </p>
    * @public
    */
-  replicationRegions?: string[];
+  replicationRegions?: string[] | undefined;
+
+  /**
+   * <p>
+   *          A list of all Regions the keyspace is replicated in after the update keyspace operation and their status.
+   *       </p>
+   * @public
+   */
+  replicationGroupStatuses?: ReplicationGroupStatus[] | undefined;
 }
 
 /**
@@ -1228,7 +1413,7 @@ export interface PointInTimeRecoverySummary {
    * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
    * @public
    */
-  earliestRestorableTimestamp?: Date;
+  earliestRestorableTimestamp?: Date | undefined;
 }
 
 /**
@@ -1263,13 +1448,13 @@ export interface ReplicaSpecificationSummary {
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The status of the multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  status?: TableStatus;
+  status?: TableStatus | undefined;
 
   /**
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
@@ -1287,7 +1472,7 @@ export interface ReplicaSpecificationSummary {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecificationSummary;
+  capacitySpecification?: CapacitySpecificationSummary | undefined;
 }
 
 /**
@@ -1316,19 +1501,19 @@ export interface GetTableResponse {
    * <p>The creation timestamp of the specified table.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The current status of the specified table.</p>
    * @public
    */
-  status?: TableStatus;
+  status?: TableStatus | undefined;
 
   /**
    * <p>The schema definition of the specified table.</p>
    * @public
    */
-  schemaDefinition?: SchemaDefinition;
+  schemaDefinition?: SchemaDefinition | undefined;
 
   /**
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
@@ -1346,50 +1531,50 @@ export interface GetTableResponse {
    *          </ul>
    * @public
    */
-  capacitySpecification?: CapacitySpecificationSummary;
+  capacitySpecification?: CapacitySpecificationSummary | undefined;
 
   /**
    * <p>The encryption settings of the specified table.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>The point-in-time recovery status of the specified table.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecoverySummary;
+  pointInTimeRecovery?: PointInTimeRecoverySummary | undefined;
 
   /**
    * <p>The custom Time to Live settings of the specified table.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live settings in seconds of the specified table.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>The the description of the specified table.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 
   /**
    * <p>
    *          The client-side timestamps setting of the table.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>Returns the Amazon Web Services Region specific settings of all Regions a multi-Region table is replicated in.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecificationSummary[];
+  replicaSpecifications?: ReplicaSpecificationSummary[] | undefined;
 }
 
 /**
@@ -1418,13 +1603,13 @@ export interface ReplicaAutoScalingSpecification {
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The auto scaling settings for a multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 }
 
 /**
@@ -1453,13 +1638,127 @@ export interface GetTableAutoScalingSettingsResponse {
    * <p>The auto scaling settings of the table.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The Amazon Web Services Region specific settings of a multi-Region table. Returns the settings for all Regions the table is replicated in.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaAutoScalingSpecification[];
+  replicaSpecifications?: ReplicaAutoScalingSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace that contains this type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>The formatted name of the type. For example, if the name of the type was created
+   *          without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was
+   *          created in double quotes, you must use double quotes to specify the type name. </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TypeStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RESTORING: "RESTORING",
+} as const;
+
+/**
+ * @public
+ */
+export type TypeStatus = (typeof TypeStatus)[keyof typeof TypeStatus];
+
+/**
+ * @public
+ */
+export interface GetTypeResponse {
+  /**
+   * <p>
+   *          The name of the keyspace that contains this type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>
+   *          The names and types that define this type.
+   *       </p>
+   * @public
+   */
+  fieldDefinitions?: FieldDefinition[] | undefined;
+
+  /**
+   * <p>
+   *          The timestamp that shows when this type was last modified.
+   *       </p>
+   * @public
+   */
+  lastModifiedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *          The status of this type.
+   *       </p>
+   * @public
+   */
+  status?: TypeStatus | undefined;
+
+  /**
+   * <p>
+   *          The tables that use this type.
+   *       </p>
+   * @public
+   */
+  directReferringTables?: string[] | undefined;
+
+  /**
+   * <p>
+   *          The types that use this type.
+   *       </p>
+   * @public
+   */
+  directParentTypes?: string[] | undefined;
+
+  /**
+   * <p>
+   *          The level of nesting implemented for this type.
+   *       </p>
+   * @public
+   */
+  maxNestingDepth?: number | undefined;
+
+  /**
+   * <p>
+   *          The unique identifier of the keyspace that contains this type in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
 }
 
 /**
@@ -1470,7 +1769,7 @@ export interface ListKeyspacesRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of keyspaces to return in the output. If the total number of keyspaces available
@@ -1478,7 +1777,7 @@ export interface ListKeyspacesRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1513,7 +1812,7 @@ export interface KeyspaceSummary {
    *       </p>
    * @public
    */
-  replicationRegions?: string[];
+  replicationRegions?: string[] | undefined;
 }
 
 /**
@@ -1524,7 +1823,7 @@ export interface ListKeyspacesResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of keyspaces.</p>
@@ -1541,7 +1840,7 @@ export interface ListTablesRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of tables to return in the output. If the total number of tables available
@@ -1549,7 +1848,7 @@ export interface ListTablesRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of the keyspace.</p>
@@ -1590,13 +1889,13 @@ export interface ListTablesResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of tables.</p>
    * @public
    */
-  tables?: TableSummary[];
+  tables?: TableSummary[] | undefined;
 }
 
 /**
@@ -1613,7 +1912,7 @@ export interface ListTagsForResourceRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of tags to return in the output. If the total number of tags available
@@ -1621,7 +1920,7 @@ export interface ListTagsForResourceRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1632,13 +1931,65 @@ export interface ListTagsForResourceResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesRequest {
+  /**
+   * <p>
+   *          The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>
+   *          The total number of types to return in the output. If the total number of types available is more than the value specified,
+   *          a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an
+   *          argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>
+   *          The name of the keyspace that contains the listed types.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesResponse {
+  /**
+   * <p>
+   *          The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>
+   *          The list of types contained in the specified keyspace.
+   *       </p>
+   * @public
+   */
+  types: string[] | undefined;
 }
 
 /**
@@ -1673,7 +2024,7 @@ export interface RestoreTableRequest {
    * <p>The restore timestamp in ISO 8601 format.</p>
    * @public
    */
-  restoreTimestamp?: Date;
+  restoreTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the read/write throughput capacity mode for the target table. The options are:</p>
@@ -1694,7 +2045,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecificationOverride?: CapacitySpecification;
+  capacitySpecificationOverride?: CapacitySpecification | undefined;
 
   /**
    * <p>Specifies the encryption settings for the target table. You can choose one of the following KMS key (KMS key):</p>
@@ -1715,7 +2066,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecificationOverride?: EncryptionSpecification;
+  encryptionSpecificationOverride?: EncryptionSpecification | undefined;
 
   /**
    * <p>Specifies the <code>pointInTimeRecovery</code> settings for the target
@@ -1737,7 +2088,7 @@ export interface RestoreTableRequest {
    *                Guide</i>.</p>
    * @public
    */
-  pointInTimeRecoveryOverride?: PointInTimeRecovery;
+  pointInTimeRecoveryOverride?: PointInTimeRecovery | undefined;
 
   /**
    * <p>A list of key-value pair tags to be
@@ -1746,7 +2097,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tagsOverride?: Tag[];
+  tagsOverride?: Tag[] | undefined;
 
   /**
    * <p>The optional auto scaling settings for the restored table in provisioned capacity mode.
@@ -1758,13 +2109,13 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The optional Region specific settings of a multi-Regional table.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**
@@ -1825,6 +2176,58 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateKeyspaceRequest {
+  /**
+   * <p>
+   *          The name of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *             The replication specification of the keyspace includes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or
+   *                <code>MULTI_REGION</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  replicationSpecification: ReplicationSpecification | undefined;
+
+  /**
+   * <p>The client-side timestamp setting of the table.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyspaceResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateTableRequest {
   /**
    * <p>The name of the keyspace the specified table is stored in.</p>
@@ -1855,7 +2258,7 @@ export interface UpdateTableRequest {
    *          </ul>
    * @public
    */
-  addColumns?: ColumnDefinition[];
+  addColumns?: ColumnDefinition[] | undefined;
 
   /**
    * <p>Modifies the read/write throughput capacity mode for the table. The options are:</p>
@@ -1875,7 +2278,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecification;
+  capacitySpecification?: CapacitySpecification | undefined;
 
   /**
    * <p>Modifies the encryption settings of the table. You can choose one of the following KMS key (KMS key):</p>
@@ -1896,7 +2299,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>Modifies the <code>pointInTimeRecovery</code> settings of the table. The options are:</p>
@@ -1917,7 +2320,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecovery;
+  pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
    * <p>Modifies Time to Live custom settings for the table. The options are:</p>
@@ -1940,7 +2343,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live setting in seconds for the table.</p>
@@ -1948,7 +2351,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>Enables client-side timestamps for the table. By default, the setting is disabled. You can enable
@@ -1963,7 +2366,7 @@ export interface UpdateTableRequest {
    *          <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>The optional auto scaling settings to update for a table in provisioned capacity mode.
@@ -1977,13 +2380,13 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The Region specific settings of a multi-Regional table.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**

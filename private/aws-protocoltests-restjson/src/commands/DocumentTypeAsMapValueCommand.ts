@@ -57,6 +57,7 @@ export interface DocumentTypeAsMapValueCommandOutput extends DocumentTypeAsMapVa
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class DocumentTypeAsMapValueCommand extends $Command
@@ -75,4 +76,16 @@ export class DocumentTypeAsMapValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DocumentTypeAsMapValueCommand)
   .de(de_DocumentTypeAsMapValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DocumentTypeAsMapValueInputOutput;
+      output: DocumentTypeAsMapValueInputOutput;
+    };
+    sdk: {
+      input: DocumentTypeAsMapValueCommandInput;
+      output: DocumentTypeAsMapValueCommandOutput;
+    };
+  };
+}

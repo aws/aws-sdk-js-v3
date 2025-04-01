@@ -72,6 +72,7 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class UpdateProtectionGroupCommand extends $Command
@@ -82,9 +83,7 @@ export class UpdateProtectionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class UpdateProtectionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProtectionGroupCommand)
   .de(de_UpdateProtectionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProtectionGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateProtectionGroupCommandInput;
+      output: UpdateProtectionGroupCommandOutput;
+    };
+  };
+}

@@ -221,6 +221,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ *
  * @public
  */
 export class GetAgreementTermsCommand extends $Command
@@ -231,9 +232,7 @@ export class GetAgreementTermsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -245,4 +244,16 @@ export class GetAgreementTermsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgreementTermsCommand)
   .de(de_GetAgreementTermsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgreementTermsInput;
+      output: GetAgreementTermsOutput;
+    };
+    sdk: {
+      input: GetAgreementTermsCommandInput;
+      output: GetAgreementTermsCommandOutput;
+    };
+  };
+}

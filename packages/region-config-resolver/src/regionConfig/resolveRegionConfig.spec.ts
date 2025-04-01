@@ -1,11 +1,12 @@
 import { Provider } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getRealRegion } from "./getRealRegion";
 import { isFipsRegion } from "./isFipsRegion";
 import { resolveRegionConfig } from "./resolveRegionConfig";
 
-jest.mock("./getRealRegion");
-jest.mock("./isFipsRegion");
+vi.mock("./getRealRegion");
+vi.mock("./isFipsRegion");
 
 describe("RegionConfig", () => {
   const mockRegion = "mockRegion";
@@ -13,12 +14,19 @@ describe("RegionConfig", () => {
   const mockUseFipsEndpoint = () => Promise.resolve(false);
 
   beforeEach(() => {
-    (getRealRegion as jest.Mock).mockReturnValue(mockRealRegion);
-    (isFipsRegion as jest.Mock).mockReturnValue(false);
+    vi.mocked(getRealRegion).mockReturnValue(mockRealRegion);
+    vi.mocked(isFipsRegion).mockReturnValue(false);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
+  });
+
+  it("maintains object custody", () => {
+    const input = {
+      region: "mockRegion",
+    };
+    expect(resolveRegionConfig(input)).toBe(input);
   });
 
   describe("region", () => {
@@ -51,8 +59,8 @@ describe("RegionConfig", () => {
     let mockUseFipsEndpoint: boolean | Provider<boolean>;
 
     beforeEach(() => {
-      mockRegionProvider = jest.fn().mockResolvedValueOnce(Promise.resolve(mockRegion));
-      mockUseFipsEndpoint = jest.fn().mockResolvedValueOnce(Promise.resolve(false));
+      mockRegionProvider = vi.fn().mockResolvedValueOnce(Promise.resolve(mockRegion));
+      mockUseFipsEndpoint = vi.fn().mockResolvedValueOnce(Promise.resolve(false));
     });
 
     afterEach(() => {
@@ -70,7 +78,7 @@ describe("RegionConfig", () => {
     });
 
     it("returns Provider which returns true for FIPS endpoints", async () => {
-      (isFipsRegion as jest.Mock).mockReturnValue(true);
+      vi.mocked(isFipsRegion).mockReturnValue(true);
       const resolvedRegionConfig = resolveRegionConfig({
         region: mockRegionProvider,
         useFipsEndpoint: mockUseFipsEndpoint,

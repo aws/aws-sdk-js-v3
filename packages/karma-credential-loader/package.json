@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "3.609.0",
+  "version": "3.777.0",
   "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -10,7 +10,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --passWithNoTests"
+    "test": "(exit 0)"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -21,20 +21,20 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-sts": "*",
     "@aws-sdk/credential-provider-node": "*",
+    "@aws-sdk/nested-clients": "*",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

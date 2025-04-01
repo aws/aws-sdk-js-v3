@@ -77,6 +77,7 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBClusterEndpointCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteDBClusterEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteDBClusterEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterEndpointCommand)
   .de(de_DeleteDBClusterEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterEndpointMessage;
+      output: DeleteDBClusterEndpointOutput;
+    };
+    sdk: {
+      input: DeleteDBClusterEndpointCommandInput;
+      output: DeleteDBClusterEndpointCommandOutput;
+    };
+  };
+}

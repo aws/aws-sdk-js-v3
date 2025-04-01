@@ -43,8 +43,8 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * <p>Deletes an account-level monthly spending limit override for sending text messages.
  *             Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
  *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
- *             information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html">Amazon Pinpoint quotas </a>
- *             in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+ *             information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a>
+ *             in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +84,7 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
@@ -94,9 +95,7 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTextMessageSpendLimitOverrideCommand)
   .de(de_DeleteTextMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteTextMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: DeleteTextMessageSpendLimitOverrideCommandInput;
+      output: DeleteTextMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

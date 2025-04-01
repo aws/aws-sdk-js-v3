@@ -73,32 +73,8 @@ export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __M
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
- * @example List export jobs
- * ```javascript
- * // Lists export jobs of type METRICS_DATA and status PROCESSING
- * const input = {
- *   "ExportSourceType": "METRICS_DATA",
- *   "JobStatus": "PROCESSING",
- *   "PageSize": 25
- * };
- * const command = new ListExportJobsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ExportJobs": [
- *     {
- *       "CreatedTimestamp": "167697473543",
- *       "ExportSourceType": "METRICS_DATA",
- *       "JobId": "72de83a0-6b49-47ca-9783-8b812576887a",
- *       "JobStatus": "PROCESSING"
- *     }
- *   ]
- * }
- * *\/
- * // example id: list-export-jobs-1685702074256
- * ```
  *
+ * @public
  */
 export class ListExportJobsCommand extends $Command
   .classBuilder<
@@ -108,9 +84,7 @@ export class ListExportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +96,16 @@ export class ListExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExportJobsCommand)
   .de(de_ListExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExportJobsRequest;
+      output: ListExportJobsResponse;
+    };
+    sdk: {
+      input: ListExportJobsCommandInput;
+      output: ListExportJobsCommandOutput;
+    };
+  };
+}

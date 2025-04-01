@@ -34,10 +34,10 @@ export interface DeleteAssetModelCompositeModelCommandOutput
 
 /**
  * <p>Deletes a composite model. This action can't be undone. You must delete all assets created
- *       from a  composite model before you can delete the model. Also, you can't delete a composite model if
- *       a parent asset model exists that contains a property formula expression that depends on the
- *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
- *       <i>IoT SiteWise User Guide</i>.</p>
+ *       from a composite model before you can delete the model. Also, you can't delete a composite
+ *       model if a parent asset model exists that contains a property formula expression that depends
+ *       on the asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
+ *         models</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,9 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  *   assetModelId: "STRING_VALUE", // required
  *   assetModelCompositeModelId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new DeleteAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -86,6 +89,10 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
  *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
@@ -98,6 +105,7 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetModelCompositeModelCommand extends $Command
@@ -108,9 +116,7 @@ export class DeleteAssetModelCompositeModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +128,16 @@ export class DeleteAssetModelCompositeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetModelCompositeModelCommand)
   .de(de_DeleteAssetModelCompositeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetModelCompositeModelRequest;
+      output: DeleteAssetModelCompositeModelResponse;
+    };
+    sdk: {
+      input: DeleteAssetModelCompositeModelCommandInput;
+      output: DeleteAssetModelCompositeModelCommandOutput;
+    };
+  };
+}

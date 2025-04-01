@@ -76,6 +76,7 @@ export interface DeleteReusableDelegationSetCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class DeleteReusableDelegationSetCommand extends $Command
@@ -86,9 +87,7 @@ export class DeleteReusableDelegationSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteReusableDelegationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReusableDelegationSetCommand)
   .de(de_DeleteReusableDelegationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReusableDelegationSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReusableDelegationSetCommandInput;
+      output: DeleteReusableDelegationSetCommandOutput;
+    };
+  };
+}

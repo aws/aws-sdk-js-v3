@@ -121,6 +121,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command
@@ -131,9 +132,7 @@ export class GetApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class GetApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationCommand)
   .de(de_GetApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationRequest;
+      output: GetApplicationResponse;
+    };
+    sdk: {
+      input: GetApplicationCommandInput;
+      output: GetApplicationCommandOutput;
+    };
+  };
+}

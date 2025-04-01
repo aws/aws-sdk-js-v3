@@ -32,7 +32,7 @@ export class AccessDeniedException extends __BaseException {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -54,7 +54,7 @@ export class InternalServiceException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -86,17 +86,17 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -130,8 +130,8 @@ export interface CategoryDetails {
 }
 
 /**
- * <p>Provides the category rules that are used to automatically categorize contacts based on
- *       uttered keywords and phrases.</p>
+ * <p>Provides the category rules that are used to automatically categorize contacts based
+ *             on uttered keywords and phrases.</p>
  * @public
  */
 export interface Categories {
@@ -149,7 +149,95 @@ export interface Categories {
 }
 
 /**
- * <p>For characters that were detected as issues, where they occur in the transcript.</p>
+ * @public
+ * @enum
+ */
+export const PostContactSummaryFailureCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ANALYSIS_CONFIGURATION: "INVALID_ANALYSIS_CONFIGURATION",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type PostContactSummaryFailureCode =
+  (typeof PostContactSummaryFailureCode)[keyof typeof PostContactSummaryFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PostContactSummaryStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type PostContactSummaryStatus = (typeof PostContactSummaryStatus)[keyof typeof PostContactSummaryStatus];
+
+/**
+ * <p>Information about the post-contact summary.</p>
+ * @public
+ */
+export interface PostContactSummary {
+  /**
+   * <p>The content of the summary.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>
+   * @public
+   */
+  Status: PostContactSummaryStatus | undefined;
+
+  /**
+   * <p>If the summary failed to be generated, one of the following failure codes
+   *             occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached
+   *                     your service quota.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have
+   *                     at least one turn from both the participants in order to generate the
+   *                     summary.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be
+   *                     provided because it failed to meet system safety guidelines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for
+   *                     example, you're using a
+   *                     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a>
+   *                      that isn't supported by generative AI-powered post-contact summaries.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: PostContactSummaryFailureCode | undefined;
+}
+
+/**
+ * <p>For characters that were detected as issues, where they occur in the
+ *             transcript.</p>
  * @public
  */
 export interface CharacterOffsets {
@@ -167,8 +255,8 @@ export interface CharacterOffsets {
 }
 
 /**
- * <p>Potential issues that are detected based on an artificial intelligence analysis of each
- *       turn in the conversation.</p>
+ * <p>Potential issues that are detected based on an artificial intelligence analysis of
+ *             each turn in the conversation.</p>
  * @public
  */
 export interface IssueDetected {
@@ -206,7 +294,7 @@ export interface Transcript {
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the participant.</p>
+   * <p>The identifier of the participant. Valid values are CUSTOMER or AGENT.</p>
    * @public
    */
   ParticipantId: string | undefined;
@@ -236,7 +324,7 @@ export interface Transcript {
   EndOffsetMillis: number | undefined;
 
   /**
-   * <p>The sentiment of the detected for this piece of transcript.</p>
+   * <p>The sentiment detected for this piece of transcript.</p>
    * @public
    */
   Sentiment: SentimentValue | undefined;
@@ -245,7 +333,7 @@ export interface Transcript {
    * <p>List of positions where issues were detected on the transcript.</p>
    * @public
    */
-  IssuesDetected?: IssueDetected[];
+  IssuesDetected?: IssueDetected[] | undefined;
 }
 
 /**
@@ -257,13 +345,19 @@ export interface RealtimeContactAnalysisSegment {
    * <p>The analyzed transcript.</p>
    * @public
    */
-  Transcript?: Transcript;
+  Transcript?: Transcript | undefined;
 
   /**
    * <p>The matched category rules.</p>
    * @public
    */
-  Categories?: Categories;
+  Categories?: Categories | undefined;
+
+  /**
+   * <p>Information about the post-contact summary.</p>
+   * @public
+   */
+  PostContactSummary?: PostContactSummary | undefined;
 }
 
 /**
@@ -277,21 +371,23 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
   Segments: RealtimeContactAnalysisSegment[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible scenarios:</p>
+   * <p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible
+   *             scenarios:</p>
    *          <ul>
    *             <li>
    *                <p>There are more segments so another call is required to get them.</p>
    *             </li>
    *             <li>
-   *                <p>There are no more segments at this time, but more may be available later (real-time
-   *           analysis is in progress) so the client should call the operation again to get new
-   *           segments.</p>
+   *                <p>There are no more segments at this time, but more may be available later
+   *                     (real-time analysis is in progress) so the client should call the operation
+   *                     again to get new segments.</p>
    *             </li>
    *          </ul>
-   *          <p>If response does not include <code>nextToken</code>, the analysis is completed (successfully or failed) and there are no more segments to retrieve.</p>
+   *          <p>If response does not include <code>nextToken</code>, the analysis is completed
+   *             (successfully or failed) and there are no more segments to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -301,7 +397,7 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

@@ -32,7 +32,16 @@ export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRe
 export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new domain for a user pool.</p>
+ * <p>A user pool domain hosts managed login, an authorization server and web server for
+ *             authentication in your application. This operation creates a new user pool prefix domain
+ *             or custom domain and sets the managed login branding version. Set the branding version
+ *             to <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you
+ *             choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
+ *             Amazon Web Services Region in your request.</p>
+ *          <p>Your prefix domain might take up to one minute to take effect. Your custom domain is
+ *             online within five minutes, but it can take up to one hour to distribute your SSL
+ *             certificate.</p>
+ *          <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Configuring a user pool domain</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -62,6 +71,7 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * const input = { // CreateUserPoolDomainRequest
  *   Domain: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
+ *   ManagedLoginVersion: Number("int"),
  *   CustomDomainConfig: { // CustomDomainConfigType
  *     CertificateArn: "STRING_VALUE", // required
  *   },
@@ -69,6 +79,7 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * // { // CreateUserPoolDomainResponse
+ * //   ManagedLoginVersion: Number("int"),
  * //   CloudFrontDomain: "STRING_VALUE",
  * // };
  *
@@ -79,6 +90,10 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @see {@link CreateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -101,6 +116,7 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class CreateUserPoolDomainCommand extends $Command
@@ -111,9 +127,7 @@ export class CreateUserPoolDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +139,16 @@ export class CreateUserPoolDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserPoolDomainCommand)
   .de(de_CreateUserPoolDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserPoolDomainRequest;
+      output: CreateUserPoolDomainResponse;
+    };
+    sdk: {
+      input: CreateUserPoolDomainCommandInput;
+      output: CreateUserPoolDomainCommandOutput;
+    };
+  };
+}

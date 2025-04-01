@@ -72,11 +72,15 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  * //         RootVolumeSizeGib: Number("int"),
  * //         UserVolumeSizeGib: Number("int"),
- * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //         Protocols: [ // ProtocolList
  * //           "PCOIP" || "WSP",
  * //         ],
- * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
+ * //         GlobalAccelerator: { // GlobalAcceleratorForWorkSpace
+ * //           Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
+ * //           PreferredProtocol: "TCP" || "NONE" || "INHERITED",
+ * //         },
  * //       },
  * //       ModificationStates: [ // ModificationStateList
  * //         { // ModificationState
@@ -125,6 +129,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspacesCommand extends $Command
@@ -135,9 +140,7 @@ export class DescribeWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +152,16 @@ export class DescribeWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspacesCommand)
   .de(de_DescribeWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspacesRequest;
+      output: DescribeWorkspacesResult;
+    };
+    sdk: {
+      input: DescribeWorkspacesCommandInput;
+      output: DescribeWorkspacesCommandOutput;
+    };
+  };
+}

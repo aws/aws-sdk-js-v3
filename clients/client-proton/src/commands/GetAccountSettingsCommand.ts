@@ -77,6 +77,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class GetAccountSettingsCommand extends $Command
@@ -87,9 +88,7 @@ export class GetAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSettingsCommand)
   .de(de_GetAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountSettingsOutput;
+    };
+    sdk: {
+      input: GetAccountSettingsCommandInput;
+      output: GetAccountSettingsCommandOutput;
+    };
+  };
+}

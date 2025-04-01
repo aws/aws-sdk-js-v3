@@ -89,6 +89,7 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class RemoveFacetFromObjectCommand extends $Command
@@ -99,9 +100,7 @@ export class RemoveFacetFromObjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class RemoveFacetFromObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveFacetFromObjectCommand)
   .de(de_RemoveFacetFromObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveFacetFromObjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveFacetFromObjectCommandInput;
+      output: RemoveFacetFromObjectCommandOutput;
+    };
+  };
+}

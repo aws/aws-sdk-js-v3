@@ -293,6 +293,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class SendUsersMessagesCommand extends $Command
@@ -303,9 +304,7 @@ export class SendUsersMessagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -317,4 +316,16 @@ export class SendUsersMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendUsersMessagesCommand)
   .de(de_SendUsersMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendUsersMessagesRequest;
+      output: SendUsersMessagesResponse;
+    };
+    sdk: {
+      input: SendUsersMessagesCommandInput;
+      output: SendUsersMessagesCommandOutput;
+    };
+  };
+}

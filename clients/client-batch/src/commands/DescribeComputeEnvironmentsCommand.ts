@@ -94,6 +94,16 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * //           launchTemplateId: "STRING_VALUE",
  * //           launchTemplateName: "STRING_VALUE",
  * //           version: "STRING_VALUE",
+ * //           overrides: [ // LaunchTemplateSpecificationOverrideList
+ * //             { // LaunchTemplateSpecificationOverride
+ * //               launchTemplateId: "STRING_VALUE",
+ * //               launchTemplateName: "STRING_VALUE",
+ * //               version: "STRING_VALUE",
+ * //               targetInstanceTypes: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //         ec2Configuration: [ // Ec2ConfigurationList
  * //           { // Ec2Configuration
@@ -114,6 +124,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * //       },
  * //       containerOrchestrationType: "ECS" || "EKS",
  * //       uuid: "STRING_VALUE",
+ * //       context: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -138,58 +149,58 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To describe a compute environment
  * ```javascript
  * // This example describes the P2OnDemand compute environment.
  * const input = {
- *   "computeEnvironments": [
+ *   computeEnvironments: [
  *     "P2OnDemand"
  *   ]
  * };
  * const command = new DescribeComputeEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "computeEnvironments": [
+ *   computeEnvironments: [
  *     {
- *       "type": "MANAGED",
- *       "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
- *       "computeEnvironmentName": "P2OnDemand",
- *       "computeResources": {
- *         "type": "EC2",
- *         "desiredvCpus": 48,
- *         "ec2KeyPair": "id_rsa",
- *         "instanceRole": "ecsInstanceRole",
- *         "instanceTypes": [
+ *       computeEnvironmentArn: "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
+ *       computeEnvironmentName: "P2OnDemand",
+ *       computeResources: {
+ *         desiredvCpus: 48,
+ *         ec2KeyPair: "id_rsa",
+ *         instanceRole: "ecsInstanceRole",
+ *         instanceTypes: [
  *           "p2"
  *         ],
- *         "maxvCpus": 128,
- *         "minvCpus": 0,
- *         "securityGroupIds": [
+ *         maxvCpus: 128,
+ *         minvCpus: 0,
+ *         securityGroupIds: [
  *           "sg-cf5093b2"
  *         ],
- *         "subnets": [
+ *         subnets: [
  *           "subnet-220c0e0a",
  *           "subnet-1a95556d",
  *           "subnet-978f6dce"
  *         ],
- *         "tags": {
- *           "Name": "Batch Instance - P2OnDemand"
- *         }
+ *         tags: {
+ *           Name: "Batch Instance - P2OnDemand"
+ *         },
+ *         type: "EC2"
  *       },
- *       "ecsClusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/P2OnDemand_Batch_2c06f29d-d1fe-3a49-879d-42394c86effc",
- *       "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
- *       "state": "ENABLED",
- *       "status": "VALID",
- *       "statusReason": "ComputeEnvironment Healthy"
+ *       ecsClusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/P2OnDemand_Batch_2c06f29d-d1fe-3a49-879d-42394c86effc",
+ *       serviceRole: "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *       state: "ENABLED",
+ *       status: "VALID",
+ *       statusReason: "ComputeEnvironment Healthy",
+ *       type: "MANAGED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-compute-environment-1481153713334
  * ```
  *
+ * @public
  */
 export class DescribeComputeEnvironmentsCommand extends $Command
   .classBuilder<
@@ -199,9 +210,7 @@ export class DescribeComputeEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +222,16 @@ export class DescribeComputeEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeComputeEnvironmentsCommand)
   .de(de_DescribeComputeEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComputeEnvironmentsRequest;
+      output: DescribeComputeEnvironmentsResponse;
+    };
+    sdk: {
+      input: DescribeComputeEnvironmentsCommandInput;
+      output: DescribeComputeEnvironmentsCommandOutput;
+    };
+  };
+}

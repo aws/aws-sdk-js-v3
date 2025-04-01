@@ -110,6 +110,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command
@@ -120,9 +121,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class AllocateConnectionOnInterconnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllocateConnectionOnInterconnectCommand)
   .de(de_AllocateConnectionOnInterconnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllocateConnectionOnInterconnectRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AllocateConnectionOnInterconnectCommandInput;
+      output: AllocateConnectionOnInterconnectCommandOutput;
+    };
+  };
+}

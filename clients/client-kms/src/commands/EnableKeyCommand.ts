@@ -106,18 +106,21 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To enable a KMS key
  * ```javascript
  * // The following example enables the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new EnableKeyCommand(input);
- * await client.send(command);
- * // example id: to-enable-a-cmk-1478627501129
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableKeyCommand extends $Command
   .classBuilder<
@@ -127,9 +130,7 @@ export class EnableKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +142,16 @@ export class EnableKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableKeyCommand)
   .de(de_EnableKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableKeyCommandInput;
+      output: EnableKeyCommandOutput;
+    };
+  };
+}

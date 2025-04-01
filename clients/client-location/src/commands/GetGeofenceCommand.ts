@@ -97,6 +97,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetGeofenceCommand extends $Command
@@ -107,9 +108,7 @@ export class GetGeofenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class GetGeofenceCommand extends $Command
   .f(void 0, GetGeofenceResponseFilterSensitiveLog)
   .ser(se_GetGeofenceCommand)
   .de(de_GetGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGeofenceRequest;
+      output: GetGeofenceResponse;
+    };
+    sdk: {
+      input: GetGeofenceCommandInput;
+      output: GetGeofenceCommandOutput;
+    };
+  };
+}

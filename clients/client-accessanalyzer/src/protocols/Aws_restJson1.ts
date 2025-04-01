@@ -69,6 +69,10 @@ import {
   GetFindingRecommendationCommandInput,
   GetFindingRecommendationCommandOutput,
 } from "../commands/GetFindingRecommendationCommand";
+import {
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput,
+} from "../commands/GetFindingsStatisticsCommand";
 import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "../commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "../commands/GetGeneratedPolicyCommand";
 import {
@@ -99,6 +103,7 @@ import {
 import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "../commands/StartResourceScanCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAnalyzerCommandInput, UpdateAnalyzerCommandOutput } from "../commands/UpdateAnalyzerCommand";
 import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "../commands/UpdateArchiveRuleCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "../commands/UpdateFindingsCommand";
 import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "../commands/ValidatePolicyCommand";
@@ -110,6 +115,8 @@ import {
   AccessPreviewFinding,
   AccessPreviewSummary,
   AclGrantee,
+  AnalysisRule,
+  AnalysisRuleCriteria,
   AnalyzedResource,
   AnalyzerConfiguration,
   AnalyzerSummary,
@@ -530,6 +537,28 @@ export const se_GetFindingRecommendationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetFindingsStatisticsCommand
+ */
+export const se_GetFindingsStatisticsCommand = async (
+  input: GetFindingsStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analyzer/findings/statistics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analyzerArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetFindingV2Command
  */
 export const se_GetFindingV2Command = async (
@@ -852,13 +881,33 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAnalyzerCommand
+ */
+export const se_UpdateAnalyzerCommand = async (
+  input: UpdateAnalyzerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analyzer/{analyzerName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1289,6 +1338,28 @@ export const de_GetFindingRecommendationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetFindingsStatisticsCommand
+ */
+export const de_GetFindingsStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingsStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    findingsStatistics: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetFindingV2Command
  */
 export const de_GetFindingV2Command = async (
@@ -1612,6 +1683,27 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAnalyzerCommand
+ */
+export const de_UpdateAnalyzerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnalyzerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuration: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateArchiveRuleCommand
  */
 export const de_UpdateArchiveRuleCommand = async (
@@ -1902,9 +1994,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccessList omitted.
 
+// se_AccountIdsList omitted.
+
 // se_AclGrantee omitted.
 
 // se_ActionsList omitted.
+
+// se_AnalysisRule omitted.
+
+// se_AnalysisRuleCriteria omitted.
+
+// se_AnalysisRuleCriteriaList omitted.
 
 // se_AnalyzerConfiguration omitted.
 
@@ -2012,6 +2112,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_SqsQueueConfiguration omitted.
 
+// se_TagsList omitted.
+
 // se_TagsMap omitted.
 
 // se_Trail omitted.
@@ -2054,6 +2156,7 @@ const de_AccessPreviewFinding = (output: any, context: __SerdeContext): AccessPr
     isPublic: __expectBoolean,
     principal: _json,
     resource: __expectString,
+    resourceControlPolicyRestriction: __expectString,
     resourceOwnerAccount: __expectString,
     resourceType: __expectString,
     sources: _json,
@@ -2100,9 +2203,19 @@ const de_AccessPreviewSummary = (output: any, context: __SerdeContext): AccessPr
   }) as any;
 };
 
+// de_AccountAggregations omitted.
+
+// de_AccountIdsList omitted.
+
 // de_AclGrantee omitted.
 
 // de_ActionList omitted.
+
+// de_AnalysisRule omitted.
+
+// de_AnalysisRuleCriteria omitted.
+
+// de_AnalysisRuleCriteriaList omitted.
 
 /**
  * deserializeAws_restJson1AnalyzedResource
@@ -2218,6 +2331,8 @@ const de_CloudTrailProperties = (output: any, context: __SerdeContext): CloudTra
 
 // de_ExternalAccessDetails omitted.
 
+// de_ExternalAccessFindingsStatistics omitted.
+
 // de_FilterCriteriaMap omitted.
 
 /**
@@ -2234,6 +2349,7 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     isPublic: __expectBoolean,
     principal: _json,
     resource: __expectString,
+    resourceControlPolicyRestriction: __expectString,
     resourceOwnerAccount: __expectString,
     resourceType: __expectString,
     sources: _json,
@@ -2241,6 +2357,10 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_FindingAggregationAccountDetails omitted.
+
+// de_FindingAggregationAccountDetailsMap omitted.
 
 /**
  * deserializeAws_restJson1FindingDetails
@@ -2316,6 +2436,10 @@ const de_FindingsListV2 = (output: any, context: __SerdeContext): FindingSummary
 
 // de_FindingSourceList omitted.
 
+// de_FindingsStatistics omitted.
+
+// de_FindingsStatisticsList omitted.
+
 /**
  * deserializeAws_restJson1FindingSummary
  */
@@ -2330,6 +2454,7 @@ const de_FindingSummary = (output: any, context: __SerdeContext): FindingSummary
     isPublic: __expectBoolean,
     principal: _json,
     resource: __expectString,
+    resourceControlPolicyRestriction: __expectString,
     resourceOwnerAccount: __expectString,
     resourceType: __expectString,
     sources: _json,
@@ -2504,6 +2629,10 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 
 // de_RegionList omitted.
 
+// de_ResourceTypeDetails omitted.
+
+// de_ResourceTypeStatisticsMap omitted.
+
 // de_S3AccessPointConfiguration omitted.
 
 // de_S3AccessPointConfigurationsMap omitted.
@@ -2532,6 +2661,8 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 
 // de_Substring omitted.
 
+// de_TagsList omitted.
+
 // de_TagsMap omitted.
 
 // de_TrailProperties omitted.
@@ -2539,6 +2670,12 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 // de_TrailPropertiesList omitted.
 
 // de_UnusedAccessConfiguration omitted.
+
+// de_UnusedAccessFindingsStatistics omitted.
+
+// de_UnusedAccessTypeStatistics omitted.
+
+// de_UnusedAccessTypeStatisticsList omitted.
 
 /**
  * deserializeAws_restJson1UnusedAction
@@ -2639,13 +2776,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _aA = "analyzerArn";
 const _cT = "clientToken";

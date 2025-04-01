@@ -38,6 +38,12 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * // const { EC2Client, DescribeInternetGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInternetGatewaysRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   InternetGatewayIds: [ // InternetGatewayIdList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -46,12 +52,6 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   InternetGatewayIds: [ // InternetGatewayIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeInternetGatewaysCommand(input);
  * const response = await client.send(command);
@@ -88,15 +88,15 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the Internet gateway for a VPC
  * ```javascript
  * // This example describes the Internet gateway for the specified VPC.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "attachment.vpc-id",
- *       "Values": [
+ *       Name: "attachment.vpc-id",
+ *       Values: [
  *         "vpc-a01106c2"
  *       ]
  *     }
@@ -104,25 +104,25 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * };
  * const command = new DescribeInternetGatewaysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InternetGateways": [
+ *   InternetGateways: [
  *     {
- *       "Attachments": [
+ *       Attachments: [
  *         {
- *           "State": "attached",
- *           "VpcId": "vpc-a01106c2"
+ *           State: "attached",
+ *           VpcId: "vpc-a01106c2"
  *         }
  *       ],
- *       "InternetGatewayId": "igw-c0a643a9",
- *       "Tags": []
+ *       InternetGatewayId: "igw-c0a643a9",
+ *       Tags:       []
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-internet-gateways-1
  * ```
  *
+ * @public
  */
 export class DescribeInternetGatewaysCommand extends $Command
   .classBuilder<
@@ -132,9 +132,7 @@ export class DescribeInternetGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +144,16 @@ export class DescribeInternetGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInternetGatewaysCommand)
   .de(de_DescribeInternetGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInternetGatewaysRequest;
+      output: DescribeInternetGatewaysResult;
+    };
+    sdk: {
+      input: DescribeInternetGatewaysCommandInput;
+      output: DescribeInternetGatewaysCommandOutput;
+    };
+  };
+}

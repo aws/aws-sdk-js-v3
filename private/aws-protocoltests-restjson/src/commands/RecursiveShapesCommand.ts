@@ -77,6 +77,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class RecursiveShapesCommand extends $Command
@@ -95,4 +96,16 @@ export class RecursiveShapesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RecursiveShapesCommand)
   .de(de_RecursiveShapesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecursiveShapesInputOutput;
+      output: RecursiveShapesInputOutput;
+    };
+    sdk: {
+      input: RecursiveShapesCommandInput;
+      output: RecursiveShapesCommandOutput;
+    };
+  };
+}

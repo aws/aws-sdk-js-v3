@@ -107,51 +107,51 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To list KMS keys
  * ```javascript
  * // The following example lists KMS keys.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Keys": [
+ *   Keys: [
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/0d990263-018e-4e65-a703-eff731de951e",
- *       "KeyId": "0d990263-018e-4e65-a703-eff731de951e"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/0d990263-018e-4e65-a703-eff731de951e",
+ *       KeyId: "0d990263-018e-4e65-a703-eff731de951e"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/144be297-0ae1-44ac-9c8f-93cd8c82f841",
- *       "KeyId": "144be297-0ae1-44ac-9c8f-93cd8c82f841"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/144be297-0ae1-44ac-9c8f-93cd8c82f841",
+ *       KeyId: "144be297-0ae1-44ac-9c8f-93cd8c82f841"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/21184251-b765-428e-b852-2c7353e72571",
- *       "KeyId": "21184251-b765-428e-b852-2c7353e72571"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/21184251-b765-428e-b852-2c7353e72571",
+ *       KeyId: "21184251-b765-428e-b852-2c7353e72571"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/214fe92f-5b03-4ae1-b350-db2a45dbe10c",
- *       "KeyId": "214fe92f-5b03-4ae1-b350-db2a45dbe10c"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/214fe92f-5b03-4ae1-b350-db2a45dbe10c",
+ *       KeyId: "214fe92f-5b03-4ae1-b350-db2a45dbe10c"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/339963f2-e523-49d3-af24-a0fe752aa458",
- *       "KeyId": "339963f2-e523-49d3-af24-a0fe752aa458"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/339963f2-e523-49d3-af24-a0fe752aa458",
+ *       KeyId: "339963f2-e523-49d3-af24-a0fe752aa458"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/b776a44b-df37-4438-9be4-a27494e4271a",
- *       "KeyId": "b776a44b-df37-4438-9be4-a27494e4271a"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/b776a44b-df37-4438-9be4-a27494e4271a",
+ *       KeyId: "b776a44b-df37-4438-9be4-a27494e4271a"
  *     },
  *     {
- *       "KeyArn": "arn:aws:kms:us-east-2:111122223333:key/deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb",
- *       "KeyId": "deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb"
+ *       KeyArn: "arn:aws:kms:us-east-2:111122223333:key/deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb",
+ *       KeyId: "deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb"
  *     }
  *   ],
- *   "Truncated": false
+ *   Truncated: false
  * }
  * *\/
- * // example id: to-list-cmks-1481071643069
  * ```
  *
+ * @public
  */
 export class ListKeysCommand extends $Command
   .classBuilder<
@@ -161,9 +161,7 @@ export class ListKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +173,16 @@ export class ListKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeysCommand)
   .de(de_ListKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeysRequest;
+      output: ListKeysResponse;
+    };
+    sdk: {
+      input: ListKeysCommandInput;
+      output: ListKeysCommandOutput;
+    };
+  };
+}

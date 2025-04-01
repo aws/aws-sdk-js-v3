@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSnapshotTierStatusRequest, DescribeSnapshotTierStatusResult } from "../models/models_4";
+import { DescribeSnapshotTierStatusRequest, DescribeSnapshotTierStatusResult } from "../models/models_5";
 import { de_DescribeSnapshotTierStatusCommand, se_DescribeSnapshotTierStatusCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -86,6 +86,7 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeSnapshotTierStatusCommand extends $Command
@@ -96,9 +97,7 @@ export class DescribeSnapshotTierStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class DescribeSnapshotTierStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotTierStatusCommand)
   .de(de_DescribeSnapshotTierStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotTierStatusRequest;
+      output: DescribeSnapshotTierStatusResult;
+    };
+    sdk: {
+      input: DescribeSnapshotTierStatusCommandInput;
+      output: DescribeSnapshotTierStatusCommandOutput;
+    };
+  };
+}

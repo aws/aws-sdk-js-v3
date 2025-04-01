@@ -73,6 +73,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class CreateComponentCommand extends $Command
@@ -83,9 +84,7 @@ export class CreateComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class CreateComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateComponentCommand)
   .de(de_CreateComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComponentRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateComponentCommandInput;
+      output: CreateComponentCommandOutput;
+    };
+  };
+}

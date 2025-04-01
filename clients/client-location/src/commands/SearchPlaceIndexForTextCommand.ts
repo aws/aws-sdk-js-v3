@@ -158,6 +158,7 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class SearchPlaceIndexForTextCommand extends $Command
@@ -168,9 +169,7 @@ export class SearchPlaceIndexForTextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +181,16 @@ export class SearchPlaceIndexForTextCommand extends $Command
   .f(SearchPlaceIndexForTextRequestFilterSensitiveLog, SearchPlaceIndexForTextResponseFilterSensitiveLog)
   .ser(se_SearchPlaceIndexForTextCommand)
   .de(de_SearchPlaceIndexForTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchPlaceIndexForTextRequest;
+      output: SearchPlaceIndexForTextResponse;
+    };
+    sdk: {
+      input: SearchPlaceIndexForTextCommandInput;
+      output: SearchPlaceIndexForTextCommandOutput;
+    };
+  };
+}

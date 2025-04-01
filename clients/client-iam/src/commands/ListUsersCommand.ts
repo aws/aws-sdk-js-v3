@@ -99,38 +99,38 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list IAM users
  * ```javascript
  * // The following command lists the IAM users in the current account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Users": [
+ *   Users: [
  *     {
- *       "Arn": "arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/engineering/Juan",
- *       "CreateDate": "2012-09-05T19:38:48Z",
- *       "PasswordLastUsed": "2016-09-08T21:47:36Z",
- *       "Path": "/division_abc/subdivision_xyz/engineering/",
- *       "UserId": "AID2MAB8DPLSRHEXAMPLE",
- *       "UserName": "Juan"
+ *       Arn: "arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/engineering/Juan",
+ *       CreateDate: "2012-09-05T19:38:48Z",
+ *       PasswordLastUsed: "2016-09-08T21:47:36Z",
+ *       Path: "/division_abc/subdivision_xyz/engineering/",
+ *       UserId: "AID2MAB8DPLSRHEXAMPLE",
+ *       UserName: "Juan"
  *     },
  *     {
- *       "Arn": "arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/engineering/Anika",
- *       "CreateDate": "2014-04-09T15:43:45Z",
- *       "PasswordLastUsed": "2016-09-24T16:18:07Z",
- *       "Path": "/division_abc/subdivision_xyz/engineering/",
- *       "UserId": "AIDIODR4TAW7CSEXAMPLE",
- *       "UserName": "Anika"
+ *       Arn: "arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/engineering/Anika",
+ *       CreateDate: "2014-04-09T15:43:45Z",
+ *       PasswordLastUsed: "2016-09-24T16:18:07Z",
+ *       Path: "/division_abc/subdivision_xyz/engineering/",
+ *       UserId: "AIDIODR4TAW7CSEXAMPLE",
+ *       UserName: "Anika"
  *     }
  *   ]
  * }
  * *\/
- * // example id: 9edfbd73-03d8-4d8a-9a79-76c85e8c8298
  * ```
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<
@@ -140,9 +140,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +152,16 @@ export class ListUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

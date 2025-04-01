@@ -90,6 +90,7 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetSceneCommand extends $Command
@@ -100,9 +101,7 @@ export class GetSceneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class GetSceneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSceneCommand)
   .de(de_GetSceneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSceneRequest;
+      output: GetSceneResponse;
+    };
+    sdk: {
+      input: GetSceneCommandInput;
+      output: GetSceneCommandOutput;
+    };
+  };
+}

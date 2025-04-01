@@ -45,7 +45,7 @@ export interface AcceptPageRequest {
    * <p>The ARN of the contact channel.</p>
    * @public
    */
-  ContactChannelId?: string;
+  ContactChannelId?: string | undefined;
 
   /**
    * <p>The type indicates if the page was <code>DELIVERED</code> or <code>READ</code>.</p>
@@ -57,7 +57,7 @@ export interface AcceptPageRequest {
    * <p>Information provided by the user when the user acknowledges the page.</p>
    * @public
    */
-  Note?: string;
+  Note?: string | undefined;
 
   /**
    * <p>A 6-digit code used to acknowledge the page.</p>
@@ -76,7 +76,7 @@ export interface AcceptPageRequest {
    *          Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
    * @public
    */
-  AcceptCodeValidation?: AcceptCodeValidation;
+  AcceptCodeValidation?: AcceptCodeValidation | undefined;
 }
 
 /**
@@ -118,7 +118,7 @@ export class InternalServerException extends __BaseException {
    * Advice to clients on when the call can be safely retried
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -181,19 +181,19 @@ export class ThrottlingException extends __BaseException {
    * Service Quotas requirement to identify originating service
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * Service Quotas requirement to identify originating quota
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
 
   /**
    * Advice to clients on when the call can be safely retried
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -258,13 +258,13 @@ export class ValidationException extends __BaseException {
    * Reason the request failed validation
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * The fields that caused the error
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -334,7 +334,7 @@ export interface ChannelTargetInfo {
    *          initially fails.</p>
    * @public
    */
-  RetryIntervalInMinutes?: number;
+  RetryIntervalInMinutes?: number | undefined;
 }
 
 /**
@@ -397,7 +397,7 @@ export class ConflictException extends __BaseException {
    * List of dependent entities containing information on relation type and resourceArns linked to the resource in use
    * @public
    */
-  DependentEntities?: DependentEntity[];
+  DependentEntities?: DependentEntity[] | undefined;
   /**
    * @internal
    */
@@ -452,7 +452,7 @@ export interface Contact {
    * <p>The full name of the contact or escalation plan.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>Refers to the type of contact. A single contact is type <code>PERSONAL</code> and an
@@ -483,7 +483,7 @@ export interface ContactChannelAddress {
    *          </ul>
    * @public
    */
-  SimpleAddress?: string;
+  SimpleAddress?: string | undefined;
 }
 
 /**
@@ -524,7 +524,7 @@ export interface ContactChannel {
    *          </ul>
    * @public
    */
-  Type?: ChannelType;
+  Type?: ChannelType | undefined;
 
   /**
    * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
@@ -549,7 +549,7 @@ export interface ContactTargetInfo {
    * <p>The Amazon Resource Name (ARN) of the contact.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>A Boolean value determining if the contact's acknowledgement stops the progress of
@@ -586,13 +586,13 @@ export interface CoverageTime {
    * <p>Information about when the on-call rotation shift begins.</p>
    * @public
    */
-  Start?: HandOffTime;
+  Start?: HandOffTime | undefined;
 
   /**
    * <p>Information about when the on-call rotation shift ends.</p>
    * @public
    */
-  End?: HandOffTime;
+  End?: HandOffTime | undefined;
 }
 
 /**
@@ -604,13 +604,13 @@ export interface Target {
    * <p>Information about the contact channel Incident Manager is engaging.</p>
    * @public
    */
-  ChannelTargetInfo?: ChannelTargetInfo;
+  ChannelTargetInfo?: ChannelTargetInfo | undefined;
 
   /**
    * <p>Information about the contact that Incident Manager is engaging.</p>
    * @public
    */
-  ContactTargetInfo?: ContactTargetInfo;
+  ContactTargetInfo?: ContactTargetInfo | undefined;
 }
 
 /**
@@ -646,14 +646,14 @@ export interface Plan {
    *          contact methods.</p>
    * @public
    */
-  Stages?: Stage[];
+  Stages?: Stage[] | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.
    *       </p>
    * @public
    */
-  RotationIds?: string[];
+  RotationIds?: string[] | undefined;
 }
 
 /**
@@ -665,13 +665,13 @@ export interface Tag {
    * <p>Name of the object key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -689,7 +689,7 @@ export interface CreateContactRequest {
    * <p>The full name of the contact or escalation plan.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>To create an escalation plan use <code>ESCALATION</code>. To create a contact use
@@ -710,14 +710,14 @@ export interface CreateContactRequest {
    *          replication set.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A token ensuring that the operation is called only once with the specified
    *          details.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -765,13 +765,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * Identifier of the resource affected
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * Type of the resource affected
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * Service Quotas requirement to identify originating service
@@ -866,14 +866,14 @@ export interface CreateContactChannelRequest {
    *          Incident Manager can't engage your contact channel until it has been activated.</p>
    * @public
    */
-  DeferActivation?: boolean;
+  DeferActivation?: boolean | undefined;
 
   /**
    * <p>A token ensuring that the operation is called only once with the specified
    *          details.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -952,19 +952,19 @@ export interface RecurrenceSettings {
    * <p>Information about on-call rotations that recur monthly.</p>
    * @public
    */
-  MonthlySettings?: MonthlySetting[];
+  MonthlySettings?: MonthlySetting[] | undefined;
 
   /**
    * <p>Information about on-call rotations that recur weekly.</p>
    * @public
    */
-  WeeklySettings?: WeeklySetting[];
+  WeeklySettings?: WeeklySetting[] | undefined;
 
   /**
    * <p>Information about on-call rotations that recur daily.</p>
    * @public
    */
-  DailySettings?: HandOffTime[];
+  DailySettings?: HandOffTime[] | undefined;
 
   /**
    * <p>The number of contacts, or shift team members designated to be on call concurrently
@@ -978,7 +978,7 @@ export interface RecurrenceSettings {
    * <p>Information about the days of the week included in on-call rotation coverage.</p>
    * @public
    */
-  ShiftCoverages?: Partial<Record<DayOfWeek, CoverageTime[]>>;
+  ShiftCoverages?: Partial<Record<DayOfWeek, CoverageTime[]>> | undefined;
 
   /**
    * <p>The number of days, weeks, or months a single rotation lasts.</p>
@@ -1010,7 +1010,7 @@ export interface CreateRotationRequest {
    * <p>The date and time that the rotation goes into effect.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority
@@ -1038,14 +1038,14 @@ export interface CreateRotationRequest {
    *             Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A token that ensures that the operation is called only once with the specified
    *          details.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -1095,7 +1095,7 @@ export interface CreateRotationOverrideRequest {
    *          details.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -1247,32 +1247,32 @@ export interface DescribeEngagementResult {
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicSubject?: string;
+  PublicSubject?: string | undefined;
 
   /**
    * <p>The insecure content of the message that was sent to the contact. Use this field for
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicContent?: string;
+  PublicContent?: string | undefined;
 
   /**
    * <p>The ARN of the incident in which the engagement occurred.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>The time that the engagement started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time that the engagement ended.</p>
    * @public
    */
-  StopTime?: Date;
+  StopTime?: Date | undefined;
 }
 
 /**
@@ -1333,38 +1333,38 @@ export interface DescribePageResult {
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicSubject?: string;
+  PublicSubject?: string | undefined;
 
   /**
    * <p>The insecure content of the message that was sent to the contact. Use this field for
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicContent?: string;
+  PublicContent?: string | undefined;
 
   /**
    * <p>The ARN of the incident that engaged the contact channel.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>The time the engagement was sent to the contact channel.</p>
    * @public
    */
-  SentTime?: Date;
+  SentTime?: Date | undefined;
 
   /**
    * <p>The time that the contact channel acknowledged the engagement.</p>
    * @public
    */
-  ReadTime?: Date;
+  ReadTime?: Date | undefined;
 
   /**
    * <p>The time that the contact channel received the engagement.</p>
    * @public
    */
-  DeliveryTime?: Date;
+  DeliveryTime?: Date | undefined;
 }
 
 /**
@@ -1395,19 +1395,19 @@ export interface Engagement {
    * <p>The ARN of the incident that's engaging the contact.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>The time that the engagement began.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time that the engagement ended.</p>
    * @public
    */
-  StopTime?: Date;
+  StopTime?: Date | undefined;
 }
 
 /**
@@ -1442,7 +1442,7 @@ export interface GetContactResult {
    * <p>The full name of the contact or escalation plan.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>.</p>
@@ -1508,7 +1508,7 @@ export interface GetContactChannelResult {
    * <p>A Boolean value indicating if the contact channel has been activated or not.</p>
    * @public
    */
-  ActivationStatus?: ActivationStatus;
+  ActivationStatus?: ActivationStatus | undefined;
 }
 
 /**
@@ -1530,13 +1530,13 @@ export interface GetContactPolicyResult {
    * <p>The ARN of the contact or escalation plan.</p>
    * @public
    */
-  ContactArn?: string;
+  ContactArn?: string | undefined;
 
   /**
    * <p>Details about the resource policy attached to the contact or escalation plan.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -1622,38 +1622,38 @@ export interface GetRotationOverrideResult {
    * <p>The Amazon Resource Name (ARN) of the override to an on-call rotation.</p>
    * @public
    */
-  RotationOverrideId?: string;
+  RotationOverrideId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the on-call rotation that was overridden.</p>
    * @public
    */
-  RotationArn?: string;
+  RotationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the override of the on-call
    *          rotation.</p>
    * @public
    */
-  NewContactIds?: string[];
+  NewContactIds?: string[] | undefined;
 
   /**
    * <p>The date and time when the override goes into effect.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time when the override ends.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The date and time when the override was created.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 }
 
 /**
@@ -1670,13 +1670,13 @@ export interface ListContactChannelsRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of contact channels per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1687,7 +1687,7 @@ export interface ListContactChannelsResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of contact channels related to the specified contact.</p>
@@ -1704,26 +1704,26 @@ export interface ListContactsRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of contacts and escalation plans per page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Used to list only contacts who's aliases start with the specified prefix.</p>
    * @public
    */
-  AliasPrefix?: string;
+  AliasPrefix?: string | undefined;
 
   /**
    * <p>The type of contact. A contact is type <code>PERSONAL</code> and an escalation plan is
    *          type <code>ESCALATION</code>.</p>
    * @public
    */
-  Type?: ContactType;
+  Type?: ContactType | undefined;
 }
 
 /**
@@ -1734,13 +1734,13 @@ export interface ListContactsResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the contacts and escalation plans in your Incident Manager account.</p>
    * @public
    */
-  Contacts?: Contact[];
+  Contacts?: Contact[] | undefined;
 }
 
 /**
@@ -1752,13 +1752,13 @@ export interface TimeRange {
    * <p>The start of the time range.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end of the time range.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -1769,25 +1769,25 @@ export interface ListEngagementsRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of engagements per page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the incident you're listing engagements for.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>The time range to lists engagements for an incident.</p>
    * @public
    */
-  TimeRangeValue?: TimeRange;
+  TimeRangeValue?: TimeRange | undefined;
 }
 
 /**
@@ -1798,7 +1798,7 @@ export interface ListEngagementsResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of each engagement that occurred during the specified time range of an
@@ -1822,13 +1822,13 @@ export interface ListPageReceiptsRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of acknowledgements per page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1857,7 +1857,7 @@ export interface Receipt {
    * <p>The Amazon Resource Name (ARN) of the contact channel Incident Manager engaged.</p>
    * @public
    */
-  ContactChannelArn?: string;
+  ContactChannelArn?: string | undefined;
 
   /**
    * <p>The type follows the engagement cycle, <code>SENT</code>, <code>DELIVERED</code>, and
@@ -1870,7 +1870,7 @@ export interface Receipt {
    * <p>Information provided during the page acknowledgement.</p>
    * @public
    */
-  ReceiptInfo?: string;
+  ReceiptInfo?: string | undefined;
 
   /**
    * <p>The time receipt was <code>SENT</code>, <code>DELIVERED</code>, or
@@ -1888,13 +1888,13 @@ export interface ListPageReceiptsResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of each acknowledgement.</p>
    * @public
    */
-  Receipts?: Receipt[];
+  Receipts?: Receipt[] | undefined;
 }
 
 /**
@@ -1905,7 +1905,7 @@ export interface ListPageResolutionsRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the contact engaged for the incident.</p>
@@ -1941,7 +1941,7 @@ export interface ResolutionContact {
    * <p>The stage in the escalation plan that resolves to this contact.</p>
    * @public
    */
-  StageIndex?: number;
+  StageIndex?: number | undefined;
 }
 
 /**
@@ -1953,7 +1953,7 @@ export interface ListPageResolutionsResult {
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Information about the resolution for an engagement.</p>
@@ -1976,14 +1976,14 @@ export interface ListPagesByContactRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of engagements to contact channels to list per page of results.
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2019,25 +2019,25 @@ export interface Page {
    * <p>The ARN of the incident that's engaging the contact channel.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>The time that Incident Manager engaged the contact channel.</p>
    * @public
    */
-  SentTime?: Date;
+  SentTime?: Date | undefined;
 
   /**
    * <p>The time the message was delivered to the contact channel.</p>
    * @public
    */
-  DeliveryTime?: Date;
+  DeliveryTime?: Date | undefined;
 
   /**
    * <p>The time that the contact channel acknowledged engagement.</p>
    * @public
    */
-  ReadTime?: Date;
+  ReadTime?: Date | undefined;
 }
 
 /**
@@ -2048,7 +2048,7 @@ export interface ListPagesByContactResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of engagements to a contact's contact channel.</p>
@@ -2071,14 +2071,14 @@ export interface ListPagesByEngagementRequest {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of engagements to contact channels to list per page of
    *          results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2089,7 +2089,7 @@ export interface ListPagesByEngagementResult {
    * <p>The pagination token to continue to the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of engagements to contact channels.</p>
@@ -2107,19 +2107,19 @@ export interface PreviewOverride {
    * <p>Information about contacts to add to an on-call rotation override.</p>
    * @public
    */
-  NewMembers?: string[];
+  NewMembers?: string[] | undefined;
 
   /**
    * <p>Information about the time a rotation override would begin.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Information about the time a rotation override would end.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -2131,14 +2131,14 @@ export interface ListPreviewRotationShiftsRequest {
    *          and time.</p>
    * @public
    */
-  RotationStartTime?: Date;
+  RotationStartTime?: Date | undefined;
 
   /**
    * <p>Used to filter the range of calculated shifts before sending the response back to the
    *          user. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time a rotation shift would end.</p>
@@ -2171,20 +2171,20 @@ export interface ListPreviewRotationShiftsRequest {
    * <p>Information about changes that would be made in a rotation override.</p>
    * @public
    */
-  Overrides?: PreviewOverride[];
+  Overrides?: PreviewOverride[] | undefined;
 
   /**
    * <p>A token to start the list. This token is used to get the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          can be specified in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2225,7 +2225,7 @@ export interface RotationShift {
    *       </p>
    * @public
    */
-  ContactIds?: string[];
+  ContactIds?: string[] | undefined;
 
   /**
    * <p>The time a shift rotation begins.</p>
@@ -2243,13 +2243,13 @@ export interface RotationShift {
    * <p>The type of shift rotation.</p>
    * @public
    */
-  Type?: ShiftType;
+  Type?: ShiftType | undefined;
 
   /**
    * <p>Additional information about an on-call rotation shift.</p>
    * @public
    */
-  ShiftDetails?: ShiftDetails;
+  ShiftDetails?: ShiftDetails | undefined;
 }
 
 /**
@@ -2260,14 +2260,14 @@ export interface ListPreviewRotationShiftsResult {
    * <p>Details about a rotation shift, including times, types, and contacts.</p>
    * @public
    */
-  RotationShifts?: RotationShift[];
+  RotationShifts?: RotationShift[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. This token is used to get the next set of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2296,14 +2296,14 @@ export interface ListRotationOverridesRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2351,14 +2351,14 @@ export interface ListRotationOverridesResult {
    * <p>A list of rotation overrides in the specified time range.</p>
    * @public
    */
-  RotationOverrides?: RotationOverride[];
+  RotationOverrides?: RotationOverride[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2371,20 +2371,20 @@ export interface ListRotationsRequest {
    *          as <code>production</code> and <code>prod-1</code>.</p>
    * @public
    */
-  RotationNamePrefix?: string;
+  RotationNamePrefix?: string | undefined;
 
   /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2408,13 +2408,13 @@ export interface Rotation {
    * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the rotation team.</p>
    * @public
    */
-  ContactIds?: string[];
+  ContactIds?: string[] | undefined;
 
   /**
    * <p>The date and time the rotation becomes active.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time zone the rotation’s activity is based on, in Internet Assigned Numbers
@@ -2422,14 +2422,14 @@ export interface Rotation {
    *       </p>
    * @public
    */
-  TimeZoneId?: string;
+  TimeZoneId?: string | undefined;
 
   /**
    * <p>Information about when an on-call rotation is in effect and how long the rotation period
    *          lasts.</p>
    * @public
    */
-  Recurrence?: RecurrenceSettings;
+  Recurrence?: RecurrenceSettings | undefined;
 }
 
 /**
@@ -2441,7 +2441,7 @@ export interface ListRotationsResult {
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Information about rotations that meet the filter criteria.</p>
@@ -2465,7 +2465,7 @@ export interface ListRotationShiftsRequest {
    * <p>The date and time for the beginning of the time range to list shifts for.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time for the end of the time range to list shifts for.</p>
@@ -2477,14 +2477,14 @@ export interface ListRotationShiftsRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2495,14 +2495,14 @@ export interface ListRotationShiftsResult {
    * <p>Information about shifts that meet the filter criteria.</p>
    * @public
    */
-  RotationShifts?: RotationShift[];
+  RotationShifts?: RotationShift[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2524,7 +2524,7 @@ export interface ListTagsForResourceResult {
    * <p>The tags related to the contact or escalation plan.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2600,27 +2600,27 @@ export interface StartEngagementRequest {
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicSubject?: string;
+  PublicSubject?: string | undefined;
 
   /**
    * <p>The insecure content of the message that was sent to the contact. Use this field for
    *          engagements to <code>SMS</code>.</p>
    * @public
    */
-  PublicContent?: string;
+  PublicContent?: string | undefined;
 
   /**
    * <p>The ARN of the incident that the engagement is part of.</p>
    * @public
    */
-  IncidentId?: string;
+  IncidentId?: string | undefined;
 
   /**
    * <p>A token ensuring that the operation is called only once with the specified
    *          details.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -2648,7 +2648,7 @@ export interface StopEngagementRequest {
    * <p>The reason that you're stopping the engagement.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -2714,14 +2714,14 @@ export interface UpdateContactRequest {
    * <p>The full name of the contact or escalation plan.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>A list of stages. A contact has an engagement plan with stages for specified contact
    *          channels. An escalation plan uses these stages to contact specified contacts.</p>
    * @public
    */
-  Plan?: Plan;
+  Plan?: Plan | undefined;
 }
 
 /**
@@ -2743,13 +2743,13 @@ export interface UpdateContactChannelRequest {
    * <p>The name of the contact channel.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
    * @public
    */
-  DeliveryAddress?: ContactChannelAddress;
+  DeliveryAddress?: ContactChannelAddress | undefined;
 }
 
 /**
@@ -2773,13 +2773,13 @@ export interface UpdateRotationRequest {
    *          schedule.</p>
    * @public
    */
-  ContactIds?: string[];
+  ContactIds?: string[] | undefined;
 
   /**
    * <p>The date and time the rotation goes into effect.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time zone to base the updated rotation’s activity on, in Internet Assigned Numbers
@@ -2792,7 +2792,7 @@ export interface UpdateRotationRequest {
    *          </note>
    * @public
    */
-  TimeZoneId?: string;
+  TimeZoneId?: string | undefined;
 
   /**
    * <p>Information about how long the updated rotation lasts before restarting at the beginning

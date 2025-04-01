@@ -31,7 +31,9 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
  *          <p>When you detach a traffic source, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
+ *             can no longer describe the traffic source using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>
+ *             API call. The instances continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,23 +68,26 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To detach a target group from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified target group from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "TrafficSources": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   TrafficSources: [
  *     {
- *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *       Identifier: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *     }
  *   ]
  * };
  * const command = new DetachTrafficSourcesCommand(input);
- * await client.send(command);
- * // example id: to-detach-a-target-group-from-an-auto-scaling-group-1680040404169
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachTrafficSourcesCommand extends $Command
   .classBuilder<
@@ -92,9 +97,7 @@ export class DetachTrafficSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +109,16 @@ export class DetachTrafficSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachTrafficSourcesCommand)
   .de(de_DetachTrafficSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachTrafficSourcesType;
+      output: {};
+    };
+    sdk: {
+      input: DetachTrafficSourcesCommandInput;
+      output: DetachTrafficSourcesCommandOutput;
+    };
+  };
+}

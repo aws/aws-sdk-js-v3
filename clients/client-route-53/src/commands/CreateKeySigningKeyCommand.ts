@@ -120,6 +120,7 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class CreateKeySigningKeyCommand extends $Command
@@ -130,9 +131,7 @@ export class CreateKeySigningKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class CreateKeySigningKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeySigningKeyCommand)
   .de(de_CreateKeySigningKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeySigningKeyRequest;
+      output: CreateKeySigningKeyResponse;
+    };
+    sdk: {
+      input: CreateKeySigningKeyCommandInput;
+      output: CreateKeySigningKeyCommandOutput;
+    };
+  };
+}

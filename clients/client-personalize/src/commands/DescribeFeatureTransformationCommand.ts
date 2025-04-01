@@ -75,6 +75,7 @@ export interface DescribeFeatureTransformationCommandOutput
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeFeatureTransformationCommand extends $Command
@@ -85,9 +86,7 @@ export class DescribeFeatureTransformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DescribeFeatureTransformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFeatureTransformationCommand)
   .de(de_DescribeFeatureTransformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFeatureTransformationRequest;
+      output: DescribeFeatureTransformationResponse;
+    };
+    sdk: {
+      input: DescribeFeatureTransformationCommandInput;
+      output: DescribeFeatureTransformationCommandOutput;
+    };
+  };
+}

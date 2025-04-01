@@ -51,6 +51,10 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
  *
@@ -70,6 +74,7 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteGatewayCommand extends $Command
@@ -80,9 +85,7 @@ export class DeleteGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +97,16 @@ export class DeleteGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGatewayCommand)
   .de(de_DeleteGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGatewayCommandInput;
+      output: DeleteGatewayCommandOutput;
+    };
+  };
+}

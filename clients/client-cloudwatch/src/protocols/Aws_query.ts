@@ -141,6 +141,8 @@ import {
   EnableAlarmActionsInput,
   EnableInsightRulesInput,
   EnableInsightRulesOutput,
+  Entity,
+  EntityMetricData,
   GetDashboardInput,
   GetDashboardOutput,
   GetInsightRuleReportInput,
@@ -2388,6 +2390,104 @@ const se_EnableInsightRulesInput = (input: EnableInsightRulesInput, context: __S
 };
 
 /**
+ * serializeAws_queryEntity
+ */
+const se_Entity = (input: Entity, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_KA] != null) {
+    const memberEntries = se_EntityKeyAttributesMap(input[_KA], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `KeyAttributes.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_At] != null) {
+    const memberEntries = se_EntityAttributesMap(input[_At], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Attributes.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEntityAttributesMap
+ */
+const se_EntityAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
+      counter++;
+    });
+  return entries;
+};
+
+/**
+ * serializeAws_queryEntityKeyAttributesMap
+ */
+const se_EntityKeyAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
+      counter++;
+    });
+  return entries;
+};
+
+/**
+ * serializeAws_queryEntityMetricData
+ */
+const se_EntityMetricData = (input: EntityMetricData, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_E] != null) {
+    const memberEntries = se_Entity(input[_E], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Entity.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MD] != null) {
+    const memberEntries = se_MetricData(input[_MD], context);
+    if (input[_MD]?.length === 0) {
+      entries.MetricData = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricData.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEntityMetricDataList
+ */
+const se_EntityMetricDataList = (input: EntityMetricData[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_EntityMetricData(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryExtendedStatistics
  */
 const se_ExtendedStatistics = (input: string[], context: __SerdeContext): any => {
@@ -2477,8 +2577,8 @@ const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContex
   if (input[_SB] != null) {
     entries[_SB] = input[_SB];
   }
-  if (input[_MD] != null) {
-    entries[_MD] = input[_MD];
+  if (input[_MDa] != null) {
+    entries[_MDa] = input[_MDa];
   }
   if (input[_LO] != null) {
     const memberEntries = se_LabelOptions(input[_LO], context);
@@ -2837,8 +2937,8 @@ const se_MetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input[_E] != null) {
-    entries[_E] = input[_E];
+  if (input[_Ex] != null) {
+    entries[_Ex] = input[_Ex];
   }
   if (input[_L] != null) {
     entries[_L] = input[_L];
@@ -3441,15 +3541,28 @@ const se_PutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContex
   if (input[_N] != null) {
     entries[_N] = input[_N];
   }
-  if (input[_MDe] != null) {
-    const memberEntries = se_MetricData(input[_MDe], context);
-    if (input[_MDe]?.length === 0) {
+  if (input[_MD] != null) {
+    const memberEntries = se_MetricData(input[_MD], context);
+    if (input[_MD]?.length === 0) {
       entries.MetricData = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricData.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_EMD] != null) {
+    const memberEntries = se_EntityMetricDataList(input[_EMD], context);
+    if (input[_EMD]?.length === 0) {
+      entries.EntityMetricData = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EntityMetricData.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SEV] != null) {
+    entries[_SEV] = input[_SEV];
   }
   return entries;
 };
@@ -4345,9 +4458,9 @@ const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): Ge
     contents[_Con] = de_InsightRuleContributors(__getArrayIfSingleItem(output[_Con][_m]), context);
   }
   if (output.MetricDatapoints === "") {
-    contents[_MDet] = [];
-  } else if (output[_MDet] != null && output[_MDet][_m] != null) {
-    contents[_MDet] = de_InsightRuleMetricDatapoints(__getArrayIfSingleItem(output[_MDet][_m]), context);
+    contents[_MDe] = [];
+  } else if (output[_MDe] != null && output[_MDe][_m] != null) {
+    contents[_MDe] = de_InsightRuleMetricDatapoints(__getArrayIfSingleItem(output[_MDe][_m]), context);
   }
   return contents;
 };
@@ -4995,8 +5108,8 @@ const de_MetricDataQuery = (output: any, context: __SerdeContext): MetricDataQue
   if (output[_MS] != null) {
     contents[_MS] = de_MetricStat(output[_MS], context);
   }
-  if (output[_E] != null) {
-    contents[_E] = __expectString(output[_E]);
+  if (output[_Ex] != null) {
+    contents[_Ex] = __expectString(output[_Ex]);
   }
   if (output[_L] != null) {
     contents[_L] = __expectString(output[_L]);
@@ -5578,6 +5691,7 @@ const _AUC = "ApproximateUniqueCount";
 const _AV = "AggregateValue";
 const _AVp = "ApproximateValue";
 const _Ar = "Arn";
+const _At = "Attributes";
 const _Av = "Average";
 const _C = "Counts";
 const _CA = "CompositeAlarms";
@@ -5611,12 +5725,13 @@ const _DTA = "DatapointsToAlarm";
 const _DVM = "DashboardValidationMessages";
 const _Da = "Datapoints";
 const _De = "Definition";
-const _E = "Expression";
+const _E = "Entity";
 const _EAA = "EnableAlarmActions";
 const _ED = "EndDate";
 const _EF = "ExcludeFilters";
 const _EIR = "EnableInsightRules";
 const _ELSCP = "EvaluateLowSampleCountPercentile";
+const _EMD = "EntityMetricData";
 const _EP = "EvaluationPeriods";
 const _ES = "ExtendedStatistic";
 const _ESv = "EvaluationState";
@@ -5625,6 +5740,7 @@ const _ET = "EndTime";
 const _ETR = "ExcludedTimeRanges";
 const _ETx = "ExceptionType";
 const _En = "Entries";
+const _Ex = "Expression";
 const _F = "Failures";
 const _FA = "FirehoseArn";
 const _FC = "FailureCode";
@@ -5647,6 +5763,7 @@ const _ILAM = "IncludeLinkedAccountsMetrics";
 const _IM = "IncludeMetrics";
 const _IR = "InsightRules";
 const _K = "Key";
+const _KA = "KeyAttributes";
 const _KL = "KeyLabels";
 const _Ke = "Keys";
 const _L = "Label";
@@ -5663,11 +5780,11 @@ const _MA = "MetricAlarms";
 const _MC = "MetricCharacteristics";
 const _MCC = "MaxContributorCount";
 const _MCV = "MaxContributorValue";
-const _MD = "MaxDatapoints";
+const _MD = "MetricData";
 const _MDQ = "MetricDataQueries";
 const _MDR = "MetricDataResults";
-const _MDe = "MetricData";
-const _MDet = "MetricDatapoints";
+const _MDa = "MaxDatapoints";
+const _MDe = "MetricDatapoints";
 const _MMAD = "MetricMathAnomalyDetector";
 const _MN = "MetricName";
 const _MNe = "MetricNames";
@@ -5721,6 +5838,7 @@ const _SC = "StatisticsConfigurations";
 const _SCa = "SampleCount";
 const _SCt = "StatusCode";
 const _SD = "StartDate";
+const _SEV = "StrictEntityValidation";
 const _SMAD = "SingleMetricAnomalyDetector";
 const _SMS = "StartMetricStreams";
 const _SMSt = "StopMetricStreams";

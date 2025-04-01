@@ -87,50 +87,49 @@ export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessRes
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
- * @public
+ *
  * @example Passing check. S3 Bucket policy without public access.
  * ```javascript
  * //
  * const input = {
- *   "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Bob\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::111122223333:user/JohnDoe\"},\"Action\":[\"s3:GetObject\"]}]}",
- *   "resourceType": "AWS::S3::Bucket"
+ *   policyDocument: `{"Version":"2012-10-17","Statement":[{"Sid":"Bob","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::111122223333:user/JohnDoe"},"Action":["s3:GetObject"]}]}`,
+ *   resourceType: "AWS::S3::Bucket"
  * };
  * const command = new CheckNoPublicAccessCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "The resource policy does not grant public access for the given resource type.",
- *   "result": "PASS"
+ *   message: "The resource policy does not grant public access for the given resource type.",
+ *   result: "PASS"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Failing check. S3 Bucket policy with public access.
  * ```javascript
  * //
  * const input = {
- *   "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Bob\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:GetObject\"]}]}",
- *   "resourceType": "AWS::S3::Bucket"
+ *   policyDocument: `{"Version":"2012-10-17","Statement":[{"Sid":"Bob","Effect":"Allow","Principal":"*","Action":["s3:GetObject"]}]}`,
+ *   resourceType: "AWS::S3::Bucket"
  * };
  * const command = new CheckNoPublicAccessCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "The resource policy grants public access for the given resource type.",
- *   "reasons": [
+ *   message: "The resource policy grants public access for the given resource type.",
+ *   reasons: [
  *     {
- *       "description": "Public access granted in the following statement with sid: Bob.",
- *       "statementId": "Bob",
- *       "statementIndex": 0
+ *       description: "Public access granted in the following statement with sid: Bob.",
+ *       statementId: "Bob",
+ *       statementIndex: 0
  *     }
  *   ],
- *   "result": "FAIL"
+ *   result: "FAIL"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class CheckNoPublicAccessCommand extends $Command
   .classBuilder<
@@ -140,9 +139,7 @@ export class CheckNoPublicAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +151,16 @@ export class CheckNoPublicAccessCommand extends $Command
   .f(CheckNoPublicAccessRequestFilterSensitiveLog, void 0)
   .ser(se_CheckNoPublicAccessCommand)
   .de(de_CheckNoPublicAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckNoPublicAccessRequest;
+      output: CheckNoPublicAccessResponse;
+    };
+    sdk: {
+      input: CheckNoPublicAccessCommandInput;
+      output: CheckNoPublicAccessCommandOutput;
+    };
+  };
+}

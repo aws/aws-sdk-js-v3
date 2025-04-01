@@ -51,6 +51,8 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * //     { // Category
  * //       id: "STRING_VALUE", // required
  * //       title: "STRING_VALUE", // required
+ * //       color: "STRING_VALUE",
+ * //       appCount: Number("int"),
  * //     },
  * //   ],
  * //   status: "STRING_VALUE", // required
@@ -61,6 +63,7 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * //   ratingCount: Number("int"), // required
  * //   isRatedByUser: true || false,
  * //   userCount: Number("int"),
+ * //   isVerified: true || false,
  * // };
  *
  * ```
@@ -81,8 +84,8 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -92,6 +95,48 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Retrieve a library item
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "18cbebaa-196a-4aa5-a840-88d548e07f8f"
+ * };
+ * const command = new GetLibraryItemCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   appId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   appVersion: 1,
+ *   categories: [
+ *     {
+ *       id: "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
+ *       title: "HR"
+ *     },
+ *     {
+ *       id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *       title: "General"
+ *     },
+ *     {
+ *       id: "c1c4e374-118c-446f-81fb-cba6225d88da",
+ *       title: "IT"
+ *     }
+ *   ],
+ *   createdAt: "2024-05-08T16:09:56.080Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isRatedByUser: false,
+ *   isVerified: false,
+ *   libraryItemId: "18cbebaa-196a-4aa5-a840-88d548e07f8f",
+ *   ratingCount: 0,
+ *   status: "PUBLISHED",
+ *   updatedAt: "2024-05-08T16:09:56.080Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   userCount: 1
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -103,9 +148,7 @@ export class GetLibraryItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +160,16 @@ export class GetLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLibraryItemCommand)
   .de(de_GetLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLibraryItemInput;
+      output: GetLibraryItemOutput;
+    };
+    sdk: {
+      input: GetLibraryItemCommandInput;
+      output: GetLibraryItemCommandOutput;
+    };
+  };
+}

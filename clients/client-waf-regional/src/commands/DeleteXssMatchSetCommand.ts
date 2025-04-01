@@ -121,24 +121,24 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To delete an XSS match set
  * ```javascript
  * // The following example deletes an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new DeleteXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deletexssmatchset-1474561302618
  * ```
  *
+ * @public
  */
 export class DeleteXssMatchSetCommand extends $Command
   .classBuilder<
@@ -148,9 +148,7 @@ export class DeleteXssMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +160,16 @@ export class DeleteXssMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteXssMatchSetCommand)
   .de(de_DeleteXssMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteXssMatchSetRequest;
+      output: DeleteXssMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteXssMatchSetCommandInput;
+      output: DeleteXssMatchSetCommandOutput;
+    };
+  };
+}

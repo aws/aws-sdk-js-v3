@@ -91,6 +91,7 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListTableRestoreStatusCommand extends $Command
@@ -101,9 +102,7 @@ export class ListTableRestoreStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListTableRestoreStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTableRestoreStatusCommand)
   .de(de_ListTableRestoreStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTableRestoreStatusRequest;
+      output: ListTableRestoreStatusResponse;
+    };
+    sdk: {
+      input: ListTableRestoreStatusCommandInput;
+      output: ListTableRestoreStatusCommandOutput;
+    };
+  };
+}

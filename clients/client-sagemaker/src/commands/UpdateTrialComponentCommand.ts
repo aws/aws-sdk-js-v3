@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_4";
+import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_5";
 import { de_UpdateTrialComponentCommand, se_UpdateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -96,6 +96,7 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateTrialComponentCommand extends $Command
@@ -106,9 +107,7 @@ export class UpdateTrialComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class UpdateTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrialComponentCommand)
   .de(de_UpdateTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrialComponentRequest;
+      output: UpdateTrialComponentResponse;
+    };
+    sdk: {
+      input: UpdateTrialComponentCommandInput;
+      output: UpdateTrialComponentCommandOutput;
+    };
+  };
+}

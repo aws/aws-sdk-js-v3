@@ -74,6 +74,7 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CancelMailboxExportJobCommand extends $Command
@@ -84,9 +85,7 @@ export class CancelMailboxExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class CancelMailboxExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelMailboxExportJobCommand)
   .de(de_CancelMailboxExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelMailboxExportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelMailboxExportJobCommandInput;
+      output: CancelMailboxExportJobCommandOutput;
+    };
+  };
+}

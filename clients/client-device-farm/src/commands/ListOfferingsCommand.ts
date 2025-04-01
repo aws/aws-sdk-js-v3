@@ -91,84 +91,84 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about device offerings
  * ```javascript
  * // The following example returns information about available device offerings.
  * const input = {
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
  * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "offerings": [
+ *   offerings: [
  *     {
- *       "type": "RECURRING",
- *       "description": "iOS Unmetered Device Slot",
- *       "id": "A53D4D73-A6F6-4B82-A0B0-12345EXAMPLE",
- *       "platform": "IOS",
- *       "recurringCharges": [
+ *       description: "iOS Unmetered Device Slot",
+ *       id: "A53D4D73-A6F6-4B82-A0B0-12345EXAMPLE",
+ *       platform: "IOS",
+ *       recurringCharges: [
  *         {
- *           "cost": {
- *             "amount": 250,
- *             "currencyCode": "USD"
+ *           cost: {
+ *             amount: 250,
+ *             currencyCode: "USD"
  *           },
- *           "frequency": "MONTHLY"
+ *           frequency: "MONTHLY"
  *         }
- *       ]
+ *       ],
+ *       type: "RECURRING"
  *     },
  *     {
- *       "type": "RECURRING",
- *       "description": "Android Unmetered Device Slot",
- *       "id": "8980F81C-00D7-469D-8EC6-12345EXAMPLE",
- *       "platform": "ANDROID",
- *       "recurringCharges": [
+ *       description: "Android Unmetered Device Slot",
+ *       id: "8980F81C-00D7-469D-8EC6-12345EXAMPLE",
+ *       platform: "ANDROID",
+ *       recurringCharges: [
  *         {
- *           "cost": {
- *             "amount": 250,
- *             "currencyCode": "USD"
+ *           cost: {
+ *             amount: 250,
+ *             currencyCode: "USD"
  *           },
- *           "frequency": "MONTHLY"
+ *           frequency: "MONTHLY"
  *         }
- *       ]
+ *       ],
+ *       type: "RECURRING"
  *     },
  *     {
- *       "type": "RECURRING",
- *       "description": "Android Remote Access Unmetered Device Slot",
- *       "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *       "platform": "ANDROID",
- *       "recurringCharges": [
+ *       description: "Android Remote Access Unmetered Device Slot",
+ *       id: "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *       platform: "ANDROID",
+ *       recurringCharges: [
  *         {
- *           "cost": {
- *             "amount": 250,
- *             "currencyCode": "USD"
+ *           cost: {
+ *             amount: 250,
+ *             currencyCode: "USD"
  *           },
- *           "frequency": "MONTHLY"
+ *           frequency: "MONTHLY"
  *         }
- *       ]
+ *       ],
+ *       type: "RECURRING"
  *     },
  *     {
- *       "type": "RECURRING",
- *       "description": "iOS Remote Access Unmetered Device Slot",
- *       "id": "552B4DAD-A6C9-45C4-94FB-12345EXAMPLE",
- *       "platform": "IOS",
- *       "recurringCharges": [
+ *       description: "iOS Remote Access Unmetered Device Slot",
+ *       id: "552B4DAD-A6C9-45C4-94FB-12345EXAMPLE",
+ *       platform: "IOS",
+ *       recurringCharges: [
  *         {
- *           "cost": {
- *             "amount": 250,
- *             "currencyCode": "USD"
+ *           cost: {
+ *             amount: 250,
+ *             currencyCode: "USD"
  *           },
- *           "frequency": "MONTHLY"
+ *           frequency: "MONTHLY"
  *         }
- *       ]
+ *       ],
+ *       type: "RECURRING"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-information-about-device-offerings-1472562810999
  * ```
  *
+ * @public
  */
 export class ListOfferingsCommand extends $Command
   .classBuilder<
@@ -178,9 +178,7 @@ export class ListOfferingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +190,16 @@ export class ListOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOfferingsCommand)
   .de(de_ListOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOfferingsRequest;
+      output: ListOfferingsResult;
+    };
+    sdk: {
+      input: ListOfferingsCommandInput;
+      output: ListOfferingsCommandOutput;
+    };
+  };
+}

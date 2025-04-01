@@ -71,6 +71,7 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteListCommand extends $Command
@@ -81,9 +82,7 @@ export class DeleteListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DeleteListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteListCommand)
   .de(de_DeleteListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteListRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteListCommandInput;
+      output: DeleteListCommandOutput;
+    };
+  };
+}

@@ -83,6 +83,7 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class GetPipelineBlueprintCommand extends $Command
@@ -93,9 +94,7 @@ export class GetPipelineBlueprintCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetPipelineBlueprintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPipelineBlueprintCommand)
   .de(de_GetPipelineBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPipelineBlueprintRequest;
+      output: GetPipelineBlueprintResponse;
+    };
+    sdk: {
+      input: GetPipelineBlueprintCommandInput;
+      output: GetPipelineBlueprintCommandOutput;
+    };
+  };
+}

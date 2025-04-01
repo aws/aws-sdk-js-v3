@@ -108,34 +108,34 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To update a configuration template
  * ```javascript
  * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "OptionsToRemove": [
+ *   ApplicationName: "my-app",
+ *   OptionsToRemove: [
  *     {
- *       "Namespace": "aws:elasticbeanstalk:healthreporting:system",
- *       "OptionName": "ConfigDocument"
+ *       Namespace: "aws:elasticbeanstalk:healthreporting:system",
+ *       OptionName: "ConfigDocument"
  *     }
  *   ],
- *   "TemplateName": "my-template"
+ *   TemplateName: "my-template"
  * };
  * const command = new UpdateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationName": "my-app",
- *   "DateCreated": "2015-08-20T22:39:31Z",
- *   "DateUpdated": "2015-08-20T22:43:11Z",
- *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *   "TemplateName": "my-template"
+ *   ApplicationName: "my-app",
+ *   DateCreated: "2015-08-20T22:39:31Z",
+ *   DateUpdated: "2015-08-20T22:43:11Z",
+ *   SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   TemplateName: "my-template"
  * }
  * *\/
- * // example id: to-update-a-configuration-template-1456278075300
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationTemplateCommand extends $Command
   .classBuilder<
@@ -145,9 +145,7 @@ export class UpdateConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +157,16 @@ export class UpdateConfigurationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationTemplateCommand)
   .de(de_UpdateConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationTemplateMessage;
+      output: ConfigurationSettingsDescription;
+    };
+    sdk: {
+      input: UpdateConfigurationTemplateCommandInput;
+      output: UpdateConfigurationTemplateCommandOutput;
+    };
+  };
+}

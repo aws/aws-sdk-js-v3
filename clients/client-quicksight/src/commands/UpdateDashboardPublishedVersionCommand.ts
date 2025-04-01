@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_4";
+import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_5";
 import {
   de_UpdateDashboardPublishedVersionCommand,
   se_UpdateDashboardPublishedVersionCommand,
@@ -86,6 +86,7 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command
@@ -96,9 +97,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class UpdateDashboardPublishedVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDashboardPublishedVersionCommand)
   .de(de_UpdateDashboardPublishedVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDashboardPublishedVersionRequest;
+      output: UpdateDashboardPublishedVersionResponse;
+    };
+    sdk: {
+      input: UpdateDashboardPublishedVersionCommandInput;
+      output: UpdateDashboardPublishedVersionCommandOutput;
+    };
+  };
+}

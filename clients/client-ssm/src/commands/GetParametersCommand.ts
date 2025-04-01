@@ -83,6 +83,7 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetParametersCommand extends $Command
@@ -93,9 +94,7 @@ export class GetParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetParametersCommand extends $Command
   .f(void 0, GetParametersResultFilterSensitiveLog)
   .ser(se_GetParametersCommand)
   .de(de_GetParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersRequest;
+      output: GetParametersResult;
+    };
+    sdk: {
+      input: GetParametersCommandInput;
+      output: GetParametersCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSecurityProfileRequest } from "../models/models_0";
+import { DeleteSecurityProfileRequest } from "../models/models_1";
 import { de_DeleteSecurityProfileCommand, se_DeleteSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteSecurityProfileCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteSecurityProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecurityProfileCommand)
   .de(de_DeleteSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecurityProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSecurityProfileCommandInput;
+      output: DeleteSecurityProfileCommandOutput;
+    };
+  };
+}

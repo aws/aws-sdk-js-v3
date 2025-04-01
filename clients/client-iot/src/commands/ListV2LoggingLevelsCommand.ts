@@ -79,6 +79,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListV2LoggingLevelsCommand extends $Command
@@ -89,9 +90,7 @@ export class ListV2LoggingLevelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListV2LoggingLevelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListV2LoggingLevelsCommand)
   .de(de_ListV2LoggingLevelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListV2LoggingLevelsRequest;
+      output: ListV2LoggingLevelsResponse;
+    };
+    sdk: {
+      input: ListV2LoggingLevelsCommandInput;
+      output: ListV2LoggingLevelsCommandOutput;
+    };
+  };
+}

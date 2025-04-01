@@ -10,7 +10,7 @@ import {
   ListContainerGroupDefinitionsInput,
   ListContainerGroupDefinitionsOutput,
   ListContainerGroupDefinitionsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListContainerGroupDefinitionsCommand,
   se_ListContainerGroupDefinitionsCommand,
@@ -37,25 +37,30 @@ export interface ListContainerGroupDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation is used with the Amazon GameLift containers feature, which is currently in public preview. </b>
- *          </p>
- *          <p>Retrieves all container group definitions for the Amazon Web Services account and Amazon Web Services Region that are currently in use. You can filter the result set by the container
- *       groups' scheduling strategy. Use the pagination parameters to retrieve results in a set of
- *       sequential pages.</p>
- *          <note>
- *             <p>This operation returns the list of container group definitions in no particular order. </p>
- *          </note>
+ * <p>Retrieves container group definitions for the Amazon Web Services account and Amazon Web Services Region. Use the pagination parameters to retrieve results in a set of sequential
+ *       pages.</p>
+ *          <p>This operation returns only the latest version of each definition. To retrieve all
+ *       versions of a container group definition, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>.</p>
  *          <p>
- *             <b>Learn more</b>
+ *             <b>Request options:</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage a container group definition</a>
- *                </p>
+ *                <p>Retrieve the most recent versions of all container group definitions. </p>
+ *             </li>
+ *             <li>
+ *                <p>Retrieve the most recent versions of all container group definitions, filtered by
+ *           type. Specify the container group type to filter on. </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Results:</b>
+ *          </p>
+ *          <p>If successful, this operation returns the complete properties of a set of container group
+ *       definition versions that match the request.</p>
+ *          <note>
+ *             <p>This operation returns the list of container group definitions in no particular order. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +68,7 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * // const { GameLiftClient, ListContainerGroupDefinitionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListContainerGroupDefinitionsInput
- *   SchedulingStrategy: "REPLICA" || "DAEMON",
+ *   ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -75,60 +80,93 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * //       ContainerGroupDefinitionArn: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       OperatingSystem: "AMAZON_LINUX_2023",
- * //       Name: "STRING_VALUE",
- * //       SchedulingStrategy: "REPLICA" || "DAEMON",
- * //       TotalMemoryLimit: Number("int"),
- * //       TotalCpuLimit: Number("int"),
- * //       ContainerDefinitions: [ // ContainerDefinitionList
- * //         { // ContainerDefinition
- * //           ContainerName: "STRING_VALUE", // required
- * //           ImageUri: "STRING_VALUE", // required
- * //           ResolvedImageDigest: "STRING_VALUE",
- * //           MemoryLimits: { // ContainerMemoryLimits
- * //             SoftLimit: Number("int"),
- * //             HardLimit: Number("int"),
+ * //       Name: "STRING_VALUE", // required
+ * //       ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
+ * //       TotalMemoryLimitMebibytes: Number("int"),
+ * //       TotalVcpuLimit: Number("double"),
+ * //       GameServerContainerDefinition: { // GameServerContainerDefinition
+ * //         ContainerName: "STRING_VALUE",
+ * //         DependsOn: [ // ContainerDependencyList
+ * //           { // ContainerDependency
+ * //             ContainerName: "STRING_VALUE", // required
+ * //             Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
  * //           },
- * //           PortConfiguration: { // ContainerPortConfiguration
- * //             ContainerPortRanges: [ // ContainerPortRangeList // required
- * //               { // ContainerPortRange
+ * //         ],
+ * //         MountPoints: [ // ContainerMountPointList
+ * //           { // ContainerMountPoint
+ * //             InstancePath: "STRING_VALUE", // required
+ * //             ContainerPath: "STRING_VALUE",
+ * //             AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //           },
+ * //         ],
+ * //         EnvironmentOverride: [ // ContainerEnvironmentList
+ * //           { // ContainerEnvironment
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         ImageUri: "STRING_VALUE",
+ * //         PortConfiguration: { // ContainerPortConfiguration
+ * //           ContainerPortRanges: [ // ContainerPortRangeList // required
+ * //             { // ContainerPortRange
+ * //               FromPort: Number("int"), // required
+ * //               ToPort: Number("int"), // required
+ * //               Protocol: "TCP" || "UDP", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         ResolvedImageDigest: "STRING_VALUE",
+ * //         ServerSdkVersion: "STRING_VALUE",
+ * //       },
+ * //       SupportContainerDefinitions: [ // SupportContainerDefinitionList
+ * //         { // SupportContainerDefinition
+ * //           ContainerName: "STRING_VALUE",
+ * //           DependsOn: [
+ * //             {
+ * //               ContainerName: "STRING_VALUE", // required
+ * //               Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
+ * //             },
+ * //           ],
+ * //           MountPoints: [
+ * //             {
+ * //               InstancePath: "STRING_VALUE", // required
+ * //               ContainerPath: "STRING_VALUE",
+ * //               AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //             },
+ * //           ],
+ * //           EnvironmentOverride: [
+ * //             {
+ * //               Name: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           Essential: true || false,
+ * //           HealthCheck: { // ContainerHealthCheck
+ * //             Command: [ // ContainerCommandStringList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Interval: Number("int"),
+ * //             Retries: Number("int"),
+ * //             StartPeriod: Number("int"),
+ * //             Timeout: Number("int"),
+ * //           },
+ * //           ImageUri: "STRING_VALUE",
+ * //           MemoryHardLimitMebibytes: Number("int"),
+ * //           PortConfiguration: {
+ * //             ContainerPortRanges: [ // required
+ * //               {
  * //                 FromPort: Number("int"), // required
  * //                 ToPort: Number("int"), // required
  * //                 Protocol: "TCP" || "UDP", // required
  * //               },
  * //             ],
  * //           },
- * //           Cpu: Number("int"),
- * //           HealthCheck: { // ContainerHealthCheck
- * //             Command: [ // ContainerCommandStringList // required
- * //               "STRING_VALUE",
- * //             ],
- * //             Interval: Number("int"),
- * //             Timeout: Number("int"),
- * //             Retries: Number("int"),
- * //             StartPeriod: Number("int"),
- * //           },
- * //           Command: [
- * //             "STRING_VALUE",
- * //           ],
- * //           Essential: true || false,
- * //           EntryPoint: [ // ContainerEntryPointList
- * //             "STRING_VALUE",
- * //           ],
- * //           WorkingDirectory: "STRING_VALUE",
- * //           Environment: [ // ContainerEnvironmentList
- * //             { // ContainerEnvironment
- * //               Name: "STRING_VALUE", // required
- * //               Value: "STRING_VALUE", // required
- * //             },
- * //           ],
- * //           DependsOn: [ // ContainerDependencyList
- * //             { // ContainerDependency
- * //               ContainerName: "STRING_VALUE", // required
- * //               Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
- * //             },
- * //           ],
+ * //           ResolvedImageDigest: "STRING_VALUE",
+ * //           Vcpu: Number("double"),
  * //         },
  * //       ],
+ * //       VersionNumber: Number("int"),
+ * //       VersionDescription: "STRING_VALUE",
  * //       Status: "READY" || "COPYING" || "FAILED",
  * //       StatusReason: "STRING_VALUE",
  * //     },
@@ -161,6 +199,7 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListContainerGroupDefinitionsCommand extends $Command
@@ -171,9 +210,7 @@ export class ListContainerGroupDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +222,16 @@ export class ListContainerGroupDefinitionsCommand extends $Command
   .f(void 0, ListContainerGroupDefinitionsOutputFilterSensitiveLog)
   .ser(se_ListContainerGroupDefinitionsCommand)
   .de(de_ListContainerGroupDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContainerGroupDefinitionsInput;
+      output: ListContainerGroupDefinitionsOutput;
+    };
+    sdk: {
+      input: ListContainerGroupDefinitionsCommandInput;
+      output: ListContainerGroupDefinitionsCommandOutput;
+    };
+  };
+}

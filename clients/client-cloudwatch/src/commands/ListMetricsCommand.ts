@@ -30,17 +30,15 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
 /**
  * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
  *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
- * 			use the returned token with subsequent calls.</p>
- *          <p>After you create a metric, allow up to 15 minutes for the metric to appear. To see metric
- * 			statistics sooner, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
- *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
- * 			view metrics from the linked source accounts. For more information, see
- * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+ *             use the returned token with subsequent calls.</p>
+ *          <p>After you create a metric, allow up to 15 minutes for the metric to appear. To see
+ *             metric statistics sooner, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+ *          <p>If you are using CloudWatch cross-account observability, you can use this
+ *             operation in a monitoring account and view metrics from the linked source accounts. For
+ *             more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  *          <p>
- *             <code>ListMetrics</code> doesn't return information about metrics if those metrics haven't
- * 	reported data in the past two weeks. To retrieve those metrics, use
- * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
- * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+ *             <code>ListMetrics</code> doesn't return information about metrics if those metrics
+ *             haven't reported data in the past two weeks. To retrieve those metrics, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,13 +89,15 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
+ *
  *
  * @public
  */
@@ -109,9 +109,7 @@ export class ListMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +121,16 @@ export class ListMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMetricsCommand)
   .de(de_ListMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMetricsInput;
+      output: ListMetricsOutput;
+    };
+    sdk: {
+      input: ListMetricsCommandInput;
+      output: ListMetricsCommandOutput;
+    };
+  };
+}

@@ -82,6 +82,7 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetUsageCommand extends $Command
@@ -92,9 +93,7 @@ export class GetUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class GetUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsageCommand)
   .de(de_GetUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsageRequest;
+      output: Usage;
+    };
+    sdk: {
+      input: GetUsageCommandInput;
+      output: GetUsageCommandOutput;
+    };
+  };
+}

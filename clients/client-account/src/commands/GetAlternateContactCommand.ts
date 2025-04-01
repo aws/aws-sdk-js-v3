@@ -92,6 +92,7 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class GetAlternateContactCommand extends $Command
@@ -102,9 +103,7 @@ export class GetAlternateContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetAlternateContactCommand extends $Command
   .f(void 0, GetAlternateContactResponseFilterSensitiveLog)
   .ser(se_GetAlternateContactCommand)
   .de(de_GetAlternateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAlternateContactRequest;
+      output: GetAlternateContactResponse;
+    };
+    sdk: {
+      input: GetAlternateContactCommandInput;
+      output: GetAlternateContactCommandOutput;
+    };
+  };
+}

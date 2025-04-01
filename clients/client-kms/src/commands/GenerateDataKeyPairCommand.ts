@@ -231,54 +231,28 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an RSA key pair for encryption and decryption
  * ```javascript
  * // This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyPairSpec: "RSA_3072"
  * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PrivateKeyPlaintext": "<binary data>",
- *   "PublicKey": "<binary data>"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyPairSpec: "RSA_3072",
+ *   PrivateKeyCiphertextBlob: "<binary data>",
+ *   PrivateKeyPlaintext: "<binary data>",
+ *   PublicKey: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-an-rsa-key-pair-for-encryption-and-decryption-1
  * ```
  *
- * @example To generate a data key pair for a Nitro enclave
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext copy of the private data key, GenerateDataKeyPair returns a copy of the private data key encrypted by the public key from the attestation document (CiphertextForRecipient). It returns the public data key (PublicKey) and a copy of private data key encrypted under the specified KMS key (PrivateKeyCiphertextBlob), as usual, but plaintext private data key field (PrivateKeyPlaintext) is null or empty.
- * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateDataKeyPairCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PrivateKeyPlaintext": "",
- *   "PublicKey": "<binary data>"
- * }
- * *\/
- * // example id: to-generate-a-data-key-pair-for-a-nitro-enclave-2
- * ```
- *
+ * @public
  */
 export class GenerateDataKeyPairCommand extends $Command
   .classBuilder<
@@ -288,9 +262,7 @@ export class GenerateDataKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -302,4 +274,16 @@ export class GenerateDataKeyPairCommand extends $Command
   .f(void 0, GenerateDataKeyPairResponseFilterSensitiveLog)
   .ser(se_GenerateDataKeyPairCommand)
   .de(de_GenerateDataKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyPairRequest;
+      output: GenerateDataKeyPairResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyPairCommandInput;
+      output: GenerateDataKeyPairCommandOutput;
+    };
+  };
+}

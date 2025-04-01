@@ -78,6 +78,7 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class StopWorkflowCommand extends $Command
@@ -88,9 +89,7 @@ export class StopWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class StopWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopWorkflowCommand)
   .de(de_StopWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopMigrationWorkflowRequest;
+      output: StopMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: StopWorkflowCommandInput;
+      output: StopWorkflowCommandOutput;
+    };
+  };
+}

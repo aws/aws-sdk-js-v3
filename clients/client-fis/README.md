@@ -6,12 +6,12 @@
 
 AWS SDK for JavaScript Fis Client for Node.js, Browser and React Native.
 
-<p>Fault Injection Service is a managed service that enables you to perform fault injection
+<p>Amazon Web Services Fault Injection Service is a managed service that enables you to perform fault injection
 experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Service User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-fis
+To install this package, simply type add or install @aws-sdk/client-fis
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-fis`
@@ -270,6 +270,14 @@ GetExperimentTemplate
 </details>
 <details>
 <summary>
+GetSafetyLever
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetSafetyLeverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetSafetyLeverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetSafetyLeverCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTargetAccountConfiguration
 </summary>
 
@@ -386,6 +394,14 @@ UpdateExperimentTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSafetyLeverState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateSafetyLeverStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateSafetyLeverStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateSafetyLeverStateCommandOutput/)
 
 </details>
 <details>

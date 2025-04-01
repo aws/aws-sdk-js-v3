@@ -114,6 +114,46 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list object attributes
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   }
+ * };
+ * const command = new ListObjectAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Attributes: [
+ *     {
+ *       Key: {
+ *         FacetName: "INDEX",
+ *         Name: "index_is_unique",
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
+ *       },
+ *       Value: {
+ *         BooleanValue: true
+ *       }
+ *     },
+ *     {
+ *       Key: {
+ *         FacetName: "INDEX",
+ *         Name: "ordered_indexed_attributes",
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
+ *       },
+ *       Value: {
+ *         StringValue: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1*Organization*description"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListObjectAttributesCommand extends $Command
@@ -124,9 +164,7 @@ export class ListObjectAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +176,16 @@ export class ListObjectAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectAttributesCommand)
   .de(de_ListObjectAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectAttributesRequest;
+      output: ListObjectAttributesResponse;
+    };
+    sdk: {
+      input: ListObjectAttributesCommandInput;
+      output: ListObjectAttributesCommandOutput;
+    };
+  };
+}

@@ -93,37 +93,37 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Discover registered instances
  * ```javascript
  * // Example: Discover registered instances
  * const input = {
- *   "HealthStatus": "ALL",
- *   "MaxResults": 10,
- *   "NamespaceName": "example.com",
- *   "ServiceName": "myservice"
+ *   HealthStatus: "ALL",
+ *   MaxResults: 10,
+ *   NamespaceName: "example.com",
+ *   ServiceName: "myservice"
  * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Instances": [
+ *   Instances: [
  *     {
- *       "Attributes": {
- *         "AWS_INSTANCE_IPV4": "172.2.1.3",
- *         "AWS_INSTANCE_PORT": "808"
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "172.2.1.3",
+ *         AWS_INSTANCE_PORT: "808"
  *       },
- *       "HealthStatus": "UNKNOWN",
- *       "InstanceId": "myservice-53",
- *       "NamespaceName": "example.com",
- *       "ServiceName": "myservice"
+ *       HealthStatus: "UNKNOWN",
+ *       InstanceId: "myservice-53",
+ *       NamespaceName: "example.com",
+ *       ServiceName: "myservice"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-discover-registered-instances-1587236343568
  * ```
  *
+ * @public
  */
 export class DiscoverInstancesCommand extends $Command
   .classBuilder<
@@ -133,9 +133,7 @@ export class DiscoverInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +145,16 @@ export class DiscoverInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DiscoverInstancesCommand)
   .de(de_DiscoverInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DiscoverInstancesRequest;
+      output: DiscoverInstancesResponse;
+    };
+    sdk: {
+      input: DiscoverInstancesCommandInput;
+      output: DiscoverInstancesCommandOutput;
+    };
+  };
+}

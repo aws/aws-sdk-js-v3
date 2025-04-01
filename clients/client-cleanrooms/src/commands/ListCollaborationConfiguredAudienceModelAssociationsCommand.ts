@@ -94,6 +94,7 @@ export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutp
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends $Command
@@ -104,9 +105,7 @@ export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends
   .f(void 0, void 0)
   .ser(se_ListCollaborationConfiguredAudienceModelAssociationsCommand)
   .de(de_ListCollaborationConfiguredAudienceModelAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollaborationConfiguredAudienceModelAssociationsInput;
+      output: ListCollaborationConfiguredAudienceModelAssociationsOutput;
+    };
+    sdk: {
+      input: ListCollaborationConfiguredAudienceModelAssociationsCommandInput;
+      output: ListCollaborationConfiguredAudienceModelAssociationsCommandOutput;
+    };
+  };
+}

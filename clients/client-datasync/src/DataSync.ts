@@ -236,6 +236,31 @@ import {
   UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
 import {
+  UpdateLocationEfsCommand,
+  UpdateLocationEfsCommandInput,
+  UpdateLocationEfsCommandOutput,
+} from "./commands/UpdateLocationEfsCommand";
+import {
+  UpdateLocationFsxLustreCommand,
+  UpdateLocationFsxLustreCommandInput,
+  UpdateLocationFsxLustreCommandOutput,
+} from "./commands/UpdateLocationFsxLustreCommand";
+import {
+  UpdateLocationFsxOntapCommand,
+  UpdateLocationFsxOntapCommandInput,
+  UpdateLocationFsxOntapCommandOutput,
+} from "./commands/UpdateLocationFsxOntapCommand";
+import {
+  UpdateLocationFsxOpenZfsCommand,
+  UpdateLocationFsxOpenZfsCommandInput,
+  UpdateLocationFsxOpenZfsCommandOutput,
+} from "./commands/UpdateLocationFsxOpenZfsCommand";
+import {
+  UpdateLocationFsxWindowsCommand,
+  UpdateLocationFsxWindowsCommandInput,
+  UpdateLocationFsxWindowsCommandOutput,
+} from "./commands/UpdateLocationFsxWindowsCommand";
+import {
   UpdateLocationHdfsCommand,
   UpdateLocationHdfsCommandInput,
   UpdateLocationHdfsCommandOutput,
@@ -250,6 +275,11 @@ import {
   UpdateLocationObjectStorageCommandInput,
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
+import {
+  UpdateLocationS3Command,
+  UpdateLocationS3CommandInput,
+  UpdateLocationS3CommandOutput,
+} from "./commands/UpdateLocationS3Command";
 import {
   UpdateLocationSmbCommand,
   UpdateLocationSmbCommandInput,
@@ -322,9 +352,15 @@ const commands = {
   UpdateAgentCommand,
   UpdateDiscoveryJobCommand,
   UpdateLocationAzureBlobCommand,
+  UpdateLocationEfsCommand,
+  UpdateLocationFsxLustreCommand,
+  UpdateLocationFsxOntapCommand,
+  UpdateLocationFsxOpenZfsCommand,
+  UpdateLocationFsxWindowsCommand,
   UpdateLocationHdfsCommand,
   UpdateLocationNfsCommand,
   UpdateLocationObjectStorageCommand,
+  UpdateLocationS3Command,
   UpdateLocationSmbCommand,
   UpdateStorageSystemCommand,
   UpdateTaskCommand,
@@ -1165,6 +1201,91 @@ export interface DataSync {
   ): void;
 
   /**
+   * @see {@link UpdateLocationEfsCommand}
+   */
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationEfsCommandOutput>;
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    cb: (err: any, data?: UpdateLocationEfsCommandOutput) => void
+  ): void;
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationEfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxLustreCommand}
+   */
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxLustreCommandOutput>;
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxLustreCommandOutput) => void
+  ): void;
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxLustreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxOntapCommand}
+   */
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxOntapCommandOutput>;
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxOntapCommandOutput) => void
+  ): void;
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxOntapCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxOpenZfsCommand}
+   */
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxOpenZfsCommandOutput>;
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxWindowsCommand}
+   */
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxWindowsCommandOutput>;
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxWindowsCommandOutput) => void
+  ): void;
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxWindowsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateLocationHdfsCommand}
    */
   updateLocationHdfs(
@@ -1213,6 +1334,23 @@ export interface DataSync {
     args: UpdateLocationObjectStorageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationS3Command}
+   */
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationS3CommandOutput>;
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    cb: (err: any, data?: UpdateLocationS3CommandOutput) => void
+  ): void;
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationS3CommandOutput) => void
   ): void;
 
   /**

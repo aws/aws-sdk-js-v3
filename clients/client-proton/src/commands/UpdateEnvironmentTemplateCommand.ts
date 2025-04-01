@@ -90,6 +90,7 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentTemplateCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateEnvironmentTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateEnvironmentTemplateCommand extends $Command
   .f(UpdateEnvironmentTemplateInputFilterSensitiveLog, UpdateEnvironmentTemplateOutputFilterSensitiveLog)
   .ser(se_UpdateEnvironmentTemplateCommand)
   .de(de_UpdateEnvironmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentTemplateInput;
+      output: UpdateEnvironmentTemplateOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentTemplateCommandInput;
+      output: UpdateEnvironmentTemplateCommandOutput;
+    };
+  };
+}

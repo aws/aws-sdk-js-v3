@@ -90,6 +90,7 @@ export interface ListCollaborationAnalysisTemplatesCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListCollaborationAnalysisTemplatesCommand extends $Command
@@ -100,9 +101,7 @@ export class ListCollaborationAnalysisTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListCollaborationAnalysisTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollaborationAnalysisTemplatesCommand)
   .de(de_ListCollaborationAnalysisTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollaborationAnalysisTemplatesInput;
+      output: ListCollaborationAnalysisTemplatesOutput;
+    };
+    sdk: {
+      input: ListCollaborationAnalysisTemplatesCommandInput;
+      output: ListCollaborationAnalysisTemplatesCommandOutput;
+    };
+  };
+}

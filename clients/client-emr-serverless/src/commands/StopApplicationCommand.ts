@@ -64,6 +64,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class StopApplicationCommand extends $Command
@@ -74,9 +75,7 @@ export class StopApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +87,16 @@ export class StopApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopApplicationCommand)
   .de(de_StopApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopApplicationCommandInput;
+      output: StopApplicationCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class CreateDedicatedIpPoolCommand extends $Command
@@ -87,9 +88,7 @@ export class CreateDedicatedIpPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class CreateDedicatedIpPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDedicatedIpPoolCommand)
   .de(de_CreateDedicatedIpPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDedicatedIpPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateDedicatedIpPoolCommandInput;
+      output: CreateDedicatedIpPoolCommandOutput;
+    };
+  };
+}

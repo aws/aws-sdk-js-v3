@@ -77,6 +77,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteHsmCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteHsmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHsmCommand)
   .de(de_DeleteHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHsmRequest;
+      output: DeleteHsmResponse;
+    };
+    sdk: {
+      input: DeleteHsmCommandInput;
+      output: DeleteHsmCommandOutput;
+    };
+  };
+}

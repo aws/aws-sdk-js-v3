@@ -21,11 +21,11 @@
  *          Security Lake, the IP address from which the request was made, who made the request, when it
  *          was made, and additional details. To learn more about Security Lake information in CloudTrail, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/securitylake-cloudtrail.html">Amazon Security Lake User Guide</a>.</p>
  *          <p>Security Lake automates the collection of security-related log and event data from
- *          integrated Amazon Web Services and third-party services. It also helps you manage
+ *          integrated Amazon Web Services services and third-party services. It also helps you manage
  *          the lifecycle of data with customizable retention and replication settings. Security Lake
  *          converts ingested data into Apache Parquet format and a standard open-source schema called
  *          the Open Cybersecurity Schema Framework (OCSF).</p>
- *          <p>Other Amazon Web Services and third-party services can subscribe to the data that's stored in Security Lake for
+ *          <p>Other Amazon Web Services services and third-party services can subscribe to the data that's stored in Security Lake for
  *          incident response and security data analytics.</p>
  *
  * @packageDocumentation

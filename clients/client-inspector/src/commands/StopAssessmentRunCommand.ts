@@ -72,18 +72,21 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Stop assessment run
  * ```javascript
  * // Stops the assessment run that is specified by the ARN of the assessment run.
  * const input = {
- *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+ *   assessmentRunArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
  * };
  * const command = new StopAssessmentRunCommand(input);
- * await client.send(command);
- * // example id: stop-assessment-run-1481067502857
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class StopAssessmentRunCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class StopAssessmentRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class StopAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopAssessmentRunCommand)
   .de(de_StopAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopAssessmentRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopAssessmentRunCommandInput;
+      output: StopAssessmentRunCommandOutput;
+    };
+  };
+}

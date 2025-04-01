@@ -102,6 +102,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkGroupCommand extends $Command
@@ -112,9 +113,7 @@ export class UpdateWorkGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class UpdateWorkGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkGroupCommand)
   .de(de_UpdateWorkGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkGroupInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkGroupCommandInput;
+      output: UpdateWorkGroupCommandOutput;
+    };
+  };
+}

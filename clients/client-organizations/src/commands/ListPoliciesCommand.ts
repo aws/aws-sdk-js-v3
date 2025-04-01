@@ -46,7 +46,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * // const { OrganizationsClient, ListPoliciesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListPoliciesRequest
- *   Filter: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Filter: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -59,7 +59,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //       AwsManaged: true || false,
  * //     },
  * //   ],
@@ -139,6 +139,9 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -179,6 +182,9 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -204,48 +210,48 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list policies in the organization
  * ```javascript
  * // The following example shows how to get a list of service control policies (SCPs):/n/n
  * const input = {
- *   "Filter": "SERVICE_CONTROL_POLICY"
+ *   Filter: "SERVICE_CONTROL_POLICY"
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policies": [
+ *   Policies: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "Enables account admins to delegate permissions for any S3 actions to users and roles in their accounts.",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "AllowAllS3Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "Enables account admins to delegate permissions for any S3 actions to users and roles in their accounts.",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "AllowAllS3Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
- *       "AwsManaged": false,
- *       "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
- *       "Id": "p-examplepolicyid222",
- *       "Name": "AllowAllEC2Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
+ *       AwsManaged: false,
+ *       Description: "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
+ *       Id: "p-examplepolicyid222",
+ *       Name: "AllowAllEC2Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
- *       "AwsManaged": true,
- *       "Description": "Allows access to every operation",
- *       "Id": "p-FullAWSAccess",
- *       "Name": "FullAWSAccess",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *       Arn: "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+ *       AwsManaged: true,
+ *       Description: "Allows access to every operation",
+ *       Id: "p-FullAWSAccess",
+ *       Name: "FullAWSAccess",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of--policies-in-the-organization
  * ```
  *
+ * @public
  */
 export class ListPoliciesCommand extends $Command
   .classBuilder<
@@ -255,9 +261,7 @@ export class ListPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +273,16 @@ export class ListPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPoliciesCommand)
   .de(de_ListPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesRequest;
+      output: ListPoliciesResponse;
+    };
+    sdk: {
+      input: ListPoliciesCommandInput;
+      output: ListPoliciesCommandOutput;
+    };
+  };
+}

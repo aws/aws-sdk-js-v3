@@ -95,6 +95,7 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateDetectorCommand extends $Command
@@ -105,9 +106,7 @@ export class BatchUpdateDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class BatchUpdateDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateDetectorCommand)
   .de(de_BatchUpdateDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateDetectorRequest;
+      output: BatchUpdateDetectorResponse;
+    };
+    sdk: {
+      input: BatchUpdateDetectorCommandInput;
+      output: BatchUpdateDetectorCommandOutput;
+    };
+  };
+}

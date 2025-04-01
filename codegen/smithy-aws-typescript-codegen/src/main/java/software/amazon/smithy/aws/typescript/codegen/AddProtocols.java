@@ -27,9 +27,23 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public class AddProtocols implements TypeScriptIntegration {
 
+    /**
+     * This order differs from the base protocol selection specification
+     * in that for JavaScript runtimes, JSON-based protocols have higher default priority than CBOR-based.
+     * This behavior may be fine-tuned at the service level in a case-by-case basis.
+     *
+     * @return a list of ProtocolGenerators in the default priority order, highest first.
+     */
     @Override
     public List<ProtocolGenerator> getProtocolGenerators() {
-        return ListUtils.of(new AwsRestJson1(), new AwsJsonRpc1_0(), new AwsJsonRpc1_1(),
-                new AwsRestXml(), new AwsQuery(), new AwsEc2());
+        return ListUtils.of(
+            new AwsJsonRpc1_0(),
+            new AwsJsonRpc1_1(),
+            new AwsRestJson1(),
+            new AwsSmithyRpcV2Cbor(),
+            new AwsRestXml(),
+            new AwsQuery(),
+            new AwsEc2()
+        );
     }
 }

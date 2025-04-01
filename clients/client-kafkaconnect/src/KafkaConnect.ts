@@ -38,6 +38,11 @@ import {
   DescribeConnectorCommandOutput,
 } from "./commands/DescribeConnectorCommand";
 import {
+  DescribeConnectorOperationCommand,
+  DescribeConnectorOperationCommandInput,
+  DescribeConnectorOperationCommandOutput,
+} from "./commands/DescribeConnectorOperationCommand";
+import {
   DescribeCustomPluginCommand,
   DescribeCustomPluginCommandInput,
   DescribeCustomPluginCommandOutput,
@@ -47,6 +52,11 @@ import {
   DescribeWorkerConfigurationCommandInput,
   DescribeWorkerConfigurationCommandOutput,
 } from "./commands/DescribeWorkerConfigurationCommand";
+import {
+  ListConnectorOperationsCommand,
+  ListConnectorOperationsCommandInput,
+  ListConnectorOperationsCommandOutput,
+} from "./commands/ListConnectorOperationsCommand";
 import {
   ListConnectorsCommand,
   ListConnectorsCommandInput,
@@ -88,8 +98,10 @@ const commands = {
   DeleteCustomPluginCommand,
   DeleteWorkerConfigurationCommand,
   DescribeConnectorCommand,
+  DescribeConnectorOperationCommand,
   DescribeCustomPluginCommand,
   DescribeWorkerConfigurationCommand,
+  ListConnectorOperationsCommand,
   ListConnectorsCommand,
   ListCustomPluginsCommand,
   ListTagsForResourceCommand,
@@ -214,6 +226,23 @@ export interface KafkaConnect {
   ): void;
 
   /**
+   * @see {@link DescribeConnectorOperationCommand}
+   */
+  describeConnectorOperation(
+    args: DescribeConnectorOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectorOperationCommandOutput>;
+  describeConnectorOperation(
+    args: DescribeConnectorOperationCommandInput,
+    cb: (err: any, data?: DescribeConnectorOperationCommandOutput) => void
+  ): void;
+  describeConnectorOperation(
+    args: DescribeConnectorOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectorOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCustomPluginCommand}
    */
   describeCustomPlugin(
@@ -245,6 +274,23 @@ export interface KafkaConnect {
     args: DescribeWorkerConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeWorkerConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectorOperationsCommand}
+   */
+  listConnectorOperations(
+    args: ListConnectorOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorOperationsCommandOutput>;
+  listConnectorOperations(
+    args: ListConnectorOperationsCommandInput,
+    cb: (err: any, data?: ListConnectorOperationsCommandOutput) => void
+  ): void;
+  listConnectorOperations(
+    args: ListConnectorOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorOperationsCommandOutput) => void
   ): void;
 
   /**

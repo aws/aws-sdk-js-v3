@@ -138,41 +138,41 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "CNAMEPrefix": "my-app",
- *   "EnvironmentName": "my-env",
- *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *   "VersionLabel": "v1"
+ *   ApplicationName: "my-app",
+ *   CNAMEPrefix: "my-app",
+ *   EnvironmentName: "my-env",
+ *   SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   VersionLabel: "v1"
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationName": "my-app",
- *   "CNAME": "my-app.elasticbeanstalk.com",
- *   "DateCreated": "2015-02-03T23:04:54.479Z",
- *   "DateUpdated": "2015-02-03T23:04:54.479Z",
- *   "EnvironmentId": "e-izqpassy4h",
- *   "EnvironmentName": "my-env",
- *   "Health": "Grey",
- *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *   "Status": "Launching",
- *   "Tier": {
- *     "Name": "WebServer",
- *     "Type": "Standard",
- *     "Version": " "
+ *   ApplicationName: "my-app",
+ *   CNAME: "my-app.elasticbeanstalk.com",
+ *   DateCreated: "2015-02-03T23:04:54.479Z",
+ *   DateUpdated: "2015-02-03T23:04:54.479Z",
+ *   EnvironmentId: "e-izqpassy4h",
+ *   EnvironmentName: "my-env",
+ *   Health: "Grey",
+ *   SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   Status: "Launching",
+ *   Tier: {
+ *     Name: "WebServer",
+ *     Type: "Standard",
+ *     Version: " "
  *   },
- *   "VersionLabel": "v1"
+ *   VersionLabel: "v1"
  * }
  * *\/
- * // example id: to-create-a-new-environment-for-an-application-1456269380396
  * ```
  *
+ * @public
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<
@@ -182,9 +182,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +194,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentMessage;
+      output: EnvironmentDescription;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

@@ -68,6 +68,7 @@ export interface GetAgentConfigurationCommandOutput extends GetAgentConfiguratio
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetAgentConfigurationCommand extends $Command
@@ -78,9 +79,7 @@ export class GetAgentConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class GetAgentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgentConfigurationCommand)
   .de(de_GetAgentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentConfigurationRequest;
+      output: GetAgentConfigurationResponse;
+    };
+    sdk: {
+      input: GetAgentConfigurationCommandInput;
+      output: GetAgentConfigurationCommandOutput;
+    };
+  };
+}

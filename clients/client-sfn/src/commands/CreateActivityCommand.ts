@@ -59,6 +59,11 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE",
+ *     kmsDataKeyReusePeriodSeconds: Number("int"),
+ *     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ *   },
  * };
  * const command = new CreateActivityCommand(input);
  * const response = await client.send(command);
@@ -75,12 +80,24 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @see {@link CreateActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ActivityAlreadyExists} (client fault)
+ *  <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+ *
  * @throws {@link ActivityLimitExceeded} (client fault)
  *  <p>The maximum number of activities has been reached. Existing activities must be deleted
  *       before a new activity can be created.</p>
  *
+ * @throws {@link InvalidEncryptionConfiguration} (client fault)
+ *  <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ *
  * @throws {@link InvalidName} (client fault)
  *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
  *
  * @throws {@link TooManyTags} (client fault)
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
@@ -88,6 +105,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -99,9 +117,7 @@ export class CreateActivityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +129,16 @@ export class CreateActivityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActivityCommand)
   .de(de_CreateActivityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActivityInput;
+      output: CreateActivityOutput;
+    };
+    sdk: {
+      input: CreateActivityCommandInput;
+      output: CreateActivityCommandOutput;
+    };
+  };
+}

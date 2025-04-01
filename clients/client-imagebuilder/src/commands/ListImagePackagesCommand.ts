@@ -92,6 +92,7 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImagePackagesCommand extends $Command
@@ -102,9 +103,7 @@ export class ListImagePackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class ListImagePackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagePackagesCommand)
   .de(de_ListImagePackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagePackagesRequest;
+      output: ListImagePackagesResponse;
+    };
+    sdk: {
+      input: ListImagePackagesCommandInput;
+      output: ListImagePackagesCommandOutput;
+    };
+  };
+}

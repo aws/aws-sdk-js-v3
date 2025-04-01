@@ -82,6 +82,7 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class CancelZonalShiftCommand extends $Command
@@ -92,9 +93,7 @@ export class CancelZonalShiftCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class CancelZonalShiftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelZonalShiftCommand)
   .de(de_CancelZonalShiftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelZonalShiftRequest;
+      output: ZonalShift;
+    };
+    sdk: {
+      input: CancelZonalShiftCommandInput;
+      output: CancelZonalShiftCommandOutput;
+    };
+  };
+}

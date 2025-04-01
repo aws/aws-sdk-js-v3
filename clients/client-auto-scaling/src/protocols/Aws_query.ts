@@ -253,7 +253,10 @@ import {
   AutoScalingGroupsType,
   AutoScalingInstanceDetails,
   AutoScalingInstancesType,
+  AvailabilityZoneDistribution,
+  AvailabilityZoneImpairmentPolicy,
   BaselineEbsBandwidthMbpsRequest,
+  BaselinePerformanceFactorsRequest,
   BatchDeleteScheduledActionAnswer,
   BatchDeleteScheduledActionType,
   BatchPutScheduledUpdateGroupActionAnswer,
@@ -262,9 +265,12 @@ import {
   CancelInstanceRefreshAnswer,
   CancelInstanceRefreshType,
   CapacityForecast,
+  CapacityReservationSpecification,
+  CapacityReservationTarget,
   CompleteLifecycleActionAnswer,
   CompleteLifecycleActionType,
   CpuManufacturer,
+  CpuPerformanceFactorRequest,
   CreateAutoScalingGroupType,
   CreateLaunchConfigurationType,
   CreateOrUpdateTagsType,
@@ -366,6 +372,7 @@ import {
   NetworkBandwidthGbpsRequest,
   NetworkInterfaceCountRequest,
   NotificationConfiguration,
+  PerformanceFactorReferenceRequest,
   PoliciesType,
   PolicyARNType,
   PredefinedMetricSpecification,
@@ -3179,6 +3186,9 @@ const se_AttachTrafficSourcesType = (input: AttachTrafficSourcesType, context: _
       entries[loc] = value;
     });
   }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
+  }
   return entries;
 };
 
@@ -3249,6 +3259,31 @@ const se_AutoScalingNotificationTypes = (input: string[], context: __SerdeContex
 };
 
 /**
+ * serializeAws_queryAvailabilityZoneDistribution
+ */
+const se_AvailabilityZoneDistribution = (input: AvailabilityZoneDistribution, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CDS] != null) {
+    entries[_CDS] = input[_CDS];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAvailabilityZoneImpairmentPolicy
+ */
+const se_AvailabilityZoneImpairmentPolicy = (input: AvailabilityZoneImpairmentPolicy, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ZSE] != null) {
+    entries[_ZSE] = input[_ZSE];
+  }
+  if (input[_IZHCB] != null) {
+    entries[_IZHCB] = input[_IZHCB];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryAvailabilityZones
  */
 const se_AvailabilityZones = (input: string[], context: __SerdeContext): any => {
@@ -3274,6 +3309,24 @@ const se_BaselineEbsBandwidthMbpsRequest = (input: BaselineEbsBandwidthMbpsReque
   }
   if (input[_Ma] != null) {
     entries[_Ma] = input[_Ma];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryBaselinePerformanceFactorsRequest
+ */
+const se_BaselinePerformanceFactorsRequest = (
+  input: BaselinePerformanceFactorsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_C] != null) {
+    const memberEntries = se_CpuPerformanceFactorRequest(input[_C], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Cpu.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3378,6 +3431,84 @@ const se_CancelInstanceRefreshType = (input: CancelInstanceRefreshType, context:
 };
 
 /**
+ * serializeAws_queryCapacityReservationIds
+ */
+const se_CapacityReservationIds = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCapacityReservationResourceGroupArns
+ */
+const se_CapacityReservationResourceGroupArns = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCapacityReservationSpecification
+ */
+const se_CapacityReservationSpecification = (input: CapacityReservationSpecification, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CRP] != null) {
+    entries[_CRP] = input[_CRP];
+  }
+  if (input[_CRT] != null) {
+    const memberEntries = se_CapacityReservationTarget(input[_CRT], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationTarget.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCapacityReservationTarget
+ */
+const se_CapacityReservationTarget = (input: CapacityReservationTarget, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CRI] != null) {
+    const memberEntries = se_CapacityReservationIds(input[_CRI], context);
+    if (input[_CRI]?.length === 0) {
+      entries.CapacityReservationIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CRRGA] != null) {
+    const memberEntries = se_CapacityReservationResourceGroupArns(input[_CRRGA], context);
+    if (input[_CRRGA]?.length === 0) {
+      entries.CapacityReservationResourceGroupArns = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationResourceGroupArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCheckpointPercentages
  */
 const se_CheckpointPercentages = (input: number[], context: __SerdeContext): any => {
@@ -3444,6 +3575,24 @@ const se_CpuManufacturers = (input: CpuManufacturer[], context: __SerdeContext):
     }
     entries[`member.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCpuPerformanceFactorRequest
+ */
+const se_CpuPerformanceFactorRequest = (input: CpuPerformanceFactorRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_PerformanceFactorReferenceSetRequest(input[_R], context);
+    if (input[_R]?.length === 0) {
+      entries.Reference = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Reference.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3572,8 +3721,8 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
   if (input[_MIL] != null) {
     entries[_MIL] = input[_MIL];
   }
-  if (input[_C] != null) {
-    entries[_C] = input[_C];
+  if (input[_Co] != null) {
+    entries[_Co] = input[_Co];
   }
   if (input[_DCT] != null) {
     entries[_DCT] = input[_DCT];
@@ -3595,6 +3744,30 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
     const memberEntries = se_InstanceMaintenancePolicy(input[_IMP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceMaintenancePolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZD] != null) {
+    const memberEntries = se_AvailabilityZoneDistribution(input[_AZD], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneDistribution.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZIP] != null) {
+    const memberEntries = se_AvailabilityZoneImpairmentPolicy(input[_AZIP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneImpairmentPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
+  }
+  if (input[_CRS] != null) {
+    const memberEntries = se_CapacityReservationSpecification(input[_CRS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
     });
   }
@@ -3739,6 +3912,9 @@ const se_CustomizedMetricSpecification = (input: CustomizedMetricSpecification, 
   }
   if (input[_U] != null) {
     entries[_U] = input[_U];
+  }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
   if (input[_Me] != null) {
     const memberEntries = se_TargetTrackingMetricDataQueries(input[_Me], context);
@@ -4744,6 +4920,13 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
       entries[loc] = value;
     });
   }
+  if (input[_BPF] != null) {
+    const memberEntries = se_BaselinePerformanceFactorsRequest(input[_BPF], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BaselinePerformanceFactors.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -5239,6 +5422,42 @@ const se_Overrides = (input: LaunchTemplateOverrides[], context: __SerdeContext)
 };
 
 /**
+ * serializeAws_queryPerformanceFactorReferenceRequest
+ */
+const se_PerformanceFactorReferenceRequest = (
+  input: PerformanceFactorReferenceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_IF] != null) {
+    entries[_IF] = input[_IF];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryPerformanceFactorReferenceSetRequest
+ */
+const se_PerformanceFactorReferenceSetRequest = (
+  input: PerformanceFactorReferenceRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_PerformanceFactorReferenceRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryPolicyNames
  */
 const se_PolicyNames = (input: string[], context: __SerdeContext): any => {
@@ -5604,8 +5823,8 @@ const se_PutScalingPolicyType = (input: PutScalingPolicyType, context: __SerdeCo
   if (input[_SA] != null) {
     entries[_SA] = input[_SA];
   }
-  if (input[_Co] != null) {
-    entries[_Co] = input[_Co];
+  if (input[_Coo] != null) {
+    entries[_Coo] = input[_Coo];
   }
   if (input[_MAT] != null) {
     entries[_MAT] = input[_MAT];
@@ -5666,8 +5885,8 @@ const se_PutScheduledUpdateGroupActionType = (
   if (input[_ET] != null) {
     entries[_ET] = __serializeDateTime(input[_ET]);
   }
-  if (input[_R] != null) {
-    entries[_R] = input[_R];
+  if (input[_Re] != null) {
+    entries[_Re] = input[_Re];
   }
   if (input[_MS] != null) {
     entries[_MS] = input[_MS];
@@ -5780,6 +5999,9 @@ const se_RefreshPreferences = (input: RefreshPreferences, context: __SerdeContex
   if (input[_MHPa] != null) {
     entries[_MHPa] = input[_MHPa];
   }
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
+  }
   return entries;
 };
 
@@ -5848,8 +6070,8 @@ const se_ScheduledUpdateGroupActionRequest = (
   if (input[_ET] != null) {
     entries[_ET] = __serializeDateTime(input[_ET]);
   }
-  if (input[_R] != null) {
-    entries[_R] = input[_R];
+  if (input[_Re] != null) {
+    entries[_Re] = input[_Re];
   }
   if (input[_MS] != null) {
     entries[_MS] = input[_MS];
@@ -5980,8 +6202,8 @@ const se_StartInstanceRefreshType = (input: StartInstanceRefreshType, context: _
       entries[loc] = value;
     });
   }
-  if (input[_P] != null) {
-    const memberEntries = se_RefreshPreferences(input[_P], context);
+  if (input[_Pr] != null) {
+    const memberEntries = se_RefreshPreferences(input[_Pr], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Preferences.${key}`;
       entries[loc] = value;
@@ -6152,6 +6374,9 @@ const se_TargetTrackingMetricDataQuery = (input: TargetTrackingMetricDataQuery, 
   if (input[_L] != null) {
     entries[_L] = input[_L];
   }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
+  }
   if (input[_RD] != null) {
     entries[_RD] = input[_RD];
   }
@@ -6175,6 +6400,9 @@ const se_TargetTrackingMetricStat = (input: TargetTrackingMetricStat, context: _
   }
   if (input[_U] != null) {
     entries[_U] = input[_U];
+  }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
   return entries;
 };
@@ -6340,8 +6568,8 @@ const se_UpdateAutoScalingGroupType = (input: UpdateAutoScalingGroupType, contex
   if (input[_CR] != null) {
     entries[_CR] = input[_CR];
   }
-  if (input[_C] != null) {
-    entries[_C] = input[_C];
+  if (input[_Co] != null) {
+    entries[_Co] = input[_Co];
   }
   if (input[_DCT] != null) {
     entries[_DCT] = input[_DCT];
@@ -6353,6 +6581,30 @@ const se_UpdateAutoScalingGroupType = (input: UpdateAutoScalingGroupType, contex
     const memberEntries = se_InstanceMaintenancePolicy(input[_IMP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceMaintenancePolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZD] != null) {
+    const memberEntries = se_AvailabilityZoneDistribution(input[_AZD], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneDistribution.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZIP] != null) {
+    const memberEntries = se_AvailabilityZoneImpairmentPolicy(input[_AZIP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneImpairmentPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
+  }
+  if (input[_CRS] != null) {
+    const memberEntries = se_CapacityReservationSpecification(input[_CRS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
     });
   }
@@ -6523,8 +6775,8 @@ const de_Activity = (output: any, context: __SerdeContext): Activity => {
   if (output[_SMt] != null) {
     contents[_SMt] = __expectString(output[_SMt]);
   }
-  if (output[_Pr] != null) {
-    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
+  if (output[_Pro] != null) {
+    contents[_Pro] = __strictParseInt32(output[_Pro]) as number;
   }
   if (output[_Det] != null) {
     contents[_Det] = __expectString(output[_Det]);
@@ -6780,8 +7032,8 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_WPS] != null) {
     contents[_WPS] = __strictParseInt32(output[_WPS]) as number;
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_DCT] != null) {
     contents[_DCT] = __expectString(output[_DCT]);
@@ -6796,6 +7048,15 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   }
   if (output[_IMP] != null) {
     contents[_IMP] = de_InstanceMaintenancePolicy(output[_IMP], context);
+  }
+  if (output[_AZD] != null) {
+    contents[_AZD] = de_AvailabilityZoneDistribution(output[_AZD], context);
+  }
+  if (output[_AZIP] != null) {
+    contents[_AZIP] = de_AvailabilityZoneImpairmentPolicy(output[_AZIP], context);
+  }
+  if (output[_CRS] != null) {
+    contents[_CRS] = de_CapacityReservationSpecification(output[_CRS], context);
   }
   return contents;
 };
@@ -6904,6 +7165,34 @@ const de_AutoScalingNotificationTypes = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_queryAvailabilityZoneDistribution
+ */
+const de_AvailabilityZoneDistribution = (output: any, context: __SerdeContext): AvailabilityZoneDistribution => {
+  const contents: any = {};
+  if (output[_CDS] != null) {
+    contents[_CDS] = __expectString(output[_CDS]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAvailabilityZoneImpairmentPolicy
+ */
+const de_AvailabilityZoneImpairmentPolicy = (
+  output: any,
+  context: __SerdeContext
+): AvailabilityZoneImpairmentPolicy => {
+  const contents: any = {};
+  if (output[_ZSE] != null) {
+    contents[_ZSE] = __parseBoolean(output[_ZSE]);
+  }
+  if (output[_IZHCB] != null) {
+    contents[_IZHCB] = __expectString(output[_IZHCB]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryAvailabilityZones
  */
 const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
@@ -6924,6 +7213,20 @@ const de_BaselineEbsBandwidthMbpsRequest = (output: any, context: __SerdeContext
   }
   if (output[_Ma] != null) {
     contents[_Ma] = __strictParseInt32(output[_Ma]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryBaselinePerformanceFactorsRequest
+ */
+const de_BaselinePerformanceFactorsRequest = (
+  output: any,
+  context: __SerdeContext
+): BaselinePerformanceFactorsRequest => {
+  const contents: any = {};
+  if (output[_C] != null) {
+    contents[_C] = de_CpuPerformanceFactorRequest(output[_C], context);
   }
   return contents;
 };
@@ -7024,6 +7327,63 @@ const de_CapacityForecast = (output: any, context: __SerdeContext): CapacityFore
 };
 
 /**
+ * deserializeAws_queryCapacityReservationIds
+ */
+const de_CapacityReservationIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryCapacityReservationResourceGroupArns
+ */
+const de_CapacityReservationResourceGroupArns = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryCapacityReservationSpecification
+ */
+const de_CapacityReservationSpecification = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationSpecification => {
+  const contents: any = {};
+  if (output[_CRP] != null) {
+    contents[_CRP] = __expectString(output[_CRP]);
+  }
+  if (output[_CRT] != null) {
+    contents[_CRT] = de_CapacityReservationTarget(output[_CRT], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityReservationTarget
+ */
+const de_CapacityReservationTarget = (output: any, context: __SerdeContext): CapacityReservationTarget => {
+  const contents: any = {};
+  if (output.CapacityReservationIds === "") {
+    contents[_CRI] = [];
+  } else if (output[_CRI] != null && output[_CRI][_me] != null) {
+    contents[_CRI] = de_CapacityReservationIds(__getArrayIfSingleItem(output[_CRI][_me]), context);
+  }
+  if (output.CapacityReservationResourceGroupArns === "") {
+    contents[_CRRGA] = [];
+  } else if (output[_CRRGA] != null && output[_CRRGA][_me] != null) {
+    contents[_CRRGA] = de_CapacityReservationResourceGroupArns(__getArrayIfSingleItem(output[_CRRGA][_me]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCheckpointPercentages
  */
 const de_CheckpointPercentages = (output: any, context: __SerdeContext): number[] => {
@@ -7065,6 +7425,19 @@ const de_CpuManufacturers = (output: any, context: __SerdeContext): CpuManufactu
 };
 
 /**
+ * deserializeAws_queryCpuPerformanceFactorRequest
+ */
+const de_CpuPerformanceFactorRequest = (output: any, context: __SerdeContext): CpuPerformanceFactorRequest => {
+  const contents: any = {};
+  if (output.Reference === "") {
+    contents[_R] = [];
+  } else if (output[_Ref] != null && output[_Ref][_i] != null) {
+    contents[_R] = de_PerformanceFactorReferenceSetRequest(__getArrayIfSingleItem(output[_Ref][_i]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCustomizedMetricSpecification
  */
 const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext): CustomizedMetricSpecification => {
@@ -7085,6 +7458,9 @@ const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext):
   }
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
+  }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
   if (output.Metrics === "") {
     contents[_Me] = [];
@@ -7651,8 +8027,8 @@ const de_InstanceRefresh = (output: any, context: __SerdeContext): InstanceRefre
   if (output[_PD] != null) {
     contents[_PD] = de_InstanceRefreshProgressDetails(output[_PD], context);
   }
-  if (output[_P] != null) {
-    contents[_P] = de_RefreshPreferences(output[_P], context);
+  if (output[_Pr] != null) {
+    contents[_Pr] = de_RefreshPreferences(output[_Pr], context);
   }
   if (output[_DCes] != null) {
     contents[_DCes] = de_DesiredConfiguration(output[_DCes], context);
@@ -7819,6 +8195,9 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
     contents[_AIT] = [];
   } else if (output[_AIT] != null && output[_AIT][_me] != null) {
     contents[_AIT] = de_AllowedInstanceTypes(__getArrayIfSingleItem(output[_AIT][_me]), context);
+  }
+  if (output[_BPF] != null) {
+    contents[_BPF] = de_BaselinePerformanceFactorsRequest(output[_BPF], context);
   }
   return contents;
 };
@@ -8460,6 +8839,34 @@ const de_Overrides = (output: any, context: __SerdeContext): LaunchTemplateOverr
 };
 
 /**
+ * deserializeAws_queryPerformanceFactorReferenceRequest
+ */
+const de_PerformanceFactorReferenceRequest = (
+  output: any,
+  context: __SerdeContext
+): PerformanceFactorReferenceRequest => {
+  const contents: any = {};
+  if (output[_IF] != null) {
+    contents[_IF] = __expectString(output[_IF]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryPerformanceFactorReferenceSetRequest
+ */
+const de_PerformanceFactorReferenceSetRequest = (
+  output: any,
+  context: __SerdeContext
+): PerformanceFactorReferenceRequest[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PerformanceFactorReferenceRequest(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryPoliciesType
  */
 const de_PoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
@@ -8714,9 +9121,9 @@ const de_Processes = (output: any, context: __SerdeContext): ProcessType[] => {
 const de_ProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
   const contents: any = {};
   if (output.Processes === "") {
-    contents[_Pro] = [];
-  } else if (output[_Pro] != null && output[_Pro][_me] != null) {
-    contents[_Pro] = de_Processes(__getArrayIfSingleItem(output[_Pro][_me]), context);
+    contents[_Proc] = [];
+  } else if (output[_Proc] != null && output[_Proc][_me] != null) {
+    contents[_Proc] = de_Processes(__getArrayIfSingleItem(output[_Proc][_me]), context);
   }
   return contents;
 };
@@ -8795,6 +9202,9 @@ const de_RefreshPreferences = (output: any, context: __SerdeContext): RefreshPre
   }
   if (output[_MHPa] != null) {
     contents[_MHPa] = __strictParseInt32(output[_MHPa]) as number;
+  }
+  if (output[_BTa] != null) {
+    contents[_BTa] = __strictParseInt32(output[_BTa]) as number;
   }
   return contents;
 };
@@ -8906,8 +9316,8 @@ const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy =
   if (output[_SA] != null) {
     contents[_SA] = __strictParseInt32(output[_SA]) as number;
   }
-  if (output[_Co] != null) {
-    contents[_Co] = __strictParseInt32(output[_Co]) as number;
+  if (output[_Coo] != null) {
+    contents[_Coo] = __strictParseInt32(output[_Coo]) as number;
   }
   if (output.StepAdjustments === "") {
     contents[_SAt] = [];
@@ -8976,8 +9386,8 @@ const de_ScheduledUpdateGroupAction = (output: any, context: __SerdeContext): Sc
   if (output[_ET] != null) {
     contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
   }
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   if (output[_MS] != null) {
     contents[_MS] = __strictParseInt32(output[_MS]) as number;
@@ -9208,6 +9618,9 @@ const de_TargetTrackingMetricDataQuery = (output: any, context: __SerdeContext):
   if (output[_L] != null) {
     contents[_L] = __expectString(output[_L]);
   }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
+  }
   if (output[_RD] != null) {
     contents[_RD] = __parseBoolean(output[_RD]);
   }
@@ -9227,6 +9640,9 @@ const de_TargetTrackingMetricStat = (output: any, context: __SerdeContext): Targ
   }
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
+  }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
   return contents;
 };
@@ -9419,6 +9835,8 @@ const _ATS = "AttachTrafficSources";
 const _ATd = "AdjustmentType";
 const _ATdj = "AdjustmentTypes";
 const _AZ = "AvailabilityZones";
+const _AZD = "AvailabilityZoneDistribution";
+const _AZIP = "AvailabilityZoneImpairmentPolicy";
 const _AZv = "AvailabilityZone";
 const _Ac = "Activities";
 const _Act = "Activity";
@@ -9428,12 +9846,15 @@ const _BDSA = "BatchDeleteScheduledAction";
 const _BEBM = "BaselineEbsBandwidthMbps";
 const _BM = "BareMetal";
 const _BP = "BurstablePerformance";
+const _BPF = "BaselinePerformanceFactors";
 const _BPSUGA = "BatchPutScheduledUpdateGroupAction";
 const _BT = "BreachThreshold";
-const _C = "Context";
+const _BTa = "BakeTime";
+const _C = "Cpu";
 const _CASG = "CreateAutoScalingGroup";
 const _CCMS = "CustomizedCapacityMetricSpecification";
 const _CD = "CheckpointDelay";
+const _CDS = "CapacityDistributionStrategy";
 const _CF = "CapacityForecast";
 const _CIR = "CancelInstanceRefresh";
 const _CLA = "CompleteLifecycleAction";
@@ -9446,10 +9867,16 @@ const _CMS = "CustomizedMetricSpecification";
 const _COUT = "CreateOrUpdateTags";
 const _CP = "CheckpointPercentages";
 const _CR = "CapacityRebalance";
+const _CRI = "CapacityReservationIds";
+const _CRP = "CapacityReservationPreference";
+const _CRRGA = "CapacityReservationResourceGroupArns";
+const _CRS = "CapacityReservationSpecification";
+const _CRT = "CapacityReservationTarget";
 const _CSMS = "CustomizedScalingMetricSpecification";
 const _CT = "CreatedTime";
 const _Ca = "Cause";
-const _Co = "Cooldown";
+const _Co = "Context";
+const _Coo = "Cooldown";
 const _D = "Dimensions";
 const _DAL = "DescribeAccountLimits";
 const _DASG = "DeleteAutoScalingGroup";
@@ -9530,6 +9957,7 @@ const _HTe = "HeartbeatTimeout";
 const _I = "Iops";
 const _ID = "InstancesDistribution";
 const _IDG = "IncludeDeletedGroups";
+const _IF = "InstanceFamily";
 const _IG = "InstanceGenerations";
 const _II = "InstanceIds";
 const _IIP = "IamInstanceProfile";
@@ -9546,6 +9974,7 @@ const _IT = "InstanceType";
 const _ITU = "InstancesToUpdate";
 const _ITUOR = "InstancesToUpdateOnRollback";
 const _IW = "InstanceWarmup";
+const _IZHCB = "ImpairedZoneHealthCheckBehavior";
 const _Id = "Id";
 const _Ide = "Identifier";
 const _In = "Instances";
@@ -9630,7 +10059,7 @@ const _ODAS = "OnDemandAllocationStrategy";
 const _ODBC = "OnDemandBaseCapacity";
 const _ODMPPOLP = "OnDemandMaxPricePercentageOverLowestPrice";
 const _ODPABC = "OnDemandPercentageAboveBaseCapacity";
-const _P = "Preferences";
+const _P = "Period";
 const _PAL = "PropagateAtLaunch";
 const _PARN = "PolicyARN";
 const _PC = "PredictedCapacity";
@@ -9658,9 +10087,10 @@ const _PT = "PlacementTenancy";
 const _PTo = "PolicyTypes";
 const _PTol = "PolicyType";
 const _PWP = "PutWarmPool";
-const _Pr = "Progress";
-const _Pro = "Processes";
-const _R = "Recurrence";
+const _Pr = "Preferences";
+const _Pro = "Progress";
+const _Proc = "Processes";
+const _R = "References";
 const _RARN = "RoleARN";
 const _RD = "ReturnData";
 const _RDo = "RollbackDetails";
@@ -9675,6 +10105,8 @@ const _RP = "ResumeProcesses";
 const _RR = "RollbackReason";
 const _RST = "RollbackStartTime";
 const _RT = "ResourceType";
+const _Re = "Recurrence";
+const _Ref = "Reference";
 const _S = "Statistic";
 const _SA = "ScalingAdjustment";
 const _SAARN = "ScheduledActionARN";
@@ -9709,6 +10141,7 @@ const _SRGP = "ShouldRespectGracePeriod";
 const _SRu = "SuspensionReason";
 const _ST = "StartTime";
 const _SUGA = "ScheduledUpdateGroupActions";
+const _SZSV = "SkipZonalShiftValidation";
 const _St = "Stat";
 const _Sta = "Status";
 const _Stat = "State";
@@ -9746,6 +10179,8 @@ const _WC = "WeightedCapacity";
 const _WPC = "WarmPoolConfiguration";
 const _WPP = "WarmPoolProgress";
 const _WPS = "WarmPoolSize";
+const _ZSE = "ZonalShiftEnabled";
+const _i = "item";
 const _m = "message";
 const _me = "member";
 

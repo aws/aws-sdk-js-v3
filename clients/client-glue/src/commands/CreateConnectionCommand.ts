@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_1";
+import {
+  CreateConnectionRequest,
+  CreateConnectionRequestFilterSensitiveLog,
+  CreateConnectionResponse,
+} from "../models/models_1";
 import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -41,11 +45,20 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *   ConnectionInput: { // ConnectionInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE", // required
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA" || "GOOGLEADS" || "GOOGLESHEETS" || "GOOGLEANALYTICS4" || "SERVICENOW" || "MARKETO" || "SAPODATA" || "ZENDESK" || "JIRACLOUD" || "NETSUITEERP" || "HUBSPOT" || "FACEBOOKADS" || "INSTAGRAMADS" || "ZOHOCRM" || "SALESFORCEPARDOT" || "SALESFORCEMARKETINGCLOUD" || "SLACK" || "STRIPE" || "INTERCOM" || "SNAPCHATADS", // required
  *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
  *     ConnectionProperties: { // ConnectionProperties // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     SparkProperties: { // PropertyMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     AthenaProperties: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     PythonProperties: {
  *       "<keys>": "STRING_VALUE",
  *     },
  *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
@@ -56,8 +69,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *       AvailabilityZone: "STRING_VALUE",
  *     },
  *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
- *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
- *       SecretArn: "STRING_VALUE",
+ *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM" || "IAM",
  *       OAuth2Properties: { // OAuth2PropertiesInput
  *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
  *         OAuth2ClientApplication: { // OAuth2ClientApplication
@@ -72,9 +84,27 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *           AuthorizationCode: "STRING_VALUE",
  *           RedirectUri: "STRING_VALUE",
  *         },
+ *         OAuth2Credentials: { // OAuth2Credentials
+ *           UserManagedClientApplicationClientSecret: "STRING_VALUE",
+ *           AccessToken: "STRING_VALUE",
+ *           RefreshToken: "STRING_VALUE",
+ *           JwtToken: "STRING_VALUE",
+ *         },
+ *       },
+ *       SecretArn: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *       BasicAuthenticationCredentials: { // BasicAuthenticationCredentials
+ *         Username: "STRING_VALUE",
+ *         Password: "STRING_VALUE",
+ *       },
+ *       CustomAuthenticationCredentials: { // CredentialMap
+ *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *     ValidateCredentials: true || false,
+ *     ValidateForComputeEnvironments: [ // ComputeEnvironmentList
+ *       "SPARK" || "ATHENA" || "PYTHON",
+ *     ],
  *   },
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -112,6 +142,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionCommand extends $Command
@@ -122,9 +153,7 @@ export class CreateConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,7 +162,19 @@ export class CreateConnectionCommand extends $Command
   })
   .s("AWSGlue", "CreateConnection", {})
   .n("GlueClient", "CreateConnectionCommand")
-  .f(void 0, void 0)
+  .f(CreateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectionCommand)
   .de(de_CreateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectionRequest;
+      output: CreateConnectionResponse;
+    };
+    sdk: {
+      input: CreateConnectionCommandInput;
+      output: CreateConnectionCommandOutput;
+    };
+  };
+}

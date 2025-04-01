@@ -28,7 +28,7 @@ export interface ListFoundationModelsCommandInput extends ListFoundationModelsRe
 export interface ListFoundationModelsCommandOutput extends ListFoundationModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon Bedrock foundation models that you can use. You can filter the results with the request parameters. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Lists Amazon Bedrock foundation models that you can use. You can filter the results with the request parameters. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,7 +37,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * const client = new BedrockClient(config);
  * const input = { // ListFoundationModelsRequest
  *   byProvider: "STRING_VALUE",
- *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  *   byOutputModality: "TEXT" || "IMAGE" || "EMBEDDING",
  *   byInferenceType: "ON_DEMAND" || "PROVISIONED",
  * };
@@ -58,7 +58,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * //       ],
  * //       responseStreamingSupported: true || false,
  * //       customizationsSupported: [ // ModelCustomizationList
- * //         "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //         "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //       ],
  * //       inferenceTypesSupported: [ // InferenceTypeList
  * //         "ON_DEMAND" || "PROVISIONED",
@@ -93,6 +93,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListFoundationModelsCommand extends $Command
@@ -103,9 +104,7 @@ export class ListFoundationModelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class ListFoundationModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFoundationModelsCommand)
   .de(de_ListFoundationModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFoundationModelsRequest;
+      output: ListFoundationModelsResponse;
+    };
+    sdk: {
+      input: ListFoundationModelsCommandInput;
+      output: ListFoundationModelsCommandOutput;
+    };
+  };
+}

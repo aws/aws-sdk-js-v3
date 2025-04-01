@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQueuesRequest, ListQueuesResponse } from "../models/models_0";
+import { ListQueuesRequest, ListQueuesResponse } from "../models/models_1";
 import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -89,6 +89,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListQueuesCommand extends $Command
@@ -99,9 +100,7 @@ export class ListQueuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueuesCommand)
   .de(de_ListQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueuesRequest;
+      output: ListQueuesResponse;
+    };
+    sdk: {
+      input: ListQueuesCommandInput;
+      output: ListQueuesCommandOutput;
+    };
+  };
+}

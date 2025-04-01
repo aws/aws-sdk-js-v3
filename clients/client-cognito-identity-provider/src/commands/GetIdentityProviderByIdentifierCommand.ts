@@ -37,7 +37,9 @@ export interface GetIdentityProviderByIdentifierCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the specified IdP.</p>
+ * <p>Given the identifier of an identity provider (IdP), for example
+ *                 <code>examplecorp</code>, returns information about the user pool configuration for
+ *             that IdP. For more information about IdPs, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,6 +100,7 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetIdentityProviderByIdentifierCommand extends $Command
@@ -108,9 +111,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +123,16 @@ export class GetIdentityProviderByIdentifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityProviderByIdentifierCommand)
   .de(de_GetIdentityProviderByIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityProviderByIdentifierRequest;
+      output: GetIdentityProviderByIdentifierResponse;
+    };
+    sdk: {
+      input: GetIdentityProviderByIdentifierCommandInput;
+      output: GetIdentityProviderByIdentifierCommandOutput;
+    };
+  };
+}

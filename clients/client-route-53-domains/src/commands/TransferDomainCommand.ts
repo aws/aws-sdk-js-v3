@@ -218,6 +218,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class TransferDomainCommand extends $Command
@@ -228,9 +229,7 @@ export class TransferDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +241,16 @@ export class TransferDomainCommand extends $Command
   .f(TransferDomainRequestFilterSensitiveLog, void 0)
   .ser(se_TransferDomainCommand)
   .de(de_TransferDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferDomainRequest;
+      output: TransferDomainResponse;
+    };
+    sdk: {
+      input: TransferDomainCommandInput;
+      output: TransferDomainCommandOutput;
+    };
+  };
+}

@@ -67,7 +67,7 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * //       },
  * //       ErrorDetails: [ // ErrorDetailsList
  * //         { // ErrorDetails
- * //           ErrorCode: "OutdatedPowershellVersion" || "OfficeInstalled" || "PCoIPAgentInstalled" || "WindowsUpdatesEnabled" || "AutoMountDisabled" || "WorkspacesBYOLAccountNotFound" || "WorkspacesBYOLAccountDisabled" || "DHCPDisabled" || "DiskFreeSpace" || "AdditionalDrivesAttached" || "OSNotSupported" || "DomainJoined" || "AzureDomainJoined" || "FirewallEnabled" || "VMWareToolsInstalled" || "DiskSizeExceeded" || "IncompatiblePartitioning" || "PendingReboot" || "AutoLogonEnabled" || "RealTimeUniversalDisabled" || "MultipleBootPartition" || "Requires64BitOS" || "ZeroRearmCount" || "InPlaceUpgrade" || "AntiVirusInstalled" || "UEFINotSupported",
+ * //           ErrorCode: "OutdatedPowershellVersion" || "OfficeInstalled" || "PCoIPAgentInstalled" || "WindowsUpdatesEnabled" || "AutoMountDisabled" || "WorkspacesBYOLAccountNotFound" || "WorkspacesBYOLAccountDisabled" || "DHCPDisabled" || "DiskFreeSpace" || "AdditionalDrivesAttached" || "OSNotSupported" || "DomainJoined" || "AzureDomainJoined" || "FirewallEnabled" || "VMWareToolsInstalled" || "DiskSizeExceeded" || "IncompatiblePartitioning" || "PendingReboot" || "AutoLogonEnabled" || "RealTimeUniversalDisabled" || "MultipleBootPartition" || "Requires64BitOS" || "ZeroRearmCount" || "InPlaceUpgrade" || "AntiVirusInstalled" || "UEFINotSupported" || "UnknownError" || "AppXPackagesInstalled" || "ReservedStorageInUse" || "AdditionalDrivesPresent" || "WindowsUpdatesRequired" || "SysPrepFileMissing" || "UserProfileMissing" || "InsufficientDiskSpace" || "EnvironmentVariablesPathMissingEntries" || "DomainAccountServicesFound" || "InvalidIp" || "RemoteDesktopServicesDisabled" || "WindowsModulesInstallerDisabled" || "AmazonSsmAgentEnabled" || "UnsupportedSecurityProtocol" || "MultipleUserProfiles" || "StagedAppxPackage" || "UnsupportedOsUpgrade" || "InsufficientRearmCount",
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
  * //       ],
@@ -90,6 +90,7 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceImagesCommand extends $Command
@@ -100,9 +101,7 @@ export class DescribeWorkspaceImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DescribeWorkspaceImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceImagesCommand)
   .de(de_DescribeWorkspaceImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceImagesRequest;
+      output: DescribeWorkspaceImagesResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceImagesCommandInput;
+      output: DescribeWorkspaceImagesCommandOutput;
+    };
+  };
+}

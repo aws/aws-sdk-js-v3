@@ -66,6 +66,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CancelTaskExecutionCommand extends $Command
@@ -76,9 +77,7 @@ export class CancelTaskExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class CancelTaskExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelTaskExecutionCommand)
   .de(de_CancelTaskExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelTaskExecutionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelTaskExecutionCommandInput;
+      output: CancelTaskExecutionCommandOutput;
+    };
+  };
+}

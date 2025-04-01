@@ -50,7 +50,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *     scanOnPush: true || false,
  *   },
  *   encryptionConfiguration: { // EncryptionConfiguration
- *     encryptionType: "AES256" || "KMS", // required
+ *     encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  *     kmsKey: "STRING_VALUE",
  *   },
  * };
@@ -68,7 +68,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * //       scanOnPush: true || false,
  * //     },
  * //     encryptionConfiguration: { // EncryptionConfiguration
- * //       encryptionType: "AES256" || "KMS", // required
+ * //       encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  * //       kmsKey: "STRING_VALUE",
  * //     },
  * //   },
@@ -111,27 +111,27 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To create a new repository
  * ```javascript
  * // This example creates a repository called nginx-web-app inside the project-a namespace in the default registry for an account.
  * const input = {
- *   "repositoryName": "project-a/nginx-web-app"
+ *   repositoryName: "project-a/nginx-web-app"
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "repository": {
- *     "registryId": "012345678901",
- *     "repositoryArn": "arn:aws:ecr:us-west-2:012345678901:repository/project-a/nginx-web-app",
- *     "repositoryName": "project-a/nginx-web-app"
+ *   repository: {
+ *     registryId: "012345678901",
+ *     repositoryArn: "arn:aws:ecr:us-west-2:012345678901:repository/project-a/nginx-web-app",
+ *     repositoryName: "project-a/nginx-web-app"
  *   }
  * }
  * *\/
- * // example id: createrepository-example-1470863688724
  * ```
  *
+ * @public
  */
 export class CreateRepositoryCommand extends $Command
   .classBuilder<
@@ -141,9 +141,7 @@ export class CreateRepositoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +153,16 @@ export class CreateRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRepositoryCommand)
   .de(de_CreateRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRepositoryRequest;
+      output: CreateRepositoryResponse;
+    };
+    sdk: {
+      input: CreateRepositoryCommandInput;
+      output: CreateRepositoryCommandOutput;
+    };
+  };
+}

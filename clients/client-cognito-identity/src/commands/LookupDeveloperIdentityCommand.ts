@@ -36,7 +36,7 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *          returned as a part of the response. If you supply both,
  *             <code>DeveloperUserIdentifier</code> will be matched against <code>IdentityID</code>. If
  *          the values are verified against the database, the response returns both values and is the
- *          same as the request. Otherwise a <code>ResourceConflictException</code> is
+ *          same as the request. Otherwise, a <code>ResourceConflictException</code> is
  *          thrown.</p>
  *          <p>
  *             <code>LookupDeveloperIdentity</code> is intended for low-throughput control plane
@@ -44,7 +44,8 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *          If you are using it for higher-volume operations such as user authentication, your requests
  *          are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is a
  *          better option for higher-volume operations for user authentication.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +100,7 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class LookupDeveloperIdentityCommand extends $Command
@@ -109,9 +111,7 @@ export class LookupDeveloperIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class LookupDeveloperIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LookupDeveloperIdentityCommand)
   .de(de_LookupDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LookupDeveloperIdentityInput;
+      output: LookupDeveloperIdentityResponse;
+    };
+    sdk: {
+      input: LookupDeveloperIdentityCommandInput;
+      output: LookupDeveloperIdentityCommandOutput;
+    };
+  };
+}

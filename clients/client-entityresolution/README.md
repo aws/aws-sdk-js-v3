@@ -20,7 +20,7 @@ from a marketing system containing campaign information.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-entityresolution
+To install this package, simply type add or install @aws-sdk/client-entityresolution
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-entityresolution`

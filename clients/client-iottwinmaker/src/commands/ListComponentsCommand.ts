@@ -100,6 +100,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ListComponentsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListComponentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListComponentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComponentsCommand)
   .de(de_ListComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentsRequest;
+      output: ListComponentsResponse;
+    };
+    sdk: {
+      input: ListComponentsCommandInput;
+      output: ListComponentsCommandOutput;
+    };
+  };
+}

@@ -28,15 +28,16 @@ export interface TransferContactCommandInput extends TransferContactRequest {}
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**
- * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
- *    contact is created. You can transfer a contact to another queue by providing the flow which
- *    orchestrates the contact to the destination queue. This gives you more control over contact
+ * <p>Transfers <code>TASK</code> or <code>EMAIL</code>
+ *     contacts from one agent or queue to another agent or queue at any point
+ *    after a contact is created. You can transfer a contact to another queue by providing the flow
+ *    which orchestrates the contact to the destination queue. This gives you more control over contact
  *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
  *    customers.</p>
  *          <p>Note the following requirements:</p>
  *          <ul>
  *             <li>
- *                <p>Transfer is supported for only <code>TASK</code> contacts.</p>
+ *                <p>Transfer is supported for only <code>TASK</code> and <code>EMAIL</code> contacts.</p>
  *             </li>
  *             <li>
  *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
@@ -105,6 +106,7 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class TransferContactCommand extends $Command
@@ -115,9 +117,7 @@ export class TransferContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class TransferContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransferContactCommand)
   .de(de_TransferContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferContactRequest;
+      output: TransferContactResponse;
+    };
+    sdk: {
+      input: TransferContactCommandInput;
+      output: TransferContactCommandOutput;
+    };
+  };
+}

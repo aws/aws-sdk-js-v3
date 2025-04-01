@@ -292,6 +292,7 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateResponseHeadersPolicyCommand extends $Command
@@ -302,9 +303,7 @@ export class UpdateResponseHeadersPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -316,4 +315,16 @@ export class UpdateResponseHeadersPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResponseHeadersPolicyCommand)
   .de(de_UpdateResponseHeadersPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResponseHeadersPolicyRequest;
+      output: UpdateResponseHeadersPolicyResult;
+    };
+    sdk: {
+      input: UpdateResponseHeadersPolicyCommandInput;
+      output: UpdateResponseHeadersPolicyCommandOutput;
+    };
+  };
+}

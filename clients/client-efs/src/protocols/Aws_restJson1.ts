@@ -363,8 +363,11 @@ export const se_DeleteReplicationConfigurationCommand = async (
   const headers: any = {};
   b.bp("/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration");
   b.p("SourceFileSystemId", () => input.SourceFileSystemId!, "{SourceFileSystemId}", false);
+  const query: any = map({
+    [_dM]: [, input[_DM]!],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -752,10 +755,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/2015-02-01/resource-tags/{ResourceId}");
   b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -927,6 +927,7 @@ export const de_CreateReplicationConfigurationCommand = async (
     OriginalSourceFileSystemArn: __expectString,
     SourceFileSystemArn: __expectString,
     SourceFileSystemId: __expectString,
+    SourceFileSystemOwnerId: __expectString,
     SourceFileSystemRegion: __expectString,
   });
   Object.assign(contents, doc);
@@ -2273,8 +2274,11 @@ const de_Destination = (output: any, context: __SerdeContext): Destination => {
   return take(output, {
     FileSystemId: __expectString,
     LastReplicatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnerId: __expectString,
     Region: __expectString,
+    RoleArn: __expectString,
     Status: __expectString,
+    StatusMessage: __expectString,
   }) as any;
 };
 
@@ -2366,6 +2370,7 @@ const de_ReplicationConfigurationDescription = (
     OriginalSourceFileSystemArn: __expectString,
     SourceFileSystemArn: __expectString,
     SourceFileSystemId: __expectString,
+    SourceFileSystemOwnerId: __expectString,
     SourceFileSystemRegion: __expectString,
   }) as any;
 };
@@ -2411,15 +2416,9 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _API = "AccessPointId";
 const _CT = "CreationToken";
+const _DM = "DeletionMode";
 const _FSI = "FileSystemId";
 const _M = "Marker";
 const _MI = "MaxItems";
@@ -2427,4 +2426,5 @@ const _MR = "MaxResults";
 const _MTI = "MountTargetId";
 const _NT = "NextToken";
 const _TK = "TagKeys";
+const _dM = "deletionMode";
 const _tK = "tagKeys";

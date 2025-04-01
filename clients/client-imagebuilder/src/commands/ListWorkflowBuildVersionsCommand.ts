@@ -100,6 +100,7 @@ export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuil
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListWorkflowBuildVersionsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListWorkflowBuildVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListWorkflowBuildVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowBuildVersionsCommand)
   .de(de_ListWorkflowBuildVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkflowBuildVersionsRequest;
+      output: ListWorkflowBuildVersionsResponse;
+    };
+    sdk: {
+      input: ListWorkflowBuildVersionsCommandInput;
+      output: ListWorkflowBuildVersionsCommandOutput;
+    };
+  };
+}

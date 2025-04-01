@@ -28,8 +28,7 @@ export interface BatchPutMetricsCommandInput extends BatchPutMetricsRequest {}
 export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and
- *          retrieved with the <code>GetMetrics</code> API.
+ * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * @throws {@link SageMakerMetricsServiceException}
  * <p>Base exception class for all service exceptions from SageMakerMetrics service.</p>
  *
+ *
  * @public
  */
 export class BatchPutMetricsCommand extends $Command
@@ -80,9 +80,7 @@ export class BatchPutMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +92,16 @@ export class BatchPutMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutMetricsCommand)
   .de(de_BatchPutMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutMetricsRequest;
+      output: BatchPutMetricsResponse;
+    };
+    sdk: {
+      input: BatchPutMetricsCommandInput;
+      output: BatchPutMetricsCommandOutput;
+    };
+  };
+}

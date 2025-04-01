@@ -100,6 +100,7 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportSnapshotTasksCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribeImportSnapshotTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeImportSnapshotTasksCommand extends $Command
   .f(void 0, DescribeImportSnapshotTasksResultFilterSensitiveLog)
   .ser(se_DescribeImportSnapshotTasksCommand)
   .de(de_DescribeImportSnapshotTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportSnapshotTasksRequest;
+      output: DescribeImportSnapshotTasksResult;
+    };
+    sdk: {
+      input: DescribeImportSnapshotTasksCommandInput;
+      output: DescribeImportSnapshotTasksCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/models_0";
+import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/models_1";
 import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,13 +129,17 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -147,9 +151,7 @@ export class PutScalingPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +163,16 @@ export class PutScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutScalingPolicyCommand)
   .de(de_PutScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutScalingPolicyInput;
+      output: PutScalingPolicyOutput;
+    };
+    sdk: {
+      input: PutScalingPolicyCommandInput;
+      output: PutScalingPolicyCommandOutput;
+    };
+  };
+}

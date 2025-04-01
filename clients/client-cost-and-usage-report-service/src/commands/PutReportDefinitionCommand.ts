@@ -99,33 +99,36 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
- * @public
+ *
  * @example To create a report named ExampleReport.
  * ```javascript
  * // The following example creates a AWS Cost and Usage report named ExampleReport.
  * const input = {
- *   "ReportDefinition": {
- *     "AdditionalArtifacts": [
+ *   ReportDefinition: {
+ *     AdditionalArtifacts: [
  *       "REDSHIFT",
  *       "QUICKSIGHT"
  *     ],
- *     "AdditionalSchemaElements": [
+ *     AdditionalSchemaElements: [
  *       "RESOURCES"
  *     ],
- *     "Compression": "ZIP",
- *     "Format": "textORcsv",
- *     "ReportName": "ExampleReport",
- *     "S3Bucket": "example-s3-bucket",
- *     "S3Prefix": "exampleprefix",
- *     "S3Region": "us-east-1",
- *     "TimeUnit": "DAILY"
+ *     Compression: "ZIP",
+ *     Format: "textORcsv",
+ *     ReportName: "ExampleReport",
+ *     S3Bucket: "example-s3-bucket",
+ *     S3Prefix: "exampleprefix",
+ *     S3Region: "us-east-1",
+ *     TimeUnit: "DAILY"
  *   }
  * };
  * const command = new PutReportDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-create-a-report-definitions
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutReportDefinitionCommand extends $Command
   .classBuilder<
@@ -135,9 +138,7 @@ export class PutReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +150,16 @@ export class PutReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutReportDefinitionCommand)
   .de(de_PutReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutReportDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutReportDefinitionCommandInput;
+      output: PutReportDefinitionCommandOutput;
+    };
+  };
+}

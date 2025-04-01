@@ -58,6 +58,7 @@ export interface DeleteHubContentReferenceCommandOutput extends __MetadataBearer
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteHubContentReferenceCommand extends $Command
@@ -68,9 +69,7 @@ export class DeleteHubContentReferenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +81,16 @@ export class DeleteHubContentReferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHubContentReferenceCommand)
   .de(de_DeleteHubContentReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHubContentReferenceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHubContentReferenceCommandInput;
+      output: DeleteHubContentReferenceCommandOutput;
+    };
+  };
+}

@@ -117,6 +117,9 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -157,6 +160,9 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -183,6 +189,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationCommand extends $Command
@@ -193,9 +200,7 @@ export class DeleteOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +212,16 @@ export class DeleteOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationCommand)
   .de(de_DeleteOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteOrganizationCommandInput;
+      output: DeleteOrganizationCommandOutput;
+    };
+  };
+}

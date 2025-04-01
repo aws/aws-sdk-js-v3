@@ -104,40 +104,40 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To list the parts of an archive that have been uploaded in a multipart upload
  * ```javascript
  * // The example lists all the parts of a multipart upload.
  * const input = {
- *   "accountId": "-",
- *   "uploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   uploadId: "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   vaultName: "examplevault"
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ArchiveDescription": "archive description",
- *   "CreationDate": "2012-03-20T17:03:43.221Z",
- *   "Marker": "null",
- *   "MultipartUploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
- *   "PartSizeInBytes": 4194304,
- *   "Parts": [
+ *   ArchiveDescription: "archive description",
+ *   CreationDate: "2012-03-20T17:03:43.221Z",
+ *   Marker: "null",
+ *   MultipartUploadId: "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   PartSizeInBytes: 4194304,
+ *   Parts: [
  *     {
- *       "RangeInBytes": "0-4194303",
- *       "SHA256TreeHash": "01d34dabf7be316472c93b1ef80721f5d4"
+ *       RangeInBytes: "0-4194303",
+ *       SHA256TreeHash: "01d34dabf7be316472c93b1ef80721f5d4"
  *     },
  *     {
- *       "RangeInBytes": "4194304-8388607",
- *       "SHA256TreeHash": "0195875365afda349fc21c84c099987164"
+ *       RangeInBytes: "4194304-8388607",
+ *       SHA256TreeHash: "0195875365afda349fc21c84c099987164"
  *     }
  *   ],
- *   "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
+ *   VaultARN: "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
  * }
  * *\/
- * // example id: to-list-the-parts-of-an-archive-that-have-been-uploaded-in-a-multipart-upload-1481921767590
  * ```
  *
+ * @public
  */
 export class ListPartsCommand extends $Command
   .classBuilder<
@@ -147,9 +147,7 @@ export class ListPartsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +159,16 @@ export class ListPartsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartsCommand)
   .de(de_ListPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartsInput;
+      output: ListPartsOutput;
+    };
+    sdk: {
+      input: ListPartsCommandInput;
+      output: ListPartsCommandOutput;
+    };
+  };
+}

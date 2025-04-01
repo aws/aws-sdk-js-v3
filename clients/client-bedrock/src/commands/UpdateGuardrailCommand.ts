@@ -55,7 +55,7 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *                </ul>
  *             </li>
  *             <li>
- *                <p>Specify filter strengths for the harmful categories defined in Amazon Bedrock in the <code>contentPolicyConfig</code> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a> object in the <code>filtersConfig</code> list pertains to a harmful category. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters">Content filters</a>. For more information about the fields in a content filter, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.</p>
+ *                <p>Specify filter strengths for the harmful categories defined in Amazon Bedrock in the <code>contentPolicyConfig</code> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a> object in the <code>filtersConfig</code> list pertains to a harmful category. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters">Content filters</a>. For more information about the fields in a content filter, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.</p>
  *                <ul>
  *                   <li>
  *                      <p>Specify the category in the <code>type</code> field.</p>
@@ -67,9 +67,6 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *             </li>
  *             <li>
  *                <p>(Optional) For security, include the ARN of a KMS key in the <code>kmsKeyId</code> field.</p>
- *             </li>
- *             <li>
- *                <p>(Optional) Attach any tags to the guardrail in the <code>tags</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging">Tag resources</a>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -100,6 +97,12 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         type: "SEXUAL" || "VIOLENCE" || "HATE" || "INSULTS" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  *         inputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  *         outputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ *         inputModalities: [ // GuardrailModalities
+ *           "TEXT" || "IMAGE",
+ *         ],
+ *         outputModalities: [
+ *           "TEXT" || "IMAGE",
+ *         ],
  *       },
  *     ],
  *   },
@@ -128,6 +131,14 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         description: "STRING_VALUE",
  *         pattern: "STRING_VALUE", // required
  *         action: "BLOCK" || "ANONYMIZE", // required
+ *       },
+ *     ],
+ *   },
+ *   contextualGroundingPolicyConfig: { // GuardrailContextualGroundingPolicyConfig
+ *     filtersConfig: [ // GuardrailContextualGroundingFiltersConfig // required
+ *       { // GuardrailContextualGroundingFilterConfig
+ *         type: "GROUNDING" || "RELEVANCE", // required
+ *         threshold: Number("double"), // required
  *       },
  *     ],
  *   },
@@ -176,6 +187,7 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class UpdateGuardrailCommand extends $Command
@@ -186,9 +198,7 @@ export class UpdateGuardrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +210,16 @@ export class UpdateGuardrailCommand extends $Command
   .f(UpdateGuardrailRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateGuardrailCommand)
   .de(de_UpdateGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGuardrailRequest;
+      output: UpdateGuardrailResponse;
+    };
+    sdk: {
+      input: UpdateGuardrailCommandInput;
+      output: UpdateGuardrailCommandOutput;
+    };
+  };
+}

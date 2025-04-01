@@ -120,6 +120,7 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetAssetCommand extends $Command
@@ -130,9 +131,7 @@ export class GetAssetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class GetAssetCommand extends $Command
   .f(void 0, GetAssetOutputFilterSensitiveLog)
   .ser(se_GetAssetCommand)
   .de(de_GetAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetInput;
+      output: GetAssetOutput;
+    };
+    sdk: {
+      input: GetAssetCommandInput;
+      output: GetAssetCommandOutput;
+    };
+  };
+}

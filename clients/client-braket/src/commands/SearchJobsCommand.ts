@@ -92,6 +92,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class SearchJobsCommand extends $Command
@@ -102,9 +103,7 @@ export class SearchJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class SearchJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchJobsCommand)
   .de(de_SearchJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchJobsRequest;
+      output: SearchJobsResponse;
+    };
+    sdk: {
+      input: SearchJobsCommandInput;
+      output: SearchJobsCommandOutput;
+    };
+  };
+}

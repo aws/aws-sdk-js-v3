@@ -117,6 +117,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentCommand extends $Command
@@ -127,9 +128,7 @@ export class GetDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class GetDocumentCommand extends $Command
   .f(GetDocumentRequestFilterSensitiveLog, GetDocumentResponseFilterSensitiveLog)
   .ser(se_GetDocumentCommand)
   .de(de_GetDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentRequest;
+      output: GetDocumentResponse;
+    };
+    sdk: {
+      input: GetDocumentCommandInput;
+      output: GetDocumentCommandOutput;
+    };
+  };
+}

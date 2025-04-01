@@ -66,6 +66,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * //       ],
  * //       creationTime: Number("long"),
  * //       logGroupName: "STRING_VALUE",
+ * //       applyOnTransformedLogs: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -91,6 +92,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeMetricFiltersCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeMetricFiltersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeMetricFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetricFiltersCommand)
   .de(de_DescribeMetricFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetricFiltersRequest;
+      output: DescribeMetricFiltersResponse;
+    };
+    sdk: {
+      input: DescribeMetricFiltersCommandInput;
+      output: DescribeMetricFiltersCommandOutput;
+    };
+  };
+}

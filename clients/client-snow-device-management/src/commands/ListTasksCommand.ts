@@ -83,6 +83,7 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class ListTasksCommand extends $Command
@@ -93,9 +94,7 @@ export class ListTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTasksCommand)
   .de(de_ListTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTasksInput;
+      output: ListTasksOutput;
+    };
+    sdk: {
+      input: ListTasksCommandInput;
+      output: ListTasksCommandOutput;
+    };
+  };
+}

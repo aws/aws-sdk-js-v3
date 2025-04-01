@@ -108,6 +108,11 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * //     FreeUntil: new Date("TIMESTAMP"),
  * //     DnsNameServers: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
+ * //     KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //       KeyCacheSecretId: "STRING_VALUE",
+ * //       KeyCacheSecretIamArn: "STRING_VALUE",
+ * //       Krb5FileContents: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -128,6 +133,7 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class RebootReplicationInstanceCommand extends $Command
@@ -138,9 +144,7 @@ export class RebootReplicationInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +156,16 @@ export class RebootReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootReplicationInstanceCommand)
   .de(de_RebootReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootReplicationInstanceMessage;
+      output: RebootReplicationInstanceResponse;
+    };
+    sdk: {
+      input: RebootReplicationInstanceCommandInput;
+      output: RebootReplicationInstanceCommandOutput;
+    };
+  };
+}

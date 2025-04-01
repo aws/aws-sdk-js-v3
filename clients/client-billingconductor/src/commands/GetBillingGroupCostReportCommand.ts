@@ -100,6 +100,7 @@ export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupC
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class GetBillingGroupCostReportCommand extends $Command
@@ -110,9 +111,7 @@ export class GetBillingGroupCostReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class GetBillingGroupCostReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBillingGroupCostReportCommand)
   .de(de_GetBillingGroupCostReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBillingGroupCostReportInput;
+      output: GetBillingGroupCostReportOutput;
+    };
+    sdk: {
+      input: GetBillingGroupCostReportCommandInput;
+      output: GetBillingGroupCostReportCommandOutput;
+    };
+  };
+}

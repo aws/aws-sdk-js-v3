@@ -100,6 +100,7 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateMaintenanceWindowCommand extends $Command
@@ -110,9 +111,7 @@ export class UpdateMaintenanceWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class UpdateMaintenanceWindowCommand extends $Command
   .f(UpdateMaintenanceWindowRequestFilterSensitiveLog, UpdateMaintenanceWindowResultFilterSensitiveLog)
   .ser(se_UpdateMaintenanceWindowCommand)
   .de(de_UpdateMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMaintenanceWindowRequest;
+      output: UpdateMaintenanceWindowResult;
+    };
+    sdk: {
+      input: UpdateMaintenanceWindowCommandInput;
+      output: UpdateMaintenanceWindowCommandOutput;
+    };
+  };
+}

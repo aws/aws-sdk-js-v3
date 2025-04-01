@@ -37,7 +37,8 @@ export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
 export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the device, as an administrator.</p>
+ * <p>Given the device key, returns details for a user's device. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -118,6 +119,7 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminGetDeviceCommand extends $Command
@@ -128,9 +130,7 @@ export class AdminGetDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class AdminGetDeviceCommand extends $Command
   .f(AdminGetDeviceRequestFilterSensitiveLog, AdminGetDeviceResponseFilterSensitiveLog)
   .ser(se_AdminGetDeviceCommand)
   .de(de_AdminGetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminGetDeviceRequest;
+      output: AdminGetDeviceResponse;
+    };
+    sdk: {
+      input: AdminGetDeviceCommandInput;
+      output: AdminGetDeviceCommandOutput;
+    };
+  };
+}

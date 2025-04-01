@@ -86,6 +86,7 @@ export interface ListProtectedResourcesByBackupVaultCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListProtectedResourcesByBackupVaultCommand extends $Command
@@ -96,9 +97,7 @@ export class ListProtectedResourcesByBackupVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListProtectedResourcesByBackupVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProtectedResourcesByBackupVaultCommand)
   .de(de_ListProtectedResourcesByBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProtectedResourcesByBackupVaultInput;
+      output: ListProtectedResourcesByBackupVaultOutput;
+    };
+    sdk: {
+      input: ListProtectedResourcesByBackupVaultCommandInput;
+      output: ListProtectedResourcesByBackupVaultCommandOutput;
+    };
+  };
+}

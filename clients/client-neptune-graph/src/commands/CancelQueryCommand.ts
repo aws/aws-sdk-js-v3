@@ -69,6 +69,7 @@ export interface CancelQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class CancelQueryCommand extends $Command
@@ -94,4 +95,16 @@ export class CancelQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelQueryCommand)
   .de(de_CancelQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelQueryInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelQueryCommandInput;
+      output: CancelQueryCommandOutput;
+    };
+  };
+}

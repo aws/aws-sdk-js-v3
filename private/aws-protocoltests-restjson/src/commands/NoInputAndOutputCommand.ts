@@ -52,6 +52,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class NoInputAndOutputCommand extends $Command
@@ -70,4 +71,16 @@ export class NoInputAndOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NoInputAndOutputCommand)
   .de(de_NoInputAndOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: NoInputAndOutputCommandInput;
+      output: NoInputAndOutputCommandOutput;
+    };
+  };
+}

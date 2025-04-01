@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   GetDataQualityRulesetEvaluationRunRequest,
   GetDataQualityRulesetEvaluationRunResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_GetDataQualityRulesetEvaluationRunCommand,
   se_GetDataQualityRulesetEvaluationRunCommand,
@@ -119,6 +119,7 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetDataQualityRulesetEvaluationRunCommand extends $Command
@@ -129,9 +130,7 @@ export class GetDataQualityRulesetEvaluationRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class GetDataQualityRulesetEvaluationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataQualityRulesetEvaluationRunCommand)
   .de(de_GetDataQualityRulesetEvaluationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataQualityRulesetEvaluationRunRequest;
+      output: GetDataQualityRulesetEvaluationRunResponse;
+    };
+    sdk: {
+      input: GetDataQualityRulesetEvaluationRunCommandInput;
+      output: GetDataQualityRulesetEvaluationRunCommandOutput;
+    };
+  };
+}

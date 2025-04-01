@@ -111,6 +111,7 @@ export interface DescribeTargetedSentimentDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeTargetedSentimentDetectionJobCommand extends $Command
@@ -121,9 +122,7 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetedSentimentDetectionJobCommand)
   .de(de_DescribeTargetedSentimentDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetedSentimentDetectionJobRequest;
+      output: DescribeTargetedSentimentDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribeTargetedSentimentDetectionJobCommandInput;
+      output: DescribeTargetedSentimentDetectionJobCommandOutput;
+    };
+  };
+}

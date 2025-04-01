@@ -79,19 +79,22 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To delete the notification configuration set for a vault
  * ```javascript
  * // The example deletes the notification configuration set for the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new DeleteVaultNotificationsCommand(input);
- * await client.send(command);
- * // example id: to-delete-the-notification-configuration-set-for-a-vault-1481840646090
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVaultNotificationsCommand extends $Command
   .classBuilder<
@@ -101,9 +104,7 @@ export class DeleteVaultNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class DeleteVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVaultNotificationsCommand)
   .de(de_DeleteVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVaultNotificationsCommandInput;
+      output: DeleteVaultNotificationsCommandOutput;
+    };
+  };
+}

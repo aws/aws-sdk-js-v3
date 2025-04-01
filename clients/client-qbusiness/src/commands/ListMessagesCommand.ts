@@ -54,11 +54,13 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //       attachments: [ // AttachmentsOutput
  * //         { // AttachmentOutput
  * //           name: "STRING_VALUE",
- * //           status: "FAILED" || "SUCCEEDED",
+ * //           status: "FAILED" || "SUCCESS",
  * //           error: { // ErrorDetail
  * //             errorMessage: "STRING_VALUE",
  * //             errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //           },
+ * //           attachmentId: "STRING_VALUE",
+ * //           conversationId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       sourceAttribution: [ // SourceAttributions
@@ -75,13 +77,35 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               snippetExcerpt: { // SnippetExcerpt
  * //                 text: "STRING_VALUE",
  * //               },
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               sourceDetails: { // SourceDetails Union: only one key present
+ * //                 imageSourceDetails: { // ImageSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                 },
+ * //                 audioSourceDetails: { // AudioSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   audioExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //                 videoSourceDetails: { // VideoSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   videoExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //               },
  * //             },
  * //           ],
  * //         },
  * //       ],
  * //       actionReview: { // ActionReview
  * //         pluginId: "STRING_VALUE",
- * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //         payload: { // ActionReviewPayload
  * //           "<keys>": { // ActionReviewPayloadField
  * //             displayName: "STRING_VALUE",
@@ -96,6 +120,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               },
  * //             ],
  * //             allowedFormat: "STRING_VALUE",
+ * //             arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //             required: true || false,
  * //           },
  * //         },
@@ -136,8 +161,8 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -150,6 +175,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListMessagesCommand extends $Command
@@ -160,9 +186,7 @@ export class ListMessagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +198,16 @@ export class ListMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMessagesCommand)
   .de(de_ListMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMessagesRequest;
+      output: ListMessagesResponse;
+    };
+    sdk: {
+      input: ListMessagesCommandInput;
+      output: ListMessagesCommandOutput;
+    };
+  };
+}

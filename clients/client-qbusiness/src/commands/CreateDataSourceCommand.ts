@@ -126,6 +126,17 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       roleArn: "STRING_VALUE",
  *     },
  *   },
+ *   mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ *     imageExtractionConfiguration: { // ImageExtractionConfiguration
+ *       imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *     audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *       audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *     videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *       videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *   },
  * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
@@ -148,15 +159,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
@@ -172,6 +183,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceCommand extends $Command
@@ -182,9 +194,7 @@ export class CreateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +206,16 @@ export class CreateDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataSourceCommand)
   .de(de_CreateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceRequest;
+      output: CreateDataSourceResponse;
+    };
+    sdk: {
+      input: CreateDataSourceCommandInput;
+      output: CreateDataSourceCommandOutput;
+    };
+  };
+}

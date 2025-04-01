@@ -11,7 +11,7 @@ import {
   ListEnvironmentProfilesInputFilterSensitiveLog,
   ListEnvironmentProfilesOutput,
   ListEnvironmentProfilesOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListEnvironmentProfilesCommand, se_ListEnvironmentProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -97,6 +97,7 @@ export interface ListEnvironmentProfilesCommandOutput extends ListEnvironmentPro
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentProfilesCommand extends $Command
@@ -107,9 +108,7 @@ export class ListEnvironmentProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class ListEnvironmentProfilesCommand extends $Command
   .f(ListEnvironmentProfilesInputFilterSensitiveLog, ListEnvironmentProfilesOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentProfilesCommand)
   .de(de_ListEnvironmentProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentProfilesInput;
+      output: ListEnvironmentProfilesOutput;
+    };
+    sdk: {
+      input: ListEnvironmentProfilesCommandInput;
+      output: ListEnvironmentProfilesCommandOutput;
+    };
+  };
+}

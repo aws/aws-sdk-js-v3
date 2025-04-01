@@ -12,7 +12,7 @@ Lookout for Metrics Developer Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lookoutmetrics
+To install this package, simply type add or install @aws-sdk/client-lookoutmetrics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lookoutmetrics`

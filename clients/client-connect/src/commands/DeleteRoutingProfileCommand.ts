@@ -72,6 +72,7 @@ export interface DeleteRoutingProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteRoutingProfileCommand extends $Command
@@ -82,9 +83,7 @@ export class DeleteRoutingProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeleteRoutingProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoutingProfileCommand)
   .de(de_DeleteRoutingProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoutingProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoutingProfileCommandInput;
+      output: DeleteRoutingProfileCommandOutput;
+    };
+  };
+}

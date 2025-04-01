@@ -121,6 +121,7 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class SubscribeToDatasetCommand extends $Command
@@ -131,9 +132,7 @@ export class SubscribeToDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class SubscribeToDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubscribeToDatasetCommand)
   .de(de_SubscribeToDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToDatasetRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubscribeToDatasetCommandInput;
+      output: SubscribeToDatasetCommandOutput;
+    };
+  };
+}

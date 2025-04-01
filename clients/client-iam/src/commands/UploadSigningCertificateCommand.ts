@@ -112,30 +112,30 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To upload a signing certificate for an IAM user
  * ```javascript
  * // The following command uploads a signing certificate for the IAM user named Bob.
  * const input = {
- *   "CertificateBody": "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
- *   "UserName": "Bob"
+ *   CertificateBody: "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
+ *   UserName: "Bob"
  * };
  * const command = new UploadSigningCertificateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Certificate": {
- *     "CertificateBody": "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
- *     "CertificateId": "ID123456789012345EXAMPLE",
- *     "Status": "Active",
- *     "UploadDate": "2015-06-06T21:40:08.121Z",
- *     "UserName": "Bob"
+ *   Certificate: {
+ *     CertificateBody: "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
+ *     CertificateId: "ID123456789012345EXAMPLE",
+ *     Status: "Active",
+ *     UploadDate: "2015-06-06T21:40:08.121Z",
+ *     UserName: "Bob"
  *   }
  * }
  * *\/
- * // example id: e67489b6-7b73-4e30-9ed3-9a9e0231e458
  * ```
  *
+ * @public
  */
 export class UploadSigningCertificateCommand extends $Command
   .classBuilder<
@@ -145,9 +145,7 @@ export class UploadSigningCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +157,16 @@ export class UploadSigningCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UploadSigningCertificateCommand)
   .de(de_UploadSigningCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadSigningCertificateRequest;
+      output: UploadSigningCertificateResponse;
+    };
+    sdk: {
+      input: UploadSigningCertificateCommandInput;
+      output: UploadSigningCertificateCommandOutput;
+    };
+  };
+}

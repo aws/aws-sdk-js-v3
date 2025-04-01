@@ -43,6 +43,11 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetObjectResponse
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   CacheControl: "STRING_VALUE",
@@ -77,6 +82,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class GetObjectCommand extends $Command
@@ -87,9 +93,7 @@ export class GetObjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +105,16 @@ export class GetObjectCommand extends $Command
   .f(void 0, GetObjectResponseFilterSensitiveLog)
   .ser(se_GetObjectCommand)
   .de(de_GetObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectRequest;
+      output: GetObjectResponse;
+    };
+    sdk: {
+      input: GetObjectCommandInput;
+      output: GetObjectCommandOutput;
+    };
+  };
+}

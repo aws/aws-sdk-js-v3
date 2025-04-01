@@ -64,16 +64,16 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Auto Scaling notification types
  * ```javascript
  * // This example describes the available notification types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAutoScalingNotificationTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoScalingNotificationTypes": [
+ *   AutoScalingNotificationTypes: [
  *     "autoscaling:EC2_INSTANCE_LAUNCH",
  *     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
  *     "autoscaling:EC2_INSTANCE_TERMINATE",
@@ -82,9 +82,9 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-auto-scaling-notification-types-1
  * ```
  *
+ * @public
  */
 export class DescribeAutoScalingNotificationTypesCommand extends $Command
   .classBuilder<
@@ -94,9 +94,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +106,16 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoScalingNotificationTypesCommand)
   .de(de_DescribeAutoScalingNotificationTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAutoScalingNotificationTypesAnswer;
+    };
+    sdk: {
+      input: DescribeAutoScalingNotificationTypesCommandInput;
+      output: DescribeAutoScalingNotificationTypesCommandOutput;
+    };
+  };
+}

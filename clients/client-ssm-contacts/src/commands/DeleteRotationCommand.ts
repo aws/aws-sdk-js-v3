@@ -73,6 +73,7 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class DeleteRotationCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteRotationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRotationCommand)
   .de(de_DeleteRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRotationCommandInput;
+      output: DeleteRotationCommandOutput;
+    };
+  };
+}

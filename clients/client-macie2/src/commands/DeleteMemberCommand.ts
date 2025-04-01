@@ -74,6 +74,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __Metad
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteMemberCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteMemberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMemberCommand)
   .de(de_DeleteMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMemberCommandInput;
+      output: DeleteMemberCommandOutput;
+    };
+  };
+}

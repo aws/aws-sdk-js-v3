@@ -66,6 +66,7 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class DeleteSafetyRuleCommand extends $Command
@@ -76,9 +77,7 @@ export class DeleteSafetyRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class DeleteSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSafetyRuleCommand)
   .de(de_DeleteSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSafetyRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSafetyRuleCommandInput;
+      output: DeleteSafetyRuleCommandOutput;
+    };
+  };
+}

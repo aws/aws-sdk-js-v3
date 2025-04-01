@@ -67,6 +67,7 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DetachSecurityProfileCommand extends $Command
@@ -77,9 +78,7 @@ export class DetachSecurityProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DetachSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachSecurityProfileCommand)
   .de(de_DetachSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachSecurityProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachSecurityProfileCommandInput;
+      output: DetachSecurityProfileCommandOutput;
+    };
+  };
+}

@@ -101,6 +101,7 @@ import {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "../commands/UpdateLoggingConfigurationCommand";
+import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "../commands/UpdateScraperCommand";
 import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -116,6 +117,7 @@ import {
   InternalServerException,
   LoggingConfigurationMetadata,
   ResourceNotFoundException,
+  RoleConfiguration,
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceSummary,
   ScrapeConfiguration,
@@ -221,6 +223,7 @@ export const se_CreateScraperCommand = async (
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
       scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
       source: (_) => _json(_),
       tags: (_) => _json(_),
@@ -608,10 +611,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -636,6 +636,33 @@ export const se_UpdateLoggingConfigurationCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logGroupArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateScraperCommand
+ */
+export const se_UpdateScraperCommand = async (
+  input: UpdateScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
+      scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1185,6 +1212,30 @@ export const de_UpdateLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateScraperCommand
+ */
+export const de_UpdateScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScraperCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    scraperId: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateWorkspaceAliasCommand
  */
 export const de_UpdateWorkspaceAliasCommand = async (
@@ -1396,13 +1447,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EksConfiguration omitted.
 
+// se_RoleConfiguration omitted.
+
 /**
  * serializeAws_restJson1ScrapeConfiguration
  */
 const se_ScrapeConfiguration = (input: ScrapeConfiguration, context: __SerdeContext): any => {
   return ScrapeConfiguration.visit(input, {
     configurationBlob: (value) => ({ configurationBlob: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1451,6 +1504,8 @@ const de_LoggingConfigurationMetadata = (output: any, context: __SerdeContext): 
 };
 
 // de_LoggingConfigurationStatus omitted.
+
+// de_RoleConfiguration omitted.
 
 /**
  * deserializeAws_restJson1RuleGroupsNamespaceDescription
@@ -1518,6 +1573,7 @@ const de_ScraperDescription = (output: any, context: __SerdeContext): ScraperDes
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scrapeConfiguration: (_: any) => de_ScrapeConfiguration(__expectUnion(_), context),
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
@@ -1540,6 +1596,7 @@ const de_ScraperSummary = (output: any, context: __SerdeContext): ScraperSummary
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
     status: _json,
@@ -1628,13 +1685,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _a = "alias";
 const _cT = "clientToken";

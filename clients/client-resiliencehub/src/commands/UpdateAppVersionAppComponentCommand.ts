@@ -35,7 +35,9 @@ export interface UpdateAppVersionAppComponentCommandOutput
 /**
  * <p>Updates an existing Application Component in the Resilience Hub application.</p>
  *          <note>
- *             <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *             <p>This API updates the Resilience Hub application draft version. To use this
+ *         Application Component for running assessments, you must publish the Resilience Hub
+ *         application using the <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +108,7 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppVersionAppComponentCommand extends $Command
@@ -116,9 +119,7 @@ export class UpdateAppVersionAppComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class UpdateAppVersionAppComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppVersionAppComponentCommand)
   .de(de_UpdateAppVersionAppComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppVersionAppComponentRequest;
+      output: UpdateAppVersionAppComponentResponse;
+    };
+    sdk: {
+      input: UpdateAppVersionAppComponentCommandInput;
+      output: UpdateAppVersionAppComponentCommandOutput;
+    };
+  };
+}

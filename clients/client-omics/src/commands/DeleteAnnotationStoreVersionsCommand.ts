@@ -89,6 +89,7 @@ export interface DeleteAnnotationStoreVersionsCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnnotationStoreVersionsCommand extends $Command
@@ -99,9 +100,7 @@ export class DeleteAnnotationStoreVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DeleteAnnotationStoreVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnnotationStoreVersionsCommand)
   .de(de_DeleteAnnotationStoreVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnnotationStoreVersionsRequest;
+      output: DeleteAnnotationStoreVersionsResponse;
+    };
+    sdk: {
+      input: DeleteAnnotationStoreVersionsCommandInput;
+      output: DeleteAnnotationStoreVersionsCommandOutput;
+    };
+  };
+}

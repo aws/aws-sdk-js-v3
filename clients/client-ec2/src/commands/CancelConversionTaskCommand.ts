@@ -31,8 +31,6 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
  *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
  *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a Virtual Machine Using the Amazon
- *     EC2 CLI</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,8 +38,8 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, CancelConversionTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CancelConversionRequest
- *   ConversionTaskId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   ConversionTaskId: "STRING_VALUE", // required
  *   ReasonMessage: "STRING_VALUE",
  * };
  * const command = new CancelConversionTaskCommand(input);
@@ -59,6 +57,7 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CancelConversionTaskCommand extends $Command
@@ -69,9 +68,7 @@ export class CancelConversionTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +80,16 @@ export class CancelConversionTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelConversionTaskCommand)
   .de(de_CancelConversionTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelConversionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelConversionTaskCommandInput;
+      output: CancelConversionTaskCommandOutput;
+    };
+  };
+}

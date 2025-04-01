@@ -108,6 +108,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class CreateEventSubscriptionCommand extends $Command
@@ -118,9 +119,7 @@ export class CreateEventSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class CreateEventSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventSubscriptionCommand)
   .de(de_CreateEventSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventSubscriptionMessage;
+      output: CreateEventSubscriptionResult;
+    };
+    sdk: {
+      input: CreateEventSubscriptionCommandInput;
+      output: CreateEventSubscriptionCommandOutput;
+    };
+  };
+}

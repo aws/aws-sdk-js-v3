@@ -30,7 +30,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
 /**
  * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
  *    can limit the results to a specific State Manager association document or managed node by
- *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
+ *    specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,6 +106,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ListAssociationsCommand extends $Command
@@ -116,9 +117,7 @@ export class ListAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class ListAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociationsCommand)
   .de(de_ListAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociationsRequest;
+      output: ListAssociationsResult;
+    };
+    sdk: {
+      input: ListAssociationsCommandInput;
+      output: ListAssociationsCommandOutput;
+    };
+  };
+}

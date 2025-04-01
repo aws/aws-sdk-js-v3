@@ -92,6 +92,7 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListFieldLevelEncryptionProfilesCommand extends $Command
@@ -102,9 +103,7 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFieldLevelEncryptionProfilesCommand)
   .de(de_ListFieldLevelEncryptionProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFieldLevelEncryptionProfilesRequest;
+      output: ListFieldLevelEncryptionProfilesResult;
+    };
+    sdk: {
+      input: ListFieldLevelEncryptionProfilesCommandInput;
+      output: ListFieldLevelEncryptionProfilesCommandOutput;
+    };
+  };
+}

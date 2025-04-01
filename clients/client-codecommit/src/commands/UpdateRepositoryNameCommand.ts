@@ -75,6 +75,7 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class UpdateRepositoryNameCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateRepositoryNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateRepositoryNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRepositoryNameCommand)
   .de(de_UpdateRepositoryNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRepositoryNameInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRepositoryNameCommandInput;
+      output: UpdateRepositoryNameCommandOutput;
+    };
+  };
+}

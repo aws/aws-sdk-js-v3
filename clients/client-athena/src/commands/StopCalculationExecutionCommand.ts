@@ -75,6 +75,7 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class StopCalculationExecutionCommand extends $Command
@@ -85,9 +86,7 @@ export class StopCalculationExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StopCalculationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCalculationExecutionCommand)
   .de(de_StopCalculationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCalculationExecutionRequest;
+      output: StopCalculationExecutionResponse;
+    };
+    sdk: {
+      input: StopCalculationExecutionCommandInput;
+      output: StopCalculationExecutionCommandOutput;
+    };
+  };
+}

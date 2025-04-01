@@ -186,6 +186,7 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -199,7 +200,7 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -233,6 +234,7 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command
@@ -243,9 +245,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +257,16 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationGroupShardConfigurationCommand)
   .de(de_ModifyReplicationGroupShardConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationGroupShardConfigurationMessage;
+      output: ModifyReplicationGroupShardConfigurationResult;
+    };
+    sdk: {
+      input: ModifyReplicationGroupShardConfigurationCommandInput;
+      output: ModifyReplicationGroupShardConfigurationCommandOutput;
+    };
+  };
+}

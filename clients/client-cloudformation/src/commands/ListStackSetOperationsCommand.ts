@@ -85,6 +85,7 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStackSetOperationsCommand extends $Command
@@ -95,9 +96,7 @@ export class ListStackSetOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListStackSetOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackSetOperationsCommand)
   .de(de_ListStackSetOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackSetOperationsInput;
+      output: ListStackSetOperationsOutput;
+    };
+    sdk: {
+      input: ListStackSetOperationsCommandInput;
+      output: ListStackSetOperationsCommandOutput;
+    };
+  };
+}

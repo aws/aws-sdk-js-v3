@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/models_0";
+import { ClusterSecurityGroupMessage } from "../models/models_0";
+import { DescribeClusterSecurityGroupsMessage } from "../models/models_1";
 import {
   de_DescribeClusterSecurityGroupsCommand,
   se_DescribeClusterSecurityGroupsCommand,
@@ -124,6 +125,7 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command
@@ -134,9 +136,7 @@ export class DescribeClusterSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class DescribeClusterSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterSecurityGroupsCommand)
   .de(de_DescribeClusterSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterSecurityGroupsMessage;
+      output: ClusterSecurityGroupMessage;
+    };
+    sdk: {
+      input: DescribeClusterSecurityGroupsCommandInput;
+      output: DescribeClusterSecurityGroupsCommandOutput;
+    };
+  };
+}

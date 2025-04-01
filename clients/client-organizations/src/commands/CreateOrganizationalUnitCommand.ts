@@ -135,6 +135,11 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                </important>
  *             </li>
  *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
+ *             </li>
+ *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
  *                     register a suspended account as a delegated administrator.</p>
  *             </li>
@@ -276,9 +281,8 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -340,6 +344,9 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -380,6 +387,9 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -405,30 +415,30 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new organization unit
  * ```javascript
  * // The following example shows how to create an OU that is named AccountingOU. The new OU is directly under the root.:
- * //
- * //
+ *
+ *
  * const input = {
- *   "Name": "AccountingOU",
- *   "ParentId": "r-examplerootid111"
+ *   Name: "AccountingOU",
+ *   ParentId: "r-examplerootid111"
  * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnit": {
- *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *     "Id": "ou-examplerootid111-exampleouid111",
- *     "Name": "AccountingOU"
+ *   OrganizationalUnit: {
+ *     Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     Id: "ou-examplerootid111-exampleouid111",
+ *     Name: "AccountingOU"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-organizational-unit
  * ```
  *
+ * @public
  */
 export class CreateOrganizationalUnitCommand extends $Command
   .classBuilder<
@@ -438,9 +448,7 @@ export class CreateOrganizationalUnitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -452,4 +460,16 @@ export class CreateOrganizationalUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOrganizationalUnitCommand)
   .de(de_CreateOrganizationalUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOrganizationalUnitRequest;
+      output: CreateOrganizationalUnitResponse;
+    };
+    sdk: {
+      input: CreateOrganizationalUnitCommandInput;
+      output: CreateOrganizationalUnitCommandOutput;
+    };
+  };
+}

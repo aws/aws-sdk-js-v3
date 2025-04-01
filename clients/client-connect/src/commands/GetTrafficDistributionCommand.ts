@@ -95,6 +95,7 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetTrafficDistributionCommand extends $Command
@@ -105,9 +106,7 @@ export class GetTrafficDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetTrafficDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrafficDistributionCommand)
   .de(de_GetTrafficDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrafficDistributionRequest;
+      output: GetTrafficDistributionResponse;
+    };
+    sdk: {
+      input: GetTrafficDistributionCommandInput;
+      output: GetTrafficDistributionCommandOutput;
+    };
+  };
+}

@@ -78,6 +78,11 @@ import {
   BatchGetWorkflowsCommandOutput,
 } from "./commands/BatchGetWorkflowsCommand";
 import {
+  BatchPutDataQualityStatisticAnnotationCommand,
+  BatchPutDataQualityStatisticAnnotationCommandInput,
+  BatchPutDataQualityStatisticAnnotationCommandOutput,
+} from "./commands/BatchPutDataQualityStatisticAnnotationCommand";
+import {
   BatchStopJobRunCommand,
   BatchStopJobRunCommandInput,
   BatchStopJobRunCommandOutput,
@@ -118,10 +123,20 @@ import {
   CreateBlueprintCommandOutput,
 } from "./commands/CreateBlueprintCommand";
 import {
+  CreateCatalogCommand,
+  CreateCatalogCommandInput,
+  CreateCatalogCommandOutput,
+} from "./commands/CreateCatalogCommand";
+import {
   CreateClassifierCommand,
   CreateClassifierCommandInput,
   CreateClassifierCommandOutput,
 } from "./commands/CreateClassifierCommand";
+import {
+  CreateColumnStatisticsTaskSettingsCommand,
+  CreateColumnStatisticsTaskSettingsCommandInput,
+  CreateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/CreateColumnStatisticsTaskSettingsCommand";
 import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
@@ -152,6 +167,21 @@ import {
   CreateDevEndpointCommandInput,
   CreateDevEndpointCommandOutput,
 } from "./commands/CreateDevEndpointCommand";
+import {
+  CreateIntegrationCommand,
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import {
+  CreateIntegrationResourcePropertyCommand,
+  CreateIntegrationResourcePropertyCommandInput,
+  CreateIntegrationResourcePropertyCommandOutput,
+} from "./commands/CreateIntegrationResourcePropertyCommand";
+import {
+  CreateIntegrationTablePropertiesCommand,
+  CreateIntegrationTablePropertiesCommandInput,
+  CreateIntegrationTablePropertiesCommandOutput,
+} from "./commands/CreateIntegrationTablePropertiesCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateMLTransformCommand,
@@ -225,6 +255,11 @@ import {
   DeleteBlueprintCommandOutput,
 } from "./commands/DeleteBlueprintCommand";
 import {
+  DeleteCatalogCommand,
+  DeleteCatalogCommandInput,
+  DeleteCatalogCommandOutput,
+} from "./commands/DeleteCatalogCommand";
+import {
   DeleteClassifierCommand,
   DeleteClassifierCommandInput,
   DeleteClassifierCommandOutput,
@@ -239,6 +274,11 @@ import {
   DeleteColumnStatisticsForTableCommandInput,
   DeleteColumnStatisticsForTableCommandOutput,
 } from "./commands/DeleteColumnStatisticsForTableCommand";
+import {
+  DeleteColumnStatisticsTaskSettingsCommand,
+  DeleteColumnStatisticsTaskSettingsCommandInput,
+  DeleteColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/DeleteColumnStatisticsTaskSettingsCommand";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
@@ -269,6 +309,16 @@ import {
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput,
 } from "./commands/DeleteDevEndpointCommand";
+import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import {
+  DeleteIntegrationTablePropertiesCommand,
+  DeleteIntegrationTablePropertiesCommandInput,
+  DeleteIntegrationTablePropertiesCommandOutput,
+} from "./commands/DeleteIntegrationTablePropertiesCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteMLTransformCommand,
@@ -347,6 +397,26 @@ import {
   DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  DescribeConnectionTypeCommand,
+  DescribeConnectionTypeCommandInput,
+  DescribeConnectionTypeCommandOutput,
+} from "./commands/DescribeConnectionTypeCommand";
+import {
+  DescribeEntityCommand,
+  DescribeEntityCommandInput,
+  DescribeEntityCommandOutput,
+} from "./commands/DescribeEntityCommand";
+import {
+  DescribeInboundIntegrationsCommand,
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommand,
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
+import {
   GetBlueprintCommand,
   GetBlueprintCommandInput,
   GetBlueprintCommandOutput,
@@ -361,11 +431,13 @@ import {
   GetBlueprintRunsCommandInput,
   GetBlueprintRunsCommandOutput,
 } from "./commands/GetBlueprintRunsCommand";
+import { GetCatalogCommand, GetCatalogCommandInput, GetCatalogCommandOutput } from "./commands/GetCatalogCommand";
 import {
   GetCatalogImportStatusCommand,
   GetCatalogImportStatusCommandInput,
   GetCatalogImportStatusCommandOutput,
 } from "./commands/GetCatalogImportStatusCommand";
+import { GetCatalogsCommand, GetCatalogsCommandInput, GetCatalogsCommandOutput } from "./commands/GetCatalogsCommand";
 import {
   GetClassifierCommand,
   GetClassifierCommandInput,
@@ -396,6 +468,11 @@ import {
   GetColumnStatisticsTaskRunsCommandInput,
   GetColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/GetColumnStatisticsTaskRunsCommand";
+import {
+  GetColumnStatisticsTaskSettingsCommand,
+  GetColumnStatisticsTaskSettingsCommandInput,
+  GetColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskSettingsCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
@@ -435,6 +512,16 @@ import {
   GetDataflowGraphCommandOutput,
 } from "./commands/GetDataflowGraphCommand";
 import {
+  GetDataQualityModelCommand,
+  GetDataQualityModelCommandInput,
+  GetDataQualityModelCommandOutput,
+} from "./commands/GetDataQualityModelCommand";
+import {
+  GetDataQualityModelResultCommand,
+  GetDataQualityModelResultCommandInput,
+  GetDataQualityModelResultCommandOutput,
+} from "./commands/GetDataQualityModelResultCommand";
+import {
   GetDataQualityResultCommand,
   GetDataQualityResultCommandInput,
   GetDataQualityResultCommandOutput,
@@ -464,6 +551,21 @@ import {
   GetDevEndpointsCommandInput,
   GetDevEndpointsCommandOutput,
 } from "./commands/GetDevEndpointsCommand";
+import {
+  GetEntityRecordsCommand,
+  GetEntityRecordsCommandInput,
+  GetEntityRecordsCommandOutput,
+} from "./commands/GetEntityRecordsCommand";
+import {
+  GetIntegrationResourcePropertyCommand,
+  GetIntegrationResourcePropertyCommandInput,
+  GetIntegrationResourcePropertyCommandOutput,
+} from "./commands/GetIntegrationResourcePropertyCommand";
+import {
+  GetIntegrationTablePropertiesCommand,
+  GetIntegrationTablePropertiesCommandInput,
+  GetIntegrationTablePropertiesCommandOutput,
+} from "./commands/GetIntegrationTablePropertiesCommand";
 import {
   GetJobBookmarkCommand,
   GetJobBookmarkCommandInput,
@@ -635,6 +737,11 @@ import {
   ListColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/ListColumnStatisticsTaskRunsCommand";
 import {
+  ListConnectionTypesCommand,
+  ListConnectionTypesCommandInput,
+  ListConnectionTypesCommandOutput,
+} from "./commands/ListConnectionTypesCommand";
+import {
   ListCrawlersCommand,
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
@@ -666,10 +773,25 @@ import {
   ListDataQualityRulesetsCommandOutput,
 } from "./commands/ListDataQualityRulesetsCommand";
 import {
+  ListDataQualityStatisticAnnotationsCommand,
+  ListDataQualityStatisticAnnotationsCommandInput,
+  ListDataQualityStatisticAnnotationsCommandOutput,
+} from "./commands/ListDataQualityStatisticAnnotationsCommand";
+import {
+  ListDataQualityStatisticsCommand,
+  ListDataQualityStatisticsCommandInput,
+  ListDataQualityStatisticsCommandOutput,
+} from "./commands/ListDataQualityStatisticsCommand";
+import {
   ListDevEndpointsCommand,
   ListDevEndpointsCommandInput,
   ListDevEndpointsCommandOutput,
 } from "./commands/ListDevEndpointsCommand";
+import {
+  ListEntitiesCommand,
+  ListEntitiesCommandInput,
+  ListEntitiesCommandOutput,
+} from "./commands/ListEntitiesCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMLTransformsCommand,
@@ -718,10 +840,20 @@ import {
   ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  ModifyIntegrationCommand,
+  ModifyIntegrationCommandInput,
+  ModifyIntegrationCommandOutput,
+} from "./commands/ModifyIntegrationCommand";
+import {
   PutDataCatalogEncryptionSettingsCommand,
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  PutDataQualityProfileAnnotationCommand,
+  PutDataQualityProfileAnnotationCommandInput,
+  PutDataQualityProfileAnnotationCommandOutput,
+} from "./commands/PutDataQualityProfileAnnotationCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -783,6 +915,11 @@ import {
   StartColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StartColumnStatisticsTaskRunCommand";
 import {
+  StartColumnStatisticsTaskRunScheduleCommand,
+  StartColumnStatisticsTaskRunScheduleCommandInput,
+  StartColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunScheduleCommand";
+import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -838,6 +975,11 @@ import {
   StopColumnStatisticsTaskRunCommandInput,
   StopColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StopColumnStatisticsTaskRunCommand";
+import {
+  StopColumnStatisticsTaskRunScheduleCommand,
+  StopColumnStatisticsTaskRunScheduleCommandInput,
+  StopColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunScheduleCommand";
 import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommand,
@@ -853,6 +995,11 @@ import {
 } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TestConnectionCommand,
+  TestConnectionCommandInput,
+  TestConnectionCommandOutput,
+} from "./commands/TestConnectionCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -862,6 +1009,11 @@ import {
   UpdateBlueprintCommandInput,
   UpdateBlueprintCommandOutput,
 } from "./commands/UpdateBlueprintCommand";
+import {
+  UpdateCatalogCommand,
+  UpdateCatalogCommandInput,
+  UpdateCatalogCommandOutput,
+} from "./commands/UpdateCatalogCommand";
 import {
   UpdateClassifierCommand,
   UpdateClassifierCommandInput,
@@ -877,6 +1029,11 @@ import {
   UpdateColumnStatisticsForTableCommandInput,
   UpdateColumnStatisticsForTableCommandOutput,
 } from "./commands/UpdateColumnStatisticsForTableCommand";
+import {
+  UpdateColumnStatisticsTaskSettingsCommand,
+  UpdateColumnStatisticsTaskSettingsCommandInput,
+  UpdateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/UpdateColumnStatisticsTaskSettingsCommand";
 import {
   UpdateConnectionCommand,
   UpdateConnectionCommandInput,
@@ -907,6 +1064,16 @@ import {
   UpdateDevEndpointCommandInput,
   UpdateDevEndpointCommandOutput,
 } from "./commands/UpdateDevEndpointCommand";
+import {
+  UpdateIntegrationResourcePropertyCommand,
+  UpdateIntegrationResourcePropertyCommandInput,
+  UpdateIntegrationResourcePropertyCommandOutput,
+} from "./commands/UpdateIntegrationResourcePropertyCommand";
+import {
+  UpdateIntegrationTablePropertiesCommand,
+  UpdateIntegrationTablePropertiesCommandInput,
+  UpdateIntegrationTablePropertiesCommandOutput,
+} from "./commands/UpdateIntegrationTablePropertiesCommand";
 import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateJobFromSourceControlCommand,
@@ -982,6 +1149,7 @@ const commands = {
   BatchGetTableOptimizerCommand,
   BatchGetTriggersCommand,
   BatchGetWorkflowsCommand,
+  BatchPutDataQualityStatisticAnnotationCommand,
   BatchStopJobRunCommand,
   BatchUpdatePartitionCommand,
   CancelDataQualityRuleRecommendationRunCommand,
@@ -990,13 +1158,18 @@ const commands = {
   CancelStatementCommand,
   CheckSchemaVersionValidityCommand,
   CreateBlueprintCommand,
+  CreateCatalogCommand,
   CreateClassifierCommand,
+  CreateColumnStatisticsTaskSettingsCommand,
   CreateConnectionCommand,
   CreateCrawlerCommand,
   CreateCustomEntityTypeCommand,
   CreateDatabaseCommand,
   CreateDataQualityRulesetCommand,
   CreateDevEndpointCommand,
+  CreateIntegrationCommand,
+  CreateIntegrationResourcePropertyCommand,
+  CreateIntegrationTablePropertiesCommand,
   CreateJobCommand,
   CreateMLTransformCommand,
   CreatePartitionCommand,
@@ -1013,15 +1186,19 @@ const commands = {
   CreateUserDefinedFunctionCommand,
   CreateWorkflowCommand,
   DeleteBlueprintCommand,
+  DeleteCatalogCommand,
   DeleteClassifierCommand,
   DeleteColumnStatisticsForPartitionCommand,
   DeleteColumnStatisticsForTableCommand,
+  DeleteColumnStatisticsTaskSettingsCommand,
   DeleteConnectionCommand,
   DeleteCrawlerCommand,
   DeleteCustomEntityTypeCommand,
   DeleteDatabaseCommand,
   DeleteDataQualityRulesetCommand,
   DeleteDevEndpointCommand,
+  DeleteIntegrationCommand,
+  DeleteIntegrationTablePropertiesCommand,
   DeleteJobCommand,
   DeleteMLTransformCommand,
   DeletePartitionCommand,
@@ -1039,16 +1216,23 @@ const commands = {
   DeleteUsageProfileCommand,
   DeleteUserDefinedFunctionCommand,
   DeleteWorkflowCommand,
+  DescribeConnectionTypeCommand,
+  DescribeEntityCommand,
+  DescribeInboundIntegrationsCommand,
+  DescribeIntegrationsCommand,
   GetBlueprintCommand,
   GetBlueprintRunCommand,
   GetBlueprintRunsCommand,
+  GetCatalogCommand,
   GetCatalogImportStatusCommand,
+  GetCatalogsCommand,
   GetClassifierCommand,
   GetClassifiersCommand,
   GetColumnStatisticsForPartitionCommand,
   GetColumnStatisticsForTableCommand,
   GetColumnStatisticsTaskRunCommand,
   GetColumnStatisticsTaskRunsCommand,
+  GetColumnStatisticsTaskSettingsCommand,
   GetConnectionCommand,
   GetConnectionsCommand,
   GetCrawlerCommand,
@@ -1059,12 +1243,17 @@ const commands = {
   GetDatabasesCommand,
   GetDataCatalogEncryptionSettingsCommand,
   GetDataflowGraphCommand,
+  GetDataQualityModelCommand,
+  GetDataQualityModelResultCommand,
   GetDataQualityResultCommand,
   GetDataQualityRuleRecommendationRunCommand,
   GetDataQualityRulesetCommand,
   GetDataQualityRulesetEvaluationRunCommand,
   GetDevEndpointCommand,
   GetDevEndpointsCommand,
+  GetEntityRecordsCommand,
+  GetIntegrationResourcePropertyCommand,
+  GetIntegrationTablePropertiesCommand,
   GetJobCommand,
   GetJobBookmarkCommand,
   GetJobRunCommand,
@@ -1111,6 +1300,7 @@ const commands = {
   ImportCatalogToGlueCommand,
   ListBlueprintsCommand,
   ListColumnStatisticsTaskRunsCommand,
+  ListConnectionTypesCommand,
   ListCrawlersCommand,
   ListCrawlsCommand,
   ListCustomEntityTypesCommand,
@@ -1118,7 +1308,10 @@ const commands = {
   ListDataQualityRuleRecommendationRunsCommand,
   ListDataQualityRulesetEvaluationRunsCommand,
   ListDataQualityRulesetsCommand,
+  ListDataQualityStatisticAnnotationsCommand,
+  ListDataQualityStatisticsCommand,
   ListDevEndpointsCommand,
+  ListEntitiesCommand,
   ListJobsCommand,
   ListMLTransformsCommand,
   ListRegistriesCommand,
@@ -1130,7 +1323,9 @@ const commands = {
   ListTriggersCommand,
   ListUsageProfilesCommand,
   ListWorkflowsCommand,
+  ModifyIntegrationCommand,
   PutDataCatalogEncryptionSettingsCommand,
+  PutDataQualityProfileAnnotationCommand,
   PutResourcePolicyCommand,
   PutSchemaVersionMetadataCommand,
   PutWorkflowRunPropertiesCommand,
@@ -1143,6 +1338,7 @@ const commands = {
   SearchTablesCommand,
   StartBlueprintRunCommand,
   StartColumnStatisticsTaskRunCommand,
+  StartColumnStatisticsTaskRunScheduleCommand,
   StartCrawlerCommand,
   StartCrawlerScheduleCommand,
   StartDataQualityRuleRecommendationRunCommand,
@@ -1155,23 +1351,29 @@ const commands = {
   StartTriggerCommand,
   StartWorkflowRunCommand,
   StopColumnStatisticsTaskRunCommand,
+  StopColumnStatisticsTaskRunScheduleCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
   StopSessionCommand,
   StopTriggerCommand,
   StopWorkflowRunCommand,
   TagResourceCommand,
+  TestConnectionCommand,
   UntagResourceCommand,
   UpdateBlueprintCommand,
+  UpdateCatalogCommand,
   UpdateClassifierCommand,
   UpdateColumnStatisticsForPartitionCommand,
   UpdateColumnStatisticsForTableCommand,
+  UpdateColumnStatisticsTaskSettingsCommand,
   UpdateConnectionCommand,
   UpdateCrawlerCommand,
   UpdateCrawlerScheduleCommand,
   UpdateDatabaseCommand,
   UpdateDataQualityRulesetCommand,
   UpdateDevEndpointCommand,
+  UpdateIntegrationResourcePropertyCommand,
+  UpdateIntegrationTablePropertiesCommand,
   UpdateJobCommand,
   UpdateJobFromSourceControlCommand,
   UpdateMLTransformCommand,
@@ -1438,6 +1640,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link BatchPutDataQualityStatisticAnnotationCommand}
+   */
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutDataQualityStatisticAnnotationCommandOutput>;
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    cb: (err: any, data?: BatchPutDataQualityStatisticAnnotationCommandOutput) => void
+  ): void;
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutDataQualityStatisticAnnotationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchStopJobRunCommand}
    */
   batchStopJobRun(
@@ -1562,6 +1781,17 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateCatalogCommand}
+   */
+  createCatalog(args: CreateCatalogCommandInput, options?: __HttpHandlerOptions): Promise<CreateCatalogCommandOutput>;
+  createCatalog(args: CreateCatalogCommandInput, cb: (err: any, data?: CreateCatalogCommandOutput) => void): void;
+  createCatalog(
+    args: CreateCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCatalogCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateClassifierCommand}
    */
   createClassifier(): Promise<CreateClassifierCommandOutput>;
@@ -1577,6 +1807,23 @@ export interface Glue {
     args: CreateClassifierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClassifierCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateColumnStatisticsTaskSettingsCommand}
+   */
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateColumnStatisticsTaskSettingsCommandOutput>;
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: CreateColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -1670,6 +1917,57 @@ export interface Glue {
     args: CreateDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIntegrationCommand}
+   */
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationCommandOutput>;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIntegrationResourcePropertyCommand}
+   */
+  createIntegrationResourceProperty(
+    args: CreateIntegrationResourcePropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationResourcePropertyCommandOutput>;
+  createIntegrationResourceProperty(
+    args: CreateIntegrationResourcePropertyCommandInput,
+    cb: (err: any, data?: CreateIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+  createIntegrationResourceProperty(
+    args: CreateIntegrationResourcePropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIntegrationTablePropertiesCommand}
+   */
+  createIntegrationTableProperties(
+    args: CreateIntegrationTablePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationTablePropertiesCommandOutput>;
+  createIntegrationTableProperties(
+    args: CreateIntegrationTablePropertiesCommandInput,
+    cb: (err: any, data?: CreateIntegrationTablePropertiesCommandOutput) => void
+  ): void;
+  createIntegrationTableProperties(
+    args: CreateIntegrationTablePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationTablePropertiesCommandOutput) => void
   ): void;
 
   /**
@@ -1898,6 +2196,17 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link DeleteCatalogCommand}
+   */
+  deleteCatalog(args: DeleteCatalogCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCatalogCommandOutput>;
+  deleteCatalog(args: DeleteCatalogCommandInput, cb: (err: any, data?: DeleteCatalogCommandOutput) => void): void;
+  deleteCatalog(
+    args: DeleteCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCatalogCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteClassifierCommand}
    */
   deleteClassifier(
@@ -1946,6 +2255,23 @@ export interface Glue {
     args: DeleteColumnStatisticsForTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteColumnStatisticsTaskSettingsCommand}
+   */
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteColumnStatisticsTaskSettingsCommandOutput>;
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: DeleteColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -2039,6 +2365,40 @@ export interface Glue {
     args: DeleteDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationTablePropertiesCommand}
+   */
+  deleteIntegrationTableProperties(
+    args: DeleteIntegrationTablePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationTablePropertiesCommandOutput>;
+  deleteIntegrationTableProperties(
+    args: DeleteIntegrationTablePropertiesCommandInput,
+    cb: (err: any, data?: DeleteIntegrationTablePropertiesCommandOutput) => void
+  ): void;
+  deleteIntegrationTableProperties(
+    args: DeleteIntegrationTablePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationTablePropertiesCommandOutput) => void
   ): void;
 
   /**
@@ -2293,6 +2653,73 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link DescribeConnectionTypeCommand}
+   */
+  describeConnectionType(
+    args: DescribeConnectionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectionTypeCommandOutput>;
+  describeConnectionType(
+    args: DescribeConnectionTypeCommandInput,
+    cb: (err: any, data?: DescribeConnectionTypeCommandOutput) => void
+  ): void;
+  describeConnectionType(
+    args: DescribeConnectionTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectionTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEntityCommand}
+   */
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntityCommandOutput>;
+  describeEntity(args: DescribeEntityCommandInput, cb: (err: any, data?: DescribeEntityCommandOutput) => void): void;
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInboundIntegrationsCommand}
+   */
+  describeInboundIntegrations(): Promise<DescribeInboundIntegrationsCommandOutput>;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInboundIntegrationsCommandOutput>;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   */
+  describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBlueprintCommand}
    */
   getBlueprint(args: GetBlueprintCommandInput, options?: __HttpHandlerOptions): Promise<GetBlueprintCommandOutput>;
@@ -2335,6 +2762,17 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetCatalogCommand}
+   */
+  getCatalog(args: GetCatalogCommandInput, options?: __HttpHandlerOptions): Promise<GetCatalogCommandOutput>;
+  getCatalog(args: GetCatalogCommandInput, cb: (err: any, data?: GetCatalogCommandOutput) => void): void;
+  getCatalog(
+    args: GetCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCatalogCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCatalogImportStatusCommand}
    */
   getCatalogImportStatus(): Promise<GetCatalogImportStatusCommandOutput>;
@@ -2350,6 +2788,18 @@ export interface Glue {
     args: GetCatalogImportStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCatalogImportStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCatalogsCommand}
+   */
+  getCatalogs(): Promise<GetCatalogsCommandOutput>;
+  getCatalogs(args: GetCatalogsCommandInput, options?: __HttpHandlerOptions): Promise<GetCatalogsCommandOutput>;
+  getCatalogs(args: GetCatalogsCommandInput, cb: (err: any, data?: GetCatalogsCommandOutput) => void): void;
+  getCatalogs(
+    args: GetCatalogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCatalogsCommandOutput) => void
   ): void;
 
   /**
@@ -2444,6 +2894,23 @@ export interface Glue {
     args: GetColumnStatisticsTaskRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskSettingsCommand}
+   */
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskSettingsCommandOutput>;
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -2590,6 +3057,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetDataQualityModelCommand}
+   */
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityModelCommandOutput>;
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    cb: (err: any, data?: GetDataQualityModelCommandOutput) => void
+  ): void;
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataQualityModelResultCommand}
+   */
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityModelResultCommandOutput>;
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    cb: (err: any, data?: GetDataQualityModelResultCommandOutput) => void
+  ): void;
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityModelResultCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataQualityResultCommand}
    */
   getDataQualityResult(
@@ -2684,6 +3185,57 @@ export interface Glue {
     args: GetDevEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDevEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEntityRecordsCommand}
+   */
+  getEntityRecords(
+    args: GetEntityRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEntityRecordsCommandOutput>;
+  getEntityRecords(
+    args: GetEntityRecordsCommandInput,
+    cb: (err: any, data?: GetEntityRecordsCommandOutput) => void
+  ): void;
+  getEntityRecords(
+    args: GetEntityRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEntityRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIntegrationResourcePropertyCommand}
+   */
+  getIntegrationResourceProperty(
+    args: GetIntegrationResourcePropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntegrationResourcePropertyCommandOutput>;
+  getIntegrationResourceProperty(
+    args: GetIntegrationResourcePropertyCommandInput,
+    cb: (err: any, data?: GetIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+  getIntegrationResourceProperty(
+    args: GetIntegrationResourcePropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIntegrationTablePropertiesCommand}
+   */
+  getIntegrationTableProperties(
+    args: GetIntegrationTablePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntegrationTablePropertiesCommandOutput>;
+  getIntegrationTableProperties(
+    args: GetIntegrationTablePropertiesCommandInput,
+    cb: (err: any, data?: GetIntegrationTablePropertiesCommandOutput) => void
+  ): void;
+  getIntegrationTableProperties(
+    args: GetIntegrationTablePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntegrationTablePropertiesCommandOutput) => void
   ): void;
 
   /**
@@ -3335,6 +3887,24 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListConnectionTypesCommand}
+   */
+  listConnectionTypes(): Promise<ListConnectionTypesCommandOutput>;
+  listConnectionTypes(
+    args: ListConnectionTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectionTypesCommandOutput>;
+  listConnectionTypes(
+    args: ListConnectionTypesCommandInput,
+    cb: (err: any, data?: ListConnectionTypesCommandOutput) => void
+  ): void;
+  listConnectionTypes(
+    args: ListConnectionTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectionTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCrawlersCommand}
    */
   listCrawlers(): Promise<ListCrawlersCommandOutput>;
@@ -3448,6 +4018,42 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListDataQualityStatisticAnnotationsCommand}
+   */
+  listDataQualityStatisticAnnotations(): Promise<ListDataQualityStatisticAnnotationsCommandOutput>;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityStatisticAnnotationsCommandOutput>;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    cb: (err: any, data?: ListDataQualityStatisticAnnotationsCommandOutput) => void
+  ): void;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityStatisticAnnotationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataQualityStatisticsCommand}
+   */
+  listDataQualityStatistics(): Promise<ListDataQualityStatisticsCommandOutput>;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityStatisticsCommandOutput>;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    cb: (err: any, data?: ListDataQualityStatisticsCommandOutput) => void
+  ): void;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityStatisticsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDevEndpointsCommand}
    */
   listDevEndpoints(): Promise<ListDevEndpointsCommandOutput>;
@@ -3463,6 +4069,18 @@ export interface Glue {
     args: ListDevEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDevEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEntitiesCommand}
+   */
+  listEntities(): Promise<ListEntitiesCommandOutput>;
+  listEntities(args: ListEntitiesCommandInput, options?: __HttpHandlerOptions): Promise<ListEntitiesCommandOutput>;
+  listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
+  listEntities(
+    args: ListEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntitiesCommandOutput) => void
   ): void;
 
   /**
@@ -3625,6 +4243,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ModifyIntegrationCommand}
+   */
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIntegrationCommandOutput>;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutDataCatalogEncryptionSettingsCommand}
    */
   putDataCatalogEncryptionSettings(
@@ -3639,6 +4274,23 @@ export interface Glue {
     args: PutDataCatalogEncryptionSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDataQualityProfileAnnotationCommand}
+   */
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataQualityProfileAnnotationCommandOutput>;
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    cb: (err: any, data?: PutDataQualityProfileAnnotationCommandOutput) => void
+  ): void;
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataQualityProfileAnnotationCommandOutput) => void
   ): void;
 
   /**
@@ -3836,6 +4488,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartColumnStatisticsTaskRunScheduleCommand}
+   */
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartColumnStatisticsTaskRunScheduleCommandOutput>;
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartCrawlerCommand}
    */
   startCrawler(args: StartCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StartCrawlerCommandOutput>;
@@ -4022,6 +4691,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StopColumnStatisticsTaskRunScheduleCommand}
+   */
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopColumnStatisticsTaskRunScheduleCommandOutput>;
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopCrawlerCommand}
    */
   stopCrawler(args: StopCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StopCrawlerCommandOutput>;
@@ -4097,6 +4783,21 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link TestConnectionCommand}
+   */
+  testConnection(): Promise<TestConnectionCommandOutput>;
+  testConnection(
+    args: TestConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestConnectionCommandOutput>;
+  testConnection(args: TestConnectionCommandInput, cb: (err: any, data?: TestConnectionCommandOutput) => void): void;
+  testConnection(
+    args: TestConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestConnectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagResourceCommand}
    */
   untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
@@ -4119,6 +4820,17 @@ export interface Glue {
     args: UpdateBlueprintCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCatalogCommand}
+   */
+  updateCatalog(args: UpdateCatalogCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCatalogCommandOutput>;
+  updateCatalog(args: UpdateCatalogCommandInput, cb: (err: any, data?: UpdateCatalogCommandOutput) => void): void;
+  updateCatalog(
+    args: UpdateCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCatalogCommandOutput) => void
   ): void;
 
   /**
@@ -4171,6 +4883,23 @@ export interface Glue {
     args: UpdateColumnStatisticsForTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateColumnStatisticsTaskSettingsCommand}
+   */
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateColumnStatisticsTaskSettingsCommandOutput>;
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: UpdateColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -4264,6 +4993,40 @@ export interface Glue {
     args: UpdateDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIntegrationResourcePropertyCommand}
+   */
+  updateIntegrationResourceProperty(
+    args: UpdateIntegrationResourcePropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIntegrationResourcePropertyCommandOutput>;
+  updateIntegrationResourceProperty(
+    args: UpdateIntegrationResourcePropertyCommandInput,
+    cb: (err: any, data?: UpdateIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+  updateIntegrationResourceProperty(
+    args: UpdateIntegrationResourcePropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIntegrationTablePropertiesCommand}
+   */
+  updateIntegrationTableProperties(
+    args: UpdateIntegrationTablePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIntegrationTablePropertiesCommandOutput>;
+  updateIntegrationTableProperties(
+    args: UpdateIntegrationTablePropertiesCommandInput,
+    cb: (err: any, data?: UpdateIntegrationTablePropertiesCommandOutput) => void
+  ): void;
+  updateIntegrationTableProperties(
+    args: UpdateIntegrationTablePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIntegrationTablePropertiesCommandOutput) => void
   ): void;
 
   /**

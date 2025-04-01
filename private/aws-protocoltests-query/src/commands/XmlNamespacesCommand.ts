@@ -57,6 +57,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlNamespacesCommand extends $Command
   .classBuilder<
@@ -74,4 +75,16 @@ export class XmlNamespacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlNamespacesCommand)
   .de(de_XmlNamespacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlNamespacesOutput;
+    };
+    sdk: {
+      input: XmlNamespacesCommandInput;
+      output: XmlNamespacesCommandOutput;
+    };
+  };
+}

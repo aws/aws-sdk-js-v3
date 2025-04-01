@@ -82,6 +82,7 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectSentimentCommand extends $Command
@@ -92,9 +93,7 @@ export class DetectSentimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DetectSentimentCommand extends $Command
   .f(DetectSentimentRequestFilterSensitiveLog, DetectSentimentResponseFilterSensitiveLog)
   .ser(se_DetectSentimentCommand)
   .de(de_DetectSentimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectSentimentRequest;
+      output: DetectSentimentResponse;
+    };
+    sdk: {
+      input: DetectSentimentCommandInput;
+      output: DetectSentimentCommandOutput;
+    };
+  };
+}

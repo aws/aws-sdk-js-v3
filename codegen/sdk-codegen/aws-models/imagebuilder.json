@@ -217,6 +217,12 @@
           "traits": {
             "smithy.api#enumValue": "IMPORT"
           }
+        },
+        "IMPORT_ISO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORT_ISO"
+          }
         }
       }
     },
@@ -481,7 +487,7 @@
         "state": {
           "target": "com.amazonaws.imagebuilder#ComponentState",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the current status of the component. This is used for components that are no\n\t\t\tlonger active.</p>"
+            "smithy.api#documentation": "<p>Describes the current status of the component.</p>"
           }
         },
         "parameters": {
@@ -537,6 +543,12 @@
           "traits": {
             "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether component source is hidden from view in the console, and from \n\t\t\tcomponent detail results for API, CLI, or SDK operations.</p>"
+          }
+        },
+        "productCodes": {
+          "target": "com.amazonaws.imagebuilder#ProductCodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains product codes that are used for billing purposes for Amazon Web Services Marketplace components.</p>"
           }
         }
       },
@@ -742,6 +754,18 @@
           "traits": {
             "smithy.api#enumValue": "DEPRECATED"
           }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
         }
       }
     },
@@ -830,7 +854,7 @@
           "target": "com.amazonaws.imagebuilder#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Indicates whether component source is hidden from view in the console, \n\t\t\tand from component detail results for API, CLI, or SDK operations.</p>"
+            "smithy.api#documentation": "<p>Indicates whether component source is hidden from view in the console, and from \n\t\t\tcomponent detail results for API, CLI, or SDK operations.</p>"
           }
         }
       },
@@ -916,6 +940,18 @@
           "target": "com.amazonaws.imagebuilder#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date that the component was created.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.imagebuilder#ComponentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the current status of the component version.</p>"
+          }
+        },
+        "productCodes": {
+          "target": "com.amazonaws.imagebuilder#ProductCodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains product codes that are used for billing purposes for Amazon Web Services Marketplace components.</p>"
           }
         }
       },
@@ -1499,7 +1535,7 @@
         "kmsKeyId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies which KMS key is used to encrypt the container image.</p>"
+            "smithy.api#documentation": "<p>Identifies which KMS key is used to encrypt the Dockerfile template.</p>"
           }
         },
         "clientToken": {
@@ -2256,7 +2292,7 @@
         "resourceTags": {
           "target": "com.amazonaws.imagebuilder#ResourceTagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
+            "smithy.api#documentation": "<p>The metadata tags to assign to the Amazon EC2 instance that Image Builder launches during the build process. \n\t\t\tTags are formatted as key value pairs.</p>"
           }
         },
         "instanceMetadataOptions": {
@@ -2268,7 +2304,13 @@
         "tags": {
           "target": "com.amazonaws.imagebuilder#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
+            "smithy.api#documentation": "<p>The metadata tags to assign to the infrastructure configuration resource that Image Builder \n\t\t\tcreates as output. Tags are formatted as key value pairs.</p>"
+          }
+        },
+        "placement": {
+          "target": "com.amazonaws.imagebuilder#Placement",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance placement settings that define where the instances that are launched \n\t\t\tfrom your image will run.</p>"
           }
         },
         "clientToken": {
@@ -3732,7 +3774,7 @@
         "containerTags": {
           "target": "com.amazonaws.imagebuilder#StringList",
           "traits": {
-            "smithy.api#documentation": "<p>Tags for Image Builder to apply to the output container image that &INS; scans. Tags can\n\t\t\thelp you identify and manage your scanned images.</p>"
+            "smithy.api#documentation": "<p>Tags for Image Builder to apply to the output container image that Amazon Inspector scans. Tags can\n\t\t\thelp you identify and manage your scanned images.</p>"
           }
         }
       },
@@ -3885,7 +3927,7 @@
     "com.amazonaws.imagebuilder#FilterValue": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^[0-9a-zA-Z./_ :-]{1,1024}$"
+        "smithy.api#pattern": "^[0-9a-zA-Z./_ :,{}\"-]{1,1024}$"
       }
     },
     "com.amazonaws.imagebuilder#FilterValues": {
@@ -4852,6 +4894,97 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.imagebuilder#GetMarketplaceResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.imagebuilder#GetMarketplaceResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.imagebuilder#GetMarketplaceResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.imagebuilder#CallRateLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ClientException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ServiceUnavailableException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Verify the subscription and perform resource dependency checks on the requested \n\t\t\tAmazon Web Services Marketplace resource. For Amazon Web Services Marketplace components, the response contains fields to download the \n\t\t\tcomponents and their artifacts.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/GetMarketplaceResource",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.imagebuilder#GetMarketplaceResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.imagebuilder#MarketplaceResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies which type of Amazon Web Services Marketplace resource Image Builder retrieves.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that uniquely identifies an Amazon Web Services Marketplace resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceLocation": {
+          "target": "com.amazonaws.imagebuilder#MarketplaceResourceLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>The bucket path that you can specify to download the resource from Amazon S3.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.imagebuilder#GetMarketplaceResourceResponse": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Web Services Marketplace resource that was requested.</p>"
+          }
+        },
+        "url": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The obfuscated S3 URL to download the component artifact from.</p>"
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns obfuscated data that contains the YAML content of the component.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.imagebuilder#GetWorkflow": {
       "type": "operation",
       "input": {
@@ -5373,7 +5506,7 @@
         "buildType": {
           "target": "com.amazonaws.imagebuilder#BuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT_ISO</b> – An ISO disk import created \n\t\t\t\t\tthe image.</p>\n            </li>\n         </ul>"
           }
         },
         "imageSource": {
@@ -5470,18 +5603,18 @@
         "packageName": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the package as reported to the operating system package manager.</p>"
+            "smithy.api#documentation": "<p>The name of the package that's reported to the operating system package \n\t\t\tmanager.</p>"
           }
         },
         "packageVersion": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the package as reported to the operating system package manager.</p>"
+            "smithy.api#documentation": "<p>The version of the package that's reported to the operating system package \n\t\t\tmanager.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents a package installed on an Image Builder image.</p>"
+        "smithy.api#documentation": "<p>A software package that's installed on top of the base image to create a \n\t\t\tcustomized image.</p>"
       }
     },
     "com.amazonaws.imagebuilder#ImagePackageList": {
@@ -6275,7 +6408,7 @@
         "buildType": {
           "target": "com.amazonaws.imagebuilder#BuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT_ISO</b> – An ISO disk import created \n\t\t\t\t\tthe image.</p>\n            </li>\n         </ul>"
           }
         },
         "imageSource": {
@@ -6319,7 +6452,7 @@
         "timeoutMinutes": {
           "target": "com.amazonaws.imagebuilder#ImageTestsTimeoutMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum time in minutes that tests are permitted to run.</p>\n         <note>\n            <p>The timeoutMinutes attribute is not currently active. This value is\n\t\t\t\tignored.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The maximum time in minutes that tests are permitted to run.</p>\n         <note>\n            <p>The timeout property is not currently active. This value is\n\t\t\t\tignored.</p>\n         </note>"
           }
         }
       },
@@ -6407,7 +6540,7 @@
         "buildType": {
           "target": "com.amazonaws.imagebuilder#BuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Indicates the type of build that created this image. The build can be initiated in the\n\t\t\tfollowing ways:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>USER_INITIATED</b> – A manual \n\t\t\t\t\tpipeline build request.</p>\n            </li>\n            <li>\n               <p>\n                  <b>SCHEDULED</b> – A pipeline build \n\t\t\t\t\tinitiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT</b> – A VM import created \n\t\t\t\t\tthe image to use as the base image for the recipe.</p>\n            </li>\n            <li>\n               <p>\n                  <b>IMPORT_ISO</b> – An ISO disk import created \n\t\t\t\t\tthe image.</p>\n            </li>\n         </ul>"
           }
         },
         "imageSource": {
@@ -6594,6 +6727,130 @@
           "target": "com.amazonaws.imagebuilder#ComponentBuildVersionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the imported component.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.imagebuilder#ImportDiskImage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.imagebuilder#ImportDiskImageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.imagebuilder#ImportDiskImageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.imagebuilder#ClientException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ServiceUnavailableException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Import a Windows operating system image from a verified Microsoft ISO disk \n\t\t\tfile. The following disk images are supported:</p>\n         <ul>\n            <li>\n               <p>Windows 11 Enterprise</p>\n            </li>\n         </ul>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/ImportDiskImage",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.imagebuilder#ImportDiskImageRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the image resource that's created from the import.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "semanticVersion": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The semantic version to attach to the image that's created during the import\n\t\t\tprocess. This version follows the semantic version syntax.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for your disk image import.</p>"
+          }
+        },
+        "platform": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system platform for the imported image. Allowed values include \n\t\t\tthe following: <code>Windows</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "osVersion": {
+          "target": "com.amazonaws.imagebuilder#OsVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system version for the imported image. Allowed values include \n\t\t\tthe following: <code>Microsoft Windows 11</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "executionRole": {
+          "target": "com.amazonaws.imagebuilder#RoleNameOrArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access \n\t\t\tto perform workflow actions to import an image from a Microsoft ISO file.</p>"
+          }
+        },
+        "infrastructureConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration resource that's used for \n\t\t\tlaunching the EC2 instance on which the ISO image is built.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "uri": {
+          "target": "com.amazonaws.imagebuilder#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>uri</code> of the ISO disk file that's stored in Amazon S3.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags that are attached to image resources created from the import.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure\n       idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> \n       in the <i>Amazon EC2 API Reference</i>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.imagebuilder#ImportDiskImageResponse": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The client token that uniquely identifies the request.</p>"
+          }
+        },
+        "imageBuildVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the output AMI that was created from the ISO disk file.</p>"
           }
         }
       },
@@ -6815,6 +7072,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
           }
+        },
+        "placement": {
+          "target": "com.amazonaws.imagebuilder#Placement",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance placement settings that define where the instances that are launched \n\t\t\tfrom your image will run.</p>"
+          }
         }
       },
       "traits": {
@@ -6882,6 +7145,12 @@
           "target": "com.amazonaws.imagebuilder#InstanceProfileNameType",
           "traits": {
             "smithy.api#documentation": "<p>The instance profile of the infrastructure configuration.</p>"
+          }
+        },
+        "placement": {
+          "target": "com.amazonaws.imagebuilder#Placement",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance placement settings that define where the instances that are launched \n\t\t\tfrom your image will run.</p>"
           }
         }
       },
@@ -8119,7 +8388,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the list of component build versions for the specified semantic\n\t\t\tversion.</p>\n         <note>\n            <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>. \n\tYou can assign values for the first three, and can filter on all of them.</p>\n            <p>\n               <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) \n\tto specify the most recent versions or nodes when selecting the base image or components for your \n\trecipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be \n\twildcards.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the list of component build versions for the specified component \n\t\t\tversion Amazon Resource Name (ARN).</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/ListComponentBuildVersions",
@@ -10309,6 +10578,33 @@
         "smithy.api#documentation": "<p>Logging configuration defines where Image Builder uploads your logs.</p>"
       }
     },
+    "com.amazonaws.imagebuilder#MarketplaceResourceLocation": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^s3://[^/]+/.+[^/]$"
+      }
+    },
+    "com.amazonaws.imagebuilder#MarketplaceResourceType": {
+      "type": "enum",
+      "members": {
+        "COMPONENT_DATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPONENT_DATA"
+          }
+        },
+        "COMPONENT_ARTIFACT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPONENT_ARTIFACT"
+          }
+        }
+      }
+    },
     "com.amazonaws.imagebuilder#MaxParallelLaunches": {
       "type": "integer",
       "traits": {
@@ -10467,6 +10763,12 @@
           "traits": {
             "smithy.api#enumValue": "ThirdParty"
           }
+        },
+        "AWS_MARKETPLACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWSMarketplace"
+          }
         }
       }
     },
@@ -10598,6 +10900,38 @@
         }
       }
     },
+    "com.amazonaws.imagebuilder#Placement": {
+      "type": "structure",
+      "members": {
+        "availabilityZone": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone where your build and test instances will launch.</p>"
+          }
+        },
+        "tenancy": {
+          "target": "com.amazonaws.imagebuilder#TenancyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> \n\t\t\truns on single-tenant hardware. An instance with a tenancy of <code>host</code> runs \n\t\t\ton a Dedicated Host.</p>\n         <p>If tenancy is set to <code>host</code>, then you can optionally specify one target \n\t\t\tfor placement – either host ID or host resource group ARN. If automatic placement \n\t\t\tis enabled for your host, and you don't specify any placement target, Amazon EC2 will try to \n\t\t\tfind an available host for your build and test instances.</p>"
+          }
+        },
+        "hostId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Dedicated Host on which build and test instances run. This only \n\t\t\tapplies if <code>tenancy</code> is <code>host</code>. If you specify the host ID, you \n\t\t\tmust not specify the resource group ARN. If you specify both, Image Builder returns an error.</p>"
+          }
+        },
+        "hostResourceGroupArn": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the host resource group in which to launch build and test instances. \n\t\t\tThis only applies if <code>tenancy</code> is <code>host</code>. If you specify the resource \n\t\t\tgroup ARN, you must not specify the host ID. If you specify both, Image Builder returns an error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>By default, EC2 instances run on shared tenancy hardware. This means that multiple \n\t\t\tAmazon Web Services accounts might share the same physical hardware. When you use dedicated hardware, \n\t\t\tthe physical server that hosts your instances is dedicated to your Amazon Web Services account. \n\t\t\tInstance placement settings contain the details for the physical hardware where \n\t\t\tinstances that Image Builder launches during image creation will run.</p>"
+      }
+    },
     "com.amazonaws.imagebuilder#Platform": {
       "type": "enum",
       "members": {
@@ -10611,6 +10945,57 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Linux"
+          }
+        },
+        "MACOS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "macOS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.imagebuilder#ProductCodeId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[A-Za-z0-9]{1,25}$"
+      }
+    },
+    "com.amazonaws.imagebuilder#ProductCodeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.imagebuilder#ProductCodeListItem"
+      }
+    },
+    "com.amazonaws.imagebuilder#ProductCodeListItem": {
+      "type": "structure",
+      "members": {
+        "productCodeId": {
+          "target": "com.amazonaws.imagebuilder#ProductCodeId",
+          "traits": {
+            "smithy.api#documentation": "<p>For Amazon Web Services Marketplace components, this contains the product code ID that can be stamped onto \n\t\t\tan EC2 AMI to ensure that components are billed correctly. If this property is empty, \n\t\t\tit might mean that the component is not published.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "productCodeType": {
+          "target": "com.amazonaws.imagebuilder#ProductCodeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the product code that's billed. If this property is \n\t\t\tempty, it might mean that the component is not published.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a single product code.</p>"
+      }
+    },
+    "com.amazonaws.imagebuilder#ProductCodeType": {
+      "type": "enum",
+      "members": {
+        "MARKETPLACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "marketplace"
           }
         }
       }
@@ -11252,7 +11637,7 @@
         "pipelineExecutionStartCondition": {
           "target": "com.amazonaws.imagebuilder#PipelineExecutionStartCondition",
           "traits": {
-            "smithy.api#documentation": "<p>The condition configures when the pipeline should trigger a new image build. When the\n\t\t\t\t<code>pipelineExecutionStartCondition</code> is set to\n\t\t\t\t<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic\n\t\t\tversion filters on the base image or components in your image recipe, EC2 Image Builder will\n\t\t\tbuild a new image only when there are new versions of the image or components in your\n\t\t\trecipe that match the semantic version filter. When it is set to\n\t\t\t\t<code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON\n\t\t\texpression matches the current time. For semantic version syntax, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html\">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>"
+            "smithy.api#documentation": "<p>The start condition configures when the pipeline should trigger a new image build, \n\t\t\tas follows. If no value is set Image Builder defaults to \n\t\t\t<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code> (default) – \n\t\t\t\t\tWhen you use semantic version filters on the base image or components in your \n\t\t\t\t\timage recipe, EC2 Image Builder builds a new image only when there are new versions of \n\t\t\t\t\tthe base image or components in your recipe that match the filter.</p>\n               <note>\n                  <p>For semantic version syntax, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html\">CreateComponent</a>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>EXPRESSION_MATCH_ONLY</code> – This condition builds a new \n\t\t\t\t\timage every time the CRON expression matches the current time.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -11819,7 +12204,7 @@
         "repositoryName": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the container repository where the output container image is stored. This\n\t\t\tname is prefixed by the repository location.</p>",
+            "smithy.api#documentation": "<p>The name of the container repository where the output container image is stored. \n\t\t\tThis name is prefixed by the repository location. For example, \n\t\t\t<code><repository location url>/repository_name</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -11834,6 +12219,29 @@
         "smithy.api#range": {
           "min": 1,
           "max": 10000
+        }
+      }
+    },
+    "com.amazonaws.imagebuilder#TenancyType": {
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "default"
+          }
+        },
+        "DEDICATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "dedicated"
+          }
+        },
+        "HOST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "host"
+          }
         }
       }
     },
@@ -12287,14 +12695,6 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event\n\t\t\tnotifications.</p>\n         <note>\n            <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys \n\t\t\t\tfrom other accounts. The key that is used to encrypt the SNS topic must reside in the \n\t\t\t\taccount that the Image Builder service runs under.</p>\n         </note>"
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure\n       idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> \n       in the <i>Amazon EC2 API Reference</i>.</p>",
-            "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
         "resourceTags": {
           "target": "com.amazonaws.imagebuilder#ResourceTagMap",
           "traits": {
@@ -12305,6 +12705,20 @@
           "target": "com.amazonaws.imagebuilder#InstanceMetadataOptions",
           "traits": {
             "smithy.api#documentation": "<p>The instance metadata options that you can set for the HTTP requests that pipeline\n\t\t\tbuilds use to launch EC2 build and test instances. For more information about instance\n\t\t\tmetadata options, see one of the following links:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the\n\t\t\t\t\t\t<i>\n                     <i>Amazon EC2 User Guide</i>\n                  </i> for Linux instances.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the\n\t\t\t\t\t\t<i>\n                     <i>Amazon EC2 Windows Guide</i>\n                  </i> for Windows instances.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "placement": {
+          "target": "com.amazonaws.imagebuilder#Placement",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance placement settings that define where the instances that are launched \n\t\t\tfrom your image will run.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure\n       idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> \n       in the <i>Amazon EC2 API Reference</i>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -13589,6 +14003,9 @@
           "target": "com.amazonaws.imagebuilder#GetLifecyclePolicy"
         },
         {
+          "target": "com.amazonaws.imagebuilder#GetMarketplaceResource"
+        },
+        {
           "target": "com.amazonaws.imagebuilder#GetWorkflow"
         },
         {
@@ -13599,6 +14016,9 @@
         },
         {
           "target": "com.amazonaws.imagebuilder#ImportComponent"
+        },
+        {
+          "target": "com.amazonaws.imagebuilder#ImportDiskImage"
         },
         {
           "target": "com.amazonaws.imagebuilder#ImportVmImage"

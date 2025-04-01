@@ -60,6 +60,7 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * //       durationInNanoSeconds: Number("long"),
  * //       message: "STRING_VALUE",
  * //       expired: new Date("TIMESTAMP"),
+ * //       testSuiteName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -81,6 +82,7 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DescribeTestCasesCommand extends $Command
@@ -91,9 +93,7 @@ export class DescribeTestCasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DescribeTestCasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestCasesCommand)
   .de(de_DescribeTestCasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestCasesInput;
+      output: DescribeTestCasesOutput;
+    };
+    sdk: {
+      input: DescribeTestCasesCommandInput;
+      output: DescribeTestCasesCommandOutput;
+    };
+  };
+}

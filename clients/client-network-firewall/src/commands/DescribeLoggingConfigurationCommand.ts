@@ -51,7 +51,7 @@ export interface DescribeLoggingConfigurationCommandOutput
  * //   LoggingConfiguration: { // LoggingConfiguration
  * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
  * //       { // LogDestinationConfig
- * //         LogType: "ALERT" || "FLOW", // required
+ * //         LogType: "ALERT" || "FLOW" || "TLS", // required
  * //         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
  * //         LogDestination: { // LogDestinationMap // required
  * //           "<keys>": "STRING_VALUE",
@@ -98,6 +98,7 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeLoggingConfigurationCommand extends $Command
@@ -108,9 +109,7 @@ export class DescribeLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DescribeLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoggingConfigurationCommand)
   .de(de_DescribeLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoggingConfigurationRequest;
+      output: DescribeLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeLoggingConfigurationCommandInput;
+      output: DescribeLoggingConfigurationCommandOutput;
+    };
+  };
+}

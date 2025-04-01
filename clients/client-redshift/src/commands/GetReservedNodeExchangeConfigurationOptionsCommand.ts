@@ -137,6 +137,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
@@ -147,9 +148,7 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservedNodeExchangeConfigurationOptionsCommand)
   .de(de_GetReservedNodeExchangeConfigurationOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservedNodeExchangeConfigurationOptionsInputMessage;
+      output: GetReservedNodeExchangeConfigurationOptionsOutputMessage;
+    };
+    sdk: {
+      input: GetReservedNodeExchangeConfigurationOptionsCommandInput;
+      output: GetReservedNodeExchangeConfigurationOptionsCommandOutput;
+    };
+  };
+}

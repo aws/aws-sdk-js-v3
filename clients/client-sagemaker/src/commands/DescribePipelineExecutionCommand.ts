@@ -100,6 +100,7 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribePipelineExecutionCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribePipelineExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribePipelineExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePipelineExecutionCommand)
   .de(de_DescribePipelineExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePipelineExecutionRequest;
+      output: DescribePipelineExecutionResponse;
+    };
+    sdk: {
+      input: DescribePipelineExecutionCommandInput;
+      output: DescribePipelineExecutionCommandOutput;
+    };
+  };
+}

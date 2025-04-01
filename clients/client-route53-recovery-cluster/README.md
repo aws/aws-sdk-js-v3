@@ -49,7 +49,7 @@ recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.c
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53-recovery-cluster
+To install this package, simply type add or install @aws-sdk/client-route53-recovery-cluster
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53-recovery-cluster`

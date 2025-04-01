@@ -95,36 +95,36 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample UpdateProfile call
  * ```javascript
  * //
  * const input = {
- *   "name": "Shipping Profile",
- *   "businessName": "John's Shipping",
- *   "email": "john@example.com",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   businessName: "John's Shipping",
+ *   email: "john@example.com",
+ *   name: "Shipping Profile",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9"
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "Shipping Profile",
- *   "businessName": "John's Trucking",
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "logGroupName": "b2bi/p-60fbc37c87f04fce9-Logs",
- *   "logging": "ENABLED",
- *   "modifiedAt": "2023-11-02T21:51:05.504Z",
- *   "phone": "5555555555",
- *   "profileArn": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   businessName: "John's Trucking",
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   logGroupName: "b2bi/p-60fbc37c87f04fce9-Logs",
+ *   logging: "ENABLED",
+ *   modifiedAt: "2023-11-02T21:51:05.504Z",
+ *   name: "Shipping Profile",
+ *   phone: "5555555555",
+ *   profileArn: "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
+ *   profileId: "p-60fbc37c87f04fce9"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateProfileCommand extends $Command
   .classBuilder<
@@ -134,9 +134,7 @@ export class UpdateProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +146,16 @@ export class UpdateProfileCommand extends $Command
   .f(UpdateProfileRequestFilterSensitiveLog, UpdateProfileResponseFilterSensitiveLog)
   .ser(se_UpdateProfileCommand)
   .de(de_UpdateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileRequest;
+      output: UpdateProfileResponse;
+    };
+    sdk: {
+      input: UpdateProfileCommandInput;
+      output: UpdateProfileCommandOutput;
+    };
+  };
+}

@@ -44,6 +44,11 @@ import {
   CancelArchivalCommandOutput,
 } from "./commands/CancelArchivalCommand";
 import {
+  CancelCacheReportCommand,
+  CancelCacheReportCommandInput,
+  CancelCacheReportCommandOutput,
+} from "./commands/CancelCacheReportCommand";
+import {
   CancelRetrievalCommand,
   CancelRetrievalCommandInput,
   CancelRetrievalCommandOutput,
@@ -99,6 +104,11 @@ import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
 } from "./commands/DeleteBandwidthRateLimitCommand";
+import {
+  DeleteCacheReportCommand,
+  DeleteCacheReportCommandInput,
+  DeleteCacheReportCommandOutput,
+} from "./commands/DeleteCacheReportCommand";
 import {
   DeleteChapCredentialsCommand,
   DeleteChapCredentialsCommandInput,
@@ -160,6 +170,11 @@ import {
   DescribeCachediSCSIVolumesCommandInput,
   DescribeCachediSCSIVolumesCommandOutput,
 } from "./commands/DescribeCachediSCSIVolumesCommand";
+import {
+  DescribeCacheReportCommand,
+  DescribeCacheReportCommandInput,
+  DescribeCacheReportCommandOutput,
+} from "./commands/DescribeCacheReportCommand";
 import {
   DescribeChapCredentialsCommand,
   DescribeChapCredentialsCommandInput,
@@ -250,12 +265,22 @@ import {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "./commands/DisassociateFileSystemCommand";
+import {
+  EvictFilesFailingUploadCommand,
+  EvictFilesFailingUploadCommandInput,
+  EvictFilesFailingUploadCommandOutput,
+} from "./commands/EvictFilesFailingUploadCommand";
 import { JoinDomainCommand, JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommand,
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "./commands/ListAutomaticTapeCreationPoliciesCommand";
+import {
+  ListCacheReportsCommand,
+  ListCacheReportsCommandInput,
+  ListCacheReportsCommandOutput,
+} from "./commands/ListCacheReportsCommand";
 import {
   ListFileSharesCommand,
   ListFileSharesCommandInput,
@@ -344,6 +369,11 @@ import {
   StartAvailabilityMonitorTestCommandInput,
   StartAvailabilityMonitorTestCommandOutput,
 } from "./commands/StartAvailabilityMonitorTestCommand";
+import {
+  StartCacheReportCommand,
+  StartCacheReportCommandInput,
+  StartCacheReportCommandOutput,
+} from "./commands/StartCacheReportCommand";
 import {
   StartGatewayCommand,
   StartGatewayCommandInput,
@@ -436,6 +466,7 @@ const commands = {
   AssociateFileSystemCommand,
   AttachVolumeCommand,
   CancelArchivalCommand,
+  CancelCacheReportCommand,
   CancelRetrievalCommand,
   CreateCachediSCSIVolumeCommand,
   CreateNFSFileShareCommand,
@@ -448,6 +479,7 @@ const commands = {
   CreateTapeWithBarcodeCommand,
   DeleteAutomaticTapeCreationPolicyCommand,
   DeleteBandwidthRateLimitCommand,
+  DeleteCacheReportCommand,
   DeleteChapCredentialsCommand,
   DeleteFileShareCommand,
   DeleteGatewayCommand,
@@ -461,6 +493,7 @@ const commands = {
   DescribeBandwidthRateLimitScheduleCommand,
   DescribeCacheCommand,
   DescribeCachediSCSIVolumesCommand,
+  DescribeCacheReportCommand,
   DescribeChapCredentialsCommand,
   DescribeFileSystemAssociationsCommand,
   DescribeGatewayInformationCommand,
@@ -479,8 +512,10 @@ const commands = {
   DetachVolumeCommand,
   DisableGatewayCommand,
   DisassociateFileSystemCommand,
+  EvictFilesFailingUploadCommand,
   JoinDomainCommand,
   ListAutomaticTapeCreationPoliciesCommand,
+  ListCacheReportsCommand,
   ListFileSharesCommand,
   ListFileSystemAssociationsCommand,
   ListGatewaysCommand,
@@ -501,6 +536,7 @@ const commands = {
   SetSMBGuestPasswordCommand,
   ShutdownGatewayCommand,
   StartAvailabilityMonitorTestCommand,
+  StartCacheReportCommand,
   StartGatewayCommand,
   UpdateAutomaticTapeCreationPolicyCommand,
   UpdateBandwidthRateLimitCommand,
@@ -647,6 +683,23 @@ export interface StorageGateway {
     args: CancelArchivalCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelArchivalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelCacheReportCommand}
+   */
+  cancelCacheReport(
+    args: CancelCacheReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCacheReportCommandOutput>;
+  cancelCacheReport(
+    args: CancelCacheReportCommandInput,
+    cb: (err: any, data?: CancelCacheReportCommandOutput) => void
+  ): void;
+  cancelCacheReport(
+    args: CancelCacheReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCacheReportCommandOutput) => void
   ): void;
 
   /**
@@ -839,6 +892,23 @@ export interface StorageGateway {
   ): void;
 
   /**
+   * @see {@link DeleteCacheReportCommand}
+   */
+  deleteCacheReport(
+    args: DeleteCacheReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCacheReportCommandOutput>;
+  deleteCacheReport(
+    args: DeleteCacheReportCommandInput,
+    cb: (err: any, data?: DeleteCacheReportCommandOutput) => void
+  ): void;
+  deleteCacheReport(
+    args: DeleteCacheReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCacheReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteChapCredentialsCommand}
    */
   deleteChapCredentials(
@@ -1027,6 +1097,23 @@ export interface StorageGateway {
     args: DescribeCachediSCSIVolumesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCachediSCSIVolumesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCacheReportCommand}
+   */
+  describeCacheReport(
+    args: DescribeCacheReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCacheReportCommandOutput>;
+  describeCacheReport(
+    args: DescribeCacheReportCommandInput,
+    cb: (err: any, data?: DescribeCacheReportCommandOutput) => void
+  ): void;
+  describeCacheReport(
+    args: DescribeCacheReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCacheReportCommandOutput) => void
   ): void;
 
   /**
@@ -1322,6 +1409,23 @@ export interface StorageGateway {
   ): void;
 
   /**
+   * @see {@link EvictFilesFailingUploadCommand}
+   */
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvictFilesFailingUploadCommandOutput>;
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    cb: (err: any, data?: EvictFilesFailingUploadCommandOutput) => void
+  ): void;
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvictFilesFailingUploadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link JoinDomainCommand}
    */
   joinDomain(args: JoinDomainCommandInput, options?: __HttpHandlerOptions): Promise<JoinDomainCommandOutput>;
@@ -1348,6 +1452,24 @@ export interface StorageGateway {
     args: ListAutomaticTapeCreationPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAutomaticTapeCreationPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCacheReportsCommand}
+   */
+  listCacheReports(): Promise<ListCacheReportsCommandOutput>;
+  listCacheReports(
+    args: ListCacheReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCacheReportsCommandOutput>;
+  listCacheReports(
+    args: ListCacheReportsCommandInput,
+    cb: (err: any, data?: ListCacheReportsCommandOutput) => void
+  ): void;
+  listCacheReports(
+    args: ListCacheReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCacheReportsCommandOutput) => void
   ): void;
 
   /**
@@ -1652,6 +1774,23 @@ export interface StorageGateway {
   ): void;
 
   /**
+   * @see {@link StartCacheReportCommand}
+   */
+  startCacheReport(
+    args: StartCacheReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCacheReportCommandOutput>;
+  startCacheReport(
+    args: StartCacheReportCommandInput,
+    cb: (err: any, data?: StartCacheReportCommandOutput) => void
+  ): void;
+  startCacheReport(
+    args: StartCacheReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCacheReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartGatewayCommand}
    */
   startGateway(args: StartGatewayCommandInput, options?: __HttpHandlerOptions): Promise<StartGatewayCommandOutput>;
@@ -1920,6 +2059,11 @@ export interface StorageGateway {
 
 /**
  * <fullname>Storage Gateway Service</fullname>
+ *          <important>
+ *             <p>Amazon FSx File Gateway is no longer available to new customers. Existing
+ *             customers of FSx File Gateway can continue to use the service normally. For
+ *             capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+ *          </important>
  *          <p>Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
  *          organization's on-premises IT environment and the Amazon Web Services storage

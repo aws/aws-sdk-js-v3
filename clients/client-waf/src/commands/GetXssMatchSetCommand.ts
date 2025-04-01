@@ -84,34 +84,34 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To get an XSS match set
  * ```javascript
  * // The following example returns the details of an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "XssMatchSet": {
- *     "Name": "MySampleXssMatchSet",
- *     "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "XssMatchTuples": [
+ *   XssMatchSet: {
+ *     Name: "MySampleXssMatchSet",
+ *     XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     XssMatchTuples: [
  *       {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: getxssmatchset-1475187879017
  * ```
  *
+ * @public
  */
 export class GetXssMatchSetCommand extends $Command
   .classBuilder<
@@ -121,9 +121,7 @@ export class GetXssMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +133,16 @@ export class GetXssMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetXssMatchSetCommand)
   .de(de_GetXssMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetXssMatchSetRequest;
+      output: GetXssMatchSetResponse;
+    };
+    sdk: {
+      input: GetXssMatchSetCommandInput;
+      output: GetXssMatchSetCommandOutput;
+    };
+  };
+}

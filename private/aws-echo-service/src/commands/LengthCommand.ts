@@ -56,6 +56,7 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  * @throws {@link EchoServiceServiceException}
  * <p>Base exception class for all service exceptions from EchoService service.</p>
  *
+ *
  */
 export class LengthCommand extends $Command
   .classBuilder<
@@ -73,4 +74,16 @@ export class LengthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LengthCommand)
   .de(de_LengthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LengthInput;
+      output: LengthOutput;
+    };
+    sdk: {
+      input: LengthCommandInput;
+      output: LengthCommandOutput;
+    };
+  };
+}

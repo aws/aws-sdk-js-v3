@@ -124,6 +124,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetPlaceCommand extends $Command
@@ -134,9 +135,7 @@ export class GetPlaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class GetPlaceCommand extends $Command
   .f(GetPlaceRequestFilterSensitiveLog, GetPlaceResponseFilterSensitiveLog)
   .ser(se_GetPlaceCommand)
   .de(de_GetPlaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaceRequest;
+      output: GetPlaceResponse;
+    };
+    sdk: {
+      input: GetPlaceCommandInput;
+      output: GetPlaceCommandOutput;
+    };
+  };
+}

@@ -75,6 +75,7 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateMailboxQuotaCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateMailboxQuotaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateMailboxQuotaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMailboxQuotaCommand)
   .de(de_UpdateMailboxQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMailboxQuotaRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMailboxQuotaCommandInput;
+      output: UpdateMailboxQuotaCommandOutput;
+    };
+  };
+}

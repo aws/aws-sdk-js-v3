@@ -93,6 +93,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteSiteCommand extends $Command
@@ -103,9 +104,7 @@ export class DeleteSiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DeleteSiteCommand extends $Command
   .f(void 0, DeleteSiteResponseFilterSensitiveLog)
   .ser(se_DeleteSiteCommand)
   .de(de_DeleteSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSiteRequest;
+      output: DeleteSiteResponse;
+    };
+    sdk: {
+      input: DeleteSiteCommandInput;
+      output: DeleteSiteCommandOutput;
+    };
+  };
+}

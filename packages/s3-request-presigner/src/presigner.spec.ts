@@ -1,5 +1,6 @@
 import { Hash } from "@smithy/hash-node";
 import { HttpRequest } from "@smithy/protocol-http";
+import { describe, expect, test as it } from "vitest";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -106,6 +107,28 @@ describe("s3 presigner", () => {
       typeof signedHeadersHeader === "string" ? signedHeadersHeader.split(";") : signedHeadersHeader;
     expect(signedHeaders).toContain("x-amz-server-side-encryption");
     expect(signedHeaders).toContain("x-amz-server-side-encryption-customer-algorithm");
+  });
+
+  it("should allow hoisting server-side-encryption headers to query when overridden", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const signed = await signer.presign(
+      {
+        ...minimalRequest,
+        headers: {
+          ...minimalRequest.headers,
+          "x-amz-server-side-encryption": "kms",
+          "x-amz-server-side-encryption-customer-algorithm": "AES256",
+        },
+      },
+      {
+        hoistableHeaders: new Set(["x-amz-server-side-encryption", "x-amz-server-side-encryption-customer-algorithm"]),
+      }
+    );
+    const signedHeadersHeader = signed.query?.["X-Amz-SignedHeaders"];
+    const signedHeaders =
+      typeof signedHeadersHeader === "string" ? signedHeadersHeader.split(";") : signedHeadersHeader;
+    expect(signedHeaders).not.toContain("x-amz-server-side-encryption");
+    expect(signedHeaders).not.toContain("x-amz-server-side-encryption-customer-algorithm");
   });
 
   it("should inject host header with port if not supplied", async () => {

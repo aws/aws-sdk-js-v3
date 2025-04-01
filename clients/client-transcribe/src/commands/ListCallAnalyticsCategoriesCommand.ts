@@ -128,6 +128,12 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * //       ],
  * //       CreateTime: new Date("TIMESTAMP"),
  * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       InputType: "REAL_TIME" || "POST_CALL",
  * //     },
  * //   ],
@@ -158,6 +164,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class ListCallAnalyticsCategoriesCommand extends $Command
@@ -168,9 +175,7 @@ export class ListCallAnalyticsCategoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +187,16 @@ export class ListCallAnalyticsCategoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCallAnalyticsCategoriesCommand)
   .de(de_ListCallAnalyticsCategoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCallAnalyticsCategoriesRequest;
+      output: ListCallAnalyticsCategoriesResponse;
+    };
+    sdk: {
+      input: ListCallAnalyticsCategoriesCommandInput;
+      output: ListCallAnalyticsCategoriesCommandOutput;
+    };
+  };
+}

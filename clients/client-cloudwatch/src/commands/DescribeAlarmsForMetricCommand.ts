@@ -28,11 +28,11 @@ export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMe
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the alarms for the specified metric. To
- * 			filter the results, specify a statistic, period, or unit.</p>
- *          <p>This operation retrieves only standard alarms that are based on
- * 		the specified metric. It does not return alarms based on math expressions that
- * 		use the specified metric, or composite alarms that use the specified metric.</p>
+ * <p>Retrieves the alarms for the specified metric. To filter the results, specify a
+ *             statistic, period, or unit.</p>
+ *          <p>This operation retrieves only standard alarms that are based on the specified
+ *             metric. It does not return alarms based on math expressions that use the specified
+ *             metric, or composite alarms that use the specified metric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,6 +137,7 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlarmsForMetricCommand extends $Command
@@ -147,9 +148,7 @@ export class DescribeAlarmsForMetricCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class DescribeAlarmsForMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlarmsForMetricCommand)
   .de(de_DescribeAlarmsForMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlarmsForMetricInput;
+      output: DescribeAlarmsForMetricOutput;
+    };
+    sdk: {
+      input: DescribeAlarmsForMetricCommandInput;
+      output: DescribeAlarmsForMetricCommandOutput;
+    };
+  };
+}

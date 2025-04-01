@@ -92,6 +92,7 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class ListQuickResponsesCommand extends $Command
@@ -102,9 +103,7 @@ export class ListQuickResponsesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class ListQuickResponsesCommand extends $Command
   .f(void 0, ListQuickResponsesResponseFilterSensitiveLog)
   .ser(se_ListQuickResponsesCommand)
   .de(de_ListQuickResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQuickResponsesRequest;
+      output: ListQuickResponsesResponse;
+    };
+    sdk: {
+      input: ListQuickResponsesCommandInput;
+      output: ListQuickResponsesCommandOutput;
+    };
+  };
+}

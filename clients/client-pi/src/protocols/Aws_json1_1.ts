@@ -993,6 +993,7 @@ const de_PerformanceInsightsMetric = (output: any, context: __SerdeContext): Per
   return take(output, {
     Dimensions: _json,
     DisplayName: __expectString,
+    Filter: _json,
     Metric: __expectString,
     Value: __limitedParseDouble,
   }) as any;

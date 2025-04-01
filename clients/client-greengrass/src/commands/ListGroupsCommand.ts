@@ -67,6 +67,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsCommand extends $Command
@@ -77,9 +78,7 @@ export class ListGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class ListGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsCommand)
   .de(de_ListGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsRequest;
+      output: ListGroupsResponse;
+    };
+    sdk: {
+      input: ListGroupsCommandInput;
+      output: ListGroupsCommandOutput;
+    };
+  };
+}

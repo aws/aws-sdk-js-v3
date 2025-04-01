@@ -106,6 +106,7 @@ export interface UpdateAppAuthorizationCommandOutput extends UpdateAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppAuthorizationCommand extends $Command
@@ -116,9 +117,7 @@ export class UpdateAppAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class UpdateAppAuthorizationCommand extends $Command
   .f(UpdateAppAuthorizationRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppAuthorizationCommand)
   .de(de_UpdateAppAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppAuthorizationRequest;
+      output: UpdateAppAuthorizationResponse;
+    };
+    sdk: {
+      input: UpdateAppAuthorizationCommandInput;
+      output: UpdateAppAuthorizationCommandOutput;
+    };
+  };
+}

@@ -89,20 +89,23 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a policy to a group
  * ```javascript
  * // The following command adds a policy named AllPerms to the IAM group named Admins.
  * const input = {
- *   "GroupName": "Admins",
- *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}}",
- *   "PolicyName": "AllPerms"
+ *   GroupName: "Admins",
+ *   PolicyDocument: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"*","Resource":"*"}}`,
+ *   PolicyName: "AllPerms"
  * };
  * const command = new PutGroupPolicyCommand(input);
- * await client.send(command);
- * // example id: 4bc17418-758f-4d0f-ab0c-4d00265fec2e
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutGroupPolicyCommand extends $Command
   .classBuilder<
@@ -112,9 +115,7 @@ export class PutGroupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +127,16 @@ export class PutGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutGroupPolicyCommand)
   .de(de_PutGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGroupPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutGroupPolicyCommandInput;
+      output: PutGroupPolicyCommandOutput;
+    };
+  };
+}

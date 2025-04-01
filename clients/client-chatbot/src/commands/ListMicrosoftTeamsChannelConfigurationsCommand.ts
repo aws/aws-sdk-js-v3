@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTeamsChannelConfigurationsRequest, ListTeamsChannelConfigurationsResult } from "../models/models_0";
+import {
+  ListTeamsChannelConfigurationsRequest,
+  ListTeamsChannelConfigurationsResult,
+  ListTeamsChannelConfigurationsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_ListMicrosoftTeamsChannelConfigurationsCommand,
   se_ListMicrosoftTeamsChannelConfigurationsCommand,
@@ -33,7 +37,7 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * Lists MS Teams Channel Configurations optionally filtered by TeamId
+ * <p>Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +77,8 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
  * //           TagValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -86,16 +92,17 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ListTeamsChannelConfigurationsException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -107,9 +114,7 @@ export class ListMicrosoftTeamsChannelConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,7 +123,19 @@ export class ListMicrosoftTeamsChannelConfigurationsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "ListMicrosoftTeamsChannelConfigurations", {})
   .n("ChatbotClient", "ListMicrosoftTeamsChannelConfigurationsCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListTeamsChannelConfigurationsResultFilterSensitiveLog)
   .ser(se_ListMicrosoftTeamsChannelConfigurationsCommand)
   .de(de_ListMicrosoftTeamsChannelConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTeamsChannelConfigurationsRequest;
+      output: ListTeamsChannelConfigurationsResult;
+    };
+    sdk: {
+      input: ListMicrosoftTeamsChannelConfigurationsCommandInput;
+      output: ListMicrosoftTeamsChannelConfigurationsCommandOutput;
+    };
+  };
+}

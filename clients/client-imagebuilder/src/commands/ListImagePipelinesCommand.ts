@@ -56,7 +56,7 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       enhancedImageMetadataEnabled: true || false,
  * //       imageRecipeArn: "STRING_VALUE",
  * //       containerRecipeArn: "STRING_VALUE",
@@ -144,6 +144,7 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImagePipelinesCommand extends $Command
@@ -154,9 +155,7 @@ export class ListImagePipelinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +167,16 @@ export class ListImagePipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagePipelinesCommand)
   .de(de_ListImagePipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagePipelinesRequest;
+      output: ListImagePipelinesResponse;
+    };
+    sdk: {
+      input: ListImagePipelinesCommandInput;
+      output: ListImagePipelinesCommandOutput;
+    };
+  };
+}

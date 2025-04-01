@@ -95,7 +95,7 @@ Then("the object {string} should contain {string}", function (key, contents, nex
 });
 
 Then("the HTTP response should have a content length of {int}", function (contentLength, next) {
-  this.assert.equal(this.data.Body.headers["content-length"], contentLength);
+  this.assert.equal(this.data.ContentLength, contentLength);
   next();
 });
 

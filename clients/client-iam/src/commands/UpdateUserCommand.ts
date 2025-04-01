@@ -93,19 +93,22 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To change an IAM user's name
  * ```javascript
  * // The following command changes the name of the IAM user Bob to Robert. It does not change the user's path.
  * const input = {
- *   "NewUserName": "Robert",
- *   "UserName": "Bob"
+ *   NewUserName: "Robert",
+ *   UserName: "Bob"
  * };
  * const command = new UpdateUserCommand(input);
- * await client.send(command);
- * // example id: 275d53ed-347a-44e6-b7d0-a96276154352
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<
@@ -115,9 +118,7 @@ export class UpdateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +130,16 @@ export class UpdateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserCommand)
   .de(de_UpdateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserCommandInput;
+      output: UpdateUserCommandOutput;
+    };
+  };
+}

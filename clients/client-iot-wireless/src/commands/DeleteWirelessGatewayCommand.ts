@@ -30,19 +30,19 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
 /**
  * <p>Deletes a wireless gateway.</p>
  *          <note>
- *             <p>When deleting a wireless gateway, you might run into duplication errors
- *             for the following reasons.</p>
+ *             <p>When deleting a wireless gateway, you might run into duplication errors for the
+ *                 following reasons.</p>
  *             <ul>
  *                <li>
  *                   <p>If you specify a <code>GatewayEui</code> value that already exists.</p>
  *                </li>
  *                <li>
  *                   <p>If you used a <code>ClientRequestToken</code> with the same parameters
- *                     within the last 10 minutes.</p>
+ *                         within the last 10 minutes.</p>
  *                </li>
  *             </ul>
- *             <p>To avoid this error, make sure that you use unique identifiers and parameters
- *                 for each request within the specified time period.</p>
+ *             <p>To avoid this error, make sure that you use unique identifiers and parameters for
+ *                 each request within the specified time period.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +83,7 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DeleteWirelessGatewayCommand extends $Command
@@ -93,9 +94,7 @@ export class DeleteWirelessGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DeleteWirelessGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWirelessGatewayCommand)
   .de(de_DeleteWirelessGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWirelessGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWirelessGatewayCommandInput;
+      output: DeleteWirelessGatewayCommandOutput;
+    };
+  };
+}

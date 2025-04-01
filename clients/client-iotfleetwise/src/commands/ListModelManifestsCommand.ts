@@ -42,6 +42,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  *   signalCatalogArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListModelManifestsCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListModelManifestsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListModelManifestsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListModelManifestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelManifestsCommand)
   .de(de_ListModelManifestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelManifestsRequest;
+      output: ListModelManifestsResponse;
+    };
+    sdk: {
+      input: ListModelManifestsCommandInput;
+      output: ListModelManifestsCommandOutput;
+    };
+  };
+}

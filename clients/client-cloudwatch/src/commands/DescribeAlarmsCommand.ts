@@ -28,11 +28,12 @@ export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
 export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
- * 			name, the alarm state, or a prefix for any action.</p>
- *          <p>To use this operation and return information about composite alarms, you must be signed on with
- * 		the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>. You can't return information
- * 			about composite alarms if your <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
+ * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix
+ *             for the alarm name, the alarm state, or a prefix for any action.</p>
+ *          <p>To use this operation and return information about composite alarms, you must be
+ *             signed on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to
+ *             <code>*</code>. You can't return information about composite alarms if your
+ *             <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,6 +170,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlarmsCommand extends $Command
@@ -179,9 +181,7 @@ export class DescribeAlarmsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +193,16 @@ export class DescribeAlarmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlarmsCommand)
   .de(de_DescribeAlarmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlarmsInput;
+      output: DescribeAlarmsOutput;
+    };
+    sdk: {
+      input: DescribeAlarmsCommandInput;
+      output: DescribeAlarmsCommandOutput;
+    };
+  };
+}

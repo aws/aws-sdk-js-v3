@@ -29,10 +29,10 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
 
 /**
  * <p>Registers the resource as managed by the Data Catalog.</p>
- *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
+ *          <p>To add or update data, Lake Formation needs read/write access to the chosen data location. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
  *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
  *          <p>
- *             <code>ResourceArn = arn:aws:s3:::my-bucket
+ *             <code>ResourceArn = arn:aws:s3:::my-bucket/
  * UseServiceLinkedRole = true</code>
  *          </p>
  *          <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
@@ -51,6 +51,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *   RoleArn: "STRING_VALUE",
  *   WithFederation: true || false,
  *   HybridAccessEnabled: true || false,
+ *   WithPrivilegedAccess: true || false,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
@@ -88,6 +89,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class RegisterResourceCommand extends $Command
@@ -98,9 +100,7 @@ export class RegisterResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class RegisterResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterResourceCommand)
   .de(de_RegisterResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterResourceCommandInput;
+      output: RegisterResourceCommandOutput;
+    };
+  };
+}

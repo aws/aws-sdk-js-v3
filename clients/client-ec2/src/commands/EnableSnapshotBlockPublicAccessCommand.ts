@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableSnapshotBlockPublicAccessRequest, EnableSnapshotBlockPublicAccessResult } from "../models/models_5";
+import { EnableSnapshotBlockPublicAccessRequest, EnableSnapshotBlockPublicAccessResult } from "../models/models_6";
 import {
   de_EnableSnapshotBlockPublicAccessCommand,
   se_EnableSnapshotBlockPublicAccessCommand,
@@ -39,10 +39,15 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput
  *       for snapshots in that Region. Snapshots that are already publicly shared are either
  *       treated as private or they remain publicly shared, depending on the
  *       <b>State</b> that you specify.</p>
- *          <p>If block public access is enabled in <code>block-all-sharing</code> mode, and
- *       you change the mode to <code>block-new-sharing</code>, all snapshots that were
- *       previously publicly shared are no longer treated as private and they become publicly
- *       accessible again.</p>
+ *          <important>
+ *             <p>Enabling block public access for snapshots in <i>block all sharing</i>
+ *         mode does not change the permissions for snapshots that are already publicly shared.
+ *         Instead, it prevents these snapshots from be publicly visible and publicly accessible.
+ *         Therefore, the attributes for these snapshots still indicate that they are publicly
+ *         shared, even though they are not publicly available.</p>
+ *             <p>If you later disable block public access or change the mode to <i>block new
+ *         sharing</i>, these snapshots will become publicly available again.</p>
+ *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
  *       Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
@@ -72,6 +77,7 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableSnapshotBlockPublicAccessCommand extends $Command
@@ -82,9 +88,7 @@ export class EnableSnapshotBlockPublicAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +100,16 @@ export class EnableSnapshotBlockPublicAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableSnapshotBlockPublicAccessCommand)
   .de(de_EnableSnapshotBlockPublicAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableSnapshotBlockPublicAccessRequest;
+      output: EnableSnapshotBlockPublicAccessResult;
+    };
+    sdk: {
+      input: EnableSnapshotBlockPublicAccessCommandInput;
+      output: EnableSnapshotBlockPublicAccessCommandOutput;
+    };
+  };
+}

@@ -29,18 +29,18 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
 
 /**
  * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
- *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view
- *             current information about the cluster and its nodes. </p>
- *          <p>Cluster connection requires two steps. First, send a <code>
- *                <a>RegisterClusterRequest</a>
- *             </code> to add it to the Amazon EKS
- *             control plane.</p>
+ *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current
+ *             information about the cluster and its nodes. </p>
+ *          <p>Cluster connection requires two steps. First, send a <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html">
+ *                <code>RegisterClusterRequest</code>
+ *             </a> to add it to the Amazon EKS control
+ *             plane.</p>
  *          <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
  *                 <code>activationCode</code> must be applied to the Kubernetes cluster through it's native
  *             provider to provide visibility.</p>
  *          <p>After the manifest is updated and applied, the connected cluster is visible to the
- *                 Amazon EKS control plane. If the manifest isn't applied within three days,
- *             the connected cluster will no longer be visible and must be deregistered using
+ *             Amazon EKS control plane. If the manifest isn't applied within three days, the connected
+ *             cluster will no longer be visible and must be deregistered using
  *                 <code>DeregisterCluster</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +88,9 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       serviceIpv4Cidr: "STRING_VALUE",
  * //       serviceIpv6Cidr: "STRING_VALUE",
  * //       ipFamily: "ipv4" || "ipv6",
+ * //       elasticLoadBalancing: { // ElasticLoadBalancing
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //     logging: { // Logging
  * //       clusterLogging: [ // LogSetups
@@ -151,6 +154,34 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       bootstrapClusterCreatorAdminPermissions: true || false,
  * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
+ * //     upgradePolicy: { // UpgradePolicyResponse
+ * //       supportType: "STANDARD" || "EXTENDED",
+ * //     },
+ * //     zonalShiftConfig: { // ZonalShiftConfigResponse
+ * //       enabled: true || false,
+ * //     },
+ * //     remoteNetworkConfig: { // RemoteNetworkConfigResponse
+ * //       remoteNodeNetworks: [ // RemoteNodeNetworkList
+ * //         { // RemoteNodeNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //       remotePodNetworks: [ // RemotePodNetworkList
+ * //         { // RemotePodNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     computeConfig: { // ComputeConfigResponse
+ * //       enabled: true || false,
+ * //       nodePools: "<StringList>",
+ * //       nodeRoleArn: "STRING_VALUE",
+ * //     },
+ * //     storageConfig: { // StorageConfigResponse
+ * //       blockStorage: { // BlockStorage
+ * //         enabled: true || false,
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -164,10 +195,9 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached
- *             that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>.
- *         </p>
+ *             making the request must have at least one IAM permissions policy attached that grants
+ *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 management</a> in the <i>IAM User Guide</i>. </p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
@@ -197,6 +227,7 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class RegisterClusterCommand extends $Command
@@ -207,9 +238,7 @@ export class RegisterClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -221,4 +250,16 @@ export class RegisterClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterClusterCommand)
   .de(de_RegisterClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterClusterRequest;
+      output: RegisterClusterResponse;
+    };
+    sdk: {
+      input: RegisterClusterCommandInput;
+      output: RegisterClusterCommandOutput;
+    };
+  };
+}

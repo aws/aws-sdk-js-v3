@@ -1,6 +1,7 @@
 import { constructStack } from "@smithy/middleware-stack";
 import { HttpRequest } from "@smithy/protocol-http";
 import { Provider, RegionInfo } from "@smithy/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { S3ControlResolvedConfig } from "../configurations";
 import { getProcessArnablesPlugin } from "./getProcessArnablesPlugin";
@@ -19,9 +20,9 @@ describe("getProcessArnablesMiddleware", () => {
       useFipsEndpoint: () => Promise.resolve(false),
       useDualstackEndpoint: () => Promise.resolve(false),
       ...options,
-      regionInfoProvider: options.regionInfoProvider ?? jest.fn().mockResolvedValue({ partition: "aws" }),
-      region: jest.fn().mockResolvedValue(options.region),
-      useArnRegion: jest.fn().mockResolvedValue(options.useArnRegion ?? false),
+      regionInfoProvider: options.regionInfoProvider ?? vi.fn().mockResolvedValue({ partition: "aws" }),
+      region: vi.fn().mockResolvedValue(options.region),
+      useArnRegion: vi.fn().mockResolvedValue(options.useArnRegion ?? false),
       isCustomEndpoint: false,
     };
   };
@@ -57,7 +58,7 @@ describe("getProcessArnablesMiddleware", () => {
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("Outposts Access Point Arn", () => {

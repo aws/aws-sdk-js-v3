@@ -309,6 +309,7 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class ListClusterOperationsCommand extends $Command
@@ -319,9 +320,7 @@ export class ListClusterOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -333,4 +332,16 @@ export class ListClusterOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClusterOperationsCommand)
   .de(de_ListClusterOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClusterOperationsRequest;
+      output: ListClusterOperationsResponse;
+    };
+    sdk: {
+      input: ListClusterOperationsCommandInput;
+      output: ListClusterOperationsCommandOutput;
+    };
+  };
+}

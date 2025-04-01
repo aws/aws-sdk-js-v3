@@ -29,13 +29,13 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
 
 /**
  * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
- *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
+ *       your application, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
  *       load balancers per AWS Region in your account.</p>
  *          <p>When you create a load balancer, you can specify a unique name and port settings. To
  *       change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
  *       operation.</p>
  *          <p>The <code>create load balancer</code> operation supports tag-based access control via
- *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       request tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,6 +125,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateLoadBalancerCommand extends $Command
@@ -135,9 +136,7 @@ export class CreateLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class CreateLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerCommand)
   .de(de_CreateLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoadBalancerRequest;
+      output: CreateLoadBalancerResult;
+    };
+    sdk: {
+      input: CreateLoadBalancerCommandInput;
+      output: CreateLoadBalancerCommandOutput;
+    };
+  };
+}

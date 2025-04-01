@@ -57,7 +57,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * //   networkInterfaces: [ // NetworkInterfaces
  * //     { // NetworkInterface
  * //       interfaceId: "STRING_VALUE", // required
- * //       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
+ * //       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE" || "CUSTOM_DECODING_INTERFACE", // required
  * //       canInterface: { // CanInterface
  * //         name: "STRING_VALUE", // required
  * //         protocolName: "STRING_VALUE",
@@ -75,6 +75,9 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * //       vehicleMiddleware: { // VehicleMiddleware
  * //         name: "STRING_VALUE", // required
  * //         protocolName: "ROS_2", // required
+ * //       },
+ * //       customDecodingInterface: { // CustomDecodingInterface
+ * //         name: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],
@@ -107,6 +110,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListDecoderManifestNetworkInterfacesCommand extends $Command
@@ -117,9 +121,7 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +133,16 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDecoderManifestNetworkInterfacesCommand)
   .de(de_ListDecoderManifestNetworkInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDecoderManifestNetworkInterfacesRequest;
+      output: ListDecoderManifestNetworkInterfacesResponse;
+    };
+    sdk: {
+      input: ListDecoderManifestNetworkInterfacesCommandInput;
+      output: ListDecoderManifestNetworkInterfacesCommandOutput;
+    };
+  };
+}

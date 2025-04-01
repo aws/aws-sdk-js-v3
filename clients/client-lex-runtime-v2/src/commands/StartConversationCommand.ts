@@ -463,6 +463,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class StartConversationCommand extends $Command
@@ -473,9 +474,7 @@ export class StartConversationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -496,4 +495,16 @@ export class StartConversationCommand extends $Command
   .f(StartConversationRequestFilterSensitiveLog, StartConversationResponseFilterSensitiveLog)
   .ser(se_StartConversationCommand)
   .de(de_StartConversationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConversationRequest;
+      output: StartConversationResponse;
+    };
+    sdk: {
+      input: StartConversationCommandInput;
+      output: StartConversationCommandOutput;
+    };
+  };
+}

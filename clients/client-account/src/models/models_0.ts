@@ -64,7 +64,7 @@ export interface AcceptPrimaryEmailUpdateResponse {
    * <p>Retrieves the status of the accepted primary email update request.</p>
    * @public
    */
-  Status?: PrimaryEmailUpdateStatus;
+  Status?: PrimaryEmailUpdateStatus | undefined;
 }
 
 /**
@@ -219,13 +219,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason that validation failed.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The field where the invalid entry was detected.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -288,7 +288,7 @@ export interface DeleteAlternateContactRequest {
    *         the account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -322,7 +322,7 @@ export interface GetAlternateContactRequest {
    *         the account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -335,31 +335,31 @@ export interface AlternateContact {
    * <p>The name associated with this alternate contact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The title associated with this alternate contact.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The email address associated with this alternate contact.</p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p>The phone number associated with this alternate contact.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The type of alternate contact.</p>
    * @public
    */
-  AlternateContactType?: AlternateContactType;
+  AlternateContactType?: AlternateContactType | undefined;
 }
 
 /**
@@ -370,7 +370,7 @@ export interface GetAlternateContactResponse {
    * <p>A structure that contains the details for the specified alternate contact.</p>
    * @public
    */
-  AlternateContact?: AlternateContact;
+  AlternateContact?: AlternateContact | undefined;
 }
 
 /**
@@ -428,7 +428,7 @@ export interface PutAlternateContactRequest {
    *         the account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -456,7 +456,7 @@ export interface GetContactInformationRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -481,13 +481,13 @@ export interface ContactInformation {
    * <p>The second line of the primary contact address, if any.</p>
    * @public
    */
-  AddressLine2?: string;
+  AddressLine2?: string | undefined;
 
   /**
    * <p>The third line of the primary contact address, if any.</p>
    * @public
    */
-  AddressLine3?: string;
+  AddressLine3?: string | undefined;
 
   /**
    * <p>The city of the primary contact address.</p>
@@ -503,13 +503,13 @@ export interface ContactInformation {
    *             and <code>BR</code>.</p>
    * @public
    */
-  StateOrRegion?: string;
+  StateOrRegion?: string | undefined;
 
   /**
    * <p>The district or county of the primary contact address, if any.</p>
    * @public
    */
-  DistrictOrCounty?: string;
+  DistrictOrCounty?: string | undefined;
 
   /**
    * <p>The postal code of the primary contact address.</p>
@@ -535,13 +535,13 @@ export interface ContactInformation {
    *             any.</p>
    * @public
    */
-  CompanyName?: string;
+  CompanyName?: string | undefined;
 
   /**
    * <p>The URL of the website associated with the primary contact information, if any.</p>
    * @public
    */
-  WebsiteUrl?: string;
+  WebsiteUrl?: string | undefined;
 }
 
 /**
@@ -553,7 +553,7 @@ export interface GetContactInformationResponse {
    *             Amazon Web Services account.</p>
    * @public
    */
-  ContactInformation?: ContactInformation;
+  ContactInformation?: ContactInformation | undefined;
 }
 
 /**
@@ -588,7 +588,7 @@ export interface PutContactInformationRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface GetPrimaryEmailResponse {
    *             account.</p>
    * @public
    */
-  PrimaryEmail?: string;
+  PrimaryEmail?: string | undefined;
 }
 
 /**
@@ -666,7 +666,7 @@ export interface StartPrimaryEmailUpdateResponse {
    * <p>The status of the primary email update request.</p>
    * @public
    */
-  Status?: PrimaryEmailUpdateStatus;
+  Status?: PrimaryEmailUpdateStatus | undefined;
 }
 
 /**
@@ -694,7 +694,7 @@ export interface DisableRegionRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Specifies the Region-code for a given Region name (for example,
@@ -732,7 +732,7 @@ export interface EnableRegionRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Specifies the Region-code for a given Region name (for example,
@@ -771,7 +771,7 @@ export interface GetRegionOptStatusRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Specifies the Region-code for a given Region name (for example,
@@ -807,14 +807,14 @@ export interface GetRegionOptStatusResponse {
    * <p>The Region code that was passed in.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled,
    *             Disabling, Enabled_By_Default).</p>
    * @public
    */
-  RegionOptStatus?: RegionOptStatus;
+  RegionOptStatus?: RegionOptStatus | undefined;
 }
 
 /**
@@ -842,7 +842,7 @@ export interface ListRegionsRequest {
    *             account whose contacts you wish to retrieve or modify.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The total number of items to return in the command’s output. If the total number of
@@ -854,7 +854,7 @@ export interface ListRegionsRequest {
    *                 Guide</i>. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token used to specify where to start paginating. This is the <code>NextToken</code>
@@ -862,7 +862,7 @@ export interface ListRegionsRequest {
    *                 <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of Region statuses (Enabling, Enabled, Disabling, Disabled, Enabled_by_default)
@@ -871,7 +871,7 @@ export interface ListRegionsRequest {
    *             ENABLING.</p>
    * @public
    */
-  RegionOptStatusContains?: RegionOptStatus[];
+  RegionOptStatusContains?: RegionOptStatus[] | undefined;
 }
 
 /**
@@ -884,14 +884,14 @@ export interface Region {
    * <p>The Region code of a given Region (for example, <code>us-east-1</code>).</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>One of potential statuses a Region can undergo (Enabled, Enabling, Disabled,
    *             Disabling, Enabled_By_Default).</p>
    * @public
    */
-  RegionOptStatus?: RegionOptStatus;
+  RegionOptStatus?: RegionOptStatus | undefined;
 }
 
 /**
@@ -903,7 +903,7 @@ export interface ListRegionsResponse {
    *             the <code>next-token</code> request parameter of <code>list-regions</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This is a list of Regions for a given account, or if the filtered parameter was used,
@@ -911,7 +911,7 @@ export interface ListRegionsResponse {
    *             parameter.</p>
    * @public
    */
-  Regions?: Region[];
+  Regions?: Region[] | undefined;
 }
 
 /**

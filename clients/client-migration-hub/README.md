@@ -15,7 +15,7 @@ must make the API calls while in your home region.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-migration-hub
+To install this package, simply type add or install @aws-sdk/client-migration-hub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-migration-hub`
@@ -226,6 +226,14 @@ AssociateDiscoveredResource
 </details>
 <details>
 <summary>
+AssociateSourceResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/AssociateSourceResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateSourceResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateSourceResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateProgressUpdateStream
 </summary>
 
@@ -274,6 +282,14 @@ DisassociateDiscoveredResource
 </details>
 <details>
 <summary>
+DisassociateSourceResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DisassociateSourceResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateSourceResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateSourceResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 ImportMigrationTask
 </summary>
 
@@ -314,10 +330,26 @@ ListMigrationTasks
 </details>
 <details>
 <summary>
+ListMigrationTaskUpdates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListMigrationTaskUpdatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListMigrationTaskUpdatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListMigrationTaskUpdatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListProgressUpdateStreams
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListProgressUpdateStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListProgressUpdateStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListProgressUpdateStreamsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSourceResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListSourceResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListSourceResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListSourceResourcesCommandOutput/)
 
 </details>
 <details>

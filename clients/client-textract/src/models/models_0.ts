@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { TextractServiceException as __BaseException } from "./TextractServiceException";
@@ -14,8 +14,8 @@ import { TextractServiceException as __BaseException } from "./TextractServiceEx
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -67,7 +67,7 @@ export interface Adapter {
    *          </ul>
    * @public
    */
-  Pages?: string[];
+  Pages?: string[] | undefined;
 
   /**
    * <p>A string that identifies the version of the adapter.</p>
@@ -102,25 +102,25 @@ export interface AdapterOverview {
    * <p>A unique identifier for the adapter resource.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>A string naming the adapter resource.</p>
    * @public
    */
-  AdapterName?: string;
+  AdapterName?: string | undefined;
 
   /**
    * <p>The date and time that the adapter was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The feature types that the adapter is operating on.</p>
    * @public
    */
-  FeatureTypes?: FeatureType[];
+  FeatureTypes?: FeatureType[] | undefined;
 }
 
 /**
@@ -152,20 +152,20 @@ export interface S3Object {
    *          name.</p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>The file name of the input document. Synchronous operations can use image files that are
    *          in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format files.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If the bucket has versioning enabled, you can specify the object version. </p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface AdapterVersionDatasetConfig {
    *       </p>
    * @public
    */
-  ManifestS3Object?: S3Object;
+  ManifestS3Object?: S3Object | undefined;
 }
 
 /**
@@ -196,19 +196,19 @@ export interface EvaluationMetric {
    * <p>The F1 score for an adapter version.</p>
    * @public
    */
-  F1Score?: number;
+  F1Score?: number | undefined;
 
   /**
    * <p>The Precision score for an adapter version.</p>
    * @public
    */
-  Precision?: number;
+  Precision?: number | undefined;
 
   /**
    * <p>The Recall score for an adapter version.</p>
    * @public
    */
-  Recall?: number;
+  Recall?: number | undefined;
 }
 
 /**
@@ -221,19 +221,19 @@ export interface AdapterVersionEvaluationMetric {
    * <p>The F1 score, precision, and recall metrics for the baseline model.</p>
    * @public
    */
-  Baseline?: EvaluationMetric;
+  Baseline?: EvaluationMetric | undefined;
 
   /**
    * <p>The F1 score, precision, and recall metrics for the baseline model.</p>
    * @public
    */
-  AdapterVersion?: EvaluationMetric;
+  AdapterVersion?: EvaluationMetric | undefined;
 
   /**
    * <p>Indicates the feature type being analyzed by a given adapter version.</p>
    * @public
    */
-  FeatureType?: FeatureType;
+  FeatureType?: FeatureType | undefined;
 }
 
 /**
@@ -262,37 +262,37 @@ export interface AdapterVersionOverview {
    * <p>A unique identifier for the adapter associated with a given adapter version.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>An identified for a given adapter version.</p>
    * @public
    */
-  AdapterVersion?: string;
+  AdapterVersion?: string | undefined;
 
   /**
    * <p>The date and time that a given adapter version was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The feature types that the adapter version is operating on.</p>
    * @public
    */
-  FeatureTypes?: FeatureType[];
+  FeatureTypes?: FeatureType[] | undefined;
 
   /**
    * <p>Contains information on the status of a given adapter version.</p>
    * @public
    */
-  Status?: AdapterVersionStatus;
+  Status?: AdapterVersionStatus | undefined;
 
   /**
    * <p>A message explaining the status of a given adapter vesion.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -322,14 +322,14 @@ export interface Document {
    *          image bytes passed using the <code>Bytes</code> field. </p>
    * @public
    */
-  Bytes?: Uint8Array;
+  Bytes?: Uint8Array | undefined;
 
   /**
    * <p>Identifies an S3 object as the document source. The maximum size of a document that's
    *          stored in an S3 bucket is 5 MB.</p>
    * @public
    */
-  S3Object?: S3Object;
+  S3Object?: S3Object | undefined;
 }
 
 /**
@@ -357,7 +357,7 @@ export interface HumanLoopDataAttributes {
    *          content.</p>
    * @public
    */
-  ContentClassifiers?: ContentClassifier[];
+  ContentClassifiers?: ContentClassifier[] | undefined;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface HumanLoopConfig {
    * <p>Sets attributes of the input data.</p>
    * @public
    */
-  DataAttributes?: HumanLoopDataAttributes;
+  DataAttributes?: HumanLoopDataAttributes | undefined;
 }
 
 /**
@@ -401,7 +401,7 @@ export interface Query {
    * <p>Alias attached to the query, for ease of location.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a
@@ -427,7 +427,7 @@ export interface Query {
    *          </ul>
    * @public
    */
-  Pages?: string[];
+  Pages?: string[] | undefined;
 }
 
 /**
@@ -471,19 +471,19 @@ export interface AnalyzeDocumentRequest {
    *          documents.</p>
    * @public
    */
-  HumanLoopConfig?: HumanLoopConfig;
+  HumanLoopConfig?: HumanLoopConfig | undefined;
 
   /**
    * <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
    * @public
    */
-  QueriesConfig?: QueriesConfig;
+  QueriesConfig?: QueriesConfig | undefined;
 
   /**
    * <p>Specifies the adapter to be used when analyzing a document.</p>
    * @public
    */
-  AdaptersConfig?: AdaptersConfig;
+  AdaptersConfig?: AdaptersConfig | undefined;
 }
 
 /**
@@ -564,28 +564,28 @@ export interface BoundingBox {
    *          width.</p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 
   /**
    * <p>The height of the bounding box as a ratio of the overall document page
    *          height.</p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>The left coordinate of the bounding box as a ratio of overall document page
    *          width.</p>
    * @public
    */
-  Left?: number;
+  Left?: number | undefined;
 
   /**
    * <p>The top coordinate of the bounding box as a ratio of overall document page
    *          height.</p>
    * @public
    */
-  Top?: number;
+  Top?: number | undefined;
 }
 
 /**
@@ -604,13 +604,13 @@ export interface Point {
    * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
    * @public
    */
-  X?: number;
+  X?: number | undefined;
 
   /**
    * <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
    * @public
    */
-  Y?: number;
+  Y?: number | undefined;
 }
 
 /**
@@ -624,13 +624,13 @@ export interface Geometry {
    *          document page.</p>
    * @public
    */
-  BoundingBox?: BoundingBox;
+  BoundingBox?: BoundingBox | undefined;
 
   /**
    * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
    * @public
    */
-  Polygon?: Point[];
+  Polygon?: Point[] | undefined;
 }
 
 /**
@@ -706,7 +706,7 @@ export interface Relationship {
    *          </ul>
    * @public
    */
-  Type?: RelationshipType;
+  Type?: RelationshipType | undefined;
 
   /**
    * <p>An
@@ -714,7 +714,7 @@ export interface Relationship {
    *             <code>Type</code> element.</p>
    * @public
    */
-  Ids?: string[];
+  Ids?: string[] | undefined;
 }
 
 /**
@@ -902,27 +902,27 @@ export interface Block {
    *          </ul>
    * @public
    */
-  BlockType?: BlockType;
+  BlockType?: BlockType | undefined;
 
   /**
    * <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and
    *          the accuracy of the geometry points around the recognized text.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>The word or line of text that's recognized by Amazon Textract. </p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
    *          printed text.</p>
    * @public
    */
-  TextType?: TextType;
+  TextType?: TextType | undefined;
 
   /**
    * <p>The row in which a table cell is located. The first row position is 1.
@@ -930,7 +930,7 @@ export interface Block {
    *             <code>GetDocumentTextDetection</code>.</p>
    * @public
    */
-  RowIndex?: number;
+  RowIndex?: number | undefined;
 
   /**
    * <p>The column in which a table cell appears. The first column position is 1.
@@ -938,21 +938,21 @@ export interface Block {
    *             <code>GetDocumentTextDetection</code>.</p>
    * @public
    */
-  ColumnIndex?: number;
+  ColumnIndex?: number | undefined;
 
   /**
    * <p>The number of rows that a table cell spans. <code>RowSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
    * @public
    */
-  RowSpan?: number;
+  RowSpan?: number | undefined;
 
   /**
    * <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
    * @public
    */
-  ColumnSpan?: number;
+  ColumnSpan?: number | undefined;
 
   /**
    * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
@@ -960,14 +960,14 @@ export interface Block {
    *          information. </p>
    * @public
    */
-  Geometry?: Geometry;
+  Geometry?: Geometry | undefined;
 
   /**
    * <p>The identifier for the recognized text. The identifier is only unique for a single
    *          operation. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A list of relationship objects that describe how blocks are related to each other. For
@@ -976,7 +976,7 @@ export interface Block {
    *          that don't exist, such as when the current block has no child blocks.</p>
    * @public
    */
-  Relationships?: Relationship[];
+  Relationships?: Relationship[] | undefined;
 
   /**
    * <p>The type of entity. </p>
@@ -1033,14 +1033,14 @@ export interface Block {
    *             <code>GetDocumentTextDetection</code>.</p>
    * @public
    */
-  EntityTypes?: EntityType[];
+  EntityTypes?: EntityType[] | undefined;
 
   /**
    * <p>The selection status of a selection element, such as an option button or check box.
    *       </p>
    * @public
    */
-  SelectionStatus?: SelectionStatus;
+  SelectionStatus?: SelectionStatus | undefined;
 
   /**
    * <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and
@@ -1051,13 +1051,13 @@ export interface Block {
    *          always 1. </p>
    * @public
    */
-  Page?: number;
+  Page?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Query?: Query;
+  Query?: Query | undefined;
 }
 
 /**
@@ -1069,7 +1069,7 @@ export interface DocumentMetadata {
    * <p>The number of pages that are detected in the document.</p>
    * @public
    */
-  Pages?: number;
+  Pages?: number | undefined;
 }
 
 /**
@@ -1082,20 +1082,20 @@ export interface HumanLoopActivationOutput {
    * <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
    * @public
    */
-  HumanLoopArn?: string;
+  HumanLoopArn?: string | undefined;
 
   /**
    * <p>Shows if and why human review was needed.</p>
    * @public
    */
-  HumanLoopActivationReasons?: string[];
+  HumanLoopActivationReasons?: string[] | undefined;
 
   /**
    * <p>Shows the result of condition evaluations, including those conditions which activated a
    *          human review.</p>
    * @public
    */
-  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
+  HumanLoopActivationConditionsEvaluationResults?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -1106,25 +1106,25 @@ export interface AnalyzeDocumentResponse {
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 
   /**
    * <p>Shows the results of the human in the loop evaluation.</p>
    * @public
    */
-  HumanLoopActivationOutput?: HumanLoopActivationOutput;
+  HumanLoopActivationOutput?: HumanLoopActivationOutput | undefined;
 
   /**
    * <p>The version of the model used to analyze the document.</p>
    * @public
    */
-  AnalyzeDocumentModelVersion?: string;
+  AnalyzeDocumentModelVersion?: string | undefined;
 }
 
 /**
@@ -1135,8 +1135,8 @@ export interface AnalyzeDocumentResponse {
 export class BadDocumentException extends __BaseException {
   readonly name: "BadDocumentException" = "BadDocumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1161,8 +1161,8 @@ export class BadDocumentException extends __BaseException {
 export class DocumentTooLargeException extends __BaseException {
   readonly name: "DocumentTooLargeException" = "DocumentTooLargeException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1189,22 +1189,22 @@ export class HumanLoopQuotaExceededException extends __BaseException {
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The quota code.</p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * <p>The service code.</p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
 
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1230,8 +1230,8 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1258,8 +1258,8 @@ export class InternalServerError extends __BaseException {
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1285,8 +1285,8 @@ export class InvalidParameterException extends __BaseException {
 export class InvalidS3ObjectException extends __BaseException {
   readonly name: "InvalidS3ObjectException" = "InvalidS3ObjectException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1310,8 +1310,8 @@ export class InvalidS3ObjectException extends __BaseException {
 export class ProvisionedThroughputExceededException extends __BaseException {
   readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1334,8 +1334,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1359,8 +1359,8 @@ export class ThrottlingException extends __BaseException {
 export class UnsupportedDocumentException extends __BaseException {
   readonly name: "UnsupportedDocumentException" = "UnsupportedDocumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1449,13 +1449,13 @@ export interface ExpenseCurrency {
    *          </ul>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>Percentage confideence in the detected currency.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -1469,13 +1469,13 @@ export interface ExpenseGroupProperty {
    * <p>Informs you on whether the expense group is a name or an address.</p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 
   /**
    * <p>Provides a group Id number, which will be the same for each in the group.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -1487,20 +1487,20 @@ export interface ExpenseDetection {
    * <p>The word or line of text recognized by Amazon Textract</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    * @public
    */
-  Geometry?: Geometry;
+  Geometry?: Geometry | undefined;
 
   /**
    * <p>The confidence in detection, as a percentage</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -1512,13 +1512,13 @@ export interface ExpenseType {
    * <p>The word or line of text detected by Amazon Textract.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The confidence of accuracy, as a percentage.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -1531,39 +1531,39 @@ export interface ExpenseField {
    * <p>The implied label of a detected element. Present alongside LabelDetection for explicit elements.</p>
    * @public
    */
-  Type?: ExpenseType;
+  Type?: ExpenseType | undefined;
 
   /**
    * <p>The explicitly stated label of a detected element.</p>
    * @public
    */
-  LabelDetection?: ExpenseDetection;
+  LabelDetection?: ExpenseDetection | undefined;
 
   /**
    * <p>The value of a detected element. Present in explicit and implicit elements.</p>
    * @public
    */
-  ValueDetection?: ExpenseDetection;
+  ValueDetection?: ExpenseDetection | undefined;
 
   /**
    * <p>The page number the value was detected on.</p>
    * @public
    */
-  PageNumber?: number;
+  PageNumber?: number | undefined;
 
   /**
    * <p>Shows the kind of currency, both the code and confidence associated with any monatary value
    *          detected.</p>
    * @public
    */
-  Currency?: ExpenseCurrency;
+  Currency?: ExpenseCurrency | undefined;
 
   /**
    * <p>Shows which group a response object belongs to, such as whether an address line
    *          belongs to the vendor's address or the recipent's address.</p>
    * @public
    */
-  GroupProperties?: ExpenseGroupProperty[];
+  GroupProperties?: ExpenseGroupProperty[] | undefined;
 }
 
 /**
@@ -1575,7 +1575,7 @@ export interface LineItemFields {
    * <p>ExpenseFields used to show information from detected lines on a table.</p>
    * @public
    */
-  LineItemExpenseFields?: ExpenseField[];
+  LineItemExpenseFields?: ExpenseField[] | undefined;
 }
 
 /**
@@ -1587,13 +1587,13 @@ export interface LineItemGroup {
    * <p>The number used to identify a specific table in a document. The first table encountered will have a LineItemGroupIndex of 1, the second 2, etc.</p>
    * @public
    */
-  LineItemGroupIndex?: number;
+  LineItemGroupIndex?: number | undefined;
 
   /**
    * <p>The breakdown of information on a particular line of a table. </p>
    * @public
    */
-  LineItems?: LineItemFields[];
+  LineItems?: LineItemFields[] | undefined;
 }
 
 /**
@@ -1606,26 +1606,26 @@ export interface ExpenseDocument {
    *       First document will be 1, the second 2, and so on.</p>
    * @public
    */
-  ExpenseIndex?: number;
+  ExpenseIndex?: number | undefined;
 
   /**
    * <p>Any information found outside of a table by Amazon Textract.</p>
    * @public
    */
-  SummaryFields?: ExpenseField[];
+  SummaryFields?: ExpenseField[] | undefined;
 
   /**
    * <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
    * @public
    */
-  LineItemGroups?: LineItemGroup[];
+  LineItemGroups?: LineItemGroup[] | undefined;
 
   /**
    * <p>This is a block object, the same as reported when DetectDocumentText is run on a document.
    *       It provides word level recognition of text.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 }
 
 /**
@@ -1636,13 +1636,13 @@ export interface AnalyzeExpenseResponse {
    * <p>Information about the input document.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The expenses detected by Amazon Textract.</p>
    * @public
    */
-  ExpenseDocuments?: ExpenseDocument[];
+  ExpenseDocuments?: ExpenseDocument[] | undefined;
 }
 
 /**
@@ -1679,13 +1679,13 @@ export interface NormalizedValue {
    * <p>The value of the date, written as Year-Month-DayTHour:Minute:Second.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    * @public
    */
-  ValueType?: ValueType;
+  ValueType?: ValueType | undefined;
 }
 
 /**
@@ -1704,13 +1704,13 @@ export interface AnalyzeIDDetections {
    *          written in a more machine readable way.</p>
    * @public
    */
-  NormalizedValue?: NormalizedValue;
+  NormalizedValue?: NormalizedValue | undefined;
 
   /**
    * <p>The confidence score of the detected text.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -1723,13 +1723,13 @@ export interface IdentityDocumentField {
    * <p>Used to contain the information detected by an AnalyzeID operation.</p>
    * @public
    */
-  Type?: AnalyzeIDDetections;
+  Type?: AnalyzeIDDetections | undefined;
 
   /**
    * <p>Used to contain the information detected by an AnalyzeID operation.</p>
    * @public
    */
-  ValueDetection?: AnalyzeIDDetections;
+  ValueDetection?: AnalyzeIDDetections | undefined;
 }
 
 /**
@@ -1742,20 +1742,20 @@ export interface IdentityDocument {
    *          is marked 1, the second 2 and so on.</p>
    * @public
    */
-  DocumentIndex?: number;
+  DocumentIndex?: number | undefined;
 
   /**
    * <p>The structure used to record information extracted from identity documents.
    *          Contains both normalized field and value of the extracted text.</p>
    * @public
    */
-  IdentityDocumentFields?: IdentityDocumentField[];
+  IdentityDocumentFields?: IdentityDocumentField[] | undefined;
 
   /**
    * <p>Individual word recognition, as returned by document detection.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 }
 
 /**
@@ -1767,19 +1767,19 @@ export interface AnalyzeIDResponse {
    *          the list and the response structure for the document.</p>
    * @public
    */
-  IdentityDocuments?: IdentityDocument[];
+  IdentityDocuments?: IdentityDocument[] | undefined;
 
   /**
    * <p>Information about the input document.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The version of the AnalyzeIdentity API being used to process documents.</p>
    * @public
    */
-  AnalyzeIDModelVersion?: string;
+  AnalyzeIDModelVersion?: string | undefined;
 }
 
 /**
@@ -1803,8 +1803,8 @@ export type AutoUpdate = (typeof AutoUpdate)[keyof typeof AutoUpdate];
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1836,13 +1836,13 @@ export interface CreateAdapterRequest {
    *          This token is employed to avoid unintentionally creating the same session multiple times.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The description to be assigned to the adapter being created.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of feature that the adapter is being trained on. Currrenly, supported feature
@@ -1856,13 +1856,13 @@ export interface CreateAdapterRequest {
    * <p>Controls whether or not the adapter should automatically update.</p>
    * @public
    */
-  AutoUpdate?: AutoUpdate;
+  AutoUpdate?: AutoUpdate | undefined;
 
   /**
    * <p>A list of tags to be added to the adapter.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1873,7 +1873,7 @@ export interface CreateAdapterResponse {
    * <p>A string containing the unique ID for the adapter that has been created.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 }
 
 /**
@@ -1885,8 +1885,8 @@ export interface CreateAdapterResponse {
 export class IdempotentParameterMismatchException extends __BaseException {
   readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1913,8 +1913,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1937,8 +1937,8 @@ export class LimitExceededException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1961,8 +1961,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -2010,7 +2010,7 @@ export interface OutputConfig {
    *          prefix will be “textract_output".</p>
    * @public
    */
-  S3Prefix?: string;
+  S3Prefix?: string | undefined;
 }
 
 /**
@@ -2029,7 +2029,7 @@ export interface CreateAdapterVersionRequest {
    *          This token is employed to avoid unintentionally creating the same session multiple times.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Specifies a dataset used to train a new adapter version. Takes a ManifestS3Object as the
@@ -2042,7 +2042,7 @@ export interface CreateAdapterVersionRequest {
    * <p>The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt your documents.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 
   /**
    * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
@@ -2070,7 +2070,7 @@ export interface CreateAdapterVersionRequest {
    * <p>A set of tags (key-value pairs) that you want to attach to the adapter version. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2081,13 +2081,13 @@ export interface CreateAdapterVersionResponse {
    * <p>A string containing the unique ID for the adapter that has received a new version.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>A string describing the new version of the adapter.</p>
    * @public
    */
-  AdapterVersion?: string;
+  AdapterVersion?: string | undefined;
 }
 
 /**
@@ -2098,8 +2098,8 @@ export interface CreateAdapterVersionResponse {
 export class InvalidKMSKeyException extends __BaseException {
   readonly name: "InvalidKMSKeyException" = "InvalidKMSKeyException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -2122,8 +2122,8 @@ export class InvalidKMSKeyException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -2201,20 +2201,20 @@ export interface DetectDocumentTextResponse {
    *          document.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>An array of <code>Block</code> objects that contain the text that's detected in the
    *          document.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  DetectDocumentTextModelVersion?: string;
+  DetectDocumentTextModelVersion?: string | undefined;
 }
 
 /**
@@ -2226,7 +2226,7 @@ export interface DetectedSignature {
    * <p>The page a detected signature was found on.</p>
    * @public
    */
-  Page?: number;
+  Page?: number | undefined;
 }
 
 /**
@@ -2238,13 +2238,13 @@ export interface SplitDocument {
    * <p>The index for a given document in a DocumentGroup of a specific Type.</p>
    * @public
    */
-  Index?: number;
+  Index?: number | undefined;
 
   /**
    * <p>An array of page numbers for a for a given document, ordered by logical boundary.</p>
    * @public
    */
-  Pages?: number[];
+  Pages?: number[] | undefined;
 }
 
 /**
@@ -2256,7 +2256,7 @@ export interface UndetectedSignature {
    * <p>The page where a signature was expected but not found.</p>
    * @public
    */
-  Page?: number;
+  Page?: number | undefined;
 }
 
 /**
@@ -2268,25 +2268,25 @@ export interface DocumentGroup {
    * <p>The type of document that Amazon Textract has detected. See <a href="https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>An array that contains information about the pages of a document, defined by logical boundary.</p>
    * @public
    */
-  SplitDocuments?: SplitDocument[];
+  SplitDocuments?: SplitDocument[] | undefined;
 
   /**
    * <p>A list of the detected signatures found in a document group.</p>
    * @public
    */
-  DetectedSignatures?: DetectedSignature[];
+  DetectedSignatures?: DetectedSignature[] | undefined;
 
   /**
    * <p>A list of any expected signatures not found in a document group.</p>
    * @public
    */
-  UndetectedSignatures?: UndetectedSignature[];
+  UndetectedSignatures?: UndetectedSignature[] | undefined;
 }
 
 /**
@@ -2301,7 +2301,7 @@ export interface DocumentLocation {
    * <p>The Amazon S3 bucket that contains the input document.</p>
    * @public
    */
-  S3Object?: S3Object;
+  S3Object?: S3Object | undefined;
 }
 
 /**
@@ -2313,26 +2313,26 @@ export interface LendingDetection {
    * <p>The text extracted for a detected value in a lending document.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The selection status of a selection element, such as an option button or check box.</p>
    * @public
    */
-  SelectionStatus?: SelectionStatus;
+  SelectionStatus?: SelectionStatus | undefined;
 
   /**
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    * @public
    */
-  Geometry?: Geometry;
+  Geometry?: Geometry | undefined;
 
   /**
    * <p>The confidence level for the text of a detected value in a lending document.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -2344,19 +2344,19 @@ export interface LendingField {
    * <p>The type of the lending document.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The results extracted for a lending document.</p>
    * @public
    */
-  KeyDetection?: LendingDetection;
+  KeyDetection?: LendingDetection | undefined;
 
   /**
    * <p>An array of LendingDetection objects.</p>
    * @public
    */
-  ValueDetections?: LendingDetection[];
+  ValueDetections?: LendingDetection[] | undefined;
 }
 
 /**
@@ -2368,14 +2368,14 @@ export interface SignatureDetection {
    * <p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    * @public
    */
-  Geometry?: Geometry;
+  Geometry?: Geometry | undefined;
 }
 
 /**
@@ -2387,13 +2387,13 @@ export interface LendingDocument {
    * <p>An array of LendingField objects.</p>
    * @public
    */
-  LendingFields?: LendingField[];
+  LendingFields?: LendingField[] | undefined;
 
   /**
    * <p>A list of signatures detected in a lending document.</p>
    * @public
    */
-  SignatureDetections?: SignatureDetection[];
+  SignatureDetections?: SignatureDetection[] | undefined;
 }
 
 /**
@@ -2405,19 +2405,19 @@ export interface Extraction {
    * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
    * @public
    */
-  LendingDocument?: LendingDocument;
+  LendingDocument?: LendingDocument | undefined;
 
   /**
    * <p>The structure holding all the information returned by AnalyzeExpense</p>
    * @public
    */
-  ExpenseDocument?: ExpenseDocument;
+  ExpenseDocument?: ExpenseDocument | undefined;
 
   /**
    * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
    * @public
    */
-  IdentityDocument?: IdentityDocument;
+  IdentityDocument?: IdentityDocument | undefined;
 }
 
 /**
@@ -2439,43 +2439,43 @@ export interface GetAdapterResponse {
    * <p>A string identifying the adapter that information has been retrieved for.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>The name of the requested adapter.</p>
    * @public
    */
-  AdapterName?: string;
+  AdapterName?: string | undefined;
 
   /**
    * <p>The date and time the requested adapter was created at.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The description for the requested adapter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>List of the targeted feature types for the requested adapter.</p>
    * @public
    */
-  FeatureTypes?: FeatureType[];
+  FeatureTypes?: FeatureType[] | undefined;
 
   /**
    * <p>Binary value indicating if the adapter is being automatically updated or not.</p>
    * @public
    */
-  AutoUpdate?: AutoUpdate;
+  AutoUpdate?: AutoUpdate | undefined;
 
   /**
    * <p>A set of tags (key-value pairs) associated with the adapter that has been retrieved.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2503,50 +2503,50 @@ export interface GetAdapterVersionResponse {
    * <p>A string containing a unique ID for the adapter version being retrieved.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>A string containing the adapter version that has been retrieved.</p>
    * @public
    */
-  AdapterVersion?: string;
+  AdapterVersion?: string | undefined;
 
   /**
    * <p>The time that the adapter version was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>List of the targeted feature types for the requested adapter version.</p>
    * @public
    */
-  FeatureTypes?: FeatureType[];
+  FeatureTypes?: FeatureType[] | undefined;
 
   /**
    * <p>The status of the adapter version that has been requested.</p>
    * @public
    */
-  Status?: AdapterVersionStatus;
+  Status?: AdapterVersionStatus | undefined;
 
   /**
    * <p>A message that describes the status of the requested adapter version.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Specifies a dataset used to train a new adapter version. Takes a ManifestS3Objec as the
    *          value.</p>
    * @public
    */
-  DatasetConfig?: AdapterVersionDatasetConfig;
+  DatasetConfig?: AdapterVersionDatasetConfig | undefined;
 
   /**
    * <p>The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt your documents.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 
   /**
    * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
@@ -2568,20 +2568,20 @@ export interface GetAdapterVersionResponse {
    *             FAQ</a>.</p>
    * @public
    */
-  OutputConfig?: OutputConfig;
+  OutputConfig?: OutputConfig | undefined;
 
   /**
    * <p>The evaluation metrics (F1 score, Precision, and Recall) for the requested version,
    *          grouped by baseline metrics and adapter version.</p>
    * @public
    */
-  EvaluationMetrics?: AdapterVersionEvaluationMetric[];
+  EvaluationMetrics?: AdapterVersionEvaluationMetric[] | undefined;
 
   /**
    * <p>A set of tags (key-value pairs) that are associated with the adapter version.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2602,7 +2602,7 @@ export interface GetDocumentAnalysisRequest {
    *          is returned. The default value is 1,000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there are more blocks to retrieve),
@@ -2610,7 +2610,7 @@ export interface GetDocumentAnalysisRequest {
    *          token to retrieve the next set of blocks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2638,13 +2638,13 @@ export interface Warning {
    * <p>The error code for the warning.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>A list of the pages that the warning applies to.</p>
    * @public
    */
-  Pages?: number[];
+  Pages?: number[] | undefined;
 }
 
 /**
@@ -2657,45 +2657,45 @@ export interface GetDocumentAnalysisResponse {
    *          Amazon Textract video operation.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The current status of the text detection job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token
    *          in the subsequent request to retrieve the next set of text detection results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The results of the text-analysis operation.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 
   /**
    * <p>A list of warnings that occurred during the document-analysis operation.</p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>Returns if the detection job could not be completed. Contains explanation for what error
    *          occured.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  AnalyzeDocumentModelVersion?: string;
+  AnalyzeDocumentModelVersion?: string | undefined;
 }
 
 /**
@@ -2705,8 +2705,8 @@ export interface GetDocumentAnalysisResponse {
 export class InvalidJobIdException extends __BaseException {
   readonly name: "InvalidJobIdException" = "InvalidJobIdException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -2739,14 +2739,14 @@ export interface GetDocumentTextDetectionRequest {
    *          returned. The default value is 1,000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
    *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2758,45 +2758,45 @@ export interface GetDocumentTextDetectionResponse {
    *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The current status of the text detection job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
    *          the subsequent request to retrieve the next set of text-detection results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The results of the text-detection operation.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 
   /**
    * <p>A list of warnings that occurred during the text-detection operation for the
    *          document.</p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  DetectDocumentTextModelVersion?: string;
+  DetectDocumentTextModelVersion?: string | undefined;
 }
 
 /**
@@ -2816,14 +2816,14 @@ export interface GetExpenseAnalysisRequest {
    *    returned. The default value is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
    *    token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2835,45 +2835,45 @@ export interface GetExpenseAnalysisResponse {
    *    returned in every page of paginated responses from an Amazon Textract operation.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p>The current status of the text detection job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
    *    the subsequent request to retrieve the next set of text-detection results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The expenses detected by Amazon Textract.</p>
    * @public
    */
-  ExpenseDocuments?: ExpenseDocument[];
+  ExpenseDocuments?: ExpenseDocument[] | undefined;
 
   /**
    * <p>A list of warnings that occurred during the text-detection operation for the
    *    document.</p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The current model version of AnalyzeExpense.</p>
    * @public
    */
-  AnalyzeExpenseModelVersion?: string;
+  AnalyzeExpenseModelVersion?: string | undefined;
 }
 
 /**
@@ -2894,7 +2894,7 @@ export interface GetLendingAnalysisRequest {
    *             returned. The default value is 30.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete, Amazon Textract returns a pagination token in
@@ -2902,7 +2902,7 @@ export interface GetLendingAnalysisRequest {
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2915,13 +2915,13 @@ export interface Prediction {
    * <p>The predicted value of a detected object.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>Amazon Textract's confidence in its predicted value.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -2954,19 +2954,19 @@ export interface LendingResult {
    * <p>The page number for a page, with regard to whole submission.</p>
    * @public
    */
-  Page?: number;
+  Page?: number | undefined;
 
   /**
    * <p>The classifier result for a given page.</p>
    * @public
    */
-  PageClassification?: PageClassification;
+  PageClassification?: PageClassification | undefined;
 
   /**
    * <p>An array of Extraction to hold structured data. e.g. normalized key value pairs instead of raw OCR detections .</p>
    * @public
    */
-  Extractions?: Extraction[];
+  Extractions?: Extraction[] | undefined;
 }
 
 /**
@@ -2977,46 +2977,46 @@ export interface GetLendingAnalysisResponse {
    * <p>Information about the input document.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p> The current status of the lending analysis job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token.
    *             You can use this token in the subsequent request to retrieve the next set of lending results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Holds the information returned by one of AmazonTextract's document analysis
    *             operations for the pinstripe.</p>
    * @public
    */
-  Results?: LendingResult[];
+  Results?: LendingResult[] | undefined;
 
   /**
    * <p> A list of warnings that occurred during the lending analysis operation. </p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>  Returns if the lending analysis job could not be completed. Contains explanation for
    *             what error occurred. </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p> The current model version of the Analyze Lending API.</p>
    * @public
    */
-  AnalyzeLendingModelVersion?: string;
+  AnalyzeLendingModelVersion?: string | undefined;
 }
 
 /**
@@ -3040,13 +3040,13 @@ export interface LendingSummary {
    * <p>Contains an array of all DocumentGroup objects.</p>
    * @public
    */
-  DocumentGroups?: DocumentGroup[];
+  DocumentGroups?: DocumentGroup[] | undefined;
 
   /**
    * <p>UndetectedDocumentTypes.</p>
    * @public
    */
-  UndetectedDocumentTypes?: string[];
+  UndetectedDocumentTypes?: string[] | undefined;
 }
 
 /**
@@ -3057,38 +3057,38 @@ export interface GetLendingAnalysisSummaryResponse {
    * <p>Information about the input document.</p>
    * @public
    */
-  DocumentMetadata?: DocumentMetadata;
+  DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
    * <p> The current status of the lending analysis job. </p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p> Contains summary information for documents grouped by type.</p>
    * @public
    */
-  Summary?: LendingSummary;
+  Summary?: LendingSummary | undefined;
 
   /**
    * <p>A list of warnings that occurred during the lending analysis operation.</p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>Returns if the lending analysis could not be completed. Contains explanation for what error
    *    occurred.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The current model version of the Analyze Lending API.</p>
    * @public
    */
-  AnalyzeLendingModelVersion?: string;
+  AnalyzeLendingModelVersion?: string | undefined;
 }
 
 /**
@@ -3100,26 +3100,26 @@ export interface ListAdaptersRequest {
    *          Ensures ListAdapters returns only adapters created after the specified creation time.</p>
    * @public
    */
-  AfterCreationTime?: Date;
+  AfterCreationTime?: Date | undefined;
 
   /**
    * <p>Specifies the upper bound for the ListAdapters operation.
    *          Ensures ListAdapters returns only adapters created before the specified creation time.</p>
    * @public
    */
-  BeforeCreationTime?: Date;
+  BeforeCreationTime?: Date | undefined;
 
   /**
    * <p>The maximum number of results to return when listing adapters.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Identifies the next page of results to return when listing adapters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3130,13 +3130,13 @@ export interface ListAdaptersResponse {
    * <p>A list of adapters that matches the filtering criteria specified when calling ListAdapters.</p>
    * @public
    */
-  Adapters?: AdapterOverview[];
+  Adapters?: AdapterOverview[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return when listing adapters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3147,33 +3147,33 @@ export interface ListAdapterVersionsRequest {
    * <p>A string containing a unique ID for the adapter to match for when listing adapter versions.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>Specifies the lower bound for the ListAdapterVersions operation.
    *          Ensures ListAdapterVersions returns only adapter versions created after the specified creation time.</p>
    * @public
    */
-  AfterCreationTime?: Date;
+  AfterCreationTime?: Date | undefined;
 
   /**
    * <p>Specifies the upper bound for the ListAdapterVersions operation.
    *          Ensures ListAdapterVersions returns only adapter versions created after the specified creation time.</p>
    * @public
    */
-  BeforeCreationTime?: Date;
+  BeforeCreationTime?: Date | undefined;
 
   /**
    * <p>The maximum number of results to return when listing adapter versions.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Identifies the next page of results to return when listing adapter versions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3184,13 +3184,13 @@ export interface ListAdapterVersionsResponse {
    * <p>Adapter versions that match the filtering criteria specified when calling ListAdapters.</p>
    * @public
    */
-  AdapterVersions?: AdapterVersionOverview[];
+  AdapterVersions?: AdapterVersionOverview[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return when listing adapter versions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3212,7 +3212,7 @@ export interface ListTagsForResourceResponse {
    * <p>A set of tags (key-value pairs) that are part of the requested resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3263,7 +3263,7 @@ export interface StartDocumentAnalysisRequest {
    *          <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An identifier that you specify that's included in the completion notification published
@@ -3272,21 +3272,21 @@ export interface StartDocumentAnalysisRequest {
    *          receipt).</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save
    *          the results internally to be accessed by the GetDocumentAnalysis operation.</p>
    * @public
    */
-  OutputConfig?: OutputConfig;
+  OutputConfig?: OutputConfig | undefined;
 
   /**
    * <p>The KMS key used to encrypt the inference results. This can be
@@ -3296,19 +3296,19 @@ export interface StartDocumentAnalysisRequest {
    *          be encrypted server side,using SSE-S3.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  QueriesConfig?: QueriesConfig;
+  QueriesConfig?: QueriesConfig | undefined;
 
   /**
    * <p>Specifies the adapter to be used when analyzing a document.</p>
    * @public
    */
-  AdaptersConfig?: AdaptersConfig;
+  AdaptersConfig?: AdaptersConfig | undefined;
 }
 
 /**
@@ -3321,7 +3321,7 @@ export interface StartDocumentAnalysisResponse {
    *          is only valid for 7 days.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -3342,7 +3342,7 @@ export interface StartDocumentTextDetectionRequest {
    *          <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An identifier that you specify that's included in the completion notification published
@@ -3351,21 +3351,21 @@ export interface StartDocumentTextDetectionRequest {
    *          receipt).</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will
    *          save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
    * @public
    */
-  OutputConfig?: OutputConfig;
+  OutputConfig?: OutputConfig | undefined;
 
   /**
    * <p>The KMS key used to encrypt the inference results. This can be
@@ -3375,7 +3375,7 @@ export interface StartDocumentTextDetectionRequest {
    *          be encrypted server side,using SSE-S3.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 }
 
 /**
@@ -3388,7 +3388,7 @@ export interface StartDocumentTextDetectionResponse {
    *          A <code>JobId</code> value is only valid for 7 days.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -3408,7 +3408,7 @@ export interface StartExpenseAnalysisRequest {
    *          </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An identifier you specify that's included in the completion notification published
@@ -3417,14 +3417,14 @@ export interface StartExpenseAnalysisRequest {
    *    receipt).</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *    operation to. </p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will
@@ -3432,7 +3432,7 @@ export interface StartExpenseAnalysisRequest {
    *    operation.</p>
    * @public
    */
-  OutputConfig?: OutputConfig;
+  OutputConfig?: OutputConfig | undefined;
 
   /**
    * <p>The KMS key used to encrypt the inference results. This can be
@@ -3442,7 +3442,7 @@ export interface StartExpenseAnalysisRequest {
    *    be encrypted server side,using SSE-S3.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 }
 
 /**
@@ -3454,7 +3454,7 @@ export interface StartExpenseAnalysisResponse {
    *     <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -3477,7 +3477,7 @@ export interface StartLendingAnalysisRequest {
    *    started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-sync.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An identifier that you specify to be included in the completion notification published to
@@ -3486,14 +3486,14 @@ export interface StartLendingAnalysisRequest {
    *    receipt).</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
    *          an asynchronous document operation. </p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
@@ -3515,7 +3515,7 @@ export interface StartLendingAnalysisRequest {
    *             FAQ</a>.</p>
    * @public
    */
-  OutputConfig?: OutputConfig;
+  OutputConfig?: OutputConfig | undefined;
 
   /**
    * <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key
@@ -3524,7 +3524,7 @@ export interface StartLendingAnalysisRequest {
    *    encrypted server side, using SSE-S3. </p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 }
 
 /**
@@ -3537,7 +3537,7 @@ export interface StartLendingAnalysisResponse {
    *    days.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -3598,19 +3598,19 @@ export interface UpdateAdapterRequest {
    * <p>The new description to be applied to the adapter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new name to be applied to the adapter.</p>
    * @public
    */
-  AdapterName?: string;
+  AdapterName?: string | undefined;
 
   /**
    * <p>The new auto-update status to be applied to the adapter.</p>
    * @public
    */
-  AutoUpdate?: AutoUpdate;
+  AutoUpdate?: AutoUpdate | undefined;
 }
 
 /**
@@ -3621,35 +3621,35 @@ export interface UpdateAdapterResponse {
    * <p>A string containing a unique ID for the adapter that has been updated.</p>
    * @public
    */
-  AdapterId?: string;
+  AdapterId?: string | undefined;
 
   /**
    * <p>A string containing the name of the adapter that has been updated.</p>
    * @public
    */
-  AdapterName?: string;
+  AdapterName?: string | undefined;
 
   /**
    * <p>An object specifying the creation time of the the adapter that has been updated.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>A string containing the description of the adapter that has been updated.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>List of the targeted feature types for the updated adapter.</p>
    * @public
    */
-  FeatureTypes?: FeatureType[];
+  FeatureTypes?: FeatureType[] | undefined;
 
   /**
    * <p>The auto-update status of the adapter that has been updated.</p>
    * @public
    */
-  AutoUpdate?: AutoUpdate;
+  AutoUpdate?: AutoUpdate | undefined;
 }

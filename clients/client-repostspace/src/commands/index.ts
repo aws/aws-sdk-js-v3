@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+export * from "./BatchAddRoleCommand";
+export * from "./BatchRemoveRoleCommand";
 export * from "./CreateSpaceCommand";
 export * from "./DeleteSpaceCommand";
 export * from "./DeregisterAdminCommand";

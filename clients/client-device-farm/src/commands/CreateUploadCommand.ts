@@ -81,32 +81,8 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To create a new test package upload
- * ```javascript
- * // The following example creates a new Appium Python test package upload inside an existing project.
- * const input = {
- *   "name": "MyAppiumPythonUpload",
- *   "type": "APPIUM_PYTHON_TEST_PACKAGE",
- *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
- * };
- * const command = new CreateUploadCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "upload": {
- *     "name": "MyAppiumPythonUpload",
- *     "type": "APPIUM_PYTHON_TEST_PACKAGE",
- *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/b5340a65-3da7-4da6-a26e-12345EXAMPLE",
- *     "created": "1472661404.186",
- *     "status": "INITIALIZED",
- *     "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2%3A123456789101%3Aproject%3A5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE/uploads/arn%3Aaws%3Adevicefarm%3Aus-west-2%3A123456789101%3Aupload%3A5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/b5340a65-3da7-4da6-a26e-12345EXAMPLE/MyAppiumPythonUpload?AWSAccessKeyId=1234567891011EXAMPLE&Expires=1472747804&Signature=1234567891011EXAMPLE"
- *   }
- * }
- * *\/
- * // example id: createupload-example-1470864711775
- * ```
  *
+ * @public
  */
 export class CreateUploadCommand extends $Command
   .classBuilder<
@@ -116,9 +92,7 @@ export class CreateUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +104,16 @@ export class CreateUploadCommand extends $Command
   .f(void 0, CreateUploadResultFilterSensitiveLog)
   .ser(se_CreateUploadCommand)
   .de(de_CreateUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUploadRequest;
+      output: CreateUploadResult;
+    };
+    sdk: {
+      input: CreateUploadCommandInput;
+      output: CreateUploadCommandOutput;
+    };
+  };
+}

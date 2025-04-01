@@ -162,6 +162,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBInstanceCommand extends $Command
@@ -172,9 +173,7 @@ export class DeleteDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +185,16 @@ export class DeleteDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBInstanceCommand)
   .de(de_DeleteDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBInstanceMessage;
+      output: DeleteDBInstanceResult;
+    };
+    sdk: {
+      input: DeleteDBInstanceCommandInput;
+      output: DeleteDBInstanceCommandOutput;
+    };
+  };
+}

@@ -129,44 +129,44 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To enable cross-Region automated backups
  * ```javascript
  * // The following example replicates automated backups from a DB instance in the US East (N. Virginia) Region. The backup retention period is 14 days.
  * const input = {
- *   "BackupRetentionPeriod": 14,
- *   "SourceDBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
+ *   BackupRetentionPeriod: 14,
+ *   SourceDBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
  * };
  * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstanceAutomatedBackup": {
- *     "AllocatedStorage": 20,
- *     "BackupRetentionPeriod": 14,
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
- *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
- *     "DBInstanceIdentifier": "new-orcl-db",
- *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
- *     "Encrypted": false,
- *     "Engine": "oracle-se2",
- *     "EngineVersion": "12.1.0.2.v21",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
- *     "LicenseModel": "bring-your-own-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:oracle-se2-12-1",
- *     "Port": 1521,
- *     "Region": "us-east-1",
- *     "RestoreWindow": {},
- *     "Status": "pending",
- *     "StorageType": "gp2"
+ *   DBInstanceAutomatedBackup: {
+ *     AllocatedStorage: 20,
+ *     BackupRetentionPeriod: 14,
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     DBInstanceAutomatedBackupsArn: "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     DBInstanceIdentifier: "new-orcl-db",
+ *     DbiResourceId: "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     Encrypted: false,
+ *     Engine: "oracle-se2",
+ *     EngineVersion: "12.1.0.2.v21",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2020-12-04T15:28:31Z",
+ *     LicenseModel: "bring-your-own-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:oracle-se2-12-1",
+ *     Port: 1521,
+ *     Region: "us-east-1",
+ *     RestoreWindow:     { /* empty *\/ },
+ *     Status: "pending",
+ *     StorageType: "gp2"
  *   }
  * }
  * *\/
- * // example id: to-enable-cross-region-automated-backups-1680033438352
  * ```
  *
+ * @public
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   .classBuilder<
@@ -176,9 +176,7 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +189,16 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBInstanceAutomatedBackupsReplicationCommand)
   .de(de_StartDBInstanceAutomatedBackupsReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBInstanceAutomatedBackupsReplicationMessage;
+      output: StartDBInstanceAutomatedBackupsReplicationResult;
+    };
+    sdk: {
+      input: StartDBInstanceAutomatedBackupsReplicationCommandInput;
+      output: StartDBInstanceAutomatedBackupsReplicationCommandOutput;
+    };
+  };
+}

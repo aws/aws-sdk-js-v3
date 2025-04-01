@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSlackChannelConfigurationRequest, CreateSlackChannelConfigurationResult } from "../models/models_0";
+import {
+  CreateSlackChannelConfigurationRequest,
+  CreateSlackChannelConfigurationRequestFilterSensitiveLog,
+  CreateSlackChannelConfigurationResult,
+  CreateSlackChannelConfigurationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_CreateSlackChannelConfigurationCommand,
   se_CreateSlackChannelConfigurationCommand,
@@ -33,7 +38,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * Creates Slack Channel Configuration
+ * <p>Creates an AWS Chatbot confugration for Slack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +91,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * //         TagValue: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     State: "STRING_VALUE",
+ * //     StateReason: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -98,22 +105,23 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  There was an issue processing your request.
+ *  <p>There was an issue processing your request.</p>
  *
  * @throws {@link CreateSlackChannelConfigurationException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  You have exceeded a service limit for AWS Chatbot.
+ *  <p>You have exceeded a service limit for AWS Chatbot.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -125,9 +133,7 @@ export class CreateSlackChannelConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,7 +142,19 @@ export class CreateSlackChannelConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "CreateSlackChannelConfiguration", {})
   .n("ChatbotClient", "CreateSlackChannelConfigurationCommand")
-  .f(void 0, void 0)
+  .f(CreateSlackChannelConfigurationRequestFilterSensitiveLog, CreateSlackChannelConfigurationResultFilterSensitiveLog)
   .ser(se_CreateSlackChannelConfigurationCommand)
   .de(de_CreateSlackChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlackChannelConfigurationRequest;
+      output: CreateSlackChannelConfigurationResult;
+    };
+    sdk: {
+      input: CreateSlackChannelConfigurationCommandInput;
+      output: CreateSlackChannelConfigurationCommandOutput;
+    };
+  };
+}

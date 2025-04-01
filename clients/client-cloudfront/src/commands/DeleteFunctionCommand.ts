@@ -72,10 +72,11 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * 			<code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +88,7 @@ export class DeleteFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFunctionCommand)
   .de(de_DeleteFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFunctionCommandInput;
+      output: DeleteFunctionCommandOutput;
+    };
+  };
+}

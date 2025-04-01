@@ -49,6 +49,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *   clientToken: "STRING_VALUE",
  *   resourceIdentifier: "STRING_VALUE", // required
  *   destinationArn: "STRING_VALUE", // required
+ *   serviceNetworkLogType: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -60,6 +61,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * //   arn: "STRING_VALUE", // required
  * //   resourceId: "STRING_VALUE", // required
  * //   resourceArn: "STRING_VALUE", // required
+ * //   serviceNetworkLogType: "STRING_VALUE",
  * //   destinationArn: "STRING_VALUE", // required
  * // };
  *
@@ -94,6 +96,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessLogSubscriptionCommand extends $Command
@@ -104,9 +107,7 @@ export class CreateAccessLogSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +119,16 @@ export class CreateAccessLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessLogSubscriptionCommand)
   .de(de_CreateAccessLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessLogSubscriptionRequest;
+      output: CreateAccessLogSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateAccessLogSubscriptionCommandInput;
+      output: CreateAccessLogSubscriptionCommandOutput;
+    };
+  };
+}

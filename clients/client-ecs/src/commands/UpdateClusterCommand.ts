@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_1";
 import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,13 +152,24 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link NamespaceNotFoundException} (client fault)
  *  <p>The specified namespace wasn't found.</p>
@@ -168,6 +179,194 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To update a cluster's observability settings.
+ * ```javascript
+ * // This example turns on enhanced containerInsights in an existing cluster.
+ * const input = {
+ *   cluster: "ECS-project-update-cluster",
+ *   settings: [
+ *     {
+ *       name: "containerInsights",
+ *       value: "enhanced"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
+ *           }
+ *         ],
+ *         id: "069d002b-7634-42e4-b1d4-544f4c8f6380",
+ *         status: "CREATED",
+ *         type: "as_policy"
+ *       },
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *           },
+ *           {
+ *             name: "autoScalingLifecycleHookName",
+ *             value: "ecs-managed-draining-termination-hook"
+ *           }
+ *         ],
+ *         id: "08b5b6ca-45e9-4209-a65d-e962a27c490a",
+ *         status: "CREATED",
+ *         type: "managed_draining"
+ *       },
+ *       {
+ *         details:         [],
+ *         id: "45d0b36f-8cff-46b6-9380-1288744802ab",
+ *         status: "ATTACHED",
+ *         type: "sc"
+ *       }
+ *     ],
+ *     attachmentsStatus: "UPDATE_COMPLETE",
+ *     capacityProviders: [
+ *       "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *     ],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
+ *     clusterName: "ECS-project-update-cluster",
+ *     defaultCapacityProviderStrategy: [
+ *       {
+ *         base: 0,
+ *         capacityProvider: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
+ *         weight: 1
+ *       }
+ *     ],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     serviceConnectDefaults: {
+ *       namespace: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-igwrsylmy3kwvcdx"
+ *     },
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enhanced"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To update a cluster's Service Connect defaults.
+ * ```javascript
+ * // This example sets a default Service Connect namespace.
+ * const input = {
+ *   cluster: "ECS-project-update-cluster",
+ *   serviceConnectDefaults: {
+ *     namespace: "test"
+ *   }
+ * };
+ * const command = new UpdateClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
+ *           }
+ *         ],
+ *         id: "069d002b-7634-42e4-b1d4-544f4c8f6380",
+ *         status: "CREATED",
+ *         type: "as_policy"
+ *       },
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *           },
+ *           {
+ *             name: "autoScalingLifecycleHookName",
+ *             value: "ecs-managed-draining-termination-hook"
+ *           }
+ *         ],
+ *         id: "08b5b6ca-45e9-4209-a65d-e962a27c490a",
+ *         status: "CREATED",
+ *         type: "managed_draining"
+ *       },
+ *       {
+ *         details:         [],
+ *         id: "45d0b36f-8cff-46b6-9380-1288744802ab",
+ *         status: "DELETED",
+ *         type: "sc"
+ *       },
+ *       {
+ *         details:         [],
+ *         id: "3e6890c3-609c-4832-91de-d6ca891b3ef1",
+ *         status: "ATTACHED",
+ *         type: "sc"
+ *       },
+ *       {
+ *         details:         [],
+ *         id: "961b8ec1-c2f1-4070-8495-e669b7668e90",
+ *         status: "DELETED",
+ *         type: "sc"
+ *       }
+ *     ],
+ *     attachmentsStatus: "UPDATE_COMPLETE",
+ *     capacityProviders: [
+ *       "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *     ],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
+ *     clusterName: "ECS-project-update-cluster",
+ *     defaultCapacityProviderStrategy: [
+ *       {
+ *         base: 0,
+ *         capacityProvider: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
+ *         weight: 1
+ *       }
+ *     ],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     serviceConnectDefaults: {
+ *       namespace: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-dtjmxqpfi46ht7dr"
+ *     },
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enhanced"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -179,9 +378,7 @@ export class UpdateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +390,16 @@ export class UpdateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClusterCommand)
   .de(de_UpdateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterRequest;
+      output: UpdateClusterResponse;
+    };
+    sdk: {
+      input: UpdateClusterCommandInput;
+      output: UpdateClusterCommandOutput;
+    };
+  };
+}

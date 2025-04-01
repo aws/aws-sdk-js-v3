@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_1";
+import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_2";
 import { de_ListRoutingProfileQueuesCommand, se_ListRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -52,7 +52,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * //       QueueName: "STRING_VALUE", // required
  * //       Priority: Number("int"), // required
  * //       Delay: Number("int"), // required
- * //       Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  * //     },
  * //   ],
  * //   LastModifiedTime: new Date("TIMESTAMP"),
@@ -85,6 +85,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListRoutingProfileQueuesCommand extends $Command
@@ -95,9 +96,7 @@ export class ListRoutingProfileQueuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoutingProfileQueuesCommand)
   .de(de_ListRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutingProfileQueuesRequest;
+      output: ListRoutingProfileQueuesResponse;
+    };
+    sdk: {
+      input: ListRoutingProfileQueuesCommandInput;
+      output: ListRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

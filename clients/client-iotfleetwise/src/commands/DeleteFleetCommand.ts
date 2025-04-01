@@ -31,10 +31,6 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * <p> Deletes a fleet. Before you delete a fleet, all vehicles must be
  *             dissociated from the fleet. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html">Delete a fleet (AWS
  *                 CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
- *          <note>
- *             <p>If the fleet is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
- *                 with an empty body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +70,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteFleetCommand extends $Command
@@ -84,9 +81,7 @@ export class DeleteFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +93,16 @@ export class DeleteFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetCommand)
   .de(de_DeleteFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetRequest;
+      output: DeleteFleetResponse;
+    };
+    sdk: {
+      input: DeleteFleetCommandInput;
+      output: DeleteFleetCommandOutput;
+    };
+  };
+}

@@ -95,19 +95,22 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example CreateUser
  * ```javascript
  * // Creates a new User within a collection specified by CollectionId.
  * const input = {
- *   "CollectionId": "MyCollection",
- *   "UserId": "DemoUser"
+ *   CollectionId: "MyCollection",
+ *   UserId: "DemoUser"
  * };
  * const command = new CreateUserCommand(input);
- * await client.send(command);
- * // example id: createuser-1686181562299
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateUserCommand extends $Command
   .classBuilder<
@@ -117,9 +120,7 @@ export class CreateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +132,16 @@ export class CreateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserCommand)
   .de(de_CreateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateUserCommandInput;
+      output: CreateUserCommandOutput;
+    };
+  };
+}

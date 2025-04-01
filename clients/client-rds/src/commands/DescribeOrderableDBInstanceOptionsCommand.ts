@@ -131,55 +131,55 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe orderable DB instance options
  * ```javascript
  * // The following example retrieves details about the orderable options for a DB instances running the MySQL DB engine.
  * const input = {
- *   "Engine": "mysql"
+ *   Engine: "mysql"
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrderableDBInstanceOptions": [
+ *   OrderableDBInstanceOptions: [
  *     {
- *       "AvailabilityZones": [
+ *       AvailabilityZones: [
  *         {
- *           "Name": "us-east-1a"
+ *           Name: "us-east-1a"
  *         },
  *         {
- *           "Name": "us-east-1b"
+ *           Name: "us-east-1b"
  *         },
  *         {
- *           "Name": "us-east-1c"
+ *           Name: "us-east-1c"
  *         },
  *         {
- *           "Name": "us-east-1d"
+ *           Name: "us-east-1d"
  *         },
  *         {
- *           "Name": "us-east-1e"
+ *           Name: "us-east-1e"
  *         },
  *         {
- *           "Name": "us-east-1f"
+ *           Name: "us-east-1f"
  *         }
  *       ],
- *       "DBInstanceClass": "db.m4.10xlarge",
- *       "Engine": "mysql",
- *       "EngineVersion": "5.7.33",
- *       "LicenseModel": "general-public-license",
- *       "MultiAZCapable": true,
- *       "ReadReplicaCapable": true,
- *       "StorageType": "gp2",
- *       "SupportsStorageEncryption": true,
- *       "Vpc": true
+ *       DBInstanceClass: "db.m4.10xlarge",
+ *       Engine: "mysql",
+ *       EngineVersion: "5.7.33",
+ *       LicenseModel: "general-public-license",
+ *       MultiAZCapable: true,
+ *       ReadReplicaCapable: true,
+ *       StorageType: "gp2",
+ *       SupportsStorageEncryption: true,
+ *       Vpc: true
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-orderable-db-instance-options-1680283253165
  * ```
  *
+ * @public
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   .classBuilder<
@@ -189,9 +189,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +201,16 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrderableDBInstanceOptionsCommand)
   .de(de_DescribeOrderableDBInstanceOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrderableDBInstanceOptionsMessage;
+      output: OrderableDBInstanceOptionsMessage;
+    };
+    sdk: {
+      input: DescribeOrderableDBInstanceOptionsCommandInput;
+      output: DescribeOrderableDBInstanceOptionsCommandOutput;
+    };
+  };
+}

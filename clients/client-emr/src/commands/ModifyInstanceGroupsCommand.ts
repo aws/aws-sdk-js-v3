@@ -98,6 +98,7 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceGroupsCommand extends $Command
@@ -108,9 +109,7 @@ export class ModifyInstanceGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ModifyInstanceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceGroupsCommand)
   .de(de_ModifyInstanceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceGroupsInput;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceGroupsCommandInput;
+      output: ModifyInstanceGroupsCommandOutput;
+    };
+  };
+}

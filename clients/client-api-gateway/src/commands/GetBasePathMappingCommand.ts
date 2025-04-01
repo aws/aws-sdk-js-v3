@@ -37,6 +37,7 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * const client = new APIGatewayClient(config);
  * const input = { // GetBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE", // required
  * };
  * const command = new GetBasePathMappingCommand(input);
@@ -70,6 +71,7 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetBasePathMappingCommand extends $Command
@@ -80,9 +82,7 @@ export class GetBasePathMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class GetBasePathMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBasePathMappingCommand)
   .de(de_GetBasePathMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBasePathMappingRequest;
+      output: BasePathMapping;
+    };
+    sdk: {
+      input: GetBasePathMappingCommandInput;
+      output: GetBasePathMappingCommandOutput;
+    };
+  };
+}

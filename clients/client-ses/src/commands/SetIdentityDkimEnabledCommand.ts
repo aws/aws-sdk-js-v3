@@ -67,19 +67,22 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetIdentityDkimEnabled
  * ```javascript
  * // The following example configures Amazon SES to Easy DKIM-sign the email sent from an identity:
  * const input = {
- *   "DkimEnabled": true,
- *   "Identity": "user@example.com"
+ *   DkimEnabled: true,
+ *   Identity: "user@example.com"
  * };
  * const command = new SetIdentityDkimEnabledCommand(input);
- * await client.send(command);
- * // example id: setidentitydkimenabled-1469057485202
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetIdentityDkimEnabledCommand extends $Command
   .classBuilder<
@@ -89,9 +92,7 @@ export class SetIdentityDkimEnabledCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class SetIdentityDkimEnabledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityDkimEnabledCommand)
   .de(de_SetIdentityDkimEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityDkimEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetIdentityDkimEnabledCommandInput;
+      output: SetIdentityDkimEnabledCommandOutput;
+    };
+  };
+}

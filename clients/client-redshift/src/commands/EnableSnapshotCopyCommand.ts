@@ -290,6 +290,7 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class EnableSnapshotCopyCommand extends $Command
@@ -300,9 +301,7 @@ export class EnableSnapshotCopyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -314,4 +313,16 @@ export class EnableSnapshotCopyCommand extends $Command
   .f(void 0, EnableSnapshotCopyResultFilterSensitiveLog)
   .ser(se_EnableSnapshotCopyCommand)
   .de(de_EnableSnapshotCopyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableSnapshotCopyMessage;
+      output: EnableSnapshotCopyResult;
+    };
+    sdk: {
+      input: EnableSnapshotCopyCommandInput;
+      output: EnableSnapshotCopyCommandOutput;
+    };
+  };
+}

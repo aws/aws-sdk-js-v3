@@ -69,31 +69,36 @@ export interface GenerateFindingRecommendationCommandOutput extends __MetadataBe
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
- * @public
+ *
  * @example Successfully started generating finding recommendation
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "finding-id"
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "finding-id"
  * };
  * const command = new GenerateFindingRecommendationCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example Failed field validation for id value
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "!"
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "!"
  * };
  * const command = new GenerateFindingRecommendationCommand(input);
- * await client.send(command);
- * // example id: example-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class GenerateFindingRecommendationCommand extends $Command
   .classBuilder<
@@ -103,9 +108,7 @@ export class GenerateFindingRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +120,16 @@ export class GenerateFindingRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateFindingRecommendationCommand)
   .de(de_GenerateFindingRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateFindingRecommendationRequest;
+      output: {};
+    };
+    sdk: {
+      input: GenerateFindingRecommendationCommandInput;
+      output: GenerateFindingRecommendationCommandOutput;
+    };
+  };
+}

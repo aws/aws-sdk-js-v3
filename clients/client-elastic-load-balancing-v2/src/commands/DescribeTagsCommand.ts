@@ -88,39 +88,39 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe the tags assigned to a load balancer
  * ```javascript
  * // This example describes the tags assigned to the specified load balancer.
  * const input = {
- *   "ResourceArns": [
+ *   ResourceArns: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  *   ]
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagDescriptions": [
+ *   TagDescriptions: [
  *     {
- *       "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "Tags": [
+ *       ResourceArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       Tags: [
  *         {
- *           "Key": "project",
- *           "Value": "lima"
+ *           Key: "project",
+ *           Value: "lima"
  *         },
  *         {
- *           "Key": "department",
- *           "Value": "digital-media"
+ *           Key: "department",
+ *           Value: "digital-media"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-tags-1
  * ```
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<
@@ -130,9 +130,7 @@ export class DescribeTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +142,16 @@ export class DescribeTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTagsCommand)
   .de(de_DescribeTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTagsInput;
+      output: DescribeTagsOutput;
+    };
+    sdk: {
+      input: DescribeTagsCommandInput;
+      output: DescribeTagsCommandOutput;
+    };
+  };
+}

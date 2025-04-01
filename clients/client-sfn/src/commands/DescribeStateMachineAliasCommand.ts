@@ -103,6 +103,7 @@ export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMac
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DescribeStateMachineAliasCommand extends $Command
@@ -113,9 +114,7 @@ export class DescribeStateMachineAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class DescribeStateMachineAliasCommand extends $Command
   .f(void 0, DescribeStateMachineAliasOutputFilterSensitiveLog)
   .ser(se_DescribeStateMachineAliasCommand)
   .de(de_DescribeStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStateMachineAliasInput;
+      output: DescribeStateMachineAliasOutput;
+    };
+    sdk: {
+      input: DescribeStateMachineAliasCommandInput;
+      output: DescribeStateMachineAliasCommandOutput;
+    };
+  };
+}

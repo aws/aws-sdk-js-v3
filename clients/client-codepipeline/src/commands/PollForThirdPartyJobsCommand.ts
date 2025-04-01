@@ -43,7 +43,7 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * const client = new CodePipelineClient(config);
  * const input = { // PollForThirdPartyJobsInput
  *   actionTypeId: { // ActionTypeId
- *     category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *     category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *     owner: "AWS" || "ThirdParty" || "Custom", // required
  *     provider: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
@@ -78,6 +78,7 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PollForThirdPartyJobsCommand extends $Command
@@ -88,9 +89,7 @@ export class PollForThirdPartyJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class PollForThirdPartyJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PollForThirdPartyJobsCommand)
   .de(de_PollForThirdPartyJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PollForThirdPartyJobsInput;
+      output: PollForThirdPartyJobsOutput;
+    };
+    sdk: {
+      input: PollForThirdPartyJobsCommandInput;
+      output: PollForThirdPartyJobsCommandOutput;
+    };
+  };
+}

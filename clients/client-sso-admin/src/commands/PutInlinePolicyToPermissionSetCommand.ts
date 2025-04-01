@@ -95,6 +95,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command
@@ -105,9 +106,7 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInlinePolicyToPermissionSetCommand)
   .de(de_PutInlinePolicyToPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInlinePolicyToPermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutInlinePolicyToPermissionSetCommandInput;
+      output: PutInlinePolicyToPermissionSetCommandOutput;
+    };
+  };
+}

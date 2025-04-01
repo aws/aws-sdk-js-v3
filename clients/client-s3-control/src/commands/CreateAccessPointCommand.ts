@@ -29,12 +29,10 @@ export interface CreateAccessPointCommandInput extends CreateAccessPointRequest 
 export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Creates an access point and associates it with the specified bucket. For more information, see
+ * <p>Creates an access point and associates it to a specified bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
- *             Data Access with Amazon S3 Access Points</a> in the
+ *                access to shared datasets in general purpose buckets with access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing
+ *                   access to shared datasets in directory buckets with access points</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <note>
@@ -62,6 +60,11 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccessPoints</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html">ListAccessPointsForDirectoryBuckets</a>
+ *                </p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +86,14 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  *     RestrictPublicBuckets: true || false,
  *   },
  *   BucketAccountId: "STRING_VALUE",
+ *   Scope: { // Scope
+ *     Prefixes: [ // PrefixesList
+ *       "STRING_VALUE",
+ *     ],
+ *     Permissions: [ // ScopePermissionList
+ *       "GetObject" || "GetObjectAttributes" || "ListMultipartUploadParts" || "ListBucket" || "ListBucketMultipartUploads" || "PutObject" || "DeleteObject" || "AbortMultipartUpload",
+ *     ],
+ *   },
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
@@ -102,6 +113,7 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPointCommand extends $Command
@@ -115,6 +127,7 @@ export class CreateAccessPointCommand extends $Command
   .ep({
     ...commonParams,
     RequiresAccountId: { type: "staticContextParams", value: true },
+    AccessPointName: { type: "contextParams", name: "Name" },
     AccountId: { type: "contextParams", name: "AccountId" },
     Bucket: { type: "contextParams", name: "Bucket" },
   })
@@ -130,4 +143,16 @@ export class CreateAccessPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessPointCommand)
   .de(de_CreateAccessPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessPointRequest;
+      output: CreateAccessPointResult;
+    };
+    sdk: {
+      input: CreateAccessPointCommandInput;
+      output: CreateAccessPointCommandOutput;
+    };
+  };
+}

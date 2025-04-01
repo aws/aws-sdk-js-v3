@@ -65,6 +65,7 @@ export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class DeleteAudienceModelCommand extends $Command
@@ -75,9 +76,7 @@ export class DeleteAudienceModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DeleteAudienceModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAudienceModelCommand)
   .de(de_DeleteAudienceModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAudienceModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAudienceModelCommandInput;
+      output: DeleteAudienceModelCommandOutput;
+    };
+  };
+}

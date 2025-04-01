@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UnassignPrivateIpAddressesRequest } from "../models/models_7";
+import { UnassignPrivateIpAddressesRequest } from "../models/models_8";
 import { de_UnassignPrivateIpAddressesCommand, se_UnassignPrivateIpAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -28,7 +28,7 @@ export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateI
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
+ * <p>Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation prefixes from a
  *         	network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,11 +37,11 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * // const { EC2Client, UnassignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignPrivateIpAddressesRequest
- *   NetworkInterfaceId: "STRING_VALUE", // required
- *   PrivateIpAddresses: [ // PrivateIpAddressStringList
+ *   Ipv4Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
- *   Ipv4Prefixes: [ // IpPrefixList
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // PrivateIpAddressStringList
  *     "STRING_VALUE",
  *   ],
  * };
@@ -60,21 +60,24 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript
  * // This example unassigns the specified private IP address from the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3",
- *   "PrivateIpAddresses": [
+ *   NetworkInterfaceId: "eni-e5aa89a3",
+ *   PrivateIpAddresses: [
  *     "10.0.0.82"
  *   ]
  * };
  * const command = new UnassignPrivateIpAddressesCommand(input);
- * await client.send(command);
- * // example id: ec2-unassign-private-ip-addresses-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UnassignPrivateIpAddressesCommand extends $Command
   .classBuilder<
@@ -84,9 +87,7 @@ export class UnassignPrivateIpAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +99,16 @@ export class UnassignPrivateIpAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignPrivateIpAddressesCommand)
   .de(de_UnassignPrivateIpAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignPrivateIpAddressesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnassignPrivateIpAddressesCommandInput;
+      output: UnassignPrivateIpAddressesCommandOutput;
+    };
+  };
+}

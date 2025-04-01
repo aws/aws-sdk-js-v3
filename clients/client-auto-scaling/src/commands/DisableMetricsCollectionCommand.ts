@@ -60,21 +60,24 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "Metrics": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   Metrics: [
  *     "GroupDesiredCapacity"
  *   ]
  * };
  * const command = new DisableMetricsCollectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-disable-metrics-collection-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableMetricsCollectionCommand extends $Command
   .classBuilder<
@@ -84,9 +87,7 @@ export class DisableMetricsCollectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +99,16 @@ export class DisableMetricsCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableMetricsCollectionCommand)
   .de(de_DisableMetricsCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableMetricsCollectionQuery;
+      output: {};
+    };
+    sdk: {
+      input: DisableMetricsCollectionCommandInput;
+      output: DisableMetricsCollectionCommandOutput;
+    };
+  };
+}

@@ -117,6 +117,7 @@ export interface GetMetricsCommandOutput extends GetMetricsResponse, __MetadataB
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetMetricsCommand extends $Command
@@ -127,9 +128,7 @@ export class GetMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class GetMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricsCommand)
   .de(de_GetMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricsRequest;
+      output: GetMetricsResponse;
+    };
+    sdk: {
+      input: GetMetricsCommandInput;
+      output: GetMetricsCommandOutput;
+    };
+  };
+}

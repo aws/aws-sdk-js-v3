@@ -81,32 +81,32 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get an IP set
  * ```javascript
  * // The following example returns the details of an IP match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IPSet": {
- *     "IPSetDescriptors": [
+ *   IPSet: {
+ *     IPSetDescriptors: [
  *       {
- *         "Type": "IPV4",
- *         "Value": "192.0.2.44/32"
+ *         Type: "IPV4",
+ *         Value: "192.0.2.44/32"
  *       }
  *     ],
- *     "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "Name": "MyIPSetFriendlyName"
+ *     IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     Name: "MyIPSetFriendlyName"
  *   }
  * }
  * *\/
- * // example id: getipset-1474658688675
  * ```
  *
+ * @public
  */
 export class GetIPSetCommand extends $Command
   .classBuilder<
@@ -116,9 +116,7 @@ export class GetIPSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +128,16 @@ export class GetIPSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIPSetCommand)
   .de(de_GetIPSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIPSetRequest;
+      output: GetIPSetResponse;
+    };
+    sdk: {
+      input: GetIPSetCommandInput;
+      output: GetIPSetCommandOutput;
+    };
+  };
+}

@@ -107,6 +107,7 @@ export interface GetAliasCommandOutput extends GetAliasOutput, __MetadataBearer 
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetAliasCommand extends $Command
@@ -117,9 +118,7 @@ export class GetAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class GetAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAliasCommand)
   .de(de_GetAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAliasInput;
+      output: GetAliasOutput;
+    };
+    sdk: {
+      input: GetAliasCommandInput;
+      output: GetAliasCommandOutput;
+    };
+  };
+}

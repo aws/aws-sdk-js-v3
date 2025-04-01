@@ -74,6 +74,7 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrafficPolicyInstanceCommand)
   .de(de_DeleteTrafficPolicyInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrafficPolicyInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTrafficPolicyInstanceCommandInput;
+      output: DeleteTrafficPolicyInstanceCommandOutput;
+    };
+  };
+}

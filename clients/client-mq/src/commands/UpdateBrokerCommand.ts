@@ -156,6 +156,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class UpdateBrokerCommand extends $Command
@@ -166,9 +167,7 @@ export class UpdateBrokerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +179,16 @@ export class UpdateBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBrokerCommand)
   .de(de_UpdateBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBrokerRequest;
+      output: UpdateBrokerResponse;
+    };
+    sdk: {
+      input: UpdateBrokerCommandInput;
+      output: UpdateBrokerCommandOutput;
+    };
+  };
+}

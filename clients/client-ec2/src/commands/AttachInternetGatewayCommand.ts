@@ -57,19 +57,22 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To attach an Internet gateway to a VPC
  * ```javascript
  * // This example attaches the specified Internet gateway to the specified VPC.
  * const input = {
- *   "InternetGatewayId": "igw-c0a643a9",
- *   "VpcId": "vpc-a01106c2"
+ *   InternetGatewayId: "igw-c0a643a9",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new AttachInternetGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-attach-internet-gateway-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachInternetGatewayCommand extends $Command
   .classBuilder<
@@ -79,9 +82,7 @@ export class AttachInternetGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class AttachInternetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachInternetGatewayCommand)
   .de(de_AttachInternetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachInternetGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachInternetGatewayCommandInput;
+      output: AttachInternetGatewayCommandOutput;
+    };
+  };
+}

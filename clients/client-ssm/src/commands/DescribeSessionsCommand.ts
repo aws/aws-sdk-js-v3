@@ -91,6 +91,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeSessionsCommand extends $Command
@@ -101,9 +102,7 @@ export class DescribeSessionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSessionsCommand)
   .de(de_DescribeSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSessionsRequest;
+      output: DescribeSessionsResponse;
+    };
+    sdk: {
+      input: DescribeSessionsCommandInput;
+      output: DescribeSessionsCommandOutput;
+    };
+  };
+}

@@ -98,6 +98,7 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListTokensCommand extends $Command
@@ -108,9 +109,7 @@ export class ListTokensCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ListTokensCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTokensCommand)
   .de(de_ListTokensCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTokensRequest;
+      output: ListTokensResponse;
+    };
+    sdk: {
+      input: ListTokensCommandInput;
+      output: ListTokensCommandOutput;
+    };
+  };
+}

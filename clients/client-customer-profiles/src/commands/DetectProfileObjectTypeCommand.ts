@@ -63,7 +63,7 @@ export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjec
  * //         "<keys>": [ // ObjectTypeKeyList
  * //           { // ObjectTypeKey
  * //             StandardIdentifiers: [ // StandardIdentifierList
- * //               "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //               "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //             ],
  * //             FieldNames: [ // FieldNameList
  * //               "STRING_VALUE",
@@ -101,6 +101,7 @@ export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjec
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class DetectProfileObjectTypeCommand extends $Command
@@ -111,9 +112,7 @@ export class DetectProfileObjectTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class DetectProfileObjectTypeCommand extends $Command
   .f(DetectProfileObjectTypeRequestFilterSensitiveLog, DetectProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_DetectProfileObjectTypeCommand)
   .de(de_DetectProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectProfileObjectTypeRequest;
+      output: DetectProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: DetectProfileObjectTypeCommandInput;
+      output: DetectProfileObjectTypeCommandOutput;
+    };
+  };
+}

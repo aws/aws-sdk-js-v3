@@ -128,6 +128,7 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class TestIdentityProviderCommand extends $Command
@@ -138,9 +139,7 @@ export class TestIdentityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class TestIdentityProviderCommand extends $Command
   .f(TestIdentityProviderRequestFilterSensitiveLog, void 0)
   .ser(se_TestIdentityProviderCommand)
   .de(de_TestIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestIdentityProviderRequest;
+      output: TestIdentityProviderResponse;
+    };
+    sdk: {
+      input: TestIdentityProviderCommandInput;
+      output: TestIdentityProviderCommandOutput;
+    };
+  };
+}

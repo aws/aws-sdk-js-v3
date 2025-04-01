@@ -79,7 +79,7 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *       Accuracy: { // PositionalAccuracy
  *         Horizontal: Number("double"), // required
  *       },
- *       PositionProperties: { // PropertyMap
+ *       PositionProperties: { // PositionPropertyMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
@@ -127,6 +127,7 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchEvaluateGeofencesCommand extends $Command
@@ -137,9 +138,7 @@ export class BatchEvaluateGeofencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class BatchEvaluateGeofencesCommand extends $Command
   .f(BatchEvaluateGeofencesRequestFilterSensitiveLog, void 0)
   .ser(se_BatchEvaluateGeofencesCommand)
   .de(de_BatchEvaluateGeofencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchEvaluateGeofencesRequest;
+      output: BatchEvaluateGeofencesResponse;
+    };
+    sdk: {
+      input: BatchEvaluateGeofencesCommandInput;
+      output: BatchEvaluateGeofencesCommandOutput;
+    };
+  };
+}

@@ -37,6 +37,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE", // required
  * };
  * const command = new DeleteBasePathMappingCommand(input);
@@ -69,6 +70,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteBasePathMappingCommand extends $Command
@@ -79,9 +81,7 @@ export class DeleteBasePathMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeleteBasePathMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBasePathMappingCommand)
   .de(de_DeleteBasePathMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBasePathMappingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBasePathMappingCommandInput;
+      output: DeleteBasePathMappingCommandOutput;
+    };
+  };
+}

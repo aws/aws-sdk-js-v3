@@ -8,6 +8,7 @@ import {
   MiddlewareStack,
   SerializeHandlerArguments,
 } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { createRequest } from "./index";
 

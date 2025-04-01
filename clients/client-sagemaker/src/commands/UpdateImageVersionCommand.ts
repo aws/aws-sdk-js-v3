@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateImageVersionRequest, UpdateImageVersionResponse } from "../models/models_4";
+import { UpdateImageVersionRequest, UpdateImageVersionResponse } from "../models/models_5";
 import { de_UpdateImageVersionCommand, se_UpdateImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -28,7 +28,7 @@ export interface UpdateImageVersionCommandInput extends UpdateImageVersionReques
 export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of a SageMaker image version.</p>
+ * <p>Updates the properties of a SageMaker AI image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,7 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateImageVersionCommand extends $Command
@@ -86,9 +87,7 @@ export class UpdateImageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class UpdateImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateImageVersionCommand)
   .de(de_UpdateImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImageVersionRequest;
+      output: UpdateImageVersionResponse;
+    };
+    sdk: {
+      input: UpdateImageVersionCommandInput;
+      output: UpdateImageVersionCommandOutput;
+    };
+  };
+}

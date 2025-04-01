@@ -102,6 +102,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class GetDeliverabilityTestReportCommand extends $Command
@@ -112,9 +113,7 @@ export class GetDeliverabilityTestReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class GetDeliverabilityTestReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeliverabilityTestReportCommand)
   .de(de_GetDeliverabilityTestReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeliverabilityTestReportRequest;
+      output: GetDeliverabilityTestReportResponse;
+    };
+    sdk: {
+      input: GetDeliverabilityTestReportCommandInput;
+      output: GetDeliverabilityTestReportCommandOutput;
+    };
+  };
+}

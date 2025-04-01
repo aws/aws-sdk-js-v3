@@ -43,7 +43,7 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * const input = { // DescribeImportTasksRequest
  *   filters: [ // DescribeImportTasksFilterList
  *     { // ImportTaskFilter
- *       name: "IMPORT_TASK_ID" || "STATUS" || "NAME",
+ *       name: "IMPORT_TASK_ID" || "STATUS" || "NAME" || "FILE_CLASSIFICATION",
  *       values: [ // ImportTaskFilterValueList
  *         "STRING_VALUE",
  *       ],
@@ -62,10 +62,11 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * //       clientRequestToken: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       importUrl: "STRING_VALUE",
- * //       status: "IMPORT_IN_PROGRESS" || "IMPORT_COMPLETE" || "IMPORT_COMPLETE_WITH_ERRORS" || "IMPORT_FAILED" || "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED" || "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "DELETE_FAILED_LIMIT_EXCEEDED" || "INTERNAL_ERROR",
+ * //       status: "IMPORT_IN_PROGRESS" || "IMPORT_COMPLETE" || "IMPORT_COMPLETE_WITH_ERRORS" || "IMPORT_FAILED" || "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED" || "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED" || "IMPORT_FAILED_UNSUPPORTED_FILE_TYPE" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "DELETE_FAILED_LIMIT_EXCEEDED" || "INTERNAL_ERROR",
  * //       importRequestTime: new Date("TIMESTAMP"),
  * //       importCompletionTime: new Date("TIMESTAMP"),
  * //       importDeletedTime: new Date("TIMESTAMP"),
+ * //       fileClassification: "MODELIZEIT_EXPORT" || "RVTOOLS_EXPORT" || "VMWARE_NSX_EXPORT" || "IMPORT_TEMPLATE",
  * //       serverImportSuccess: Number("int"),
  * //       serverImportFailure: Number("int"),
  * //       applicationImportSuccess: Number("int"),
@@ -103,6 +104,7 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportTasksCommand extends $Command
@@ -113,9 +115,7 @@ export class DescribeImportTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class DescribeImportTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImportTasksCommand)
   .de(de_DescribeImportTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportTasksRequest;
+      output: DescribeImportTasksResponse;
+    };
+    sdk: {
+      input: DescribeImportTasksCommandInput;
+      output: DescribeImportTasksCommandOutput;
+    };
+  };
+}

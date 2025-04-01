@@ -126,24 +126,24 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To delete a rule
  * ```javascript
  * // The following example deletes a rule with the ID WAFRule-1-Example.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "RuleId": "WAFRule-1-Example"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   RuleId: "WAFRule-1-Example"
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deleterule-1474073108749
  * ```
  *
+ * @public
  */
 export class DeleteRuleCommand extends $Command
   .classBuilder<
@@ -153,9 +153,7 @@ export class DeleteRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +165,16 @@ export class DeleteRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRuleCommand)
   .de(de_DeleteRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRuleRequest;
+      output: DeleteRuleResponse;
+    };
+    sdk: {
+      input: DeleteRuleCommandInput;
+      output: DeleteRuleCommandOutput;
+    };
+  };
+}

@@ -74,6 +74,7 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class UpdateDetectorVersionStatusCommand extends $Command
@@ -84,9 +85,7 @@ export class UpdateDetectorVersionStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class UpdateDetectorVersionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDetectorVersionStatusCommand)
   .de(de_UpdateDetectorVersionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDetectorVersionStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDetectorVersionStatusCommandInput;
+      output: UpdateDetectorVersionStatusCommandOutput;
+    };
+  };
+}

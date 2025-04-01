@@ -97,6 +97,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduledActionCommand extends $Command
@@ -107,9 +108,7 @@ export class DeleteScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class DeleteScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScheduledActionCommand)
   .de(de_DeleteScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScheduledActionRequest;
+      output: DeleteScheduledActionResponse;
+    };
+    sdk: {
+      input: DeleteScheduledActionCommandInput;
+      output: DeleteScheduledActionCommandOutput;
+    };
+  };
+}

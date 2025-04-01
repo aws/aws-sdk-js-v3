@@ -77,6 +77,7 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class DeleteMeetingCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteMeetingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteMeetingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMeetingCommand)
   .de(de_DeleteMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMeetingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMeetingCommandInput;
+      output: DeleteMeetingCommandOutput;
+    };
+  };
+}

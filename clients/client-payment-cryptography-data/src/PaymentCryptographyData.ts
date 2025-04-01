@@ -11,6 +11,11 @@ import {
 } from "./commands/GenerateCardValidationDataCommand";
 import { GenerateMacCommand, GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import {
+  GenerateMacEmvPinChangeCommand,
+  GenerateMacEmvPinChangeCommandInput,
+  GenerateMacEmvPinChangeCommandOutput,
+} from "./commands/GenerateMacEmvPinChangeCommand";
+import {
   GeneratePinDataCommand,
   GeneratePinDataCommandInput,
   GeneratePinDataCommandOutput,
@@ -48,6 +53,7 @@ const commands = {
   EncryptDataCommand,
   GenerateCardValidationDataCommand,
   GenerateMacCommand,
+  GenerateMacEmvPinChangeCommand,
   GeneratePinDataCommand,
   ReEncryptDataCommand,
   TranslatePinDataCommand,
@@ -106,6 +112,23 @@ export interface PaymentCryptographyData {
     args: GenerateMacCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GenerateMacCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateMacEmvPinChangeCommand}
+   */
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMacEmvPinChangeCommandOutput>;
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    cb: (err: any, data?: GenerateMacEmvPinChangeCommandOutput) => void
+  ): void;
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateMacEmvPinChangeCommandOutput) => void
   ): void;
 
   /**

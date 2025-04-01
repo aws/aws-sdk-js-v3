@@ -92,6 +92,7 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ImportMigrationTaskCommand extends $Command
@@ -102,9 +103,7 @@ export class ImportMigrationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class ImportMigrationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportMigrationTaskCommand)
   .de(de_ImportMigrationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportMigrationTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportMigrationTaskCommandInput;
+      output: ImportMigrationTaskCommandOutput;
+    };
+  };
+}

@@ -34,8 +34,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *             a new item if one with the specified primary key doesn't exist), or replace an existing
  *             item if it has certain attribute values. You can return the item's attribute values in
  *             the same operation, using the <code>ReturnValues</code> parameter.</p>
- *          <p>When you add an item, the primary key attributes are the only required attributes.
- *             </p>
+ *          <p>When you add an item, the primary key attributes are the only required attributes. </p>
  *          <p>Empty String and Binary attribute values are allowed. Attribute values of type String
  *             and Binary must have a length greater than zero if the attribute is used as a key
  *             attribute for a table or index. Set type attributes cannot be empty. </p>
@@ -235,6 +234,9 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
  *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
+ * @throws {@link ReplicatedWriteConflictException} (client fault)
+ *  <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
+ *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
@@ -251,38 +253,38 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To add an item to a table
  * ```javascript
  * // This example adds a new item to the Music table.
  * const input = {
- *   "Item": {
- *     "AlbumTitle": {
- *       "S": "Somewhat Famous"
+ *   Item: {
+ *     AlbumTitle: {
+ *       S: "Somewhat Famous"
  *     },
- *     "Artist": {
- *       "S": "No One You Know"
+ *     Artist: {
+ *       S: "No One You Know"
  *     },
- *     "SongTitle": {
- *       "S": "Call Me Today"
+ *     SongTitle: {
+ *       S: "Call Me Today"
  *     }
  *   },
- *   "ReturnConsumedCapacity": "TOTAL",
- *   "TableName": "Music"
+ *   ReturnConsumedCapacity: "TOTAL",
+ *   TableName: "Music"
  * };
  * const command = new PutItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConsumedCapacity": {
- *     "CapacityUnits": 1,
- *     "TableName": "Music"
+ *   ConsumedCapacity: {
+ *     CapacityUnits: 1,
+ *     TableName: "Music"
  *   }
  * }
  * *\/
- * // example id: to-add-an-item-to-a-table-1476116191110
  * ```
  *
+ * @public
  */
 export class PutItemCommand extends $Command
   .classBuilder<
@@ -294,6 +296,7 @@ export class PutItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -306,4 +309,16 @@ export class PutItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutItemCommand)
   .de(de_PutItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutItemInput;
+      output: PutItemOutput;
+    };
+    sdk: {
+      input: PutItemCommandInput;
+      output: PutItemCommandOutput;
+    };
+  };
+}

@@ -28,8 +28,8 @@ export interface ListAppAssessmentsCommandInput extends ListAppAssessmentsReques
 export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the assessments for an Resilience Hub application. You can use request parameters to
- *       refine the results for the response object.</p>
+ * <p>Lists the assessments for an Resilience Hub application. You can use request
+ *       parameters to refine the results for the response object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,10 +40,10 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  *   appArn: "STRING_VALUE",
  *   assessmentName: "STRING_VALUE",
  *   assessmentStatus: [ // AssessmentStatusList
- *     "STRING_VALUE",
+ *     "Pending" || "InProgress" || "Failed" || "Success",
  *   ],
- *   complianceStatus: "STRING_VALUE",
- *   invoker: "STRING_VALUE",
+ *   complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
+ *   invoker: "User" || "System",
  *   reverseOrder: true || false,
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -56,22 +56,22 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * //     { // AppAssessmentSummary
  * //       appArn: "STRING_VALUE",
  * //       appVersion: "STRING_VALUE",
- * //       assessmentStatus: "STRING_VALUE", // required
- * //       invoker: "STRING_VALUE",
+ * //       assessmentStatus: "Pending" || "InProgress" || "Failed" || "Success", // required
+ * //       invoker: "User" || "System",
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
  * //       message: "STRING_VALUE",
  * //       assessmentName: "STRING_VALUE",
  * //       assessmentArn: "STRING_VALUE", // required
- * //       complianceStatus: "STRING_VALUE",
+ * //       complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
  * //       cost: { // Cost
  * //         amount: Number("double"), // required
  * //         currency: "STRING_VALUE", // required
- * //         frequency: "STRING_VALUE", // required
+ * //         frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //       },
  * //       resiliencyScore: Number("double"),
  * //       versionName: "STRING_VALUE",
- * //       driftStatus: "STRING_VALUE",
+ * //       driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //     },
  * //   ],
  * // };
@@ -105,6 +105,7 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppAssessmentsCommand extends $Command
@@ -115,9 +116,7 @@ export class ListAppAssessmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class ListAppAssessmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppAssessmentsCommand)
   .de(de_ListAppAssessmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppAssessmentsRequest;
+      output: ListAppAssessmentsResponse;
+    };
+    sdk: {
+      input: ListAppAssessmentsCommandInput;
+      output: ListAppAssessmentsCommandOutput;
+    };
+  };
+}

@@ -72,6 +72,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class CreateTestGridUrlCommand extends $Command
@@ -82,9 +83,7 @@ export class CreateTestGridUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class CreateTestGridUrlCommand extends $Command
   .f(void 0, CreateTestGridUrlResultFilterSensitiveLog)
   .ser(se_CreateTestGridUrlCommand)
   .de(de_CreateTestGridUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestGridUrlRequest;
+      output: CreateTestGridUrlResult;
+    };
+    sdk: {
+      input: CreateTestGridUrlCommandInput;
+      output: CreateTestGridUrlCommandOutput;
+    };
+  };
+}

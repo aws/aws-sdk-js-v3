@@ -65,7 +65,7 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid.</p>
@@ -79,6 +79,7 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DeregisterCertificateCommand extends $Command
@@ -89,9 +90,7 @@ export class DeregisterCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeregisterCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterCertificateCommand)
   .de(de_DeregisterCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterCertificateCommandInput;
+      output: DeregisterCertificateCommandOutput;
+    };
+  };
+}

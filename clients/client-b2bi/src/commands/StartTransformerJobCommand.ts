@@ -28,7 +28,7 @@ export interface StartTransformerJobCommandInput extends StartTransformerJobRequ
 export interface StartTransformerJobCommandOutput extends StartTransformerJobResponse, __MetadataBearer {}
 
 /**
- * <p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2BI Data Interchange.</p>
+ * <p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p>
  *          <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just
  *       create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p>
  * @example
@@ -84,32 +84,32 @@ export interface StartTransformerJobCommandOutput extends StartTransformerJobRes
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample StartTransformerJob call
  * ```javascript
  * //
  * const input = {
- *   "clientToken": "foo",
- *   "inputFile": {
- *     "key": "input/inputFile.txt",
- *     "bucketName": "test-bucket"
+ *   clientToken: "foo",
+ *   inputFile: {
+ *     bucketName: "test-bucket",
+ *     key: "input/inputFile.txt"
  *   },
- *   "outputLocation": {
- *     "key": "output/",
- *     "bucketName": "test-bucket"
+ *   outputLocation: {
+ *     bucketName: "test-bucket",
+ *     key: "output/"
  *   },
- *   "transformerId": "tr-974c129999f84d8c9"
+ *   transformerId: "tr-974c129999f84d8c9"
  * };
  * const command = new StartTransformerJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "transformerJobId": "tj-vpYxfV7yQOqjMSYllEslLw"
+ *   transformerJobId: "tj-vpYxfV7yQOqjMSYllEslLw"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class StartTransformerJobCommand extends $Command
   .classBuilder<
@@ -119,9 +119,7 @@ export class StartTransformerJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +131,16 @@ export class StartTransformerJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTransformerJobCommand)
   .de(de_StartTransformerJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTransformerJobRequest;
+      output: StartTransformerJobResponse;
+    };
+    sdk: {
+      input: StartTransformerJobCommandInput;
+      output: StartTransformerJobCommandOutput;
+    };
+  };
+}

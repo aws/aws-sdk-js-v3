@@ -99,6 +99,7 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class GetQuantumTaskCommand extends $Command
@@ -109,9 +110,7 @@ export class GetQuantumTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class GetQuantumTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQuantumTaskCommand)
   .de(de_GetQuantumTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQuantumTaskRequest;
+      output: GetQuantumTaskResponse;
+    };
+    sdk: {
+      input: GetQuantumTaskCommandInput;
+      output: GetQuantumTaskCommandOutput;
+    };
+  };
+}

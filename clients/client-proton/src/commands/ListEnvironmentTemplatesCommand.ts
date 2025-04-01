@@ -84,6 +84,7 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentTemplatesCommand extends $Command
@@ -94,9 +95,7 @@ export class ListEnvironmentTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListEnvironmentTemplatesCommand extends $Command
   .f(void 0, ListEnvironmentTemplatesOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentTemplatesCommand)
   .de(de_ListEnvironmentTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentTemplatesInput;
+      output: ListEnvironmentTemplatesOutput;
+    };
+    sdk: {
+      input: ListEnvironmentTemplatesCommandInput;
+      output: ListEnvironmentTemplatesCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkCommand)
   .de(de_DeleteNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkRequest;
+      output: DeleteNetworkResponse;
+    };
+    sdk: {
+      input: DeleteNetworkCommandInput;
+      output: DeleteNetworkCommandOutput;
+    };
+  };
+}

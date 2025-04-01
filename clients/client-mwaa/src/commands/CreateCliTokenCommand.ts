@@ -63,6 +63,7 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class CreateCliTokenCommand extends $Command
@@ -73,9 +74,7 @@ export class CreateCliTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class CreateCliTokenCommand extends $Command
   .f(void 0, CreateCliTokenResponseFilterSensitiveLog)
   .ser(se_CreateCliTokenCommand)
   .de(de_CreateCliTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCliTokenRequest;
+      output: CreateCliTokenResponse;
+    };
+    sdk: {
+      input: CreateCliTokenCommandInput;
+      output: CreateCliTokenCommandOutput;
+    };
+  };
+}

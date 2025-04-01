@@ -101,6 +101,7 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteStackInstancesCommand extends $Command
@@ -111,9 +112,7 @@ export class DeleteStackInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class DeleteStackInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStackInstancesCommand)
   .de(de_DeleteStackInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStackInstancesInput;
+      output: DeleteStackInstancesOutput;
+    };
+    sdk: {
+      input: DeleteStackInstancesCommandInput;
+      output: DeleteStackInstancesCommandOutput;
+    };
+  };
+}

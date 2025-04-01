@@ -48,6 +48,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *   stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
  *   enableNotification: true || false,
  *   enableAutoBuild: true || false,
+ *   enableSkewProtection: true || false,
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -63,6 +64,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *   backend: { // Backend
  *     stackArn: "STRING_VALUE",
  *   },
+ *   computeRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdateBranchCommand(input);
  * const response = await client.send(command);
@@ -83,6 +85,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],
@@ -106,6 +109,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -135,6 +139,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class UpdateBranchCommand extends $Command
@@ -145,9 +150,7 @@ export class UpdateBranchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +162,16 @@ export class UpdateBranchCommand extends $Command
   .f(UpdateBranchRequestFilterSensitiveLog, UpdateBranchResultFilterSensitiveLog)
   .ser(se_UpdateBranchCommand)
   .de(de_UpdateBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBranchRequest;
+      output: UpdateBranchResult;
+    };
+    sdk: {
+      input: UpdateBranchCommandInput;
+      output: UpdateBranchCommandOutput;
+    };
+  };
+}

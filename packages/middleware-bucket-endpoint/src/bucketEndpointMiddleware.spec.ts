@@ -1,20 +1,23 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveBucketEndpointConfig } from "./configurations";
 
-const mockBucketHostname = jest.fn();
-jest.mock("./bucketHostname", () => ({
-  bucketHostname: mockBucketHostname,
-}));
 const mockBucketArn = "an ARN structure";
-const mockArnParse = jest.fn().mockReturnValue(mockBucketArn);
-const mockArnValidation = jest.fn();
-jest.mock("@aws-sdk/util-arn-parser", () => ({
-  parse: mockArnParse,
-  validate: mockArnValidation,
+
+vi.mock("./bucketHostname", () => ({
+  bucketHostname: vi.fn(),
 }));
 
+vi.mock("@aws-sdk/util-arn-parser", () => ({
+  parse: vi.fn().mockReturnValue("an ARN structure"),
+  validate: vi.fn(),
+}));
+
+import { parse, validate } from "@aws-sdk/util-arn-parser";
+
 import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
+import { bucketHostname } from "./bucketHostname";
 
 describe("bucketEndpointMiddleware", () => {
   const input = { Bucket: "bucket" };
@@ -26,26 +29,26 @@ describe("bucketEndpointMiddleware", () => {
     hostname: "s3.us-west-2.amazonaws.com",
     path: "/bucket",
   };
-  const next = jest.fn();
+  const next = vi.fn();
   const previouslyResolvedConfig = {
     isCustomEndpoint: false,
-    region: jest.fn().mockResolvedValue(mockRegion),
-    regionInfoProvider: jest
+    region: vi.fn().mockResolvedValue(mockRegion),
+    regionInfoProvider: vi
       .fn()
       .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: mockRegion }),
-    useArnRegion: jest.fn().mockResolvedValue(false),
+    useArnRegion: vi.fn().mockResolvedValue(false),
     useFipsEndpoint: () => Promise.resolve(false),
     useDualstackEndpoint: () => Promise.resolve(false),
   };
 
   afterEach(() => {
-    mockArnValidation.mockClear();
-    mockBucketHostname.mockClear();
+    vi.mocked(validate).mockClear();
+    vi.mocked(bucketHostname).mockClear();
   });
 
   describe("with regular bucket name", () => {
     beforeEach(() => {
-      mockBucketHostname.mockReturnValue({
+      vi.mocked(bucketHostname).mockReturnValue({
         bucketEndpoint: true,
         hostname: "bucket.s3.us-west-2.amazonaws.com",
       });
@@ -53,15 +56,15 @@ describe("bucketEndpointMiddleware", () => {
 
     it("should supply default parameters to bucket hostname constructor", async () => {
       const request = new HttpRequest(requestInput);
-      mockArnValidation.mockReturnValue(false);
+      vi.mocked(validate).mockReturnValue(false);
       const handler = bucketEndpointMiddleware(
         resolveBucketEndpointConfig({
           ...previouslyResolvedConfig,
         })
       )(next, {} as any);
       await handler({ input, request });
-      expect(mockBucketHostname).toBeCalled();
-      const param = mockBucketHostname.mock.calls[0][0];
+      expect(vi.mocked(bucketHostname)).toBeCalled();
+      const param = vi.mocked(bucketHostname).mock.calls[0][0];
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
@@ -77,7 +80,7 @@ describe("bucketEndpointMiddleware", () => {
 
     it("should relay parameters to bucket hostname constructor", async () => {
       const request = new HttpRequest({ ...requestInput, protocol: "http:" });
-      mockArnValidation.mockReturnValue(false);
+      vi.mocked(validate).mockReturnValue(false);
       const handler = bucketEndpointMiddleware(
         resolveBucketEndpointConfig({
           ...previouslyResolvedConfig,
@@ -88,8 +91,8 @@ describe("bucketEndpointMiddleware", () => {
         })
       )(next, {} as any);
       await handler({ input, request });
-      expect(mockBucketHostname).toBeCalled();
-      const param = mockBucketHostname.mock.calls[0][0];
+      expect(vi.mocked(bucketHostname)).toBeCalled();
+      const param = vi.mocked(bucketHostname).mock.calls[0][0];
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
@@ -106,8 +109,8 @@ describe("bucketEndpointMiddleware", () => {
 
   describe("allows bucket name to be an ARN", () => {
     beforeEach(() => {
-      mockArnValidation.mockReturnValue(true);
-      mockBucketHostname.mockReturnValue({
+      vi.mocked(validate).mockReturnValue(true);
+      vi.mocked(bucketHostname).mockReturnValue({
         bucketEndpoint: true,
         hostname: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com",
       });
@@ -124,8 +127,8 @@ describe("bucketEndpointMiddleware", () => {
         input: { Bucket: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com" },
         request,
       });
-      expect(mockBucketHostname).toBeCalled();
-      const param = mockBucketHostname.mock.calls[0][0];
+      expect(vi.mocked(bucketHostname)).toBeCalled();
+      const param = vi.mocked(bucketHostname).mock.calls[0][0];
       expect(param).toEqual({
         bucketName: mockBucketArn,
         baseHostname: requestInput.hostname,
@@ -173,14 +176,14 @@ describe("bucketEndpointMiddleware", () => {
         input: { Bucket: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com" },
         request,
       });
-      expect(mockBucketHostname).toBeCalled();
-      expect(mockBucketHostname.mock.calls[0][0].bucketName).toBe(mockBucketArn);
-      expect(mockArnParse).toBeCalled();
-      expect(mockArnValidation).toBeCalled();
+      expect(vi.mocked(bucketHostname)).toBeCalled();
+      expect(vi.mocked(bucketHostname).mock.calls[0][0].bucketName).toBe(mockBucketArn);
+      expect(vi.mocked(parse)).toBeCalled();
+      expect(vi.mocked(validate)).toBeCalled();
     });
 
     it("should set signing_region to middleware context if the request will use region from ARN", async () => {
-      mockBucketHostname.mockReturnValue({
+      vi.mocked(bucketHostname).mockReturnValue({
         bucketEndpoint: true,
         hostname: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com",
         signingService: "s3-foo",

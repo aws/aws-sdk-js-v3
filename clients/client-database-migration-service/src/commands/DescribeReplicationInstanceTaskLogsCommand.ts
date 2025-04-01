@@ -83,6 +83,7 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationInstanceTaskLogsCommand extends $Command
@@ -93,9 +94,7 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationInstanceTaskLogsCommand)
   .de(de_DescribeReplicationInstanceTaskLogsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationInstanceTaskLogsMessage;
+      output: DescribeReplicationInstanceTaskLogsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationInstanceTaskLogsCommandInput;
+      output: DescribeReplicationInstanceTaskLogsCommandOutput;
+    };
+  };
+}

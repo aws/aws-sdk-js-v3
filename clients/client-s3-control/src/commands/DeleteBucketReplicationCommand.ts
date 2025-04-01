@@ -89,6 +89,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketReplicationCommand extends $Command
@@ -117,4 +118,16 @@ export class DeleteBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketReplicationCommand)
   .de(de_DeleteBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketReplicationCommandInput;
+      output: DeleteBucketReplicationCommandOutput;
+    };
+  };
+}

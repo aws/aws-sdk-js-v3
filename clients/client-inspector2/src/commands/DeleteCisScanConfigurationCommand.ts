@@ -71,6 +71,22 @@ export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample DeleteCisScanConfiguration Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new DeleteCisScanConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteCisScanConfigurationCommand extends $Command
@@ -81,9 +97,7 @@ export class DeleteCisScanConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +109,16 @@ export class DeleteCisScanConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCisScanConfigurationCommand)
   .de(de_DeleteCisScanConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCisScanConfigurationRequest;
+      output: DeleteCisScanConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteCisScanConfigurationCommandInput;
+      output: DeleteCisScanConfigurationCommandOutput;
+    };
+  };
+}

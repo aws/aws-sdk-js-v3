@@ -185,6 +185,35 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example PutSchema
+ * ```javascript
+ * // The following example creates a new schema, or updates an existing schema, in the specified policy store. Note that the schema text is shown line wrapped for readability. You should submit the entire schema text as a single line of text.
+ *
+ * Note
+ * The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
+ *
+ * Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
+ * const input = {
+ *   definition: {
+ *     cedarJson: `{"MySampleNamespace": {"actions": {"remoteAccess": {"appliesTo": {"principalTypes": ["Employee"]}}},"entityTypes": {"Employee": {"shape": {"attributes": {"jobLevel": {"type": "Long"},"name": {"type": "String"}},"type": "Record"}}}}}`
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new PutSchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2023-06-13T19:28:06.003726Z",
+ *   lastUpdatedDate: "2023-06-13T19:28:06.003726Z",
+ *   namespaces: [
+ *     "My::Sample::Namespace"
+ *   ],
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutSchemaCommand extends $Command
@@ -195,9 +224,7 @@ export class PutSchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +236,16 @@ export class PutSchemaCommand extends $Command
   .f(PutSchemaInputFilterSensitiveLog, PutSchemaOutputFilterSensitiveLog)
   .ser(se_PutSchemaCommand)
   .de(de_PutSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSchemaInput;
+      output: PutSchemaOutput;
+    };
+    sdk: {
+      input: PutSchemaCommandInput;
+      output: PutSchemaCommandOutput;
+    };
+  };
+}

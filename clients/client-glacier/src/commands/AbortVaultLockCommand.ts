@@ -80,19 +80,22 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To abort a vault lock
  * ```javascript
  * // The example aborts the vault locking process if the vault lock is not in the Locked state for the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new AbortVaultLockCommand(input);
- * await client.send(command);
- * // example id: to-abort-a-vault-lock-1481839357947
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AbortVaultLockCommand extends $Command
   .classBuilder<
@@ -102,9 +105,7 @@ export class AbortVaultLockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +117,16 @@ export class AbortVaultLockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AbortVaultLockCommand)
   .de(de_AbortVaultLockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortVaultLockInput;
+      output: {};
+    };
+    sdk: {
+      input: AbortVaultLockCommandInput;
+      output: AbortVaultLockCommandOutput;
+    };
+  };
+}

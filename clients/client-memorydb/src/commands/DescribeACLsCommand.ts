@@ -28,7 +28,7 @@ export interface DescribeACLsCommandInput extends DescribeACLsRequest {}
 export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of ACLs</p>
+ * <p>Returns a list of ACLs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +85,7 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeACLsCommand extends $Command
@@ -95,9 +96,7 @@ export class DescribeACLsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DescribeACLsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeACLsCommand)
   .de(de_DescribeACLsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeACLsRequest;
+      output: DescribeACLsResponse;
+    };
+    sdk: {
+      input: DescribeACLsCommandInput;
+      output: DescribeACLsCommandOutput;
+    };
+  };
+}

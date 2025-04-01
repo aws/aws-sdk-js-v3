@@ -59,6 +59,11 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -67,6 +72,11 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -103,6 +113,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeGlobalTableCommand extends $Command
@@ -115,6 +126,7 @@ export class DescribeGlobalTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "GlobalTableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -127,4 +139,16 @@ export class DescribeGlobalTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGlobalTableCommand)
   .de(de_DescribeGlobalTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGlobalTableInput;
+      output: DescribeGlobalTableOutput;
+    };
+    sdk: {
+      input: DescribeGlobalTableCommandInput;
+      output: DescribeGlobalTableCommandOutput;
+    };
+  };
+}

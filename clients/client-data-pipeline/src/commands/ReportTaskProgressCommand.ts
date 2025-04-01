@@ -114,6 +114,7 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ReportTaskProgressCommand extends $Command
@@ -124,9 +125,7 @@ export class ReportTaskProgressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class ReportTaskProgressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReportTaskProgressCommand)
   .de(de_ReportTaskProgressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReportTaskProgressInput;
+      output: ReportTaskProgressOutput;
+    };
+    sdk: {
+      input: ReportTaskProgressCommandInput;
+      output: ReportTaskProgressCommandOutput;
+    };
+  };
+}

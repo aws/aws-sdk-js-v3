@@ -33,8 +33,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains Certificate Manager certificate associations between and the scope configurations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
- *          <p>After you create a TLS inspection configuration, you can associate it with a new firewall policy.</p>
+ * <p>Creates an Network Firewall TLS inspection configuration. Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using ACM, create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall.</p>
  *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
  *          <p>To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about TLS inspection configurations, use <a>ListTLSInspectionConfigurations</a> and <a>DescribeTLSInspectionConfiguration</a>.</p>
@@ -187,6 +186,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class CreateTLSInspectionConfigurationCommand extends $Command
@@ -197,9 +197,7 @@ export class CreateTLSInspectionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -211,4 +209,16 @@ export class CreateTLSInspectionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTLSInspectionConfigurationCommand)
   .de(de_CreateTLSInspectionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTLSInspectionConfigurationRequest;
+      output: CreateTLSInspectionConfigurationResponse;
+    };
+    sdk: {
+      input: CreateTLSInspectionConfigurationCommandInput;
+      output: CreateTLSInspectionConfigurationCommandOutput;
+    };
+  };
+}

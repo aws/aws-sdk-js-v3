@@ -96,6 +96,7 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetVoiceToneAnalysisTaskCommand extends $Command
@@ -106,9 +107,7 @@ export class GetVoiceToneAnalysisTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class GetVoiceToneAnalysisTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceToneAnalysisTaskCommand)
   .de(de_GetVoiceToneAnalysisTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceToneAnalysisTaskRequest;
+      output: GetVoiceToneAnalysisTaskResponse;
+    };
+    sdk: {
+      input: GetVoiceToneAnalysisTaskCommandInput;
+      output: GetVoiceToneAnalysisTaskCommandOutput;
+    };
+  };
+}

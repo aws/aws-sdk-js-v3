@@ -88,6 +88,7 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListAgreementsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListAgreementsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListAgreementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAgreementsCommand)
   .de(de_ListAgreementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAgreementsRequest;
+      output: ListAgreementsResponse;
+    };
+    sdk: {
+      input: ListAgreementsCommandInput;
+      output: ListAgreementsCommandOutput;
+    };
+  };
+}

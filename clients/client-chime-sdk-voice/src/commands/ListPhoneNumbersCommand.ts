@@ -119,6 +119,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListPhoneNumbersCommand extends $Command
@@ -129,9 +130,7 @@ export class ListPhoneNumbersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class ListPhoneNumbersCommand extends $Command
   .f(void 0, ListPhoneNumbersResponseFilterSensitiveLog)
   .ser(se_ListPhoneNumbersCommand)
   .de(de_ListPhoneNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersRequest;
+      output: ListPhoneNumbersResponse;
+    };
+    sdk: {
+      input: ListPhoneNumbersCommandInput;
+      output: ListPhoneNumbersCommandOutput;
+    };
+  };
+}

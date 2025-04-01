@@ -124,6 +124,7 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkResourceCommand extends $Command
@@ -134,9 +135,7 @@ export class GetNetworkResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class GetNetworkResourceCommand extends $Command
   .f(void 0, GetNetworkResourceResponseFilterSensitiveLog)
   .ser(se_GetNetworkResourceCommand)
   .de(de_GetNetworkResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkResourceRequest;
+      output: GetNetworkResourceResponse;
+    };
+    sdk: {
+      input: GetNetworkResourceCommandInput;
+      output: GetNetworkResourceCommandOutput;
+    };
+  };
+}

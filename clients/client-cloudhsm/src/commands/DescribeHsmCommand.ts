@@ -100,6 +100,7 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeHsmCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribeHsmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHsmCommand)
   .de(de_DescribeHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHsmRequest;
+      output: DescribeHsmResponse;
+    };
+    sdk: {
+      input: DescribeHsmCommandInput;
+      output: DescribeHsmCommandOutput;
+    };
+  };
+}

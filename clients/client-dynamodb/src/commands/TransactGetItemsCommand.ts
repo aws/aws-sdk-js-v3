@@ -472,6 +472,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class TransactGetItemsCommand extends $Command
@@ -484,6 +485,10 @@ export class TransactGetItemsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArnList: {
+      type: "operationContextParams",
+      get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName),
+    },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -496,4 +501,16 @@ export class TransactGetItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransactGetItemsCommand)
   .de(de_TransactGetItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransactGetItemsInput;
+      output: TransactGetItemsOutput;
+    };
+    sdk: {
+      input: TransactGetItemsCommandInput;
+      output: TransactGetItemsCommandOutput;
+    };
+  };
+}

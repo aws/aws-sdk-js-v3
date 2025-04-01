@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -30,7 +31,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Restores an archived copy of an object back into Amazon S3</p>
  *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
@@ -73,10 +74,9 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             </dd>
  *             <dt>Restoring objects</dt>
  *             <dd>
- *                <p>Objects that you archive to the S3 Glacier Flexible Retrieval Flexible Retrieval
- *                   or S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
+ *                <p>Objects that you archive to the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
  *                   S3 Intelligent-Tiering Deep Archive tiers, are not accessible in real time. For objects in the
- *                   S3 Glacier Flexible Retrieval Flexible Retrieval or S3 Glacier Deep Archive
+ *                   S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive
  *                   storage classes, you must first initiate a restore request, and then wait until a
  *                   temporary copy of the object is available. If you want a permanent copy of the
  *                   object, create a copy of it in the Amazon S3 Standard storage class in your S3 bucket.
@@ -92,8 +92,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                   <li>
  *                      <p>
  *                         <code>Expedited</code> - Expedited retrievals allow you to quickly access
- *                         your data stored in the S3 Glacier Flexible Retrieval Flexible Retrieval
- *                         storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests
+ *                         your data stored in the S3 Glacier Flexible Retrieval storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests
  *                         for restoring archives are required. For all but the largest archived
  *                         objects (250 MB+), data accessed using Expedited retrievals is typically
  *                         made available within 1–5 minutes. Provisioned capacity ensures that
@@ -108,7 +107,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         your archived objects within several hours. This is the default option for
  *                         retrieval requests that do not specify the retrieval option. Standard
  *                         retrievals typically finish within 3–5 hours for objects stored in the
- *                         S3 Glacier Flexible Retrieval Flexible Retrieval storage class or
+ *                         S3 Glacier Flexible Retrieval storage class or
  *                         S3 Intelligent-Tiering Archive tier. They typically finish within 12 hours for
  *                         objects stored in the S3 Glacier Deep Archive storage class or
  *                         S3 Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects stored
@@ -120,7 +119,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         S3 Glacier Flexible Retrieval and S3 Intelligent-Tiering storage classes,
  *                         enabling you to retrieve large amounts, even petabytes, of data at no cost.
  *                         Bulk retrievals typically finish within 5–12 hours for objects stored in the
- *                         S3 Glacier Flexible Retrieval Flexible Retrieval storage class or
+ *                         S3 Glacier Flexible Retrieval storage class or
  *                         S3 Intelligent-Tiering Archive tier. Bulk retrievals are also the lowest-cost
  *                         retrieval option when restoring objects from
  *                         S3 Glacier Deep Archive. They typically finish within 48 hours for
@@ -326,7 +325,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *     },
  *   },
  *   RequestPayer: "requester",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new RestoreObjectCommand(input);
@@ -350,25 +349,28 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To restore an archived object
  * ```javascript
  * // The following example restores for one day an archived copy of an object back into Amazon S3 bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "archivedobjectkey",
- *   "RestoreRequest": {
- *     "Days": 1,
- *     "GlacierJobParameters": {
- *       "Tier": "Expedited"
+ *   Bucket: "examplebucket",
+ *   Key: "archivedobjectkey",
+ *   RestoreRequest: {
+ *     Days: 1,
+ *     GlacierJobParameters: {
+ *       Tier: "Expedited"
  *     }
  *   }
  * };
  * const command = new RestoreObjectCommand(input);
- * await client.send(command);
- * // example id: to-restore-an-archived-object-1483049329953
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RestoreObjectCommand extends $Command
   .classBuilder<
@@ -387,10 +389,10 @@ export class RestoreObjectCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: false,
       }),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "RestoreObject", {})
@@ -398,4 +400,16 @@ export class RestoreObjectCommand extends $Command
   .f(RestoreObjectRequestFilterSensitiveLog, void 0)
   .ser(se_RestoreObjectCommand)
   .de(de_RestoreObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreObjectRequest;
+      output: RestoreObjectOutput;
+    };
+    sdk: {
+      input: RestoreObjectCommandInput;
+      output: RestoreObjectCommandOutput;
+    };
+  };
+}

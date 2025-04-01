@@ -51,8 +51,10 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED",
+ * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //       endpoint: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       networkType: "IPV4" || "DUAL",
  * //       dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //       dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //       allocatedStorage: Number("int"),
@@ -88,6 +90,7 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class ListDbInstancesCommand extends $Command
@@ -98,9 +101,7 @@ export class ListDbInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +113,16 @@ export class ListDbInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDbInstancesCommand)
   .de(de_ListDbInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDbInstancesInput;
+      output: ListDbInstancesOutput;
+    };
+    sdk: {
+      input: ListDbInstancesCommandInput;
+      output: ListDbInstancesCommandOutput;
+    };
+  };
+}

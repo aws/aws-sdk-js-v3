@@ -100,6 +100,7 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeBulkImportJobCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribeBulkImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeBulkImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBulkImportJobCommand)
   .de(de_DescribeBulkImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBulkImportJobRequest;
+      output: DescribeBulkImportJobResponse;
+    };
+    sdk: {
+      input: DescribeBulkImportJobCommandInput;
+      output: DescribeBulkImportJobCommandOutput;
+    };
+  };
+}

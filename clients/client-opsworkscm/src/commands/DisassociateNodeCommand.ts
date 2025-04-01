@@ -85,6 +85,7 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class DisassociateNodeCommand extends $Command
@@ -95,9 +96,7 @@ export class DisassociateNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DisassociateNodeCommand extends $Command
   .f(DisassociateNodeRequestFilterSensitiveLog, void 0)
   .ser(se_DisassociateNodeCommand)
   .de(de_DisassociateNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateNodeRequest;
+      output: DisassociateNodeResponse;
+    };
+    sdk: {
+      input: DisassociateNodeCommandInput;
+      output: DisassociateNodeCommandOutput;
+    };
+  };
+}

@@ -91,6 +91,7 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ *
  * @public
  */
 export class ListRetainedMessagesCommand extends $Command
@@ -101,9 +102,7 @@ export class ListRetainedMessagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListRetainedMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRetainedMessagesCommand)
   .de(de_ListRetainedMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRetainedMessagesRequest;
+      output: ListRetainedMessagesResponse;
+    };
+    sdk: {
+      input: ListRetainedMessagesCommandInput;
+      output: ListRetainedMessagesCommandOutput;
+    };
+  };
+}

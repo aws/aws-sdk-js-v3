@@ -151,6 +151,11 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                </important>
  *             </li>
  *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
+ *             </li>
+ *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
  *                     register a suspended account as a delegated administrator.</p>
  *             </li>
@@ -292,9 +297,8 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -353,6 +357,9 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -393,6 +400,9 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -420,18 +430,21 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To remove an account from an organization as the master account
  * ```javascript
  * // The following example shows you how to remove an account from an organization:
  * const input = {
- *   "AccountId": "333333333333"
+ *   AccountId: "333333333333"
  * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
- * await client.send(command);
- * // example id: to-remove-an-account-from-an-organization-as-the-master-account
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveAccountFromOrganizationCommand extends $Command
   .classBuilder<
@@ -441,9 +454,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -455,4 +466,16 @@ export class RemoveAccountFromOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveAccountFromOrganizationCommand)
   .de(de_RemoveAccountFromOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAccountFromOrganizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveAccountFromOrganizationCommandInput;
+      output: RemoveAccountFromOrganizationCommandOutput;
+    };
+  };
+}

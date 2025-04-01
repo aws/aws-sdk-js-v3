@@ -174,6 +174,7 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class StartEdgeConfigurationUpdateCommand extends $Command
@@ -184,9 +185,7 @@ export class StartEdgeConfigurationUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +197,16 @@ export class StartEdgeConfigurationUpdateCommand extends $Command
   .f(StartEdgeConfigurationUpdateInputFilterSensitiveLog, StartEdgeConfigurationUpdateOutputFilterSensitiveLog)
   .ser(se_StartEdgeConfigurationUpdateCommand)
   .de(de_StartEdgeConfigurationUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEdgeConfigurationUpdateInput;
+      output: StartEdgeConfigurationUpdateOutput;
+    };
+    sdk: {
+      input: StartEdgeConfigurationUpdateCommandInput;
+      output: StartEdgeConfigurationUpdateCommandOutput;
+    };
+  };
+}

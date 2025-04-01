@@ -28,7 +28,15 @@ export interface ListSimulationJobsCommandInput extends ListSimulationJobsReques
 export interface ListSimulationJobsCommandOutput extends ListSimulationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
+ * <important>
+ *             <p>End of support notice: On September 10, 2025, Amazon Web Services
+ *          will discontinue support for Amazon Web Services RoboMaker. After September 10, 2025, you will
+ *          no longer be able to access the Amazon Web Services RoboMaker console or Amazon Web Services RoboMaker resources.
+ *          For more information on transitioning to Batch to help run containerized
+ *          simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+ *       </p>
+ *          </important>
+ *          <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +101,7 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class ListSimulationJobsCommand extends $Command
@@ -103,9 +112,7 @@ export class ListSimulationJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +124,16 @@ export class ListSimulationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSimulationJobsCommand)
   .de(de_ListSimulationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSimulationJobsRequest;
+      output: ListSimulationJobsResponse;
+    };
+    sdk: {
+      input: ListSimulationJobsCommandInput;
+      output: ListSimulationJobsCommandOutput;
+    };
+  };
+}

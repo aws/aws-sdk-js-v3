@@ -32,7 +32,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  *             specified, <code>DescribeReplicationGroups</code> returns information about all
  *             replication groups.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey or Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -169,6 +169,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * //       IpDiscovery: "ipv4" || "ipv6",
  * //       TransitEncryptionMode: "preferred" || "required",
  * //       ClusterMode: "enabled" || "disabled" || "compatible",
+ * //       Engine: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -193,70 +194,70 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeReplicationGroups
  * ```javascript
  * // Returns information about the replication group myreplgroup.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeReplicationGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationGroups": [
+ *   Marker: "",
+ *   ReplicationGroups: [
  *     {
- *       "AutomaticFailover": "enabled",
- *       "Description": "Test cluster",
- *       "MemberClusters": [
+ *       AutomaticFailover: "enabled",
+ *       Description: "Test cluster",
+ *       MemberClusters: [
  *         "clustered-redis-0001-001",
  *         "clustered-redis-0001-002",
  *         "clustered-redis-0002-001",
  *         "clustered-redis-0002-002"
  *       ],
- *       "NodeGroups": [
+ *       NodeGroups: [
  *         {
- *           "NodeGroupId": "0001",
- *           "NodeGroupMembers": [
+ *           NodeGroupId: "0001",
+ *           NodeGroupMembers: [
  *             {
- *               "CacheClusterId": "clustered-redis-0001-001",
- *               "CacheNodeId": "0001",
- *               "PreferredAvailabilityZone": "us-east-1e"
+ *               CacheClusterId: "clustered-redis-0001-001",
+ *               CacheNodeId: "0001",
+ *               PreferredAvailabilityZone: "us-east-1e"
  *             },
  *             {
- *               "CacheClusterId": "clustered-redis-0001-002",
- *               "CacheNodeId": "0001",
- *               "PreferredAvailabilityZone": "us-east-1c"
+ *               CacheClusterId: "clustered-redis-0001-002",
+ *               CacheNodeId: "0001",
+ *               PreferredAvailabilityZone: "us-east-1c"
  *             }
  *           ],
- *           "Status": "available"
+ *           Status: "available"
  *         },
  *         {
- *           "NodeGroupId": "0002",
- *           "NodeGroupMembers": [
+ *           NodeGroupId: "0002",
+ *           NodeGroupMembers: [
  *             {
- *               "CacheClusterId": "clustered-redis-0002-001",
- *               "CacheNodeId": "0001",
- *               "PreferredAvailabilityZone": "us-east-1c"
+ *               CacheClusterId: "clustered-redis-0002-001",
+ *               CacheNodeId: "0001",
+ *               PreferredAvailabilityZone: "us-east-1c"
  *             },
  *             {
- *               "CacheClusterId": "clustered-redis-0002-002",
- *               "CacheNodeId": "0001",
- *               "PreferredAvailabilityZone": "us-east-1b"
+ *               CacheClusterId: "clustered-redis-0002-002",
+ *               CacheNodeId: "0001",
+ *               PreferredAvailabilityZone: "us-east-1b"
  *             }
  *           ],
- *           "Status": "available"
+ *           Status: "available"
  *         }
  *       ],
- *       "PendingModifiedValues": {},
- *       "ReplicationGroupId": "clustered-redis",
- *       "Status": "available"
+ *       PendingModifiedValues:       { /* empty *\/ },
+ *       ReplicationGroupId: "clustered-redis",
+ *       Status: "available"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describereplicationgroups-1481742639427
  * ```
  *
+ * @public
  */
 export class DescribeReplicationGroupsCommand extends $Command
   .classBuilder<
@@ -266,9 +267,7 @@ export class DescribeReplicationGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -280,4 +279,16 @@ export class DescribeReplicationGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationGroupsCommand)
   .de(de_DescribeReplicationGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationGroupsMessage;
+      output: ReplicationGroupMessage;
+    };
+    sdk: {
+      input: DescribeReplicationGroupsCommandInput;
+      output: DescribeReplicationGroupsCommandOutput;
+    };
+  };
+}

@@ -103,6 +103,7 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListCollaborationPrivacyBudgetsCommand extends $Command
@@ -113,9 +114,7 @@ export class ListCollaborationPrivacyBudgetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListCollaborationPrivacyBudgetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollaborationPrivacyBudgetsCommand)
   .de(de_ListCollaborationPrivacyBudgetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollaborationPrivacyBudgetsInput;
+      output: ListCollaborationPrivacyBudgetsOutput;
+    };
+    sdk: {
+      input: ListCollaborationPrivacyBudgetsCommandInput;
+      output: ListCollaborationPrivacyBudgetsCommandOutput;
+    };
+  };
+}

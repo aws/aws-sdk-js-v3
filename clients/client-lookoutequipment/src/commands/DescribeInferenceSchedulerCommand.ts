@@ -104,6 +104,7 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeInferenceSchedulerCommand extends $Command
@@ -114,9 +115,7 @@ export class DescribeInferenceSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class DescribeInferenceSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInferenceSchedulerCommand)
   .de(de_DescribeInferenceSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInferenceSchedulerRequest;
+      output: DescribeInferenceSchedulerResponse;
+    };
+    sdk: {
+      input: DescribeInferenceSchedulerCommandInput;
+      output: DescribeInferenceSchedulerCommandOutput;
+    };
+  };
+}

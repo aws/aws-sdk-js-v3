@@ -77,6 +77,7 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkspaceAliasCommand extends $Command
@@ -87,9 +88,7 @@ export class UpdateWorkspaceAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class UpdateWorkspaceAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceAliasCommand)
   .de(de_UpdateWorkspaceAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkspaceAliasCommandInput;
+      output: UpdateWorkspaceAliasCommandOutput;
+    };
+  };
+}

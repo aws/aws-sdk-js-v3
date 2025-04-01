@@ -1,12 +1,13 @@
 import { toUint8Array } from "@smithy/util-utf8";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { stringHasher } from "./stringHasher";
 
 describe(stringHasher.name, () => {
   const mockHash = new Uint8Array(Buffer.from("mockHash"));
-  const mockUpdate = jest.fn();
-  const mockDigest = jest.fn();
-  const mockChecksumAlgorithmFn = jest.fn().mockImplementation(() => ({
+  const mockUpdate = vi.fn();
+  const mockDigest = vi.fn();
+  const mockChecksumAlgorithmFn = vi.fn().mockImplementation(() => ({
     update: mockUpdate,
     digest: mockDigest,
   }));
@@ -19,7 +20,7 @@ describe(stringHasher.name, () => {
     expect(mockChecksumAlgorithmFn).toHaveBeenCalledTimes(1);
     expect(mockUpdate).toHaveBeenCalledTimes(1);
     expect(mockDigest).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("calculates hash of the provided string", async () => {

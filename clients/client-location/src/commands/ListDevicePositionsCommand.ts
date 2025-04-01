@@ -67,7 +67,7 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * //       Accuracy: { // PositionalAccuracy
  * //         Horizontal: Number("double"), // required
  * //       },
- * //       PositionProperties: { // PropertyMap
+ * //       PositionProperties: { // PositionPropertyMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
@@ -99,6 +99,7 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ListDevicePositionsCommand extends $Command
@@ -109,9 +110,7 @@ export class ListDevicePositionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListDevicePositionsCommand extends $Command
   .f(ListDevicePositionsRequestFilterSensitiveLog, ListDevicePositionsResponseFilterSensitiveLog)
   .ser(se_ListDevicePositionsCommand)
   .de(de_ListDevicePositionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicePositionsRequest;
+      output: ListDevicePositionsResponse;
+    };
+    sdk: {
+      input: ListDevicePositionsCommandInput;
+      output: ListDevicePositionsCommandOutput;
+    };
+  };
+}

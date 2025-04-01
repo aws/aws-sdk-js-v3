@@ -102,6 +102,7 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class OptOutSpeakerCommand extends $Command
@@ -112,9 +113,7 @@ export class OptOutSpeakerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class OptOutSpeakerCommand extends $Command
   .f(OptOutSpeakerRequestFilterSensitiveLog, OptOutSpeakerResponseFilterSensitiveLog)
   .ser(se_OptOutSpeakerCommand)
   .de(de_OptOutSpeakerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OptOutSpeakerRequest;
+      output: OptOutSpeakerResponse;
+    };
+    sdk: {
+      input: OptOutSpeakerCommandInput;
+      output: OptOutSpeakerCommandOutput;
+    };
+  };
+}

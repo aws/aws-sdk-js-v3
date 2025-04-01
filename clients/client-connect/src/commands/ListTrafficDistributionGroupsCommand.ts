@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTrafficDistributionGroupsRequest, ListTrafficDistributionGroupsResponse } from "../models/models_1";
+import { ListTrafficDistributionGroupsRequest, ListTrafficDistributionGroupsResponse } from "../models/models_2";
 import {
   de_ListTrafficDistributionGroupsCommand,
   se_ListTrafficDistributionGroupsCommand,
@@ -84,6 +84,7 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListTrafficDistributionGroupsCommand extends $Command
@@ -94,9 +95,7 @@ export class ListTrafficDistributionGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListTrafficDistributionGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficDistributionGroupsCommand)
   .de(de_ListTrafficDistributionGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficDistributionGroupsRequest;
+      output: ListTrafficDistributionGroupsResponse;
+    };
+    sdk: {
+      input: ListTrafficDistributionGroupsCommandInput;
+      output: ListTrafficDistributionGroupsCommandOutput;
+    };
+  };
+}

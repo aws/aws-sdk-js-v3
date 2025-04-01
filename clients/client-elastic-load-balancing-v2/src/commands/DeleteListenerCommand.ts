@@ -65,18 +65,21 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To delete a listener
  * ```javascript
  * // This example deletes the specified listener.
  * const input = {
- *   "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ *   ListenerArn: "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
  * };
  * const command = new DeleteListenerCommand(input);
- * await client.send(command);
- * // example id: elbv2-delete-listener-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteListenerCommand extends $Command
   .classBuilder<
@@ -86,9 +89,7 @@ export class DeleteListenerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class DeleteListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteListenerCommand)
   .de(de_DeleteListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteListenerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteListenerCommandInput;
+      output: DeleteListenerCommandOutput;
+    };
+  };
+}

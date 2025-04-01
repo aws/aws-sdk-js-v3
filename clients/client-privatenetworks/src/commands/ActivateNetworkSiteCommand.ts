@@ -136,6 +136,7 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ActivateNetworkSiteCommand extends $Command
@@ -146,9 +147,7 @@ export class ActivateNetworkSiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class ActivateNetworkSiteCommand extends $Command
   .f(ActivateNetworkSiteRequestFilterSensitiveLog, void 0)
   .ser(se_ActivateNetworkSiteCommand)
   .de(de_ActivateNetworkSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateNetworkSiteRequest;
+      output: ActivateNetworkSiteResponse;
+    };
+    sdk: {
+      input: ActivateNetworkSiteCommandInput;
+      output: ActivateNetworkSiteCommandOutput;
+    };
+  };
+}

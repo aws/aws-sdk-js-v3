@@ -105,6 +105,7 @@ export interface GetAssetContractCommandOutput extends GetAssetContractOutput, _
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class GetAssetContractCommand extends $Command
@@ -115,9 +116,7 @@ export class GetAssetContractCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class GetAssetContractCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssetContractCommand)
   .de(de_GetAssetContractCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetContractInput;
+      output: GetAssetContractOutput;
+    };
+    sdk: {
+      input: GetAssetContractCommandInput;
+      output: GetAssetContractCommandOutput;
+    };
+  };
+}

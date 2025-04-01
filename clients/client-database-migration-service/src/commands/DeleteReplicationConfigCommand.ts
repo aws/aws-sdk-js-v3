@@ -32,9 +32,10 @@ export interface DeleteReplicationConfigCommandInput extends DeleteReplicationCo
 export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any and all
- *          replications that use this configuration. You can't delete the configuration for an DMS Serverless replication
- *          that is ongoing. You can delete the configuration when the replication is in a non-RUNNING and non-STARTING state.</p>
+ * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any
+ *          and all replications that use this configuration. You can't delete the configuration for an
+ *          DMS Serverless replication that is ongoing. You can delete the configuration when the
+ *          replication is in a non-RUNNING and non-STARTING state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +96,7 @@ export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DeleteReplicationConfigCommand extends $Command
@@ -105,9 +107,7 @@ export class DeleteReplicationConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DeleteReplicationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationConfigCommand)
   .de(de_DeleteReplicationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationConfigMessage;
+      output: DeleteReplicationConfigResponse;
+    };
+    sdk: {
+      input: DeleteReplicationConfigCommandInput;
+      output: DeleteReplicationConfigCommandOutput;
+    };
+  };
+}

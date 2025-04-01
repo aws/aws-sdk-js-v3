@@ -70,7 +70,7 @@
         "AudioChunk": {
           "target": "com.amazonaws.transcribestreaming#AudioChunk",
           "traits": {
-            "smithy.api#documentation": "<p>An audio blob that contains the next part of the audio that you want to transcribe. The\n      maximum audio chunk size is 32 KB.</p>",
+            "smithy.api#documentation": "<p>\n    An audio blob containing the next segment of audio from your application,\n    with a maximum duration of 1 second. \n    The maximum size in bytes varies based on audio properties.\n  </p>\n         <p>Find recommended size in <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#best-practices\">Transcribing streaming best practices</a>.\n  </p>\n         <p>\n    Size calculation: <code>Duration (s) * Sample Rate (Hz) * Number of Channels * 2 (Bytes per Sample)</code>\n         </p>\n         <p>\n    For example, a 1-second chunk of 16 kHz, 2-channel, 16-bit audio would be \n    <code>1 * 16000 * 2 * 2 = 64000 bytes</code>.\n  </p>\n         <p>\n    For 8 kHz, 1-channel, 16-bit audio, a 1-second chunk would be \n    <code>1 * 8000 * 1 * 2 = 16000 bytes</code>.\n  </p>",
             "smithy.api#eventPayload": {}
           }
         }
@@ -108,7 +108,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>One or more arguments to the <code>StartStreamTranscription</code>, \n      <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> \n      operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> \n      used not valid values. Check the specified parameters and try your request again.</p>",
+        "smithy.api#documentation": "<p>One or more arguments to the <code>StartStreamTranscription</code>, \n      <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> \n      operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> \n      used unsupported values. Check the specified parameters and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -117,6 +117,16 @@
       "type": "boolean",
       "traits": {
         "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.transcribestreaming#BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
       }
     },
     "com.amazonaws.transcribestreaming#CallAnalyticsEntity": {
@@ -317,7 +327,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains detailed information about your Call Analytics streaming session. These details are \n      provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>",
+        "smithy.api#documentation": "<p>Contains detailed information about your real-time Call Analytics session. These details are \n      provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>",
         "smithy.api#streaming": {}
       }
     },
@@ -406,6 +416,82 @@
         "smithy.api#documentation": "<p>Provides the location, using character count, in your transcript where a match is identified. For example, \n      the location of an issue or a category match within a segment.</p>"
       }
     },
+    "com.amazonaws.transcribestreaming#ClinicalNoteGenerationResult": {
+      "type": "structure",
+      "members": {
+        "ClinicalNoteOutputLocation": {
+          "target": "com.amazonaws.transcribestreaming#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>Holds the Amazon S3 URI for the output Clinical Note. </p>"
+          }
+        },
+        "TranscriptOutputLocation": {
+          "target": "com.amazonaws.transcribestreaming#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>Holds the Amazon S3 URI for the output Transcript. </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.transcribestreaming#ClinicalNoteGenerationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the clinical note generation.</p>\n         <p>Possible Values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n      After audio streaming finishes, and you send a <code>MedicalScribeSessionControlEvent</code> event (with END_OF_SESSION as the Type),\n      the status is set to <code>IN_PROGRESS</code>.\n      If the status is <code>COMPLETED</code>, the analytics completed successfully, and you can find the\n      results at the locations specified in <code>ClinicalNoteOutputLocation</code> and <code>TranscriptOutputLocation</code>.\n      If the status is <code>FAILED</code>, <code>FailureReason</code> provides details about the failure.\n    </p>"
+          }
+        },
+        "FailureReason": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>ClinicalNoteGenerationResult</code> is <code>FAILED</code>, information about why it failed. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details for clinical note generation,\n      including status, and output locations for clinical note and aggregated transcript if the analytics completed,\n      or failure reason if the analytics failed.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#ClinicalNoteGenerationSettings": {
+      "type": "structure",
+      "members": {
+        "OutputBucketName": {
+          "target": "com.amazonaws.transcribestreaming#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket where you want the output of Amazon Web Services HealthScribe post-stream analytics stored. Don't include the <code>S3://</code> prefix of the specified bucket. </p>\n         <p>HealthScribe outputs transcript and clinical note files under the prefix:\n        <code>S3://$output-bucket-name/healthscribe-streaming/session-id/post-stream-analytics/clinical-notes</code>\n         </p>\n         <p>The role <code>ResourceAccessRoleArn</code> specified in the <code>MedicalScribeConfigurationEvent</code> must have\n      permission to use the specified location. You can change Amazon S3 permissions using the <a href=\"https://console.aws.amazon.com/s3\">\n        Amazon Web Services Management Console\n      </a>. See also <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user\">Permissions Required for IAM User Roles </a> . </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NoteTemplate": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeNoteTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify one of the following templates to use for the clinical note summary. The default is <code>HISTORY_AND_PHYSICAL</code>.</p>\n         <ul>\n            <li>\n               <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Sections include Chief Complaint, \n        History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.</p>\n            </li>\n            <li>\n               <p>GIRPP: Provides summaries based on the patients progress toward goals. Sections include Goal, Intervention, Response, Progress, and Plan.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output configuration for aggregated transcript and clinical note generation.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#ClinicalNoteGenerationStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        }
+      }
+    },
     "com.amazonaws.transcribestreaming#Confidence": {
       "type": "double"
     },
@@ -421,7 +507,7 @@
         "PostCallAnalyticsSettings": {
           "target": "com.amazonaws.transcribestreaming#PostCallAnalyticsSettings",
           "traits": {
-            "smithy.api#documentation": "<p>Provides additional optional settings for your Call Analytics post-call request, including \n      encryption and output locations for your redacted and unredacted transcript.</p>"
+            "smithy.api#documentation": "<p>Provides additional optional settings for your Call Analytics post-call request, including \n      encryption and output locations for your redacted transcript.</p>\n         <p>\n            <code>PostCallAnalyticsSettings</code> provides you with the same insights as a \n      Call Analytics post-call transcription. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html\">Post-call analytics</a> for more information \n      on this feature.</p>"
           }
         }
       },
@@ -481,6 +567,9 @@
         }
       }
     },
+    "com.amazonaws.transcribestreaming#DateTime": {
+      "type": "timestamp"
+    },
     "com.amazonaws.transcribestreaming#Double": {
       "type": "double",
       "traits": {
@@ -537,6 +626,77 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.transcribestreaming#Entity"
+      }
+    },
+    "com.amazonaws.transcribestreaming#GetMedicalScribeStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribestreaming#GetMedicalScribeStreamRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribestreaming#GetMedicalScribeStreamResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribestreaming#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides details about the specified Amazon Web Services HealthScribe streaming session.\n      To view the status of the streaming session, check the <code>StreamStatus</code> field in the response. To get the\n      details of post-stream analytics, including its status, check the <code>PostStreamAnalyticsResult</code> field in the response.\n    </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/medical-scribe-stream/{SessionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#GetMedicalScribeStreamRequest": {
+      "type": "structure",
+      "members": {
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the HealthScribe streaming session you want information about.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#GetMedicalScribeStreamResponse": {
+      "type": "structure",
+      "members": {
+        "MedicalScribeStreamDetails": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeStreamDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides details about a HealthScribe streaming session.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#IamRoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso-{0,1}[a-z]{0,1}):iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1024}$"
       }
     },
     "com.amazonaws.transcribestreaming#Integer": {
@@ -657,6 +817,31 @@
         }
       }
     },
+    "com.amazonaws.transcribestreaming#KMSEncryptionContextMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.transcribestreaming#NonEmptyString"
+      },
+      "value": {
+        "target": "com.amazonaws.transcribestreaming#NonEmptyString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#KMSKeyId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$"
+      }
+    },
     "com.amazonaws.transcribestreaming#LanguageCode": {
       "type": "enum",
       "members": {
@@ -732,16 +917,256 @@
             "smithy.api#enumValue": "zh-CN"
           }
         },
+        "TH_TH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "th-TH"
+          }
+        },
+        "ES_ES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "es-ES"
+          }
+        },
+        "AR_SA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ar-SA"
+          }
+        },
+        "PT_PT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pt-PT"
+          }
+        },
+        "CA_ES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ca-ES"
+          }
+        },
+        "AR_AE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ar-AE"
+          }
+        },
         "HI_IN": {
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "hi-IN"
           }
         },
-        "TH_TH": {
+        "ZH_HK": {
           "target": "smithy.api#Unit",
           "traits": {
-            "smithy.api#enumValue": "th-TH"
+            "smithy.api#enumValue": "zh-HK"
+          }
+        },
+        "NL_NL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-NL"
+          }
+        },
+        "NO_NO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "no-NO"
+          }
+        },
+        "SV_SE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sv-SE"
+          }
+        },
+        "PL_PL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pl-PL"
+          }
+        },
+        "FI_FI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fi-FI"
+          }
+        },
+        "ZH_TW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "zh-TW"
+          }
+        },
+        "EN_IN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-IN"
+          }
+        },
+        "EN_IE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-IE"
+          }
+        },
+        "EN_NZ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-NZ"
+          }
+        },
+        "EN_AB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-AB"
+          }
+        },
+        "EN_ZA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-ZA"
+          }
+        },
+        "EN_WL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-WL"
+          }
+        },
+        "DE_CH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "de-CH"
+          }
+        },
+        "AF_ZA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "af-ZA"
+          }
+        },
+        "EU_ES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-ES"
+          }
+        },
+        "HR_HR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "hr-HR"
+          }
+        },
+        "CS_CZ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cs-CZ"
+          }
+        },
+        "DA_DK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "da-DK"
+          }
+        },
+        "FA_IR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fa-IR"
+          }
+        },
+        "GL_ES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "gl-ES"
+          }
+        },
+        "EL_GR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "el-GR"
+          }
+        },
+        "HE_IL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "he-IL"
+          }
+        },
+        "ID_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "id-ID"
+          }
+        },
+        "LV_LV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "lv-LV"
+          }
+        },
+        "MS_MY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ms-MY"
+          }
+        },
+        "RO_RO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ro-RO"
+          }
+        },
+        "RU_RU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ru-RU"
+          }
+        },
+        "SR_RS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sr-RS"
+          }
+        },
+        "SK_SK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sk-SK"
+          }
+        },
+        "SO_SO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "so-SO"
+          }
+        },
+        "TL_PH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "tl-PH"
+          }
+        },
+        "UK_UA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "uk-UA"
+          }
+        },
+        "VI_VN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "vi-VN"
+          }
+        },
+        "ZU_ZA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "zu-ZA"
           }
         }
       }
@@ -1034,6 +1459,612 @@
         "target": "com.amazonaws.transcribestreaming#MedicalResult"
       }
     },
+    "com.amazonaws.transcribestreaming#MedicalScribeAudioEvent": {
+      "type": "structure",
+      "members": {
+        "AudioChunk": {
+          "target": "com.amazonaws.transcribestreaming#AudioChunk",
+          "traits": {
+            "smithy.api#documentation": "<p>\n    An audio blob containing the next segment of audio from your application,\n    with a maximum duration of 1 second. \n    The maximum size in bytes varies based on audio properties.\n  </p>\n         <p>Find recommended size in <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#best-practices\">Transcribing streaming best practices</a>.\n  </p>\n         <p>\n    Size calculation: <code>Duration (s) * Sample Rate (Hz) * Number of Channels * 2 (Bytes per Sample)</code>\n         </p>\n         <p>\n    For example, a 1-second chunk of 16 kHz, 2-channel, 16-bit audio would be \n    <code>1 * 16000 * 2 * 2 = 64000 bytes</code>.\n  </p>\n         <p>\n    For 8 kHz, 1-channel, 16-bit audio, a 1-second chunk would be \n    <code>1 * 8000 * 1 * 2 = 16000 bytes</code>.\n  </p>",
+            "smithy.api#eventPayload": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A wrapper for your audio chunks</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html\">Event stream encoding</a>.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeChannelDefinition": {
+      "type": "structure",
+      "members": {
+        "ChannelId": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeChannelId",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Specify the audio channel you want to define.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ParticipantRole": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeParticipantRole",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the participant that you want to flag.\n      The allowed options are <code>CLINICIAN</code> and\n      <code>PATIENT</code>.\n    </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Makes it possible to specify which speaker is on which channel.\n      For example, if the clinician is the first participant to speak, you would set the <code>ChannelId</code> of the first\n      <code>ChannelDefinition</code>\n      in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to\n      <code>CLINICIAN</code>\n      (to indicate that it's the clinician speaking).\n      Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to\n      <code>1</code>\n      (to indicate the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate that it's the patient speaking).\n    </p>\n         <p>If you don't specify a channel definition, HealthScribe will diarize the transcription and identify speaker roles for each speaker.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeChannelDefinitions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribestreaming#MedicalScribeChannelDefinition"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeChannelId": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeConfigurationEvent": {
+      "type": "structure",
+      "members": {
+        "VocabularyName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyName",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the name of the custom vocabulary you want to use for your streaming session.\n      Custom vocabulary names are case-sensitive.\n    </p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the name of the custom vocabulary filter you want to include in your streaming session.\n      Custom vocabulary filter names are case-sensitive.\n    </p>\n         <p>If you include <code>VocabularyFilterName</code> in the <code>MedicalScribeConfigurationEvent</code>,\n      you must also include <code>VocabularyFilterMethod</code>.\n    </p>"
+          }
+        },
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeVocabularyFilterMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify how you want your custom vocabulary filter applied to the streaming session.</p>\n         <p>To replace words with <code>***</code>, specify <code>mask</code>.\n    </p>\n         <p>To delete words, specify <code>remove</code>.\n    </p>\n         <p>To flag words without changing them, specify <code>tag</code>.\n    </p>"
+          }
+        },
+        "ResourceAccessRoleArn": {
+          "target": "com.amazonaws.transcribestreaming#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 output\n      bucket you specified, and use your KMS key if supplied. If the role that you specify doesn’t have the\n      appropriate permissions, your request fails. </p>\n         <p>\n      IAM\n      role ARNs have the format\n      <code>arn:partition:iam::account:role/role-name-with-path</code>.\n      For example: <code>arn:aws:iam::111122223333:role/Admin</code>.\n    </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html\">Amazon Web Services HealthScribe</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChannelDefinitions": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeChannelDefinitions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify which speaker is on which audio channel.</p>"
+          }
+        },
+        "EncryptionSettings": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeEncryptionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the encryption settings for your streaming session.</p>"
+          }
+        },
+        "PostStreamAnalyticsSettings": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify settings for post-stream analytics.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specify details to configure the streaming session, including channel definitions, encryption settings, post-stream analytics\n      settings, resource access role ARN and vocabulary settings.\n    </p>\n         <p>Whether you are starting a new session or resuming an existing session, \n      your first event must be a <code>MedicalScribeConfigurationEvent</code>.\n      If you are resuming a session, then this event must have the same configurations that you provided to start the session.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeEncryptionSettings": {
+      "type": "structure",
+      "members": {
+        "KmsEncryptionContext": {
+          "target": "com.amazonaws.transcribestreaming#KMSEncryptionContextMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of\n      security for your data. For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context\">KMSencryption context </a> and <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html\">Asymmetric keys in KMS\n      </a>. </p>"
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.transcribestreaming#KMSKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the KMS key you want to use for your streaming session. You\n      can specify its KMS key ID, key Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>\"alias/\"</code>. \n      To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>\n         <p>For example:</p>\n         <ul>\n            <li>\n               <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>\n            </li>\n            <li>\n               <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>\n            </li>\n            <li>\n               <p>\n          Alias name: alias/ExampleAlias</p>\n            </li>\n            <li>\n               <p>\n          Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias  \n        </p>\n            </li>\n         </ul>\n         <p>\n      To get the key ID and key ARN for a KMS key, use the <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html\">ListKeys</a> or <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html\">DescribeKey</a> KMS API operations. \n      To get the alias name and alias ARN, use <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html\">ListKeys</a> API operation.     \n    </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains encryption related settings to be used for data encryption with Key Management Service, including KmsEncryptionContext and KmsKeyId.\n     The KmsKeyId is required, while KmsEncryptionContext is optional for additional layer of security.\n    </p>\n         <p>By default, Amazon Web Services HealthScribe provides encryption at rest to protect sensitive customer data using Amazon S3-managed keys. HealthScribe uses the KMS key you specify as a second layer of\n      encryption.</p>\n         <p>\n      Your <code>ResourceAccessRoleArn</code>\n      must permission to use your KMS key.\n      For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-encryption.html\">Data Encryption at rest for Amazon Web Services HealthScribe</a>.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeInputStream": {
+      "type": "union",
+      "members": {
+        "AudioEvent": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeAudioEvent"
+        },
+        "SessionControlEvent": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeSessionControlEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the lifecycle of your streaming session, such as ending the session.</p>"
+          }
+        },
+        "ConfigurationEvent": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeConfigurationEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify additional streaming session configurations beyond those provided in your initial start request headers. For example, specify\n      channel definitions, encryption settings, and post-stream analytics settings.\n    </p>\n         <p>Whether you are starting a new session or resuming an existing session, \n      your first event must be a <code>MedicalScribeConfigurationEvent</code>.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An encoded stream of events. The stream is encoded as HTTP/2 data frames.</p>\n         <p>An input stream consists of the following types of events. The first element of the input stream must be the <code>MedicalScribeConfigurationEvent</code> event type.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MedicalScribeConfigurationEvent</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>MedicalScribeAudioEvent</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>MedicalScribeSessionControlEvent</code>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#streaming": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeLanguageCode": {
+      "type": "enum",
+      "members": {
+        "EN_US": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-US"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeMediaEncoding": {
+      "type": "enum",
+      "members": {
+        "PCM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pcm"
+          }
+        },
+        "OGG_OPUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ogg-opus"
+          }
+        },
+        "FLAC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "flac"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeMediaSampleRateHertz": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 16000,
+          "max": 48000
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeNoteTemplate": {
+      "type": "enum",
+      "members": {
+        "HISTORY_AND_PHYSICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HISTORY_AND_PHYSICAL"
+          }
+        },
+        "GIRPP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIRPP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeParticipantRole": {
+      "type": "enum",
+      "members": {
+        "PATIENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PATIENT"
+          }
+        },
+        "CLINICIAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLINICIAN"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsResult": {
+      "type": "structure",
+      "members": {
+        "ClinicalNoteGenerationResult": {
+          "target": "com.amazonaws.transcribestreaming#ClinicalNoteGenerationResult",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the Clinical Note Generation result for post-stream analytics.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details for the result of post-stream analytics.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsSettings": {
+      "type": "structure",
+      "members": {
+        "ClinicalNoteGenerationSettings": {
+          "target": "com.amazonaws.transcribestreaming#ClinicalNoteGenerationSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify settings for the post-stream clinical note generation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The settings for post-stream analytics.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeResultStream": {
+      "type": "union",
+      "members": {
+        "TranscriptEvent": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeTranscriptEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>The transcript event that contains real-time transcription results.\n    </p>"
+          }
+        },
+        "BadRequestException": {
+          "target": "com.amazonaws.transcribestreaming#BadRequestException"
+        },
+        "LimitExceededException": {
+          "target": "com.amazonaws.transcribestreaming#LimitExceededException"
+        },
+        "InternalFailureException": {
+          "target": "com.amazonaws.transcribestreaming#InternalFailureException"
+        },
+        "ConflictException": {
+          "target": "com.amazonaws.transcribestreaming#ConflictException"
+        },
+        "ServiceUnavailableException": {
+          "target": "com.amazonaws.transcribestreaming#ServiceUnavailableException"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Result stream where you will receive the output events.\n      The details are provided in the <code>MedicalScribeTranscriptEvent</code> object.\n    </p>",
+        "smithy.api#streaming": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeSessionControlEvent": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeSessionControlEventType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of <code>MedicalScribeSessionControlEvent</code>.\n    </p>\n         <p>Possible Values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>END_OF_SESSION</code> - Indicates the audio streaming is complete. After you\n          send an END_OF_SESSION event, Amazon Web Services HealthScribe starts the post-stream analytics.\n          The session can't be resumed after this event is sent. After Amazon Web Services HealthScribe processes the event, the real-time <code>StreamStatus</code> is <code>COMPLETED</code>.\n          You get the <code>StreamStatus</code> and other stream details with the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_GetMedicalScribeStream.html\">GetMedicalScribeStream</a> API operation.\n          For more information about different streaming statuses, see the <code>StreamStatus</code> description in the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_MedicalScribeStreamDetails.html\">MedicalScribeStreamDetails</a>.      \n        </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specify the lifecycle of your streaming session.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeSessionControlEventType": {
+      "type": "enum",
+      "members": {
+        "END_OF_SESSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "END_OF_SESSION"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeStreamDetails": {
+      "type": "structure",
+      "members": {
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the HealthScribe streaming session.</p>"
+          }
+        },
+        "StreamCreatedAt": {
+          "target": "com.amazonaws.transcribestreaming#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the HealthScribe streaming session was created.</p>"
+          }
+        },
+        "StreamEndedAt": {
+          "target": "com.amazonaws.transcribestreaming#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the HealthScribe streaming session was ended.</p>"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeLanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The Language Code of the HealthScribe streaming session.</p>"
+          }
+        },
+        "MediaSampleRateHertz": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaSampleRateHertz",
+          "traits": {
+            "smithy.api#documentation": "<p>The sample rate (in hertz) of the HealthScribe streaming session.</p>"
+          }
+        },
+        "MediaEncoding": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaEncoding",
+          "traits": {
+            "smithy.api#documentation": "<p>The Media Encoding of the HealthScribe streaming session.</p>"
+          }
+        },
+        "VocabularyName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyName",
+          "traits": {
+            "smithy.api#documentation": "<p>The vocabulary name of the HealthScribe streaming session.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter used for the HealthScribe streaming session .</p>"
+          }
+        },
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeVocabularyFilterMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The method of the vocabulary filter for the HealthScribe streaming session.</p>"
+          }
+        },
+        "ResourceAccessRoleArn": {
+          "target": "com.amazonaws.transcribestreaming#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role used in the HealthScribe streaming session.</p>"
+          }
+        },
+        "ChannelDefinitions": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeChannelDefinitions",
+          "traits": {
+            "smithy.api#documentation": "<p>The Channel Definitions of the HealthScribe streaming session.</p>"
+          }
+        },
+        "EncryptionSettings": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeEncryptionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The Encryption Settings of the HealthScribe streaming session.</p>"
+          }
+        },
+        "StreamStatus": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeStreamStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming status of the HealthScribe streaming session.</p>\n         <p>Possible Values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PAUSED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>This status is specific to real-time streaming.\n      A <code>COMPLETED</code> status doesn't mean that the post-stream analytics is complete.\n      To get status of an analytics result, check the <code>Status</code> field for the analytics result within the\n      <code>MedicalScribePostStreamAnalyticsResult</code>. For example, you can view the status of the \n      <code>ClinicalNoteGenerationResult</code>.\n    </p>\n         </note>"
+          }
+        },
+        "PostStreamAnalyticsSettings": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The post-stream analytics settings of the HealthScribe streaming session.</p>"
+          }
+        },
+        "PostStreamAnalyticsResult": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsResult",
+          "traits": {
+            "smithy.api#documentation": "<p>The result of post-stream analytics for the HealthScribe streaming session.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about a Amazon Web Services HealthScribe streaming session.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeStreamStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "PAUSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAUSED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeTranscriptEvent": {
+      "type": "structure",
+      "members": {
+        "TranscriptSegment": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeTranscriptSegment",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>TranscriptSegment</code> associated with a <code>MedicalScribeTranscriptEvent</code>.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The event associated with <code>MedicalScribeResultStream</code>.\n    </p>\n         <p>Contains <code>MedicalScribeTranscriptSegment</code>, which contains segment related information.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItem": {
+      "type": "structure",
+      "members": {
+        "BeginAudioTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The start time, in milliseconds, of the transcribed item.</p>"
+          }
+        },
+        "EndAudioTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The end time, in milliseconds, of the transcribed item.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItemType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words)\n      and <code>PUNCTUATION</code>.\n    </p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.transcribestreaming#Confidence",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence score associated with a word or phrase in your transcript.</p>\n         <p>Confidence scores are values between 0 and 1. A larger value indicates a higher\n      probability that the identified item correctly matches the item spoken in your media.\n    </p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The word, phrase or punctuation mark that was transcribed.</p>"
+          }
+        },
+        "VocabularyFilterMatch": {
+          "target": "com.amazonaws.transcribestreaming#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the specified item matches a word in the vocabulary filter included in\n      your configuration event. If <code>true</code>, there is a vocabulary filter match.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A word, phrase, or punctuation mark in your transcription output, along with various associated\n      attributes, such as confidence score, type, and start and end times.\n    </p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItemList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItem"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItemType": {
+      "type": "enum",
+      "members": {
+        "PRONUNCIATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pronunciation"
+          }
+        },
+        "PUNCTUATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "punctuation"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeTranscriptSegment": {
+      "type": "structure",
+      "members": {
+        "SegmentId": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the segment.</p>"
+          }
+        },
+        "BeginAudioTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The start time, in milliseconds, of the segment.</p>"
+          }
+        },
+        "EndAudioTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The end time, in milliseconds, of the segment.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains transcribed text of the segment.</p>"
+          }
+        },
+        "Items": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeTranscriptItemList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains words, phrases, or punctuation marks in your segment.</p>"
+          }
+        },
+        "IsPartial": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates if the segment is complete.</p>\n         <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete.\n      If <code>IsPartial</code> is <code>false</code>, the segment is complete.\n    </p>"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates which audio channel is associated with the <code>MedicalScribeTranscriptSegment</code>.\n    </p>\n         <p>If <code>MedicalScribeChannelDefinition</code> is not provided in the <code>MedicalScribeConfigurationEvent</code>,\n      then this field will not be included.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains a set of transcription results, along with additional information of the segment.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalScribeVocabularyFilterMethod": {
+      "type": "enum",
+      "members": {
+        "REMOVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "remove"
+          }
+        },
+        "MASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "mask"
+          }
+        },
+        "TAG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "tag"
+          }
+        }
+      }
+    },
     "com.amazonaws.transcribestreaming#MedicalTranscript": {
       "type": "structure",
       "members": {
@@ -1101,6 +2132,19 @@
         },
         "smithy.api#pattern": "^[0-9a-zA-Z._-]+$"
       }
+    },
+    "com.amazonaws.transcribestreaming#NonEmptyString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        },
+        "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.transcribestreaming#NullableBoolean": {
+      "type": "boolean"
     },
     "com.amazonaws.transcribestreaming#NumberOfChannels": {
       "type": "integer",
@@ -1200,16 +2244,29 @@
         "OutputEncryptionKMSKeyId": {
           "target": "com.amazonaws.transcribestreaming#String",
           "traits": {
-            "smithy.api#documentation": "<p>The KMS key you want to use to encrypt your Call Analytics post-call\n      output.</p>\n         <p>If using a key located in the <b>current</b>\n      Amazon Web Services account, you can specify your KMS key in one of four\n      ways:</p>\n         <ol>\n            <li>\n               <p>Use the KMS key ID itself. For example,\n          <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use an alias for the KMS key ID. For example,\n          <code>alias/ExampleAlias</code>.</p>\n            </li>\n            <li>\n               <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For\n          example,\n          <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use the ARN for the KMS key alias. For example,\n          <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>\n            </li>\n         </ol>\n         <p>If using a key located in a <b>different</b>\n      Amazon Web Services account than the current Amazon Web Services account, you can specify\n      your KMS key in one of two ways:</p>\n         <ol>\n            <li>\n               <p>Use the ARN for the KMS key ID. For example,\n          <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use the ARN for the KMS key alias. For example,\n          <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>\n            </li>\n         </ol>\n         <p>Note that the user making the  request must\n      have permission to use the specified KMS key.</p>"
+            "smithy.api#documentation": "<p>The KMS key you want to use to encrypt your Call Analytics post-call\n      output.</p>\n         <p>If using a key located in the <b>current</b>\n      Amazon Web Services account, you can specify your KMS key in one of four\n      ways:</p>\n         <ol>\n            <li>\n               <p>Use the KMS key ID itself. For example,\n          <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use an alias for the KMS key ID. For example,\n          <code>alias/ExampleAlias</code>.</p>\n            </li>\n            <li>\n               <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For\n          example,\n          <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use the ARN for the KMS key alias. For example,\n          <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>\n            </li>\n         </ol>\n         <p>If using a key located in a <b>different</b>\n      Amazon Web Services account than the current Amazon Web Services account, you can specify\n      your KMS key in one of two ways:</p>\n         <ol>\n            <li>\n               <p>Use the ARN for the KMS key ID. For example,\n          <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>\n            </li>\n            <li>\n               <p>Use the ARN for the KMS key alias. For example,\n          <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>\n            </li>\n         </ol>\n         <p>Note that the role making the \n      request must have permission to use the specified KMS key.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Allows you to specify additional settings for your streaming Call Analytics \n      post-call request, including output locations for your redacted and unredacted \n      transcript, which IAM role to use, and, optionally, which encryption key to \n      use.</p>\n         <p>\n            <code>ContentRedactionOutput</code>, <code>DataAccessRoleArn</code>, and\n      <code>OutputLocation</code> are required fields.</p>"
+        "smithy.api#documentation": "<p>Allows you to specify additional settings for your Call Analytics post-call request, \n      including output locations for your redacted transcript, which IAM role to use, \n      and which encryption key to use.</p>\n         <p>\n            <code>DataAccessRoleArn</code> and <code>OutputLocation</code> are required \n      fields.</p>\n         <p>\n            <code>PostCallAnalyticsSettings</code> provides you with the same insights as a \n      Call Analytics post-call transcription. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html\">Post-call analytics</a> for more information \n      on this feature.</p>"
       }
     },
     "com.amazonaws.transcribestreaming#RequestId": {
       "type": "string"
+    },
+    "com.amazonaws.transcribestreaming#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.transcribestreaming#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request references a resource which doesn't exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
     },
     "com.amazonaws.transcribestreaming#Result": {
       "type": "structure",
@@ -1412,7 +2469,7 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribestreaming#CallAnalyticsLanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the language code that represents the language spoken in your audio.</p>\n         <p>If you're unsure of the language spoken in your audio, consider using \n      <code>IdentifyLanguage</code> to enable automatic language identification.</p>\n         <p>For a list of languages supported with streaming Call Analytics, refer to the \n      <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported \n        languages</a> table.</p>",
+            "smithy.api#documentation": "<p>Specify the language code that represents the language spoken in your audio.</p>\n         <p>For a list of languages supported with real-time Call Analytics, refer to the \n      <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported \n        languages</a> table.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-language-code",
             "smithy.api#required": {}
           }
@@ -1443,13 +2500,14 @@
         "SessionId": {
           "target": "com.amazonaws.transcribestreaming#SessionId",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a name for your Call Analytics transcription session. If you don't include this parameter\n      in your request, Amazon Transcribe generates an ID and returns it in the response.</p>\n         <p>You can use a session ID to retry a streaming session.</p>",
+            "smithy.api#documentation": "<p>Specify a name for your Call Analytics transcription session. If you don't include this parameter\n      in your request, Amazon Transcribe generates an ID and returns it in the response.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
           }
         },
         "AudioStream": {
           "target": "com.amazonaws.transcribestreaming#AudioStream",
           "traits": {
+            "smithy.api#documentation": "<p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket \n      data frames.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html\">Transcribing streaming audio</a>.</p>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
@@ -1493,21 +2551,21 @@
         "ContentIdentificationType": {
           "target": "com.amazonaws.transcribestreaming#ContentIdentificationType",
           "traits": {
-            "smithy.api#documentation": "<p>Labels all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content identification is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>\n         <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
+            "smithy.api#documentation": "<p>Labels all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content identification is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment. If you don't\n      include <code>PiiEntityTypes</code> in your request, all PII is identified.</p>\n         <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-content-identification-type"
           }
         },
         "ContentRedactionType": {
           "target": "com.amazonaws.transcribestreaming#ContentRedactionType",
           "traits": {
-            "smithy.api#documentation": "<p>Redacts all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content redaction is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>\n         <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
+            "smithy.api#documentation": "<p>Redacts all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content redaction is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment. If you don't\n      include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>\n         <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>\n      in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-content-redaction-type"
           }
         },
         "PiiEntityTypes": {
           "target": "com.amazonaws.transcribestreaming#PiiEntityTypes",
           "traits": {
-            "smithy.api#documentation": "<p>Specify which types of personally identifiable information (PII) you want to redact in your \n      transcript. You can include as many types as you'd like, or you can select \n      <code>ALL</code>.</p>\n         <p>To include <code>PiiEntityTypes</code> in your Call Analytics request, you must also include \n      either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>\n         <p>Values must be comma-separated and can include:\n      <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,\n      <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, \n      <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>, \n      <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, \n      <code>SSN</code>, or <code>ALL</code>.</p>",
+            "smithy.api#documentation": "<p>Specify which types of personally identifiable information (PII) you want to redact in your \n      transcript. You can include as many types as you'd like, or you can select \n      <code>ALL</code>.</p>\n         <p>Values must be comma-separated and can include: <code>ADDRESS</code>, \n      <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,\n      <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,\n      <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>, \n      <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, \n      <code>SSN</code>, or <code>ALL</code>.</p>\n         <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include \n      <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>\n         <p>If you include <code>ContentRedactionType</code> or \n      <code>ContentIdentificationType</code> in your request, but do not include \n      <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-pii-entity-types"
           }
         }
@@ -1522,7 +2580,7 @@
         "RequestId": {
           "target": "com.amazonaws.transcribestreaming#RequestId",
           "traits": {
-            "smithy.api#documentation": "<p>Provides the identifier for your Call Analytics streaming request.</p>",
+            "smithy.api#documentation": "<p>Provides the identifier for your real-time Call Analytics request.</p>",
             "smithy.api#httpHeader": "x-amzn-request-id"
           }
         },
@@ -1564,7 +2622,7 @@
         "CallAnalyticsTranscriptResultStream": {
           "target": "com.amazonaws.transcribestreaming#CallAnalyticsTranscriptResultStream",
           "traits": {
-            "smithy.api#documentation": "<p>Provides detailed information about your Call Analytics streaming session.</p>",
+            "smithy.api#documentation": "<p>Provides detailed information about your real-time Call Analytics session.</p>",
             "smithy.api#httpPayload": {}
           }
         },
@@ -1623,6 +2681,137 @@
           "traits": {
             "smithy.api#documentation": "<p>Lists the PII entity types you specified in your Call Analytics request.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-pii-entity-types"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#StartMedicalScribeStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribestreaming#StartMedicalScribeStreamRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribestreaming#StartMedicalScribeStreamResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribestreaming#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#ServiceUnavailableException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts a bidirectional HTTP/2 stream, where audio is streamed to\n      Amazon Web Services HealthScribe\n      and the transcription results are streamed to your application.</p>\n         <p>When you start a stream, you first specify the stream configuration in a <code>MedicalScribeConfigurationEvent</code>. \n      This event includes channel definitions, encryption settings, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional\n      streaming session configurations beyond those provided in your initial start request headers. Whether you are starting a new session or resuming an existing session, \n      your first event must be a <code>MedicalScribeConfigurationEvent</code>. </p>\n         <p>\n      After you send a <code>MedicalScribeConfigurationEvent</code>, you start <code>AudioEvents</code> and Amazon Web Services HealthScribe \n      responds with real-time transcription results. When you are finished, to start processing the results with the post-stream analytics, send a <code>MedicalScribeSessionControlEvent</code> with a <code>Type</code> of \n      <code>END_OF_SESSION</code> and Amazon Web Services HealthScribe starts the analytics.\n    </p>\n         <p>You can pause or resume streaming.\n     To pause streaming, complete the input stream without sending the\n      <code>MedicalScribeSessionControlEvent</code>.\n      To resume streaming, call the <code>StartMedicalScribeStream</code> and specify the same SessionId you used to start the stream.\n    </p>\n         <p>The following parameters are required:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>language-code</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>media-encoding</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>media-sample-rate-hertz</code>\n               </p>\n            </li>\n         </ul>\n         <p></p>\n         <p>For more information on streaming with\n      Amazon Web Services HealthScribe,\n      see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html\">Amazon Web Services HealthScribe</a>.\n    </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/medical-scribe-stream",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribestreaming#StartMedicalScribeStreamRequest": {
+      "type": "structure",
+      "members": {
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify an identifier for your streaming session (in UUID format).\n      If you don't include a SessionId in your request,\n      Amazon Web Services HealthScribe generates an ID and returns it in the response.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeLanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the language code for your HealthScribe streaming session.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-code",
+            "smithy.api#required": {}
+          }
+        },
+        "MediaSampleRateHertz": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaSampleRateHertz",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the sample rate of the input audio (in hertz).\n      Amazon Web Services HealthScribe supports a range from 16,000 Hz to 48,000 Hz.\n      The sample rate you specify must match that of your audio.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate",
+            "smithy.api#required": {}
+          }
+        },
+        "MediaEncoding": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaEncoding",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the encoding used for the input audio.</p>\n         <p>Supported formats are:</p>\n         <ul>\n            <li>\n               <p>FLAC</p>\n            </li>\n            <li>\n               <p>OPUS-encoded audio in an Ogg container</p>\n            </li>\n            <li>\n               <p>PCM (only signed 16-bit little-endian audio formats, which does not include\n          WAV)\n        </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio\">Media\n      formats</a>.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding",
+            "smithy.api#required": {}
+          }
+        },
+        "InputStream": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeInputStream",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the input stream where you will send events in real time.</p>\n         <p>The first element of the input stream must be a <code>MedicalScribeConfigurationEvent</code>.\n    </p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#StartMedicalScribeStreamResponse": {
+      "type": "structure",
+      "members": {
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier (in UUID format) for your streaming session.</p>\n         <p>If you already started streaming, this is same ID as the one you specified in your initial <code>StartMedicalScribeStreamRequest</code>.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
+          }
+        },
+        "RequestId": {
+          "target": "com.amazonaws.transcribestreaming#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for your streaming request.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-request-id"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeLanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The Language Code that you specified in your request.\n      Same as provided in the <code>StartMedicalScribeStreamRequest</code>.\n    </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-code"
+          }
+        },
+        "MediaSampleRateHertz": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaSampleRateHertz",
+          "traits": {
+            "smithy.api#documentation": "<p>The sample rate (in hertz) that you specified in your request.\n      Same as provided in the\n      <code>StartMedicalScribeStreamRequest</code>\n         </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate"
+          }
+        },
+        "MediaEncoding": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeMediaEncoding",
+          "traits": {
+            "smithy.api#documentation": "<p>The Media Encoding you specified in your request.\n      Same as provided in the\n      <code>StartMedicalScribeStreamRequest</code>\n         </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding"
+          }
+        },
+        "ResultStream": {
+          "target": "com.amazonaws.transcribestreaming#MedicalScribeResultStream",
+          "traits": {
+            "smithy.api#documentation": "<p>The result stream where you will receive the output events.\n    </p>",
+            "smithy.api#httpPayload": {}
           }
         }
       },
@@ -1725,7 +2914,7 @@
         "SessionId": {
           "target": "com.amazonaws.transcribestreaming#SessionId",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a name for your transcription session. If you don't include this parameter in \n            your request, Amazon Transcribe Medical generates an ID and returns it in the\n            response.</p>\n         <p>You can use a session ID to retry a streaming session.</p>",
+            "smithy.api#documentation": "<p>Specify a name for your transcription session. If you don't include this parameter in \n            your request, Amazon Transcribe Medical generates an ID and returns it in the\n            response.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
           }
         },
@@ -1740,14 +2929,14 @@
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Enables channel identification in multi-channel audio.</p>\n         <p>Channel identification transcribes the audio on each channel independently, then appends\n            the output for each channel into one transcript.</p>\n         <p>If you have multi-channel audio and do not enable channel identification, your audio is \n            transcribed in a continuous manner and your transcript is not separated by channel.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html\">Transcribing multi-channel audio</a>.</p>",
+            "smithy.api#documentation": "<p>Enables channel identification in multi-channel audio.</p>\n         <p>Channel identification transcribes the audio on each channel independently, then appends\n            the output for each channel into one transcript.</p>\n         <p>If you have multi-channel audio and do not enable channel identification, your audio is \n            transcribed in a continuous manner and your transcript is not separated by channel.</p>\n         <p>If you include <code>EnableChannelIdentification</code> in your request, you must also \n            include <code>NumberOfChannels</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html\">Transcribing multi-channel audio</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
         "NumberOfChannels": {
           "target": "com.amazonaws.transcribestreaming#NumberOfChannels",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the number of channels in your audio stream. Up to two channels are\n            supported.</p>",
+            "smithy.api#documentation": "<p>Specify the number of channels in your audio stream. This value must be \n            <code>2</code>, as only two channels are supported. If your audio doesn't contain \n            multiple channels, do not include this parameter in your request.</p>\n         <p>If you include <code>NumberOfChannels</code> in your request, you must also \n            include <code>EnableChannelIdentification</code>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
           }
         },
@@ -1934,7 +3123,7 @@
         "SessionId": {
           "target": "com.amazonaws.transcribestreaming#SessionId",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a name for your transcription session. If you don't include this parameter in your request, \n      Amazon Transcribe generates an ID and returns it in the response.</p>\n         <p>You can use a session ID to retry a streaming session.</p>",
+            "smithy.api#documentation": "<p>Specify a name for your transcription session. If you don't include this parameter in your request, \n      Amazon Transcribe generates an ID and returns it in the response.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
           }
         },
@@ -1972,14 +3161,14 @@
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Enables channel identification in multi-channel audio.</p>\n         <p>Channel identification transcribes the audio on each channel independently, then appends the \n      output for each channel into one transcript.</p>\n         <p>If you have multi-channel audio and do not enable channel identification, your audio is \n      transcribed in a continuous manner and your transcript is not separated by channel.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html\">Transcribing multi-channel audio</a>.</p>",
+            "smithy.api#documentation": "<p>Enables channel identification in multi-channel audio.</p>\n         <p>Channel identification transcribes the audio on each channel independently, then appends the \n      output for each channel into one transcript.</p>\n         <p>If you have multi-channel audio and do not enable channel identification, your audio is \n      transcribed in a continuous manner and your transcript is not separated by channel.</p>\n         <p>If you include <code>EnableChannelIdentification</code> in your request, you must also \n      include <code>NumberOfChannels</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html\">Transcribing multi-channel audio</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
         "NumberOfChannels": {
           "target": "com.amazonaws.transcribestreaming#NumberOfChannels",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the number of channels in your audio stream. Up to two channels are\n      supported.</p>",
+            "smithy.api#documentation": "<p>Specify the number of channels in your audio stream. This value must be \n      <code>2</code>, as only two channels are supported. If your audio doesn't contain \n      multiple channels, do not include this parameter in your request.</p>\n         <p>If you include <code>NumberOfChannels</code> in your request, you must also \n      include <code>EnableChannelIdentification</code>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
           }
         },
@@ -2001,21 +3190,21 @@
         "ContentIdentificationType": {
           "target": "com.amazonaws.transcribestreaming#ContentIdentificationType",
           "traits": {
-            "smithy.api#documentation": "<p>Labels all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content identification is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>\n         <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
+            "smithy.api#documentation": "<p>Labels all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content identification is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment. If you don't\n      include <code>PiiEntityTypes</code> in your request, all PII is identified.</p>\n         <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-content-identification-type"
           }
         },
         "ContentRedactionType": {
           "target": "com.amazonaws.transcribestreaming#ContentRedactionType",
           "traits": {
-            "smithy.api#documentation": "<p>Redacts all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content redaction is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>\n         <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>\n      in the same request. If you set both, your request returns a\n      <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
+            "smithy.api#documentation": "<p>Redacts all personally identifiable information (PII) identified in your transcript.</p>\n         <p>Content redaction is performed at the segment level; PII specified in \n      <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment. If you don't\n      include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>\n         <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>\n      in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable\n      information</a>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-content-redaction-type"
           }
         },
         "PiiEntityTypes": {
           "target": "com.amazonaws.transcribestreaming#PiiEntityTypes",
           "traits": {
-            "smithy.api#documentation": "<p>Specify which types of personally identifiable information (PII) you want to redact in your \n      transcript. You can include as many types as you'd like, or you can select \n      <code>ALL</code>.</p>\n         <p>To include <code>PiiEntityTypes</code> in your request, you must also include either \n      <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>\n         <p>Values must be comma-separated and can include:\n      <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,\n      <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, \n      <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>, \n      <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, \n      <code>SSN</code>, or <code>ALL</code>.</p>",
+            "smithy.api#documentation": "<p>Specify which types of personally identifiable information (PII) you want to redact in your \n      transcript. You can include as many types as you'd like, or you can select \n      <code>ALL</code>.</p>\n         <p>Values must be comma-separated and can include: <code>ADDRESS</code>, \n      <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,\n      <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,\n      <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>, \n      <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, \n      <code>SSN</code>, or <code>ALL</code>.</p>\n         <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include \n      <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>\n         <p>If you include <code>ContentRedactionType</code> or \n      <code>ContentIdentificationType</code> in your request, but do not include \n      <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-pii-entity-types"
           }
         },
@@ -2030,14 +3219,14 @@
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Enables automatic language identification for your transcription.</p>\n         <p>If you include <code>IdentifyLanguage</code>, you can optionally include a list of \n      language codes, using <code>LanguageOptions</code>, that you think may be present in \n      your audio stream. Including language options can improve transcription accuracy.</p>\n         <p>You can also include a preferred language using <code>PreferredLanguage</code>. Adding a \n      preferred language can help Amazon Transcribe identify the language faster than if you omit this \n      parameter.</p>\n         <p>If you have multi-channel audio that contains different languages on each channel, and you've \n      enabled channel identification, automatic language identification identifies the dominant language on \n      each audio channel.</p>\n         <p>Note that you must include either <code>LanguageCode</code> or \n      <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job\n      fails.</p>\n         <p>Streaming language identification can't be combined with custom language models or \n      redaction.</p>",
+            "smithy.api#documentation": "<p>Enables automatic language identification for your transcription.</p>\n         <p>If you include <code>IdentifyLanguage</code>, you must include a list of\n      language codes, using <code>LanguageOptions</code>, that you think may be present in \n      your audio stream. </p>\n         <p>You can also include a preferred language using <code>PreferredLanguage</code>. Adding a \n      preferred language can help Amazon Transcribe identify the language faster than if you omit this \n      parameter.</p>\n         <p>If you have multi-channel audio that contains different languages on each channel, and you've \n      enabled channel identification, automatic language identification identifies the dominant language on \n      each audio channel.</p>\n         <p>Note that you must include either <code>LanguageCode</code> or \n      <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job\n      fails.</p>\n         <p>Streaming language identification can't be combined with custom language models or \n      redaction.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-identify-language"
           }
         },
         "LanguageOptions": {
           "target": "com.amazonaws.transcribestreaming#LanguageOptions",
           "traits": {
-            "smithy.api#documentation": "<p>Specify two or more language codes that represent the languages you think may be present \n      in your media; including more than five is not recommended. If you're unsure what languages are present, do\n      not include this parameter.</p>\n         <p>Including language options can improve the accuracy of language identification.</p>\n         <p>If you include <code>LanguageOptions</code> in your request, you must also include \n      <code>IdentifyLanguage</code>.</p>\n         <p>For a list of languages supported with Amazon Transcribe streaming, refer to the \n      <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported \n        languages</a> table.</p>\n         <important>\n            <p>You can only include one language dialect per language per stream. For example, you\n        cannot include <code>en-US</code> and <code>en-AU</code> in the same request.</p>\n         </important>",
+            "smithy.api#documentation": "<p>Specify two or more language codes that represent the languages you think may be present \n      in your media; including more than five is not recommended.</p>\n         <p>Including language options can improve the accuracy of language identification.</p>\n         <p>If you include <code>LanguageOptions</code> in your request, you must also include \n      <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code>.</p>\n         <p>For a list of languages supported with Amazon Transcribe streaming, refer to the \n      <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported \n        languages</a> table.</p>\n         <important>\n            <p>You can only include one language dialect per language per stream. For example, you\n        cannot include <code>en-US</code> and <code>en-AU</code> in the same request.</p>\n         </important>",
             "smithy.api#httpHeader": "x-amzn-transcribe-language-options"
           }
         },
@@ -2052,7 +3241,7 @@
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>\n         <p>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream. Including <code>LanguageOptions</code> restricts <code>IdentifyMultipleLanguages</code> to only the language options that you specify, which can improve transcription accuracy.</p>\n         <p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic multiple language identification request, include <code>VocabularyNames</code> or <code>VocabularyFilterNames</code>.</p>\n         <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>",
+            "smithy.api#documentation": "<p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>\n         <p>If you include <code>IdentifyMultipleLanguages</code>, you must include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream.</p>\n         <p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic multiple language identification request, include <code>VocabularyNames</code> or <code>VocabularyFilterNames</code>.</p>\n         <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-identify-multiple-languages"
           }
         },
@@ -2153,7 +3342,7 @@
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Shows whether  channel identification was enabled for your transcription.</p>",
+            "smithy.api#documentation": "<p>Shows whether channel identification was enabled for your transcription.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
@@ -2296,7 +3485,13 @@
       "version": "2017-10-26",
       "operations": [
         {
+          "target": "com.amazonaws.transcribestreaming#GetMedicalScribeStream"
+        },
+        {
           "target": "com.amazonaws.transcribestreaming#StartCallAnalyticsStreamTranscription"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#StartMedicalScribeStream"
         },
         {
           "target": "com.amazonaws.transcribestreaming#StartMedicalStreamTranscription"
@@ -2320,7 +3515,7 @@
           "http": ["http/1.1", "h2"],
           "eventStreamHttp": ["h2"]
         },
-        "smithy.api#documentation": "<p>Amazon Transcribe streaming offers three main types of real-time transcription: \n      <b>Standard</b>, <b>Medical</b>, and \n      <b>Call Analytics</b>.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Standard transcriptions</b> are the most common option. Refer\n      to  for details.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Medical transcriptions</b> are tailored to medical professionals \n      and incorporate medical terms. A common use case for this service is transcribing doctor-patient \n      dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to\n       for details.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Call Analytics transcriptions</b> are designed for use with call\n          center audio on two different channels; if you're looking for insight into customer service calls, use this \n          option. Refer to  for details.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Amazon Transcribe streaming offers four main types of real-time transcription:\n      <b>Standard</b>, <b>Medical</b>,\n      <b>Call Analytics</b>,\n      and <b>Health Scribe</b>.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Standard transcriptions</b> are the most common option. Refer\n      to  for details.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Medical transcriptions</b> are tailored to medical professionals \n      and incorporate medical terms. A common use case for this service is transcribing doctor-patient \n      dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to\n       for details.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Call Analytics transcriptions</b> are designed for use with call\n          center audio on two different channels; if you're looking for insight into customer service calls, use this \n          option. Refer to  for details.</p>\n            </li>\n            <li>\n               <p>\n                  <b>HealthScribe transcriptions</b> are designed to\n          automatically create clinical notes from patient-clinician conversations using generative AI.\n          Refer to [here] for details.</p>\n            </li>\n         </ul>",
         "smithy.api#title": "Amazon Transcribe Streaming Service",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -3196,6 +4391,16 @@
             "smithy.api#enumValue": "DICTATION"
           }
         }
+      }
+    },
+    "com.amazonaws.transcribestreaming#Uri": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        },
+        "smithy.api#pattern": "^(s3://|http(s*)://).+$"
       }
     },
     "com.amazonaws.transcribestreaming#UtteranceEvent": {

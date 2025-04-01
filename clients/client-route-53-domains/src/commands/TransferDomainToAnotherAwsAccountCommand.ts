@@ -106,6 +106,7 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class TransferDomainToAnotherAwsAccountCommand extends $Command
@@ -116,9 +117,7 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command
   .f(void 0, TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog)
   .ser(se_TransferDomainToAnotherAwsAccountCommand)
   .de(de_TransferDomainToAnotherAwsAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferDomainToAnotherAwsAccountRequest;
+      output: TransferDomainToAnotherAwsAccountResponse;
+    };
+    sdk: {
+      input: TransferDomainToAnotherAwsAccountCommandInput;
+      output: TransferDomainToAnotherAwsAccountCommandOutput;
+    };
+  };
+}

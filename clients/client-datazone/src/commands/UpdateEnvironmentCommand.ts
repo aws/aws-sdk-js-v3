@@ -10,7 +10,7 @@ import {
   UpdateEnvironmentInput,
   UpdateEnvironmentOutput,
   UpdateEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -46,6 +46,13 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   description: "STRING_VALUE",
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
+ *   ],
+ *   blueprintVersion: "STRING_VALUE",
+ *   userParameters: [ // EnvironmentParametersList
+ *     { // EnvironmentParameter
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
  *   ],
  * };
  * const command = new UpdateEnvironmentCommand(input);
@@ -120,6 +127,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * //     endTimeoutMinutes: Number("int"),
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
+ * //   environmentConfigurationId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -154,6 +162,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentCommand extends $Command
@@ -164,9 +173,7 @@ export class UpdateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +185,16 @@ export class UpdateEnvironmentCommand extends $Command
   .f(void 0, UpdateEnvironmentOutputFilterSensitiveLog)
   .ser(se_UpdateEnvironmentCommand)
   .de(de_UpdateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentInput;
+      output: UpdateEnvironmentOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentCommandInput;
+      output: UpdateEnvironmentCommandOutput;
+    };
+  };
+}

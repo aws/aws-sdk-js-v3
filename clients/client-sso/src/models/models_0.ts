@@ -12,19 +12,19 @@ export interface AccountInfo {
    * <p>The identifier of the AWS account that is assigned to the user.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The display name of the AWS account that is assigned to the user.</p>
    * @public
    */
-  accountName?: string;
+  accountName?: string | undefined;
 
   /**
    * <p>The email address of the AWS account that is assigned to the user.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 }
 
 /**
@@ -62,27 +62,27 @@ export interface RoleCredentials {
    *         <i>AWS IAM User Guide</i>.</p>
    * @public
    */
-  accessKeyId?: string;
+  accessKeyId?: string | undefined;
 
   /**
    * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
    * @public
    */
-  secretAccessKey?: string;
+  secretAccessKey?: string | undefined;
 
   /**
    * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
    * @public
    */
-  sessionToken?: string;
+  sessionToken?: string | undefined;
 
   /**
    * <p>The date on which temporary security credentials expire.</p>
    * @public
    */
-  expiration?: number;
+  expiration?: number | undefined;
 }
 
 /**
@@ -93,7 +93,7 @@ export interface GetRoleCredentialsResponse {
    * <p>The credentials for the role that is assigned to the user.</p>
    * @public
    */
-  roleCredentials?: RoleCredentials;
+  roleCredentials?: RoleCredentials | undefined;
 }
 
 /**
@@ -187,13 +187,13 @@ export interface ListAccountRolesRequest {
    * <p>The page token from the previous response output when you request subsequent pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The number of items that clients can request per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
@@ -218,13 +218,13 @@ export interface RoleInfo {
    * <p>The friendly name of the role that is assigned to the user.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The identifier of the AWS account assigned to the user.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 }
 
 /**
@@ -235,14 +235,14 @@ export interface ListAccountRolesResponse {
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A paginated response with the list of roles and the next token if more results are
    *       available.</p>
    * @public
    */
-  roleList?: RoleInfo[];
+  roleList?: RoleInfo[] | undefined;
 }
 
 /**
@@ -254,13 +254,13 @@ export interface ListAccountsRequest {
    *       response output.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>This is the number of items clients can request per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
@@ -278,14 +278,14 @@ export interface ListAccountsResponse {
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A paginated response with the list of account information and the next token if more
    *       results are available.</p>
    * @public
    */
-  accountList?: AccountInfo[];
+  accountList?: AccountInfo[] | undefined;
 }
 
 /**

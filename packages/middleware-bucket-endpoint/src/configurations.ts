@@ -93,8 +93,7 @@ export function resolveBucketEndpointConfig<T>(
     useArnRegion = false,
     disableMultiregionAccessPoints = false,
   } = input;
-  return {
-    ...input,
+  return Object.assign(input, {
     bucketEndpoint,
     forcePathStyle,
     useAccelerateEndpoint,
@@ -103,5 +102,5 @@ export function resolveBucketEndpointConfig<T>(
       typeof disableMultiregionAccessPoints === "function"
         ? disableMultiregionAccessPoints
         : () => Promise.resolve(disableMultiregionAccessPoints),
-  };
+  });
 }

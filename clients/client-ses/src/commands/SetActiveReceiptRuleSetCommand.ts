@@ -63,18 +63,21 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetActiveReceiptRuleSet
  * ```javascript
  * // The following example sets the active receipt rule set:
  * const input = {
- *   "RuleSetName": "RuleSetToActivate"
+ *   RuleSetName: "RuleSetToActivate"
  * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: setactivereceiptruleset-1469058391329
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetActiveReceiptRuleSetCommand extends $Command
   .classBuilder<
@@ -84,9 +87,7 @@ export class SetActiveReceiptRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +99,16 @@ export class SetActiveReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetActiveReceiptRuleSetCommand)
   .de(de_SetActiveReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetActiveReceiptRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetActiveReceiptRuleSetCommandInput;
+      output: SetActiveReceiptRuleSetCommandOutput;
+    };
+  };
+}

@@ -66,6 +66,7 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataB
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class SetKeepJobFlowAliveWhenNoStepsCommand extends $Command
@@ -76,9 +77,7 @@ export class SetKeepJobFlowAliveWhenNoStepsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class SetKeepJobFlowAliveWhenNoStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetKeepJobFlowAliveWhenNoStepsCommand)
   .de(de_SetKeepJobFlowAliveWhenNoStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetKeepJobFlowAliveWhenNoStepsInput;
+      output: {};
+    };
+    sdk: {
+      input: SetKeepJobFlowAliveWhenNoStepsCommandInput;
+      output: SetKeepJobFlowAliveWhenNoStepsCommandOutput;
+    };
+  };
+}

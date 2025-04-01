@@ -53,6 +53,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class StopChannelCommand extends $Command
@@ -63,9 +64,7 @@ export class StopChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -77,4 +76,16 @@ export class StopChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopChannelCommand)
   .de(de_StopChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopChannelRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopChannelCommandInput;
+      output: StopChannelCommandOutput;
+    };
+  };
+}

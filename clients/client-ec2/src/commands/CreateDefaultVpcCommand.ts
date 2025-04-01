@@ -48,10 +48,6 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * const response = await client.send(command);
  * // { // CreateDefaultVpcResult
  * //   Vpc: { // Vpc
- * //     CidrBlock: "STRING_VALUE",
- * //     DhcpOptionsId: "STRING_VALUE",
- * //     State: "pending" || "available",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     InstanceTenancy: "default" || "dedicated" || "host",
  * //     Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
@@ -64,6 +60,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //         },
  * //         NetworkBorderGroup: "STRING_VALUE",
  * //         Ipv6Pool: "STRING_VALUE",
+ * //         Ipv6AddressAttribute: "public" || "private",
+ * //         IpSource: "amazon" || "byoip" || "none",
  * //       },
  * //     ],
  * //     CidrBlockAssociationSet: [ // VpcCidrBlockAssociationSet
@@ -77,12 +75,54 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //       },
  * //     ],
  * //     IsDefault: true || false,
- * //     Tags: [ // TagList
- * //       { // Tag
+ * //     EncryptionControl: { // VpcEncryptionControl
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcEncryptionControlId: "STRING_VALUE",
+ * //       Mode: "monitor" || "enforce",
+ * //       State: "enforce-in-progress" || "monitor-in-progress" || "enforce-failed" || "monitor-failed" || "deleting" || "deleted" || "available" || "creating" || "delete-failed",
+ * //       StateMessage: "STRING_VALUE",
+ * //       ResourceExclusions: { // VpcEncryptionControlExclusions
+ * //         InternetGateway: { // VpcEncryptionControlExclusion
+ * //           State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //         EgressOnlyInternetGateway: {
+ * //           State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //         NatGateway: {
+ * //           State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //         VirtualPrivateGateway: {
+ * //           State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //         VpcPeering: {
+ * //           State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     Tags: [
+ * //       {
  * //         Key: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //     },
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     DhcpOptionsId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -97,6 +137,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateDefaultVpcCommand extends $Command
@@ -107,9 +148,7 @@ export class CreateDefaultVpcCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +160,16 @@ export class CreateDefaultVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDefaultVpcCommand)
   .de(de_CreateDefaultVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDefaultVpcRequest;
+      output: CreateDefaultVpcResult;
+    };
+    sdk: {
+      input: CreateDefaultVpcCommandInput;
+      output: CreateDefaultVpcCommandOutput;
+    };
+  };
+}

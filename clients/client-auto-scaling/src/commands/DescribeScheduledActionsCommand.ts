@@ -31,7 +31,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * <p>Gets information about the scheduled actions that haven't run or that have not reached
  *             their end time.</p>
  *          <p>To describe the scaling activities for scheduled actions that have already run, call
- *             the <a>DescribeScalingActivities</a> API.</p>
+ *             the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,35 +87,35 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scheduled actions
  * ```javascript
  * // This example describes the scheduled actions for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScheduledUpdateGroupActions": [
+ *   ScheduledUpdateGroupActions: [
  *     {
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "DesiredCapacity": 4,
- *       "MaxSize": 6,
- *       "MinSize": 2,
- *       "Recurrence": "30 0 1 12 0",
- *       "ScheduledActionARN": "arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action",
- *       "ScheduledActionName": "my-scheduled-action",
- *       "StartTime": "2016-12-01T00:30:00Z",
- *       "Time": "2016-12-01T00:30:00Z"
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       DesiredCapacity: 4,
+ *       MaxSize: 6,
+ *       MinSize: 2,
+ *       Recurrence: "30 0 1 12 0",
+ *       ScheduledActionARN: "arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action",
+ *       ScheduledActionName: "my-scheduled-action",
+ *       StartTime: "2016-12-01T00:30:00Z",
+ *       Time: "2016-12-01T00:30:00Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-scheduled-actions-1
  * ```
  *
+ * @public
  */
 export class DescribeScheduledActionsCommand extends $Command
   .classBuilder<
@@ -125,9 +125,7 @@ export class DescribeScheduledActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class DescribeScheduledActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduledActionsCommand)
   .de(de_DescribeScheduledActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduledActionsType;
+      output: ScheduledActionsType;
+    };
+    sdk: {
+      input: DescribeScheduledActionsCommandInput;
+      output: DescribeScheduledActionsCommandOutput;
+    };
+  };
+}

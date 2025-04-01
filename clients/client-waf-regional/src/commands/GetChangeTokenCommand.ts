@@ -70,21 +70,21 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get a change token
  * ```javascript
  * // The following example returns a change token to use for a create, update or delete operation.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: get-change-token-example-1471635120794
  * ```
  *
+ * @public
  */
 export class GetChangeTokenCommand extends $Command
   .classBuilder<
@@ -94,9 +94,7 @@ export class GetChangeTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +106,16 @@ export class GetChangeTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChangeTokenCommand)
   .de(de_GetChangeTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetChangeTokenResponse;
+    };
+    sdk: {
+      input: GetChangeTokenCommandInput;
+      output: GetChangeTokenCommandOutput;
+    };
+  };
+}

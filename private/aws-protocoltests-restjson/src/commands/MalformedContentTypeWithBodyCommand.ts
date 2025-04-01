@@ -55,6 +55,7 @@ export interface MalformedContentTypeWithBodyCommandOutput extends __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedContentTypeWithBodyCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedContentTypeWithBodyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedContentTypeWithBodyCommand)
   .de(de_MalformedContentTypeWithBodyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GreetingStruct;
+      output: {};
+    };
+    sdk: {
+      input: MalformedContentTypeWithBodyCommandInput;
+      output: MalformedContentTypeWithBodyCommandOutput;
+    };
+  };
+}

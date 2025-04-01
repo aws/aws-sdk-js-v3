@@ -97,6 +97,7 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleVersionCommand extends $Command
@@ -107,9 +108,7 @@ export class UpdateRuleVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateRuleVersionCommand extends $Command
   .f(UpdateRuleVersionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRuleVersionCommand)
   .de(de_UpdateRuleVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleVersionRequest;
+      output: UpdateRuleVersionResult;
+    };
+    sdk: {
+      input: UpdateRuleVersionCommandInput;
+      output: UpdateRuleVersionCommandOutput;
+    };
+  };
+}

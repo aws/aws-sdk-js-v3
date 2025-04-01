@@ -186,6 +186,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class CalculateRouteCommand extends $Command
@@ -196,9 +197,7 @@ export class CalculateRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +209,16 @@ export class CalculateRouteCommand extends $Command
   .f(CalculateRouteRequestFilterSensitiveLog, CalculateRouteResponseFilterSensitiveLog)
   .ser(se_CalculateRouteCommand)
   .de(de_CalculateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CalculateRouteRequest;
+      output: CalculateRouteResponse;
+    };
+    sdk: {
+      input: CalculateRouteCommandInput;
+      output: CalculateRouteCommandOutput;
+    };
+  };
+}

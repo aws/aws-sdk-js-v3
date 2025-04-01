@@ -28,8 +28,10 @@ export interface GetStatementResultCommandInput extends GetStatementResultReques
 export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**
- * <p>Fetches the temporarily cached result of an SQL statement.
- *        A token is returned to page through the statement results. </p>
+ * <p>Fetches the temporarily cached result of an SQL statement in JSON format.
+ *        The <code>ExecuteStatement</code> or <code>BatchExecuteStatement</code> operation that ran the SQL statement must have specified <code>ResultFormat</code> as <code>JSON</code>
+ *        , or let the format default to JSON.
+ *        A token is returned to page through the statement results.</p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
  *        <i>Amazon Redshift Management Guide</i>. </p>
@@ -99,6 +101,7 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class GetStatementResultCommand extends $Command
@@ -109,9 +112,7 @@ export class GetStatementResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +124,16 @@ export class GetStatementResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStatementResultCommand)
   .de(de_GetStatementResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStatementResultRequest;
+      output: GetStatementResultResponse;
+    };
+    sdk: {
+      input: GetStatementResultCommandInput;
+      output: GetStatementResultCommandOutput;
+    };
+  };
+}

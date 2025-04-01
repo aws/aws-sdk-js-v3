@@ -36,8 +36,12 @@ export interface UpdateDeviceStatusCommandInput extends UpdateDeviceStatusReques
 export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the device status. For more information about device authentication, see
- *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Updates the status of a the currently signed-in user's device so that it is
+ *             marked as remembered or not remembered for the purpose of device authentication. Device
+ *             authentication is a "remember me" mechanism that silently completes sign-in from trusted
+ *             devices with a device key instead of a user-provided MFA code. This operation changes
+ *             the status of a device without deleting it, so you can enable it again later. For more
+ *             information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -105,6 +109,7 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeviceStatusCommand extends $Command
@@ -115,9 +120,7 @@ export class UpdateDeviceStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +132,16 @@ export class UpdateDeviceStatusCommand extends $Command
   .f(UpdateDeviceStatusRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDeviceStatusCommand)
   .de(de_UpdateDeviceStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDeviceStatusCommandInput;
+      output: UpdateDeviceStatusCommandOutput;
+    };
+  };
+}

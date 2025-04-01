@@ -104,6 +104,7 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class UpdateBillingGroupCommand extends $Command
@@ -114,9 +115,7 @@ export class UpdateBillingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class UpdateBillingGroupCommand extends $Command
   .f(UpdateBillingGroupInputFilterSensitiveLog, UpdateBillingGroupOutputFilterSensitiveLog)
   .ser(se_UpdateBillingGroupCommand)
   .de(de_UpdateBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBillingGroupInput;
+      output: UpdateBillingGroupOutput;
+    };
+    sdk: {
+      input: UpdateBillingGroupCommandInput;
+      output: UpdateBillingGroupCommandOutput;
+    };
+  };
+}

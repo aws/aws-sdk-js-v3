@@ -84,6 +84,7 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CreateConstraintCommand extends $Command
@@ -94,9 +95,7 @@ export class CreateConstraintCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateConstraintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConstraintCommand)
   .de(de_CreateConstraintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConstraintInput;
+      output: CreateConstraintOutput;
+    };
+    sdk: {
+      input: CreateConstraintCommandInput;
+      output: CreateConstraintCommandOutput;
+    };
+  };
+}

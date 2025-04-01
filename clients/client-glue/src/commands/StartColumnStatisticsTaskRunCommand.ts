@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartColumnStatisticsTaskRunRequest, StartColumnStatisticsTaskRunResponse } from "../models/models_2";
+import { StartColumnStatisticsTaskRunRequest, StartColumnStatisticsTaskRunResponse } from "../models/models_3";
 import {
   de_StartColumnStatisticsTaskRunCommand,
   se_StartColumnStatisticsTaskRunCommand,
@@ -86,6 +86,7 @@ export interface StartColumnStatisticsTaskRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartColumnStatisticsTaskRunCommand extends $Command
@@ -96,9 +97,7 @@ export class StartColumnStatisticsTaskRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class StartColumnStatisticsTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartColumnStatisticsTaskRunCommand)
   .de(de_StartColumnStatisticsTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartColumnStatisticsTaskRunRequest;
+      output: StartColumnStatisticsTaskRunResponse;
+    };
+    sdk: {
+      input: StartColumnStatisticsTaskRunCommandInput;
+      output: StartColumnStatisticsTaskRunCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,7 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class SendProjectSessionActionCommand extends $Command
@@ -109,9 +110,7 @@ export class SendProjectSessionActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class SendProjectSessionActionCommand extends $Command
   .f(SendProjectSessionActionRequestFilterSensitiveLog, void 0)
   .ser(se_SendProjectSessionActionCommand)
   .de(de_SendProjectSessionActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendProjectSessionActionRequest;
+      output: SendProjectSessionActionResponse;
+    };
+    sdk: {
+      input: SendProjectSessionActionCommandInput;
+      output: SendProjectSessionActionCommandOutput;
+    };
+  };
+}

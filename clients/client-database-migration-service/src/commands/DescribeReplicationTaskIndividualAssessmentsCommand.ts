@@ -13,7 +13,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeReplicationTaskIndividualAssessmentsCommand,
   se_DescribeReplicationTaskIndividualAssessmentsCommand,
@@ -91,6 +91,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Command
@@ -101,9 +102,7 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTaskIndividualAssessmentsCommand)
   .de(de_DescribeReplicationTaskIndividualAssessmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTaskIndividualAssessmentsMessage;
+      output: DescribeReplicationTaskIndividualAssessmentsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTaskIndividualAssessmentsCommandInput;
+      output: DescribeReplicationTaskIndividualAssessmentsCommandOutput;
+    };
+  };
+}

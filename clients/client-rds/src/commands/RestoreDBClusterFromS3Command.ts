@@ -98,6 +98,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
+ *     SecondsUntilAutoPause: Number("int"),
  *   },
  *   NetworkType: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
@@ -267,12 +268,14 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -289,6 +292,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -364,73 +368,73 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To restore an Amazon Aurora DB cluster from Amazon S3
  * ```javascript
  * // The following example restores an Amazon Aurora MySQL version 5.7-compatible DB cluster from a MySQL 5.7 DB backup file in Amazon S3.
  * const input = {
- *   "DBClusterIdentifier": "cluster-s3-restore",
- *   "Engine": "aurora-mysql",
- *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "admin",
- *   "S3BucketName": "mybucket",
- *   "S3IngestionRoleArn": "arn:aws:iam::123456789012:role/service-role/TestBackup",
- *   "S3Prefix": "test-backup",
- *   "SourceEngine": "mysql",
- *   "SourceEngineVersion": "5.7.28"
+ *   DBClusterIdentifier: "cluster-s3-restore",
+ *   Engine: "aurora-mysql",
+ *   MasterUserPassword: "mypassword",
+ *   MasterUsername: "admin",
+ *   S3BucketName: "mybucket",
+ *   S3IngestionRoleArn: "arn:aws:iam::123456789012:role/service-role/TestBackup",
+ *   S3Prefix: "test-backup",
+ *   SourceEngine: "mysql",
+ *   SourceEngineVersion: "5.7.28"
  * };
  * const command = new RestoreDBClusterFromS3Command(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
  *       "us-west-2c",
  *       "us-west-2a",
  *       "us-west-2b"
  *     ],
- *     "BackupRetentionPeriod": 1,
- *     "ClusterCreateTime": "2020-07-27T14:22:08.095Z",
- *     "CopyTagsToSnapshot": false,
- *     "CrossAccountClone": false,
- *     "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:cluster-s3-restore",
- *     "DBClusterIdentifier": "cluster-s3-restore",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-mysql5.7",
- *     "DBSubnetGroup": "default",
- *     "DbClusterResourceId": "cluster-SU5THYQQHOWCXZZDGXREXAMPLE",
- *     "DeletionProtection": false,
- *     "DomainMemberships": [],
- *     "Endpoint": "cluster-s3-restore.cluster-co3xyzabc123.us-west-2.rds.amazonaws.com",
- *     "Engine": "aurora-mysql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "5.7.12",
- *     "HostedZoneId": "Z1PVIF0EXAMPLE",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MasterUsername": "admin",
- *     "MultiAZ": false,
- *     "Port": 3306,
- *     "PreferredBackupWindow": "11:15-11:45",
- *     "PreferredMaintenanceWindow": "thu:12:19-thu:12:49",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "cluster-s3-restore.cluster-ro-co3xyzabc123.us-west-2.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": false,
- *     "VpcSecurityGroups": [
+ *     BackupRetentionPeriod: 1,
+ *     ClusterCreateTime: "2020-07-27T14:22:08.095Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:cluster-s3-restore",
+ *     DBClusterIdentifier: "cluster-s3-restore",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-mysql5.7",
+ *     DBSubnetGroup: "default",
+ *     DbClusterResourceId: "cluster-SU5THYQQHOWCXZZDGXREXAMPLE",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     Endpoint: "cluster-s3-restore.cluster-co3xyzabc123.us-west-2.rds.amazonaws.com",
+ *     Engine: "aurora-mysql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "5.7.12",
+ *     HostedZoneId: "Z1PVIF0EXAMPLE",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MasterUsername: "admin",
+ *     MultiAZ: false,
+ *     Port: 3306,
+ *     PreferredBackupWindow: "11:15-11:45",
+ *     PreferredMaintenanceWindow: "thu:12:19-thu:12:49",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "cluster-s3-restore.cluster-ro-co3xyzabc123.us-west-2.rds.amazonaws.com",
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-########"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-########"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-restore-an-amazon-aurora-db-cluster-from-amazon-s3-1680069516445
  * ```
  *
+ * @public
  */
 export class RestoreDBClusterFromS3Command extends $Command
   .classBuilder<
@@ -440,9 +444,7 @@ export class RestoreDBClusterFromS3Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -454,4 +456,16 @@ export class RestoreDBClusterFromS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBClusterFromS3Command)
   .de(de_RestoreDBClusterFromS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBClusterFromS3Message;
+      output: RestoreDBClusterFromS3Result;
+    };
+    sdk: {
+      input: RestoreDBClusterFromS3CommandInput;
+      output: RestoreDBClusterFromS3CommandOutput;
+    };
+  };
+}

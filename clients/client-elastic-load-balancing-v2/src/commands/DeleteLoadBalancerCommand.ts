@@ -72,18 +72,21 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To delete a load balancer
  * ```javascript
  * // This example deletes the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  * };
  * const command = new DeleteLoadBalancerCommand(input);
- * await client.send(command);
- * // example id: elbv2-delete-load-balancer-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLoadBalancerCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class DeleteLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class DeleteLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoadBalancerCommand)
   .de(de_DeleteLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoadBalancerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoadBalancerCommandInput;
+      output: DeleteLoadBalancerCommandOutput;
+    };
+  };
+}

@@ -33,7 +33,9 @@ export interface DescribeAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an asset model composite model (also known as an asset model component). For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Retrieves information about an asset model composite model (also known as an asset model
+ *       component). For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models
+ *         (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +45,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * const input = { // DescribeAssetModelCompositeModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   assetModelCompositeModelId: "STRING_VALUE", // required
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new DescribeAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -62,6 +65,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * //   assetModelCompositeModelProperties: [ // AssetModelProperties // required
  * //     { // AssetModelProperty
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //       dataTypeSpec: "STRING_VALUE",
@@ -135,7 +139,6 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   compositionDetails: { // CompositionDetails
@@ -196,6 +199,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetModelCompositeModelCommand extends $Command
@@ -206,9 +210,7 @@ export class DescribeAssetModelCompositeModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -220,4 +222,16 @@ export class DescribeAssetModelCompositeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssetModelCompositeModelCommand)
   .de(de_DescribeAssetModelCompositeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssetModelCompositeModelRequest;
+      output: DescribeAssetModelCompositeModelResponse;
+    };
+    sdk: {
+      input: DescribeAssetModelCompositeModelCommandInput;
+      output: DescribeAssetModelCompositeModelCommandOutput;
+    };
+  };
+}

@@ -120,13 +120,14 @@ export interface UpdateMatchmakingConfigurationCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -138,9 +139,7 @@ export class UpdateMatchmakingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class UpdateMatchmakingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMatchmakingConfigurationCommand)
   .de(de_UpdateMatchmakingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMatchmakingConfigurationInput;
+      output: UpdateMatchmakingConfigurationOutput;
+    };
+    sdk: {
+      input: UpdateMatchmakingConfigurationCommandInput;
+      output: UpdateMatchmakingConfigurationCommandOutput;
+    };
+  };
+}

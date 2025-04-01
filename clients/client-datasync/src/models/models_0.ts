@@ -41,7 +41,7 @@ export interface DiscoveryServerConfiguration {
    * <p>The network port for accessing the storage system's management interface.</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 }
 
 /**
@@ -73,7 +73,7 @@ export interface TagListEntry {
    * <p>The value for an Amazon Web Services resource tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface AddStorageSystemRequest {
    *       discovery job events.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services
@@ -121,13 +121,13 @@ export interface AddStorageSystemRequest {
    *       system.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
    * <p>Specifies a familiar name for your on-premises storage system.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies a client token to make sure requests with this API operation are idempotent. If
@@ -135,7 +135,7 @@ export interface AddStorageSystemRequest {
    *       automatically.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Specifies the user name and password for accessing your on-premises storage system's
@@ -164,7 +164,7 @@ export interface AddStorageSystemResponse {
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
   readonly $fault: "server" = "server";
-  errorCode?: string;
+  errorCode?: string | undefined;
   /**
    * @internal
    */
@@ -186,8 +186,8 @@ export class InternalException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  errorCode?: string;
-  datasyncErrorCode?: string;
+  errorCode?: string | undefined;
+  datasyncErrorCode?: string | undefined;
   /**
    * @internal
    */
@@ -213,7 +213,7 @@ export interface Platform {
    * <p>The version of the DataSync agent.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -240,13 +240,13 @@ export interface AgentListEntry {
    * <p>The Amazon Resource Name (ARN) of a DataSync agent.</p>
    * @public
    */
-  AgentArn?: string;
+  AgentArn?: string | undefined;
 
   /**
    * <p>The name of an agent.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of an agent.</p>
@@ -264,13 +264,13 @@ export interface AgentListEntry {
    *          </ul>
    * @public
    */
-  Status?: AgentStatus;
+  Status?: AgentStatus | undefined;
 
   /**
    * <p>The platform-related details about the agent, such as the version number.</p>
    * @public
    */
-  Platform?: Platform;
+  Platform?: Platform | undefined;
 }
 
 /**
@@ -374,26 +374,26 @@ export interface Capacity {
    * <p>The amount of space that's being used in a storage system resource.</p>
    * @public
    */
-  Used?: number;
+  Used?: number | undefined;
 
   /**
    * <p>The total amount of space available in a storage system resource.</p>
    * @public
    */
-  Provisioned?: number;
+  Provisioned?: number | undefined;
 
   /**
    * <p>The amount of space that's being used in a storage system resource without accounting for
    *       compression or deduplication.</p>
    * @public
    */
-  LogicalUsed?: number;
+  LogicalUsed?: number | undefined;
 
   /**
    * <p>The amount of space in the cluster that's in cloud storage (for example, if you're using data tiering).</p>
    * @public
    */
-  ClusterCloudStorageUsed?: number;
+  ClusterCloudStorageUsed?: number | undefined;
 }
 
 /**
@@ -403,52 +403,49 @@ export interface Capacity {
 export interface CreateAgentRequest {
   /**
    * <p>Specifies your DataSync agent's activation key. If you don't have an
-   *       activation key, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">Activate your agent</a>.</p>
+   *       activation key, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">Activating your agent</a>.</p>
    * @public
    */
   ActivationKey: string | undefined;
 
   /**
-   * <p>Specifies a name for your agent. You can see this name in the DataSync
-   *       console.</p>
+   * <p>Specifies a name for your agent. We recommend specifying a name that you can
+   *       remember.</p>
    * @public
    */
-  AgentName?: string;
+  AgentName?: string | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
    *       We recommend creating at least one tag for your agent.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
-   * <p>Specifies the ID of the VPC endpoint that you want your agent to connect to. For example,
-   *       a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p>
+   * <p>Specifies the ID of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#datasync-in-vpc">VPC service endpoint</a> that you're using. For
+   *       example, a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p>
    *          <important>
-   *             <p>The VPC endpoint you use must include the DataSync service name (for example,
-   *           <code>com.amazonaws.us-east-2.datasync</code>).</p>
+   *             <p>The VPC service endpoint you use must include the DataSync service name (for
+   *         example, <code>com.amazonaws.us-east-2.datasync</code>).</p>
    *          </important>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
-   * <p>Specifies the ARN of the subnet where you want to run your DataSync task when
-   *       using a VPC endpoint. This is the subnet where DataSync creates and manages the
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *         interfaces</a> for your transfer. You can only specify one ARN.</p>
+   * <p>Specifies the ARN of the subnet where your VPC service endpoint is located. You can only
+   *       specify one ARN.</p>
    * @public
    */
-  SubnetArns?: string[];
+  SubnetArns?: string[] | undefined;
 
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the security group that protects your task's
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *         interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using a virtual private cloud (VPC) endpoint</a>. You can only specify one ARN.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic between
+   *       your agent and VPC service endpoint. You can only specify one ARN.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 }
 
 /**
@@ -461,7 +458,7 @@ export interface CreateAgentResponse {
    *       list of agents in your Amazon Web Services account and Amazon Web Services Region.</p>
    * @public
    */
-  AgentArn?: string;
+  AgentArn?: string | undefined;
 }
 
 /**
@@ -484,7 +481,7 @@ export interface CreateLocationAzureBlobRequest {
    * <p>Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.</p>
    * @public
    */
-  SasConfiguration?: AzureBlobSasConfiguration;
+  SasConfiguration?: AzureBlobSasConfiguration | undefined;
 
   /**
    * <p>Specifies the type of blob that you want your objects or files to be when transferring
@@ -492,20 +489,20 @@ export interface CreateLocationAzureBlobRequest {
    *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    * @public
    */
-  BlobType?: AzureBlobType;
+  BlobType?: AzureBlobType | undefined;
 
   /**
    * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    * @public
    */
-  AccessTier?: AzureAccessTier;
+  AccessTier?: AzureAccessTier | undefined;
 
   /**
    * <p>Specifies path segments if you want to limit your transfer to a virtual directory in your
    *       container (for example, <code>/my/images</code>).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.</p>
@@ -519,7 +516,7 @@ export interface CreateLocationAzureBlobRequest {
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your transfer location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -530,11 +527,12 @@ export interface CreateLocationAzureBlobResponse {
    * <p>The ARN of the Azure Blob Storage transfer location that you created.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
- * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
+ * <p>The subnet and security groups that DataSync uses to connect to one of your
+ *         Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
  * @public
  */
 export interface Ec2Config {
@@ -585,25 +583,23 @@ export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeo
  */
 export interface CreateLocationEfsRequest {
   /**
-   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data (depending on if this is a source or destination location).
-   *       By default, DataSync uses the root directory, but you can also include
-   *       subdirectories.</p>
-   *          <note>
-   *             <p>You must specify a value with forward slashes (for example,
-   *         <code>/path/to/folder</code>).</p>
-   *          </note>
+   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p>
+   *          <p>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access point</a> if you provide one by using
+   *         <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for
+   *       example, <code>/path/to/folder</code>).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
-   * <p>Specifies the ARN for the Amazon EFS file system.</p>
+   * <p>Specifies the ARN for your Amazon EFS file system.</p>
    * @public
    */
   EfsFilesystemArn: string | undefined;
 
   /**
-   * <p>Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.</p>
+   * <p>Specifies the subnet and security groups DataSync uses to connect to one of
+   *       your Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
    * @public
    */
   Ec2Config: Ec2Config | undefined;
@@ -614,31 +610,32 @@ export interface CreateLocationEfsRequest {
    *       for your resources. We recommend that you create a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses
-   *       to access the Amazon EFS file system.</p>
+   *       to mount your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted file systems</a>.</p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 
   /**
-   * <p>Specifies an Identity and Access Management (IAM) role that DataSync
-   *       assumes when mounting the Amazon EFS file system.</p>
+   * <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p>
+   *          <p>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for file system access</a>.</p>
    * @public
    */
-  FileSystemAccessRoleArn?: string;
+  FileSystemAccessRoleArn?: string | undefined;
 
   /**
    * <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2
-   *       encryption when it copies data to or from the Amazon EFS file system.</p>
+   *       encryption when it transfers data to or from your Amazon EFS file system.</p>
    *          <p>If you specify an access point using <code>AccessPointArn</code> or an IAM
    *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
    *         <code>TLS1_2</code>.</p>
    * @public
    */
-  InTransitEncryption?: EfsInTransitEncryption;
+  InTransitEncryption?: EfsInTransitEncryption | undefined;
 }
 
 /**
@@ -651,7 +648,7 @@ export interface CreateLocationEfsResponse {
    *       create.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -659,33 +656,35 @@ export interface CreateLocationEfsResponse {
  */
 export interface CreateLocationFsxLustreRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the FSx for Lustre file system.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.</p>
    * @public
    */
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are used to configure the
+   * <p>Specifies the Amazon Resource Names (ARNs) of up to five security groups that provide access to your
    *         FSx for Lustre file system.</p>
+   *          <p>The security groups must be able to access the file system's ports. The file system must
+   *       also allow access from the security groups. For information about file system access, see the
+   *       <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Lustre User Guide</i>
+   *             </a>.</p>
    * @public
    */
   SecurityGroupArns: string[] | undefined;
 
   /**
-   * <p>A subdirectory in the location's path. This subdirectory in the FSx for Lustre
-   *       file system is used to read data from the FSx for Lustre source location or write
-   *       data to the FSx for Lustre destination.</p>
+   * <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p>
+   *          <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
-   * <p>The key-value pair that represents a tag that you want to add to the resource. The value
-   *       can be an empty string. This value helps you manage, filter, and search for your resources. We
-   *       recommend that you create a name tag for your location.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -693,11 +692,11 @@ export interface CreateLocationFsxLustreRequest {
  */
 export interface CreateLocationFsxLustreResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that's
-   *       created. </p>
+   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that
+   *       you created. </p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -752,13 +751,13 @@ export interface NfsMountOptions {
    *          </note>
    * @public
    */
-  Version?: NfsVersion;
+  Version?: NfsVersion | undefined;
 }
 
 /**
  * <p>Specifies the Network File System (NFS) protocol configuration that DataSync
- *       uses to access your Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP file
- *       system.</p>
+ *       uses to access your FSx for OpenZFS file system or FSx for ONTAP file
+ *       system's storage virtual machine (SVM).</p>
  * @public
  */
 export interface FsxProtocolNfs {
@@ -766,7 +765,7 @@ export interface FsxProtocolNfs {
    * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
    * @public
    */
-  MountOptions?: NfsMountOptions;
+  MountOptions?: NfsMountOptions | undefined;
 }
 
 /**
@@ -830,29 +829,29 @@ export interface SmbMountOptions {
    *          </ul>
    * @public
    */
-  Version?: SmbVersion;
+  Version?: SmbVersion | undefined;
 }
 
 /**
- * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system. For more information, see
- *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Accessing FSx for ONTAP file systems</a>.</p>
+ * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system's storage virtual machine (SVM). For more information, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Providing DataSync access to FSx for ONTAP file systems</a>.</p>
  * @public
  */
 export interface FsxProtocolSmb {
   /**
-   * <p>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory that
-   *       your storage virtual machine (SVM) belongs to.</p>
+   * <p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p>
    *          <p>If you have multiple domains in your environment, configuring this setting makes sure that
    *       DataSync connects to the right SVM.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    * @public
    */
-  MountOptions?: SmbMountOptions;
+  MountOptions?: SmbMountOptions | undefined;
 
   /**
    * <p>Specifies the password of a user who has permission to access your SVM.</p>
@@ -881,14 +880,14 @@ export interface FsxProtocol {
    *       system's storage virtual machine (SVM).</p>
    * @public
    */
-  NFS?: FsxProtocolNfs;
+  NFS?: FsxProtocolNfs | undefined;
 
   /**
    * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync
    *       uses to access your FSx for ONTAP file system's SVM.</p>
    * @public
    */
-  SMB?: FsxProtocolSmb;
+  SMB?: FsxProtocolSmb | undefined;
 }
 
 /**
@@ -932,7 +931,7 @@ export interface CreateLocationFsxOntapRequest {
   StorageVirtualMachineArn: string | undefined;
 
   /**
-   * <p>Specifies a path to the file share in the SVM where you'll copy your data.</p>
+   * <p>Specifies a path to the file share in the SVM where you want to transfer data to or from.</p>
    *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
    *       shares), or share name (for SMB file shares). For example, your mount path might be
    *         <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
@@ -941,14 +940,14 @@ export interface CreateLocationFsxOntapRequest {
    *          </note>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services
    *       resources. We recommend creating at least a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -960,7 +959,7 @@ export interface CreateLocationFsxOntapResponse {
    *       create.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -991,7 +990,7 @@ export interface CreateLocationFsxOpenZfsRequest {
    *       system is a source or destination location).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>The key-value pair that represents a tag that you want to add to the resource. The value
@@ -999,7 +998,7 @@ export interface CreateLocationFsxOpenZfsRequest {
    *       recommend that you create a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -1010,7 +1009,7 @@ export interface CreateLocationFsxOpenZfsResponse {
    * <p>The ARN of the FSx for OpenZFS file system location that you created.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -1022,7 +1021,7 @@ export interface CreateLocationFsxWindowsRequest {
    *       location).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file
@@ -1032,8 +1031,12 @@ export interface CreateLocationFsxWindowsRequest {
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>Specifies the ARNs of the security groups that provide access to your file system's
-   *       preferred subnet.</p>
+   * <p>Specifies the ARNs of the Amazon EC2 security groups that provide access to your file system's preferred subnet.</p>
+   *          <p>The security groups that you specify must be able to communicate with your file system's
+   *       security groups. For information about configuring security groups for file system access, see
+   *       the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Windows File Server User Guide</i>
+   *             </a>.</p>
    *          <note>
    *             <p>If you choose a security group that doesn't allow connections from within itself, do one
    *         of the following:</p>
@@ -1056,7 +1059,7 @@ export interface CreateLocationFsxWindowsRequest {
    *       resources. We recommend creating at least a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
    * <p>Specifies the user with the permissions to mount and access the files, folders, and file
@@ -1067,12 +1070,12 @@ export interface CreateLocationFsxWindowsRequest {
   User: string | undefined;
 
   /**
-   * <p>Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.</p>
+   * <p>Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.</p>
    *          <p>If you have multiple Active Directory domains in your environment, configuring this
    *       parameter makes sure that DataSync connects to the right file system.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>Specifies the password of the user with the permissions to mount and access the files,
@@ -1090,7 +1093,7 @@ export interface CreateLocationFsxWindowsResponse {
    * <p>The ARN of the FSx for Windows File Server file system location you created.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -1175,7 +1178,7 @@ export interface QopConfiguration {
    *       your Hadoop cluster.</p>
    * @public
    */
-  RpcProtection?: HdfsRpcProtection;
+  RpcProtection?: HdfsRpcProtection | undefined;
 
   /**
    * <p>The data transfer protection setting configured on the HDFS cluster. This setting
@@ -1183,7 +1186,7 @@ export interface QopConfiguration {
    *         <code>hdfs-site.xml</code> file on your Hadoop cluster.</p>
    * @public
    */
-  DataTransferProtection?: HdfsDataTransferProtection;
+  DataTransferProtection?: HdfsDataTransferProtection | undefined;
 }
 
 /**
@@ -1196,7 +1199,7 @@ export interface CreateLocationHdfsRequest {
    *         <code>/</code>.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
@@ -1211,20 +1214,20 @@ export interface CreateLocationHdfsRequest {
    *       of 512 bytes. The default block size is 128 mebibytes (MiB).</p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. By
    *       default, data is replicated to three DataNodes.</p>
    * @public
    */
-  ReplicationFactor?: number;
+  ReplicationFactor?: number | undefined;
 
   /**
    * <p>The URI of the HDFS cluster's Key Management Server (KMS). </p>
    * @public
    */
-  KmsKeyProviderUri?: string;
+  KmsKeyProviderUri?: string | undefined;
 
   /**
    * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
@@ -1235,7 +1238,7 @@ export interface CreateLocationHdfsRequest {
    *       assumes the same value. </p>
    * @public
    */
-  QopConfiguration?: QopConfiguration;
+  QopConfiguration?: QopConfiguration | undefined;
 
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
@@ -1251,7 +1254,7 @@ export interface CreateLocationHdfsRequest {
    *          </note>
    * @public
    */
-  SimpleUser?: string;
+  SimpleUser?: string | undefined;
 
   /**
    * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p>
@@ -1261,7 +1264,7 @@ export interface CreateLocationHdfsRequest {
    *          </note>
    * @public
    */
-  KerberosPrincipal?: string;
+  KerberosPrincipal?: string | undefined;
 
   /**
    * <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
@@ -1274,7 +1277,7 @@ export interface CreateLocationHdfsRequest {
    *          </note>
    * @public
    */
-  KerberosKeytab?: Uint8Array;
+  KerberosKeytab?: Uint8Array | undefined;
 
   /**
    * <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You
@@ -1287,11 +1290,10 @@ export interface CreateLocationHdfsRequest {
    *          </note>
    * @public
    */
-  KerberosKrb5Conf?: Uint8Array;
+  KerberosKrb5Conf?: Uint8Array | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS
-   *       cluster.</p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1301,7 +1303,7 @@ export interface CreateLocationHdfsRequest {
    *       can be an empty string. We recommend using tags to name your resources. </p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -1309,21 +1311,22 @@ export interface CreateLocationHdfsRequest {
  */
 export interface CreateLocationHdfsResponse {
   /**
-   * <p>The ARN of the source HDFS cluster location that's created. </p>
+   * <p>The ARN of the source HDFS cluster location that you create.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
- * <p>The DataSync agents that are connecting to a Network File System (NFS)
- *       location.</p>
+ * <p>The DataSync agents that can connect to your Network File System (NFS)
+ *       file server.</p>
  * @public
  */
 export interface OnPremConfig {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the agents connecting to a transfer
-   *       location.</p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS file server.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using multiple DataSync
+   *       agents</a>.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1344,17 +1347,17 @@ export interface CreateLocationNfsRequest {
   Subdirectory: string | undefined;
 
   /**
-   * <p>Specifies the Domain Name System (DNS) name or IP version 4 address of the NFS file
+   * <p>Specifies the DNS name or IP version 4 address of the NFS file
    *       server that your DataSync agent connects to.</p>
    * @public
    */
   ServerHostname: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can
    *       connect to your NFS file server.</p>
-   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using multiple
-   *         agents for transfers</a>.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using multiple DataSync
+   *         agents</a>.</p>
    * @public
    */
   OnPremConfig: OnPremConfig | undefined;
@@ -1364,14 +1367,14 @@ export interface CreateLocationNfsRequest {
    *       server.</p>
    * @public
    */
-  MountOptions?: NfsMountOptions;
+  MountOptions?: NfsMountOptions | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
    *       We recommend creating at least a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -1383,7 +1386,7 @@ export interface CreateLocationNfsResponse {
    * <p>The ARN of the transfer location that you created for your NFS file server.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -1407,8 +1410,8 @@ export type ObjectStorageServerProtocol =
  */
 export interface CreateLocationObjectStorageRequest {
   /**
-   * <p>Specifies the domain name or IP address of the object storage server. A DataSync
-   *       agent uses this hostname to mount the object storage server in a network.</p>
+   * <p>Specifies the domain name or IP version 4 (IPv4) address of the object storage server that your DataSync
+   *       agent connects to.</p>
    * @public
    */
   ServerHostname: string | undefined;
@@ -1418,13 +1421,13 @@ export interface CreateLocationObjectStorageRequest {
    *       example, port 443).</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 
   /**
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    * @public
    */
-  ServerProtocol?: ObjectStorageServerProtocol;
+  ServerProtocol?: ObjectStorageServerProtocol | undefined;
 
   /**
    * <p>Specifies the object prefix for your object storage server. If this is a source location,
@@ -1432,7 +1435,7 @@ export interface CreateLocationObjectStorageRequest {
    *         DataSync writes all objects with this prefix. </p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the name of the object storage bucket involved in the transfer.</p>
@@ -1445,18 +1448,18 @@ export interface CreateLocationObjectStorageRequest {
    *       authenticate with the object storage server.</p>
    * @public
    */
-  AccessKey?: string;
+  AccessKey?: string | undefined;
 
   /**
    * <p>Specifies the secret key (for example, a password) if credentials are required to
    *       authenticate with the object storage server.</p>
    * @public
    */
-  SecretKey?: string;
+  SecretKey?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can
-   *       securely connect with your location.</p>
+   *       connect with your object storage system.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1467,7 +1470,7 @@ export interface CreateLocationObjectStorageRequest {
    *       tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
    * <p>Specifies a certificate chain for DataSync to authenticate with your object
@@ -1496,7 +1499,7 @@ export interface CreateLocationObjectStorageRequest {
    *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
    * @public
    */
-  ServerCertificate?: Uint8Array;
+  ServerCertificate?: Uint8Array | undefined;
 }
 
 /**
@@ -1508,13 +1511,12 @@ export interface CreateLocationObjectStorageResponse {
    * <p>Specifies the ARN of the object storage system location that you create.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
  * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
- *         S3 buckets</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
  * @public
  */
 export interface S3Config {
@@ -1583,7 +1585,7 @@ export interface CreateLocationS3Request {
    *          </note>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the S3 bucket that you want to use as a location. (When creating
@@ -1606,12 +1608,11 @@ export interface CreateLocationS3Request {
    *         considerations with Amazon S3 transfers</a>.</p>
    * @public
    */
-  S3StorageClass?: S3StorageClass;
+  S3StorageClass?: S3StorageClass | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
-   *         S3 buckets</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
    * @public
    */
   S3Config: S3Config | undefined;
@@ -1622,14 +1623,14 @@ export interface CreateLocationS3Request {
    *         on Outposts</a>.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
    *       We recommend creating at least a name tag for your transfer location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -1641,8 +1642,22 @@ export interface CreateLocationS3Response {
    * <p>The ARN of the S3 location that you created.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SmbAuthenticationType = {
+  KERBEROS: "KERBEROS",
+  NTLM: "NTLM",
+} as const;
+
+/**
+ * @public
+ */
+export type SmbAuthenticationType = (typeof SmbAuthenticationType)[keyof typeof SmbAuthenticationType];
 
 /**
  * <p>CreateLocationSmbRequest</p>
@@ -1655,49 +1670,56 @@ export interface CreateLocationSmbRequest {
    *         <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
    *       also mount this path.</p>
    *          <p>To copy all data in the subdirectory, DataSync must be able to mount the SMB
-   *       share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
   Subdirectory: string | undefined;
 
   /**
-   * <p>Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that
-   *       your DataSync agent will mount.</p>
-   *          <note>
-   *             <p>You can't specify an IP version 6 (IPv6) address.</p>
-   *          </note>
+   * <p>Specifies the domain name or IP address of the SMB file server that your DataSync agent connects to.</p>
+   *          <p>Remember the following when configuring this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can't specify an IP version 6 (IPv6) address.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you're using Kerberos authentication, you must specify a domain name.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ServerHostname: string | undefined;
 
   /**
    * <p>Specifies the user that can mount and access the files, folders, and file metadata in your
-   *       SMB file server.</p>
+   *       SMB file server. This parameter applies only if <code>AuthenticationType</code> is set to
+   *         <code>NTLM</code>.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
-  User: string | undefined;
+  User?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Active Directory domain that your SMB file server belongs to. </p>
-   *          <p>If you have multiple Active Directory domains in your environment, configuring this
-   *       parameter makes sure that DataSync connects to the right file server.</p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. This parameter
+   *       applies only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right file server.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>Specifies the password of the user who can mount your SMB file server and has permission
-   *       to access the files and folders involved in your transfer.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       to access the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    * @public
    */
-  Password: string | undefined;
+  Password?: string | undefined;
 
   /**
-   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB
-   *       file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
+   * <p>Specifies the DataSync agent (or agents) that can connect to your SMB file
+   *       server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1707,14 +1729,64 @@ export interface CreateLocationSmbRequest {
    *       file server.</p>
    * @public
    */
-  MountOptions?: SmbMountOptions;
+  MountOptions?: SmbMountOptions | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services
    *       resources. We recommend creating at least a name tag for your location.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
+
+  /**
+   * <p>Specifies the authentication protocol that DataSync uses to connect to your SMB
+   *       file server. DataSync supports <code>NTLM</code> (default) and <code>KERBEROS</code>
+   *       authentication.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
+
+  /**
+   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   *       This parameter applies only if <code>AuthenticationType</code> is set to
+   *       <code>KERBEROS</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right SMB file server.</p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has
+   *       permission to access the files, folders, and file metadata in your SMB file server.</p>
+   *          <p>A Kerberos principal might look like <code>HOST/kerberosuser@MYDOMAIN.ORG</code>.</p>
+   *          <p>Principal names are case sensitive. Your DataSync task execution will fail if
+   *       the principal that you specify for this parameter doesn’t exactly match the principal that you
+   *       use to create the keytab file.</p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your
+   *       Kerberos principal and encryption keys.</p>
+   *          <p>The file must be base64 encoded. If you're using the CLI, the encoding is
+   *       done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the Kerberos principal that you use to
+   *       create the keytab file matches exactly what you specify for <code>KerberosPrincipal</code>. </p>
+   * @public
+   */
+  KerberosKeytab?: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your
+   *       Kerberos realm configuration.</p>
+   *          <p>The file must be base64 encoded. If you're using the CLI, the encoding is
+   *       done for you.</p>
+   * @public
+   */
+  KerberosKrb5Conf?: Uint8Array | undefined;
 }
 
 /**
@@ -1726,7 +1798,7 @@ export interface CreateLocationSmbResponse {
    * <p>The ARN of the SMB location that you created.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 }
 
 /**
@@ -1753,7 +1825,7 @@ export interface FilterRule {
    *       rule type.</p>
    * @public
    */
-  FilterType?: FilterType;
+  FilterType?: FilterType | undefined;
 
   /**
    * <p>A single filter string that consists of the patterns to include or exclude. The patterns
@@ -1762,7 +1834,7 @@ export interface FilterRule {
    *          <p> </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1821,7 +1893,7 @@ export interface S3ManifestConfig {
    *       If you don't set this, DataSync uses the latest version of the object.</p>
    * @public
    */
-  ManifestObjectVersionId?: string;
+  ManifestObjectVersionId?: string | undefined;
 }
 
 /**
@@ -1846,13 +1918,13 @@ export interface ManifestConfig {
    * <p>Specifies what DataSync uses the manifest for.</p>
    * @public
    */
-  Action?: ManifestAction;
+  Action?: ManifestAction | undefined;
 
   /**
    * <p>Specifies the file format of your manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-create">Creating a manifest</a>.</p>
    * @public
    */
-  Format?: ManifestFormat;
+  Format?: ManifestFormat | undefined;
 
   /**
    * <p>Specifies the manifest that you want DataSync to use and where it's
@@ -1866,7 +1938,7 @@ export interface ManifestConfig {
    *          </note>
    * @public
    */
-  Source?: SourceManifestConfig;
+  Source?: SourceManifestConfig | undefined;
 }
 
 /**
@@ -2069,15 +2141,19 @@ export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
  */
 export interface Options {
   /**
-   * <p>Specifies how and when DataSync checks the integrity of your data during a
-   *       transfer.</p>
+   * <p>Specifies if and how DataSync checks the integrity of your data at the end of
+   *       your transfer.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>ONLY_FILES_TRANSFERRED</code> (recommended) - DataSync calculates
-   *           the checksum of transferred files and metadata at the source location. At the end of the
-   *           transfer, DataSync then compares this checksum to the checksum calculated on
-   *           those files at the destination.</p>
+   *           the checksum of transferred data (including metadata) at the source location. At the end
+   *           of the transfer, DataSync then compares this checksum to the checksum calculated
+   *           on that data at the destination.</p>
+   *                <note>
+   *                   <p>This is the default option for <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *             tasks</a>.</p>
+   *                </note>
    *                <p>We recommend this option when transferring to S3 Glacier Flexible Retrieval
    *           or S3 Glacier Deep Archive storage classes. For more information, see
    *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
@@ -2085,9 +2161,12 @@ export interface Options {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>POINT_IN_TIME_CONSISTENT</code> (default) - At the end of the transfer,
-   *             DataSync scans the entire source and destination to verify that both locations
-   *           are fully synchronized.</p>
+   *                   <code>POINT_IN_TIME_CONSISTENT</code> - At the end of the transfer, DataSync checks the entire source and destination to verify that both locations are
+   *           fully synchronized.</p>
+   *                <note>
+   *                   <p>The is the default option for <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Basic mode tasks</a> and
+   *             isn't currently supported with Enhanced mode tasks.</p>
+   *                </note>
    *                <p>If you use a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">manifest</a>, DataSync only scans and
    *           verifies what's listed in the manifest.</p>
    *                <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval
@@ -2097,14 +2176,14 @@ export interface Options {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code> - DataSync doesn't run additional verification at the
-   *           end of the transfer. All data transmissions are still integrity-checked with checksum
-   *           verification during the transfer.</p>
+   *                   <code>NONE</code> - DataSync performs data integrity checks only during
+   *           your transfer. Unlike other options, there's no additional verification at the end of your
+   *           transfer.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  VerifyMode?: VerifyMode;
+  VerifyMode?: VerifyMode | undefined;
 
   /**
    * <p>Specifies whether DataSync should modify or preserve data at the destination
@@ -2128,7 +2207,7 @@ export interface Options {
    *          </ul>
    * @public
    */
-  OverwriteMode?: OverwriteMode;
+  OverwriteMode?: OverwriteMode | undefined;
 
   /**
    * <p>Specifies whether to preserve metadata indicating the last time a file was read or
@@ -2141,7 +2220,7 @@ export interface Options {
    *                <p>
    *                   <code>BEST_EFFORT</code> (default) - DataSync attempts to preserve the
    *           original <code>Atime</code> attribute on all source files (that is, the version before the
-   *             <code>PREPARING</code> phase of the task execution). This option is
+   *             <code>PREPARING</code> steps of the task execution). This option is
    *           recommended.</p>
    *             </li>
    *             <li>
@@ -2157,12 +2236,12 @@ export interface Options {
    *          </note>
    * @public
    */
-  Atime?: Atime;
+  Atime?: Atime | undefined;
 
   /**
    * <p>Specifies whether to preserve metadata indicating the last time that a file was written
-   *       to before the <code>PREPARING</code> phase of your task execution. This option is required
-   *       when you need to run the a task more than once.</p>
+   *       to before the <code>PREPARING</code> step of your task execution. This option is required when
+   *       you need to run the a task more than once.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2182,7 +2261,7 @@ export interface Options {
    *          </note>
    * @public
    */
-  Mtime?: Mtime;
+  Mtime?: Mtime | undefined;
 
   /**
    * <p>Specifies the POSIX user ID (UID) of the file's owner.</p>
@@ -2200,7 +2279,7 @@ export interface Options {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
    * @public
    */
-  Uid?: Uid;
+  Uid?: Uid | undefined;
 
   /**
    * <p>Specifies the POSIX group ID (GID) of the file's owners.</p>
@@ -2215,10 +2294,10 @@ export interface Options {
    *                   <code>NONE</code> - Ignores UID and GID.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    * @public
    */
-  Gid?: Gid;
+  Gid?: Gid | undefined;
 
   /**
    * <p>Specifies whether files in the destination location that don't exist in the source
@@ -2244,7 +2323,7 @@ export interface Options {
    *          </note>
    * @public
    */
-  PreserveDeletedFiles?: PreserveDeletedFiles;
+  PreserveDeletedFiles?: PreserveDeletedFiles | undefined;
 
   /**
    * <p>Specifies whether DataSync should preserve the metadata of block and
@@ -2268,12 +2347,12 @@ export interface Options {
    *          </ul>
    * @public
    */
-  PreserveDevices?: PreserveDevices;
+  PreserveDevices?: PreserveDevices | undefined;
 
   /**
    * <p>Specifies which users or groups can access a file for a specific purpose such as reading,
    *       writing, or execution of the file.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2290,15 +2369,19 @@ export interface Options {
    *          </note>
    * @public
    */
-  PosixPermissions?: PosixPermissions;
+  PosixPermissions?: PosixPermissions | undefined;
 
   /**
    * <p>Limits the bandwidth used by a DataSync task. For example, if you want
    *         DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
    *         (<code>=1024*1024</code>).</p>
+   *          <note>
+   *             <p>Not applicable to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
    * @public
    */
-  BytesPerSecond?: number;
+  BytesPerSecond?: number | undefined;
 
   /**
    * <p>Specifies whether your transfer tasks should be put into a queue during certain scenarios
@@ -2306,7 +2389,7 @@ export interface Options {
    *         tasks</a>. This is <code>ENABLED</code> by default.</p>
    * @public
    */
-  TaskQueueing?: TaskQueueing;
+  TaskQueueing?: TaskQueueing | undefined;
 
   /**
    * <p>Specifies the type of logs that DataSync publishes to a Amazon CloudWatch Logs
@@ -2328,17 +2411,19 @@ export interface Options {
    *          </ul>
    * @public
    */
-  LogLevel?: LogLevel;
+  LogLevel?: LogLevel | undefined;
 
   /**
-   * <p>Determines whether DataSync transfers only the data and metadata that differ
-   *       between the source and the destination location or transfers all the content from the source
-   *       (without comparing what's in the destination).</p>
+   * <p>Specifies whether DataSync transfers only the data (including metadata) that
+   *       differs between locations following an initial copy or transfers all data every time you run
+   *       the task. If you're planning on recurring transfers, you might only want to transfer what's
+   *       changed since your previous task execution.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CHANGED</code> (default) - DataSync copies only data or metadata that
-   *           is new or different content from the source location to the destination location.</p>
+   *                   <code>CHANGED</code> (default) - After your initial full transfer, DataSync
+   *           copies only the data and metadata that differs between the source and destination
+   *           location.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2348,13 +2433,13 @@ export interface Options {
    *          </ul>
    * @public
    */
-  TransferMode?: TransferMode;
+  TransferMode?: TransferMode | undefined;
 
   /**
    * <p>Specifies which components of the SMB security descriptor are copied from source to
    *       destination objects. </p>
    *          <p>This value is only used for transfers between SMB and Amazon FSx for Windows File Server
-   *       locations or between two FSx for Windows File Server locations. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">how DataSync handles metadata</a>.</p>
+   *       locations or between two FSx for Windows File Server locations. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2403,14 +2488,14 @@ export interface Options {
    *          </ul>
    * @public
    */
-  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags;
+  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | undefined;
 
   /**
    * <p>Specifies whether you want DataSync to <code>PRESERVE</code> object tags
    *       (default behavior) when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the <code>NONE</code> value.</p>
    * @public
    */
-  ObjectTags?: ObjectTags;
+  ObjectTags?: ObjectTags | undefined;
 }
 
 /**
@@ -2434,10 +2519,20 @@ export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus
  */
 export interface TaskSchedule {
   /**
-   * <p>Specifies your task schedule by using a cron expression in UTC time. For information about
-   *       cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html">
-   *                <i>Amazon EventBridge User
-   *           Guide</i>
+   * <p>Specifies your task schedule by using a cron or rate expression.</p>
+   *          <p>Use cron expressions for task schedules that run on a specific time and day. For example,
+   *       the following cron expression creates a task schedule that runs at 8 AM on the first Wednesday
+   *       of every month:</p>
+   *          <p>
+   *             <code>cron(0 8 * * 3#1)</code>
+   *          </p>
+   *          <p>Use rate expressions for task schedules that run on a regular interval. For example, the
+   *       following rate expression creates a task schedule that runs every 12 hours:</p>
+   *          <p>
+   *             <code>rate(12 hours)</code>
+   *          </p>
+   *          <p>For information about cron and rate expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html">
+   *                <i>Amazon EventBridge User Guide</i>
    *             </a>.</p>
    * @public
    */
@@ -2452,8 +2547,22 @@ export interface TaskSchedule {
    *       with the same error. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_TaskScheduleDetails.html">TaskScheduleDetails</a>.</p>
    * @public
    */
-  Status?: ScheduleStatus;
+  Status?: ScheduleStatus | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskMode = {
+  BASIC: "BASIC",
+  ENHANCED: "ENHANCED",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskMode = (typeof TaskMode)[keyof typeof TaskMode];
 
 /**
  * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a>.</p>
@@ -2464,7 +2573,7 @@ export interface ReportDestinationS3 {
    * <p>Specifies a bucket prefix for your report.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the S3 bucket where DataSync uploads your report.</p>
@@ -2488,7 +2597,7 @@ export interface ReportDestination {
    * <p>Specifies the Amazon S3 bucket where DataSync uploads your task report.</p>
    * @public
    */
-  S3?: ReportDestinationS3;
+  S3?: ReportDestinationS3 | undefined;
 }
 
 /**
@@ -2545,7 +2654,7 @@ export interface ReportOverride {
    *          <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
    * @public
    */
-  ReportLevel?: ReportLevel;
+  ReportLevel?: ReportLevel | undefined;
 }
 
 /**
@@ -2559,25 +2668,25 @@ export interface ReportOverrides {
    * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer.</p>
    * @public
    */
-  Transferred?: ReportOverride;
+  Transferred?: ReportOverride | undefined;
 
   /**
    * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer.</p>
    * @public
    */
-  Verified?: ReportOverride;
+  Verified?: ReportOverride | undefined;
 
   /**
    * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to delete data in the destination that isn't in the source.</p>
    * @public
    */
-  Deleted?: ReportOverride;
+  Deleted?: ReportOverride | undefined;
 
   /**
    * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer.</p>
    * @public
    */
-  Skipped?: ReportOverride;
+  Skipped?: ReportOverride | undefined;
 }
 
 /**
@@ -2592,7 +2701,7 @@ export interface TaskReportConfig {
    *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html#task-report-access">Task reports</a>.</p>
    * @public
    */
-  Destination?: ReportDestination;
+  Destination?: ReportDestination | undefined;
 
   /**
    * <p>Specifies the type of task report that you want:</p>
@@ -2610,7 +2719,7 @@ export interface TaskReportConfig {
    *          </ul>
    * @public
    */
-  OutputType?: ReportOutputType;
+  OutputType?: ReportOutputType | undefined;
 
   /**
    * <p>Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.</p>
@@ -2628,13 +2737,13 @@ export interface TaskReportConfig {
    *          </ul>
    * @public
    */
-  ReportLevel?: ReportLevel;
+  ReportLevel?: ReportLevel | undefined;
 
   /**
    * <p>Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html">enable versioning on your bucket</a>. Keep in mind that setting this to <code>INCLUDE</code> can increase the duration of your task execution.</p>
    * @public
    */
-  ObjectVersionIds?: ObjectVersionIds;
+  ObjectVersionIds?: ObjectVersionIds | undefined;
 
   /**
    * <p>Customizes the reporting level for aspects of your task report. For example, your report
@@ -2643,7 +2752,7 @@ export interface TaskReportConfig {
    *       location.</p>
    * @public
    */
-  Overrides?: ReportOverrides;
+  Overrides?: ReportOverrides | undefined;
 }
 
 /**
@@ -2666,36 +2775,38 @@ export interface CreateTaskRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
    *       monitoring your task.</p>
+   *          <p>For Enhanced mode tasks, you don't need to specify anything. DataSync
+   *       automatically sends logs to a CloudWatch log group named <code>/aws/datasync</code>.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the name of your task.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies your task's settings, such as preserving file metadata, verifying data
    *       integrity, among other options.</p>
    * @public
    */
-  Options?: Options;
+  Options?: Options | undefined;
 
   /**
    * <p>Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Excludes?: FilterRule[];
+  Excludes?: FilterRule[] | undefined;
 
   /**
    * <p>Specifies a schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
    *         task</a>.</p>
    * @public
    */
-  Schedule?: TaskSchedule;
+  Schedule?: TaskSchedule | undefined;
 
   /**
    * <p>Specifies the tags that you want to apply to your task.</p>
@@ -2704,21 +2815,23 @@ export interface CreateTaskRequest {
    *       for your DataSync resources.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
-   * <p>Specifies include filters define the files, objects, and folders in your source location
-   *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
+   * <p>Specifies include filters that define the files, objects, and folders in your source
+   *       location that you want DataSync to transfer. For more information and examples, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what
+   *           DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Includes?: FilterRule[];
+  Includes?: FilterRule[] | undefined;
 
   /**
    * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
    *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
    * @public
    */
-  ManifestConfig?: ManifestConfig;
+  ManifestConfig?: ManifestConfig | undefined;
 
   /**
    * <p>Specifies how you want to configure a task report, which provides detailed information
@@ -2727,7 +2840,36 @@ export interface CreateTaskRequest {
    *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
    * @public
    */
-  TaskReportConfig?: TaskReportConfig;
+  TaskReportConfig?: TaskReportConfig | undefined;
+
+  /**
+   * <p>Specifies one of the following task modes for your data transfer:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with higher
+   *           performance than Basic mode. Enhanced mode tasks optimize the data transfer process by
+   *           listing, preparing, transferring, and verifying data in parallel. Enhanced mode is
+   *           currently available for transfers between Amazon S3 locations.</p>
+   *                <note>
+   *                   <p>To create an Enhanced mode task, the IAM role that you use to call
+   *             the <code>CreateTask</code> operation must have the
+   *               <code>iam:CreateServiceLinkedRole</code> permission.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC</code> (default) - Transfer files or objects between Amazon Web Services
+   *           storage and all other supported DataSync locations. Basic mode tasks are subject
+   *           to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a> on the number of files, objects, and directories in a dataset. Basic
+   *           mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced
+   *           mode for most workloads.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode | undefined;
 }
 
 /**
@@ -2739,7 +2881,7 @@ export interface CreateTaskResponse {
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 }
 
 /**
@@ -2832,27 +2974,27 @@ export interface PrivateLinkConfig {
    * <p>Specifies the ID of the VPC endpoint that your agent connects to.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
-   * <p>Specifies the VPC endpoint provided by <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">Amazon Web Services PrivateLink</a> that
+   * <p>Specifies the VPC endpoint provided by <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html">Amazon Web Services PrivateLink</a> that
    *       your agent connects to.</p>
    * @public
    */
-  PrivateLinkEndpoint?: string;
+  PrivateLinkEndpoint?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the subnet where your VPC endpoint is located. You can only specify
    *       one ARN.</p>
    * @public
    */
-  SubnetArns?: string[];
+  SubnetArns?: string[] | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Names (ARN) of the security group that provides DataSync access to your VPC endpoint. You can only specify one ARN.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 }
 
 /**
@@ -2864,13 +3006,13 @@ export interface DescribeAgentResponse {
    * <p>The ARN of the agent.</p>
    * @public
    */
-  AgentArn?: string;
+  AgentArn?: string | undefined;
 
   /**
    * <p>The name of the agent.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the agent.</p>
@@ -2888,39 +3030,39 @@ export interface DescribeAgentResponse {
    *          </ul>
    * @public
    */
-  Status?: AgentStatus;
+  Status?: AgentStatus | undefined;
 
   /**
    * <p>The last time that the agent was communicating with the DataSync
    *       service.</p>
    * @public
    */
-  LastConnectionTime?: Date;
+  LastConnectionTime?: Date | undefined;
 
   /**
    * <p>The time that the agent was <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">activated</a>.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The type of <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html">service endpoint</a> that your agent is connected to.</p>
    * @public
    */
-  EndpointType?: EndpointType;
+  EndpointType?: EndpointType | undefined;
 
   /**
    * <p>The network configuration that the agent uses when connecting to a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">VPC
    *         service endpoint</a>.</p>
    * @public
    */
-  PrivateLinkConfig?: PrivateLinkConfig;
+  PrivateLinkConfig?: PrivateLinkConfig | undefined;
 
   /**
    * <p>The platform-related details about the agent, such as the version number.</p>
    * @public
    */
-  Platform?: Platform;
+  Platform?: Platform | undefined;
 }
 
 /**
@@ -2962,37 +3104,37 @@ export interface DescribeDiscoveryJobResponse {
    * <p>The ARN of the on-premises storage system you're running the discovery job on.</p>
    * @public
    */
-  StorageSystemArn?: string;
+  StorageSystemArn?: string | undefined;
 
   /**
    * <p>The ARN of the discovery job.</p>
    * @public
    */
-  DiscoveryJobArn?: string;
+  DiscoveryJobArn?: string | undefined;
 
   /**
    * <p>The number of minutes that the discovery job runs.</p>
    * @public
    */
-  CollectionDurationMinutes?: number;
+  CollectionDurationMinutes?: number | undefined;
 
   /**
    * <p>Indicates the status of a discovery job. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table">Discovery job statuses</a>.</p>
    * @public
    */
-  Status?: DiscoveryJobStatus;
+  Status?: DiscoveryJobStatus | undefined;
 
   /**
    * <p>The time when the discovery job started.</p>
    * @public
    */
-  JobStartTime?: Date;
+  JobStartTime?: Date | undefined;
 
   /**
    * <p>The time when the discovery job ended.</p>
    * @public
    */
-  JobEndTime?: Date;
+  JobEndTime?: Date | undefined;
 }
 
 /**
@@ -3014,19 +3156,19 @@ export interface DescribeLocationAzureBlobResponse {
    * <p>The ARN of your Azure Blob Storage transfer location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URL of the Azure Blob Storage container involved in your transfer.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
    * @public
    */
-  AuthenticationType?: AzureBlobAuthenticationType;
+  AuthenticationType?: AzureBlobAuthenticationType | undefined;
 
   /**
    * <p>The type of blob that you want your objects or files to be when transferring them into
@@ -3034,25 +3176,25 @@ export interface DescribeLocationAzureBlobResponse {
    *       Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    * @public
    */
-  BlobType?: AzureBlobType;
+  BlobType?: AzureBlobType | undefined;
 
   /**
    * <p>The access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    * @public
    */
-  AccessTier?: AzureAccessTier;
+  AccessTier?: AzureAccessTier | undefined;
 
   /**
    * <p>The ARNs of the DataSync agents that can connect with your Azure Blob Storage container.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The time that your Azure Blob Storage transfer location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3077,46 +3219,49 @@ export interface DescribeLocationEfsResponse {
    * <p>The ARN of the Amazon EFS file system location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URL of the Amazon EFS file system location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
-   * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
+   * <p>The subnet and security groups that DataSync uses to connect to one of your
+   *         Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
    * @public
    */
-  Ec2Config?: Ec2Config;
+  Ec2Config?: Ec2Config | undefined;
 
   /**
    * <p>The time that the location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the access point that DataSync uses to access the Amazon EFS
    *       file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted file systems</a>.</p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) role that DataSync assumes when
-   *       mounting the Amazon EFS file system.</p>
+   * <p>The Identity and Access Management (IAM) role that allows DataSync to
+   *       access your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for file system access</a>.</p>
    * @public
    */
-  FileSystemAccessRoleArn?: string;
+  FileSystemAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Describes whether DataSync uses Transport Layer Security (TLS) encryption when
-   *       copying data to or from the Amazon EFS file system.</p>
+   * <p>Indicates whether DataSync uses Transport Layer Security (TLS) encryption when
+   *       transferring data to or from the Amazon EFS file system.</p>
    * @public
    */
-  InTransitEncryption?: EfsInTransitEncryption;
+  InTransitEncryption?: EfsInTransitEncryption | undefined;
 }
 
 /**
@@ -3140,26 +3285,26 @@ export interface DescribeLocationFsxLustreResponse {
    *       described.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URI of the FSx for Lustre location that was described.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the
    *         FSx for Lustre file system.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 
   /**
    * <p>The time that the FSx for Lustre location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3182,47 +3327,47 @@ export interface DescribeLocationFsxOntapResponse {
    * <p>The time that the location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the FSx for ONTAP file system location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The uniform resource identifier (URI) of the FSx for ONTAP file system
    *       location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>Specifies the data transfer protocol that DataSync uses to access your
    *         Amazon FSx file system.</p>
    * @public
    */
-  Protocol?: FsxProtocol;
+  Protocol?: FsxProtocol | undefined;
 
   /**
    * <p>The security groups that DataSync uses to access your FSx for ONTAP
    *       file system.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 
   /**
    * <p>The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file system
    *       where you're copying data to or from.</p>
    * @public
    */
-  StorageVirtualMachineArn?: string;
+  StorageVirtualMachineArn?: string | undefined;
 
   /**
    * <p>The ARN of the FSx for ONTAP file system.</p>
    * @public
    */
-  FsxFilesystemArn?: string;
+  FsxFilesystemArn?: string | undefined;
 }
 
 /**
@@ -3244,7 +3389,7 @@ export interface DescribeLocationFsxOpenZfsResponse {
    * <p>The ARN of the FSx for OpenZFS location that was described.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The uniform resource identifier (URI) of the FSx for OpenZFS location that was
@@ -3253,26 +3398,26 @@ export interface DescribeLocationFsxOpenZfsResponse {
    *          </p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The ARNs of the security groups that are configured for the FSx for OpenZFS file
    *       system.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 
   /**
    * <p>The type of protocol that DataSync uses to access your file system.</p>
    * @public
    */
-  Protocol?: FsxProtocol;
+  Protocol?: FsxProtocol | undefined;
 
   /**
    * <p>The time that the FSx for OpenZFS location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3294,40 +3439,43 @@ export interface DescribeLocationFsxWindowsResponse {
    * <p>The ARN of the FSx for Windows File Server location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The uniform resource identifier (URI) of the FSx for Windows File Server location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
-   * <p>The ARNs of the security groups that are configured for the FSx for Windows File Server file
-   *       system.</p>
+   * <p>The ARNs of the Amazon EC2 security groups that provide access to your file
+   *       system's preferred subnet.</p>
+   *          <p>For information about configuring security groups for file system access, see the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Windows File Server User Guide</i>
+   *             </a>.</p>
    * @public
    */
-  SecurityGroupArns?: string[];
+  SecurityGroupArns?: string[] | undefined;
 
   /**
    * <p>The time that the FSx for Windows File Server location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The user with the permissions to mount and access the FSx for Windows File Server file
    *       system.</p>
    * @public
    */
-  User?: string;
+  User?: string | undefined;
 
   /**
    * <p>The name of the Microsoft Active Directory domain that the FSx for Windows File Server file
    *       system belongs to.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -3349,57 +3497,57 @@ export interface DescribeLocationHdfsResponse {
    * <p>The ARN of the HDFS location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URI of the HDFS location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The NameNode that manages the HDFS namespace. </p>
    * @public
    */
-  NameNodes?: HdfsNameNode[];
+  NameNodes?: HdfsNameNode[] | undefined;
 
   /**
    * <p>The size of the data blocks to write into the HDFS cluster. </p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. </p>
    * @public
    */
-  ReplicationFactor?: number;
+  ReplicationFactor?: number | undefined;
 
   /**
    * <p> The URI of the HDFS cluster's Key Management Server (KMS). </p>
    * @public
    */
-  KmsKeyProviderUri?: string;
+  KmsKeyProviderUri?: string | undefined;
 
   /**
    * <p>The Quality of Protection (QOP) configuration, which specifies the Remote Procedure Call
    *       (RPC) and data transfer protection settings configured on the HDFS cluster. </p>
    * @public
    */
-  QopConfiguration?: QopConfiguration;
+  QopConfiguration?: QopConfiguration | undefined;
 
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
    * @public
    */
-  AuthenticationType?: HdfsAuthenticationType;
+  AuthenticationType?: HdfsAuthenticationType | undefined;
 
   /**
    * <p>The user name to identify the client on the host operating system. This parameter is used
    *       if the <code>AuthenticationType</code> is defined as <code>SIMPLE</code>.</p>
    * @public
    */
-  SimpleUser?: string;
+  SimpleUser?: string | undefined;
 
   /**
    * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. This
@@ -3407,19 +3555,19 @@ export interface DescribeLocationHdfsResponse {
    *       <code>KERBEROS</code>.</p>
    * @public
    */
-  KerberosPrincipal?: string;
+  KerberosPrincipal?: string | undefined;
 
   /**
    * <p>The ARNs of the DataSync agents that can connect with your HDFS cluster.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The time that the HDFS location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3444,32 +3592,32 @@ export interface DescribeLocationNfsResponse {
    * <p>The ARN of the NFS location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URI of the NFS location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
-   * <p>The DataSync agents that are connecting to a Network File System (NFS)
-   *       location.</p>
+   * <p>The DataSync agents that can connect to your Network File System (NFS)
+   *       file server.</p>
    * @public
    */
-  OnPremConfig?: OnPremConfig;
+  OnPremConfig?: OnPremConfig | undefined;
 
   /**
    * <p>The mount options that DataSync uses to mount your NFS file server.</p>
    * @public
    */
-  MountOptions?: NfsMountOptions;
+  MountOptions?: NfsMountOptions | undefined;
 
   /**
    * <p>The time when the NFS location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3493,53 +3641,53 @@ export interface DescribeLocationObjectStorageResponse {
    * <p>The ARN of the object storage system location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URI of the object storage system location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The access key (for example, a user name) required to authenticate with the object storage
    *       system.</p>
    * @public
    */
-  AccessKey?: string;
+  AccessKey?: string | undefined;
 
   /**
    * <p>The port that your object storage server accepts inbound network traffic on (for example,
    *       port 443).</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 
   /**
    * <p>The protocol that your object storage system uses to communicate.</p>
    * @public
    */
-  ServerProtocol?: ObjectStorageServerProtocol;
+  ServerProtocol?: ObjectStorageServerProtocol | undefined;
 
   /**
    * <p>The ARNs of the DataSync agents that can connect with your object storage
    *       system.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The time that the location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The certificate chain for DataSync to authenticate with your object storage
    *       system if the system uses a private or self-signed certificate authority (CA).</p>
    * @public
    */
-  ServerCertificate?: Uint8Array;
+  ServerCertificate?: Uint8Array | undefined;
 }
 
 /**
@@ -3563,13 +3711,13 @@ export interface DescribeLocationS3Response {
    * <p>The ARN of the Amazon S3 location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URL of the Amazon S3 location that was described.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>When Amazon S3 is a destination location, this is the storage class that you chose
@@ -3579,15 +3727,14 @@ export interface DescribeLocationS3Response {
    *         considerations with Amazon S3 transfers</a>.</p>
    * @public
    */
-  S3StorageClass?: S3StorageClass;
+  S3StorageClass?: S3StorageClass | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
-   *         S3 buckets</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
    * @public
    */
-  S3Config?: S3Config;
+  S3Config?: S3Config | undefined;
 
   /**
    * <p>The ARNs of the DataSync agents deployed on your Outpost when using working with
@@ -3596,13 +3743,13 @@ export interface DescribeLocationS3Response {
    *         on Outposts</a>.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The time that the Amazon S3 location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3627,46 +3774,69 @@ export interface DescribeLocationSmbResponse {
    * <p>The ARN of the SMB location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>The URI of the SMB location.</p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 
   /**
    * <p>The ARNs of the DataSync agents that can connect with your SMB file
    *       server.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The user that can mount and access the files, folders, and file metadata in your SMB file
+   *       server. This element applies only if <code>AuthenticationType</code> is set to
+   *         <code>NTLM</code>.</p>
+   * @public
+   */
+  User?: string | undefined;
+
+  /**
+   * <p>The name of the Windows domain that the SMB file server belongs to. This element applies
+   *       only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The SMB protocol version that DataSync uses to access your SMB file
    *       server.</p>
    * @public
    */
-  User?: string;
-
-  /**
-   * <p>The name of the Microsoft Active Directory domain that the SMB file server belongs
-   *       to.</p>
-   * @public
-   */
-  Domain?: string;
-
-  /**
-   * <p>The protocol that DataSync use to access your SMB file.</p>
-   * @public
-   */
-  MountOptions?: SmbMountOptions;
+  MountOptions?: SmbMountOptions | undefined;
 
   /**
    * <p>The time that the SMB location was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The IPv4 addresses for the DNS servers that your SMB file server belongs to. This element
+   *       applies only if <code>AuthenticationType</code> is set to <code>KERBEROS</code>.</p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>The Kerberos principal that has permission to access the files, folders, and file metadata
+   *       in your SMB file server.</p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>The authentication protocol that DataSync uses to connect to your SMB file
+   *       server.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
 }
 
 /**
@@ -3705,14 +3875,14 @@ export interface DescribeStorageSystemResponse {
    * <p>The ARN of the on-premises storage system that the discovery job looked at.</p>
    * @public
    */
-  StorageSystemArn?: string;
+  StorageSystemArn?: string | undefined;
 
   /**
    * <p>The server name and network port required to connect with your on-premises storage
    *       system's management interface.</p>
    * @public
    */
-  ServerConfiguration?: DiscoveryServerConfiguration;
+  ServerConfiguration?: DiscoveryServerConfiguration | undefined;
 
   /**
    * <p>The type of on-premises storage system.</p>
@@ -3724,53 +3894,53 @@ export interface DescribeStorageSystemResponse {
    *          </note>
    * @public
    */
-  SystemType?: DiscoverySystemType;
+  SystemType?: DiscoverySystemType | undefined;
 
   /**
    * <p>The ARN of the DataSync agent that connects to and reads from your on-premises storage
    *       system.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>The name that you gave your on-premises storage system when adding it to DataSync Discovery.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Describes the connectivity error that the DataSync agent is encountering with your
    *       on-premises storage system.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>Indicates whether your DataSync agent can connect to your on-premises storage system.</p>
    * @public
    */
-  ConnectivityStatus?: StorageSystemConnectivityStatus;
+  ConnectivityStatus?: StorageSystemConnectivityStatus | undefined;
 
   /**
    * <p>The ARN of the Amazon CloudWatch log group that's used to monitor and log discovery
    *       job events.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>The time when you added the on-premises storage system to DataSync Discovery.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the secret that stores your on-premises storage system's credentials. DataSync Discovery
    *       stores these credentials in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html#discovery-add-storage">Secrets Manager</a>.</p>
    * @public
    */
-  SecretsManagerArn?: string;
+  SecretsManagerArn?: string | undefined;
 }
 
 /**
@@ -3817,27 +3987,27 @@ export interface DescribeStorageSystemResourceMetricsRequest {
    *       gathered during a certain time frame, use this parameter with <code>EndTime</code>.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Specifies a time within the total duration that the discovery job ran. To see information
    *       gathered during a certain time frame, use this parameter with <code>StartTime</code>.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Specifies how many results that you want in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of results
    *       in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3851,25 +4021,25 @@ export interface IOPS {
    * <p>Peak IOPS related to read operations.</p>
    * @public
    */
-  Read?: number;
+  Read?: number | undefined;
 
   /**
    * <p>Peak IOPS related to write operations.</p>
    * @public
    */
-  Write?: number;
+  Write?: number | undefined;
 
   /**
    * <p>Peak IOPS unrelated to read and write operations.</p>
    * @public
    */
-  Other?: number;
+  Other?: number | undefined;
 
   /**
    * <p>Peak total IOPS on your on-premises storage system resource.</p>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 }
 
 /**
@@ -3883,19 +4053,19 @@ export interface Latency {
    * <p>Peak latency for read operations.</p>
    * @public
    */
-  Read?: number;
+  Read?: number | undefined;
 
   /**
    * <p>Peak latency for write operations.</p>
    * @public
    */
-  Write?: number;
+  Write?: number | undefined;
 
   /**
    * <p>Peak latency for operations unrelated to read and write operations.</p>
    * @public
    */
-  Other?: number;
+  Other?: number | undefined;
 }
 
 /**
@@ -3908,25 +4078,25 @@ export interface Throughput {
    * <p>Peak throughput related to read operations.</p>
    * @public
    */
-  Read?: number;
+  Read?: number | undefined;
 
   /**
    * <p>Peak throughput related to write operations.</p>
    * @public
    */
-  Write?: number;
+  Write?: number | undefined;
 
   /**
    * <p>Peak throughput unrelated to read and write operations.</p>
    * @public
    */
-  Other?: number;
+  Other?: number | undefined;
 
   /**
    * <p>Peak total throughput on your on-premises storage system resource.</p>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 }
 
 /**
@@ -3940,21 +4110,21 @@ export interface P95Metrics {
    *       95th percentile peak value during a 1-hour interval.</p>
    * @public
    */
-  IOPS?: IOPS;
+  IOPS?: IOPS | undefined;
 
   /**
    * <p>The throughput peaks for an on-premises storage system resource. Each data point
    *       represents the 95th percentile peak value during a 1-hour interval.</p>
    * @public
    */
-  Throughput?: Throughput;
+  Throughput?: Throughput | undefined;
 
   /**
    * <p>The latency peaks for an on-premises storage system resource. Each data point represents
    *       the 95th percentile peak value during a 1-hour interval.</p>
    * @public
    */
-  Latency?: Latency;
+  Latency?: Latency | undefined;
 }
 
 /**
@@ -3968,33 +4138,33 @@ export interface ResourceMetrics {
    *     resource.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The types of performance data that DataSync Discovery collects about the on-premises storage system
    *       resource.</p>
    * @public
    */
-  P95Metrics?: P95Metrics;
+  P95Metrics?: P95Metrics | undefined;
 
   /**
    * <p>The storage capacity of the on-premises storage system resource.</p>
    * @public
    */
-  Capacity?: Capacity;
+  Capacity?: Capacity | undefined;
 
   /**
    * <p>The universally unique identifier (UUID) of the on-premises storage system
    *       resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of on-premises storage system resource.</p>
    * @public
    */
-  ResourceType?: DiscoveryResourceType;
+  ResourceType?: DiscoveryResourceType | undefined;
 }
 
 /**
@@ -4005,14 +4175,14 @@ export interface DescribeStorageSystemResourceMetricsResponse {
    * <p>The details that your discovery job collected about your storage system resource.</p>
    * @public
    */
-  Metrics?: ResourceMetrics[];
+  Metrics?: ResourceMetrics[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4051,28 +4221,28 @@ export interface DescribeStorageSystemResourcesRequest {
    *         <code>Filter</code> parameter.</p>
    * @public
    */
-  ResourceIds?: string[];
+  ResourceIds?: string[] | undefined;
 
   /**
    * <p>Filters the storage system resources that you want returned. For example, this might be
    *       volumes associated with a specific storage virtual machine (SVM).</p>
    * @public
    */
-  Filter?: Partial<Record<DiscoveryResourceFilter, string[]>>;
+  Filter?: Partial<Record<DiscoveryResourceFilter, string[]>> | undefined;
 
   /**
    * <p>Specifies the maximum number of storage system resources that you want to list in a
    *       response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of results
    *       in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4085,67 +4255,67 @@ export interface MaxP95Performance {
    * <p>Peak IOPS related to read operations.</p>
    * @public
    */
-  IopsRead?: number;
+  IopsRead?: number | undefined;
 
   /**
    * <p>Peak IOPS related to write operations.</p>
    * @public
    */
-  IopsWrite?: number;
+  IopsWrite?: number | undefined;
 
   /**
    * <p>Peak IOPS unrelated to read and write operations.</p>
    * @public
    */
-  IopsOther?: number;
+  IopsOther?: number | undefined;
 
   /**
    * <p>Peak total IOPS on your on-premises storage system resource.</p>
    * @public
    */
-  IopsTotal?: number;
+  IopsTotal?: number | undefined;
 
   /**
    * <p>Peak throughput related to read operations.</p>
    * @public
    */
-  ThroughputRead?: number;
+  ThroughputRead?: number | undefined;
 
   /**
    * <p>Peak throughput related to write operations.</p>
    * @public
    */
-  ThroughputWrite?: number;
+  ThroughputWrite?: number | undefined;
 
   /**
    * <p>Peak throughput unrelated to read and write operations.</p>
    * @public
    */
-  ThroughputOther?: number;
+  ThroughputOther?: number | undefined;
 
   /**
    * <p>Peak total throughput on your on-premises storage system resource.</p>
    * @public
    */
-  ThroughputTotal?: number;
+  ThroughputTotal?: number | undefined;
 
   /**
    * <p>Peak latency for read operations.</p>
    * @public
    */
-  LatencyRead?: number;
+  LatencyRead?: number | undefined;
 
   /**
    * <p>Peak latency for write operations.</p>
    * @public
    */
-  LatencyWrite?: number;
+  LatencyWrite?: number | undefined;
 
   /**
    * <p>Peak latency for operations unrelated to read and write operations.</p>
    * @public
    */
-  LatencyOther?: number;
+  LatencyOther?: number | undefined;
 }
 
 /**
@@ -4161,20 +4331,20 @@ export interface Recommendation {
    *       information that DataSync Discovery collects about your on-premises storage system.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>Information about how you can set up a recommended Amazon Web Services storage
    *       service.</p>
    * @public
    */
-  StorageConfiguration?: Record<string, string>;
+  StorageConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The estimated monthly cost of the recommended Amazon Web Services storage service.</p>
    * @public
    */
-  EstimatedMonthlyStorageCost?: string;
+  EstimatedMonthlyStorageCost?: string | undefined;
 }
 
 /**
@@ -4203,50 +4373,50 @@ export interface NetAppONTAPCluster {
    * <p>The number of CIFS shares in the cluster.</p>
    * @public
    */
-  CifsShareCount?: number;
+  CifsShareCount?: number | undefined;
 
   /**
    * <p>The number of NFS volumes in the cluster.</p>
    * @public
    */
-  NfsExportedVolumes?: number;
+  NfsExportedVolumes?: number | undefined;
 
   /**
    * <p>The universally unique identifier (UUID) of the cluster.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The name of the cluster.</p>
    * @public
    */
-  ClusterName?: string;
+  ClusterName?: string | undefined;
 
   /**
    * <p>The performance data that DataSync Discovery collects about the cluster.</p>
    * @public
    */
-  MaxP95Performance?: MaxP95Performance;
+  MaxP95Performance?: MaxP95Performance | undefined;
 
   /**
    * <p>The total storage space that's available in the cluster.</p>
    * @public
    */
-  ClusterBlockStorageSize?: number;
+  ClusterBlockStorageSize?: number | undefined;
 
   /**
    * <p>The storage space that's being used in a cluster.</p>
    * @public
    */
-  ClusterBlockStorageUsed?: number;
+  ClusterBlockStorageUsed?: number | undefined;
 
   /**
    * <p>The storage space that's being used in the cluster without accounting for compression or
    *       deduplication.</p>
    * @public
    */
-  ClusterBlockStorageLogicalUsed?: number;
+  ClusterBlockStorageLogicalUsed?: number | undefined;
 
   /**
    * <p>The Amazon Web Services storage services that DataSync Discovery recommends for the cluster. For
@@ -4254,7 +4424,7 @@ export interface NetAppONTAPCluster {
    *         provided by DataSync Discovery</a>.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 
   /**
    * <p>Indicates whether DataSync Discovery recommendations for the cluster are ready to view, incomplete,
@@ -4262,19 +4432,19 @@ export interface NetAppONTAPCluster {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    * @public
    */
-  RecommendationStatus?: RecommendationStatus;
+  RecommendationStatus?: RecommendationStatus | undefined;
 
   /**
    * <p>The number of LUNs (logical unit numbers) in the cluster.</p>
    * @public
    */
-  LunCount?: number;
+  LunCount?: number | undefined;
 
   /**
    * <p>The amount of space in the cluster that's in cloud storage (for example, if you're using data tiering).</p>
    * @public
    */
-  ClusterCloudStorageUsed?: number;
+  ClusterCloudStorageUsed?: number | undefined;
 }
 
 /**
@@ -4287,56 +4457,56 @@ export interface NetAppONTAPSVM {
    * <p>The universally unique identifier (UUID) of the cluster associated with the SVM.</p>
    * @public
    */
-  ClusterUuid?: string;
+  ClusterUuid?: string | undefined;
 
   /**
    * <p>The UUID of the SVM.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The name of the SVM</p>
    * @public
    */
-  SvmName?: string;
+  SvmName?: string | undefined;
 
   /**
    * <p>The number of CIFS shares in the SVM.</p>
    * @public
    */
-  CifsShareCount?: number;
+  CifsShareCount?: number | undefined;
 
   /**
    * <p>The data transfer protocols (such as NFS) configured for the SVM.</p>
    * @public
    */
-  EnabledProtocols?: string[];
+  EnabledProtocols?: string[] | undefined;
 
   /**
    * <p>The storage space that's being used in the SVM.</p>
    * @public
    */
-  TotalCapacityUsed?: number;
+  TotalCapacityUsed?: number | undefined;
 
   /**
    * <p>The total storage space that's available in the SVM.</p>
    * @public
    */
-  TotalCapacityProvisioned?: number;
+  TotalCapacityProvisioned?: number | undefined;
 
   /**
    * <p>The storage space that's being used in the SVM without accounting for compression or
    *       deduplication.</p>
    * @public
    */
-  TotalLogicalCapacityUsed?: number;
+  TotalLogicalCapacityUsed?: number | undefined;
 
   /**
    * <p>The performance data that DataSync Discovery collects about the SVM.</p>
    * @public
    */
-  MaxP95Performance?: MaxP95Performance;
+  MaxP95Performance?: MaxP95Performance | undefined;
 
   /**
    * <p>The Amazon Web Services storage services that DataSync Discovery recommends for the SVM. For more
@@ -4344,13 +4514,13 @@ export interface NetAppONTAPSVM {
    *         provided by DataSync Discovery</a>.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 
   /**
    * <p>The number of NFS volumes in the SVM.</p>
    * @public
    */
-  NfsExportedVolumes?: number;
+  NfsExportedVolumes?: number | undefined;
 
   /**
    * <p>Indicates whether DataSync Discovery recommendations for the SVM are ready to view, incomplete, or
@@ -4358,19 +4528,19 @@ export interface NetAppONTAPSVM {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    * @public
    */
-  RecommendationStatus?: RecommendationStatus;
+  RecommendationStatus?: RecommendationStatus | undefined;
 
   /**
    * <p>The amount of storage in the SVM that's being used for snapshots.</p>
    * @public
    */
-  TotalSnapshotCapacityUsed?: number;
+  TotalSnapshotCapacityUsed?: number | undefined;
 
   /**
    * <p>The number of LUNs (logical unit numbers) in the SVM.</p>
    * @public
    */
-  LunCount?: number;
+  LunCount?: number | undefined;
 }
 
 /**
@@ -4383,74 +4553,74 @@ export interface NetAppONTAPVolume {
    * <p>The name of the volume.</p>
    * @public
    */
-  VolumeName?: string;
+  VolumeName?: string | undefined;
 
   /**
    * <p>The universally unique identifier (UUID) of the volume.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The number of CIFS shares in the volume.</p>
    * @public
    */
-  CifsShareCount?: number;
+  CifsShareCount?: number | undefined;
 
   /**
    * <p>The volume's security style (such as Unix or NTFS).</p>
    * @public
    */
-  SecurityStyle?: string;
+  SecurityStyle?: string | undefined;
 
   /**
    * <p>The UUID of the storage virtual machine (SVM) associated with the volume.</p>
    * @public
    */
-  SvmUuid?: string;
+  SvmUuid?: string | undefined;
 
   /**
    * <p>The name of the SVM associated with the volume.</p>
    * @public
    */
-  SvmName?: string;
+  SvmName?: string | undefined;
 
   /**
    * <p>The storage space that's being used in the volume.</p>
    * @public
    */
-  CapacityUsed?: number;
+  CapacityUsed?: number | undefined;
 
   /**
    * <p>The total storage space that's available in the volume.</p>
    * @public
    */
-  CapacityProvisioned?: number;
+  CapacityProvisioned?: number | undefined;
 
   /**
    * <p>The storage space that's being used in the volume without accounting for compression or
    *       deduplication.</p>
    * @public
    */
-  LogicalCapacityUsed?: number;
+  LogicalCapacityUsed?: number | undefined;
 
   /**
    * <p>The number of NFS volumes in the volume.</p>
    * @public
    */
-  NfsExported?: boolean;
+  NfsExported?: boolean | undefined;
 
   /**
    * <p>The amount of storage in the volume that's being used for snapshots.</p>
    * @public
    */
-  SnapshotCapacityUsed?: number;
+  SnapshotCapacityUsed?: number | undefined;
 
   /**
    * <p>The performance data that DataSync Discovery collects about the volume.</p>
    * @public
    */
-  MaxP95Performance?: MaxP95Performance;
+  MaxP95Performance?: MaxP95Performance | undefined;
 
   /**
    * <p>The Amazon Web Services storage services that DataSync Discovery recommends for the volume. For more
@@ -4458,7 +4628,7 @@ export interface NetAppONTAPVolume {
    *         provided by DataSync Discovery</a>.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 
   /**
    * <p>Indicates whether DataSync Discovery recommendations for the volume are ready to view, incomplete,
@@ -4466,13 +4636,13 @@ export interface NetAppONTAPVolume {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    * @public
    */
-  RecommendationStatus?: RecommendationStatus;
+  RecommendationStatus?: RecommendationStatus | undefined;
 
   /**
    * <p>The number of LUNs (logical unit numbers) in the volume.</p>
    * @public
    */
-  LunCount?: number;
+  LunCount?: number | undefined;
 }
 
 /**
@@ -4486,14 +4656,14 @@ export interface ResourceDetails {
    *       on-premises storage system.</p>
    * @public
    */
-  NetAppONTAPSVMs?: NetAppONTAPSVM[];
+  NetAppONTAPSVMs?: NetAppONTAPSVM[] | undefined;
 
   /**
    * <p>The information that DataSync Discovery collects about volumes in your on-premises storage
    *       system.</p>
    * @public
    */
-  NetAppONTAPVolumes?: NetAppONTAPVolume[];
+  NetAppONTAPVolumes?: NetAppONTAPVolume[] | undefined;
 
   /**
    * <p>The information that DataSync Discovery collects about the
@@ -4501,7 +4671,7 @@ export interface ResourceDetails {
    *       in your on-premises storage system.</p>
    * @public
    */
-  NetAppONTAPClusters?: NetAppONTAPCluster[];
+  NetAppONTAPClusters?: NetAppONTAPCluster[] | undefined;
 }
 
 /**
@@ -4515,14 +4685,14 @@ export interface DescribeStorageSystemResourcesResponse {
    *         information</a> collected by and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-understand-recommendations.html">recommendations</a> provided by DataSync Discovery.</p>
    * @public
    */
-  ResourceDetails?: ResourceDetails;
+  ResourceDetails?: ResourceDetails | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4563,7 +4733,7 @@ export interface TaskScheduleDetails {
    *       when the schedule was disabled.</p>
    * @public
    */
-  StatusUpdateTime?: Date;
+  StatusUpdateTime?: Date | undefined;
 
   /**
    * <p>Provides a reason if the task schedule is disabled.</p>
@@ -4573,7 +4743,7 @@ export interface TaskScheduleDetails {
    *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
    * @public
    */
-  DisabledReason?: string;
+  DisabledReason?: string | undefined;
 
   /**
    * <p>Indicates how your task schedule was disabled.</p>
@@ -4590,7 +4760,7 @@ export interface TaskScheduleDetails {
    *          </ul>
    * @public
    */
-  DisabledBy?: ScheduleDisabledBy;
+  DisabledBy?: ScheduleDisabledBy | undefined;
 }
 
 /**
@@ -4619,114 +4789,114 @@ export interface DescribeTaskResponse {
    * <p>The ARN of your task.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 
   /**
    * <p>The status of your task. For information about what each status means, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-creation-statuses">Task statuses</a>.</p>
    * @public
    */
-  Status?: TaskStatus;
+  Status?: TaskStatus | undefined;
 
   /**
    * <p>The name of your task.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the most recent task execution.</p>
    * @public
    */
-  CurrentTaskExecutionArn?: string;
+  CurrentTaskExecutionArn?: string | undefined;
 
   /**
    * <p>The ARN of your transfer's source location.</p>
    * @public
    */
-  SourceLocationArn?: string;
+  SourceLocationArn?: string | undefined;
 
   /**
    * <p>The ARN of your transfer's destination location.</p>
    * @public
    */
-  DestinationLocationArn?: string;
+  DestinationLocationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your
    *       task.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html">Monitoring DataSync with
-   *       Amazon CloudWatch</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html">Monitoring data transfers with
+   *           CloudWatch Logs</a>.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>The ARNs of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
    *         interfaces</a> that DataSync created for your source location.</p>
    * @public
    */
-  SourceNetworkInterfaceArns?: string[];
+  SourceNetworkInterfaceArns?: string[] | undefined;
 
   /**
    * <p>The ARNs of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
    *         interfaces</a> that DataSync created for your destination location.</p>
    * @public
    */
-  DestinationNetworkInterfaceArns?: string[];
+  DestinationNetworkInterfaceArns?: string[] | undefined;
 
   /**
    * <p>The task's settings. For example, what file metadata gets preserved, how data integrity
    *       gets verified at the end of your transfer, bandwidth limits, among other options.</p>
    * @public
    */
-  Options?: Options;
+  Options?: Options | undefined;
 
   /**
    * <p>The exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Excludes?: FilterRule[];
+  Excludes?: FilterRule[] | undefined;
 
   /**
    * <p>The schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
    *       task</a>.</p>
    * @public
    */
-  Schedule?: TaskSchedule;
+  Schedule?: TaskSchedule | undefined;
 
   /**
    * <p>If there's an issue with your task, you can use the error code to help you troubleshoot
    *       the problem. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>If there's an issue with your task, you can use the error details to help you
    *       troubleshoot the problem. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
    * @public
    */
-  ErrorDetail?: string;
+  ErrorDetail?: string | undefined;
 
   /**
    * <p>The time that the task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The include filters that define the files, objects, and folders in your source location
    *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Includes?: FilterRule[];
+  Includes?: FilterRule[] | undefined;
 
   /**
    * <p>The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
    * @public
    */
-  ManifestConfig?: ManifestConfig;
+  ManifestConfig?: ManifestConfig | undefined;
 
   /**
    * <p>The configuration of your task report, which provides detailed information about your
@@ -4734,13 +4904,19 @@ export interface DescribeTaskResponse {
    *         transfers with task reports</a>.</p>
    * @public
    */
-  TaskReportConfig?: TaskReportConfig;
+  TaskReportConfig?: TaskReportConfig | undefined;
 
   /**
    * <p>The details about your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">task schedule</a>.</p>
    * @public
    */
-  ScheduleDetails?: TaskScheduleDetails;
+  ScheduleDetails?: TaskScheduleDetails | undefined;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode | undefined;
 }
 
 /**
@@ -4754,6 +4930,81 @@ export interface DescribeTaskExecutionRequest {
    * @public
    */
   TaskExecutionArn: string | undefined;
+}
+
+/**
+ * <p>The number of objects that DataSync fails to prepare, transfer, verify, and
+ *       delete during your task execution.</p>
+ *          <note>
+ *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+ *         tasks</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface TaskExecutionFilesFailedDetail {
+  /**
+   * <p>The number of objects that DataSync fails to prepare during your task
+   *       execution.</p>
+   * @public
+   */
+  Prepare?: number | undefined;
+
+  /**
+   * <p>The number of objects that DataSync fails to transfer during your task
+   *       execution.</p>
+   * @public
+   */
+  Transfer?: number | undefined;
+
+  /**
+   * <p>The number of objects that DataSync fails to verify during your task
+   *       execution.</p>
+   * @public
+   */
+  Verify?: number | undefined;
+
+  /**
+   * <p>The number of objects that DataSync fails to delete during your task
+   *       execution.</p>
+   * @public
+   */
+  Delete?: number | undefined;
+}
+
+/**
+ * <p>The number of objects that DataSync finds at your locations.</p>
+ *          <note>
+ *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+ *         tasks</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface TaskExecutionFilesListedDetail {
+  /**
+   * <p>The number of objects that DataSync finds at your source location.</p>
+   *          <ul>
+   *             <li>
+   *                <p>With a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">manifest</a>, DataSync
+   *           lists only what's in your manifest (and not everything at your source location).</p>
+   *             </li>
+   *             <li>
+   *                <p>With an include <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">filter</a>, DataSync lists only what
+   *           matches the filter at your source location.</p>
+   *             </li>
+   *             <li>
+   *                <p>With an exclude filter, DataSync lists everything at your source location before applying
+   *           the filter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AtSource?: number | undefined;
+
+  /**
+   * <p>The number of objects that DataSync finds at your destination location. This counter is only applicable if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-file-object-handling">configure your task</a> to delete data in the destination that isn't in the source.</p>
+   * @public
+   */
+  AtDestinationForDelete?: number | undefined;
 }
 
 /**
@@ -4782,88 +5033,103 @@ export interface ReportResult {
    *       can't create a complete report.</p>
    * @public
    */
-  Status?: PhaseStatus;
+  Status?: PhaseStatus | undefined;
 
   /**
    * <p>Indicates the code associated with the error if DataSync can't create a complete
    *       report.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>Provides details about issues creating a report.</p>
    * @public
    */
-  ErrorDetail?: string;
+  ErrorDetail?: string | undefined;
 }
 
 /**
- * <p>Describes the detailed result of a <code>TaskExecution</code> operation. This result
- *       includes the time in milliseconds spent in each phase, the status of the task execution, and
- *       the errors encountered.</p>
+ * <p>Provides detailed information about the result of your DataSync task
+ *       execution.</p>
  * @public
  */
 export interface TaskExecutionResultDetail {
   /**
-   * <p>The total time in milliseconds that DataSync spent in the PREPARING
-   *       phase. </p>
+   * <p>The time in milliseconds that your task execution was in the <code>PREPARING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-datasync-prepares">How DataSync prepares your data transfer</a>.</p>
    * @public
    */
-  PrepareDuration?: number;
+  PrepareDuration?: number | undefined;
 
   /**
-   * <p>The status of the PREPARING phase.</p>
+   * <p>The status of the <code>PREPARING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
-  PrepareStatus?: PhaseStatus;
+  PrepareStatus?: PhaseStatus | undefined;
 
   /**
-   * <p>The total time in milliseconds that DataSync took to transfer the file from
-   *       the source to the destination location.</p>
+   * <p>The time in milliseconds that your task execution ran.</p>
    * @public
    */
-  TotalDuration?: number;
+  TotalDuration?: number | undefined;
 
   /**
-   * <p>The total time in milliseconds that DataSync spent in the TRANSFERRING
-   *       phase.</p>
+   * <p>The time in milliseconds that your task execution was in the <code>TRANSFERRING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-datasync-transfers">How DataSync transfers your data</a>.</p>
    * @public
    */
-  TransferDuration?: number;
+  TransferDuration?: number | undefined;
 
   /**
-   * <p>The status of the TRANSFERRING phase.</p>
+   * <p>The status of the <code>TRANSFERRING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
-  TransferStatus?: PhaseStatus;
+  TransferStatus?: PhaseStatus | undefined;
 
   /**
-   * <p>The total time in milliseconds that DataSync spent in the VERIFYING
-   *       phase.</p>
+   * <p>The time in milliseconds that your task execution was in the <code>VERIFYING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-verifying-works">How DataSync verifies your data's integrity</a>.</p>
    * @public
    */
-  VerifyDuration?: number;
+  VerifyDuration?: number | undefined;
 
   /**
-   * <p>The status of the VERIFYING phase.</p>
+   * <p>The status of the <code>VERIFYING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
-  VerifyStatus?: PhaseStatus;
+  VerifyStatus?: PhaseStatus | undefined;
 
   /**
-   * <p>Errors that DataSync encountered during execution of the task. You can
-   *       use this error code to help troubleshoot issues.</p>
+   * <p>An error that DataSync encountered during your task execution. You can use
+   *       this information to help <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">troubleshoot
+   *         issues</a>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
-   * <p>Detailed description of an error that was encountered during the task execution. You
-   *       can use this information to help troubleshoot issues. </p>
+   * <p>The detailed description of an error that DataSync encountered during your
+   *       task execution. You can use this information to help <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">troubleshoot
+   *         issues</a>. </p>
    * @public
    */
-  ErrorDetail?: string;
+  ErrorDetail?: string | undefined;
 }
 
 /**
@@ -4901,13 +5167,13 @@ export interface DescribeTaskExecutionResponse {
    *         <code>arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2</code>. </p>
    * @public
    */
-  TaskExecutionArn?: string;
+  TaskExecutionArn?: string | undefined;
 
   /**
    * <p>The status of the task execution. </p>
    * @public
    */
-  Status?: TaskExecutionStatus;
+  Status?: TaskExecutionStatus | undefined;
 
   /**
    * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
@@ -4917,116 +5183,141 @@ export interface DescribeTaskExecutionResponse {
    *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
-  Options?: Options;
+  Options?: Options | undefined;
 
   /**
    * <p>A list of filter rules that exclude specific data during your transfer. For more
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
    * @public
    */
-  Excludes?: FilterRule[];
+  Excludes?: FilterRule[] | undefined;
 
   /**
    * <p>A list of filter rules that include specific data during your transfer. For more
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
    * @public
    */
-  Includes?: FilterRule[];
+  Includes?: FilterRule[] | undefined;
 
   /**
    * <p>The configuration of the manifest that lists the files or objects to transfer. For more
    *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
    * @public
    */
-  ManifestConfig?: ManifestConfig;
+  ManifestConfig?: ManifestConfig | undefined;
 
   /**
    * <p>The time when the task execution started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
-   * <p>The expected number of files, objects, and directories that DataSync will
-   *       transfer over the network. This value is calculated during the task execution's
-   *         <code>PREPARING</code> phase before the <code>TRANSFERRING</code> phase. The calculation is
-   *       based on comparing the content of the source and destination locations and finding the
-   *       difference that needs to be transferred. </p>
+   * <p>The number of files, objects, and directories that DataSync expects to
+   *       transfer over the network. This value is calculated while DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">prepares</a> the transfer.</p>
+   *          <p>How this gets calculated depends primarily on your task’s <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-TransferMode">transfer
+   *         mode</a> configuration:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>TranserMode</code> is set to <code>CHANGED</code> - The calculation is based
+   *           on comparing the content of the source and destination locations and determining the
+   *           difference that needs to be transferred. The difference can include:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Anything that's added or modified at the source location.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Anything that's in both locations and modified at the destination after an initial
+   *               transfer (unless <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-OverwriteMode">OverwriteMode</a> is set to <code>NEVER</code>).</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>(Basic task mode only)</b> The number of items that
+   *                 DataSync expects to delete (if <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-PreserveDeletedFiles">PreserveDeletedFiles</a> is set to
+   *               <code>REMOVE</code>).</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>If <code>TranserMode</code> is set to <code>ALL</code> - The calculation is based only
+   *           on the items that DataSync finds at the source location.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  EstimatedFilesToTransfer?: number;
+  EstimatedFilesToTransfer?: number | undefined;
 
   /**
-   * <p>The estimated physical number of bytes that will transfer over the network.</p>
+   * <p>The number of logical bytes that DataSync expects to write to the destination
+   *       location.</p>
    * @public
    */
-  EstimatedBytesToTransfer?: number;
+  EstimatedBytesToTransfer?: number | undefined;
 
   /**
-   * <p>The actual number of files, objects, and directories that DataSync
-   *       transferred over the network. This value is updated periodically during the task execution's
-   *         <code>TRANSFERRING</code> phase when something is read from the source and sent over the
-   *       network.</p>
+   * <p>The number of files, objects, and directories that DataSync actually
+   *       transfers over the network. This value is updated periodically during your task execution when
+   *       something is read from the source and sent over the network.</p>
    *          <p>If DataSync fails to transfer something, this value can be less than
    *         <code>EstimatedFilesToTransfer</code>. In some cases, this value can also be greater than
    *         <code>EstimatedFilesToTransfer</code>. This element is implementation-specific for some
-   *       location types, so don't use it as an exact indication of what transferred or to monitor your task execution.</p>
+   *       location types, so don't use it as an exact indication of what's transferring or to monitor
+   *       your task execution.</p>
    * @public
    */
-  FilesTransferred?: number;
+  FilesTransferred?: number | undefined;
 
   /**
-   * <p>The number of logical bytes written to the destination location.</p>
+   * <p>The number of logical bytes that DataSync actually writes to the destination
+   *       location.</p>
    * @public
    */
-  BytesWritten?: number;
+  BytesWritten?: number | undefined;
 
   /**
-   * <p>The total number of bytes that are involved in the transfer. For the number of bytes
-   *       sent over the network, see <code>BytesCompressed</code>. </p>
+   * <p>The number of bytes that DataSync sends to the network before compression (if
+   *       compression is possible). For the number of bytes transferred over the network, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html#DataSync-DescribeTaskExecution-response-BytesCompressed">BytesCompressed</a>. </p>
    * @public
    */
-  BytesTransferred?: number;
+  BytesTransferred?: number | undefined;
 
   /**
-   * <p>The physical number of bytes transferred over the network after compression was applied.
-   *       In most cases, this number is less than <code>BytesTransferred</code> unless the data isn't
-   *       compressible.</p>
+   * <p>The number of physical bytes that DataSync transfers over the network after
+   *       compression (if compression is possible). This number is typically less than <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html#DataSync-DescribeTaskExecution-response-BytesTransferred">BytesTransferred</a> unless the data isn't compressible.</p>
    * @public
    */
-  BytesCompressed?: number;
+  BytesCompressed?: number | undefined;
 
   /**
    * <p>The result of the task execution.</p>
    * @public
    */
-  Result?: TaskExecutionResultDetail;
+  Result?: TaskExecutionResultDetail | undefined;
 
   /**
    * <p>The configuration of your task report, which provides detailed information about for your
    *         DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
    * @public
    */
-  TaskReportConfig?: TaskReportConfig;
+  TaskReportConfig?: TaskReportConfig | undefined;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync deleted in your
-   *       destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
-   *       delete data in the destination that isn't in the source, the value is always
-   *       <code>0</code>.</p>
+   * <p>The number of files, objects, and directories that DataSync actually deletes in
+   *       your destination location. If you don't configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">delete data in the destination that
+   *         isn't in the source</a>, the value is always <code>0</code>.</p>
    * @public
    */
-  FilesDeleted?: number;
+  FilesDeleted?: number | undefined;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync skipped during your
+   * <p>The number of files, objects, and directories that DataSync skips during your
    *       transfer.</p>
    * @public
    */
-  FilesSkipped?: number;
+  FilesSkipped?: number | undefined;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync verified during your
+   * <p>The number of files, objects, and directories that DataSync verifies during your
    *       transfer.</p>
    *          <note>
    *             <p>When you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-data-verification-options.html">verify only the
@@ -5035,23 +5326,67 @@ export interface DescribeTaskExecutionResponse {
    *          </note>
    * @public
    */
-  FilesVerified?: number;
+  FilesVerified?: number | undefined;
 
   /**
    * <p>Indicates whether DataSync generated a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a> for your
    *       transfer.</p>
    * @public
    */
-  ReportResult?: ReportResult;
+  ReportResult?: ReportResult | undefined;
 
   /**
-   * <p>The expected number of files, objects, and directories that DataSync will delete
-   *       in your destination location.  If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
-   *       delete data in the destination that isn't in the source, the value is always
-   *       <code>0</code>.</p>
+   * <p>The number of files, objects, and directories that DataSync expects to delete in
+   *       your destination location. If you don't configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">delete data in the destination that
+   *         isn't in the source</a>, the value is always <code>0</code>.</p>
    * @public
    */
-  EstimatedFilesToDelete?: number;
+  EstimatedFilesToDelete?: number | undefined;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode | undefined;
+
+  /**
+   * <p>The number of objects that DataSync will attempt to transfer after comparing
+   *       your source and destination locations.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   *          <p>This counter isn't applicable if you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-transfer-mode">transfer
+   *         all data</a>. In that scenario, DataSync copies everything from the source to
+   *       the destination without comparing differences between the locations.</p>
+   * @public
+   */
+  FilesPrepared?: number | undefined;
+
+  /**
+   * <p>The number of
+   *       objects
+   *       that DataSync
+   *       finds
+   *       at your locations.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   * @public
+   */
+  FilesListed?: TaskExecutionFilesListedDetail | undefined;
+
+  /**
+   * <p>The number of objects that DataSync fails to prepare, transfer, verify, and
+   *       delete during your task execution.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   * @public
+   */
+  FilesFailed?: TaskExecutionFilesFailedDetail | undefined;
 }
 
 /**
@@ -5063,13 +5398,13 @@ export interface DiscoveryJobListEntry {
    * <p>The Amazon Resource Name (ARN) of a discovery job.</p>
    * @public
    */
-  DiscoveryJobArn?: string;
+  DiscoveryJobArn?: string | undefined;
 
   /**
    * <p>The status of a discovery job. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table">Discovery job statuses</a>.</p>
    * @public
    */
-  Status?: DiscoveryJobStatus;
+  Status?: DiscoveryJobStatus | undefined;
 }
 
 /**
@@ -5113,14 +5448,14 @@ export interface ListAgentsRequest {
    *       default, a response shows a maximum of 100 agents.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of
    *       results in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5133,14 +5468,14 @@ export interface ListAgentsResponse {
    *       Resource Names (ARNs).</p>
    * @public
    */
-  Agents?: AgentListEntry[];
+  Agents?: AgentListEntry[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5153,20 +5488,20 @@ export interface ListDiscoveryJobsRequest {
    *       storage system.</p>
    * @public
    */
-  StorageSystemArn?: string;
+  StorageSystemArn?: string | undefined;
 
   /**
    * <p>Specifies how many results you want in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of results
    *       in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5177,14 +5512,14 @@ export interface ListDiscoveryJobsResponse {
    * <p>The discovery jobs that you've run.</p>
    * @public
    */
-  DiscoveryJobs?: DiscoveryJobListEntry[];
+  DiscoveryJobs?: DiscoveryJobListEntry[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5265,14 +5600,14 @@ export interface ListLocationsRequest {
    * <p>The maximum number of locations to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An opaque string that indicates the position at which to begin the next list of
    *       locations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>You can use API filters to narrow down the list of resources returned by
@@ -5281,7 +5616,7 @@ export interface ListLocationsRequest {
    *       and <code>Operator Equals</code>.</p>
    * @public
    */
-  Filters?: LocationFilter[];
+  Filters?: LocationFilter[] | undefined;
 }
 
 /**
@@ -5297,7 +5632,7 @@ export interface LocationListEntry {
    *       want to mount and use as the root of the location.</p>
    * @public
    */
-  LocationArn?: string;
+  LocationArn?: string | undefined;
 
   /**
    * <p>Represents a list of URIs of a location. <code>LocationUri</code> returns an array that
@@ -5317,7 +5652,7 @@ export interface LocationListEntry {
    *          <p></p>
    * @public
    */
-  LocationUri?: string;
+  LocationUri?: string | undefined;
 }
 
 /**
@@ -5329,14 +5664,14 @@ export interface ListLocationsResponse {
    * <p>An array that contains a list of locations.</p>
    * @public
    */
-  Locations?: LocationListEntry[];
+  Locations?: LocationListEntry[] | undefined;
 
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of locations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5347,14 +5682,14 @@ export interface ListStorageSystemsRequest {
    * <p>Specifies how many results you want in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of results
    *       in the response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5368,13 +5703,13 @@ export interface StorageSystemListEntry {
    *       DataSync Discovery.</p>
    * @public
    */
-  StorageSystemArn?: string;
+  StorageSystemArn?: string | undefined;
 
   /**
    * <p>The name of an on-premises storage system that you added to DataSync Discovery.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5386,14 +5721,14 @@ export interface ListStorageSystemsResponse {
    *       DataSync Discovery.</p>
    * @public
    */
-  StorageSystems?: StorageSystemListEntry[];
+  StorageSystems?: StorageSystemListEntry[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5412,14 +5747,14 @@ export interface ListTagsForResourceRequest {
    * <p>Specifies how many results that you want in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position to begin the next list of
    *       results in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5431,14 +5766,14 @@ export interface ListTagsForResourceResponse {
    * <p>An array of tags applied to the specified resource.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5451,20 +5786,20 @@ export interface ListTaskExecutionsRequest {
    *       information about.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 
   /**
    * <p>Specifies how many results you want in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies an opaque string that indicates the position at which to begin the next list
    *       of results in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5478,13 +5813,19 @@ export interface TaskExecutionListEntry {
    * <p>The Amazon Resource Name (ARN) of a task execution.</p>
    * @public
    */
-  TaskExecutionArn?: string;
+  TaskExecutionArn?: string | undefined;
 
   /**
    * <p>The status of a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    * @public
    */
-  Status?: TaskExecutionStatus;
+  Status?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode | undefined;
 }
 
 /**
@@ -5496,14 +5837,14 @@ export interface ListTaskExecutionsResponse {
    * <p>A list of the task's executions.</p>
    * @public
    */
-  TaskExecutions?: TaskExecutionListEntry[];
+  TaskExecutions?: TaskExecutionListEntry[] | undefined;
 
   /**
    * <p>The opaque string that indicates the position to begin the next list of results in the
    *       response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5561,14 +5902,14 @@ export interface ListTasksRequest {
    * <p>The maximum number of tasks to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An opaque string that indicates the position at which to begin the next list of
    *       tasks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>You can use API filters to narrow down the list of resources returned by
@@ -5577,7 +5918,7 @@ export interface ListTasksRequest {
    *         Equals</code> with the ARN for the location.</p>
    * @public
    */
-  Filters?: TaskFilter[];
+  Filters?: TaskFilter[] | undefined;
 }
 
 /**
@@ -5592,19 +5933,25 @@ export interface TaskListEntry {
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 
   /**
    * <p>The status of the task.</p>
    * @public
    */
-  Status?: TaskStatus;
+  Status?: TaskStatus | undefined;
 
   /**
    * <p>The name of the task.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode | undefined;
 }
 
 /**
@@ -5616,14 +5963,14 @@ export interface ListTasksResponse {
    * <p>A list of all the tasks that are returned.</p>
    * @public
    */
-  Tasks?: TaskListEntry[];
+  Tasks?: TaskListEntry[] | undefined;
 
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of tasks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5670,14 +6017,14 @@ export interface StartDiscoveryJobRequest {
    *       you don't specify a client token, DataSync generates one for you automatically.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services
    *       resources.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -5688,7 +6035,7 @@ export interface StartDiscoveryJobResponse {
    * <p>The ARN of the discovery job that you started.</p>
    * @public
    */
-  DiscoveryJobArn?: string;
+  DiscoveryJobArn?: string | undefined;
 }
 
 /**
@@ -5710,7 +6057,7 @@ export interface StartTaskExecutionRequest {
    *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
-  OverrideOptions?: Options;
+  OverrideOptions?: Options | undefined;
 
   /**
    * <p>Specifies a list of filter rules that determines which files to include when running a
@@ -5719,7 +6066,7 @@ export interface StartTaskExecutionRequest {
    *         <code>"/folder1|/folder2"</code>. </p>
    * @public
    */
-  Includes?: FilterRule[];
+  Includes?: FilterRule[] | undefined;
 
   /**
    * <p>Specifies a list of filter rules that determines which files to exclude from a task. The
@@ -5727,7 +6074,7 @@ export interface StartTaskExecutionRequest {
    *       are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>. </p>
    * @public
    */
-  Excludes?: FilterRule[];
+  Excludes?: FilterRule[] | undefined;
 
   /**
    * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
@@ -5735,7 +6082,7 @@ export interface StartTaskExecutionRequest {
    *          <p>To remove a manifest configuration, specify this parameter with an empty value.</p>
    * @public
    */
-  ManifestConfig?: ManifestConfig;
+  ManifestConfig?: ManifestConfig | undefined;
 
   /**
    * <p>Specifies how you want to configure a task report, which provides detailed information
@@ -5745,7 +6092,7 @@ export interface StartTaskExecutionRequest {
    *          <p>To remove a task report configuration, specify this parameter as empty.</p>
    * @public
    */
-  TaskReportConfig?: TaskReportConfig;
+  TaskReportConfig?: TaskReportConfig | undefined;
 
   /**
    * <p>Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing
@@ -5755,7 +6102,7 @@ export interface StartTaskExecutionRequest {
    *       your DataSync resources.</p>
    * @public
    */
-  Tags?: TagListEntry[];
+  Tags?: TagListEntry[] | undefined;
 }
 
 /**
@@ -5767,7 +6114,7 @@ export interface StartTaskExecutionResponse {
    * <p>The ARN of the running task execution.</p>
    * @public
    */
-  TaskExecutionArn?: string;
+  TaskExecutionArn?: string | undefined;
 }
 
 /**
@@ -5849,7 +6196,7 @@ export interface UpdateAgentRequest {
    * <p>The name that you want to use to configure the agent.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5896,19 +6243,19 @@ export interface UpdateLocationAzureBlobRequest {
    *       container (for example, <code>/my/images</code>).</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
    * @public
    */
-  AuthenticationType?: AzureBlobAuthenticationType;
+  AuthenticationType?: AzureBlobAuthenticationType | undefined;
 
   /**
    * <p>Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.</p>
    * @public
    */
-  SasConfiguration?: AzureBlobSasConfiguration;
+  SasConfiguration?: AzureBlobSasConfiguration | undefined;
 
   /**
    * <p>Specifies the type of blob that you want your objects or files to be when transferring
@@ -5916,13 +6263,13 @@ export interface UpdateLocationAzureBlobRequest {
    *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    * @public
    */
-  BlobType?: AzureBlobType;
+  BlobType?: AzureBlobType | undefined;
 
   /**
    * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    * @public
    */
-  AccessTier?: AzureAccessTier;
+  AccessTier?: AzureAccessTier | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.</p>
@@ -5930,13 +6277,254 @@ export interface UpdateLocationAzureBlobRequest {
    *       agents for your transfer</a>.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateLocationAzureBlobResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationEfsRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon EFS transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p>
+   *          <p>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access point</a> if you provide one by using
+   *       <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for
+   *       example, <code>/path/to/folder</code>).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses
+   *       to mount your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted Amazon EFS file systems</a>.</p>
+   * @public
+   */
+  AccessPointArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p>
+   *          <p>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for Amazon EFS file system access</a>.</p>
+   * @public
+   */
+  FileSystemAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2
+   *       encryption when it transfers data to or from your Amazon EFS file system.</p>
+   *          <p>If you specify an access point using <code>AccessPointArn</code> or an IAM
+   *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
+   *       <code>TLS1_2</code>.</p>
+   * @public
+   */
+  InTransitEncryption?: EfsInTransitEncryption | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationEfsResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxLustreRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p>
+   *          <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxLustreResponse {}
+
+/**
+ * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system's storage virtual machine (SVM). For more information, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Providing DataSync access to FSx for ONTAP file systems</a>.</p>
+ * @public
+ */
+export interface FsxUpdateProtocolSmb {
+  /**
+   * <p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
+   * @public
+   */
+  MountOptions?: SmbMountOptions | undefined;
+
+  /**
+   * <p>Specifies the password of a user who has permission to access your SVM.</p>
+   * @public
+   */
+  Password?: string | undefined;
+
+  /**
+   * <p>Specifies a user that can mount and access the files, folders, and metadata in your SVM.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb">Using
+   *       the SMB protocol</a>.</p>
+   * @public
+   */
+  User?: string | undefined;
+}
+
+/**
+ * <p>Specifies the data transfer protocol that DataSync uses to access your
+ *       Amazon FSx file system.</p>
+ *          <note>
+ *             <p>You can't update the Network File System (NFS) protocol configuration for FSx for ONTAP locations. DataSync currently only supports NFS version 3 with this location type.</p>
+ *          </note>
+ * @public
+ */
+export interface FsxUpdateProtocol {
+  /**
+   * <p>Specifies the Network File System (NFS) protocol configuration that DataSync
+   *       uses to access your FSx for OpenZFS file system or FSx for ONTAP file
+   *       system's storage virtual machine (SVM).</p>
+   * @public
+   */
+  NFS?: FsxProtocolNfs | undefined;
+
+  /**
+   * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync
+   *       uses to access your FSx for ONTAP file system's storage virtual machine (SVM).</p>
+   * @public
+   */
+  SMB?: FsxUpdateProtocolSmb | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOntapRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
+   * @public
+   */
+  Protocol?: FsxUpdateProtocol | undefined;
+
+  /**
+   * <p>Specifies a path to the file share in the storage virtual machine (SVM) where you want to transfer data to or from.</p>
+   *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
+   *       shares), or share name (for SMB file shares). For example, your mount path might be
+   *       <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
+   *          <note>
+   *             <p>Don't specify a junction path in the SVM's root volume. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOntapResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOpenZfsRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for OpenZFS transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your
+   *         Amazon FSx file system.</p>
+   * @public
+   */
+  Protocol?: FsxProtocol | undefined;
+
+  /**
+   * <p>Specifies a subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync uses this subdirectory to read or write data (depending on whether the file
+   *       system is a source or destination location).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOpenZfsResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxWindowsRequest {
+  /**
+   * <p>Specifies the ARN of the FSx for Windows File Server transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your file system using forward slashes. DataSync uses this subdirectory to read or write data (depending on whether the file
+   *       system is a source or destination location).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the Windows domain that your FSx for Windows File Server file system belongs to.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file system.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>Specifies the user with the permissions to mount and access the files, folders, and file
+   *       metadata in your FSx for Windows File Server file system.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
+   * @public
+   */
+  User?: string | undefined;
+
+  /**
+   * <p>Specifies the password of the user with the permissions to mount and access the files,
+   *       folders, and file metadata in your FSx for Windows File Server file system.</p>
+   * @public
+   */
+  Password?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxWindowsResponse {}
 
 /**
  * @public
@@ -5953,7 +6541,7 @@ export interface UpdateLocationHdfsRequest {
    *       data to the HDFS cluster.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
    * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
@@ -5961,25 +6549,25 @@ export interface UpdateLocationHdfsRequest {
    *       map blocks of data to the DataNodes. You can use only one NameNode.</p>
    * @public
    */
-  NameNodes?: HdfsNameNode[];
+  NameNodes?: HdfsNameNode[] | undefined;
 
   /**
    * <p>The size of the data blocks to write into the HDFS cluster. </p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. </p>
    * @public
    */
-  ReplicationFactor?: number;
+  ReplicationFactor?: number | undefined;
 
   /**
    * <p>The URI of the HDFS cluster's Key Management Server (KMS). </p>
    * @public
    */
-  KmsKeyProviderUri?: string;
+  KmsKeyProviderUri?: string | undefined;
 
   /**
    * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
@@ -5987,25 +6575,25 @@ export interface UpdateLocationHdfsRequest {
    *       cluster. </p>
    * @public
    */
-  QopConfiguration?: QopConfiguration;
+  QopConfiguration?: QopConfiguration | undefined;
 
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
    * @public
    */
-  AuthenticationType?: HdfsAuthenticationType;
+  AuthenticationType?: HdfsAuthenticationType | undefined;
 
   /**
    * <p>The user name used to identify the client on the host operating system.</p>
    * @public
    */
-  SimpleUser?: string;
+  SimpleUser?: string | undefined;
 
   /**
    * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p>
    * @public
    */
-  KerberosPrincipal?: string;
+  KerberosPrincipal?: string | undefined;
 
   /**
    * <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
@@ -6014,7 +6602,7 @@ export interface UpdateLocationHdfsRequest {
    *       provide the base64-encoded text.</p>
    * @public
    */
-  KerberosKeytab?: Uint8Array;
+  KerberosKeytab?: Uint8Array | undefined;
 
   /**
    * <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You
@@ -6023,13 +6611,13 @@ export interface UpdateLocationHdfsRequest {
    *       base64-encoded text.</p>
    * @public
    */
-  KerberosKrb5Conf?: Uint8Array;
+  KerberosKrb5Conf?: Uint8Array | undefined;
 
   /**
-   * <p>The ARNs of the agents that are used to connect to the HDFS cluster. </p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 }
 
 /**
@@ -6055,20 +6643,27 @@ export interface UpdateLocationNfsRequest {
    *       or from. For information on configuring an export for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs">Accessing NFS file servers</a>.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
 
   /**
-   * <p>The DataSync agents that are connecting to a Network File System (NFS)
-   *       location.</p>
+   * <p>Specifies the DNS name or IP version 4 (IPv4) address of the NFS file
+   *       server that your DataSync agent connects to.</p>
    * @public
    */
-  OnPremConfig?: OnPremConfig;
+  ServerHostname?: string | undefined;
+
+  /**
+   * <p>The DataSync agents that can connect to your Network File System (NFS)
+   *       file server.</p>
+   * @public
+   */
+  OnPremConfig?: OnPremConfig | undefined;
 
   /**
    * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
    * @public
    */
-  MountOptions?: NfsMountOptions;
+  MountOptions?: NfsMountOptions | undefined;
 }
 
 /**
@@ -6091,13 +6686,13 @@ export interface UpdateLocationObjectStorageRequest {
    *       example, port 443).</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 
   /**
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    * @public
    */
-  ServerProtocol?: ObjectStorageServerProtocol;
+  ServerProtocol?: ObjectStorageServerProtocol | undefined;
 
   /**
    * <p>Specifies the object prefix for your object storage server. If this is a source location,
@@ -6105,28 +6700,35 @@ export interface UpdateLocationObjectStorageRequest {
    *       writes all objects with this prefix.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the domain name or IP version 4 (IPv4) address of the object storage server that your DataSync
+   *       agent connects to.</p>
+   * @public
+   */
+  ServerHostname?: string | undefined;
 
   /**
    * <p>Specifies the access key (for example, a user name) if credentials are required to
    *       authenticate with the object storage server.</p>
    * @public
    */
-  AccessKey?: string;
+  AccessKey?: string | undefined;
 
   /**
    * <p>Specifies the secret key (for example, a password) if credentials are required to
    *       authenticate with the object storage server.</p>
    * @public
    */
-  SecretKey?: string;
+  SecretKey?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can
-   *       securely connect with your location.</p>
+   *       connect with your object storage system.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>Specifies a certificate chain for DataSync to authenticate with your object
@@ -6156,13 +6758,82 @@ export interface UpdateLocationObjectStorageRequest {
    *          <p>Updating this parameter doesn't interfere with tasks that you have in progress.</p>
    * @public
    */
-  ServerCertificate?: Uint8Array;
+  ServerCertificate?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateLocationObjectStorageResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationS3Request {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a prefix in the S3 bucket that DataSync  reads from or writes to
+   *       (depending on whether the bucket is a source or destination location).</p>
+   *          <note>
+   *             <p>DataSync can't transfer objects with a prefix that begins with a slash
+   *         (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or
+   *         <code>/../</code> patterns. For example:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>/photos</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos//2006/January</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/./2006/February</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/../2006/March</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the storage class that you want your objects to use when Amazon S3 is a
+   *       transfer destination.</p>
+   *          <p>For buckets in Amazon Web Services Regions, the storage class defaults to
+   *       <code>STANDARD</code>. For buckets on Outposts, the storage class defaults to
+   *       <code>OUTPOSTS</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
+   *       considerations with Amazon S3 transfers</a>.</p>
+   * @public
+   */
+  S3StorageClass?: S3StorageClass | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
+   * @public
+   */
+  S3Config?: S3Config | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationS3Response {}
 
 /**
  * @public
@@ -6180,47 +6851,114 @@ export interface UpdateLocationSmbRequest {
    *       <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
    *       also mount this path.</p>
    *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
-   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
-  Subdirectory?: string;
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the domain name or IP address of the SMB file server that your DataSync agent connects to.</p>
+   *          <p>Remember the following when configuring this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can't specify an IP version 6 (IPv6) address.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you're using Kerberos authentication, you must specify a domain name.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ServerHostname?: string | undefined;
 
   /**
    * <p>Specifies the user name that can mount your SMB file server and has permission to access
-   *       the files and folders involved in your transfer.</p>
+   *       the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
-  User?: string;
+  User?: string | undefined;
 
   /**
-   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. This parameter
+   *       applies only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>Specifies the password of the user who can mount your SMB file server and has permission
-   *       to access the files and folders involved in your transfer.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       to access the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
-   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
+   * <p>Specifies the DataSync agent (or agents) that can connect to your SMB file
+   *       server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    * @public
    */
-  MountOptions?: SmbMountOptions;
+  MountOptions?: SmbMountOptions | undefined;
+
+  /**
+   * <p>Specifies the authentication protocol that DataSync uses to connect to your SMB
+   *       file server. DataSync supports <code>NTLM</code> (default) and <code>KERBEROS</code>
+   *       authentication.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
+
+  /**
+   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   *       This parameter applies only if <code>AuthenticationType</code> is set to
+   *       <code>KERBEROS</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right SMB file server. </p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has
+   *       permission to access the files, folders, and file metadata in your SMB file server.</p>
+   *          <p>A Kerberos principal might look like <code>HOST/kerberosuser@MYDOMAIN.ORG</code>.</p>
+   *          <p>Principal names are case sensitive. Your DataSync task execution will fail if
+   *       the principal that you specify for this parameter doesn’t exactly match the principal that you
+   *       use to create the keytab file.</p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your
+   *       Kerberos principal and encryption keys.</p>
+   *          <p>The file must be base64 encoded. If you're using the CLI, the encoding is
+   *       done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the Kerberos principal that you use to
+   *       create the keytab file matches exactly what you specify for <code>KerberosPrincipal</code>.</p>
+   * @public
+   */
+  KerberosKeytab?: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your
+   *       Kerberos realm configuration.</p>
+   *          <p>The file must be base64 encoded. If you're using the CLI, the encoding is
+   *       done for you.</p>
+   * @public
+   */
+  KerberosKrb5Conf?: Uint8Array | undefined;
 }
 
 /**
@@ -6243,34 +6981,34 @@ export interface UpdateStorageSystemRequest {
    *       storage system's management interface.</p>
    * @public
    */
-  ServerConfiguration?: DiscoveryServerConfiguration;
+  ServerConfiguration?: DiscoveryServerConfiguration | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads
    *       your on-premises storage system. You can only specify one ARN.</p>
    * @public
    */
-  AgentArns?: string[];
+  AgentArns?: string[] | undefined;
 
   /**
    * <p>Specifies a familiar name for your on-premises storage system.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon CloudWatch log group for monitoring and logging
    *       discovery job events.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the user name and password for accessing your on-premises storage system's
    *       management interface.</p>
    * @public
    */
-  Credentials?: Credentials;
+  Credentials?: Credentials | undefined;
 }
 
 /**
@@ -6297,41 +7035,48 @@ export interface UpdateTaskRequest {
    *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
-  Options?: Options;
+  Options?: Options | undefined;
 
   /**
    * <p>Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Excludes?: FilterRule[];
+  Excludes?: FilterRule[] | undefined;
 
   /**
    * <p>Specifies a schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
    *       task</a>.</p>
    * @public
    */
-  Schedule?: TaskSchedule;
+  Schedule?: TaskSchedule | undefined;
 
   /**
    * <p>Specifies the name of your task.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
    *       monitoring your task.</p>
+   *          <p>For Enhanced mode tasks, you must use <code>/aws/datasync</code> as your log group
+   *       name. For example:</p>
+   *          <p>
+   *             <code>arn:aws:logs:us-east-1:111222333444:log-group:/aws/datasync:*</code>
+   *          </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html">Monitoring data transfers with
+   *           CloudWatch Logs</a>.</p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies include filters define the files, objects, and folders in your source location
    *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
-  Includes?: FilterRule[];
+  Includes?: FilterRule[] | undefined;
 
   /**
    * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
@@ -6339,7 +7084,7 @@ export interface UpdateTaskRequest {
    *          <p>To remove a manifest configuration, specify this parameter as empty.</p>
    * @public
    */
-  ManifestConfig?: ManifestConfig;
+  ManifestConfig?: ManifestConfig | undefined;
 
   /**
    * <p>Specifies how you want to configure a task report, which provides detailed information
@@ -6349,7 +7094,7 @@ export interface UpdateTaskRequest {
    *          <p>To remove a task report configuration, specify this parameter as empty.</p>
    * @public
    */
-  TaskReportConfig?: TaskReportConfig;
+  TaskReportConfig?: TaskReportConfig | undefined;
 }
 
 /**
@@ -6495,6 +7240,46 @@ export const DescribeLocationFsxOpenZfsResponseFilterSensitiveLog = (obj: Descri
 export const UpdateLocationAzureBlobRequestFilterSensitiveLog = (obj: UpdateLocationAzureBlobRequest): any => ({
   ...obj,
   ...(obj.SasConfiguration && { SasConfiguration: AzureBlobSasConfigurationFilterSensitiveLog(obj.SasConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const FsxUpdateProtocolSmbFilterSensitiveLog = (obj: FsxUpdateProtocolSmb): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FsxUpdateProtocolFilterSensitiveLog = (obj: FsxUpdateProtocol): any => ({
+  ...obj,
+  ...(obj.SMB && { SMB: FsxUpdateProtocolSmbFilterSensitiveLog(obj.SMB) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxOntapRequestFilterSensitiveLog = (obj: UpdateLocationFsxOntapRequest): any => ({
+  ...obj,
+  ...(obj.Protocol && { Protocol: FsxUpdateProtocolFilterSensitiveLog(obj.Protocol) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxOpenZfsRequestFilterSensitiveLog = (obj: UpdateLocationFsxOpenZfsRequest): any => ({
+  ...obj,
+  ...(obj.Protocol && { Protocol: FsxProtocolFilterSensitiveLog(obj.Protocol) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxWindowsRequestFilterSensitiveLog = (obj: UpdateLocationFsxWindowsRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
 });
 
 /**

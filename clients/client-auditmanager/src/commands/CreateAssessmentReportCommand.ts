@@ -87,6 +87,7 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class CreateAssessmentReportCommand extends $Command
@@ -97,9 +98,7 @@ export class CreateAssessmentReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class CreateAssessmentReportCommand extends $Command
   .f(CreateAssessmentReportRequestFilterSensitiveLog, CreateAssessmentReportResponseFilterSensitiveLog)
   .ser(se_CreateAssessmentReportCommand)
   .de(de_CreateAssessmentReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentReportRequest;
+      output: CreateAssessmentReportResponse;
+    };
+    sdk: {
+      input: CreateAssessmentReportCommandInput;
+      output: CreateAssessmentReportCommandOutput;
+    };
+  };
+}

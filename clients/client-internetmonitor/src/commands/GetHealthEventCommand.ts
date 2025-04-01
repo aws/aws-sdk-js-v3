@@ -133,6 +133,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetHealthEventCommand extends $Command
@@ -143,9 +144,7 @@ export class GetHealthEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +156,16 @@ export class GetHealthEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHealthEventCommand)
   .de(de_GetHealthEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHealthEventInput;
+      output: GetHealthEventOutput;
+    };
+    sdk: {
+      input: GetHealthEventCommandInput;
+      output: GetHealthEventCommandOutput;
+    };
+  };
+}

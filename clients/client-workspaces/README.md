@@ -27,7 +27,7 @@ see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/ind
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces
+To install this package, simply type add or install @aws-sdk/client-workspaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces`
@@ -714,6 +714,14 @@ ModifyClientProperties
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifyClientPropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyClientPropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyClientPropertiesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyEndpointEncryptionMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifyEndpointEncryptionModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandOutput/)
 
 </details>
 <details>

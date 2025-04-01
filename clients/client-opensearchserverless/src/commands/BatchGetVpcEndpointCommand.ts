@@ -62,6 +62,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * //       ],
  * //       status: "STRING_VALUE",
  * //       createdDate: Number("long"),
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails
@@ -91,6 +93,7 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class BatchGetVpcEndpointCommand extends $Command
@@ -101,9 +104,7 @@ export class BatchGetVpcEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class BatchGetVpcEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetVpcEndpointCommand)
   .de(de_BatchGetVpcEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetVpcEndpointRequest;
+      output: BatchGetVpcEndpointResponse;
+    };
+    sdk: {
+      input: BatchGetVpcEndpointCommandInput;
+      output: BatchGetVpcEndpointCommandOutput;
+    };
+  };
+}

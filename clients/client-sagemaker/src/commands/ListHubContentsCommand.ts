@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHubContentsRequest, ListHubContentsResponse } from "../models/models_3";
+import { ListHubContentsRequest, ListHubContentsResponse } from "../models/models_4";
 import { de_ListHubContentsCommand, se_ListHubContentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -60,7 +60,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
- * //       SupportStatus: "Supported" || "Deprecated",
+ * //       SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
@@ -86,6 +86,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHubContentsCommand extends $Command
@@ -96,9 +97,7 @@ export class ListHubContentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListHubContentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubContentsCommand)
   .de(de_ListHubContentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubContentsRequest;
+      output: ListHubContentsResponse;
+    };
+    sdk: {
+      input: ListHubContentsCommandInput;
+      output: ListHubContentsCommandOutput;
+    };
+  };
+}

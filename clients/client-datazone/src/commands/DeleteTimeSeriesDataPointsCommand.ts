@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_0";
+import { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_1";
 import { de_DeleteTimeSeriesDataPointsCommand, se_DeleteTimeSeriesDataPointsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface DeleteTimeSeriesDataPointsCommandOutput extends DeleteTimeSerie
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteTimeSeriesDataPointsCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteTimeSeriesDataPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteTimeSeriesDataPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTimeSeriesDataPointsCommand)
   .de(de_DeleteTimeSeriesDataPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTimeSeriesDataPointsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTimeSeriesDataPointsCommandInput;
+      output: DeleteTimeSeriesDataPointsCommandOutput;
+    };
+  };
+}

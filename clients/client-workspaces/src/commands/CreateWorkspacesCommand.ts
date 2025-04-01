@@ -40,11 +40,18 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *                </li>
  *                <li>
  *                   <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles
- *                   because <code>WSP</code> is the default protocol for those bundles.</p>
+ *                   because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p>
  *                </li>
  *                <li>
  *                   <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
  *                Core.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Review your running mode to ensure you are using one that is optimal for your needs and budget.
+ *                   For more information on switching running modes, see
+ *                   <a href="http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F">
+ *                      Can I switch between hourly and monthly billing?</a>
+ *                   </p>
  *                </li>
  *             </ul>
  *          </note>
@@ -68,11 +75,15 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  *         RootVolumeSizeGib: Number("int"),
  *         UserVolumeSizeGib: Number("int"),
- *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *         Protocols: [ // ProtocolList
  *           "PCOIP" || "WSP",
  *         ],
- *         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ *         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
+ *         GlobalAccelerator: { // GlobalAcceleratorForWorkSpace
+ *           Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
+ *           PreferredProtocol: "TCP" || "NONE" || "INHERITED",
+ *         },
  *       },
  *       Tags: [ // TagList
  *         { // Tag
@@ -101,11 +112,15 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //           RunningModeAutoStopTimeoutInMinutes: Number("int"),
  * //           RootVolumeSizeGib: Number("int"),
  * //           UserVolumeSizeGib: Number("int"),
- * //           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //           Protocols: [ // ProtocolList
  * //             "PCOIP" || "WSP",
  * //           ],
- * //           OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ * //           OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
+ * //           GlobalAccelerator: { // GlobalAcceleratorForWorkSpace
+ * //             Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
+ * //             PreferredProtocol: "TCP" || "NONE" || "INHERITED",
+ * //           },
  * //         },
  * //         Tags: [ // TagList
  * //           { // Tag
@@ -140,11 +155,15 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  * //         RootVolumeSizeGib: Number("int"),
  * //         UserVolumeSizeGib: Number("int"),
- * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //         Protocols: [
  * //           "PCOIP" || "WSP",
  * //         ],
- * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
+ * //         GlobalAccelerator: {
+ * //           Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
+ * //           PreferredProtocol: "TCP" || "NONE" || "INHERITED",
+ * //         },
  * //       },
  * //       ModificationStates: [ // ModificationStateList
  * //         { // ModificationState
@@ -192,6 +211,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspacesCommand extends $Command
@@ -202,9 +222,7 @@ export class CreateWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +234,16 @@ export class CreateWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspacesCommand)
   .de(de_CreateWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspacesRequest;
+      output: CreateWorkspacesResult;
+    };
+    sdk: {
+      input: CreateWorkspacesCommandInput;
+      output: CreateWorkspacesCommandOutput;
+    };
+  };
+}

@@ -1,3 +1,5 @@
+import { test as it, describe, expect } from "vitest";
+
 import { ClientS3InterfaceTest } from "./ClientS3InterfaceTest";
 import { RESOLVED_FIELDS } from "./RESOLVED_FIELDS";
 

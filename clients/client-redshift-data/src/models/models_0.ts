@@ -4,13 +4,35 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { RedshiftDataServiceException as __BaseException } from "./RedshiftDataServiceException";
 
 /**
+ * <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ * @public
+ */
+export class ActiveSessionsExceededException extends __BaseException {
+  readonly name: "ActiveSessionsExceededException" = "ActiveSessionsExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveSessionsExceededException, __BaseException>) {
+    super({
+      name: "ActiveSessionsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveSessionsExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The number of active statements exceeds the limit.</p>
  * @public
  */
 export class ActiveStatementsExceededException extends __BaseException {
   readonly name: "ActiveStatementsExceededException" = "ActiveStatementsExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -55,6 +77,20 @@ export class BatchExecuteStatementException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ResultFormatString = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type ResultFormatString = (typeof ResultFormatString)[keyof typeof ResultFormatString];
+
+/**
+ * @public
  */
 export interface BatchExecuteStatementInput {
   /**
@@ -71,49 +107,67 @@ export interface BatchExecuteStatementInput {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  Database: string | undefined;
+  Database?: string | undefined;
 
   /**
    * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statements run. </p>
    * @public
    */
-  WithEvent?: boolean;
+  WithEvent?: boolean | undefined;
 
   /**
    * <p>The name of the SQL statements. You can name the SQL statements when you create them to identify the query. </p>
    * @public
    */
-  StatementName?: string;
+  StatementName?: string | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * @public
+   */
+  SessionKeepAliveSeconds?: number | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The data format of the result of the SQL statement. If no format is specified, the default is JSON.</p>
+   * @public
+   */
+  ResultFormat?: ResultFormatString | undefined;
 }
 
 /**
@@ -125,43 +179,81 @@ export interface BatchExecuteStatementOutput {
    *       This identifier is returned by <code>BatchExecuteStatment</code>. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The date and time (UTC) the statement was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The database user name.</p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
+
+  /**
+   * <p>A list of colon (:) separated names of database groups.</p>
+   * @public
+   */
+  DbGroups?: string[] | undefined;
 
   /**
    * <p>The name of the database.</p>
    * @public
    */
-  Database?: string;
+  Database?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+}
+
+/**
+ * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -175,7 +267,7 @@ export class ValidationException extends __BaseException {
    * <p>The exception message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -210,7 +302,7 @@ export interface CancelStatementResponse {
    * <p>A value that indicates whether the cancel statement succeeded (true). </p>
    * @public
    */
-  Status?: boolean;
+  Status?: boolean | undefined;
 }
 
 /**
@@ -231,32 +323,6 @@ export class DatabaseConnectionException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DatabaseConnectionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The exception message.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -303,79 +369,79 @@ export interface ColumnMetadata {
    * <p>A value that indicates whether the column is case-sensitive. </p>
    * @public
    */
-  isCaseSensitive?: boolean;
+  isCaseSensitive?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether the column contains currency values.</p>
    * @public
    */
-  isCurrency?: boolean;
+  isCurrency?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether an integer column is signed.</p>
    * @public
    */
-  isSigned?: boolean;
+  isSigned?: boolean | undefined;
 
   /**
    * <p>The label for the column. </p>
    * @public
    */
-  label?: string;
+  label?: string | undefined;
 
   /**
    * <p>The name of the column. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A value that indicates whether the column is nullable. </p>
    * @public
    */
-  nullable?: number;
+  nullable?: number | undefined;
 
   /**
    * <p>The precision value of a decimal number column. </p>
    * @public
    */
-  precision?: number;
+  precision?: number | undefined;
 
   /**
    * <p>The scale value of a decimal number column. </p>
    * @public
    */
-  scale?: number;
+  scale?: number | undefined;
 
   /**
    * <p>The name of the schema that contains the table that includes the column.</p>
    * @public
    */
-  schemaName?: string;
+  schemaName?: string | undefined;
 
   /**
    * <p>The name of the table that includes the column. </p>
    * @public
    */
-  tableName?: string;
+  tableName?: string | undefined;
 
   /**
    * <p>The database-specific data type of the column. </p>
    * @public
    */
-  typeName?: string;
+  typeName?: string | undefined;
 
   /**
    * <p>The length of the column.</p>
    * @public
    */
-  length?: number;
+  length?: number | undefined;
 
   /**
    * <p>The default value of the column. </p>
    * @public
    */
-  columnDefault?: string;
+  columnDefault?: string | undefined;
 }
 
 /**
@@ -467,13 +533,13 @@ export interface SubStatementData {
    * <p>The amount of time in nanoseconds that the statement ran.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The error message from the cluster if the SQL statement encountered an error while running.</p>
    * @public
    */
-  Error?: string;
+  Error?: string | undefined;
 
   /**
    * <p>The status of the SQL statement. An
@@ -481,25 +547,25 @@ export interface SubStatementData {
    *       </p>
    * @public
    */
-  Status?: StatementStatusString;
+  Status?: StatementStatusString | undefined;
 
   /**
    * <p>The date and time (UTC) the statement was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time (UTC) that the statement metadata was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The SQL statement text.</p>
    * @public
    */
-  QueryString?: string;
+  QueryString?: string | undefined;
 
   /**
    * <p>Either the number of rows returned from the SQL statement or the number of rows affected.
@@ -507,25 +573,25 @@ export interface SubStatementData {
    *       A <code>-1</code> indicates the value is null.</p>
    * @public
    */
-  ResultRows?: number;
+  ResultRows?: number | undefined;
 
   /**
    * <p>The size in bytes of the returned results. A <code>-1</code> indicates the value is null.</p>
    * @public
    */
-  ResultSize?: number;
+  ResultSize?: number | undefined;
 
   /**
    * <p>The SQL statement identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. </p>
    * @public
    */
-  RedshiftQueryId?: number;
+  RedshiftQueryId?: number | undefined;
 
   /**
    * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
    * @public
    */
-  HasResultSet?: boolean;
+  HasResultSet?: boolean | undefined;
 }
 
 /**
@@ -542,37 +608,37 @@ export interface DescribeStatementResponse {
    * <p>The name or Amazon Resource Name (ARN) of the secret that enables access to the database. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database. </p>
    * @public
    */
-  Database?: string;
+  Database?: string | undefined;
 
   /**
    * <p>The cluster identifier. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The amount of time in nanoseconds that the statement ran. </p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The error message from the cluster if the SQL statement encountered an error while running. </p>
    * @public
    */
-  Error?: string;
+  Error?: string | undefined;
 
   /**
    * <p>The status of the SQL statement being described. Status values are defined as follows: </p>
@@ -601,39 +667,39 @@ export interface DescribeStatementResponse {
    *          </ul>
    * @public
    */
-  Status?: StatusString;
+  Status?: StatusString | undefined;
 
   /**
    * <p>The date and time (UTC) when the SQL statement was submitted to run. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time (UTC) that the metadata for the SQL statement was last updated. An
    *       example is the time the status last changed. </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The process identifier from Amazon Redshift. </p>
    * @public
    */
-  RedshiftPid?: number;
+  RedshiftPid?: number | undefined;
 
   /**
    * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.
    *       The value is true if any substatement returns a result set.</p>
    * @public
    */
-  HasResultSet?: boolean;
+  HasResultSet?: boolean | undefined;
 
   /**
    * <p>The SQL statement text. </p>
    * @public
    */
-  QueryString?: string;
+  QueryString?: string | undefined;
 
   /**
    * <p>Either the number of rows returned from the SQL statement or the number of rows affected.
@@ -641,38 +707,50 @@ export interface DescribeStatementResponse {
    *         A <code>-1</code> indicates the value is null.</p>
    * @public
    */
-  ResultRows?: number;
+  ResultRows?: number | undefined;
 
   /**
    * <p>The size in bytes of the returned results. A <code>-1</code> indicates the value is null.</p>
    * @public
    */
-  ResultSize?: number;
+  ResultSize?: number | undefined;
 
   /**
    * <p>The identifier of the query generated by Amazon Redshift.
    *       These identifiers are also available in the <code>query</code> column of the <code>STL_QUERY</code> system view. </p>
    * @public
    */
-  RedshiftQueryId?: number;
+  RedshiftQueryId?: number | undefined;
 
   /**
    * <p>The parameters for the SQL statement.</p>
    * @public
    */
-  QueryParameters?: SqlParameter[];
+  QueryParameters?: SqlParameter[] | undefined;
 
   /**
    * <p>The SQL statements from a multiple statement run.</p>
    * @public
    */
-  SubStatements?: SubStatementData[];
+  SubStatements?: SubStatementData[] | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN).</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The data format of the result of the SQL statement.</p>
+   * @public
+   */
+  ResultFormat?: ResultFormatString | undefined;
 }
 
 /**
@@ -683,19 +761,19 @@ export interface DescribeTableRequest {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database that contains the tables to be described.
@@ -708,39 +786,39 @@ export interface DescribeTableRequest {
    * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
    * @public
    */
-  ConnectedDatabase?: string;
+  ConnectedDatabase?: string | undefined;
 
   /**
    * <p>The schema that contains the table. If no schema is specified, then matching tables for all schemas are returned. </p>
    * @public
    */
-  Schema?: string;
+  Schema?: string | undefined;
 
   /**
    * <p>The table name. If no table is specified, then all tables for all matching schemas are returned.
    *        If no table and no schema is specified, then all tables for all schemas in the database are returned</p>
    * @public
    */
-  Table?: string;
+  Table?: string | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of tables to return in the response.
    *       If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -751,19 +829,41 @@ export interface DescribeTableResponse {
    * <p>The table name. </p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>A list of columns in the table. </p>
    * @public
    */
-  ColumnList?: ColumnMetadata[];
+  ColumnList?: ColumnMetadata[] | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The Amazon Redshift Data API operation failed due to timeout.</p>
+ * @public
+ */
+export class QueryTimeoutException extends __BaseException {
+  readonly name: "QueryTimeoutException" = "QueryTimeoutException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryTimeoutException, __BaseException>) {
+    super({
+      name: "QueryTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryTimeoutException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -813,55 +913,73 @@ export interface ExecuteStatementInput {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  Database: string | undefined;
+  Database?: string | undefined;
 
   /**
    * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs. </p>
    * @public
    */
-  WithEvent?: boolean;
+  WithEvent?: boolean | undefined;
 
   /**
    * <p>The name of the SQL statement. You can name the SQL statement when you create it to identify the query. </p>
    * @public
    */
-  StatementName?: string;
+  StatementName?: string | undefined;
 
   /**
    * <p>The parameters for the SQL statement.</p>
    * @public
    */
-  Parameters?: SqlParameter[];
+  Parameters?: SqlParameter[] | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * @public
+   */
+  SessionKeepAliveSeconds?: number | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The data format of the result of the SQL statement. If no format is specified, the default is JSON.</p>
+   * @public
+   */
+  ResultFormat?: ResultFormatString | undefined;
 }
 
 /**
@@ -872,43 +990,55 @@ export interface ExecuteStatementOutput {
    * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The date and time (UTC) the statement was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The database user name.</p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
+
+  /**
+   * <p>A list of colon (:) separated names of database groups.</p>
+   * @public
+   */
+  DbGroups?: string[] | undefined;
 
   /**
    * <p>The name of the database.</p>
    * @public
    */
-  Database?: string;
+  Database?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
 }
 
 /**
@@ -1047,6 +1177,44 @@ export namespace Field {
 }
 
 /**
+ * <p>The results of the SQL statement.</p>
+ * @public
+ */
+export type QueryRecords = QueryRecords.CSVRecordsMember | QueryRecords.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QueryRecords {
+  /**
+   * <p>The results of the SQL statement in CSV format.</p>
+   * @public
+   */
+  export interface CSVRecordsMember {
+    CSVRecords: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CSVRecords?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    CSVRecords: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: QueryRecords, visitor: Visitor<T>): T => {
+    if (value.CSVRecords !== undefined) return visitor.CSVRecords(value.CSVRecords);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface GetStatementResultRequest {
@@ -1063,7 +1231,7 @@ export interface GetStatementResultRequest {
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1071,7 +1239,7 @@ export interface GetStatementResultRequest {
  */
 export interface GetStatementResultResponse {
   /**
-   * <p>The results of the SQL statement.</p>
+   * <p>The results of the SQL statement in JSON format.</p>
    * @public
    */
   Records: Field[][] | undefined;
@@ -1080,20 +1248,76 @@ export interface GetStatementResultResponse {
    * <p>The properties (metadata) of a column. </p>
    * @public
    */
-  ColumnMetadata?: ColumnMetadata[];
+  ColumnMetadata?: ColumnMetadata[] | undefined;
 
   /**
    * <p>The total number of rows in the result set returned from a query.
    *        You can use this number to estimate the number of calls to the <code>GetStatementResult</code> operation needed to page through the results. </p>
    * @public
    */
-  TotalNumRows?: number;
+  TotalNumRows?: number | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStatementResultV2Request {
+  /**
+   * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.
+   *       A suffix indicates then number of the SQL statement.
+   *       For example, <code>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</code> has a suffix of <code>:2</code> that indicates the second SQL statement of a batch query.
+   *       This identifier is returned by <code>BatchExecuteStatment</code>, <code>ExecuteStatment</code>, and <code>ListStatements</code>. </p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStatementResultV2Response {
+  /**
+   * <p>The results of the SQL statement in CSV format.</p>
+   * @public
+   */
+  Records: QueryRecords[] | undefined;
+
+  /**
+   * <p>The properties (metadata) of a column.</p>
+   * @public
+   */
+  ColumnMetadata?: ColumnMetadata[] | undefined;
+
+  /**
+   * <p>The total number of rows in the result set returned from a query.
+   *       You can use this number to estimate the number of calls to the <code>GetStatementResultV2</code> operation needed to page through the results. </p>
+   * @public
+   */
+  TotalNumRows?: number | undefined;
+
+  /**
+   * <p>The data format of the result of the SQL statement.</p>
+   * @public
+   */
+  ResultFormat?: ResultFormatString | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1104,7 +1328,7 @@ export interface ListDatabasesRequest {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
@@ -1116,32 +1340,32 @@ export interface ListDatabasesRequest {
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of databases to return in the response.
    *        If more databases exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -1152,13 +1376,13 @@ export interface ListDatabasesResponse {
    * <p>The names of databases. </p>
    * @public
    */
-  Databases?: string[];
+  Databases?: string[] | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1169,19 +1393,19 @@ export interface ListSchemasRequest {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database that contains the schemas to list.
@@ -1194,7 +1418,7 @@ export interface ListSchemasRequest {
    * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
    * @public
    */
-  ConnectedDatabase?: string;
+  ConnectedDatabase?: string | undefined;
 
   /**
    * <p>A pattern to filter results by schema name. Within a schema pattern, "%" means match any
@@ -1202,26 +1426,26 @@ export interface ListSchemasRequest {
    *       entries matching the search pattern are returned. </p>
    * @public
    */
-  SchemaPattern?: string;
+  SchemaPattern?: string | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of schemas to return in the response.
    *        If more schemas exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -1232,13 +1456,13 @@ export interface ListSchemasResponse {
    * <p>The schemas that match the request pattern. </p>
    * @public
    */
-  Schemas?: string[];
+  Schemas?: string[] | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1249,14 +1473,14 @@ export interface ListStatementsRequest {
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of SQL statements to return in the response.
    *        If more SQL statements exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The name of the SQL statement specified as input to <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> to identify the query.
@@ -1265,7 +1489,7 @@ export interface ListStatementsRequest {
    *       Data API does a case-sensitive match of SQL statement names to the prefix value you provide. </p>
    * @public
    */
-  StatementName?: string;
+  StatementName?: string | undefined;
 
   /**
    * <p>The status of the SQL statement to list. Status values are defined as follows: </p>
@@ -1294,14 +1518,35 @@ export interface ListStatementsRequest {
    *          </ul>
    * @public
    */
-  Status?: StatusString;
+  Status?: StatusString | undefined;
 
   /**
    * <p>A value that filters which statements to return in the response. If true, all statements run by the caller's IAM role are returned.
    *       If false, only statements run by the caller's IAM role in the current IAM session are returned.  The default is true. </p>
    * @public
    */
-  RoleLevel?: boolean;
+  RoleLevel?: boolean | undefined;
+
+  /**
+   * <p>The name of the database when listing statements run against a <code>ClusterIdentifier</code> or <code>WorkgroupName</code>.
+   *        </p>
+   * @public
+   */
+  Database?: string | undefined;
+
+  /**
+   * <p>The cluster identifier. Only statements that ran on this cluster are returned.
+   *       When providing <code>ClusterIdentifier</code>, then <code>WorkgroupName</code> can't be specified.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). Only statements that ran on this workgroup are returned.
+   *       When providing <code>WorkgroupName</code>, then <code>ClusterIdentifier</code> can't be specified.</p>
+   * @public
+   */
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -1319,19 +1564,19 @@ export interface StatementData {
    * <p>The SQL statement.</p>
    * @public
    */
-  QueryString?: string;
+  QueryString?: string | undefined;
 
   /**
    * <p>One or more SQL statements. Each query string in the array corresponds to one of the queries in a batch query request.</p>
    * @public
    */
-  QueryStrings?: string[];
+  QueryStrings?: string[] | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the secret that enables access to the database. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The status of the SQL statement. An
@@ -1339,37 +1584,49 @@ export interface StatementData {
    *       </p>
    * @public
    */
-  Status?: StatusString;
+  Status?: StatusString | undefined;
 
   /**
    * <p>The name of the SQL statement. </p>
    * @public
    */
-  StatementName?: string;
+  StatementName?: string | undefined;
 
   /**
    * <p>The date and time (UTC) the statement was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time (UTC) that the statement metadata was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The parameters used in a SQL statement.</p>
    * @public
    */
-  QueryParameters?: SqlParameter[];
+  QueryParameters?: SqlParameter[] | undefined;
 
   /**
    * <p>A value that indicates whether the statement is a batch query request.</p>
    * @public
    */
-  IsBatchStatement?: boolean;
+  IsBatchStatement?: boolean | undefined;
+
+  /**
+   * <p>The data format of the result of the SQL statement.</p>
+   * @public
+   */
+  ResultFormat?: ResultFormatString | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
 }
 
 /**
@@ -1386,7 +1643,7 @@ export interface ListStatementsResponse {
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1397,19 +1654,19 @@ export interface ListTablesRequest {
    * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The name of the database that contains the tables to list.
@@ -1422,7 +1679,7 @@ export interface ListTablesRequest {
    * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
    * @public
    */
-  ConnectedDatabase?: string;
+  ConnectedDatabase?: string | undefined;
 
   /**
    * <p>A pattern to filter results by schema name. Within a schema pattern, "%" means match any
@@ -1432,7 +1689,7 @@ export interface ListTablesRequest {
    *        If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. </p>
    * @public
    */
-  SchemaPattern?: string;
+  SchemaPattern?: string | undefined;
 
   /**
    * <p>A pattern to filter results by table name. Within a table pattern, "%" means match any
@@ -1442,26 +1699,26 @@ export interface ListTablesRequest {
    *        If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. </p>
    * @public
    */
-  TablePattern?: string;
+  TablePattern?: string | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of tables to return in the response.
    *        If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    * @public
    */
-  WorkgroupName?: string;
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -1473,20 +1730,20 @@ export interface TableMember {
    * <p>The name of the table. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of the table. Possible values include TABLE, VIEW, SYSTEM TABLE, GLOBAL
    *       TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM. </p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The schema containing the table. </p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 }
 
 /**
@@ -1497,11 +1754,11 @@ export interface ListTablesResponse {
    * <p>The tables that match the request pattern. </p>
    * @public
    */
-  Tables?: TableMember[];
+  Tables?: TableMember[] | undefined;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }

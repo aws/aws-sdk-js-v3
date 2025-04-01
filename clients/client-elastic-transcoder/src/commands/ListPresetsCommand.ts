@@ -137,6 +137,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ListPresetsCommand extends $Command
@@ -147,9 +148,7 @@ export class ListPresetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticTranscoderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class ListPresetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPresetsCommand)
   .de(de_ListPresetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPresetsRequest;
+      output: ListPresetsResponse;
+    };
+    sdk: {
+      input: ListPresetsCommandInput;
+      output: ListPresetsCommandOutput;
+    };
+  };
+}

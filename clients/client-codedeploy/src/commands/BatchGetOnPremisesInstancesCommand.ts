@@ -82,6 +82,7 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command
@@ -92,9 +93,7 @@ export class BatchGetOnPremisesInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class BatchGetOnPremisesInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetOnPremisesInstancesCommand)
   .de(de_BatchGetOnPremisesInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetOnPremisesInstancesInput;
+      output: BatchGetOnPremisesInstancesOutput;
+    };
+    sdk: {
+      input: BatchGetOnPremisesInstancesCommandInput;
+      output: BatchGetOnPremisesInstancesCommandOutput;
+    };
+  };
+}

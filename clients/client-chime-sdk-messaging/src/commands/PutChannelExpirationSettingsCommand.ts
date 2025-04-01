@@ -112,6 +112,7 @@ export interface PutChannelExpirationSettingsCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class PutChannelExpirationSettingsCommand extends $Command
@@ -122,9 +123,7 @@ export class PutChannelExpirationSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class PutChannelExpirationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutChannelExpirationSettingsCommand)
   .de(de_PutChannelExpirationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutChannelExpirationSettingsRequest;
+      output: PutChannelExpirationSettingsResponse;
+    };
+    sdk: {
+      input: PutChannelExpirationSettingsCommandInput;
+      output: PutChannelExpirationSettingsCommandOutput;
+    };
+  };
+}

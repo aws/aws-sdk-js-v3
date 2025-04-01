@@ -89,6 +89,7 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeviceInstanceCommand extends $Command
@@ -99,9 +100,7 @@ export class UpdateDeviceInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class UpdateDeviceInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeviceInstanceCommand)
   .de(de_UpdateDeviceInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceInstanceRequest;
+      output: UpdateDeviceInstanceResult;
+    };
+    sdk: {
+      input: UpdateDeviceInstanceCommandInput;
+      output: UpdateDeviceInstanceCommandOutput;
+    };
+  };
+}

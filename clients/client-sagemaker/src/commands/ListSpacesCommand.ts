@@ -84,6 +84,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListSpacesCommand extends $Command
@@ -94,9 +95,7 @@ export class ListSpacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListSpacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSpacesCommand)
   .de(de_ListSpacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpacesRequest;
+      output: ListSpacesResponse;
+    };
+    sdk: {
+      input: ListSpacesCommandInput;
+      output: ListSpacesCommandOutput;
+    };
+  };
+}

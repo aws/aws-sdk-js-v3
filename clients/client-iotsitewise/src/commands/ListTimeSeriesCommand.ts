@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_0";
+import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_1";
 import { de_ListTimeSeriesCommand, se_ListTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -88,6 +88,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListTimeSeriesCommand extends $Command
@@ -98,9 +99,7 @@ export class ListTimeSeriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTimeSeriesCommand)
   .de(de_ListTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTimeSeriesRequest;
+      output: ListTimeSeriesResponse;
+    };
+    sdk: {
+      input: ListTimeSeriesCommandInput;
+      output: ListTimeSeriesCommandOutput;
+    };
+  };
+}

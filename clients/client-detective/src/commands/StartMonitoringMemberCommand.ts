@@ -95,6 +95,7 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class StartMonitoringMemberCommand extends $Command
@@ -105,9 +106,7 @@ export class StartMonitoringMemberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class StartMonitoringMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitoringMemberCommand)
   .de(de_StartMonitoringMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitoringMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMonitoringMemberCommandInput;
+      output: StartMonitoringMemberCommandOutput;
+    };
+  };
+}

@@ -90,38 +90,38 @@ export interface CreateChannelGroupCommandOutput extends CreateChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Creating a Channel Group
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "Description": "Description for exampleChannelGroup",
- *   "Tags": {
- *     "key1": "value1",
- *     "key2": "value2"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   Description: "Description for exampleChannelGroup",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
  *   }
  * };
  * const command = new CreateChannelGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "CreatedAt": "2022-10-18T09:36:00.00Z",
- *   "Description": "Description for exampleChannelGroup",
- *   "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
- *   "EgressDomain": "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
- *   "ModifiedAt": "2022-10-18T09:36:00.00Z",
- *   "Tags": {
- *     "key1": "value1",
- *     "key2": "value2"
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleChannelGroup",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   EgressDomain: "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateChannelGroupCommand extends $Command
   .classBuilder<
@@ -131,9 +131,7 @@ export class CreateChannelGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +143,16 @@ export class CreateChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChannelGroupCommand)
   .de(de_CreateChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelGroupRequest;
+      output: CreateChannelGroupResponse;
+    };
+    sdk: {
+      input: CreateChannelGroupCommandInput;
+      output: CreateChannelGroupCommandOutput;
+    };
+  };
+}

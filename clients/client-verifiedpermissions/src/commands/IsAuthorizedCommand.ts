@@ -85,13 +85,18 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *             record: { // RecordAttribute
  *               "<keys>": "<AttributeValue>",
  *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
  *           },
  *         ],
  *         record: {
  *           "<keys>": "<AttributeValue>",
  *         },
+ *         ipaddr: "STRING_VALUE",
+ *         decimal: "STRING_VALUE",
  *       },
  *     },
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   entities: { // EntitiesDefinition Union: only one key present
  *     entityList: [ // EntityList
@@ -105,6 +110,7 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  * };
  * const command = new IsAuthorizedCommand(input);
@@ -230,6 +236,71 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example IsAuthorized - Example 1
+ * ```javascript
+ * // The following example requests an authorization decision for a principal of type User named Alice, who wants to perform the updatePhoto operation, on a resource of type Photo named VacationPhoto94.jpg.
+ *
+ * The response shows that the request was allowed by one policy.
+ * const input = {
+ *   action: {
+ *     actionId: "view",
+ *     actionType: "Action"
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   principal: {
+ *     entityId: "alice",
+ *     entityType: "User"
+ *   },
+ *   resource: {
+ *     entityId: "VacationPhoto94.jpg",
+ *     entityType: "Photo"
+ *   }
+ * };
+ * const command = new IsAuthorizedCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   decision: "ALLOW",
+ *   determiningPolicies: [
+ *     {
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY"
+ *     }
+ *   ],
+ *   errors:   []
+ * }
+ * *\/
+ * ```
+ *
+ * @example IsAuthorized - Example 2
+ * ```javascript
+ * // The following example is the same as the previous example, except that the principal is User::"bob", and the policy store doesn't contain any policy that allows that user access to Album::"alice_folder". The output infers that the Deny was implicit because the list of DeterminingPolicies is empty.
+ * const input = {
+ *   action: {
+ *     actionId: "view",
+ *     actionType: "Action"
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   principal: {
+ *     entityId: "bob",
+ *     entityType: "User"
+ *   },
+ *   resource: {
+ *     entityId: "VacationPhoto94.jpg",
+ *     entityType: "Photo"
+ *   }
+ * };
+ * const command = new IsAuthorizedCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   decision: "DENY",
+ *   determiningPolicies:   [],
+ *   errors:   []
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class IsAuthorizedCommand extends $Command
@@ -240,9 +311,7 @@ export class IsAuthorizedCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -254,4 +323,16 @@ export class IsAuthorizedCommand extends $Command
   .f(IsAuthorizedInputFilterSensitiveLog, IsAuthorizedOutputFilterSensitiveLog)
   .ser(se_IsAuthorizedCommand)
   .de(de_IsAuthorizedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsAuthorizedInput;
+      output: IsAuthorizedOutput;
+    };
+    sdk: {
+      input: IsAuthorizedCommandInput;
+      output: IsAuthorizedCommandOutput;
+    };
+  };
+}

@@ -14,6 +14,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -547,6 +548,7 @@ export const se_ListCoreDevicesCommand = async (
     [_st]: [, input[_st]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_r]: [, input[_r]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -690,10 +692,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1042,6 +1041,7 @@ export const de_GetCoreDeviceCommand = async (
     coreVersion: __expectString,
     lastStatusUpdateTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     platform: __expectString,
+    runtime: __expectString,
     status: __expectString,
     tags: _json,
   });
@@ -1918,8 +1918,11 @@ const de_connectivityInfoList = (output: any, context: __SerdeContext): Connecti
  */
 const de_CoreDevice = (output: any, context: __SerdeContext): CoreDevice => {
   return take(output, {
+    architecture: __expectString,
     coreDeviceThingName: __expectString,
     lastStatusUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    platform: __expectString,
+    runtime: __expectString,
     status: __expectString,
   }) as any;
 };
@@ -2169,18 +2172,12 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _hF = "historyFilter";
 const _iET = "iotEndpointType";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pTA = "parentTargetArn";
+const _r = "runtime";
 const _rAS = "retryAfterSeconds";
 const _rOF = "recipeOutputFormat";
 const _ra = "retry-after";

@@ -120,24 +120,24 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To delete a byte match set
  * ```javascript
  * // The following example deletes a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ByteMatchSetId: "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * };
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deletebytematchset-1473367566229
  * ```
  *
+ * @public
  */
 export class DeleteByteMatchSetCommand extends $Command
   .classBuilder<
@@ -147,9 +147,7 @@ export class DeleteByteMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +159,16 @@ export class DeleteByteMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteByteMatchSetCommand)
   .de(de_DeleteByteMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteByteMatchSetRequest;
+      output: DeleteByteMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteByteMatchSetCommandInput;
+      output: DeleteByteMatchSetCommandOutput;
+    };
+  };
+}

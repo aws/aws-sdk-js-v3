@@ -66,18 +66,21 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a project
  * ```javascript
  * // The following example deletes a specific project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
  * };
  * const command = new DeleteProjectCommand(input);
- * await client.send(command);
- * // example id: deleteproject-example-1470867374212
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class DeleteProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DeleteProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectCommand)
   .de(de_DeleteProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectCommandInput;
+      output: DeleteProjectCommandOutput;
+    };
+  };
+}

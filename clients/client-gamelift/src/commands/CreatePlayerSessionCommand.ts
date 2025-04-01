@@ -107,7 +107,7 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
  *  <p>The service is unable to resolve the routing for a particular alias because it has a
@@ -121,6 +121,7 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreatePlayerSessionCommand extends $Command
@@ -131,9 +132,7 @@ export class CreatePlayerSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class CreatePlayerSessionCommand extends $Command
   .f(CreatePlayerSessionInputFilterSensitiveLog, CreatePlayerSessionOutputFilterSensitiveLog)
   .ser(se_CreatePlayerSessionCommand)
   .de(de_CreatePlayerSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlayerSessionInput;
+      output: CreatePlayerSessionOutput;
+    };
+    sdk: {
+      input: CreatePlayerSessionCommandInput;
+      output: CreatePlayerSessionCommandOutput;
+    };
+  };
+}

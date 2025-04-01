@@ -60,7 +60,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *    the ActivationCode don't match.</p>
  *
  * @throws {@link InvalidActivationId} (client fault)
- *  <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ *  <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  *
  * @throws {@link TooManyUpdates} (client fault)
@@ -68,6 +68,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
  *
  * @public
  */
@@ -79,9 +80,7 @@ export class DeleteActivationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteActivationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteActivationCommand)
   .de(de_DeleteActivationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteActivationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteActivationCommandInput;
+      output: DeleteActivationCommandOutput;
+    };
+  };
+}

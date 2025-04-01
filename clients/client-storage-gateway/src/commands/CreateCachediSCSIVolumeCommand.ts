@@ -92,29 +92,29 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To create a cached iSCSI volume
  * ```javascript
  * // Creates a cached volume on a specified cached gateway.
  * const input = {
- *   "ClientToken": "cachedvol112233",
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "NetworkInterfaceId": "10.1.1.1",
- *   "SnapshotId": "snap-f47b7b94",
- *   "TargetName": "my-volume",
- *   "VolumeSizeInBytes": 536870912000
+ *   ClientToken: "cachedvol112233",
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   NetworkInterfaceId: "10.1.1.1",
+ *   SnapshotId: "snap-f47b7b94",
+ *   TargetName: "my-volume",
+ *   VolumeSizeInBytes: 536870912000
  * };
  * const command = new CreateCachediSCSIVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
- * // example id: to-create-a-cached-iscsi-volume-1471296661787
  * ```
  *
+ * @public
  */
 export class CreateCachediSCSIVolumeCommand extends $Command
   .classBuilder<
@@ -124,9 +124,7 @@ export class CreateCachediSCSIVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +136,16 @@ export class CreateCachediSCSIVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCachediSCSIVolumeCommand)
   .de(de_CreateCachediSCSIVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCachediSCSIVolumeInput;
+      output: CreateCachediSCSIVolumeOutput;
+    };
+    sdk: {
+      input: CreateCachediSCSIVolumeCommandInput;
+      output: CreateCachediSCSIVolumeCommandOutput;
+    };
+  };
+}

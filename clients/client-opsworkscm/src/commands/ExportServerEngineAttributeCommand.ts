@@ -96,6 +96,7 @@ export interface ExportServerEngineAttributeCommandOutput
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class ExportServerEngineAttributeCommand extends $Command
@@ -106,9 +107,7 @@ export class ExportServerEngineAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ExportServerEngineAttributeCommand extends $Command
   .f(ExportServerEngineAttributeRequestFilterSensitiveLog, ExportServerEngineAttributeResponseFilterSensitiveLog)
   .ser(se_ExportServerEngineAttributeCommand)
   .de(de_ExportServerEngineAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportServerEngineAttributeRequest;
+      output: ExportServerEngineAttributeResponse;
+    };
+    sdk: {
+      input: ExportServerEngineAttributeCommandInput;
+      output: ExportServerEngineAttributeCommandOutput;
+    };
+  };
+}

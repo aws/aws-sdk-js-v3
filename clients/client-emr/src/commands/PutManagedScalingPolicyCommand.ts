@@ -48,6 +48,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  *       MaximumOnDemandCapacityUnits: Number("int"),
  *       MaximumCoreCapacityUnits: Number("int"),
  *     },
+ *     UtilizationPerformanceIndex: Number("int"),
+ *     ScalingStrategy: "DEFAULT" || "ADVANCED",
  *   },
  * };
  * const command = new PutManagedScalingPolicyCommand(input);
@@ -65,6 +67,7 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class PutManagedScalingPolicyCommand extends $Command
@@ -75,9 +78,7 @@ export class PutManagedScalingPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +90,16 @@ export class PutManagedScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutManagedScalingPolicyCommand)
   .de(de_PutManagedScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutManagedScalingPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutManagedScalingPolicyCommandInput;
+      output: PutManagedScalingPolicyCommandOutput;
+    };
+  };
+}

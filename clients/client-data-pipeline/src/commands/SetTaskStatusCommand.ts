@@ -102,6 +102,7 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class SetTaskStatusCommand extends $Command
@@ -112,9 +113,7 @@ export class SetTaskStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class SetTaskStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTaskStatusCommand)
   .de(de_SetTaskStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTaskStatusInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTaskStatusCommandInput;
+      output: SetTaskStatusCommandOutput;
+    };
+  };
+}

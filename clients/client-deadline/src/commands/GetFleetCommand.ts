@@ -112,6 +112,18 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //           iops: Number("int"),
  * //           throughputMiB: Number("int"),
  * //         },
+ * //         acceleratorCapabilities: { // AcceleratorCapabilities
+ * //           selections: [ // AcceleratorSelections // required
+ * //             { // AcceleratorSelection
+ * //               name: "t4" || "a10g" || "l4" || "l40s", // required
+ * //               runtime: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           count: {
+ * //             min: Number("int"), // required
+ * //             max: Number("int"),
+ * //           },
+ * //         },
  * //         allowedInstanceTypes: [ // InstanceTypes
  * //           "STRING_VALUE",
  * //         ],
@@ -190,6 +202,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetFleetCommand extends $Command
@@ -200,9 +213,7 @@ export class GetFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +225,16 @@ export class GetFleetCommand extends $Command
   .f(void 0, GetFleetResponseFilterSensitiveLog)
   .ser(se_GetFleetCommand)
   .de(de_GetFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFleetRequest;
+      output: GetFleetResponse;
+    };
+    sdk: {
+      input: GetFleetCommandInput;
+      output: GetFleetCommandOutput;
+    };
+  };
+}

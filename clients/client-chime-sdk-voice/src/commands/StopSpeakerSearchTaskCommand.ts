@@ -84,6 +84,7 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class StopSpeakerSearchTaskCommand extends $Command
@@ -94,9 +95,7 @@ export class StopSpeakerSearchTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class StopSpeakerSearchTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopSpeakerSearchTaskCommand)
   .de(de_StopSpeakerSearchTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSpeakerSearchTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopSpeakerSearchTaskCommandInput;
+      output: StopSpeakerSearchTaskCommandOutput;
+    };
+  };
+}

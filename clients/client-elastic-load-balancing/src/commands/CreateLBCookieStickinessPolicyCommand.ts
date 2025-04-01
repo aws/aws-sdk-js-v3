@@ -82,20 +82,23 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To generate a duration-based stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy with sticky session lifetimes controlled by the specified expiration period.
  * const input = {
- *   "CookieExpirationPeriod": 60,
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyName": "my-duration-cookie-policy"
+ *   CookieExpirationPeriod: 60,
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyName: "my-duration-cookie-policy"
  * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-lb-cookie-stickiness-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateLBCookieStickinessPolicyCommand extends $Command
   .classBuilder<
@@ -105,9 +108,7 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLBCookieStickinessPolicyCommand)
   .de(de_CreateLBCookieStickinessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLBCookieStickinessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateLBCookieStickinessPolicyCommandInput;
+      output: CreateLBCookieStickinessPolicyCommandOutput;
+    };
+  };
+}

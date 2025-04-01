@@ -87,6 +87,7 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class UpdateChannelReadMarkerCommand extends $Command
@@ -97,9 +98,7 @@ export class UpdateChannelReadMarkerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class UpdateChannelReadMarkerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateChannelReadMarkerCommand)
   .de(de_UpdateChannelReadMarkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChannelReadMarkerRequest;
+      output: UpdateChannelReadMarkerResponse;
+    };
+    sdk: {
+      input: UpdateChannelReadMarkerCommandInput;
+      output: UpdateChannelReadMarkerCommandOutput;
+    };
+  };
+}

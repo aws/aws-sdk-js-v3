@@ -180,6 +180,7 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class RetryDataReplicationCommand extends $Command
@@ -190,9 +191,7 @@ export class RetryDataReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -204,4 +203,16 @@ export class RetryDataReplicationCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_RetryDataReplicationCommand)
   .de(de_RetryDataReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetryDataReplicationRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: RetryDataReplicationCommandInput;
+      output: RetryDataReplicationCommandOutput;
+    };
+  };
+}

@@ -62,6 +62,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class XmlEnumsCommand extends $Command
@@ -80,4 +81,16 @@ export class XmlEnumsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEnumsCommand)
   .de(de_XmlEnumsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlEnumsOutput;
+    };
+    sdk: {
+      input: XmlEnumsCommandInput;
+      output: XmlEnumsCommandOutput;
+    };
+  };
+}

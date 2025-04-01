@@ -76,27 +76,27 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To add storage on local disk
  * ```javascript
  * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)
  * const input = {
- *   "DiskIds": [
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:03:00.0-scsi-0:0:1:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new AddWorkingStorageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-add-storage-on-local-disk-1471294305401
  * ```
  *
+ * @public
  */
 export class AddWorkingStorageCommand extends $Command
   .classBuilder<
@@ -106,9 +106,7 @@ export class AddWorkingStorageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +118,16 @@ export class AddWorkingStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddWorkingStorageCommand)
   .de(de_AddWorkingStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddWorkingStorageInput;
+      output: AddWorkingStorageOutput;
+    };
+    sdk: {
+      input: AddWorkingStorageCommandInput;
+      output: AddWorkingStorageCommandOutput;
+    };
+  };
+}

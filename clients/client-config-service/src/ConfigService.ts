@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociateResourceTypesCommand,
+  AssociateResourceTypesCommandInput,
+  AssociateResourceTypesCommandOutput,
+} from "./commands/AssociateResourceTypesCommand";
+import {
   BatchGetAggregateResourceConfigCommand,
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
@@ -82,6 +87,11 @@ import {
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
+import {
+  DeleteServiceLinkedConfigurationRecorderCommand,
+  DeleteServiceLinkedConfigurationRecorderCommandInput,
+  DeleteServiceLinkedConfigurationRecorderCommandOutput,
+} from "./commands/DeleteServiceLinkedConfigurationRecorderCommand";
 import {
   DeleteStoredQueryCommand,
   DeleteStoredQueryCommandInput,
@@ -218,6 +228,11 @@ import {
   DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
 import {
+  DisassociateResourceTypesCommand,
+  DisassociateResourceTypesCommandInput,
+  DisassociateResourceTypesCommandOutput,
+} from "./commands/DisassociateResourceTypesCommand";
+import {
   GetAggregateComplianceDetailsByConfigRuleCommand,
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
@@ -318,6 +333,11 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConfigurationRecordersCommand,
+  ListConfigurationRecordersCommandInput,
+  ListConfigurationRecordersCommandOutput,
+} from "./commands/ListConfigurationRecordersCommand";
+import {
   ListConformancePackComplianceScoresCommand,
   ListConformancePackComplianceScoresCommandInput,
   ListConformancePackComplianceScoresCommandOutput,
@@ -413,6 +433,11 @@ import {
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
+  PutServiceLinkedConfigurationRecorderCommand,
+  PutServiceLinkedConfigurationRecorderCommandInput,
+  PutServiceLinkedConfigurationRecorderCommandOutput,
+} from "./commands/PutServiceLinkedConfigurationRecorderCommand";
+import {
   PutStoredQueryCommand,
   PutStoredQueryCommandInput,
   PutStoredQueryCommandOutput,
@@ -461,6 +486,7 @@ import {
 import { ConfigServiceClient, ConfigServiceClientConfig } from "./ConfigServiceClient";
 
 const commands = {
+  AssociateResourceTypesCommand,
   BatchGetAggregateResourceConfigCommand,
   BatchGetResourceConfigCommand,
   DeleteAggregationAuthorizationCommand,
@@ -477,6 +503,7 @@ const commands = {
   DeleteRemediationExceptionsCommand,
   DeleteResourceConfigCommand,
   DeleteRetentionConfigurationCommand,
+  DeleteServiceLinkedConfigurationRecorderCommand,
   DeleteStoredQueryCommand,
   DeliverConfigSnapshotCommand,
   DescribeAggregateComplianceByConfigRulesCommand,
@@ -504,6 +531,7 @@ const commands = {
   DescribeRemediationExceptionsCommand,
   DescribeRemediationExecutionStatusCommand,
   DescribeRetentionConfigurationsCommand,
+  DisassociateResourceTypesCommand,
   GetAggregateComplianceDetailsByConfigRuleCommand,
   GetAggregateConfigRuleComplianceSummaryCommand,
   GetAggregateConformancePackComplianceSummaryCommand,
@@ -524,6 +552,7 @@ const commands = {
   GetResourceEvaluationSummaryCommand,
   GetStoredQueryCommand,
   ListAggregateDiscoveredResourcesCommand,
+  ListConfigurationRecordersCommand,
   ListConformancePackComplianceScoresCommand,
   ListDiscoveredResourcesCommand,
   ListResourceEvaluationsCommand,
@@ -543,6 +572,7 @@ const commands = {
   PutRemediationExceptionsCommand,
   PutResourceConfigCommand,
   PutRetentionConfigurationCommand,
+  PutServiceLinkedConfigurationRecorderCommand,
   PutStoredQueryCommand,
   SelectAggregateResourceConfigCommand,
   SelectResourceConfigCommand,
@@ -556,6 +586,23 @@ const commands = {
 };
 
 export interface ConfigService {
+  /**
+   * @see {@link AssociateResourceTypesCommand}
+   */
+  associateResourceTypes(
+    args: AssociateResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateResourceTypesCommandOutput>;
+  associateResourceTypes(
+    args: AssociateResourceTypesCommandInput,
+    cb: (err: any, data?: AssociateResourceTypesCommandOutput) => void
+  ): void;
+  associateResourceTypes(
+    args: AssociateResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateResourceTypesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetAggregateResourceConfigCommand}
    */
@@ -826,6 +873,23 @@ export interface ConfigService {
     args: DeleteRetentionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRetentionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceLinkedConfigurationRecorderCommand}
+   */
+  deleteServiceLinkedConfigurationRecorder(
+    args: DeleteServiceLinkedConfigurationRecorderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceLinkedConfigurationRecorderCommandOutput>;
+  deleteServiceLinkedConfigurationRecorder(
+    args: DeleteServiceLinkedConfigurationRecorderCommandInput,
+    cb: (err: any, data?: DeleteServiceLinkedConfigurationRecorderCommandOutput) => void
+  ): void;
+  deleteServiceLinkedConfigurationRecorder(
+    args: DeleteServiceLinkedConfigurationRecorderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
   /**
@@ -1306,6 +1370,23 @@ export interface ConfigService {
   ): void;
 
   /**
+   * @see {@link DisassociateResourceTypesCommand}
+   */
+  disassociateResourceTypes(
+    args: DisassociateResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateResourceTypesCommandOutput>;
+  disassociateResourceTypes(
+    args: DisassociateResourceTypesCommandInput,
+    cb: (err: any, data?: DisassociateResourceTypesCommandOutput) => void
+  ): void;
+  disassociateResourceTypes(
+    args: DisassociateResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateResourceTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAggregateComplianceDetailsByConfigRuleCommand}
    */
   getAggregateComplianceDetailsByConfigRule(
@@ -1648,6 +1729,24 @@ export interface ConfigService {
   ): void;
 
   /**
+   * @see {@link ListConfigurationRecordersCommand}
+   */
+  listConfigurationRecorders(): Promise<ListConfigurationRecordersCommandOutput>;
+  listConfigurationRecorders(
+    args: ListConfigurationRecordersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationRecordersCommandOutput>;
+  listConfigurationRecorders(
+    args: ListConfigurationRecordersCommandInput,
+    cb: (err: any, data?: ListConfigurationRecordersCommandOutput) => void
+  ): void;
+  listConfigurationRecorders(
+    args: ListConfigurationRecordersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationRecordersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListConformancePackComplianceScoresCommand}
    */
   listConformancePackComplianceScores(): Promise<ListConformancePackComplianceScoresCommandOutput>;
@@ -1962,6 +2061,23 @@ export interface ConfigService {
     args: PutRetentionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRetentionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutServiceLinkedConfigurationRecorderCommand}
+   */
+  putServiceLinkedConfigurationRecorder(
+    args: PutServiceLinkedConfigurationRecorderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutServiceLinkedConfigurationRecorderCommandOutput>;
+  putServiceLinkedConfigurationRecorder(
+    args: PutServiceLinkedConfigurationRecorderCommandInput,
+    cb: (err: any, data?: PutServiceLinkedConfigurationRecorderCommandOutput) => void
+  ): void;
+  putServiceLinkedConfigurationRecorder(
+    args: PutServiceLinkedConfigurationRecorderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
   /**

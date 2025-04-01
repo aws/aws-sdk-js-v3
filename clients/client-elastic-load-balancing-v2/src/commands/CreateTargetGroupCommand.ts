@@ -145,44 +145,44 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To create a target group
  * ```javascript
  * // This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.
  * const input = {
- *   "Name": "my-targets",
- *   "Port": 80,
- *   "Protocol": "HTTP",
- *   "VpcId": "vpc-3ac0fb5f"
+ *   Name: "my-targets",
+ *   Port: 80,
+ *   Protocol: "HTTP",
+ *   VpcId: "vpc-3ac0fb5f"
  * };
  * const command = new CreateTargetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetGroups": [
+ *   TargetGroups: [
  *     {
- *       "HealthCheckIntervalSeconds": 30,
- *       "HealthCheckPath": "/",
- *       "HealthCheckPort": "traffic-port",
- *       "HealthCheckProtocol": "HTTP",
- *       "HealthCheckTimeoutSeconds": 5,
- *       "HealthyThresholdCount": 5,
- *       "Matcher": {
- *         "HttpCode": "200"
+ *       HealthCheckIntervalSeconds: 30,
+ *       HealthCheckPath: "/",
+ *       HealthCheckPort: "traffic-port",
+ *       HealthCheckProtocol: "HTTP",
+ *       HealthCheckTimeoutSeconds: 5,
+ *       HealthyThresholdCount: 5,
+ *       Matcher: {
+ *         HttpCode: "200"
  *       },
- *       "Port": 80,
- *       "Protocol": "HTTP",
- *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *       "TargetGroupName": "my-targets",
- *       "UnhealthyThresholdCount": 2,
- *       "VpcId": "vpc-3ac0fb5f"
+ *       Port: 80,
+ *       Protocol: "HTTP",
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       TargetGroupName: "my-targets",
+ *       UnhealthyThresholdCount: 2,
+ *       VpcId: "vpc-3ac0fb5f"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-create-target-group-1
  * ```
  *
+ * @public
  */
 export class CreateTargetGroupCommand extends $Command
   .classBuilder<
@@ -192,9 +192,7 @@ export class CreateTargetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +204,16 @@ export class CreateTargetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTargetGroupCommand)
   .de(de_CreateTargetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTargetGroupInput;
+      output: CreateTargetGroupOutput;
+    };
+    sdk: {
+      input: CreateTargetGroupCommandInput;
+      output: CreateTargetGroupCommandOutput;
+    };
+  };
+}

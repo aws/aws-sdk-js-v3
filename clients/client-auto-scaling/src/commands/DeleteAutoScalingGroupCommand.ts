@@ -33,10 +33,12 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             option to force the deletion in order for it to succeed. The force delete operation will
  *             also terminate the EC2 instances. If the group has a warm pool, the force delete option
  *             also deletes the warm pool.</p>
- *          <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to
+ *          <p>To remove instances from the Auto Scaling group before deleting it, call the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html">DetachInstances</a> API with the list of instances and the option to
  *             decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement
  *             instances.</p>
- *          <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
+ *          <p>To terminate all instances before deleting the Auto Scaling group, call the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html">UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
  *             of the Auto Scaling group to
  *             zero.</p>
  *          <p>If the group has scaling policies, deleting the group deletes the policies, the
@@ -79,30 +81,35 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete an Auto Scaling group
  * ```javascript
  * // This example deletes the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-auto-scaling-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To delete an Auto Scaling group and all its instances
  * ```javascript
  * // This example deletes the specified Auto Scaling group and all its instances.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ForceDelete": true
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ForceDelete: true
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-auto-scaling-group-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAutoScalingGroupCommand extends $Command
   .classBuilder<
@@ -112,9 +119,7 @@ export class DeleteAutoScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +131,16 @@ export class DeleteAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAutoScalingGroupCommand)
   .de(de_DeleteAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAutoScalingGroupType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAutoScalingGroupCommandInput;
+      output: DeleteAutoScalingGroupCommandOutput;
+    };
+  };
+}

@@ -84,6 +84,7 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class ListCoreNetworksCommand extends $Command
@@ -94,9 +95,7 @@ export class ListCoreNetworksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListCoreNetworksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreNetworksCommand)
   .de(de_ListCoreNetworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreNetworksRequest;
+      output: ListCoreNetworksResponse;
+    };
+    sdk: {
+      input: ListCoreNetworksCommandInput;
+      output: ListCoreNetworksCommandOutput;
+    };
+  };
+}

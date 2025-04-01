@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteFormTypeInput, DeleteFormTypeOutput } from "../models/models_0";
+import { DeleteFormTypeInput, DeleteFormTypeOutput } from "../models/models_1";
 import { de_DeleteFormTypeCommand, se_DeleteFormTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface DeleteFormTypeCommandOutput extends DeleteFormTypeOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteFormTypeCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteFormTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteFormTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFormTypeCommand)
   .de(de_DeleteFormTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFormTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFormTypeCommandInput;
+      output: DeleteFormTypeCommandOutput;
+    };
+  };
+}

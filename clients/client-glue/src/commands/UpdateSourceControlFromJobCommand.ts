@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateSourceControlFromJobRequest, UpdateSourceControlFromJobResponse } from "../models/models_2";
+import { UpdateSourceControlFromJobRequest, UpdateSourceControlFromJobResponse } from "../models/models_3";
 import { de_UpdateSourceControlFromJobCommand, se_UpdateSourceControlFromJobCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -85,6 +85,7 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateSourceControlFromJobCommand extends $Command
@@ -95,9 +96,7 @@ export class UpdateSourceControlFromJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class UpdateSourceControlFromJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSourceControlFromJobCommand)
   .de(de_UpdateSourceControlFromJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSourceControlFromJobRequest;
+      output: UpdateSourceControlFromJobResponse;
+    };
+    sdk: {
+      input: UpdateSourceControlFromJobCommandInput;
+      output: UpdateSourceControlFromJobCommandOutput;
+    };
+  };
+}

@@ -97,7 +97,7 @@ export interface AppIntegrationsConfiguration {
    *       recommendations. </p>
    * @public
    */
-  objectFields?: string[];
+  objectFields?: string[] | undefined;
 }
 
 /**
@@ -206,13 +206,13 @@ export interface CreateAssistantAssociationRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -225,13 +225,13 @@ export interface KnowledgeBaseAssociationData {
    * base if you're storing Wisdom Content resource to it.</p>
    * @public
    */
-  knowledgeBaseId?: string;
+  knowledgeBaseId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
    * @public
    */
-  knowledgeBaseArn?: string;
+  knowledgeBaseArn?: string | undefined;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface AssistantAssociationData {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -331,7 +331,7 @@ export interface CreateAssistantAssociationResponse {
    * <p>The assistant association.</p>
    * @public
    */
-  assistantAssociation?: AssistantAssociationData;
+  assistantAssociation?: AssistantAssociationData | undefined;
 }
 
 /**
@@ -345,7 +345,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The specified resource name.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -449,7 +449,7 @@ export interface GetAssistantAssociationResponse {
    * <p>The assistant association.</p>
    * @public
    */
-  assistantAssociation?: AssistantAssociationData;
+  assistantAssociation?: AssistantAssociationData | undefined;
 }
 
 /**
@@ -461,13 +461,13 @@ export interface ListAssistantAssociationsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -521,7 +521,7 @@ export interface AssistantAssociationSummary {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -538,7 +538,7 @@ export interface ListAssistantAssociationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -552,7 +552,7 @@ export interface ServerSideEncryptionConfiguration {
    *         instance</a>. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface CreateAssistantRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the assistant.</p>
@@ -597,13 +597,13 @@ export interface CreateAssistantRequest {
    * <p>The description of the assistant.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -617,7 +617,7 @@ export interface CreateAssistantRequest {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 }
 
 /**
@@ -629,7 +629,7 @@ export interface AssistantIntegrationConfiguration {
    * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
    * @public
    */
-  topicIntegrationArn?: string;
+  topicIntegrationArn?: string | undefined;
 }
 
 /**
@@ -689,13 +689,13 @@ export interface AssistantData {
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -709,13 +709,13 @@ export interface AssistantData {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The configuration information for the Wisdom assistant integration.</p>
    * @public
    */
-  integrationConfiguration?: AssistantIntegrationConfiguration;
+  integrationConfiguration?: AssistantIntegrationConfiguration | undefined;
 }
 
 /**
@@ -726,7 +726,7 @@ export interface CreateAssistantResponse {
    * <p>Information about the assistant.</p>
    * @public
    */
-  assistant?: AssistantData;
+  assistant?: AssistantData | undefined;
 }
 
 /**
@@ -764,7 +764,7 @@ export interface GetAssistantResponse {
    * <p>Information about the assistant.</p>
    * @public
    */
-  assistant?: AssistantData;
+  assistant?: AssistantData | undefined;
 }
 
 /**
@@ -787,7 +787,7 @@ export interface GetRecommendationsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The duration (in seconds) for which the call waits for a recommendation to be made
@@ -796,7 +796,7 @@ export interface GetRecommendationsRequest {
    *       call returns successfully with an empty list.</p>
    * @public
    */
-  waitTimeSeconds?: number;
+  waitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -808,26 +808,26 @@ export interface ContentReference {
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
    * @public
    */
-  knowledgeBaseArn?: string;
+  knowledgeBaseArn?: string | undefined;
 
   /**
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Wisdom Content resource to it.</p>
    * @public
    */
-  knowledgeBaseId?: string;
+  knowledgeBaseId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the content.</p>
    * @public
    */
-  contentArn?: string;
+  contentArn?: string | undefined;
 
   /**
    * <p>The identifier of the content.</p>
    * @public
    */
-  contentId?: string;
+  contentId?: string | undefined;
 }
 
 /**
@@ -840,13 +840,13 @@ export interface Highlight {
    * <p>The offset for the start of the highlight.</p>
    * @public
    */
-  beginOffsetInclusive?: number;
+  beginOffsetInclusive?: number | undefined;
 
   /**
    * <p>The offset for the end of the highlight.</p>
    * @public
    */
-  endOffsetExclusive?: number;
+  endOffsetExclusive?: number | undefined;
 }
 
 /**
@@ -858,13 +858,13 @@ export interface DocumentText {
    * <p>Text in the document.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>Highlights in the document text.</p>
    * @public
    */
-  highlights?: Highlight[];
+  highlights?: Highlight[] | undefined;
 }
 
 /**
@@ -882,13 +882,13 @@ export interface Document {
    * <p>The title of the document.</p>
    * @public
    */
-  title?: DocumentText;
+  title?: DocumentText | undefined;
 
   /**
    * <p>The excerpt from the document.</p>
    * @public
    */
-  excerpt?: DocumentText;
+  excerpt?: DocumentText | undefined;
 }
 
 /**
@@ -940,19 +940,19 @@ export interface RecommendationData {
    * <p>The relevance score of the recommendation.</p>
    * @public
    */
-  relevanceScore?: number;
+  relevanceScore?: number | undefined;
 
   /**
    * <p>The relevance level of the recommendation.</p>
    * @public
    */
-  relevanceLevel?: RelevanceLevel;
+  relevanceLevel?: RelevanceLevel | undefined;
 
   /**
    * <p>The type of recommendation.</p>
    * @public
    */
-  type?: RecommendationType;
+  type?: RecommendationType | undefined;
 }
 
 /**
@@ -964,7 +964,7 @@ export interface QueryRecommendationTriggerData {
    * <p>The text associated with the recommendation trigger.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -1097,7 +1097,7 @@ export interface GetRecommendationsResponse {
    * <p>The triggers corresponding to recommendations.</p>
    * @public
    */
-  triggers?: RecommendationTrigger[];
+  triggers?: RecommendationTrigger[] | undefined;
 }
 
 /**
@@ -1109,13 +1109,13 @@ export interface ListAssistantsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1157,13 +1157,13 @@ export interface AssistantSummary {
    * <p>The description of the assistant.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -1177,13 +1177,13 @@ export interface AssistantSummary {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The configuration information for the Wisdom assistant integration.</p>
    * @public
    */
-  integrationConfiguration?: AssistantIntegrationConfiguration;
+  integrationConfiguration?: AssistantIntegrationConfiguration | undefined;
 }
 
 /**
@@ -1200,7 +1200,7 @@ export interface ListAssistantsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1235,13 +1235,13 @@ export interface NotifyRecommendationsReceivedError {
    * <p>The identifier of the recommendation that is in error.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 
   /**
    * <p>A recommendation is causing an error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1252,13 +1252,13 @@ export interface NotifyRecommendationsReceivedResponse {
    * <p>The identifiers of the recommendations.</p>
    * @public
    */
-  recommendationIds?: string[];
+  recommendationIds?: string[] | undefined;
 
   /**
    * <p>The identifiers of recommendations that are causing errors.</p>
    * @public
    */
-  errors?: NotifyRecommendationsReceivedError[];
+  errors?: NotifyRecommendationsReceivedError[] | undefined;
 }
 
 /**
@@ -1282,13 +1282,13 @@ export interface QueryAssistantRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1312,7 +1312,7 @@ export interface ResultData {
    * <p>The relevance score of the results.</p>
    * @public
    */
-  relevanceScore?: number;
+  relevanceScore?: number | undefined;
 }
 
 /**
@@ -1329,7 +1329,7 @@ export interface QueryAssistantResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1426,13 +1426,13 @@ export interface SearchSessionsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1491,7 +1491,7 @@ export interface SearchSessionsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1505,7 +1505,7 @@ export interface CreateSessionRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1523,13 +1523,13 @@ export interface CreateSessionRequest {
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1541,7 +1541,7 @@ export interface SessionIntegrationConfiguration {
    * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
    * @public
    */
-  topicIntegrationArn?: string;
+  topicIntegrationArn?: string | undefined;
 }
 
 /**
@@ -1571,19 +1571,19 @@ export interface SessionData {
    * <p>The description of the session.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information for the session integration.</p>
    * @public
    */
-  integrationConfiguration?: SessionIntegrationConfiguration;
+  integrationConfiguration?: SessionIntegrationConfiguration | undefined;
 }
 
 /**
@@ -1594,7 +1594,7 @@ export interface CreateSessionResponse {
    * <p>The session.</p>
    * @public
    */
-  session?: SessionData;
+  session?: SessionData | undefined;
 }
 
 /**
@@ -1622,7 +1622,7 @@ export interface GetSessionResponse {
    * <p>The session.</p>
    * @public
    */
-  session?: SessionData;
+  session?: SessionData | undefined;
 }
 
 /**
@@ -1634,7 +1634,7 @@ export interface ConnectConfiguration {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    * @public
    */
-  instanceId?: string;
+  instanceId?: string | undefined;
 }
 
 /**
@@ -1698,21 +1698,21 @@ export interface CreateContentRequest {
    * <p>The title of the content. If not set, the title is equal to the name.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The URI you want to use for the article. If the knowledge base has a templateUri, setting
    *       this argument overrides it for this piece of content.</p>
    * @public
    */
-  overrideLinkOutUri?: string;
+  overrideLinkOutUri?: string | undefined;
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Wisdom, you can store an external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
@@ -1727,13 +1727,13 @@ export interface CreateContentRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1826,13 +1826,13 @@ export interface ContentData {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The URI of the content.</p>
    * @public
    */
-  linkOutUri?: string;
+  linkOutUri?: string | undefined;
 
   /**
    * <p>The URL of the content.</p>
@@ -1855,7 +1855,7 @@ export interface CreateContentResponse {
    * <p>The content.</p>
    * @public
    */
-  content?: ContentData;
+  content?: ContentData | undefined;
 }
 
 /**
@@ -1907,7 +1907,7 @@ export interface GetContentResponse {
    * <p>The content.</p>
    * @public
    */
-  content?: ContentData;
+  content?: ContentData | undefined;
 }
 
 /**
@@ -1999,7 +1999,7 @@ export interface ContentSummary {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2010,7 +2010,7 @@ export interface GetContentSummaryResponse {
    * <p>The content summary.</p>
    * @public
    */
-  contentSummary?: ContentSummary;
+  contentSummary?: ContentSummary | undefined;
 }
 
 /**
@@ -2022,13 +2022,13 @@ export interface ListContentsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
@@ -2052,7 +2052,7 @@ export interface ListContentsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2101,13 +2101,13 @@ export interface UpdateContentRequest {
    *         <code>PreconditionFailedException</code>.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The title of the content.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The URI for the article. If the knowledge base has a templateUri, setting this argument
@@ -2115,13 +2115,13 @@ export interface UpdateContentRequest {
    *       exclude this argument and set <code>removeOverrideLinkOutUri</code> to true.</p>
    * @public
    */
-  overrideLinkOutUri?: string;
+  overrideLinkOutUri?: string | undefined;
 
   /**
    * <p>Unset the existing <code>overrideLinkOutUri</code> if it exists.</p>
    * @public
    */
-  removeOverrideLinkOutUri?: boolean;
+  removeOverrideLinkOutUri?: boolean | undefined;
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations. For
@@ -2129,14 +2129,14 @@ export interface UpdateContentRequest {
    *       external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.
    *     </p>
    * @public
    */
-  uploadId?: string;
+  uploadId?: string | undefined;
 }
 
 /**
@@ -2147,7 +2147,7 @@ export interface UpdateContentResponse {
    * <p>The content.</p>
    * @public
    */
-  content?: ContentData;
+  content?: ContentData | undefined;
 }
 
 /**
@@ -2194,7 +2194,7 @@ export interface RenderingConfiguration {
    *          <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
    * @public
    */
-  templateUri?: string;
+  templateUri?: string | undefined;
 }
 
 /**
@@ -2246,7 +2246,7 @@ export interface CreateKnowledgeBaseRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the knowledge base.</p>
@@ -2267,13 +2267,13 @@ export interface CreateKnowledgeBaseRequest {
    *       bases.</p>
    * @public
    */
-  sourceConfiguration?: SourceConfiguration;
+  sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
    * <p>Information about how to render the content.</p>
    * @public
    */
-  renderingConfiguration?: RenderingConfiguration;
+  renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -2284,19 +2284,19 @@ export interface CreateKnowledgeBaseRequest {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2358,19 +2358,19 @@ export interface KnowledgeBaseData {
    *       base. If no content exists in a knowledge base, this value is unset.</p>
    * @public
    */
-  lastContentModificationTime?: Date;
+  lastContentModificationTime?: Date | undefined;
 
   /**
    * <p>Source configuration information about the knowledge base.</p>
    * @public
    */
-  sourceConfiguration?: SourceConfiguration;
+  sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
    * <p>Information about how to render the content.</p>
    * @public
    */
-  renderingConfiguration?: RenderingConfiguration;
+  renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -2381,19 +2381,19 @@ export interface KnowledgeBaseData {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2404,7 +2404,7 @@ export interface CreateKnowledgeBaseResponse {
    * <p>The knowledge base.</p>
    * @public
    */
-  knowledgeBase?: KnowledgeBaseData;
+  knowledgeBase?: KnowledgeBaseData | undefined;
 }
 
 /**
@@ -2464,7 +2464,7 @@ export interface GroupingConfiguration {
    *          </ul>
    * @public
    */
-  criteria?: string;
+  criteria?: string | undefined;
 
   /**
    * <p>The list of values that define different groups of Wisdom users.</p>
@@ -2476,7 +2476,7 @@ export interface GroupingConfiguration {
    *          </ul>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2514,19 +2514,19 @@ export interface CreateQuickResponseRequest {
    *          </ul>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
-  groupingConfiguration?: GroupingConfiguration;
+  groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
    * <p>The description of the quick response.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The shortcut key of the quick response. The value should be unique across the
@@ -2534,19 +2534,19 @@ export interface CreateQuickResponseRequest {
    *     </p>
    * @public
    */
-  shortcutKey?: string;
+  shortcutKey?: string | undefined;
 
   /**
    * <p>Whether the quick response is active.</p>
    * @public
    */
-  isActive?: boolean;
+  isActive?: boolean | undefined;
 
   /**
    * <p>The Amazon Connect channels this quick response applies to.</p>
    * @public
    */
-  channels?: string[];
+  channels?: string[] | undefined;
 
   /**
    * <p>The language code value for the language in which the quick response is written.  The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
@@ -2555,7 +2555,7 @@ export interface CreateQuickResponseRequest {
    *          </p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2564,13 +2564,13 @@ export interface CreateQuickResponseRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2622,13 +2622,13 @@ export interface QuickResponseContents {
    * <p>The container quick response content.</p>
    * @public
    */
-  plainText?: QuickResponseContentProvider;
+  plainText?: QuickResponseContentProvider | undefined;
 
   /**
    * <p>The container quick response content.</p>
    * @public
    */
-  markdown?: QuickResponseContentProvider;
+  markdown?: QuickResponseContentProvider | undefined;
 }
 
 /**
@@ -2723,56 +2723,56 @@ export interface QuickResponseData {
    * <p>The contents of the quick response.</p>
    * @public
    */
-  contents?: QuickResponseContents;
+  contents?: QuickResponseContents | undefined;
 
   /**
    * <p>The description of the quick response.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
-  groupingConfiguration?: GroupingConfiguration;
+  groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
    * @public
    */
-  shortcutKey?: string;
+  shortcutKey?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
    * @public
    */
-  lastModifiedBy?: string;
+  lastModifiedBy?: string | undefined;
 
   /**
    * <p>Whether the quick response is active.</p>
    * @public
    */
-  isActive?: boolean;
+  isActive?: boolean | undefined;
 
   /**
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
-  channels?: string[];
+  channels?: string[] | undefined;
 
   /**
    * <p>The language code value for the language in which the quick response is written.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2783,7 +2783,7 @@ export interface CreateQuickResponseResponse {
    * <p>The quick response.</p>
    * @public
    */
-  quickResponse?: QuickResponseData;
+  quickResponse?: QuickResponseData | undefined;
 }
 
 /**
@@ -2979,7 +2979,7 @@ export interface ImportJobData {
    * <p>The link to donwload the information of resource data that failed to be imported.</p>
    * @public
    */
-  failedRecordReport?: string;
+  failedRecordReport?: string | undefined;
 
   /**
    * <p>The expiration time of the URL as an epoch timestamp.</p>
@@ -3003,13 +3003,13 @@ export interface ImportJobData {
    * <p>The metadata fields of the imported Wisdom resources.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information of the external data source.</p>
    * @public
    */
-  externalSourceConfiguration?: ExternalSourceConfiguration;
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
 }
 
 /**
@@ -3020,7 +3020,7 @@ export interface GetImportJobResponse {
    * <p>The import job.</p>
    * @public
    */
-  importJob?: ImportJobData;
+  importJob?: ImportJobData | undefined;
 }
 
 /**
@@ -3043,7 +3043,7 @@ export interface GetKnowledgeBaseResponse {
    * <p>The knowledge base.</p>
    * @public
    */
-  knowledgeBase?: KnowledgeBaseData;
+  knowledgeBase?: KnowledgeBaseData | undefined;
 }
 
 /**
@@ -3071,7 +3071,7 @@ export interface GetQuickResponseResponse {
    * <p>The quick response.</p>
    * @public
    */
-  quickResponse?: QuickResponseData;
+  quickResponse?: QuickResponseData | undefined;
 }
 
 /**
@@ -3132,13 +3132,13 @@ export interface ImportJobSummary {
    * <p>The metadata fields of the imported Wisdom resources.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information of the external source that the resource data are imported from.</p>
    * @public
    */
-  externalSourceConfiguration?: ExternalSourceConfiguration;
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
 }
 
 /**
@@ -3150,13 +3150,13 @@ export interface ListImportJobsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
@@ -3181,7 +3181,7 @@ export interface ListImportJobsResponse {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3193,13 +3193,13 @@ export interface ListKnowledgeBasesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3242,13 +3242,13 @@ export interface KnowledgeBaseSummary {
    * <p>Configuration information about the external data source.</p>
    * @public
    */
-  sourceConfiguration?: SourceConfiguration;
+  sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
    * <p>Information about how to render the content.</p>
    * @public
    */
-  renderingConfiguration?: RenderingConfiguration;
+  renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
@@ -3259,19 +3259,19 @@ export interface KnowledgeBaseSummary {
    *         for your instance</a>.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The description of the knowledge base.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3288,7 +3288,7 @@ export interface ListKnowledgeBasesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3300,13 +3300,13 @@ export interface ListQuickResponsesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
@@ -3388,31 +3388,31 @@ export interface QuickResponseSummary {
    * <p>The description of the quick response.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
    * @public
    */
-  lastModifiedBy?: string;
+  lastModifiedBy?: string | undefined;
 
   /**
    * <p>Whether the quick response is active.</p>
    * @public
    */
-  isActive?: boolean;
+  isActive?: boolean | undefined;
 
   /**
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
-  channels?: string[];
+  channels?: string[] | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3430,7 +3430,7 @@ export interface ListQuickResponsesResponse {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3454,13 +3454,13 @@ export interface UpdateQuickResponseRequest {
    * <p>The name of the quick response.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The updated content of the quick response.</p>
    * @public
    */
-  content?: QuickResponseDataProvider;
+  content?: QuickResponseDataProvider | undefined;
 
   /**
    * <p>The media type of the quick response content.</p>
@@ -3474,56 +3474,56 @@ export interface UpdateQuickResponseRequest {
    *          </ul>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The updated grouping configuration of the quick response.</p>
    * @public
    */
-  groupingConfiguration?: GroupingConfiguration;
+  groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
    * <p>Whether to remove the grouping configuration of the quick response.</p>
    * @public
    */
-  removeGroupingConfiguration?: boolean;
+  removeGroupingConfiguration?: boolean | undefined;
 
   /**
    * <p>The updated description of the quick response.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Whether to remove the description from the quick response.</p>
    * @public
    */
-  removeDescription?: boolean;
+  removeDescription?: boolean | undefined;
 
   /**
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
    * @public
    */
-  shortcutKey?: string;
+  shortcutKey?: string | undefined;
 
   /**
    * <p>Whether to remove the shortcut key of the quick response.</p>
    * @public
    */
-  removeShortcutKey?: boolean;
+  removeShortcutKey?: boolean | undefined;
 
   /**
    * <p>Whether the quick response is active. </p>
    * @public
    */
-  isActive?: boolean;
+  isActive?: boolean | undefined;
 
   /**
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
-  channels?: string[];
+  channels?: string[] | undefined;
 
   /**
    * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
@@ -3532,7 +3532,7 @@ export interface UpdateQuickResponseRequest {
    *          </p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 }
 
 /**
@@ -3543,7 +3543,7 @@ export interface UpdateQuickResponseResponse {
    * <p>The quick response.</p>
    * @public
    */
-  quickResponse?: QuickResponseData;
+  quickResponse?: QuickResponseData | undefined;
 }
 
 /**
@@ -3572,13 +3572,13 @@ export interface SearchContentRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
@@ -3608,7 +3608,7 @@ export interface SearchContentResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3680,7 +3680,7 @@ export interface QuickResponseFilterField {
    * <p>The values of attribute field to filter the quick response by.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 
   /**
    * <p>The operator to use for filtering.</p>
@@ -3692,7 +3692,7 @@ export interface QuickResponseFilterField {
    * <p>Whether to treat null value as a match for the attribute field.</p>
    * @public
    */
-  includeNoExistence?: boolean;
+  includeNoExistence?: boolean | undefined;
 }
 
 /**
@@ -3763,7 +3763,7 @@ export interface QuickResponseOrderField {
    * <p>The order at which the quick responses are sorted by.</p>
    * @public
    */
-  order?: Order;
+  order?: Order | undefined;
 }
 
 /**
@@ -3837,14 +3837,14 @@ export interface QuickResponseQueryField {
    * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
    * @public
    */
-  allowFuzziness?: boolean;
+  allowFuzziness?: boolean | undefined;
 
   /**
    * <p>The importance of the attribute field when calculating query result relevancy scores.
    *       The value set for this parameter affects the ordering of search results.</p>
    * @public
    */
-  priority?: Priority;
+  priority?: Priority | undefined;
 }
 
 /**
@@ -3856,19 +3856,19 @@ export interface QuickResponseSearchExpression {
    * <p>The quick response query expressions.</p>
    * @public
    */
-  queries?: QuickResponseQueryField[];
+  queries?: QuickResponseQueryField[] | undefined;
 
   /**
    * <p>The configuration of filtering rules applied to quick response query results.</p>
    * @public
    */
-  filters?: QuickResponseFilterField[];
+  filters?: QuickResponseFilterField[] | undefined;
 
   /**
    * <p>The quick response attribute fields on which the query results are ordered.</p>
    * @public
    */
-  orderOnField?: QuickResponseOrderField;
+  orderOnField?: QuickResponseOrderField | undefined;
 }
 
 /**
@@ -3892,19 +3892,19 @@ export interface SearchQuickResponsesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -3991,56 +3991,56 @@ export interface QuickResponseSearchResultData {
    * <p>The description of the quick response.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
-  groupingConfiguration?: GroupingConfiguration;
+  groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
    * @public
    */
-  shortcutKey?: string;
+  shortcutKey?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.</p>
    * @public
    */
-  lastModifiedBy?: string;
+  lastModifiedBy?: string | undefined;
 
   /**
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
-  channels?: string[];
+  channels?: string[] | undefined;
 
   /**
    * <p>The language code value for the language in which the quick response is written.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>The user defined contact attributes that are not resolved when the search result is returned.</p>
    * @public
    */
-  attributesNotInterpolated?: string[];
+  attributesNotInterpolated?: string[] | undefined;
 
   /**
    * <p>The user defined contact attributes that are resolved when the search result is returned.</p>
    * @public
    */
-  attributesInterpolated?: string[];
+  attributesInterpolated?: string[] | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4058,7 +4058,7 @@ export interface SearchQuickResponsesResponse {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4082,7 +4082,7 @@ export interface StartContentUploadRequest {
    * <p>The expected expiration time of the generated presigned URL, specified in minutes.</p>
    * @public
    */
-  presignedUrlTimeToLive?: number;
+  presignedUrlTimeToLive?: number | undefined;
 }
 
 /**
@@ -4151,19 +4151,19 @@ export interface StartImportJobRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The metadata fields of the imported Wisdom resources.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration information of the external source that the resource data are imported from.</p>
    * @public
    */
-  externalSourceConfiguration?: ExternalSourceConfiguration;
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
 }
 
 /**
@@ -4174,7 +4174,7 @@ export interface StartImportJobResponse {
    * <p>The import job.</p>
    * @public
    */
-  importJob?: ImportJobData;
+  importJob?: ImportJobData | undefined;
 }
 
 /**
@@ -4203,7 +4203,7 @@ export interface UpdateKnowledgeBaseTemplateUriResponse {
    * <p>The knowledge base to update.</p>
    * @public
    */
-  knowledgeBase?: KnowledgeBaseData;
+  knowledgeBase?: KnowledgeBaseData | undefined;
 }
 
 /**
@@ -4225,7 +4225,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4261,7 +4261,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>The specified resource name.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal

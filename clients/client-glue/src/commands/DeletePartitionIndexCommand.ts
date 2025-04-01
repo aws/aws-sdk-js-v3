@@ -74,6 +74,7 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeletePartitionIndexCommand extends $Command
@@ -84,9 +85,7 @@ export class DeletePartitionIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeletePartitionIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePartitionIndexCommand)
   .de(de_DeletePartitionIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePartitionIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePartitionIndexCommandInput;
+      output: DeletePartitionIndexCommandOutput;
+    };
+  };
+}

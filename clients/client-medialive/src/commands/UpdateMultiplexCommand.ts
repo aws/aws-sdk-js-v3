@@ -44,6 +44,37 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  *     TransportStreamReservedBitrate: Number("int"),
  *   },
  *   Name: "STRING_VALUE",
+ *   PacketIdentifiersMapping: { // MultiplexPacketIdentifiersMapping
+ *     "<keys>": { // MultiplexProgramPacketIdentifiersMap
+ *       AudioPids: [ // __listOf__integer
+ *         Number("int"),
+ *       ],
+ *       DvbSubPids: [
+ *         Number("int"),
+ *       ],
+ *       DvbTeletextPid: Number("int"),
+ *       EtvPlatformPid: Number("int"),
+ *       EtvSignalPid: Number("int"),
+ *       KlvDataPids: [
+ *         Number("int"),
+ *       ],
+ *       PcrPid: Number("int"),
+ *       PmtPid: Number("int"),
+ *       PrivateMetadataPid: Number("int"),
+ *       Scte27Pids: [
+ *         Number("int"),
+ *       ],
+ *       Scte35Pid: Number("int"),
+ *       TimedMetadataPid: Number("int"),
+ *       VideoPid: Number("int"),
+ *       AribCaptionsPid: Number("int"),
+ *       DvbTeletextPids: [
+ *         Number("int"),
+ *       ],
+ *       EcmPid: Number("int"),
+ *       Smpte2038Pid: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new UpdateMultiplexCommand(input);
  * const response = await client.send(command);
@@ -112,6 +143,7 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateMultiplexCommand extends $Command
@@ -122,9 +154,7 @@ export class UpdateMultiplexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +166,16 @@ export class UpdateMultiplexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMultiplexCommand)
   .de(de_UpdateMultiplexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMultiplexRequest;
+      output: UpdateMultiplexResponse;
+    };
+    sdk: {
+      input: UpdateMultiplexCommandInput;
+      output: UpdateMultiplexCommandOutput;
+    };
+  };
+}

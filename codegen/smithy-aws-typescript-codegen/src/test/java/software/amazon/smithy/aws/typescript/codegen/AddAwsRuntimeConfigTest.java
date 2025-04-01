@@ -10,7 +10,7 @@ import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 
 public class AddAwsRuntimeConfigTest {
@@ -32,7 +32,7 @@ public class AddAwsRuntimeConfigTest {
                                   .withMember("packageVersion", Node.from("1.0.0"))
                                   .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
@@ -54,11 +54,11 @@ public class AddAwsRuntimeConfigTest {
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
                 "useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
-                "useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)"));
+                "useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, profileConfig)"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
                 "useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
-                "useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),"));
+                "useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, profileConfig),"));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class AddAwsRuntimeConfigTest {
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
@@ -121,7 +121,7 @@ public class AddAwsRuntimeConfigTest {
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),

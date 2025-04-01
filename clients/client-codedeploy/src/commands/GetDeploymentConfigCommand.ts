@@ -95,6 +95,7 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class GetDeploymentConfigCommand extends $Command
@@ -105,9 +106,7 @@ export class GetDeploymentConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetDeploymentConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentConfigCommand)
   .de(de_GetDeploymentConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentConfigInput;
+      output: GetDeploymentConfigOutput;
+    };
+    sdk: {
+      input: GetDeploymentConfigCommandInput;
+      output: GetDeploymentConfigCommandOutput;
+    };
+  };
+}

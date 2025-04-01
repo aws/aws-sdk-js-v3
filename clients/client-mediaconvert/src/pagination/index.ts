@@ -5,4 +5,5 @@ export * from "./ListJobTemplatesPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListPresetsPaginator";
 export * from "./ListQueuesPaginator";
+export * from "./ListVersionsPaginator";
 export * from "./SearchJobsPaginator";

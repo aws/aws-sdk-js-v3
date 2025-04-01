@@ -274,6 +274,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class KitchenSinkOperationCommand extends $Command
   .classBuilder<
@@ -291,4 +292,16 @@ export class KitchenSinkOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_KitchenSinkOperationCommand)
   .de(de_KitchenSinkOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: KitchenSink;
+      output: KitchenSink;
+    };
+    sdk: {
+      input: KitchenSinkOperationCommandInput;
+      output: KitchenSinkOperationCommandOutput;
+    };
+  };
+}

@@ -91,6 +91,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command
@@ -101,9 +102,7 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeleteDirectConnectGatewayAssociationProposalCommand)
   .de(de_DeleteDirectConnectGatewayAssociationProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectConnectGatewayAssociationProposalRequest;
+      output: DeleteDirectConnectGatewayAssociationProposalResult;
+    };
+    sdk: {
+      input: DeleteDirectConnectGatewayAssociationProposalCommandInput;
+      output: DeleteDirectConnectGatewayAssociationProposalCommandOutput;
+    };
+  };
+}

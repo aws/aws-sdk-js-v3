@@ -45,37 +45,37 @@ export interface AutoScalingConfiguration {
    * <p>The lowest number of nodes to scale. This value must be at least 1 and less than the <code>maxNodeCount</code>. If the nodes in a cluster belong to multiple availability zones, then <code>minNodeCount</code> must be at least 3.</p>
    * @public
    */
-  minNodeCount?: number;
+  minNodeCount?: number | undefined;
 
   /**
    * <p>The highest number of nodes to scale. This value cannot be greater than 5.</p>
    * @public
    */
-  maxNodeCount?: number;
+  maxNodeCount?: number | undefined;
 
   /**
    * <p> The metric your cluster will track in order to scale in and out. For example, <code>CPU_UTILIZATION_PERCENTAGE</code> is the average CPU usage across all the nodes in a cluster.</p>
    * @public
    */
-  autoScalingMetric?: AutoScalingMetric;
+  autoScalingMetric?: AutoScalingMetric | undefined;
 
   /**
    * <p>The desired value of the chosen <code>autoScalingMetric</code>. When the metric drops below this value, the cluster will scale in. When the metric goes above this value, the cluster will scale out. You can set the target value between 1 and 100 percent.</p>
    * @public
    */
-  metricTarget?: number;
+  metricTarget?: number | undefined;
 
   /**
    * <p>The duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.</p>
    * @public
    */
-  scaleInCooldownSeconds?: number;
+  scaleInCooldownSeconds?: number | undefined;
 
   /**
    * <p>The duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.</p>
    * @public
    */
-  scaleOutCooldownSeconds?: number;
+  scaleOutCooldownSeconds?: number | undefined;
 }
 
 /**
@@ -101,32 +101,32 @@ export interface FederationParameters {
    * <p>SAML 2.0 Metadata document from identity provider (IdP).</p>
    * @public
    */
-  samlMetadataDocument?: string;
+  samlMetadataDocument?: string | undefined;
 
   /**
    * <p>Provide the metadata URL from your SAML 2.0 compliant identity provider (IdP).</p>
    * @public
    */
-  samlMetadataURL?: string;
+  samlMetadataURL?: string | undefined;
 
   /**
    * <p>The redirect or sign-in URL that should be entered into the SAML 2.0 compliant identity provider configuration
    *        (IdP).</p>
    * @public
    */
-  applicationCallBackURL?: string;
+  applicationCallBackURL?: string | undefined;
 
   /**
    * <p>The Uniform Resource Name (URN). Also referred as Service Provider URN or Audience URI or Service Provider Entity ID.</p>
    * @public
    */
-  federationURN?: string;
+  federationURN?: string | undefined;
 
   /**
    * <p>Name of the identity provider (IdP).</p>
    * @public
    */
-  federationProviderName?: string;
+  federationProviderName?: string | undefined;
 
   /**
    * <p>SAML attribute name and value. The name must always be <code>Email</code> and the value should be set to
@@ -135,7 +135,7 @@ export interface FederationParameters {
    *          Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.</p>
    * @public
    */
-  attributeMap?: Record<string, string>;
+  attributeMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -176,19 +176,19 @@ export interface CreateEnvironmentRequest {
    * <p>The description of the FinSpace environment to be created.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The KMS key id to encrypt your data in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>Add tags to your FinSpace environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Authentication mode for the environment.</p>
@@ -204,19 +204,19 @@ export interface CreateEnvironmentRequest {
    *          </ul>
    * @public
    */
-  federationMode?: FederationMode;
+  federationMode?: FederationMode | undefined;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>
    * @public
    */
-  federationParameters?: FederationParameters;
+  federationParameters?: FederationParameters | undefined;
 
   /**
    * <p>Configuration information for the superuser.</p>
    * @public
    */
-  superuserParameters?: SuperuserParameters;
+  superuserParameters?: SuperuserParameters | undefined;
 
   /**
    * <p>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:</p>
@@ -232,7 +232,7 @@ export interface CreateEnvironmentRequest {
    *          </ul>
    * @public
    */
-  dataBundles?: string[];
+  dataBundles?: string[] | undefined;
 }
 
 /**
@@ -243,19 +243,19 @@ export interface CreateEnvironmentResponse {
    * <p>The unique identifier for FinSpace environment that you created.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the FinSpace environment that you created.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The sign-in URL for the web application of the FinSpace environment you created.</p>
    * @public
    */
-  environmentUrl?: string;
+  environmentUrl?: string | undefined;
 }
 
 /**
@@ -371,7 +371,7 @@ export class ConflictException extends __BaseException {
    * <p>The reason for the conflict exception.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * @internal
@@ -424,7 +424,7 @@ export interface ChangeRequest {
    * <p>Defines the S3 path of the source file that is required to add or update files in a database.</p>
    * @public
    */
-  s3Path?: string;
+  s3Path?: string | undefined;
 
   /**
    * <p>Defines the path within the database directory. </p>
@@ -515,7 +515,7 @@ export interface CreateKxChangesetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -547,13 +547,13 @@ export interface ErrorInfo {
    * <p>Specifies the error message that appears if a flow fails. </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>Specifies the type of error.</p>
    * @public
    */
-  errorType?: ErrorDetails;
+  errorType?: ErrorDetails | undefined;
 }
 
 /**
@@ -580,37 +580,37 @@ export interface CreateKxChangesetResponse {
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The name of the kdb database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A list of change requests.</p>
    * @public
    */
-  changeRequests?: ChangeRequest[];
+  changeRequests?: ChangeRequest[] | undefined;
 
   /**
    * <p>The timestamp at which the changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the changeset was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>Status of the changeset creation process.</p>
@@ -630,13 +630,13 @@ export interface CreateKxChangesetResponse {
    *          </ul>
    * @public
    */
-  status?: ChangesetStatus;
+  status?: ChangesetStatus | undefined;
 
   /**
    * <p>The details of the error that you receive when creating a changeset. It consists of the type of error and the error message.</p>
    * @public
    */
-  errorInfo?: ErrorInfo;
+  errorInfo?: ErrorInfo | undefined;
 }
 
 /**
@@ -743,13 +743,13 @@ export interface CapacityConfiguration {
    *          </ul>
    * @public
    */
-  nodeType?: string;
+  nodeType?: string | undefined;
 
   /**
    * <p>The number of instances running in a cluster.</p>
    * @public
    */
-  nodeCount?: number;
+  nodeCount?: number | undefined;
 }
 
 /**
@@ -778,19 +778,19 @@ export interface CodeConfiguration {
    * <p>A unique name for the S3 bucket.</p>
    * @public
    */
-  s3Bucket?: string;
+  s3Bucket?: string | undefined;
 
   /**
    * <p>The full S3 path (excluding bucket) to the .zip file. This file contains the code that is loaded onto the cluster when it's started.</p>
    * @public
    */
-  s3Key?: string;
+  s3Key?: string | undefined;
 
   /**
    * <p>The version of an S3 object.</p>
    * @public
    */
-  s3ObjectVersion?: string;
+  s3ObjectVersion?: string | undefined;
 }
 
 /**
@@ -802,13 +802,13 @@ export interface KxCommandLineArgument {
    * <p>The name of the key.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The value of the key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -840,7 +840,7 @@ export interface KxDatabaseCacheConfiguration {
    * </p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 }
 
 /**
@@ -870,7 +870,7 @@ export interface KxDataviewSegmentConfiguration {
    *          default value is <b>False</b>. </p>
    * @public
    */
-  onDemand?: boolean;
+  onDemand?: boolean | undefined;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface KxDataviewConfiguration {
    * The unique identifier of the dataview.</p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>
@@ -893,20 +893,20 @@ export interface KxDataviewConfiguration {
    * </p>
    * @public
    */
-  dataviewVersionId?: string;
+  dataviewVersionId?: string | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    * The db path and volume configuration for the segmented database.</p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 }
 
 /**
@@ -924,13 +924,13 @@ export interface KxDatabaseConfiguration {
    * <p>Configuration details for the disk cache used to increase performance reading from a kdb database mounted to the cluster.</p>
    * @public
    */
-  cacheConfigurations?: KxDatabaseCacheConfiguration[];
+  cacheConfigurations?: KxDatabaseCacheConfiguration[] | undefined;
 
   /**
    * <p>A unique identifier of the changeset that is associated with the cluster.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
@@ -939,7 +939,7 @@ export interface KxDatabaseConfiguration {
    * </p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>
@@ -948,7 +948,7 @@ export interface KxDatabaseConfiguration {
    * </p>
    * @public
    */
-  dataviewConfiguration?: KxDataviewConfiguration;
+  dataviewConfiguration?: KxDataviewConfiguration | undefined;
 }
 
 /**
@@ -978,13 +978,13 @@ export interface KxSavedownStorageConfiguration {
    *          </ul>
    * @public
    */
-  type?: KxSavedownStorageType;
+  type?: KxSavedownStorageType | undefined;
 
   /**
    * <p>The size of temporary storage in gibibytes.</p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 
   /**
    * <p>
@@ -993,7 +993,7 @@ export interface KxSavedownStorageConfiguration {
    * </p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 }
 
 /**
@@ -1014,7 +1014,7 @@ export interface KxScalingGroupConfiguration {
    * </p>
    * @public
    */
-  memoryLimit?: number;
+  memoryLimit?: number | undefined;
 
   /**
    * <p>
@@ -1041,7 +1041,7 @@ export interface KxScalingGroupConfiguration {
    * </p>
    * @public
    */
-  cpu?: number;
+  cpu?: number | undefined;
 }
 
 /**
@@ -1058,7 +1058,7 @@ export interface TickerplantLogConfiguration {
    * </p>
    * @public
    */
-  tickerplantLogVolumes?: string[];
+  tickerplantLogVolumes?: string[] | undefined;
 }
 
 /**
@@ -1083,19 +1083,19 @@ export interface VpcConfiguration {
    * <p>The identifier of the VPC endpoint.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The  unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The IP address type for cluster network configuration parameters. The following type is available:</p>
@@ -1106,7 +1106,7 @@ export interface VpcConfiguration {
    *          </ul>
    * @public
    */
-  ipAddressType?: IPAddressType;
+  ipAddressType?: IPAddressType | undefined;
 }
 
 /**
@@ -1117,7 +1117,7 @@ export interface CreateKxClusterRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
@@ -1161,37 +1161,37 @@ export interface CreateKxClusterRequest {
    * </p>
    * @public
    */
-  tickerplantLogConfiguration?: TickerplantLogConfiguration;
+  tickerplantLogConfiguration?: TickerplantLogConfiguration | undefined;
 
   /**
    * <p>A list of databases that will be available for querying.</p>
    * @public
    */
-  databases?: KxDatabaseConfiguration[];
+  databases?: KxDatabaseConfiguration[] | undefined;
 
   /**
    * <p>The configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. </p>
    * @public
    */
-  cacheStorageConfigurations?: KxCacheStorageConfiguration[];
+  cacheStorageConfigurations?: KxCacheStorageConfiguration[] | undefined;
 
   /**
    * <p>The configuration based on which FinSpace will scale in or scale out nodes in your cluster.</p>
    * @public
    */
-  autoScalingConfiguration?: AutoScalingConfiguration;
+  autoScalingConfiguration?: AutoScalingConfiguration | undefined;
 
   /**
    * <p>A description of the cluster.</p>
    * @public
    */
-  clusterDescription?: string;
+  clusterDescription?: string | undefined;
 
   /**
    * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    * @public
    */
-  capacityConfiguration?: CapacityConfiguration;
+  capacityConfiguration?: CapacityConfiguration | undefined;
 
   /**
    * <p>The version of FinSpace managed kdb to run.</p>
@@ -1212,31 +1212,31 @@ export interface CreateKxClusterRequest {
    *          <code>somedir/init.q</code>.</p>
    * @public
    */
-  initializationScript?: string;
+  initializationScript?: string | undefined;
 
   /**
    * <p>Defines the key-value pairs to make them available inside the cluster.</p>
    * @public
    */
-  commandLineArguments?: KxCommandLineArgument[];
+  commandLineArguments?: KxCommandLineArgument[] | undefined;
 
   /**
    * <p>The details of the custom code that you want to use inside a cluster when analyzing a data. It consists of the S3 source bucket, location, S3 object version, and the relative path from where the custom code is loaded into the cluster. </p>
    * @public
    */
-  code?: CodeConfiguration;
+  code?: CodeConfiguration | undefined;
 
   /**
    * <p>An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.</p>
    * @public
    */
-  executionRole?: string;
+  executionRole?: string | undefined;
 
   /**
    * <p>The size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose <code>clusterType</code> as RDB. All the data written to this storage space is lost when the cluster node is restarted.</p>
    * @public
    */
-  savedownStorageConfiguration?: KxSavedownStorageConfiguration;
+  savedownStorageConfiguration?: KxSavedownStorageConfiguration | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
@@ -1258,19 +1258,19 @@ export interface CreateKxClusterRequest {
    * <p>The availability zone identifiers for the requested regions.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>A list of key-value pairs to label the cluster. You can add up to 50 tags to a cluster.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The structure that stores the configuration details of a scaling group.</p>
    * @public
    */
-  scalingGroupConfiguration?: KxScalingGroupConfiguration;
+  scalingGroupConfiguration?: KxScalingGroupConfiguration | undefined;
 }
 
 /**
@@ -1316,7 +1316,7 @@ export interface Volume {
    * <p>A unique identifier for the volume.</p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 
   /**
    * <p>
@@ -1324,7 +1324,7 @@ export interface Volume {
    *    </p>
    * @public
    */
-  volumeType?: VolumeType;
+  volumeType?: VolumeType | undefined;
 }
 
 /**
@@ -1335,7 +1335,7 @@ export interface CreateKxClusterResponse {
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The status of cluster creation.</p>
@@ -1367,19 +1367,19 @@ export interface CreateKxClusterResponse {
    *          </ul>
    * @public
    */
-  status?: KxClusterStatus;
+  status?: KxClusterStatus | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>A unique name for the cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>Specifies the type of KDB database that is being created. The following types are available: </p>
@@ -1402,7 +1402,7 @@ export interface CreateKxClusterResponse {
    *          </ul>
    * @public
    */
-  clusterType?: KxClusterType;
+  clusterType?: KxClusterType | undefined;
 
   /**
    * <p>
@@ -1411,7 +1411,7 @@ export interface CreateKxClusterResponse {
    * </p>
    * @public
    */
-  tickerplantLogConfiguration?: TickerplantLogConfiguration;
+  tickerplantLogConfiguration?: TickerplantLogConfiguration | undefined;
 
   /**
    * <p>
@@ -1419,49 +1419,49 @@ export interface CreateKxClusterResponse {
    * </p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 
   /**
    * <p>A list of databases that will be available for querying.</p>
    * @public
    */
-  databases?: KxDatabaseConfiguration[];
+  databases?: KxDatabaseConfiguration[] | undefined;
 
   /**
    * <p>The configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. </p>
    * @public
    */
-  cacheStorageConfigurations?: KxCacheStorageConfiguration[];
+  cacheStorageConfigurations?: KxCacheStorageConfiguration[] | undefined;
 
   /**
    * <p>The configuration based on which FinSpace will scale in or scale out nodes in your cluster.</p>
    * @public
    */
-  autoScalingConfiguration?: AutoScalingConfiguration;
+  autoScalingConfiguration?: AutoScalingConfiguration | undefined;
 
   /**
    * <p>A description of the cluster.</p>
    * @public
    */
-  clusterDescription?: string;
+  clusterDescription?: string | undefined;
 
   /**
    * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    * @public
    */
-  capacityConfiguration?: CapacityConfiguration;
+  capacityConfiguration?: CapacityConfiguration | undefined;
 
   /**
    * <p>A version of the FinSpace managed kdb to run.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>Configuration details about the network where the Privatelink endpoint of the cluster resides.</p>
    * @public
    */
-  vpcConfiguration?: VpcConfiguration;
+  vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
    * <p>Specifies a Q program that will be run at launch of a cluster. It is a relative path within
@@ -1470,19 +1470,19 @@ export interface CreateKxClusterResponse {
    *       <code>somedir/init.q</code>.</p>
    * @public
    */
-  initializationScript?: string;
+  initializationScript?: string | undefined;
 
   /**
    * <p>Defines the key-value pairs to make them available inside the cluster.</p>
    * @public
    */
-  commandLineArguments?: KxCommandLineArgument[];
+  commandLineArguments?: KxCommandLineArgument[] | undefined;
 
   /**
    * <p>The details of the custom code that you want to use inside a cluster when analyzing a data. It consists of the S3 source bucket, location, S3 object version, and the relative path from where the custom code is loaded into the cluster. </p>
    * @public
    */
-  code?: CodeConfiguration;
+  code?: CodeConfiguration | undefined;
 
   /**
    * <p>
@@ -1490,19 +1490,19 @@ export interface CreateKxClusterResponse {
    *          </p>
    * @public
    */
-  executionRole?: string;
+  executionRole?: string | undefined;
 
   /**
    * <p>The last time that the cluster was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>The size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose <code>clusterType</code> as RDB. All the data written to this storage space is lost when the cluster node is restarted.</p>
    * @public
    */
-  savedownStorageConfiguration?: KxSavedownStorageConfiguration;
+  savedownStorageConfiguration?: KxSavedownStorageConfiguration | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
@@ -1518,7 +1518,7 @@ export interface CreateKxClusterResponse {
    *          </ul>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -1526,19 +1526,19 @@ export interface CreateKxClusterResponse {
    *          </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The timestamp at which the cluster was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The structure that stores the configuration details of a scaling group.</p>
    * @public
    */
-  scalingGroupConfiguration?: KxScalingGroupConfiguration;
+  scalingGroupConfiguration?: KxScalingGroupConfiguration | undefined;
 }
 
 /**
@@ -1561,19 +1561,19 @@ export interface CreateKxDatabaseRequest {
    * <p>A description of the database.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of key-value pairs to label the kdb database. You can add up to 50 tags to your kdb database</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1584,37 +1584,37 @@ export interface CreateKxDatabaseResponse {
    * <p>The name of the kdb database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>The ARN identifier of the database.</p>
    * @public
    */
-  databaseArn?: string;
+  databaseArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A description of the database.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp at which the database is created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that the database was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1673,27 +1673,27 @@ export interface CreateKxDataviewRequest {
    *       </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>
    * A unique identifier of the changeset that you want to use to ingest data. </p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *    The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>
@@ -1719,13 +1719,13 @@ export interface CreateKxDataviewRequest {
    *          </ul>
    * @public
    */
-  readWrite?: boolean;
+  readWrite?: boolean | undefined;
 
   /**
    * <p>A description of the dataview.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -1733,13 +1733,13 @@ export interface CreateKxDataviewRequest {
    * </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1767,25 +1767,25 @@ export interface CreateKxDataviewResponse {
    * <p>A unique identifier for the dataview.</p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>The name of the database where you want to create a dataview.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment, where you want to create the dataview. </p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -1793,52 +1793,52 @@ export interface CreateKxDataviewResponse {
    *       </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>A description of the dataview.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The option to select whether you want to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. The default value is false.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
    * @public
    */
-  readWrite?: boolean;
+  readWrite?: boolean | undefined;
 
   /**
    * <p>
    * The timestamp at which the dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>
    * The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000. </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -1859,7 +1859,7 @@ export interface CreateKxDataviewResponse {
    *          </ul>
    * @public
    */
-  status?: KxDataviewStatus;
+  status?: KxDataviewStatus | undefined;
 }
 
 /**
@@ -1876,7 +1876,7 @@ export interface CreateKxEnvironmentRequest {
    * <p>A description for the kdb environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
@@ -1888,13 +1888,13 @@ export interface CreateKxEnvironmentRequest {
    * <p>A list of key-value pairs to label the kdb environment. You can add up to 50 tags to your kdb environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1930,43 +1930,43 @@ export interface CreateKxEnvironmentResponse {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The status of the kdb environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A description for the kdb environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN identifier of the environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was created in FinSpace.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 }
 
 /**
@@ -1977,7 +1977,7 @@ export interface CreateKxScalingGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment, where you want to create the scaling group. </p>
@@ -1996,6 +1996,21 @@ export interface CreateKxScalingGroupRequest {
    *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
    *          <p>You can add one of the following values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.large</code> – The host type with a configuration of 16 GiB
+   *             memory and 2 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.xlarge</code> – The host type with a configuration of 32 GiB
+   *                memory and 4 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.2xlarge</code> – The host type with a configuration of 64 GiB
+   *                memory and 8 vCPUs.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
@@ -2037,7 +2052,7 @@ export interface CreateKxScalingGroupRequest {
    * </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2066,13 +2081,13 @@ export interface CreateKxScalingGroupResponse {
    * <p>A unique identifier for the kdb environment, where you create the scaling group. </p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb scaling group. </p>
    * @public
    */
-  scalingGroupName?: string;
+  scalingGroupName?: string | undefined;
 
   /**
    * <p>
@@ -2081,13 +2096,13 @@ export interface CreateKxScalingGroupResponse {
    * </p>
    * @public
    */
-  hostType?: string;
+  hostType?: string | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The status of scaling group.</p>
@@ -2119,21 +2134,21 @@ export interface CreateKxScalingGroupResponse {
    *          </ul>
    * @public
    */
-  status?: KxScalingGroupStatus;
+  status?: KxScalingGroupStatus | undefined;
 
   /**
    * <p>
    * The last time that the scaling group was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000. </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
    *    The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 }
 
 /**
@@ -2162,13 +2177,13 @@ export interface CreateKxUserRequest {
    * <p>A list of key-value pairs to label the user. You can add up to 50 tags to a user.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2179,7 +2194,7 @@ export interface CreateKxUserResponse {
    * <p>A unique identifier for the user.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
@@ -2187,19 +2202,19 @@ export interface CreateKxUserResponse {
    *       <i>IAM User Guide</i>. </p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The IAM role ARN that will be associated with the user.</p>
    * @public
    */
-  iamRole?: string;
+  iamRole?: string | undefined;
 }
 
 /**
@@ -2230,7 +2245,7 @@ export interface KxNAS1Configuration {
    * </p>
    * @public
    */
-  type?: KxNAS1Type;
+  type?: KxNAS1Type | undefined;
 
   /**
    * <p>
@@ -2241,7 +2256,7 @@ export interface KxNAS1Configuration {
    *    of 6000 GB.</p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 }
 
 /**
@@ -2265,7 +2280,7 @@ export interface CreateKxVolumeRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>
@@ -2293,7 +2308,7 @@ export interface CreateKxVolumeRequest {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume. This
@@ -2301,7 +2316,7 @@ export interface CreateKxVolumeRequest {
    *          <i>NAS_1</i>.</p>
    * @public
    */
-  nas1Configuration?: KxNAS1Configuration;
+  nas1Configuration?: KxNAS1Configuration | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
@@ -2321,7 +2336,7 @@ export interface CreateKxVolumeRequest {
    * </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2353,13 +2368,13 @@ export interface CreateKxVolumeResponse {
    * <p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A unique identifier for the volume.</p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 
   /**
    * <p>
@@ -2367,7 +2382,7 @@ export interface CreateKxVolumeResponse {
    *    </p>
    * @public
    */
-  volumeType?: KxVolumeType;
+  volumeType?: KxVolumeType | undefined;
 
   /**
    * <p>
@@ -2375,13 +2390,13 @@ export interface CreateKxVolumeResponse {
    * </p>
    * @public
    */
-  volumeArn?: string;
+  volumeArn?: string | undefined;
 
   /**
    * <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume.</p>
    * @public
    */
-  nas1Configuration?: KxNAS1Configuration;
+  nas1Configuration?: KxNAS1Configuration | undefined;
 
   /**
    * <p>The status of volume creation.</p>
@@ -2416,19 +2431,19 @@ export interface CreateKxVolumeResponse {
    *          </ul>
    * @public
    */
-  status?: KxVolumeStatus;
+  status?: KxVolumeStatus | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -2436,19 +2451,19 @@ export interface CreateKxVolumeResponse {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 }
 
 /**
@@ -2487,7 +2502,7 @@ export interface DeleteKxClusterRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2543,7 +2558,7 @@ export interface DeleteKxDatabaseRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2577,7 +2592,7 @@ export interface DeleteKxDataviewRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2599,7 +2614,7 @@ export interface DeleteKxEnvironmentRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2627,7 +2642,7 @@ export interface DeleteKxScalingGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2655,7 +2670,7 @@ export interface DeleteKxUserRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2685,7 +2700,7 @@ export interface DeleteKxVolumeRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2713,74 +2728,74 @@ export interface Environment {
    * <p>The name of the FinSpace environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The identifier of the FinSpace environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The ID of the AWS account in which the FinSpace environment is created.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The current status of creation of the FinSpace environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The sign-in URL for the web application of your FinSpace environment.</p>
    * @public
    */
-  environmentUrl?: string;
+  environmentUrl?: string | undefined;
 
   /**
    * <p>The description of the FinSpace environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of your FinSpace environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The URL of the integrated FinSpace notebook environment in your web application.</p>
    * @public
    */
-  sageMakerStudioDomainUrl?: string;
+  sageMakerStudioDomainUrl?: string | undefined;
 
   /**
    * <p>The KMS key id used to encrypt in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The AWS account ID of the dedicated service account associated with your FinSpace
    *          environment.</p>
    * @public
    */
-  dedicatedServiceAccountId?: string;
+  dedicatedServiceAccountId?: string | undefined;
 
   /**
    * <p>The authentication mode for the environment.</p>
    * @public
    */
-  federationMode?: FederationMode;
+  federationMode?: FederationMode | undefined;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>
    * @public
    */
-  federationParameters?: FederationParameters;
+  federationParameters?: FederationParameters | undefined;
 }
 
 /**
@@ -2791,7 +2806,7 @@ export interface GetEnvironmentResponse {
    * <p>The name of the FinSpace environment.</p>
    * @public
    */
-  environment?: Environment;
+  environment?: Environment | undefined;
 }
 
 /**
@@ -2825,31 +2840,31 @@ export interface GetKxChangesetResponse {
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The name of the kdb database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A list of change request objects that are run in order.</p>
    * @public
    */
-  changeRequests?: ChangeRequest[];
+  changeRequests?: ChangeRequest[] | undefined;
 
   /**
    * <p>The timestamp at which the changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>Beginning time from which the changeset is active. The value is determined as epoch time in
@@ -2857,13 +2872,13 @@ export interface GetKxChangesetResponse {
    *       1635768000000.</p>
    * @public
    */
-  activeFromTimestamp?: Date;
+  activeFromTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the changeset was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>Status of the changeset creation process.</p>
@@ -2883,13 +2898,13 @@ export interface GetKxChangesetResponse {
    *          </ul>
    * @public
    */
-  status?: ChangesetStatus;
+  status?: ChangesetStatus | undefined;
 
   /**
    * <p>Provides details in the event of a failed flow, including the error type and the related error message.</p>
    * @public
    */
-  errorInfo?: ErrorInfo;
+  errorInfo?: ErrorInfo | undefined;
 }
 
 /**
@@ -2943,19 +2958,19 @@ export interface GetKxClusterResponse {
    *          </ul>
    * @public
    */
-  status?: KxClusterStatus;
+  status?: KxClusterStatus | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>A unique name for the cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>Specifies the type of KDB database that is being created. The following types are available: </p>
@@ -2978,7 +2993,7 @@ export interface GetKxClusterResponse {
    *          </ul>
    * @public
    */
-  clusterType?: KxClusterType;
+  clusterType?: KxClusterType | undefined;
 
   /**
    * <p>
@@ -2987,7 +3002,7 @@ export interface GetKxClusterResponse {
    * </p>
    * @public
    */
-  tickerplantLogConfiguration?: TickerplantLogConfiguration;
+  tickerplantLogConfiguration?: TickerplantLogConfiguration | undefined;
 
   /**
    * <p>
@@ -2995,49 +3010,49 @@ export interface GetKxClusterResponse {
    * </p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 
   /**
    * <p> A list of databases mounted on the cluster.</p>
    * @public
    */
-  databases?: KxDatabaseConfiguration[];
+  databases?: KxDatabaseConfiguration[] | undefined;
 
   /**
    * <p>The configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. </p>
    * @public
    */
-  cacheStorageConfigurations?: KxCacheStorageConfiguration[];
+  cacheStorageConfigurations?: KxCacheStorageConfiguration[] | undefined;
 
   /**
    * <p>The configuration based on which FinSpace will scale in or scale out nodes in your cluster.</p>
    * @public
    */
-  autoScalingConfiguration?: AutoScalingConfiguration;
+  autoScalingConfiguration?: AutoScalingConfiguration | undefined;
 
   /**
    * <p>A description of the cluster.</p>
    * @public
    */
-  clusterDescription?: string;
+  clusterDescription?: string | undefined;
 
   /**
    * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    * @public
    */
-  capacityConfiguration?: CapacityConfiguration;
+  capacityConfiguration?: CapacityConfiguration | undefined;
 
   /**
    * <p>The version of FinSpace managed kdb to run.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>Configuration details about the network where the Privatelink endpoint of the cluster resides.</p>
    * @public
    */
-  vpcConfiguration?: VpcConfiguration;
+  vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
    * <p>Specifies a Q program that will be run at launch of a cluster. It is a relative path within
@@ -3046,19 +3061,19 @@ export interface GetKxClusterResponse {
    *       <code>somedir/init.q</code>.</p>
    * @public
    */
-  initializationScript?: string;
+  initializationScript?: string | undefined;
 
   /**
    * <p>Defines key-value pairs to make them available inside the cluster.</p>
    * @public
    */
-  commandLineArguments?: KxCommandLineArgument[];
+  commandLineArguments?: KxCommandLineArgument[] | undefined;
 
   /**
    * <p>The details of the custom code that you want to use inside a cluster when analyzing a data. It consists of the S3 source bucket, location, S3 object version, and the relative path from where the custom code is loaded into the cluster. </p>
    * @public
    */
-  code?: CodeConfiguration;
+  code?: CodeConfiguration | undefined;
 
   /**
    * <p>
@@ -3066,19 +3081,19 @@ export interface GetKxClusterResponse {
    *          </p>
    * @public
    */
-  executionRole?: string;
+  executionRole?: string | undefined;
 
   /**
    * <p>The last time that the cluster was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>The size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose <code>clusterType</code> as RDB. All the data written to this storage space is lost when the cluster node is restarted.</p>
    * @public
    */
-  savedownStorageConfiguration?: KxSavedownStorageConfiguration;
+  savedownStorageConfiguration?: KxSavedownStorageConfiguration | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
@@ -3094,7 +3109,7 @@ export interface GetKxClusterResponse {
    *          </ul>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -3102,19 +3117,19 @@ export interface GetKxClusterResponse {
    *          </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The timestamp at which the cluster was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The structure that stores the capacity configuration details of a scaling group.</p>
    * @public
    */
-  scalingGroupConfiguration?: KxScalingGroupConfiguration;
+  scalingGroupConfiguration?: KxScalingGroupConfiguration | undefined;
 }
 
 /**
@@ -3150,7 +3165,7 @@ export interface GetKxConnectionStringResponse {
    * <p>The signed connection string that you can use to connect to clusters.</p>
    * @public
    */
-  signedConnectionString?: string;
+  signedConnectionString?: string | undefined;
 }
 
 /**
@@ -3178,61 +3193,61 @@ export interface GetKxDatabaseResponse {
    * <p>The name of the kdb database for which the information is retrieved.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>The ARN identifier of the database.</p>
    * @public
    */
-  databaseArn?: string;
+  databaseArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A description of the database.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp at which the database is created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that the database was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  lastCompletedChangesetId?: string;
+  lastCompletedChangesetId?: string | undefined;
 
   /**
    * <p>The total number of bytes in the database.</p>
    * @public
    */
-  numBytes?: number;
+  numBytes?: number | undefined;
 
   /**
    * <p>The total number of changesets in the database.</p>
    * @public
    */
-  numChangesets?: number;
+  numChangesets?: number | undefined;
 
   /**
    * <p>The total number of files in the database.</p>
    * @public
    */
-  numFiles?: number;
+  numFiles?: number | undefined;
 }
 
 /**
@@ -3271,14 +3286,14 @@ export interface KxDataviewActiveVersion {
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>
@@ -3287,21 +3302,21 @@ export interface KxDataviewActiveVersion {
    * </p>
    * @public
    */
-  attachedClusters?: string[];
+  attachedClusters?: string[] | undefined;
 
   /**
    * <p>
    * The timestamp at which the dataview version was active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>
    * A unique identifier of the active version.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -3313,19 +3328,19 @@ export interface GetKxDataviewResponse {
    * The name of the database where you created the dataview.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>A unique identifier for the dataview.</p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -3333,21 +3348,21 @@ export interface GetKxDataviewResponse {
    *       </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>
    * A unique identifier of the changeset that you want to use to ingest data. </p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>
@@ -3356,37 +3371,37 @@ export interface GetKxDataviewResponse {
    * </p>
    * @public
    */
-  activeVersions?: KxDataviewActiveVersion[];
+  activeVersions?: KxDataviewActiveVersion[] | undefined;
 
   /**
    * <p>A description of the dataview.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The option to specify whether you want to apply all the future additions and corrections automatically to the dataview when new changesets are ingested. The default value is false.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
    * @public
    */
-  readWrite?: boolean;
+  readWrite?: boolean | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment, from where you want to retrieve the dataview details.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The timestamp at which the dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -3394,7 +3409,7 @@ export interface GetKxDataviewResponse {
    * </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -3415,7 +3430,7 @@ export interface GetKxDataviewResponse {
    *          </ul>
    * @public
    */
-  status?: KxDataviewStatus;
+  status?: KxDataviewStatus | undefined;
 
   /**
    * <p>
@@ -3423,7 +3438,7 @@ export interface GetKxDataviewResponse {
    * </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -3588,7 +3603,7 @@ export interface NetworkACLEntry {
    *       </p>
    * @public
    */
-  portRange?: PortRange;
+  portRange?: PortRange | undefined;
 
   /**
    * <p>
@@ -3596,7 +3611,7 @@ export interface NetworkACLEntry {
    *       </p>
    * @public
    */
-  icmpTypeCode?: IcmpTypeCode;
+  icmpTypeCode?: IcmpTypeCode | undefined;
 
   /**
    * <p>
@@ -3631,7 +3646,7 @@ export interface TransitGatewayConfiguration {
    *       </p>
    * @public
    */
-  attachmentNetworkAclConfiguration?: NetworkACLEntry[];
+  attachmentNetworkAclConfiguration?: NetworkACLEntry[] | undefined;
 }
 
 /**
@@ -3642,104 +3657,104 @@ export interface GetKxEnvironmentResponse {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the AWS account that is used to create the kdb environment.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The status of the kdb environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The status of the network configuration.</p>
    * @public
    */
-  tgwStatus?: TgwStatus;
+  tgwStatus?: TgwStatus | undefined;
 
   /**
    * <p>The status of DNS configuration.</p>
    * @public
    */
-  dnsStatus?: DnsStatus;
+  dnsStatus?: DnsStatus | undefined;
 
   /**
    * <p>Specifies the error message that appears if a flow fails.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>A description for the kdb environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN identifier of the environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>A unique identifier for the AWS environment infrastructure account.</p>
    * @public
    */
-  dedicatedServiceAccountId?: string;
+  dedicatedServiceAccountId?: string | undefined;
 
   /**
    * <p>The structure of the transit gateway and network configuration that is used to connect the kdb environment to an internal network.</p>
    * @public
    */
-  transitGatewayConfiguration?: TransitGatewayConfiguration;
+  transitGatewayConfiguration?: TransitGatewayConfiguration | undefined;
 
   /**
    * <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
    * @public
    */
-  customDNSConfiguration?: CustomDNSServer[];
+  customDNSConfiguration?: CustomDNSServer[] | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was created in FinSpace. </p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was updated. </p>
    * @public
    */
-  updateTimestamp?: Date;
+  updateTimestamp?: Date | undefined;
 
   /**
    * <p>The identifier of the availability zones where subnets for the environment are created.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate authority of the
    *          kdb environment.</p>
    * @public
    */
-  certificateAuthorityArn?: string;
+  certificateAuthorityArn?: string | undefined;
 }
 
 /**
@@ -3767,7 +3782,7 @@ export interface GetKxScalingGroupResponse {
    * <p>A unique identifier for the kdb scaling group. </p>
    * @public
    */
-  scalingGroupName?: string;
+  scalingGroupName?: string | undefined;
 
   /**
    * <p>
@@ -3775,13 +3790,28 @@ export interface GetKxScalingGroupResponse {
    *       </p>
    * @public
    */
-  scalingGroupArn?: string;
+  scalingGroupArn?: string | undefined;
 
   /**
    * <p>
    *       The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
    *          <p>It can have one of the following values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.large</code> – The host type with a configuration of 16 GiB
+   *             memory and 2 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.xlarge</code> – The host type with a configuration of 32 GiB
+   *                memory and 4 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.2xlarge</code> – The host type with a configuration of 64 GiB
+   *                memory and 8 vCPUs.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
@@ -3809,7 +3839,7 @@ export interface GetKxScalingGroupResponse {
    *          </ul>
    * @public
    */
-  hostType?: string;
+  hostType?: string | undefined;
 
   /**
    * <p>
@@ -3818,13 +3848,13 @@ export interface GetKxScalingGroupResponse {
    * </p>
    * @public
    */
-  clusters?: string[];
+  clusters?: string[] | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The status of scaling group.</p>
@@ -3856,7 +3886,7 @@ export interface GetKxScalingGroupResponse {
    *          </ul>
    * @public
    */
-  status?: KxScalingGroupStatus;
+  status?: KxScalingGroupStatus | undefined;
 
   /**
    * <p>
@@ -3864,7 +3894,7 @@ export interface GetKxScalingGroupResponse {
    * </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>
@@ -3872,14 +3902,14 @@ export interface GetKxScalingGroupResponse {
    * </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
    *    The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 }
 
 /**
@@ -3907,7 +3937,7 @@ export interface GetKxUserResponse {
    * <p>A unique identifier for the user.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
@@ -3915,19 +3945,19 @@ export interface GetKxUserResponse {
    *       <i>IAM User Guide</i>. </p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The IAM role ARN that is associated with the user.</p>
    * @public
    */
-  iamRole?: string;
+  iamRole?: string | undefined;
 }
 
 /**
@@ -3956,13 +3986,13 @@ export interface KxAttachedCluster {
    * <p>A unique name for the attached cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>Specifies the type of cluster. The volume for TP and RDB cluster types will be used for TP logs.</p>
    * @public
    */
-  clusterType?: KxClusterType;
+  clusterType?: KxClusterType | undefined;
 
   /**
    * <p>The status of the attached cluster.</p>
@@ -3994,7 +4024,7 @@ export interface KxAttachedCluster {
    *          </ul>
    * @public
    */
-  clusterStatus?: KxClusterStatus;
+  clusterStatus?: KxClusterStatus | undefined;
 }
 
 /**
@@ -4005,14 +4035,14 @@ export interface GetKxVolumeResponse {
    * <p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>
    * A unique identifier for the volume.</p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 
   /**
    * <p>
@@ -4020,7 +4050,7 @@ export interface GetKxVolumeResponse {
    *    </p>
    * @public
    */
-  volumeType?: KxVolumeType;
+  volumeType?: KxVolumeType | undefined;
 
   /**
    * <p>
@@ -4028,13 +4058,13 @@ export interface GetKxVolumeResponse {
    * </p>
    * @public
    */
-  volumeArn?: string;
+  volumeArn?: string | undefined;
 
   /**
    * <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume.</p>
    * @public
    */
-  nas1Configuration?: KxNAS1Configuration;
+  nas1Configuration?: KxNAS1Configuration | undefined;
 
   /**
    * <p>The status of volume creation.</p>
@@ -4069,13 +4099,13 @@ export interface GetKxVolumeResponse {
    *          </ul>
    * @public
    */
-  status?: KxVolumeStatus;
+  status?: KxVolumeStatus | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>
@@ -4083,7 +4113,7 @@ export interface GetKxVolumeResponse {
    * </p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -4091,25 +4121,25 @@ export interface GetKxVolumeResponse {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The last time that the volume was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -4117,7 +4147,7 @@ export interface GetKxVolumeResponse {
    * </p>
    * @public
    */
-  attachedClusters?: KxAttachedCluster[];
+  attachedClusters?: KxAttachedCluster[] | undefined;
 }
 
 /**
@@ -4130,13 +4160,13 @@ export interface ListEnvironmentsRequest {
    *          response object of the previous page call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4147,14 +4177,14 @@ export interface ListEnvironmentsResponse {
    * <p>A list of all of your FinSpace environments.</p>
    * @public
    */
-  environments?: Environment[];
+  environments?: Environment[] | undefined;
 
   /**
    * <p>A token that you can use in a subsequent call to retrieve the next set of
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4177,13 +4207,13 @@ export interface ListKxChangesetsRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4195,13 +4225,13 @@ export interface KxChangesetListEntry {
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The timestamp at which the changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>Beginning time from which the changeset is active. The value is determined as epoch time in
@@ -4209,14 +4239,14 @@ export interface KxChangesetListEntry {
    *       1635768000000.</p>
    * @public
    */
-  activeFromTimestamp?: Date;
+  activeFromTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the changeset was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as
    *       1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p> Status of the changeset.</p>
@@ -4236,7 +4266,7 @@ export interface KxChangesetListEntry {
    *          </ul>
    * @public
    */
-  status?: ChangesetStatus;
+  status?: ChangesetStatus | undefined;
 }
 
 /**
@@ -4247,13 +4277,13 @@ export interface ListKxChangesetsResponse {
    * <p>A list of changesets for a database.</p>
    * @public
    */
-  kxChangesets?: KxChangesetListEntry[];
+  kxChangesets?: KxChangesetListEntry[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4276,13 +4306,13 @@ export interface ListKxClusterNodesRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4308,19 +4338,19 @@ export interface KxNode {
    * <p>A unique identifier for the node.</p>
    * @public
    */
-  nodeId?: string;
+  nodeId?: string | undefined;
 
   /**
    * <p>The identifier of the availability zones where subnets for the environment are created.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The time when a particular node is started.  The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  launchTime?: Date;
+  launchTime?: Date | undefined;
 
   /**
    * <p>
@@ -4337,7 +4367,7 @@ export interface KxNode {
    *          </ul>
    * @public
    */
-  status?: KxNodeStatus;
+  status?: KxNodeStatus | undefined;
 }
 
 /**
@@ -4348,13 +4378,13 @@ export interface ListKxClusterNodesResponse {
    * <p>A list of nodes associated with the cluster.</p>
    * @public
    */
-  nodes?: KxNode[];
+  nodes?: KxNode[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4388,19 +4418,19 @@ export interface ListKxClustersRequest {
    *          </ul>
    * @public
    */
-  clusterType?: KxClusterType;
+  clusterType?: KxClusterType | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4438,19 +4468,19 @@ export interface KxCluster {
    *          </ul>
    * @public
    */
-  status?: KxClusterStatus;
+  status?: KxClusterStatus | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>A unique name for the cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>Specifies the type of KDB database that is being created. The following types are available: </p>
@@ -4473,19 +4503,19 @@ export interface KxCluster {
    *          </ul>
    * @public
    */
-  clusterType?: KxClusterType;
+  clusterType?: KxClusterType | undefined;
 
   /**
    * <p>A description of the cluster.</p>
    * @public
    */
-  clusterDescription?: string;
+  clusterDescription?: string | undefined;
 
   /**
    * <p>A version of the FinSpace managed kdb to run.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>
@@ -4493,7 +4523,7 @@ export interface KxCluster {
    * </p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 
   /**
    * <p>Specifies a Q program that will be run at launch of a cluster. It is a relative path within
@@ -4502,7 +4532,7 @@ export interface KxCluster {
    *       <code>somedir/init.q</code>.</p>
    * @public
    */
-  initializationScript?: string;
+  initializationScript?: string | undefined;
 
   /**
    * <p>
@@ -4510,7 +4540,7 @@ export interface KxCluster {
    *          </p>
    * @public
    */
-  executionRole?: string;
+  executionRole?: string | undefined;
 
   /**
    * <p>The number of availability zones assigned per cluster. This can be one of the following:</p>
@@ -4526,7 +4556,7 @@ export interface KxCluster {
    *          </ul>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -4534,19 +4564,19 @@ export interface KxCluster {
    *          </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>The last time that the cluster was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the cluster was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 }
 
 /**
@@ -4557,13 +4587,13 @@ export interface ListKxClustersResponse {
    * <p>Lists the cluster details.</p>
    * @public
    */
-  kxClusterSummaries?: KxCluster[];
+  kxClusterSummaries?: KxCluster[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4580,13 +4610,13 @@ export interface ListKxDatabasesRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4598,19 +4628,19 @@ export interface KxDatabaseListEntry {
    * <p>The name of the kdb database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>The timestamp at which the database was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that the database was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4621,13 +4651,13 @@ export interface ListKxDatabasesResponse {
    * <p>A list of databases in the kdb environment.</p>
    * @public
    */
-  kxDatabases?: KxDatabaseListEntry[];
+  kxDatabases?: KxDatabaseListEntry[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4653,13 +4683,13 @@ export interface ListKxDataviewsRequest {
    * </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4674,27 +4704,27 @@ export interface KxDataviewListEntry {
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>
    * A unique identifier of the database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>
    * A unique identifier of the dataview.</p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -4702,20 +4732,20 @@ export interface KxDataviewListEntry {
    *       </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>
@@ -4724,7 +4754,7 @@ export interface KxDataviewListEntry {
    * </p>
    * @public
    */
-  activeVersions?: KxDataviewActiveVersion[];
+  activeVersions?: KxDataviewActiveVersion[] | undefined;
 
   /**
    * <p>
@@ -4733,14 +4763,14 @@ export interface KxDataviewListEntry {
    * </p>
    * @public
    */
-  status?: KxDataviewStatus;
+  status?: KxDataviewStatus | undefined;
 
   /**
    * <p>
    * A description for the dataview list entry.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -4748,26 +4778,26 @@ export interface KxDataviewListEntry {
    * </p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p> Returns True if the dataview is created as writeable and False otherwise.  </p>
    * @public
    */
-  readWrite?: boolean;
+  readWrite?: boolean | undefined;
 
   /**
    * <p>
    * The timestamp at which the dataview list entry was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that the dataview list was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -4775,7 +4805,7 @@ export interface KxDataviewListEntry {
    * </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -4788,14 +4818,14 @@ export interface ListKxDataviewsResponse {
    * </p>
    * @public
    */
-  kxDataviews?: KxDataviewListEntry[];
+  kxDataviews?: KxDataviewListEntry[] | undefined;
 
   /**
    * <p>
    * A token that indicates where a results page should begin. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4806,13 +4836,13 @@ export interface ListKxEnvironmentsRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4824,19 +4854,19 @@ export interface KxEnvironment {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the AWS account in which you create the kdb environment.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The status of the environment creation. </p>
@@ -4871,85 +4901,85 @@ export interface KxEnvironment {
    *          </ul>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The status of the network configuration.</p>
    * @public
    */
-  tgwStatus?: TgwStatus;
+  tgwStatus?: TgwStatus | undefined;
 
   /**
    * <p>The status of DNS configuration.</p>
    * @public
    */
-  dnsStatus?: DnsStatus;
+  dnsStatus?: DnsStatus | undefined;
 
   /**
    * <p>Specifies the error message that appears if a flow fails. </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>A description of the kdb environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of your kdb environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the KMS key.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>A unique identifier for the AWS environment infrastructure account.</p>
    * @public
    */
-  dedicatedServiceAccountId?: string;
+  dedicatedServiceAccountId?: string | undefined;
 
   /**
    * <p>Specifies the transit gateway and network configuration to connect the kdb environment to an internal network.</p>
    * @public
    */
-  transitGatewayConfiguration?: TransitGatewayConfiguration;
+  transitGatewayConfiguration?: TransitGatewayConfiguration | undefined;
 
   /**
    * <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
    * @public
    */
-  customDNSConfiguration?: CustomDNSServer[];
+  customDNSConfiguration?: CustomDNSServer[] | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was modified in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  updateTimestamp?: Date;
+  updateTimestamp?: Date | undefined;
 
   /**
    * <p>The identifier of the availability zones where subnets for the environment are created.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate authority:</p>
    * @public
    */
-  certificateAuthorityArn?: string;
+  certificateAuthorityArn?: string | undefined;
 }
 
 /**
@@ -4960,13 +4990,13 @@ export interface ListKxEnvironmentsResponse {
    * <p>A list of environments in an account.</p>
    * @public
    */
-  environments?: KxEnvironment[];
+  environments?: KxEnvironment[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4983,14 +5013,14 @@ export interface ListKxScalingGroupsRequest {
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
    * A token that indicates where a results page should begin. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5003,13 +5033,28 @@ export interface KxScalingGroup {
    * <p>A unique identifier for the kdb scaling group. </p>
    * @public
    */
-  scalingGroupName?: string;
+  scalingGroupName?: string | undefined;
 
   /**
    * <p>
    *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
    *          <p>You can add one of the following values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.large</code> – The host type with a configuration of 16 GiB
+   *             memory and 2 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.xlarge</code> – The host type with a configuration of 32 GiB
+   *                memory and 4 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.2xlarge</code> – The host type with a configuration of 64 GiB
+   *                memory and 8 vCPUs.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
@@ -5037,7 +5082,7 @@ export interface KxScalingGroup {
    *          </ul>
    * @public
    */
-  hostType?: string;
+  hostType?: string | undefined;
 
   /**
    * <p>
@@ -5046,13 +5091,13 @@ export interface KxScalingGroup {
    * </p>
    * @public
    */
-  clusters?: string[];
+  clusters?: string[] | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>
@@ -5060,7 +5105,7 @@ export interface KxScalingGroup {
    * </p>
    * @public
    */
-  status?: KxScalingGroupStatus;
+  status?: KxScalingGroupStatus | undefined;
 
   /**
    * <p>
@@ -5068,7 +5113,7 @@ export interface KxScalingGroup {
    * </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>
@@ -5076,7 +5121,7 @@ export interface KxScalingGroup {
    * </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -5084,7 +5129,7 @@ export interface KxScalingGroup {
    * </p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 }
 
 /**
@@ -5096,14 +5141,14 @@ export interface ListKxScalingGroupsResponse {
    * A list of scaling groups available in a kdb environment.</p>
    * @public
    */
-  scalingGroups?: KxScalingGroup[];
+  scalingGroups?: KxScalingGroup[] | undefined;
 
   /**
    * <p>
    * A token that indicates where a results page should begin. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5120,13 +5165,13 @@ export interface ListKxUsersRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5140,31 +5185,31 @@ export interface KxUser {
    *             <i>IAM User Guide</i>. </p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the user.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p>The IAM role ARN that is associated with the user.</p>
    * @public
    */
-  iamRole?: string;
+  iamRole?: string | undefined;
 
   /**
    * <p>The timestamp at which the kdb user was created. </p>
    * @public
    */
-  createTimestamp?: Date;
+  createTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the kdb user was updated. </p>
    * @public
    */
-  updateTimestamp?: Date;
+  updateTimestamp?: Date | undefined;
 }
 
 /**
@@ -5175,13 +5220,13 @@ export interface ListKxUsersResponse {
    * <p>A list of users in a kdb environment.</p>
    * @public
    */
-  users?: KxUser[];
+  users?: KxUser[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5198,13 +5243,13 @@ export interface ListKxVolumesRequest {
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -5212,7 +5257,7 @@ export interface ListKxVolumesRequest {
    *    </p>
    * @public
    */
-  volumeType?: KxVolumeType;
+  volumeType?: KxVolumeType | undefined;
 }
 
 /**
@@ -5226,7 +5271,7 @@ export interface KxVolume {
    * <p>A unique identifier for the volume.</p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 
   /**
    * <p>
@@ -5234,7 +5279,7 @@ export interface KxVolume {
    *    </p>
    * @public
    */
-  volumeType?: KxVolumeType;
+  volumeType?: KxVolumeType | undefined;
 
   /**
    * <p>The status of volume.</p>
@@ -5269,7 +5314,7 @@ export interface KxVolume {
    *          </ul>
    * @public
    */
-  status?: KxVolumeStatus;
+  status?: KxVolumeStatus | undefined;
 
   /**
    * <p>
@@ -5277,38 +5322,38 @@ export interface KxVolume {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>
    * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that the volume was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5321,13 +5366,13 @@ export interface ListKxVolumesResponse {
    * </p>
    * @public
    */
-  kxVolumeSummaries?: KxVolume[];
+  kxVolumeSummaries?: KxVolume[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5369,7 +5414,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of all tags for a resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5431,13 +5476,13 @@ export interface UpdateEnvironmentRequest {
    * <p>The name of the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Authentication mode for the environment.</p>
@@ -5453,13 +5498,13 @@ export interface UpdateEnvironmentRequest {
    *          </ul>
    * @public
    */
-  federationMode?: FederationMode;
+  federationMode?: FederationMode | undefined;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>
    * @public
    */
-  federationParameters?: FederationParameters;
+  federationParameters?: FederationParameters | undefined;
 }
 
 /**
@@ -5470,7 +5515,7 @@ export interface UpdateEnvironmentResponse {
    * <p>Returns the FinSpace environment object.</p>
    * @public
    */
-  environment?: Environment;
+  environment?: Environment | undefined;
 }
 
 /**
@@ -5540,7 +5585,7 @@ export interface UpdateKxClusterCodeConfigurationRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The structure of the customer code available within the running cluster.</p>
@@ -5556,14 +5601,14 @@ export interface UpdateKxClusterCodeConfigurationRequest {
    *          <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
    * @public
    */
-  initializationScript?: string;
+  initializationScript?: string | undefined;
 
   /**
    * <p>Specifies the key-value pairs to make them available inside the cluster.</p>
    *          <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
    * @public
    */
-  commandLineArguments?: KxCommandLineArgument[];
+  commandLineArguments?: KxCommandLineArgument[] | undefined;
 
   /**
    * <p>
@@ -5571,7 +5616,7 @@ export interface UpdateKxClusterCodeConfigurationRequest {
    *       </p>
    * @public
    */
-  deploymentConfiguration?: KxClusterCodeDeploymentConfiguration;
+  deploymentConfiguration?: KxClusterCodeDeploymentConfiguration | undefined;
 }
 
 /**
@@ -5639,7 +5684,7 @@ export interface UpdateKxClusterDatabasesRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p> The structure of databases mounted on the cluster.</p>
@@ -5653,7 +5698,7 @@ export interface UpdateKxClusterDatabasesRequest {
    *       </p>
    * @public
    */
-  deploymentConfiguration?: KxDeploymentConfiguration;
+  deploymentConfiguration?: KxDeploymentConfiguration | undefined;
 }
 
 /**
@@ -5681,13 +5726,13 @@ export interface UpdateKxDatabaseRequest {
    * <p>A description of the database.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5698,25 +5743,25 @@ export interface UpdateKxDatabaseResponse {
    * <p>The name of the kdb database.</p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A description of the database.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The last time that the database was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5748,26 +5793,26 @@ export interface UpdateKxDataviewRequest {
    *       </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5778,7 +5823,7 @@ export interface UpdateKxDataviewResponse {
    * <p>A unique identifier for the kdb environment, where you want to update the dataview.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>
@@ -5786,7 +5831,7 @@ export interface UpdateKxDataviewResponse {
    * </p>
    * @public
    */
-  databaseName?: string;
+  databaseName?: string | undefined;
 
   /**
    * <p>
@@ -5795,13 +5840,13 @@ export interface UpdateKxDataviewResponse {
    * </p>
    * @public
    */
-  dataviewName?: string;
+  dataviewName?: string | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>
@@ -5809,20 +5854,20 @@ export interface UpdateKxDataviewResponse {
    *       </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p>A unique identifier for the changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>
    *       The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
    * @public
    */
-  segmentConfigurations?: KxDataviewSegmentConfiguration[];
+  segmentConfigurations?: KxDataviewSegmentConfiguration[] | undefined;
 
   /**
    * <p>
@@ -5831,7 +5876,7 @@ export interface UpdateKxDataviewResponse {
    * </p>
    * @public
    */
-  activeVersions?: KxDataviewActiveVersion[];
+  activeVersions?: KxDataviewActiveVersion[] | undefined;
 
   /**
    * <p>
@@ -5852,25 +5897,25 @@ export interface UpdateKxDataviewResponse {
    *          </ul>
    * @public
    */
-  status?: KxDataviewStatus;
+  status?: KxDataviewStatus | undefined;
 
   /**
    * <p>The option to specify whether you want to apply all the future additions and corrections automatically to the dataview when new changesets are ingested. The default value is false.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
    * @public
    */
-  readWrite?: boolean;
+  readWrite?: boolean | undefined;
 
   /**
    * <p>A description of the dataview.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -5878,7 +5923,7 @@ export interface UpdateKxDataviewResponse {
    * </p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -5886,7 +5931,7 @@ export interface UpdateKxDataviewResponse {
    * </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5903,19 +5948,19 @@ export interface UpdateKxEnvironmentRequest {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A description of the kdb environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5926,97 +5971,97 @@ export interface UpdateKxEnvironmentResponse {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the AWS account that is used to create the kdb environment.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The status of the kdb environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The status of the network configuration.</p>
    * @public
    */
-  tgwStatus?: TgwStatus;
+  tgwStatus?: TgwStatus | undefined;
 
   /**
    * <p>The status of DNS configuration.</p>
    * @public
    */
-  dnsStatus?: DnsStatus;
+  dnsStatus?: DnsStatus | undefined;
 
   /**
    * <p>Specifies the error message that appears if a flow fails.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The description of the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN identifier of the environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>A unique identifier for the AWS environment infrastructure account.</p>
    * @public
    */
-  dedicatedServiceAccountId?: string;
+  dedicatedServiceAccountId?: string | undefined;
 
   /**
    * <p>The structure of the transit gateway and network configuration that is used to connect the kdb environment to an internal network.</p>
    * @public
    */
-  transitGatewayConfiguration?: TransitGatewayConfiguration;
+  transitGatewayConfiguration?: TransitGatewayConfiguration | undefined;
 
   /**
    * <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
    * @public
    */
-  customDNSConfiguration?: CustomDNSServer[];
+  customDNSConfiguration?: CustomDNSServer[] | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was created in FinSpace. </p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was updated. </p>
    * @public
    */
-  updateTimestamp?: Date;
+  updateTimestamp?: Date | undefined;
 
   /**
    * <p>The identifier of the availability zones where subnets for the environment are created.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 }
 
 /**
@@ -6033,19 +6078,19 @@ export interface UpdateKxEnvironmentNetworkRequest {
    * <p>Specifies the transit gateway and network configuration to connect the kdb environment to an internal network.</p>
    * @public
    */
-  transitGatewayConfiguration?: TransitGatewayConfiguration;
+  transitGatewayConfiguration?: TransitGatewayConfiguration | undefined;
 
   /**
    * <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
    * @public
    */
-  customDNSConfiguration?: CustomDNSServer[];
+  customDNSConfiguration?: CustomDNSServer[] | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -6056,97 +6101,97 @@ export interface UpdateKxEnvironmentNetworkResponse {
    * <p>The name of the kdb environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the AWS account that is used to create the kdb environment.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The status of the kdb environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The status of the network configuration.</p>
    * @public
    */
-  tgwStatus?: TgwStatus;
+  tgwStatus?: TgwStatus | undefined;
 
   /**
    * <p>The status of DNS configuration.</p>
    * @public
    */
-  dnsStatus?: DnsStatus;
+  dnsStatus?: DnsStatus | undefined;
 
   /**
    * <p>Specifies the error message that appears if a flow fails.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The description of the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN identifier of the environment.</p>
    * @public
    */
-  environmentArn?: string;
+  environmentArn?: string | undefined;
 
   /**
    * <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>A unique identifier for the AWS environment infrastructure account.</p>
    * @public
    */
-  dedicatedServiceAccountId?: string;
+  dedicatedServiceAccountId?: string | undefined;
 
   /**
    * <p>The structure of the transit gateway and network configuration that is used to connect the kdb environment to an internal network.</p>
    * @public
    */
-  transitGatewayConfiguration?: TransitGatewayConfiguration;
+  transitGatewayConfiguration?: TransitGatewayConfiguration | undefined;
 
   /**
    * <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
    * @public
    */
-  customDNSConfiguration?: CustomDNSServer[];
+  customDNSConfiguration?: CustomDNSServer[] | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was created in FinSpace. </p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp at which the kdb environment was updated. </p>
    * @public
    */
-  updateTimestamp?: Date;
+  updateTimestamp?: Date | undefined;
 
   /**
    * <p>The identifier of the availability zones where subnets for the environment are created.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 }
 
 /**
@@ -6175,7 +6220,7 @@ export interface UpdateKxUserRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -6186,7 +6231,7 @@ export interface UpdateKxUserResponse {
    * <p>A unique identifier for the user.</p>
    * @public
    */
-  userName?: string;
+  userName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
@@ -6194,19 +6239,19 @@ export interface UpdateKxUserResponse {
    *       <i>IAM User Guide</i>. </p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>A unique identifier for the kdb environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The IAM role ARN that is associated with the user.</p>
    * @public
    */
-  iamRole?: string;
+  iamRole?: string | undefined;
 }
 
 /**
@@ -6232,19 +6277,19 @@ export interface UpdateKxVolumeRequest {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume.</p>
    * @public
    */
-  nas1Configuration?: KxNAS1Configuration;
+  nas1Configuration?: KxNAS1Configuration | undefined;
 }
 
 /**
@@ -6255,13 +6300,13 @@ export interface UpdateKxVolumeResponse {
    * <p>A unique identifier for the kdb environment where you want to update the volume. </p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>A unique identifier for the volume that you want to update.</p>
    * @public
    */
-  volumeName?: string;
+  volumeName?: string | undefined;
 
   /**
    * <p>
@@ -6269,7 +6314,7 @@ export interface UpdateKxVolumeResponse {
    *    </p>
    * @public
    */
-  volumeType?: KxVolumeType;
+  volumeType?: KxVolumeType | undefined;
 
   /**
    * <p>
@@ -6277,13 +6322,13 @@ export interface UpdateKxVolumeResponse {
    * </p>
    * @public
    */
-  volumeArn?: string;
+  volumeArn?: string | undefined;
 
   /**
    * <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume.</p>
    * @public
    */
-  nas1Configuration?: KxNAS1Configuration;
+  nas1Configuration?: KxNAS1Configuration | undefined;
 
   /**
    * <p>The status of the volume.</p>
@@ -6318,7 +6363,7 @@ export interface UpdateKxVolumeResponse {
    *          </ul>
    * @public
    */
-  status?: KxVolumeStatus;
+  status?: KxVolumeStatus | undefined;
 
   /**
    * <p>
@@ -6326,38 +6371,38 @@ export interface UpdateKxVolumeResponse {
    * </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The error message when a failed state occurs. </p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>
    * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createdTimestamp?: Date;
+  createdTimestamp?: Date | undefined;
 
   /**
    * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
-  azMode?: KxAzMode;
+  azMode?: KxAzMode | undefined;
 
   /**
    * <p>The identifier of the availability zones.</p>
    * @public
    */
-  availabilityZoneIds?: string[];
+  availabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The last time that the volume was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -6365,7 +6410,7 @@ export interface UpdateKxVolumeResponse {
    * </p>
    * @public
    */
-  attachedClusters?: KxAttachedCluster[];
+  attachedClusters?: KxAttachedCluster[] | undefined;
 }
 
 /**

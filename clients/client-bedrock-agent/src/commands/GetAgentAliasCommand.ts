@@ -69,7 +69,7 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //         startDate: new Date("TIMESTAMP"),
  * //       },
  * //     ],
- * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
@@ -102,6 +102,7 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetAgentAliasCommand extends $Command
@@ -112,9 +113,7 @@ export class GetAgentAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class GetAgentAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgentAliasCommand)
   .de(de_GetAgentAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentAliasRequest;
+      output: GetAgentAliasResponse;
+    };
+    sdk: {
+      input: GetAgentAliasCommandInput;
+      output: GetAgentAliasCommandOutput;
+    };
+  };
+}

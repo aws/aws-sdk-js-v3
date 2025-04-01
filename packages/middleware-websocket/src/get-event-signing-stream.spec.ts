@@ -1,9 +1,7 @@
-/**
- * @jest-environment jsdom
- */
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import { TransformStream } from "web-streams-polyfill";
 
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
@@ -58,7 +56,7 @@ describe(getEventSigningTransformStream.name, () => {
       headers: {},
       body: fromUtf8("bar"),
     };
-    const mockMessageSigner = jest
+    const mockMessageSigner = vi
       .fn()
       .mockReturnValueOnce({ message: message1, signature: "7369676e617475726531" } as SignedMessage) //'signature1'
       .mockReturnValueOnce({ message: message2, signature: "7369676e617475726532" } as SignedMessage); //'signature2'

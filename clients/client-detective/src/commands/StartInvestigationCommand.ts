@@ -75,6 +75,7 @@ export interface StartInvestigationCommandOutput extends StartInvestigationRespo
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class StartInvestigationCommand extends $Command
@@ -85,9 +86,7 @@ export class StartInvestigationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StartInvestigationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInvestigationCommand)
   .de(de_StartInvestigationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInvestigationRequest;
+      output: StartInvestigationResponse;
+    };
+    sdk: {
+      input: StartInvestigationCommandInput;
+      output: StartInvestigationCommandOutput;
+    };
+  };
+}

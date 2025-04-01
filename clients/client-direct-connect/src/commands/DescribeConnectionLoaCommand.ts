@@ -75,6 +75,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionLoaCommand extends $Command
@@ -85,9 +86,7 @@ export class DescribeConnectionLoaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DescribeConnectionLoaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectionLoaCommand)
   .de(de_DescribeConnectionLoaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionLoaRequest;
+      output: DescribeConnectionLoaResponse;
+    };
+    sdk: {
+      input: DescribeConnectionLoaCommandInput;
+      output: DescribeConnectionLoaCommandOutput;
+    };
+  };
+}

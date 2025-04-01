@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPrivacyBudgetTemplatesInput, ListPrivacyBudgetTemplatesOutput } from "../models/models_0";
+import { ListPrivacyBudgetTemplatesInput, ListPrivacyBudgetTemplatesOutput } from "../models/models_1";
 import { de_ListPrivacyBudgetTemplatesCommand, se_ListPrivacyBudgetTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -85,6 +85,7 @@ export interface ListPrivacyBudgetTemplatesCommandOutput extends ListPrivacyBudg
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListPrivacyBudgetTemplatesCommand extends $Command
@@ -95,9 +96,7 @@ export class ListPrivacyBudgetTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListPrivacyBudgetTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrivacyBudgetTemplatesCommand)
   .de(de_ListPrivacyBudgetTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrivacyBudgetTemplatesInput;
+      output: ListPrivacyBudgetTemplatesOutput;
+    };
+    sdk: {
+      input: ListPrivacyBudgetTemplatesCommandInput;
+      output: ListPrivacyBudgetTemplatesCommandOutput;
+    };
+  };
+}

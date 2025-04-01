@@ -18,11 +18,17 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  AssociateToConfigurationCommandInput,
+  AssociateToConfigurationCommandOutput,
+} from "../commands/AssociateToConfigurationCommand";
 import {
   CreateChimeWebhookConfigurationCommandInput,
   CreateChimeWebhookConfigurationCommandOutput,
 } from "../commands/CreateChimeWebhookConfigurationCommand";
+import { CreateCustomActionCommandInput, CreateCustomActionCommandOutput } from "../commands/CreateCustomActionCommand";
 import {
   CreateMicrosoftTeamsChannelConfigurationCommandInput,
   CreateMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -35,6 +41,7 @@ import {
   DeleteChimeWebhookConfigurationCommandInput,
   DeleteChimeWebhookConfigurationCommandOutput,
 } from "../commands/DeleteChimeWebhookConfigurationCommand";
+import { DeleteCustomActionCommandInput, DeleteCustomActionCommandOutput } from "../commands/DeleteCustomActionCommand";
 import {
   DeleteMicrosoftTeamsChannelConfigurationCommandInput,
   DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -76,13 +83,20 @@ import {
   DescribeSlackWorkspacesCommandOutput,
 } from "../commands/DescribeSlackWorkspacesCommand";
 import {
+  DisassociateFromConfigurationCommandInput,
+  DisassociateFromConfigurationCommandOutput,
+} from "../commands/DisassociateFromConfigurationCommand";
+import {
   GetAccountPreferencesCommandInput,
   GetAccountPreferencesCommandOutput,
 } from "../commands/GetAccountPreferencesCommand";
+import { GetCustomActionCommandInput, GetCustomActionCommandOutput } from "../commands/GetCustomActionCommand";
 import {
   GetMicrosoftTeamsChannelConfigurationCommandInput,
   GetMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "../commands/GetMicrosoftTeamsChannelConfigurationCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "../commands/ListAssociationsCommand";
+import { ListCustomActionsCommandInput, ListCustomActionsCommandOutput } from "../commands/ListCustomActionsCommand";
 import {
   ListMicrosoftTeamsChannelConfigurationsCommandInput,
   ListMicrosoftTeamsChannelConfigurationsCommandOutput,
@@ -109,6 +123,7 @@ import {
   UpdateChimeWebhookConfigurationCommandInput,
   UpdateChimeWebhookConfigurationCommandOutput,
 } from "../commands/UpdateChimeWebhookConfigurationCommand";
+import { UpdateCustomActionCommandInput, UpdateCustomActionCommandOutput } from "../commands/UpdateCustomActionCommand";
 import {
   UpdateMicrosoftTeamsChannelConfigurationCommandInput,
   UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -123,6 +138,9 @@ import {
   CreateChimeWebhookConfigurationException,
   CreateSlackChannelConfigurationException,
   CreateTeamsChannelConfigurationException,
+  CustomActionAttachment,
+  CustomActionAttachmentCriteria,
+  CustomActionDefinition,
   DeleteChimeWebhookConfigurationException,
   DeleteMicrosoftTeamsUserIdentityException,
   DeleteSlackChannelConfigurationException,
@@ -147,11 +165,35 @@ import {
   ServiceUnavailableException,
   Tag,
   TooManyTagsException,
+  UnauthorizedException,
   UpdateAccountPreferencesException,
   UpdateChimeWebhookConfigurationException,
   UpdateSlackChannelConfigurationException,
   UpdateTeamsChannelConfigurationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AssociateToConfigurationCommand
+ */
+export const se_AssociateToConfigurationCommand = async (
+  input: AssociateToConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/associate-to-configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChatConfiguration: [],
+      Resource: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateChimeWebhookConfigurationCommand
@@ -175,6 +217,33 @@ export const se_CreateChimeWebhookConfigurationCommand = async (
       Tags: (_) => _json(_),
       WebhookDescription: [],
       WebhookUrl: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCustomActionCommand
+ */
+export const se_CreateCustomActionCommand = async (
+  input: CreateCustomActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/create-custom-action");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ActionName: [],
+      AliasName: [],
+      Attachments: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Definition: (_) => _json(_),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -261,6 +330,28 @@ export const se_DeleteChimeWebhookConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       ChatConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCustomActionCommand
+ */
+export const se_DeleteCustomActionCommand = async (
+  input: DeleteCustomActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/delete-custom-action");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CustomActionArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -498,6 +589,29 @@ export const se_DescribeSlackWorkspacesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateFromConfigurationCommand
+ */
+export const se_DisassociateFromConfigurationCommand = async (
+  input: DisassociateFromConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/disassociate-from-configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChatConfiguration: [],
+      Resource: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAccountPreferencesCommand
  */
 export const se_GetAccountPreferencesCommand = async (
@@ -508,6 +622,28 @@ export const se_GetAccountPreferencesCommand = async (
   const headers: any = {};
   b.bp("/get-account-preferences");
   let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCustomActionCommand
+ */
+export const se_GetCustomActionCommand = async (
+  input: GetCustomActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-custom-action");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CustomActionArn: [],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -528,6 +664,53 @@ export const se_GetMicrosoftTeamsChannelConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       ChatConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAssociationsCommand
+ */
+export const se_ListAssociationsCommand = async (
+  input: ListAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-associations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChatConfiguration: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCustomActionsCommand
+ */
+export const se_ListCustomActionsCommand = async (
+  input: ListCustomActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-custom-actions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -724,6 +907,31 @@ export const se_UpdateChimeWebhookConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateCustomActionCommand
+ */
+export const se_UpdateCustomActionCommand = async (
+  input: UpdateCustomActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/update-custom-action");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AliasName: [],
+      Attachments: (_) => _json(_),
+      CustomActionArn: [],
+      Definition: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateMicrosoftTeamsChannelConfigurationCommand
  */
 export const se_UpdateMicrosoftTeamsChannelConfigurationCommand = async (
@@ -782,6 +990,23 @@ export const se_UpdateSlackChannelConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateToConfigurationCommand
+ */
+export const de_AssociateToConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateToConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateChimeWebhookConfigurationCommand
  */
 export const de_CreateChimeWebhookConfigurationCommand = async (
@@ -797,6 +1022,27 @@ export const de_CreateChimeWebhookConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     WebhookConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCustomActionCommand
+ */
+export const de_CreateCustomActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomActionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomActionArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -851,6 +1097,23 @@ export const de_DeleteChimeWebhookConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChimeWebhookConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCustomActionCommand
+ */
+export const de_DeleteCustomActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomActionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1052,6 +1315,23 @@ export const de_DescribeSlackWorkspacesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateFromConfigurationCommand
+ */
+export const de_DisassociateFromConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFromConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAccountPreferencesCommand
  */
 export const de_GetAccountPreferencesCommand = async (
@@ -1073,6 +1353,27 @@ export const de_GetAccountPreferencesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetCustomActionCommand
+ */
+export const de_GetCustomActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomAction: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetMicrosoftTeamsChannelConfigurationCommand
  */
 export const de_GetMicrosoftTeamsChannelConfigurationCommand = async (
@@ -1088,6 +1389,50 @@ export const de_GetMicrosoftTeamsChannelConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ChannelConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssociationsCommand
+ */
+export const de_ListAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Associations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCustomActionsCommand
+ */
+export const de_ListCustomActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomActions: _json,
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1257,6 +1602,27 @@ export const de_UpdateChimeWebhookConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateCustomActionCommand
+ */
+export const de_UpdateCustomActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomActionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateMicrosoftTeamsChannelConfigurationCommand
  */
 export const de_UpdateMicrosoftTeamsChannelConfigurationCommand = async (
@@ -1308,6 +1674,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.chatbot#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.chatbot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chatbot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chatbot#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1317,9 +1692,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParameterException":
     case "com.amazonaws.chatbot#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.chatbot#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chatbot#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -1380,9 +1752,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ListMicrosoftTeamsUserIdentitiesException":
     case "com.amazonaws.chatbot#ListMicrosoftTeamsUserIdentitiesException":
       throw await de_ListMicrosoftTeamsUserIdentitiesExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.chatbot#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chatbot#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -1950,6 +2319,26 @@ const de_TooManyTagsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnauthorizedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1UpdateAccountPreferencesExceptionRes
  */
 const de_UpdateAccountPreferencesExceptionRes = async (
@@ -2029,6 +2418,18 @@ const de_UpdateTeamsChannelConfigurationExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_CustomActionAttachment omitted.
+
+// se_CustomActionAttachmentCriteria omitted.
+
+// se_CustomActionAttachmentCriteriaList omitted.
+
+// se_CustomActionAttachmentList omitted.
+
+// se_CustomActionAttachmentVariables omitted.
+
+// se_CustomActionDefinition omitted.
+
 // se_GuardrailPolicyArnList omitted.
 
 // se_SnsTopicArnList omitted.
@@ -2043,6 +2444,10 @@ const de_UpdateTeamsChannelConfigurationExceptionRes = async (
 
 // de_AccountPreferences omitted.
 
+// de_AssociationList omitted.
+
+// de_AssociationListing omitted.
+
 // de_ChimeWebhookConfiguration omitted.
 
 // de_ChimeWebhookConfigurationList omitted.
@@ -2050,6 +2455,22 @@ const de_UpdateTeamsChannelConfigurationExceptionRes = async (
 // de_ConfiguredTeam omitted.
 
 // de_ConfiguredTeamsList omitted.
+
+// de_CustomAction omitted.
+
+// de_CustomActionArnList omitted.
+
+// de_CustomActionAttachment omitted.
+
+// de_CustomActionAttachmentCriteria omitted.
+
+// de_CustomActionAttachmentCriteriaList omitted.
+
+// de_CustomActionAttachmentList omitted.
+
+// de_CustomActionAttachmentVariables omitted.
+
+// de_CustomActionDefinition omitted.
 
 // de_GuardrailPolicyArnList omitted.
 
@@ -2092,10 +2513,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

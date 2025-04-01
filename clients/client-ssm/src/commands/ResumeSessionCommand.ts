@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
+import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_2";
 import { de_ResumeSessionCommand, se_ResumeSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -71,6 +71,7 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ResumeSessionCommand extends $Command
@@ -81,9 +82,7 @@ export class ResumeSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class ResumeSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeSessionCommand)
   .de(de_ResumeSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeSessionRequest;
+      output: ResumeSessionResponse;
+    };
+    sdk: {
+      input: ResumeSessionCommandInput;
+      output: ResumeSessionCommandOutput;
+    };
+  };
+}

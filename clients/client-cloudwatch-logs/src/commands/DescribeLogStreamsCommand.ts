@@ -34,7 +34,7 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>.
  *       You must include one of these two parameters, but you can't include both.
  *     </p>
- *          <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>
+ *          <p>This operation has a limit of 25 transactions per second, after which transactions are throttled.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
  *       view data from the linked source accounts. For more information, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
@@ -91,6 +91,7 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeLogStreamsCommand extends $Command
@@ -101,9 +102,7 @@ export class DescribeLogStreamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeLogStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLogStreamsCommand)
   .de(de_DescribeLogStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLogStreamsRequest;
+      output: DescribeLogStreamsResponse;
+    };
+    sdk: {
+      input: DescribeLogStreamsCommandInput;
+      output: DescribeLogStreamsCommandOutput;
+    };
+  };
+}

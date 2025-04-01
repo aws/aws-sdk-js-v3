@@ -32,7 +32,7 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
  * @example
@@ -79,6 +79,7 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactFlowContentCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateContactFlowContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateContactFlowContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactFlowContentCommand)
   .de(de_UpdateContactFlowContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactFlowContentRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactFlowContentCommandInput;
+      output: UpdateContactFlowContentCommandOutput;
+    };
+  };
+}

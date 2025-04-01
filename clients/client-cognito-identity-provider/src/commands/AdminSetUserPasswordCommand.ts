@@ -36,16 +36,21 @@ export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRe
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the specified user's password in a user pool as an administrator. Works on any
- *             user. </p>
- *          <p>The password can be temporary or permanent. If it is temporary, the user status enters
- *             the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in, the
- *             InitiateAuth/AdminInitiateAuth response will contain the
- *                 <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user doesn't sign in before it
- *             expires, the user won't be able to sign in, and an administrator must reset their
- *             password. </p>
- *          <p>Once the user has set a new password, or the password is permanent, the user status is
- *             set to <code>Confirmed</code>.</p>
+ * <p>Sets the specified user's password in a user pool. This operation administratively
+ *             sets a temporary or permanent password for a user. With this operation, you can bypass
+ *             self-service password changes and permit immediate sign-in with the password that you
+ *             set. To do this, set <code>Permanent</code> to <code>true</code>.</p>
+ *          <p>You can also set a new temporary password in this request, send it to a user, and
+ *             require them to choose a new password on their next sign-in. To do this, set
+ *                 <code>Permanent</code> to <code>false</code>.</p>
+ *          <p>If the password is temporary, the user's <code>Status</code> becomes
+ *                 <code>FORCE_CHANGE_PASSWORD</code>. When the user next tries to sign in, the
+ *                 <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> response includes the
+ *                 <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user doesn't sign in
+ *             before the temporary password expires, they can no longer sign in and you must repeat
+ *             this operation to set a temporary or permanent password for them.</p>
+ *          <p>After the user sets a new password, or if you set a permanent password, their status
+ *             becomes <code>Confirmed</code>.</p>
  *          <p>
  *             <code>AdminSetUserPassword</code> can set a password for the user profile that Amazon Cognito
  *             creates for third-party federated users. When you set a password, the federated user's
@@ -114,6 +119,10 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
+ * @throws {@link PasswordHistoryPolicyViolationException} (client fault)
+ *  <p>The message returned when a user's new password matches a previous password and
+ *             doesn't comply with the password-history policy.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
@@ -128,6 +137,7 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminSetUserPasswordCommand extends $Command
@@ -138,9 +148,7 @@ export class AdminSetUserPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +160,16 @@ export class AdminSetUserPasswordCommand extends $Command
   .f(AdminSetUserPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_AdminSetUserPasswordCommand)
   .de(de_AdminSetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminSetUserPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminSetUserPasswordCommandInput;
+      output: AdminSetUserPasswordCommandOutput;
+    };
+  };
+}

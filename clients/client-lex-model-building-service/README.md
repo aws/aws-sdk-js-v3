@@ -14,7 +14,7 @@ bots for new and existing client applications. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lex-model-building-service
+To install this package, simply type add or install @aws-sdk/client-lex-model-building-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lex-model-building-service`

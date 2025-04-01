@@ -114,6 +114,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: { // JA3Fingerprint
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: { // JA4Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: { // UriFragment
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -181,6 +187,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -244,6 +256,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -301,6 +319,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               },
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -447,6 +471,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -573,6 +603,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                     },
  * //                     UriPath: { // RateLimitUriPath
  * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     JA3Fingerprint: { // RateLimitJA3Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                     },
  * //                   },
  * //                 ],
@@ -794,6 +830,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 },
  * //                 UriPath: {
  * //                   TextTransformations: "<TextTransformations>", // required
+ * //                 },
+ * //                 JA3Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 JA4Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                 },
  * //               },
  * //             ],
@@ -1072,6 +1114,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetRuleGroupCommand extends $Command
@@ -1082,9 +1125,7 @@ export class GetRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1096,4 +1137,16 @@ export class GetRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleGroupCommand)
   .de(de_GetRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleGroupRequest;
+      output: GetRuleGroupResponse;
+    };
+    sdk: {
+      input: GetRuleGroupCommandInput;
+      output: GetRuleGroupCommandOutput;
+    };
+  };
+}

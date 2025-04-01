@@ -87,6 +87,51 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list all directories in your AWS account
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListDirectoriesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Directories: [
+ *     {
+ *       CreationDateTime: 1.506121791167E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/Ae89hOKmw0bRpvYgW8EAsus",
+ *       Name: "ExampleCD4",
+ *       State: "ENABLED"
+ *     },
+ *     {
+ *       CreationDateTime: 1.485473189746E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *       Name: "testCD",
+ *       State: "DELETED"
+ *     },
+ *     {
+ *       CreationDateTime: 1.506115781186E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *       Name: "ExampleCD",
+ *       State: "ENABLED"
+ *     },
+ *     {
+ *       CreationDateTime: 1.506118003859E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *       Name: "ExampleCD2",
+ *       State: "ENABLED"
+ *     },
+ *     {
+ *       CreationDateTime: 1.485477107925E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AWeI1yjiB0SylWVTvQklCD0",
+ *       Name: "testCD2",
+ *       State: "DELETED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListDirectoriesCommand extends $Command
@@ -97,9 +142,7 @@ export class ListDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +154,16 @@ export class ListDirectoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDirectoriesCommand)
   .de(de_ListDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDirectoriesRequest;
+      output: ListDirectoriesResponse;
+    };
+    sdk: {
+      input: ListDirectoriesCommandInput;
+      output: ListDirectoriesCommandOutput;
+    };
+  };
+}

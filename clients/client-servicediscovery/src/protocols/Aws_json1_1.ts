@@ -39,6 +39,10 @@ import {
 } from "../commands/CreatePublicDnsNamespaceCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../commands/DeleteNamespaceCommand";
+import {
+  DeleteServiceAttributesCommandInput,
+  DeleteServiceAttributesCommandOutput,
+} from "../commands/DeleteServiceAttributesCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
 import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "../commands/DeregisterInstanceCommand";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "../commands/DiscoverInstancesCommand";
@@ -53,6 +57,10 @@ import {
 } from "../commands/GetInstancesHealthStatusCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands/GetNamespaceCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "../commands/GetOperationCommand";
+import {
+  GetServiceAttributesCommandInput,
+  GetServiceAttributesCommandOutput,
+} from "../commands/GetServiceAttributesCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "../commands/GetServiceCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
@@ -81,6 +89,10 @@ import {
   UpdatePublicDnsNamespaceCommandInput,
   UpdatePublicDnsNamespaceCommandOutput,
 } from "../commands/UpdatePublicDnsNamespaceCommand";
+import {
+  UpdateServiceAttributesCommandInput,
+  UpdateServiceAttributesCommandOutput,
+} from "../commands/UpdateServiceAttributesCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
   CreateHttpNamespaceRequest,
@@ -90,6 +102,7 @@ import {
   CreateServiceResponse,
   CustomHealthNotFound,
   DeleteNamespaceRequest,
+  DeleteServiceAttributesRequest,
   DeleteServiceRequest,
   DeregisterInstanceRequest,
   DiscoverInstancesRequest,
@@ -104,6 +117,7 @@ import {
   GetNamespaceResponse,
   GetOperationRequest,
   GetOperationResponse,
+  GetServiceAttributesRequest,
   GetServiceRequest,
   GetServiceResponse,
   HealthCheckConfig,
@@ -143,6 +157,7 @@ import {
   ResourceNotFoundException,
   Service,
   ServiceAlreadyExists,
+  ServiceAttributesLimitExceededException,
   ServiceChange,
   ServiceFilter,
   ServiceNotFound,
@@ -157,6 +172,7 @@ import {
   UpdateInstanceCustomHealthStatusRequest,
   UpdatePrivateDnsNamespaceRequest,
   UpdatePublicDnsNamespaceRequest,
+  UpdateServiceAttributesRequest,
   UpdateServiceRequest,
 } from "../models/models_0";
 import { ServiceDiscoveryServiceException as __BaseException } from "../models/ServiceDiscoveryServiceException";
@@ -234,6 +250,19 @@ export const se_DeleteServiceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteService");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteServiceAttributesCommand
+ */
+export const se_DeleteServiceAttributesCommand = async (
+  input: DeleteServiceAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceAttributes");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,6 +381,19 @@ export const se_GetServiceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetService");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetServiceAttributesCommand
+ */
+export const se_GetServiceAttributesCommand = async (
+  input: GetServiceAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetServiceAttributes");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -527,6 +569,19 @@ export const se_UpdateServiceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateServiceAttributesCommand
+ */
+export const se_UpdateServiceAttributesCommand = async (
+  input: UpdateServiceAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceAttributes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1CreateHttpNamespaceCommand
  */
 export const de_CreateHttpNamespaceCommand = async (
@@ -640,6 +695,26 @@ export const de_DeleteServiceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteServiceAttributesCommand
+ */
+export const de_DeleteServiceAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteServiceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -800,6 +875,26 @@ export const de_GetServiceCommand = async (
   let contents: any = {};
   contents = de_GetServiceResponse(data, context);
   const response: GetServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetServiceAttributesCommand
+ */
+export const de_GetServiceAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetServiceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1064,6 +1159,26 @@ export const de_UpdateServiceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateServiceAttributesCommand
+ */
+export const de_UpdateServiceAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateServiceAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1115,6 +1230,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CustomHealthNotFound":
     case "com.amazonaws.servicediscovery#CustomHealthNotFound":
       throw await de_CustomHealthNotFoundRes(parsedOutput, context);
+    case "ServiceAttributesLimitExceededException":
+    case "com.amazonaws.servicediscovery#ServiceAttributesLimitExceededException":
+      throw await de_ServiceAttributesLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1300,6 +1418,22 @@ const de_ServiceAlreadyExistsRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceAttributesLimitExceededExceptionRes
+ */
+const de_ServiceAttributesLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceAttributesLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceAttributesLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceNotFoundRes
  */
 const de_ServiceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceNotFound> => {
@@ -1388,6 +1522,8 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
 
 // se_DeleteNamespaceRequest omitted.
 
+// se_DeleteServiceAttributesRequest omitted.
+
 // se_DeleteServiceRequest omitted.
 
 // se_DeregisterInstanceRequest omitted.
@@ -1413,6 +1549,8 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
 // se_GetNamespaceRequest omitted.
 
 // se_GetOperationRequest omitted.
+
+// se_GetServiceAttributesRequest omitted.
 
 // se_GetServiceRequest omitted.
 
@@ -1474,6 +1612,10 @@ const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __S
   });
 };
 
+// se_ServiceAttributeKeyList omitted.
+
+// se_ServiceAttributesMap omitted.
+
 // se_ServiceChange omitted.
 
 // se_ServiceFilter omitted.
@@ -1529,6 +1671,8 @@ const se_UpdatePublicDnsNamespaceRequest = (input: UpdatePublicDnsNamespaceReque
   });
 };
 
+// se_UpdateServiceAttributesRequest omitted.
+
 // se_UpdateServiceRequest omitted.
 
 // de_Attributes omitted.
@@ -1551,6 +1695,8 @@ const de_CreateServiceResponse = (output: any, context: __SerdeContext): CreateS
 // de_CustomHealthNotFound omitted.
 
 // de_DeleteNamespaceResponse omitted.
+
+// de_DeleteServiceAttributesResponse omitted.
 
 // de_DeleteServiceResponse omitted.
 
@@ -1591,6 +1737,8 @@ const de_GetOperationResponse = (output: any, context: __SerdeContext): GetOpera
     Operation: (_: any) => de_Operation(_, context),
   }) as any;
 };
+
+// de_GetServiceAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1GetServiceResponse
@@ -1756,6 +1904,12 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
 
 // de_ServiceAlreadyExists omitted.
 
+// de_ServiceAttributes omitted.
+
+// de_ServiceAttributesLimitExceededException omitted.
+
+// de_ServiceAttributesMap omitted.
+
 // de_ServiceNotFound omitted.
 
 /**
@@ -1805,6 +1959,8 @@ const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary
 // de_UpdatePrivateDnsNamespaceResponse omitted.
 
 // de_UpdatePublicDnsNamespaceResponse omitted.
+
+// de_UpdateServiceAttributesResponse omitted.
 
 // de_UpdateServiceResponse omitted.
 

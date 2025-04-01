@@ -130,6 +130,7 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ExportTableToPointInTimeCommand extends $Command
@@ -142,6 +143,7 @@ export class ExportTableToPointInTimeCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -154,4 +156,16 @@ export class ExportTableToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportTableToPointInTimeCommand)
   .de(de_ExportTableToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportTableToPointInTimeInput;
+      output: ExportTableToPointInTimeOutput;
+    };
+    sdk: {
+      input: ExportTableToPointInTimeCommandInput;
+      output: ExportTableToPointInTimeCommandOutput;
+    };
+  };
+}

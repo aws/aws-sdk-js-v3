@@ -90,6 +90,7 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListReadSetImportJobsCommand extends $Command
@@ -100,9 +101,7 @@ export class ListReadSetImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListReadSetImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReadSetImportJobsCommand)
   .de(de_ListReadSetImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReadSetImportJobsRequest;
+      output: ListReadSetImportJobsResponse;
+    };
+    sdk: {
+      input: ListReadSetImportJobsCommandInput;
+      output: ListReadSetImportJobsCommandOutput;
+    };
+  };
+}

@@ -33,20 +33,24 @@ export interface UpdateAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a composite model and all of the assets that were created from the model. Each asset
- *       created from the model inherits the updated asset model's property and hierarchy definitions.
- *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
- *       <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Updates a composite model and all of the assets that were created from the model. Each
+ *       asset created from the model inherits the updated asset model's property and hierarchy
+ *       definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
+ *         <i>IoT SiteWise User Guide</i>.</p>
  *          <important>
- *             <p>If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p>
- *             <p>To replace an existing composite asset model property with a new one with the same <code>name</code>, do the following:</p>
+ *             <p>If you remove a property from a composite asset model, IoT SiteWise deletes all previous data
+ *         for that property. You can’t change the type or data type of an existing property.</p>
+ *             <p>To replace an existing composite asset model property with a new one with the same
+ *           <code>name</code>, do the following:</p>
  *             <ol>
  *                <li>
- *                   <p>Submit an <code>UpdateAssetModelCompositeModel</code> request with the entire existing property removed.</p>
+ *                   <p>Submit an <code>UpdateAssetModelCompositeModel</code> request with the entire
+ *             existing property removed.</p>
  *                </li>
  *                <li>
- *                   <p>Submit a second <code>UpdateAssetModelCompositeModel</code> request that includes the new property. The new asset property will have the same
- *           <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p>
+ *                   <p>Submit a second <code>UpdateAssetModelCompositeModel</code> request that includes
+ *             the new property. The new asset property will have the same <code>name</code> as the
+ *             previous one and IoT SiteWise will generate a new unique <code>id</code>.</p>
  *                </li>
  *             </ol>
  *          </important>
@@ -66,6 +70,7 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *   assetModelCompositeModelProperties: [ // AssetModelProperties
  *     { // AssetModelProperty
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -139,9 +144,11 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *           name: "STRING_VALUE",
  *         },
  *       ],
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new UpdateAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -192,6 +199,10 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
+ *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>
  *
@@ -207,6 +218,7 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssetModelCompositeModelCommand extends $Command
@@ -217,9 +229,7 @@ export class UpdateAssetModelCompositeModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -231,4 +241,16 @@ export class UpdateAssetModelCompositeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssetModelCompositeModelCommand)
   .de(de_UpdateAssetModelCompositeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssetModelCompositeModelRequest;
+      output: UpdateAssetModelCompositeModelResponse;
+    };
+    sdk: {
+      input: UpdateAssetModelCompositeModelCommandInput;
+      output: UpdateAssetModelCompositeModelCommandOutput;
+    };
+  };
+}

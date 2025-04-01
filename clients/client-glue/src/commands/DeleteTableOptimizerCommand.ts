@@ -39,7 +39,7 @@ export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerR
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   Type: "compaction", // required
+ *   Type: "compaction" || "retention" || "orphan_file_deletion", // required
  * };
  * const command = new DeleteTableOptimizerCommand(input);
  * const response = await client.send(command);
@@ -65,8 +65,12 @@ export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerR
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling threshhold was exceeded.</p>
+ *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
+ *
  *
  * @public
  */
@@ -78,9 +82,7 @@ export class DeleteTableOptimizerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +94,16 @@ export class DeleteTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTableOptimizerCommand)
   .de(de_DeleteTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTableOptimizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTableOptimizerCommandInput;
+      output: DeleteTableOptimizerCommandOutput;
+    };
+  };
+}

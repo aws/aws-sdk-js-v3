@@ -152,6 +152,7 @@ export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOut
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateAssetRevisionCommand extends $Command
@@ -162,9 +163,7 @@ export class CreateAssetRevisionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +175,16 @@ export class CreateAssetRevisionCommand extends $Command
   .f(CreateAssetRevisionInputFilterSensitiveLog, CreateAssetRevisionOutputFilterSensitiveLog)
   .ser(se_CreateAssetRevisionCommand)
   .de(de_CreateAssetRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetRevisionInput;
+      output: CreateAssetRevisionOutput;
+    };
+    sdk: {
+      input: CreateAssetRevisionCommandInput;
+      output: CreateAssetRevisionCommandOutput;
+    };
+  };
+}

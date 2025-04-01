@@ -53,21 +53,48 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     status: "STRING_VALUE", // required
  * //     memberAbilities: [ // MemberAbilities // required
- * //       "STRING_VALUE",
+ * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //     ],
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     mlMemberAbilities: { // MLMemberAbilities
+ * //       customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //         "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //       ],
+ * //     },
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
  * //       outputConfiguration: { // MembershipProtectedQueryOutputConfiguration Union: only one key present
  * //         s3: { // ProtectedQueryS3OutputConfiguration
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
  * //         },
  * //       },
  * //       roleArn: "STRING_VALUE",
  * //     },
+ * //     defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
+ * //       outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
+ * //         s3: { // ProtectedJobS3OutputConfigurationInput
+ * //           bucket: "STRING_VALUE", // required
+ * //           keyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
  * //     paymentConfiguration: { // MembershipPaymentConfiguration
  * //       queryCompute: { // MembershipQueryComputePaymentConfig
+ * //         isResponsible: true || false, // required
+ * //       },
+ * //       machineLearning: { // MembershipMLPaymentConfig
+ * //         modelTraining: { // MembershipModelTrainingPaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         modelInference: { // MembershipModelInferencePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //       },
+ * //       jobCompute: { // MembershipJobComputePaymentConfig
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
@@ -100,6 +127,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetMembershipCommand extends $Command
@@ -110,9 +138,7 @@ export class GetMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +150,16 @@ export class GetMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMembershipCommand)
   .de(de_GetMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMembershipInput;
+      output: GetMembershipOutput;
+    };
+    sdk: {
+      input: GetMembershipCommandInput;
+      output: GetMembershipCommandOutput;
+    };
+  };
+}

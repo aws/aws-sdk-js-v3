@@ -10,7 +10,7 @@ import {
   ListPartnerAccountsRequest,
   ListPartnerAccountsResponse,
   ListPartnerAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListPartnerAccountsCommand, se_ListPartnerAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -79,6 +79,7 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListPartnerAccountsCommand extends $Command
@@ -89,9 +90,7 @@ export class ListPartnerAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListPartnerAccountsCommand extends $Command
   .f(void 0, ListPartnerAccountsResponseFilterSensitiveLog)
   .ser(se_ListPartnerAccountsCommand)
   .de(de_ListPartnerAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnerAccountsRequest;
+      output: ListPartnerAccountsResponse;
+    };
+    sdk: {
+      input: ListPartnerAccountsCommandInput;
+      output: ListPartnerAccountsCommandOutput;
+    };
+  };
+}

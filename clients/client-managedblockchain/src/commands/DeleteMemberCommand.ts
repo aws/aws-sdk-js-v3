@@ -80,6 +80,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class DeleteMemberCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteMemberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMemberCommand)
   .de(de_DeleteMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMemberInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMemberCommandInput;
+      output: DeleteMemberCommandOutput;
+    };
+  };
+}

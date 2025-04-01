@@ -235,6 +235,7 @@ export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __Metadat
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetSegmentsCommand extends $Command
@@ -245,9 +246,7 @@ export class GetSegmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -259,4 +258,16 @@ export class GetSegmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentsCommand)
   .de(de_GetSegmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentsRequest;
+      output: GetSegmentsResponse;
+    };
+    sdk: {
+      input: GetSegmentsCommandInput;
+      output: GetSegmentsCommandOutput;
+    };
+  };
+}

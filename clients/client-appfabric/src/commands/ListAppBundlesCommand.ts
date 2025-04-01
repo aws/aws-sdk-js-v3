@@ -74,6 +74,7 @@ export interface ListAppBundlesCommandOutput extends ListAppBundlesResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class ListAppBundlesCommand extends $Command
@@ -84,9 +85,7 @@ export class ListAppBundlesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class ListAppBundlesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppBundlesCommand)
   .de(de_ListAppBundlesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppBundlesRequest;
+      output: ListAppBundlesResponse;
+    };
+    sdk: {
+      input: ListAppBundlesCommandInput;
+      output: ListAppBundlesCommandOutput;
+    };
+  };
+}

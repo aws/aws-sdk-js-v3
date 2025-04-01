@@ -86,6 +86,7 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetEntityTypesCommand extends $Command
@@ -96,9 +97,7 @@ export class GetEntityTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetEntityTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEntityTypesCommand)
   .de(de_GetEntityTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEntityTypesRequest;
+      output: GetEntityTypesResult;
+    };
+    sdk: {
+      input: GetEntityTypesCommandInput;
+      output: GetEntityTypesCommandOutput;
+    };
+  };
+}

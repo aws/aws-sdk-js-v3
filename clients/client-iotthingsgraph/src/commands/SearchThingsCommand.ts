@@ -81,6 +81,7 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class SearchThingsCommand extends $Command
@@ -91,9 +92,7 @@ export class SearchThingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class SearchThingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchThingsCommand)
   .de(de_SearchThingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchThingsRequest;
+      output: SearchThingsResponse;
+    };
+    sdk: {
+      input: SearchThingsCommandInput;
+      output: SearchThingsCommandOutput;
+    };
+  };
+}

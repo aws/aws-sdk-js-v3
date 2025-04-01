@@ -14,7 +14,7 @@ import {
   ImportCertificateMessage,
   ImportCertificateMessageFilterSensitiveLog,
   ImportCertificateResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -92,24 +92,24 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Import certificate
  * ```javascript
  * // Uploads the specified certificate.
  * const input = {
- *   "CertificateIdentifier": "",
- *   "CertificatePem": ""
+ *   CertificateIdentifier: "",
+ *   CertificatePem: ""
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Certificate": {}
+ *   Certificate:   { /* empty *\/ }
  * }
  * *\/
- * // example id: import-certificate-1481756197206
  * ```
  *
+ * @public
  */
 export class ImportCertificateCommand extends $Command
   .classBuilder<
@@ -119,9 +119,7 @@ export class ImportCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +131,16 @@ export class ImportCertificateCommand extends $Command
   .f(ImportCertificateMessageFilterSensitiveLog, void 0)
   .ser(se_ImportCertificateCommand)
   .de(de_ImportCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateMessage;
+      output: ImportCertificateResponse;
+    };
+    sdk: {
+      input: ImportCertificateCommandInput;
+      output: ImportCertificateCommandOutput;
+    };
+  };
+}

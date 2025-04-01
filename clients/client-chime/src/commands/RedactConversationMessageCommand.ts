@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_1";
+import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_0";
 import { de_RedactConversationMessageCommand, se_RedactConversationMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,6 +76,7 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class RedactConversationMessageCommand extends $Command
@@ -86,9 +87,7 @@ export class RedactConversationMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class RedactConversationMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RedactConversationMessageCommand)
   .de(de_RedactConversationMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RedactConversationMessageRequest;
+      output: {};
+    };
+    sdk: {
+      input: RedactConversationMessageCommandInput;
+      output: RedactConversationMessageCommandOutput;
+    };
+  };
+}

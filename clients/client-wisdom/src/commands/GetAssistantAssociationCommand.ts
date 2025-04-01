@@ -80,6 +80,7 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetAssistantAssociationCommand extends $Command
@@ -90,9 +91,7 @@ export class GetAssistantAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class GetAssistantAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssistantAssociationCommand)
   .de(de_GetAssistantAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssistantAssociationRequest;
+      output: GetAssistantAssociationResponse;
+    };
+    sdk: {
+      input: GetAssistantAssociationCommandInput;
+      output: GetAssistantAssociationCommandOutput;
+    };
+  };
+}

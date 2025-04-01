@@ -79,6 +79,7 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetDefaultRetentionPolicyCommand extends $Command
@@ -89,9 +90,7 @@ export class GetDefaultRetentionPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetDefaultRetentionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDefaultRetentionPolicyCommand)
   .de(de_GetDefaultRetentionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDefaultRetentionPolicyRequest;
+      output: GetDefaultRetentionPolicyResponse;
+    };
+    sdk: {
+      input: GetDefaultRetentionPolicyCommandInput;
+      output: GetDefaultRetentionPolicyCommandOutput;
+    };
+  };
+}

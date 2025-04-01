@@ -78,6 +78,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListArchivesCommand extends $Command
@@ -88,9 +89,7 @@ export class ListArchivesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ListArchivesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArchivesCommand)
   .de(de_ListArchivesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArchivesRequest;
+      output: ListArchivesResponse;
+    };
+    sdk: {
+      input: ListArchivesCommandInput;
+      output: ListArchivesCommandOutput;
+    };
+  };
+}

@@ -54,6 +54,7 @@ export interface MalformedMapCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedMapCommand extends $Command
   .classBuilder<
@@ -71,4 +72,16 @@ export class MalformedMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedMapCommand)
   .de(de_MalformedMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedMapInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedMapCommandInput;
+      output: MalformedMapCommandOutput;
+    };
+  };
+}

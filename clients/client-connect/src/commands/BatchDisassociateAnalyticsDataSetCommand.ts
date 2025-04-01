@@ -36,8 +36,7 @@ export interface BatchDisassociateAnalyticsDataSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Removes a list of analytics datasets associated with a given Amazon Connect instance.
+ * <p>Removes a list of analytics datasets associated with a given Amazon Connect instance.
  *    You can disassociate multiple datasets in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface BatchDisassociateAnalyticsDataSetCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class BatchDisassociateAnalyticsDataSetCommand extends $Command
@@ -102,9 +102,7 @@ export class BatchDisassociateAnalyticsDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +114,16 @@ export class BatchDisassociateAnalyticsDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDisassociateAnalyticsDataSetCommand)
   .de(de_BatchDisassociateAnalyticsDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateAnalyticsDataSetRequest;
+      output: BatchDisassociateAnalyticsDataSetResponse;
+    };
+    sdk: {
+      input: BatchDisassociateAnalyticsDataSetCommandInput;
+      output: BatchDisassociateAnalyticsDataSetCommandOutput;
+    };
+  };
+}

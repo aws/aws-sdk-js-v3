@@ -56,18 +56,30 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  *   GroupName: "STRING_VALUE",
  *   IpPermissions: [ // IpPermissionList
  *     { // IpPermission
- *       FromPort: Number("int"),
  *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *         },
+ *       ],
  *       IpRanges: [ // IpRangeList
  *         { // IpRange
- *           CidrIp: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIp: "STRING_VALUE",
  *         },
  *       ],
  *       Ipv6Ranges: [ // Ipv6RangeList
  *         { // Ipv6Range
- *           CidrIpv6: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIpv6: "STRING_VALUE",
  *         },
  *       ],
  *       PrefixListIds: [ // PrefixListIdList
@@ -76,28 +88,15 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  *           PrefixListId: "STRING_VALUE",
  *         },
  *       ],
- *       ToPort: Number("int"),
- *       UserIdGroupPairs: [ // UserIdGroupPairList
- *         { // UserIdGroupPair
- *           Description: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *           GroupName: "STRING_VALUE",
- *           PeeringStatus: "STRING_VALUE",
- *           UserId: "STRING_VALUE",
- *           VpcId: "STRING_VALUE",
- *           VpcPeeringConnectionId: "STRING_VALUE",
- *         },
- *       ],
  *     },
  *   ],
  *   IpProtocol: "STRING_VALUE",
  *   SourceSecurityGroupName: "STRING_VALUE",
  *   SourceSecurityGroupOwnerId: "STRING_VALUE",
  *   ToPort: Number("int"),
- *   DryRun: true || false,
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "vpc-encryption-control" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -106,6 +105,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  *       ],
  *     },
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
@@ -137,6 +137,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SecurityGroupRuleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -152,79 +153,86 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To add a rule that allows inbound SSH traffic from an IPv4 address range
- * ```javascript
- * // This example enables inbound traffic on TCP port 22 (SSH). The rule includes a description to help you identify it later.
- * const input = {
- *   "GroupId": "sg-903004f8",
- *   "IpPermissions": [
- *     {
- *       "FromPort": 22,
- *       "IpProtocol": "tcp",
- *       "IpRanges": [
- *         {
- *           "CidrIp": "203.0.113.0/24",
- *           "Description": "SSH access from the LA office"
- *         }
- *       ],
- *       "ToPort": 22
- *     }
- *   ]
- * };
- * const command = new AuthorizeSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: to-add-a-rule-that-allows-inbound-ssh-traffic-1529011610328
- * ```
  *
  * @example To add a rule that allows inbound HTTP traffic from another security group
  * ```javascript
  * // This example enables inbound traffic on TCP port 80 from the specified security group. The group must be in the same VPC or a peer VPC. Incoming traffic is allowed based on the private IP addresses of instances that are associated with the specified security group.
  * const input = {
- *   "GroupId": "sg-111aaa22",
- *   "IpPermissions": [
+ *   GroupId: "sg-111aaa22",
+ *   IpPermissions: [
  *     {
- *       "FromPort": 80,
- *       "IpProtocol": "tcp",
- *       "ToPort": 80,
- *       "UserIdGroupPairs": [
+ *       FromPort: 80,
+ *       IpProtocol: "tcp",
+ *       ToPort: 80,
+ *       UserIdGroupPairs: [
  *         {
- *           "Description": "HTTP access from other instances",
- *           "GroupId": "sg-1a2b3c4d"
+ *           Description: "HTTP access from other instances",
+ *           GroupId: "sg-1a2b3c4d"
  *         }
  *       ]
  *     }
  *   ]
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: to-add-a-rule-that-allows-inbound-http-traffic-from-another-security-group-1529012163168
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example To add a rule that allows inbound SSH traffic from an IPv4 address range
+ * ```javascript
+ * // This example enables inbound traffic on TCP port 22 (SSH). The rule includes a description to help you identify it later.
+ * const input = {
+ *   GroupId: "sg-903004f8",
+ *   IpPermissions: [
+ *     {
+ *       FromPort: 22,
+ *       IpProtocol: "tcp",
+ *       IpRanges: [
+ *         {
+ *           CidrIp: "203.0.113.0/24",
+ *           Description: "SSH access from the LA office"
+ *         }
+ *       ],
+ *       ToPort: 22
+ *     }
+ *   ]
+ * };
+ * const command = new AuthorizeSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To add a rule that allows inbound RDP traffic from an IPv6 address range
  * ```javascript
  * // This example adds an inbound rule that allows RDP traffic from the specified IPv6 address range. The rule includes a description to help you identify it later.
  * const input = {
- *   "GroupId": "sg-123abc12 ",
- *   "IpPermissions": [
+ *   GroupId: "sg-123abc12 ",
+ *   IpPermissions: [
  *     {
- *       "FromPort": 3389,
- *       "IpProtocol": "tcp",
- *       "Ipv6Ranges": [
+ *       FromPort: 3389,
+ *       IpProtocol: "tcp",
+ *       Ipv6Ranges: [
  *         {
- *           "CidrIpv6": "2001:db8:1234:1a00::/64",
- *           "Description": "RDP access from the NY office"
+ *           CidrIpv6: "2001:db8:1234:1a00::/64",
+ *           Description: "RDP access from the NY office"
  *         }
  *       ],
- *       "ToPort": 3389
+ *       ToPort: 3389
  *     }
  *   ]
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: to-add-a-rule-with-a-description-1529012418116
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AuthorizeSecurityGroupIngressCommand extends $Command
   .classBuilder<
@@ -234,9 +242,7 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -248,4 +254,16 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeSecurityGroupIngressCommand)
   .de(de_AuthorizeSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeSecurityGroupIngressRequest;
+      output: AuthorizeSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: AuthorizeSecurityGroupIngressCommandInput;
+      output: AuthorizeSecurityGroupIngressCommandOutput;
+    };
+  };
+}

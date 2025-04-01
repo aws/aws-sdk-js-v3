@@ -166,6 +166,7 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeActivitiesCommand extends $Command
@@ -176,9 +177,7 @@ export class DescribeActivitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +189,16 @@ export class DescribeActivitiesCommand extends $Command
   .f(DescribeActivitiesRequestFilterSensitiveLog, DescribeActivitiesResponseFilterSensitiveLog)
   .ser(se_DescribeActivitiesCommand)
   .de(de_DescribeActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActivitiesRequest;
+      output: DescribeActivitiesResponse;
+    };
+    sdk: {
+      input: DescribeActivitiesCommandInput;
+      output: DescribeActivitiesCommandOutput;
+    };
+  };
+}

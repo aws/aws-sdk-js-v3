@@ -75,6 +75,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class StartFlowCommand extends $Command
@@ -85,9 +86,7 @@ export class StartFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StartFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFlowCommand)
   .de(de_StartFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFlowRequest;
+      output: StartFlowResponse;
+    };
+    sdk: {
+      input: StartFlowCommandInput;
+      output: StartFlowCommandOutput;
+    };
+  };
+}

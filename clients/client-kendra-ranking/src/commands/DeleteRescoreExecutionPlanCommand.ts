@@ -85,6 +85,7 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class DeleteRescoreExecutionPlanCommand extends $Command
@@ -95,9 +96,7 @@ export class DeleteRescoreExecutionPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DeleteRescoreExecutionPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRescoreExecutionPlanCommand)
   .de(de_DeleteRescoreExecutionPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRescoreExecutionPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRescoreExecutionPlanCommandInput;
+      output: DeleteRescoreExecutionPlanCommandOutput;
+    };
+  };
+}

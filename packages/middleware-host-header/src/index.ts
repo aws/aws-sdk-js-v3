@@ -10,18 +10,28 @@ interface PreviouslyResolved {
   requestHandler: RequestHandler<any, any>;
 }
 
+/**
+ * @internal
+ */
 export interface HostHeaderResolvedConfig {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
   requestHandler: RequestHandler<any, any>;
 }
+
+/**
+ * @internal
+ */
 export function resolveHostHeaderConfig<T>(
   input: T & PreviouslyResolved & HostHeaderInputConfig
 ): T & HostHeaderResolvedConfig {
   return input;
 }
 
+/**
+ * @internal
+ */
 export const hostHeaderMiddleware =
   <Input extends object, Output extends object>(options: HostHeaderResolvedConfig): BuildMiddleware<Input, Output> =>
   (next) =>
@@ -43,6 +53,9 @@ export const hostHeaderMiddleware =
     return next(args);
   };
 
+/**
+ * @internal
+ */
 export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "hostHeaderMiddleware",
   step: "build",
@@ -51,6 +64,9 @@ export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation
   override: true,
 };
 
+/**
+ * @internal
+ */
 export const getHostHeaderPlugin = (options: HostHeaderResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(hostHeaderMiddleware(options), hostHeaderMiddlewareOptions);

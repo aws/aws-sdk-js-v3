@@ -57,6 +57,11 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  *   AutoMinorVersionUpgrade: true || false,
  *   ReplicationInstanceIdentifier: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ *     KeyCacheSecretId: "STRING_VALUE",
+ *     KeyCacheSecretIamArn: "STRING_VALUE",
+ *     Krb5FileContents: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
@@ -121,6 +126,11 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * //     FreeUntil: new Date("TIMESTAMP"),
  * //     DnsNameServers: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
+ * //     KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //       KeyCacheSecretId: "STRING_VALUE",
+ * //       KeyCacheSecretIamArn: "STRING_VALUE",
+ * //       Krb5FileContents: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -157,81 +167,81 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify replication instance
  * ```javascript
  * // Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.
  * const input = {
- *   "AllocatedStorage": 123,
- *   "AllowMajorVersionUpgrade": true,
- *   "ApplyImmediately": true,
- *   "AutoMinorVersionUpgrade": true,
- *   "EngineVersion": "1.5.0",
- *   "MultiAZ": true,
- *   "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
- *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *   "ReplicationInstanceClass": "dms.t2.micro",
- *   "ReplicationInstanceIdentifier": "test-rep-1",
- *   "VpcSecurityGroupIds": []
+ *   AllocatedStorage: 123,
+ *   AllowMajorVersionUpgrade: true,
+ *   ApplyImmediately: true,
+ *   AutoMinorVersionUpgrade: true,
+ *   EngineVersion: "1.5.0",
+ *   MultiAZ: true,
+ *   PreferredMaintenanceWindow: "sun:06:00-sun:14:00",
+ *   ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *   ReplicationInstanceClass: "dms.t2.micro",
+ *   ReplicationInstanceIdentifier: "test-rep-1",
+ *   VpcSecurityGroupIds:   []
  * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationInstance": {
- *     "AllocatedStorage": 5,
- *     "AutoMinorVersionUpgrade": true,
- *     "EngineVersion": "1.5.0",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *     "PendingModifiedValues": {},
- *     "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
- *     "PubliclyAccessible": true,
- *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *     "ReplicationInstanceClass": "dms.t2.micro",
- *     "ReplicationInstanceIdentifier": "test-rep-1",
- *     "ReplicationInstanceStatus": "available",
- *     "ReplicationSubnetGroup": {
- *       "ReplicationSubnetGroupDescription": "default",
- *       "ReplicationSubnetGroupIdentifier": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
+ *   ReplicationInstance: {
+ *     AllocatedStorage: 5,
+ *     AutoMinorVersionUpgrade: true,
+ *     EngineVersion: "1.5.0",
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredMaintenanceWindow: "sun:06:00-sun:14:00",
+ *     PubliclyAccessible: true,
+ *     ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     ReplicationInstanceClass: "dms.t2.micro",
+ *     ReplicationInstanceIdentifier: "test-rep-1",
+ *     ReplicationInstanceStatus: "available",
+ *     ReplicationSubnetGroup: {
+ *       ReplicationSubnetGroupDescription: "default",
+ *       ReplicationSubnetGroupIdentifier: "default",
+ *       SubnetGroupStatus: "Complete",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1d"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1d"
  *           },
- *           "SubnetIdentifier": "subnet-f6dd91af",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-f6dd91af",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1b"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1b"
  *           },
- *           "SubnetIdentifier": "subnet-3605751d",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-3605751d",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1c"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1c"
  *           },
- *           "SubnetIdentifier": "subnet-c2daefb5",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-c2daefb5",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1e"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1e"
  *           },
- *           "SubnetIdentifier": "subnet-85e90cb8",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-85e90cb8",
+ *           SubnetStatus: "Active"
  *         }
  *       ],
- *       "VpcId": "vpc-6741a603"
+ *       VpcId: "vpc-6741a603"
  *     }
  *   }
  * }
  * *\/
- * // example id: modify-replication-instance-1481761784746
  * ```
  *
+ * @public
  */
 export class ModifyReplicationInstanceCommand extends $Command
   .classBuilder<
@@ -241,9 +251,7 @@ export class ModifyReplicationInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -255,4 +263,16 @@ export class ModifyReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationInstanceCommand)
   .de(de_ModifyReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationInstanceMessage;
+      output: ModifyReplicationInstanceResponse;
+    };
+    sdk: {
+      input: ModifyReplicationInstanceCommandInput;
+      output: ModifyReplicationInstanceCommandOutput;
+    };
+  };
+}

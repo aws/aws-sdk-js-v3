@@ -75,6 +75,7 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class PutLabelCommand extends $Command
@@ -85,9 +86,7 @@ export class PutLabelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class PutLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLabelCommand)
   .de(de_PutLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLabelRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutLabelCommandInput;
+      output: PutLabelCommandOutput;
+    };
+  };
+}

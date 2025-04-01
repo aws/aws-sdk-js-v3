@@ -184,6 +184,36 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To create a policy template
+ * ```javascript
+ * // The following example creates a policy template that has a placeholder for the principal.
+ * const input = {
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   description: "Template for research dept",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   statement: `"AccessVacation"
+ * permit(
+ *     principal in ?principal,
+ *     action == Action::"view",
+ *     resource == Photo::"VacationPhoto94.jpg"
+ * )
+ * when {
+ *     principal has department && principal.department == "research"
+ * };`
+ * };
+ * const command = new CreatePolicyTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreatePolicyTemplateCommand extends $Command
@@ -194,9 +224,7 @@ export class CreatePolicyTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +236,16 @@ export class CreatePolicyTemplateCommand extends $Command
   .f(CreatePolicyTemplateInputFilterSensitiveLog, void 0)
   .ser(se_CreatePolicyTemplateCommand)
   .de(de_CreatePolicyTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePolicyTemplateInput;
+      output: CreatePolicyTemplateOutput;
+    };
+    sdk: {
+      input: CreatePolicyTemplateCommandInput;
+      output: CreatePolicyTemplateCommandOutput;
+    };
+  };
+}

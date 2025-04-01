@@ -46,7 +46,10 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  *   actionGroupId: "STRING_VALUE", // required
  *   actionGroupName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   parentActionGroupSignature: "AMAZON.UserInput",
+ *   parentActionGroupSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter" || "ANTHROPIC.Computer" || "ANTHROPIC.Bash" || "ANTHROPIC.TextEditor",
+ *   parentActionGroupSignatureParams: { // ActionGroupSignatureParams
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  *     lambda: "STRING_VALUE",
  *     customControl: "RETURN_CONTROL",
@@ -71,6 +74,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  *             required: true || false,
  *           },
  *         },
+ *         requireConfirmation: "ENABLED" || "DISABLED",
  *       },
  *     ],
  *   },
@@ -87,7 +91,10 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * //     description: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
- * //     parentActionSignature: "AMAZON.UserInput",
+ * //     parentActionSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter" || "ANTHROPIC.Computer" || "ANTHROPIC.Bash" || "ANTHROPIC.TextEditor",
+ * //     parentActionGroupSignatureParams: { // ActionGroupSignatureParams
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //     actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  * //       lambda: "STRING_VALUE",
  * //       customControl: "RETURN_CONTROL",
@@ -111,6 +118,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * //               required: true || false,
  * //             },
  * //           },
+ * //           requireConfirmation: "ENABLED" || "DISABLED",
  * //         },
  * //       ],
  * //     },
@@ -150,6 +158,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentActionGroupCommand extends $Command
@@ -160,9 +169,7 @@ export class UpdateAgentActionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +181,16 @@ export class UpdateAgentActionGroupCommand extends $Command
   .f(UpdateAgentActionGroupRequestFilterSensitiveLog, UpdateAgentActionGroupResponseFilterSensitiveLog)
   .ser(se_UpdateAgentActionGroupCommand)
   .de(de_UpdateAgentActionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentActionGroupRequest;
+      output: UpdateAgentActionGroupResponse;
+    };
+    sdk: {
+      input: UpdateAgentActionGroupCommandInput;
+      output: UpdateAgentActionGroupCommandOutput;
+    };
+  };
+}

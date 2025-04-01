@@ -67,6 +67,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class GetConfigurationCommand extends $Command
@@ -77,9 +78,7 @@ export class GetConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class GetConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfigurationCommand)
   .de(de_GetConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetConfigurationResponse;
+    };
+    sdk: {
+      input: GetConfigurationCommandInput;
+      output: GetConfigurationCommandOutput;
+    };
+  };
+}

@@ -117,6 +117,7 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class ExportLambdaFunctionRecommendationsCommand extends $Command
@@ -127,9 +128,7 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportLambdaFunctionRecommendationsCommand)
   .de(de_ExportLambdaFunctionRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportLambdaFunctionRecommendationsRequest;
+      output: ExportLambdaFunctionRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportLambdaFunctionRecommendationsCommandInput;
+      output: ExportLambdaFunctionRecommendationsCommandOutput;
+    };
+  };
+}

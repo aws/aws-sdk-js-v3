@@ -1,11 +1,18 @@
 import { S3Control } from "@aws-sdk/client-s3-control";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 
 describe("middleware-apply-body-checksum", () => {
   describe(S3Control.name, () => {
     it("should add body-checksum", async () => {
-      const client = new S3Control({ region: "us-west-2" });
+      const client = new S3Control({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-md5": /^.{22}(==)?$/i,

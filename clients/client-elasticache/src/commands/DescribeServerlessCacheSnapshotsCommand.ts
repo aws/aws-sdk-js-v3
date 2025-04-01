@@ -36,7 +36,7 @@ export interface DescribeServerlessCacheSnapshotsCommandOutput
  * <p>Returns information about serverless cache snapshots.
  *            By default, this API lists all of the customer’s serverless cache snapshots.
  *            It can also describe a single serverless cache snapshot, or the snapshots associated with
- *            a particular serverless cache. Available for Redis only.</p>
+ *            a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,10 +91,11 @@ export interface DescribeServerlessCacheSnapshotsCommandOutput
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
+ *
  *
  * @public
  */
@@ -106,9 +107,7 @@ export class DescribeServerlessCacheSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class DescribeServerlessCacheSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServerlessCacheSnapshotsCommand)
   .de(de_DescribeServerlessCacheSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServerlessCacheSnapshotsRequest;
+      output: DescribeServerlessCacheSnapshotsResponse;
+    };
+    sdk: {
+      input: DescribeServerlessCacheSnapshotsCommandInput;
+      output: DescribeServerlessCacheSnapshotsCommandOutput;
+    };
+  };
+}

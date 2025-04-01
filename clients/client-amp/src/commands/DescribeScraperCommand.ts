@@ -75,6 +75,10 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //         workspaceArn: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     roleConfiguration: { // RoleConfiguration
+ * //       sourceRoleArn: "STRING_VALUE",
+ * //       targetRoleArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -105,6 +109,54 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example DescribeScraper, with no statusReason to report
+ * ```javascript
+ * //
+ * const input = {
+ *   scraperId: "scraper-123"
+ * };
+ * const command = new DescribeScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scraper: {
+ *     alias: "alias",
+ *     arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *     createdAt: "2023-01-01T00:00:00Z",
+ *     destination: {
+ *       ampConfiguration: {
+ *         workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *       }
+ *     },
+ *     lastModifiedAt: "2020-01-02T00:00:00Z",
+ *     roleArn: "arn:aws:iam::123456789012:role/exampleRole",
+ *     scrapeConfiguration: {
+ *       configurationBlob: "blob"
+ *     },
+ *     scraperId: "scraper-123",
+ *     source: {
+ *       eksConfiguration: {
+ *         clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example",
+ *         securityGroupIds: [
+ *           "sg-abc123"
+ *         ],
+ *         subnetIds: [
+ *           "subnet-abc123"
+ *         ]
+ *       }
+ *     },
+ *     status: {
+ *       statusCode: "ACTIVE"
+ *     },
+ *     tags: {
+ *       exampleTag: "exampleValue"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeScraperCommand extends $Command
@@ -115,9 +167,7 @@ export class DescribeScraperCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +179,16 @@ export class DescribeScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScraperCommand)
   .de(de_DescribeScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScraperRequest;
+      output: DescribeScraperResponse;
+    };
+    sdk: {
+      input: DescribeScraperCommandInput;
+      output: DescribeScraperCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchPredictionCommand extends $Command
@@ -89,9 +90,7 @@ export class CreateBatchPredictionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class CreateBatchPredictionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBatchPredictionCommand)
   .de(de_CreateBatchPredictionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchPredictionInput;
+      output: CreateBatchPredictionOutput;
+    };
+    sdk: {
+      input: CreateBatchPredictionCommandInput;
+      output: CreateBatchPredictionCommandOutput;
+    };
+  };
+}

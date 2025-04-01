@@ -97,6 +97,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class PutSnapshotBlockCommand extends $Command
@@ -107,9 +108,7 @@ export class PutSnapshotBlockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class PutSnapshotBlockCommand extends $Command
   .f(PutSnapshotBlockRequestFilterSensitiveLog, void 0)
   .ser(se_PutSnapshotBlockCommand)
   .de(de_PutSnapshotBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSnapshotBlockRequest;
+      output: PutSnapshotBlockResponse;
+    };
+    sdk: {
+      input: PutSnapshotBlockCommandInput;
+      output: PutSnapshotBlockCommandOutput;
+    };
+  };
+}

@@ -154,25 +154,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To schedule a KMS key for deletion
- * ```javascript
- * // The following example schedules the specified KMS key for deletion.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "PendingWindowInDays": 7
- * };
- * const command = new ScheduleKeyDeletionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DeletionDate": "2016-12-17T16:00:00-08:00",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
- * }
- * *\/
- * // example id: to-schedule-a-cmk-for-deletion-1481331111094
- * ```
  *
+ * @public
  */
 export class ScheduleKeyDeletionCommand extends $Command
   .classBuilder<
@@ -182,9 +165,7 @@ export class ScheduleKeyDeletionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +177,16 @@ export class ScheduleKeyDeletionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScheduleKeyDeletionCommand)
   .de(de_ScheduleKeyDeletionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScheduleKeyDeletionRequest;
+      output: ScheduleKeyDeletionResponse;
+    };
+    sdk: {
+      input: ScheduleKeyDeletionCommandInput;
+      output: ScheduleKeyDeletionCommandOutput;
+    };
+  };
+}

@@ -80,6 +80,7 @@ export interface DeleteCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class DeleteCalculatedAttributeDefinitionCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCalculatedAttributeDefinitionCommand)
   .de(de_DeleteCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCalculatedAttributeDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCalculatedAttributeDefinitionCommandInput;
+      output: DeleteCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

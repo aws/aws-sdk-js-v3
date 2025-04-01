@@ -131,6 +131,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutIntegrationCommand extends $Command
@@ -141,9 +142,7 @@ export class PutIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +154,16 @@ export class PutIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutIntegrationCommand)
   .de(de_PutIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIntegrationRequest;
+      output: Integration;
+    };
+    sdk: {
+      input: PutIntegrationCommandInput;
+      output: PutIntegrationCommandOutput;
+    };
+  };
+}

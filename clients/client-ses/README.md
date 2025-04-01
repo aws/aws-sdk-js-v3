@@ -44,7 +44,7 @@ Parameters</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ses
+To install this package, simply type add or install @aws-sdk/client-ses
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ses`

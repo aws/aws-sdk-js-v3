@@ -79,6 +79,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutPublicAccessBlockCommand extends $Command
@@ -106,4 +107,16 @@ export class PutPublicAccessBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPublicAccessBlockCommand)
   .de(de_PutPublicAccessBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPublicAccessBlockRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPublicAccessBlockCommandInput;
+      output: PutPublicAccessBlockCommandOutput;
+    };
+  };
+}

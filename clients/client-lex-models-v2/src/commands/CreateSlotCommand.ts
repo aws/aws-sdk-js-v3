@@ -886,6 +886,7 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateSlotCommand extends $Command
@@ -896,9 +897,7 @@ export class CreateSlotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -910,4 +909,16 @@ export class CreateSlotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSlotCommand)
   .de(de_CreateSlotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlotRequest;
+      output: CreateSlotResponse;
+    };
+    sdk: {
+      input: CreateSlotCommandInput;
+      output: CreateSlotCommandOutput;
+    };
+  };
+}

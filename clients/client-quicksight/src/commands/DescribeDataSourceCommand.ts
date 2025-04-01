@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_3";
+import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_4";
 import { de_DescribeDataSourceCommand, se_DescribeDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -88,6 +88,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Host: "STRING_VALUE", // required
  * //         Port: Number("int"), // required
  * //         Database: "STRING_VALUE", // required
+ * //         UseServiceName: true || false,
  * //       },
  * //       PostgreSqlParameters: { // PostgreSqlParameters
  * //         Host: "STRING_VALUE", // required
@@ -134,6 +135,16 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Host: "STRING_VALUE", // required
  * //         Database: "STRING_VALUE", // required
  * //         Warehouse: "STRING_VALUE", // required
+ * //         AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //         DatabaseAccessControlRole: "STRING_VALUE",
+ * //         OAuthParameters: { // OAuthParameters
+ * //           TokenProviderUrl: "STRING_VALUE", // required
+ * //           OAuthScope: "STRING_VALUE",
+ * //           IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ * //             VpcConnectionArn: "STRING_VALUE", // required
+ * //           },
+ * //           IdentityProviderResourceUri: "STRING_VALUE",
+ * //         },
  * //       },
  * //       SparkParameters: { // SparkParameters
  * //         Host: "STRING_VALUE", // required
@@ -170,6 +181,16 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Port: Number("int"), // required
  * //         Catalog: "STRING_VALUE", // required
  * //         ProductType: "GALAXY" || "ENTERPRISE",
+ * //         DatabaseAccessControlRole: "STRING_VALUE",
+ * //         AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //         OAuthParameters: {
+ * //           TokenProviderUrl: "STRING_VALUE", // required
+ * //           OAuthScope: "STRING_VALUE",
+ * //           IdentityProviderVpcConnectionProperties: {
+ * //             VpcConnectionArn: "STRING_VALUE", // required
+ * //           },
+ * //           IdentityProviderResourceUri: "STRING_VALUE",
+ * //         },
  * //       },
  * //       TrinoParameters: { // TrinoParameters
  * //         Host: "STRING_VALUE", // required
@@ -220,6 +241,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Port: Number("int"), // required
  * //           Database: "STRING_VALUE", // required
+ * //           UseServiceName: true || false,
  * //         },
  * //         PostgreSqlParameters: {
  * //           Host: "STRING_VALUE", // required
@@ -266,6 +288,16 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Database: "STRING_VALUE", // required
  * //           Warehouse: "STRING_VALUE", // required
+ * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           DatabaseAccessControlRole: "STRING_VALUE",
+ * //           OAuthParameters: {
+ * //             TokenProviderUrl: "STRING_VALUE", // required
+ * //             OAuthScope: "STRING_VALUE",
+ * //             IdentityProviderVpcConnectionProperties: {
+ * //               VpcConnectionArn: "STRING_VALUE", // required
+ * //             },
+ * //             IdentityProviderResourceUri: "STRING_VALUE",
+ * //           },
  * //         },
  * //         SparkParameters: {
  * //           Host: "STRING_VALUE", // required
@@ -302,6 +334,16 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Port: Number("int"), // required
  * //           Catalog: "STRING_VALUE", // required
  * //           ProductType: "GALAXY" || "ENTERPRISE",
+ * //           DatabaseAccessControlRole: "STRING_VALUE",
+ * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           OAuthParameters: {
+ * //             TokenProviderUrl: "STRING_VALUE", // required
+ * //             OAuthScope: "STRING_VALUE",
+ * //             IdentityProviderVpcConnectionProperties: {
+ * //               VpcConnectionArn: "STRING_VALUE", // required
+ * //             },
+ * //             IdentityProviderResourceUri: "STRING_VALUE",
+ * //           },
  * //         },
  * //         TrinoParameters: {
  * //           Host: "STRING_VALUE", // required
@@ -314,9 +356,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         },
  * //       },
  * //     ],
- * //     VpcConnectionProperties: { // VpcConnectionProperties
- * //       VpcConnectionArn: "STRING_VALUE", // required
- * //     },
+ * //     VpcConnectionProperties: "<VpcConnectionProperties>",
  * //     SslProperties: { // SslProperties
  * //       DisableSsl: true || false,
  * //     },
@@ -359,6 +399,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSourceCommand extends $Command
@@ -369,9 +410,7 @@ export class DescribeDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -383,4 +422,16 @@ export class DescribeDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSourceCommand)
   .de(de_DescribeDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSourceRequest;
+      output: DescribeDataSourceResponse;
+    };
+    sdk: {
+      input: DescribeDataSourceCommandInput;
+      output: DescribeDataSourceCommandOutput;
+    };
+  };
+}

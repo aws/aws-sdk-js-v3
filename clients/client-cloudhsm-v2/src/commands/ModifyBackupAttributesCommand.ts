@@ -96,6 +96,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyBackupAttributesCommand extends $Command
@@ -106,9 +107,7 @@ export class ModifyBackupAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ModifyBackupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyBackupAttributesCommand)
   .de(de_ModifyBackupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyBackupAttributesRequest;
+      output: ModifyBackupAttributesResponse;
+    };
+    sdk: {
+      input: ModifyBackupAttributesCommandInput;
+      output: ModifyBackupAttributesCommandOutput;
+    };
+  };
+}

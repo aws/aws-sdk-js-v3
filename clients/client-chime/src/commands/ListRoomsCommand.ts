@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_1";
+import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListRoomsCommand, se_ListRoomsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -89,6 +89,7 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListRoomsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListRoomsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListRoomsCommand extends $Command
   .f(void 0, ListRoomsResponseFilterSensitiveLog)
   .ser(se_ListRoomsCommand)
   .de(de_ListRoomsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoomsRequest;
+      output: ListRoomsResponse;
+    };
+    sdk: {
+      input: ListRoomsCommandInput;
+      output: ListRoomsCommandOutput;
+    };
+  };
+}

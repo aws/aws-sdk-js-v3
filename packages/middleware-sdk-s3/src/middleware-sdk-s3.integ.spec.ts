@@ -1,4 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -33,11 +34,11 @@ describe("middleware-sdk-s3", () => {
       const client = new S3({
         region: "us-west-2",
         logger: Object.assign({
-          trace: jest.fn(),
-          debug: jest.fn(),
-          info: jest.fn(),
-          warn: jest.fn(),
-          error: jest.fn(),
+          trace: vi.fn(),
+          debug: vi.fn(),
+          info: vi.fn(),
+          warn: vi.fn(),
+          error: vi.fn(),
         }),
       });
 

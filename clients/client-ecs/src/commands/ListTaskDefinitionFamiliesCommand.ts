@@ -68,10 +68,21 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -79,16 +90,34 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
+ * @example To filter your registered task definition families
+ * ```javascript
+ * // This example lists the task definition revisions that start with "hpcc".
+ * const input = {
+ *   familyPrefix: "hpcc"
+ * };
+ * const command = new ListTaskDefinitionFamiliesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   families: [
+ *     "hpcc",
+ *     "hpcc-c4-8xlarge"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example To list your registered task definition families
  * ```javascript
  * // This example lists all of your registered task definition families.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "families": [
+ *   families: [
  *     "node-js-app",
  *     "web-timer",
  *     "hpcc",
@@ -96,28 +125,9 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *   ]
  * }
  * *\/
- * // example id: b5c89769-1d94-4ca2-a79e-8069103c7f75
  * ```
  *
- * @example To filter your registered task definition families
- * ```javascript
- * // This example lists the task definition revisions that start with "hpcc".
- * const input = {
- *   "familyPrefix": "hpcc"
- * };
- * const command = new ListTaskDefinitionFamiliesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "families": [
- *     "hpcc",
- *     "hpcc-c4-8xlarge"
- *   ]
- * }
- * *\/
- * // example id: 8a4cf9a6-42c1-4fe3-852d-99ac8968e11b
- * ```
- *
+ * @public
  */
 export class ListTaskDefinitionFamiliesCommand extends $Command
   .classBuilder<
@@ -127,9 +137,7 @@ export class ListTaskDefinitionFamiliesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +149,16 @@ export class ListTaskDefinitionFamiliesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskDefinitionFamiliesCommand)
   .de(de_ListTaskDefinitionFamiliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskDefinitionFamiliesRequest;
+      output: ListTaskDefinitionFamiliesResponse;
+    };
+    sdk: {
+      input: ListTaskDefinitionFamiliesCommandInput;
+      output: ListTaskDefinitionFamiliesCommandOutput;
+    };
+  };
+}

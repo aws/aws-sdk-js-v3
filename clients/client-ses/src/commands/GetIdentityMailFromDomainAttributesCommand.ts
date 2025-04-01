@@ -74,31 +74,31 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript
  * // The following example returns the custom MAIL FROM attributes for an identity:
  * const input = {
- *   "Identities": [
+ *   Identities: [
  *     "example.com"
  *   ]
  * };
  * const command = new GetIdentityMailFromDomainAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MailFromDomainAttributes": {
- *     "example.com": {
- *       "BehaviorOnMXFailure": "UseDefaultValue",
- *       "MailFromDomain": "bounces.example.com",
- *       "MailFromDomainStatus": "Success"
+ *   MailFromDomainAttributes: {
+ *     example.com: {
+ *       BehaviorOnMXFailure: "UseDefaultValue",
+ *       MailFromDomain: "bounces.example.com",
+ *       MailFromDomainStatus: "Success"
  *     }
  *   }
  * }
  * *\/
- * // example id: getidentitymailfromdomainattributes-1469123114860
  * ```
  *
+ * @public
  */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command
   .classBuilder<
@@ -108,9 +108,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityMailFromDomainAttributesCommand)
   .de(de_GetIdentityMailFromDomainAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityMailFromDomainAttributesRequest;
+      output: GetIdentityMailFromDomainAttributesResponse;
+    };
+    sdk: {
+      input: GetIdentityMailFromDomainAttributesCommandInput;
+      output: GetIdentityMailFromDomainAttributesCommandOutput;
+    };
+  };
+}

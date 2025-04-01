@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartChatContactRequest, StartChatContactResponse } from "../models/models_2";
+import { StartChatContactResponse } from "../models/models_2";
+import { StartChatContactRequest, StartChatContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_StartChatContactCommand, se_StartChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -46,7 +47,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *          </ul>
  *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
  *    account may not support the ability to configure custom chat durations. For more information,
- *    contact Amazon Web Services Support. </p>
+ *    contact Amazon Web ServicesSupport. </p>
  *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
  *    Administrator Guide</i>: </p>
  *          <ul>
@@ -93,8 +94,19 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
+ *   CustomerId: "STRING_VALUE",
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
@@ -131,6 +143,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartChatContactCommand extends $Command
@@ -141,9 +154,7 @@ export class StartChatContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,7 +163,19 @@ export class StartChatContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartChatContact", {})
   .n("ConnectClient", "StartChatContactCommand")
-  .f(void 0, void 0)
+  .f(StartChatContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartChatContactCommand)
   .de(de_StartChatContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartChatContactRequest;
+      output: StartChatContactResponse;
+    };
+    sdk: {
+      input: StartChatContactCommandInput;
+      output: StartChatContactCommandOutput;
+    };
+  };
+}

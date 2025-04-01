@@ -133,6 +133,7 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkflowExecutionCommand extends $Command
@@ -143,9 +144,7 @@ export class DescribeWorkflowExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +156,16 @@ export class DescribeWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkflowExecutionCommand)
   .de(de_DescribeWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkflowExecutionInput;
+      output: WorkflowExecutionDetail;
+    };
+    sdk: {
+      input: DescribeWorkflowExecutionCommandInput;
+      output: DescribeWorkflowExecutionCommandOutput;
+    };
+  };
+}

@@ -13,6 +13,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
@@ -766,6 +767,7 @@ export const se_GetRepositoryEndpointCommand = async (
     [_do]: [, input[_dO]!],
     [_r]: [, __expectNonNull(input[_r]!, `repository`)],
     [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_eT]: [, input[_eT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2841,13 +2843,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _a = "asset";
 const _aA = "administratorAccount";
 const _aN = "assetName";
@@ -2861,6 +2856,7 @@ const _do = "domain-owner";
 const _dr = "destination-repository";
 const _du = "duration";
 const _eC = "externalConnection";
+const _eT = "endpointType";
 const _ec = "external-connection";
 const _f = "format";
 const _mR = "maxResults";

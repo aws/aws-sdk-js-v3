@@ -13,6 +13,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectString as __expectString,
+  isSerializableHeaderValue,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   serializeFloat as __serializeFloat,
@@ -459,7 +460,7 @@ const se_ClientChallenge = (input: ClientChallenge, context: __SerdeContext): an
     FaceMovementAndLightChallenge: (value) => ({
       FaceMovementAndLightChallenge: se_FaceMovementAndLightClientChallenge(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -645,13 +646,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CV = "ChallengeVersions";
 const _SI = "SessionId";

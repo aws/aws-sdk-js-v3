@@ -59,6 +59,7 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class NestedStructuresCommand extends $Command
@@ -77,4 +78,16 @@ export class NestedStructuresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NestedStructuresCommand)
   .de(de_NestedStructuresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NestedStructuresInput;
+      output: {};
+    };
+    sdk: {
+      input: NestedStructuresCommandInput;
+      output: NestedStructuresCommandOutput;
+    };
+  };
+}

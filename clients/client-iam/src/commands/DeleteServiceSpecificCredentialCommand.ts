@@ -61,6 +61,7 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceSpecificCredentialCommand extends $Command
@@ -71,9 +72,7 @@ export class DeleteServiceSpecificCredentialCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DeleteServiceSpecificCredentialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceSpecificCredentialCommand)
   .de(de_DeleteServiceSpecificCredentialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceSpecificCredentialRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceSpecificCredentialCommandInput;
+      output: DeleteServiceSpecificCredentialCommandOutput;
+    };
+  };
+}

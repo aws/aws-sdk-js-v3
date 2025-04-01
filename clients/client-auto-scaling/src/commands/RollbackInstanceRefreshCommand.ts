@@ -50,7 +50,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  *             </li>
  *          </ul>
  *          <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately
- *             begins replacing instances. You can check the status of this operation through the <a>DescribeInstanceRefreshes</a> API operation. </p>
+ *             begins replacing instances. You can check the status of this operation through the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a> API operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,6 +98,7 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class RollbackInstanceRefreshCommand extends $Command
@@ -107,9 +109,7 @@ export class RollbackInstanceRefreshCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class RollbackInstanceRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackInstanceRefreshCommand)
   .de(de_RollbackInstanceRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackInstanceRefreshType;
+      output: RollbackInstanceRefreshAnswer;
+    };
+    sdk: {
+      input: RollbackInstanceRefreshCommandInput;
+      output: RollbackInstanceRefreshCommandOutput;
+    };
+  };
+}

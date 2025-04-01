@@ -134,6 +134,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command
@@ -144,9 +145,7 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventDetailsForOrganizationCommand)
   .de(de_DescribeEventDetailsForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventDetailsForOrganizationRequest;
+      output: DescribeEventDetailsForOrganizationResponse;
+    };
+    sdk: {
+      input: DescribeEventDetailsForOrganizationCommandInput;
+      output: DescribeEventDetailsForOrganizationCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,7 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class ListDetectorModelsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListDetectorModelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListDetectorModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDetectorModelsCommand)
   .de(de_ListDetectorModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDetectorModelsRequest;
+      output: ListDetectorModelsResponse;
+    };
+    sdk: {
+      input: ListDetectorModelsCommandInput;
+      output: ListDetectorModelsCommandOutput;
+    };
+  };
+}

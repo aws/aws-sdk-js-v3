@@ -50,13 +50,13 @@ export class ConflictException extends __BaseException {
    * <p>The ID of the resource associated with the request.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource associated with the request.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -115,45 +115,45 @@ export interface MaintenanceWindow {
    * <p>An option to select the default or custom maintenance window.</p>
    * @public
    */
-  type?: MaintenanceWindowType;
+  type: MaintenanceWindowType | undefined;
 
   /**
    * <p>The hour for the maintenance window start (<code>00</code>-<code>23</code>).</p>
    * @public
    */
-  startTimeHour?: number;
+  startTimeHour?: number | undefined;
 
   /**
    * <p>The minutes past the hour for the maintenance window start
    *                 (<code>00</code>-<code>59</code>).</p>
    * @public
    */
-  startTimeMinute?: number;
+  startTimeMinute?: number | undefined;
 
   /**
    * <p>The hour for the maintenance window end (<code>00</code>-<code>23</code>).</p>
    * @public
    */
-  endTimeHour?: number;
+  endTimeHour?: number | undefined;
 
   /**
    * <p>The minutes for the maintenance window end (<code>00</code>-<code>59</code>).</p>
    * @public
    */
-  endTimeMinute?: number;
+  endTimeMinute?: number | undefined;
 
   /**
    * <p>The days of the week during which the maintenance window is open.</p>
    * @public
    */
-  daysOfTheWeek?: DayOfWeek[];
+  daysOfTheWeek?: DayOfWeek[] | undefined;
 
   /**
    * <p>The option to set the maintenance window during the device local time or Universal
    *             Coordinated Time (UTC).</p>
    * @public
    */
-  applyTimeOf?: ApplyTimeOf;
+  applyTimeOf?: ApplyTimeOf | undefined;
 }
 
 /**
@@ -192,11 +192,11 @@ export interface CreateEnvironmentRequest {
    * <p>The name for the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn: string | undefined;
@@ -205,39 +205,39 @@ export interface CreateEnvironmentRequest {
    * <p>The URL for the identity provider login (only for environments that use AppStream 2.0).</p>
    * @public
    */
-  desktopEndpoint?: string;
+  desktopEndpoint?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>A specification for a time window to apply software updates.</p>
    * @public
    */
-  maintenanceWindow?: MaintenanceWindow;
+  maintenanceWindow?: MaintenanceWindow | undefined;
 
   /**
    * <p>An option to define which software updates to apply.</p>
    * @public
    */
-  softwareSetUpdateMode?: SoftwareSetUpdateMode;
+  softwareSetUpdateMode?: SoftwareSetUpdateMode | undefined;
 
   /**
    * <p>The ID of the software set to apply.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service key to use to encrypt the
    *             environment.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
@@ -252,19 +252,19 @@ export interface CreateEnvironmentRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
    * @public
    */
-  deviceCreationTags?: Record<string, string>;
+  deviceCreationTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -291,87 +291,87 @@ export interface EnvironmentSummary {
    * <p>The ID of the environment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
-  desktopArn?: string;
+  desktopArn?: string | undefined;
 
   /**
    * <p>The URL for the identity provider login (only for environments that use AppStream 2.0).</p>
    * @public
    */
-  desktopEndpoint?: string;
+  desktopEndpoint?: string | undefined;
 
   /**
    * <p>The type of streaming desktop for the environment.</p>
    * @public
    */
-  desktopType?: DesktopType;
+  desktopType?: DesktopType | undefined;
 
   /**
    * <p>The activation code to register a device to the environment.</p>
    * @public
    */
-  activationCode?: string;
+  activationCode?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>A specification for a time window to apply software updates.</p>
    * @public
    */
-  maintenanceWindow?: MaintenanceWindow;
+  maintenanceWindow?: MaintenanceWindow | undefined;
 
   /**
    * <p>An option to define which software updates to apply.</p>
    * @public
    */
-  softwareSetUpdateMode?: SoftwareSetUpdateMode;
+  softwareSetUpdateMode?: SoftwareSetUpdateMode | undefined;
 
   /**
    * <p>The ID of the software set to apply.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>The ID of the software set that is pending to be installed.</p>
    * @public
    */
-  pendingSoftwareSetId?: string;
+  pendingSoftwareSetId?: string | undefined;
 
   /**
    * <p>The timestamp of when the environment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -382,7 +382,7 @@ export interface CreateEnvironmentResponse {
    * <p>Describes an environment.</p>
    * @public
    */
-  environment?: EnvironmentSummary;
+  environment?: EnvironmentSummary | undefined;
 }
 
 /**
@@ -396,7 +396,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to wait before retrying the next request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -423,13 +423,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The ID of the resource associated with the request.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource associated with the request.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -457,25 +457,25 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The ID of the resource that exceeds the service quota.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that exceeds the service quota.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -505,19 +505,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The number of seconds to wait before retrying the next request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -580,13 +580,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the exception.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>A list of fields that didn't validate.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -626,7 +626,7 @@ export interface DeleteDeviceRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -657,7 +657,7 @@ export interface DeleteEnvironmentRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface DeregisterDeviceRequest {
    * <p>The desired new status for the device.</p>
    * @public
    */
-  targetDeviceStatus?: TargetDeviceStatus;
+  targetDeviceStatus?: TargetDeviceStatus | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
@@ -708,7 +708,7 @@ export interface DeregisterDeviceRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -772,130 +772,132 @@ export interface Device {
    * <p>The ID of the device.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The hardware serial number of the device.</p>
    * @public
    */
-  serialNumber?: string;
+  serialNumber?: string | undefined;
 
   /**
    * <p>The name of the device.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The model number of the device.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The ID of the environment the device is associated with.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The status of the device.</p>
    * @public
    */
-  status?: DeviceStatus;
+  status?: DeviceStatus | undefined;
 
   /**
    * <p>The ID of the software set currently installed on the device.</p>
    * @public
    */
-  currentSoftwareSetId?: string;
+  currentSoftwareSetId?: string | undefined;
 
   /**
    * <p>The version of the software set currently installed on the device.</p>
    * @public
    */
-  currentSoftwareSetVersion?: string;
+  currentSoftwareSetVersion?: string | undefined;
 
   /**
    * <p>The ID of the software set which the device has been set to.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>The ID of the software set that is pending to be installed on the device.</p>
    * @public
    */
-  pendingSoftwareSetId?: string;
+  pendingSoftwareSetId?: string | undefined;
 
   /**
    * <p>The version of the software set that is pending to be installed on the device.</p>
    * @public
    */
-  pendingSoftwareSetVersion?: string;
+  pendingSoftwareSetVersion?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>Describes if the software currently installed on the device is a supported
    *             version.</p>
    * @public
    */
-  softwareSetComplianceStatus?: DeviceSoftwareSetComplianceStatus;
+  softwareSetComplianceStatus?: DeviceSoftwareSetComplianceStatus | undefined;
 
   /**
    * <p>Describes if the device has a supported version of software installed.</p>
    * @public
    */
-  softwareSetUpdateStatus?: SoftwareSetUpdateStatus;
+  softwareSetUpdateStatus?: SoftwareSetUpdateStatus | undefined;
 
   /**
    * <p>The timestamp of the most recent session on the device.</p>
    * @public
    */
-  lastConnectedAt?: Date;
+  lastConnectedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of the most recent check-in of the device.</p>
    * @public
    */
-  lastPostureAt?: Date;
+  lastPostureAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the
    *             device.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -907,92 +909,92 @@ export interface DeviceSummary {
    * <p>The ID of the device.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The hardware serial number of the device.</p>
    * @public
    */
-  serialNumber?: string;
+  serialNumber?: string | undefined;
 
   /**
    * <p>The name of the device.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The model number of the device.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The ID of the environment the device is associated with.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The status of the device.</p>
    * @public
    */
-  status?: DeviceStatus;
+  status?: DeviceStatus | undefined;
 
   /**
    * <p>The ID of the software set currently installed on the device.</p>
    * @public
    */
-  currentSoftwareSetId?: string;
+  currentSoftwareSetId?: string | undefined;
 
   /**
    * <p>The ID of the software set which the device has been set to.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>The ID of the software set that is pending to be installed on the device.</p>
    * @public
    */
-  pendingSoftwareSetId?: string;
+  pendingSoftwareSetId?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>The timestamp of the most recent session on the device.</p>
    * @public
    */
-  lastConnectedAt?: Date;
+  lastConnectedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of the most recent check-in of the device.</p>
    * @public
    */
-  lastPostureAt?: Date;
+  lastPostureAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1020,125 +1022,127 @@ export interface Environment {
    * <p>The ID of the environment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
-  desktopArn?: string;
+  desktopArn?: string | undefined;
 
   /**
    * <p>The URL for the identity provider login (only for environments that use AppStream 2.0).</p>
    * @public
    */
-  desktopEndpoint?: string;
+  desktopEndpoint?: string | undefined;
 
   /**
    * <p>The type of streaming desktop for the environment.</p>
    * @public
    */
-  desktopType?: DesktopType;
+  desktopType?: DesktopType | undefined;
 
   /**
    * <p>The activation code to register a device to the environment.</p>
    * @public
    */
-  activationCode?: string;
+  activationCode?: string | undefined;
 
   /**
    * <p>The number of devices registered to the environment.</p>
    * @public
    */
-  registeredDevicesCount?: number;
+  registeredDevicesCount?: number | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>A specification for a time window to apply software updates.</p>
    * @public
    */
-  maintenanceWindow?: MaintenanceWindow;
+  maintenanceWindow?: MaintenanceWindow | undefined;
 
   /**
    * <p>An option to define which software updates to apply.</p>
    * @public
    */
-  softwareSetUpdateMode?: SoftwareSetUpdateMode;
+  softwareSetUpdateMode?: SoftwareSetUpdateMode | undefined;
 
   /**
    * <p>The ID of the software set to apply.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>The ID of the software set that is pending to be installed.</p>
    * @public
    */
-  pendingSoftwareSetId?: string;
+  pendingSoftwareSetId?: string | undefined;
 
   /**
    * <p>The version of the software set that is pending to be installed.</p>
    * @public
    */
-  pendingSoftwareSetVersion?: string;
+  pendingSoftwareSetVersion?: string | undefined;
 
   /**
    * <p>Describes if the software currently installed on all devices in the environment is a
    *             supported version.</p>
    * @public
    */
-  softwareSetComplianceStatus?: EnvironmentSoftwareSetComplianceStatus;
+  softwareSetComplianceStatus?: EnvironmentSoftwareSetComplianceStatus | undefined;
 
   /**
    * <p>The timestamp of when the environment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the device was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the
    *             environment.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
-   * <p>"The tag keys and optional values for the newly created devices for this environment."</p>
+   * <p>The tag keys and optional values for the newly created devices for this environment.</p>
    * @public
    */
-  deviceCreationTags?: Record<string, string>;
+  deviceCreationTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1160,7 +1164,7 @@ export interface GetDeviceResponse {
    * <p>Describes an device.</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 }
 
 /**
@@ -1182,7 +1186,7 @@ export interface GetEnvironmentResponse {
    * <p>Describes an environment.</p>
    * @public
    */
-  environment?: Environment;
+  environment?: Environment | undefined;
 }
 
 /**
@@ -1205,13 +1209,13 @@ export interface Software {
    * <p>The name of the software component.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the software component.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 }
 
 /**
@@ -1238,49 +1242,51 @@ export interface SoftwareSet {
    * <p>The ID of the software set.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The version of the software set.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The timestamp of when the software set was released.</p>
    * @public
    */
-  releasedAt?: Date;
+  releasedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of the end of support for the software set.</p>
    * @public
    */
-  supportedUntil?: Date;
+  supportedUntil?: Date | undefined;
 
   /**
    * <p>An option to define if the software set has been validated.</p>
    * @public
    */
-  validationStatus?: SoftwareSetValidationStatus;
+  validationStatus?: SoftwareSetValidationStatus | undefined;
 
   /**
    * <p>A list of the software components in the software set.</p>
    * @public
    */
-  software?: Software[];
+  software?: Software[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the software set.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1291,7 +1297,7 @@ export interface GetSoftwareSetResponse {
    * <p>Describes a software set.</p>
    * @public
    */
-  softwareSet?: SoftwareSet;
+  softwareSet?: SoftwareSet | undefined;
 }
 
 /**
@@ -1306,7 +1312,7 @@ export interface ListDevicesRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
@@ -1315,7 +1321,7 @@ export interface ListDevicesRequest {
    *             fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1326,7 +1332,7 @@ export interface ListDevicesResponse {
    * <p>Describes devices.</p>
    * @public
    */
-  devices?: DeviceSummary[];
+  devices?: DeviceSummary[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1336,7 +1342,7 @@ export interface ListDevicesResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1351,7 +1357,7 @@ export interface ListEnvironmentsRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
@@ -1360,7 +1366,7 @@ export interface ListEnvironmentsRequest {
    *             fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1371,7 +1377,7 @@ export interface ListEnvironmentsResponse {
    * <p>Describes environments.</p>
    * @public
    */
-  environments?: EnvironmentSummary[];
+  environments?: EnvironmentSummary[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1381,7 +1387,7 @@ export interface ListEnvironmentsResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1396,7 +1402,7 @@ export interface ListSoftwareSetsRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
@@ -1405,7 +1411,7 @@ export interface ListSoftwareSetsRequest {
    *             fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1417,37 +1423,37 @@ export interface SoftwareSetSummary {
    * <p>The ID of the software set.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The version of the software set.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The timestamp of when the software set was released.</p>
    * @public
    */
-  releasedAt?: Date;
+  releasedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of the end of support for the software set.</p>
    * @public
    */
-  supportedUntil?: Date;
+  supportedUntil?: Date | undefined;
 
   /**
    * <p>An option to define if the software set has been validated.</p>
    * @public
    */
-  validationStatus?: SoftwareSetValidationStatus;
+  validationStatus?: SoftwareSetValidationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the software set.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1458,7 +1464,7 @@ export interface ListSoftwareSetsResponse {
    * <p>Describes software sets.</p>
    * @public
    */
-  softwareSets?: SoftwareSetSummary[];
+  softwareSets?: SoftwareSetSummary[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1468,7 +1474,7 @@ export interface ListSoftwareSetsResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1491,7 +1497,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1553,20 +1559,20 @@ export interface UpdateDeviceRequest {
    * <p>The name of the device to update.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the software set to apply.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 }
 
 /**
@@ -1577,7 +1583,7 @@ export interface UpdateDeviceResponse {
    * <p>Describes a device.</p>
    * @public
    */
-  device?: DeviceSummary;
+  device?: DeviceSummary | undefined;
 }
 
 /**
@@ -1594,51 +1600,51 @@ export interface UpdateEnvironmentRequest {
    * <p>The name of the environment to update.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
-  desktopArn?: string;
+  desktopArn?: string | undefined;
 
   /**
    * <p>The URL for the identity provider login (only for environments that use AppStream 2.0).</p>
    * @public
    */
-  desktopEndpoint?: string;
+  desktopEndpoint?: string | undefined;
 
   /**
    * <p>An option to define if software updates should be applied within a maintenance
    *             window.</p>
    * @public
    */
-  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
+  softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
    * <p>A specification for a time window to apply software updates.</p>
    * @public
    */
-  maintenanceWindow?: MaintenanceWindow;
+  maintenanceWindow?: MaintenanceWindow | undefined;
 
   /**
    * <p>An option to define which software updates to apply.</p>
    * @public
    */
-  softwareSetUpdateMode?: SoftwareSetUpdateMode;
+  softwareSetUpdateMode?: SoftwareSetUpdateMode | undefined;
 
   /**
    * <p>The ID of the software set to apply.</p>
    * @public
    */
-  desiredSoftwareSetId?: string;
+  desiredSoftwareSetId?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
    * @public
    */
-  deviceCreationTags?: Record<string, string>;
+  deviceCreationTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1649,7 +1655,7 @@ export interface UpdateEnvironmentResponse {
    * <p>Describes an environment.</p>
    * @public
    */
-  environment?: EnvironmentSummary;
+  environment?: EnvironmentSummary | undefined;
 }
 
 /**
@@ -1692,6 +1698,7 @@ export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): a
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
+  ...(obj.activationCode && { activationCode: SENSITIVE_STRING }),
 });
 
 /**
@@ -1726,6 +1733,7 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
+  ...(obj.activationCode && { activationCode: SENSITIVE_STRING }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
   ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });

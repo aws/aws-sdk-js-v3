@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -34,9 +35,9 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                   <code>CreateBucket</code>
  *                </a>.</p>
  *          </note>
- *          <p>Creates a new S3 bucket. To create a bucket, you must set up Amazon S3 and have a
- *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
- *          create buckets. By creating the bucket, you become the bucket owner.</p>
+ *          <p>Creates a new S3 bucket. To create a bucket, you must set up Amazon S3 and have a valid Amazon Web Services
+ *          Access Key ID to authenticate requests. Anonymous requests are never allowed to create
+ *          buckets. By creating the bucket, you become the bucket owner.</p>
  *          <p>There are two types of buckets: general purpose buckets and directory buckets. For more
  *          information about these bucket types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
  *             working with Amazon S3 buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -44,19 +45,22 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>General purpose buckets</b> - If you send your <code>CreateBucket</code> request to the <code>s3.amazonaws.com</code> global endpoint,
- *                   the request goes to the <code>us-east-1</code> Region. So the signature
- *                   calculations in Signature Version 4 must use <code>us-east-1</code> as the Region, even
- *                   if the location constraint in the request specifies another Region where the bucket is
- *                   to be created. If you create a bucket in a Region other than US East (N. Virginia), your
- *                   application must be able to handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
+ *                      <b>General purpose buckets</b> - If you send your
+ *                      <code>CreateBucket</code> request to the <code>s3.amazonaws.com</code> global
+ *                   endpoint, the request goes to the <code>us-east-1</code> Region. So the signature
+ *                   calculations in Signature Version 4 must use <code>us-east-1</code> as the Region,
+ *                   even if the location constraint in the request specifies another Region where the
+ *                   bucket is to be created. If you create a bucket in a Region other than US East (N.
+ *                   Virginia), your application must be able to handle 307 redirect. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
  *                      buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
+ *                      <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
  *                      </code>. Virtual-hosted-style requests aren't supported.
- * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *             </ul>
@@ -67,33 +71,40 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - In addition to the <code>s3:CreateBucket</code> permission, the following permissions are
- *                      required in a policy when your <code>CreateBucket</code> request includes specific
- *                      headers: </p>
+ *                         <b>General purpose bucket permissions</b> - In
+ *                         addition to the <code>s3:CreateBucket</code> permission, the following
+ *                         permissions are required in a policy when your <code>CreateBucket</code>
+ *                         request includes specific headers: </p>
  *                      <ul>
  *                         <li>
  *                            <p>
- *                               <b>Access control lists (ACLs)</b> - In your <code>CreateBucket</code> request, if you specify an access control list (ACL)
- *                               and set it to <code>public-read</code>, <code>public-read-write</code>,
- *                               <code>authenticated-read</code>, or if you explicitly specify any other custom ACLs, both <code>s3:CreateBucket</code> and
- *                               <code>s3:PutBucketAcl</code> permissions are required. In your <code>CreateBucket</code> request, if you set the ACL to <code>private</code>,
- *                               or if you don't specify any ACLs, only the <code>s3:CreateBucket</code> permission is required.
- *                            </p>
+ *                               <b>Access control lists (ACLs)</b>
+ *                               - In your <code>CreateBucket</code> request, if you specify an
+ *                               access control list (ACL) and set it to <code>public-read</code>,
+ *                                  <code>public-read-write</code>, <code>authenticated-read</code>, or
+ *                               if you explicitly specify any other custom ACLs, both
+ *                                  <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code>
+ *                               permissions are required. In your <code>CreateBucket</code> request,
+ *                               if you set the ACL to <code>private</code>, or if you don't specify
+ *                               any ACLs, only the <code>s3:CreateBucket</code> permission is
+ *                               required. </p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <b>Object Lock</b> - In your
- *                               <code>CreateBucket</code> request, if you set
- *                               <code>x-amz-bucket-object-lock-enabled</code> to true, the
- *                               <code>s3:PutBucketObjectLockConfiguration</code> and
- *                               <code>s3:PutBucketVersioning</code> permissions are required.</p>
+ *                                  <code>CreateBucket</code> request, if you set
+ *                                  <code>x-amz-bucket-object-lock-enabled</code> to true, the
+ *                                  <code>s3:PutBucketObjectLockConfiguration</code> and
+ *                                  <code>s3:PutBucketVersioning</code> permissions are
+ *                               required.</p>
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <b>S3 Object Ownership</b> - If your
- *                               <code>CreateBucket</code> request includes the
- *                               <code>x-amz-object-ownership</code> header, then the
- *                               <code>s3:PutBucketOwnershipControls</code> permission is required.</p>
+ *                               <b>S3 Object Ownership</b> - If
+ *                               your <code>CreateBucket</code> request includes the
+ *                                  <code>x-amz-object-ownership</code> header, then the
+ *                                  <code>s3:PutBucketOwnershipControls</code> permission is
+ *                               required.</p>
  *                            <important>
  *                               <p> To set an ACL on a bucket as part of a
  *                                     <code>CreateBucket</code> request, you must explicitly set S3
@@ -104,10 +115,10 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                                  Public Access on the bucket before using <code>PutBucketAcl</code>
  *                                  to set the ACL. If you try to create a bucket with a public ACL,
  *                                  the request will fail. </p>
- *                               <p> For the majority of modern use cases in S3, we recommend
- *                                  that you keep all Block Public Access settings enabled and keep
- *                                  ACLs disabled. If you would like to share data with users outside
- *                                  of your account, you can use bucket policies as needed. For more
+ *                               <p> For the majority of modern use cases in S3, we recommend that
+ *                                  you keep all Block Public Access settings enabled and keep ACLs
+ *                                  disabled. If you would like to share data with users outside of
+ *                                  your account, you can use bucket policies as needed. For more
  *                                  information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your
  *                                     bucket </a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage </a> in
  *                                  the <i>Amazon S3 User Guide</i>. </p>
@@ -115,30 +126,36 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <b>S3 Block Public Access</b> - If your
- *                               specific use case requires granting public access to your S3 resources, you
- *                               can disable Block Public Access. Specifically, you can create a new bucket with Block
- *                               Public Access enabled, then separately call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html">
+ *                               <b>S3 Block Public Access</b> - If
+ *                               your specific use case requires granting public access to your S3
+ *                               resources, you can disable Block Public Access. Specifically, you can
+ *                               create a new bucket with Block Public Access enabled, then separately
+ *                               call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html">
  *                                  <code>DeletePublicAccessBlock</code>
  *                               </a> API. To use this operation, you must have the
- *                               <code>s3:PutBucketPublicAccessBlock</code> permission. For more information about S3 Block Public
- *                               Access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking
- *                                  public access to your Amazon S3 storage </a> in the
- *                               <i>Amazon S3 User Guide</i>. </p>
+ *                                  <code>s3:PutBucketPublicAccessBlock</code> permission. For more
+ *                               information about S3 Block Public Access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage </a> in the
+ *                                  <i>Amazon S3 User Guide</i>. </p>
  *                         </li>
  *                      </ul>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> - You must have the <code>s3express:CreateBucket</code> permission in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource. For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         You must have the <code>s3express:CreateBucket</code> permission in
+ *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                      <important>
- *                         <p>The permissions for ACLs, Object Lock, S3 Object Ownership, and S3 Block Public Access are not supported for directory buckets.
- *                         For directory buckets, all Block Public Access settings are enabled at the bucket level and S3
- *                         Object Ownership is set to Bucket owner enforced (ACLs disabled). These settings can't be modified.
- *                      </p>
+ *                         <p>The permissions for ACLs, Object Lock, S3 Object Ownership, and S3
+ *                            Block Public Access are not supported for directory buckets. For
+ *                            directory buckets, all Block Public Access settings are enabled at the
+ *                            bucket level and S3 Object Ownership is set to Bucket owner enforced
+ *                            (ACLs disabled). These settings can't be modified. </p>
  *                         <p>For more information about permissions for creating and working with
- *                            directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the <i>Amazon S3 User Guide</i>.
- *                            For more information about supported S3 features for directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone.html#s3-express-features">Features of S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                            directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the
+ *                               <i>Amazon S3 User Guide</i>. For more information about
+ *                            supported S3 features for directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone.html#s3-express-features">Features of S3 Express One Zone</a> in the
+ *                               <i>Amazon S3 User Guide</i>.</p>
  *                      </important>
  *                   </li>
  *                </ul>
@@ -146,7 +163,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>CreateBucket</code>:</p>
@@ -172,13 +189,13 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
  *   Bucket: "STRING_VALUE", // required
  *   CreateBucketConfiguration: { // CreateBucketConfiguration
- *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
+ *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-southeast-4" || "ap-southeast-5" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-central-2" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "il-central-1" || "me-central-1" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
  *     Location: { // LocationInfo
- *       Type: "AvailabilityZone",
+ *       Type: "AvailabilityZone" || "LocalZone",
  *       Name: "STRING_VALUE",
  *     },
  *     Bucket: { // BucketInfo
- *       DataRedundancy: "SingleAvailabilityZone",
+ *       DataRedundancy: "SingleAvailabilityZone" || "SingleLocalZone",
  *       Type: "Directory",
  *     },
  *   },
@@ -217,42 +234,41 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "CreateBucketConfiguration": {
- *     "LocationConstraint": "eu-west-1"
+ *   Bucket: "examplebucket",
+ *   CreateBucketConfiguration: {
+ *     LocationConstraint: "eu-west-1"
  *   }
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Location": "http://examplebucket.<Region>.s3.amazonaws.com/"
+ *   Location: "http://examplebucket.<Region>.s3.amazonaws.com/"
  * }
  * *\/
- * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
  * ```
  *
  * @example To create a bucket
  * ```javascript
  * // The following example creates a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Location": "/examplebucket"
+ *   Location: "/examplebucket"
  * }
  * *\/
- * // example id: to-create-a-bucket--1472851826060
  * ```
  *
+ * @public
  */
 export class CreateBucketCommand extends $Command
   .classBuilder<
@@ -272,6 +288,7 @@ export class CreateBucketCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
       getLocationConstraintPlugin(config),
     ];
   })
@@ -280,4 +297,16 @@ export class CreateBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBucketCommand)
   .de(de_CreateBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBucketRequest;
+      output: CreateBucketOutput;
+    };
+    sdk: {
+      input: CreateBucketCommandInput;
+      output: CreateBucketCommandOutput;
+    };
+  };
+}

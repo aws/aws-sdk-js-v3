@@ -84,6 +84,7 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class PutContactInformationCommand extends $Command
@@ -94,9 +95,7 @@ export class PutContactInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class PutContactInformationCommand extends $Command
   .f(PutContactInformationRequestFilterSensitiveLog, void 0)
   .ser(se_PutContactInformationCommand)
   .de(de_PutContactInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutContactInformationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutContactInformationCommandInput;
+      output: PutContactInformationCommandOutput;
+    };
+  };
+}

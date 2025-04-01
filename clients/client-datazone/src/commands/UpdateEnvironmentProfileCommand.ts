@@ -11,7 +11,7 @@ import {
   UpdateEnvironmentProfileInputFilterSensitiveLog,
   UpdateEnvironmentProfileOutput,
   UpdateEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateEnvironmentProfileCommand, se_UpdateEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -115,6 +115,7 @@ export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironment
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentProfileCommand extends $Command
@@ -125,9 +126,7 @@ export class UpdateEnvironmentProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class UpdateEnvironmentProfileCommand extends $Command
   .f(UpdateEnvironmentProfileInputFilterSensitiveLog, UpdateEnvironmentProfileOutputFilterSensitiveLog)
   .ser(se_UpdateEnvironmentProfileCommand)
   .de(de_UpdateEnvironmentProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentProfileInput;
+      output: UpdateEnvironmentProfileOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentProfileCommandInput;
+      output: UpdateEnvironmentProfileCommandOutput;
+    };
+  };
+}

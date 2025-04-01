@@ -80,6 +80,7 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class StartPipelineReprocessingCommand extends $Command
@@ -90,9 +91,7 @@ export class StartPipelineReprocessingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class StartPipelineReprocessingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipelineReprocessingCommand)
   .de(de_StartPipelineReprocessingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipelineReprocessingRequest;
+      output: StartPipelineReprocessingResponse;
+    };
+    sdk: {
+      input: StartPipelineReprocessingCommandInput;
+      output: StartPipelineReprocessingCommandOutput;
+    };
+  };
+}

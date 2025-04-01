@@ -76,6 +76,7 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ *
  * @public
  */
 export class DeleteHumanLoopCommand extends $Command
@@ -86,9 +87,7 @@ export class DeleteHumanLoopCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeleteHumanLoopCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHumanLoopCommand)
   .de(de_DeleteHumanLoopCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHumanLoopRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHumanLoopCommandInput;
+      output: DeleteHumanLoopCommandOutput;
+    };
+  };
+}

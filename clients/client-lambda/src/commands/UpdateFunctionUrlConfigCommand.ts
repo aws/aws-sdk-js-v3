@@ -110,6 +110,7 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class UpdateFunctionUrlConfigCommand extends $Command
@@ -120,9 +121,7 @@ export class UpdateFunctionUrlConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class UpdateFunctionUrlConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFunctionUrlConfigCommand)
   .de(de_UpdateFunctionUrlConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionUrlConfigRequest;
+      output: UpdateFunctionUrlConfigResponse;
+    };
+    sdk: {
+      input: UpdateFunctionUrlConfigCommandInput;
+      output: UpdateFunctionUrlConfigCommandOutput;
+    };
+  };
+}

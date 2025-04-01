@@ -75,6 +75,7 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribePermissionsCommand extends $Command
@@ -85,9 +86,7 @@ export class DescribePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DescribePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePermissionsCommand)
   .de(de_DescribePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePermissionsRequest;
+      output: DescribePermissionsResult;
+    };
+    sdk: {
+      input: DescribePermissionsCommandInput;
+      output: DescribePermissionsCommandOutput;
+    };
+  };
+}

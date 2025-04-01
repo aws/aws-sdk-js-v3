@@ -108,6 +108,7 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RegisterDBProxyTargetsCommand extends $Command
@@ -118,9 +119,7 @@ export class RegisterDBProxyTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class RegisterDBProxyTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDBProxyTargetsCommand)
   .de(de_RegisterDBProxyTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDBProxyTargetsRequest;
+      output: RegisterDBProxyTargetsResponse;
+    };
+    sdk: {
+      input: RegisterDBProxyTargetsCommandInput;
+      output: RegisterDBProxyTargetsCommandOutput;
+    };
+  };
+}

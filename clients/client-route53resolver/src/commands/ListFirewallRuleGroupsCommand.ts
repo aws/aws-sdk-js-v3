@@ -82,6 +82,7 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListFirewallRuleGroupsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListFirewallRuleGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListFirewallRuleGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallRuleGroupsCommand)
   .de(de_ListFirewallRuleGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallRuleGroupsRequest;
+      output: ListFirewallRuleGroupsResponse;
+    };
+    sdk: {
+      input: ListFirewallRuleGroupsCommandInput;
+      output: ListFirewallRuleGroupsCommandOutput;
+    };
+  };
+}

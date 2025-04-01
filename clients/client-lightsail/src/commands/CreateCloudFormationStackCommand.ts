@@ -118,6 +118,7 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateCloudFormationStackCommand extends $Command
@@ -128,9 +129,7 @@ export class CreateCloudFormationStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class CreateCloudFormationStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudFormationStackCommand)
   .de(de_CreateCloudFormationStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudFormationStackRequest;
+      output: CreateCloudFormationStackResult;
+    };
+    sdk: {
+      input: CreateCloudFormationStackCommandInput;
+      output: CreateCloudFormationStackCommandOutput;
+    };
+  };
+}

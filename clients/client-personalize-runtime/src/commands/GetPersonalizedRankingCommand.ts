@@ -104,6 +104,7 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetPersonalizedRankingCommand extends $Command
@@ -114,9 +115,7 @@ export class GetPersonalizedRankingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class GetPersonalizedRankingCommand extends $Command
   .f(GetPersonalizedRankingRequestFilterSensitiveLog, GetPersonalizedRankingResponseFilterSensitiveLog)
   .ser(se_GetPersonalizedRankingCommand)
   .de(de_GetPersonalizedRankingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPersonalizedRankingRequest;
+      output: GetPersonalizedRankingResponse;
+    };
+    sdk: {
+      input: GetPersonalizedRankingCommandInput;
+      output: GetPersonalizedRankingCommandOutput;
+    };
+  };
+}

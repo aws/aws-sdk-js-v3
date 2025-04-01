@@ -74,6 +74,7 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command
@@ -84,9 +85,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCloudFrontOriginAccessIdentityCommand)
   .de(de_GetCloudFrontOriginAccessIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCloudFrontOriginAccessIdentityRequest;
+      output: GetCloudFrontOriginAccessIdentityResult;
+    };
+    sdk: {
+      input: GetCloudFrontOriginAccessIdentityCommandInput;
+      output: GetCloudFrontOriginAccessIdentityCommandOutput;
+    };
+  };
+}

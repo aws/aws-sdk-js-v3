@@ -220,11 +220,15 @@ import { GuardDutyServiceException as __BaseException } from "../models/GuardDut
 import {
   AccessControlList,
   AccessDeniedException,
+  AccessKey,
   AccessKeyDetails,
+  Account,
   AccountDetail,
   AccountFreeTrialInfo,
   AccountLevelPermissions,
+  AccountStatistics,
   Action,
+  Actor,
   AddonDetails,
   AdminAccount,
   Administrator,
@@ -232,6 +236,7 @@ import {
   Anomaly,
   AnomalyObject,
   AnomalyUnusual,
+  AutonomousSystem,
   AwsApiCallAction,
   BadRequestException,
   BlockPublicAccess,
@@ -262,6 +267,7 @@ import {
   DataSourceConfigurationsResult,
   DataSourceFreeTrial,
   DataSourcesFreeTrial,
+  DateStatistics,
   DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
@@ -276,6 +282,8 @@ import {
   EbsVolumeDetails,
   EbsVolumeScanDetails,
   EbsVolumesResult,
+  Ec2Instance,
+  Ec2NetworkInterface,
   EcsClusterDetails,
   EcsTaskDetails,
   EksClusterDetails,
@@ -288,6 +296,7 @@ import {
   FindingCriteria,
   FindingStatistics,
   FindingStatisticType,
+  FindingTypeStatistics,
   FlowLogsConfigurationResult,
   FreeTrialFeatureConfigurationResult,
   GeoLocation,
@@ -295,6 +304,7 @@ import {
   HostPath,
   IamInstanceProfile,
   ImpersonatedUser,
+  Indicator,
   InstanceDetails,
   InternalServerErrorException,
   ItemPath,
@@ -319,31 +329,24 @@ import {
   MalwareProtectionConfigurationResult,
   MalwareProtectionDataSourceFreeTrial,
   MalwareProtectionPlanActions,
-  MalwareProtectionPlanStatusReason,
   MalwareProtectionPlanTaggingAction,
   MalwareScanDetails,
-  Master,
-  Member,
-  MemberAdditionalConfigurationResult,
-  MemberDataSourceConfiguration,
-  MemberFeaturesConfigurationResult,
+  NetworkConnection,
   NetworkConnectionAction,
+  NetworkEndpoint,
+  NetworkGeoLocation,
   NetworkInterface,
   Observations,
   Organization,
   OrganizationAdditionalConfigurationResult,
   OrganizationDataSourceConfigurationsResult,
-  OrganizationDetails,
   OrganizationEbsVolumesResult,
   OrganizationFeatureConfigurationResult,
-  OrganizationFeatureStatistics,
-  OrganizationFeatureStatisticsAdditionalConfiguration,
   OrganizationKubernetesAuditLogsConfigurationResult,
   OrganizationKubernetesConfigurationResult,
   OrganizationMalwareProtectionConfigurationResult,
   OrganizationS3LogsConfigurationResult,
   OrganizationScanEc2InstanceWithFindingsResult,
-  OrganizationStatistics,
   Owner,
   PermissionConfiguration,
   PortProbeAction,
@@ -352,37 +355,44 @@ import {
   ProcessDetails,
   ProductCode,
   PublicAccess,
+  PublicAccessConfiguration,
   RdsDbInstanceDetails,
   RdsDbUserDetails,
+  RdsLimitlessDbDetails,
   RdsLoginAttemptAction,
   RemoteAccountDetails,
   RemoteIpDetails,
   RemotePortDetails,
   Resource,
+  ResourceData,
   ResourceDetails,
   ResourceNotFoundException,
+  ResourceStatistics,
+  ResourceV2,
   RuntimeContext,
   RuntimeDetails,
+  S3Bucket,
   S3BucketDetail,
   S3LogsConfiguration,
   S3LogsConfigurationResult,
+  S3Object,
   S3ObjectDetail,
   Scan,
-  ScanCondition,
-  ScanConditionPair,
-  ScanCriterionKey,
   ScanDetections,
   ScanEc2InstanceWithFindings,
   ScanEc2InstanceWithFindingsResult,
   ScanFilePath,
   ScannedItemCount,
-  ScanResourceCriteria,
   ScanResultDetails,
   ScanThreatName,
   SecurityContext,
   SecurityGroup,
+  Sequence,
   Service,
   ServiceAdditionalInfo,
+  Session,
+  SeverityStatistics,
+  Signal,
   SortCriteria,
   Tag,
   Threat,
@@ -392,6 +402,7 @@ import {
   TriggerDetails,
   UnprocessedAccount,
   UnprocessedDataSourcesResult,
+  User,
   Volume,
   VolumeDetail,
   VolumeMount,
@@ -399,18 +410,32 @@ import {
 } from "../models/models_0";
 import {
   Invitation,
+  MalwareProtectionPlanStatusReason,
   MalwareProtectionPlanSummary,
+  Master,
+  Member,
   MemberAdditionalConfiguration,
+  MemberAdditionalConfigurationResult,
+  MemberDataSourceConfiguration,
   MemberFeaturesConfiguration,
+  MemberFeaturesConfigurationResult,
   OrganizationAdditionalConfiguration,
   OrganizationDataSourceConfigurations,
+  OrganizationDetails,
   OrganizationEbsVolumes,
   OrganizationFeatureConfiguration,
+  OrganizationFeatureStatistics,
+  OrganizationFeatureStatisticsAdditionalConfiguration,
   OrganizationKubernetesAuditLogsConfiguration,
   OrganizationKubernetesConfiguration,
   OrganizationMalwareProtectionConfiguration,
   OrganizationS3LogsConfiguration,
   OrganizationScanEc2InstanceWithFindings,
+  OrganizationStatistics,
+  ScanCondition,
+  ScanConditionPair,
+  ScanCriterionKey,
+  ScanResourceCriteria,
   Total,
   UpdateProtectedResource,
   UpdateS3BucketResource,
@@ -1149,6 +1174,9 @@ export const se_GetFindingsStatisticsCommand = async (
     take(input, {
       findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
       findingStatisticTypes: [, (_) => _json(_), `FindingStatisticTypes`],
+      groupBy: [, , `GroupBy`],
+      maxResults: [, , `MaxResults`],
+      orderBy: [, , `OrderBy`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1758,10 +1786,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2698,6 +2723,7 @@ export const de_GetFindingsStatisticsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     FindingStatistics: [, (_) => de_FindingStatistics(_, context), `findingStatistics`],
+    NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -4282,6 +4308,17 @@ const de_AccessControlList = (output: any, context: __SerdeContext): AccessContr
 };
 
 /**
+ * deserializeAws_restJson1AccessKey
+ */
+const de_AccessKey = (output: any, context: __SerdeContext): AccessKey => {
+  return take(output, {
+    PrincipalId: [, __expectString, `principalId`],
+    UserName: [, __expectString, `userName`],
+    UserType: [, __expectString, `userType`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AccessKeyDetails
  */
 const de_AccessKeyDetails = (output: any, context: __SerdeContext): AccessKeyDetails => {
@@ -4290,6 +4327,16 @@ const de_AccessKeyDetails = (output: any, context: __SerdeContext): AccessKeyDet
     PrincipalId: [, __expectString, `principalId`],
     UserName: [, __expectString, `userName`],
     UserType: [, __expectString, `userType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Account
+ */
+const de_Account = (output: any, context: __SerdeContext): Account => {
+  return take(output, {
+    Name: [, __expectString, `account`],
+    Uid: [, __expectString, `uid`],
   }) as any;
 };
 
@@ -4326,6 +4373,17 @@ const de_AccountLevelPermissions = (output: any, context: __SerdeContext): Accou
 };
 
 /**
+ * deserializeAws_restJson1AccountStatistics
+ */
+const de_AccountStatistics = (output: any, context: __SerdeContext): AccountStatistics => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Action
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
@@ -4349,6 +4407,31 @@ const de_Action = (output: any, context: __SerdeContext): Action => {
     PortProbeAction: [, (_: any) => de_PortProbeAction(_, context), `portProbeAction`],
     RdsLoginAttemptAction: [, (_: any) => de_RdsLoginAttemptAction(_, context), `rdsLoginAttemptAction`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Actor
+ */
+const de_Actor = (output: any, context: __SerdeContext): Actor => {
+  return take(output, {
+    Id: [, __expectString, `id`],
+    Session: [, (_: any) => de_Session(_, context), `session`],
+    User: [, (_: any) => de_User(_, context), `user`],
+  }) as any;
+};
+
+// de_ActorIds omitted.
+
+/**
+ * deserializeAws_restJson1Actors
+ */
+const de_Actors = (output: any, context: __SerdeContext): Actor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Actor(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -4488,6 +4571,16 @@ const de_AnomalyUnusualBehaviorFeature = (output: any, context: __SerdeContext):
     acc[key as string] = de_AnomalyObject(value, context);
     return acc;
   }, {} as Record<string, AnomalyObject>);
+};
+
+/**
+ * deserializeAws_restJson1AutonomousSystem
+ */
+const de_AutonomousSystem = (output: any, context: __SerdeContext): AutonomousSystem => {
+  return take(output, {
+    Name: [, __expectString, `name`],
+    Number: [, __expectInt32, `number`],
+  }) as any;
 };
 
 /**
@@ -4803,6 +4896,18 @@ const de_DataSourcesFreeTrial = (output: any, context: __SerdeContext): DataSour
 };
 
 /**
+ * deserializeAws_restJson1DateStatistics
+ */
+const de_DateStatistics = (output: any, context: __SerdeContext): DateStatistics => {
+  return take(output, {
+    Date: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `date`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    Severity: [, __limitedParseDouble, `severity`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DefaultServerSideEncryption
  */
 const de_DefaultServerSideEncryption = (output: any, context: __SerdeContext): DefaultServerSideEncryption => {
@@ -4851,6 +4956,7 @@ const de_Destinations = (output: any, context: __SerdeContext): Destination[] =>
 const de_Detection = (output: any, context: __SerdeContext): Detection => {
   return take(output, {
     Anomaly: [, (_: any) => de_Anomaly(_, context), `anomaly`],
+    Sequence: [, (_: any) => de_Sequence(_, context), `sequence`],
   }) as any;
 };
 
@@ -4985,6 +5091,39 @@ const de_EbsVolumesResult = (output: any, context: __SerdeContext): EbsVolumesRe
 };
 
 /**
+ * deserializeAws_restJson1Ec2Instance
+ */
+const de_Ec2Instance = (output: any, context: __SerdeContext): Ec2Instance => {
+  return take(output, {
+    AvailabilityZone: [, __expectString, `availabilityZone`],
+    Ec2NetworkInterfaceUids: [, _json, `ec2NetworkInterfaceUids`],
+    IamInstanceProfile: (_: any) => de_IamInstanceProfile(_, context),
+    ImageDescription: [, __expectString, `imageDescription`],
+    InstanceState: [, __expectString, `instanceState`],
+    InstanceType: [, __expectString, `instanceType`],
+    OutpostArn: [, __expectString, `outpostArn`],
+    Platform: [, __expectString, `platform`],
+    ProductCodes: [, (_: any) => de_ProductCodes(_, context), `productCodes`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Ec2NetworkInterface
+ */
+const de_Ec2NetworkInterface = (output: any, context: __SerdeContext): Ec2NetworkInterface => {
+  return take(output, {
+    Ipv6Addresses: [, _json, `ipv6Addresses`],
+    PrivateIpAddresses: [, (_: any) => de_PrivateIpAddresses(_, context), `privateIpAddresses`],
+    PublicIp: [, __expectString, `publicIp`],
+    SecurityGroups: [, (_: any) => de_SecurityGroups(_, context), `securityGroups`],
+    SubNetId: [, __expectString, `subNetId`],
+    VpcId: [, __expectString, `vpcId`],
+  }) as any;
+};
+
+// de_Ec2NetworkInterfaceUids omitted.
+
+/**
  * deserializeAws_restJson1EcsClusterDetails
  */
 const de_EcsClusterDetails = (output: any, context: __SerdeContext): EcsClusterDetails => {
@@ -5009,6 +5148,7 @@ const de_EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails
     Containers: [, (_: any) => de_Containers(_, context), `containers`],
     DefinitionArn: [, __expectString, `definitionArn`],
     Group: [, __expectString, `group`],
+    LaunchType: [, __expectString, `launchType`],
     StartedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startedAt`],
     StartedBy: [, __expectString, `startedBy`],
     Tags: [, (_: any) => de_Tags(_, context), `tags`],
@@ -5031,6 +5171,8 @@ const de_EksClusterDetails = (output: any, context: __SerdeContext): EksClusterD
     VpcId: [, __expectString, `vpcId`],
   }) as any;
 };
+
+// de_EndpointIds omitted.
 
 // de_Eq omitted.
 
@@ -5076,6 +5218,7 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
   return take(output, {
     AccountId: [, __expectString, `accountId`],
     Arn: [, __expectString, `arn`],
+    AssociatedAttackSequenceArn: [, __expectString, `associatedAttackSequenceArn`],
     Confidence: [, __limitedParseDouble, `confidence`],
     CreatedAt: [, __expectString, `createdAt`],
     Description: [, __expectString, `description`],
@@ -5121,6 +5264,22 @@ const de_Findings = (output: any, context: __SerdeContext): Finding[] => {
 const de_FindingStatistics = (output: any, context: __SerdeContext): FindingStatistics => {
   return take(output, {
     CountBySeverity: [, _json, `countBySeverity`],
+    GroupedByAccount: [, (_: any) => de_GroupedByAccount(_, context), `groupedByAccount`],
+    GroupedByDate: [, (_: any) => de_GroupedByDate(_, context), `groupedByDate`],
+    GroupedByFindingType: [, (_: any) => de_GroupedByFindingType(_, context), `groupedByFindingType`],
+    GroupedByResource: [, (_: any) => de_GroupedByResource(_, context), `groupedByResource`],
+    GroupedBySeverity: [, (_: any) => de_GroupedBySeverity(_, context), `groupedBySeverity`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingTypeStatistics
+ */
+const de_FindingTypeStatistics = (output: any, context: __SerdeContext): FindingTypeStatistics => {
+  return take(output, {
+    FindingType: [, __expectString, `findingType`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
   }) as any;
 };
 
@@ -5173,6 +5332,66 @@ const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1GroupedByAccount
+ */
+const de_GroupedByAccount = (output: any, context: __SerdeContext): AccountStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AccountStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByDate
+ */
+const de_GroupedByDate = (output: any, context: __SerdeContext): DateStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DateStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByFindingType
+ */
+const de_GroupedByFindingType = (output: any, context: __SerdeContext): FindingTypeStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingTypeStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByResource
+ */
+const de_GroupedByResource = (output: any, context: __SerdeContext): ResourceStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedBySeverity
+ */
+const de_GroupedBySeverity = (output: any, context: __SerdeContext): SeverityStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SeverityStatistics(entry, context);
+    });
+  return retVal;
+};
+
 // de_Groups omitted.
 
 /**
@@ -5214,6 +5433,31 @@ const de_ImpersonatedUser = (output: any, context: __SerdeContext): Impersonated
     Username: [, __expectString, `username`],
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1Indicator
+ */
+const de_Indicator = (output: any, context: __SerdeContext): Indicator => {
+  return take(output, {
+    Key: [, __expectString, `key`],
+    Title: [, __expectString, `title`],
+    Values: [, _json, `values`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Indicators
+ */
+const de_Indicators = (output: any, context: __SerdeContext): Indicator[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Indicator(entry, context);
+    });
+  return retVal;
+};
+
+// de_IndicatorValues omitted.
 
 /**
  * deserializeAws_restJson1InstanceDetails
@@ -5299,7 +5543,7 @@ const de_KubernetesApiCallAction = (output: any, context: __SerdeContext): Kuber
     RequestUri: [, __expectString, `requestUri`],
     Resource: [, __expectString, `resource`],
     ResourceName: [, __expectString, `resourceName`],
-    SourceIps: [, _json, `sourceIps`],
+    SourceIps: [, _json, `sourceIPs`],
     StatusCode: [, __expectInt32, `statusCode`],
     Subresource: [, __expectString, `subresource`],
     UserAgent: [, __expectString, `userAgent`],
@@ -5760,6 +6004,15 @@ const de_Members = (output: any, context: __SerdeContext): Member[] => {
 // de_Neq omitted.
 
 /**
+ * deserializeAws_restJson1NetworkConnection
+ */
+const de_NetworkConnection = (output: any, context: __SerdeContext): NetworkConnection => {
+  return take(output, {
+    Direction: [, __expectString, `direction`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1NetworkConnectionAction
  */
 const de_NetworkConnectionAction = (output: any, context: __SerdeContext): NetworkConnectionAction => {
@@ -5767,10 +6020,50 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
     Blocked: [, __expectBoolean, `blocked`],
     ConnectionDirection: [, __expectString, `connectionDirection`],
     LocalIpDetails: [, (_: any) => de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalNetworkInterface: [, __expectString, `localNetworkInterface`],
     LocalPortDetails: [, (_: any) => de_LocalPortDetails(_, context), `localPortDetails`],
     Protocol: [, __expectString, `protocol`],
     RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
     RemotePortDetails: [, (_: any) => de_RemotePortDetails(_, context), `remotePortDetails`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpoint
+ */
+const de_NetworkEndpoint = (output: any, context: __SerdeContext): NetworkEndpoint => {
+  return take(output, {
+    AutonomousSystem: [, (_: any) => de_AutonomousSystem(_, context), `autonomousSystem`],
+    Connection: [, (_: any) => de_NetworkConnection(_, context), `connection`],
+    Domain: [, __expectString, `domain`],
+    Id: [, __expectString, `id`],
+    Ip: [, __expectString, `ip`],
+    Location: [, (_: any) => de_NetworkGeoLocation(_, context), `location`],
+    Port: [, __expectInt32, `port`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpoints
+ */
+const de_NetworkEndpoints = (output: any, context: __SerdeContext): NetworkEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetworkEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1NetworkGeoLocation
+ */
+const de_NetworkGeoLocation = (output: any, context: __SerdeContext): NetworkGeoLocation => {
+  return take(output, {
+    City: [, __expectString, `city`],
+    Country: [, __expectString, `country`],
+    Latitude: [, __limitedParseDouble, `lat`],
+    Longitude: [, __limitedParseDouble, `lon`],
   }) as any;
 };
 
@@ -6190,6 +6483,18 @@ const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => 
 };
 
 /**
+ * deserializeAws_restJson1PublicAccessConfiguration
+ */
+const de_PublicAccessConfiguration = (output: any, context: __SerdeContext): PublicAccessConfiguration => {
+  return take(output, {
+    PublicAclAccess: [, __expectString, `publicAclAccess`],
+    PublicAclIgnoreBehavior: [, __expectString, `publicAclIgnoreBehavior`],
+    PublicBucketRestrictBehavior: [, __expectString, `publicBucketRestrictBehavior`],
+    PublicPolicyAccess: [, __expectString, `publicPolicyAccess`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RdsDbInstanceDetails
  */
 const de_RdsDbInstanceDetails = (output: any, context: __SerdeContext): RdsDbInstanceDetails => {
@@ -6213,6 +6518,21 @@ const de_RdsDbUserDetails = (output: any, context: __SerdeContext): RdsDbUserDet
     Database: [, __expectString, `database`],
     Ssl: [, __expectString, `ssl`],
     User: [, __expectString, `user`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RdsLimitlessDbDetails
+ */
+const de_RdsLimitlessDbDetails = (output: any, context: __SerdeContext): RdsLimitlessDbDetails => {
+  return take(output, {
+    DbClusterIdentifier: [, __expectString, `dbClusterIdentifier`],
+    DbShardGroupArn: [, __expectString, `dbShardGroupArn`],
+    DbShardGroupIdentifier: [, __expectString, `dbShardGroupIdentifier`],
+    DbShardGroupResourceId: [, __expectString, `dbShardGroupResourceId`],
+    Engine: [, __expectString, `engine`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
   }) as any;
 };
 
@@ -6275,8 +6595,22 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
     LambdaDetails: [, (_: any) => de_LambdaDetails(_, context), `lambdaDetails`],
     RdsDbInstanceDetails: [, (_: any) => de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
     RdsDbUserDetails: [, (_: any) => de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
+    RdsLimitlessDbDetails: [, (_: any) => de_RdsLimitlessDbDetails(_, context), `rdsLimitlessDbDetails`],
     ResourceType: [, __expectString, `resourceType`],
     S3BucketDetails: [, (_: any) => de_S3BucketDetails(_, context), `s3BucketDetails`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceData
+ */
+const de_ResourceData = (output: any, context: __SerdeContext): ResourceData => {
+  return take(output, {
+    AccessKey: [, (_: any) => de_AccessKey(_, context), `accessKey`],
+    Ec2Instance: [, (_: any) => de_Ec2Instance(_, context), `ec2Instance`],
+    Ec2NetworkInterface: [, (_: any) => de_Ec2NetworkInterface(_, context), `ec2NetworkInterface`],
+    S3Bucket: [, (_: any) => de_S3Bucket(_, context), `s3Bucket`],
+    S3Object: [, (_: any) => de_S3Object(_, context), `s3Object`],
   }) as any;
 };
 
@@ -6286,6 +6620,50 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
 const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return take(output, {
     InstanceArn: [, __expectString, `instanceArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Resources
+ */
+const de_Resources = (output: any, context: __SerdeContext): ResourceV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceV2(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ResourceStatistics
+ */
+const de_ResourceStatistics = (output: any, context: __SerdeContext): ResourceStatistics => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    ResourceId: [, __expectString, `resourceId`],
+    ResourceType: [, __expectString, `resourceType`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+// de_ResourceUids omitted.
+
+/**
+ * deserializeAws_restJson1ResourceV2
+ */
+const de_ResourceV2 = (output: any, context: __SerdeContext): ResourceV2 => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    CloudPartition: [, __expectString, `cloudPartition`],
+    Data: [, (_: any) => de_ResourceData(_, context), `data`],
+    Name: [, __expectString, `name`],
+    Region: [, __expectString, `region`],
+    ResourceType: [, __expectString, `resourceType`],
+    Service: [, __expectString, `service`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
+    Uid: [, __expectString, `uid`],
   }) as any;
 };
 
@@ -6333,6 +6711,24 @@ const de_RuntimeDetails = (output: any, context: __SerdeContext): RuntimeDetails
 };
 
 /**
+ * deserializeAws_restJson1S3Bucket
+ */
+const de_S3Bucket = (output: any, context: __SerdeContext): S3Bucket => {
+  return take(output, {
+    AccountPublicAccess: [, (_: any) => de_PublicAccessConfiguration(_, context), `accountPublicAccess`],
+    BucketPublicAccess: [, (_: any) => de_PublicAccessConfiguration(_, context), `bucketPublicAccess`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    EffectivePermission: [, __expectString, `effectivePermission`],
+    EncryptionKeyArn: [, __expectString, `encryptionKeyArn`],
+    EncryptionType: [, __expectString, `encryptionType`],
+    OwnerId: [, __expectString, `ownerId`],
+    PublicReadAccess: [, __expectString, `publicReadAccess`],
+    PublicWriteAccess: [, __expectString, `publicWriteAccess`],
+    S3ObjectUids: [, _json, `s3ObjectUids`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1S3BucketDetail
  */
 const de_S3BucketDetail = (output: any, context: __SerdeContext): S3BucketDetail => {
@@ -6375,6 +6771,17 @@ const de_S3LogsConfigurationResult = (output: any, context: __SerdeContext): S3L
 };
 
 /**
+ * deserializeAws_restJson1S3Object
+ */
+const de_S3Object = (output: any, context: __SerdeContext): S3Object => {
+  return take(output, {
+    ETag: [, __expectString, `eTag`],
+    Key: [, __expectString, `key`],
+    VersionId: [, __expectString, `versionId`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1S3ObjectDetail
  */
 const de_S3ObjectDetail = (output: any, context: __SerdeContext): S3ObjectDetail => {
@@ -6398,6 +6805,8 @@ const de_S3ObjectDetails = (output: any, context: __SerdeContext): S3ObjectDetai
     });
   return retVal;
 };
+
+// de_S3ObjectUids omitted.
 
 /**
  * deserializeAws_restJson1Scan
@@ -6596,6 +7005,21 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[
 };
 
 /**
+ * deserializeAws_restJson1Sequence
+ */
+const de_Sequence = (output: any, context: __SerdeContext): Sequence => {
+  return take(output, {
+    Actors: [, (_: any) => de_Actors(_, context), `actors`],
+    Description: [, __expectString, `description`],
+    Endpoints: [, (_: any) => de_NetworkEndpoints(_, context), `endpoints`],
+    Resources: [, (_: any) => de_Resources(_, context), `resources`],
+    SequenceIndicators: [, (_: any) => de_Indicators(_, context), `sequenceIndicators`],
+    Signals: [, (_: any) => de_Signals(_, context), `signals`],
+    Uid: [, __expectString, `uid`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Service
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
@@ -6629,7 +7053,64 @@ const de_ServiceAdditionalInfo = (output: any, context: __SerdeContext): Service
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1Session
+ */
+const de_Session = (output: any, context: __SerdeContext): Session => {
+  return take(output, {
+    CreatedTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdTime`],
+    Issuer: [, __expectString, `issuer`],
+    MfaStatus: [, __expectString, `mfaStatus`],
+    Uid: [, __expectString, `uid`],
+  }) as any;
+};
+
 // de_SessionNameList omitted.
+
+/**
+ * deserializeAws_restJson1SeverityStatistics
+ */
+const de_SeverityStatistics = (output: any, context: __SerdeContext): SeverityStatistics => {
+  return take(output, {
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    Severity: [, __limitedParseDouble, `severity`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Signal
+ */
+const de_Signal = (output: any, context: __SerdeContext): Signal => {
+  return take(output, {
+    ActorIds: [, _json, `actorIds`],
+    Count: [, __expectInt32, `count`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    Description: [, __expectString, `description`],
+    EndpointIds: [, _json, `endpointIds`],
+    FirstSeenAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `firstSeenAt`],
+    LastSeenAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastSeenAt`],
+    Name: [, __expectString, `name`],
+    ResourceUids: [, _json, `resourceUids`],
+    Severity: [, __limitedParseDouble, `severity`],
+    SignalIndicators: [, (_: any) => de_Indicators(_, context), `signalIndicators`],
+    Type: [, __expectString, `type`],
+    Uid: [, __expectString, `uid`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Signals
+ */
+const de_Signals = (output: any, context: __SerdeContext): Signal[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Signal(entry, context);
+    });
+  return retVal;
+};
 
 // de_SourceIps omitted.
 
@@ -6930,6 +7411,19 @@ const de_UsageTopAccountsResultList = (output: any, context: __SerdeContext): Us
 };
 
 /**
+ * deserializeAws_restJson1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    Account: [, (_: any) => de_Account(_, context), `account`],
+    CredentialUid: [, __expectString, `credentialUid`],
+    Name: [, __expectString, `name`],
+    Type: [, __expectString, `type`],
+    Uid: [, __expectString, `uid`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Volume
  */
 const de_Volume = (output: any, context: __SerdeContext): Volume => {
@@ -7022,13 +7516,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

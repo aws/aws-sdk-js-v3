@@ -81,6 +81,12 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * //     Scte35Pid: Number("int"),
  * //     TimedMetadataPid: Number("int"),
  * //     VideoPid: Number("int"),
+ * //     AribCaptionsPid: Number("int"),
+ * //     DvbTeletextPids: [
+ * //       Number("int"),
+ * //     ],
+ * //     EcmPid: Number("int"),
+ * //     Smpte2038Pid: Number("int"),
  * //   },
  * //   PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
  * //     { // MultiplexProgramPipelineDetail
@@ -123,6 +129,7 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeMultiplexProgramCommand extends $Command
@@ -133,9 +140,7 @@ export class DescribeMultiplexProgramCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +152,16 @@ export class DescribeMultiplexProgramCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMultiplexProgramCommand)
   .de(de_DescribeMultiplexProgramCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMultiplexProgramRequest;
+      output: DescribeMultiplexProgramResponse;
+    };
+    sdk: {
+      input: DescribeMultiplexProgramCommandInput;
+      output: DescribeMultiplexProgramCommandOutput;
+    };
+  };
+}

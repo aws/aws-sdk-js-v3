@@ -73,6 +73,7 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       ConnectionNotificationState: "Enabled" || "Disabled",
+ * //       ServiceRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -89,6 +90,7 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command
@@ -99,9 +101,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointConnectionNotificationsCommand)
   .de(de_DescribeVpcEndpointConnectionNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointConnectionNotificationsRequest;
+      output: DescribeVpcEndpointConnectionNotificationsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointConnectionNotificationsCommandInput;
+      output: DescribeVpcEndpointConnectionNotificationsCommandOutput;
+    };
+  };
+}

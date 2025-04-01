@@ -62,6 +62,7 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     durationSeconds: Number("int"),
+ * //     acceptRoleSessionName: true || false,
  * //     attributeMappings: [ // AttributeMappings
  * //       { // AttributeMapping
  * //         certificateField: "STRING_VALUE",
@@ -92,6 +93,7 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class EnableProfileCommand extends $Command
@@ -102,9 +104,7 @@ export class EnableProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class EnableProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableProfileCommand)
   .de(de_EnableProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarProfileRequest;
+      output: ProfileDetailResponse;
+    };
+    sdk: {
+      input: EnableProfileCommandInput;
+      output: EnableProfileCommandOutput;
+    };
+  };
+}

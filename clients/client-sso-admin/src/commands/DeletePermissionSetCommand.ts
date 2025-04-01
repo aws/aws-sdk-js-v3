@@ -77,6 +77,7 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionSetCommand extends $Command
@@ -87,9 +88,7 @@ export class DeletePermissionSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeletePermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePermissionSetCommand)
   .de(de_DeletePermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePermissionSetCommandInput;
+      output: DeletePermissionSetCommandOutput;
+    };
+  };
+}

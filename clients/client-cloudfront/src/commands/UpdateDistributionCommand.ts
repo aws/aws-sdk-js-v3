@@ -51,10 +51,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * 					the following important requirements and restrictions:</p>
  *                <ul>
  *                   <li>
- *                      <p>You must rename the <code>ETag</code> field to <code>IfMatch</code>,
- * 							leaving the value unchanged. (Set the value of <code>IfMatch</code> to
- * 							the value of <code>ETag</code>, then remove the <code>ETag</code>
- * 							field.)</p>
+ *                      <p>You must copy the <code>ETag</code> field value from the response. (You'll use it for the <code>IfMatch</code> parameter in your request.) Then, remove the <code>ETag</code>
+ * 							field from the distribution configuration.</p>
  *                   </li>
  *                   <li>
  *                      <p>You can't change the value of <code>CallerReference</code>.</p>
@@ -62,7 +60,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *                </ul>
  *             </li>
  *             <li>
- *                <p>Submit an <code>UpdateDistribution</code> request, providing the distribution
+ *                <p>Submit an <code>UpdateDistribution</code> request, providing the updated distribution
  * 					configuration. The new configuration replaces the existing configuration. The
  * 					values that you specify in an <code>UpdateDistribution</code> request are not
  * 					merged into your existing configuration. Make sure to include all fields: the
@@ -117,6 +115,11 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *             OriginReadTimeout: Number("int"),
  *             OriginKeepaliveTimeout: Number("int"),
  *           },
+ *           VpcOriginConfig: { // VpcOriginConfig
+ *             VpcOriginId: "STRING_VALUE", // required
+ *             OriginReadTimeout: Number("int"),
+ *             OriginKeepaliveTimeout: Number("int"),
+ *           },
  *           ConnectionAttempts: Number("int"),
  *           ConnectionTimeout: Number("int"),
  *           OriginShield: { // OriginShield
@@ -148,6 +151,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *               },
  *             ],
  *           },
+ *           SelectionCriteria: "default" || "media-quality-based",
  *         },
  *       ],
  *     },
@@ -206,6 +210,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       CachePolicyId: "STRING_VALUE",
  *       OriginRequestPolicyId: "STRING_VALUE",
  *       ResponseHeadersPolicyId: "STRING_VALUE",
+ *       GrpcConfig: { // GrpcConfig
+ *         Enabled: true || false, // required
+ *       },
  *       ForwardedValues: { // ForwardedValues
  *         QueryString: true || false, // required
  *         Cookies: { // CookiePreference
@@ -289,6 +296,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *           CachePolicyId: "STRING_VALUE",
  *           OriginRequestPolicyId: "STRING_VALUE",
  *           ResponseHeadersPolicyId: "STRING_VALUE",
+ *           GrpcConfig: {
+ *             Enabled: true || false, // required
+ *           },
  *           ForwardedValues: {
  *             QueryString: true || false, // required
  *             Cookies: {
@@ -332,10 +342,10 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     },
  *     Comment: "STRING_VALUE", // required
  *     Logging: { // LoggingConfig
- *       Enabled: true || false, // required
- *       IncludeCookies: true || false, // required
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE", // required
+ *       Enabled: true || false,
+ *       IncludeCookies: true || false,
+ *       Bucket: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
  *     },
  *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  *     Enabled: true || false, // required
@@ -362,6 +372,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     IsIPV6Enabled: true || false,
  *     ContinuousDeploymentPolicyId: "STRING_VALUE",
  *     Staging: true || false,
+ *     AnycastIpListId: "STRING_VALUE",
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
@@ -447,6 +458,11 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
+ * //               OriginKeepaliveTimeout: Number("int"),
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -478,6 +494,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },
@@ -536,6 +553,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -619,6 +639,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -662,10 +685,10 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
  * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  * //       Enabled: true || false, // required
@@ -692,6 +715,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -720,6 +744,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link ContinuousDeploymentPolicyInUse} (client fault)
  *  <p>You cannot delete a continuous deployment policy that is associated with a primary
  * 			distribution.</p>
+ *
+ * @throws {@link EntityNotFound} (client fault)
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior} (client fault)
  *  <p>The specified configuration for field-level encryption can't be associated with the
@@ -952,6 +979,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionCommand extends $Command
@@ -962,9 +990,7 @@ export class UpdateDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -976,4 +1002,16 @@ export class UpdateDistributionCommand extends $Command
   .f(UpdateDistributionRequestFilterSensitiveLog, UpdateDistributionResultFilterSensitiveLog)
   .ser(se_UpdateDistributionCommand)
   .de(de_UpdateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionRequest;
+      output: UpdateDistributionResult;
+    };
+    sdk: {
+      input: UpdateDistributionCommandInput;
+      output: UpdateDistributionCommandOutput;
+    };
+  };
+}

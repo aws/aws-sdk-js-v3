@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "route53-recovery-cluster",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Route53RecoveryClusterClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Route53RecoveryClusterClientConfig>, context) => ({
       /**
        * @internal
        */
@@ -103,13 +103,13 @@ export const defaultRoute53RecoveryClusterHttpAuthSchemeProvider: Route53Recover
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   httpAuthSchemes?: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   httpAuthSchemeProvider?: Route53RecoveryClusterHttpAuthSchemeProvider;
@@ -120,13 +120,13 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   readonly httpAuthSchemes: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   readonly httpAuthSchemeProvider: Route53RecoveryClusterHttpAuthSchemeProvider;
@@ -139,7 +139,5 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
-  return {
-    ...config_0,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_0, {}) as T & HttpAuthSchemeResolvedConfig;
 };

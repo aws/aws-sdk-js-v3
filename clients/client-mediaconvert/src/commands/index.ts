@@ -21,6 +21,8 @@ export * from "./ListJobsCommand";
 export * from "./ListPresetsCommand";
 export * from "./ListQueuesCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./ListVersionsCommand";
+export * from "./ProbeCommand";
 export * from "./PutPolicyCommand";
 export * from "./SearchJobsCommand";
 export * from "./TagResourceCommand";

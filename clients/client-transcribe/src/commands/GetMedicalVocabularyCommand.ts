@@ -83,6 +83,7 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class GetMedicalVocabularyCommand extends $Command
@@ -93,9 +94,7 @@ export class GetMedicalVocabularyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetMedicalVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMedicalVocabularyCommand)
   .de(de_GetMedicalVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMedicalVocabularyRequest;
+      output: GetMedicalVocabularyResponse;
+    };
+    sdk: {
+      input: GetMedicalVocabularyCommandInput;
+      output: GetMedicalVocabularyCommandOutput;
+    };
+  };
+}

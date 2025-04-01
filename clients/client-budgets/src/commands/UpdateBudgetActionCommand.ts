@@ -217,6 +217,7 @@ export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class UpdateBudgetActionCommand extends $Command
@@ -227,9 +228,7 @@ export class UpdateBudgetActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -241,4 +240,16 @@ export class UpdateBudgetActionCommand extends $Command
   .f(UpdateBudgetActionRequestFilterSensitiveLog, UpdateBudgetActionResponseFilterSensitiveLog)
   .ser(se_UpdateBudgetActionCommand)
   .de(de_UpdateBudgetActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBudgetActionRequest;
+      output: UpdateBudgetActionResponse;
+    };
+    sdk: {
+      input: UpdateBudgetActionCommandInput;
+      output: UpdateBudgetActionCommandOutput;
+    };
+  };
+}

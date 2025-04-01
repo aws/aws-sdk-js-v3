@@ -121,6 +121,9 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -161,6 +164,9 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -191,20 +197,23 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To delete an organization unit
  * ```javascript
  * // The following example shows how to delete an OU. The example assumes that you previously removed all accounts and other OUs from the OU:
- * //
- * //
+ *
+ *
  * const input = {
- *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ *   OrganizationalUnitId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new DeleteOrganizationalUnitCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-organizational-unit
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteOrganizationalUnitCommand extends $Command
   .classBuilder<
@@ -214,9 +223,7 @@ export class DeleteOrganizationalUnitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -228,4 +235,16 @@ export class DeleteOrganizationalUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationalUnitCommand)
   .de(de_DeleteOrganizationalUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOrganizationalUnitRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOrganizationalUnitCommandInput;
+      output: DeleteOrganizationalUnitCommandOutput;
+    };
+  };
+}

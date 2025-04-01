@@ -47,17 +47,17 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * //     description: "STRING_VALUE",
  * //     policyArn: "STRING_VALUE",
  * //     creationTime: new Date("TIMESTAMP"), // required
- * //     status: "STRING_VALUE",
- * //     complianceStatus: "STRING_VALUE",
+ * //     status: "Active" || "Deleting",
+ * //     complianceStatus: "PolicyBreached" || "PolicyMet" || "NotAssessed" || "ChangesDetected" || "NotApplicable" || "MissingPolicy",
  * //     lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
  * //     resiliencyScore: Number("double"),
  * //     lastResiliencyScoreEvaluationTime: new Date("TIMESTAMP"),
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     assessmentSchedule: "STRING_VALUE",
+ * //     assessmentSchedule: "Disabled" || "Daily",
  * //     permissionModel: { // PermissionModel
- * //       type: "STRING_VALUE", // required
+ * //       type: "LegacyIAMUser" || "RoleBased", // required
  * //       invokerRoleName: "STRING_VALUE",
  * //       crossAccountRoleArns: [ // IamRoleArnList
  * //         "STRING_VALUE",
@@ -66,14 +66,15 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * //     eventSubscriptions: [ // EventSubscriptionList
  * //       { // EventSubscription
  * //         name: "STRING_VALUE", // required
- * //         eventType: "STRING_VALUE", // required
+ * //         eventType: "ScheduledAssessmentFailure" || "DriftDetected", // required
  * //         snsTopicArn: "STRING_VALUE",
  * //       },
  * //     ],
- * //     driftStatus: "STRING_VALUE",
+ * //     driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
  * //     rtoInSecs: Number("int"),
  * //     rpoInSecs: Number("int"),
+ * //     awsApplicationArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -106,6 +107,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppCommand extends $Command
@@ -116,9 +118,7 @@ export class DescribeAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DescribeAppCommand extends $Command
   .f(void 0, DescribeAppResponseFilterSensitiveLog)
   .ser(se_DescribeAppCommand)
   .de(de_DescribeAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppRequest;
+      output: DescribeAppResponse;
+    };
+    sdk: {
+      input: DescribeAppCommandInput;
+      output: DescribeAppCommandOutput;
+    };
+  };
+}

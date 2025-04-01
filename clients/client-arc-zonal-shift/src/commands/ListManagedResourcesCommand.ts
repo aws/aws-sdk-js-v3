@@ -64,6 +64,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * //           expiryTime: new Date("TIMESTAMP"), // required
  * //           startTime: new Date("TIMESTAMP"), // required
  * //           comment: "STRING_VALUE", // required
+ * //           shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
  * //           practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //         },
  * //       ],
@@ -104,6 +105,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class ListManagedResourcesCommand extends $Command
@@ -114,9 +116,7 @@ export class ListManagedResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class ListManagedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedResourcesCommand)
   .de(de_ListManagedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedResourcesRequest;
+      output: ListManagedResourcesResponse;
+    };
+    sdk: {
+      input: ListManagedResourcesCommandInput;
+      output: ListManagedResourcesCommandOutput;
+    };
+  };
+}

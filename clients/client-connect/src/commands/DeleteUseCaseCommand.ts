@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteUseCaseRequest } from "../models/models_0";
+import { DeleteUseCaseRequest } from "../models/models_1";
 import { de_DeleteUseCaseCommand, se_DeleteUseCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -67,6 +67,7 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteUseCaseCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteUseCaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteUseCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUseCaseCommand)
   .de(de_DeleteUseCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUseCaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUseCaseCommandInput;
+      output: DeleteUseCaseCommandOutput;
+    };
+  };
+}

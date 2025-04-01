@@ -77,29 +77,29 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To enable an Availability Zone for a load balancer
  * ```javascript
  * // This example adds the specified Availability Zone to the specified load balancer.
  * const input = {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     "us-west-2b"
  *   ],
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new EnableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     "us-west-2a",
  *     "us-west-2b"
  *   ]
  * }
  * *\/
- * // example id: elb-enable-availability-zones-for-load-balancer-1
  * ```
  *
+ * @public
  */
 export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command
   .classBuilder<
@@ -109,9 +109,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +121,16 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableAvailabilityZonesForLoadBalancerCommand)
   .de(de_EnableAvailabilityZonesForLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddAvailabilityZonesInput;
+      output: AddAvailabilityZonesOutput;
+    };
+    sdk: {
+      input: EnableAvailabilityZonesForLoadBalancerCommandInput;
+      output: EnableAvailabilityZonesForLoadBalancerCommandOutput;
+    };
+  };
+}

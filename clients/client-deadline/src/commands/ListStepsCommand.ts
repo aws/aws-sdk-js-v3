@@ -100,6 +100,7 @@ export interface ListStepsCommandOutput extends ListStepsResponse, __MetadataBea
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListStepsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListStepsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStepsCommand)
   .de(de_ListStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStepsRequest;
+      output: ListStepsResponse;
+    };
+    sdk: {
+      input: ListStepsCommandInput;
+      output: ListStepsCommandOutput;
+    };
+  };
+}

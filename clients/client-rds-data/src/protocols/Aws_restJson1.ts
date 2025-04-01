@@ -49,11 +49,13 @@ import {
   BadRequestException,
   DatabaseErrorException,
   DatabaseNotFoundException,
+  DatabaseResumingException,
   DatabaseUnavailableException,
   Field,
   ForbiddenException,
   HttpEndpointNotEnabledException,
   InternalServerErrorException,
+  InvalidResourceStateException,
   InvalidSecretException,
   NotFoundException,
   ResultFrame,
@@ -382,6 +384,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DatabaseNotFoundException":
     case "com.amazonaws.rdsdata#DatabaseNotFoundException":
       throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseResumingException":
+    case "com.amazonaws.rdsdata#DatabaseResumingException":
+      throw await de_DatabaseResumingExceptionRes(parsedOutput, context);
     case "DatabaseUnavailableException":
     case "com.amazonaws.rdsdata#DatabaseUnavailableException":
       throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
@@ -394,6 +399,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.rdsdata#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "InvalidSecretException":
     case "com.amazonaws.rdsdata#InvalidSecretException":
       throw await de_InvalidSecretExceptionRes(parsedOutput, context);
@@ -504,6 +512,26 @@ const de_DatabaseNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1DatabaseResumingExceptionRes
+ */
+const de_DatabaseResumingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DatabaseResumingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DatabaseResumingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1DatabaseUnavailableExceptionRes
  */
 const de_DatabaseUnavailableExceptionRes = async (
@@ -570,6 +598,26 @@ const de_InternalServerErrorExceptionRes = async (
   const doc = take(data, {});
   Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidResourceStateExceptionRes
+ */
+const de_InvalidResourceStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidResourceStateException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -733,7 +781,7 @@ const se_ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
     doubleValues: (value) => ({ doubleValues: se_DoubleArray(value, context) }),
     longValues: (value) => ({ longValues: _json(value) }),
     stringValues: (value) => ({ stringValues: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -762,7 +810,7 @@ const se_Field = (input: Field, context: __SerdeContext): any => {
     isNull: (value) => ({ isNull: value }),
     longValue: (value) => ({ longValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1090,10 +1138,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

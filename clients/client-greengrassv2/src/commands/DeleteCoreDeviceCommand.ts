@@ -77,6 +77,7 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteCoreDeviceCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteCoreDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteCoreDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCoreDeviceCommand)
   .de(de_DeleteCoreDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCoreDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCoreDeviceCommandInput;
+      output: DeleteCoreDeviceCommandOutput;
+    };
+  };
+}

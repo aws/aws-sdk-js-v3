@@ -38,6 +38,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  *          policy. If a policy doesn't exist, a new policy is created.</p>
  *          <p>You can't create a resource policy statement that allows
  *          cross-account access.</p>
+ *          <p>You need to add the <code>CreateResourcePolicy</code> or <code>UpdateResourcePolicy</code>
+ *          action to the bot role in order to call the API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +113,7 @@ export interface CreateResourcePolicyStatementCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateResourcePolicyStatementCommand extends $Command
@@ -121,9 +124,7 @@ export class CreateResourcePolicyStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +136,16 @@ export class CreateResourcePolicyStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourcePolicyStatementCommand)
   .de(de_CreateResourcePolicyStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourcePolicyStatementRequest;
+      output: CreateResourcePolicyStatementResponse;
+    };
+    sdk: {
+      input: CreateResourcePolicyStatementCommandInput;
+      output: CreateResourcePolicyStatementCommandOutput;
+    };
+  };
+}

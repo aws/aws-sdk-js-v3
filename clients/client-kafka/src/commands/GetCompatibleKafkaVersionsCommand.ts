@@ -83,6 +83,7 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command
@@ -93,9 +94,7 @@ export class GetCompatibleKafkaVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetCompatibleKafkaVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCompatibleKafkaVersionsCommand)
   .de(de_GetCompatibleKafkaVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCompatibleKafkaVersionsRequest;
+      output: GetCompatibleKafkaVersionsResponse;
+    };
+    sdk: {
+      input: GetCompatibleKafkaVersionsCommandInput;
+      output: GetCompatibleKafkaVersionsCommandOutput;
+    };
+  };
+}

@@ -74,23 +74,23 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To reset cache disks in error status
  * ```javascript
  * // Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
  * };
  * const command = new ResetCacheCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
  * }
  * *\/
- * // example id: to-reset-cache-disks-in-error-status-1472148909807
  * ```
  *
+ * @public
  */
 export class ResetCacheCommand extends $Command
   .classBuilder<
@@ -100,9 +100,7 @@ export class ResetCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +112,16 @@ export class ResetCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetCacheCommand)
   .de(de_ResetCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetCacheInput;
+      output: ResetCacheOutput;
+    };
+    sdk: {
+      input: ResetCacheCommandInput;
+      output: ResetCacheCommandOutput;
+    };
+  };
+}

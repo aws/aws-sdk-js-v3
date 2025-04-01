@@ -38,7 +38,8 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * const input = { // UpdatePullThroughCacheRuleRequest
  *   registryId: "STRING_VALUE",
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
- *   credentialArn: "STRING_VALUE", // required
+ *   credentialArn: "STRING_VALUE",
+ *   customRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
@@ -47,6 +48,8 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * //   registryId: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   credentialArn: "STRING_VALUE",
+ * //   customRoleArn: "STRING_VALUE",
+ * //   upstreamRepositoryPrefix: "STRING_VALUE",
  * // };
  *
  * ```
@@ -86,6 +89,7 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class UpdatePullThroughCacheRuleCommand extends $Command
@@ -96,9 +100,7 @@ export class UpdatePullThroughCacheRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +112,16 @@ export class UpdatePullThroughCacheRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePullThroughCacheRuleCommand)
   .de(de_UpdatePullThroughCacheRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePullThroughCacheRuleRequest;
+      output: UpdatePullThroughCacheRuleResponse;
+    };
+    sdk: {
+      input: UpdatePullThroughCacheRuleCommandInput;
+      output: UpdatePullThroughCacheRuleCommandOutput;
+    };
+  };
+}

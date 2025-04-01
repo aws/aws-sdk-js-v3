@@ -137,6 +137,7 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class GetIdentityPoolConfigurationCommand extends $Command
@@ -147,9 +148,7 @@ export class GetIdentityPoolConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class GetIdentityPoolConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityPoolConfigurationCommand)
   .de(de_GetIdentityPoolConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityPoolConfigurationRequest;
+      output: GetIdentityPoolConfigurationResponse;
+    };
+    sdk: {
+      input: GetIdentityPoolConfigurationCommandInput;
+      output: GetIdentityPoolConfigurationCommandOutput;
+    };
+  };
+}

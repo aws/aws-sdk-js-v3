@@ -87,6 +87,7 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class ListMediaCapturePipelinesCommand extends $Command
@@ -97,9 +98,7 @@ export class ListMediaCapturePipelinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListMediaCapturePipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMediaCapturePipelinesCommand)
   .de(de_ListMediaCapturePipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMediaCapturePipelinesRequest;
+      output: ListMediaCapturePipelinesResponse;
+    };
+    sdk: {
+      input: ListMediaCapturePipelinesCommandInput;
+      output: ListMediaCapturePipelinesCommandOutput;
+    };
+  };
+}

@@ -36,6 +36,18 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  *             RegisterWebhookWithThirdParty and DeregisterWebhookWithThirdParty APIs can be used to
  *             automatically configure supported third parties to call the generated webhook
  *             URL.</p>
+ *          <important>
+ *             <p>When creating CodePipeline webhooks, do not use your own credentials or
+ *                 reuse the same secret token across multiple webhooks. For optimal security, generate
+ *                 a unique secret token for each webhook you create. The secret token is an arbitrary
+ *                 string that you provide, which GitHub uses to compute and sign the webhook payloads
+ *                 sent to CodePipeline, for protecting the integrity and authenticity of the
+ *                 webhook payloads. Using your own credentials or reusing the same token across
+ *                 multiple webhooks can lead to security vulnerabilities.</p>
+ *          </important>
+ *          <note>
+ *             <p>If a secret token was provided, it will be redacted in the response.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,6 +148,7 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PutWebhookCommand extends $Command
@@ -146,9 +159,7 @@ export class PutWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +171,16 @@ export class PutWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWebhookCommand)
   .de(de_PutWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWebhookInput;
+      output: PutWebhookOutput;
+    };
+    sdk: {
+      input: PutWebhookCommandInput;
+      output: PutWebhookCommandOutput;
+    };
+  };
+}

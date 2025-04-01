@@ -89,7 +89,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *   ],
  *   IamRoleArn: "STRING_VALUE",
  *   StreamView: "APP" || "DESKTOP",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  *   MaxConcurrentSessions: Number("int"),
  *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  *     "STRING_VALUE",
@@ -148,7 +148,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * //     IdleDisconnectTimeoutInSeconds: Number("int"),
  * //     IamRoleArn: "STRING_VALUE",
  * //     StreamView: "APP" || "DESKTOP",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //     MaxConcurrentSessions: Number("int"),
  * //     UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  * //       "STRING_VALUE",
@@ -205,6 +205,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateFleetCommand extends $Command
@@ -215,9 +216,7 @@ export class UpdateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +228,16 @@ export class UpdateFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetCommand)
   .de(de_UpdateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetRequest;
+      output: UpdateFleetResult;
+    };
+    sdk: {
+      input: UpdateFleetCommandInput;
+      output: UpdateFleetCommandOutput;
+    };
+  };
+}

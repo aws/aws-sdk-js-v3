@@ -1,3 +1,7 @@
+import { HandlerExecutionContext } from "@smithy/types";
+
+import { AwsSdkFeatures } from "./feature-ids";
+
 export {
   AbsoluteLocation,
   BuildHandler,
@@ -38,3 +42,14 @@ export {
   Step,
   Terminalware,
 } from "@smithy/types";
+
+/**
+ * @internal
+ * Contains reserved keys for AWS SDK internal usage of the
+ * handler execution context object.
+ */
+export interface AwsHandlerExecutionContext extends HandlerExecutionContext {
+  __aws_sdk_context?: {
+    features?: AwsSdkFeatures;
+  };
+}

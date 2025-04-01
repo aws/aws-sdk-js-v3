@@ -49,7 +49,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //   signalDecoders: [ // SignalDecoders
  * //     { // SignalDecoder
  * //       fullyQualifiedName: "STRING_VALUE", // required
- * //       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
+ * //       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL" || "CUSTOM_DECODING_SIGNAL", // required
  * //       interfaceId: "STRING_VALUE", // required
  * //       canSignal: { // CanSignal
  * //         messageId: Number("int"), // required
@@ -60,6 +60,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //         factor: Number("double"), // required
  * //         length: Number("int"), // required
  * //         name: "STRING_VALUE",
+ * //         signalValueType: "INTEGER" || "FLOATING_POINT",
  * //       },
  * //       obdSignal: { // ObdSignal
  * //         pidResponseLength: Number("int"), // required
@@ -71,6 +72,8 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //         byteLength: Number("int"), // required
  * //         bitRightShift: Number("int"),
  * //         bitMaskLength: Number("int"),
+ * //         isSigned: true || false,
+ * //         signalValueType: "INTEGER" || "FLOATING_POINT",
  * //       },
  * //       messageSignal: { // MessageSignal
  * //         topicName: "STRING_VALUE", // required
@@ -118,6 +121,9 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //           ],
  * //         },
  * //       },
+ * //       customDecodingSignal: { // CustomDecodingSignal
+ * //         id: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -149,6 +155,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListDecoderManifestSignalsCommand extends $Command
@@ -159,9 +166,7 @@ export class ListDecoderManifestSignalsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +178,16 @@ export class ListDecoderManifestSignalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDecoderManifestSignalsCommand)
   .de(de_ListDecoderManifestSignalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDecoderManifestSignalsRequest;
+      output: ListDecoderManifestSignalsResponse;
+    };
+    sdk: {
+      input: ListDecoderManifestSignalsCommandInput;
+      output: ListDecoderManifestSignalsCommandOutput;
+    };
+  };
+}

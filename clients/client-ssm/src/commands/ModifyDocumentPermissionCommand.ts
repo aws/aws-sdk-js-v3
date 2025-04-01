@@ -85,6 +85,7 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ModifyDocumentPermissionCommand extends $Command
@@ -95,9 +96,7 @@ export class ModifyDocumentPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ModifyDocumentPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDocumentPermissionCommand)
   .de(de_ModifyDocumentPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDocumentPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyDocumentPermissionCommandInput;
+      output: ModifyDocumentPermissionCommandOutput;
+    };
+  };
+}

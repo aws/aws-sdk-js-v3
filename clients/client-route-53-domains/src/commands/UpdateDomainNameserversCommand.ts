@@ -92,6 +92,7 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainNameserversCommand extends $Command
@@ -102,9 +103,7 @@ export class UpdateDomainNameserversCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class UpdateDomainNameserversCommand extends $Command
   .f(UpdateDomainNameserversRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDomainNameserversCommand)
   .de(de_UpdateDomainNameserversCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainNameserversRequest;
+      output: UpdateDomainNameserversResponse;
+    };
+    sdk: {
+      input: UpdateDomainNameserversCommandInput;
+      output: UpdateDomainNameserversCommandOutput;
+    };
+  };
+}

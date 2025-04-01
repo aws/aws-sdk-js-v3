@@ -39,7 +39,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *             <code>CreateFileCache</code> does the following: </p>
  *          <ul>
  *             <li>
- *                <p>Creates a new, empty Amazon File Cache resourcewith an assigned ID, and
+ *                <p>Creates a new, empty Amazon File Cache resource with an assigned ID, and
  *                     an initial lifecycle state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>
@@ -186,6 +186,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class CreateFileCacheCommand extends $Command
@@ -196,9 +197,7 @@ export class CreateFileCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +209,16 @@ export class CreateFileCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFileCacheCommand)
   .de(de_CreateFileCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileCacheRequest;
+      output: CreateFileCacheResponse;
+    };
+    sdk: {
+      input: CreateFileCacheCommandInput;
+      output: CreateFileCacheCommandOutput;
+    };
+  };
+}

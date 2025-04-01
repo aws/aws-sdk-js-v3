@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_6";
+import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_7";
 import { de_ModifyManagedPrefixListCommand, se_ModifyManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -90,6 +90,7 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyManagedPrefixListCommand extends $Command
@@ -100,9 +101,7 @@ export class ModifyManagedPrefixListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ModifyManagedPrefixListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyManagedPrefixListCommand)
   .de(de_ModifyManagedPrefixListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyManagedPrefixListRequest;
+      output: ModifyManagedPrefixListResult;
+    };
+    sdk: {
+      input: ModifyManagedPrefixListCommandInput;
+      output: ModifyManagedPrefixListCommandOutput;
+    };
+  };
+}

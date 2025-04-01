@@ -28,10 +28,10 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
- *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
- *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.
- *   </p>
+ * <p>Attaches tags to an existing Amazon OpenSearch Service domain, data source, or application. </p>
+ *          <p>Tags are a set of case-sensitive key-value pairs. A domain, data source, or application can
+ *    have up to 10 tags. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
+ *     Amazon OpenSearch Service resources</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +74,7 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class AddTagsCommand extends $Command
@@ -84,9 +85,7 @@ export class AddTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class AddTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsCommand)
   .de(de_AddTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsCommandInput;
+      output: AddTagsCommandOutput;
+    };
+  };
+}

@@ -56,6 +56,7 @@ export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __Metadat
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   .classBuilder<
@@ -73,4 +74,16 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpRequestWithGreedyLabelInPathCommand)
   .de(de_HttpRequestWithGreedyLabelInPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithGreedyLabelInPathInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithGreedyLabelInPathCommandInput;
+      output: HttpRequestWithGreedyLabelInPathCommandOutput;
+    };
+  };
+}

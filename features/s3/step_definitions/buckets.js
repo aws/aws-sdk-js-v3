@@ -21,6 +21,8 @@ After({ tags: "@buckets" }, function (callback) {
 Given("I am using the S3 {string} region", function (region, callback) {
   this.s3 = new this.S3({
     region: region,
+    requestChecksumCalculation: "WHEN_REQUIRED",
+    responseChecksumValidation: "WHEN_REQUIRED",
   });
   callback();
 });
@@ -235,6 +237,8 @@ When("I create a bucket with a DNS compatible name that contains a dot", functio
 Given("I force path style requests", function (callback) {
   this.s3 = new this.S3({
     forcePathStyle: true,
+    requestChecksumCalculation: "WHEN_REQUIRED",
+    responseChecksumValidation: "WHEN_REQUIRED",
   });
   callback();
 });

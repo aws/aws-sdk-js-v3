@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { de_OnlyHttpBearerAuthOptionalCommand, se_OnlyHttpBearerAuthOptionalCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -47,6 +48,7 @@ export interface OnlyHttpBearerAuthOptionalCommandOutput extends __MetadataBeare
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyHttpBearerAuthOptionalCommand extends $Command
   .classBuilder<
@@ -62,10 +64,18 @@ export class OnlyHttpBearerAuthOptionalCommand extends $Command
   .s("Weather", "OnlyHttpBearerAuthOptional", {})
   .n("WeatherClient", "OnlyHttpBearerAuthOptionalCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_OnlyHttpBearerAuthOptionalCommand)
+  .de(de_OnlyHttpBearerAuthOptionalCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: OnlyHttpBearerAuthOptionalCommandInput;
+      output: OnlyHttpBearerAuthOptionalCommandOutput;
+    };
+  };
+}

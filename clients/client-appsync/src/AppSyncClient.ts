@@ -63,7 +63,12 @@ import {
   AssociateSourceGraphqlApiCommandOutput,
 } from "./commands/AssociateSourceGraphqlApiCommand";
 import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
+import {
+  CreateChannelNamespaceCommandInput,
+  CreateChannelNamespaceCommandOutput,
+} from "./commands/CreateChannelNamespaceCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
@@ -71,7 +76,12 @@ import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "./c
 import { CreateResolverCommandInput, CreateResolverCommandOutput } from "./commands/CreateResolverCommand";
 import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "./commands/DeleteApiCacheCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
+import {
+  DeleteChannelNamespaceCommandInput,
+  DeleteChannelNamespaceCommandOutput,
+} from "./commands/DeleteChannelNamespaceCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
@@ -95,6 +105,11 @@ import {
 import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import {
+  GetChannelNamespaceCommandInput,
+  GetChannelNamespaceCommandOutput,
+} from "./commands/GetChannelNamespaceCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import {
   GetDataSourceIntrospectionCommandInput,
@@ -122,6 +137,11 @@ import {
 } from "./commands/GetSourceApiAssociationCommand";
 import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
+import { ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
+import {
+  ListChannelNamespacesCommandInput,
+  ListChannelNamespacesCommandOutput,
+} from "./commands/ListChannelNamespacesCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
@@ -160,7 +180,12 @@ import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
 import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
+import {
+  UpdateChannelNamespaceCommandInput,
+  UpdateChannelNamespaceCommandOutput,
+} from "./commands/UpdateChannelNamespaceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
@@ -190,7 +215,9 @@ export type ServiceInputTypes =
   | AssociateMergedGraphqlApiCommandInput
   | AssociateSourceGraphqlApiCommandInput
   | CreateApiCacheCommandInput
+  | CreateApiCommandInput
   | CreateApiKeyCommandInput
+  | CreateChannelNamespaceCommandInput
   | CreateDataSourceCommandInput
   | CreateDomainNameCommandInput
   | CreateFunctionCommandInput
@@ -198,7 +225,9 @@ export type ServiceInputTypes =
   | CreateResolverCommandInput
   | CreateTypeCommandInput
   | DeleteApiCacheCommandInput
+  | DeleteApiCommandInput
   | DeleteApiKeyCommandInput
+  | DeleteChannelNamespaceCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainNameCommandInput
   | DeleteFunctionCommandInput
@@ -213,6 +242,8 @@ export type ServiceInputTypes =
   | FlushApiCacheCommandInput
   | GetApiAssociationCommandInput
   | GetApiCacheCommandInput
+  | GetApiCommandInput
+  | GetChannelNamespaceCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceIntrospectionCommandInput
   | GetDomainNameCommandInput
@@ -225,6 +256,8 @@ export type ServiceInputTypes =
   | GetSourceApiAssociationCommandInput
   | GetTypeCommandInput
   | ListApiKeysCommandInput
+  | ListApisCommandInput
+  | ListChannelNamespacesCommandInput
   | ListDataSourcesCommandInput
   | ListDomainNamesCommandInput
   | ListFunctionsCommandInput
@@ -242,7 +275,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApiCacheCommandInput
+  | UpdateApiCommandInput
   | UpdateApiKeyCommandInput
+  | UpdateChannelNamespaceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainNameCommandInput
   | UpdateFunctionCommandInput
@@ -259,7 +294,9 @@ export type ServiceOutputTypes =
   | AssociateMergedGraphqlApiCommandOutput
   | AssociateSourceGraphqlApiCommandOutput
   | CreateApiCacheCommandOutput
+  | CreateApiCommandOutput
   | CreateApiKeyCommandOutput
+  | CreateChannelNamespaceCommandOutput
   | CreateDataSourceCommandOutput
   | CreateDomainNameCommandOutput
   | CreateFunctionCommandOutput
@@ -267,7 +304,9 @@ export type ServiceOutputTypes =
   | CreateResolverCommandOutput
   | CreateTypeCommandOutput
   | DeleteApiCacheCommandOutput
+  | DeleteApiCommandOutput
   | DeleteApiKeyCommandOutput
+  | DeleteChannelNamespaceCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainNameCommandOutput
   | DeleteFunctionCommandOutput
@@ -282,6 +321,8 @@ export type ServiceOutputTypes =
   | FlushApiCacheCommandOutput
   | GetApiAssociationCommandOutput
   | GetApiCacheCommandOutput
+  | GetApiCommandOutput
+  | GetChannelNamespaceCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceIntrospectionCommandOutput
   | GetDomainNameCommandOutput
@@ -294,6 +335,8 @@ export type ServiceOutputTypes =
   | GetSourceApiAssociationCommandOutput
   | GetTypeCommandOutput
   | ListApiKeysCommandOutput
+  | ListApisCommandOutput
+  | ListChannelNamespacesCommandOutput
   | ListDataSourcesCommandOutput
   | ListDomainNamesCommandOutput
   | ListFunctionsCommandOutput
@@ -311,7 +354,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApiCacheCommandOutput
+  | UpdateApiCommandOutput
   | UpdateApiKeyCommandOutput
+  | UpdateChannelNamespaceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainNameCommandOutput
   | UpdateFunctionCommandOutput
@@ -412,6 +457,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -457,11 +521,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type AppSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -477,11 +541,11 @@ export interface AppSyncClientConfig extends AppSyncClientConfigType {}
 export type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -492,8 +556,8 @@ export type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
- *          from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  * @public
  */
 export class AppSyncClient extends __Client<
@@ -509,26 +573,30 @@ export class AppSyncClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<AppSyncClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultAppSyncHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: AppSyncClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -541,14 +609,5 @@ export class AppSyncClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultAppSyncHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: AppSyncClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

@@ -91,6 +91,7 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class CreateFirewallDomainListCommand extends $Command
@@ -101,9 +102,7 @@ export class CreateFirewallDomainListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class CreateFirewallDomainListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallDomainListCommand)
   .de(de_CreateFirewallDomainListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallDomainListRequest;
+      output: CreateFirewallDomainListResponse;
+    };
+    sdk: {
+      input: CreateFirewallDomainListCommandInput;
+      output: CreateFirewallDomainListCommandOutput;
+    };
+  };
+}

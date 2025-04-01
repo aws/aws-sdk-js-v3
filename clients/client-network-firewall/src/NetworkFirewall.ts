@@ -68,6 +68,11 @@ import {
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
 import {
+  DescribeFlowOperationCommand,
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "./commands/DescribeFlowOperationCommand";
+import {
   DescribeLoggingConfigurationCommand,
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
@@ -98,6 +103,16 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommand,
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "./commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommand,
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "./commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommand,
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
@@ -107,6 +122,16 @@ import {
   ListFirewallsCommandInput,
   ListFirewallsCommandOutput,
 } from "./commands/ListFirewallsCommand";
+import {
+  ListFlowOperationResultsCommand,
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "./commands/ListFlowOperationResultsCommand";
+import {
+  ListFlowOperationsCommand,
+  ListFlowOperationsCommandInput,
+  ListFlowOperationsCommandOutput,
+} from "./commands/ListFlowOperationsCommand";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
@@ -127,12 +152,32 @@ import {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommand,
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "./commands/StartAnalysisReportCommand";
+import {
+  StartFlowCaptureCommand,
+  StartFlowCaptureCommandInput,
+  StartFlowCaptureCommandOutput,
+} from "./commands/StartFlowCaptureCommand";
+import {
+  StartFlowFlushCommand,
+  StartFlowFlushCommandInput,
+  StartFlowFlushCommandOutput,
+} from "./commands/StartFlowFlushCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommand,
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDeleteProtectionCommandInput,
@@ -194,20 +239,29 @@ const commands = {
   DeleteTLSInspectionConfigurationCommand,
   DescribeFirewallCommand,
   DescribeFirewallPolicyCommand,
+  DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
   DescribeRuleGroupMetadataCommand,
   DescribeTLSInspectionConfigurationCommand,
   DisassociateSubnetsCommand,
+  GetAnalysisReportResultsCommand,
+  ListAnalysisReportsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
+  ListFlowOperationResultsCommand,
+  ListFlowOperationsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
   PutResourcePolicyCommand,
+  StartAnalysisReportCommand,
+  StartFlowCaptureCommand,
+  StartFlowFlushCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDescriptionCommand,
   UpdateFirewallEncryptionConfigurationCommand,
@@ -436,6 +490,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeFlowOperationCommand}
+   */
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowOperationCommandOutput>;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
+  ): void;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeLoggingConfigurationCommand}
    */
   describeLoggingConfiguration(): Promise<DescribeLoggingConfigurationCommandOutput>;
@@ -542,6 +613,41 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link GetAnalysisReportResultsCommand}
+   */
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalysisReportResultsCommandOutput>;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalysisReportsCommand}
+   */
+  listAnalysisReports(): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
+  ): void;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFirewallPoliciesCommand}
    */
   listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
@@ -569,6 +675,40 @@ export interface NetworkFirewall {
     args: ListFirewallsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFirewallsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowOperationResultsCommand}
+   */
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationResultsCommandOutput>;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowOperationsCommand}
+   */
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationsCommandOutput>;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -639,6 +779,54 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link StartAnalysisReportCommand}
+   */
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAnalysisReportCommandOutput>;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowCaptureCommand}
+   */
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowCaptureCommandOutput>;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowFlushCommand}
+   */
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowFlushCommandOutput>;
+  startFlowFlush(args: StartFlowFlushCommandInput, cb: (err: any, data?: StartFlowFlushCommandOutput) => void): void;
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowFlushCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -658,6 +846,24 @@ export interface NetworkFirewall {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallAnalysisSettingsCommand}
+   */
+  updateFirewallAnalysisSettings(): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
+  ): void;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -817,33 +1023,34 @@ export interface NetworkFirewall {
 /**
  * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
- *          <ul>
- *             <li>
- *                <p>The REST API requires you to handle connection details, such as calculating
+ *          <p>The REST API requires you to handle connection details, such as calculating
  *                signatures, handling request retries, and error handling. For general information
  *                about using the Amazon Web Services REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a>. </p>
- *                <p>To access Network Firewall using the REST API endpoint:
+ *          <p>To view the complete list of Amazon Web Services Regions where Network Firewall is available, see
+ *          <a href="https://docs.aws.amazon.com/general/latest/gr/network-firewall.html">Service
+ *             endpoints and quotas</a> in the <i>Amazon Web Services General
+ *                Reference</i>.
+ *       </p>
+ *          <p>To access Network Firewall using the IPv4 REST API endpoint:
  *                   <code>https://network-firewall.<region>.amazonaws.com </code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
+ *          </p>
+ *          <p>To access Network Firewall using the Dualstack (IPv4 and IPv6) REST API endpoint:
+ *                <code>https://network-firewall.<region>.aws.api </code>
+ *          </p>
+ *          <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
  *                the programming language or platform that you're using. For more information, see
  *                <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
- *             </li>
- *             <li>
- *                <p>For descriptions of Network Firewall features, including and step-by-step
+ *          <p>For descriptions of Network Firewall features, including and step-by-step
  *                instructions on how to use them through the Network Firewall console, see the <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/">Network Firewall Developer
  *                   Guide</a>.</p>
- *             </li>
- *          </ul>
  *          <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 6.0.9. For information about Suricata,
- *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
+ *       Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a> and the
+ *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>

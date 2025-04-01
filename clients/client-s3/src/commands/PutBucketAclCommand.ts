@@ -30,7 +30,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set the ACL of a
@@ -258,7 +258,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *   },
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",
@@ -281,20 +281,23 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Put bucket acl
  * ```javascript
  * // The following example replaces existing ACL on a bucket. The ACL grants the bucket owner (specified using the owner ID) and write permission to the LogDelivery group. Because this is a replace operation, you must specify all the grants in your request. To incrementally add or remove ACL grants, you might use the console.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "GrantFullControl": "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
- *   "GrantWrite": "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
+ *   Bucket: "examplebucket",
+ *   GrantFullControl: "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
+ *   GrantWrite: "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
  * };
  * const command = new PutBucketAclCommand(input);
- * await client.send(command);
- * // example id: put-bucket-acl-1482260397033
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketAclCommand extends $Command
   .classBuilder<
@@ -314,8 +317,7 @@ export class PutBucketAclCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -325,4 +327,16 @@ export class PutBucketAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAclCommand)
   .de(de_PutBucketAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAclRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAclCommandInput;
+      output: PutBucketAclCommandOutput;
+    };
+  };
+}

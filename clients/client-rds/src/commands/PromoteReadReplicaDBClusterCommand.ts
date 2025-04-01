@@ -200,12 +200,14 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -222,6 +224,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -248,6 +251,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class PromoteReadReplicaDBClusterCommand extends $Command
@@ -258,9 +262,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -272,4 +274,16 @@ export class PromoteReadReplicaDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteReadReplicaDBClusterCommand)
   .de(de_PromoteReadReplicaDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteReadReplicaDBClusterMessage;
+      output: PromoteReadReplicaDBClusterResult;
+    };
+    sdk: {
+      input: PromoteReadReplicaDBClusterCommandInput;
+      output: PromoteReadReplicaDBClusterCommandOutput;
+    };
+  };
+}

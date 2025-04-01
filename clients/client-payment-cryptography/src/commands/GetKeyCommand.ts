@@ -96,6 +96,7 @@ export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -128,6 +129,7 @@ export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetKeyCommand extends $Command
@@ -138,9 +140,7 @@ export class GetKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class GetKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyCommand)
   .de(de_GetKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyInput;
+      output: GetKeyOutput;
+    };
+    sdk: {
+      input: GetKeyCommandInput;
+      output: GetKeyCommandOutput;
+    };
+  };
+}

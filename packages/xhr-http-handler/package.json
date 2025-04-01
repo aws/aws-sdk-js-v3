@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -11,7 +11,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest --coverage"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "author": "AWS SDK for JavaScript Team (https://aws.amazon.com/javascript/)",
   "license": "Apache-2.0",
@@ -20,19 +21,19 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^4.0.3",
-    "@smithy/querystring-builder": "^3.0.3",
-    "@smithy/types": "^3.3.0",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/querystring-builder": "^4.0.2",
+    "@smithy/types": "^4.2.0",
     "events": "3.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/abort-controller": "^3.1.1",
+    "@smithy/abort-controller": "^4.0.2",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "typesVersions": {
     "<4.0": {

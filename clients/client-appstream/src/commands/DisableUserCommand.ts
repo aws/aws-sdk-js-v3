@@ -57,6 +57,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DisableUserCommand extends $Command
@@ -67,9 +68,7 @@ export class DisableUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -81,4 +80,16 @@ export class DisableUserCommand extends $Command
   .f(DisableUserRequestFilterSensitiveLog, void 0)
   .ser(se_DisableUserCommand)
   .de(de_DisableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableUserCommandInput;
+      output: DisableUserCommandOutput;
+    };
+  };
+}

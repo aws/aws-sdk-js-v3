@@ -151,6 +151,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListJobRunsCommand extends $Command
@@ -161,9 +162,7 @@ export class ListJobRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +174,16 @@ export class ListJobRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobRunsCommand)
   .de(de_ListJobRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobRunsRequest;
+      output: ListJobRunsResponse;
+    };
+    sdk: {
+      input: ListJobRunsCommandInput;
+      output: ListJobRunsCommandOutput;
+    };
+  };
+}

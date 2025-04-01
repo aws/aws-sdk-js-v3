@@ -89,6 +89,7 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListDataIngestionJobsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListDataIngestionJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListDataIngestionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataIngestionJobsCommand)
   .de(de_ListDataIngestionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataIngestionJobsRequest;
+      output: ListDataIngestionJobsResponse;
+    };
+    sdk: {
+      input: ListDataIngestionJobsCommandInput;
+      output: ListDataIngestionJobsCommandOutput;
+    };
+  };
+}

@@ -118,6 +118,22 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To create a facet
+ * ```javascript
+ * //
+ * const input = {
+ *   Name: "node1",
+ *   ObjectType: "NODE",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ * };
+ * const command = new CreateFacetCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateFacetCommand extends $Command
@@ -128,9 +144,7 @@ export class CreateFacetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +156,16 @@ export class CreateFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFacetCommand)
   .de(de_CreateFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFacetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateFacetCommandInput;
+      output: CreateFacetCommandOutput;
+    };
+  };
+}

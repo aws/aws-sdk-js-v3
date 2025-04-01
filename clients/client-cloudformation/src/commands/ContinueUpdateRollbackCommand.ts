@@ -28,14 +28,16 @@ export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollba
 export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**
- * <p>For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues rolling it back to the
- *    <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the
- *    error</a> and continue the rollback. By continuing the rollback, you can return your stack to a working state
- *    (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and then try to update the stack again.</p>
- *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation can't roll back all changes after
- *    a failed stack update. For example, you might have a stack that's rolling back to an old database instance that was
- *    deleted outside of CloudFormation. Because CloudFormation doesn't know the database was deleted, it assumes that the database instance
- *    still exists and attempts to roll back to it, causing the update rollback to fail.</p>
+ * <p>For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
+ *       rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause of
+ *       the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">fix the error</a> and continue the rollback. By continuing the rollback, you can return
+ *       your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and then try
+ *       to update the stack again.</p>
+ *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation can't roll
+ *       back all changes after a failed stack update. For example, you might have a stack that's
+ *       rolling back to an old database instance that was deleted outside of CloudFormation. Because
+ *       CloudFormation doesn't know the database was deleted, it assumes that the database instance still
+ *       exists and attempts to roll back to it, causing the update rollback to fail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +70,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ContinueUpdateRollbackCommand extends $Command
@@ -78,9 +81,7 @@ export class ContinueUpdateRollbackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +93,16 @@ export class ContinueUpdateRollbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContinueUpdateRollbackCommand)
   .de(de_ContinueUpdateRollbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContinueUpdateRollbackInput;
+      output: {};
+    };
+    sdk: {
+      input: ContinueUpdateRollbackCommandInput;
+      output: ContinueUpdateRollbackCommandOutput;
+    };
+  };
+}

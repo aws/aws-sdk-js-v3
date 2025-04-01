@@ -46,6 +46,10 @@ import {
 } from "../commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import {
+  CreateIdentityCenterApplicationCommandInput,
+  CreateIdentityCenterApplicationCommandOutput,
+} from "../commands/CreateIdentityCenterApplicationCommand";
+import {
   CreateImpersonationRoleCommandInput,
   CreateImpersonationRoleCommandOutput,
 } from "../commands/CreateImpersonationRoleCommand";
@@ -71,6 +75,14 @@ import {
 } from "../commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import {
+  DeleteIdentityCenterApplicationCommandInput,
+  DeleteIdentityCenterApplicationCommandOutput,
+} from "../commands/DeleteIdentityCenterApplicationCommand";
+import {
+  DeleteIdentityProviderConfigurationCommandInput,
+  DeleteIdentityProviderConfigurationCommandOutput,
+} from "../commands/DeleteIdentityProviderConfigurationCommand";
+import {
   DeleteImpersonationRoleCommandInput,
   DeleteImpersonationRoleCommandOutput,
 } from "../commands/DeleteImpersonationRoleCommand";
@@ -87,6 +99,10 @@ import {
   DeleteMobileDeviceAccessRuleCommandOutput,
 } from "../commands/DeleteMobileDeviceAccessRuleCommand";
 import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "../commands/DeleteOrganizationCommand";
+import {
+  DeletePersonalAccessTokenCommandInput,
+  DeletePersonalAccessTokenCommandOutput,
+} from "../commands/DeletePersonalAccessTokenCommand";
 import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "../commands/DeleteResourceCommand";
 import {
   DeleteRetentionPolicyCommandInput,
@@ -107,6 +123,10 @@ import {
 } from "../commands/DescribeEmailMonitoringConfigurationCommand";
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "../commands/DescribeEntityCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
+import {
+  DescribeIdentityProviderConfigurationCommandInput,
+  DescribeIdentityProviderConfigurationCommandOutput,
+} from "../commands/DescribeIdentityProviderConfigurationCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
   DescribeInboundDmarcSettingsCommandOutput,
@@ -156,6 +176,10 @@ import {
   GetMobileDeviceAccessOverrideCommandOutput,
 } from "../commands/GetMobileDeviceAccessOverrideCommand";
 import {
+  GetPersonalAccessTokenMetadataCommandInput,
+  GetPersonalAccessTokenMetadataCommandOutput,
+} from "../commands/GetPersonalAccessTokenMetadataCommand";
+import {
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
 } from "../commands/ListAccessControlRulesCommand";
@@ -193,6 +217,10 @@ import {
 } from "../commands/ListMobileDeviceAccessRulesCommand";
 import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "../commands/ListOrganizationsCommand";
 import {
+  ListPersonalAccessTokensCommandInput,
+  ListPersonalAccessTokensCommandOutput,
+} from "../commands/ListPersonalAccessTokensCommand";
+import {
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
 } from "../commands/ListResourceDelegatesCommand";
@@ -210,6 +238,10 @@ import {
   PutEmailMonitoringConfigurationCommandInput,
   PutEmailMonitoringConfigurationCommandOutput,
 } from "../commands/PutEmailMonitoringConfigurationCommand";
+import {
+  PutIdentityProviderConfigurationCommandInput,
+  PutIdentityProviderConfigurationCommandOutput,
+} from "../commands/PutIdentityProviderConfigurationCommand";
 import {
   PutInboundDmarcSettingsCommandInput,
   PutInboundDmarcSettingsCommandOutput,
@@ -271,6 +303,7 @@ import {
   CreateAliasRequest,
   CreateAvailabilityConfigurationRequest,
   CreateGroupRequest,
+  CreateIdentityCenterApplicationRequest,
   CreateImpersonationRoleRequest,
   CreateMobileDeviceAccessRuleRequest,
   CreateOrganizationRequest,
@@ -281,11 +314,14 @@ import {
   DeleteAvailabilityConfigurationRequest,
   DeleteEmailMonitoringConfigurationRequest,
   DeleteGroupRequest,
+  DeleteIdentityCenterApplicationRequest,
+  DeleteIdentityProviderConfigurationRequest,
   DeleteImpersonationRoleRequest,
   DeleteMailboxPermissionsRequest,
   DeleteMobileDeviceAccessOverrideRequest,
   DeleteMobileDeviceAccessRuleRequest,
   DeleteOrganizationRequest,
+  DeletePersonalAccessTokenRequest,
   DeleteResourceRequest,
   DeleteRetentionPolicyRequest,
   DeleteUserRequest,
@@ -295,6 +331,7 @@ import {
   DescribeEntityRequest,
   DescribeGroupRequest,
   DescribeGroupResponse,
+  DescribeIdentityProviderConfigurationRequest,
   DescribeInboundDmarcSettingsRequest,
   DescribeMailboxExportJobRequest,
   DescribeMailboxExportJobResponse,
@@ -327,7 +364,10 @@ import {
   GetMobileDeviceAccessEffectRequest,
   GetMobileDeviceAccessOverrideRequest,
   GetMobileDeviceAccessOverrideResponse,
+  GetPersonalAccessTokenMetadataRequest,
+  GetPersonalAccessTokenMetadataResponse,
   Group,
+  IdentityCenterConfiguration,
   ImpersonationRole,
   ImpersonationRule,
   InvalidConfigurationException,
@@ -359,6 +399,8 @@ import {
   ListMobileDeviceAccessRulesRequest,
   ListMobileDeviceAccessRulesResponse,
   ListOrganizationsRequest,
+  ListPersonalAccessTokensRequest,
+  ListPersonalAccessTokensResponse,
   ListResourceDelegatesRequest,
   ListResourcesFilters,
   ListResourcesRequest,
@@ -378,8 +420,11 @@ import {
   OrganizationNotFoundException,
   OrganizationStateException,
   PermissionType,
+  PersonalAccessTokenConfiguration,
+  PersonalAccessTokenSummary,
   PutAccessControlRuleRequest,
   PutEmailMonitoringConfigurationRequest,
+  PutIdentityProviderConfigurationRequest,
   PutInboundDmarcSettingsRequest,
   PutMailboxPermissionsRequest,
   PutMobileDeviceAccessOverrideRequest,
@@ -498,6 +543,19 @@ export const se_CreateGroupCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateGroup");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateIdentityCenterApplicationCommand
+ */
+export const se_CreateIdentityCenterApplicationCommand = async (
+  input: CreateIdentityCenterApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateIdentityCenterApplication");
+  let body: any;
+  body = JSON.stringify(se_CreateIdentityCenterApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -632,6 +690,32 @@ export const se_DeleteGroupCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteIdentityCenterApplicationCommand
+ */
+export const se_DeleteIdentityCenterApplicationCommand = async (
+  input: DeleteIdentityCenterApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteIdentityCenterApplication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteIdentityProviderConfigurationCommand
+ */
+export const se_DeleteIdentityProviderConfigurationCommand = async (
+  input: DeleteIdentityProviderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteIdentityProviderConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteImpersonationRoleCommand
  */
 export const se_DeleteImpersonationRoleCommand = async (
@@ -693,6 +777,19 @@ export const se_DeleteOrganizationCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteOrganization");
   let body: any;
   body = JSON.stringify(se_DeleteOrganizationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeletePersonalAccessTokenCommand
+ */
+export const se_DeletePersonalAccessTokenCommand = async (
+  input: DeletePersonalAccessTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeletePersonalAccessToken");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -795,6 +892,19 @@ export const se_DescribeGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeIdentityProviderConfigurationCommand
+ */
+export const se_DescribeIdentityProviderConfigurationCommand = async (
+  input: DescribeIdentityProviderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeIdentityProviderConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -996,6 +1106,19 @@ export const se_GetMobileDeviceAccessOverrideCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetPersonalAccessTokenMetadataCommand
+ */
+export const se_GetPersonalAccessTokenMetadataCommand = async (
+  input: GetPersonalAccessTokenMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetPersonalAccessTokenMetadata");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListAccessControlRulesCommand
  */
 export const se_ListAccessControlRulesCommand = async (
@@ -1165,6 +1288,19 @@ export const se_ListOrganizationsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListPersonalAccessTokensCommand
+ */
+export const se_ListPersonalAccessTokensCommand = async (
+  input: ListPersonalAccessTokensCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPersonalAccessTokens");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListResourceDelegatesCommand
  */
 export const se_ListResourceDelegatesCommand = async (
@@ -1237,6 +1373,19 @@ export const se_PutEmailMonitoringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutEmailMonitoringConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutIdentityProviderConfigurationCommand
+ */
+export const se_PutIdentityProviderConfigurationCommand = async (
+  input: PutIdentityProviderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutIdentityProviderConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1643,6 +1792,26 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateIdentityCenterApplicationCommand
+ */
+export const de_CreateIdentityCenterApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdentityCenterApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateIdentityCenterApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateImpersonationRoleCommand
  */
 export const de_CreateImpersonationRoleCommand = async (
@@ -1843,6 +2012,46 @@ export const de_DeleteGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteIdentityCenterApplicationCommand
+ */
+export const de_DeleteIdentityCenterApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdentityCenterApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteIdentityCenterApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteIdentityProviderConfigurationCommand
+ */
+export const de_DeleteIdentityProviderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdentityProviderConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteIdentityProviderConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DeleteImpersonationRoleCommand
  */
 export const de_DeleteImpersonationRoleCommand = async (
@@ -1936,6 +2145,26 @@ export const de_DeleteOrganizationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePersonalAccessTokenCommand
+ */
+export const de_DeletePersonalAccessTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePersonalAccessTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeletePersonalAccessTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2096,6 +2325,26 @@ export const de_DescribeGroupCommand = async (
   let contents: any = {};
   contents = de_DescribeGroupResponse(data, context);
   const response: DescribeGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeIdentityProviderConfigurationCommand
+ */
+export const de_DescribeIdentityProviderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIdentityProviderConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2403,6 +2652,26 @@ export const de_GetMobileDeviceAccessOverrideCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetPersonalAccessTokenMetadataCommand
+ */
+export const de_GetPersonalAccessTokenMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPersonalAccessTokenMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPersonalAccessTokenMetadataResponse(data, context);
+  const response: GetPersonalAccessTokenMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListAccessControlRulesCommand
  */
 export const de_ListAccessControlRulesCommand = async (
@@ -2663,6 +2932,26 @@ export const de_ListOrganizationsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListPersonalAccessTokensCommand
+ */
+export const de_ListPersonalAccessTokensCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPersonalAccessTokensCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPersonalAccessTokensResponse(data, context);
+  const response: ListPersonalAccessTokensCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListResourceDelegatesCommand
  */
 export const de_ListResourceDelegatesCommand = async (
@@ -2776,6 +3065,26 @@ export const de_PutEmailMonitoringConfigurationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: PutEmailMonitoringConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutIdentityProviderConfigurationCommand
+ */
+export const de_PutIdentityProviderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutIdentityProviderConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3662,6 +3971,20 @@ const se_CreateAvailabilityConfigurationRequest = (
 // se_CreateGroupRequest omitted.
 
 /**
+ * serializeAws_json1_1CreateIdentityCenterApplicationRequest
+ */
+const se_CreateIdentityCenterApplicationRequest = (
+  input: CreateIdentityCenterApplicationRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    InstanceArn: [],
+    Name: [],
+  });
+};
+
+/**
  * serializeAws_json1_1CreateImpersonationRoleRequest
  */
 const se_CreateImpersonationRoleRequest = (input: CreateImpersonationRoleRequest, context: __SerdeContext): any => {
@@ -3727,6 +4050,10 @@ const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context:
 
 // se_DeleteGroupRequest omitted.
 
+// se_DeleteIdentityCenterApplicationRequest omitted.
+
+// se_DeleteIdentityProviderConfigurationRequest omitted.
+
 // se_DeleteImpersonationRoleRequest omitted.
 
 // se_DeleteMailboxPermissionsRequest omitted.
@@ -3742,10 +4069,13 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeleteDirectory: [],
+    DeleteIdentityCenterApplication: [],
     ForceDelete: [],
     OrganizationId: [],
   });
 };
+
+// se_DeletePersonalAccessTokenRequest omitted.
 
 // se_DeleteResourceRequest omitted.
 
@@ -3762,6 +4092,8 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 // se_DescribeEntityRequest omitted.
 
 // se_DescribeGroupRequest omitted.
+
+// se_DescribeIdentityProviderConfigurationRequest omitted.
 
 // se_DescribeInboundDmarcSettingsRequest omitted.
 
@@ -3811,6 +4143,10 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 
 // se_GetMobileDeviceAccessOverrideRequest omitted.
 
+// se_GetPersonalAccessTokenMetadataRequest omitted.
+
+// se_IdentityCenterConfiguration omitted.
+
 // se_ImpersonationRoleIdList omitted.
 
 // se_ImpersonationRule omitted.
@@ -3851,6 +4187,8 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 
 // se_ListOrganizationsRequest omitted.
 
+// se_ListPersonalAccessTokensRequest omitted.
+
 // se_ListResourceDelegatesRequest omitted.
 
 // se_ListResourcesFilters omitted.
@@ -3865,9 +4203,13 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 
 // se_PermissionValues omitted.
 
+// se_PersonalAccessTokenConfiguration omitted.
+
 // se_PutAccessControlRuleRequest omitted.
 
 // se_PutEmailMonitoringConfigurationRequest omitted.
+
+// se_PutIdentityProviderConfigurationRequest omitted.
 
 // se_PutInboundDmarcSettingsRequest omitted.
 
@@ -4023,6 +4365,8 @@ const de_AvailabilityConfigurationList = (output: any, context: __SerdeContext):
 
 // de_CreateGroupResponse omitted.
 
+// de_CreateIdentityCenterApplicationResponse omitted.
+
 // de_CreateImpersonationRoleResponse omitted.
 
 // de_CreateMobileDeviceAccessRuleResponse omitted.
@@ -4045,6 +4389,10 @@ const de_AvailabilityConfigurationList = (output: any, context: __SerdeContext):
 
 // de_DeleteGroupResponse omitted.
 
+// de_DeleteIdentityCenterApplicationResponse omitted.
+
+// de_DeleteIdentityProviderConfigurationResponse omitted.
+
 // de_DeleteImpersonationRoleResponse omitted.
 
 // de_DeleteMailboxPermissionsResponse omitted.
@@ -4054,6 +4402,8 @@ const de_AvailabilityConfigurationList = (output: any, context: __SerdeContext):
 // de_DeleteMobileDeviceAccessRuleResponse omitted.
 
 // de_DeleteOrganizationResponse omitted.
+
+// de_DeletePersonalAccessTokenResponse omitted.
 
 // de_DeleteResourceResponse omitted.
 
@@ -4083,6 +4433,8 @@ const de_DescribeGroupResponse = (output: any, context: __SerdeContext): Describ
     State: __expectString,
   }) as any;
 };
+
+// de_DescribeIdentityProviderConfigurationResponse omitted.
 
 // de_DescribeInboundDmarcSettingsResponse omitted.
 
@@ -4161,6 +4513,8 @@ const de_DescribeUserResponse = (output: any, context: __SerdeContext): Describe
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FirstName: __expectString,
     HiddenFromGlobalAddressList: __expectBoolean,
+    IdentityProviderIdentityStoreId: __expectString,
+    IdentityProviderUserId: __expectString,
     Initials: __expectString,
     JobTitle: __expectString,
     LastName: __expectString,
@@ -4264,6 +4618,24 @@ const de_GetMobileDeviceAccessOverrideResponse = (
 };
 
 /**
+ * deserializeAws_json1_1GetPersonalAccessTokenMetadataResponse
+ */
+const de_GetPersonalAccessTokenMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPersonalAccessTokenMetadataResponse => {
+  return take(output, {
+    DateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DateLastUsed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpiresTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PersonalAccessTokenId: __expectString,
+    Scopes: _json,
+    UserId: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Group
  */
 const de_Group = (output: any, context: __SerdeContext): Group => {
@@ -4292,6 +4664,8 @@ const de_Groups = (output: any, context: __SerdeContext): Group[] => {
     });
   return retVal;
 };
+
+// de_IdentityCenterConfiguration omitted.
 
 // de_ImpersonationMatchedRule omitted.
 
@@ -4451,6 +4825,19 @@ const de_ListMobileDeviceAccessRulesResponse = (
 
 // de_ListOrganizationsResponse omitted.
 
+/**
+ * deserializeAws_json1_1ListPersonalAccessTokensResponse
+ */
+const de_ListPersonalAccessTokensResponse = (
+  output: any,
+  context: __SerdeContext
+): ListPersonalAccessTokensResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    PersonalAccessTokenSummaries: (_: any) => de_PersonalAccessTokenSummaryList(_, context),
+  }) as any;
+};
+
 // de_ListResourceDelegatesResponse omitted.
 
 /**
@@ -4608,9 +4995,42 @@ const de_MobileDeviceAccessRulesList = (output: any, context: __SerdeContext): M
 
 // de_PermissionValues omitted.
 
+// de_PersonalAccessTokenConfiguration omitted.
+
+// de_PersonalAccessTokenScopeList omitted.
+
+/**
+ * deserializeAws_json1_1PersonalAccessTokenSummary
+ */
+const de_PersonalAccessTokenSummary = (output: any, context: __SerdeContext): PersonalAccessTokenSummary => {
+  return take(output, {
+    DateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DateLastUsed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpiresTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PersonalAccessTokenId: __expectString,
+    Scopes: _json,
+    UserId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PersonalAccessTokenSummaryList
+ */
+const de_PersonalAccessTokenSummaryList = (output: any, context: __SerdeContext): PersonalAccessTokenSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PersonalAccessTokenSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_PutAccessControlRuleResponse omitted.
 
 // de_PutEmailMonitoringConfigurationResponse omitted.
+
+// de_PutIdentityProviderConfigurationResponse omitted.
 
 // de_PutInboundDmarcSettingsResponse omitted.
 
@@ -4708,6 +5128,8 @@ const de_User = (output: any, context: __SerdeContext): User => {
     Email: __expectString,
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
+    IdentityProviderIdentityStoreId: __expectString,
+    IdentityProviderUserId: __expectString,
     Name: __expectString,
     State: __expectString,
     UserRole: __expectString,

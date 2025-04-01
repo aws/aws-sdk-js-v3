@@ -99,6 +99,7 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class CreateWatchlistCommand extends $Command
@@ -109,9 +110,7 @@ export class CreateWatchlistCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateWatchlistCommand extends $Command
   .f(CreateWatchlistRequestFilterSensitiveLog, CreateWatchlistResponseFilterSensitiveLog)
   .ser(se_CreateWatchlistCommand)
   .de(de_CreateWatchlistCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWatchlistRequest;
+      output: CreateWatchlistResponse;
+    };
+    sdk: {
+      input: CreateWatchlistCommandInput;
+      output: CreateWatchlistCommandOutput;
+    };
+  };
+}

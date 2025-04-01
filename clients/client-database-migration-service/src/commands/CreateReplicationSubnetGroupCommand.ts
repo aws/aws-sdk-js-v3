@@ -38,12 +38,14 @@ export interface CreateReplicationSubnetGroupCommandOutput
 
 /**
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
- *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
- *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
- *          <p>If a replication subnet group exists in your Amazon Web Services account, the CreateReplicationSubnetGroup action
- *          returns the following error message: The Replication Subnet Group already exists. In this case, delete
- *          the existing replication subnet group. To do so, use the <a href="https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html">DeleteReplicationSubnetGroup</a> action. Optionally, choose Subnet groups in the DMS console,
- *          then choose your subnet group. Next, choose Delete from Actions.</p>
+ *          <p>The VPC needs to have at least one subnet in at least two availability zones in the
+ *             Amazon Web Services Region, otherwise the service will throw a
+ *             <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
+ *          <p>If a replication subnet group exists in your Amazon Web Services account, the
+ *          CreateReplicationSubnetGroup action returns the following error message: The Replication
+ *          Subnet Group already exists. In this case, delete the existing replication subnet group. To
+ *          do so, use the <a href="https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html">DeleteReplicationSubnetGroup</a> action. Optionally, choose Subnet groups in the
+ *          DMS console, then choose your subnet group. Next, choose Delete from Actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,34 +119,34 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create replication subnet group
  * ```javascript
  * // Creates a replication subnet group given a list of the subnet IDs in a VPC.
  * const input = {
- *   "ReplicationSubnetGroupDescription": "US West subnet group",
- *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366",
- *   "SubnetIds": [
+ *   ReplicationSubnetGroupDescription: "US West subnet group",
+ *   ReplicationSubnetGroupIdentifier: "us-west-2ab-vpc-215ds366",
+ *   SubnetIds: [
  *     "subnet-e145356n",
  *     "subnet-58f79200"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Acount",
- *       "Value": "145235"
+ *       Key: "Acount",
+ *       Value: "145235"
  *     }
  *   ]
  * };
  * const command = new CreateReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationSubnetGroup": {}
+ *   ReplicationSubnetGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: create-replication-subnet-group-1481747297930
  * ```
  *
+ * @public
  */
 export class CreateReplicationSubnetGroupCommand extends $Command
   .classBuilder<
@@ -154,9 +156,7 @@ export class CreateReplicationSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +168,16 @@ export class CreateReplicationSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationSubnetGroupCommand)
   .de(de_CreateReplicationSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationSubnetGroupMessage;
+      output: CreateReplicationSubnetGroupResponse;
+    };
+    sdk: {
+      input: CreateReplicationSubnetGroupCommandInput;
+      output: CreateReplicationSubnetGroupCommandOutput;
+    };
+  };
+}

@@ -39,7 +39,7 @@ export interface ListTableOptimizerRunsCommandOutput extends ListTableOptimizerR
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   Type: "compaction", // required
+ *   Type: "compaction" || "retention" || "orphan_file_deletion", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -62,6 +62,30 @@ export interface ListTableOptimizerRunsCommandOutput extends ListTableOptimizerR
  * //         JobDurationInHour: "STRING_VALUE",
  * //       },
  * //       error: "STRING_VALUE",
+ * //       compactionMetrics: { // CompactionMetrics
+ * //         IcebergMetrics: { // IcebergCompactionMetrics
+ * //           NumberOfBytesCompacted: Number("long"),
+ * //           NumberOfFilesCompacted: Number("long"),
+ * //           NumberOfDpus: Number("int"),
+ * //           JobDurationInHour: Number("double"),
+ * //         },
+ * //       },
+ * //       retentionMetrics: { // RetentionMetrics
+ * //         IcebergMetrics: { // IcebergRetentionMetrics
+ * //           NumberOfDataFilesDeleted: Number("long"),
+ * //           NumberOfManifestFilesDeleted: Number("long"),
+ * //           NumberOfManifestListsDeleted: Number("long"),
+ * //           NumberOfDpus: Number("int"),
+ * //           JobDurationInHour: Number("double"),
+ * //         },
+ * //       },
+ * //       orphanFileDeletionMetrics: { // OrphanFileDeletionMetrics
+ * //         IcebergMetrics: { // IcebergOrphanFileDeletionMetrics
+ * //           NumberOfOrphanFilesDeleted: Number("long"),
+ * //           NumberOfDpus: Number("int"),
+ * //           JobDurationInHour: Number("double"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -86,8 +110,15 @@ export interface ListTableOptimizerRunsCommandOutput extends ListTableOptimizerR
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A value could not be validated.</p>
+ *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
+ *
  *
  * @public
  */
@@ -99,9 +130,7 @@ export class ListTableOptimizerRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +142,16 @@ export class ListTableOptimizerRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTableOptimizerRunsCommand)
   .de(de_ListTableOptimizerRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTableOptimizerRunsRequest;
+      output: ListTableOptimizerRunsResponse;
+    };
+    sdk: {
+      input: ListTableOptimizerRunsCommandInput;
+      output: ListTableOptimizerRunsCommandOutput;
+    };
+  };
+}

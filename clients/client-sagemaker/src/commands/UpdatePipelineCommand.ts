@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_4";
+import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_5";
 import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -74,6 +74,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipelineCommand extends $Command
@@ -84,9 +85,7 @@ export class UpdatePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class UpdatePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePipelineCommand)
   .de(de_UpdatePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipelineRequest;
+      output: UpdatePipelineResponse;
+    };
+    sdk: {
+      input: UpdatePipelineCommandInput;
+      output: UpdatePipelineCommandOutput;
+    };
+  };
+}

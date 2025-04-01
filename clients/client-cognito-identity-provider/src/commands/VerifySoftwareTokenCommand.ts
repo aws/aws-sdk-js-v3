@@ -37,9 +37,10 @@ export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequ
 export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Use this API to register a user's entered time-based one-time password (TOTP) code and
- *             mark the user's software token MFA status as "verified" if successful. The request takes
- *             an access token or a session string, but not both.</p>
+ * <p>Registers the current user's time-based one-time password (TOTP) authenticator
+ *             with a code generated in their authenticator app from a private key that's supplied
+ *             by your user pool. Marks the user's software token MFA status as "verified" if
+ *             successful. The request takes an access token or a session string, but not both.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -122,6 +123,7 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class VerifySoftwareTokenCommand extends $Command
@@ -132,9 +134,7 @@ export class VerifySoftwareTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +146,16 @@ export class VerifySoftwareTokenCommand extends $Command
   .f(VerifySoftwareTokenRequestFilterSensitiveLog, VerifySoftwareTokenResponseFilterSensitiveLog)
   .ser(se_VerifySoftwareTokenCommand)
   .de(de_VerifySoftwareTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifySoftwareTokenRequest;
+      output: VerifySoftwareTokenResponse;
+    };
+    sdk: {
+      input: VerifySoftwareTokenCommandInput;
+      output: VerifySoftwareTokenCommandOutput;
+    };
+  };
+}

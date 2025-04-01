@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
+import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_4";
 import { de_DescribeDhcpOptionsCommand, se_DescribeDhcpOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -43,6 +43,9 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *   DhcpOptionsIds: [ // DhcpOptionsIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -51,15 +54,21 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeDhcpOptionsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeDhcpOptionsResult
+ * //   NextToken: "STRING_VALUE",
  * //   DhcpOptions: [ // DhcpOptionsList
  * //     { // DhcpOptions
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DhcpOptionsId: "STRING_VALUE",
  * //       DhcpConfigurations: [ // DhcpConfigurationList
  * //         { // DhcpConfiguration
  * //           Key: "STRING_VALUE",
@@ -70,17 +79,8 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * //           ],
  * //         },
  * //       ],
- * //       DhcpOptionsId: "STRING_VALUE",
- * //       OwnerId: "STRING_VALUE",
- * //       Tags: [ // TagList
- * //         { // Tag
- * //           Key: "STRING_VALUE",
- * //           Value: "STRING_VALUE",
- * //         },
- * //       ],
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -94,42 +94,42 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a DHCP options set
  * ```javascript
  * // This example describes the specified DHCP options set.
  * const input = {
- *   "DhcpOptionsIds": [
+ *   DhcpOptionsIds: [
  *     "dopt-d9070ebb"
  *   ]
  * };
  * const command = new DescribeDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DhcpOptions": [
+ *   DhcpOptions: [
  *     {
- *       "DhcpConfigurations": [
+ *       DhcpConfigurations: [
  *         {
- *           "Key": "domain-name-servers",
- *           "Values": [
+ *           Key: "domain-name-servers",
+ *           Values: [
  *             {
- *               "Value": "10.2.5.2"
+ *               Value: "10.2.5.2"
  *             },
  *             {
- *               "Value": "10.2.5.1"
+ *               Value: "10.2.5.1"
  *             }
  *           ]
  *         }
  *       ],
- *       "DhcpOptionsId": "dopt-d9070ebb"
+ *       DhcpOptionsId: "dopt-d9070ebb"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-dhcp-options-1
  * ```
  *
+ * @public
  */
 export class DescribeDhcpOptionsCommand extends $Command
   .classBuilder<
@@ -139,9 +139,7 @@ export class DescribeDhcpOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +151,16 @@ export class DescribeDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDhcpOptionsCommand)
   .de(de_DescribeDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDhcpOptionsRequest;
+      output: DescribeDhcpOptionsResult;
+    };
+    sdk: {
+      input: DescribeDhcpOptionsCommandInput;
+      output: DescribeDhcpOptionsCommandOutput;
+    };
+  };
+}

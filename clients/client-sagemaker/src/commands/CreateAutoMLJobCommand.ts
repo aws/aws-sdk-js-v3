@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAutoMLJobRequest, CreateAutoMLJobResponse } from "../models/models_0";
+import { CreateAutoMLJobRequest, CreateAutoMLJobResponse } from "../models/models_1";
 import { de_CreateAutoMLJobCommand, se_CreateAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -29,6 +29,18 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
 
 /**
  * <p>Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.</p>
+ *          <p>An AutoML job in SageMaker AI is a fully automated process that allows you to build machine
+ *          learning models with minimal effort and machine learning expertise. When initiating an
+ *          AutoML job, you provide your data and optionally specify parameters tailored to your use
+ *          case. SageMaker AI then automates the entire model development lifecycle, including data
+ *          preprocessing, model training, tuning, and evaluation. AutoML jobs are designed to simplify
+ *          and accelerate the model building process by automating various tasks and exploring
+ *          different combinations of machine learning algorithms, data preprocessing techniques, and
+ *          hyperparameter values. The output of an AutoML job comprises one or more trained models
+ *          ready for deployment and inference. Additionally, SageMaker AI AutoML jobs generate a candidate
+ *          model leaderboard, allowing you to select the best-performing model for deployment.</p>
+ *          <p>For more information about AutoML jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html</a>
+ *          in the SageMaker AI developer guide.</p>
  *          <note>
  *             <p>We recommend using the new versions <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>, which offer backward compatibility.</p>
  *             <p>
@@ -141,6 +153,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateAutoMLJobCommand extends $Command
@@ -151,9 +164,7 @@ export class CreateAutoMLJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +176,16 @@ export class CreateAutoMLJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAutoMLJobCommand)
   .de(de_CreateAutoMLJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutoMLJobRequest;
+      output: CreateAutoMLJobResponse;
+    };
+    sdk: {
+      input: CreateAutoMLJobCommandInput;
+      output: CreateAutoMLJobCommandOutput;
+    };
+  };
+}

@@ -10,12 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveAndGenerateRequest,
-  RetrieveAndGenerateRequestFilterSensitiveLog,
-  RetrieveAndGenerateResponse,
-  RetrieveAndGenerateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RetrieveAndGenerateResponse, RetrieveAndGenerateResponseFilterSensitiveLog } from "../models/models_0";
+import { RetrieveAndGenerateRequest, RetrieveAndGenerateRequestFilterSensitiveLog } from "../models/models_1";
 import { de_RetrieveAndGenerateCommand, se_RetrieveAndGenerateCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -37,7 +33,7 @@ export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequ
 export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results. The response only cites sources that are relevant to the query.</p>
+ * <p>Queries a knowledge base and generates responses based on the retrieved results and using the specified foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>. The response only cites sources that are relevant to the query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,6 +106,43 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *               "<RetrievalFilter>",
  *             ],
  *           },
+ *           rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ *             type: "BEDROCK_RERANKING_MODEL", // required
+ *             bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ *               modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ *                 modelArn: "STRING_VALUE", // required
+ *                 additionalModelRequestFields: { // AdditionalModelRequestFields
+ *                   "<keys>": "DOCUMENT_VALUE",
+ *                 },
+ *               },
+ *               numberOfRerankedResults: Number("int"),
+ *               metadataConfiguration: { // MetadataConfigurationForReranking
+ *                 selectionMode: "SELECTIVE" || "ALL", // required
+ *                 selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ *                   fieldsToInclude: [ // FieldsForReranking
+ *                     { // FieldForReranking
+ *                       fieldName: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   fieldsToExclude: [
+ *                     {
+ *                       fieldName: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *           },
+ *           implicitFilterConfiguration: { // ImplicitFilterConfiguration
+ *             metadataAttributes: [ // MetadataAttributeSchemaList // required
+ *               { // MetadataAttributeSchema
+ *                 key: "STRING_VALUE", // required
+ *                 type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *                 description: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             modelArn: "STRING_VALUE", // required
+ *           },
  *         },
  *       },
  *       generationConfiguration: { // GenerationConfiguration
@@ -130,8 +163,35 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *             ],
  *           },
  *         },
- *         additionalModelRequestFields: { // AdditionalModelRequestFields
+ *         additionalModelRequestFields: {
  *           "<keys>": "DOCUMENT_VALUE",
+ *         },
+ *         performanceConfig: { // PerformanceConfiguration
+ *           latency: "standard" || "optimized",
+ *         },
+ *       },
+ *       orchestrationConfiguration: { // OrchestrationConfiguration
+ *         promptTemplate: {
+ *           textPromptTemplate: "STRING_VALUE",
+ *         },
+ *         inferenceConfig: {
+ *           textInferenceConfig: {
+ *             temperature: Number("float"),
+ *             topP: Number("float"),
+ *             maxTokens: Number("int"),
+ *             stopSequences: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         additionalModelRequestFields: {
+ *           "<keys>": "DOCUMENT_VALUE",
+ *         },
+ *         queryTransformationConfiguration: { // QueryTransformationConfiguration
+ *           type: "QUERY_DECOMPOSITION", // required
+ *         },
+ *         performanceConfig: {
+ *           latency: "standard" || "optimized",
  *         },
  *       },
  *     },
@@ -171,6 +231,9 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *         additionalModelRequestFields: {
  *           "<keys>": "DOCUMENT_VALUE",
  *         },
+ *         performanceConfig: {
+ *           latency: "standard" || "optimized",
+ *         },
  *       },
  *     },
  *   },
@@ -199,12 +262,42 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * //       retrievedReferences: [ // RetrievedReferences
  * //         { // RetrievedReference
  * //           content: { // RetrievalResultContent
- * //             text: "STRING_VALUE", // required
+ * //             type: "TEXT" || "IMAGE" || "ROW",
+ * //             text: "STRING_VALUE",
+ * //             byteContent: "STRING_VALUE",
+ * //             row: [ // RetrievalResultContentRow
+ * //               { // RetrievalResultContentColumn
+ * //                 columnName: "STRING_VALUE",
+ * //                 columnValue: "STRING_VALUE",
+ * //                 type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //               },
+ * //             ],
  * //           },
  * //           location: { // RetrievalResultLocation
- * //             type: "S3", // required
+ * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //             s3Location: { // RetrievalResultS3Location
  * //               uri: "STRING_VALUE",
+ * //             },
+ * //             webLocation: { // RetrievalResultWebLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             sharePointLocation: { // RetrievalResultSharePointLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //               id: "STRING_VALUE",
+ * //             },
+ * //             kendraDocumentLocation: { // RetrievalResultKendraDocumentLocation
+ * //               uri: "STRING_VALUE",
+ * //             },
+ * //             sqlLocation: { // RetrievalResultSqlLocation
+ * //               query: "STRING_VALUE",
  * //             },
  * //           },
  * //           metadata: { // RetrievalResultMetadata
@@ -255,6 +348,7 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class RetrieveAndGenerateCommand extends $Command
@@ -265,9 +359,7 @@ export class RetrieveAndGenerateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -279,4 +371,16 @@ export class RetrieveAndGenerateCommand extends $Command
   .f(RetrieveAndGenerateRequestFilterSensitiveLog, RetrieveAndGenerateResponseFilterSensitiveLog)
   .ser(se_RetrieveAndGenerateCommand)
   .de(de_RetrieveAndGenerateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveAndGenerateRequest;
+      output: RetrieveAndGenerateResponse;
+    };
+    sdk: {
+      input: RetrieveAndGenerateCommandInput;
+      output: RetrieveAndGenerateCommandOutput;
+    };
+  };
+}

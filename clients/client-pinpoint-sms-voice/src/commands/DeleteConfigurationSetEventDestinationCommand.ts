@@ -75,6 +75,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationSetEventDestinationCommand)
   .de(de_DeleteConfigurationSetEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationSetEventDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationSetEventDestinationCommandInput;
+      output: DeleteConfigurationSetEventDestinationCommandOutput;
+    };
+  };
+}

@@ -103,6 +103,7 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListWirelessDevicesCommand extends $Command
@@ -113,9 +114,7 @@ export class ListWirelessDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListWirelessDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWirelessDevicesCommand)
   .de(de_ListWirelessDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWirelessDevicesRequest;
+      output: ListWirelessDevicesResponse;
+    };
+    sdk: {
+      input: ListWirelessDevicesCommandInput;
+      output: ListWirelessDevicesCommandOutput;
+    };
+  };
+}

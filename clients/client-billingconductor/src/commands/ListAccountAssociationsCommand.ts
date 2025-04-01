@@ -97,6 +97,7 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListAccountAssociationsCommand extends $Command
@@ -107,9 +108,7 @@ export class ListAccountAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class ListAccountAssociationsCommand extends $Command
   .f(void 0, ListAccountAssociationsOutputFilterSensitiveLog)
   .ser(se_ListAccountAssociationsCommand)
   .de(de_ListAccountAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountAssociationsInput;
+      output: ListAccountAssociationsOutput;
+    };
+    sdk: {
+      input: ListAccountAssociationsCommandInput;
+      output: ListAccountAssociationsCommandOutput;
+    };
+  };
+}

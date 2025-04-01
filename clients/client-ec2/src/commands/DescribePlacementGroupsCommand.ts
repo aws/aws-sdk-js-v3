@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_5";
 import { de_DescribePlacementGroupsCommand, se_DescribePlacementGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -28,8 +28,15 @@ export interface DescribePlacementGroupsCommandInput extends DescribePlacementGr
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified placement groups or all of your placement groups. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+ * <p>Describes the specified placement groups or all of your placement groups.</p>
+ *          <note>
+ *             <p>To describe a specific placement group that is <i>shared</i> with
+ *                 your account, you must specify the ID of the placement group using the
+ *                     <code>GroupId</code> parameter. Specifying the name of a
+ *                     <i>shared</i> placement group using the <code>GroupNames</code>
+ *                 parameter will result in an error.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,6 +45,13 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * // const { EC2Client, DescribePlacementGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribePlacementGroupsRequest
+ *   GroupIds: [ // PlacementGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   GroupNames: [ // PlacementGroupStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -45,13 +59,6 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  *         "STRING_VALUE",
  *       ],
  *     },
- *   ],
- *   DryRun: true || false,
- *   GroupNames: [ // PlacementGroupStringList
- *     "STRING_VALUE",
- *   ],
- *   GroupIds: [ // PlacementGroupIdStringList
- *     "STRING_VALUE",
  *   ],
  * };
  * const command = new DescribePlacementGroupsCommand(input);
@@ -87,6 +94,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribePlacementGroupsCommand extends $Command
@@ -97,9 +105,7 @@ export class DescribePlacementGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +117,16 @@ export class DescribePlacementGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePlacementGroupsCommand)
   .de(de_DescribePlacementGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePlacementGroupsRequest;
+      output: DescribePlacementGroupsResult;
+    };
+    sdk: {
+      input: DescribePlacementGroupsCommandInput;
+      output: DescribePlacementGroupsCommandOutput;
+    };
+  };
+}

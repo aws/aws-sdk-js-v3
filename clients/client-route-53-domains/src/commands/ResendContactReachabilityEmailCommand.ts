@@ -81,6 +81,7 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class ResendContactReachabilityEmailCommand extends $Command
@@ -91,9 +92,7 @@ export class ResendContactReachabilityEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ResendContactReachabilityEmailCommand extends $Command
   .f(void 0, ResendContactReachabilityEmailResponseFilterSensitiveLog)
   .ser(se_ResendContactReachabilityEmailCommand)
   .de(de_ResendContactReachabilityEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResendContactReachabilityEmailRequest;
+      output: ResendContactReachabilityEmailResponse;
+    };
+    sdk: {
+      input: ResendContactReachabilityEmailCommandInput;
+      output: ResendContactReachabilityEmailCommandOutput;
+    };
+  };
+}

@@ -92,6 +92,7 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class GetResolverQueryLogConfigAssociationCommand extends $Command
@@ -102,9 +103,7 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResolverQueryLogConfigAssociationCommand)
   .de(de_GetResolverQueryLogConfigAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResolverQueryLogConfigAssociationRequest;
+      output: GetResolverQueryLogConfigAssociationResponse;
+    };
+    sdk: {
+      input: GetResolverQueryLogConfigAssociationCommandInput;
+      output: GetResolverQueryLogConfigAssociationCommandOutput;
+    };
+  };
+}

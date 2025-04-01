@@ -87,6 +87,7 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListForecastsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListForecastsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListForecastsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListForecastsCommand)
   .de(de_ListForecastsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListForecastsRequest;
+      output: ListForecastsResponse;
+    };
+    sdk: {
+      input: ListForecastsCommandInput;
+      output: ListForecastsCommandOutput;
+    };
+  };
+}

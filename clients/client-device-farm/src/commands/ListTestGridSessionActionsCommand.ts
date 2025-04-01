@@ -76,6 +76,7 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class ListTestGridSessionActionsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListTestGridSessionActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListTestGridSessionActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestGridSessionActionsCommand)
   .de(de_ListTestGridSessionActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestGridSessionActionsRequest;
+      output: ListTestGridSessionActionsResult;
+    };
+    sdk: {
+      input: ListTestGridSessionActionsCommandInput;
+      output: ListTestGridSessionActionsCommandOutput;
+    };
+  };
+}

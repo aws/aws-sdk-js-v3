@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterPublisherInput, RegisterPublisherOutput } from "../models/models_0";
+import { RegisterPublisherInput, RegisterPublisherOutput } from "../models/models_1";
 import { de_RegisterPublisherCommand, se_RegisterPublisherCommand } from "../protocols/Aws_query";
 
 /**
@@ -28,10 +28,12 @@ export interface RegisterPublisherCommandInput extends RegisterPublisherInput {}
 export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput, __MetadataBearer {}
 
 /**
- * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are
- *    available for use by all CloudFormation users. This publisher ID applies to your account in all Amazon Web Services Regions.</p>
- *          <p>For information about requirements for registering as a public extension publisher, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation CLI User
- *    Guide</i>.</p>
+ * <p>Registers your account as a publisher of public extensions in the CloudFormation registry.
+ *       Public extensions are available for use by all CloudFormation users. This publisher ID applies to
+ *       your account in all Amazon Web Services Regions.</p>
+ *          <p>For information about requirements for registering as a public extension publisher, see
+ *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite: Registering your account to publish CloudFormation extensions</a> in the
+ *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +65,7 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class RegisterPublisherCommand extends $Command
@@ -73,9 +76,7 @@ export class RegisterPublisherCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +88,16 @@ export class RegisterPublisherCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterPublisherCommand)
   .de(de_RegisterPublisherCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterPublisherInput;
+      output: RegisterPublisherOutput;
+    };
+    sdk: {
+      input: RegisterPublisherCommandInput;
+      output: RegisterPublisherCommandOutput;
+    };
+  };
+}

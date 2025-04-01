@@ -91,6 +91,7 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectToxicContentCommand extends $Command
@@ -101,9 +102,7 @@ export class DetectToxicContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DetectToxicContentCommand extends $Command
   .f(DetectToxicContentRequestFilterSensitiveLog, void 0)
   .ser(se_DetectToxicContentCommand)
   .de(de_DetectToxicContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectToxicContentRequest;
+      output: DetectToxicContentResponse;
+    };
+    sdk: {
+      input: DetectToxicContentCommandInput;
+      output: DetectToxicContentCommandOutput;
+    };
+  };
+}

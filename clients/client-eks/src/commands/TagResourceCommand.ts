@@ -31,10 +31,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Associates the specified tags to an Amazon EKS resource with the specified
  *                 <code>resourceArn</code>. If existing tags on a resource are not specified in the
  *             request parameters, they aren't changed. When a resource is deleted, the tags associated
- *             with that resource are also deleted. Tags that you create for Amazon EKS
- *             resources don't propagate to any other resources associated with the cluster. For
- *             example, if you tag a cluster with this operation, that tag doesn't automatically
- *             propagate to the subnets and nodes associated with the cluster.</p>
+ *             with that resource are also deleted. Tags that you create for Amazon EKS resources don't
+ *             propagate to any other resources associated with the cluster. For example, if you tag a
+ *             cluster with this operation, that tag doesn't automatically propagate to the subnets and
+ *             nodes associated with the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +70,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -80,9 +81,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

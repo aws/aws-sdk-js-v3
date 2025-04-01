@@ -84,6 +84,7 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeGroupsCommand extends $Command
@@ -94,9 +95,7 @@ export class DescribeGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DescribeGroupsCommand extends $Command
   .f(DescribeGroupsRequestFilterSensitiveLog, void 0)
   .ser(se_DescribeGroupsCommand)
   .de(de_DescribeGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGroupsRequest;
+      output: DescribeGroupsResponse;
+    };
+    sdk: {
+      input: DescribeGroupsCommandInput;
+      output: DescribeGroupsCommandOutput;
+    };
+  };
+}

@@ -95,6 +95,7 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListOutpostsCommand extends $Command
@@ -105,9 +106,7 @@ export class ListOutpostsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class ListOutpostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOutpostsCommand)
   .de(de_ListOutpostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOutpostsInput;
+      output: ListOutpostsOutput;
+    };
+    sdk: {
+      input: ListOutpostsCommandInput;
+      output: ListOutpostsCommandOutput;
+    };
+  };
+}

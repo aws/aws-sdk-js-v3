@@ -108,6 +108,7 @@ export interface CreateVPCConnectionCommandOutput extends CreateVPCConnectionRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateVPCConnectionCommand extends $Command
@@ -118,9 +119,7 @@ export class CreateVPCConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class CreateVPCConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVPCConnectionCommand)
   .de(de_CreateVPCConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVPCConnectionRequest;
+      output: CreateVPCConnectionResponse;
+    };
+    sdk: {
+      input: CreateVPCConnectionCommandInput;
+      output: CreateVPCConnectionCommandOutput;
+    };
+  };
+}

@@ -132,6 +132,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class CreateBrokerCommand extends $Command
@@ -142,9 +143,7 @@ export class CreateBrokerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +155,16 @@ export class CreateBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBrokerCommand)
   .de(de_CreateBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBrokerRequest;
+      output: CreateBrokerResponse;
+    };
+    sdk: {
+      input: CreateBrokerCommandInput;
+      output: CreateBrokerCommandOutput;
+    };
+  };
+}

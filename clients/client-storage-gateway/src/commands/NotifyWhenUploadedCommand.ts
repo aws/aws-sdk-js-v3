@@ -28,13 +28,14 @@ export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput 
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
- * <p>Sends you notification through CloudWatch Events when all files written to your file
+ * <p>Sends you notification through Amazon EventBridge when all files written to your file
  *          share have been uploaded to Amazon S3.</p>
- *          <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all
+ *          <p>Storage Gateway can send a notification through Amazon EventBridge when all
  *          files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you
  *          make a request for notification. When the upload is done, Storage Gateway sends you
- *          notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to
- *          send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p>
+ *          notification through EventBridge. You can configure EventBridge to send the
+ *          notification through event targets such as Amazon SNS or Lambda
+ *          function. This operation is only supported for S3 File Gateways.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
  *             file upload notification</a> in the <i>Amazon S3 File Gateway User
  *             Guide</i>.</p>
@@ -73,6 +74,7 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class NotifyWhenUploadedCommand extends $Command
@@ -83,9 +85,7 @@ export class NotifyWhenUploadedCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class NotifyWhenUploadedCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyWhenUploadedCommand)
   .de(de_NotifyWhenUploadedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyWhenUploadedInput;
+      output: NotifyWhenUploadedOutput;
+    };
+    sdk: {
+      input: NotifyWhenUploadedCommandInput;
+      output: NotifyWhenUploadedCommandOutput;
+    };
+  };
+}

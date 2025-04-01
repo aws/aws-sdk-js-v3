@@ -215,35 +215,35 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To update a SQL injection match set
  * ```javascript
  * // The following example deletes a SqlInjectionMatchTuple object (filters) in a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SqlInjectionMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "SqlInjectionMatchTuple": {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *       Action: "DELETE",
+ *       SqlInjectionMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatesqlinjectionmatchset-1475532094686
  * ```
  *
+ * @public
  */
 export class UpdateSqlInjectionMatchSetCommand extends $Command
   .classBuilder<
@@ -253,9 +253,7 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -267,4 +265,16 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSqlInjectionMatchSetCommand)
   .de(de_UpdateSqlInjectionMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSqlInjectionMatchSetRequest;
+      output: UpdateSqlInjectionMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateSqlInjectionMatchSetCommandInput;
+      output: UpdateSqlInjectionMatchSetCommandOutput;
+    };
+  };
+}

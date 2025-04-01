@@ -49,7 +49,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * const input = { // CreateLinkInput
  *   LabelTemplate: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor" || "AWS::ApplicationSignals::Service" || "AWS::ApplicationSignals::ServiceLevelObjective",
  *   ],
  *   SinkIdentifier: "STRING_VALUE", // required
  *   Tags: { // TagMapInput
@@ -114,6 +114,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class CreateLinkCommand extends $Command
@@ -124,9 +125,7 @@ export class CreateLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class CreateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLinkCommand)
   .de(de_CreateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLinkInput;
+      output: CreateLinkOutput;
+    };
+    sdk: {
+      input: CreateLinkCommandInput;
+      output: CreateLinkCommandOutput;
+    };
+  };
+}

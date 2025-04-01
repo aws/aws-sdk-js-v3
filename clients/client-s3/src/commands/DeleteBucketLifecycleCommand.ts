@@ -28,18 +28,62 @@ export interface DeleteBucketLifecycleCommandInput extends DeleteBucketLifecycle
 export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
+ * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
  *          lifecycle configuration rules in the lifecycle subresource associated with the bucket. Your
  *          objects never expire, and Amazon S3 no longer automatically deletes any objects on the basis of
  *          rules contained in the deleted lifecycle configuration.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>s3:PutLifecycleConfiguration</code> action. By default, the bucket owner has this
- *          permission and the bucket owner can grant this permission to others.</p>
- *          <p>There is usually some time lag before lifecycle configuration deletion is fully
- *          propagated to all the Amazon S3 systems.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - By
+ *                         default, all Amazon S3 resources are private, including buckets, objects, and
+ *                         related subresources (for example, lifecycle configuration and website
+ *                         configuration). Only the resource owner (that is, the Amazon Web Services account that
+ *                         created it) can access the resource. The resource owner can optionally grant
+ *                         access permissions to others by writing an access policy. For this
+ *                         operation, a user must have the <code>s3:PutLifecycleConfiguration</code>
+ *                         permission.</p>
+ *                      <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                            Permissions to Your Amazon S3 Resources</a>.</p>
+ *                   </li>
+ *                </ul>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         You must have the <code>s3express:PutLifecycleConfiguration</code>
+ *                         permission in an IAM identity-based policy to use this operation.
+ *                         Cross-account access to this API operation isn't supported. The resource
+ *                         owner can optionally grant access permissions to others by creating a role
+ *                         or user for them as long as they are within the same account as the owner
+ *                         and resource.</p>
+ *                      <p>For more information about directory bucket policies and permissions, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Authorizing Regional endpoint APIs with IAM</a> in the
+ *                            <i>Amazon S3 User Guide</i>.</p>
+ *                      <note>
+ *                         <p>
+ *                            <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+ *                            </code>. Virtual-hosted-style requests aren't supported.
+ * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *                      </note>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *          </dl>
+ *          <dl>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host
+ *                   header syntax is
+ *                      <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  *          <p>For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -79,18 +123,21 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete lifecycle configuration on a bucket.
  * ```javascript
  * // The following example deletes lifecycle configuration on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketLifecycleCommand(input);
- * await client.send(command);
- * // example id: to-delete-lifecycle-configuration-on-a-bucket-1483043310583
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketLifecycleCommand extends $Command
   .classBuilder<
@@ -116,4 +163,16 @@ export class DeleteBucketLifecycleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketLifecycleCommand)
   .de(de_DeleteBucketLifecycleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketLifecycleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketLifecycleCommandInput;
+      output: DeleteBucketLifecycleCommandOutput;
+    };
+  };
+}

@@ -11,7 +11,7 @@ import {
   SearchGroupProfilesInputFilterSensitiveLog,
   SearchGroupProfilesOutput,
   SearchGroupProfilesOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_SearchGroupProfilesCommand, se_SearchGroupProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -90,6 +90,7 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class SearchGroupProfilesCommand extends $Command
@@ -100,9 +101,7 @@ export class SearchGroupProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class SearchGroupProfilesCommand extends $Command
   .f(SearchGroupProfilesInputFilterSensitiveLog, SearchGroupProfilesOutputFilterSensitiveLog)
   .ser(se_SearchGroupProfilesCommand)
   .de(de_SearchGroupProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchGroupProfilesInput;
+      output: SearchGroupProfilesOutput;
+    };
+    sdk: {
+      input: SearchGroupProfilesCommandInput;
+      output: SearchGroupProfilesCommandOutput;
+    };
+  };
+}

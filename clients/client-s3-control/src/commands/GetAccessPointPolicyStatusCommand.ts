@@ -64,6 +64,7 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetAccessPointPolicyStatusCommand extends $Command
@@ -77,7 +78,7 @@ export class GetAccessPointPolicyStatusCommand extends $Command
   .ep({
     ...commonParams,
     RequiresAccountId: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "AccessPointName" },
+    AccessPointName: { type: "contextParams", name: "Name" },
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
@@ -92,4 +93,16 @@ export class GetAccessPointPolicyStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointPolicyStatusCommand)
   .de(de_GetAccessPointPolicyStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointPolicyStatusRequest;
+      output: GetAccessPointPolicyStatusResult;
+    };
+    sdk: {
+      input: GetAccessPointPolicyStatusCommandInput;
+      output: GetAccessPointPolicyStatusCommandOutput;
+    };
+  };
+}

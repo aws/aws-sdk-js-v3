@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyIpamResourceCidrRequest, ModifyIpamResourceCidrResult } from "../models/models_6";
+import { ModifyIpamResourceCidrRequest, ModifyIpamResourceCidrResult } from "../models/models_7";
 import { de_ModifyIpamResourceCidrCommand, se_ModifyIpamResourceCidrCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -69,6 +69,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * //     ManagementState: "managed" || "unmanaged" || "ignored",
  * //     OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
  * //     VpcId: "STRING_VALUE",
+ * //     AvailabilityZoneId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -83,6 +84,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyIpamResourceCidrCommand extends $Command
@@ -93,9 +95,7 @@ export class ModifyIpamResourceCidrCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ModifyIpamResourceCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamResourceCidrCommand)
   .de(de_ModifyIpamResourceCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamResourceCidrRequest;
+      output: ModifyIpamResourceCidrResult;
+    };
+    sdk: {
+      input: ModifyIpamResourceCidrCommandInput;
+      output: ModifyIpamResourceCidrCommandOutput;
+    };
+  };
+}

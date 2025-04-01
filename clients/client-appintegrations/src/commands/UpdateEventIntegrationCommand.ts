@@ -69,6 +69,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventIntegrationCommand extends $Command
@@ -79,9 +80,7 @@ export class UpdateEventIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class UpdateEventIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventIntegrationCommand)
   .de(de_UpdateEventIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventIntegrationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEventIntegrationCommandInput;
+      output: UpdateEventIntegrationCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,29 @@ export interface GetTemplateCommandInput extends GetTemplateRequest {}
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details for the requested template. </p>
+ * <p>Returns the details for the requested template. Other template APIs are: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +83,12 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * //   deleted: true || false,
  * //   createdTime: new Date("TIMESTAMP"),
  * //   lastModifiedTime: new Date("TIMESTAMP"),
+ * //   rules: [ // TemplateCaseRuleList
+ * //     { // TemplateRule
+ * //       caseRuleId: "STRING_VALUE", // required
+ * //       fieldId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -91,6 +119,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateCommand extends $Command
@@ -101,9 +130,7 @@ export class GetTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +142,16 @@ export class GetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateCommand)
   .de(de_GetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateRequest;
+      output: GetTemplateResponse;
+    };
+    sdk: {
+      input: GetTemplateCommandInput;
+      output: GetTemplateCommandOutput;
+    };
+  };
+}

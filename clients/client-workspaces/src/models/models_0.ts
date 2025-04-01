@@ -14,10 +14,10 @@ export interface AcceptAccountLinkInvitationRequest {
   LinkId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -46,25 +46,25 @@ export interface AccountLink {
    * <p>The identifier of the account link.</p>
    * @public
    */
-  AccountLinkId?: string;
+  AccountLinkId?: string | undefined;
 
   /**
    * <p>The status of the account link.</p>
    * @public
    */
-  AccountLinkStatus?: AccountLinkStatusEnum;
+  AccountLinkStatus?: AccountLinkStatusEnum | undefined;
 
   /**
    * <p>The identifier of the source account.</p>
    * @public
    */
-  SourceAccountId?: string;
+  SourceAccountId?: string | undefined;
 
   /**
    * <p>The identifier of the target account.</p>
    * @public
    */
-  TargetAccountId?: string;
+  TargetAccountId?: string | undefined;
 }
 
 /**
@@ -75,7 +75,7 @@ export interface AcceptAccountLinkInvitationResult {
    * <p>Information about the account link.</p>
    * @public
    */
-  AccountLink?: AccountLink;
+  AccountLink?: AccountLink | undefined;
 }
 
 /**
@@ -149,7 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The ID of the resource that could not be found.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * @internal
@@ -241,39 +241,39 @@ export interface AccountModification {
    * <p>The state of the modification to the configuration of BYOL.</p>
    * @public
    */
-  ModificationState?: DedicatedTenancyModificationStateEnum;
+  ModificationState?: DedicatedTenancyModificationStateEnum | undefined;
 
   /**
    * <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
    * @public
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | undefined;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
    *          interface used for the account.</p>
    * @public
    */
-  DedicatedTenancyManagementCidrRange?: string;
+  DedicatedTenancyManagementCidrRange?: string | undefined;
 
   /**
    * <p>The timestamp when the modification of the BYOL configuration was started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The error code that is returned if the configuration of BYOL cannot be modified.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned if the configuration of BYOL cannot be
    *          modified.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -293,6 +293,66 @@ export interface ActiveDirectoryConfig {
    */
   ServiceAccountSecretArn: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AGAModeForDirectoryEnum = {
+  DISABLED: "DISABLED",
+  ENABLED_AUTO: "ENABLED_AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type AGAModeForDirectoryEnum = (typeof AGAModeForDirectoryEnum)[keyof typeof AGAModeForDirectoryEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const AGAModeForWorkSpaceEnum = {
+  DISABLED: "DISABLED",
+  ENABLED_AUTO: "ENABLED_AUTO",
+  INHERITED: "INHERITED",
+} as const;
+
+/**
+ * @public
+ */
+export type AGAModeForWorkSpaceEnum = (typeof AGAModeForWorkSpaceEnum)[keyof typeof AGAModeForWorkSpaceEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const AGAPreferredProtocolForDirectory = {
+  NONE: "NONE",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type AGAPreferredProtocolForDirectory =
+  (typeof AGAPreferredProtocolForDirectory)[keyof typeof AGAPreferredProtocolForDirectory];
+
+/**
+ * @public
+ * @enum
+ */
+export const AGAPreferredProtocolForWorkSpace = {
+  INHERITED: "INHERITED",
+  NONE: "NONE",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type AGAPreferredProtocolForWorkSpace =
+  (typeof AGAPreferredProtocolForWorkSpace)[keyof typeof AGAPreferredProtocolForWorkSpace];
 
 /**
  * @public
@@ -391,13 +451,13 @@ export interface AssociationStateReason {
    * <p>The error code of the association deployment failure.</p>
    * @public
    */
-  ErrorCode?: AssociationErrorCode;
+  ErrorCode?: AssociationErrorCode | undefined;
 
   /**
    * <p>The error message of the association deployment failure.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -409,43 +469,43 @@ export interface ApplicationResourceAssociation {
    * <p>The identifier of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The identifier of the associated resource.</p>
    * @public
    */
-  AssociatedResourceId?: string;
+  AssociatedResourceId?: string | undefined;
 
   /**
    * <p>The resource type of the associated resource.</p>
    * @public
    */
-  AssociatedResourceType?: ApplicationAssociatedResourceType;
+  AssociatedResourceType?: ApplicationAssociatedResourceType | undefined;
 
   /**
    * <p>The time the association was created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The time the association status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The status of the application resource association.</p>
    * @public
    */
-  State?: AssociationState;
+  State?: AssociationState | undefined;
 
   /**
    * <p>The reason the association deployment failed.</p>
    * @public
    */
-  StateReason?: AssociationStateReason;
+  StateReason?: AssociationStateReason | undefined;
 }
 
 /**
@@ -480,7 +540,7 @@ export interface ApplicationSettingsRequest {
    *          the same settings group for each pool.</p>
    * @public
    */
-  SettingsGroup?: string;
+  SettingsGroup?: string | undefined;
 }
 
 /**
@@ -498,7 +558,7 @@ export interface ApplicationSettingsResponse {
    * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
    * @public
    */
-  SettingsGroup?: string;
+  SettingsGroup?: string | undefined;
 
   /**
    * <p>The S3 bucket where users’ persistent application settings are stored. When persistent
@@ -506,7 +566,7 @@ export interface ApplicationSettingsResponse {
    *          an S3 bucket is created. The bucket is unique to the Amazon Web Services account and the Region.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 }
 
 /**
@@ -535,7 +595,7 @@ export interface AssociateConnectionAliasResult {
    *          the DNS TXT record when you're configuring your DNS routing policies. </p>
    * @public
    */
-  ConnectionIdentifier?: string;
+  ConnectionIdentifier?: string | undefined;
 }
 
 /**
@@ -589,7 +649,7 @@ export class OperationNotSupportedException extends __BaseException {
    * <p>The exception error reason.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * @internal
@@ -707,43 +767,43 @@ export interface WorkspaceResourceAssociation {
    * <p>The identifier of the associated resource.</p>
    * @public
    */
-  AssociatedResourceId?: string;
+  AssociatedResourceId?: string | undefined;
 
   /**
    * <p>The resource types of the associated resource.</p>
    * @public
    */
-  AssociatedResourceType?: WorkSpaceAssociatedResourceType;
+  AssociatedResourceType?: WorkSpaceAssociatedResourceType | undefined;
 
   /**
    * <p>The time the association is created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The time the association status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The status of the WorkSpace resource association.</p>
    * @public
    */
-  State?: AssociationState;
+  State?: AssociationState | undefined;
 
   /**
    * <p>The reason the association deployment failed.</p>
    * @public
    */
-  StateReason?: AssociationStateReason;
+  StateReason?: AssociationStateReason | undefined;
 
   /**
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 }
 
 /**
@@ -754,7 +814,7 @@ export interface AssociateWorkspaceApplicationResult {
    * <p>Information about the association between the specified WorkSpace and the specified application.</p>
    * @public
    */
-  Association?: WorkspaceResourceAssociation;
+  Association?: WorkspaceResourceAssociation | undefined;
 }
 
 /**
@@ -848,7 +908,7 @@ export class ResourceInUseException extends __BaseException {
    * <p>The ID of the resource that is in use.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * @internal
@@ -903,13 +963,13 @@ export interface IpRuleItem {
    * <p>The IP address range, in CIDR notation.</p>
    * @public
    */
-  ipRule?: string;
+  ipRule?: string | undefined;
 
   /**
    * <p>The description.</p>
    * @public
    */
-  ruleDesc?: string;
+  ruleDesc?: string | undefined;
 }
 
 /**
@@ -967,6 +1027,8 @@ export type BundleType = (typeof BundleType)[keyof typeof BundleType];
  * @enum
  */
 export const Compute = {
+  GENERALPURPOSE_4XLARGE: "GENERALPURPOSE_4XLARGE",
+  GENERALPURPOSE_8XLARGE: "GENERALPURPOSE_8XLARGE",
   GRAPHICS: "GRAPHICS",
   GRAPHICSPRO: "GRAPHICSPRO",
   GRAPHICSPRO_G4DN: "GRAPHICSPRO_G4DN",
@@ -992,7 +1054,7 @@ export interface ComputeType {
    * <p>The compute type.</p>
    * @public
    */
-  Name?: Compute;
+  Name?: Compute | undefined;
 }
 
 /**
@@ -1043,75 +1105,75 @@ export interface WorkspaceBundle {
    * <p>The identifier of the bundle.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The name of the bundle.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The owner of the bundle. This is the account identifier of the owner, or
    *          <code>AMAZON</code> if the bundle is provided by Amazon Web Services.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The description of the bundle.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The identifier of the image that was used to create the bundle.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The size of the root volume.</p>
    * @public
    */
-  RootStorage?: RootStorage;
+  RootStorage?: RootStorage | undefined;
 
   /**
    * <p>The size of the user volume.</p>
    * @public
    */
-  UserStorage?: UserStorage;
+  UserStorage?: UserStorage | undefined;
 
   /**
    * <p>The compute type of the bundle. For more information, see
    *          <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
    * @public
    */
-  ComputeType?: ComputeType;
+  ComputeType?: ComputeType | undefined;
 
   /**
    * <p>The last time that the bundle was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The time when the bundle was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The state of the WorkSpace bundle.</p>
    * @public
    */
-  State?: WorkspaceBundleState;
+  State?: WorkspaceBundleState | undefined;
 
   /**
    * <p>The type of WorkSpace bundle.</p>
    * @public
    */
-  BundleType?: BundleType;
+  BundleType?: BundleType | undefined;
 }
 
 /**
@@ -1123,43 +1185,43 @@ export interface BundleResourceAssociation {
    * <p>The identifier of the associated resource.</p>
    * @public
    */
-  AssociatedResourceId?: string;
+  AssociatedResourceId?: string | undefined;
 
   /**
    * <p>The resource type of the associated resources.</p>
    * @public
    */
-  AssociatedResourceType?: BundleAssociatedResourceType;
+  AssociatedResourceType?: BundleAssociatedResourceType | undefined;
 
   /**
    * <p>The identifier of the bundle.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The time the association is created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The time the association status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The status of the bundle resource association.</p>
    * @public
    */
-  State?: AssociationState;
+  State?: AssociationState | undefined;
 
   /**
    * <p>The reason the association deployment failed.</p>
    * @public
    */
-  StateReason?: AssociationStateReason;
+  StateReason?: AssociationStateReason | undefined;
 }
 
 /**
@@ -1168,8 +1230,7 @@ export interface BundleResourceAssociation {
  */
 export interface Capacity {
   /**
-   * <p>The desired number of user sessions for a multi-session pool.
-   *          This is not allowed for single-session pools.</p>
+   * <p>The desired number of user sessions for the WorkSpaces in the pool.</p>
    * @public
    */
   DesiredUserSessions: number | undefined;
@@ -1181,7 +1242,8 @@ export interface Capacity {
  */
 export interface CapacityStatus {
   /**
-   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * <p>The number of user sessions currently available for streaming from your pool.</p>
+   *          <p>AvailableUserSessions = ActualUserSessions - ActiveUserSessions</p>
    * @public
    */
   AvailableUserSessions: number | undefined;
@@ -1195,13 +1257,15 @@ export interface CapacityStatus {
   DesiredUserSessions: number | undefined;
 
   /**
-   * <p>The total number of session slots that are available for a pool of WorkSpaces.</p>
+   * <p>The total number of user sessions that are available for streaming or are currently
+   *          streaming in your pool.</p>
+   *          <p>ActualUserSessions = AvailableUserSessions + ActiveUserSessions</p>
    * @public
    */
   ActualUserSessions: number | undefined;
 
   /**
-   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * <p>The number of user sessions currently being used for your pool.</p>
    * @public
    */
   ActiveUserSessions: number | undefined;
@@ -1232,13 +1296,13 @@ export interface CertificateBasedAuthProperties {
    * <p>The status of the certificate-based authentication properties.</p>
    * @public
    */
-  Status?: CertificateBasedAuthStatusEnum;
+  Status?: CertificateBasedAuthStatusEnum | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 }
 
 /**
@@ -1298,7 +1362,7 @@ export interface ClientProperties {
    *          credentials. </p>
    * @public
    */
-  ReconnectEnabled?: ReconnectEnum;
+  ReconnectEnabled?: ReconnectEnum | undefined;
 
   /**
    * <p>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client directly to
@@ -1307,7 +1371,7 @@ export interface ClientProperties {
    *          users in the specified directory.</p>
    * @public
    */
-  LogUploadEnabled?: LogUploadEnum;
+  LogUploadEnabled?: LogUploadEnum | undefined;
 }
 
 /**
@@ -1319,13 +1383,13 @@ export interface ClientPropertiesResult {
    * <p>The resource identifier, in the form of a directory ID.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>Information about the Amazon WorkSpaces client.</p>
    * @public
    */
-  ClientProperties?: ClientProperties;
+  ClientProperties?: ClientProperties | undefined;
 }
 
 /**
@@ -1337,25 +1401,25 @@ export interface ConnectClientAddIn {
    * <p>The client add-in identifier.</p>
    * @public
    */
-  AddInId?: string;
+  AddInId?: string | undefined;
 
   /**
    * <p>The directory identifier for which the client add-in is configured.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The name of the client add in.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The endpoint URL of the client add-in.</p>
    * @public
    */
-  URL?: string;
+  URL?: string | undefined;
 }
 
 /**
@@ -1369,27 +1433,27 @@ export interface ConnectionAliasAssociation {
    * <p>The association status of the connection alias.</p>
    * @public
    */
-  AssociationStatus?: AssociationStatus;
+  AssociationStatus?: AssociationStatus | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that associated the connection alias
    *          with a directory.</p>
    * @public
    */
-  AssociatedAccountId?: string;
+  AssociatedAccountId?: string | undefined;
 
   /**
    * <p>The identifier of the directory associated with a connection alias.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The identifier of the connection alias association. You use the connection identifier in
    *          the DNS TXT record when you're configuring your DNS routing policies.</p>
    * @public
    */
-  ConnectionIdentifier?: string;
+  ConnectionIdentifier?: string | undefined;
 }
 
 /**
@@ -1420,31 +1484,31 @@ export interface ConnectionAlias {
    *          <code>www.example.com</code>.</p>
    * @public
    */
-  ConnectionString?: string;
+  ConnectionString?: string | undefined;
 
   /**
    * <p>The identifier of the connection alias.</p>
    * @public
    */
-  AliasId?: string;
+  AliasId?: string | undefined;
 
   /**
    * <p>The current state of the connection alias.</p>
    * @public
    */
-  State?: ConnectionAliasState;
+  State?: ConnectionAliasState | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the connection alias.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The association status of the connection alias.</p>
    * @public
    */
-  Associations?: ConnectionAliasAssociation[];
+  Associations?: ConnectionAliasAssociation[] | undefined;
 }
 
 /**
@@ -1499,7 +1563,7 @@ export interface Tag {
    * <p>The value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1516,7 +1580,7 @@ export interface CopyWorkspaceImageRequest {
    * <p>A description of the image.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The identifier of the source image.</p>
@@ -1534,7 +1598,7 @@ export interface CopyWorkspaceImageRequest {
    * <p>The tags for the image.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1545,7 +1609,7 @@ export interface CopyWorkspaceImageResult {
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 }
 
 /**
@@ -1559,7 +1623,7 @@ export class ResourceUnavailableException extends __BaseException {
    * <p>The identifier of the resource that is not available.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * @internal
@@ -1586,10 +1650,10 @@ export interface CreateAccountLinkInvitationRequest {
   TargetAccountId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1600,7 +1664,7 @@ export interface CreateAccountLinkInvitationResult {
    * <p>Information about the account link.</p>
    * @public
    */
-  AccountLink?: AccountLink;
+  AccountLink?: AccountLink | undefined;
 }
 
 /**
@@ -1634,7 +1698,7 @@ export interface CreateConnectClientAddInResult {
    * <p>The client add-in identifier.</p>
    * @public
    */
-  AddInId?: string;
+  AddInId?: string | undefined;
 }
 
 /**
@@ -1677,7 +1741,7 @@ export interface CreateConnectionAliasRequest {
    * <p>The tags to associate with the connection alias.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1688,7 +1752,7 @@ export interface CreateConnectionAliasResult {
    * <p>The identifier of the connection alias.</p>
    * @public
    */
-  AliasId?: string;
+  AliasId?: string | undefined;
 }
 
 /**
@@ -1705,19 +1769,19 @@ export interface CreateIpGroupRequest {
    * <p>The description of the group.</p>
    * @public
    */
-  GroupDesc?: string;
+  GroupDesc?: string | undefined;
 
   /**
    * <p>The rules to add to the group.</p>
    * @public
    */
-  UserRules?: IpRuleItem[];
+  UserRules?: IpRuleItem[] | undefined;
 
   /**
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1728,7 +1792,7 @@ export interface CreateIpGroupResult {
    * <p>The identifier of the group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 }
 
 /**
@@ -1760,7 +1824,7 @@ export interface StandbyWorkspace {
    * <p>The volume encryption key of the standby WorkSpace.</p>
    * @public
    */
-  VolumeEncryptionKey?: string;
+  VolumeEncryptionKey?: string | undefined;
 
   /**
    * <p>The identifier of the directory for the standby WorkSpace.</p>
@@ -1772,13 +1836,13 @@ export interface StandbyWorkspace {
    * <p>The tags associated with the standby WorkSpace.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
    * @public
    */
-  DataReplication?: DataReplication;
+  DataReplication?: DataReplication | undefined;
 }
 
 /**
@@ -1807,19 +1871,19 @@ export interface FailedCreateStandbyWorkspacesRequest {
    * <p>Information about the standby WorkSpace that could not be created.</p>
    * @public
    */
-  StandbyWorkspaceRequest?: StandbyWorkspace;
+  StandbyWorkspaceRequest?: StandbyWorkspace | undefined;
 
   /**
    * <p>The error code that is returned if the standby WorkSpace could not be created.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned if the standby WorkSpace could not be created.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -1865,25 +1929,25 @@ export interface PendingCreateStandbyWorkspacesRequest {
    *          before the WorkSpace is created, the information returned can be incomplete. </p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The identifier of the directory for the standby WorkSpace.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The operational state of the standby WorkSpace.</p>
    * @public
    */
-  State?: WorkspaceState;
+  State?: WorkspaceState | undefined;
 
   /**
    * <p>The identifier of the standby WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 }
 
 /**
@@ -1894,13 +1958,13 @@ export interface CreateStandbyWorkspacesResult {
    * <p>Information about the standby WorkSpace that could not be created. </p>
    * @public
    */
-  FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[];
+  FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[] | undefined;
 
   /**
    * <p>Information about the standby WorkSpace that was created.</p>
    * @public
    */
-  PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[];
+  PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[] | undefined;
 }
 
 /**
@@ -1958,7 +2022,7 @@ export interface CreateUpdatedWorkspaceImageRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1969,7 +2033,7 @@ export interface CreateUpdatedWorkspaceImageResult {
    * <p>The identifier of the new updated WorkSpace image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 }
 
 /**
@@ -2010,7 +2074,7 @@ export interface CreateWorkspaceBundleRequest {
    * <p>Describes the root volume for a WorkSpace bundle.</p>
    * @public
    */
-  RootStorage?: RootStorage;
+  RootStorage?: RootStorage | undefined;
 
   /**
    * <p>The tags associated with the bundle.</p>
@@ -2020,7 +2084,7 @@ export interface CreateWorkspaceBundleRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2031,7 +2095,7 @@ export interface CreateWorkspaceBundleResult {
    * <p>Describes a WorkSpace bundle.</p>
    * @public
    */
-  WorkspaceBundle?: WorkspaceBundle;
+  WorkspaceBundle?: WorkspaceBundle | undefined;
 }
 
 /**
@@ -2062,7 +2126,7 @@ export interface CreateWorkspaceImageRequest {
    *          your IAM user permission to use <code>workspaces:CreateTags</code>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2088,7 +2152,7 @@ export interface OperatingSystem {
    * <p>The operating system.</p>
    * @public
    */
-  Type?: OperatingSystemType;
+  Type?: OperatingSystemType | undefined;
 }
 
 /**
@@ -2129,31 +2193,31 @@ export interface CreateWorkspaceImageResult {
    * <p>The identifier of the new WorkSpace image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The name of the image.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the image.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The operating system that the image is running.</p>
    * @public
    */
-  OperatingSystem?: OperatingSystem;
+  OperatingSystem?: OperatingSystem | undefined;
 
   /**
    * <p>The availability status of the image.</p>
    * @public
    */
-  State?: WorkspaceImageState;
+  State?: WorkspaceImageState | undefined;
 
   /**
    * <p>Specifies whether the image is running on dedicated hardware.
@@ -2163,19 +2227,38 @@ export interface CreateWorkspaceImageResult {
    *             Bring Your Own Windows Desktop Images.</a>.</p>
    * @public
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy | undefined;
 
   /**
    * <p>The date when the image was created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the image.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>Describes the Global Accelerator for WorkSpaces.</p>
+ * @public
+ */
+export interface GlobalAcceleratorForWorkSpace {
+  /**
+   * <p>Indicates if Global Accelerator for WorkSpaces is enabled, disabled,
+   *          or the same mode as the associated directory.</p>
+   * @public
+   */
+  Mode: AGAModeForWorkSpaceEnum | undefined;
+
+  /**
+   * <p>Indicates the preferred protocol for Global Accelerator.</p>
+   * @public
+   */
+  PreferredProtocol?: AGAPreferredProtocolForWorkSpace | undefined;
 }
 
 /**
@@ -2185,6 +2268,7 @@ export interface CreateWorkspaceImageResult {
 export const OperatingSystemName = {
   AMAZON_LINUX_2: "AMAZON_LINUX_2",
   RHEL_8: "RHEL_8",
+  ROCKY_8: "ROCKY_8",
   UBUNTU_18_04: "UBUNTU_18_04",
   UBUNTU_20_04: "UBUNTU_20_04",
   UBUNTU_22_04: "UBUNTU_22_04",
@@ -2244,16 +2328,19 @@ export interface WorkspaceProperties {
    *             your account team to be allow-listed to use this value. For more information, see
    *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
+   *          <p>Review your running mode to ensure you are using one that is optimal for your needs and
+   *          budget. For more information on switching running modes, see <a href="http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F"> Can I switch between hourly and monthly billing?</a>
+   *          </p>
    * @public
    */
-  RunningMode?: RunningMode;
+  RunningMode?: RunningMode | undefined;
 
   /**
    * <p>The time after a user logs off when WorkSpaces are automatically stopped. Configured in
    *          60-minute intervals.</p>
    * @public
    */
-  RunningModeAutoStopTimeoutInMinutes?: number;
+  RunningModeAutoStopTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The size of the root volume. For important information about how to modify the size of
@@ -2261,7 +2348,7 @@ export interface WorkspaceProperties {
    *          WorkSpace</a>.</p>
    * @public
    */
-  RootVolumeSizeGib?: number;
+  RootVolumeSizeGib?: number | undefined;
 
   /**
    * <p>The size of the user storage. For important information about how to modify the size of
@@ -2269,14 +2356,14 @@ export interface WorkspaceProperties {
    *          WorkSpace</a>.</p>
    * @public
    */
-  UserVolumeSizeGib?: number;
+  UserVolumeSizeGib?: number | undefined;
 
   /**
    * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces
    *          Bundles</a>.</p>
    * @public
    */
-  ComputeTypeName?: Compute;
+  ComputeTypeName?: Compute | undefined;
 
   /**
    * <p>The protocol. For more information, see
@@ -2288,7 +2375,7 @@ export interface WorkspaceProperties {
    *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
    *                </li>
    *                <li>
-   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>DCV</code> (formerly WSP).</p>
    *                </li>
    *                <li>
    *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
@@ -2298,13 +2385,19 @@ export interface WorkspaceProperties {
    *          </note>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 
   /**
    * <p>The name of the operating system.</p>
    * @public
    */
-  OperatingSystemName?: OperatingSystemName;
+  OperatingSystemName?: OperatingSystemName | undefined;
+
+  /**
+   * <p>Indicates the Global Accelerator properties.</p>
+   * @public
+   */
+  GlobalAccelerator?: GlobalAcceleratorForWorkSpace | undefined;
 }
 
 /**
@@ -2320,6 +2413,7 @@ export interface WorkspaceRequest {
 
   /**
    * <p>The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.</p>
+   *          <p>The username is not case-sensitive, but we recommend matching the case in the Directory Service directory to avoid potential incompatibilities.</p>
    *          <p>The reserved keyword, <code>[UNDEFINED]</code>, is used when creating user-decoupled WorkSpaces.</p>
    * @public
    */
@@ -2336,37 +2430,44 @@ export interface WorkspaceRequest {
    *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    * @public
    */
-  VolumeEncryptionKey?: string;
+  VolumeEncryptionKey?: string | undefined;
 
   /**
    * <p>Indicates whether the data stored on the user volume is encrypted.</p>
    * @public
    */
-  UserVolumeEncryptionEnabled?: boolean;
+  UserVolumeEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether the data stored on the root volume is encrypted.</p>
    * @public
    */
-  RootVolumeEncryptionEnabled?: boolean;
+  RootVolumeEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>The WorkSpace properties.</p>
    * @public
    */
-  WorkspaceProperties?: WorkspaceProperties;
+  WorkspaceProperties?: WorkspaceProperties | undefined;
 
   /**
    * <p>The tags for the WorkSpace.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The name of the user-decoupled WorkSpace.</p>
+   *          <note>
+   *             <p>
+   *                <code>WorkspaceName</code> is required if <code>UserName</code> is
+   *             <code>[UNDEFINED]</code> for user-decoupled WorkSpaces.
+   *             <code>WorkspaceName</code> is not applicable if <code>UserName</code> is specified
+   *             for user-assigned WorkSpaces.</p>
+   *          </note>
    * @public
    */
-  WorkspaceName?: string;
+  WorkspaceName?: string | undefined;
 }
 
 /**
@@ -2389,20 +2490,20 @@ export interface FailedCreateWorkspaceRequest {
    * <p>Information about the WorkSpace.</p>
    * @public
    */
-  WorkspaceRequest?: WorkspaceRequest;
+  WorkspaceRequest?: WorkspaceRequest | undefined;
 
   /**
    * <p>The error code that is returned if the WorkSpace cannot be created.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
    *          created.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -2414,14 +2515,14 @@ export interface DataReplicationSettings {
    * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
    * @public
    */
-  DataReplication?: DataReplication;
+  DataReplication?: DataReplication | undefined;
 
   /**
    * <p>The date and time at which the last successful snapshot was taken of the
    *          primary WorkSpace used for replicating data.</p>
    * @public
    */
-  RecoverySnapshotTime?: Date;
+  RecoverySnapshotTime?: Date | undefined;
 }
 
 /**
@@ -2462,13 +2563,13 @@ export interface ModificationState {
    * <p>The resource.</p>
    * @public
    */
-  Resource?: ModificationResourceEnum;
+  Resource?: ModificationResourceEnum | undefined;
 
   /**
    * <p>The modification state.</p>
    * @public
    */
-  State?: ModificationStateEnum;
+  State?: ModificationStateEnum | undefined;
 }
 
 /**
@@ -2496,25 +2597,25 @@ export interface RelatedWorkspaceProperties {
    * <p>The identifier of the related WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 
   /**
    * <p>The Region of the related WorkSpace.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Indicates the state of the WorkSpace.</p>
    * @public
    */
-  State?: WorkspaceState;
+  State?: WorkspaceState | undefined;
 
   /**
    * <p>Indicates the type of WorkSpace.</p>
    * @public
    */
-  Type?: StandbyWorkspaceRelationshipType;
+  Type?: StandbyWorkspaceRelationshipType | undefined;
 }
 
 /**
@@ -2526,20 +2627,20 @@ export interface StandbyWorkspacesProperties {
    * <p>The identifier of the standby WorkSpace</p>
    * @public
    */
-  StandbyWorkspaceId?: string;
+  StandbyWorkspaceId?: string | undefined;
 
   /**
    * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
    * @public
    */
-  DataReplication?: DataReplication;
+  DataReplication?: DataReplication | undefined;
 
   /**
    * <p>The date and time at which the last successful snapshot was taken of the
    *          primary WorkSpace used for replicating data.</p>
    * @public
    */
-  RecoverySnapshotTime?: Date;
+  RecoverySnapshotTime?: Date | undefined;
 }
 
 /**
@@ -2551,25 +2652,25 @@ export interface Workspace {
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 
   /**
    * <p>The identifier of the Directory Service directory for the WorkSpace.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The user for the WorkSpace.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The IP address of the WorkSpace.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The operational state of the WorkSpace.</p>
@@ -2653,32 +2754,32 @@ export interface Workspace {
    *          </note>
    * @public
    */
-  State?: WorkspaceState;
+  State?: WorkspaceState | undefined;
 
   /**
    * <p>The identifier of the bundle used to create the WorkSpace.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The identifier of the subnet for the WorkSpace.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
    *          created.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The error code that is returned if the WorkSpace cannot be created.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The name of the WorkSpace, as seen by the operating system. The format of this name
@@ -2686,62 +2787,62 @@ export interface Workspace {
    *             WorkSpace</a>. </p>
    * @public
    */
-  ComputerName?: string;
+  ComputerName?: string | undefined;
 
   /**
    * <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace.
    *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    * @public
    */
-  VolumeEncryptionKey?: string;
+  VolumeEncryptionKey?: string | undefined;
 
   /**
    * <p>Indicates whether the data stored on the user volume is encrypted.</p>
    * @public
    */
-  UserVolumeEncryptionEnabled?: boolean;
+  UserVolumeEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether the data stored on the root volume is encrypted.</p>
    * @public
    */
-  RootVolumeEncryptionEnabled?: boolean;
+  RootVolumeEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the user-decoupled WorkSpace.</p>
    * @public
    */
-  WorkspaceName?: string;
+  WorkspaceName?: string | undefined;
 
   /**
    * <p>The properties of the WorkSpace.</p>
    * @public
    */
-  WorkspaceProperties?: WorkspaceProperties;
+  WorkspaceProperties?: WorkspaceProperties | undefined;
 
   /**
    * <p>The modification states of the WorkSpace.</p>
    * @public
    */
-  ModificationStates?: ModificationState[];
+  ModificationStates?: ModificationState[] | undefined;
 
   /**
    * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
    * @public
    */
-  RelatedWorkspaces?: RelatedWorkspaceProperties[];
+  RelatedWorkspaces?: RelatedWorkspaceProperties[] | undefined;
 
   /**
    * <p>Indicates the settings of the data replication.</p>
    * @public
    */
-  DataReplicationSettings?: DataReplicationSettings;
+  DataReplicationSettings?: DataReplicationSettings | undefined;
 
   /**
    * <p>The properties of the standby WorkSpace</p>
    * @public
    */
-  StandbyWorkspacesProperties?: StandbyWorkspacesProperties[];
+  StandbyWorkspacesProperties?: StandbyWorkspacesProperties[] | undefined;
 }
 
 /**
@@ -2752,7 +2853,7 @@ export interface CreateWorkspacesResult {
    * <p>Information about the WorkSpaces that could not be created.</p>
    * @public
    */
-  FailedRequests?: FailedCreateWorkspaceRequest[];
+  FailedRequests?: FailedCreateWorkspaceRequest[] | undefined;
 
   /**
    * <p>Information about the WorkSpaces that were created.</p>
@@ -2761,7 +2862,7 @@ export interface CreateWorkspacesResult {
    *          can be incomplete.</p>
    * @public
    */
-  PendingRequests?: Workspace[];
+  PendingRequests?: Workspace[] | undefined;
 }
 
 /**
@@ -2776,13 +2877,13 @@ export interface TimeoutSettings {
    *          to a new session with a new streaming instance.</p>
    * @public
    */
-  DisconnectTimeoutInSeconds?: number;
+  DisconnectTimeoutInSeconds?: number | undefined;
 
   /**
    * <p>The amount of time in seconds a connection will stay active while idle.</p>
    * @public
    */
-  IdleDisconnectTimeoutInSeconds?: number;
+  IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
    * <p>Specifies the maximum amount of time, in seconds, that a streaming session can remain active.
@@ -2791,7 +2892,7 @@ export interface TimeoutSettings {
    *          the instance is terminated and replaced by a new instance.</p>
    * @public
    */
-  MaxUserDurationInSeconds?: number;
+  MaxUserDurationInSeconds?: number | undefined;
 }
 
 /**
@@ -2832,19 +2933,19 @@ export interface CreateWorkspacesPoolRequest {
    * <p>The tags for the pool.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates the application settings of the pool.</p>
    * @public
    */
-  ApplicationSettings?: ApplicationSettingsRequest;
+  ApplicationSettings?: ApplicationSettingsRequest | undefined;
 
   /**
    * <p>Indicates the timeout settings of the pool.</p>
    * @public
    */
-  TimeoutSettings?: TimeoutSettings;
+  TimeoutSettings?: TimeoutSettings | undefined;
 }
 
 /**
@@ -2908,13 +3009,13 @@ export interface WorkspacesPoolError {
    * <p>The error code.</p>
    * @public
    */
-  ErrorCode?: WorkspacesPoolErrorCode;
+  ErrorCode?: WorkspacesPoolErrorCode | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -2969,7 +3070,7 @@ export interface WorkspacesPool {
    * <p>The description of the pool.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current state of the pool.</p>
@@ -2999,13 +3100,13 @@ export interface WorkspacesPool {
    * <p>The pool errors.</p>
    * @public
    */
-  Errors?: WorkspacesPoolError[];
+  Errors?: WorkspacesPoolError[] | undefined;
 
   /**
    * <p>The persistent application settings for users of the pool.</p>
    * @public
    */
-  ApplicationSettings?: ApplicationSettingsResponse;
+  ApplicationSettings?: ApplicationSettingsResponse | undefined;
 
   /**
    * <p>The amount of time that a pool session remains active after users disconnect.
@@ -3014,7 +3115,7 @@ export interface WorkspacesPool {
    *          Otherwise, they are connected to a new session with a new pool instance.</p>
    * @public
    */
-  TimeoutSettings?: TimeoutSettings;
+  TimeoutSettings?: TimeoutSettings | undefined;
 }
 
 /**
@@ -3025,7 +3126,7 @@ export interface CreateWorkspacesPoolResult {
    * <p>Indicates the pool to create.</p>
    * @public
    */
-  WorkspacesPool?: WorkspacesPool;
+  WorkspacesPool?: WorkspacesPool | undefined;
 }
 
 /**
@@ -3071,7 +3172,7 @@ export interface DefaultClientBrandingAttributes {
    * <p>The logo. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    * @public
    */
-  LogoUrl?: string;
+  LogoUrl?: string | undefined;
 
   /**
    * <p>The support email. The company's customer support email address.</p>
@@ -3089,7 +3190,7 @@ export interface DefaultClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The support link. The link for the company's customer support page for their
@@ -3108,14 +3209,14 @@ export interface DefaultClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportLink?: string;
+  SupportLink?: string | undefined;
 
   /**
    * <p>The forgotten password link. This is the web address that users can go to if they forget
    *          the password for their WorkSpace.</p>
    * @public
    */
-  ForgotPasswordLink?: string;
+  ForgotPasswordLink?: string | undefined;
 
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
@@ -3124,7 +3225,7 @@ export interface DefaultClientBrandingAttributes {
    *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    * @public
    */
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Record<string, string> | undefined;
 }
 
 /**
@@ -3141,7 +3242,7 @@ export interface DefaultImportClientBrandingAttributes {
    * <p>The logo. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    * @public
    */
-  Logo?: Uint8Array;
+  Logo?: Uint8Array | undefined;
 
   /**
    * <p>The support email. The company's customer support email address.</p>
@@ -3159,7 +3260,7 @@ export interface DefaultImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The support link. The link for the company's customer support page for their
@@ -3178,14 +3279,14 @@ export interface DefaultImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportLink?: string;
+  SupportLink?: string | undefined;
 
   /**
    * <p>The forgotten password link. This is the web address that users can go to if they forget
    *          the password for their WorkSpace.</p>
    * @public
    */
-  ForgotPasswordLink?: string;
+  ForgotPasswordLink?: string | undefined;
 
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
@@ -3194,7 +3295,7 @@ export interface DefaultImportClientBrandingAttributes {
    *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    * @public
    */
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Record<string, string> | undefined;
 }
 
 /**
@@ -3208,7 +3309,7 @@ export interface DefaultWorkspaceCreationProperties {
    * <p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>
    * @public
    */
-  EnableWorkDocs?: boolean;
+  EnableWorkDocs?: boolean | undefined;
 
   /**
    * <p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in
@@ -3222,13 +3323,13 @@ export interface DefaultWorkspaceCreationProperties {
    *             Amazon WorkSpaces</a>.</p>
    * @public
    */
-  EnableInternetAccess?: boolean;
+  EnableInternetAccess?: boolean | undefined;
 
   /**
    * <p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>
    * @public
    */
-  DefaultOu?: string;
+  DefaultOu?: string | undefined;
 
   /**
    * <p>The identifier of the default security group to apply to WorkSpaces when they are
@@ -3236,13 +3337,13 @@ export interface DefaultWorkspaceCreationProperties {
    *             Groups for Your WorkSpaces</a>.</p>
    * @public
    */
-  CustomSecurityGroupId?: string;
+  CustomSecurityGroupId?: string | undefined;
 
   /**
    * <p>Specifies whether WorkSpace users are local administrators on their WorkSpaces.</p>
    * @public
    */
-  UserEnabledAsLocalAdministrator?: boolean;
+  UserEnabledAsLocalAdministrator?: boolean | undefined;
 
   /**
    * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see
@@ -3250,13 +3351,13 @@ export interface DefaultWorkspaceCreationProperties {
    *             Maintenance</a>.</p>
    * @public
    */
-  EnableMaintenanceMode?: boolean;
+  EnableMaintenanceMode?: boolean | undefined;
 
   /**
    * <p>Indicates the IAM role ARN of the instance.</p>
    * @public
    */
-  InstanceIamRoleArn?: string;
+  InstanceIamRoleArn?: string | undefined;
 }
 
 /**
@@ -3299,10 +3400,10 @@ export interface DeleteAccountLinkInvitationRequest {
   LinkId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3313,7 +3414,7 @@ export interface DeleteAccountLinkInvitationResult {
    * <p>Information about the account link.</p>
    * @public
    */
-  AccountLink?: AccountLink;
+  AccountLink?: AccountLink | undefined;
 }
 
 /**
@@ -3425,7 +3526,7 @@ export interface DeleteWorkspaceBundleRequest {
    * <p>The identifier of the bundle.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 }
 
 /**
@@ -3464,7 +3565,7 @@ export interface DeployWorkspaceApplicationsRequest {
    *          it allows previously failed deployments to be retried.</p>
    * @public
    */
-  Force?: boolean;
+  Force?: boolean | undefined;
 }
 
 /**
@@ -3476,7 +3577,7 @@ export interface WorkSpaceApplicationDeployment {
    * <p>The associations between the applications and the associated resources.</p>
    * @public
    */
-  Associations?: WorkspaceResourceAssociation[];
+  Associations?: WorkspaceResourceAssociation[] | undefined;
 }
 
 /**
@@ -3487,7 +3588,7 @@ export interface DeployWorkspaceApplicationsResult {
    * <p>The list of deployed associations and information about them.</p>
    * @public
    */
-  Deployment?: WorkSpaceApplicationDeployment;
+  Deployment?: WorkSpaceApplicationDeployment | undefined;
 }
 
 /**
@@ -3521,7 +3622,7 @@ export interface DescribeAccountResult {
    * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
    * @public
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | undefined;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, used for the management network
@@ -3531,13 +3632,13 @@ export interface DescribeAccountResult {
    *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
    * @public
    */
-  DedicatedTenancyManagementCidrRange?: string;
+  DedicatedTenancyManagementCidrRange?: string | undefined;
 
   /**
    * <p>The type of linked account.</p>
    * @public
    */
-  DedicatedTenancyAccountType?: DedicatedTenancyAccountType;
+  DedicatedTenancyAccountType?: DedicatedTenancyAccountType | undefined;
 }
 
 /**
@@ -3549,7 +3650,7 @@ export interface DescribeAccountModificationsRequest {
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3560,14 +3661,14 @@ export interface DescribeAccountModificationsResult {
    * <p>The list of modifications to the configuration of BYOL.</p>
    * @public
    */
-  AccountModifications?: AccountModification[];
+  AccountModifications?: AccountModification[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3578,13 +3679,13 @@ export interface DescribeApplicationAssociationsRequest {
    * <p>The maximum number of associations to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The identifier of the specified application.</p>
@@ -3607,13 +3708,13 @@ export interface DescribeApplicationAssociationsResult {
    * <p>List of associations and information about them.</p>
    * @public
    */
-  Associations?: ApplicationResourceAssociation[];
+  Associations?: ApplicationResourceAssociation[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3639,43 +3740,43 @@ export interface DescribeApplicationsRequest {
    * <p>The identifiers of one or more applications.</p>
    * @public
    */
-  ApplicationIds?: string[];
+  ApplicationIds?: string[] | undefined;
 
   /**
    * <p>The compute types supported by the applications.</p>
    * @public
    */
-  ComputeTypeNames?: Compute[];
+  ComputeTypeNames?: Compute[] | undefined;
 
   /**
    * <p>The license availability for the applications.</p>
    * @public
    */
-  LicenseType?: WorkSpaceApplicationLicenseType;
+  LicenseType?: WorkSpaceApplicationLicenseType | undefined;
 
   /**
    * <p>The operating systems supported by the applications.</p>
    * @public
    */
-  OperatingSystemNames?: OperatingSystemName[];
+  OperatingSystemNames?: OperatingSystemName[] | undefined;
 
   /**
    * <p>The owner of the applications.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The maximum number of applications to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3703,55 +3804,55 @@ export interface WorkSpaceApplication {
    * <p>The identifier of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The time the application is created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The description of the WorkSpace application.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The license availability for the applications.</p>
    * @public
    */
-  LicenseType?: WorkSpaceApplicationLicenseType;
+  LicenseType?: WorkSpaceApplicationLicenseType | undefined;
 
   /**
    * <p>The name of the WorkSpace application.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The owner of the WorkSpace application.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The status of WorkSpace application.</p>
    * @public
    */
-  State?: WorkSpaceApplicationState;
+  State?: WorkSpaceApplicationState | undefined;
 
   /**
    * <p>The supported compute types of the WorkSpace application.</p>
    * @public
    */
-  SupportedComputeTypeNames?: Compute[];
+  SupportedComputeTypeNames?: Compute[] | undefined;
 
   /**
    * <p>The supported operating systems of the WorkSpace application.</p>
    * @public
    */
-  SupportedOperatingSystemNames?: OperatingSystemName[];
+  SupportedOperatingSystemNames?: OperatingSystemName[] | undefined;
 }
 
 /**
@@ -3762,13 +3863,13 @@ export interface DescribeApplicationsResult {
    * <p>List of information about the specified applications.</p>
    * @public
    */
-  Applications?: WorkSpaceApplication[];
+  Applications?: WorkSpaceApplication[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3796,7 +3897,7 @@ export interface DescribeBundleAssociationsResult {
    * <p>List of information about the specified associations.</p>
    * @public
    */
-  Associations?: BundleResourceAssociation[];
+  Associations?: BundleResourceAssociation[] | undefined;
 }
 
 /**
@@ -3828,7 +3929,7 @@ export interface IosClientBrandingAttributes {
    *          a <code>.png</code> file.</p>
    * @public
    */
-  LogoUrl?: string;
+  LogoUrl?: string | undefined;
 
   /**
    * <p>The @2x version of the logo. This is the higher resolution display that offers a scale
@@ -3840,7 +3941,7 @@ export interface IosClientBrandingAttributes {
    *          </note>
    * @public
    */
-  Logo2xUrl?: string;
+  Logo2xUrl?: string | undefined;
 
   /**
    * <p>The @3x version of the logo. This is the higher resolution display that offers a scale
@@ -3852,7 +3953,7 @@ export interface IosClientBrandingAttributes {
    *          </note>
    * @public
    */
-  Logo3xUrl?: string;
+  Logo3xUrl?: string | undefined;
 
   /**
    * <p>The support email. The company's customer support email address.</p>
@@ -3870,7 +3971,7 @@ export interface IosClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The support link. The link for the company's customer support page for their
@@ -3889,14 +3990,14 @@ export interface IosClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportLink?: string;
+  SupportLink?: string | undefined;
 
   /**
    * <p>The forgotten password link. This is the web address that users can go to if they forget
    *          the password for their WorkSpace.</p>
    * @public
    */
-  ForgotPasswordLink?: string;
+  ForgotPasswordLink?: string | undefined;
 
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
@@ -3905,7 +4006,7 @@ export interface IosClientBrandingAttributes {
    *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    * @public
    */
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Record<string, string> | undefined;
 }
 
 /**
@@ -3916,37 +4017,37 @@ export interface DescribeClientBrandingResult {
    * <p>The branding information for Windows devices.</p>
    * @public
    */
-  DeviceTypeWindows?: DefaultClientBrandingAttributes;
+  DeviceTypeWindows?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information for macOS devices.</p>
    * @public
    */
-  DeviceTypeOsx?: DefaultClientBrandingAttributes;
+  DeviceTypeOsx?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information for Android devices.</p>
    * @public
    */
-  DeviceTypeAndroid?: DefaultClientBrandingAttributes;
+  DeviceTypeAndroid?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information for iOS devices.</p>
    * @public
    */
-  DeviceTypeIos?: IosClientBrandingAttributes;
+  DeviceTypeIos?: IosClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information for Linux devices.</p>
    * @public
    */
-  DeviceTypeLinux?: DefaultClientBrandingAttributes;
+  DeviceTypeLinux?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information for Web access.</p>
    * @public
    */
-  DeviceTypeWeb?: DefaultClientBrandingAttributes;
+  DeviceTypeWeb?: DefaultClientBrandingAttributes | undefined;
 }
 
 /**
@@ -3968,7 +4069,7 @@ export interface DescribeClientPropertiesResult {
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
    * @public
    */
-  ClientPropertiesList?: ClientPropertiesResult[];
+  ClientPropertiesList?: ClientPropertiesResult[] | undefined;
 }
 
 /**
@@ -3986,13 +4087,13 @@ export interface DescribeConnectClientAddInsRequest {
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4003,14 +4104,14 @@ export interface DescribeConnectClientAddInsResult {
    * <p>Information about client add-ins.</p>
    * @public
    */
-  AddIns?: ConnectClientAddIn[];
+  AddIns?: ConnectClientAddIn[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4021,26 +4122,26 @@ export interface DescribeConnectionAliasesRequest {
    * <p>The identifiers of the connection aliases to describe.</p>
    * @public
    */
-  AliasIds?: string[];
+  AliasIds?: string[] | undefined;
 
   /**
    * <p>The identifier of the directory associated with the connection alias.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The maximum number of connection aliases to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4051,14 +4152,14 @@ export interface DescribeConnectionAliasesResult {
    * <p>Information about the specified connection aliases.</p>
    * @public
    */
-  ConnectionAliases?: ConnectionAlias[];
+  ConnectionAliases?: ConnectionAlias[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4076,13 +4177,13 @@ export interface DescribeConnectionAliasPermissionsRequest {
    *          provide this token to receive the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4093,20 +4194,20 @@ export interface DescribeConnectionAliasPermissionsResult {
    * <p>The identifier of the connection alias.</p>
    * @public
    */
-  AliasId?: string;
+  AliasId?: string | undefined;
 
   /**
    * <p>The permissions associated with a connection alias.</p>
    * @public
    */
-  ConnectionAliasPermissions?: ConnectionAliasPermission[];
+  ConnectionAliasPermissions?: ConnectionAliasPermission[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4149,43 +4250,43 @@ export interface ImageResourceAssociation {
    * <p>The identifier of the associated resource.</p>
    * @public
    */
-  AssociatedResourceId?: string;
+  AssociatedResourceId?: string | undefined;
 
   /**
    * <p>The resource type of the associated resources.</p>
    * @public
    */
-  AssociatedResourceType?: ImageAssociatedResourceType;
+  AssociatedResourceType?: ImageAssociatedResourceType | undefined;
 
   /**
    * <p>The time the association is created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The time the association status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The status of the image resource association.</p>
    * @public
    */
-  State?: AssociationState;
+  State?: AssociationState | undefined;
 
   /**
    * <p>The reason the association deployment failed.</p>
    * @public
    */
-  StateReason?: AssociationStateReason;
+  StateReason?: AssociationStateReason | undefined;
 }
 
 /**
@@ -4196,7 +4297,7 @@ export interface DescribeImageAssociationsResult {
    * <p>List of information about the specified associations.</p>
    * @public
    */
-  Associations?: ImageResourceAssociation[];
+  Associations?: ImageResourceAssociation[] | undefined;
 }
 
 /**
@@ -4207,20 +4308,20 @@ export interface DescribeIpGroupsRequest {
    * <p>The identifiers of one or more IP access control groups.</p>
    * @public
    */
-  GroupIds?: string[];
+  GroupIds?: string[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4232,25 +4333,25 @@ export interface WorkspacesIpGroup {
    * <p>The identifier of the group.</p>
    * @public
    */
-  groupId?: string;
+  groupId?: string | undefined;
 
   /**
    * <p>The name of the group.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p>The description of the group.</p>
    * @public
    */
-  groupDesc?: string;
+  groupDesc?: string | undefined;
 
   /**
    * <p>The rules.</p>
    * @public
    */
-  userRules?: IpRuleItem[];
+  userRules?: IpRuleItem[] | undefined;
 }
 
 /**
@@ -4261,14 +4362,14 @@ export interface DescribeIpGroupsResult {
    * <p>Information about the IP access control groups.</p>
    * @public
    */
-  Result?: WorkspacesIpGroup[];
+  Result?: WorkspacesIpGroup[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4292,7 +4393,7 @@ export interface DescribeTagsResult {
    * <p>The tags.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -4320,7 +4421,7 @@ export interface DescribeWorkspaceAssociationsResult {
    * <p>List of information about the specified associations.</p>
    * @public
    */
-  Associations?: WorkspaceResourceAssociation[];
+  Associations?: WorkspaceResourceAssociation[] | undefined;
 }
 
 /**
@@ -4331,7 +4432,7 @@ export interface DescribeWorkspaceBundlesRequest {
    * <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
    * @public
    */
-  BundleIds?: string[];
+  BundleIds?: string[] | undefined;
 
   /**
    * <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p>
@@ -4339,13 +4440,13 @@ export interface DescribeWorkspaceBundlesRequest {
    *          To describe the bundles that belong to your account, don't specify a value.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The token for the next set of results. (You received this token from a previous call.)</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4356,7 +4457,7 @@ export interface DescribeWorkspaceBundlesResult {
    * <p>Information about the bundles.</p>
    * @public
    */
-  Bundles?: WorkspaceBundle[];
+  Bundles?: WorkspaceBundle[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
@@ -4364,7 +4465,40 @@ export interface DescribeWorkspaceBundlesResult {
    *          frame.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DescribeWorkspaceDirectoriesFilterName = {
+  USER_IDENTITY_TYPE: "USER_IDENTITY_TYPE",
+  WORKSPACE_TYPE: "WORKSPACE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeWorkspaceDirectoriesFilterName =
+  (typeof DescribeWorkspaceDirectoriesFilterName)[keyof typeof DescribeWorkspaceDirectoriesFilterName];
+
+/**
+ * <p>Describes the filter conditions for the WorkSpaces to return.</p>
+ * @public
+ */
+export interface DescribeWorkspaceDirectoriesFilter {
+  /**
+   * <p>The name of the WorkSpaces to filter.</p>
+   * @public
+   */
+  Name: DescribeWorkspaceDirectoriesFilterName | undefined;
+
+  /**
+   * <p>The values for filtering WorkSpaces</p>
+   * @public
+   */
+  Values: string[] | undefined;
 }
 
 /**
@@ -4376,26 +4510,32 @@ export interface DescribeWorkspaceDirectoriesRequest {
    *          retrieved.</p>
    * @public
    */
-  DirectoryIds?: string[];
+  DirectoryIds?: string[] | undefined;
 
   /**
    * <p>The names of the WorkSpace directories.</p>
    * @public
    */
-  WorkspaceDirectoryNames?: string[];
+  WorkspaceDirectoryNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of directories to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filter condition for the WorkSpaces.</p>
+   * @public
+   */
+  Filters?: DescribeWorkspaceDirectoriesFilter[] | undefined;
 }
 
 /**
@@ -4404,6 +4544,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
  */
 export const WorkspaceDirectoryType = {
   AD_CONNECTOR: "AD_CONNECTOR",
+  AWS_IAM_IDENTITY_CENTER: "AWS_IAM_IDENTITY_CENTER",
   CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
   SIMPLE_AD: "SIMPLE_AD",
 } as const;
@@ -4412,6 +4553,56 @@ export const WorkspaceDirectoryType = {
  * @public
  */
 export type WorkspaceDirectoryType = (typeof WorkspaceDirectoryType)[keyof typeof WorkspaceDirectoryType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointEncryptionMode = {
+  FIPS_VALIDATED: "FIPS_VALIDATED",
+  STANDARD_TLS: "STANDARD_TLS",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointEncryptionMode = (typeof EndpointEncryptionMode)[keyof typeof EndpointEncryptionMode];
+
+/**
+ * <p>Specifies the configurations of the identity center.</p>
+ * @public
+ */
+export interface IDCConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity center instance.</p>
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+}
+
+/**
+ * <p>Specifies the configurations of the Microsoft Entra.</p>
+ * @public
+ */
+export interface MicrosoftEntraConfig {
+  /**
+   * <p>The identifier of the tenant.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application config.</p>
+   * @public
+   */
+  ApplicationConfigSecretArn?: string | undefined;
+}
 
 /**
  * @public
@@ -4453,7 +4644,7 @@ export interface SamlProperties {
    *          </ul>
    * @public
    */
-  Status?: SamlStatusEnum;
+  Status?: SamlStatusEnum | undefined;
 
   /**
    * <p>The SAML 2.0 identity provider (IdP) user access URL is the URL a user would navigate to in their web browser in
@@ -4461,7 +4652,7 @@ export interface SamlProperties {
    *          bindings.</p>
    * @public
    */
-  UserAccessUrl?: string;
+  UserAccessUrl?: string | undefined;
 
   /**
    * <p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to
@@ -4471,7 +4662,7 @@ export interface SamlProperties {
    *          URL. Consult your IdP documentation for more information.</p>
    * @public
    */
-  RelayStateParameterName?: string;
+  RelayStateParameterName?: string | undefined;
 }
 
 /**
@@ -4483,33 +4674,33 @@ export interface SelfservicePermissions {
    * <p>Specifies whether users can restart their WorkSpace.</p>
    * @public
    */
-  RestartWorkspace?: ReconnectEnum;
+  RestartWorkspace?: ReconnectEnum | undefined;
 
   /**
    * <p>Specifies whether users can increase the volume size of the drives on their
    *          WorkSpace.</p>
    * @public
    */
-  IncreaseVolumeSize?: ReconnectEnum;
+  IncreaseVolumeSize?: ReconnectEnum | undefined;
 
   /**
    * <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
    * @public
    */
-  ChangeComputeType?: ReconnectEnum;
+  ChangeComputeType?: ReconnectEnum | undefined;
 
   /**
    * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
    * @public
    */
-  SwitchRunningMode?: ReconnectEnum;
+  SwitchRunningMode?: ReconnectEnum | undefined;
 
   /**
    * <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original
    *          state.</p>
    * @public
    */
-  RebuildWorkspace?: ReconnectEnum;
+  RebuildWorkspace?: ReconnectEnum | undefined;
 }
 
 /**
@@ -4528,6 +4719,24 @@ export const WorkspaceDirectoryState = {
  * @public
  */
 export type WorkspaceDirectoryState = (typeof WorkspaceDirectoryState)[keyof typeof WorkspaceDirectoryState];
+
+/**
+ * <p>Describes the Global Accelerator for directory</p>
+ * @public
+ */
+export interface GlobalAcceleratorForDirectory {
+  /**
+   * <p>Indicates if Global Accelerator for directory is enabled or disabled.</p>
+   * @public
+   */
+  Mode: AGAModeForDirectoryEnum | undefined;
+
+  /**
+   * <p>Indicates the preferred protocol for Global Accelerator.</p>
+   * @public
+   */
+  PreferredProtocol?: AGAPreferredProtocolForDirectory | undefined;
+}
 
 /**
  * @public
@@ -4640,7 +4849,7 @@ export interface UserSetting {
    * <p>Indicates the maximum character length for the specified user setting.</p>
    * @public
    */
-  MaximumLength?: number;
+  MaximumLength?: number | undefined;
 }
 
 /**
@@ -4652,19 +4861,25 @@ export interface StreamingProperties {
    * <p>Indicates the type of preferred protocol for the streaming experience.</p>
    * @public
    */
-  StreamingExperiencePreferredProtocol?: StreamingExperiencePreferredProtocolEnum;
+  StreamingExperiencePreferredProtocol?: StreamingExperiencePreferredProtocolEnum | undefined;
 
   /**
    * <p>Indicates the permission settings asscoiated with the user.</p>
    * @public
    */
-  UserSettings?: UserSetting[];
+  UserSettings?: UserSetting[] | undefined;
 
   /**
    * <p>Indicates the storage connector used </p>
    * @public
    */
-  StorageConnectors?: StorageConnector[];
+  StorageConnectors?: StorageConnector[] | undefined;
+
+  /**
+   * <p>Indicates the Global Accelerator properties.</p>
+   * @public
+   */
+  GlobalAccelerator?: GlobalAcceleratorForDirectory | undefined;
 }
 
 /**
@@ -4687,6 +4902,7 @@ export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
  */
 export const UserIdentityType = {
   AWS_DIRECTORY_SERVICE: "AWS_DIRECTORY_SERVICE",
+  AWS_IAM_IDENTITY_CENTER: "AWS_IAM_IDENTITY_CENTER",
   CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
 } as const;
 
@@ -4706,50 +4922,56 @@ export interface WorkspaceAccessProperties {
    * <p>Indicates whether users can use Windows clients to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeWindows?: AccessPropertyValue;
+  DeviceTypeWindows?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use macOS clients to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeOsx?: AccessPropertyValue;
+  DeviceTypeOsx?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
    * @public
    */
-  DeviceTypeWeb?: AccessPropertyValue;
+  DeviceTypeWeb?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeIos?: AccessPropertyValue;
+  DeviceTypeIos?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use Android and Android-compatible Chrome OS devices to
    *          access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeAndroid?: AccessPropertyValue;
+  DeviceTypeAndroid?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeChromeOs?: AccessPropertyValue;
+  DeviceTypeChromeOs?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeZeroClient?: AccessPropertyValue;
+  DeviceTypeZeroClient?: AccessPropertyValue | undefined;
 
   /**
    * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
    * @public
    */
-  DeviceTypeLinux?: AccessPropertyValue;
+  DeviceTypeLinux?: AccessPropertyValue | undefined;
+
+  /**
+   * <p>Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.</p>
+   * @public
+   */
+  DeviceTypeWorkSpacesThinClient?: AccessPropertyValue | undefined;
 }
 
 /**
@@ -4775,63 +4997,63 @@ export interface WorkspaceDirectory {
    * <p>The directory identifier.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The directory alias.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>The name of the directory.</p>
    * @public
    */
-  DirectoryName?: string;
+  DirectoryName?: string | undefined;
 
   /**
    * <p>The registration code for the directory. This is the code that users enter in their
    *          Amazon WorkSpaces client application to connect to the directory.</p>
    * @public
    */
-  RegistrationCode?: string;
+  RegistrationCode?: string | undefined;
 
   /**
    * <p>The identifiers of the subnets used with the directory.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The IP addresses of the DNS servers for the directory.</p>
    * @public
    */
-  DnsIpAddresses?: string[];
+  DnsIpAddresses?: string[] | undefined;
 
   /**
    * <p>The user name for the service account.</p>
    * @public
    */
-  CustomerUserName?: string;
+  CustomerUserName?: string | undefined;
 
   /**
    * <p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make
    *          calls to other services, such as Amazon EC2, on your behalf.</p>
    * @public
    */
-  IamRoleId?: string;
+  IamRoleId?: string | undefined;
 
   /**
    * <p>The directory type.</p>
    * @public
    */
-  DirectoryType?: WorkspaceDirectoryType;
+  DirectoryType?: WorkspaceDirectoryType | undefined;
 
   /**
    * <p>The identifier of the security group that is assigned to new WorkSpaces.</p>
    * @public
    */
-  WorkspaceSecurityGroupId?: string;
+  WorkspaceSecurityGroupId?: string | undefined;
 
   /**
    * <p>The state of the directory's registration with Amazon WorkSpaces. After a directory is
@@ -4842,25 +5064,25 @@ export interface WorkspaceDirectory {
    *          directory has been successfully deregistered.</p>
    * @public
    */
-  State?: WorkspaceDirectoryState;
+  State?: WorkspaceDirectoryState | undefined;
 
   /**
    * <p>The default creation properties for all WorkSpaces in the directory.</p>
    * @public
    */
-  WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;
+  WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties | undefined;
 
   /**
    * <p>The identifiers of the IP access control groups associated with the directory.</p>
    * @public
    */
-  ipGroupIds?: string[];
+  ipGroupIds?: string[] | undefined;
 
   /**
    * <p>The devices and operating systems that users can use to access WorkSpaces.</p>
    * @public
    */
-  WorkspaceAccessProperties?: WorkspaceAccessProperties;
+  WorkspaceAccessProperties?: WorkspaceAccessProperties | undefined;
 
   /**
    * <p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License
@@ -4868,69 +5090,88 @@ export interface WorkspaceDirectory {
    *             Your Own Windows Desktop Images</a>.</p>
    * @public
    */
-  Tenancy?: Tenancy;
+  Tenancy?: Tenancy | undefined;
 
   /**
    * <p>The default self-service permissions for WorkSpaces in the directory.</p>
    * @public
    */
-  SelfservicePermissions?: SelfservicePermissions;
+  SelfservicePermissions?: SelfservicePermissions | undefined;
 
   /**
    * <p>Describes the enablement status, user access URL, and relay state parameter name that are used for configuring
    *          federation with an SAML 2.0 identity provider.</p>
    * @public
    */
-  SamlProperties?: SamlProperties;
+  SamlProperties?: SamlProperties | undefined;
 
   /**
    * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)
    *          user identities to Active Directory for WorkSpaces login.</p>
    * @public
    */
-  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
+
+  /**
+   * <p>Endpoint encryption mode that allows you to configure the specified directory between
+   *          Standard TLS and FIPS 140-2 validated mode.</p>
+   * @public
+   */
+  EndpointEncryptionMode?: EndpointEncryptionMode | undefined;
+
+  /**
+   * <p>Specifies details about Microsoft Entra configurations.</p>
+   * @public
+   */
+  MicrosoftEntraConfig?: MicrosoftEntraConfig | undefined;
 
   /**
    * <p>The name fo the WorkSpace directory.</p>
    * @public
    */
-  WorkspaceDirectoryName?: string;
+  WorkspaceDirectoryName?: string | undefined;
 
   /**
    * <p>The description of the WorkSpace directory</p>
    * @public
    */
-  WorkspaceDirectoryDescription?: string;
+  WorkspaceDirectoryDescription?: string | undefined;
 
   /**
    * <p>Indicates the identity type of the specifired user.</p>
    * @public
    */
-  UserIdentityType?: UserIdentityType;
+  UserIdentityType?: UserIdentityType | undefined;
 
   /**
    * <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
    * @public
    */
-  WorkspaceType?: WorkspaceType;
+  WorkspaceType?: WorkspaceType | undefined;
+
+  /**
+   * <p>Specifies details about identity center configurations.</p>
+   * @public
+   */
+  IDCConfig?: IDCConfig | undefined;
 
   /**
    * <p>Information about the Active Directory config.</p>
    * @public
    */
-  ActiveDirectoryConfig?: ActiveDirectoryConfig;
+  ActiveDirectoryConfig?: ActiveDirectoryConfig | undefined;
 
   /**
    * <p>The streaming properties to configure.</p>
    * @public
    */
-  StreamingProperties?: StreamingProperties;
+  StreamingProperties?: StreamingProperties | undefined;
 
   /**
    * <p>The error message returned.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -4941,14 +5182,14 @@ export interface DescribeWorkspaceDirectoriesResult {
    * <p>Information about the directories.</p>
    * @public
    */
-  Directories?: WorkspaceDirectory[];
+  Directories?: WorkspaceDirectory[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4966,13 +5207,13 @@ export interface DescribeWorkspaceImagePermissionsRequest {
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4987,7 +5228,7 @@ export interface ImagePermission {
    *          with.</p>
    * @public
    */
-  SharedAccountId?: string;
+  SharedAccountId?: string | undefined;
 }
 
 /**
@@ -4998,21 +5239,21 @@ export interface DescribeWorkspaceImagePermissionsResult {
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The identifiers of the Amazon Web Services accounts that the image has been shared
    *          with.</p>
    * @public
    */
-  ImagePermissions?: ImagePermission[];
+  ImagePermissions?: ImagePermission[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5037,26 +5278,26 @@ export interface DescribeWorkspaceImagesRequest {
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageIds?: string[];
+  ImageIds?: string[] | undefined;
 
   /**
    * <p>The type (owned or shared) of the image.</p>
    * @public
    */
-  ImageType?: ImageType;
+  ImageType?: ImageType | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5065,28 +5306,47 @@ export interface DescribeWorkspaceImagesRequest {
  */
 export const WorkspaceImageErrorDetailCode = {
   ADDITIONAL_DRIVES_ATTACHED: "AdditionalDrivesAttached",
+  ADDITIONAL_DRIVES_PRESENT: "AdditionalDrivesPresent",
+  AMAZON_SSM_AGENT_ENABLED: "AmazonSsmAgentEnabled",
   ANTI_VIRUS_INSTALLED: "AntiVirusInstalled",
+  APPX_PACKAGES_INSTALLED: "AppXPackagesInstalled",
   AUTO_LOGON_ENABLED: "AutoLogonEnabled",
   AUTO_MOUNT_DISABLED: "AutoMountDisabled",
   AZURE_DOMAIN_JOINED: "AzureDomainJoined",
   DHCP_DISABLED: "DHCPDisabled",
   DISK_FREE_SPACE: "DiskFreeSpace",
   DISK_SIZE_EXCEEDED: "DiskSizeExceeded",
+  DOMAIN_ACCOUNT_SERVICES_FOUND: "DomainAccountServicesFound",
   DOMAIN_JOINED: "DomainJoined",
+  ENVIRONMENT_VARIABLES_PATH_MISSING_ENTRIES: "EnvironmentVariablesPathMissingEntries",
   FIREWALL_ENABLED: "FirewallEnabled",
   INCOMPATIBLE_PARTITIONING: "IncompatiblePartitioning",
+  INSUFFICIENT_DISK_SPACE: "InsufficientDiskSpace",
+  INSUFFICIENT_REARM_COUNT: "InsufficientRearmCount",
+  INVALID_IP: "InvalidIp",
   IN_PLACE_UPGRADE: "InPlaceUpgrade",
   MULTIPLE_BOOT_PARTITION: "MultipleBootPartition",
+  MULTIPLE_USER_PROFILES: "MultipleUserProfiles",
   OFFICE_INSTALLED: "OfficeInstalled",
   OS_NOT_SUPPORTED: "OSNotSupported",
   OUTDATED_POWERSHELL_VERSION: "OutdatedPowershellVersion",
   PCOIP_AGENT_INSTALLED: "PCoIPAgentInstalled",
   PENDING_REBOOT: "PendingReboot",
   REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
+  REMOTE_DESKTOP_SERVICES_DISABLED: "RemoteDesktopServicesDisabled",
+  RESERVED_STORAGE_IN_USE: "ReservedStorageInUse",
   SIXTY_FOUR_BIT_OS: "Requires64BitOS",
+  STAGED_APPX_PACKAGE: "StagedAppxPackage",
+  SYSPREP_FILE_MISSING: "SysPrepFileMissing",
   UEFI_NOT_SUPPORTED: "UEFINotSupported",
+  UNKNOWN_ERROR: "UnknownError",
+  UNSUPPORTED_OS_UPGRADE: "UnsupportedOsUpgrade",
+  UNSUPPORTED_SECURITY_PROTOCOL: "UnsupportedSecurityProtocol",
+  USER_PROFILE_MISSING: "UserProfileMissing",
   VMWARE_TOOLS_INSTALLED: "VMWareToolsInstalled",
+  WINDOWS_MODULES_INSTALLER_DISABLED: "WindowsModulesInstallerDisabled",
   WINDOWS_UPDATES_ENABLED: "WindowsUpdatesEnabled",
+  WINDOWS_UPDATES_REQUIRED: "WindowsUpdatesRequired",
   WORKSPACES_BYOL_ACCOUNT_DISABLED: "WorkspacesBYOLAccountDisabled",
   WORKSPACES_BYOL_ACCOUNT_NOT_FOUND: "WorkspacesBYOLAccountNotFound",
   ZERO_REARM_COUNT: "ZeroRearmCount",
@@ -5108,13 +5368,13 @@ export interface ErrorDetails {
    * <p>Indicates the error code returned.</p>
    * @public
    */
-  ErrorCode?: WorkspaceImageErrorDetailCode;
+  ErrorCode?: WorkspaceImageErrorDetailCode | undefined;
 
   /**
    * <p>The text of the error message related the error code.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -5131,14 +5391,14 @@ export interface UpdateResult {
    *          WorkSpace image.</p>
    * @public
    */
-  UpdateAvailable?: boolean;
+  UpdateAvailable?: boolean | undefined;
 
   /**
    * <p>A description of whether updates for the WorkSpace image are pending or
    *          available.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -5150,31 +5410,31 @@ export interface WorkspaceImage {
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The name of the image.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the image.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The operating system that the image is running. </p>
    * @public
    */
-  OperatingSystem?: OperatingSystem;
+  OperatingSystem?: OperatingSystem | undefined;
 
   /**
    * <p>The status of the image.</p>
    * @public
    */
-  State?: WorkspaceImageState;
+  State?: WorkspaceImageState | undefined;
 
   /**
    * <p>Specifies whether the image is running on dedicated hardware. When Bring Your Own
@@ -5183,45 +5443,45 @@ export interface WorkspaceImage {
    *             Desktop Images</a>.</p>
    * @public
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy | undefined;
 
   /**
    * <p>The error code that is returned for the image.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned for the image.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The date when the image was created. If the image has been shared, the Amazon Web Services account that the image has been shared with sees the original creation date
    *          of the image.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the image.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The updates (if any) that are available for the specified image.</p>
    * @public
    */
-  Updates?: UpdateResult;
+  Updates?: UpdateResult | undefined;
 
   /**
    * <p>Additional details of the error returned for the image, including the
    *          possible causes of the errors and troubleshooting information.</p>
    * @public
    */
-  ErrorDetails?: ErrorDetails[];
+  ErrorDetails?: ErrorDetails[] | undefined;
 }
 
 /**
@@ -5232,14 +5492,14 @@ export interface DescribeWorkspaceImagesResult {
    * <p>Information about the images.</p>
    * @public
    */
-  Images?: WorkspaceImage[];
+  Images?: WorkspaceImage[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5253,7 +5513,7 @@ export interface DescribeWorkspacesRequest {
    *          it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
    * @public
    */
-  WorkspaceIds?: string[];
+  WorkspaceIds?: string[] | undefined;
 
   /**
    * <p>The identifier of the directory. In addition, you can optionally specify a specific
@@ -5261,40 +5521,40 @@ export interface DescribeWorkspacesRequest {
    *          other filter.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The name of the directory user. You must specify this parameter with
    *             <code>DirectoryId</code>.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The identifier of the bundle. All WorkSpaces that are created from this bundle are
    *          retrieved. You cannot combine this parameter with any other filter.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The name of the user-decoupled WorkSpace.</p>
    * @public
    */
-  WorkspaceName?: string;
+  WorkspaceName?: string | undefined;
 }
 
 /**
@@ -5307,14 +5567,14 @@ export interface DescribeWorkspacesResult {
    *          returned information could be incomplete.</p>
    * @public
    */
-  Workspaces?: Workspace[];
+  Workspaces?: Workspace[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5325,14 +5585,14 @@ export interface DescribeWorkspacesConnectionStatusRequest {
    * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
    * @public
    */
-  WorkspaceIds?: string[];
+  WorkspaceIds?: string[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5344,26 +5604,26 @@ export interface WorkspaceConnectionStatus {
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 
   /**
    * <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace
    *          is stopped.</p>
    * @public
    */
-  ConnectionState?: ConnectionState;
+  ConnectionState?: ConnectionState | undefined;
 
   /**
    * <p>The timestamp of the connection status check.</p>
    * @public
    */
-  ConnectionStateCheckTimestamp?: Date;
+  ConnectionStateCheckTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of the last known user connection.</p>
    * @public
    */
-  LastKnownUserConnectionTimestamp?: Date;
+  LastKnownUserConnectionTimestamp?: Date | undefined;
 }
 
 /**
@@ -5374,14 +5634,14 @@ export interface DescribeWorkspacesConnectionStatusResult {
    * <p>Information about the connection status of the WorkSpace.</p>
    * @public
    */
-  WorkspacesConnectionStatus?: WorkspaceConnectionStatus[];
+  WorkspacesConnectionStatus?: WorkspaceConnectionStatus[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5404,7 +5664,7 @@ export interface Snapshot {
    * <p>The time when the snapshot was created.</p>
    * @public
    */
-  SnapshotTime?: Date;
+  SnapshotTime?: Date | undefined;
 }
 
 /**
@@ -5416,14 +5676,14 @@ export interface DescribeWorkspaceSnapshotsResult {
    *          include the user volume.</p>
    * @public
    */
-  RebuildSnapshots?: Snapshot[];
+  RebuildSnapshots?: Snapshot[] | undefined;
 
   /**
    * <p>Information about the snapshots that can be used to restore a WorkSpace. These snapshots
    *          include both the root volume and the user volume.</p>
    * @public
    */
-  RestoreSnapshots?: Snapshot[];
+  RestoreSnapshots?: Snapshot[] | undefined;
 }
 
 /**
@@ -5489,26 +5749,26 @@ export interface DescribeWorkspacesPoolsRequest {
    * <p>The identifier of the WorkSpaces Pools.</p>
    * @public
    */
-  PoolIds?: string[];
+  PoolIds?: string[] | undefined;
 
   /**
    * <p>The filter conditions for the WorkSpaces Pool to return.</p>
    * @public
    */
-  Filters?: DescribeWorkspacesPoolsFilter[];
+  Filters?: DescribeWorkspacesPoolsFilter[] | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5519,14 +5779,14 @@ export interface DescribeWorkspacesPoolsResult {
    * <p>Information about the WorkSpaces Pools.</p>
    * @public
    */
-  WorkspacesPools?: WorkspacesPool[];
+  WorkspacesPools?: WorkspacesPool[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5543,20 +5803,21 @@ export interface DescribeWorkspacesPoolSessionsRequest {
    * <p>The identifier of the user.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * <p>The maximum size of each page of results. The default value is 20 and the maximum value
+   *          is 50.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5582,14 +5843,14 @@ export interface NetworkAccessConfiguration {
    * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
    * @public
    */
-  EniPrivateIpAddress?: string;
+  EniPrivateIpAddress?: string | undefined;
 
   /**
    * <p>The resource identifier of the elastic network interface that is attached to instances in your
    *          VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
    * @public
    */
-  EniId?: string;
+  EniId?: string | undefined;
 }
 
 /**
@@ -5602,13 +5863,13 @@ export interface WorkspacesPoolSession {
    *          WorkSpaces Pools URL (API) or SAML 2.0 federation (SAML).</p>
    * @public
    */
-  AuthenticationType?: AuthenticationType;
+  AuthenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>Specifies whether a user is connected to the pool session.</p>
    * @public
    */
-  ConnectionState?: SessionConnectionState;
+  ConnectionState?: SessionConnectionState | undefined;
 
   /**
    * <p>The identifier of the session.</p>
@@ -5620,7 +5881,7 @@ export interface WorkspacesPoolSession {
    * <p>The identifier for the instance hosting the session.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The identifier of the pool.</p>
@@ -5632,19 +5893,19 @@ export interface WorkspacesPoolSession {
    * <p>The time that the pool session ended.</p>
    * @public
    */
-  ExpirationTime?: Date;
+  ExpirationTime?: Date | undefined;
 
   /**
    * <p>Describes the network details of the pool.</p>
    * @public
    */
-  NetworkAccessConfiguration?: NetworkAccessConfiguration;
+  NetworkAccessConfiguration?: NetworkAccessConfiguration | undefined;
 
   /**
    * <p>The time that the pool sission started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The identifier of the user.</p>
@@ -5661,14 +5922,14 @@ export interface DescribeWorkspacesPoolSessionsResult {
    * <p>Describes the pool sessions.</p>
    * @public
    */
-  Sessions?: WorkspacesPoolSession[];
+  Sessions?: WorkspacesPoolSession[] | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5734,7 +5995,7 @@ export interface DisassociateWorkspaceApplicationResult {
    * <p>Information about the targeted association.</p>
    * @public
    */
-  Association?: WorkspaceResourceAssociation;
+  Association?: WorkspaceResourceAssociation | undefined;
 }
 
 /**
@@ -5747,20 +6008,20 @@ export interface FailedWorkspaceChangeRequest {
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 
   /**
    * <p>The error code that is returned if the WorkSpace cannot be rebooted.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
    *          rebooted.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -5771,13 +6032,13 @@ export interface GetAccountLinkRequest {
    * <p>The identifier of the account to link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The identifier of the account link</p>
    * @public
    */
-  LinkedAccountId?: string;
+  LinkedAccountId?: string | undefined;
 }
 
 /**
@@ -5788,7 +6049,7 @@ export interface GetAccountLinkResult {
    * <p>The account link of the account link to retrieve.</p>
    * @public
    */
-  AccountLink?: AccountLink;
+  AccountLink?: AccountLink | undefined;
 }
 
 /**
@@ -5808,7 +6069,7 @@ export interface IosImportClientBrandingAttributes {
    *          from a <code>.png</code> file.</p>
    * @public
    */
-  Logo?: Uint8Array;
+  Logo?: Uint8Array | undefined;
 
   /**
    * <p>The @2x version of the logo. This is the higher resolution display that offers a scale
@@ -5820,7 +6081,7 @@ export interface IosImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  Logo2x?: Uint8Array;
+  Logo2x?: Uint8Array | undefined;
 
   /**
    * <p>The @3x version of the logo. This is the higher resolution display that offers a scale
@@ -5832,7 +6093,7 @@ export interface IosImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  Logo3x?: Uint8Array;
+  Logo3x?: Uint8Array | undefined;
 
   /**
    * <p>The support email. The company's customer support email address.</p>
@@ -5850,7 +6111,7 @@ export interface IosImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The support link. The link for the company's customer support page for their
@@ -5869,14 +6130,14 @@ export interface IosImportClientBrandingAttributes {
    *          </note>
    * @public
    */
-  SupportLink?: string;
+  SupportLink?: string | undefined;
 
   /**
    * <p>The forgotten password link. This is the web address that users can go to if they forget
    *          the password for their WorkSpace.</p>
    * @public
    */
-  ForgotPasswordLink?: string;
+  ForgotPasswordLink?: string | undefined;
 
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
@@ -5885,7 +6146,7 @@ export interface IosImportClientBrandingAttributes {
    *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    * @public
    */
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Record<string, string> | undefined;
 }
 
 /**
@@ -5903,37 +6164,37 @@ export interface ImportClientBrandingRequest {
    * <p>The branding information to import for Windows devices.</p>
    * @public
    */
-  DeviceTypeWindows?: DefaultImportClientBrandingAttributes;
+  DeviceTypeWindows?: DefaultImportClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information to import for macOS devices.</p>
    * @public
    */
-  DeviceTypeOsx?: DefaultImportClientBrandingAttributes;
+  DeviceTypeOsx?: DefaultImportClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information to import for Android devices.</p>
    * @public
    */
-  DeviceTypeAndroid?: DefaultImportClientBrandingAttributes;
+  DeviceTypeAndroid?: DefaultImportClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information to import for iOS devices.</p>
    * @public
    */
-  DeviceTypeIos?: IosImportClientBrandingAttributes;
+  DeviceTypeIos?: IosImportClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information to import for Linux devices.</p>
    * @public
    */
-  DeviceTypeLinux?: DefaultImportClientBrandingAttributes;
+  DeviceTypeLinux?: DefaultImportClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information to import for web access.</p>
    * @public
    */
-  DeviceTypeWeb?: DefaultImportClientBrandingAttributes;
+  DeviceTypeWeb?: DefaultImportClientBrandingAttributes | undefined;
 }
 
 /**
@@ -5944,37 +6205,37 @@ export interface ImportClientBrandingResult {
    * <p>The branding information configured for Windows devices.</p>
    * @public
    */
-  DeviceTypeWindows?: DefaultClientBrandingAttributes;
+  DeviceTypeWindows?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information configured for macOS devices.</p>
    * @public
    */
-  DeviceTypeOsx?: DefaultClientBrandingAttributes;
+  DeviceTypeOsx?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information configured for Android devices.</p>
    * @public
    */
-  DeviceTypeAndroid?: DefaultClientBrandingAttributes;
+  DeviceTypeAndroid?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information configured for iOS devices.</p>
    * @public
    */
-  DeviceTypeIos?: IosClientBrandingAttributes;
+  DeviceTypeIos?: IosClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information configured for Linux devices.</p>
    * @public
    */
-  DeviceTypeLinux?: DefaultClientBrandingAttributes;
+  DeviceTypeLinux?: DefaultClientBrandingAttributes | undefined;
 
   /**
    * <p>The branding information configured for web access.</p>
    * @public
    */
-  DeviceTypeWeb?: DefaultClientBrandingAttributes;
+  DeviceTypeWeb?: DefaultClientBrandingAttributes | undefined;
 }
 
 /**
@@ -5986,6 +6247,7 @@ export const WorkspaceImageIngestionProcess = {
   BYOL_GRAPHICSPRO: "BYOL_GRAPHICSPRO",
   BYOL_GRAPHICS_G4DN: "BYOL_GRAPHICS_G4DN",
   BYOL_GRAPHICS_G4DN_BYOP: "BYOL_GRAPHICS_G4DN_BYOP",
+  BYOL_GRAPHICS_G4DN_WSP: "BYOL_GRAPHICS_G4DN_WSP",
   BYOL_REGULAR: "BYOL_REGULAR",
   BYOL_REGULAR_BYOP: "BYOL_REGULAR_BYOP",
   BYOL_REGULAR_WSP: "BYOL_REGULAR_WSP",
@@ -6009,8 +6271,8 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol
-   *          (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in
+   *          you want to use for your BYOL Workspace image, either PCoIP, WSP, or
+   *          bring your own protocol (BYOP). To use DCV, specify a value that ends in
    *          <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
    *          To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>
    *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
@@ -6041,7 +6303,7 @@ export interface ImportWorkspaceImageRequest {
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11
@@ -6050,16 +6312,19 @@ export interface ImportWorkspaceImageRequest {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Although this parameter is an array, only one item is allowed at this time.</p>
+   *                   <p>Although this parameter is an array, only one item is allowed at this
+   *                   time.</p>
    *                </li>
    *                <li>
-   *                   <p>Windows 11 only supports <code>Microsoft_Office_2019</code>.</p>
+   *                   <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support
+   *                   only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not
+   *                   support Office installation.</p>
    *                </li>
    *             </ul>
    *          </note>
    * @public
    */
-  Applications?: Application[];
+  Applications?: Application[] | undefined;
 }
 
 /**
@@ -6070,7 +6335,7 @@ export interface ImportWorkspaceImageResult {
    * <p>The identifier of the WorkSpace image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 }
 
 /**
@@ -6081,19 +6346,19 @@ export interface ListAccountLinksRequest {
    * <p>Filters the account based on their link status.</p>
    * @public
    */
-  LinkStatusFilter?: AccountLinkStatusEnum[];
+  LinkStatusFilter?: AccountLinkStatusEnum[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of accounts to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6104,13 +6369,13 @@ export interface ListAccountLinksResult {
    * <p>Information about the account links.</p>
    * @public
    */
-  AccountLinks?: AccountLink[];
+  AccountLinks?: AccountLink[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6128,14 +6393,14 @@ export interface ListAvailableManagementCidrRangesRequest {
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6146,14 +6411,14 @@ export interface ListAvailableManagementCidrRangesResult {
    * <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
    * @public
    */
-  ManagementCidrRanges?: string[];
+  ManagementCidrRanges?: string[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6181,7 +6446,7 @@ export interface MigrateWorkspaceResult {
    * <p>The original identifier of the WorkSpace that is being migrated.</p>
    * @public
    */
-  SourceWorkspaceId?: string;
+  SourceWorkspaceId?: string | undefined;
 
   /**
    * <p>The new identifier of the WorkSpace that is being migrated. If the migration does not
@@ -6189,7 +6454,7 @@ export interface MigrateWorkspaceResult {
    *          original WorkSpace ID.</p>
    * @public
    */
-  TargetWorkspaceId?: string;
+  TargetWorkspaceId?: string | undefined;
 }
 
 /**
@@ -6220,7 +6485,7 @@ export interface ModifyAccountRequest {
    * <p>The status of BYOL.</p>
    * @public
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportEnum;
+  DedicatedTenancySupport?: DedicatedTenancySupportEnum | undefined;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
@@ -6230,7 +6495,7 @@ export interface ModifyAccountRequest {
    *             <code>ListAvailableManagementCidrRanges</code> operation.</p>
    * @public
    */
-  DedicatedTenancyManagementCidrRange?: string;
+  DedicatedTenancyManagementCidrRange?: string | undefined;
 }
 
 /**
@@ -6252,13 +6517,13 @@ export interface ModifyCertificateBasedAuthPropertiesRequest {
    * <p>The properties of the certificate-based authentication.</p>
    * @public
    */
-  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
 
   /**
    * <p>The properties of the certificate-based authentication you want to delete.</p>
    * @public
    */
-  PropertiesToDelete?: DeletableCertificateBasedAuthProperty[];
+  PropertiesToDelete?: DeletableCertificateBasedAuthProperty[] | undefined;
 }
 
 /**
@@ -6291,6 +6556,29 @@ export interface ModifyClientPropertiesResult {}
 /**
  * @public
  */
+export interface ModifyEndpointEncryptionModeRequest {
+  /**
+   * <p> The identifier of the directory.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal
+   *          or WorkSpace Pools.</p>
+   * @public
+   */
+  EndpointEncryptionMode: EndpointEncryptionMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEndpointEncryptionModeResponse {}
+
+/**
+ * @public
+ */
 export interface ModifySamlPropertiesRequest {
   /**
    * <p>The directory identifier for which you want to configure SAML properties.</p>
@@ -6302,7 +6590,7 @@ export interface ModifySamlPropertiesRequest {
    * <p>The properties for configuring SAML 2.0 authentication.</p>
    * @public
    */
-  SamlProperties?: SamlProperties;
+  SamlProperties?: SamlProperties | undefined;
 
   /**
    * <p>The SAML properties to delete as part of your request.</p>
@@ -6320,7 +6608,7 @@ export interface ModifySamlPropertiesRequest {
    *          </ul>
    * @public
    */
-  PropertiesToDelete?: DeletableSamlProperty[];
+  PropertiesToDelete?: DeletableSamlProperty[] | undefined;
 }
 
 /**
@@ -6364,7 +6652,7 @@ export interface ModifyStreamingPropertiesRequest {
    * <p>The streaming properties to configure.</p>
    * @public
    */
-  StreamingProperties?: StreamingProperties;
+  StreamingProperties?: StreamingProperties | undefined;
 }
 
 /**
@@ -6417,13 +6705,13 @@ export interface WorkspaceCreationProperties {
    *          </note>
    * @public
    */
-  EnableWorkDocs?: boolean;
+  EnableWorkDocs?: boolean | undefined;
 
   /**
    * <p>Indicates whether internet access is enabled for your WorkSpaces.</p>
    * @public
    */
-  EnableInternetAccess?: boolean;
+  EnableInternetAccess?: boolean | undefined;
 
   /**
    * <p>The default organizational unit (OU) for your WorkSpaces directories. This string must
@@ -6446,19 +6734,19 @@ export interface WorkspaceCreationProperties {
    *          </important>
    * @public
    */
-  DefaultOu?: string;
+  DefaultOu?: string | undefined;
 
   /**
    * <p>The identifier of your custom security group.</p>
    * @public
    */
-  CustomSecurityGroupId?: string;
+  CustomSecurityGroupId?: string | undefined;
 
   /**
    * <p>Indicates whether users are local administrators of their WorkSpaces.</p>
    * @public
    */
-  UserEnabledAsLocalAdministrator?: boolean;
+  UserEnabledAsLocalAdministrator?: boolean | undefined;
 
   /**
    * <p>Indicates whether maintenance mode is enabled for your WorkSpaces. For more information,
@@ -6466,13 +6754,13 @@ export interface WorkspaceCreationProperties {
    *             Maintenance</a>. </p>
    * @public
    */
-  EnableMaintenanceMode?: boolean;
+  EnableMaintenanceMode?: boolean | undefined;
 
   /**
    * <p>Indicates the IAM role ARN of the instance.</p>
    * @public
    */
-  InstanceIamRoleArn?: string;
+  InstanceIamRoleArn?: string | undefined;
 }
 
 /**
@@ -6511,13 +6799,13 @@ export interface ModifyWorkspacePropertiesRequest {
    * <p>The properties of the WorkSpace.</p>
    * @public
    */
-  WorkspaceProperties?: WorkspaceProperties;
+  WorkspaceProperties?: WorkspaceProperties | undefined;
 
   /**
    * <p>Indicates the data replication status.</p>
    * @public
    */
-  DataReplication?: DataReplication;
+  DataReplication?: DataReplication | undefined;
 }
 
 /**
@@ -6614,252 +6902,5 @@ export interface RebootWorkspacesResult {
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
    * @public
    */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
 }
-
-/**
- * <p>Describes the information used to rebuild a WorkSpace.</p>
- * @public
- */
-export interface RebuildRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RebuildWorkspacesRequest {
-  /**
-   * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
-   * @public
-   */
-  RebuildWorkspaceRequests: RebuildRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RebuildWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpace that could not be rebuilt.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-/**
- * @public
- */
-export interface RegisterWorkspaceDirectoryRequest {
-  /**
-   * <p>The identifier of the directory. You cannot register a directory if it does not have a
-   *          status of Active. If the directory does not have a status of Active, you will receive an
-   *          InvalidResourceStateException error. If you have already registered the maximum number of
-   *          directories that you can register with Amazon WorkSpaces, you will receive a
-   *          ResourceLimitExceededException error. Deregister directories that you are not using for
-   *          WorkSpaces, and try again.</p>
-   * @public
-   */
-  DirectoryId?: string;
-
-  /**
-   * <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the
-   *          subnets are in supported Availability Zones. The subnets must also be in separate
-   *          Availability Zones. If these conditions are not met, you will receive an
-   *          OperationNotSupportedException error.</p>
-   * @public
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this
-   *          parameter and WorkDocs is not available in the Region, you will receive an
-   *          OperationNotSupportedException error. Set <code>EnableWorkDocs</code> to disabled, and try
-   *          again.</p>
-   * @public
-   */
-  EnableWorkDocs?: boolean;
-
-  /**
-   * <p>Indicates whether self-service capabilities are enabled or disabled.</p>
-   * @public
-   */
-  EnableSelfService?: boolean;
-
-  /**
-   * <p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own
-   *          License (BYOL) images, this value must be set to <code>DEDICATED</code> and your Amazon Web Services account must be enabled for BYOL. If your account has not been enabled for
-   *          BYOL, you will receive an InvalidParameterValuesException error. For more information about
-   *          BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
-   *             Desktop Images</a>.</p>
-   * @public
-   */
-  Tenancy?: Tenancy;
-
-  /**
-   * <p>The tags associated with the directory.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the directory to register.</p>
-   * @public
-   */
-  WorkspaceDirectoryName?: string;
-
-  /**
-   * <p>Description of the directory to register.</p>
-   * @public
-   */
-  WorkspaceDirectoryDescription?: string;
-
-  /**
-   * <p>The type of identity management the user is using.</p>
-   * @public
-   */
-  UserIdentityType?: UserIdentityType;
-
-  /**
-   * <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
-   * @public
-   */
-  WorkspaceType?: WorkspaceType;
-
-  /**
-   * <p>The active directory config of the directory.</p>
-   * @public
-   */
-  ActiveDirectoryConfig?: ActiveDirectoryConfig;
-}
-
-/**
- * @public
- */
-export interface RegisterWorkspaceDirectoryResult {
-  /**
-   * <p>The identifier of the directory.</p>
-   * @public
-   */
-  DirectoryId?: string;
-
-  /**
-   * <p>The registration status of the WorkSpace directory.</p>
-   * @public
-   */
-  State?: WorkspaceDirectoryState;
-}
-
-/**
- * <p>The configuration of this network is not supported for this operation, or your network configuration
- *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
- *             Configure a VPC for Amazon WorkSpaces</a>.</p>
- * @public
- */
-export class UnsupportedNetworkConfigurationException extends __BaseException {
-  readonly name: "UnsupportedNetworkConfigurationException" = "UnsupportedNetworkConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedNetworkConfigurationException, __BaseException>) {
-    super({
-      name: "UnsupportedNetworkConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedNetworkConfigurationException.prototype);
-  }
-}
-
-/**
- * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
- *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
- * @public
- */
-export class WorkspacesDefaultRoleNotFoundException extends __BaseException {
-  readonly name: "WorkspacesDefaultRoleNotFoundException" = "WorkspacesDefaultRoleNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WorkspacesDefaultRoleNotFoundException, __BaseException>) {
-    super({
-      name: "WorkspacesDefaultRoleNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WorkspacesDefaultRoleNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface RejectAccountLinkInvitationRequest {
-  /**
-   * <p>The identifier of the account link</p>
-   * @public
-   */
-  LinkId: string | undefined;
-
-  /**
-   * <p>The client token of the account link invitation to reject.</p>
-   * @public
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface RejectAccountLinkInvitationResult {
-  /**
-   * <p>Information about the account link.</p>
-   * @public
-   */
-  AccountLink?: AccountLink;
-}
-
-/**
- * @public
- */
-export interface RestoreWorkspaceRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreWorkspaceResult {}
-
-/**
- * @public
- */
-export interface RevokeIpRulesRequest {
-  /**
-   * <p>The identifier of the group.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>The rules to remove from the group.</p>
-   * @public
-   */
-  UserRules: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeIpRulesResult {}

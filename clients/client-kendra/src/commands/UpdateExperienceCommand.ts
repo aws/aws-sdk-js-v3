@@ -97,6 +97,7 @@ export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class UpdateExperienceCommand extends $Command
@@ -107,9 +108,7 @@ export class UpdateExperienceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExperienceCommand)
   .de(de_UpdateExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExperienceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateExperienceCommandInput;
+      output: UpdateExperienceCommandOutput;
+    };
+  };
+}

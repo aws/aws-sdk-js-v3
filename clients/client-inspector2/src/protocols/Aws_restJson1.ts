@@ -1476,10 +1476,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2913,6 +2910,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.inspector2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.inspector2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2925,9 +2925,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "BadRequestException":
     case "com.amazonaws.inspector2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.inspector2#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -3425,6 +3422,7 @@ const se_PackageFilter = (input: PackageFilter, context: __SerdeContext): any =>
   return take(input, {
     architecture: _json,
     epoch: (_) => se_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,
@@ -4300,6 +4298,7 @@ const de_PackageFilter = (output: any, context: __SerdeContext): PackageFilter =
   return take(output, {
     architecture: _json,
     epoch: (_: any) => de_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,
@@ -4577,13 +4576,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _rAS = "retryAfterSeconds";
 const _rT = "resourceType";

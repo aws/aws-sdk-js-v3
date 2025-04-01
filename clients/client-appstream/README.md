@@ -28,7 +28,7 @@ AWS SDK for JavaScript AppStream Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appstream
+To install this package, simply type add or install @aws-sdk/client-appstream
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appstream`
@@ -367,6 +367,14 @@ CreateStreamingURL
 </details>
 <details>
 <summary>
+CreateThemeForStack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/CreateThemeForStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateThemeForStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateThemeForStackCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateUpdatedImage
 </summary>
 
@@ -467,6 +475,14 @@ DeleteStack
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DeleteStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DeleteStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DeleteStackCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteThemeForStack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DeleteThemeForStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DeleteThemeForStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DeleteThemeForStackCommandOutput/)
 
 </details>
 <details>
@@ -587,6 +603,14 @@ DescribeStacks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DescribeStacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeStacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeStacksCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeThemeForStack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DescribeThemeForStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeThemeForStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeThemeForStackCommandOutput/)
 
 </details>
 <details>
@@ -819,5 +843,13 @@ UpdateStack
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/UpdateStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/UpdateStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/UpdateStackCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateThemeForStack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/UpdateThemeForStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/UpdateThemeForStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/UpdateThemeForStackCommandOutput/)
 
 </details>

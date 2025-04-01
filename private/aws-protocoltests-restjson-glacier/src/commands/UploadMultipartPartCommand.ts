@@ -76,6 +76,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ *
  */
 export class UploadMultipartPartCommand extends $Command
   .classBuilder<
@@ -93,4 +94,16 @@ export class UploadMultipartPartCommand extends $Command
   .f(UploadMultipartPartInputFilterSensitiveLog, void 0)
   .ser(se_UploadMultipartPartCommand)
   .de(de_UploadMultipartPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadMultipartPartInput;
+      output: UploadMultipartPartOutput;
+    };
+    sdk: {
+      input: UploadMultipartPartCommandInput;
+      output: UploadMultipartPartCommandOutput;
+    };
+  };
+}

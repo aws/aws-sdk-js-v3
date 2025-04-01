@@ -74,6 +74,7 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListProvisioningArtifactsCommand extends $Command
@@ -84,9 +85,7 @@ export class ListProvisioningArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class ListProvisioningArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisioningArtifactsCommand)
   .de(de_ListProvisioningArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisioningArtifactsInput;
+      output: ListProvisioningArtifactsOutput;
+    };
+    sdk: {
+      input: ListProvisioningArtifactsCommandInput;
+      output: ListProvisioningArtifactsCommandOutput;
+    };
+  };
+}

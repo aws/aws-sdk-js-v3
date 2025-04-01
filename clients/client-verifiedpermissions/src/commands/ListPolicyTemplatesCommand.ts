@@ -170,6 +170,37 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example ListPolicyTemplates
+ * ```javascript
+ * // The following example retrieves a list of all of the policy templates in the specified policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListPolicyTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policyTemplates: [
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Generic template",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg111111"
+ *     },
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Template for research dept",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg222222"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListPolicyTemplatesCommand extends $Command
@@ -180,9 +211,7 @@ export class ListPolicyTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +223,16 @@ export class ListPolicyTemplatesCommand extends $Command
   .f(void 0, ListPolicyTemplatesOutputFilterSensitiveLog)
   .ser(se_ListPolicyTemplatesCommand)
   .de(de_ListPolicyTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyTemplatesInput;
+      output: ListPolicyTemplatesOutput;
+    };
+    sdk: {
+      input: ListPolicyTemplatesCommandInput;
+      output: ListPolicyTemplatesCommandOutput;
+    };
+  };
+}

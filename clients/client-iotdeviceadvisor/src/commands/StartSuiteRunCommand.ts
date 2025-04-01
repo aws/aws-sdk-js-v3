@@ -83,6 +83,7 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class StartSuiteRunCommand extends $Command
@@ -93,9 +94,7 @@ export class StartSuiteRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class StartSuiteRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSuiteRunCommand)
   .de(de_StartSuiteRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSuiteRunRequest;
+      output: StartSuiteRunResponse;
+    };
+    sdk: {
+      input: StartSuiteRunCommandInput;
+      output: StartSuiteRunCommandOutput;
+    };
+  };
+}

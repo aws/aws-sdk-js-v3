@@ -75,6 +75,7 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class ListMapRunsCommand extends $Command
@@ -85,9 +86,7 @@ export class ListMapRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListMapRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMapRunsCommand)
   .de(de_ListMapRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMapRunsInput;
+      output: ListMapRunsOutput;
+    };
+    sdk: {
+      input: ListMapRunsCommandInput;
+      output: ListMapRunsCommandOutput;
+    };
+  };
+}

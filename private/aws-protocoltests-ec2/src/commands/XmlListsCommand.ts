@@ -107,6 +107,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class XmlListsCommand extends $Command
@@ -125,4 +126,16 @@ export class XmlListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlListsCommand)
   .de(de_XmlListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlListsOutput;
+    };
+    sdk: {
+      input: XmlListsCommandInput;
+      output: XmlListsCommandOutput;
+    };
+  };
+}

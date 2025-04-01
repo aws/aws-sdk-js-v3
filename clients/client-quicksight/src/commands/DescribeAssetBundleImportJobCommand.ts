@@ -9,7 +9,7 @@ import {
   DescribeAssetBundleImportJobRequest,
   DescribeAssetBundleImportJobResponse,
   DescribeAssetBundleImportJobResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeAssetBundleImportJobCommand,
   se_DescribeAssetBundleImportJobCommand,
@@ -144,6 +144,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Host: "STRING_VALUE", // required
  * //             Port: Number("int"), // required
  * //             Database: "STRING_VALUE", // required
+ * //             UseServiceName: true || false,
  * //           },
  * //           PostgreSqlParameters: { // PostgreSqlParameters
  * //             Host: "STRING_VALUE", // required
@@ -190,6 +191,16 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Host: "STRING_VALUE", // required
  * //             Database: "STRING_VALUE", // required
  * //             Warehouse: "STRING_VALUE", // required
+ * //             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //             DatabaseAccessControlRole: "STRING_VALUE",
+ * //             OAuthParameters: { // OAuthParameters
+ * //               TokenProviderUrl: "STRING_VALUE", // required
+ * //               OAuthScope: "STRING_VALUE",
+ * //               IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ * //                 VpcConnectionArn: "STRING_VALUE", // required
+ * //               },
+ * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //             },
  * //           },
  * //           SparkParameters: { // SparkParameters
  * //             Host: "STRING_VALUE", // required
@@ -226,6 +237,16 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Port: Number("int"), // required
  * //             Catalog: "STRING_VALUE", // required
  * //             ProductType: "GALAXY" || "ENTERPRISE",
+ * //             DatabaseAccessControlRole: "STRING_VALUE",
+ * //             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //             OAuthParameters: {
+ * //               TokenProviderUrl: "STRING_VALUE", // required
+ * //               OAuthScope: "STRING_VALUE",
+ * //               IdentityProviderVpcConnectionProperties: {
+ * //                 VpcConnectionArn: "STRING_VALUE", // required
+ * //               },
+ * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //             },
  * //           },
  * //           TrinoParameters: { // TrinoParameters
  * //             Host: "STRING_VALUE", // required
@@ -237,7 +258,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             DataSetRegion: "STRING_VALUE",
  * //           },
  * //         },
- * //         VpcConnectionProperties: { // VpcConnectionProperties
+ * //         VpcConnectionProperties: {
  * //           VpcConnectionArn: "STRING_VALUE", // required
  * //         },
  * //         SslProperties: { // SslProperties
@@ -256,6 +277,22 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //       { // AssetBundleImportJobDataSetOverrideParameters
  * //         DataSetId: "STRING_VALUE", // required
  * //         Name: "STRING_VALUE",
+ * //         DataSetRefreshProperties: { // DataSetRefreshProperties
+ * //           RefreshConfiguration: { // RefreshConfiguration
+ * //             IncrementalRefresh: { // IncrementalRefresh
+ * //               LookbackWindow: { // LookbackWindow
+ * //                 ColumnName: "STRING_VALUE", // required
+ * //                 Size: Number("long"), // required
+ * //                 SizeUnit: "HOUR" || "DAY" || "WEEK", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           FailureConfiguration: { // RefreshFailureConfiguration
+ * //             EmailAlert: { // RefreshFailureEmailAlert
+ * //               AlertStatus: "ENABLED" || "DISABLED",
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //     ],
  * //     Themes: [ // AssetBundleImportJobThemeOverrideParametersList
@@ -274,6 +311,13 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //       { // AssetBundleImportJobDashboardOverrideParameters
  * //         DashboardId: "STRING_VALUE", // required
  * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverrideParametersList
+ * //       { // AssetBundleImportJobFolderOverrideParameters
+ * //         FolderId: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE",
+ * //         ParentFolderArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -359,6 +403,12 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //         },
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverridePermissionsList
+ * //       { // AssetBundleImportJobFolderOverridePermissions
+ * //         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Permissions: "<AssetBundleResourcePermissions>",
+ * //       },
+ * //     ],
  * //   },
  * //   OverrideTags: { // AssetBundleImportJobOverrideTags
  * //     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
@@ -422,6 +472,12 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //         Tags: "<TagList>", // required
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverrideTagsList
+ * //       { // AssetBundleImportJobFolderOverrideTags
+ * //         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Tags: "<TagList>", // required
+ * //       },
+ * //     ],
  * //   },
  * //   OverrideValidationStrategy: { // AssetBundleImportJobOverrideValidationStrategy
  * //     StrictModeForAllResources: true || false,
@@ -457,6 +513,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetBundleImportJobCommand extends $Command
@@ -467,9 +524,7 @@ export class DescribeAssetBundleImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -481,4 +536,16 @@ export class DescribeAssetBundleImportJobCommand extends $Command
   .f(void 0, DescribeAssetBundleImportJobResponseFilterSensitiveLog)
   .ser(se_DescribeAssetBundleImportJobCommand)
   .de(de_DescribeAssetBundleImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssetBundleImportJobRequest;
+      output: DescribeAssetBundleImportJobResponse;
+    };
+    sdk: {
+      input: DescribeAssetBundleImportJobCommandInput;
+      output: DescribeAssetBundleImportJobCommandOutput;
+    };
+  };
+}

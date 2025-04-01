@@ -358,6 +358,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class PutTargetsCommand extends $Command
@@ -368,9 +369,7 @@ export class PutTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -382,4 +381,16 @@ export class PutTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutTargetsCommand)
   .de(de_PutTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTargetsRequest;
+      output: PutTargetsResponse;
+    };
+    sdk: {
+      input: PutTargetsCommandInput;
+      output: PutTargetsCommandOutput;
+    };
+  };
+}

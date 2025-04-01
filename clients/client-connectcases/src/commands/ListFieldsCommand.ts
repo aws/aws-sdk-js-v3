@@ -83,6 +83,7 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListFieldsCommand extends $Command
@@ -93,9 +94,7 @@ export class ListFieldsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListFieldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFieldsCommand)
   .de(de_ListFieldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFieldsRequest;
+      output: ListFieldsResponse;
+    };
+    sdk: {
+      input: ListFieldsCommandInput;
+      output: ListFieldsCommandOutput;
+    };
+  };
+}

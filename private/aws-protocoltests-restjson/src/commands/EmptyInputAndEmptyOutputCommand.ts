@@ -52,6 +52,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command
@@ -70,4 +71,16 @@ export class EmptyInputAndEmptyOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EmptyInputAndEmptyOutputCommand)
   .de(de_EmptyInputAndEmptyOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: EmptyInputAndEmptyOutputCommandInput;
+      output: EmptyInputAndEmptyOutputCommandOutput;
+    };
+  };
+}

@@ -85,6 +85,7 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPositionConfigurationCommand extends $Command
@@ -95,9 +96,7 @@ export class GetPositionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetPositionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPositionConfigurationCommand)
   .de(de_GetPositionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPositionConfigurationRequest;
+      output: GetPositionConfigurationResponse;
+    };
+    sdk: {
+      input: GetPositionConfigurationCommandInput;
+      output: GetPositionConfigurationCommandOutput;
+    };
+  };
+}

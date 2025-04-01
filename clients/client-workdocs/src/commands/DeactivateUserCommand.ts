@@ -72,6 +72,7 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DeactivateUserCommand extends $Command
@@ -82,9 +83,7 @@ export class DeactivateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeactivateUserCommand extends $Command
   .f(DeactivateUserRequestFilterSensitiveLog, void 0)
   .ser(se_DeactivateUserCommand)
   .de(de_DeactivateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateUserCommandInput;
+      output: DeactivateUserCommandOutput;
+    };
+  };
+}

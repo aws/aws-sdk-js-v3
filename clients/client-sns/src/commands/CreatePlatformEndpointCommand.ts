@@ -86,6 +86,7 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class CreatePlatformEndpointCommand extends $Command
@@ -96,9 +97,7 @@ export class CreatePlatformEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class CreatePlatformEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlatformEndpointCommand)
   .de(de_CreatePlatformEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlatformEndpointInput;
+      output: CreateEndpointResponse;
+    };
+    sdk: {
+      input: CreatePlatformEndpointCommandInput;
+      output: CreatePlatformEndpointCommandOutput;
+    };
+  };
+}

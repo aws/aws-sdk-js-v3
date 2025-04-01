@@ -110,6 +110,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command
@@ -120,9 +121,7 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContinuousDeploymentPoliciesCommand)
   .de(de_ListContinuousDeploymentPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContinuousDeploymentPoliciesRequest;
+      output: ListContinuousDeploymentPoliciesResult;
+    };
+    sdk: {
+      input: ListContinuousDeploymentPoliciesCommandInput;
+      output: ListContinuousDeploymentPoliciesCommandOutput;
+    };
+  };
+}

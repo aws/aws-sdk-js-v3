@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
 
 import { APIGatewayClient } from "../../src/APIGatewayClient";
@@ -36,9 +36,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   isSuccess: boolean;
   code: number;
   headers: HeaderBag;
-  body: String;
+  body: string | Uint8Array;
+  isBase64Body: boolean;
 
-  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: string) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -50,6 +51,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       body = "";
     }
     this.body = body;
+    this.isBase64Body = String(body).length > 0 && Buffer.from(String(body), "base64").toString("base64") === body;
   }
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
@@ -57,11 +59,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body]),
+        body: this.isBase64Body ? toBytes(this.body as string) : Readable.from([this.body]),
       }),
     });
   }
+
   updateHttpClientConfig(key: never, value: never): void {}
+
   httpHandlerConfigs() {
     return {};
   }
@@ -102,11 +106,20 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
+  if (typeof (global as any).expect === "function") {
+    expect(normalizeByteArrayType(generated)).toEqual(normalizeByteArrayType(expected));
+    return true;
+  }
+
   const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
     return true;
+  }
+
+  if (typeof expected !== "object") {
+    return expected === generated;
   }
 
   // If a test fails with an issue in the below 6 lines, it's likely
@@ -139,6 +152,14 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 const clientParams = {
   region: "us-west-2",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+  endpoint: () => {
+    const url = new URL("https://localhost/");
+    return Promise.resolve({
+      ...url,
+      path: url.pathname,
+      ...(url.port ? { port: Number(url.port) } : {}),
+    }) as Promise<Endpoint>;
+  },
 };
 
 /**
@@ -148,6 +169,37 @@ const clientParams = {
 const fail = (error?: any): never => {
   throw new Error(error);
 };
+
+/**
+ * Hexadecimal to byteArray.
+ */
+const toBytes = (hex: string) => {
+  return Buffer.from(hex, "base64");
+};
+
+function normalizeByteArrayType(data: any) {
+  // normalize float32 errors
+  if (typeof data === "number") {
+    const u = new Uint8Array(4);
+    const dv = new DataView(u.buffer, u.byteOffset, u.byteLength);
+    dv.setFloat32(0, data);
+    return dv.getFloat32(0);
+  }
+  if (!data || typeof data !== "object") {
+    return data;
+  }
+  if (data instanceof Uint8Array) {
+    return Uint8Array.from(data);
+  }
+  if (data instanceof String || data instanceof Boolean || data instanceof Number) {
+    return data.valueOf();
+  }
+  const output = {} as any;
+  for (const key of Object.getOwnPropertyNames(data)) {
+    output[key] = normalizeByteArrayType(data[key]);
+  }
+  return output;
+}
 
 /**
  * API Gateway requires that this Accept header is set on all requests.
@@ -175,6 +227,6 @@ it("ApiGatewayAccept:Request", async () => {
     expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/json");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });

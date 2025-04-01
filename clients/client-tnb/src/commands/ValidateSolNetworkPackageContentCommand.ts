@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
+import {
+  ValidateSolNetworkPackageContentInput,
+  ValidateSolNetworkPackageContentInputFilterSensitiveLog,
+  ValidateSolNetworkPackageContentOutput,
+} from "../models/models_0";
 import {
   de_ValidateSolNetworkPackageContentCommand,
   se_ValidateSolNetworkPackageContentCommand,
@@ -41,7 +45,8 @@ export interface ValidateSolNetworkPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Validates network package content. This can be used as a dry run before uploading network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
+ * <p>Validates network package content. This can be used as a dry run before uploading
+ *          network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,10 +103,50 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Validate the network package content of a NSD archive
+ * ```javascript
+ * //
+ * const input = {
+ *   contentType: "application/zip",
+ *   file: "UEsDBBQAAAAAAPqLiVMAAAAAAAAAAAAAA",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new ValidateSolNetworkPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-package/np-0d5b823eb5c2a9241",
+ *   id: "np-0d5b823eb5c2a9241",
+ *   metadata: {
+ *     nsd: {
+ *       overrides: [
+ *         {
+ *           defaultValue: "10.0.0.0/24",
+ *           name: "cidr_block"
+ *         },
+ *         {
+ *           name: "some_vnf.vnf_prop"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   nsdId: "0d72acd9-e45d-4644-9bcd-1fe67cd0e2c8",
+ *   nsdName: "Sample Single Cluster",
+ *   nsdVersion: "1.0.0",
+ *   vnfPkgIds: [
+ *     "fp-1234567890abcdabc",
+ *     "fp-0b627c4a170a97f79"
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -113,9 +158,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,7 +167,19 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolNetworkPackageContent", {})
   .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .f(void 0, void 0)
+  .f(ValidateSolNetworkPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_ValidateSolNetworkPackageContentCommand)
   .de(de_ValidateSolNetworkPackageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateSolNetworkPackageContentInput;
+      output: ValidateSolNetworkPackageContentOutput;
+    };
+    sdk: {
+      input: ValidateSolNetworkPackageContentCommandInput;
+      output: ValidateSolNetworkPackageContentCommandOutput;
+    };
+  };
+}

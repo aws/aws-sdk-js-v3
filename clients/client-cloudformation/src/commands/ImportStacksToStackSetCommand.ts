@@ -28,9 +28,10 @@ export interface ImportStacksToStackSetCommandInput extends ImportStacksToStackS
 export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Import existing stacks into a new stack sets. Use the stack import operation to import up to 10 stacks into a
- *    new stack set in the same account as the source stack or in a different administrator account and Region, by
- *    specifying the stack ID of the stack you intend to import.</p>
+ * <p>Import existing stacks into a new stack sets. Use the stack import operation to import up
+ *       to 10 stacks into a new stack set in the same account as the source stack or in a different
+ *       administrator account and Region, by specifying the stack ID of the stack you intend to
+ *       import.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,6 +102,7 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ImportStacksToStackSetCommand extends $Command
@@ -111,9 +113,7 @@ export class ImportStacksToStackSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class ImportStacksToStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportStacksToStackSetCommand)
   .de(de_ImportStacksToStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportStacksToStackSetInput;
+      output: ImportStacksToStackSetOutput;
+    };
+    sdk: {
+      input: ImportStacksToStackSetCommandInput;
+      output: ImportStacksToStackSetCommandOutput;
+    };
+  };
+}

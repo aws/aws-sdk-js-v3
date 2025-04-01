@@ -70,6 +70,7 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command
@@ -80,9 +81,7 @@ export class AcknowledgeThirdPartyJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class AcknowledgeThirdPartyJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcknowledgeThirdPartyJobCommand)
   .de(de_AcknowledgeThirdPartyJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcknowledgeThirdPartyJobInput;
+      output: AcknowledgeThirdPartyJobOutput;
+    };
+    sdk: {
+      input: AcknowledgeThirdPartyJobCommandInput;
+      output: AcknowledgeThirdPartyJobCommandOutput;
+    };
+  };
+}

@@ -98,6 +98,11 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -129,6 +134,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },
@@ -187,6 +193,9 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -270,6 +279,9 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -342,6 +354,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -368,6 +381,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListDistributionsByWebACLIdCommand extends $Command
@@ -378,9 +392,7 @@ export class ListDistributionsByWebACLIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -392,4 +404,16 @@ export class ListDistributionsByWebACLIdCommand extends $Command
   .f(void 0, ListDistributionsByWebACLIdResultFilterSensitiveLog)
   .ser(se_ListDistributionsByWebACLIdCommand)
   .de(de_ListDistributionsByWebACLIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByWebACLIdRequest;
+      output: ListDistributionsByWebACLIdResult;
+    };
+    sdk: {
+      input: ListDistributionsByWebACLIdCommandInput;
+      output: ListDistributionsByWebACLIdCommandOutput;
+    };
+  };
+}

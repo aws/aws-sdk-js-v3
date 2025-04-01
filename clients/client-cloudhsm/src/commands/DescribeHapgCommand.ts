@@ -92,6 +92,7 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeHapgCommand extends $Command
@@ -102,9 +103,7 @@ export class DescribeHapgCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class DescribeHapgCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHapgCommand)
   .de(de_DescribeHapgCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHapgRequest;
+      output: DescribeHapgResponse;
+    };
+    sdk: {
+      input: DescribeHapgCommandInput;
+      output: DescribeHapgCommandOutput;
+    };
+  };
+}

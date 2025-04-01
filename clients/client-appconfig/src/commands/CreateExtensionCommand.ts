@@ -142,6 +142,7 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateExtensionCommand extends $Command
@@ -152,9 +153,7 @@ export class CreateExtensionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +165,16 @@ export class CreateExtensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExtensionCommand)
   .de(de_CreateExtensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExtensionRequest;
+      output: Extension;
+    };
+    sdk: {
+      input: CreateExtensionCommandInput;
+      output: CreateExtensionCommandOutput;
+    };
+  };
+}

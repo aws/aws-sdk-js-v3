@@ -34,6 +34,10 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  *       combines a server, local profile, partner profile, certificate, and other
  *       attributes.</p>
  *          <p>The partner is identified with the <code>PartnerProfileId</code>, and the AS2 process is identified with the <code>LocalProfileId</code>.</p>
+ *          <note>
+ *             <p>Specify <i>either</i>
+ *                <code>BaseDirectory</code> or <code>CustomDirectories</code>, but not both. Specifying both causes the command to fail.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,7 +49,7 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  *   ServerId: "STRING_VALUE", // required
  *   LocalProfileId: "STRING_VALUE", // required
  *   PartnerProfileId: "STRING_VALUE", // required
- *   BaseDirectory: "STRING_VALUE", // required
+ *   BaseDirectory: "STRING_VALUE",
  *   AccessRole: "STRING_VALUE", // required
  *   Status: "ACTIVE" || "INACTIVE",
  *   Tags: [ // Tags
@@ -54,6 +58,15 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   PreserveFilename: "ENABLED" || "DISABLED",
+ *   EnforceMessageSigning: "ENABLED" || "DISABLED",
+ *   CustomDirectories: { // CustomDirectoriesType
+ *     FailedFilesDirectory: "STRING_VALUE", // required
+ *     MdnFilesDirectory: "STRING_VALUE", // required
+ *     PayloadFilesDirectory: "STRING_VALUE", // required
+ *     StatusFilesDirectory: "STRING_VALUE", // required
+ *     TemporaryFilesDirectory: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);
@@ -91,6 +104,7 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateAgreementCommand extends $Command
@@ -101,9 +115,7 @@ export class CreateAgreementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +127,16 @@ export class CreateAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAgreementCommand)
   .de(de_CreateAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAgreementRequest;
+      output: CreateAgreementResponse;
+    };
+    sdk: {
+      input: CreateAgreementCommandInput;
+      output: CreateAgreementCommandOutput;
+    };
+  };
+}

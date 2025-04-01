@@ -76,6 +76,7 @@ export interface DeletePackagingConfigurationCommandOutput
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class DeletePackagingConfigurationCommand extends $Command
@@ -86,9 +87,7 @@ export class DeletePackagingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeletePackagingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackagingConfigurationCommand)
   .de(de_DeletePackagingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackagingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePackagingConfigurationCommandInput;
+      output: DeletePackagingConfigurationCommandOutput;
+    };
+  };
+}

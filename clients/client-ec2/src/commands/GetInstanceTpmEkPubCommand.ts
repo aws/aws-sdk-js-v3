@@ -10,7 +10,7 @@ import {
   GetInstanceTpmEkPubRequest,
   GetInstanceTpmEkPubResult,
   GetInstanceTpmEkPubResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_GetInstanceTpmEkPubCommand, se_GetInstanceTpmEkPubCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -66,6 +66,7 @@ export interface GetInstanceTpmEkPubCommandOutput extends GetInstanceTpmEkPubRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetInstanceTpmEkPubCommand extends $Command
@@ -76,9 +77,7 @@ export class GetInstanceTpmEkPubCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class GetInstanceTpmEkPubCommand extends $Command
   .f(void 0, GetInstanceTpmEkPubResultFilterSensitiveLog)
   .ser(se_GetInstanceTpmEkPubCommand)
   .de(de_GetInstanceTpmEkPubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceTpmEkPubRequest;
+      output: GetInstanceTpmEkPubResult;
+    };
+    sdk: {
+      input: GetInstanceTpmEkPubCommandInput;
+      output: GetInstanceTpmEkPubCommandOutput;
+    };
+  };
+}

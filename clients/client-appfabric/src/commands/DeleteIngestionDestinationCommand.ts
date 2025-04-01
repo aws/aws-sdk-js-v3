@@ -75,6 +75,7 @@ export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestion
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class DeleteIngestionDestinationCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteIngestionDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteIngestionDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIngestionDestinationCommand)
   .de(de_DeleteIngestionDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIngestionDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIngestionDestinationCommandInput;
+      output: DeleteIngestionDestinationCommandOutput;
+    };
+  };
+}

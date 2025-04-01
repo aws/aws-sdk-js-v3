@@ -138,6 +138,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstancesCommand extends $Command
@@ -148,9 +149,7 @@ export class DescribeInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +161,16 @@ export class DescribeInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstancesCommand)
   .de(de_DescribeInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancesRequest;
+      output: DescribeInstancesResult;
+    };
+    sdk: {
+      input: DescribeInstancesCommandInput;
+      output: DescribeInstancesCommandOutput;
+    };
+  };
+}

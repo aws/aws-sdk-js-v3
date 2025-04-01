@@ -35,7 +35,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  *          <p>Removes the specified tags from the specified log group.</p>
  *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
  *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
- *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
+ *          <p>CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified tags to
  *       log groups using the <code>aws:Resource/<i>key-name</i>
  *             </code> or <code>aws:TagKeys</code> condition keys.
  *      </p>
@@ -71,6 +71,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class UntagLogGroupCommand extends $Command
@@ -81,9 +82,7 @@ export class UntagLogGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class UntagLogGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagLogGroupCommand)
   .de(de_UntagLogGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagLogGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagLogGroupCommandInput;
+      output: UntagLogGroupCommandOutput;
+    };
+  };
+}

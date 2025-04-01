@@ -52,7 +52,7 @@ AWS SDK for JavaScript Budgets Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-budgets
+To install this package, simply type add or install @aws-sdk/client-budgets
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-budgets`

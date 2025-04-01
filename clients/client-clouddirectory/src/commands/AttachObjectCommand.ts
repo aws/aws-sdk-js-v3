@@ -109,6 +109,29 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To attach an object
+ * ```javascript
+ * //
+ * const input = {
+ *   ChildReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *   },
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   LinkName: "link2",
+ *   ParentReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new AttachObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AttachedObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AttachObjectCommand extends $Command
@@ -119,9 +142,7 @@ export class AttachObjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +154,16 @@ export class AttachObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachObjectCommand)
   .de(de_AttachObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachObjectRequest;
+      output: AttachObjectResponse;
+    };
+    sdk: {
+      input: AttachObjectCommandInput;
+      output: AttachObjectCommandOutput;
+    };
+  };
+}

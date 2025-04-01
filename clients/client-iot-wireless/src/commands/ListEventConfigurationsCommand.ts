@@ -36,7 +36,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListEventConfigurationsRequest
- *   ResourceType: "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
+ *   ResourceType: "FuotaTask" || "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -47,7 +47,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * //   EventConfigurationsList: [ // EventConfigurationsList
  * //     { // EventConfigurationItem
  * //       Identifier: "STRING_VALUE",
- * //       IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId",
+ * //       IdentifierType: "PartnerAccountId" || "DevEui" || "FuotaTaskId" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId",
  * //       PartnerType: "Sidewalk",
  * //       Events: { // EventNotificationItemConfigurations
  * //         DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
@@ -108,6 +108,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListEventConfigurationsCommand extends $Command
@@ -118,9 +119,7 @@ export class ListEventConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class ListEventConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventConfigurationsCommand)
   .de(de_ListEventConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventConfigurationsRequest;
+      output: ListEventConfigurationsResponse;
+    };
+    sdk: {
+      input: ListEventConfigurationsCommandInput;
+      output: ListEventConfigurationsCommandOutput;
+    };
+  };
+}

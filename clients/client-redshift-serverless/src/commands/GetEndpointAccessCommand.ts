@@ -70,6 +70,7 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * //           subnetId: "STRING_VALUE",
  * //           privateIpAddress: "STRING_VALUE",
  * //           availabilityZone: "STRING_VALUE",
+ * //           ipv6Address: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },
@@ -100,6 +101,7 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class GetEndpointAccessCommand extends $Command
@@ -110,9 +112,7 @@ export class GetEndpointAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class GetEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEndpointAccessCommand)
   .de(de_GetEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEndpointAccessRequest;
+      output: GetEndpointAccessResponse;
+    };
+    sdk: {
+      input: GetEndpointAccessCommandInput;
+      output: GetEndpointAccessCommandOutput;
+    };
+  };
+}

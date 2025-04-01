@@ -82,6 +82,7 @@ export interface ListAudienceExportJobsCommandOutput extends ListAudienceExportJ
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class ListAudienceExportJobsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListAudienceExportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListAudienceExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAudienceExportJobsCommand)
   .de(de_ListAudienceExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAudienceExportJobsRequest;
+      output: ListAudienceExportJobsResponse;
+    };
+    sdk: {
+      input: ListAudienceExportJobsCommandInput;
+      output: ListAudienceExportJobsCommandOutput;
+    };
+  };
+}

@@ -75,15 +75,11 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *                </p>
  *             </li>
  *          </ul>
- *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for DynamoDB and Kinesis event sources:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -96,6 +92,14 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *             <li>
  *                <p>
  *                   <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka), the following option is also available:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
+ *             Amazon S3 bucket.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -192,6 +196,16 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",
  *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   MetricsConfig: { // EventSourceMappingMetricsConfig
+ *     Metrics: [ // EventSourceMappingMetricList
+ *       "EventCount",
+ *     ],
+ *   },
+ *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ *     MinimumPollers: Number("int"),
+ *     MaximumPollers: Number("int"),
+ *   },
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -263,6 +277,21 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
  * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
+ * //   },
  * // };
  *
  * ```
@@ -295,6 +324,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventSourceMappingCommand extends $Command
@@ -305,9 +335,7 @@ export class UpdateEventSourceMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -319,4 +347,16 @@ export class UpdateEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventSourceMappingCommand)
   .de(de_UpdateEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: UpdateEventSourceMappingCommandInput;
+      output: UpdateEventSourceMappingCommandOutput;
+    };
+  };
+}

@@ -53,20 +53,29 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { AcceptDataGrantCommandInput, AcceptDataGrantCommandOutput } from "./commands/AcceptDataGrantCommand";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateDataGrantCommandInput, CreateDataGrantCommandOutput } from "./commands/CreateDataGrantCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "./commands/CreateEventActionCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "./commands/CreateRevisionCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import { DeleteDataGrantCommandInput, DeleteDataGrantCommandOutput } from "./commands/DeleteDataGrantCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "./commands/DeleteEventActionCommand";
 import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "./commands/DeleteRevisionCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import { GetDataGrantCommandInput, GetDataGrantCommandOutput } from "./commands/GetDataGrantCommand";
 import { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
 import { GetEventActionCommandInput, GetEventActionCommandOutput } from "./commands/GetEventActionCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import {
+  GetReceivedDataGrantCommandInput,
+  GetReceivedDataGrantCommandOutput,
+} from "./commands/GetReceivedDataGrantCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import { ListDataGrantsCommandInput, ListDataGrantsCommandOutput } from "./commands/ListDataGrantsCommand";
 import {
   ListDataSetRevisionsCommandInput,
   ListDataSetRevisionsCommandOutput,
@@ -74,6 +83,10 @@ import {
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
 import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "./commands/ListEventActionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListReceivedDataGrantsCommandInput,
+  ListReceivedDataGrantsCommandOutput,
+} from "./commands/ListReceivedDataGrantsCommand";
 import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "./commands/ListRevisionAssetsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -107,24 +120,31 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptDataGrantCommandInput
   | CancelJobCommandInput
+  | CreateDataGrantCommandInput
   | CreateDataSetCommandInput
   | CreateEventActionCommandInput
   | CreateJobCommandInput
   | CreateRevisionCommandInput
   | DeleteAssetCommandInput
+  | DeleteDataGrantCommandInput
   | DeleteDataSetCommandInput
   | DeleteEventActionCommandInput
   | DeleteRevisionCommandInput
   | GetAssetCommandInput
+  | GetDataGrantCommandInput
   | GetDataSetCommandInput
   | GetEventActionCommandInput
   | GetJobCommandInput
+  | GetReceivedDataGrantCommandInput
   | GetRevisionCommandInput
+  | ListDataGrantsCommandInput
   | ListDataSetRevisionsCommandInput
   | ListDataSetsCommandInput
   | ListEventActionsCommandInput
   | ListJobsCommandInput
+  | ListReceivedDataGrantsCommandInput
   | ListRevisionAssetsCommandInput
   | ListTagsForResourceCommandInput
   | RevokeRevisionCommandInput
@@ -142,24 +162,31 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptDataGrantCommandOutput
   | CancelJobCommandOutput
+  | CreateDataGrantCommandOutput
   | CreateDataSetCommandOutput
   | CreateEventActionCommandOutput
   | CreateJobCommandOutput
   | CreateRevisionCommandOutput
   | DeleteAssetCommandOutput
+  | DeleteDataGrantCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteEventActionCommandOutput
   | DeleteRevisionCommandOutput
   | GetAssetCommandOutput
+  | GetDataGrantCommandOutput
   | GetDataSetCommandOutput
   | GetEventActionCommandOutput
   | GetJobCommandOutput
+  | GetReceivedDataGrantCommandOutput
   | GetRevisionCommandOutput
+  | ListDataGrantsCommandOutput
   | ListDataSetRevisionsCommandOutput
   | ListDataSetsCommandOutput
   | ListEventActionsCommandOutput
   | ListJobsCommandOutput
+  | ListReceivedDataGrantsCommandOutput
   | ListRevisionAssetsCommandOutput
   | ListTagsForResourceCommandOutput
   | RevokeRevisionCommandOutput
@@ -265,6 +292,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -310,11 +356,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type DataExchangeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -330,11 +376,11 @@ export interface DataExchangeClientConfig extends DataExchangeClientConfigType {
 export type DataExchangeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -345,21 +391,23 @@ export type DataExchangeClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface DataExchangeClientResolvedConfig extends DataExchangeClientResolvedConfigType {}
 
 /**
- * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
- *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
- *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
- *          Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and machine
- *          learning services.</p>
- *          <p>As a provider, you can create and manage your data sets that you would like to publish to a
- *          product. Being able to package and provide your data sets into products requires a few
+ * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in
+ *          the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access
+ *          file-based data set in the AWS Cloud.</p>
+ *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to
+ *          through a subscription. You can use the APIs to download or copy your entitled data sets to
+ *          Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
+ *          machine learning services.</p>
+ *          <p>As a provider, you can create and manage your data sets that you would like to publish
+ *          to a product. Being able to package and provide your data sets into products requires a few
  *          steps to determine eligibility. For more information, visit the <i>AWS Data Exchange
  *             User Guide</i>.</p>
- *          <p>A data set is a collection of data that can be changed or updated over time. Data sets can be
- *          updated using revisions, which represent a new version or incremental change to a data set.
- *          A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data
- *          that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS Lake
- *          Formation data permission, or Amazon S3 data access. The asset can be a structured data
- *          file, an image file, or some other data file. Jobs are asynchronous import or export
+ *          <p>A data set is a collection of data that can be changed or updated over time. Data sets
+ *          can be updated using revisions, which represent a new version or incremental change to a
+ *          data set. A revision contains one or more assets. An asset in AWS Data Exchange is a piece
+ *          of data that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS
+ *          Lake Formation data permission, or Amazon S3 data access. The asset can be a structured
+ *          data file, an image file, or some other data file. Jobs are asynchronous import or export
  *          operations used to create or copy assets.</p>
  * @public
  */
@@ -376,26 +424,30 @@ export class DataExchangeClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<DataExchangeClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultDataExchangeHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: DataExchangeClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -408,14 +460,5 @@ export class DataExchangeClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultDataExchangeHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: DataExchangeClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

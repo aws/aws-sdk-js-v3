@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCoipPoolRequest, DeleteCoipPoolResult } from "../models/models_2";
+import { DeleteCoipPoolRequest, DeleteCoipPoolResult } from "../models/models_3";
 import { de_DeleteCoipPoolCommand, se_DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -69,6 +69,7 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteCoipPoolCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteCoipPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteCoipPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCoipPoolCommand)
   .de(de_DeleteCoipPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCoipPoolRequest;
+      output: DeleteCoipPoolResult;
+    };
+    sdk: {
+      input: DeleteCoipPoolCommandInput;
+      output: DeleteCoipPoolCommandOutput;
+    };
+  };
+}

@@ -60,6 +60,11 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * //     capabilityConfiguration: { // AssistantCapabilityConfiguration
  * //       type: "STRING_VALUE",
  * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -83,6 +88,7 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetAssistantCommand extends $Command
@@ -93,9 +99,7 @@ export class GetAssistantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +111,16 @@ export class GetAssistantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssistantCommand)
   .de(de_GetAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssistantRequest;
+      output: GetAssistantResponse;
+    };
+    sdk: {
+      input: GetAssistantCommandInput;
+      output: GetAssistantCommandOutput;
+    };
+  };
+}

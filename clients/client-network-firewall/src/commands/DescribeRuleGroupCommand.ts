@@ -244,6 +244,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeRuleGroupCommand extends $Command
@@ -254,9 +255,7 @@ export class DescribeRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -268,4 +267,16 @@ export class DescribeRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleGroupCommand)
   .de(de_DescribeRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleGroupRequest;
+      output: DescribeRuleGroupResponse;
+    };
+    sdk: {
+      input: DescribeRuleGroupCommandInput;
+      output: DescribeRuleGroupCommandOutput;
+    };
+  };
+}

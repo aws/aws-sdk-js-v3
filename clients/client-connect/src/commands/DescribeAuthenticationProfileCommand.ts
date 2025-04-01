@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAuthenticationProfileRequest, DescribeAuthenticationProfileResponse } from "../models/models_0";
+import { DescribeAuthenticationProfileRequest, DescribeAuthenticationProfileResponse } from "../models/models_1";
 import {
   de_DescribeAuthenticationProfileCommand,
   se_DescribeAuthenticationProfileCommand,
@@ -34,7 +34,7 @@ export interface DescribeAuthenticationProfileCommandOutput
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>Describes the target authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +95,7 @@ export interface DescribeAuthenticationProfileCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeAuthenticationProfileCommand extends $Command
@@ -105,9 +106,7 @@ export class DescribeAuthenticationProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class DescribeAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuthenticationProfileCommand)
   .de(de_DescribeAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuthenticationProfileRequest;
+      output: DescribeAuthenticationProfileResponse;
+    };
+    sdk: {
+      input: DescribeAuthenticationProfileCommandInput;
+      output: DescribeAuthenticationProfileCommandOutput;
+    };
+  };
+}

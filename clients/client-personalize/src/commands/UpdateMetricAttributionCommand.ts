@@ -84,6 +84,7 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class UpdateMetricAttributionCommand extends $Command
@@ -94,9 +95,7 @@ export class UpdateMetricAttributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class UpdateMetricAttributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMetricAttributionCommand)
   .de(de_UpdateMetricAttributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMetricAttributionRequest;
+      output: UpdateMetricAttributionResponse;
+    };
+    sdk: {
+      input: UpdateMetricAttributionCommandInput;
+      output: UpdateMetricAttributionCommandOutput;
+    };
+  };
+}

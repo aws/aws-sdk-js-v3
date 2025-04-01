@@ -60,8 +60,11 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //           ContactFlowId: "STRING_VALUE", // required
  * //           References: { // ContactReferences
  * //             "<keys>": { // Reference
- * //               Value: "STRING_VALUE", // required
- * //               Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ * //               Value: "STRING_VALUE",
+ * //               Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ * //               Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ * //               Arn: "STRING_VALUE",
+ * //               StatusReason: "STRING_VALUE",
  * //             },
  * //           },
  * //         },
@@ -152,6 +155,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeRuleCommand extends $Command
@@ -162,9 +166,7 @@ export class DescribeRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +178,16 @@ export class DescribeRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleCommand)
   .de(de_DescribeRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleRequest;
+      output: DescribeRuleResponse;
+    };
+    sdk: {
+      input: DescribeRuleCommandInput;
+      output: DescribeRuleCommandOutput;
+    };
+  };
+}

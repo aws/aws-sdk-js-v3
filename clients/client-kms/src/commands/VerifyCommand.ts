@@ -174,51 +174,50 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To use an asymmetric KMS key to verify a digital signature
  * ```javascript
  * // This operation uses the public key in an elliptic curve (ECC) asymmetric key to verify a digital signature within AWS KMS.
  * const input = {
- *   "KeyId": "alias/ECC_signing_key",
- *   "Message": "<message to be verified>",
- *   "MessageType": "RAW",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "ECDSA_SHA_384"
+ *   KeyId: "alias/ECC_signing_key",
+ *   Message: "<message to be verified>",
+ *   MessageType: "RAW",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "ECDSA_SHA_384"
  * };
  * const command = new VerifyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "SignatureValid": true,
- *   "SigningAlgorithm": "ECDSA_SHA_384"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   SignatureValid: true,
+ *   SigningAlgorithm: "ECDSA_SHA_384"
  * }
  * *\/
- * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-1
  * ```
  *
  * @example To use an asymmetric KMS key to verify a digital signature on a message digest
  * ```javascript
  * // This operation uses the public key in an RSA asymmetric signing key pair to verify the digital signature of a message digest. Hashing a message into a digest before sending it to KMS lets you verify messages that exceed the 4096-byte message size limit. To indicate that the value of Message is a digest, use the MessageType parameter
  * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Message": "<message digest to be verified>",
- *   "MessageType": "DIGEST",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "RSASSA_PSS_SHA_512"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Message: "<message digest to be verified>",
+ *   MessageType: "DIGEST",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_512"
  * };
  * const command = new VerifyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "SignatureValid": true,
- *   "SigningAlgorithm": "RSASSA_PSS_SHA_512"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   SignatureValid: true,
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_512"
  * }
  * *\/
- * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-on-a-message-digest-2
  * ```
  *
+ * @public
  */
 export class VerifyCommand extends $Command
   .classBuilder<
@@ -228,9 +227,7 @@ export class VerifyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +239,16 @@ export class VerifyCommand extends $Command
   .f(VerifyRequestFilterSensitiveLog, void 0)
   .ser(se_VerifyCommand)
   .de(de_VerifyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyRequest;
+      output: VerifyResponse;
+    };
+    sdk: {
+      input: VerifyCommandInput;
+      output: VerifyCommandOutput;
+    };
+  };
+}

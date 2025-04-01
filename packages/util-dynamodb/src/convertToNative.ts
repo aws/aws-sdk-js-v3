@@ -43,10 +43,12 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
 };
 
 const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | NumberValue => {
+  if (typeof options?.wrapNumbers === "function") {
+    return options?.wrapNumbers(numString);
+  }
   if (options?.wrapNumbers) {
     return NumberValue.from(numString);
   }
-
   const num = Number(numString);
   const infinityValues = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
   const isLargeFiniteNumber =

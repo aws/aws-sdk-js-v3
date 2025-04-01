@@ -63,13 +63,14 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * // const { ACMPCAClient, ListPermissionsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListPermissionsRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
  * // { // ListPermissionsResponse
+ * //   NextToken: "STRING_VALUE",
  * //   Permissions: [ // PermissionList
  * //     { // Permission
  * //       CertificateAuthorityArn: "STRING_VALUE",
@@ -82,7 +83,6 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //       Policy: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -114,6 +114,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionsCommand extends $Command
@@ -124,9 +125,7 @@ export class ListPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class ListPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionsCommand)
   .de(de_ListPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionsRequest;
+      output: ListPermissionsResponse;
+    };
+    sdk: {
+      input: ListPermissionsCommandInput;
+      output: ListPermissionsCommandOutput;
+    };
+  };
+}

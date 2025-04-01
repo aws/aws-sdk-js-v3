@@ -73,6 +73,7 @@ export interface DescribeRegistrationVersionsCommandOutput
  * //         DraftTimestamp: new Date("TIMESTAMP"), // required
  * //         SubmittedTimestamp: new Date("TIMESTAMP"),
  * //         ReviewingTimestamp: new Date("TIMESTAMP"),
+ * //         RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //         ApprovedTimestamp: new Date("TIMESTAMP"),
  * //         DiscardedTimestamp: new Date("TIMESTAMP"),
  * //         DeniedTimestamp: new Date("TIMESTAMP"),
@@ -122,6 +123,7 @@ export interface DescribeRegistrationVersionsCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegistrationVersionsCommand extends $Command
@@ -132,9 +134,7 @@ export class DescribeRegistrationVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +146,16 @@ export class DescribeRegistrationVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegistrationVersionsCommand)
   .de(de_DescribeRegistrationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegistrationVersionsRequest;
+      output: DescribeRegistrationVersionsResult;
+    };
+    sdk: {
+      input: DescribeRegistrationVersionsCommandInput;
+      output: DescribeRegistrationVersionsCommandOutput;
+    };
+  };
+}

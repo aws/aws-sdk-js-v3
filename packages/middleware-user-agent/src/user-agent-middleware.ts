@@ -1,3 +1,4 @@
+import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
@@ -12,6 +13,7 @@ import {
   UserAgentPair,
 } from "@smithy/types";
 
+import { checkFeatures } from "./check-features";
 import { UserAgentResolvedConfig } from "./configurations";
 import {
   SPACE,
@@ -22,6 +24,7 @@ import {
   USER_AGENT,
   X_AMZ_USER_AGENT,
 } from "./constants";
+import { encodeFeatures } from "./encode-features";
 
 /**
  * Build user agent header sections from:
@@ -39,15 +42,30 @@ export const userAgentMiddleware =
   (options: UserAgentResolvedConfig) =>
   <Output extends MetadataBearer>(
     next: BuildHandler<any, any>,
-    context: HandlerExecutionContext
+    context: HandlerExecutionContext | AwsHandlerExecutionContext
   ): BuildHandler<any, any> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (!HttpRequest.isInstance(request)) return next(args);
+    if (!HttpRequest.isInstance(request)) {
+      return next(args);
+    }
     const { headers } = request;
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
     const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+
+    await checkFeatures(context, options as any, args);
+    const awsContext = context as AwsHandlerExecutionContext;
+    defaultUserAgent.push(
+      `m/${encodeFeatures(
+        Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features)
+      )}`
+    );
+
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+    const appId = await options.userAgentAppId();
+    if (appId) {
+      defaultUserAgent.push(escapeUserAgent([`app/${appId}`]));
+    }
     const prefix = getUserAgentPrefix();
 
     // Set value to AWS-specific user agent header
@@ -81,7 +99,7 @@ export const userAgentMiddleware =
 /**
  * Escape the each pair according to https://tools.ietf.org/html/rfc5234 and join the pair with pattern `name/version`.
  * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
- * @private
+ * @internal
  */
 const escapeUserAgent = (userAgentPair: UserAgentPair): string => {
   const name = userAgentPair[0]

@@ -31,9 +31,10 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
  *       remaining parameters are copied from the previous run.</p>
  *          <p>StartRun will not support re-run for a workflow that is shared with you.</p>
- *          <p>The total number of runs in your account is subject to a quota per Region. To avoid
- *       needing to delete runs manually, you can set the retention mode to <code>REMOVE</code>.
- *       Runs with this setting are deleted automatically when the run quoata is exceeded.</p>
+ *          <p>HealthOmics stores a fixed number of runs that are available to the console and API.
+ *         By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the maximum
+ *         number of runs, you must manually remove runs. To have older runs removed automatically,
+ *         set the retention mode to <code>REMOVE</code>.</p>
  *          <p>By default, the run uses STATIC storage. For STATIC storage, set the <code>storageCapacity</code> field.
  *       You can set the storage type to DYNAMIC. You do not set <code>storageCapacity</code>,
  *       because HealthOmics dynamically scales the storage up or down as required.
@@ -51,6 +52,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   runId: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
+ *   cacheId: "STRING_VALUE",
+ *   cacheBehavior: "STRING_VALUE",
  *   runGroupId: "STRING_VALUE",
  *   priority: Number("int"),
  *   parameters: "DOCUMENT_VALUE",
@@ -113,6 +116,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class StartRunCommand extends $Command
@@ -123,9 +127,7 @@ export class StartRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +139,16 @@ export class StartRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRunCommand)
   .de(de_StartRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRunRequest;
+      output: StartRunResponse;
+    };
+    sdk: {
+      input: StartRunCommandInput;
+      output: StartRunCommandOutput;
+    };
+  };
+}

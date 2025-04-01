@@ -18,7 +18,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementCommandInput, "Statements"> & {
   Statements:
     | (Omit<BatchStatementRequest, "Parameters"> & {
-        Parameters?: NativeAttributeValue[];
+        Parameters?: NativeAttributeValue[] | undefined;
       })[]
     | undefined;
 };
@@ -27,12 +27,16 @@ export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementComm
  * @public
  */
 export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCommandOutput, "Responses"> & {
-  Responses?: (Omit<BatchStatementResponse, "Error" | "Item"> & {
-    Error?: Omit<BatchStatementError, "Item"> & {
-      Item?: Record<string, NativeAttributeValue>;
-    };
-    Item?: Record<string, NativeAttributeValue>;
-  })[];
+  Responses?:
+    | (Omit<BatchStatementResponse, "Error" | "Item"> & {
+        Error?:
+          | (Omit<BatchStatementError, "Item"> & {
+              Item?: Record<string, NativeAttributeValue> | undefined;
+            })
+          | undefined;
+        Item?: Record<string, NativeAttributeValue> | undefined;
+      })[]
+    | undefined;
 };
 
 /**

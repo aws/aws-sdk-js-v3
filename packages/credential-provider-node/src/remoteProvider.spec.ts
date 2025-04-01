@@ -5,27 +5,34 @@ import {
   fromInstanceMetadata,
 } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { ENV_IMDS_DISABLED, remoteProvider } from "./remoteProvider";
 
-jest.mock("@smithy/credential-provider-imds");
+vi.mock("@smithy/credential-provider-imds");
+
+const ORIGINAL_ENV = process.env;
+const mockInit = { timeout: 10000, maxRetries: 5 };
+const mockCredsFromContainer = {
+  accessKeyId: "mockContainerAccessKeyId",
+  secretAccessKey: "mockContainerSecretAccessKey",
+};
+const mockSourceCredsFromInstanceMetadata = {
+  accessKeyId: "mockInstanceMetadataAccessKeyId",
+  secretAccessKey: "mockInstanceMetadataSecretAccessKey",
+};
+const mockFromHttp = vi.fn().mockReturnValue(async () => mockCredsFromContainer);
+
+const sampleFullUri = "http://localhost";
+const sampleRelativeUri = "/";
+vi.mock("@aws-sdk/credential-provider-http", () => ({
+  fromHttp: mockFromHttp,
+  default: {
+    fromHttp: mockFromHttp,
+  },
+}));
 
 describe(remoteProvider.name, () => {
-  const ORIGINAL_ENV = process.env;
-  const mockInit = { timeout: 10000, maxRetries: 5 };
-  const mockCredsFromContainer = {
-    accessKeyId: "mockContainerAccessKeyId",
-    secretAccessKey: "mockContainerSecretAccessKey",
-  };
-  const mockSourceCredsFromInstanceMetadata = {
-    accessKeyId: "mockInstanceMetadataAccessKeyId",
-    secretAccessKey: "mockInstanceMetadataSecretAccessKey",
-  };
-  const mockFromHttp = jest.fn().mockReturnValue(async () => mockCredsFromContainer);
-
-  const sampleFullUri = "http://localhost";
-  const sampleRelativeUri = "/";
-
   beforeEach(() => {
     process.env = {
       ...ORIGINAL_ENV,
@@ -34,16 +41,13 @@ describe(remoteProvider.name, () => {
       [ENV_IMDS_DISABLED]: undefined,
     };
 
-    jest.mock("@aws-sdk/credential-provider-http", () => ({
-      fromHttp: mockFromHttp,
-    }));
-    (fromContainerMetadata as jest.Mock).mockReturnValue(async () => mockCredsFromContainer);
-    (fromInstanceMetadata as jest.Mock).mockReturnValue(async () => mockSourceCredsFromInstanceMetadata);
+    vi.mocked(fromContainerMetadata).mockReturnValue(async () => mockCredsFromContainer);
+    vi.mocked(fromInstanceMetadata).mockReturnValue(async () => mockSourceCredsFromInstanceMetadata);
   });
 
   afterEach(() => {
     process.env = ORIGINAL_ENV;
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it(`returns fromContainerMetadata if env[${ENV_CMDS_RELATIVE_URI}] is set`, async () => {

@@ -43,7 +43,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * const response = await client.send(command);
  * // { // DeletePortalResponse
  * //   portalStatus: { // PortalStatus
- * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //     error: { // MonitorErrorDetails
  * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //       message: "STRING_VALUE",
@@ -82,6 +82,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeletePortalCommand extends $Command
@@ -92,9 +93,7 @@ export class DeletePortalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DeletePortalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePortalCommand)
   .de(de_DeletePortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePortalRequest;
+      output: DeletePortalResponse;
+    };
+    sdk: {
+      input: DeletePortalCommandInput;
+      output: DeletePortalCommandOutput;
+    };
+  };
+}

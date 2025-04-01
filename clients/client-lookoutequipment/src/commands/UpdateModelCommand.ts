@@ -91,21 +91,24 @@ export interface UpdateModelCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Updates a model
  * ```javascript
  * //
  * const input = {
- *   "LabelsInputConfiguration": {
- *     "LabelGroupName": "sample-label-group"
+ *   LabelsInputConfiguration: {
+ *     LabelGroupName: "sample-label-group"
  *   },
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new UpdateModelCommand(input);
- * await client.send(command);
- * // example id: updates-a-model-1694020683458
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateModelCommand extends $Command
   .classBuilder<
@@ -115,9 +118,7 @@ export class UpdateModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +130,16 @@ export class UpdateModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateModelCommand)
   .de(de_UpdateModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateModelCommandInput;
+      output: UpdateModelCommandOutput;
+    };
+  };
+}

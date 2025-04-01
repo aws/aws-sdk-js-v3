@@ -86,6 +86,7 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class RegisterTransitGatewayCommand extends $Command
@@ -96,9 +97,7 @@ export class RegisterTransitGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class RegisterTransitGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTransitGatewayCommand)
   .de(de_RegisterTransitGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTransitGatewayRequest;
+      output: RegisterTransitGatewayResponse;
+    };
+    sdk: {
+      input: RegisterTransitGatewayCommandInput;
+      output: RegisterTransitGatewayCommandOutput;
+    };
+  };
+}

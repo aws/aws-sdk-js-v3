@@ -89,6 +89,12 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link FederatedResourceAlreadyExistsException} (client fault)
  *  <p>A federated resource already exists.</p>
  *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
+ *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
  *
@@ -107,6 +113,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateDatabaseCommand extends $Command
@@ -117,9 +124,7 @@ export class CreateDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +136,16 @@ export class CreateDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatabaseCommand)
   .de(de_CreateDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatabaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateDatabaseCommandInput;
+      output: CreateDatabaseCommandOutput;
+    };
+  };
+}

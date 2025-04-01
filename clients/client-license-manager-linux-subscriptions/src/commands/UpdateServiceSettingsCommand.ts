@@ -88,6 +88,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceSettingsCommand extends $Command
@@ -98,9 +99,7 @@ export class UpdateServiceSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class UpdateServiceSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceSettingsCommand)
   .de(de_UpdateServiceSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceSettingsRequest;
+      output: UpdateServiceSettingsResponse;
+    };
+    sdk: {
+      input: UpdateServiceSettingsCommandInput;
+      output: UpdateServiceSettingsCommandOutput;
+    };
+  };
+}

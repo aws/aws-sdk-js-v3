@@ -39,7 +39,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *                 <code>LatestRestorableDateTime</code>. </p>
  *          <p>
  *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
- *             You can restore your table to any point in time during the last 35 days. </p>
+ *             You can restore your table to any point in time in the last 35 days. You can set the recovery period to any value between 1 and 35 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *   TableName: "STRING_VALUE", // required
  *   PointInTimeRecoverySpecification: { // PointInTimeRecoverySpecification
  *     PointInTimeRecoveryEnabled: true || false, // required
+ *     RecoveryPeriodInDays: Number("int"),
  *   },
  * };
  * const command = new UpdateContinuousBackupsCommand(input);
@@ -59,6 +60,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * //     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
  * //     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
  * //       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
+ * //       RecoveryPeriodInDays: Number("int"),
  * //       EarliestRestorableDateTime: new Date("TIMESTAMP"),
  * //       LatestRestorableDateTime: new Date("TIMESTAMP"),
  * //     },
@@ -88,6 +90,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateContinuousBackupsCommand extends $Command
@@ -100,6 +103,7 @@ export class UpdateContinuousBackupsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -112,4 +116,16 @@ export class UpdateContinuousBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContinuousBackupsCommand)
   .de(de_UpdateContinuousBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContinuousBackupsInput;
+      output: UpdateContinuousBackupsOutput;
+    };
+    sdk: {
+      input: UpdateContinuousBackupsCommandInput;
+      output: UpdateContinuousBackupsCommandOutput;
+    };
+  };
+}

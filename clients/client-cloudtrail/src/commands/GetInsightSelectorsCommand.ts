@@ -36,7 +36,7 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  *          </p>
  *          <p>Specify either the <code>EventDataStore</code> parameter to get Insights event selectors for an event data store,
  *          or the <code>TrailName</code> parameter to the get Insights event selectors for a trail. You cannot specify these parameters together.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +74,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  *          </p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -135,6 +137,7 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetInsightSelectorsCommand extends $Command
@@ -145,9 +148,7 @@ export class GetInsightSelectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +160,16 @@ export class GetInsightSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightSelectorsCommand)
   .de(de_GetInsightSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightSelectorsRequest;
+      output: GetInsightSelectorsResponse;
+    };
+    sdk: {
+      input: GetInsightSelectorsCommandInput;
+      output: GetInsightSelectorsCommandOutput;
+    };
+  };
+}

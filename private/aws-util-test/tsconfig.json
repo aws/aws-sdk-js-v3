@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "downlevelIteration": true,
     "importHelpers": true,
@@ -9,5 +9,5 @@
     "rootDir": "src",
     "useUnknownInCatchVariables": false
   },
-  "exclude": ["test/", "*.spec.ts"]
+  "exclude": ["test/", "*.spec.ts", "vitest.*.ts"]
 }

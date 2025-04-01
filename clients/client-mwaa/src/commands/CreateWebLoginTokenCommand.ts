@@ -74,6 +74,7 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class CreateWebLoginTokenCommand extends $Command
@@ -84,9 +85,7 @@ export class CreateWebLoginTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class CreateWebLoginTokenCommand extends $Command
   .f(void 0, CreateWebLoginTokenResponseFilterSensitiveLog)
   .ser(se_CreateWebLoginTokenCommand)
   .de(de_CreateWebLoginTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebLoginTokenRequest;
+      output: CreateWebLoginTokenResponse;
+    };
+    sdk: {
+      input: CreateWebLoginTokenCommandInput;
+      output: CreateWebLoginTokenCommandOutput;
+    };
+  };
+}

@@ -94,44 +94,44 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe load balancer attributes
  * ```javascript
  * // This example describes the attributes of the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "access_logs.s3.enabled",
- *       "Value": "false"
+ *       Key: "access_logs.s3.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "idle_timeout.timeout_seconds",
- *       "Value": "60"
+ *       Key: "idle_timeout.timeout_seconds",
+ *       Value: "60"
  *     },
  *     {
- *       "Key": "access_logs.s3.prefix",
- *       "Value": ""
+ *       Key: "access_logs.s3.prefix",
+ *       Value: ""
  *     },
  *     {
- *       "Key": "deletion_protection.enabled",
- *       "Value": "false"
+ *       Key: "deletion_protection.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "access_logs.s3.bucket",
- *       "Value": ""
+ *       Key: "access_logs.s3.bucket",
+ *       Value: ""
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-load-balancer-attributes-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command
   .classBuilder<
@@ -141,9 +141,7 @@ export class DescribeLoadBalancerAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +153,16 @@ export class DescribeLoadBalancerAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancerAttributesCommand)
   .de(de_DescribeLoadBalancerAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoadBalancerAttributesInput;
+      output: DescribeLoadBalancerAttributesOutput;
+    };
+    sdk: {
+      input: DescribeLoadBalancerAttributesCommandInput;
+      output: DescribeLoadBalancerAttributesCommandOutput;
+    };
+  };
+}

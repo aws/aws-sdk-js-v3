@@ -304,7 +304,7 @@ export const se_CreateSegmentCommand = async (
     take(input, {
       description: [],
       name: [],
-      pattern: (_) => __LazyJsonString.fromObject(_),
+      pattern: (_) => __LazyJsonString.from(_),
       tags: (_) => _json(_),
     })
   );
@@ -413,7 +413,7 @@ export const se_EvaluateFeatureCommand = async (
   body = JSON.stringify(
     take(input, {
       entityId: [],
-      evaluationContext: (_) => __LazyJsonString.fromObject(_),
+      evaluationContext: (_) => __LazyJsonString.from(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -839,8 +839,8 @@ export const se_TestSegmentPatternCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      pattern: (_) => __LazyJsonString.fromObject(_),
-      payload: (_) => __LazyJsonString.fromObject(_),
+      pattern: (_) => __LazyJsonString.from(_),
+      payload: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -859,10 +859,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1231,7 +1228,7 @@ export const de_EvaluateFeatureCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    details: (_) => new __LazyJsonString(_),
+    details: __LazyJsonString.from,
     reason: __expectString,
     value: (_) => de_VariableValue(__expectUnion(_), context),
     variation: __expectString,
@@ -2006,7 +2003,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
   return take(input, {
     entityId: [],
-    evaluationContext: __LazyJsonString.fromObject,
+    evaluationContext: __LazyJsonString.from,
     feature: [],
   });
 };
@@ -2027,7 +2024,7 @@ const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeC
  */
 const se_Event = (input: Event, context: __SerdeContext): any => {
   return take(input, {
-    data: __LazyJsonString.fromObject,
+    data: __LazyJsonString.from,
     timestamp: (_) => _.getTime() / 1_000,
     type: [],
   });
@@ -2060,7 +2057,7 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
 const se_MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
   return take(input, {
     entityIdKey: [],
-    eventPattern: __LazyJsonString.fromObject,
+    eventPattern: __LazyJsonString.from,
     name: [],
     unitLabel: [],
     valueKey: [],
@@ -2172,7 +2169,7 @@ const se_VariableValue = (input: VariableValue, context: __SerdeContext): any =>
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
     longValue: (value) => ({ longValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2220,7 +2217,7 @@ const de_DoubleValueList = (output: any, context: __SerdeContext): number[] => {
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return take(output, {
-    details: (_: any) => new __LazyJsonString(_),
+    details: __LazyJsonString.from,
     entityId: __expectString,
     feature: __expectString,
     project: __expectString,
@@ -2299,7 +2296,7 @@ const de_ExperimentList = (output: any, context: __SerdeContext): Experiment[] =
  */
 const de_ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
   return take(output, {
-    content: (_: any) => new __LazyJsonString(_),
+    content: __LazyJsonString.from,
     metricName: __expectString,
     reportName: __expectString,
     treatmentName: __expectString,
@@ -2462,7 +2459,7 @@ const de_LaunchExecution = (output: any, context: __SerdeContext): LaunchExecuti
 const de_MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
   return take(output, {
     entityIdKey: __expectString,
-    eventPattern: (_: any) => new __LazyJsonString(_),
+    eventPattern: __LazyJsonString.from,
     name: __expectString,
     unitLabel: __expectString,
     valueKey: __expectString,
@@ -2626,7 +2623,7 @@ const de_Segment = (output: any, context: __SerdeContext): Segment => {
     lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     launchCount: __expectLong,
     name: __expectString,
-    pattern: (_: any) => new __LazyJsonString(_),
+    pattern: __LazyJsonString.from,
     tags: _json,
   }) as any;
 };
@@ -2723,13 +2720,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _mR = "maxResults";
 const _nT = "nextToken";

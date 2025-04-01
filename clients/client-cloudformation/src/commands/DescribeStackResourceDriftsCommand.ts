@@ -28,13 +28,17 @@ export interface DescribeStackResourceDriftsCommandInput extends DescribeStackRe
 export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns drift information for the resources that have been checked for drift in the specified stack. This
- *    includes actual and expected configuration values for resources where CloudFormation detects configuration drift.</p>
- *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack resource that has been
- *    checked for drift. Resources that haven't yet been checked for drift aren't included. Resources that don't currently
- *    support drift detection aren't checked, and so not included. For a list of resources that support drift detection,
- *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
- *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or <a>DetectStackDrift</a> to detect drift on all supported resources for a given stack.</p>
+ * <p>Returns drift information for the resources that have been checked for drift in the
+ *       specified stack. This includes actual and expected configuration values for resources where
+ *       CloudFormation detects configuration drift.</p>
+ *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack
+ *       resource that has been checked for drift. Resources that haven't yet been checked for drift
+ *       aren't included. Resources that don't currently support drift detection aren't checked, and so
+ *       not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
+ *         type support for imports and drift detection</a>.</p>
+ *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or
+ *         <a>DetectStackDrift</a> to detect drift on all supported resources for a given
+ *       stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +100,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackResourceDriftsCommand extends $Command
@@ -106,9 +111,7 @@ export class DescribeStackResourceDriftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +123,16 @@ export class DescribeStackResourceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackResourceDriftsCommand)
   .de(de_DescribeStackResourceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackResourceDriftsInput;
+      output: DescribeStackResourceDriftsOutput;
+    };
+    sdk: {
+      input: DescribeStackResourceDriftsCommandInput;
+      output: DescribeStackResourceDriftsCommandOutput;
+    };
+  };
+}

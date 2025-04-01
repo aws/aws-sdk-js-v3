@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAnalysisPermissionsRequest, UpdateAnalysisPermissionsResponse } from "../models/models_4";
+import { UpdateAnalysisPermissionsRequest, UpdateAnalysisPermissionsResponse } from "../models/models_5";
 import { de_UpdateAnalysisPermissionsCommand, se_UpdateAnalysisPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -60,7 +60,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * // { // UpdateAnalysisPermissionsResponse
  * //   AnalysisArn: "STRING_VALUE",
  * //   AnalysisId: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -107,6 +107,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnalysisPermissionsCommand extends $Command
@@ -117,9 +118,7 @@ export class UpdateAnalysisPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class UpdateAnalysisPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnalysisPermissionsCommand)
   .de(de_UpdateAnalysisPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnalysisPermissionsRequest;
+      output: UpdateAnalysisPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateAnalysisPermissionsCommandInput;
+      output: UpdateAnalysisPermissionsCommandOutput;
+    };
+  };
+}

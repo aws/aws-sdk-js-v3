@@ -10,7 +10,7 @@ import {
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_ModifyVpnTunnelCertificateCommand, se_ModifyVpnTunnelCertificateCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -48,13 +48,7 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * const response = await client.send(command);
  * // { // ModifyVpnTunnelCertificateResult
  * //   VpnConnection: { // VpnConnection
- * //     CustomerGatewayConfiguration: "STRING_VALUE",
- * //     CustomerGatewayId: "STRING_VALUE",
  * //     Category: "STRING_VALUE",
- * //     State: "pending" || "available" || "deleting" || "deleted",
- * //     Type: "ipsec.1",
- * //     VpnConnectionId: "STRING_VALUE",
- * //     VpnGatewayId: "STRING_VALUE",
  * //     TransitGatewayId: "STRING_VALUE",
  * //     CoreNetworkArn: "STRING_VALUE",
  * //     CoreNetworkAttachmentArn: "STRING_VALUE",
@@ -152,6 +146,12 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     VpnConnectionId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CustomerGatewayConfiguration: "STRING_VALUE",
+ * //     Type: "ipsec.1",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     VpnGatewayId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -166,6 +166,7 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVpnTunnelCertificateCommand extends $Command
@@ -176,9 +177,7 @@ export class ModifyVpnTunnelCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +189,16 @@ export class ModifyVpnTunnelCertificateCommand extends $Command
   .f(void 0, ModifyVpnTunnelCertificateResultFilterSensitiveLog)
   .ser(se_ModifyVpnTunnelCertificateCommand)
   .de(de_ModifyVpnTunnelCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpnTunnelCertificateRequest;
+      output: ModifyVpnTunnelCertificateResult;
+    };
+    sdk: {
+      input: ModifyVpnTunnelCertificateCommandInput;
+      output: ModifyVpnTunnelCertificateCommandOutput;
+    };
+  };
+}

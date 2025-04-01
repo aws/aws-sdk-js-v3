@@ -1,87 +1,102 @@
-const sendMock = jest.fn().mockImplementation((x) => x);
-const createMultipartMock = jest.fn().mockResolvedValue({
-  UploadId: "mockuploadId",
-});
-const uploadPartMock = jest
-  .fn()
-  .mockResolvedValueOnce({
-    ETag: "mock-upload-Etag",
-  })
-  .mockResolvedValueOnce({
-    ETag: "mock-upload-Etag-2",
-  });
-const putObjectMock = jest.fn().mockResolvedValue({
-  ETag: "mockEtag",
-});
-const completeMultipartMock = jest.fn().mockResolvedValue({
-  Success: "This actually works!",
-});
+import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-const putObjectTaggingMock = jest.fn().mockResolvedValue({
-  Success: "Tags have been applied!",
-});
-
-let hostname = "s3.region.amazonaws.com";
-const endpointMock = jest.fn().mockImplementation(() => ({
-  hostname,
-  port: undefined,
-  protocol: "https:",
-  path: "/",
-  query: undefined,
-}));
+/* eslint-disable no-var */
+var hostname = "s3.region.amazonaws.com";
+var port: number | undefined;
 
 import { EventEmitter, Readable } from "stream";
 
-const mockAddListener = jest.fn();
-const mockRemoveListener = jest.fn();
-const requestHandlerMock = (() => {
-  const mock = {
-    on: mockAddListener,
-    off: mockRemoveListener,
+vi.mock("@aws-sdk/client-s3", async () => {
+  const sendMock = vi.fn().mockImplementation(async (x) => x);
+  const endpointMock = vi.fn().mockImplementation(() => ({
+    hostname,
+    port,
+    protocol: "https:",
+    path: "/",
+    query: undefined,
+  }));
+
+  const mockRequestHandler = new (class MockRequestHandler extends EventEmitter {
+    on = vi.fn();
+    off = vi.fn();
+  })();
+
+  return {
+    ...((await vi.importActual("@aws-sdk/client-s3")) as {}),
+    S3: vi.fn().mockReturnValue({
+      send: sendMock,
+      config: {
+        endpoint: endpointMock,
+        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
+      },
+    }),
+    S3Client: vi.fn().mockReturnValue({
+      send: sendMock,
+      config: {
+        endpoint: endpointMock,
+        requestHandler: mockRequestHandler,
+        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
+      },
+    }),
+    CreateMultipartUploadCommand: vi.fn().mockReturnValue({
+      UploadId: "mockuploadId",
+    }),
+    UploadPartCommand: vi
+      .fn()
+      .mockReturnValueOnce({
+        ETag: "mock-upload-Etag",
+      })
+      .mockReturnValueOnce({
+        ETag: "mock-upload-Etag-2",
+      }),
+    CompleteMultipartUploadCommand: vi.fn().mockReturnValue({
+      Success: "This actually works!",
+    }),
+    PutObjectTaggingCommand: vi.fn().mockReturnValue({
+      Success: "Tags have been applied!",
+    }),
+    PutObjectCommand: vi.fn().mockReturnValue({
+      ETag: "mockEtag",
+    }),
   };
-  Object.setPrototypeOf(mock, EventEmitter.prototype);
-  return mock;
-})();
+});
 
-jest.mock("@aws-sdk/client-s3", () => ({
-  ...(jest.requireActual("@aws-sdk/client-s3") as {}),
-  S3: jest.fn().mockReturnValue({
-    send: sendMock,
-    config: {
-      endpoint: endpointMock,
-    },
-  }),
-  S3Client: jest.fn().mockReturnValue({
-    send: sendMock,
-    config: {
-      endpoint: endpointMock,
-      requestHandler: requestHandlerMock,
-    },
-  }),
-  CreateMultipartUploadCommand: createMultipartMock,
-  UploadPartCommand: uploadPartMock,
-  CompleteMultipartUploadCommand: completeMultipartMock,
-  PutObjectTaggingCommand: putObjectTaggingMock,
-  PutObjectCommand: putObjectMock,
-}));
-
-import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/client-s3";
+import {
+  CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
+  CreateMultipartUploadCommand,
+  PutObjectCommand,
+  PutObjectTaggingCommand,
+  S3,
+  S3Client,
+  UploadPartCommand,
+} from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
-import { createHash } from "crypto";
 
 import { Progress, Upload } from "./index";
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
 describe(Upload.name, () => {
+  const s3MockInstance = new S3Client();
+
   beforeEach(() => {
-    jest.clearAllMocks();
-    uploadPartMock
-      .mockReset()
-      .mockResolvedValueOnce({
+    vi.clearAllMocks();
+    vi.mocked(UploadPartCommand as any)
+      .mockReturnValueOnce({
         ETag: "mock-upload-Etag",
       })
-      .mockResolvedValueOnce({
+      .mockReturnValueOnce({
+        ETag: "mock-upload-Etag-2",
+      });
+    vi.mocked(CreateMultipartUploadCommand as any)
+      .mockReset()
+      .mockReturnValueOnce({
+        UploadId: "mockuploadId",
+        ETag: "mock-upload-Etag",
+      })
+      .mockReturnValueOnce({
+        UploadId: "mockuploadId",
         ETag: "mock-upload-Etag-2",
       });
   });
@@ -91,24 +106,6 @@ describe(Upload.name, () => {
     Bucket: "example-bucket",
     Body: "this-is-a-sample-payload",
   };
-
-  expect.extend({
-    toHaveSameHashAsBuffer: (received: Uint8Array, expected: Uint8Array) => {
-      const receivedHash = createHash("sha256").update(received).digest("hex");
-      const expectHash = createHash("sha256").update(expected).digest("hex");
-      if (expectHash === receivedHash) {
-        return {
-          message: () => "received buffer has the correct hash",
-          pass: true,
-        };
-      } else {
-        return {
-          message: () => `received buffer hash is incorrect, expect ${expectHash}, got ${receivedHash}.`,
-          pass: false,
-        };
-      }
-    },
-  });
 
   it("correctly exposes the event emitter API", () => {
     const upload = new Upload({
@@ -132,21 +129,21 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
       ...params,
       Body: Buffer.from(""),
     });
     // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
     // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
   });
 
   it("should upload using PUT when empty stream", async () => {
@@ -160,21 +157,21 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
       ...params,
       Body: Buffer.from(""),
     });
     // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
     // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
   });
 
   it("should upload using PUT when parts are smaller than one part", async () => {
@@ -185,21 +182,21 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
       ...params,
       Body: Buffer.from(params.Body),
     });
     // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
     // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
   });
 
   it("should upload using PUT when parts are smaller than one part stream", async () => {
@@ -215,21 +212,21 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
       ...params,
       Body: Buffer.from(params.Body),
     });
     // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
     // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
     // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
   });
 
   it("should return a Bucket, Key and Location fields when upload uses a PUT", async () => {
@@ -249,6 +246,7 @@ describe(Upload.name, () => {
   describe("bucket hostname deduplication", () => {
     afterEach(() => {
       hostname = "s3.region.amazonaws.com";
+      port = undefined;
     });
     it("should dedupe bucket in endpoint hostname when forcePathStyle = false", async () => {
       hostname = "example-bucket.example-host.com";
@@ -280,167 +278,231 @@ describe(Upload.name, () => {
       expect(result.Bucket).toEqual("example-bucket");
       expect(result.Location).toEqual("https://example-bucket.example-host.com/example-key");
     });
+    it("should dedupe bucket in endpoint hostname and port when forcePathStyle = false and explicit port is provided", async () => {
+      hostname = "example-bucket.example-host.com";
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com:8443/example-key");
+    });
+    it("should prepend bucket in endpoint hostname and port when it does not already contain it and forcePathStyle = false and explicit port is provided", async () => {
+      hostname = "example-host.com";
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com:8443/example-key");
+    });
   });
 
-  it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
-    const buffer = Buffer.from("");
-    const actionParams = { ...params, Body: buffer };
-    const s3Client = new S3({});
-    s3Client.config.forcePathStyle = true;
-    const upload = new Upload({
-      params: actionParams,
-      client: s3Client,
+  describe("forcePathStyle support", () => {
+    afterEach(() => {
+      port = undefined;
+    });
+    it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const s3Client = new S3({});
+      s3Client.config.forcePathStyle = true;
+      const upload = new Upload({
+        params: actionParams,
+        client: s3Client,
+      });
+
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
     });
 
-    const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
-    expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
+    it("should return a Location field with explicit port and formatted in path style when forcePathStyle is true and explicit port is provided", async () => {
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const s3Client = new S3({});
+      s3Client.config.forcePathStyle = true;
+      const upload = new Upload({
+        params: actionParams,
+        client: s3Client,
+      });
+
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Location).toEqual("https://s3.region.amazonaws.com:8443/example-bucket/example-key");
+    });
   });
 
   it("should return a Location field with decoded slash symbols", async () => {
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
     const actionParams = { ...params, Body: largeBuffer };
-    const completeMultipartMockWithLocation = completeMultipartMock.mockResolvedValueOnce({
-      Location: "https://example-bucket.example-host.com/folder%2Fexample-key",
-    });
+    const CompleteMultipartUploadCommandWithLocation = vi
+      .mocked(CompleteMultipartUploadCommand as any)
+      .mockResolvedValueOnce({
+        Location: "https://example-bucket.example-host.com/folder%2Fexample-key",
+      });
     const upload = new Upload({
       params: actionParams,
       client: new S3({}),
     });
     const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
-    expect(completeMultipartMockWithLocation).toHaveBeenCalledTimes(1);
+    expect(CompleteMultipartUploadCommandWithLocation).toHaveBeenCalledTimes(1);
     expect(result.Location).toEqual("https://example-bucket.example-host.com/folder/example-key");
   });
 
-  [
-    { type: "buffer", largeBuffer: Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10)) },
-    { type: "Uint8array", largeBuffer: Uint8Array.from(Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10))) },
-  ].forEach(({ type, largeBuffer }) => {
-    it(`should upload using multi-part when parts are larger than part size ${type}`, async () => {
-      const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
-      const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
-      const actionParams = { ...params, Body: largeBuffer };
-      const upload = new Upload({
-        params: actionParams,
-        client: new S3({}),
-      });
-      await upload.done();
-      expect(sendMock).toHaveBeenCalledTimes(4);
-      // create multipartMock is called correctly.
-      expect(createMultipartMock).toHaveBeenCalledTimes(1);
-      expect(createMultipartMock).toHaveBeenCalledWith({
-        ...actionParams,
-        Body: undefined,
-      });
-      // upload parts is called correctly.
-      expect(uploadPartMock).toHaveBeenCalledTimes(2);
-      expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-        ...actionParams,
-        // @ts-ignore extended custom matcher
-        Body: expect.toHaveSameHashAsBuffer(firstBuffer),
-        PartNumber: 1,
-        UploadId: "mockuploadId",
-      });
-      expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-        ...actionParams,
-        // @ts-ignore extended custom matcher
-        Body: expect.toHaveSameHashAsBuffer(secondBuffer),
-        PartNumber: 2,
-        UploadId: "mockuploadId",
-      });
-      // complete multipart upload is called correctly.
-      expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-      expect(completeMultipartMock).toHaveBeenLastCalledWith({
-        ...actionParams,
-        Body: undefined,
-        UploadId: "mockuploadId",
-        MultipartUpload: {
-          Parts: [
-            {
-              ETag: "mock-upload-Etag",
-              PartNumber: 1,
-            },
-            {
-              ETag: "mock-upload-Etag-2",
-              PartNumber: 2,
-            },
-          ],
-        },
-      });
-
-      // no tags were passed.
-      expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-      // put was not called
-      expect(putObjectMock).toHaveBeenCalledTimes(0);
+  describe("large buffers", () => {
+    const MOCK_PART_SIZE = 24;
+    beforeEach(() => {
+      (Upload as any).MIN_PART_SIZE = MOCK_PART_SIZE;
     });
 
-    it("should upload using multi-part when parts are larger than part size stream", async () => {
-      // create a string that's larger than 5MB.
-      const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
-      const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
-      const streamBody = Readable.from(
-        (function* () {
-          yield largeBuffer;
-        })()
-      );
-      const actionParams = { ...params, Body: streamBody };
-      const upload = new Upload({
-        params: actionParams,
-        client: new S3({}),
+    afterAll(() => {
+      (Upload as any).MIN_PART_SIZE = 1024 * 1024 * 5;
+    });
+
+    [
+      { type: "buffer", largeBuffer: Buffer.from("#".repeat(MOCK_PART_SIZE + 10)) },
+      { type: "Uint8array", largeBuffer: Uint8Array.from(Buffer.from("#".repeat(MOCK_PART_SIZE + 10))) },
+    ].forEach(({ type, largeBuffer }) => {
+      it(`should upload using multi-part when parts are larger than part size ${type}`, async () => {
+        const firstBuffer = largeBuffer.subarray(0, MOCK_PART_SIZE);
+        const secondBuffer = largeBuffer.subarray(MOCK_PART_SIZE);
+        const actionParams = { ...params, Body: largeBuffer };
+        const upload = new Upload({
+          params: actionParams,
+          partSize: MOCK_PART_SIZE,
+          client: new S3({}),
+        });
+        await upload.done();
+        expect(s3MockInstance.send).toHaveBeenCalledTimes(4);
+        // create multipartMock is called correctly.
+        expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(1);
+        expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
+          ...actionParams,
+          Body: undefined,
+          ChecksumAlgorithm: "CRC32",
+        });
+        // upload parts is called correctly.
+        expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(1, {
+          ...actionParams,
+          Body: firstBuffer,
+          PartNumber: 1,
+          UploadId: "mockuploadId",
+        });
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(2, {
+          ...actionParams,
+          Body: secondBuffer,
+          PartNumber: 2,
+          UploadId: "mockuploadId",
+        });
+        // complete multipart upload is called correctly.
+        expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
+        expect(CompleteMultipartUploadCommand).toHaveBeenLastCalledWith({
+          ...actionParams,
+          Body: undefined,
+          UploadId: "mockuploadId",
+          MultipartUpload: {
+            Parts: [
+              {
+                ETag: "mock-upload-Etag",
+                PartNumber: 1,
+              },
+              {
+                ETag: "mock-upload-Etag-2",
+                PartNumber: 2,
+              },
+            ],
+          },
+        });
+
+        // no tags were passed.
+        expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
+        // put was not called
+        expect(PutObjectCommand).toHaveBeenCalledTimes(0);
       });
 
-      await upload.done();
+      it("should upload using multi-part when parts are larger than part size stream", async () => {
+        // create a string that's larger than 5MB.
+        const firstBuffer = largeBuffer.subarray(0, MOCK_PART_SIZE);
+        const secondBuffer = largeBuffer.subarray(MOCK_PART_SIZE);
+        const streamBody = Readable.from(
+          (function* () {
+            yield largeBuffer;
+          })()
+        );
+        const actionParams = { ...params, Body: streamBody };
+        const upload = new Upload({
+          params: actionParams,
+          partSize: MOCK_PART_SIZE,
+          client: new S3({}),
+        });
 
-      expect(sendMock).toHaveBeenCalledTimes(4);
-      // create multipartMock is called correctly.
-      expect(createMultipartMock).toHaveBeenCalledTimes(1);
-      expect(createMultipartMock).toHaveBeenCalledWith({
-        ...actionParams,
-        Body: undefined,
+        await upload.done();
+
+        expect(s3MockInstance.send).toHaveBeenCalledTimes(4);
+        // create multipartMock is called correctly.
+        expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(1);
+        expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
+          ...actionParams,
+          Body: undefined,
+          ChecksumAlgorithm: "CRC32",
+        });
+
+        // upload parts is called correctly.
+        expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(1, {
+          ...actionParams,
+          Body: firstBuffer,
+          PartNumber: 1,
+          UploadId: "mockuploadId",
+        });
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(2, {
+          ...actionParams,
+          // @ts-ignore
+          Body: secondBuffer,
+          PartNumber: 2,
+          UploadId: "mockuploadId",
+        });
+        // complete multipart upload is called correctly.
+        expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
+        expect(CompleteMultipartUploadCommand).toHaveBeenLastCalledWith({
+          ...actionParams,
+          Body: undefined,
+          UploadId: "mockuploadId",
+          MultipartUpload: {
+            Parts: [
+              {
+                ETag: "mock-upload-Etag",
+                PartNumber: 1,
+              },
+              {
+                ETag: "mock-upload-Etag-2",
+                PartNumber: 2,
+              },
+            ],
+          },
+        });
+        // no tags were passed.
+        expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
+        // put was not called
+        expect(PutObjectCommand).toHaveBeenCalledTimes(0);
       });
-
-      // upload parts is called correctly.
-      expect(uploadPartMock).toHaveBeenCalledTimes(2);
-      expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-        ...actionParams,
-        // @ts-ignore extended custom matcher
-        Body: expect.toHaveSameHashAsBuffer(firstBuffer),
-        PartNumber: 1,
-        UploadId: "mockuploadId",
-      });
-
-      expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-        ...actionParams,
-        // @ts-ignore extended custom matcher
-        Body: expect.toHaveSameHashAsBuffer(secondBuffer),
-        PartNumber: 2,
-        UploadId: "mockuploadId",
-      });
-
-      // complete multipart upload is called correctly.
-      expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-      expect(completeMultipartMock).toHaveBeenLastCalledWith({
-        ...actionParams,
-        Body: undefined,
-        UploadId: "mockuploadId",
-        MultipartUpload: {
-          Parts: [
-            {
-              ETag: "mock-upload-Etag",
-              PartNumber: 1,
-            },
-            {
-              ETag: "mock-upload-Etag-2",
-              PartNumber: 2,
-            },
-          ],
-        },
-      });
-
-      // no tags were passed.
-      expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-      // put was not called
-      expect(putObjectMock).toHaveBeenCalledTimes(0);
     });
   });
 
@@ -464,11 +526,11 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(2);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(2);
 
     // tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
-    expect(putObjectTaggingMock).toHaveBeenCalledWith({
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledWith({
       ...params,
       Tagging: {
         TagSet: tags,
@@ -498,14 +560,13 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(sendMock).toHaveBeenCalledTimes(5);
+    expect(s3MockInstance.send).toHaveBeenCalledTimes(5);
 
     // tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
-    expect(putObjectTaggingMock).toHaveBeenCalledWith({
+    expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectTaggingCommand).toHaveBeenCalledWith({
       ...actionParams,
-      // @ts-ignore extended custom matcher
-      Body: expect.toHaveSameHashAsBuffer(largeBuffer),
+      Body: largeBuffer,
       Tagging: {
         TagSet: tags,
       },
@@ -571,21 +632,22 @@ describe(Upload.name, () => {
       received.push(progress);
     });
     await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: firstBuffer.byteLength,
-      part: 1,
-      total: largeBuffer.byteLength,
-    });
-    expect(received[1]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: largeBuffer.byteLength,
-      part: 2,
-      total: largeBuffer.byteLength,
-    });
-    expect(received.length).toBe(2);
+    expect(received).toEqual([
+      {
+        Key: params.Key,
+        Bucket: params.Bucket,
+        loaded: firstBuffer.byteLength,
+        part: 1,
+        total: largeBuffer.byteLength,
+      },
+      {
+        Key: params.Key,
+        Bucket: params.Bucket,
+        loaded: largeBuffer.byteLength,
+        part: 2,
+        total: largeBuffer.byteLength,
+      },
+    ]);
   });
 
   it("should provide progress updates multi-part stream", async () => {
@@ -607,21 +669,22 @@ describe(Upload.name, () => {
       received.push(progress);
     });
     await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: partSize,
-      part: 1,
-      total: undefined,
-    });
-    expect(received[1]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: partSize + 10,
-      part: 2,
-      total: undefined,
-    });
-    expect(received.length).toBe(2);
+    expect(received).toEqual([
+      {
+        Key: params.Key,
+        Bucket: params.Bucket,
+        loaded: partSize,
+        part: 1,
+        total: undefined,
+      },
+      {
+        Key: params.Key,
+        Bucket: params.Bucket,
+        loaded: partSize + 10,
+        part: 2,
+        total: undefined,
+      },
+    ]);
   });
 
   it("should provide progress updates empty buffer", async () => {
@@ -690,8 +753,14 @@ describe(Upload.name, () => {
     });
     await upload.done();
     expect(received.length).toBe(2);
-    expect(mockAddListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
-    expect(mockRemoveListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
+    expect((s3MockInstance.config.requestHandler as unknown as EventEmitter).on).toHaveBeenCalledWith(
+      "xhr.upload.progress",
+      expect.any(Function)
+    );
+    expect((s3MockInstance.config.requestHandler as unknown as EventEmitter).off).toHaveBeenCalledWith(
+      "xhr.upload.progress",
+      expect.any(Function)
+    );
   });
 
   it("should respect external abort signal", async () => {
@@ -719,7 +788,7 @@ describe(Upload.name, () => {
     });
 
     await upload.done();
-    expect(() => upload.done()).rejects.toEqual(
+    await expect(() => upload.done()).rejects.toEqual(
       new Error("@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance.")
     );
   });

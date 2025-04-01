@@ -97,6 +97,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsOlderThanOrderingIdCommand extends $Command
@@ -107,9 +108,7 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsOlderThanOrderingIdCommand)
   .de(de_ListGroupsOlderThanOrderingIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsOlderThanOrderingIdRequest;
+      output: ListGroupsOlderThanOrderingIdResponse;
+    };
+    sdk: {
+      input: ListGroupsOlderThanOrderingIdCommandInput;
+      output: ListGroupsOlderThanOrderingIdCommandOutput;
+    };
+  };
+}

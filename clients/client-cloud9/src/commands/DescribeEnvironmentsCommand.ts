@@ -33,6 +33,12 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
 
 /**
  * <p>Gets information about Cloud9 development environments.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,49 +104,49 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example DescribeEnvironments
  * ```javascript
  * //
  * const input = {
- *   "environmentIds": [
+ *   environmentIds: [
  *     "8d9967e2f0624182b74e7690ad69ebEX",
  *     "349c86d4579e4e7298d500ff57a6b2EX"
  *   ]
  * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "environments": [
+ *   environments: [
  *     {
- *       "name": "my-demo-environment",
- *       "type": "ec2",
- *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
- *       "description": "This is my demonstration environment.",
- *       "id": "8d9967e2f0624182b74e7690ad69ebEX",
- *       "lifecycle": {
- *         "status": "CREATED"
+ *       arn: "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
+ *       description: "This is my demonstration environment.",
+ *       id: "8d9967e2f0624182b74e7690ad69ebEX",
+ *       lifecycle: {
+ *         status: "CREATED"
  *       },
- *       "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+ *       name: "my-demo-environment",
+ *       ownerArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *       type: "ec2"
  *     },
  *     {
- *       "name": "another-demo-environment",
- *       "type": "ssh",
- *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
- *       "description": "",
- *       "id": "349c86d4579e4e7298d500ff57a6b2EX",
- *       "lifecycle": {
- *         "status": "CREATED"
+ *       arn: "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
+ *       description: "",
+ *       id: "349c86d4579e4e7298d500ff57a6b2EX",
+ *       lifecycle: {
+ *         status: "CREATED"
  *       },
- *       "ownerArn": "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser"
+ *       name: "another-demo-environment",
+ *       ownerArn: "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser",
+ *       type: "ssh"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describeenvironments-1516823568291
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentsCommand extends $Command
   .classBuilder<
@@ -150,9 +156,7 @@ export class DescribeEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +168,16 @@ export class DescribeEnvironmentsCommand extends $Command
   .f(void 0, DescribeEnvironmentsResultFilterSensitiveLog)
   .ser(se_DescribeEnvironmentsCommand)
   .de(de_DescribeEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentsRequest;
+      output: DescribeEnvironmentsResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentsCommandInput;
+      output: DescribeEnvironmentsCommandOutput;
+    };
+  };
+}

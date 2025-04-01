@@ -65,6 +65,7 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetV2LoggingOptionsCommand extends $Command
@@ -75,9 +76,7 @@ export class GetV2LoggingOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class GetV2LoggingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetV2LoggingOptionsCommand)
   .de(de_GetV2LoggingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetV2LoggingOptionsResponse;
+    };
+    sdk: {
+      input: GetV2LoggingOptionsCommandInput;
+      output: GetV2LoggingOptionsCommandOutput;
+    };
+  };
+}

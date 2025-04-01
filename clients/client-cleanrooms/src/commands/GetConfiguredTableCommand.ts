@@ -51,15 +51,39 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * //         tableName: "STRING_VALUE", // required
  * //         databaseName: "STRING_VALUE", // required
  * //       },
+ * //       snowflake: { // SnowflakeTableReference
+ * //         secretArn: "STRING_VALUE", // required
+ * //         accountIdentifier: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //         schemaName: "STRING_VALUE", // required
+ * //         tableSchema: { // SnowflakeTableSchema Union: only one key present
+ * //           v1: [ // SnowflakeTableSchemaList
+ * //             { // SnowflakeTableSchemaV1
+ * //               columnName: "STRING_VALUE", // required
+ * //               columnType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       athena: { // AthenaTableReference
+ * //         workGroup: "STRING_VALUE", // required
+ * //         outputLocation: "STRING_VALUE",
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "STRING_VALUE", // required
+ * //     analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
+ * //     ],
+ * //     selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //       "DIRECT_QUERY" || "DIRECT_JOB",
  * //     ],
  * //   },
  * // };
@@ -90,6 +114,7 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetConfiguredTableCommand extends $Command
@@ -100,9 +125,7 @@ export class GetConfiguredTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +137,16 @@ export class GetConfiguredTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfiguredTableCommand)
   .de(de_GetConfiguredTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfiguredTableInput;
+      output: GetConfiguredTableOutput;
+    };
+    sdk: {
+      input: GetConfiguredTableCommandInput;
+      output: GetConfiguredTableCommandOutput;
+    };
+  };
+}

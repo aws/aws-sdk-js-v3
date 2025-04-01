@@ -36,9 +36,8 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the service network and VPC associations. You can filter the list either by VPC or
- *    service network. You must provide either the service network identifier or the VPC
- *    identifier.</p>
+ * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or
+ *    service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +94,7 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListServiceNetworkVpcAssociationsCommand extends $Command
@@ -105,9 +105,7 @@ export class ListServiceNetworkVpcAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +117,16 @@ export class ListServiceNetworkVpcAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceNetworkVpcAssociationsCommand)
   .de(de_ListServiceNetworkVpcAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceNetworkVpcAssociationsRequest;
+      output: ListServiceNetworkVpcAssociationsResponse;
+    };
+    sdk: {
+      input: ListServiceNetworkVpcAssociationsCommandInput;
+      output: ListServiceNetworkVpcAssociationsCommandOutput;
+    };
+  };
+}

@@ -48,15 +48,24 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * //   DomainPackageDetails: { // DomainPackageDetails
  * //     PackageID: "STRING_VALUE",
  * //     PackageName: "STRING_VALUE",
- * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
+ * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG",
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     DomainName: "STRING_VALUE",
  * //     DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
  * //     PackageVersion: "STRING_VALUE",
+ * //     PrerequisitePackageIDList: [ // PackageIDList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     ReferencePath: "STRING_VALUE",
  * //     ErrorDetails: { // ErrorDetails
  * //       ErrorType: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //     AssociationConfiguration: { // PackageAssociationConfiguration
+ * //       KeyStoreAccessOption: { // KeyStoreAccessOption
+ * //         KeyAccessRoleArn: "STRING_VALUE",
+ * //         KeyStoreAccessEnabled: true || false, // required
+ * //       },
  * //     },
  * //   },
  * // };
@@ -90,6 +99,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DissociatePackageCommand extends $Command
@@ -100,9 +110,7 @@ export class DissociatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +122,16 @@ export class DissociatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DissociatePackageCommand)
   .de(de_DissociatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DissociatePackageRequest;
+      output: DissociatePackageResponse;
+    };
+    sdk: {
+      input: DissociatePackageCommandInput;
+      output: DissociatePackageCommandOutput;
+    };
+  };
+}

@@ -114,6 +114,7 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkforceCommand extends $Command
@@ -124,9 +125,7 @@ export class CreateWorkforceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class CreateWorkforceCommand extends $Command
   .f(CreateWorkforceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWorkforceCommand)
   .de(de_CreateWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkforceRequest;
+      output: CreateWorkforceResponse;
+    };
+    sdk: {
+      input: CreateWorkforceCommandInput;
+      output: CreateWorkforceCommandOutput;
+    };
+  };
+}

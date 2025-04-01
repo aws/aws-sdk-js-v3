@@ -83,6 +83,7 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ListPrefetchSchedulesCommand extends $Command
@@ -93,9 +94,7 @@ export class ListPrefetchSchedulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListPrefetchSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrefetchSchedulesCommand)
   .de(de_ListPrefetchSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrefetchSchedulesRequest;
+      output: ListPrefetchSchedulesResponse;
+    };
+    sdk: {
+      input: ListPrefetchSchedulesCommandInput;
+      output: ListPrefetchSchedulesCommandOutput;
+    };
+  };
+}

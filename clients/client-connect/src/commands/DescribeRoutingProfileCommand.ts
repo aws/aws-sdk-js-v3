@@ -50,7 +50,7 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * //     Description: "STRING_VALUE",
  * //     MediaConcurrencies: [ // MediaConcurrencies
  * //       { // MediaConcurrency
- * //         Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  * //         Concurrency: Number("int"), // required
  * //         CrossChannelBehavior: { // CrossChannelBehavior
  * //           BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
@@ -99,6 +99,7 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeRoutingProfileCommand extends $Command
@@ -109,9 +110,7 @@ export class DescribeRoutingProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DescribeRoutingProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRoutingProfileCommand)
   .de(de_DescribeRoutingProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRoutingProfileRequest;
+      output: DescribeRoutingProfileResponse;
+    };
+    sdk: {
+      input: DescribeRoutingProfileCommandInput;
+      output: DescribeRoutingProfileCommandOutput;
+    };
+  };
+}

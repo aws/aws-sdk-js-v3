@@ -54,7 +54,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * const input = { // CreateSubnetRequest
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "vpc-encryption-control" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -69,29 +69,21 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *   Ipv6CidrBlock: "STRING_VALUE",
  *   OutpostArn: "STRING_VALUE",
  *   VpcId: "STRING_VALUE", // required
- *   DryRun: true || false,
  *   Ipv6Native: true || false,
  *   Ipv4IpamPoolId: "STRING_VALUE",
  *   Ipv4NetmaskLength: Number("int"),
  *   Ipv6IpamPoolId: "STRING_VALUE",
  *   Ipv6NetmaskLength: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new CreateSubnetCommand(input);
  * const response = await client.send(command);
  * // { // CreateSubnetResult
  * //   Subnet: { // Subnet
- * //     AvailabilityZone: "STRING_VALUE",
  * //     AvailabilityZoneId: "STRING_VALUE",
- * //     AvailableIpAddressCount: Number("int"),
- * //     CidrBlock: "STRING_VALUE",
- * //     DefaultForAz: true || false,
  * //     EnableLniAtDeviceIndex: Number("int"),
- * //     MapPublicIpOnLaunch: true || false,
  * //     MapCustomerOwnedIpOnLaunch: true || false,
  * //     CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //     State: "pending" || "available" || "unavailable",
- * //     SubnetId: "STRING_VALUE",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     AssignIpv6AddressOnCreation: true || false,
  * //     Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
@@ -102,6 +94,8 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * //           State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
  * //           StatusMessage: "STRING_VALUE",
  * //         },
+ * //         Ipv6AddressAttribute: "public" || "private",
+ * //         IpSource: "amazon" || "byoip" || "none",
  * //       },
  * //     ],
  * //     Tags: [ // TagList
@@ -119,6 +113,17 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * //       EnableResourceNameDnsARecord: true || false,
  * //       EnableResourceNameDnsAAAARecord: true || false,
  * //     },
+ * //     BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //     },
+ * //     SubnetId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "unavailable",
+ * //     VpcId: "STRING_VALUE",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     AvailableIpAddressCount: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     DefaultForAz: true || false,
+ * //     MapPublicIpOnLaunch: true || false,
  * //   },
  * // };
  *
@@ -133,31 +138,31 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a subnet
  * ```javascript
  * // This example creates a subnet in the specified VPC with the specified CIDR block. We recommend that you let us select an Availability Zone for you.
  * const input = {
- *   "CidrBlock": "10.0.1.0/24",
- *   "VpcId": "vpc-a01106c2"
+ *   CidrBlock: "10.0.1.0/24",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new CreateSubnetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Subnet": {
- *     "AvailabilityZone": "us-west-2c",
- *     "AvailableIpAddressCount": 251,
- *     "CidrBlock": "10.0.1.0/24",
- *     "State": "pending",
- *     "SubnetId": "subnet-9d4a7b6c",
- *     "VpcId": "vpc-a01106c2"
+ *   Subnet: {
+ *     AvailabilityZone: "us-west-2c",
+ *     AvailableIpAddressCount: 251,
+ *     CidrBlock: "10.0.1.0/24",
+ *     State: "pending",
+ *     SubnetId: "subnet-9d4a7b6c",
+ *     VpcId: "vpc-a01106c2"
  *   }
  * }
  * *\/
- * // example id: ec2-create-subnet-1
  * ```
  *
+ * @public
  */
 export class CreateSubnetCommand extends $Command
   .classBuilder<
@@ -167,9 +172,7 @@ export class CreateSubnetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +184,16 @@ export class CreateSubnetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSubnetCommand)
   .de(de_CreateSubnetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSubnetRequest;
+      output: CreateSubnetResult;
+    };
+    sdk: {
+      input: CreateSubnetCommandInput;
+      output: CreateSubnetCommandOutput;
+    };
+  };
+}

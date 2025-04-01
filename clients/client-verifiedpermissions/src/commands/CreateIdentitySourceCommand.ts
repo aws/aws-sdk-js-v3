@@ -62,7 +62,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *                </li>
  *                <li>
  *                   <p>OpenID Connect (OIDC) provider: <code>Namespace::[Entity
- *                             type]::[principalIdClaim]|[user principal attribute]</code>, for example
+ *                         type]::[entityIdPrefix]|[user principal attribute]</code>, for example
  *                             <code>MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
  *                </li>
  *             </ul>
@@ -240,6 +240,35 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To create an identity source
+ * ```javascript
+ * // The following ``create-identity-source`` example creates an identity source that lets you reference identities stored in the specified Amazon Cognito user pool. Those identities are available in Verified Permissions as entities of type ``User``.
+ * const input = {
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   configuration: {
+ *     cognitoUserPoolConfiguration: {
+ *       clientIds: [
+ *         "a1b2c3d4e5f6g7h8i9j0kalbmc"
+ *       ],
+ *       userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
+ *     }
+ *   },
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   principalEntityType: "User"
+ * };
+ * const command = new CreateIdentitySourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   identitySourceId: "ISEXAMPLEabcdefg111111",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateIdentitySourceCommand extends $Command
@@ -250,9 +279,7 @@ export class CreateIdentitySourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -264,4 +291,16 @@ export class CreateIdentitySourceCommand extends $Command
   .f(CreateIdentitySourceInputFilterSensitiveLog, void 0)
   .ser(se_CreateIdentitySourceCommand)
   .de(de_CreateIdentitySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdentitySourceInput;
+      output: CreateIdentitySourceOutput;
+    };
+    sdk: {
+      input: CreateIdentitySourceCommandInput;
+      output: CreateIdentitySourceCommandOutput;
+    };
+  };
+}

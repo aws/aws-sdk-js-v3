@@ -11,7 +11,7 @@ AWS SDK for JavaScript PaymentCryptographyData Client for Node.js, Browser and R
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-payment-cryptography-data
+To install this package, simply type add or install @aws-sdk/client-payment-cryptography-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-payment-cryptography-data`
@@ -234,6 +234,14 @@ GenerateMac
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateMacCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacCommandOutput/)
+
+</details>
+<details>
+<summary>
+GenerateMacEmvPinChange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateMacEmvPinChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacEmvPinChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacEmvPinChangeCommandOutput/)
 
 </details>
 <details>

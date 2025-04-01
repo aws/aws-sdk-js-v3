@@ -74,6 +74,7 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class DeleteCrlCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteCrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteCrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCrlCommand)
   .de(de_DeleteCrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarCrlRequest;
+      output: CrlDetailResponse;
+    };
+    sdk: {
+      input: DeleteCrlCommandInput;
+      output: DeleteCrlCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,10 @@ export interface ListAutoshiftsCommandInput extends ListAutoshiftsRequest {}
 export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the active autoshifts for a specified resource.</p>
+ * <p>Returns the autoshifts for an Amazon Web Services Region. By default, the call returns
+ * 			only <code>ACTIVE</code> autoshifts. Optionally, you can specify the <code>status</code> parameter to return
+ * 			<code>COMPLETED</code> autoshifts.
+ * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +49,7 @@ export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __M
  * //   items: [ // AutoshiftSummaries
  * //     { // AutoshiftSummary
  * //       awayFrom: "STRING_VALUE", // required
- * //       endTime: new Date("TIMESTAMP"), // required
+ * //       endTime: new Date("TIMESTAMP"),
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       status: "ACTIVE" || "COMPLETED", // required
  * //     },
@@ -77,6 +80,7 @@ export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __M
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class ListAutoshiftsCommand extends $Command
@@ -87,9 +91,7 @@ export class ListAutoshiftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class ListAutoshiftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutoshiftsCommand)
   .de(de_ListAutoshiftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutoshiftsRequest;
+      output: ListAutoshiftsResponse;
+    };
+    sdk: {
+      input: ListAutoshiftsCommandInput;
+      output: ListAutoshiftsCommandOutput;
+    };
+  };
+}

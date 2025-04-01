@@ -109,6 +109,7 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignDateRangeKpiCommand extends $Command
@@ -119,9 +120,7 @@ export class GetCampaignDateRangeKpiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class GetCampaignDateRangeKpiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignDateRangeKpiCommand)
   .de(de_GetCampaignDateRangeKpiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignDateRangeKpiRequest;
+      output: GetCampaignDateRangeKpiResponse;
+    };
+    sdk: {
+      input: GetCampaignDateRangeKpiCommandInput;
+      output: GetCampaignDateRangeKpiCommandOutput;
+    };
+  };
+}

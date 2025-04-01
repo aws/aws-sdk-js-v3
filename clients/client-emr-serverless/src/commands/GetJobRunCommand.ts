@@ -143,6 +143,9 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     attempt: Number("int"),
  * //     attemptCreatedAt: new Date("TIMESTAMP"),
  * //     attemptUpdatedAt: new Date("TIMESTAMP"),
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     endedAt: new Date("TIMESTAMP"),
+ * //     queuedDurationMilliseconds: Number("long"),
  * //   },
  * // };
  *
@@ -167,6 +170,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class GetJobRunCommand extends $Command
@@ -177,9 +181,7 @@ export class GetJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +193,16 @@ export class GetJobRunCommand extends $Command
   .f(void 0, GetJobRunResponseFilterSensitiveLog)
   .ser(se_GetJobRunCommand)
   .de(de_GetJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRunRequest;
+      output: GetJobRunResponse;
+    };
+    sdk: {
+      input: GetJobRunCommandInput;
+      output: GetJobRunCommandOutput;
+    };
+  };
+}

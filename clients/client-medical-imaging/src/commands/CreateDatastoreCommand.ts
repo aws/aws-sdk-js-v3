@@ -79,6 +79,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class CreateDatastoreCommand extends $Command
@@ -89,9 +90,7 @@ export class CreateDatastoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class CreateDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatastoreCommand)
   .de(de_CreateDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatastoreRequest;
+      output: CreateDatastoreResponse;
+    };
+    sdk: {
+      input: CreateDatastoreCommandInput;
+      output: CreateDatastoreCommandOutput;
+    };
+  };
+}

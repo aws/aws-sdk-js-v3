@@ -74,6 +74,9 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  *                <p>The results begin with the first resource record set in the list whose
  * 						name is greater than or equal to <code>Name</code>, and whose type is
  * 						greater than or equal to <code>Type</code>.</p>
+ *                <note>
+ *                   <p>Type is only used to sort between records with the same record Name.</p>
+ *                </note>
  *             </dd>
  *          </dl>
  *          <p>
@@ -109,7 +112,7 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * const input = { // ListResourceRecordSetsRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   StartRecordName: "STRING_VALUE",
- *   StartRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   StartRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  *   StartRecordIdentifier: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };
@@ -119,10 +122,10 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * //   ResourceRecordSets: [ // ResourceRecordSets // required
  * //     { // ResourceRecordSet
  * //       Name: "STRING_VALUE", // required
- * //       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //       SetIdentifier: "STRING_VALUE",
  * //       Weight: Number("long"),
- * //       Region: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "cn-north-1" || "cn-northwest-1" || "ap-east-1" || "me-south-1" || "me-central-1" || "ap-south-1" || "ap-south-2" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4" || "il-central-1" || "ca-west-1",
+ * //       Region: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "cn-north-1" || "cn-northwest-1" || "ap-east-1" || "me-south-1" || "me-central-1" || "ap-south-1" || "ap-south-2" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4" || "il-central-1" || "ca-west-1" || "ap-southeast-5" || "mx-central-1" || "ap-southeast-7",
  * //       GeoLocation: { // GeoLocation
  * //         ContinentCode: "STRING_VALUE",
  * //         CountryCode: "STRING_VALUE",
@@ -160,7 +163,7 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * //   ],
  * //   IsTruncated: true || false, // required
  * //   NextRecordName: "STRING_VALUE",
- * //   NextRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ * //   NextRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  * //   NextRecordIdentifier: "STRING_VALUE",
  * //   MaxItems: Number("int"), // required
  * // };
@@ -182,6 +185,7 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListResourceRecordSetsCommand extends $Command
@@ -192,9 +196,7 @@ export class ListResourceRecordSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +209,16 @@ export class ListResourceRecordSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceRecordSetsCommand)
   .de(de_ListResourceRecordSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceRecordSetsRequest;
+      output: ListResourceRecordSetsResponse;
+    };
+    sdk: {
+      input: ListResourceRecordSetsCommandInput;
+      output: ListResourceRecordSetsCommandOutput;
+    };
+  };
+}

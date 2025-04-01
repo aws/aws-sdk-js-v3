@@ -284,6 +284,12 @@
             "smithy.api#documentation": "<p>If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates\n      of any parts of the screen to ignore during the visual monitoring comparison.</p>"
           }
         },
+        "ProvisionedResourceCleanup": {
+          "target": "com.amazonaws.synthetics#ProvisionedResourceCleanupSetting",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to also delete the Lambda functions and layers used by this canary\n         when the canary is deleted. If it is <code>AUTOMATIC</code>, the Lambda functions and layers will be deleted\n         when the canary is deleted.</p>\n         <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter\n         of the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html\">DeleteCanary</a> operation\n         determines whether the Lambda functions and layers will be deleted.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.synthetics#TagMap",
           "traits": {
@@ -308,7 +314,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,21}$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,255}$"
       }
     },
     "com.amazonaws.synthetics#CanaryCodeInput": {
@@ -347,7 +353,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Use this structure to input your script code for the canary. This structure contains the\n         Lambda handler with the location where the canary should start running the script. If the\n         script is stored in an S3 bucket, the bucket name, key, and version are also included. If\n         the script was passed into the canary directly, the script code is contained in the value\n         of <code>Zipfile</code>. </p>"
+        "smithy.api#documentation": "<p>Use this structure to input your script code for the canary. This structure contains the\n         Lambda handler with the location where the canary should start running the script. If the\n         script is stored in an S3 bucket, the bucket name, key, and version are also included. If\n         the script was passed into the canary directly, the script code is contained in the value\n         of <code>Zipfile</code>. </p>\n         <p>If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your \n      script in a certain folder structure.</p>\n         <ul>\n            <li>\n               <p>For Node.js canaries, the folder structure must be <code>nodejs/node_modules/<i>myCanaryFilename.js</i>\n                  </code>\n            For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs.html#CloudWatch_Synthetics_Canaries_package\">Packaging your Node.js canary files</a>\n               </p>\n            </li>\n            <li>\n               <p>For Python canaries, the folder structure must be <code>python/<i>myCanaryFilename.p</i>\n                  </code> or <code>python/<i>myFolder/myCanaryFilename.py</i>\n                  </code>\n            For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Python.html#CloudWatch_Synthetics_Canaries_WritingCanary_Python_package\">Packaging your Python canary files</a>\n               </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.synthetics#CanaryCodeOutput": {
@@ -395,7 +401,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 21
+          "max": 255
         },
         "smithy.api#pattern": "^[0-9a-z_\\-]+$"
       }
@@ -943,10 +949,22 @@
             "smithy.api#documentation": "<p>If this canary is to test an endpoint in a VPC, this structure contains\n      information about the subnet and security groups of the VPC endpoint. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\">\n         Running a Canary in a VPC</a>.</p>"
           }
         },
+        "ResourcesToReplicateTags": {
+          "target": "com.amazonaws.synthetics#ResourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>To have the tags that you apply to this canary also be applied to the Lambda function that\n         the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>\n         <p>If you specify this parameter and don't specify any tags in the <code>Tags</code>\n         parameter, the canary creation fails.</p>"
+          }
+        },
+        "ProvisionedResourceCleanup": {
+          "target": "com.amazonaws.synthetics#ProvisionedResourceCleanupSetting",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to also delete the Lambda functions and layers used by this canary\n      when the canary is deleted. If you omit this parameter, the default of <code>AUTOMATIC</code> is used, which means\n         that the Lambda functions and layers will be deleted when the canary is deleted.</p>\n         <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter\n         of the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html\">DeleteCanary</a> operation\n         determines whether the Lambda functions and layers will be deleted.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.synthetics#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs to associate with the canary. \n         You can associate as many as 50 tags with a canary.</p>\n         <p>Tags can help you organize and categorize your\n         resources. You can also use them to scope user permissions, by \n         granting a user permission to access or change only the resources that have\n         certain tag values.</p>"
+            "smithy.api#documentation": "<p>A list of key-value pairs to associate with the canary. \n         You can associate as many as 50 tags with a canary.</p>\n         <p>Tags can help you organize and categorize your\n         resources. You can also use them to scope user permissions, by \n         granting a user permission to access or change only the resources that have\n         certain tag values.</p>\n         <p>To have the tags that you apply to this canary also be applied to the Lambda function that\n         the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>"
           }
         },
         "ArtifactConfig": {
@@ -1063,7 +1081,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Permanently deletes the specified canary.</p>\n         <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes\n         the Lambda functions and layers that are used by the canary.</p>\n         <p>Other resources used and created by the canary are not automatically deleted. \n         After you delete a canary that you do not intend to\n         use again, you\n      should also delete the following:</p>\n         <ul>\n            <li>\n               <p>The CloudWatch alarms created for this canary. These alarms have a name of\n                     <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i>\n                  </code>.</p>\n            </li>\n            <li>\n               <p>Amazon S3 objects and buckets, such as the canary's artifact location.</p>\n            </li>\n            <li>\n               <p>IAM roles created for the canary. If they were created in the console, these roles\n               have the name <code>\n                     role/service-role/CloudWatchSyntheticsRole-<i>MyCanaryName</i>\n                  </code>.</p>\n            </li>\n            <li>\n               <p>CloudWatch Logs log groups created for the canary. These logs groups have the name\n                     <code>/aws/lambda/cwsyn-<i>MyCanaryName</i>\n                  </code>. </p>\n            </li>\n         </ul>\n         <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display\n         the information about this canary. Make\n         note of the information returned by this operation so that you can delete these resources\n         after you delete the canary.</p>",
+        "smithy.api#documentation": "<p>Permanently deletes the specified canary.</p>\n         <p>If the canary's <code>ProvisionedResourceCleanup</code> field is set to <code>AUTOMATIC</code> \n         or you specify <code>DeleteLambda</code> in this operation as <code>true</code>, CloudWatch Synthetics also deletes\n         the Lambda functions and layers that are used by the canary.</p>\n         <p>Other resources used and created by the canary are not automatically deleted. \n         After you delete a canary, you\n      should also delete the following:</p>\n         <ul>\n            <li>\n               <p>The CloudWatch alarms created for this canary. These alarms have a name of\n               <code>Synthetics-Alarm-<i>first-198-characters-of-canary-name</i>-<i>canaryId</i>-<i>alarm number</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon S3 objects and buckets, such as the canary's artifact location.</p>\n            </li>\n            <li>\n               <p>IAM roles created for the canary. If they were created in the console, these roles\n               have the name <code>\n                     role/service-role/CloudWatchSyntheticsRole-<i>First-21-Characters-of-CanaryName</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>CloudWatch Logs log groups created for the canary. These logs groups have the name\n               <code>/aws/lambda/cwsyn-<i>First-21-Characters-of-CanaryName</i>\n                  </code>\n               </p>\n            </li>\n         </ul>\n         <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display\n         the information about this canary. Make\n         note of the information returned by this operation so that you can delete these resources\n         after you delete the canary.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/canary/{Name}",
@@ -1086,7 +1104,7 @@
           "target": "com.amazonaws.synthetics#boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default\n      is false.</p>\n         <p>Type: Boolean</p>",
+            "smithy.api#documentation": "<p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default\n      is <code>false</code>.</p>\n         <p>Your setting for this parameter is used only if the canary doesn't have <code>AUTOMATIC</code> for its \n       <code>ProvisionedResourceCleanup</code> field. If that field is set to <code>AUTOMATIC</code>, then the \n       Lambda functions and layers will be deleted when this canary is deleted. </p>\n         <p>Type: Boolean</p>",
             "smithy.api#httpQuery": "deleteLambda"
           }
         }
@@ -1298,7 +1316,7 @@
         "MaxResults": {
           "target": "com.amazonaws.synthetics#MaxCanaryResults",
           "traits": {
-            "smithy.api#documentation": "<p>Specify this parameter to limit how many canaries are returned each time you use\n      the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.</p>"
+            "smithy.api#documentation": "<p>Specify this parameter to limit how many canaries are returned each time you use\n      the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 20 is used.</p>"
           }
         },
         "Names": {
@@ -1508,7 +1526,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?$"
       }
     },
     "com.amazonaws.synthetics#GetCanary": {
@@ -1759,7 +1777,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:group:[0-9a-z]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\\d{1}:\\d{12}:group:[0-9a-z]+$"
       }
     },
     "com.amazonaws.synthetics#GroupIdentifier": {
@@ -1845,7 +1863,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:kms:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:key/[\\w\\-\\/]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:kms:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\\d{1}:\\d{12}:key/[\\w\\-\\/]+$"
       }
     },
     "com.amazonaws.synthetics#ListAssociatedGroups": {
@@ -2236,6 +2254,23 @@
         "smithy.api#pattern": "^.+$"
       }
     },
+    "com.amazonaws.synthetics#ProvisionedResourceCleanupSetting": {
+      "type": "enum",
+      "members": {
+        "AUTOMATIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTOMATIC"
+          }
+        },
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
+          }
+        }
+      }
+    },
     "com.amazonaws.synthetics#RequestEntityTooLargeException": {
       "type": "structure",
       "members": {
@@ -2256,7 +2291,19 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:(canary|group):[0-9a-z_\\-]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\\d{1}:\\d{12}:(canary|group):[0-9a-z_\\-]+$"
+      }
+    },
+    "com.amazonaws.synthetics#ResourceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.synthetics#ResourceToTag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
       }
     },
     "com.amazonaws.synthetics#ResourceNotFoundException": {
@@ -2270,6 +2317,17 @@
         "smithy.api#documentation": "<p>One of the specified resources was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.synthetics#ResourceToTag": {
+      "type": "enum",
+      "members": {
+        "LAMBDA_FUNCTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "lambda-function"
+          }
+        }
       }
     },
     "com.amazonaws.synthetics#RoleArn": {
@@ -3885,6 +3943,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains the configuration for canary artifacts, \n         including the encryption-at-rest settings for artifacts that \n         the canary uploads to Amazon S3.</p>"
           }
+        },
+        "ProvisionedResourceCleanup": {
+          "target": "com.amazonaws.synthetics#ProvisionedResourceCleanupSetting",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to also delete the Lambda functions and layers used by this canary\n         when the canary is deleted.</p>\n         <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter\n         of the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html\">DeleteCanary</a> operation\n         determines whether the Lambda functions and layers will be deleted.</p>"
+          }
         }
       },
       "traits": {
@@ -3923,7 +3987,7 @@
         "BaseCanaryRunId": {
           "target": "com.amazonaws.synthetics#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are \n         <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run \n         before this update was made, or the value of <code>Id</code> in the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html\">\n            CanaryRun</a> from any past run of this canary.</p>",
+            "smithy.api#documentation": "<p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are \n         <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run \n         before this update was made, or the value of <code>Id</code> in the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html\">\n            CanaryRun</a> from a run of this a canary in the past 31 days. If you specify the <code>Id</code> of a canary run older than 31 days, \n         the operation returns a 400 validation exception error..</p>",
             "smithy.api#required": {}
           }
         }
@@ -3966,6 +4030,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the security groups for this canary.</p>"
           }
+        },
+        "Ipv6AllowedForDualStack": {
+          "target": "com.amazonaws.synthetics#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this to <code>true</code> to allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is <code>false</code>\n         </p>"
+          }
         }
       },
       "traits": {
@@ -3991,6 +4061,12 @@
           "target": "com.amazonaws.synthetics#SecurityGroupIds",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the security groups for this canary.</p>"
+          }
+        },
+        "Ipv6AllowedForDualStack": {
+          "target": "com.amazonaws.synthetics#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether this canary allows outbound IPv6 traffic if it is connected to dual-stack subnets.</p>"
           }
         }
       },

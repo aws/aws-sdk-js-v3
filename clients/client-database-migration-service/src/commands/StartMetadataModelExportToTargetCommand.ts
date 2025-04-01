@@ -92,25 +92,25 @@ export interface StartMetadataModelExportToTargetCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Start Metadata Model Export To Target
  * ```javascript
  * // Applies converted database objects to your target database.
  * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   "OverwriteExtensionPack": true,
- *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   OverwriteExtensionPack: true,
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
  * };
  * const command = new StartMetadataModelExportToTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
  * }
  * *\/
- * // example id: start-metadata-model-export-to-target-1689783666835
  * ```
  *
+ * @public
  */
 export class StartMetadataModelExportToTargetCommand extends $Command
   .classBuilder<
@@ -120,9 +120,7 @@ export class StartMetadataModelExportToTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +132,16 @@ export class StartMetadataModelExportToTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMetadataModelExportToTargetCommand)
   .de(de_StartMetadataModelExportToTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMetadataModelExportToTargetMessage;
+      output: StartMetadataModelExportToTargetResponse;
+    };
+    sdk: {
+      input: StartMetadataModelExportToTargetCommandInput;
+      output: StartMetadataModelExportToTargetCommandOutput;
+    };
+  };
+}

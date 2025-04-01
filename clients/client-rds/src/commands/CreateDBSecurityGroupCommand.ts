@@ -101,24 +101,24 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB security group.
  * ```javascript
  * // This example creates a DB security group.
  * const input = {
- *   "DBSecurityGroupDescription": "My DB security group",
- *   "DBSecurityGroupName": "mydbsecuritygroup"
+ *   DBSecurityGroupDescription: "My DB security group",
+ *   DBSecurityGroupName: "mydbsecuritygroup"
  * };
  * const command = new CreateDBSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSecurityGroup": {}
+ *   DBSecurityGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: create-db-security-group-41b6786a-539e-42a5-a645-a8bc3cf99353
  * ```
  *
+ * @public
  */
 export class CreateDBSecurityGroupCommand extends $Command
   .classBuilder<
@@ -128,9 +128,7 @@ export class CreateDBSecurityGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +140,16 @@ export class CreateDBSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBSecurityGroupCommand)
   .de(de_CreateDBSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBSecurityGroupMessage;
+      output: CreateDBSecurityGroupResult;
+    };
+    sdk: {
+      input: CreateDBSecurityGroupCommandInput;
+      output: CreateDBSecurityGroupCommandOutput;
+    };
+  };
+}

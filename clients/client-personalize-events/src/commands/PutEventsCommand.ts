@@ -80,6 +80,7 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ *
  * @public
  */
 export class PutEventsCommand extends $Command
@@ -90,9 +91,7 @@ export class PutEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class PutEventsCommand extends $Command
   .f(PutEventsRequestFilterSensitiveLog, void 0)
   .ser(se_PutEventsCommand)
   .de(de_PutEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEventsCommandInput;
+      output: PutEventsCommandOutput;
+    };
+  };
+}

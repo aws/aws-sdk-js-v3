@@ -100,6 +100,28 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To attach a index to an object
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   IndexReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   },
+ *   TargetReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new AttachToIndexCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AttachedObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AttachToIndexCommand extends $Command
@@ -110,9 +132,7 @@ export class AttachToIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +144,16 @@ export class AttachToIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachToIndexCommand)
   .de(de_AttachToIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachToIndexRequest;
+      output: AttachToIndexResponse;
+    };
+    sdk: {
+      input: AttachToIndexCommandInput;
+      output: AttachToIndexCommandOutput;
+    };
+  };
+}

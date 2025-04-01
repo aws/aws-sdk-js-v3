@@ -1,3 +1,5 @@
+import { describe, expect, test as it, vi } from "vitest";
+
 import { S3ExpressIdentityProviderImpl } from "./S3ExpressIdentityProviderImpl";
 
 describe(S3ExpressIdentityProviderImpl.name, () => {
@@ -19,7 +21,7 @@ describe(S3ExpressIdentityProviderImpl.name, () => {
 
   describe(S3ExpressIdentityProviderImpl.prototype.getS3ExpressIdentity.name, () => {
     it("calls getIdentity when cache is empty", async () => {
-      const createSessionFn = jest.fn().mockImplementation(async () => ({ Credentials }));
+      const createSessionFn = vi.fn().mockImplementation(async () => ({ Credentials }));
       const identityProvider = new S3ExpressIdentityProviderImpl(createSessionFn);
       const identity = await identityProvider.getS3ExpressIdentity(s3ExpressCredentials, { Bucket: "Bucky" });
 
@@ -28,7 +30,7 @@ describe(S3ExpressIdentityProviderImpl.name, () => {
     });
 
     it("returns cached entries", async () => {
-      const createSessionFn = jest.fn().mockImplementation(async () => ({ Credentials }));
+      const createSessionFn = vi.fn().mockImplementation(async () => ({ Credentials }));
       const identityProvider = new S3ExpressIdentityProviderImpl(createSessionFn);
       const identity = await identityProvider.getS3ExpressIdentity(s3ExpressCredentials, { Bucket: "Bucky" });
 

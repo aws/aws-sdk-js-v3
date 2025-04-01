@@ -111,6 +111,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class UpdateSafetyRuleCommand extends $Command
@@ -121,9 +122,7 @@ export class UpdateSafetyRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class UpdateSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSafetyRuleCommand)
   .de(de_UpdateSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSafetyRuleRequest;
+      output: UpdateSafetyRuleResponse;
+    };
+    sdk: {
+      input: UpdateSafetyRuleCommandInput;
+      output: UpdateSafetyRuleCommandOutput;
+    };
+  };
+}

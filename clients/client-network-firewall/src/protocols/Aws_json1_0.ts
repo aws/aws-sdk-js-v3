@@ -55,6 +55,10 @@ import {
   DescribeFirewallPolicyCommandOutput,
 } from "../commands/DescribeFirewallPolicyCommand";
 import {
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "../commands/DescribeFlowOperationCommand";
+import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "../commands/DescribeLoggingConfigurationCommand";
@@ -76,10 +80,23 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "../commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "../commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "../commands/ListFirewallPoliciesCommand";
 import { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "../commands/ListFirewallsCommand";
+import {
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "../commands/ListFlowOperationResultsCommand";
+import { ListFlowOperationsCommandInput, ListFlowOperationsCommandOutput } from "../commands/ListFlowOperationsCommand";
 import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "../commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -90,8 +107,18 @@ import {
   ListTLSInspectionConfigurationsCommandOutput,
 } from "../commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "../commands/StartAnalysisReportCommand";
+import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "../commands/StartFlowCaptureCommand";
+import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "../commands/StartFlowFlushCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "../commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
@@ -128,6 +155,8 @@ import {
 import {
   ActionDefinition,
   Address,
+  AnalysisReport,
+  AnalysisTypeReportResult,
   AssociateFirewallPolicyRequest,
   AssociateSubnetsRequest,
   CheckCertificateRevocationStatusActions,
@@ -150,6 +179,8 @@ import {
   DescribeFirewallPolicyRequest,
   DescribeFirewallPolicyResponse,
   DescribeFirewallRequest,
+  DescribeFlowOperationRequest,
+  DescribeFlowOperationResponse,
   DescribeLoggingConfigurationRequest,
   DescribeResourcePolicyRequest,
   DescribeRuleGroupMetadataRequest,
@@ -160,9 +191,15 @@ import {
   DescribeTLSInspectionConfigurationResponse,
   Dimension,
   DisassociateSubnetsRequest,
+  EnabledAnalysisType,
   EncryptionConfiguration,
   FirewallPolicy,
   FirewallPolicyResponse,
+  FlowFilter,
+  FlowOperationMetadata,
+  FlowTimeouts,
+  GetAnalysisReportResultsRequest,
+  GetAnalysisReportResultsResponse,
   Header,
   InsufficientCapacityException,
   InternalServerError,
@@ -173,8 +210,14 @@ import {
   IPSet,
   IPSetReference,
   LimitExceededException,
+  ListAnalysisReportsRequest,
+  ListAnalysisReportsResponse,
   ListFirewallPoliciesRequest,
   ListFirewallsRequest,
+  ListFlowOperationResultsRequest,
+  ListFlowOperationResultsResponse,
+  ListFlowOperationsRequest,
+  ListFlowOperationsResponse,
   ListRuleGroupsRequest,
   ListTagsForResourceRequest,
   ListTLSInspectionConfigurationsRequest,
@@ -201,6 +244,9 @@ import {
   ServerCertificateConfiguration,
   ServerCertificateScope,
   SourceMetadata,
+  StartAnalysisReportRequest,
+  StartFlowCaptureRequest,
+  StartFlowFlushRequest,
   StatefulEngineOptions,
   StatefulRule,
   StatefulRuleGroupOverride,
@@ -220,6 +266,7 @@ import {
   TLSInspectionConfigurationResponse,
   UnsupportedOperationException,
   UntagResourceRequest,
+  UpdateFirewallAnalysisSettingsRequest,
   UpdateFirewallDeleteProtectionRequest,
   UpdateFirewallDescriptionRequest,
   UpdateFirewallEncryptionConfigurationRequest,
@@ -405,6 +452,19 @@ export const se_DescribeFirewallPolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DescribeFlowOperationCommand
+ */
+export const se_DescribeFlowOperationCommand = async (
+  input: DescribeFlowOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeFlowOperation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DescribeLoggingConfigurationCommand
  */
 export const se_DescribeLoggingConfigurationCommand = async (
@@ -483,6 +543,32 @@ export const se_DisassociateSubnetsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetAnalysisReportResultsCommand
+ */
+export const se_GetAnalysisReportResultsCommand = async (
+  input: GetAnalysisReportResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAnalysisReportResults");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListAnalysisReportsCommand
+ */
+export const se_ListAnalysisReportsCommand = async (
+  input: ListAnalysisReportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAnalysisReports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListFirewallPoliciesCommand
  */
 export const se_ListFirewallPoliciesCommand = async (
@@ -503,6 +589,32 @@ export const se_ListFirewallsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFirewalls");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListFlowOperationResultsCommand
+ */
+export const se_ListFlowOperationResultsCommand = async (
+  input: ListFlowOperationResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFlowOperationResults");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListFlowOperationsCommand
+ */
+export const se_ListFlowOperationsCommand = async (
+  input: ListFlowOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFlowOperations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,6 +673,45 @@ export const se_PutResourcePolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0StartAnalysisReportCommand
+ */
+export const se_StartAnalysisReportCommand = async (
+  input: StartAnalysisReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAnalysisReport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0StartFlowCaptureCommand
+ */
+export const se_StartFlowCaptureCommand = async (
+  input: StartFlowCaptureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartFlowCapture");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0StartFlowFlushCommand
+ */
+export const se_StartFlowFlushCommand = async (
+  input: StartFlowFlushCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartFlowFlush");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -581,6 +732,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateFirewallAnalysisSettingsCommand
+ */
+export const se_UpdateFirewallAnalysisSettingsCommand = async (
+  input: UpdateFirewallAnalysisSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallAnalysisSettings");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,6 +1128,26 @@ export const de_DescribeFirewallPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DescribeFlowOperationCommand
+ */
+export const de_DescribeFlowOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlowOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFlowOperationResponse(data, context);
+  const response: DescribeFlowOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DescribeLoggingConfigurationCommand
  */
 export const de_DescribeLoggingConfigurationCommand = async (
@@ -1084,6 +1268,46 @@ export const de_DisassociateSubnetsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetAnalysisReportResultsCommand
+ */
+export const de_GetAnalysisReportResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnalysisReportResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAnalysisReportResultsResponse(data, context);
+  const response: GetAnalysisReportResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListAnalysisReportsCommand
+ */
+export const de_ListAnalysisReportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalysisReportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAnalysisReportsResponse(data, context);
+  const response: ListAnalysisReportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListFirewallPoliciesCommand
  */
 export const de_ListFirewallPoliciesCommand = async (
@@ -1117,6 +1341,46 @@ export const de_ListFirewallsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListFirewallsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListFlowOperationResultsCommand
+ */
+export const de_ListFlowOperationResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowOperationResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFlowOperationResultsResponse(data, context);
+  const response: ListFlowOperationResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListFlowOperationsCommand
+ */
+export const de_ListFlowOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowOperationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFlowOperationsResponse(data, context);
+  const response: ListFlowOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1204,6 +1468,66 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0StartAnalysisReportCommand
+ */
+export const de_StartAnalysisReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAnalysisReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAnalysisReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartFlowCaptureCommand
+ */
+export const de_StartFlowCaptureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlowCaptureCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartFlowCaptureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartFlowFlushCommand
+ */
+export const de_StartFlowFlushCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlowFlushCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartFlowFlushCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1237,6 +1561,26 @@ export const de_UntagResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateFirewallAnalysisSettingsCommand
+ */
+export const de_UpdateFirewallAnalysisSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFirewallAnalysisSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateFirewallAnalysisSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1722,6 +2066,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_DescribeFirewallRequest omitted.
 
+// se_DescribeFlowOperationRequest omitted.
+
 // se_DescribeLoggingConfigurationRequest omitted.
 
 // se_DescribeResourcePolicyRequest omitted.
@@ -1738,11 +2084,21 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_DisassociateSubnetsRequest omitted.
 
+// se_EnabledAnalysisTypes omitted.
+
 // se_EncryptionConfiguration omitted.
 
 // se_FirewallPolicy omitted.
 
 // se_Flags omitted.
+
+// se_FlowFilter omitted.
+
+// se_FlowFilters omitted.
+
+// se_FlowTimeouts omitted.
+
+// se_GetAnalysisReportResultsRequest omitted.
 
 // se_Header omitted.
 
@@ -1754,9 +2110,15 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_IPSets omitted.
 
+// se_ListAnalysisReportsRequest omitted.
+
 // se_ListFirewallPoliciesRequest omitted.
 
 // se_ListFirewallsRequest omitted.
+
+// se_ListFlowOperationResultsRequest omitted.
+
+// se_ListFlowOperationsRequest omitted.
 
 // se_ListRuleGroupsRequest omitted.
 
@@ -1785,6 +2147,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_PortSets omitted.
 
 // se_ProtocolNumbers omitted.
+
+// se_ProtocolStrings omitted.
 
 // se_PublishMetricAction omitted.
 
@@ -1823,6 +2187,12 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_Settings omitted.
 
 // se_SourceMetadata omitted.
+
+// se_StartAnalysisReportRequest omitted.
+
+// se_StartFlowCaptureRequest omitted.
+
+// se_StartFlowFlushRequest omitted.
 
 // se_StatefulActions omitted.
 
@@ -1874,6 +2244,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateFirewallAnalysisSettingsRequest omitted.
+
 // se_UpdateFirewallDeleteProtectionRequest omitted.
 
 // se_UpdateFirewallDescriptionRequest omitted.
@@ -1919,9 +2291,59 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 
 // de_Addresses omitted.
 
+/**
+ * deserializeAws_json1_0AnalysisReport
+ */
+const de_AnalysisReport = (output: any, context: __SerdeContext): AnalysisReport => {
+  return take(output, {
+    AnalysisReportId: __expectString,
+    AnalysisType: __expectString,
+    ReportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0AnalysisReportResults
+ */
+const de_AnalysisReportResults = (output: any, context: __SerdeContext): AnalysisTypeReportResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisTypeReportResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0AnalysisReports
+ */
+const de_AnalysisReports = (output: any, context: __SerdeContext): AnalysisReport[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisReport(entry, context);
+    });
+  return retVal;
+};
+
 // de_AnalysisResult omitted.
 
 // de_AnalysisResultList omitted.
+
+/**
+ * deserializeAws_json1_0AnalysisTypeReportResult
+ */
+const de_AnalysisTypeReportResult = (output: any, context: __SerdeContext): AnalysisTypeReportResult => {
+  return take(output, {
+    Domain: __expectString,
+    FirstAccessed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Hits: _json,
+    LastAccessed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Protocol: __expectString,
+    UniqueSources: _json,
+  }) as any;
+};
 
 // de_AssociateFirewallPolicyResponse omitted.
 
@@ -2023,6 +2445,22 @@ const de_DescribeFirewallPolicyResponse = (output: any, context: __SerdeContext)
 
 // de_DescribeFirewallResponse omitted.
 
+/**
+ * deserializeAws_json1_0DescribeFlowOperationResponse
+ */
+const de_DescribeFlowOperationResponse = (output: any, context: __SerdeContext): DescribeFlowOperationResponse => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    FirewallArn: __expectString,
+    FlowOperation: _json,
+    FlowOperationId: __expectString,
+    FlowOperationStatus: __expectString,
+    FlowOperationType: __expectString,
+    FlowRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatusMessage: __expectString,
+  }) as any;
+};
+
 // de_DescribeLoggingConfigurationResponse omitted.
 
 // de_DescribeResourcePolicyResponse omitted.
@@ -2076,6 +2514,8 @@ const de_DescribeTLSInspectionConfigurationResponse = (
 
 // de_DisassociateSubnetsResponse omitted.
 
+// de_EnabledAnalysisTypes omitted.
+
 // de_EncryptionConfiguration omitted.
 
 // de_Firewall omitted.
@@ -2113,7 +2553,63 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 
 // de_Flags omitted.
 
+// de_Flow omitted.
+
+// de_FlowFilter omitted.
+
+// de_FlowFilters omitted.
+
+// de_FlowOperation omitted.
+
+/**
+ * deserializeAws_json1_0FlowOperationMetadata
+ */
+const de_FlowOperationMetadata = (output: any, context: __SerdeContext): FlowOperationMetadata => {
+  return take(output, {
+    FlowOperationId: __expectString,
+    FlowOperationStatus: __expectString,
+    FlowOperationType: __expectString,
+    FlowRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0FlowOperations
+ */
+const de_FlowOperations = (output: any, context: __SerdeContext): FlowOperationMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowOperationMetadata(entry, context);
+    });
+  return retVal;
+};
+
+// de_Flows omitted.
+
+// de_FlowTimeouts omitted.
+
+/**
+ * deserializeAws_json1_0GetAnalysisReportResultsResponse
+ */
+const de_GetAnalysisReportResultsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAnalysisReportResultsResponse => {
+  return take(output, {
+    AnalysisReportResults: (_: any) => de_AnalysisReportResults(_, context),
+    AnalysisType: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    ReportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
 // de_Header omitted.
+
+// de_Hits omitted.
 
 // de_InsufficientCapacityException omitted.
 
@@ -2141,9 +2637,48 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 
 // de_LimitExceededException omitted.
 
+/**
+ * deserializeAws_json1_0ListAnalysisReportsResponse
+ */
+const de_ListAnalysisReportsResponse = (output: any, context: __SerdeContext): ListAnalysisReportsResponse => {
+  return take(output, {
+    AnalysisReports: (_: any) => de_AnalysisReports(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
 // de_ListFirewallPoliciesResponse omitted.
 
 // de_ListFirewallsResponse omitted.
+
+/**
+ * deserializeAws_json1_0ListFlowOperationResultsResponse
+ */
+const de_ListFlowOperationResultsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListFlowOperationResultsResponse => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    FirewallArn: __expectString,
+    FlowOperationId: __expectString,
+    FlowOperationStatus: __expectString,
+    FlowRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Flows: _json,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ListFlowOperationsResponse
+ */
+const de_ListFlowOperationsResponse = (output: any, context: __SerdeContext): ListFlowOperationsResponse => {
+  return take(output, {
+    FlowOperations: (_: any) => de_FlowOperations(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 // de_ListRuleGroupsResponse omitted.
 
@@ -2176,6 +2711,8 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 // de_PortSets omitted.
 
 // de_ProtocolNumbers omitted.
+
+// de_ProtocolStrings omitted.
 
 // de_PublishMetricAction omitted.
 
@@ -2247,6 +2784,12 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 // de_Settings omitted.
 
 // de_SourceMetadata omitted.
+
+// de_StartAnalysisReportResponse omitted.
+
+// de_StartFlowCaptureResponse omitted.
+
+// de_StartFlowFlushResponse omitted.
 
 // de_StatefulActions omitted.
 
@@ -2330,9 +2873,13 @@ const de_TLSInspectionConfigurationResponse = (
 
 // de_TLSInspectionConfigurations omitted.
 
+// de_UniqueSources omitted.
+
 // de_UnsupportedOperationException omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateFirewallAnalysisSettingsResponse omitted.
 
 // de_UpdateFirewallDeleteProtectionResponse omitted.
 

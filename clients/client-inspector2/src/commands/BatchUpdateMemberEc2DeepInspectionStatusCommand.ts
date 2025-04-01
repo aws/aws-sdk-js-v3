@@ -95,6 +95,7 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
@@ -105,9 +106,7 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateMemberEc2DeepInspectionStatusCommand)
   .de(de_BatchUpdateMemberEc2DeepInspectionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateMemberEc2DeepInspectionStatusRequest;
+      output: BatchUpdateMemberEc2DeepInspectionStatusResponse;
+    };
+    sdk: {
+      input: BatchUpdateMemberEc2DeepInspectionStatusCommandInput;
+      output: BatchUpdateMemberEc2DeepInspectionStatusCommandOutput;
+    };
+  };
+}

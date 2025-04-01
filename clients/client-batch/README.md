@@ -21,7 +21,7 @@ on analyzing results and solving your specific problems instead.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-batch
+To install this package, simply type add or install @aws-sdk/client-batch
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-batch`
@@ -232,6 +232,14 @@ CreateComputeEnvironment
 </details>
 <details>
 <summary>
+CreateConsumableResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/CreateConsumableResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/CreateConsumableResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/CreateConsumableResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateJobQueue
 </summary>
 
@@ -252,6 +260,14 @@ DeleteComputeEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/DeleteComputeEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DeleteComputeEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DeleteComputeEnvironmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConsumableResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/DeleteConsumableResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DeleteConsumableResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DeleteConsumableResourceCommandOutput/)
 
 </details>
 <details>
@@ -284,6 +300,14 @@ DescribeComputeEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/DescribeComputeEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DescribeComputeEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DescribeComputeEnvironmentsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeConsumableResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/DescribeConsumableResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DescribeConsumableResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/DescribeConsumableResourceCommandOutput/)
 
 </details>
 <details>
@@ -328,10 +352,26 @@ GetJobQueueSnapshot
 </details>
 <details>
 <summary>
+ListConsumableResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/ListConsumableResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListConsumableResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListConsumableResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListJobsByConsumableResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/ListJobsByConsumableResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListJobsByConsumableResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/ListJobsByConsumableResourceCommandOutput/)
 
 </details>
 <details>
@@ -396,6 +436,14 @@ UpdateComputeEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/UpdateComputeEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/UpdateComputeEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/UpdateComputeEnvironmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateConsumableResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/UpdateConsumableResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/UpdateConsumableResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/UpdateConsumableResourceCommandOutput/)
 
 </details>
 <details>

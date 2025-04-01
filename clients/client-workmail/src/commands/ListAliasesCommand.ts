@@ -81,6 +81,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListAliasesCommand extends $Command
@@ -91,9 +92,7 @@ export class ListAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAliasesCommand)
   .de(de_ListAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAliasesRequest;
+      output: ListAliasesResponse;
+    };
+    sdk: {
+      input: ListAliasesCommandInput;
+      output: ListAliasesCommandOutput;
+    };
+  };
+}

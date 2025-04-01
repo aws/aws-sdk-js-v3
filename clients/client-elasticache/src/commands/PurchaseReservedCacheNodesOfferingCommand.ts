@@ -37,8 +37,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
 
 /**
  * <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
- *             for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with
- *                 Reserved Nodes</a> for Memcached.</p>
+ *             for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/reserved-nodes.html">Managing Costs with Reserved Nodes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,18 +112,21 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript
  * // Allows you to purchase a reserved cache node offering.
  * const input = {
- *   "ReservedCacheNodesOfferingId": "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
+ *   ReservedCacheNodesOfferingId: "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
  * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
- * await client.send(command);
- * // example id: purchasereservedcachenodesofferings-1483040798484
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command
   .classBuilder<
@@ -134,9 +136,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseReservedCacheNodesOfferingCommand)
   .de(de_PurchaseReservedCacheNodesOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseReservedCacheNodesOfferingMessage;
+      output: PurchaseReservedCacheNodesOfferingResult;
+    };
+    sdk: {
+      input: PurchaseReservedCacheNodesOfferingCommandInput;
+      output: PurchaseReservedCacheNodesOfferingCommandOutput;
+    };
+  };
+}

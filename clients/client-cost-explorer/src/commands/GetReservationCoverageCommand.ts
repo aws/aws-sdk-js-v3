@@ -245,6 +245,7 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetReservationCoverageCommand extends $Command
@@ -255,9 +256,7 @@ export class GetReservationCoverageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +268,16 @@ export class GetReservationCoverageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservationCoverageCommand)
   .de(de_GetReservationCoverageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservationCoverageRequest;
+      output: GetReservationCoverageResponse;
+    };
+    sdk: {
+      input: GetReservationCoverageCommandInput;
+      output: GetReservationCoverageCommandOutput;
+    };
+  };
+}

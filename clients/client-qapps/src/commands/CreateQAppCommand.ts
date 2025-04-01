@@ -29,8 +29,8 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
 
 /**
  * <p>Creates a new Amazon Q App based on the provided definition. The Q App definition specifies
- *       the cards and flow of the Q App. This operation also calculates the dependencies between the cards
- *       by inspecting the references in the prompts. </p>
+ *       the cards and flow of the Q App. This operation also calculates the dependencies between the
+ *       cards by inspecting the references in the prompts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,14 +47,14 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *         textInput: { // TextInputCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           placeholder: "STRING_VALUE",
  *           defaultValue: "STRING_VALUE",
  *         },
  *         qQuery: { // QQueryCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           prompt: "STRING_VALUE", // required
  *           outputSource: "approved-sources" || "llm",
  *           attributeFilter: { // AttributeFilter
@@ -142,17 +142,27 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *         qPlugin: { // QPluginCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           prompt: "STRING_VALUE", // required
  *           pluginId: "STRING_VALUE", // required
+ *           actionIdentifier: "STRING_VALUE",
  *         },
  *         fileUpload: { // FileUploadCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           filename: "STRING_VALUE",
  *           fileId: "STRING_VALUE",
  *           allowOverride: true || false,
+ *         },
+ *         formInput: { // FormInputCardInput
+ *           title: "STRING_VALUE", // required
+ *           id: "STRING_VALUE", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
+ *           metadata: { // FormInputCardMetadata
+ *             schema: "DOCUMENT_VALUE", // required
+ *           },
+ *           computeMode: "append" || "replace",
  *         },
  *       },
  *     ],
@@ -193,23 +203,23 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a
- *       conflict with the current state of the resource.</p>
+ *  <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
  *
  * @throws {@link ContentTooLargeException} (client fault)
- *  <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ *  <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -219,6 +229,55 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example A basic application with 1 text input card and 1 output card
+ * ```javascript
+ * //
+ * const input = {
+ *   appDefinition: {
+ *     cards: [
+ *       {
+ *         textInput: {
+ *           id: "4cf94d96-8819-45c2-98cc-58c56b35c72f",
+ *           title: "Color Base",
+ *           type: "text-input"
+ *         }
+ *       },
+ *       {
+ *         qQuery: {
+ *           id: "18870b94-1e63-40e0-8c12-669c90ac5acc",
+ *           prompt: "Recommend me a list of colors that go well with @4cf94d96-8819-45c2-98cc-58c56b35c72f",
+ *           title: "Recommended Palette",
+ *           type: "q-query"
+ *         }
+ *       }
+ *     ],
+ *     initialPrompt: "Create an app that recommend a list of colors based on input."
+ *   },
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   title: "Color Palette Generator"
+ * };
+ * const command = new CreateQAppCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 1,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   initialPrompt: "Create an app that recommend a list of colors based on input.",
+ *   requiredCapabilities: [
+ *     "CreatorMode"
+ *   ],
+ *   status: "DRAFT",
+ *   title: "Color Palette Generator",
+ *   updatedAt: "2024-05-14T00:13:26.168Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -230,9 +289,7 @@ export class CreateQAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -244,4 +301,16 @@ export class CreateQAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQAppCommand)
   .de(de_CreateQAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQAppInput;
+      output: CreateQAppOutput;
+    };
+    sdk: {
+      input: CreateQAppCommandInput;
+      output: CreateQAppCommandOutput;
+    };
+  };
+}

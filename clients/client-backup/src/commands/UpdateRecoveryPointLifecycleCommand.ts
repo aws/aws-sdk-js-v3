@@ -37,14 +37,17 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
  *          it expires. Backup transitions and expires backups automatically according to
  *          the lifecycle that you define.</p>
+ *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table. Backup ignores this expression for
+ *          other resource types.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
  *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
  *          cold after days” setting. The “transition to cold after days” setting cannot be changed
  *          after a backup has been transitioned to cold.</p>
- *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
- *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
- *             Feature availability by resource</a> table. Backup ignores this expression for
- *          other resource types.</p>
+ *          <important>
+ *             <p>If your lifecycle currently uses the parameters <code>DeleteAfterDays</code> and
+ *          <code>MoveToColdStorageAfterDays</code>, include these parameters and their values when you call
+ *          this operation. Not including them may result in your plan updating with null values.</p>
+ *          </important>
  *          <p>This operation does not support continuous backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +108,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command
@@ -115,9 +119,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +131,16 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRecoveryPointLifecycleCommand)
   .de(de_UpdateRecoveryPointLifecycleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRecoveryPointLifecycleInput;
+      output: UpdateRecoveryPointLifecycleOutput;
+    };
+    sdk: {
+      input: UpdateRecoveryPointLifecycleCommandInput;
+      output: UpdateRecoveryPointLifecycleCommandOutput;
+    };
+  };
+}

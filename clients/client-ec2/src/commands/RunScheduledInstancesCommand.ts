@@ -10,7 +10,7 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesRequestFilterSensitiveLog,
   RunScheduledInstancesResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -135,6 +135,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class RunScheduledInstancesCommand extends $Command
@@ -145,9 +146,7 @@ export class RunScheduledInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class RunScheduledInstancesCommand extends $Command
   .f(RunScheduledInstancesRequestFilterSensitiveLog, void 0)
   .ser(se_RunScheduledInstancesCommand)
   .de(de_RunScheduledInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunScheduledInstancesRequest;
+      output: RunScheduledInstancesResult;
+    };
+    sdk: {
+      input: RunScheduledInstancesCommandInput;
+      output: RunScheduledInstancesCommandOutput;
+    };
+  };
+}

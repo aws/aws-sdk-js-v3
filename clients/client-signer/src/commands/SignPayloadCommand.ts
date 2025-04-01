@@ -79,6 +79,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class SignPayloadCommand extends $Command
@@ -89,9 +90,7 @@ export class SignPayloadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class SignPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SignPayloadCommand)
   .de(de_SignPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignPayloadRequest;
+      output: SignPayloadResponse;
+    };
+    sdk: {
+      input: SignPayloadCommandInput;
+      output: SignPayloadCommandOutput;
+    };
+  };
+}

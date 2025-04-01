@@ -83,6 +83,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class ListExecutionsCommand extends $Command
@@ -93,9 +94,7 @@ export class ListExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExecutionsCommand)
   .de(de_ListExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExecutionsRequest;
+      output: ListExecutionsResponse;
+    };
+    sdk: {
+      input: ListExecutionsCommandInput;
+      output: ListExecutionsCommandOutput;
+    };
+  };
+}

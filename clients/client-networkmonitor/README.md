@@ -21,7 +21,7 @@ Network Monitor in any subnet belonging to a VPC owned by your Account.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-networkmonitor
+To install this package, simply type add or install @aws-sdk/client-networkmonitor
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-networkmonitor`

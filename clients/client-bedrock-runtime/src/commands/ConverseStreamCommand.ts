@@ -8,6 +8,7 @@ import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ConverseStreamRequest,
+  ConverseStreamRequestFilterSensitiveLog,
   ConverseStreamResponse,
   ConverseStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -40,6 +41,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *          model. </p>
  *          <p>To find out if a model supports streaming, call <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a>
  *          and check the <code>responseStreamingSupported</code> field in the response.</p>
+ *          <note>
+ *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>ConverseStream</code>.</p>
+ *          </note>
+ *          <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p>
+ *          <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p>
+ *          <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html">Use a prompt from Prompt management</a>.</p>
  *          <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *          To use a guardrail, see  <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *          To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i>
@@ -47,6 +54,15 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *          <p>For example code, see <i>Conversation streaming example</i> in the <i>Amazon Bedrock User Guide</i>.
  *       </p>
  *          <p>This operation requires permission for the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
+ *          <important>
+ *             <p>To deny all inference access to resources that you specify in the modelId field, you
+ *          need to deny access to the <code>bedrock:InvokeModel</code> and
+ *          <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies
+ *          access to the resource through the base inference actions (<a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html">InvokeModel</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html">InvokeModelWithResponseStream</a>). For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference">Deny access for inference on specific models</a>.
+ *       </p>
+ *          </important>
+ *          <p>For troubleshooting some of the common errors you might encounter when using the <code>ConverseStream</code> API,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +71,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ConverseStreamRequest
  *   modelId: "STRING_VALUE", // required
- *   messages: [ // Messages // required
+ *   messages: [ // Messages
  *     { // Message
  *       role: "user" || "assistant", // required
  *       content: [ // ContentBlocks // required
@@ -72,6 +88,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             name: "STRING_VALUE", // required
  *             source: { // DocumentSource Union: only one key present
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *             },
+ *           },
+ *           video: { // VideoBlock
+ *             format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
+ *             source: { // VideoSource Union: only one key present
+ *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               s3Location: { // S3Location
+ *                 uri: "STRING_VALUE", // required
+ *                 bucketOwner: "STRING_VALUE",
+ *               },
  *             },
  *           },
  *           toolUse: { // ToolUseBlock
@@ -98,6 +124,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *                   },
  *                 },
+ *                 video: {
+ *                   format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                     s3Location: {
+ *                       uri: "STRING_VALUE", // required
+ *                       bucketOwner: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 },
  *               },
  *             ],
  *             status: "success" || "error",
@@ -105,7 +141,26 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  *             text: { // GuardrailConverseTextBlock
  *               text: "STRING_VALUE", // required
+ *               qualifiers: [ // GuardrailConverseContentQualifierList
+ *                 "grounding_source" || "query" || "guard_content",
+ *               ],
  *             },
+ *             image: { // GuardrailConverseImageBlock
+ *               format: "png" || "jpeg", // required
+ *               source: { // GuardrailConverseImageSource Union: only one key present
+ *                 bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               },
+ *             },
+ *           },
+ *           cachePoint: { // CachePointBlock
+ *             type: "default", // required
+ *           },
+ *           reasoningContent: { // ReasoningContentBlock Union: only one key present
+ *             reasoningText: { // ReasoningTextBlock
+ *               text: "STRING_VALUE", // required
+ *               signature: "STRING_VALUE",
+ *             },
+ *             redactedContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           },
  *         },
  *       ],
@@ -117,7 +172,19 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *       guardContent: {//  Union: only one key present
  *         text: {
  *           text: "STRING_VALUE", // required
+ *           qualifiers: [
+ *             "grounding_source" || "query" || "guard_content",
+ *           ],
  *         },
+ *         image: {
+ *           format: "png" || "jpeg", // required
+ *           source: {//  Union: only one key present
+ *             bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *           },
+ *         },
+ *       },
+ *       cachePoint: {
+ *         type: "default", // required
  *       },
  *     },
  *   ],
@@ -139,6 +206,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             json: "DOCUMENT_VALUE",
  *           },
  *         },
+ *         cachePoint: "<CachePointBlock>",
  *       },
  *     ],
  *     toolChoice: { // ToolChoice Union: only one key present
@@ -156,9 +224,20 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *     streamProcessingMode: "sync" || "async",
  *   },
  *   additionalModelRequestFields: "DOCUMENT_VALUE",
+ *   promptVariables: { // PromptVariableMap
+ *     "<keys>": { // PromptVariableValues Union: only one key present
+ *       text: "STRING_VALUE",
+ *     },
+ *   },
  *   additionalModelResponseFieldPaths: [ // AdditionalModelResponseFieldPaths
  *     "STRING_VALUE",
  *   ],
+ *   requestMetadata: { // RequestMetadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   performanceConfig: { // PerformanceConfiguration
+ *     latency: "standard" || "optimized",
+ *   },
  * };
  * const command = new ConverseStreamCommand(input);
  * const response = await client.send(command);
@@ -182,6 +261,11 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         toolUse: { // ToolUseBlockDelta
  * //           input: "STRING_VALUE", // required
  * //         },
+ * //         reasoningContent: { // ReasoningContentBlockDelta Union: only one key present
+ * //           text: "STRING_VALUE",
+ * //           redactedContent: new Uint8Array(),
+ * //           signature: "STRING_VALUE",
+ * //         },
  * //       },
  * //       contentBlockIndex: Number("int"), // required
  * //     },
@@ -197,6 +281,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         inputTokens: Number("int"), // required
  * //         outputTokens: Number("int"), // required
  * //         totalTokens: Number("int"), // required
+ * //         cacheReadInputTokens: Number("int"),
+ * //         cacheWriteInputTokens: Number("int"),
  * //       },
  * //       metrics: { // ConverseStreamMetrics
  * //         latencyMs: Number("long"), // required
@@ -222,6 +308,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   { // GuardrailContentFilter
  * //                     type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                     confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                     filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
  * //                     action: "BLOCKED", // required
  * //                   },
  * //                 ],
@@ -258,6 +345,38 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   },
  * //                 ],
  * //               },
+ * //               contextualGroundingPolicy: { // GuardrailContextualGroundingPolicyAssessment
+ * //                 filters: [ // GuardrailContextualGroundingFilters
+ * //                   { // GuardrailContextualGroundingFilter
+ * //                     type: "GROUNDING" || "RELEVANCE", // required
+ * //                     threshold: Number("double"), // required
+ * //                     score: Number("double"), // required
+ * //                     action: "BLOCKED" || "NONE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               invocationMetrics: { // GuardrailInvocationMetrics
+ * //                 guardrailProcessingLatency: Number("long"),
+ * //                 usage: { // GuardrailUsage
+ * //                   topicPolicyUnits: Number("int"), // required
+ * //                   contentPolicyUnits: Number("int"), // required
+ * //                   wordPolicyUnits: Number("int"), // required
+ * //                   sensitiveInformationPolicyUnits: Number("int"), // required
+ * //                   sensitiveInformationPolicyFreeUnits: Number("int"), // required
+ * //                   contextualGroundingPolicyUnits: Number("int"), // required
+ * //                   contentPolicyImageUnits: Number("int"),
+ * //                 },
+ * //                 guardrailCoverage: { // GuardrailCoverage
+ * //                   textCharacters: { // GuardrailTextCharactersCoverage
+ * //                     guarded: Number("int"),
+ * //                     total: Number("int"),
+ * //                   },
+ * //                   images: { // GuardrailImageCoverage
+ * //                     guarded: Number("int"),
+ * //                     total: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
  * //             },
  * //           },
  * //           outputAssessments: { // GuardrailAssessmentListMap
@@ -277,6 +396,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     {
  * //                       type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                       confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                       filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
  * //                       action: "BLOCKED", // required
  * //                     },
  * //                   ],
@@ -313,10 +433,48 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     },
  * //                   ],
  * //                 },
+ * //                 contextualGroundingPolicy: {
+ * //                   filters: [
+ * //                     {
+ * //                       type: "GROUNDING" || "RELEVANCE", // required
+ * //                       threshold: Number("double"), // required
+ * //                       score: Number("double"), // required
+ * //                       action: "BLOCKED" || "NONE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 invocationMetrics: {
+ * //                   guardrailProcessingLatency: Number("long"),
+ * //                   usage: {
+ * //                     topicPolicyUnits: Number("int"), // required
+ * //                     contentPolicyUnits: Number("int"), // required
+ * //                     wordPolicyUnits: Number("int"), // required
+ * //                     sensitiveInformationPolicyUnits: Number("int"), // required
+ * //                     sensitiveInformationPolicyFreeUnits: Number("int"), // required
+ * //                     contextualGroundingPolicyUnits: Number("int"), // required
+ * //                     contentPolicyImageUnits: Number("int"),
+ * //                   },
+ * //                   guardrailCoverage: {
+ * //                     textCharacters: {
+ * //                       guarded: Number("int"),
+ * //                       total: Number("int"),
+ * //                     },
+ * //                     images: {
+ * //                       guarded: Number("int"),
+ * //                       total: Number("int"),
+ * //                     },
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //           },
  * //         },
+ * //         promptRouter: { // PromptRouterTrace
+ * //           invokedModelId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       performanceConfig: { // PerformanceConfiguration
+ * //         latency: "standard" || "optimized",
  * //       },
  * //     },
  * //     internalServerException: { // InternalServerException
@@ -333,6 +491,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //     throttlingException: { // ThrottlingException
  * //       message: "STRING_VALUE",
  * //     },
+ * //     serviceUnavailableException: { // ServiceUnavailableException
+ * //       message: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -345,31 +506,44 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * @see {@link BedrockRuntimeClientResolvedConfig | config} for BedrockRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *  <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *  <p>An internal server error occurred. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
  *
  * @throws {@link ModelErrorException} (client fault)
  *  <p>The request failed due to an error while processing the model.</p>
  *
  * @throws {@link ModelNotReadyException} (client fault)
- *  <p>The model specified in the request is not ready to serve inference requests.</p>
+ *  <p>The model specified in the request is not ready to serve inference requests. The AWS SDK
+ *          will automatically retry the operation up to 5 times. For information about configuring
+ *          automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+ *       reference guide.</p>
  *
  * @throws {@link ModelTimeoutException} (client fault)
  *  <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource ARN was not found. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service isn't currently available. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *  <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
+ *          troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *  <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
  *
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
+ *
  *
  * @public
  */
@@ -381,9 +555,7 @@ export class ConverseStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -399,7 +571,19 @@ export class ConverseStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "ConverseStreamCommand")
-  .f(void 0, ConverseStreamResponseFilterSensitiveLog)
+  .f(ConverseStreamRequestFilterSensitiveLog, ConverseStreamResponseFilterSensitiveLog)
   .ser(se_ConverseStreamCommand)
   .de(de_ConverseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConverseStreamRequest;
+      output: ConverseStreamResponse;
+    };
+    sdk: {
+      input: ConverseStreamCommandInput;
+      output: ConverseStreamCommandOutput;
+    };
+  };
+}

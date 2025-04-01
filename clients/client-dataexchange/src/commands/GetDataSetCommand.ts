@@ -50,6 +50,7 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * //   Origin: "STRING_VALUE",
  * //   OriginDetails: { // OriginDetails
  * //     ProductId: "STRING_VALUE",
+ * //     DataGrantId: "STRING_VALUE",
  * //   },
  * //   SourceId: "STRING_VALUE",
  * //   Tags: { // MapOf__string
@@ -81,6 +82,7 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetDataSetCommand extends $Command
@@ -91,9 +93,7 @@ export class GetDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSetCommand)
   .de(de_GetDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSetRequest;
+      output: GetDataSetResponse;
+    };
+    sdk: {
+      input: GetDataSetCommandInput;
+      output: GetDataSetCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface BatchDeleteTaxRegistrationCommandOutput extends BatchDeleteTaxR
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteTaxRegistrationCommand extends $Command
@@ -91,9 +92,7 @@ export class BatchDeleteTaxRegistrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class BatchDeleteTaxRegistrationCommand extends $Command
   .f(void 0, BatchDeleteTaxRegistrationResponseFilterSensitiveLog)
   .ser(se_BatchDeleteTaxRegistrationCommand)
   .de(de_BatchDeleteTaxRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteTaxRegistrationRequest;
+      output: BatchDeleteTaxRegistrationResponse;
+    };
+    sdk: {
+      input: BatchDeleteTaxRegistrationCommandInput;
+      output: BatchDeleteTaxRegistrationCommandOutput;
+    };
+  };
+}

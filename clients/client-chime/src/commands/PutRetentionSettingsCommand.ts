@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_1";
+import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_0";
 import { de_PutRetentionSettingsCommand, se_PutRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -107,6 +107,7 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class PutRetentionSettingsCommand extends $Command
@@ -117,9 +118,7 @@ export class PutRetentionSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class PutRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRetentionSettingsCommand)
   .de(de_PutRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRetentionSettingsRequest;
+      output: PutRetentionSettingsResponse;
+    };
+    sdk: {
+      input: PutRetentionSettingsCommandInput;
+      output: PutRetentionSettingsCommandOutput;
+    };
+  };
+}

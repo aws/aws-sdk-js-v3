@@ -28,8 +28,8 @@ export interface DeleteLibraryItemCommandInput extends DeleteLibraryItemInput {}
 export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a library item for an Amazon Q App, removing it from the library
- *       so it can no longer be discovered or used by other users.</p>
+ * <p>Deletes a library item for an Amazon Q App, removing it from the library so it can no longer
+ *       be discovered or used by other users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,12 +62,12 @@ export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -77,6 +77,21 @@ export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Delete a library item
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "3642ba81-344c-42fd-a480-9119a5a5f26b",
+ *   libraryItemId: "72088fd4-78b6-43da-bfb8-8621323c3cfb"
+ * };
+ * const command = new DeleteLibraryItemCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -88,9 +103,7 @@ export class DeleteLibraryItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +115,16 @@ export class DeleteLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLibraryItemCommand)
   .de(de_DeleteLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLibraryItemInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLibraryItemCommandInput;
+      output: DeleteLibraryItemCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTemplateRequest, DescribeTemplateResponse } from "../models/models_3";
+import {
+  DescribeTemplateRequest,
+  DescribeTemplateResponse,
+  DescribeTemplateResponseFilterSensitiveLog,
+} from "../models/models_4";
 import { de_DescribeTemplateCommand, se_DescribeTemplateCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -93,6 +97,85 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  * //         { // Sheet
  * //           SheetId: "STRING_VALUE",
  * //           Name: "STRING_VALUE",
+ * //           Images: [ // SheetImageList
+ * //             { // SheetImage
+ * //               SheetImageId: "STRING_VALUE", // required
+ * //               Source: { // SheetImageSource
+ * //                 SheetImageStaticFileSource: { // SheetImageStaticFileSource
+ * //                   StaticFileId: "STRING_VALUE", // required
+ * //                 },
+ * //               },
+ * //               Scaling: { // SheetImageScalingConfiguration
+ * //                 ScalingType: "SCALE_TO_WIDTH" || "SCALE_TO_HEIGHT" || "SCALE_TO_CONTAINER" || "SCALE_NONE",
+ * //               },
+ * //               Tooltip: { // SheetImageTooltipConfiguration
+ * //                 TooltipText: { // SheetImageTooltipText
+ * //                   PlainText: "STRING_VALUE",
+ * //                 },
+ * //                 Visibility: "HIDDEN" || "VISIBLE",
+ * //               },
+ * //               ImageContentAltText: "STRING_VALUE",
+ * //               Interactions: { // ImageInteractionOptions
+ * //                 ImageMenuOption: { // ImageMenuOption
+ * //                   AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                 },
+ * //               },
+ * //               Actions: [ // ImageCustomActionList
+ * //                 { // ImageCustomAction
+ * //                   CustomActionId: "STRING_VALUE", // required
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Status: "ENABLED" || "DISABLED",
+ * //                   Trigger: "CLICK" || "MENU", // required
+ * //                   ActionOperations: [ // ImageCustomActionOperationList // required
+ * //                     { // ImageCustomActionOperation
+ * //                       NavigationOperation: { // CustomActionNavigationOperation
+ * //                         LocalNavigationConfiguration: { // LocalNavigationConfiguration
+ * //                           TargetSheetId: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                       URLOperation: { // CustomActionURLOperation
+ * //                         URLTemplate: "STRING_VALUE", // required
+ * //                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
+ * //                       },
+ * //                       SetParametersOperation: { // CustomActionSetParametersOperation
+ * //                         ParameterValueConfigurations: [ // SetParameterValueConfigurationList // required
+ * //                           { // SetParameterValueConfiguration
+ * //                             DestinationParameterName: "STRING_VALUE", // required
+ * //                             Value: { // DestinationParameterValueConfiguration
+ * //                               CustomValuesConfiguration: { // CustomValuesConfiguration
+ * //                                 IncludeNullValue: true || false,
+ * //                                 CustomValues: { // CustomParameterValues
+ * //                                   StringValues: [ // StringDefaultValueList
+ * //                                     "STRING_VALUE",
+ * //                                   ],
+ * //                                   IntegerValues: [ // IntegerDefaultValueList
+ * //                                     Number("long"),
+ * //                                   ],
+ * //                                   DecimalValues: [ // DecimalDefaultValueList
+ * //                                     Number("double"),
+ * //                                   ],
+ * //                                   DateTimeValues: [ // DateTimeDefaultValueList
+ * //                                     new Date("TIMESTAMP"),
+ * //                                   ],
+ * //                                 },
+ * //                               },
+ * //                               SelectAllValueOptions: "ALL_VALUES",
+ * //                               SourceParameterName: "STRING_VALUE",
+ * //                               SourceField: "STRING_VALUE",
+ * //                               SourceColumn: { // ColumnIdentifier
+ * //                                 DataSetIdentifier: "STRING_VALUE", // required
+ * //                                 ColumnName: "STRING_VALUE", // required
+ * //                               },
+ * //                             },
+ * //                           },
+ * //                         ],
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //     },
@@ -145,6 +228,7 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTemplateCommand extends $Command
@@ -155,9 +239,7 @@ export class DescribeTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,7 +248,19 @@ export class DescribeTemplateCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeTemplate", {})
   .n("QuickSightClient", "DescribeTemplateCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeTemplateResponseFilterSensitiveLog)
   .ser(se_DescribeTemplateCommand)
   .de(de_DescribeTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTemplateRequest;
+      output: DescribeTemplateResponse;
+    };
+    sdk: {
+      input: DescribeTemplateCommandInput;
+      output: DescribeTemplateCommandOutput;
+    };
+  };
+}

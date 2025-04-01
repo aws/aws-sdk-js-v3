@@ -45,13 +45,13 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  *   },
  *   DatastoreId: "STRING_VALUE", // required
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new StartFHIRExportJobCommand(input);
  * const response = await client.send(command);
  * // { // StartFHIRExportJobResponse
  * //   JobId: "STRING_VALUE", // required
- * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //   JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //   DatastoreId: "STRING_VALUE",
  * // };
  *
@@ -81,6 +81,7 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class StartFHIRExportJobCommand extends $Command
@@ -91,9 +92,7 @@ export class StartFHIRExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class StartFHIRExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFHIRExportJobCommand)
   .de(de_StartFHIRExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFHIRExportJobRequest;
+      output: StartFHIRExportJobResponse;
+    };
+    sdk: {
+      input: StartFHIRExportJobCommandInput;
+      output: StartFHIRExportJobCommandOutput;
+    };
+  };
+}

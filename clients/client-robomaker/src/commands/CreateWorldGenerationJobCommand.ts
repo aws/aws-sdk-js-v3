@@ -28,7 +28,15 @@ export interface CreateWorldGenerationJobCommandInput extends CreateWorldGenerat
 export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates worlds using the specified template.</p>
+ * <important>
+ *             <p>End of support notice: On September 10, 2025, Amazon Web Services
+ *          will discontinue support for Amazon Web Services RoboMaker. After September 10, 2025, you will
+ *          no longer be able to access the Amazon Web Services RoboMaker console or Amazon Web Services RoboMaker resources.
+ *          For more information on transitioning to Batch to help run containerized
+ *          simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+ *       </p>
+ *          </important>
+ *          <p>Creates worlds using the specified template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +113,7 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateWorldGenerationJobCommand extends $Command
@@ -115,9 +124,7 @@ export class CreateWorldGenerationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +136,16 @@ export class CreateWorldGenerationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorldGenerationJobCommand)
   .de(de_CreateWorldGenerationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorldGenerationJobRequest;
+      output: CreateWorldGenerationJobResponse;
+    };
+    sdk: {
+      input: CreateWorldGenerationJobCommandInput;
+      output: CreateWorldGenerationJobCommandOutput;
+    };
+  };
+}

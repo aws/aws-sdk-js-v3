@@ -75,6 +75,7 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class UpdateHostKeyCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateHostKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateHostKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHostKeyCommand)
   .de(de_UpdateHostKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHostKeyRequest;
+      output: UpdateHostKeyResponse;
+    };
+    sdk: {
+      input: UpdateHostKeyCommandInput;
+      output: UpdateHostKeyCommandOutput;
+    };
+  };
+}

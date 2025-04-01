@@ -1,7 +1,21 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <note>
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html">Amazon Q
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html">Amazon Q data
+ *             types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
  *           detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full advantage of

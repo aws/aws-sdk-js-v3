@@ -110,6 +110,7 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class AssociateCreatedArtifactCommand extends $Command
@@ -120,9 +121,7 @@ export class AssociateCreatedArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class AssociateCreatedArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateCreatedArtifactCommand)
   .de(de_AssociateCreatedArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateCreatedArtifactRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateCreatedArtifactCommandInput;
+      output: AssociateCreatedArtifactCommandOutput;
+    };
+  };
+}

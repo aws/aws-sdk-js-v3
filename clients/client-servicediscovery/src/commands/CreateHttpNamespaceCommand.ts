@@ -83,25 +83,25 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example CreateHttpNamespace example
  * ```javascript
  * // This example creates an HTTP namespace.
  * const input = {
- *   "CreatorRequestId": "example-creator-request-id-0001",
- *   "Description": "Example.com AWS Cloud Map HTTP Namespace",
- *   "Name": "example-http.com"
+ *   CreatorRequestId: "example-creator-request-id-0001",
+ *   Description: "Example.com AWS Cloud Map HTTP Namespace",
+ *   Name: "example-http.com"
  * };
  * const command = new CreateHttpNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "httpvoqozuhfet5kzxoxg-a-response-example"
+ *   OperationId: "httpvoqozuhfet5kzxoxg-a-response-example"
  * }
  * *\/
- * // example id: createhttpnamespace-example-1590114811304
  * ```
  *
+ * @public
  */
 export class CreateHttpNamespaceCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class CreateHttpNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class CreateHttpNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHttpNamespaceCommand)
   .de(de_CreateHttpNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHttpNamespaceRequest;
+      output: CreateHttpNamespaceResponse;
+    };
+    sdk: {
+      input: CreateHttpNamespaceCommandInput;
+      output: CreateHttpNamespaceCommandOutput;
+    };
+  };
+}

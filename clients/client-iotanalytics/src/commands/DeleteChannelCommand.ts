@@ -68,6 +68,7 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DeleteChannelCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class DeleteChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelCommand)
   .de(de_DeleteChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelCommandInput;
+      output: DeleteChannelCommandOutput;
+    };
+  };
+}

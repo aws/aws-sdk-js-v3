@@ -34,6 +34,7 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
 
 /**
  * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
+ *          <p>To call this API, the role that the service assumes must have <code>lakeformation:GetDataAccess</code> permission on the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +44,7 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * const input = { // GetTemporaryGlueTableCredentialsRequest
  *   TableArn: "STRING_VALUE", // required
  *   Permissions: [ // PermissionList
- *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *   ],
  *   DurationSeconds: Number("int"),
  *   AuditContext: { // AuditContext
@@ -104,6 +105,7 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTemporaryGlueTableCredentialsCommand extends $Command
@@ -114,9 +116,7 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemporaryGlueTableCredentialsCommand)
   .de(de_GetTemporaryGlueTableCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemporaryGlueTableCredentialsRequest;
+      output: GetTemporaryGlueTableCredentialsResponse;
+    };
+    sdk: {
+      input: GetTemporaryGlueTableCredentialsCommandInput;
+      output: GetTemporaryGlueTableCredentialsCommandOutput;
+    };
+  };
+}

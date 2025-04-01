@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { de_OnlySigv4AuthOptionalCommand, se_OnlySigv4AuthOptionalCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -47,6 +48,7 @@ export interface OnlySigv4AuthOptionalCommandOutput extends __MetadataBearer {}
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlySigv4AuthOptionalCommand extends $Command
   .classBuilder<
@@ -62,10 +64,18 @@ export class OnlySigv4AuthOptionalCommand extends $Command
   .s("Weather", "OnlySigv4AuthOptional", {})
   .n("WeatherClient", "OnlySigv4AuthOptionalCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_OnlySigv4AuthOptionalCommand)
+  .de(de_OnlySigv4AuthOptionalCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: OnlySigv4AuthOptionalCommandInput;
+      output: OnlySigv4AuthOptionalCommandOutput;
+    };
+  };
+}

@@ -32,10 +32,10 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *             from one or more tables. You identify requested items by primary key.</p>
  *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
  *             items. <code>BatchGetItem</code> returns a partial result if the response size limit is
- *             exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is requested,
- *             or an internal processing failure occurs. If a partial result is returned, the operation returns a value for
- *                 <code>UnprocessedKeys</code>. You can use this value to retry the operation starting
- *             with the next item to get.</p>
+ *             exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is
+ *             requested, or an internal processing failure occurs. If a partial result is returned,
+ *             the operation returns a value for <code>UnprocessedKeys</code>. You can use this value
+ *             to retry the operation starting with the next item to get.</p>
  *          <important>
  *             <p>If you request more than 100 items, <code>BatchGetItem</code> returns a
  *                     <code>ValidationException</code> with the message "Too many items requested for
@@ -272,71 +272,71 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To retrieve multiple items from a table
  * ```javascript
  * // This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.
  * const input = {
- *   "RequestItems": {
- *     "Music": {
- *       "Keys": [
+ *   RequestItems: {
+ *     Music: {
+ *       Keys: [
  *         {
- *           "Artist": {
- *             "S": "No One You Know"
+ *           Artist: {
+ *             S: "No One You Know"
  *           },
- *           "SongTitle": {
- *             "S": "Call Me Today"
+ *           SongTitle: {
+ *             S: "Call Me Today"
  *           }
  *         },
  *         {
- *           "Artist": {
- *             "S": "Acme Band"
+ *           Artist: {
+ *             S: "Acme Band"
  *           },
- *           "SongTitle": {
- *             "S": "Happy Day"
+ *           SongTitle: {
+ *             S: "Happy Day"
  *           }
  *         },
  *         {
- *           "Artist": {
- *             "S": "No One You Know"
+ *           Artist: {
+ *             S: "No One You Know"
  *           },
- *           "SongTitle": {
- *             "S": "Scared of My Shadow"
+ *           SongTitle: {
+ *             S: "Scared of My Shadow"
  *           }
  *         }
  *       ],
- *       "ProjectionExpression": "AlbumTitle"
+ *       ProjectionExpression: "AlbumTitle"
  *     }
  *   }
  * };
  * const command = new BatchGetItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Responses": {
- *     "Music": [
+ *   Responses: {
+ *     Music: [
  *       {
- *         "AlbumTitle": {
- *           "S": "Somewhat Famous"
+ *         AlbumTitle: {
+ *           S: "Somewhat Famous"
  *         }
  *       },
  *       {
- *         "AlbumTitle": {
- *           "S": "Blue Sky Blues"
+ *         AlbumTitle: {
+ *           S: "Blue Sky Blues"
  *         }
  *       },
  *       {
- *         "AlbumTitle": {
- *           "S": "Louder Than Ever"
+ *         AlbumTitle: {
+ *           S: "Louder Than Ever"
  *         }
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-retrieve-multiple-items-from-a-table-1476118438992
  * ```
  *
+ * @public
  */
 export class BatchGetItemCommand extends $Command
   .classBuilder<
@@ -348,6 +348,7 @@ export class BatchGetItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArnList: { type: "operationContextParams", get: (input?: any) => Object.keys(input?.RequestItems ?? {}) },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -360,4 +361,16 @@ export class BatchGetItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetItemCommand)
   .de(de_BatchGetItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetItemInput;
+      output: BatchGetItemOutput;
+    };
+    sdk: {
+      input: BatchGetItemCommandInput;
+      output: BatchGetItemCommandOutput;
+    };
+  };
+}

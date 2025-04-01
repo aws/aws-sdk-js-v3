@@ -34,10 +34,11 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
 /**
  * <p>Retrieves a transcript of the session, including details about any attachments. For
  *             information about accessing past chat contact transcripts for a persistent chat, see
- *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
- *          <p>If you have a process that consumes events in the transcript of an chat that has ended, note that chat
- *             transcripts contain the following event content types if the event has occurred
- *             during the chat session:</p>
+ *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>If you have a process that consumes events in the transcript of an chat that has
+ *             ended, note that chat transcripts contain the following event content types if the event
+ *             has occurred during the chat session:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -68,7 +69,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
- *                 <code>ParticipantToken</code>.</p>
+ *                     <code>ParticipantToken</code>.</p>
  *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
@@ -153,6 +154,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class GetTranscriptCommand extends $Command
@@ -163,9 +165,7 @@ export class GetTranscriptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +177,16 @@ export class GetTranscriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTranscriptCommand)
   .de(de_GetTranscriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTranscriptRequest;
+      output: GetTranscriptResponse;
+    };
+    sdk: {
+      input: GetTranscriptCommandInput;
+      output: GetTranscriptCommandOutput;
+    };
+  };
+}

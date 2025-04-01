@@ -88,6 +88,7 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutMethodResponseCommand extends $Command
@@ -98,9 +99,7 @@ export class PutMethodResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class PutMethodResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMethodResponseCommand)
   .de(de_PutMethodResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMethodResponseRequest;
+      output: MethodResponse;
+    };
+    sdk: {
+      input: PutMethodResponseCommandInput;
+      output: PutMethodResponseCommandOutput;
+    };
+  };
+}

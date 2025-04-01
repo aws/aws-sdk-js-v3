@@ -151,6 +151,7 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class CreateGeoMatchSetCommand extends $Command
@@ -161,9 +162,7 @@ export class CreateGeoMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +174,16 @@ export class CreateGeoMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGeoMatchSetCommand)
   .de(de_CreateGeoMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGeoMatchSetRequest;
+      output: CreateGeoMatchSetResponse;
+    };
+    sdk: {
+      input: CreateGeoMatchSetCommandInput;
+      output: CreateGeoMatchSetCommandOutput;
+    };
+  };
+}

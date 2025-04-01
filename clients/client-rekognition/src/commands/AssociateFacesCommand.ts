@@ -139,52 +139,52 @@ export interface AssociateFacesCommandOutput extends AssociateFacesResponse, __M
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example AssociateFaces
  * ```javascript
  * // This operation associates one or more faces with an existing UserID.
  * const input = {
- *   "ClientRequestToken": "550e8400-e29b-41d4-a716-446655440002",
- *   "CollectionId": "MyCollection",
- *   "FaceIds": [
+ *   ClientRequestToken: "550e8400-e29b-41d4-a716-446655440002",
+ *   CollectionId: "MyCollection",
+ *   FaceIds: [
  *     "f5817d37-94f6-4335-bfee-6cf79a3d806e",
  *     "851cb847-dccc-4fea-9309-9f4805967855",
  *     "35ebbb41-7f67-4263-908d-dd0ecba05ab9"
  *   ],
- *   "UserId": "DemoUser",
- *   "UserMatchThreshold": 70
+ *   UserId: "DemoUser",
+ *   UserMatchThreshold: 70
  * };
  * const command = new AssociateFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociatedFaces": [
+ *   AssociatedFaces: [
  *     {
- *       "FaceId": "35ebbb41-7f67-4263-908d-dd0ecba05ab9"
+ *       FaceId: "35ebbb41-7f67-4263-908d-dd0ecba05ab9"
  *     }
  *   ],
- *   "UnsuccessfulFaceAssociations": [
+ *   UnsuccessfulFaceAssociations: [
  *     {
- *       "Confidence": 0.9375374913215637,
- *       "FaceId": "f5817d37-94f6-4335-bfee-6cf79a3d806e",
- *       "Reasons": [
+ *       Confidence: 0.9375374913215637,
+ *       FaceId: "f5817d37-94f6-4335-bfee-6cf79a3d806e",
+ *       Reasons: [
  *         "LOW_MATCH_CONFIDENCE"
  *       ]
  *     },
  *     {
- *       "FaceId": "851cb847-dccc-4fea-9309-9f4805967855",
- *       "Reasons": [
+ *       FaceId: "851cb847-dccc-4fea-9309-9f4805967855",
+ *       Reasons: [
  *         "ASSOCIATED_TO_A_DIFFERENT_USER"
  *       ],
- *       "UserId": "demoUser2"
+ *       UserId: "demoUser2"
  *     }
  *   ],
- *   "UserStatus": "UPDATING"
+ *   UserStatus: "UPDATING"
  * }
  * *\/
- * // example id: associatefaces-1686181269281
  * ```
  *
+ * @public
  */
 export class AssociateFacesCommand extends $Command
   .classBuilder<
@@ -194,9 +194,7 @@ export class AssociateFacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +206,16 @@ export class AssociateFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateFacesCommand)
   .de(de_AssociateFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFacesRequest;
+      output: AssociateFacesResponse;
+    };
+    sdk: {
+      input: AssociateFacesCommandInput;
+      output: AssociateFacesCommandOutput;
+    };
+  };
+}

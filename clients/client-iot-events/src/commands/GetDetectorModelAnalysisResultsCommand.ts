@@ -92,6 +92,7 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class GetDetectorModelAnalysisResultsCommand extends $Command
@@ -102,9 +103,7 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDetectorModelAnalysisResultsCommand)
   .de(de_GetDetectorModelAnalysisResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDetectorModelAnalysisResultsRequest;
+      output: GetDetectorModelAnalysisResultsResponse;
+    };
+    sdk: {
+      input: GetDetectorModelAnalysisResultsCommandInput;
+      output: GetDetectorModelAnalysisResultsCommandOutput;
+    };
+  };
+}

@@ -9,7 +9,7 @@ import {
   UpdateModelCardRequest,
   UpdateModelCardRequestFilterSensitiveLog,
   UpdateModelCardResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateModelCardCommand, se_UpdateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -75,6 +75,7 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateModelCardCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateModelCardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateModelCardCommand extends $Command
   .f(UpdateModelCardRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateModelCardCommand)
   .de(de_UpdateModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelCardRequest;
+      output: UpdateModelCardResponse;
+    };
+    sdk: {
+      input: UpdateModelCardCommandInput;
+      output: UpdateModelCardCommandOutput;
+    };
+  };
+}

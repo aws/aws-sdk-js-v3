@@ -37,8 +37,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  *     and you are calling this API in the alternate Amazon Web Services Region associated with the
  *     traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
  *     in
- *     this scenario, you will receive a
- *     <code>ResourceNotFoundException</code>.</p>
+ *     this scenario, you receive a <code>ResourceNotFoundException</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribePhoneNumberCommand extends $Command
@@ -108,9 +108,7 @@ export class DescribePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class DescribePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePhoneNumberCommand)
   .de(de_DescribePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePhoneNumberRequest;
+      output: DescribePhoneNumberResponse;
+    };
+    sdk: {
+      input: DescribePhoneNumberCommandInput;
+      output: DescribePhoneNumberCommandOutput;
+    };
+  };
+}

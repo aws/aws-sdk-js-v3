@@ -114,6 +114,7 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateRealtimeLogConfigCommand extends $Command
@@ -124,9 +125,7 @@ export class UpdateRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class UpdateRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRealtimeLogConfigCommand)
   .de(de_UpdateRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRealtimeLogConfigRequest;
+      output: UpdateRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: UpdateRealtimeLogConfigCommandInput;
+      output: UpdateRealtimeLogConfigCommandOutput;
+    };
+  };
+}

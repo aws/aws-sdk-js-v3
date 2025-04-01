@@ -94,6 +94,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListDeploymentsCommand extends $Command
@@ -104,9 +105,7 @@ export class ListDeploymentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ListDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentsCommand)
   .de(de_ListDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentsInput;
+      output: ListDeploymentsOutput;
+    };
+    sdk: {
+      input: ListDeploymentsCommandInput;
+      output: ListDeploymentsCommandOutput;
+    };
+  };
+}

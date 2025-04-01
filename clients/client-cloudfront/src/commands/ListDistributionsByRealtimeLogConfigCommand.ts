@@ -113,6 +113,11 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -144,6 +149,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },
@@ -202,6 +208,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -285,6 +294,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -357,6 +369,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -376,6 +389,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListDistributionsByRealtimeLogConfigCommand extends $Command
@@ -386,9 +400,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -400,4 +412,16 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   .f(void 0, ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog)
   .ser(se_ListDistributionsByRealtimeLogConfigCommand)
   .de(de_ListDistributionsByRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByRealtimeLogConfigRequest;
+      output: ListDistributionsByRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: ListDistributionsByRealtimeLogConfigCommandInput;
+      output: ListDistributionsByRealtimeLogConfigCommandOutput;
+    };
+  };
+}

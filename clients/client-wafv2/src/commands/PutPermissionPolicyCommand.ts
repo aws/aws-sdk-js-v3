@@ -28,9 +28,8 @@ export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequ
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across
- *          accounts.</p>
- *          <p>You must be the owner of the rule group to perform this operation.</p>
+ * <p>Use this to share a rule group with other accounts.</p>
+ *          <p>This action attaches an IAM policy to the specified resource. You must be the owner of the rule group to perform this operation.</p>
  *          <p>This action is subject to the following restrictions:</p>
  *          <ul>
  *             <li>
@@ -45,6 +44,9 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *                <p>The user making the request must be the owner of the rule group.</p>
  *             </li>
  *          </ul>
+ *          <p>If a rule group has been shared with your account, you can access it through the call <code>GetRuleGroup</code>,
+ *           and you can reference it in <code>CreateWebACL</code> and <code>UpdateWebACL</code>.
+ *           Rule groups that are shared with you don't appear in your WAF console rule groups listing.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -127,6 +129,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class PutPermissionPolicyCommand extends $Command
@@ -137,9 +140,7 @@ export class PutPermissionPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +152,16 @@ export class PutPermissionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPermissionPolicyCommand)
   .de(de_PutPermissionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPermissionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPermissionPolicyCommandInput;
+      output: PutPermissionPolicyCommandOutput;
+    };
+  };
+}

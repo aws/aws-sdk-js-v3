@@ -75,7 +75,7 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -108,6 +108,7 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ShareDirectoryCommand extends $Command
@@ -118,9 +119,7 @@ export class ShareDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class ShareDirectoryCommand extends $Command
   .f(ShareDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_ShareDirectoryCommand)
   .de(de_ShareDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ShareDirectoryRequest;
+      output: ShareDirectoryResult;
+    };
+    sdk: {
+      input: ShareDirectoryCommandInput;
+      output: ShareDirectoryCommandOutput;
+    };
+  };
+}

@@ -321,6 +321,7 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ReadJobCommand extends $Command
@@ -331,9 +332,7 @@ export class ReadJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticTranscoderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -345,4 +344,16 @@ export class ReadJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReadJobCommand)
   .de(de_ReadJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReadJobRequest;
+      output: ReadJobResponse;
+    };
+    sdk: {
+      input: ReadJobCommandInput;
+      output: ReadJobCommandOutput;
+    };
+  };
+}

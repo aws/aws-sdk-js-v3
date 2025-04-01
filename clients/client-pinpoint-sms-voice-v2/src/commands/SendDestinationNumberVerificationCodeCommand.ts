@@ -107,6 +107,7 @@ export interface SendDestinationNumberVerificationCodeCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class SendDestinationNumberVerificationCodeCommand extends $Command
@@ -117,9 +118,7 @@ export class SendDestinationNumberVerificationCodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class SendDestinationNumberVerificationCodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDestinationNumberVerificationCodeCommand)
   .de(de_SendDestinationNumberVerificationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDestinationNumberVerificationCodeRequest;
+      output: SendDestinationNumberVerificationCodeResult;
+    };
+    sdk: {
+      input: SendDestinationNumberVerificationCodeCommandInput;
+      output: SendDestinationNumberVerificationCodeCommandOutput;
+    };
+  };
+}

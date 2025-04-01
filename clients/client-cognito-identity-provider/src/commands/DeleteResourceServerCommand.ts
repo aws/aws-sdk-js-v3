@@ -32,7 +32,30 @@ export interface DeleteResourceServerCommandInput extends DeleteResourceServerRe
 export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a resource server.</p>
+ * <p>Deletes a resource server. After you delete a resource server, users can no longer
+ *             generate access tokens with scopes that are associate with that resource server.</p>
+ *          <p>Resource servers are associated with custom scopes and machine-to-machine (M2M)
+ *             authorization. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +99,7 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceServerCommand extends $Command
@@ -86,9 +110,7 @@ export class DeleteResourceServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +122,16 @@ export class DeleteResourceServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceServerCommand)
   .de(de_DeleteResourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourceServerCommandInput;
+      output: DeleteResourceServerCommandOutput;
+    };
+  };
+}

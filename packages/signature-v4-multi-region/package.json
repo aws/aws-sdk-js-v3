@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline signature-v4-multi-region",
@@ -9,9 +9,10 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "vitest run",
+    "test": "yarn g:vitest run",
     "test:e2e": "vitest run --config vitest.config.e2e.js",
     "test:browser": "vitest run --config vitest.config.browser.js"
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,20 +27,21 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/signature-v4-crt": "*",
     "@aws-sdk/client-s3": "*",
-    "@smithy/protocol-http": "^4.0.3",
-    "@smithy/signature-v4": "^3.1.2",
     "@smithy/signature-v4a": "^3.0.0",
-    "@smithy/types": "^3.3.0",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/signature-v4": "^5.0.2",
+    "@smithy/types": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "3.0.2"
+    "rimraf": "3.0.2",
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

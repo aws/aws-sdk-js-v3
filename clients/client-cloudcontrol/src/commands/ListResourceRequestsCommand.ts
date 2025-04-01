@@ -64,6 +64,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * //       TypeName: "STRING_VALUE",
  * //       Identifier: "STRING_VALUE",
  * //       RequestToken: "STRING_VALUE",
+ * //       HooksRequestToken: "STRING_VALUE",
  * //       Operation: "STRING_VALUE",
  * //       OperationStatus: "STRING_VALUE",
  * //       EventTime: new Date("TIMESTAMP"),
@@ -87,6 +88,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class ListResourceRequestsCommand extends $Command
@@ -97,9 +99,7 @@ export class ListResourceRequestsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class ListResourceRequestsCommand extends $Command
   .f(void 0, ListResourceRequestsOutputFilterSensitiveLog)
   .ser(se_ListResourceRequestsCommand)
   .de(de_ListResourceRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceRequestsInput;
+      output: ListResourceRequestsOutput;
+    };
+    sdk: {
+      input: ListResourceRequestsCommandInput;
+      output: ListResourceRequestsCommandOutput;
+    };
+  };
+}

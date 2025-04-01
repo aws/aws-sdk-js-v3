@@ -64,6 +64,7 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class SparseNullsOperationCommand extends $Command
   .classBuilder<
@@ -81,4 +82,16 @@ export class SparseNullsOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SparseNullsOperationCommand)
   .de(de_SparseNullsOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SparseNullsOperationInputOutput;
+      output: SparseNullsOperationInputOutput;
+    };
+    sdk: {
+      input: SparseNullsOperationCommandInput;
+      output: SparseNullsOperationCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteIpamResourceDiscoveryRequest, DeleteIpamResourceDiscoveryResult } from "../models/models_2";
+import { DeleteIpamResourceDiscoveryRequest, DeleteIpamResourceDiscoveryResult } from "../models/models_3";
 import { de_DeleteIpamResourceDiscoveryCommand, se_DeleteIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -61,6 +61,11 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     OrganizationalUnitExclusions: [ // IpamOrganizationalUnitExclusionSet
+ * //       { // IpamOrganizationalUnitExclusion
+ * //         OrganizationsEntityPath: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -75,6 +80,7 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteIpamResourceDiscoveryCommand extends $Command
@@ -85,9 +91,7 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +103,16 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpamResourceDiscoveryCommand)
   .de(de_DeleteIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpamResourceDiscoveryRequest;
+      output: DeleteIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: DeleteIpamResourceDiscoveryCommandInput;
+      output: DeleteIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

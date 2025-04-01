@@ -11,7 +11,7 @@ create Amazon Chime SDK media pipelines that capture, concatenate, or stream you
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-media-pipelines
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-media-pipelines
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-media-pipelines`

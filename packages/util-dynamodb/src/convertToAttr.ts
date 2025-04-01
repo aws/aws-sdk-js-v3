@@ -37,7 +37,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
   } else if (typeof data === "boolean" || data?.constructor?.name === "Boolean") {
     return { BOOL: data.valueOf() };
   } else if (typeof data === "number" || data?.constructor?.name === "Number") {
-    return convertToNumberAttr(data);
+    return convertToNumberAttr(data, options);
   } else if (data instanceof NumberValue) {
     return data.toAttributeValue();
   } else if (typeof data === "bigint") {
@@ -91,7 +91,7 @@ const convertToSetAttr = (
   } else if (typeof item === "number") {
     return {
       NS: Array.from(setToOperate)
-        .map(convertToNumberAttr)
+        .map((num) => convertToNumberAttr(num, options))
         .map((item) => item.N),
     };
   } else if (typeof item === "bigint") {
@@ -157,20 +157,23 @@ const convertToStringAttr = (data: string | String): { S: string } => ({ S: data
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const validateBigIntAndThrow = (errorPrefix: string) => {
-  throw new Error(`${errorPrefix} ${typeof BigInt === "function" ? "Use BigInt." : "Pass string value instead."} `);
+  throw new Error(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 };
 
-const convertToNumberAttr = (num: number | Number): { N: string } => {
+const convertToNumberAttr = (num: number | Number, options?: marshallOptions): { N: string } => {
   if (
     [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
       .map((val) => val.toString())
       .includes(num.toString())
   ) {
     throw new Error(`Special numeric value ${num.toString()} is not allowed`);
-  } else if (num > Number.MAX_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`);
-  } else if (num < Number.MIN_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`);
+  } else if (!options?.allowImpreciseNumbers) {
+    // Only perform these checks if allowImpreciseNumbers is false
+    if (Number(num) > Number.MAX_SAFE_INTEGER) {
+      validateBigIntAndThrow(`Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`);
+    } else if (Number(num) < Number.MIN_SAFE_INTEGER) {
+      validateBigIntAndThrow(`Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`);
+    }
   }
   return { N: num.toString() };
 };

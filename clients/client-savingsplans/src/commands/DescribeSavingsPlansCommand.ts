@@ -106,6 +106,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class DescribeSavingsPlansCommand extends $Command
@@ -116,9 +117,7 @@ export class DescribeSavingsPlansCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class DescribeSavingsPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSavingsPlansCommand)
   .de(de_DescribeSavingsPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSavingsPlansRequest;
+      output: DescribeSavingsPlansResponse;
+    };
+    sdk: {
+      input: DescribeSavingsPlansCommandInput;
+      output: DescribeSavingsPlansCommandOutput;
+    };
+  };
+}

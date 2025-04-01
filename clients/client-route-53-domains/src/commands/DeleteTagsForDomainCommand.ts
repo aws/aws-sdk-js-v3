@@ -71,6 +71,7 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class DeleteTagsForDomainCommand extends $Command
@@ -81,9 +82,7 @@ export class DeleteTagsForDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DeleteTagsForDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsForDomainCommand)
   .de(de_DeleteTagsForDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsForDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsForDomainCommandInput;
+      output: DeleteTagsForDomainCommandOutput;
+    };
+  };
+}

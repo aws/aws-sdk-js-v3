@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_2";
+import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_3";
 import { de_UpdateTriggerCommand, se_UpdateTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -29,6 +29,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
 
 /**
  * <p>Updates a trigger definition.</p>
+ *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,6 +144,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateTriggerCommand extends $Command
@@ -153,9 +155,7 @@ export class UpdateTriggerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +167,16 @@ export class UpdateTriggerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTriggerCommand)
   .de(de_UpdateTriggerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTriggerRequest;
+      output: UpdateTriggerResponse;
+    };
+    sdk: {
+      input: UpdateTriggerCommandInput;
+      output: UpdateTriggerCommandOutput;
+    };
+  };
+}

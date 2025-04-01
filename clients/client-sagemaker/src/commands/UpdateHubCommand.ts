@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateHubRequest, UpdateHubResponse } from "../models/models_4";
+import { UpdateHubRequest, UpdateHubResponse } from "../models/models_5";
 import { de_UpdateHubCommand, se_UpdateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -63,6 +63,7 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateHubCommand extends $Command
@@ -73,9 +74,7 @@ export class UpdateHubCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class UpdateHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHubCommand)
   .de(de_UpdateHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHubRequest;
+      output: UpdateHubResponse;
+    };
+    sdk: {
+      input: UpdateHubCommandInput;
+      output: UpdateHubCommandOutput;
+    };
+  };
+}

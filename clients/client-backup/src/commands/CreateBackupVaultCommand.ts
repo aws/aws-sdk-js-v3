@@ -89,6 +89,7 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateBackupVaultCommand extends $Command
@@ -99,9 +100,7 @@ export class CreateBackupVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class CreateBackupVaultCommand extends $Command
   .f(CreateBackupVaultInputFilterSensitiveLog, void 0)
   .ser(se_CreateBackupVaultCommand)
   .de(de_CreateBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackupVaultInput;
+      output: CreateBackupVaultOutput;
+    };
+    sdk: {
+      input: CreateBackupVaultCommandInput;
+      output: CreateBackupVaultCommandOutput;
+    };
+  };
+}

@@ -82,37 +82,8 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describe resource groups
- * ```javascript
- * // Describes the resource groups that are specified by the ARNs of the resource groups.
- * const input = {
- *   "resourceGroupArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI"
- *   ]
- * };
- * const command = new DescribeResourceGroupsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failedItems": {},
- *   "resourceGroups": [
- *     {
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
- *       "createdAt": "1458074191.098",
- *       "tags": [
- *         {
- *           "key": "Name",
- *           "value": "example"
- *         }
- *       ]
- *     }
- *   ]
- * }
- * *\/
- * // example id: describe-resource-groups-1481065787743
- * ```
  *
+ * @public
  */
 export class DescribeResourceGroupsCommand extends $Command
   .classBuilder<
@@ -122,9 +93,7 @@ export class DescribeResourceGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +105,16 @@ export class DescribeResourceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceGroupsCommand)
   .de(de_DescribeResourceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceGroupsRequest;
+      output: DescribeResourceGroupsResponse;
+    };
+    sdk: {
+      input: DescribeResourceGroupsCommandInput;
+      output: DescribeResourceGroupsCommandOutput;
+    };
+  };
+}

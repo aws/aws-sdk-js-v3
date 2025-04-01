@@ -91,6 +91,7 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class CreateTrainingDatasetCommand extends $Command
@@ -101,9 +102,7 @@ export class CreateTrainingDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class CreateTrainingDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrainingDatasetCommand)
   .de(de_CreateTrainingDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrainingDatasetRequest;
+      output: CreateTrainingDatasetResponse;
+    };
+    sdk: {
+      input: CreateTrainingDatasetCommandInput;
+      output: CreateTrainingDatasetCommandOutput;
+    };
+  };
+}

@@ -136,6 +136,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command
@@ -165,4 +166,16 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketLifecycleConfigurationCommand)
   .de(de_PutBucketLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketLifecycleConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketLifecycleConfigurationCommandInput;
+      output: PutBucketLifecycleConfigurationCommandOutput;
+    };
+  };
+}

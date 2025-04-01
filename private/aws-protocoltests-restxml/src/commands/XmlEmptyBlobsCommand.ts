@@ -53,6 +53,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlEmptyBlobsCommand extends $Command
@@ -71,4 +72,16 @@ export class XmlEmptyBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyBlobsCommand)
   .de(de_XmlEmptyBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyBlobsRequest;
+      output: XmlEmptyBlobsResponse;
+    };
+    sdk: {
+      input: XmlEmptyBlobsCommandInput;
+      output: XmlEmptyBlobsCommandOutput;
+    };
+  };
+}

@@ -83,10 +83,11 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  *  <p>The function does not exist.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -98,9 +99,7 @@ export class DescribeFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFunctionCommand)
   .de(de_DescribeFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFunctionRequest;
+      output: DescribeFunctionResult;
+    };
+    sdk: {
+      input: DescribeFunctionCommandInput;
+      output: DescribeFunctionCommandOutput;
+    };
+  };
+}

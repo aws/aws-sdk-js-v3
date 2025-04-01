@@ -29,6 +29,7 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
 
 /**
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPendingJobExecutions</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +76,7 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  *  <p>The certificate is invalid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *  <p>The contents of the request were invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -89,6 +90,7 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ *
  * @public
  */
 export class GetPendingJobExecutionsCommand extends $Command
@@ -99,9 +101,7 @@ export class GetPendingJobExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTJobsDataPlaneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class GetPendingJobExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPendingJobExecutionsCommand)
   .de(de_GetPendingJobExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPendingJobExecutionsRequest;
+      output: GetPendingJobExecutionsResponse;
+    };
+    sdk: {
+      input: GetPendingJobExecutionsCommandInput;
+      output: GetPendingJobExecutionsCommandOutput;
+    };
+  };
+}

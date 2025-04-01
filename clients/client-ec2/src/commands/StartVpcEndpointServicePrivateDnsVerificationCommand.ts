@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_StartVpcEndpointServicePrivateDnsVerificationCommand,
   se_StartVpcEndpointServicePrivateDnsVerificationCommand,
@@ -68,6 +68,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command
@@ -78,9 +79,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_StartVpcEndpointServicePrivateDnsVerificationCommand)
   .de(de_StartVpcEndpointServicePrivateDnsVerificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartVpcEndpointServicePrivateDnsVerificationRequest;
+      output: StartVpcEndpointServicePrivateDnsVerificationResult;
+    };
+    sdk: {
+      input: StartVpcEndpointServicePrivateDnsVerificationCommandInput;
+      output: StartVpcEndpointServicePrivateDnsVerificationCommandOutput;
+    };
+  };
+}

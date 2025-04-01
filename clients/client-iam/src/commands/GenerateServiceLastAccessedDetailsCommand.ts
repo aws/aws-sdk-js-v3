@@ -127,23 +127,23 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To generate a service last accessed data report for a policy
  * ```javascript
  * // The following operation generates a report for the policy: ExamplePolicy1
  * const input = {
- *   "Arn": "arn:aws:iam::123456789012:policy/ExamplePolicy1"
+ *   Arn: "arn:aws:iam::123456789012:policy/ExamplePolicy1"
  * };
  * const command = new GenerateServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7"
+ *   JobId: "examplef-1305-c245-eba4-71fe298bcda7"
  * }
  * *\/
- * // example id: generateaccessdata-policy-1541695178514
  * ```
  *
+ * @public
  */
 export class GenerateServiceLastAccessedDetailsCommand extends $Command
   .classBuilder<
@@ -153,9 +153,7 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +165,16 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateServiceLastAccessedDetailsCommand)
   .de(de_GenerateServiceLastAccessedDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateServiceLastAccessedDetailsRequest;
+      output: GenerateServiceLastAccessedDetailsResponse;
+    };
+    sdk: {
+      input: GenerateServiceLastAccessedDetailsCommandInput;
+      output: GenerateServiceLastAccessedDetailsCommandOutput;
+    };
+  };
+}

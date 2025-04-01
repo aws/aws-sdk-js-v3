@@ -78,6 +78,7 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DescribeLogPatternCommand extends $Command
@@ -88,9 +89,7 @@ export class DescribeLogPatternCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DescribeLogPatternCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLogPatternCommand)
   .de(de_DescribeLogPatternCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLogPatternRequest;
+      output: DescribeLogPatternResponse;
+    };
+    sdk: {
+      input: DescribeLogPatternCommandInput;
+      output: DescribeLogPatternCommandOutput;
+    };
+  };
+}

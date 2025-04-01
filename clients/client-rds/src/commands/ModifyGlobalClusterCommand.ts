@@ -73,12 +73,19 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -89,6 +96,10 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
+ *         (unique name) to create a new global database cluster or to rename an existing one.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
@@ -105,34 +116,34 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a global database cluster
  * ```javascript
  * // The following example enables deletion protection for an Aurora MySQL-based global database cluster.
  * const input = {
- *   "DeletionProtection": true,
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   DeletionProtection: true,
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": true,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
+ *   GlobalCluster: {
+ *     DeletionProtection: true,
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.07.2",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers:     [],
+ *     GlobalClusterResourceId: "cluster-f0e523bfe07aabb",
+ *     Status: "available",
+ *     StorageEncrypted: false
  *   }
  * }
  * *\/
- * // example id: to-modify-a-global-database-cluster-1680385137511
  * ```
  *
+ * @public
  */
 export class ModifyGlobalClusterCommand extends $Command
   .classBuilder<
@@ -142,9 +153,7 @@ export class ModifyGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +165,16 @@ export class ModifyGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyGlobalClusterCommand)
   .de(de_ModifyGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyGlobalClusterMessage;
+      output: ModifyGlobalClusterResult;
+    };
+    sdk: {
+      input: ModifyGlobalClusterCommandInput;
+      output: ModifyGlobalClusterCommandOutput;
+    };
+  };
+}

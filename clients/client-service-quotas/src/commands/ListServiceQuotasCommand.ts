@@ -115,6 +115,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class ListServiceQuotasCommand extends $Command
@@ -125,9 +126,7 @@ export class ListServiceQuotasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class ListServiceQuotasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceQuotasCommand)
   .de(de_ListServiceQuotasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceQuotasRequest;
+      output: ListServiceQuotasResponse;
+    };
+    sdk: {
+      input: ListServiceQuotasCommandInput;
+      output: ListServiceQuotasCommandOutput;
+    };
+  };
+}

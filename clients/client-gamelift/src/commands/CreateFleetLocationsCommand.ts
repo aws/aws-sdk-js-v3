@@ -28,12 +28,9 @@ export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsIn
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Adds remote locations to an EC2 or container fleet and begins populating the new
- *             locations with instances. The new instances conform to the fleet's instance type,
- *             auto-scaling, and other configuration settings.</p>
+ * <p>Adds remote locations to an EC2 and begins populating the new locations with
+ *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
+ *             other configuration settings.</p>
  *          <note>
  *             <p>You can't add remote locations to a fleet that resides in an Amazon Web Services Region that
  *                 doesn't support multiple locations. Fleets created prior to March 2021 can't support
@@ -53,8 +50,11 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             fleets</a>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-editing.html#fleets-update-locations">Update fleet locations</a>
  *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
+ *                 Amazon GameLift service locations</a> for managed hosting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,12 +114,12 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link NotReadyException} (client fault)
  *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
- *       recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *         backoffs and jitter</a>. </p>
+ *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
+ *                 backoffs and jitter</a>. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -129,6 +129,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -140,9 +141,7 @@ export class CreateFleetLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class CreateFleetLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFleetLocationsCommand)
   .de(de_CreateFleetLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetLocationsInput;
+      output: CreateFleetLocationsOutput;
+    };
+    sdk: {
+      input: CreateFleetLocationsCommandInput;
+      output: CreateFleetLocationsCommandOutput;
+    };
+  };
+}

@@ -27,6 +27,7 @@ import {
   expectShort as __expectShort,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -35,10 +36,12 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
+  splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
@@ -186,6 +189,10 @@ import {
   MalformedContentTypeWithoutBodyCommandOutput,
 } from "../commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
+} from "../commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
+import {
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,
 } from "../commands/MalformedContentTypeWithPayloadCommand";
@@ -297,6 +304,14 @@ import {
 import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
 import {
+  ResponseCodeHttpFallbackCommandInput,
+  ResponseCodeHttpFallbackCommandOutput,
+} from "../commands/ResponseCodeHttpFallbackCommand";
+import {
+  ResponseCodeRequiredCommandInput,
+  ResponseCodeRequiredCommandOutput,
+} from "../commands/ResponseCodeRequiredCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
@@ -313,15 +328,20 @@ import {
 } from "../commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "../commands/TestBodyStructureCommand";
 import {
-  TestNoInputNoPayloadCommandInput,
-  TestNoInputNoPayloadCommandOutput,
-} from "../commands/TestNoInputNoPayloadCommand";
-import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "../commands/TestNoPayloadCommand";
+  TestGetNoInputNoPayloadCommandInput,
+  TestGetNoInputNoPayloadCommandOutput,
+} from "../commands/TestGetNoInputNoPayloadCommand";
+import { TestGetNoPayloadCommandInput, TestGetNoPayloadCommandOutput } from "../commands/TestGetNoPayloadCommand";
 import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "../commands/TestPayloadBlobCommand";
 import {
   TestPayloadStructureCommandInput,
   TestPayloadStructureCommandOutput,
 } from "../commands/TestPayloadStructureCommand";
+import {
+  TestPostNoInputNoPayloadCommandInput,
+  TestPostNoInputNoPayloadCommandOutput,
+} from "../commands/TestPostNoInputNoPayloadCommand";
+import { TestPostNoPayloadCommandInput, TestPostNoPayloadCommandOutput } from "../commands/TestPostNoPayloadCommand";
 import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -369,8 +389,8 @@ export const se_AllQueryStringTypesCommand = async (
   const query: any = map({
     ...convertMap(input.queryParamsMapOfStringList),
     [_S]: [, input[_qS]!],
-    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
-    [_SS]: [() => input.queryStringSet !== void 0, () => (input[_qSS]! || []).map((_entry) => _entry as any)],
+    [_SL]: [() => input.queryStringList !== void 0, () => input[_qSL]! || []],
+    [_SS]: [() => input.queryStringSet !== void 0, () => input[_qSS]! || []],
     [_B]: [() => input.queryByte !== void 0, () => input[_qB]!.toString()],
     [_Sh]: [() => input.queryShort !== void 0, () => input[_qSu]!.toString()],
     [_I]: [() => input.queryInteger !== void 0, () => input[_qI]!.toString()],
@@ -406,7 +426,7 @@ export const se_AllQueryStringTypesCommand = async (
       () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
     [_E]: [, input[_qE]!],
-    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_EL]: [() => input.queryEnumList !== void 0, () => input[_qEL]! || []],
     [_IE]: [() => input.queryIntegerEnum !== void 0, () => input[_qIE]!.toString()],
     [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
@@ -1032,14 +1052,8 @@ export const se_InputAndOutputWithHeadersCommand = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).map(__quoteHeader).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).map(__quoteHeader).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -1053,10 +1067,7 @@ export const se_InputAndOutputWithHeadersCommand = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).map(__quoteHeader).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -1430,6 +1441,23 @@ export const se_MalformedContentTypeWithoutBodyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1MalformedContentTypeWithoutBodyEmptyInputCommand
+ */
+export const se_MalformedContentTypeWithoutBodyEmptyInputCommand = async (
+  input: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_he]: input[_he]!,
+  });
+  b.bp("/MalformedContentTypeWithoutBodyEmptyInput");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1MalformedContentTypeWithPayloadCommand
  */
 export const se_MalformedContentTypeWithPayloadCommand = async (
@@ -1684,7 +1712,7 @@ export const se_MalformedStringCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_amth]: [
       () => isSerializableHeaderValue(input[_bl]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_bl]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_bl]!))),
     ],
   });
   b.bp("/MalformedString");
@@ -1945,7 +1973,7 @@ export const se_MediaTypeHeaderCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xj]: [
       () => isSerializableHeaderValue(input[_j]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_j]!))),
     ],
   });
   b.bp("/MediaTypeHeader");
@@ -1995,10 +2023,7 @@ export const se_NullAndEmptyHeadersClientCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersClient");
   let body: any;
@@ -2017,10 +2042,7 @@ export const se_NullAndEmptyHeadersServerCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersServer");
   let body: any;
@@ -2058,7 +2080,7 @@ export const se_OmitsSerializingEmptyListsCommand = async (
   const headers: any = {};
   b.bp("/OmitsSerializingEmptyLists");
   const query: any = map({
-    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
+    [_SL]: [() => input.queryStringList !== void 0, () => input[_qSL]! || []],
     [_IL]: [
       () => input.queryIntegerList !== void 0,
       () => (input[_qIL]! || []).map((_entry) => _entry.toString() as any),
@@ -2075,7 +2097,7 @@ export const se_OmitsSerializingEmptyListsCommand = async (
       () => input.queryTimestampList !== void 0,
       () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
-    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_EL]: [() => input.queryEnumList !== void 0, () => input[_qEL]! || []],
     [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
       () => (input[_qIEL]! || []).map((_entry) => _entry.toString() as any),
@@ -2279,6 +2301,36 @@ export const se_RecursiveShapesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ResponseCodeHttpFallbackCommand
+ */
+export const se_ResponseCodeHttpFallbackCommand = async (
+  input: ResponseCodeHttpFallbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/responseCodeHttpFallback");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResponseCodeRequiredCommand
+ */
+export const se_ResponseCodeRequiredCommand = async (
+  input: ResponseCodeRequiredCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/responseCodeRequired");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SimpleScalarPropertiesCommand
  */
 export const se_SimpleScalarPropertiesCommand = async (
@@ -2324,6 +2376,7 @@ export const se_SparseJsonListsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      sparseShortList: (_) => se_SparseShortList(_, context),
       sparseStringList: (_) => se_SparseStringList(_, context),
     })
   );
@@ -2444,10 +2497,10 @@ export const se_TestBodyStructureCommand = async (
 };
 
 /**
- * serializeAws_restJson1TestNoInputNoPayloadCommand
+ * serializeAws_restJson1TestGetNoInputNoPayloadCommand
  */
-export const se_TestNoInputNoPayloadCommand = async (
-  input: TestNoInputNoPayloadCommandInput,
+export const se_TestGetNoInputNoPayloadCommand = async (
+  input: TestGetNoInputNoPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
@@ -2459,10 +2512,10 @@ export const se_TestNoInputNoPayloadCommand = async (
 };
 
 /**
- * serializeAws_restJson1TestNoPayloadCommand
+ * serializeAws_restJson1TestGetNoPayloadCommand
  */
-export const se_TestNoPayloadCommand = async (
-  input: TestNoPayloadCommandInput,
+export const se_TestGetNoPayloadCommand = async (
+  input: TestGetNoPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
@@ -2516,6 +2569,38 @@ export const se_TestPayloadStructureCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TestPostNoInputNoPayloadCommand
+ */
+export const se_TestPostNoInputNoPayloadCommand = async (
+  input: TestPostNoInputNoPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/no_input_no_payload");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TestPostNoPayloadCommand
+ */
+export const se_TestPostNoPayloadCommand = async (
+  input: TestPostNoPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xati]: input[_tI]!,
+  });
+  b.bp("/no_payload");
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -2924,8 +3009,10 @@ export const de_HttpPayloadWithUnionCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
-  contents.nested = _json(data);
+  const data: Record<string, any> | undefined = await parseBody(output.body, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.nested = __expectUnion(_json(data));
+  }
   return contents;
 };
 
@@ -3149,19 +3236,19 @@ export const de_InputAndOutputWithHeadersCommand = async (
     [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
     [_hSL]: [
       () => void 0 !== output.headers[_xs__],
-      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs__] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hSS]: [
       () => void 0 !== output.headers[_xs___],
-      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs___] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIL]: [
       () => void 0 !== output.headers[_xi_],
-      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi_] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
     [_hBL]: [
       () => void 0 !== output.headers[_xb___],
-      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xb___] || "").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
     [_hTL]: [
       () => void 0 !== output.headers[_xt],
@@ -3173,12 +3260,12 @@ export const de_InputAndOutputWithHeadersCommand = async (
     [_hE]: [, output.headers[_xe]],
     [_hEL]: [
       () => void 0 !== output.headers[_xe_],
-      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xe_] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
     [_hIEL]: [
       () => void 0 !== output.headers[_xi___],
-      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi___] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3509,6 +3596,23 @@ export const de_MalformedContentTypeWithoutBodyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MalformedContentTypeWithoutBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1MalformedContentTypeWithoutBodyEmptyInputCommand
+ */
+export const de_MalformedContentTypeWithoutBodyEmptyInputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3924,7 +4028,7 @@ export const de_MediaTypeHeaderCommand = async (
     $metadata: deserializeMetadata(output),
     [_j]: [
       () => void 0 !== output.headers[_xj],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -3981,7 +4085,7 @@ export const de_NullAndEmptyHeadersClientCommand = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -4004,7 +4108,7 @@ export const de_NullAndEmptyHeadersServerCommand = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -4248,6 +4352,43 @@ export const de_RecursiveShapesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ResponseCodeHttpFallbackCommand
+ */
+export const de_ResponseCodeHttpFallbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResponseCodeHttpFallbackCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResponseCodeRequiredCommand
+ */
+export const de_ResponseCodeRequiredCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResponseCodeRequiredCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  map(contents, {
+    responseCode: [, output.statusCode],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SimpleScalarPropertiesCommand
  */
 export const de_SimpleScalarPropertiesCommand = async (
@@ -4292,6 +4433,7 @@ export const de_SparseJsonListsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    sparseShortList: (_) => de_SparseShortList(_, context),
     sparseStringList: (_) => de_SparseStringList(_, context),
   });
   Object.assign(contents, doc);
@@ -4403,12 +4545,12 @@ export const de_TestBodyStructureCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestNoInputNoPayloadCommand
+ * deserializeAws_restJson1TestGetNoInputNoPayloadCommand
  */
-export const de_TestNoInputNoPayloadCommand = async (
+export const de_TestGetNoInputNoPayloadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestNoInputNoPayloadCommandOutput> => {
+): Promise<TestGetNoInputNoPayloadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4421,12 +4563,12 @@ export const de_TestNoInputNoPayloadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestNoPayloadCommand
+ * deserializeAws_restJson1TestGetNoPayloadCommand
  */
-export const de_TestNoPayloadCommand = async (
+export const de_TestGetNoPayloadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestNoPayloadCommandOutput> => {
+): Promise<TestGetNoPayloadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4473,6 +4615,42 @@ export const de_TestPayloadStructureCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TestPostNoInputNoPayloadCommand
+ */
+export const de_TestPostNoInputNoPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPostNoInputNoPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TestPostNoPayloadCommand
+ */
+export const de_TestPostNoPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPostNoPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -4702,7 +4880,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4839,7 +5017,7 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
     bar: (value) => ({ bar: value }),
     baz: (value) => ({ _baz: value }),
     foo: (value) => ({ FOO: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4864,6 +5042,13 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
 // se_IntegerList omitted.
 
 // se_NestedStringList omitted.
+
+/**
+ * serializeAws_restJson1SparseShortList
+ */
+const se_SparseShortList = (input: number[], context: __SerdeContext): any => {
+  return input;
+};
 
 /**
  * serializeAws_restJson1SparseStringList
@@ -5158,6 +5343,19 @@ const de_UnionWithJsonName = (output: any, context: __SerdeContext): UnionWithJs
 // de_NestedStringList omitted.
 
 /**
+ * deserializeAws_restJson1SparseShortList
+ */
+const de_SparseShortList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectShort(entry) as any;
+  });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1SparseStringList
  */
 const de_SparseStringList = (output: any, context: __SerdeContext): string[] => {
@@ -5215,13 +5413,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _B = "Byte";
 const _BL = "BooleanList";
@@ -5293,6 +5484,7 @@ const _hSS = "headerStringSet";
 const _hSe = "headerShort";
 const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
+const _he = "header";
 const _i = "integerinheader";
 const _iIH = "integerInHeader";
 const _iIQ = "integerInQuery";

@@ -83,6 +83,7 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListGeoLocationsCommand extends $Command
@@ -93,9 +94,7 @@ export class ListGeoLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListGeoLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGeoLocationsCommand)
   .de(de_ListGeoLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGeoLocationsRequest;
+      output: ListGeoLocationsResponse;
+    };
+    sdk: {
+      input: ListGeoLocationsCommandInput;
+      output: ListGeoLocationsCommandOutput;
+    };
+  };
+}

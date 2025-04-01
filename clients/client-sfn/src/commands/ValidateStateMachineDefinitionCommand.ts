@@ -9,6 +9,7 @@ import {
   ValidateStateMachineDefinitionInput,
   ValidateStateMachineDefinitionInputFilterSensitiveLog,
   ValidateStateMachineDefinitionOutput,
+  ValidateStateMachineDefinitionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_ValidateStateMachineDefinitionCommand,
@@ -37,26 +38,37 @@ export interface ValidateStateMachineDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Validates the syntax of a state machine definition.</p>
- *          <p>You can validate that a state machine definition is correct without
- *             creating a state machine resource. Step Functions will implicitly perform the same
- *             syntax check when you invoke <code>CreateStateMachine</code> and
- *                 <code>UpdateStateMachine</code>. State machine definitions are specified using a
- *             JSON-based, structured language. For more information on Amazon States Language see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL). </p>
+ * <p>Validates the syntax of a state machine definition specified in <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL), a
+ *             JSON-based, structured language.</p>
+ *          <p>You can validate that a state machine definition is correct without creating a state
+ *             machine resource.</p>
  *          <p>Suggested uses for <code>ValidateStateMachineDefinition</code>:</p>
  *          <ul>
  *             <li>
  *                <p>Integrate automated checks into your code review or Continuous Integration
- *                     (CI) process to validate state machine definitions before starting
+ *                     (CI) process to check state machine definitions before starting
  *                     deployments.</p>
  *             </li>
  *             <li>
- *                <p>Run the validation from a Git pre-commit hook to check your state machine
- *                     definitions before committing them to your source repository.</p>
+ *                <p>Run validation from a Git pre-commit hook to verify the definition before
+ *                     committing to your source repository.</p>
  *             </li>
  *          </ul>
+ *          <p>Validation will look for problems in your state machine definition and return a
+ *             <b>result</b> and a list of <b>diagnostic
+ *             elements</b>.</p>
+ *          <p>The <b>result</b>  value will be <code>OK</code> when your
+ *             workflow definition can be successfully created or updated. Note the result can be
+ *             <code>OK</code> even when diagnostic warnings are present in the response. The
+ *             <b>result</b> value will be <code>FAIL</code> when the
+ *             workflow definition contains errors that would prevent you from creating or updating
+ *             your state machine. </p>
+ *          <p>The list of <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinitionDiagnostic.html">ValidateStateMachineDefinitionDiagnostic</a> data elements can contain zero or more <b>WARNING</b> and/or <b>ERROR</b> elements.</p>
  *          <note>
- *             <p>Errors found in the state machine definition will be returned in the response as a list of <b>diagnostic elements</b>, rather than raise an exception.</p>
+ *             <p>The <b>ValidateStateMachineDefinition API</b> might add
+ *                 new diagnostics in the future, adjust diagnostic codes, or change the message
+ *                 wording. Your automated processes should only rely on the value of the <b>result</b> field value (OK, FAIL). Do <b>not</b> rely on the exact order, count, or
+ *                 wording of diagnostic messages.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +79,8 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * const input = { // ValidateStateMachineDefinitionInput
  *   definition: "STRING_VALUE", // required
  *   type: "STANDARD" || "EXPRESS",
+ *   severity: "ERROR" || "WARNING",
+ *   maxResults: Number("int"),
  * };
  * const command = new ValidateStateMachineDefinitionCommand(input);
  * const response = await client.send(command);
@@ -74,12 +88,13 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * //   result: "OK" || "FAIL", // required
  * //   diagnostics: [ // ValidateStateMachineDefinitionDiagnosticList // required
  * //     { // ValidateStateMachineDefinitionDiagnostic
- * //       severity: "ERROR", // required
+ * //       severity: "ERROR" || "WARNING", // required
  * //       code: "STRING_VALUE", // required
  * //       message: "STRING_VALUE", // required
  * //       location: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   truncated: true || false,
  * // };
  *
  * ```
@@ -96,6 +111,7 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class ValidateStateMachineDefinitionCommand extends $Command
@@ -106,9 +122,7 @@ export class ValidateStateMachineDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,7 +131,19 @@ export class ValidateStateMachineDefinitionCommand extends $Command
   })
   .s("AWSStepFunctions", "ValidateStateMachineDefinition", {})
   .n("SFNClient", "ValidateStateMachineDefinitionCommand")
-  .f(ValidateStateMachineDefinitionInputFilterSensitiveLog, void 0)
+  .f(ValidateStateMachineDefinitionInputFilterSensitiveLog, ValidateStateMachineDefinitionOutputFilterSensitiveLog)
   .ser(se_ValidateStateMachineDefinitionCommand)
   .de(de_ValidateStateMachineDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateStateMachineDefinitionInput;
+      output: ValidateStateMachineDefinitionOutput;
+    };
+    sdk: {
+      input: ValidateStateMachineDefinitionCommandInput;
+      output: ValidateStateMachineDefinitionCommandOutput;
+    };
+  };
+}

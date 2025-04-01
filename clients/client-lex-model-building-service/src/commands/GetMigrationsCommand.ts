@@ -88,6 +88,7 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetMigrationsCommand extends $Command
@@ -98,9 +99,7 @@ export class GetMigrationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetMigrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMigrationsCommand)
   .de(de_GetMigrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMigrationsRequest;
+      output: GetMigrationsResponse;
+    };
+    sdk: {
+      input: GetMigrationsCommandInput;
+      output: GetMigrationsCommandOutput;
+    };
+  };
+}

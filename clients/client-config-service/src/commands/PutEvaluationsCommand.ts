@@ -29,7 +29,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
 
 /**
  * <p>Used by an Lambda function to deliver evaluation results to
- * 			Config. This action is required in every Lambda function
+ * 			Config. This operation is required in every Lambda function
  * 			that is invoked by an Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +85,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class PutEvaluationsCommand extends $Command
@@ -95,9 +96,7 @@ export class PutEvaluationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class PutEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEvaluationsCommand)
   .de(de_PutEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEvaluationsRequest;
+      output: PutEvaluationsResponse;
+    };
+    sdk: {
+      input: PutEvaluationsCommandInput;
+      output: PutEvaluationsCommandOutput;
+    };
+  };
+}

@@ -3,5 +3,7 @@ export * from "./Interfaces";
 export * from "./ListApplicationStatesPaginator";
 export * from "./ListCreatedArtifactsPaginator";
 export * from "./ListDiscoveredResourcesPaginator";
+export * from "./ListMigrationTaskUpdatesPaginator";
 export * from "./ListMigrationTasksPaginator";
 export * from "./ListProgressUpdateStreamsPaginator";
+export * from "./ListSourceResourcesPaginator";

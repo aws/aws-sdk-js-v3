@@ -42,6 +42,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   filter: "ALL" || "BASE",
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
@@ -49,6 +50,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
  * //     { // AssetModelPropertySummary
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //       dataTypeSpec: "STRING_VALUE",
@@ -123,7 +125,6 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -156,6 +157,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListAssetModelPropertiesCommand extends $Command
@@ -166,9 +168,7 @@ export class ListAssetModelPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class ListAssetModelPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetModelPropertiesCommand)
   .de(de_ListAssetModelPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetModelPropertiesRequest;
+      output: ListAssetModelPropertiesResponse;
+    };
+    sdk: {
+      input: ListAssetModelPropertiesCommandInput;
+      output: ListAssetModelPropertiesCommandOutput;
+    };
+  };
+}

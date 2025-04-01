@@ -197,6 +197,35 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  *       WrappingKeyCertificate: "STRING_VALUE", // required
  *       WrappingSpec: "STRING_VALUE",
  *     },
+ *     DiffieHellmanTr31KeyBlock: { // ExportDiffieHellmanTr31KeyBlock
+ *       PrivateKeyIdentifier: "STRING_VALUE", // required
+ *       CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
+ *       PublicKeyCertificate: "STRING_VALUE", // required
+ *       DeriveKeyAlgorithm: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *       KeyDerivationFunction: "NIST_SP800" || "ANSI_X963", // required
+ *       KeyDerivationHashAlgorithm: "SHA_256" || "SHA_384" || "SHA_512", // required
+ *       DerivationData: { // DiffieHellmanDerivationData Union: only one key present
+ *         SharedInformation: "STRING_VALUE",
+ *       },
+ *       KeyBlockHeaders: {
+ *         KeyModesOfUse: {
+ *           Encrypt: true || false,
+ *           Decrypt: true || false,
+ *           Wrap: true || false,
+ *           Unwrap: true || false,
+ *           Generate: true || false,
+ *           Sign: true || false,
+ *           Verify: true || false,
+ *           DeriveKey: true || false,
+ *           NoRestrictions: true || false,
+ *         },
+ *         KeyExportability: "STRING_VALUE",
+ *         KeyVersion: "STRING_VALUE",
+ *         OptionalBlocks: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  *   ExportKeyIdentifier: "STRING_VALUE", // required
  *   ExportAttributes: { // ExportAttributes
@@ -250,6 +279,7 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class ExportKeyCommand extends $Command
@@ -260,9 +290,7 @@ export class ExportKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -274,4 +302,16 @@ export class ExportKeyCommand extends $Command
   .f(ExportKeyInputFilterSensitiveLog, ExportKeyOutputFilterSensitiveLog)
   .ser(se_ExportKeyCommand)
   .de(de_ExportKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportKeyInput;
+      output: ExportKeyOutput;
+    };
+    sdk: {
+      input: ExportKeyCommandInput;
+      output: ExportKeyCommandOutput;
+    };
+  };
+}

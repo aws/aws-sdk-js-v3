@@ -60,31 +60,31 @@ export interface Challenge {
    * <p>The Amazon Resource Name (ARN) of the challenge.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>The date and time that the challenge was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the challenge was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The SCEP challenge password, in UUID format.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -96,25 +96,25 @@ export interface ChallengeMetadata {
    * <p>The Amazon Resource Name (ARN) of the challenge.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>The date and time that the connector was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the connector was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -126,25 +126,25 @@ export interface ChallengeMetadataSummary {
    * <p>The Amazon Resource Name (ARN) of the challenge.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>The date and time that the challenge was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the challenge was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -197,13 +197,13 @@ export interface CreateChallengeRequest {
    * <p>Custom string that can be used to distinguish between calls to the <a href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_CreateChallenge.html">CreateChallenge</a> action. Client tokens for <code>CreateChallenge</code> time out after five minutes. Therefore, if you call <code>CreateChallenge</code> multiple times with the same client token within five minutes, Connector for SCEP recognizes that you are requesting only one challenge and will only respond with one. If you change the client token for each call, Connector for SCEP recognizes that you are requesting multiple challenge passwords.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The key-value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface CreateChallengeResponse {
    * <p>Returns the challenge details for the specified connector.</p>
    * @public
    */
-  Challenge?: Challenge;
+  Challenge?: Challenge | undefined;
 }
 
 /**
@@ -374,7 +374,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the validation error, if available. The service doesn't return a reason for every validation exception.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -420,7 +420,7 @@ export interface GetChallengeMetadataResponse {
    * <p>The metadata for the challenge.</p>
    * @public
    */
-  ChallengeMetadata?: ChallengeMetadata;
+  ChallengeMetadata?: ChallengeMetadata | undefined;
 }
 
 /**
@@ -442,7 +442,7 @@ export interface GetChallengePasswordResponse {
    * <p>The SCEP challenge password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -455,7 +455,7 @@ export interface ListChallengeMetadataRequest {
    *  <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -463,7 +463,7 @@ export interface ListChallengeMetadataRequest {
    *  value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
@@ -480,7 +480,7 @@ export interface ListChallengeMetadataResponse {
    * <p>The challenge metadata for the challenges belonging to your Amazon Web Services account.</p>
    * @public
    */
-  Challenges?: ChallengeMetadataSummary[];
+  Challenges?: ChallengeMetadataSummary[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -488,7 +488,7 @@ export interface ListChallengeMetadataResponse {
    *  value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -558,19 +558,19 @@ export interface OpenIdConfiguration {
    * <p>The issuer value to copy into your Microsoft Entra app registration's OIDC.</p>
    * @public
    */
-  Issuer?: string;
+  Issuer?: string | undefined;
 
   /**
    * <p>The subject value to copy into your Microsoft Entra app registration's OIDC.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>The audience value to copy into your Microsoft Entra app registration's OIDC.</p>
    * @public
    */
-  Audience?: string;
+  Audience?: string | undefined;
 }
 
 /**
@@ -628,61 +628,61 @@ export interface Connector {
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate authority associated with the connector.</p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>The connector type.</p>
    * @public
    */
-  Type?: ConnectorType;
+  Type?: ConnectorType | undefined;
 
   /**
    * <p>Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure <code>MobileDeviceManagement</code>, then the connector is for general-purpose use and this object is empty.</p>
    * @public
    */
-  MobileDeviceManagement?: MobileDeviceManagement;
+  MobileDeviceManagement?: MobileDeviceManagement | undefined;
 
   /**
    * <p>Contains OpenID Connect (OIDC) parameters for use with Connector for SCEP for Microsoft Intune. For more information about using Connector for SCEP for Microsoft Intune, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-intune.html">Using Connector for SCEP for Microsoft Intune</a>.</p>
    * @public
    */
-  OpenIdConfiguration?: OpenIdConfiguration;
+  OpenIdConfiguration?: OpenIdConfiguration | undefined;
 
   /**
    * <p>The connector's status.</p>
    * @public
    */
-  Status?: ConnectorStatus;
+  Status?: ConnectorStatus | undefined;
 
   /**
    * <p>Information about why connector creation failed, if status is <code>FAILED</code>.</p>
    * @public
    */
-  StatusReason?: ConnectorStatusReason;
+  StatusReason?: ConnectorStatusReason | undefined;
 
   /**
    * <p>The connector's HTTPS public SCEP URL.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The date and time that the connector was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the connector was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -694,61 +694,61 @@ export interface ConnectorSummary {
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector's associated certificate authority.</p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>The connector type.</p>
    * @public
    */
-  Type?: ConnectorType;
+  Type?: ConnectorType | undefined;
 
   /**
    * <p>Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure <code>MobileDeviceManagement</code>, then the connector is for general-purpose use and this object is empty.</p>
    * @public
    */
-  MobileDeviceManagement?: MobileDeviceManagement;
+  MobileDeviceManagement?: MobileDeviceManagement | undefined;
 
   /**
    * <p>Contains OpenID Connect (OIDC) parameters for use with Microsoft Intune.</p>
    * @public
    */
-  OpenIdConfiguration?: OpenIdConfiguration;
+  OpenIdConfiguration?: OpenIdConfiguration | undefined;
 
   /**
    * <p>The connector's status. Status can be creating, active, deleting, or failed.</p>
    * @public
    */
-  Status?: ConnectorStatus;
+  Status?: ConnectorStatus | undefined;
 
   /**
    * <p>Information about why connector creation failed, if status is <code>FAILED</code>.</p>
    * @public
    */
-  StatusReason?: ConnectorStatusReason;
+  StatusReason?: ConnectorStatusReason | undefined;
 
   /**
    * <p>The connector's HTTPS public SCEP URL.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The date and time that the challenge was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the challenge was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -767,19 +767,19 @@ export interface CreateConnectorRequest {
    *          <p>If you provide an <code>IntuneConfiguration</code>, Connector for SCEP creates a connector for use with Microsoft Intune, and you manage the challenge passwords using Microsoft Intune. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-intune.html">Using Connector for SCEP for Microsoft Intune</a>.</p>
    * @public
    */
-  MobileDeviceManagement?: MobileDeviceManagement;
+  MobileDeviceManagement?: MobileDeviceManagement | undefined;
 
   /**
    * <p>Custom string that can be used to distinguish between calls to the <a href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_CreateChallenge.html">CreateChallenge</a> action. Client tokens for <code>CreateChallenge</code> time out after five minutes. Therefore, if you call <code>CreateChallenge</code> multiple times with the same client token within five minutes, Connector for SCEP recognizes that you are requesting only one challenge and will only respond with one. If you change the client token for each call, Connector for SCEP recognizes that you are requesting multiple challenge passwords.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The key-value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -790,7 +790,7 @@ export interface CreateConnectorResponse {
    * <p>Returns the Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 }
 
 /**
@@ -823,7 +823,7 @@ export interface GetConnectorResponse {
    * <p>The properties of the connector.</p>
    * @public
    */
-  Connector?: Connector;
+  Connector?: Connector | undefined;
 }
 
 /**
@@ -836,7 +836,7 @@ export interface ListConnectorsRequest {
    *  <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -844,7 +844,7 @@ export interface ListConnectorsRequest {
    *  value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -855,7 +855,7 @@ export interface ListConnectorsResponse {
    * <p>The connectors belonging to your Amazon Web Services account.</p>
    * @public
    */
-  Connectors?: ConnectorSummary[];
+  Connectors?: ConnectorSummary[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -863,7 +863,7 @@ export interface ListConnectorsResponse {
    *  value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -885,7 +885,7 @@ export interface ListTagsForResourceResponse {
    * <p>The key-value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**

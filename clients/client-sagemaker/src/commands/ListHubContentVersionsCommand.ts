@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_3";
+import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_4";
 import { de_ListHubContentVersionsCommand, se_ListHubContentVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -61,7 +61,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
- * //       SupportStatus: "Supported" || "Deprecated",
+ * //       SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
@@ -87,6 +87,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHubContentVersionsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListHubContentVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListHubContentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubContentVersionsCommand)
   .de(de_ListHubContentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubContentVersionsRequest;
+      output: ListHubContentVersionsResponse;
+    };
+    sdk: {
+      input: ListHubContentVersionsCommandInput;
+      output: ListHubContentVersionsCommandOutput;
+    };
+  };
+}

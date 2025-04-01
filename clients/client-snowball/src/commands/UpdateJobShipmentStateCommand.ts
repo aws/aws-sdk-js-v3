@@ -62,6 +62,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobShipmentStateCommand extends $Command
@@ -72,9 +73,7 @@ export class UpdateJobShipmentStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class UpdateJobShipmentStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJobShipmentStateCommand)
   .de(de_UpdateJobShipmentStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobShipmentStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateJobShipmentStateCommandInput;
+      output: UpdateJobShipmentStateCommandOutput;
+    };
+  };
+}

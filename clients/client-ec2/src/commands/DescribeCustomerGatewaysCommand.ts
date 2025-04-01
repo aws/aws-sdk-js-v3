@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeCustomerGatewaysRequest, DescribeCustomerGatewaysResult } from "../models/models_3";
+import { DescribeCustomerGatewaysRequest, DescribeCustomerGatewaysResult } from "../models/models_4";
 import { de_DescribeCustomerGatewaysCommand, se_DescribeCustomerGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -56,12 +56,7 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * // { // DescribeCustomerGatewaysResult
  * //   CustomerGateways: [ // CustomerGatewayList
  * //     { // CustomerGateway
- * //       BgpAsn: "STRING_VALUE",
- * //       CustomerGatewayId: "STRING_VALUE",
- * //       IpAddress: "STRING_VALUE",
  * //       CertificateArn: "STRING_VALUE",
- * //       State: "STRING_VALUE",
- * //       Type: "STRING_VALUE",
  * //       DeviceName: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -70,6 +65,11 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * //         },
  * //       ],
  * //       BgpAsnExtended: "STRING_VALUE",
+ * //       CustomerGatewayId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       IpAddress: "STRING_VALUE",
+ * //       BgpAsn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -85,33 +85,33 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a customer gateway
  * ```javascript
  * // This example describes the specified customer gateway.
  * const input = {
- *   "CustomerGatewayIds": [
+ *   CustomerGatewayIds: [
  *     "cgw-0e11f167"
  *   ]
  * };
  * const command = new DescribeCustomerGatewaysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomerGateways": [
+ *   CustomerGateways: [
  *     {
- *       "BgpAsn": "65534",
- *       "CustomerGatewayId": "cgw-0e11f167",
- *       "IpAddress": "12.1.2.3",
- *       "State": "available",
- *       "Type": "ipsec.1"
+ *       BgpAsn: "65534",
+ *       CustomerGatewayId: "cgw-0e11f167",
+ *       IpAddress: "12.1.2.3",
+ *       State: "available",
+ *       Type: "ipsec.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-customer-gateways-1
  * ```
  *
+ * @public
  */
 export class DescribeCustomerGatewaysCommand extends $Command
   .classBuilder<
@@ -121,9 +121,7 @@ export class DescribeCustomerGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +133,16 @@ export class DescribeCustomerGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomerGatewaysCommand)
   .de(de_DescribeCustomerGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomerGatewaysRequest;
+      output: DescribeCustomerGatewaysResult;
+    };
+    sdk: {
+      input: DescribeCustomerGatewaysCommandInput;
+      output: DescribeCustomerGatewaysCommandOutput;
+    };
+  };
+}

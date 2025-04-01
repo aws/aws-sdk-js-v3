@@ -30,8 +30,7 @@ export interface ListOperationEventsCommandOutput extends ListOperationEventsOut
 /**
  * <p>Returns a list of operations events.</p>
  *          <p>Available parameters include <code>OperationID</code>, as well as optional parameters
- *             <code>MaxResults</code>, <code>NextToken</code>, and
- *          <code>Filters</code>.</p>
+ *             <code>MaxResults</code>, <code>NextToken</code>, and <code>Filters</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +84,7 @@ export interface ListOperationEventsCommandOutput extends ListOperationEventsOut
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class ListOperationEventsCommand extends $Command
@@ -95,9 +95,7 @@ export class ListOperationEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +107,16 @@ export class ListOperationEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOperationEventsCommand)
   .de(de_ListOperationEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOperationEventsInput;
+      output: ListOperationEventsOutput;
+    };
+    sdk: {
+      input: ListOperationEventsCommandInput;
+      output: ListOperationEventsCommandOutput;
+    };
+  };
+}

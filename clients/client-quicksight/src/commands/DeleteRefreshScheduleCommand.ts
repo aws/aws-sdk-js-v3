@@ -81,6 +81,7 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteRefreshScheduleCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteRefreshScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRefreshScheduleCommand)
   .de(de_DeleteRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRefreshScheduleRequest;
+      output: DeleteRefreshScheduleResponse;
+    };
+    sdk: {
+      input: DeleteRefreshScheduleCommandInput;
+      output: DeleteRefreshScheduleCommandOutput;
+    };
+  };
+}

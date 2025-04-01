@@ -64,7 +64,7 @@ export interface CreateAccessPolicyRequest {
    *             defined in the policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the policy.</p>
@@ -76,7 +76,7 @@ export interface CreateAccessPolicyRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -88,43 +88,43 @@ export interface AccessPolicyDetail {
    * <p>The type of access policy.</p>
    * @public
    */
-  type?: AccessPolicyType;
+  type?: AccessPolicyType | undefined;
 
   /**
    * <p>The name of the policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document without any whitespaces.</p>
    * @public
    */
-  policy?: __DocumentType;
+  policy?: __DocumentType | undefined;
 
   /**
    * <p>The date the policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface CreateAccessPolicyResponse {
    * <p>Details about the created access policy.</p>
    * @public
    */
-  accessPolicyDetail?: AccessPolicyDetail;
+  accessPolicyDetail?: AccessPolicyDetail | undefined;
 }
 
 /**
@@ -169,13 +169,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * Identifier of the resource affected.
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * Type of the resource affected.
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * Service Quotas requirement to identify originating service.
@@ -187,7 +187,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * Service Quotas requirement to identify originating quota.
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -247,7 +247,7 @@ export interface DeleteAccessPolicyRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -300,7 +300,7 @@ export interface GetAccessPolicyResponse {
    * <p>Details about the requested access policy.</p>
    * @public
    */
-  accessPolicyDetail?: AccessPolicyDetail;
+  accessPolicyDetail?: AccessPolicyDetail | undefined;
 }
 
 /**
@@ -317,7 +317,7 @@ export interface ListAccessPoliciesRequest {
    * <p>Resource filters (can be collections or indexes) that policies can apply to.</p>
    * @public
    */
-  resource?: string[];
+  resource?: string[] | undefined;
 
   /**
    * <p>If your initial <code>ListAccessPolicies</code> operation returns a
@@ -326,14 +326,14 @@ export interface ListAccessPoliciesRequest {
    *             page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can
    *             use <code>nextToken</code> to get the next page of results. The default is 20.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -345,37 +345,37 @@ export interface AccessPolicySummary {
    * <p>The type of access policy. Currently, the only available type is <code>data</code>.</p>
    * @public
    */
-  type?: AccessPolicyType;
+  type?: AccessPolicyType | undefined;
 
   /**
    * <p>The name of the access policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the access policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Epoch time when the access policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The date and time when the collection was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -386,7 +386,7 @@ export interface ListAccessPoliciesResponse {
    * <p>Details about the requested access policies.</p>
    * @public
    */
-  accessPolicySummaries?: AccessPolicySummary[];
+  accessPolicySummaries?: AccessPolicySummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value
@@ -394,7 +394,7 @@ export interface ListAccessPoliciesResponse {
    *             again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -424,19 +424,19 @@ export interface UpdateAccessPolicyRequest {
    *             defined in the policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -447,7 +447,7 @@ export interface UpdateAccessPolicyResponse {
    * <p>Details about the updated access policy.</p>
    * @public
    */
-  accessPolicyDetail?: AccessPolicyDetail;
+  accessPolicyDetail?: AccessPolicyDetail | undefined;
 }
 
 /**
@@ -459,7 +459,7 @@ export interface AccessPolicyStats {
    * <p>The number of data access policies in the current account.</p>
    * @public
    */
-  DataPolicyCount?: number;
+  DataPolicyCount?: number | undefined;
 }
 
 /**
@@ -474,13 +474,13 @@ export interface CapacityLimits {
    * <p>The maximum indexing capacity for collections.</p>
    * @public
    */
-  maxIndexingCapacityInOCU?: number;
+  maxIndexingCapacityInOCU?: number | undefined;
 
   /**
    * <p>The maximum search capacity for collections.</p>
    * @public
    */
-  maxSearchCapacityInOCU?: number;
+  maxSearchCapacityInOCU?: number | undefined;
 }
 
 /**
@@ -495,7 +495,7 @@ export interface AccountSettingsDetail {
    *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    * @public
    */
-  capacityLimits?: CapacityLimits;
+  capacityLimits?: CapacityLimits | undefined;
 }
 
 /**
@@ -507,13 +507,13 @@ export interface BatchGetCollectionRequest {
    *             is part of the collection endpoint. You can also retrieve it using the <a href="https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html">ListCollections</a> API.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>A list of collection names. You can't provide names and IDs in the same request.</p>
    * @public
    */
-  names?: string[];
+  names?: string[] | undefined;
 }
 
 /**
@@ -598,74 +598,86 @@ export interface CollectionDetail {
    * <p>A unique identifier for the collection.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 
   /**
    * <p>The type of collection.</p>
    * @public
    */
-  type?: CollectionType;
+  type?: CollectionType | undefined;
 
   /**
    * <p>A description of the collection.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ARN of the Amazon Web Services KMS key used to encrypt the collection.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>Details about an OpenSearch Serverless collection.</p>
    * @public
    */
-  standbyReplicas?: StandbyReplicas;
+  standbyReplicas?: StandbyReplicas | undefined;
 
   /**
    * <p>The Epoch time when the collection was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The date and time when the collection was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 
   /**
    * <p>Collection-specific endpoint used to submit index, search, and data upload requests to
    *             an OpenSearch Serverless collection.</p>
    * @public
    */
-  collectionEndpoint?: string;
+  collectionEndpoint?: string | undefined;
 
   /**
    * <p>Collection-specific endpoint used to access OpenSearch Dashboards.</p>
    * @public
    */
-  dashboardEndpoint?: string;
+  dashboardEndpoint?: string | undefined;
+
+  /**
+   * <p>A failure code associated with the request.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>A message associated with the failure code.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -678,14 +690,14 @@ export interface CollectionErrorDetail {
    *             request.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>If the request contains collection names, the response includes the names provided in
    *             the request.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A description of the error. For example, <code>The specified Collection is not
@@ -693,13 +705,13 @@ export interface CollectionErrorDetail {
    *          </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 }
 
 /**
@@ -710,13 +722,13 @@ export interface BatchGetCollectionResponse {
    * <p>Details about each collection.</p>
    * @public
    */
-  collectionDetails?: CollectionDetail[];
+  collectionDetails?: CollectionDetail[] | undefined;
 
   /**
    * <p>Error information for the request.</p>
    * @public
    */
-  collectionErrorDetails?: CollectionErrorDetail[];
+  collectionErrorDetails?: CollectionErrorDetail[] | undefined;
 }
 
 /**
@@ -789,38 +801,38 @@ export interface EffectiveLifecyclePolicyDetail {
    * <p>The type of lifecycle policy.</p>
    * @public
    */
-  type?: LifecyclePolicyType;
+  type?: LifecyclePolicyType | undefined;
 
   /**
    * <p>The name of the OpenSearch Serverless index resource.</p>
    * @public
    */
-  resource?: string;
+  resource?: string | undefined;
 
   /**
    * <p>The name of the lifecycle policy.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The type of OpenSearch Serverless resource. Currently, the only supported resource is <code>index</code>.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The minimum number of index retention in days or hours. This is an optional parameter that will return only if it’s set.</p>
    * @public
    */
-  retentionPeriod?: string;
+  retentionPeriod?: string | undefined;
 
   /**
    * <p>The minimum number of index retention days set. That is an optional param that will return as <code>true</code> if the minimum number of days or
    *             hours is not set to a index resource.</p>
    * @public
    */
-  noMinRetentionPeriod?: boolean;
+  noMinRetentionPeriod?: boolean | undefined;
 }
 
 /**
@@ -832,25 +844,25 @@ export interface EffectiveLifecyclePolicyErrorDetail {
    * <p>The type of lifecycle policy.</p>
    * @public
    */
-  type?: LifecyclePolicyType;
+  type?: LifecyclePolicyType | undefined;
 
   /**
    * <p>The name of OpenSearch Serverless index resource.</p>
    * @public
    */
-  resource?: string;
+  resource?: string | undefined;
 
   /**
    * <p>A description of the error. For example, <code>The specified Index resource is not found</code>.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The error code for the request.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 }
 
 /**
@@ -861,13 +873,13 @@ export interface BatchGetEffectiveLifecyclePolicyResponse {
    * <p>A list of lifecycle policies applied to the OpenSearch Serverless indexes.</p>
    * @public
    */
-  effectiveLifecyclePolicyDetails?: EffectiveLifecyclePolicyDetail[];
+  effectiveLifecyclePolicyDetails?: EffectiveLifecyclePolicyDetail[] | undefined;
 
   /**
    * <p>A list of resources for which retrieval failed.</p>
    * @public
    */
-  effectiveLifecyclePolicyErrorDetails?: EffectiveLifecyclePolicyErrorDetail[];
+  effectiveLifecyclePolicyErrorDetails?: EffectiveLifecyclePolicyErrorDetail[] | undefined;
 }
 
 /**
@@ -908,43 +920,43 @@ export interface LifecyclePolicyDetail {
    * <p>The type of lifecycle policy.</p>
    * @public
    */
-  type?: LifecyclePolicyType;
+  type?: LifecyclePolicyType | undefined;
 
   /**
    * <p>The name of the lifecycle policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the lifecycle policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the lifecycle policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document without any whitespaces.</p>
    * @public
    */
-  policy?: __DocumentType;
+  policy?: __DocumentType | undefined;
 
   /**
    * <p>The date the lifecycle policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the lifecycle policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -956,25 +968,25 @@ export interface LifecyclePolicyErrorDetail {
    * <p>The type of lifecycle policy.</p>
    * @public
    */
-  type?: LifecyclePolicyType;
+  type?: LifecyclePolicyType | undefined;
 
   /**
    * <p>The name of the lifecycle policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A description of the error. For example, <code>The specified Lifecycle Policy is not found</code>.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 }
 
 /**
@@ -985,13 +997,13 @@ export interface BatchGetLifecyclePolicyResponse {
    * <p>A list of lifecycle policies matched to the input policy name and policy type.</p>
    * @public
    */
-  lifecyclePolicyDetails?: LifecyclePolicyDetail[];
+  lifecyclePolicyDetails?: LifecyclePolicyDetail[] | undefined;
 
   /**
    * <p>A list of lifecycle policy names and policy types for which retrieval failed.</p>
    * @public
    */
-  lifecyclePolicyErrorDetails?: LifecyclePolicyErrorDetail[];
+  lifecyclePolicyErrorDetails?: LifecyclePolicyErrorDetail[] | undefined;
 }
 
 /**
@@ -1042,44 +1054,56 @@ export interface VpcEndpointDetail {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the VPC from which you access OpenSearch Serverless.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The ID of the subnets from which you access OpenSearch Serverless.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the security groups that define the ports, protocols, and
    *             sources for inbound traffic that you are authorizing into your endpoint.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The current status of the endpoint.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 
   /**
    * <p>The date the endpoint was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
+
+  /**
+   * <p>A failure code associated with the request.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>A message associated with the failure code.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -1091,19 +1115,19 @@ export interface VpcEndpointErrorDetail {
    * <p>The unique identifier of the VPC endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>An error message describing the reason for the failure.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The error code for the failed request.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 }
 
 /**
@@ -1114,13 +1138,13 @@ export interface BatchGetVpcEndpointResponse {
    * <p>Details about the specified VPC endpoint.</p>
    * @public
    */
-  vpcEndpointDetails?: VpcEndpointDetail[];
+  vpcEndpointDetails?: VpcEndpointDetail[] | undefined;
 
   /**
    * <p>Error information for a failed request.</p>
    * @public
    */
-  vpcEndpointErrorDetails?: VpcEndpointErrorDetail[];
+  vpcEndpointErrorDetails?: VpcEndpointErrorDetail[] | undefined;
 }
 
 /**
@@ -1155,31 +1179,31 @@ export interface CreateCollectionRequest {
    * <p>The type of collection.</p>
    * @public
    */
-  type?: CollectionType;
+  type?: CollectionType | undefined;
 
   /**
    * <p>Description of the collection.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates whether standby replicas should be used for a collection.</p>
    * @public
    */
-  standbyReplicas?: StandbyReplicas;
+  standbyReplicas?: StandbyReplicas | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1191,61 +1215,61 @@ export interface CreateCollectionDetail {
    * <p>The unique identifier of the collection.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 
   /**
    * <p>The type of collection.</p>
    * @public
    */
-  type?: CollectionType;
+  type?: CollectionType | undefined;
 
   /**
    * <p>A description of the collection.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>Creates details about an OpenSearch Serverless collection.</p>
    * @public
    */
-  standbyReplicas?: StandbyReplicas;
+  standbyReplicas?: StandbyReplicas | undefined;
 
   /**
    * <p>The Epoch time when the collection was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The date and time when the collection was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -1256,7 +1280,7 @@ export interface CreateCollectionResponse {
    * <p>Details about the collection.</p>
    * @public
    */
-  createCollectionDetail?: CreateCollectionDetail;
+  createCollectionDetail?: CreateCollectionDetail | undefined;
 }
 
 /**
@@ -1294,7 +1318,7 @@ export interface DeleteCollectionRequest {
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1306,19 +1330,19 @@ export interface DeleteCollectionDetail {
    * <p>The unique identifier of the collection.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 }
 
 /**
@@ -1329,7 +1353,7 @@ export interface DeleteCollectionResponse {
    * <p>Details of the deleted collection.</p>
    * @public
    */
-  deleteCollectionDetail?: DeleteCollectionDetail;
+  deleteCollectionDetail?: DeleteCollectionDetail | undefined;
 }
 
 /**
@@ -1342,13 +1366,13 @@ export interface CollectionFilters {
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 }
 
 /**
@@ -1359,7 +1383,7 @@ export interface ListCollectionsRequest {
    * <p> A list of filter names and values that you can use for requests.</p>
    * @public
    */
-  collectionFilters?: CollectionFilters;
+  collectionFilters?: CollectionFilters | undefined;
 
   /**
    * <p>If your initial <code>ListCollections</code> operation returns a <code>nextToken</code>,
@@ -1367,14 +1391,14 @@ export interface ListCollectionsRequest {
    *             which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. Default is 20. You can use
    *                 <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1386,25 +1410,25 @@ export interface CollectionSummary {
    * <p>The unique identifier of the collection.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1415,7 +1439,7 @@ export interface ListCollectionsResponse {
    * <p>Details about each collection.</p>
    * @public
    */
-  collectionSummaries?: CollectionSummary[];
+  collectionSummaries?: CollectionSummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -1423,7 +1447,7 @@ export interface ListCollectionsResponse {
    *             Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1440,13 +1464,13 @@ export interface UpdateCollectionRequest {
    * <p>A description of the collection.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1458,49 +1482,49 @@ export interface UpdateCollectionDetail {
    * <p>The unique identifier of the collection.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the collection.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the collection.</p>
    * @public
    */
-  status?: CollectionStatus;
+  status?: CollectionStatus | undefined;
 
   /**
    * <p>The collection type.</p>
    * @public
    */
-  type?: CollectionType;
+  type?: CollectionType | undefined;
 
   /**
    * <p>The description of the collection.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time when the collection was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The date and time when the collection was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -1511,7 +1535,77 @@ export interface UpdateCollectionResponse {
    * <p>Details about the updated collection.</p>
    * @public
    */
-  updateCollectionDetail?: UpdateCollectionDetail;
+  updateCollectionDetail?: UpdateCollectionDetail | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IamIdentityCenterGroupAttribute = {
+  /**
+   * Group ID
+   */
+  GroupId: "GroupId",
+  /**
+   * Group Name
+   */
+  GroupName: "GroupName",
+} as const;
+
+/**
+ * @public
+ */
+export type IamIdentityCenterGroupAttribute =
+  (typeof IamIdentityCenterGroupAttribute)[keyof typeof IamIdentityCenterGroupAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const IamIdentityCenterUserAttribute = {
+  /**
+   * Email
+   */
+  Email: "Email",
+  /**
+   * User ID
+   */
+  UserId: "UserId",
+  /**
+   * User Name
+   */
+  UserName: "UserName",
+} as const;
+
+/**
+ * @public
+ */
+export type IamIdentityCenterUserAttribute =
+  (typeof IamIdentityCenterUserAttribute)[keyof typeof IamIdentityCenterUserAttribute];
+
+/**
+ * <p>Describes IAM Identity Center options for creating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface CreateIamIdentityCenterConfigOptions {
+  /**
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  instanceArn: string | undefined;
+
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute | undefined;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
 
 /**
@@ -1534,7 +1628,7 @@ export interface CreateLifecyclePolicyRequest {
    * <p>A description of the lifecycle policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
@@ -1546,7 +1640,7 @@ export interface CreateLifecyclePolicyRequest {
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1557,7 +1651,7 @@ export interface CreateLifecyclePolicyResponse {
    * <p>Details about the created lifecycle policy.</p>
    * @public
    */
-  lifecyclePolicyDetail?: LifecyclePolicyDetail;
+  lifecyclePolicyDetail?: LifecyclePolicyDetail | undefined;
 }
 
 /**
@@ -1576,19 +1670,25 @@ export interface SamlConfigOptions {
    * <p>A user attribute for this SAML integration.</p>
    * @public
    */
-  userAttribute?: string;
+  userAttribute?: string | undefined;
 
   /**
    * <p>The group attribute for this SAML integration.</p>
    * @public
    */
-  groupAttribute?: string;
+  groupAttribute?: string | undefined;
+
+  /**
+   * <p>Custom entity id attribute to override default entity id for this saml integration.</p>
+   * @public
+   */
+  openSearchServerlessEntityId?: string | undefined;
 
   /**
    * <p>The session timeout, in minutes. Default is 60 minutes (12 hours).</p>
    * @public
    */
-  sessionTimeout?: number;
+  sessionTimeout?: number | undefined;
 }
 
 /**
@@ -1596,6 +1696,10 @@ export interface SamlConfigOptions {
  * @enum
  */
 export const SecurityConfigType = {
+  /**
+   * iam identity center
+   */
+  iamidentitycenter: "iamidentitycenter",
   /**
    * saml provider
    */
@@ -1627,20 +1731,69 @@ export interface CreateSecurityConfigRequest {
    * <p>A description of the security configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Describes SAML options in in the form of a key-value map. This field is required if
    *             you specify <code>saml</code> for the <code>type</code> parameter.</p>
    * @public
    */
-  samlOptions?: SamlConfigOptions;
+  samlOptions?: SamlConfigOptions | undefined;
+
+  /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify iamidentitycenter for the type parameter.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: CreateIamIdentityCenterConfigOptions | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface IamIdentityCenterConfigOptions {
+  /**
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  instanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationArn?: string | undefined;
+
+  /**
+   * <p>The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationName?: string | undefined;
+
+  /**
+   * <p>The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationDescription?: string | undefined;
+
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>
+   *          </p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute | undefined;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
 
 /**
@@ -1652,43 +1805,49 @@ export interface SecurityConfigDetail {
    * <p>The unique identifier of the security configuration.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of security configuration.</p>
    * @public
    */
-  type?: SecurityConfigType;
+  type?: SecurityConfigType | undefined;
 
   /**
    * <p>The version of the security configuration.</p>
    * @public
    */
-  configVersion?: string;
+  configVersion?: string | undefined;
 
   /**
    * <p>The description of the security configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>SAML options for the security configuration in the form of a key-value map.</p>
    * @public
    */
-  samlOptions?: SamlConfigOptions;
+  samlOptions?: SamlConfigOptions | undefined;
+
+  /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: IamIdentityCenterConfigOptions | undefined;
 
   /**
    * <p>The date the configuration was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the configuration was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -1699,7 +1858,7 @@ export interface CreateSecurityConfigResponse {
    * <p>Details about the created security configuration. </p>
    * @public
    */
-  securityConfigDetail?: SecurityConfigDetail;
+  securityConfigDetail?: SecurityConfigDetail | undefined;
 }
 
 /**
@@ -1743,7 +1902,7 @@ export interface CreateSecurityPolicyRequest {
    *             defined in the policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the new policy.</p>
@@ -1755,7 +1914,7 @@ export interface CreateSecurityPolicyRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1767,43 +1926,43 @@ export interface SecurityPolicyDetail {
    * <p>The type of security policy.</p>
    * @public
    */
-  type?: SecurityPolicyType;
+  type?: SecurityPolicyType | undefined;
 
   /**
    * <p>The name of the policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the security policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document without any whitespaces.</p>
    * @public
    */
-  policy?: __DocumentType;
+  policy?: __DocumentType | undefined;
 
   /**
    * <p>The date the policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -1814,7 +1973,7 @@ export interface CreateSecurityPolicyResponse {
    * <p>Details about the created security policy.</p>
    * @public
    */
-  securityPolicyDetail?: SecurityPolicyDetail;
+  securityPolicyDetail?: SecurityPolicyDetail | undefined;
 }
 
 /**
@@ -1844,13 +2003,13 @@ export interface CreateVpcEndpointRequest {
    *             sources for inbound traffic that you are authorizing into your endpoint.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1863,19 +2022,19 @@ export interface CreateVpcEndpointDetail {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status in the endpoint creation process.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 }
 
 /**
@@ -1886,7 +2045,7 @@ export interface CreateVpcEndpointResponse {
    * <p>Details about the created interface VPC endpoint.</p>
    * @public
    */
-  createVpcEndpointDetail?: CreateVpcEndpointDetail;
+  createVpcEndpointDetail?: CreateVpcEndpointDetail | undefined;
 }
 
 /**
@@ -1909,7 +2068,7 @@ export interface DeleteLifecyclePolicyRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1933,7 +2092,7 @@ export interface DeleteSecurityConfigRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1961,7 +2120,7 @@ export interface DeleteSecurityPolicyRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1983,7 +2142,7 @@ export interface DeleteVpcEndpointRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1995,19 +2154,19 @@ export interface DeleteVpcEndpointDetail {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the endpoint deletion process.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 }
 
 /**
@@ -2018,7 +2177,7 @@ export interface DeleteVpcEndpointResponse {
    * <p>Details about the deleted endpoint.</p>
    * @public
    */
-  deleteVpcEndpointDetail?: DeleteVpcEndpointDetail;
+  deleteVpcEndpointDetail?: DeleteVpcEndpointDetail | undefined;
 }
 
 /**
@@ -2034,7 +2193,7 @@ export interface GetAccountSettingsResponse {
    * <p>OpenSearch Serverless-related details for the current account.</p>
    * @public
    */
-  accountSettingsDetail?: AccountSettingsDetail;
+  accountSettingsDetail?: AccountSettingsDetail | undefined;
 }
 
 /**
@@ -2051,7 +2210,7 @@ export interface LifecyclePolicyStats {
    * <p>The number of retention lifecycle policies in the current account.</p>
    * @public
    */
-  RetentionPolicyCount?: number;
+  RetentionPolicyCount?: number | undefined;
 }
 
 /**
@@ -2063,7 +2222,7 @@ export interface SecurityConfigStats {
    * <p>The number of security configurations in the current account.</p>
    * @public
    */
-  SamlConfigCount?: number;
+  SamlConfigCount?: number | undefined;
 }
 
 /**
@@ -2075,13 +2234,13 @@ export interface SecurityPolicyStats {
    * <p>The number of encryption policies in the current account.</p>
    * @public
    */
-  EncryptionPolicyCount?: number;
+  EncryptionPolicyCount?: number | undefined;
 
   /**
    * <p>The number of network policies in the current account.</p>
    * @public
    */
-  NetworkPolicyCount?: number;
+  NetworkPolicyCount?: number | undefined;
 }
 
 /**
@@ -2092,32 +2251,32 @@ export interface GetPoliciesStatsResponse {
    * <p>Information about the data access policies in your account.</p>
    * @public
    */
-  AccessPolicyStats?: AccessPolicyStats;
+  AccessPolicyStats?: AccessPolicyStats | undefined;
 
   /**
    * <p>Information about the security policies in your account.</p>
    * @public
    */
-  SecurityPolicyStats?: SecurityPolicyStats;
+  SecurityPolicyStats?: SecurityPolicyStats | undefined;
 
   /**
    * <p>Information about the security configurations in your account.</p>
    * @public
    */
-  SecurityConfigStats?: SecurityConfigStats;
+  SecurityConfigStats?: SecurityConfigStats | undefined;
 
   /**
    * <p>Information about the lifecycle policies in your account.</p>
    * @public
    */
-  LifecyclePolicyStats?: LifecyclePolicyStats;
+  LifecyclePolicyStats?: LifecyclePolicyStats | undefined;
 
   /**
    * <p>The total number of OpenSearch Serverless security policies and configurations in your
    *             account.</p>
    * @public
    */
-  TotalPolicyCount?: number;
+  TotalPolicyCount?: number | undefined;
 }
 
 /**
@@ -2139,7 +2298,7 @@ export interface GetSecurityConfigResponse {
    * <p>Details of the requested security configuration.</p>
    * @public
    */
-  securityConfigDetail?: SecurityConfigDetail;
+  securityConfigDetail?: SecurityConfigDetail | undefined;
 }
 
 /**
@@ -2167,7 +2326,7 @@ export interface GetSecurityPolicyResponse {
    * <p>Details about the requested security policy.</p>
    * @public
    */
-  securityPolicyDetail?: SecurityPolicyDetail;
+  securityPolicyDetail?: SecurityPolicyDetail | undefined;
 }
 
 /**
@@ -2184,19 +2343,19 @@ export interface ListLifecyclePoliciesRequest {
    * <p>Resource filters that policies can apply to. Currently, the only supported resource type is <code>index</code>.</p>
    * @public
    */
-  resources?: string[];
+  resources?: string[] | undefined;
 
   /**
    * <p>If your initial <code>ListLifecyclePolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListLifecyclePolicies</code> operations, which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use use <code>nextToken</code> to get the next page of results. The default is 10.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2208,37 +2367,37 @@ export interface LifecyclePolicySummary {
    * <p>The type of lifecycle policy.</p>
    * @public
    */
-  type?: LifecyclePolicyType;
+  type?: LifecyclePolicyType | undefined;
 
   /**
    * <p>The name of the lifecycle policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the lifecycle policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the lifecycle policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Epoch time when the lifecycle policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The date and time when the lifecycle policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -2249,13 +2408,13 @@ export interface ListLifecyclePoliciesResponse {
    * <p>Details about the requested lifecycle policies.</p>
    * @public
    */
-  lifecyclePolicySummaries?: LifecyclePolicySummary[];
+  lifecyclePolicySummaries?: LifecyclePolicySummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2284,19 +2443,19 @@ export interface UpdateLifecyclePolicyRequest {
    * <p>A description of the lifecycle policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2307,7 +2466,7 @@ export interface UpdateLifecyclePolicyResponse {
    * <p>Details about the updated lifecycle policy.</p>
    * @public
    */
-  lifecyclePolicyDetail?: LifecyclePolicyDetail;
+  lifecyclePolicyDetail?: LifecyclePolicyDetail | undefined;
 }
 
 /**
@@ -2327,14 +2486,14 @@ export interface ListSecurityConfigsRequest {
    *             next page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can
    *             use <code>nextToken</code> to get the next page of results. The default is 20.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2346,37 +2505,37 @@ export interface SecurityConfigSummary {
    * <p>The unique identifier of the security configuration.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of security configuration.</p>
    * @public
    */
-  type?: SecurityConfigType;
+  type?: SecurityConfigType | undefined;
 
   /**
    * <p>The version of the security configuration.</p>
    * @public
    */
-  configVersion?: string;
+  configVersion?: string | undefined;
 
   /**
    * <p>The description of the security configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Epoch time when the security configuration was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the configuration was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -2387,7 +2546,7 @@ export interface ListSecurityConfigsResponse {
    * <p>Details about the security configurations in your account.</p>
    * @public
    */
-  securityConfigSummaries?: SecurityConfigSummary[];
+  securityConfigSummaries?: SecurityConfigSummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value
@@ -2395,7 +2554,7 @@ export interface ListSecurityConfigsResponse {
    *             again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2412,7 +2571,7 @@ export interface ListSecurityPoliciesRequest {
    * <p>Resource filters (can be collection or indexes) that policies can apply to. </p>
    * @public
    */
-  resource?: string[];
+  resource?: string[] | undefined;
 
   /**
    * <p>If your initial <code>ListSecurityPolicies</code> operation returns a
@@ -2421,14 +2580,14 @@ export interface ListSecurityPoliciesRequest {
    *             next page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can
    *             use <code>nextToken</code> to get the next page of results. The default is 20.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2440,37 +2599,37 @@ export interface SecurityPolicySummary {
    * <p>The type of security policy.</p>
    * @public
    */
-  type?: SecurityPolicyType;
+  type?: SecurityPolicyType | undefined;
 
   /**
    * <p>The name of the policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version of the policy.</p>
    * @public
    */
-  policyVersion?: string;
+  policyVersion?: string | undefined;
 
   /**
    * <p>The description of the security policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date the policy was created.</p>
    * @public
    */
-  createdDate?: number;
+  createdDate?: number | undefined;
 
   /**
    * <p>The timestamp of when the policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -2481,7 +2640,7 @@ export interface ListSecurityPoliciesResponse {
    * <p>Details about the security policies in your account.</p>
    * @public
    */
-  securityPolicySummaries?: SecurityPolicySummary[];
+  securityPolicySummaries?: SecurityPolicySummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value
@@ -2489,7 +2648,7 @@ export interface ListSecurityPoliciesResponse {
    *             again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2513,7 +2672,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2525,7 +2684,7 @@ export interface VpcEndpointFilters {
    * <p>The current status of the endpoint.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 }
 
 /**
@@ -2538,7 +2697,7 @@ export interface ListVpcEndpointsRequest {
    *                 <code>ACTIVE</code>, and <code>FAILED</code>.</p>
    * @public
    */
-  vpcEndpointFilters?: VpcEndpointFilters;
+  vpcEndpointFilters?: VpcEndpointFilters | undefined;
 
   /**
    * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
@@ -2547,14 +2706,14 @@ export interface ListVpcEndpointsRequest {
    *             page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can
    *             use <code>nextToken</code> to get the next page of results. The default is 20.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2566,19 +2725,19 @@ export interface VpcEndpointSummary {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the endpoint.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 }
 
 /**
@@ -2589,7 +2748,7 @@ export interface ListVpcEndpointsResponse {
    * <p>Details about each VPC endpoint, including the name and current status.</p>
    * @public
    */
-  vpcEndpointSummaries?: VpcEndpointSummary[];
+  vpcEndpointSummaries?: VpcEndpointSummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value
@@ -2597,7 +2756,25 @@ export interface ListVpcEndpointsResponse {
    *             again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes IAM Identity Center options for updating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface UpdateIamIdentityCenterConfigOptions {
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute | undefined;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
 
 /**
@@ -2624,19 +2801,25 @@ export interface UpdateSecurityConfigRequest {
    * <p>A description of the security configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>SAML options in in the form of a key-value map.</p>
    * @public
    */
-  samlOptions?: SamlConfigOptions;
+  samlOptions?: SamlConfigOptions | undefined;
+
+  /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * @public
+   */
+  iamIdentityCenterOptionsUpdates?: UpdateIamIdentityCenterConfigOptions | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2647,7 +2830,7 @@ export interface UpdateSecurityConfigResponse {
    * <p>Details about the updated security configuration. </p>
    * @public
    */
-  securityConfigDetail?: SecurityConfigDetail;
+  securityConfigDetail?: SecurityConfigDetail | undefined;
 }
 
 /**
@@ -2677,19 +2860,19 @@ export interface UpdateSecurityPolicyRequest {
    *             defined in the policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The JSON policy document to use as the content for the new policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2700,7 +2883,7 @@ export interface UpdateSecurityPolicyResponse {
    * <p>Details about the updated security policy.</p>
    * @public
    */
-  securityPolicyDetail?: SecurityPolicyDetail;
+  securityPolicyDetail?: SecurityPolicyDetail | undefined;
 }
 
 /**
@@ -2764,7 +2947,7 @@ export interface UpdateAccountSettingsRequest {
    *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    * @public
    */
-  capacityLimits?: CapacityLimits;
+  capacityLimits?: CapacityLimits | undefined;
 }
 
 /**
@@ -2775,7 +2958,7 @@ export interface UpdateAccountSettingsResponse {
    * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account. </p>
    * @public
    */
-  accountSettingsDetail?: AccountSettingsDetail;
+  accountSettingsDetail?: AccountSettingsDetail | undefined;
 }
 
 /**
@@ -2792,13 +2975,13 @@ export interface UpdateVpcEndpointRequest {
    * <p>The ID of one or more subnets to add to the endpoint.</p>
    * @public
    */
-  addSubnetIds?: string[];
+  addSubnetIds?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the subnets to remove from the endpoint.</p>
    * @public
    */
-  removeSubnetIds?: string[];
+  removeSubnetIds?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the security groups to add to the endpoint. Security groups
@@ -2806,19 +2989,19 @@ export interface UpdateVpcEndpointRequest {
    *             into your endpoint.</p>
    * @public
    */
-  addSecurityGroupIds?: string[];
+  addSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the security groups to remove from the endpoint.</p>
    * @public
    */
-  removeSecurityGroupIds?: string[];
+  removeSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2830,38 +3013,38 @@ export interface UpdateVpcEndpointDetail {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the endpoint update process.</p>
    * @public
    */
-  status?: VpcEndpointStatus;
+  status?: VpcEndpointStatus | undefined;
 
   /**
    * <p>The ID of the subnets from which you access OpenSearch Serverless.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the security groups that define the ports, protocols, and
    *             sources for inbound traffic that you are authorizing into your endpoint.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The timestamp of when the endpoint was last modified.</p>
    * @public
    */
-  lastModifiedDate?: number;
+  lastModifiedDate?: number | undefined;
 }
 
 /**
@@ -2872,5 +3055,5 @@ export interface UpdateVpcEndpointResponse {
    * <p>Details about the updated VPC endpoint.</p>
    * @public
    */
-  UpdateVpcEndpointDetail?: UpdateVpcEndpointDetail;
+  UpdateVpcEndpointDetail?: UpdateVpcEndpointDetail | undefined;
 }

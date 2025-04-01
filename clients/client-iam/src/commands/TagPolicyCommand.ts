@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagPolicyRequest } from "../models/models_0";
+import { TagPolicyRequest } from "../models/models_1";
 import { de_TagPolicyCommand, se_TagPolicyCommand } from "../protocols/Aws_query";
 
 /**
@@ -114,6 +114,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class TagPolicyCommand extends $Command
@@ -124,9 +125,7 @@ export class TagPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class TagPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagPolicyCommand)
   .de(de_TagPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagPolicyCommandInput;
+      output: TagPolicyCommandOutput;
+    };
+  };
+}

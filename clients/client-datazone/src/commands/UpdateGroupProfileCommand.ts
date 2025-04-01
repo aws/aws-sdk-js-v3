@@ -10,7 +10,7 @@ import {
   UpdateGroupProfileInput,
   UpdateGroupProfileOutput,
   UpdateGroupProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateGroupProfileCommand, se_UpdateGroupProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -82,6 +82,7 @@ export interface UpdateGroupProfileCommandOutput extends UpdateGroupProfileOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupProfileCommand extends $Command
@@ -92,9 +93,7 @@ export class UpdateGroupProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class UpdateGroupProfileCommand extends $Command
   .f(void 0, UpdateGroupProfileOutputFilterSensitiveLog)
   .ser(se_UpdateGroupProfileCommand)
   .de(de_UpdateGroupProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupProfileInput;
+      output: UpdateGroupProfileOutput;
+    };
+    sdk: {
+      input: UpdateGroupProfileCommandInput;
+      output: UpdateGroupProfileCommandOutput;
+    };
+  };
+}

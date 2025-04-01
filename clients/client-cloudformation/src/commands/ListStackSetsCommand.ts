@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStackSetsInput, ListStackSetsOutput } from "../models/models_0";
+import { ListStackSetsInput, ListStackSetsOutput } from "../models/models_1";
 import { de_ListStackSetsCommand, se_ListStackSetsCommand } from "../protocols/Aws_query";
 
 /**
@@ -31,18 +31,20 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * <p>Returns summary information about stack sets that are associated with the user.</p>
  *          <ul>
  *             <li>
- *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code> while signed in
- *      to your Amazon Web Services account, <code>ListStackSets</code> returns all self-managed stack sets in your Amazon Web Services account.</p>
+ *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to
+ *             <code>SELF</code> while signed in to your Amazon Web Services account, <code>ListStackSets</code>
+ *           returns all self-managed stack sets in your Amazon Web Services account.</p>
  *             </li>
  *             <li>
- *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code> while signed
- *      in to the organization's management account, <code>ListStackSets</code> returns all stack sets in the
- *      management account.</p>
+ *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
+ *             <code>SELF</code> while signed in to the organization's management account,
+ *             <code>ListStackSets</code> returns all stack sets in the management account.</p>
  *             </li>
  *             <li>
- *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>DELEGATED_ADMIN</code>
- *      while signed in to your member account, <code>ListStackSets</code> returns all stack sets with service-managed
- *      permissions in the management account.</p>
+ *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
+ *             <code>DELEGATED_ADMIN</code> while signed in to your member account,
+ *             <code>ListStackSets</code> returns all stack sets with service-managed permissions in
+ *           the management account.</p>
  *             </li>
  *          </ul>
  * @example
@@ -92,6 +94,7 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStackSetsCommand extends $Command
@@ -102,9 +105,7 @@ export class ListStackSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +117,16 @@ export class ListStackSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackSetsCommand)
   .de(de_ListStackSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackSetsInput;
+      output: ListStackSetsOutput;
+    };
+    sdk: {
+      input: ListStackSetsCommandInput;
+      output: ListStackSetsCommandOutput;
+    };
+  };
+}

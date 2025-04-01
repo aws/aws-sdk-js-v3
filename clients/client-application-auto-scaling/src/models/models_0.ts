@@ -44,7 +44,7 @@ export interface Alarm {
 export class ConcurrentUpdateException extends __BaseException {
   readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -334,7 +334,7 @@ export interface DeleteScalingPolicyResponse {}
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -360,7 +360,7 @@ export class InternalServiceException extends __BaseException {
 export class ObjectNotFoundException extends __BaseException {
   readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -383,7 +383,7 @@ export class ObjectNotFoundException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -897,7 +897,7 @@ export interface DescribeScalableTargetsRequest {
    *          </ul>
    * @public
    */
-  ResourceIds?: string[];
+  ResourceIds?: string[] | undefined;
 
   /**
    * <p>The scalable dimension associated with the scalable target.
@@ -998,7 +998,7 @@ export interface DescribeScalableTargetsRequest {
    *          </ul>
    * @public
    */
-  ScalableDimension?: ScalableDimension;
+  ScalableDimension?: ScalableDimension | undefined;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and
@@ -1010,13 +1010,13 @@ export interface DescribeScalableTargetsRequest {
    *             <code>NextToken</code> value, if applicable.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface SuspendedState {
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
    * @public
    */
-  DynamicScalingInSuspended?: boolean;
+  DynamicScalingInSuspended?: boolean | undefined;
 
   /**
    * <p>Whether scale out by a target tracking scaling policy or a step scaling policy is
@@ -1039,7 +1039,7 @@ export interface SuspendedState {
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
    * @public
    */
-  DynamicScalingOutSuspended?: boolean;
+  DynamicScalingOutSuspended?: boolean | undefined;
 
   /**
    * <p>Whether scheduled scaling is suspended. Set the value to <code>true</code> if you don't
@@ -1047,7 +1047,7 @@ export interface SuspendedState {
    *             <code>false</code>. </p>
    * @public
    */
-  ScheduledScalingSuspended?: boolean;
+  ScheduledScalingSuspended?: boolean | undefined;
 }
 
 /**
@@ -1259,6 +1259,14 @@ export interface ScalableTarget {
   MaxCapacity: number | undefined;
 
   /**
+   * <p>
+   *          The predicted capacity of the scalable target.
+   *       </p>
+   * @public
+   */
+  PredictedCapacity?: number | undefined;
+
+  /**
    * <p>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your
    *          behalf.</p>
    * @public
@@ -1276,13 +1284,13 @@ export interface ScalableTarget {
    *          state.</p>
    * @public
    */
-  SuspendedState?: SuspendedState;
+  SuspendedState?: SuspendedState | undefined;
 
   /**
    * <p>The ARN of the scalable target.</p>
    * @public
    */
-  ScalableTargetARN?: string;
+  ScalableTargetARN?: string | undefined;
 }
 
 /**
@@ -1293,14 +1301,14 @@ export interface DescribeScalableTargetsResponse {
    * <p>The scalable targets that match the request parameters.</p>
    * @public
    */
-  ScalableTargets?: ScalableTarget[];
+  ScalableTargets?: ScalableTarget[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1310,7 +1318,7 @@ export interface DescribeScalableTargetsResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1417,7 +1425,7 @@ export interface DescribeScalingActivitiesRequest {
    *          </ul>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
@@ -1518,7 +1526,7 @@ export interface DescribeScalingActivitiesRequest {
    *          </ul>
    * @public
    */
-  ScalableDimension?: ScalableDimension;
+  ScalableDimension?: ScalableDimension | undefined;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and
@@ -1530,13 +1538,13 @@ export interface DescribeScalingActivitiesRequest {
    *             <code>NextToken</code> value, if applicable.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies whether to include activities that aren't scaled (<i>not scaled
@@ -1545,7 +1553,7 @@ export interface DescribeScalingActivitiesRequest {
    *          help interpreting the not scaled reason details in the response, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
    * @public
    */
-  IncludeNotScaledActivities?: boolean;
+  IncludeNotScaledActivities?: boolean | undefined;
 }
 
 /**
@@ -1584,19 +1592,19 @@ export interface NotScaledReason {
    * <p>The maximum capacity.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The minimum capacity.</p>
    * @public
    */
-  MinCapacity?: number;
+  MinCapacity?: number | undefined;
 
   /**
    * <p>The current capacity.</p>
    * @public
    */
-  CurrentCapacity?: number;
+  CurrentCapacity?: number | undefined;
 }
 
 /**
@@ -1840,7 +1848,7 @@ export interface ScalingActivity {
    * <p>The Unix timestamp for when the scaling activity ended.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Indicates the status of the scaling activity.</p>
@@ -1852,20 +1860,20 @@ export interface ScalingActivity {
    * <p>A simple message about the current status of the scaling activity.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The details about the scaling activity.</p>
    * @public
    */
-  Details?: string;
+  Details?: string | undefined;
 
   /**
    * <p>Machine-readable data that describes the reason for a not scaled activity. Only
    *          available when <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> includes not scaled activities.</p>
    * @public
    */
-  NotScaledReasons?: NotScaledReason[];
+  NotScaledReasons?: NotScaledReason[] | undefined;
 }
 
 /**
@@ -1876,14 +1884,14 @@ export interface DescribeScalingActivitiesResponse {
    * <p>A list of scaling activity objects.</p>
    * @public
    */
-  ScalingActivities?: ScalingActivity[];
+  ScalingActivities?: ScalingActivity[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1894,7 +1902,7 @@ export interface DescribeScalingPoliciesRequest {
    * <p>The names of the scaling policies to describe.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -1984,7 +1992,7 @@ export interface DescribeScalingPoliciesRequest {
    *          </ul>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
@@ -2085,7 +2093,7 @@ export interface DescribeScalingPoliciesRequest {
    *          </ul>
    * @public
    */
-  ScalableDimension?: ScalableDimension;
+  ScalableDimension?: ScalableDimension | undefined;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and 10. The default
@@ -2097,13 +2105,13 @@ export interface DescribeScalingPoliciesRequest {
    *          applicable.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2111,6 +2119,7 @@ export interface DescribeScalingPoliciesRequest {
  * @enum
  */
 export const PolicyType = {
+  PredictiveScaling: "PredictiveScaling",
   StepScaling: "StepScaling",
   TargetTrackingScaling: "TargetTrackingScaling",
 } as const;
@@ -2119,6 +2128,428 @@ export const PolicyType = {
  * @public
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PredictiveScalingMaxCapacityBreachBehavior = {
+  HonorMaxCapacity: "HonorMaxCapacity",
+  IncreaseMaxCapacity: "IncreaseMaxCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMaxCapacityBreachBehavior =
+  (typeof PredictiveScalingMaxCapacityBreachBehavior)[keyof typeof PredictiveScalingMaxCapacityBreachBehavior];
+
+/**
+ * <p>
+ *          Describes the dimension of a metric.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricDimension {
+  /**
+   * <p>
+   *          The name of the dimension.
+   *       </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *          The value of the dimension.
+   *       </p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>
+ *          Describes the scaling metric.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetric {
+  /**
+   * <p>
+   *          Describes the dimensions of the metric.
+   *       </p>
+   * @public
+   */
+  Dimensions?: PredictiveScalingMetricDimension[] | undefined;
+
+  /**
+   * <p>
+   *          The name of the metric.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>
+   *          The namespace of the metric.
+   *       </p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This structure defines the CloudWatch metric to return, along with the statistic and unit.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricStat {
+  /**
+   * <p>
+   *          The CloudWatch metric to return, including the metric name, namespace, and dimensions. To
+   *          get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.
+   *       </p>
+   * @public
+   */
+  Metric: PredictiveScalingMetric | undefined;
+
+  /**
+   * <p>
+   *          The statistic to return. It can include any CloudWatch statistic or extended statistic. For
+   *          a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.
+   *       </p>
+   *          <p>The most commonly used metrics for predictive scaling are <code>Average</code> and
+   *          <code>Sum</code>.</p>
+   * @public
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>
+   *          The unit to use for the returned data points. For a complete list of the units that
+   *          CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+   *          data type in the <i>Amazon CloudWatch API Reference</i>.
+   *       </p>
+   * @public
+   */
+  Unit?: string | undefined;
+}
+
+/**
+ * <p>
+ *          The metric data to return. Also defines whether this call is returning data for one
+ *          metric only, or whether it is performing a math expression on the values of returned
+ *          metric statistics to create a new time series. A time series is a series of data points,
+ *          each of which is associated with a timestamp.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricDataQuery {
+  /**
+   * <p>
+   *          A short name that identifies the object's results in the response. This name must be
+   *          unique among all <code>MetricDataQuery</code> objects specified for a single scaling
+   *          policy. If you are performing math expressions on this set of data, this name represents
+   *          that data and can serve as a variable in the mathematical expression. The valid
+   *          characters are letters, numbers, and underscores. The first character must be a
+   *          lowercase letter.
+   *       </p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>
+   *          The math expression to perform on the returned data, if this object is performing a
+   *          math expression. This expression can use the <code>Id</code> of the other metrics to
+   *          refer to those metrics, and can also use the <code>Id</code> of other expressions to use
+   *          the result of those expressions.
+   *       </p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *          <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+
+  /**
+   * <p>
+   *          Information about the metric data to return.
+   *       </p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *          <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
+   */
+  MetricStat?: PredictiveScalingMetricStat | undefined;
+
+  /**
+   * <p>
+   *          A human-readable label for this metric or expression. This is especially useful if
+   *          this is a math expression, so that you know what the value represents.
+   *       </p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>
+   *          Indicates whether to return the timestamps and raw data values of this metric.
+   *       </p>
+   *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
+   *          final math expression that the metric specification is based on. You must specify
+   *          <code>false</code> for <code>ReturnData</code> for all the other metrics and
+   *          expressions used in the metric specification.</p>
+   *          <p>If you are only retrieving metrics and not performing any math expressions, do not
+   *          specify anything for <code>ReturnData</code>. This sets it to its default
+   *          (<code>true</code>).</p>
+   * @public
+   */
+  ReturnData?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *          Represents a CloudWatch metric of your choosing for a predictive scaling policy.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingCustomizedMetricSpecification {
+  /**
+   * <p>
+   *          One or more metric data queries to provide data points for a metric specification.
+   *       </p>
+   * @public
+   */
+  MetricDataQueries: PredictiveScalingMetricDataQuery[] | undefined;
+}
+
+/**
+ * <p>
+ *          Describes a load metric for a predictive scaling policy.
+ *       </p>
+ *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *          predictive scaling policy uses individually specified load and scaling metrics instead
+ *          of a metric pair.</p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedLoadMetricSpecification {
+  /**
+   * <p>
+   *          The metric type.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a target group.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          Represents a metric pair for a predictive scaling policy.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedMetricPairSpecification {
+  /**
+   * <p>
+   *          Indicates which metrics to use. There are two different types of metrics for each
+   *          metric type: one is a load metric and one is a scaling metric.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a specific target group from which to determine
+   *          the total and average request count.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          Describes a scaling metric for a predictive scaling policy.
+ *       </p>
+ *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *          predictive scaling policy uses individually specified load and scaling metrics instead
+ *          of a metric pair.</p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedScalingMetricSpecification {
+  /**
+   * <p>
+   *          The metric type.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a specific target group from which to determine
+   *          the average request count.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This structure specifies the metrics and target utilization settings for a predictive
+ *          scaling policy.
+ *       </p>
+ *          <p>You must specify either a metric pair, or a load metric and a scaling metric
+ *          individually. Specifying a metric pair instead of individual metrics provides a simpler
+ *          way to configure metrics for a scaling policy. You choose the metric pair, and the
+ *          policy automatically knows the correct sum and average statistics to use for the load
+ *          metric and the scaling metric.</p>
+ * @public
+ */
+export interface PredictiveScalingMetricSpecification {
+  /**
+   * <p>
+   *          Specifies the target utilization.
+   *       </p>
+   * @public
+   */
+  TargetValue: number | undefined;
+
+  /**
+   * <p>
+   *          The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricPairSpecification?: PredictiveScalingPredefinedMetricPairSpecification | undefined;
+
+  /**
+   * <p>
+   *          The predefined scaling metric specification.
+   *       </p>
+   * @public
+   */
+  PredefinedScalingMetricSpecification?: PredictiveScalingPredefinedScalingMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The predefined load metric specification.
+   *       </p>
+   * @public
+   */
+  PredefinedLoadMetricSpecification?: PredictiveScalingPredefinedLoadMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized scaling metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedScalingMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized load metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized capacity metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PredictiveScalingMode = {
+  ForecastAndScale: "ForecastAndScale",
+  ForecastOnly: "ForecastOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof PredictiveScalingMode];
+
+/**
+ * <p>
+ *          Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingPolicyConfiguration {
+  /**
+   * <p>
+   *          This structure includes the metrics and target utilization to use for predictive scaling.
+   *       </p>
+   *          <p>This is an array, but we currently only support a single metric specification. That
+   *          is, you can specify a target value and a single metric pair, or a target value and one
+   *          scaling metric and one load metric.</p>
+   * @public
+   */
+  MetricSpecifications: PredictiveScalingMetricSpecification[] | undefined;
+
+  /**
+   * <p>
+   *          The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not specified.
+   *       </p>
+   * @public
+   */
+  Mode?: PredictiveScalingMode | undefined;
+
+  /**
+   * <p>
+   *          The amount of time, in seconds, that the start time can be advanced.
+   *       </p>
+   *          <p>The value must be less than the forecast interval duration of 3600 seconds (60
+   *          minutes). Defaults to 300 seconds if not specified. </p>
+   * @public
+   */
+  SchedulingBufferTime?: number | undefined;
+
+  /**
+   * <p>
+   *          Defines the behavior that should be applied if the forecast capacity approaches or
+   *          exceeds the maximum capacity. Defaults to
+   *          <code>HonorMaxCapacity</code> if not specified.
+   *       </p>
+   * @public
+   */
+  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | undefined;
+
+  /**
+   * <p>
+   *          The size of the capacity buffer to use when the forecast capacity is close to or
+   *          exceeds the maximum capacity. The value is specified as a percentage relative to the
+   *          forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer,
+   *          such that if the forecast capacity is 50, and the maximum capacity is 40, then the
+   *          effective maximum capacity is 55.
+   *       </p>
+   *          <p>Required if the <code>MaxCapacityBreachBehavior</code> property is set to
+   *          <code>IncreaseMaxCapacity</code>, and cannot be used otherwise.</p>
+   * @public
+   */
+  MaxCapacityBuffer?: number | undefined;
+}
 
 /**
  * @public
@@ -2183,7 +2614,7 @@ export interface StepAdjustment {
    *          value indicates negative infinity.</p>
    * @public
    */
-  MetricIntervalLowerBound?: number;
+  MetricIntervalLowerBound?: number | undefined;
 
   /**
    * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
@@ -2194,7 +2625,7 @@ export interface StepAdjustment {
    *          <p>The upper bound must be greater than the lower bound.</p>
    * @public
    */
-  MetricIntervalUpperBound?: number;
+  MetricIntervalUpperBound?: number | undefined;
 
   /**
    * <p>The amount by which to scale, based on the specified adjustment type. A positive value
@@ -2220,7 +2651,7 @@ export interface StepScalingPolicyConfiguration {
    *          configuration.</p>
    * @public
    */
-  AdjustmentType?: AdjustmentType;
+  AdjustmentType?: AdjustmentType | undefined;
 
   /**
    * <p>A set of adjustments that enable you to scale based on the size of the alarm
@@ -2229,7 +2660,7 @@ export interface StepScalingPolicyConfiguration {
    *          configuration.</p>
    * @public
    */
-  StepAdjustments?: StepAdjustment[];
+  StepAdjustments?: StepAdjustment[] | undefined;
 
   /**
    * <p>The minimum value to scale by when the adjustment type is
@@ -2241,14 +2672,14 @@ export interface StepScalingPolicyConfiguration {
    *          tasks.</p>
    * @public
    */
-  MinAdjustmentMagnitude?: number;
+  MinAdjustmentMagnitude?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, to wait for a previous scaling activity to take effect. If
    *       not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown">Cooldown period</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  Cooldown?: number;
+  Cooldown?: number | undefined;
 
   /**
    * <p>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
@@ -2256,7 +2687,7 @@ export interface StepScalingPolicyConfiguration {
    *          value is treated as <code>Average</code>.</p>
    * @public
    */
-  MetricAggregationType?: MetricAggregationType;
+  MetricAggregationType?: MetricAggregationType | undefined;
 }
 
 /**
@@ -2310,13 +2741,13 @@ export interface TargetTrackingMetric {
    *          dimensions in your scaling policy.</p>
    * @public
    */
-  Dimensions?: TargetTrackingMetricDimension[];
+  Dimensions?: TargetTrackingMetricDimension[] | undefined;
 
   /**
    * <p>The name of the metric.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
@@ -2324,7 +2755,7 @@ export interface TargetTrackingMetric {
    *             Guide</i>.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 }
 
 /**
@@ -2357,7 +2788,7 @@ export interface TargetTrackingMetricStat {
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -2379,7 +2810,7 @@ export interface TargetTrackingMetricDataQuery {
    *          specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A short name that identifies the object's results in the response. This name must be
@@ -2397,7 +2828,7 @@ export interface TargetTrackingMetricDataQuery {
    *          is a math expression, so that you know what the value represents.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>Information about the metric data to return.</p>
@@ -2405,7 +2836,7 @@ export interface TargetTrackingMetricDataQuery {
    *             <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
    * @public
    */
-  MetricStat?: TargetTrackingMetricStat;
+  MetricStat?: TargetTrackingMetricStat | undefined;
 
   /**
    * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
@@ -2418,7 +2849,7 @@ export interface TargetTrackingMetricDataQuery {
    *             (<code>true</code>).</p>
    * @public
    */
-  ReturnData?: boolean;
+  ReturnData?: boolean | undefined;
 }
 
 /**
@@ -2469,13 +2900,13 @@ export interface CustomizedMetricSpecification {
    *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that's returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The namespace of the metric.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The dimensions of the metric. </p>
@@ -2483,13 +2914,13 @@ export interface CustomizedMetricSpecification {
    *          dimensions in your scaling policy.</p>
    * @public
    */
-  Dimensions?: MetricDimension[];
+  Dimensions?: MetricDimension[] | undefined;
 
   /**
    * <p>The statistic of the metric.</p>
    * @public
    */
-  Statistic?: MetricStatistic;
+  Statistic?: MetricStatistic | undefined;
 
   /**
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
@@ -2497,14 +2928,14 @@ export interface CustomizedMetricSpecification {
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 
   /**
    * <p>The metrics to include in the target tracking scaling policy, as a metric data query.
    *          This can include both raw metric and metric math expressions.</p>
    * @public
    */
-  Metrics?: TargetTrackingMetricDataQuery[];
+  Metrics?: TargetTrackingMetricDataQuery[] | undefined;
 }
 
 /**
@@ -2534,7 +2965,10 @@ export const MetricType = {
   NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
   RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution:
+    "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution",
   SageMakerInferenceComponentInvocationsPerCopy: "SageMakerInferenceComponentInvocationsPerCopy",
+  SageMakerVariantConcurrentRequestsPerModelHighResolution: "SageMakerVariantConcurrentRequestsPerModelHighResolution",
   SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
   SageMakerVariantProvisionedConcurrencyUtilization: "SageMakerVariantProvisionedConcurrencyUtilization",
   WorkSpacesAverageUserSessionsCapacityUtilization: "WorkSpacesAverageUserSessionsCapacityUtilization",
@@ -2548,7 +2982,7 @@ export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 /**
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
- *          <p>For more information, <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitor-cloudwatch-metrics.html#predefined-metrics">Predefined metrics for target tracking scaling policies</a> in the
+ *          <p>For more information, <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html#predefined-metrics">Predefined metrics for target tracking scaling policies</a> in the
  *             <i>Application Auto Scaling User Guide</i>.</p>
  * @public
  */
@@ -2584,7 +3018,7 @@ export interface PredefinedMetricSpecification {
    *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    * @public
    */
-  ResourceLabel?: string;
+  ResourceLabel?: string | undefined;
 }
 
 /**
@@ -2614,28 +3048,28 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          metric.</p>
    * @public
    */
-  PredefinedMetricSpecification?: PredefinedMetricSpecification;
+  PredefinedMetricSpecification?: PredefinedMetricSpecification | undefined;
 
   /**
    * <p>A customized metric. You can specify either a predefined metric or a customized
    *          metric.</p>
    * @public
    */
-  CustomizedMetricSpecification?: CustomizedMetricSpecification;
+  CustomizedMetricSpecification?: CustomizedMetricSpecification | undefined;
 
   /**
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
    *       For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  ScaleOutCooldown?: number;
+  ScaleOutCooldown?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale-in activity completes before another
    *       scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  ScaleInCooldown?: number;
+  ScaleInCooldown?: number | undefined;
 
   /**
    * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
@@ -2645,7 +3079,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          value is <code>false</code>.</p>
    * @public
    */
-  DisableScaleIn?: boolean;
+  DisableScaleIn?: boolean | undefined;
 }
 
 /**
@@ -2875,19 +3309,27 @@ export interface ScalingPolicy {
    * <p>A step scaling policy.</p>
    * @public
    */
-  StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
+  StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration | undefined;
 
   /**
    * <p>A target tracking scaling policy.</p>
    * @public
    */
-  TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
+  TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The predictive scaling policy configuration.
+   *       </p>
+   * @public
+   */
+  PredictiveScalingPolicyConfiguration?: PredictiveScalingPolicyConfiguration | undefined;
 
   /**
    * <p>The CloudWatch alarms associated with the scaling policy.</p>
    * @public
    */
-  Alarms?: Alarm[];
+  Alarms?: Alarm[] | undefined;
 
   /**
    * <p>The Unix timestamp for when the scaling policy was created.</p>
@@ -2904,14 +3346,14 @@ export interface DescribeScalingPoliciesResponse {
    * <p>Information about the scaling policies.</p>
    * @public
    */
-  ScalingPolicies?: ScalingPolicy[];
+  ScalingPolicies?: ScalingPolicy[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2924,7 +3366,7 @@ export interface DescribeScalingPoliciesResponse {
 export class FailedResourceAccessException extends __BaseException {
   readonly name: "FailedResourceAccessException" = "FailedResourceAccessException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2947,7 +3389,7 @@ export interface DescribeScheduledActionsRequest {
    * <p>The names of the scheduled actions to describe.</p>
    * @public
    */
-  ScheduledActionNames?: string[];
+  ScheduledActionNames?: string[] | undefined;
 
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -3037,7 +3479,7 @@ export interface DescribeScheduledActionsRequest {
    *          </ul>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
@@ -3138,7 +3580,7 @@ export interface DescribeScheduledActionsRequest {
    *          </ul>
    * @public
    */
-  ScalableDimension?: ScalableDimension;
+  ScalableDimension?: ScalableDimension | undefined;
 
   /**
    * <p>The maximum number of scheduled action results. This value can be between
@@ -3150,13 +3592,13 @@ export interface DescribeScheduledActionsRequest {
    *             <code>NextToken</code> value, if applicable.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3171,7 +3613,7 @@ export interface ScalableTargetAction {
    *       tracking scaling policy.</p>
    * @public
    */
-  MinCapacity?: number;
+  MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum capacity.</p>
@@ -3183,7 +3625,7 @@ export interface ScalableTargetAction {
    *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 }
 
 /**
@@ -3242,7 +3684,7 @@ export interface ScheduledAction {
    *          scheduled action uses an at or cron expression.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -3425,19 +3867,19 @@ export interface ScheduledAction {
    *          </ul>
    * @public
    */
-  ScalableDimension?: ScalableDimension;
+  ScalableDimension?: ScalableDimension | undefined;
 
   /**
    * <p>The date and time that the action is scheduled to begin, in UTC.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time that the action is scheduled to end, in UTC.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The new minimum and maximum capacity. You can set both values or just one. At the
@@ -3446,7 +3888,7 @@ export interface ScheduledAction {
    *          scales in to the maximum capacity.</p>
    * @public
    */
-  ScalableTargetAction?: ScalableTargetAction;
+  ScalableTargetAction?: ScalableTargetAction | undefined;
 
   /**
    * <p>The date and time that the scheduled action was created.</p>
@@ -3463,14 +3905,157 @@ export interface DescribeScheduledActionsResponse {
    * <p>Information about the scheduled actions.</p>
    * @public
    */
-  ScheduledActions?: ScheduledAction[];
+  ScheduledActions?: ScheduledAction[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPredictiveScalingForecastRequest {
+  /**
+   * <p>
+   *          The namespace of the Amazon Web Services service that provides the resource. For a resource provided
+   *          by your own application or service, use <code>custom-resource</code> instead.
+   *       </p>
+   * @public
+   */
+  ServiceNamespace: ServiceNamespace | undefined;
+
+  /**
+   * <p>
+   *          The identifier of the resource.
+   *       </p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>
+   *          The scalable dimension.
+   *       </p>
+   * @public
+   */
+  ScalableDimension: ScalableDimension | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>
+   *          The inclusive start time of the time range for the forecast data to get. At most, the
+   *          date and time can be one year before the current date and time
+   *       </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   *          The exclusive end time of the time range for the forecast data to get. The maximum
+   *          time duration between the start and end time is 30 days.
+   *       </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * <p>
+ *          A <code>GetPredictiveScalingForecast</code> call returns the capacity forecast for a
+ *          predictive scaling policy. This structure includes the data points for that capacity
+ *          forecast, along with the timestamps of those data points.
+ *       </p>
+ * @public
+ */
+export interface CapacityForecast {
+  /**
+   * <p>
+   *          The timestamps for the data points, in UTC format.
+   *       </p>
+   * @public
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>
+   *          The values of the data points.
+   *       </p>
+   * @public
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>
+ *          A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a
+ *          predictive scaling policy. This structure includes the data points for that load
+ *          forecast, along with the timestamps of those data points and the metric specification.
+ *       </p>
+ * @public
+ */
+export interface LoadForecast {
+  /**
+   * <p>
+   *          The timestamps for the data points, in UTC format.
+   *       </p>
+   * @public
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>
+   *          The values of the data points.
+   *       </p>
+   * @public
+   */
+  Values: number[] | undefined;
+
+  /**
+   * <p>
+   *          The metric specification for the load forecast.
+   *       </p>
+   * @public
+   */
+  MetricSpecification: PredictiveScalingMetricSpecification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPredictiveScalingForecastResponse {
+  /**
+   * <p>
+   *          The load forecast.
+   *       </p>
+   * @public
+   */
+  LoadForecast?: LoadForecast[] | undefined;
+
+  /**
+   * <p>
+   *          The capacity forecast.
+   *       </p>
+   * @public
+   */
+  CapacityForecast?: CapacityForecast | undefined;
+
+  /**
+   * <p>
+   *         The time the forecast was made.
+   *       </p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
 }
 
 /**
@@ -3496,7 +4081,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3506,12 +4091,12 @@ export interface ListTagsForResourceResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -3534,7 +4119,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3764,7 +4349,7 @@ export interface PutScalingPolicyRequest {
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  PolicyType?: PolicyType;
+  PolicyType?: PolicyType | undefined;
 
   /**
    * <p>A step scaling policy.</p>
@@ -3772,7 +4357,7 @@ export interface PutScalingPolicyRequest {
    *             <code>StepScaling</code>.</p>
    * @public
    */
-  StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
+  StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration | undefined;
 
   /**
    * <p>A target tracking scaling policy. Includes support for predefined or customized
@@ -3781,7 +4366,15 @@ export interface PutScalingPolicyRequest {
    *             <code>TargetTrackingScaling</code>.</p>
    * @public
    */
-  TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
+  TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The configuration of the predictive scaling policy.
+   *       </p>
+   * @public
+   */
+  PredictiveScalingPolicyConfiguration?: PredictiveScalingPolicyConfiguration | undefined;
 }
 
 /**
@@ -3798,7 +4391,7 @@ export interface PutScalingPolicyResponse {
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    * @public
    */
-  Alarms?: Alarm[];
+  Alarms?: Alarm[] | undefined;
 }
 
 /**
@@ -3837,7 +4430,7 @@ export interface PutScheduledActionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-using-cron-expressions.html">Schedule recurring scaling actions using cron expressions</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>Specifies the time zone used when setting a scheduled action by using an at or cron
@@ -3846,7 +4439,7 @@ export interface PutScheduledActionRequest {
    *          as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://www.joda.org/joda-time/timezones.html">https://www.joda.org/joda-time/timezones.html</a>.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>The name of the scheduled action. This name must be unique among all other scheduled
@@ -4042,13 +4635,13 @@ export interface PutScheduledActionRequest {
    * <p>The date and time for this scheduled action to start, in UTC.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time for the recurring schedule to end, in UTC.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The new minimum and maximum capacity. You can set both values or just one. At the
@@ -4057,7 +4650,7 @@ export interface PutScheduledActionRequest {
    *          scales in to the maximum capacity.</p>
    * @public
    */
-  ScalableTargetAction?: ScalableTargetAction;
+  ScalableTargetAction?: ScalableTargetAction | undefined;
 }
 
 /**
@@ -4306,7 +4899,7 @@ export interface RegisterScalableTargetRequest {
    *       accept.</p>
    * @public
    */
-  MinCapacity?: number;
+  MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum value that you plan to scale out to. When a scaling policy is in effect,
@@ -4320,7 +4913,7 @@ export interface RegisterScalableTargetRequest {
    *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>This parameter is required for services that do not support service-linked roles (such as
@@ -4330,7 +4923,7 @@ export interface RegisterScalableTargetRequest {
    *       it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html">How Application Auto Scaling works with IAM</a>.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>An embedded object that contains attributes and attribute values that are used to
@@ -4358,7 +4951,7 @@ export interface RegisterScalableTargetRequest {
    *          Guide</i>.</p>
    * @public
    */
-  SuspendedState?: SuspendedState;
+  SuspendedState?: SuspendedState | undefined;
 
   /**
    * <p>Assigns one or more tags to the scalable target. Use this parameter to tag the scalable
@@ -4370,7 +4963,7 @@ export interface RegisterScalableTargetRequest {
    *             for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4381,7 +4974,7 @@ export interface RegisterScalableTargetResponse {
    * <p>The ARN of the scalable target.</p>
    * @public
    */
-  ScalableTargetARN?: string;
+  ScalableTargetARN?: string | undefined;
 }
 
 /**
@@ -4424,12 +5017,12 @@ export interface TagResourceResponse {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */

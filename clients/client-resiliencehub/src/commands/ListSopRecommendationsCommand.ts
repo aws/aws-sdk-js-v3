@@ -28,8 +28,7 @@ export interface ListSopRecommendationsCommandInput extends ListSopRecommendatio
 export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
- *       applications.</p>
+ * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +46,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //   nextToken: "STRING_VALUE",
  * //   sopRecommendations: [ // SopRecommendationList // required
  * //     { // SopRecommendation
- * //       serviceType: "STRING_VALUE", // required
+ * //       serviceType: "SSM", // required
  * //       appComponentName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       recommendationId: "STRING_VALUE", // required
@@ -59,12 +58,20 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
+ * //           latestDiscoveredExperiment: { // Experiment
+ * //             experimentArn: "STRING_VALUE",
+ * //             experimentTemplateId: "STRING_VALUE",
+ * //           },
+ * //           discoveredAlarm: { // Alarm
+ * //             alarmArn: "STRING_VALUE",
+ * //             source: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       referenceId: "STRING_VALUE", // required
  * //       prerequisite: "STRING_VALUE",
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * // };
@@ -104,6 +111,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListSopRecommendationsCommand extends $Command
@@ -114,9 +122,7 @@ export class ListSopRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +134,16 @@ export class ListSopRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSopRecommendationsCommand)
   .de(de_ListSopRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSopRecommendationsRequest;
+      output: ListSopRecommendationsResponse;
+    };
+    sdk: {
+      input: ListSopRecommendationsCommandInput;
+      output: ListSopRecommendationsCommandOutput;
+    };
+  };
+}

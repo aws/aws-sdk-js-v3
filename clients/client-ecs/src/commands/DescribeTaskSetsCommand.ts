@@ -144,23 +144,34 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotActiveException} (client fault)
  *  <p>The specified service isn't active. You can't update a service that's inactive. If you
- * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ * 			have previously deleted a service, you can re-create it with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
@@ -168,6 +179,59 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To describe a task set
+ * ```javascript
+ * // This example describes a task set in service MyService that uses an EXTERNAL deployment controller.
+ * const input = {
+ *   cluster: "MyCluster",
+ *   service: "MyService",
+ *   taskSets: [
+ *     "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
+ *   ]
+ * };
+ * const command = new DescribeTaskSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   taskSets: [
+ *     {
+ *       computedDesiredCount: 0,
+ *       createdAt: 1.557207715195E9,
+ *       id: "ecs-svc/1234567890123456789",
+ *       launchType: "EC2",
+ *       loadBalancers:       [],
+ *       networkConfiguration: {
+ *         awsvpcConfiguration: {
+ *           assignPublicIp: "DISABLED",
+ *           securityGroups: [
+ *             "sg-1234431"
+ *           ],
+ *           subnets: [
+ *             "subnet-12344321"
+ *           ]
+ *         }
+ *       },
+ *       pendingCount: 0,
+ *       runningCount: 0,
+ *       scale: {
+ *         unit: "PERCENT",
+ *         value: 0
+ *       },
+ *       serviceRegistries:       [],
+ *       stabilityStatus: "STEADY_STATE",
+ *       stabilityStatusAt: 1.557207740014E9,
+ *       status: "ACTIVE",
+ *       taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *       taskSetArn: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *       updatedAt: 1.557207740014E9
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -179,9 +243,7 @@ export class DescribeTaskSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +255,16 @@ export class DescribeTaskSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTaskSetsCommand)
   .de(de_DescribeTaskSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTaskSetsRequest;
+      output: DescribeTaskSetsResponse;
+    };
+    sdk: {
+      input: DescribeTaskSetsCommandInput;
+      output: DescribeTaskSetsCommandOutput;
+    };
+  };
+}

@@ -64,18 +64,21 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To delete a target group
  * ```javascript
  * // This example deletes the specified target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  * };
  * const command = new DeleteTargetGroupCommand(input);
- * await client.send(command);
- * // example id: elbv2-delete-target-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTargetGroupCommand extends $Command
   .classBuilder<
@@ -85,9 +88,7 @@ export class DeleteTargetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +100,16 @@ export class DeleteTargetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTargetGroupCommand)
   .de(de_DeleteTargetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTargetGroupInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTargetGroupCommandInput;
+      output: DeleteTargetGroupCommandOutput;
+    };
+  };
+}

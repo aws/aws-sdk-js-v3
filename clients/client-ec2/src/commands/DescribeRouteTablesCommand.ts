@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
+import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_5";
 import { de_DescribeRouteTablesCommand, se_DescribeRouteTablesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -41,6 +41,12 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * // const { EC2Client, DescribeRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRouteTablesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   RouteTableIds: [ // RouteTableIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -49,12 +55,6 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   RouteTableIds: [ // RouteTableIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
@@ -124,46 +124,46 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a route table
  * ```javascript
  * // This example describes the specified route table.
  * const input = {
- *   "RouteTableIds": [
+ *   RouteTableIds: [
  *     "rtb-1f382e7d"
  *   ]
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RouteTables": [
+ *   RouteTables: [
  *     {
- *       "Associations": [
+ *       Associations: [
  *         {
- *           "Main": true,
- *           "RouteTableAssociationId": "rtbassoc-d8ccddba",
- *           "RouteTableId": "rtb-1f382e7d"
+ *           Main: true,
+ *           RouteTableAssociationId: "rtbassoc-d8ccddba",
+ *           RouteTableId: "rtb-1f382e7d"
  *         }
  *       ],
- *       "PropagatingVgws": [],
- *       "RouteTableId": "rtb-1f382e7d",
- *       "Routes": [
+ *       PropagatingVgws:       [],
+ *       RouteTableId: "rtb-1f382e7d",
+ *       Routes: [
  *         {
- *           "DestinationCidrBlock": "10.0.0.0/16",
- *           "GatewayId": "local",
- *           "State": "active"
+ *           DestinationCidrBlock: "10.0.0.0/16",
+ *           GatewayId: "local",
+ *           State: "active"
  *         }
  *       ],
- *       "Tags": [],
- *       "VpcId": "vpc-a01106c2"
+ *       Tags:       [],
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-route-tables-1
  * ```
  *
+ * @public
  */
 export class DescribeRouteTablesCommand extends $Command
   .classBuilder<
@@ -173,9 +173,7 @@ export class DescribeRouteTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -187,4 +185,16 @@ export class DescribeRouteTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRouteTablesCommand)
   .de(de_DescribeRouteTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRouteTablesRequest;
+      output: DescribeRouteTablesResult;
+    };
+    sdk: {
+      input: DescribeRouteTablesCommandInput;
+      output: DescribeRouteTablesCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 import { TokenProviderError } from "@smithy/property-provider";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromStatic } from "./fromStatic";
 
@@ -6,7 +7,7 @@ describe(fromStatic.name, () => {
   const errorMessage = "Please pass a valid token to fromStatic";
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("throws error", () => {

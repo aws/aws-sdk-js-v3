@@ -108,6 +108,11 @@ import {
   DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand";
 import {
+  DescribeDirectoryDataAccessCommand,
+  DescribeDirectoryDataAccessCommandInput,
+  DescribeDirectoryDataAccessCommandOutput,
+} from "./commands/DescribeDirectoryDataAccessCommand";
+import {
   DescribeDomainControllersCommand,
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
@@ -158,6 +163,11 @@ import {
   DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
 import {
+  DisableDirectoryDataAccessCommand,
+  DisableDirectoryDataAccessCommandInput,
+  DisableDirectoryDataAccessCommandOutput,
+} from "./commands/DisableDirectoryDataAccessCommand";
+import {
   DisableLDAPSCommand,
   DisableLDAPSCommandInput,
   DisableLDAPSCommandOutput,
@@ -173,6 +183,11 @@ import {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
 } from "./commands/EnableClientAuthenticationCommand";
+import {
+  EnableDirectoryDataAccessCommand,
+  EnableDirectoryDataAccessCommandInput,
+  EnableDirectoryDataAccessCommandOutput,
+} from "./commands/EnableDirectoryDataAccessCommand";
 import { EnableLDAPSCommand, EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import {
   EnableRadiusCommand,
@@ -325,6 +340,7 @@ const commands = {
   DescribeClientAuthenticationSettingsCommand,
   DescribeConditionalForwardersCommand,
   DescribeDirectoriesCommand,
+  DescribeDirectoryDataAccessCommand,
   DescribeDomainControllersCommand,
   DescribeEventTopicsCommand,
   DescribeLDAPSSettingsCommand,
@@ -335,10 +351,12 @@ const commands = {
   DescribeTrustsCommand,
   DescribeUpdateDirectoryCommand,
   DisableClientAuthenticationCommand,
+  DisableDirectoryDataAccessCommand,
   DisableLDAPSCommand,
   DisableRadiusCommand,
   DisableSsoCommand,
   EnableClientAuthenticationCommand,
+  EnableDirectoryDataAccessCommand,
   EnableLDAPSCommand,
   EnableRadiusCommand,
   EnableSsoCommand,
@@ -752,6 +770,23 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link DescribeDirectoryDataAccessCommand}
+   */
+  describeDirectoryDataAccess(
+    args: DescribeDirectoryDataAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDirectoryDataAccessCommandOutput>;
+  describeDirectoryDataAccess(
+    args: DescribeDirectoryDataAccessCommandInput,
+    cb: (err: any, data?: DescribeDirectoryDataAccessCommandOutput) => void
+  ): void;
+  describeDirectoryDataAccess(
+    args: DescribeDirectoryDataAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDirectoryDataAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDomainControllersCommand}
    */
   describeDomainControllers(
@@ -919,6 +954,23 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link DisableDirectoryDataAccessCommand}
+   */
+  disableDirectoryDataAccess(
+    args: DisableDirectoryDataAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableDirectoryDataAccessCommandOutput>;
+  disableDirectoryDataAccess(
+    args: DisableDirectoryDataAccessCommandInput,
+    cb: (err: any, data?: DisableDirectoryDataAccessCommandOutput) => void
+  ): void;
+  disableDirectoryDataAccess(
+    args: DisableDirectoryDataAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableDirectoryDataAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableLDAPSCommand}
    */
   disableLDAPS(args: DisableLDAPSCommandInput, options?: __HttpHandlerOptions): Promise<DisableLDAPSCommandOutput>;
@@ -966,6 +1018,23 @@ export interface DirectoryService {
     args: EnableClientAuthenticationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableClientAuthenticationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableDirectoryDataAccessCommand}
+   */
+  enableDirectoryDataAccess(
+    args: EnableDirectoryDataAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableDirectoryDataAccessCommandOutput>;
+  enableDirectoryDataAccess(
+    args: EnableDirectoryDataAccessCommandInput,
+    cb: (err: any, data?: EnableDirectoryDataAccessCommandOutput) => void
+  ): void;
+  enableDirectoryDataAccess(
+    args: EnableDirectoryDataAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableDirectoryDataAccessCommandOutput) => void
   ): void;
 
   /**

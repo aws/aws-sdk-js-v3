@@ -74,6 +74,7 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class DeleteRuleGroupsNamespaceCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRuleGroupsNamespaceCommand)
   .de(de_DeleteRuleGroupsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRuleGroupsNamespaceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRuleGroupsNamespaceCommandInput;
+      output: DeleteRuleGroupsNamespaceCommandOutput;
+    };
+  };
+}

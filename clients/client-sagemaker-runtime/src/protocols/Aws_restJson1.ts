@@ -10,6 +10,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  isSerializableHeaderValue,
   map,
   resolvedPath as __resolvedPath,
   take,
@@ -63,6 +64,7 @@ export const se_InvokeEndpointCommand = async (
     [_xasii]: input[_II]!,
     [_xasee]: input[_EE]!,
     [_xasic]: input[_ICN]!,
+    [_xassi]: input[_SI]!,
   });
   b.bp("/endpoints/{EndpointName}/invocations");
   b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
@@ -114,6 +116,7 @@ export const se_InvokeEndpointWithResponseStreamCommand = async (
     [_xastch]: input[_TCH]!,
     [_xasii]: input[_II]!,
     [_xasic]: input[_ICN]!,
+    [_xassi]: input[_SI]!,
   });
   b.bp("/endpoints/{EndpointName}/invocations-response-stream");
   b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
@@ -140,6 +143,8 @@ export const de_InvokeEndpointCommand = async (
     [_CT]: [, output.headers[_ct]],
     [_IPV]: [, output.headers[_xaipv]],
     [_CA]: [, output.headers[_xasca]],
+    [_NSI]: [, output.headers[_xasnsi]],
+    [_CSI]: [, output.headers[_xascsi]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Body = data;
@@ -441,15 +446,9 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _A = "Accept";
 const _CA = "CustomAttributes";
+const _CSI = "ClosedSessionId";
 const _CT = "ContentType";
 const _EE = "EnableExplanations";
 const _FL = "FailureLocation";
@@ -458,8 +457,10 @@ const _II = "InferenceId";
 const _IL = "InputLocation";
 const _IPV = "InvokedProductionVariant";
 const _ITS = "InvocationTimeoutSeconds";
+const _NSI = "NewSessionId";
 const _OL = "OutputLocation";
 const _RTTLS = "RequestTTLSeconds";
+const _SI = "SessionId";
 const _TCH = "TargetContainerHostname";
 const _TM = "TargetModel";
 const _TV = "TargetVariant";
@@ -468,6 +469,7 @@ const _ct = "content-type";
 const _xaipv = "x-amzn-invoked-production-variant";
 const _xasa = "x-amzn-sagemaker-accept";
 const _xasca = "x-amzn-sagemaker-custom-attributes";
+const _xascsi = "x-amzn-sagemaker-closed-session-id";
 const _xasct = "x-amzn-sagemaker-content-type";
 const _xasee = "x-amzn-sagemaker-enable-explanations";
 const _xasf = "x-amzn-sagemaker-failurelocation";
@@ -475,8 +477,10 @@ const _xasi = "x-amzn-sagemaker-inputlocation";
 const _xasi_ = "x-amzn-sagemaker-invocationtimeoutseconds";
 const _xasic = "x-amzn-sagemaker-inference-component";
 const _xasii = "x-amzn-sagemaker-inference-id";
+const _xasnsi = "x-amzn-sagemaker-new-session-id";
 const _xaso = "x-amzn-sagemaker-outputlocation";
 const _xasr = "x-amzn-sagemaker-requestttlseconds";
+const _xassi = "x-amzn-sagemaker-session-id";
 const _xastch = "x-amzn-sagemaker-target-container-hostname";
 const _xastm = "x-amzn-sagemaker-target-model";
 const _xastv = "x-amzn-sagemaker-target-variant";

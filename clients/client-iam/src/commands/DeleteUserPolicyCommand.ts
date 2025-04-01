@@ -71,19 +71,22 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a policy from an IAM user
  * ```javascript
  * // The following delete-user-policy command removes the specified policy from the IAM user named Juan:
  * const input = {
- *   "PolicyName": "ExamplePolicy",
- *   "UserName": "Juan"
+ *   PolicyName: "ExamplePolicy",
+ *   UserName: "Juan"
  * };
  * const command = new DeleteUserPolicyCommand(input);
- * await client.send(command);
- * // example id: 34f07ddc-9bc1-4f52-bc59-cd0a3ccd06c8
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteUserPolicyCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class DeleteUserPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class DeleteUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserPolicyCommand)
   .de(de_DeleteUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPolicyCommandInput;
+      output: DeleteUserPolicyCommandOutput;
+    };
+  };
+}

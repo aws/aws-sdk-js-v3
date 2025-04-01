@@ -35,11 +35,13 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this
+ *             resource for running resiliency assessments, you must publish the Resilience Hub
+ *             application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
- *                   <p>To update application version with new <code>physicalResourceID</code>, you must call
- *               <code>ResolveAppVersionResources</code> API.</p>
+ *                   <p>To update application version with new <code>physicalResourceID</code>, you must
+ *             call <code>ResolveAppVersionResources</code> API.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -89,7 +91,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * //     },
  * //     physicalResourceId: { // PhysicalResourceId
  * //       identifier: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "Arn" || "Native", // required
  * //       awsRegion: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //     },
@@ -112,7 +114,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * //       ],
  * //     },
  * //     excluded: true || false,
- * //     sourceType: "STRING_VALUE",
+ * //     sourceType: "AppTemplate" || "Discovered",
  * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
@@ -156,6 +158,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppVersionResourceCommand extends $Command
@@ -166,9 +169,7 @@ export class UpdateAppVersionResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +181,16 @@ export class UpdateAppVersionResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppVersionResourceCommand)
   .de(de_UpdateAppVersionResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppVersionResourceRequest;
+      output: UpdateAppVersionResourceResponse;
+    };
+    sdk: {
+      input: UpdateAppVersionResourceCommandInput;
+      output: UpdateAppVersionResourceCommandOutput;
+    };
+  };
+}

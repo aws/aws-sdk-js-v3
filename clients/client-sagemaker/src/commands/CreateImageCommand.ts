@@ -28,9 +28,9 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
+ * <p>Creates a custom SageMaker AI image. A SageMaker AI image is a set of image versions. Each image
  *         version represents a container image stored in Amazon ECR. For more information, see
- *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +73,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateImageCommand extends $Command
@@ -83,9 +84,7 @@ export class CreateImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class CreateImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageCommand)
   .de(de_CreateImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageRequest;
+      output: CreateImageResponse;
+    };
+    sdk: {
+      input: CreateImageCommandInput;
+      output: CreateImageCommandOutput;
+    };
+  };
+}

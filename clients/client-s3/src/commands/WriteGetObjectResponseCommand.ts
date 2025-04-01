@@ -32,7 +32,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Passes transformed objects to a <code>GetObject</code> operation when using Object Lambda access points. For
  *          information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
@@ -91,6 +91,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ContentType: "STRING_VALUE",
  *   ChecksumCRC32: "STRING_VALUE",
  *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumCRC64NVME: "STRING_VALUE",
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
  *   DeleteMarker: true || false,
@@ -133,6 +134,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class WriteGetObjectResponseCommand extends $Command
@@ -158,4 +160,16 @@ export class WriteGetObjectResponseCommand extends $Command
   .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
   .ser(se_WriteGetObjectResponseCommand)
   .de(de_WriteGetObjectResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: WriteGetObjectResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: WriteGetObjectResponseCommandInput;
+      output: WriteGetObjectResponseCommandOutput;
+    };
+  };
+}

@@ -58,19 +58,20 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *             </li>
  *             <li>
  *                <p>If you need more time, record the lifecycle action heartbeat to keep the
- *                     instance in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.</p>
+ *                     instance in a wait state using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RecordLifecycleActionHeartbeat.html">RecordLifecycleActionHeartbeat</a> API call.</p>
  *             </li>
  *             <li>
  *                <p>If you finish before the timeout period ends, send a callback by using the
- *                         <a>CompleteLifecycleAction</a> API call.</p>
+ *                     <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling
  *             group, the call fails.</p>
- *          <p>You can view the lifecycle hooks for an Auto Scaling group using the <a>DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
- *             hook, you can delete it by calling the <a>DeleteLifecycleHook</a> API.</p>
+ *          <p>You can view the lifecycle hooks for an Auto Scaling group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLifecycleHooks.html">DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
+ *             hook, you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteLifecycleHook.html">DeleteLifecycleHook</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,22 +113,25 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a launch lifecycle hook
  * ```javascript
  * // This example creates a lifecycle hook for instance launch.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DefaultResult": "CONTINUE",
- *   "HeartbeatTimeout": 300,
- *   "LifecycleHookName": "my-launch-lifecycle-hook",
- *   "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DefaultResult: "CONTINUE",
+ *   HeartbeatTimeout: 300,
+ *   LifecycleHookName: "my-launch-lifecycle-hook",
+ *   LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING"
  * };
  * const command = new PutLifecycleHookCommand(input);
- * await client.send(command);
- * // example id: autoscaling-put-lifecycle-hook-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutLifecycleHookCommand extends $Command
   .classBuilder<
@@ -137,9 +141,7 @@ export class PutLifecycleHookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +153,16 @@ export class PutLifecycleHookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecycleHookCommand)
   .de(de_PutLifecycleHookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecycleHookType;
+      output: {};
+    };
+    sdk: {
+      input: PutLifecycleHookCommandInput;
+      output: PutLifecycleHookCommandOutput;
+    };
+  };
+}

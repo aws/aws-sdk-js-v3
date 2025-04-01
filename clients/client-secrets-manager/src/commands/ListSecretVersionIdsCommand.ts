@@ -95,45 +95,45 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To list all of the secret versions associated with a secret
  * ```javascript
  * // The following example shows how to retrieve a list of all of the versions of a secret, including those without any staging labels.
  * const input = {
- *   "IncludeDeprecated": true,
- *   "SecretId": "MyTestDatabaseSecret"
+ *   IncludeDeprecated: true,
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new ListSecretVersionIdsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "Versions": [
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   Versions: [
  *     {
- *       "CreatedDate": 1523477145.713,
- *       "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
- *       "VersionStages": [
+ *       CreatedDate: 1.523477145713E9,
+ *       VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
+ *       VersionStages: [
  *         "AWSPREVIOUS"
  *       ]
  *     },
  *     {
- *       "CreatedDate": 1523486221.391,
- *       "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
- *       "VersionStages": [
+ *       CreatedDate: 1.523486221391E9,
+ *       VersionId: "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *       VersionStages: [
  *         "AWSCURRENT"
  *       ]
  *     },
  *     {
- *       "CreatedDate": 1511974462.36,
- *       "VersionId": "EXAMPLE3-90ab-cdef-fedc-ba987EXAMPLE;"
+ *       CreatedDate: 1.51197446236E9,
+ *       VersionId: "EXAMPLE3-90ab-cdef-fedc-ba987EXAMPLE;"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-of-the-secret-versions-associated-with-a-secret-1524000999164
  * ```
  *
+ * @public
  */
 export class ListSecretVersionIdsCommand extends $Command
   .classBuilder<
@@ -143,9 +143,7 @@ export class ListSecretVersionIdsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +155,16 @@ export class ListSecretVersionIdsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecretVersionIdsCommand)
   .de(de_ListSecretVersionIdsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecretVersionIdsRequest;
+      output: ListSecretVersionIdsResponse;
+    };
+    sdk: {
+      input: ListSecretVersionIdsCommandInput;
+      output: ListSecretVersionIdsCommandOutput;
+    };
+  };
+}

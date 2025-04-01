@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifySubnetAttributeRequest } from "../models/models_6";
+import { ModifySubnetAttributeRequest } from "../models/models_7";
 import { de_ModifySubnetAttributeCommand, se_ModifySubnetAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -100,21 +100,24 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To change a subnet's public IP addressing behavior
  * ```javascript
  * // This example modifies the specified subnet so that all instances launched into this subnet are assigned a public IP address.
  * const input = {
- *   "MapPublicIpOnLaunch": {
- *     "Value": true
+ *   MapPublicIpOnLaunch: {
+ *     Value: true
  *   },
- *   "SubnetId": "subnet-1a2b3c4d"
+ *   SubnetId: "subnet-1a2b3c4d"
  * };
  * const command = new ModifySubnetAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-subnet-attribute-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifySubnetAttributeCommand extends $Command
   .classBuilder<
@@ -124,9 +127,7 @@ export class ModifySubnetAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +139,16 @@ export class ModifySubnetAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySubnetAttributeCommand)
   .de(de_ModifySubnetAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySubnetAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySubnetAttributeCommandInput;
+      output: ModifySubnetAttributeCommandOutput;
+    };
+  };
+}

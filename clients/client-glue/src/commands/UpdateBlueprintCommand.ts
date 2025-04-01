@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateBlueprintRequest, UpdateBlueprintResponse } from "../models/models_2";
+import { UpdateBlueprintRequest, UpdateBlueprintResponse } from "../models/models_3";
 import { de_UpdateBlueprintCommand, se_UpdateBlueprintCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -75,6 +75,7 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateBlueprintCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateBlueprintCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateBlueprintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBlueprintCommand)
   .de(de_UpdateBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBlueprintRequest;
+      output: UpdateBlueprintResponse;
+    };
+    sdk: {
+      input: UpdateBlueprintCommandInput;
+      output: UpdateBlueprintCommandOutput;
+    };
+  };
+}

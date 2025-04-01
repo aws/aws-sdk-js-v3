@@ -51,7 +51,7 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * //     createdAt: new Date("TIMESTAMP"),
  * //     lastModifiedAt: new Date("TIMESTAMP"),
  * //     deletedAt: new Date("TIMESTAMP"),
- * //     state: "STRING_VALUE",
+ * //     state: "PUBLISHED" || "UNPUBLISHED",
  * //     arn: "STRING_VALUE",
  * //     series: "STRING_VALUE",
  * //     category: "STRING_VALUE",
@@ -59,9 +59,9 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * //     productName: "STRING_VALUE",
  * //     termArn: "STRING_VALUE",
  * //     version: Number("long"),
- * //     acceptanceType: "STRING_VALUE",
+ * //     acceptanceType: "PASSTHROUGH" || "EXPLICIT",
  * //     sequenceNumber: Number("long"),
- * //     uploadState: "STRING_VALUE",
+ * //     uploadState: "PROCESSING" || "COMPLETE" || "FAILED" || "FAULT",
  * //     statusMessage: "STRING_VALUE",
  * //   },
  * // };
@@ -95,39 +95,39 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
- * @public
+ *
  * @example Invoke GetReportMetadata operation on the latest version of a specific report
  * ```javascript
  * // The GetReportMetadata operation is invoked on a reportId and on a optional version.
- * //                         If callers do not provide a version, it will default to the report's latest version.
+ *                         If callers do not provide a version, it will default to the report's latest version.
  * const input = {
- *   "reportId": "report-bqhUJF3FrQZsMJpb"
+ *   reportId: "report-bqhUJF3FrQZsMJpb"
  * };
  * const command = new GetReportMetadataCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "reportDetails": {
- *     "version": 1,
- *     "name": "Name of report",
- *     "arn": "arn:aws:artifact:us-east-1::report/report-bqhUJF3FrQZsMJpb:1",
- *     "category": "Artifact Category",
- *     "companyName": "AWS",
- *     "createdAt": "2022-05-27T23:17:00.343940Z",
- *     "description": "Description of report",
- *     "id": "report-bqhUJF3FrQZsMJpb",
- *     "periodEnd": "2022-04-01T20:32:04Z",
- *     "periodStart": "2022-04-01T20:32:04Z",
- *     "productName": "Product of report",
- *     "series": "Artifact Series",
- *     "state": "PUBLISHED",
- *     "termArn": "arn:aws:artifact:us-east-1::term/term-gLJGG12NyPtYcmtu:1"
+ *   reportDetails: {
+ *     arn: "arn:aws:artifact:us-east-1::report/report-abcdef0123456789:1",
+ *     category: "Artifact Category",
+ *     companyName: "AWS",
+ *     createdAt: "2022-05-27T23:17:00.343940Z",
+ *     description: "Description of report",
+ *     id: "report-abcdef0123456789",
+ *     name: "Name of report",
+ *     periodEnd: "2022-04-01T20:32:04Z",
+ *     periodStart: "2022-04-01T20:32:04Z",
+ *     productName: "Product of report",
+ *     series: "Artifact Series",
+ *     state: "PUBLISHED",
+ *     termArn: "arn:aws:artifact:us-east-1::term/term-abcdef0123456789:1",
+ *     version: 1
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetReportMetadataCommand extends $Command
   .classBuilder<
@@ -137,9 +137,7 @@ export class GetReportMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +149,16 @@ export class GetReportMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReportMetadataCommand)
   .de(de_GetReportMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReportMetadataRequest;
+      output: GetReportMetadataResponse;
+    };
+    sdk: {
+      input: GetReportMetadataCommandInput;
+      output: GetReportMetadataCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_7";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_8";
 import { de_TerminateInstancesCommand, se_TerminateInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -105,11 +105,11 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * // { // TerminateInstancesResult
  * //   TerminatingInstances: [ // InstanceStateChangeList
  * //     { // InstanceStateChange
+ * //       InstanceId: "STRING_VALUE",
  * //       CurrentState: { // InstanceState
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
  * //       },
- * //       InstanceId: "STRING_VALUE",
  * //       PreviousState: {
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
@@ -129,37 +129,37 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To terminate an EC2 instance
  * ```javascript
  * // This example terminates the specified EC2 instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TerminatingInstances": [
+ *   TerminatingInstances: [
  *     {
- *       "CurrentState": {
- *         "Code": 32,
- *         "Name": "shutting-down"
+ *       CurrentState: {
+ *         Code: 32,
+ *         Name: "shutting-down"
  *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 16,
- *         "Name": "running"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PreviousState: {
+ *         Code: 16,
+ *         Name: "running"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-terminate-an-ec2-instance-1529359350660
  * ```
  *
+ * @public
  */
 export class TerminateInstancesCommand extends $Command
   .classBuilder<
@@ -169,9 +169,7 @@ export class TerminateInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +181,16 @@ export class TerminateInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateInstancesCommand)
   .de(de_TerminateInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateInstancesRequest;
+      output: TerminateInstancesResult;
+    };
+    sdk: {
+      input: TerminateInstancesCommandInput;
+      output: TerminateInstancesCommandOutput;
+    };
+  };
+}

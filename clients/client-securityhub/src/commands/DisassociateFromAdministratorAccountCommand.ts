@@ -80,16 +80,19 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To disassociate requesting account from administrator account
  * ```javascript
  * // The following example dissociates the requesting account from its associated administrator account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DisassociateFromAdministratorAccountCommand(input);
- * await client.send(command);
- * // example id: to-disassociate-requesting-account-from-administrator-account-1676584168509
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command
   .classBuilder<
@@ -99,9 +102,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateFromAdministratorAccountCommand)
   .de(de_DisassociateFromAdministratorAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DisassociateFromAdministratorAccountCommandInput;
+      output: DisassociateFromAdministratorAccountCommandOutput;
+    };
+  };
+}

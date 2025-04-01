@@ -68,6 +68,7 @@ export interface ListServiceOperationsCommandOutput extends ListServiceOperation
  * //             },
  * //           ],
  * //           MetricName: "STRING_VALUE", // required
+ * //           AccountId: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },
@@ -92,6 +93,7 @@ export interface ListServiceOperationsCommandOutput extends ListServiceOperation
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class ListServiceOperationsCommand extends $Command
@@ -102,9 +104,7 @@ export class ListServiceOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class ListServiceOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceOperationsCommand)
   .de(de_ListServiceOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceOperationsInput;
+      output: ListServiceOperationsOutput;
+    };
+    sdk: {
+      input: ListServiceOperationsCommandInput;
+      output: ListServiceOperationsCommandOutput;
+    };
+  };
+}

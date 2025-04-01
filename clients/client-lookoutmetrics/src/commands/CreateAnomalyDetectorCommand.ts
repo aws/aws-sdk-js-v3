@@ -82,6 +82,7 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class CreateAnomalyDetectorCommand extends $Command
@@ -92,9 +93,7 @@ export class CreateAnomalyDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class CreateAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAnomalyDetectorCommand)
   .de(de_CreateAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnomalyDetectorRequest;
+      output: CreateAnomalyDetectorResponse;
+    };
+    sdk: {
+      input: CreateAnomalyDetectorCommandInput;
+      output: CreateAnomalyDetectorCommandOutput;
+    };
+  };
+}

@@ -30,6 +30,7 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
 /**
  * <p>Used to control whether an individual security standard control is enabled or
  *          disabled.</p>
+ *          <p>Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the control has <code>StandardsControlsUpdatable</code> value <code>NOT_READY_FOR_UPDATES</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,20 +73,23 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update the enablement status of a standard control
  * ```javascript
  * // The following example disables the specified control in the specified security standard.
  * const input = {
- *   "ControlStatus": "DISABLED",
- *   "DisabledReason": "Not applicable to my service",
- *   "StandardsControlArn": "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.AutoScaling.1"
+ *   ControlStatus: "DISABLED",
+ *   DisabledReason: "Not applicable to my service",
+ *   StandardsControlArn: "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.AutoScaling.1"
  * };
  * const command = new UpdateStandardsControlCommand(input);
- * await client.send(command);
- * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateStandardsControlCommand extends $Command
   .classBuilder<
@@ -95,9 +99,7 @@ export class UpdateStandardsControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +111,16 @@ export class UpdateStandardsControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStandardsControlCommand)
   .de(de_UpdateStandardsControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStandardsControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStandardsControlCommandInput;
+      output: UpdateStandardsControlCommandOutput;
+    };
+  };
+}

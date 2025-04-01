@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserIdentityInfoRequest, UpdateUserIdentityInfoRequestFilterSensitiveLog } from "../models/models_2";
+import { UpdateUserIdentityInfoRequest, UpdateUserIdentityInfoRequestFilterSensitiveLog } from "../models/models_3";
 import { de_UpdateUserIdentityInfoCommand, se_UpdateUserIdentityInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -85,6 +85,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserIdentityInfoCommand extends $Command
@@ -95,9 +96,7 @@ export class UpdateUserIdentityInfoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class UpdateUserIdentityInfoCommand extends $Command
   .f(UpdateUserIdentityInfoRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateUserIdentityInfoCommand)
   .de(de_UpdateUserIdentityInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserIdentityInfoRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserIdentityInfoCommandInput;
+      output: UpdateUserIdentityInfoCommandOutput;
+    };
+  };
+}

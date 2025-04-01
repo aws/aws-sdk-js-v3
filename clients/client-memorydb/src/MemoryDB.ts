@@ -19,6 +19,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateMultiRegionClusterCommand,
+  CreateMultiRegionClusterCommandInput,
+  CreateMultiRegionClusterCommandOutput,
+} from "./commands/CreateMultiRegionClusterCommand";
+import {
   CreateParameterGroupCommand,
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput,
@@ -40,6 +45,11 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
+import {
+  DeleteMultiRegionClusterCommand,
+  DeleteMultiRegionClusterCommandInput,
+  DeleteMultiRegionClusterCommandOutput,
+} from "./commands/DeleteMultiRegionClusterCommand";
 import {
   DeleteParameterGroupCommand,
   DeleteParameterGroupCommandInput,
@@ -76,6 +86,11 @@ import {
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeMultiRegionClustersCommand,
+  DescribeMultiRegionClustersCommandInput,
+  DescribeMultiRegionClustersCommandOutput,
+} from "./commands/DescribeMultiRegionClustersCommand";
 import {
   DescribeParameterGroupsCommand,
   DescribeParameterGroupsCommandInput,
@@ -122,6 +137,11 @@ import {
   FailoverShardCommandOutput,
 } from "./commands/FailoverShardCommand";
 import {
+  ListAllowedMultiRegionClusterUpdatesCommand,
+  ListAllowedMultiRegionClusterUpdatesCommandInput,
+  ListAllowedMultiRegionClusterUpdatesCommandOutput,
+} from "./commands/ListAllowedMultiRegionClusterUpdatesCommand";
+import {
   ListAllowedNodeTypeUpdatesCommand,
   ListAllowedNodeTypeUpdatesCommandInput,
   ListAllowedNodeTypeUpdatesCommandOutput,
@@ -150,6 +170,11 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  UpdateMultiRegionClusterCommand,
+  UpdateMultiRegionClusterCommandInput,
+  UpdateMultiRegionClusterCommandOutput,
+} from "./commands/UpdateMultiRegionClusterCommand";
+import {
   UpdateParameterGroupCommand,
   UpdateParameterGroupCommandInput,
   UpdateParameterGroupCommandOutput,
@@ -167,12 +192,14 @@ const commands = {
   CopySnapshotCommand,
   CreateACLCommand,
   CreateClusterCommand,
+  CreateMultiRegionClusterCommand,
   CreateParameterGroupCommand,
   CreateSnapshotCommand,
   CreateSubnetGroupCommand,
   CreateUserCommand,
   DeleteACLCommand,
   DeleteClusterCommand,
+  DeleteMultiRegionClusterCommand,
   DeleteParameterGroupCommand,
   DeleteSnapshotCommand,
   DeleteSubnetGroupCommand,
@@ -181,6 +208,7 @@ const commands = {
   DescribeClustersCommand,
   DescribeEngineVersionsCommand,
   DescribeEventsCommand,
+  DescribeMultiRegionClustersCommand,
   DescribeParameterGroupsCommand,
   DescribeParametersCommand,
   DescribeReservedNodesCommand,
@@ -190,6 +218,7 @@ const commands = {
   DescribeSubnetGroupsCommand,
   DescribeUsersCommand,
   FailoverShardCommand,
+  ListAllowedMultiRegionClusterUpdatesCommand,
   ListAllowedNodeTypeUpdatesCommand,
   ListTagsCommand,
   PurchaseReservedNodesOfferingCommand,
@@ -198,6 +227,7 @@ const commands = {
   UntagResourceCommand,
   UpdateACLCommand,
   UpdateClusterCommand,
+  UpdateMultiRegionClusterCommand,
   UpdateParameterGroupCommand,
   UpdateSubnetGroupCommand,
   UpdateUserCommand,
@@ -252,6 +282,23 @@ export interface MemoryDB {
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMultiRegionClusterCommand}
+   */
+  createMultiRegionCluster(
+    args: CreateMultiRegionClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMultiRegionClusterCommandOutput>;
+  createMultiRegionCluster(
+    args: CreateMultiRegionClusterCommandInput,
+    cb: (err: any, data?: CreateMultiRegionClusterCommandOutput) => void
+  ): void;
+  createMultiRegionCluster(
+    args: CreateMultiRegionClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMultiRegionClusterCommandOutput) => void
   ): void;
 
   /**
@@ -333,6 +380,23 @@ export interface MemoryDB {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMultiRegionClusterCommand}
+   */
+  deleteMultiRegionCluster(
+    args: DeleteMultiRegionClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMultiRegionClusterCommandOutput>;
+  deleteMultiRegionCluster(
+    args: DeleteMultiRegionClusterCommandInput,
+    cb: (err: any, data?: DeleteMultiRegionClusterCommandOutput) => void
+  ): void;
+  deleteMultiRegionCluster(
+    args: DeleteMultiRegionClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMultiRegionClusterCommandOutput) => void
   ): void;
 
   /**
@@ -455,6 +519,24 @@ export interface MemoryDB {
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMultiRegionClustersCommand}
+   */
+  describeMultiRegionClusters(): Promise<DescribeMultiRegionClustersCommandOutput>;
+  describeMultiRegionClusters(
+    args: DescribeMultiRegionClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMultiRegionClustersCommandOutput>;
+  describeMultiRegionClusters(
+    args: DescribeMultiRegionClustersCommandInput,
+    cb: (err: any, data?: DescribeMultiRegionClustersCommandOutput) => void
+  ): void;
+  describeMultiRegionClusters(
+    args: DescribeMultiRegionClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMultiRegionClustersCommandOutput) => void
   ): void;
 
   /**
@@ -606,6 +688,23 @@ export interface MemoryDB {
   ): void;
 
   /**
+   * @see {@link ListAllowedMultiRegionClusterUpdatesCommand}
+   */
+  listAllowedMultiRegionClusterUpdates(
+    args: ListAllowedMultiRegionClusterUpdatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAllowedMultiRegionClusterUpdatesCommandOutput>;
+  listAllowedMultiRegionClusterUpdates(
+    args: ListAllowedMultiRegionClusterUpdatesCommandInput,
+    cb: (err: any, data?: ListAllowedMultiRegionClusterUpdatesCommandOutput) => void
+  ): void;
+  listAllowedMultiRegionClusterUpdates(
+    args: ListAllowedMultiRegionClusterUpdatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAllowedMultiRegionClusterUpdatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAllowedNodeTypeUpdatesCommand}
    */
   listAllowedNodeTypeUpdates(
@@ -712,6 +811,23 @@ export interface MemoryDB {
   ): void;
 
   /**
+   * @see {@link UpdateMultiRegionClusterCommand}
+   */
+  updateMultiRegionCluster(
+    args: UpdateMultiRegionClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMultiRegionClusterCommandOutput>;
+  updateMultiRegionCluster(
+    args: UpdateMultiRegionClusterCommandInput,
+    cb: (err: any, data?: UpdateMultiRegionClusterCommandOutput) => void
+  ): void;
+  updateMultiRegionCluster(
+    args: UpdateMultiRegionClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMultiRegionClusterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateParameterGroupCommand}
    */
   updateParameterGroup(
@@ -758,9 +874,9 @@ export interface MemoryDB {
 }
 
 /**
- * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
+ * <p>MemoryDB is a fully managed, Redis OSS-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
  *
- *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis, a popular open source data store, enabling you to leverage Redis’ flexible and friendly data structures, APIs, and commands.</p>
+ *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis OSS, a popular open source data store, enabling you to leverage Redis OSS’ flexible and friendly data structures, APIs, and commands.</p>
  * @public
  */
 export class MemoryDB extends MemoryDBClient implements MemoryDB {}

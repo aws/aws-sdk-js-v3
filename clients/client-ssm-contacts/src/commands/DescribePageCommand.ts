@@ -85,6 +85,7 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class DescribePageCommand extends $Command
@@ -95,9 +96,7 @@ export class DescribePageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DescribePageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePageCommand)
   .de(de_DescribePageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePageRequest;
+      output: DescribePageResult;
+    };
+    sdk: {
+      input: DescribePageCommandInput;
+      output: DescribePageCommandOutput;
+    };
+  };
+}

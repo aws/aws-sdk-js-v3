@@ -56,21 +56,21 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * // { // DescribeVpnGatewaysResult
  * //   VpnGateways: [ // VpnGatewayList
  * //     { // VpnGateway
- * //       AvailabilityZone: "STRING_VALUE",
- * //       State: "pending" || "available" || "deleting" || "deleted",
- * //       Type: "ipsec.1",
- * //       VpcAttachments: [ // VpcAttachmentList
- * //         { // VpcAttachment
- * //           State: "attaching" || "attached" || "detaching" || "detached",
- * //           VpcId: "STRING_VALUE",
- * //         },
- * //       ],
- * //       VpnGatewayId: "STRING_VALUE",
  * //       AmazonSideAsn: Number("long"),
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpnGatewayId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       Type: "ipsec.1",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       VpcAttachments: [ // VpcAttachmentList
+ * //         { // VpcAttachment
+ * //           VpcId: "STRING_VALUE",
+ * //           State: "attaching" || "attached" || "detaching" || "detached",
  * //         },
  * //       ],
  * //     },
@@ -88,6 +88,7 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpnGatewaysCommand extends $Command
@@ -98,9 +99,7 @@ export class DescribeVpnGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeVpnGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpnGatewaysCommand)
   .de(de_DescribeVpnGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpnGatewaysRequest;
+      output: DescribeVpnGatewaysResult;
+    };
+    sdk: {
+      input: DescribeVpnGatewaysCommandInput;
+      output: DescribeVpnGatewaysCommandOutput;
+    };
+  };
+}

@@ -93,6 +93,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class CreateNotificationCommand extends $Command
@@ -103,9 +104,7 @@ export class CreateNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class CreateNotificationCommand extends $Command
   .f(CreateNotificationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateNotificationCommand)
   .de(de_CreateNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateNotificationCommandInput;
+      output: CreateNotificationCommandOutput;
+    };
+  };
+}

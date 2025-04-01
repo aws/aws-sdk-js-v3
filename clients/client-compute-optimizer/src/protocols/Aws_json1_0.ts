@@ -48,6 +48,10 @@ import {
   ExportECSServiceRecommendationsCommandOutput,
 } from "../commands/ExportECSServiceRecommendationsCommand";
 import {
+  ExportIdleRecommendationsCommandInput,
+  ExportIdleRecommendationsCommandOutput,
+} from "../commands/ExportIdleRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "../commands/ExportLambdaFunctionRecommendationsCommand";
@@ -96,6 +100,10 @@ import {
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "../commands/GetEnrollmentStatusesForOrganizationCommand";
 import {
+  GetIdleRecommendationsCommandInput,
+  GetIdleRecommendationsCommandOutput,
+} from "../commands/GetIdleRecommendationsCommand";
+import {
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "../commands/GetLambdaFunctionRecommendationsCommand";
@@ -131,6 +139,7 @@ import { ComputeOptimizerServiceException as __BaseException } from "../models/C
 import {
   AccessDeniedException,
   AccountEnrollmentStatus,
+  AutoScalingGroupConfiguration,
   AutoScalingGroupEstimatedMonthlySavings,
   AutoScalingGroupRecommendation,
   AutoScalingGroupRecommendationOption,
@@ -157,6 +166,7 @@ import {
   EstimatedMonthlySavings,
   ExportableAutoScalingGroupField,
   ExportableECSServiceField,
+  ExportableIdleField,
   ExportableInstanceField,
   ExportableLambdaFunctionField,
   ExportableLicenseField,
@@ -166,6 +176,7 @@ import {
   ExportEBSVolumeRecommendationsRequest,
   ExportEC2InstanceRecommendationsRequest,
   ExportECSServiceRecommendationsRequest,
+  ExportIdleRecommendationsRequest,
   ExportLambdaFunctionRecommendationsRequest,
   ExportLicenseRecommendationsRequest,
   ExportRDSDatabaseRecommendationsRequest,
@@ -188,6 +199,8 @@ import {
   GetEnrollmentStatusesForOrganizationResponse,
   GetEnrollmentStatusRequest,
   GetEnrollmentStatusResponse,
+  GetIdleRecommendationsRequest,
+  GetIdleRecommendationsResponse,
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
   GetLicenseRecommendationsRequest,
@@ -199,6 +212,13 @@ import {
   GetRecommendationPreferencesRequest,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
+  IdleEstimatedMonthlySavings,
+  IdleRecommendation,
+  IdleRecommendationFilter,
+  IdleSavingsOpportunity,
+  IdleSavingsOpportunityAfterDiscounts,
+  IdleSummary,
+  IdleUtilizationMetric,
   InferredWorkloadSaving,
   InstanceEstimatedMonthlySavings,
   InstanceRecommendation,
@@ -220,6 +240,7 @@ import {
   LimitExceededException,
   MissingAuthenticationToken,
   OptInRequiredException,
+  OrderBy,
   PreferredResource,
   ProjectedMetric,
   PutRecommendationPreferencesRequest,
@@ -327,6 +348,19 @@ export const se_ExportECSServiceRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportECSServiceRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ExportIdleRecommendationsCommand
+ */
+export const se_ExportIdleRecommendationsCommand = async (
+  input: ExportIdleRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ExportIdleRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,6 +517,19 @@ export const se_GetEnrollmentStatusesForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnrollmentStatusesForOrganization");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetIdleRecommendationsCommand
+ */
+export const se_GetIdleRecommendationsCommand = async (
+  input: GetIdleRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetIdleRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -706,6 +753,26 @@ export const de_ExportECSServiceRecommendationsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ExportECSServiceRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ExportIdleRecommendationsCommand
+ */
+export const de_ExportIdleRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportIdleRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExportIdleRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -946,6 +1013,26 @@ export const de_GetEnrollmentStatusesForOrganizationCommand = async (
   let contents: any = {};
   contents = de_GetEnrollmentStatusesForOrganizationResponse(data, context);
   const response: GetEnrollmentStatusesForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetIdleRecommendationsCommand
+ */
+export const de_GetIdleRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdleRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIdleRecommendationsResponse(data, context);
+  const response: GetIdleRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1328,6 +1415,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExportableECSServiceFields omitted.
 
+// se_ExportableIdleFields omitted.
+
 // se_ExportableInstanceFields omitted.
 
 // se_ExportableLambdaFunctionFields omitted.
@@ -1345,6 +1434,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExportEC2InstanceRecommendationsRequest omitted.
 
 // se_ExportECSServiceRecommendationsRequest omitted.
+
+// se_ExportIdleRecommendationsRequest omitted.
 
 // se_ExportLambdaFunctionRecommendationsRequest omitted.
 
@@ -1409,6 +1500,8 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
 
 // se_GetEnrollmentStatusRequest omitted.
 
+// se_GetIdleRecommendationsRequest omitted.
+
 // se_GetLambdaFunctionRecommendationsRequest omitted.
 
 // se_GetLicenseRecommendationsRequest omitted.
@@ -1436,6 +1529,10 @@ const se_GetRDSDatabaseRecommendationProjectedMetricsRequest = (
 
 // se_GetRecommendationSummariesRequest omitted.
 
+// se_IdleRecommendationFilter omitted.
+
+// se_IdleRecommendationFilters omitted.
+
 // se_InstanceArns omitted.
 
 // se_JobFilter omitted.
@@ -1451,6 +1548,8 @@ const se_GetRDSDatabaseRecommendationProjectedMetricsRequest = (
 // se_LicenseRecommendationFilter omitted.
 
 // se_LicenseRecommendationFilters omitted.
+
+// se_OrderBy omitted.
 
 // se_PreferredResource omitted.
 
@@ -1510,7 +1609,21 @@ const de_AccountEnrollmentStatuses = (output: any, context: __SerdeContext): Acc
   return retVal;
 };
 
-// de_AutoScalingGroupConfiguration omitted.
+/**
+ * deserializeAws_json1_0AutoScalingGroupConfiguration
+ */
+const de_AutoScalingGroupConfiguration = (output: any, context: __SerdeContext): AutoScalingGroupConfiguration => {
+  return take(output, {
+    allocationStrategy: __expectString,
+    desiredCapacity: __expectInt32,
+    estimatedInstanceHourReductionPercentage: __limitedParseDouble,
+    instanceType: __expectString,
+    maxSize: __expectInt32,
+    minSize: __expectInt32,
+    mixedInstanceTypes: _json,
+    type: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0AutoScalingGroupEstimatedMonthlySavings
@@ -1533,7 +1646,7 @@ const de_AutoScalingGroupRecommendation = (output: any, context: __SerdeContext)
     accountId: __expectString,
     autoScalingGroupArn: __expectString,
     autoScalingGroupName: __expectString,
-    currentConfiguration: _json,
+    currentConfiguration: (_: any) => de_AutoScalingGroupConfiguration(_, context),
     currentInstanceGpuInfo: _json,
     currentPerformanceRisk: __expectString,
     effectiveRecommendationPreferences: _json,
@@ -1554,7 +1667,7 @@ const de_AutoScalingGroupRecommendationOption = (
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption => {
   return take(output, {
-    configuration: _json,
+    configuration: (_: any) => de_AutoScalingGroupConfiguration(_, context),
     instanceGpuInfo: _json,
     migrationEffort: __expectString,
     performanceRisk: __limitedParseDouble,
@@ -1906,6 +2019,8 @@ const de_EstimatedMonthlySavings = (output: any, context: __SerdeContext): Estim
 
 // de_ExportECSServiceRecommendationsResponse omitted.
 
+// de_ExportIdleRecommendationsResponse omitted.
+
 // de_ExportLambdaFunctionRecommendationsResponse omitted.
 
 // de_ExportLicenseRecommendationsResponse omitted.
@@ -2025,6 +2140,17 @@ const de_GetEnrollmentStatusResponse = (output: any, context: __SerdeContext): G
 };
 
 /**
+ * deserializeAws_json1_0GetIdleRecommendationsResponse
+ */
+const de_GetIdleRecommendationsResponse = (output: any, context: __SerdeContext): GetIdleRecommendationsResponse => {
+  return take(output, {
+    errors: _json,
+    idleRecommendations: (_: any) => de_IdleRecommendations(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0GetLambdaFunctionRecommendationsResponse
  */
 const de_GetLambdaFunctionRecommendationsResponse = (
@@ -2101,6 +2227,120 @@ const de_GetRecommendationSummariesResponse = (
 // de_GpuInfo omitted.
 
 // de_Gpus omitted.
+
+/**
+ * deserializeAws_json1_0IdleEstimatedMonthlySavings
+ */
+const de_IdleEstimatedMonthlySavings = (output: any, context: __SerdeContext): IdleEstimatedMonthlySavings => {
+  return take(output, {
+    currency: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IdleRecommendation
+ */
+const de_IdleRecommendation = (output: any, context: __SerdeContext): IdleRecommendation => {
+  return take(output, {
+    accountId: __expectString,
+    finding: __expectString,
+    findingDescription: __expectString,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookBackPeriodInDays: __limitedParseDouble,
+    resourceArn: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    savingsOpportunity: (_: any) => de_IdleSavingsOpportunity(_, context),
+    savingsOpportunityAfterDiscounts: (_: any) => de_IdleSavingsOpportunityAfterDiscounts(_, context),
+    tags: _json,
+    utilizationMetrics: (_: any) => de_IdleUtilizationMetrics(_, context),
+  }) as any;
+};
+
+// de_IdleRecommendationError omitted.
+
+// de_IdleRecommendationErrors omitted.
+
+/**
+ * deserializeAws_json1_0IdleRecommendations
+ */
+const de_IdleRecommendations = (output: any, context: __SerdeContext): IdleRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdleRecommendation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0IdleSavingsOpportunity
+ */
+const de_IdleSavingsOpportunity = (output: any, context: __SerdeContext): IdleSavingsOpportunity => {
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_IdleEstimatedMonthlySavings(_, context),
+    savingsOpportunityPercentage: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IdleSavingsOpportunityAfterDiscounts
+ */
+const de_IdleSavingsOpportunityAfterDiscounts = (
+  output: any,
+  context: __SerdeContext
+): IdleSavingsOpportunityAfterDiscounts => {
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_IdleEstimatedMonthlySavings(_, context),
+    savingsOpportunityPercentage: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IdleSummaries
+ */
+const de_IdleSummaries = (output: any, context: __SerdeContext): IdleSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdleSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0IdleSummary
+ */
+const de_IdleSummary = (output: any, context: __SerdeContext): IdleSummary => {
+  return take(output, {
+    name: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IdleUtilizationMetric
+ */
+const de_IdleUtilizationMetric = (output: any, context: __SerdeContext): IdleUtilizationMetric => {
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IdleUtilizationMetrics
+ */
+const de_IdleUtilizationMetrics = (output: any, context: __SerdeContext): IdleUtilizationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdleUtilizationMetric(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_0InferredWorkloadSaving
@@ -2442,6 +2682,8 @@ const de_MetricValues = (output: any, context: __SerdeContext): number[] => {
 
 // de_MissingAuthenticationToken omitted.
 
+// de_MixedInstanceTypes omitted.
+
 // de_OptInRequiredException omitted.
 
 // de_PlatformDifferences omitted.
@@ -2588,7 +2830,9 @@ const de_RDSDBRecommendation = (output: any, context: __SerdeContext): RDSDBReco
   return take(output, {
     accountId: __expectString,
     currentDBInstanceClass: __expectString,
+    currentInstancePerformanceRisk: __expectString,
     currentStorageConfiguration: _json,
+    dbClusterIdentifier: __expectString,
     effectiveRecommendationPreferences: _json,
     engine: __expectString,
     engineVersion: __expectString,
@@ -2598,6 +2842,7 @@ const de_RDSDBRecommendation = (output: any, context: __SerdeContext): RDSDBReco
     instanceRecommendationOptions: (_: any) => de_RDSDBInstanceRecommendationOptions(_, context),
     lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lookbackPeriodInDays: __limitedParseDouble,
+    promotionTier: __expectInt32,
     resourceArn: __expectString,
     storageFinding: __expectString,
     storageFindingReasonCodes: _json,
@@ -2819,7 +3064,10 @@ const de_RecommendationSummaries = (output: any, context: __SerdeContext): Recom
 const de_RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return take(output, {
     accountId: __expectString,
+    aggregatedSavingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
     currentPerformanceRiskRatings: _json,
+    idleSavingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+    idleSummaries: (_: any) => de_IdleSummaries(_, context),
     inferredWorkloadSavings: (_: any) => de_InferredWorkloadSavings(_, context),
     recommendationResourceType: __expectString,
     savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),

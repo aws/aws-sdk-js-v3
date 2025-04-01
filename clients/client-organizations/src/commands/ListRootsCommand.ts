@@ -66,7 +66,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       PolicyTypes: [ // PolicyTypes
  * //         { // PolicyTypeSummary
- * //           Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //         },
  * //       ],
@@ -148,6 +148,9 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -188,6 +191,9 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -210,33 +216,33 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of roots in the organization
  * ```javascript
  * // The following example shows how to get the list of the roots in the current organization:/n/n
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListRootsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Roots": [
+ *   Roots: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *       "Id": "r-examplerootid111",
- *       "Name": "Root",
- *       "PolicyTypes": [
+ *       Arn: "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+ *       Id: "r-examplerootid111",
+ *       Name: "Root",
+ *       PolicyTypes: [
  *         {
- *           "Status": "ENABLED",
- *           "Type": "SERVICE_CONTROL_POLICY"
+ *           Status: "ENABLED",
+ *           Type: "SERVICE_CONTROL_POLICY"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-roots-in-the-organization
  * ```
  *
+ * @public
  */
 export class ListRootsCommand extends $Command
   .classBuilder<
@@ -246,9 +252,7 @@ export class ListRootsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -260,4 +264,16 @@ export class ListRootsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRootsCommand)
   .de(de_ListRootsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRootsRequest;
+      output: ListRootsResponse;
+    };
+    sdk: {
+      input: ListRootsCommandInput;
+      output: ListRootsCommandOutput;
+    };
+  };
+}

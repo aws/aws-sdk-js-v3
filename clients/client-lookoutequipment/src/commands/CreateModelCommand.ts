@@ -125,6 +125,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class CreateModelCommand extends $Command
@@ -135,9 +136,7 @@ export class CreateModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class CreateModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelCommand)
   .de(de_CreateModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelRequest;
+      output: CreateModelResponse;
+    };
+    sdk: {
+      input: CreateModelCommandInput;
+      output: CreateModelCommandOutput;
+    };
+  };
+}

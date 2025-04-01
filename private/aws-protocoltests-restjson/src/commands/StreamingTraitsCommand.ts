@@ -51,6 +51,11 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.blob.transformToByteArray();
+ * // const str = await response.blob.transformToString();
+ * // response.blob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // StreamingTraitsInputOutput
  * //   foo: "STRING_VALUE",
  * //   blob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -66,6 +71,7 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  *
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
  *
  * @public
  */
@@ -85,4 +91,16 @@ export class StreamingTraitsCommand extends $Command
   .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
   .ser(se_StreamingTraitsCommand)
   .de(de_StreamingTraitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsInputOutput;
+      output: StreamingTraitsInputOutput;
+    };
+    sdk: {
+      input: StreamingTraitsCommandInput;
+      output: StreamingTraitsCommandOutput;
+    };
+  };
+}

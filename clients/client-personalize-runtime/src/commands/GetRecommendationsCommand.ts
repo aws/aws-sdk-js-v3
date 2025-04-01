@@ -126,6 +126,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationsCommand extends $Command
@@ -136,9 +137,7 @@ export class GetRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +149,16 @@ export class GetRecommendationsCommand extends $Command
   .f(GetRecommendationsRequestFilterSensitiveLog, GetRecommendationsResponseFilterSensitiveLog)
   .ser(se_GetRecommendationsCommand)
   .de(de_GetRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationsRequest;
+      output: GetRecommendationsResponse;
+    };
+    sdk: {
+      input: GetRecommendationsCommandInput;
+      output: GetRecommendationsCommandOutput;
+    };
+  };
+}

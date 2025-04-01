@@ -66,19 +66,22 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To enable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example enables data collection for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "Granularity": "1Minute"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   Granularity: "1Minute"
  * };
  * const command = new EnableMetricsCollectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-enable-metrics-collection-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableMetricsCollectionCommand extends $Command
   .classBuilder<
@@ -88,9 +91,7 @@ export class EnableMetricsCollectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +103,16 @@ export class EnableMetricsCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableMetricsCollectionCommand)
   .de(de_EnableMetricsCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableMetricsCollectionQuery;
+      output: {};
+    };
+    sdk: {
+      input: EnableMetricsCollectionCommandInput;
+      output: EnableMetricsCollectionCommandOutput;
+    };
+  };
+}

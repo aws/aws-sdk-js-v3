@@ -73,6 +73,7 @@ export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetPromptFileCommand extends $Command
@@ -83,9 +84,7 @@ export class GetPromptFileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetPromptFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPromptFileCommand)
   .de(de_GetPromptFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPromptFileRequest;
+      output: GetPromptFileResponse;
+    };
+    sdk: {
+      input: GetPromptFileCommandInput;
+      output: GetPromptFileCommandOutput;
+    };
+  };
+}

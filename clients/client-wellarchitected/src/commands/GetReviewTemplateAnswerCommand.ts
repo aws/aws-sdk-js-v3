@@ -123,6 +123,7 @@ export interface GetReviewTemplateAnswerCommandOutput extends GetReviewTemplateA
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetReviewTemplateAnswerCommand extends $Command
@@ -133,9 +134,7 @@ export class GetReviewTemplateAnswerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class GetReviewTemplateAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReviewTemplateAnswerCommand)
   .de(de_GetReviewTemplateAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReviewTemplateAnswerInput;
+      output: GetReviewTemplateAnswerOutput;
+    };
+    sdk: {
+      input: GetReviewTemplateAnswerCommandInput;
+      output: GetReviewTemplateAnswerCommandOutput;
+    };
+  };
+}

@@ -88,6 +88,10 @@ import {
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
 import {
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "./commands/DescribeFlowOperationCommand";
+import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
@@ -109,10 +113,23 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "./commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "./commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
 import { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "./commands/ListFirewallsCommand";
+import {
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "./commands/ListFlowOperationResultsCommand";
+import { ListFlowOperationsCommandInput, ListFlowOperationsCommandOutput } from "./commands/ListFlowOperationsCommand";
 import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -123,8 +140,18 @@ import {
   ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "./commands/StartAnalysisReportCommand";
+import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "./commands/StartFlowCaptureCommand";
+import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "./commands/StartFlowFlushCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
@@ -186,20 +213,29 @@ export type ServiceInputTypes =
   | DeleteTLSInspectionConfigurationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallPolicyCommandInput
+  | DescribeFlowOperationCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
   | DisassociateSubnetsCommandInput
+  | GetAnalysisReportResultsCommandInput
+  | ListAnalysisReportsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
+  | ListFlowOperationResultsCommandInput
+  | ListFlowOperationsCommandInput
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
+  | StartAnalysisReportCommandInput
+  | StartFlowCaptureCommandInput
+  | StartFlowFlushCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateFirewallAnalysisSettingsCommandInput
   | UpdateFirewallDeleteProtectionCommandInput
   | UpdateFirewallDescriptionCommandInput
   | UpdateFirewallEncryptionConfigurationCommandInput
@@ -227,20 +263,29 @@ export type ServiceOutputTypes =
   | DeleteTLSInspectionConfigurationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallPolicyCommandOutput
+  | DescribeFlowOperationCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
   | DisassociateSubnetsCommandOutput
+  | GetAnalysisReportResultsCommandOutput
+  | ListAnalysisReportsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
+  | ListFlowOperationResultsCommandOutput
+  | ListFlowOperationsCommandOutput
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
+  | StartAnalysisReportCommandOutput
+  | StartFlowCaptureCommandOutput
+  | StartFlowFlushCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateFirewallAnalysisSettingsCommandOutput
   | UpdateFirewallDeleteProtectionCommandOutput
   | UpdateFirewallDescriptionCommandOutput
   | UpdateFirewallEncryptionConfigurationCommandOutput
@@ -343,6 +388,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -388,11 +452,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -408,11 +472,11 @@ export interface NetworkFirewallClientConfig extends NetworkFirewallClientConfig
 export type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -425,33 +489,34 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
 /**
  * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
- *          <ul>
- *             <li>
- *                <p>The REST API requires you to handle connection details, such as calculating
+ *          <p>The REST API requires you to handle connection details, such as calculating
  *                signatures, handling request retries, and error handling. For general information
  *                about using the Amazon Web Services REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a>. </p>
- *                <p>To access Network Firewall using the REST API endpoint:
+ *          <p>To view the complete list of Amazon Web Services Regions where Network Firewall is available, see
+ *          <a href="https://docs.aws.amazon.com/general/latest/gr/network-firewall.html">Service
+ *             endpoints and quotas</a> in the <i>Amazon Web Services General
+ *                Reference</i>.
+ *       </p>
+ *          <p>To access Network Firewall using the IPv4 REST API endpoint:
  *                   <code>https://network-firewall.<region>.amazonaws.com </code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
+ *          </p>
+ *          <p>To access Network Firewall using the Dualstack (IPv4 and IPv6) REST API endpoint:
+ *                <code>https://network-firewall.<region>.aws.api </code>
+ *          </p>
+ *          <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
  *                the programming language or platform that you're using. For more information, see
  *                <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
- *             </li>
- *             <li>
- *                <p>For descriptions of Network Firewall features, including and step-by-step
+ *          <p>For descriptions of Network Firewall features, including and step-by-step
  *                instructions on how to use them through the Network Firewall console, see the <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/">Network Firewall Developer
  *                   Guide</a>.</p>
- *             </li>
- *          </ul>
  *          <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 6.0.9. For information about Suricata,
- *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
+ *       Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a> and the
+ *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
@@ -516,26 +581,30 @@ export class NetworkFirewallClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<NetworkFirewallClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultNetworkFirewallHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: NetworkFirewallClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -548,14 +617,5 @@ export class NetworkFirewallClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultNetworkFirewallHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: NetworkFirewallClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

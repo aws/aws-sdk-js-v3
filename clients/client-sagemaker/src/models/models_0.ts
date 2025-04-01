@@ -18,13 +18,13 @@ export interface ActionSource {
    * <p>The type of the source.</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>The ID of the source.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 }
 
 /**
@@ -56,44 +56,58 @@ export interface ActionSummary {
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    * @public
    */
-  ActionArn?: string;
+  ActionArn?: string | undefined;
 
   /**
    * <p>The name of the action.</p>
    * @public
    */
-  ActionName?: string;
+  ActionName?: string | undefined;
 
   /**
    * <p>The source of the action.</p>
    * @public
    */
-  Source?: ActionSource;
+  Source?: ActionSource | undefined;
 
   /**
    * <p>The type of the action.</p>
    * @public
    */
-  ActionType?: string;
+  ActionType?: string | undefined;
 
   /**
    * <p>The status of the action.</p>
    * @public
    */
-  Status?: ActionStatus;
+  Status?: ActionStatus | undefined;
 
   /**
    * <p>When the action was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the action was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ActivationState = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivationState = (typeof ActivationState)[keyof typeof ActivationState];
 
 /**
  * @public
@@ -152,7 +166,7 @@ export interface AddAssociationRequest {
    *          </ul>
    * @public
    */
-  AssociationType?: AssociationEdgeType;
+  AssociationType?: AssociationEdgeType | undefined;
 }
 
 /**
@@ -163,13 +177,13 @@ export interface AddAssociationResponse {
    * <p>The ARN of the source.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the destination.</p>
    * @public
    */
-  DestinationArn?: string;
+  DestinationArn?: string | undefined;
 }
 
 /**
@@ -180,7 +194,7 @@ export interface AddAssociationResponse {
 export class ResourceLimitExceeded extends __BaseException {
   readonly name: "ResourceLimitExceeded" = "ResourceLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -202,7 +216,7 @@ export class ResourceLimitExceeded extends __BaseException {
 export class ResourceNotFound extends __BaseException {
   readonly name: "ResourceNotFound" = "ResourceNotFound";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -272,7 +286,13 @@ export interface AdditionalS3DataSource {
    *             compressed.</p>
    * @public
    */
-  CompressionType?: CompressionType;
+  CompressionType?: CompressionType | undefined;
+
+  /**
+   * <p>The ETag associated with S3 URI.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**
@@ -445,13 +465,32 @@ export interface S3ModelDataSource {
    *          they are acceptable for your use case before downloading or using a model.</p>
    * @public
    */
-  ModelAccessConfig?: ModelAccessConfig;
+  ModelAccessConfig?: ModelAccessConfig | undefined;
 
   /**
    * <p>Configuration information for hub access.</p>
    * @public
    */
-  HubAccessConfig?: InferenceHubAccessConfig;
+  HubAccessConfig?: InferenceHubAccessConfig | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the manifest file. The manifest file is a CSV file that stores the
+   *             artifact locations.</p>
+   * @public
+   */
+  ManifestS3Uri?: string | undefined;
+
+  /**
+   * <p>The ETag associated with S3 URI.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The ETag associated with Manifest S3 URI.</p>
+   * @public
+   */
+  ManifestEtag?: string | undefined;
 }
 
 /**
@@ -464,7 +503,7 @@ export interface ModelDataSource {
    * <p>Specifies the S3 location of ML model data to deploy.</p>
    * @public
    */
-  S3DataSource?: S3ModelDataSource;
+  S3DataSource?: S3ModelDataSource | undefined;
 }
 
 /**
@@ -488,13 +527,13 @@ export interface ModelPackageContainerDefinition {
    * <p>The DNS host name for the Docker container.</p>
    * @public
    */
-  ContainerHostname?: string;
+  ContainerHostname?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
+   * <p>The Amazon Elastic Container Registry (Amazon ECR) path where inference code is stored.</p>
    *          <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
    *             the inference code must meet SageMaker requirements. SageMaker supports both
-   *             <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
    *                 SageMaker</a>.</p>
    * @public
@@ -506,57 +545,57 @@ export interface ModelPackageContainerDefinition {
    *             training.</p>
    * @public
    */
-  ImageDigest?: string;
+  ImageDigest?: string | undefined;
 
   /**
    * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
    *             This path must point to a single <code>gzip</code> compressed tar archive
-   *             (<code>.tar.gz</code> suffix).</p>
+   *                 (<code>.tar.gz</code> suffix).</p>
    *          <note>
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model package.</p>
    *          </note>
    * @public
    */
-  ModelDataUrl?: string;
+  ModelDataUrl?: string | undefined;
 
   /**
    * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
    * @public
    */
-  ModelDataSource?: ModelDataSource;
+  ModelDataSource?: ModelDataSource | undefined;
 
   /**
    * <p>The Amazon Web Services Marketplace product ID of the model package.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container. Each key and value in the
-   *             <code>Environment</code> string to string map can have length of up to 1024. We
+   *                 <code>Environment</code> string to string map can have length of up to 1024. We
    *             support up to 16 entries in the map.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>A structure with Model Input details.</p>
    * @public
    */
-  ModelInput?: ModelInput;
+  ModelInput?: ModelInput | undefined;
 
   /**
    * <p>The machine learning framework of the model package container image.</p>
    * @public
    */
-  Framework?: string;
+  Framework?: string | undefined;
 
   /**
    * <p>The framework version of the Model Package Container Image.</p>
    * @public
    */
-  FrameworkVersion?: string;
+  FrameworkVersion?: string | undefined;
 
   /**
    * <p>The name of a pre-trained machine learning benchmarked by
@@ -564,14 +603,20 @@ export interface ModelPackageContainerDefinition {
    *            You can find a list of benchmarked models by calling <code>ListModelMetadata</code>.</p>
    * @public
    */
-  NearestModelName?: string;
+  NearestModelName?: string | undefined;
 
   /**
    * <p>The additional data source that is used during inference in the Docker container for
    *             your model package.</p>
    * @public
    */
-  AdditionalS3DataSource?: AdditionalS3DataSource;
+  AdditionalS3DataSource?: AdditionalS3DataSource | undefined;
+
+  /**
+   * <p>The ETag associated with Model Data URL.</p>
+   * @public
+   */
+  ModelDataETag?: string | undefined;
 }
 
 /**
@@ -657,6 +702,14 @@ export const ProductionVariantInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
   ML_G6_12XLARGE: "ml.g6.12xlarge",
   ML_G6_16XLARGE: "ml.g6.16xlarge",
   ML_G6_24XLARGE: "ml.g6.24xlarge",
@@ -704,6 +757,15 @@ export const ProductionVariantInstanceType = {
   ML_M6G_8XLARGE: "ml.m6g.8xlarge",
   ML_M6G_LARGE: "ml.m6g.large",
   ML_M6G_XLARGE: "ml.m6g.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_M7I_12XLARGE: "ml.m7i.12xlarge",
   ML_M7I_16XLARGE: "ml.m7i.16xlarge",
   ML_M7I_24XLARGE: "ml.m7i.24xlarge",
@@ -721,6 +783,8 @@ export const ProductionVariantInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_24XLARGE: "ml.r5d.24xlarge",
@@ -748,6 +812,15 @@ export const ProductionVariantInstanceType = {
   ML_R6G_8XLARGE: "ml.r6g.8xlarge",
   ML_R6G_LARGE: "ml.r6g.large",
   ML_R6G_XLARGE: "ml.r6g.xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
   ML_R7I_12XLARGE: "ml.r7i.12xlarge",
   ML_R7I_16XLARGE: "ml.r7i.16xlarge",
   ML_R7I_24XLARGE: "ml.r7i.24xlarge",
@@ -757,6 +830,16 @@ export const ProductionVariantInstanceType = {
   ML_R7I_8XLARGE: "ml.r7i.8xlarge",
   ML_R7I_LARGE: "ml.r7i.large",
   ML_R7I_XLARGE: "ml.r7i.xlarge",
+  ML_R8G_12XLARGE: "ml.r8g.12xlarge",
+  ML_R8G_16XLARGE: "ml.r8g.16xlarge",
+  ML_R8G_24XLARGE: "ml.r8g.24xlarge",
+  ML_R8G_2XLARGE: "ml.r8g.2xlarge",
+  ML_R8G_48XLARGE: "ml.r8g.48xlarge",
+  ML_R8G_4XLARGE: "ml.r8g.4xlarge",
+  ML_R8G_8XLARGE: "ml.r8g.8xlarge",
+  ML_R8G_LARGE: "ml.r8g.large",
+  ML_R8G_MEDIUM: "ml.r8g.medium",
+  ML_R8G_XLARGE: "ml.r8g.xlarge",
   ML_T2_2XLARGE: "ml.t2.2xlarge",
   ML_T2_LARGE: "ml.t2.large",
   ML_T2_MEDIUM: "ml.t2.medium",
@@ -764,6 +847,7 @@ export const ProductionVariantInstanceType = {
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -818,6 +902,10 @@ export const TransformInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_INF2_24XLARGE: "ml.inf2.24xlarge",
+  ML_INF2_48XLARGE: "ml.inf2.48xlarge",
+  ML_INF2_8XLARGE: "ml.inf2.8xlarge",
+  ML_INF2_XLARGE: "ml.inf2.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -871,6 +959,8 @@ export const TransformInstanceType = {
   ML_R7I_8XLARGE: "ml.r7i.8xlarge",
   ML_R7I_LARGE: "ml.r7i.large",
   ML_R7I_XLARGE: "ml.r7i.xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
 } as const;
 
 /**
@@ -897,7 +987,7 @@ export interface AdditionalInferenceSpecificationDefinition {
    * <p>A description of the additional Inference specification</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
@@ -910,25 +1000,43 @@ export interface AdditionalInferenceSpecificationDefinition {
    *            or on which an endpoint can be deployed.</p>
    * @public
    */
-  SupportedTransformInstanceTypes?: TransformInstanceType[];
+  SupportedTransformInstanceTypes?: TransformInstanceType[] | undefined;
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    * @public
    */
-  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[];
+  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[] | undefined;
 
   /**
    * <p>The supported MIME types for the input data.</p>
    * @public
    */
-  SupportedContentTypes?: string[];
+  SupportedContentTypes?: string[] | undefined;
 
   /**
    * <p>The supported MIME types for the output data.</p>
    * @public
    */
-  SupportedResponseMIMETypes?: string[];
+  SupportedResponseMIMETypes?: string[] | undefined;
+}
+
+/**
+ * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
+ * @public
+ */
+export interface AdditionalModelDataSource {
+  /**
+   * <p>A custom name for this <code>AdditionalModelDataSource</code> object.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>Specifies the S3 location of ML model data to deploy.</p>
+   * @public
+   */
+  S3DataSource: S3ModelDataSource | undefined;
 }
 
 /**
@@ -985,7 +1093,7 @@ export interface AddTagsOutput {
    * <p>A list of tags associated with the SageMaker resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1033,7 +1141,7 @@ export interface Alarm {
    * <p>The name of a CloudWatch alarm in your account.</p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 }
 
 /**
@@ -1123,7 +1231,7 @@ export interface TrainingImageConfig {
    *             containing your training images.</p>
    * @public
    */
-  TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig;
+  TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig | undefined;
 }
 
 /**
@@ -1143,6 +1251,12 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
 
 /**
  * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> request.</p>
+ *          <important>
+ *             <p>SageMaker uses its own SageMaker account credentials to pull and access built-in algorithms
+ *                 so built-in algorithms are universally accessible across all Amazon Web Services accounts. As a result, built-in algorithms have standard,
+ *                 unrestricted access. You cannot restrict built-in algorithms using IAM roles. Use
+ *                 custom algorithms if you require specific access controls.</p>
+ *          </important>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
  *                 Amazon SageMaker</a>. </p>
@@ -1167,7 +1281,7 @@ export interface AlgorithmSpecification {
    *          </note>
    * @public
    */
-  TrainingImage?: string;
+  TrainingImage?: string | undefined;
 
   /**
    * <p>The name of the algorithm resource to use for the training job. This must be an
@@ -1187,7 +1301,7 @@ export interface AlgorithmSpecification {
    *          </note>
    * @public
    */
-  AlgorithmName?: string;
+  AlgorithmName?: string | undefined;
 
   /**
    * <p>The training input mode that the algorithm supports. For more information about input
@@ -1232,7 +1346,7 @@ export interface AlgorithmSpecification {
    *             expressions used to parse algorithm logs. SageMaker publishes each metric to Amazon CloudWatch.</p>
    * @public
    */
-  MetricDefinitions?: MetricDefinition[];
+  MetricDefinitions?: MetricDefinition[] | undefined;
 
   /**
    * <p>To generate and save time-series metrics during training, set to <code>true</code>.
@@ -1263,7 +1377,7 @@ export interface AlgorithmSpecification {
    *          </ul>
    * @public
    */
-  EnableSageMakerMetricsTimeSeries?: boolean;
+  EnableSageMakerMetricsTimeSeries?: boolean | undefined;
 
   /**
    * <p>The <a href="https://docs.docker.com/engine/reference/builder/">entrypoint script
@@ -1272,21 +1386,21 @@ export interface AlgorithmSpecification {
    *                 Runs Your Training Image</a> for more information.</p>
    * @public
    */
-  ContainerEntrypoint?: string[];
+  ContainerEntrypoint?: string[] | undefined;
 
   /**
    * <p>The arguments for a container used to run a training job. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Amazon SageMaker
    *                 Runs Your Training Image</a> for additional information.</p>
    * @public
    */
-  ContainerArguments?: string[];
+  ContainerArguments?: string[] | undefined;
 
   /**
    * <p>The configuration to use an image from a private Docker registry for a training
    *             job.</p>
    * @public
    */
-  TrainingImageConfig?: TrainingImageConfig;
+  TrainingImageConfig?: TrainingImageConfig | undefined;
 }
 
 /**
@@ -1343,7 +1457,7 @@ export interface AlgorithmStatusItem {
    * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -1355,13 +1469,13 @@ export interface AlgorithmStatusDetails {
    * <p>The status of algorithm validation.</p>
    * @public
    */
-  ValidationStatuses?: AlgorithmStatusItem[];
+  ValidationStatuses?: AlgorithmStatusItem[] | undefined;
 
   /**
    * <p>The status of the scan of the algorithm's Docker image container.</p>
    * @public
    */
-  ImageScanStatuses?: AlgorithmStatusItem[];
+  ImageScanStatuses?: AlgorithmStatusItem[] | undefined;
 }
 
 /**
@@ -1385,7 +1499,7 @@ export interface AlgorithmSummary {
    * <p>A brief description of the algorithm.</p>
    * @public
    */
-  AlgorithmDescription?: string;
+  AlgorithmDescription?: string | undefined;
 
   /**
    * <p>A timestamp that shows when the algorithm was created.</p>
@@ -1461,6 +1575,20 @@ export interface FileSystemDataSource {
 }
 
 /**
+ * <p>The configuration for a private hub model reference that points to a public SageMaker JumpStart model.</p>
+ *          <p>For more information about private hubs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs.html">Private curated hubs for foundation model access control in JumpStart</a>.</p>
+ * @public
+ */
+export interface HubAccessConfig {
+  /**
+   * <p>The ARN of your private model hub content. This should be a <code>ModelReference</code>
+   *          resource type that points to a SageMaker JumpStart public hub model.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1502,10 +1630,10 @@ export interface S3DataSource {
    *          <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
    *             is a manifest file containing a list of object keys that you want SageMaker to use for model
    *             training. </p>
-   *          <p>If you choose <code>AugmentedManifestFile</code>, S3Uri identifies an object that is
-   *             an augmented manifest file in JSON lines format. This file contains the data you want to
-   *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
-   *             Channel's input mode is <code>Pipe</code>.</p>
+   *          <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an
+   *             object that is an augmented manifest file in JSON lines format. This file contains the
+   *             data you want to use for model training. <code>AugmentedManifestFile</code> can only be
+   *             used if the Channel's input mode is <code>Pipe</code>.</p>
    * @public
    */
   S3DataType: S3DataType | undefined;
@@ -1592,20 +1720,44 @@ export interface S3DataSource {
    *             this copies 1/<i>n</i> of the number of objects. </p>
    * @public
    */
-  S3DataDistributionType?: S3DataDistribution;
+  S3DataDistributionType?: S3DataDistribution | undefined;
 
   /**
    * <p>A list of one or more attribute names to use that are found in a specified augmented
    *             manifest file.</p>
    * @public
    */
-  AttributeNames?: string[];
+  AttributeNames?: string[] | undefined;
 
   /**
    * <p>A list of names of instance groups that get data from the S3 data source.</p>
    * @public
    */
-  InstanceGroupNames?: string[];
+  InstanceGroupNames?: string[] | undefined;
+
+  /**
+   * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
+   *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
+   *                <i>Create an AutoML job to fine-tune text generation models using the
+   *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
+   *                   API</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelAccessConfig?: ModelAccessConfig | undefined;
+
+  /**
+   * <p>The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.</p>
+   * @public
+   */
+  HubAccessConfig?: HubAccessConfig | undefined;
 }
 
 /**
@@ -1617,13 +1769,13 @@ export interface DataSource {
    * <p>The S3 location of the data source that is associated with a channel.</p>
    * @public
    */
-  S3DataSource?: S3DataSource;
+  S3DataSource?: S3DataSource | undefined;
 
   /**
    * <p>The file system that is associated with a channel.</p>
    * @public
    */
-  FileSystemDataSource?: FileSystemDataSource;
+  FileSystemDataSource?: FileSystemDataSource | undefined;
 }
 
 /**
@@ -1686,7 +1838,7 @@ export interface Channel {
    * <p>The MIME type of the data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>If training data is compressed, the compression type. The default value is
@@ -1694,7 +1846,7 @@ export interface Channel {
    *             File mode, leave this field unset or set it to None.</p>
    * @public
    */
-  CompressionType?: CompressionType;
+  CompressionType?: CompressionType | undefined;
 
   /**
    * <p></p>
@@ -1706,7 +1858,7 @@ export interface Channel {
    *          <p>In File mode, leave this field unset or set it to None.</p>
    * @public
    */
-  RecordWrapperType?: RecordWrapper;
+  RecordWrapperType?: RecordWrapper | undefined;
 
   /**
    * <p>(Optional) The input mode to use for the data channel in a training job. If you don't
@@ -1720,7 +1872,7 @@ export interface Channel {
    *          <p>To use a model for incremental training, choose <code>File</code> input model.</p>
    * @public
    */
-  InputMode?: TrainingInputMode;
+  InputMode?: TrainingInputMode | undefined;
 
   /**
    * <p>A configuration for a shuffle option for input data in a channel. If you use
@@ -1739,7 +1891,7 @@ export interface Channel {
    *             second epoch.</p>
    * @public
    */
-  ShuffleConfig?: ShuffleConfig;
+  ShuffleConfig?: ShuffleConfig | undefined;
 }
 
 /**
@@ -1808,7 +1960,7 @@ export interface OutputDataConfig {
    *                 Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Identifies the S3 path where you want SageMaker to store the model artifacts. For
@@ -1822,7 +1974,7 @@ export interface OutputDataConfig {
    *             model, recommended for large model outputs. Defaults to gzip.</p>
    * @public
    */
-  CompressionType?: OutputCompressionType;
+  CompressionType?: OutputCompressionType | undefined;
 }
 
 /**
@@ -1866,6 +2018,22 @@ export const TrainingInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -1895,10 +2063,33 @@ export const TrainingInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_R5D_12XLARGE: "ml.r5d.12xlarge",
+  ML_R5D_16XLARGE: "ml.r5d.16xlarge",
+  ML_R5D_24XLARGE: "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE: "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE: "ml.r5d.4xlarge",
+  ML_R5D_8XLARGE: "ml.r5d.8xlarge",
+  ML_R5D_LARGE: "ml.r5d.large",
+  ML_R5D_XLARGE: "ml.r5d.xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -1963,14 +2154,14 @@ export interface ResourceConfig {
    *          </note>
    * @public
    */
-  InstanceType?: TrainingInstanceType;
+  InstanceType?: TrainingInstanceType | undefined;
 
   /**
    * <p>The number of ML compute instances to use. For distributed training, provide a
    *             value greater than 1. </p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The size of the ML storage volume that you want to provision. </p>
@@ -2026,27 +2217,31 @@ export interface ResourceConfig {
    *          </ul>
    * @public
    */
-  VolumeKmsKeyId?: string;
+  VolumeKmsKeyId?: string | undefined;
 
   /**
    * <p>The duration of time in seconds to retain configured resources in a warm pool for
    *             subsequent training jobs.</p>
    * @public
    */
-  KeepAlivePeriodInSeconds?: number;
+  KeepAlivePeriodInSeconds?: number | undefined;
 
   /**
    * <p>The configuration of a heterogeneous cluster in JSON format.</p>
    * @public
    */
-  InstanceGroups?: InstanceGroup[];
+  InstanceGroups?: InstanceGroup[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to use for this resource configuration.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
 }
 
 /**
- * <p>Specifies a limit to how long a model training job or model compilation job can run.
- *             It also specifies how long a managed spot training job has to complete. When the job
- *             reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap
- *             model training costs.</p>
+ * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker
+ *             ends the job. Use this API to cap costs.</p>
  *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
  *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
  *             to save the model artifacts, so the results of training are not lost. </p>
@@ -2080,7 +2275,7 @@ export interface StoppingCondition {
    *             30 days.</p>
    * @public
    */
-  MaxRuntimeInSeconds?: number;
+  MaxRuntimeInSeconds?: number | undefined;
 
   /**
    * <p>The maximum length of time, in seconds, that a managed Spot training job has to
@@ -2093,14 +2288,14 @@ export interface StoppingCondition {
    *             in total, not each individual attempt.</p>
    * @public
    */
-  MaxWaitTimeInSeconds?: number;
+  MaxWaitTimeInSeconds?: number | undefined;
 
   /**
    * <p>The maximum length of time, in seconds, that a training or compilation job can be
    *          pending before it is stopped.</p>
    * @public
    */
-  MaxPendingTimeInSeconds?: number;
+  MaxPendingTimeInSeconds?: number | undefined;
 }
 
 /**
@@ -2150,7 +2345,7 @@ export interface TrainingJobDefinition {
    * <p>The hyperparameters used for the training job.</p>
    * @public
    */
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>An array of <code>Channel</code> objects, each of which specifies an input
@@ -2324,7 +2519,7 @@ export interface TransformInput {
    *             transfer data to the transform job.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>If your transform data
@@ -2334,7 +2529,7 @@ export interface TransformInput {
    *                 <code>None</code>.</p>
    * @public
    */
-  CompressionType?: CompressionType;
+  CompressionType?: CompressionType | undefined;
 
   /**
    * <p>The method to use to split the transform job's data files into smaller batches.
@@ -2372,7 +2567,7 @@ export interface TransformInput {
    *          </note>
    * @public
    */
-  SplitType?: SplitType;
+  SplitType?: SplitType | undefined;
 }
 
 /**
@@ -2418,7 +2613,7 @@ export interface TransformOutput {
    *             call to transfer data from the transform job.</p>
    * @public
    */
-  Accept?: string;
+  Accept?: string | undefined;
 
   /**
    * <p>Defines how to assemble the results of the transform job as a single S3 object. Choose
@@ -2428,7 +2623,7 @@ export interface TransformOutput {
    *             <code>Line</code>.</p>
    * @public
    */
-  AssembleWith?: AssemblyType;
+  AssembleWith?: AssemblyType | undefined;
 
   /**
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
@@ -2466,7 +2661,7 @@ export interface TransformOutput {
    *                 Guide</i>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -2531,7 +2726,39 @@ export interface TransformResources {
    *          </ul>
    * @public
    */
-  VolumeKmsKeyId?: string;
+  VolumeKmsKeyId?: string | undefined;
+
+  /**
+   * <p>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)
+   *             images. Each image is configured by Amazon Web Services with a set of software and driver
+   *             versions.</p>
+   *          <dl>
+   *             <dt>al2-ami-sagemaker-batch-gpu-470</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 470</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>al2-ami-sagemaker-batch-gpu-535</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 535</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  TransformAmiVersion?: string | undefined;
 }
 
 /**
@@ -2545,14 +2772,14 @@ export interface TransformJobDefinition {
    *             transform job. The default value is 1.</p>
    * @public
    */
-  MaxConcurrentTransforms?: number;
+  MaxConcurrentTransforms?: number | undefined;
 
   /**
    * <p>The maximum payload size allowed, in MB. A payload is the data portion of a record
    *             (without metadata).</p>
    * @public
    */
-  MaxPayloadInMB?: number;
+  MaxPayloadInMB?: number | undefined;
 
   /**
    * <p>A string that determines the number of records included in a single mini-batch.</p>
@@ -2562,14 +2789,14 @@ export interface TransformJobDefinition {
    *             can fit within the <code>MaxPayloadInMB</code> limit.</p>
    * @public
    */
-  BatchStrategy?: BatchStrategy;
+  BatchStrategy?: BatchStrategy | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *             values entries in the map.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>A description of the input source and the way the transform job consumes it.</p>
@@ -2618,7 +2845,7 @@ export interface AlgorithmValidationProfile {
    *             SageMaker runs to validate your algorithm.</p>
    * @public
    */
-  TransformJobDefinition?: TransformJobDefinition;
+  TransformJobDefinition?: TransformJobDefinition | undefined;
 }
 
 /**
@@ -2642,17 +2869,45 @@ export interface AlgorithmValidationSpecification {
 }
 
 /**
- * <p>Configures how labels are consolidated across human workers and processes output data.
- *          </p>
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * <p>A collection of settings that configure the Amazon Q experience within the domain.</p>
+ * @public
+ */
+export interface AmazonQSettings {
+  /**
+   * <p>Whether Amazon Q has been enabled within the domain.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Q profile used within the domain.</p>
+   * @public
+   */
+  QProfileArn?: string | undefined;
+}
+
+/**
+ * <p>Configures how labels are consolidated across human workers and processes output data.</p>
  * @public
  */
 export interface AnnotationConsolidationConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">annotation consolidation</a> and to process output data.</p>
-   *          <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
-   *             of the following Amazon SageMaker Ground Truth Lambda function ARNs for
-   *                 <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>. </p>
+   *          <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>.</p>
    *          <p>
    *             <b>Bounding box</b> - Finds the most similar boxes from
    *             different workers based on the Jaccard index of the boxes.</p>
@@ -4199,6 +4454,14 @@ export const AppInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
   ML_G6_12XLARGE: "ml.g6.12xlarge",
   ML_G6_16XLARGE: "ml.g6.16xlarge",
   ML_G6_24XLARGE: "ml.g6.24xlarge",
@@ -4311,28 +4574,31 @@ export const AppInstanceType = {
 export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceType];
 
 /**
- * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+ * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
  *          the version runs on.</p>
+ *          <note>
+ *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+ *          </note>
  * @public
  */
 export interface ResourceSpec {
   /**
-   * <p>The ARN of the SageMaker image that the image version belongs to.</p>
+   * <p>The ARN of the SageMaker AI image that the image version belongs to.</p>
    * @public
    */
-  SageMakerImageArn?: string;
+  SageMakerImageArn?: string | undefined;
 
   /**
-   * <p>The ARN of the image version created on the instance.</p>
+   * <p>The ARN of the image version created on the instance. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
    * @public
    */
-  SageMakerImageVersionArn?: string;
+  SageMakerImageVersionArn?: string | undefined;
 
   /**
    * <p>The SageMakerImageVersionAlias of the image to launch with. This value is in SemVer 2.0.0 versioning format.</p>
    * @public
    */
-  SageMakerImageVersionAlias?: string;
+  SageMakerImageVersionAlias?: string | undefined;
 
   /**
    * <p>The instance type that the image version runs on.</p>
@@ -4345,13 +4611,14 @@ export interface ResourceSpec {
    *          </note>
    * @public
    */
-  InstanceType?: AppInstanceType;
+  InstanceType?: AppInstanceType | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the
+   *       Resource.</p>
    * @public
    */
-  LifecycleConfigArn?: string;
+  LifecycleConfigArn?: string | undefined;
 }
 
 /**
@@ -4372,7 +4639,7 @@ export const AppStatus = {
 export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
 
 /**
- * <p>Details about an Amazon SageMaker app.</p>
+ * <p>Details about an Amazon SageMaker AI app.</p>
  * @public
  */
 export interface AppDetails {
@@ -4380,50 +4647,53 @@ export interface AppDetails {
    * <p>The domain ID.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The user profile name.</p>
    * @public
    */
-  UserProfileName?: string;
+  UserProfileName?: string | undefined;
 
   /**
    * <p>The name of the space.</p>
    * @public
    */
-  SpaceName?: string;
+  SpaceName?: string | undefined;
 
   /**
    * <p>The type of app.</p>
    * @public
    */
-  AppType?: AppType;
+  AppType?: AppType | undefined;
 
   /**
    * <p>The name of the app.</p>
    * @public
    */
-  AppName?: string;
+  AppName?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  Status?: AppStatus;
+  Status?: AppStatus | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
+   *          <note>
+   *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+   *          </note>
    * @public
    */
-  ResourceSpec?: ResourceSpec;
+  ResourceSpec?: ResourceSpec | undefined;
 }
 
 /**
@@ -4435,23 +4705,23 @@ export interface ContainerConfig {
    * <p>The arguments for the container when you're running the application.</p>
    * @public
    */
-  ContainerArguments?: string[];
+  ContainerArguments?: string[] | undefined;
 
   /**
    * <p>The entrypoint used to run the application in the container.</p>
    * @public
    */
-  ContainerEntrypoint?: string[];
+  ContainerEntrypoint?: string[] | undefined;
 
   /**
    * <p>The environment variables to set in the container</p>
    * @public
    */
-  ContainerEnvironmentVariables?: Record<string, string>;
+  ContainerEnvironmentVariables?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+ * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
  * @public
  */
 export interface FileSystemConfig {
@@ -4460,19 +4730,19 @@ export interface FileSystemConfig {
    *          should be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</p>
    * @public
    */
-  MountPath?: string;
+  MountPath?: string | undefined;
 
   /**
    * <p>The default POSIX user ID (UID). If not specified, defaults to <code>1000</code>.</p>
    * @public
    */
-  DefaultUid?: number;
+  DefaultUid?: number | undefined;
 
   /**
    * <p>The default POSIX group ID (GID). If not specified, defaults to <code>100</code>.</p>
    * @public
    */
-  DefaultGid?: number;
+  DefaultGid?: number | undefined;
 }
 
 /**
@@ -4482,34 +4752,34 @@ export interface FileSystemConfig {
  */
 export interface CodeEditorAppImageConfig {
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
-  FileSystemConfig?: FileSystemConfig;
+  FileSystemConfig?: FileSystemConfig | undefined;
 
   /**
    * <p>The configuration used to run the application image container.</p>
    * @public
    */
-  ContainerConfig?: ContainerConfig;
+  ContainerConfig?: ContainerConfig | undefined;
 }
 
 /**
- * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app. The <code>FileSystemConfig</code> object is not supported.</p>
+ * <p>The configuration for the file system and kernels in a SageMaker AI image running as a JupyterLab app. The <code>FileSystemConfig</code> object is not supported.</p>
  * @public
  */
 export interface JupyterLabAppImageConfig {
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
-  FileSystemConfig?: FileSystemConfig;
+  FileSystemConfig?: FileSystemConfig | undefined;
 
   /**
    * <p>The configuration used to run the application image container.</p>
    * @public
    */
-  ContainerConfig?: ContainerConfig;
+  ContainerConfig?: ContainerConfig | undefined;
 }
 
 /**
@@ -4527,11 +4797,11 @@ export interface KernelSpec {
    * <p>The display name of the kernel.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 }
 
 /**
- * <p>The configuration for the file system and kernels in a SageMaker image running as a
+ * <p>The configuration for the file system and kernels in a SageMaker AI image running as a
  *          KernelGateway app.</p>
  * @public
  */
@@ -4543,14 +4813,14 @@ export interface KernelGatewayImageConfig {
   KernelSpecs: KernelSpec[] | undefined;
 
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
-  FileSystemConfig?: FileSystemConfig;
+  FileSystemConfig?: FileSystemConfig | undefined;
 }
 
 /**
- * <p>The configuration for running a SageMaker image as a KernelGateway app.</p>
+ * <p>The configuration for running a SageMaker AI image as a KernelGateway app.</p>
  * @public
  */
 export interface AppImageConfigDetails {
@@ -4558,44 +4828,44 @@ export interface AppImageConfigDetails {
    * <p>The ARN of the AppImageConfig.</p>
    * @public
    */
-  AppImageConfigArn?: string;
+  AppImageConfigArn?: string | undefined;
 
   /**
    * <p>The name of the AppImageConfig. Must be unique to your account.</p>
    * @public
    */
-  AppImageConfigName?: string;
+  AppImageConfigName?: string | undefined;
 
   /**
    * <p>When the AppImageConfig was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the AppImageConfig was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The configuration for the file system and kernels in the SageMaker image.</p>
+   * <p>The configuration for the file system and kernels in the SageMaker AI image.</p>
    * @public
    */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+  KernelGatewayImageConfig?: KernelGatewayImageConfig | undefined;
 
   /**
    * <p>The configuration for the file system and the runtime, such as the environment variables and entry point.</p>
    * @public
    */
-  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig | undefined;
 
   /**
    * <p>The configuration for the file system and the runtime,
    *       such as the environment variables and entry point.</p>
    * @public
    */
-  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig | undefined;
 }
 
 /**
@@ -4612,6 +4882,64 @@ export const AppImageConfigSortKey = {
  * @public
  */
 export type AppImageConfigSortKey = (typeof AppImageConfigSortKey)[keyof typeof AppImageConfigSortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleManagement = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleManagement = (typeof LifecycleManagement)[keyof typeof LifecycleManagement];
+
+/**
+ * <p>Settings related to idle shutdown of Studio applications.</p>
+ * @public
+ */
+export interface IdleSettings {
+  /**
+   * <p>Indicates whether idle shutdown is activated for the application type.</p>
+   * @public
+   */
+  LifecycleManagement?: LifecycleManagement | undefined;
+
+  /**
+   * <p>The time that SageMaker waits after the application becomes idle before shutting it
+   *       down.</p>
+   * @public
+   */
+  IdleTimeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The minimum value in minutes that custom idle shutdown can be set to by the user.</p>
+   * @public
+   */
+  MinIdleTimeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The maximum value in minutes that custom idle shutdown can be set to by the user.</p>
+   * @public
+   */
+  MaxIdleTimeoutInMinutes?: number | undefined;
+}
+
+/**
+ * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio
+ *       applications.</p>
+ * @public
+ */
+export interface AppLifecycleManagement {
+  /**
+   * <p>Settings related to idle shutdown of Studio applications.</p>
+   * @public
+   */
+  IdleSettings?: IdleSettings | undefined;
+}
 
 /**
  * @public
@@ -4669,13 +4997,13 @@ export interface AppSpecification {
    * <p>The entrypoint for a container used to run a processing job.</p>
    * @public
    */
-  ContainerEntrypoint?: string[];
+  ContainerEntrypoint?: string[] | undefined;
 
   /**
    * <p>The arguments for a container used to run a processing job.</p>
    * @public
    */
-  ContainerArguments?: string[];
+  ContainerArguments?: string[] | undefined;
 }
 
 /**
@@ -4727,7 +5055,7 @@ export interface ArtifactSource {
    * <p>A list of source types.</p>
    * @public
    */
-  SourceTypes?: ArtifactSourceType[];
+  SourceTypes?: ArtifactSourceType[] | undefined;
 }
 
 /**
@@ -4740,37 +5068,37 @@ export interface ArtifactSummary {
    * <p>The Amazon Resource Name (ARN) of the artifact.</p>
    * @public
    */
-  ArtifactArn?: string;
+  ArtifactArn?: string | undefined;
 
   /**
    * <p>The name of the artifact.</p>
    * @public
    */
-  ArtifactName?: string;
+  ArtifactName?: string | undefined;
 
   /**
    * <p>The source of the artifact.</p>
    * @public
    */
-  Source?: ArtifactSource;
+  Source?: ArtifactSource | undefined;
 
   /**
    * <p>The type of the artifact.</p>
    * @public
    */
-  ArtifactType?: string;
+  ArtifactType?: string | undefined;
 
   /**
    * <p>When the artifact was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the artifact was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -4798,13 +5126,13 @@ export interface AssociateTrialComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    * @public
    */
-  TrialComponentArn?: string;
+  TrialComponentArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    * @public
    */
-  TrialArn?: string;
+  TrialArn?: string | undefined;
 }
 
 /**
@@ -4817,19 +5145,19 @@ export interface IamIdentity {
    * <p>The Amazon Resource Name (ARN) of the IAM identity.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the principal that assumes the IAM identity.</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The person or application which assumes the IAM identity.</p>
    * @public
    */
-  SourceIdentity?: string;
+  SourceIdentity?: string | undefined;
 }
 
 /**
@@ -4842,26 +5170,26 @@ export interface UserContext {
    * <p>The Amazon Resource Name (ARN) of the user's profile.</p>
    * @public
    */
-  UserProfileArn?: string;
+  UserProfileArn?: string | undefined;
 
   /**
    * <p>The name of the user's profile.</p>
    * @public
    */
-  UserProfileName?: string;
+  UserProfileName?: string | undefined;
 
   /**
    * <p>The domain associated with the user.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The IAM Identity details associated with the user. These details are
    *       associated with model package groups, model packages, and project entities only.</p>
    * @public
    */
-  IamIdentity?: IamIdentity;
+  IamIdentity?: IamIdentity | undefined;
 }
 
 /**
@@ -4875,56 +5203,56 @@ export interface AssociationSummary {
    * <p>The ARN of the source.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the destination.</p>
    * @public
    */
-  DestinationArn?: string;
+  DestinationArn?: string | undefined;
 
   /**
    * <p>The source type.</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>The destination type.</p>
    * @public
    */
-  DestinationType?: string;
+  DestinationType?: string | undefined;
 
   /**
    * <p>The type of the association.</p>
    * @public
    */
-  AssociationType?: AssociationEdgeType;
+  AssociationType?: AssociationEdgeType | undefined;
 
   /**
    * <p>The name of the source.</p>
    * @public
    */
-  SourceName?: string;
+  SourceName?: string | undefined;
 
   /**
    * <p>The name of the destination.</p>
    * @public
    */
-  DestinationName?: string;
+  DestinationName?: string | undefined;
 
   /**
    * <p>When the association was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 }
 
 /**
@@ -4938,7 +5266,7 @@ export interface AsyncInferenceClientConfig {
    *             container. If no value is provided, SageMaker chooses an optimal value.</p>
    * @public
    */
-  MaxConcurrentInvocationsPerInstance?: number;
+  MaxConcurrentInvocationsPerInstance?: number | undefined;
 }
 
 /**
@@ -4967,14 +5295,14 @@ export interface AsyncInferenceNotificationConfig {
    *             topic is provided, no notification is sent on success.</p>
    * @public
    */
-  SuccessTopic?: string;
+  SuccessTopic?: string | undefined;
 
   /**
    * <p>Amazon SNS topic to post a notification to when inference fails. If no topic is provided,
    *             no notification is sent on failure.</p>
    * @public
    */
-  ErrorTopic?: string;
+  ErrorTopic?: string | undefined;
 
   /**
    * <p>The Amazon SNS topics where you want the inference response to be included.</p>
@@ -4984,7 +5312,7 @@ export interface AsyncInferenceNotificationConfig {
    *          </note>
    * @public
    */
-  IncludeInferenceResponseIn?: AsyncNotificationTopicTypes[];
+  IncludeInferenceResponseIn?: AsyncNotificationTopicTypes[] | undefined;
 }
 
 /**
@@ -4998,26 +5326,26 @@ export interface AsyncInferenceOutputConfig {
    *          <p></p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon S3 location to upload inference responses to.</p>
    * @public
    */
-  S3OutputPath?: string;
+  S3OutputPath?: string | undefined;
 
   /**
    * <p>Specifies the configuration for notifications of inference results for asynchronous
    *             inference.</p>
    * @public
    */
-  NotificationConfig?: AsyncInferenceNotificationConfig;
+  NotificationConfig?: AsyncInferenceNotificationConfig | undefined;
 
   /**
    * <p>The Amazon S3 location to upload failure inference responses to.</p>
    * @public
    */
-  S3FailurePath?: string;
+  S3FailurePath?: string | undefined;
 }
 
 /**
@@ -5030,7 +5358,7 @@ export interface AsyncInferenceConfig {
    *             container during asynchronous inference.</p>
    * @public
    */
-  ClientConfig?: AsyncInferenceClientConfig;
+  ClientConfig?: AsyncInferenceClientConfig | undefined;
 
   /**
    * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
@@ -5099,7 +5427,7 @@ export interface AthenaDatasetDefinition {
    * <p>The name of the workgroup in which the Athena query is being started.</p>
    * @public
    */
-  WorkGroup?: string;
+  WorkGroup?: string | undefined;
 
   /**
    * <p>The location in Amazon S3 where Athena query results are stored.</p>
@@ -5108,11 +5436,11 @@ export interface AthenaDatasetDefinition {
   OutputS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data generated from
-   *             an Athena query execution.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
+   *             uses to encrypt data generated from an Athena query execution.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The data storage format for Athena query results.</p>
@@ -5124,7 +5452,7 @@ export interface AthenaDatasetDefinition {
    * <p>The compression used for Athena query results.</p>
    * @public
    */
-  OutputCompression?: AthenaResultCompressionType;
+  OutputCompression?: AthenaResultCompressionType | undefined;
 }
 
 /**
@@ -5180,7 +5508,8 @@ export interface AutoMLAlgorithmConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>For the tabular problem type <code>TabularJobConfig</code>:</b>
+   *                   <b>For the tabular problem type
+   *                   <code>TabularJobConfig</code>:</b>
    *                </p>
    *                <note>
    *                   <p>Selected algorithms must belong to the list corresponding to the training mode
@@ -5235,7 +5564,8 @@ export interface AutoMLAlgorithmConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>For the time-series forecasting problem type <code>TimeSeriesForecastingJobConfig</code>:</b>
+   *                   <b>For the time-series forecasting problem type
+   *                      <code>TimeSeriesForecastingJobConfig</code>:</b>
    *                </p>
    *                <ul>
    *                   <li>
@@ -5286,7 +5616,7 @@ export interface CandidateArtifactLocations {
    *          candidate.</p>
    * @public
    */
-  ModelInsights?: string;
+  ModelInsights?: string | undefined;
 
   /**
    * <p>The Amazon S3 prefix to the accuracy metrics and the inference results observed
@@ -5294,7 +5624,7 @@ export interface CandidateArtifactLocations {
    *          type.</p>
    * @public
    */
-  BacktestResults?: string;
+  BacktestResults?: string | undefined;
 }
 
 /**
@@ -5388,7 +5718,7 @@ export interface MetricDatum {
    * <p>The name of the metric.</p>
    * @public
    */
-  MetricName?: AutoMLMetricEnum;
+  MetricName?: AutoMLMetricEnum | undefined;
 
   /**
    * <p>The name of the standard metric. </p>
@@ -5399,19 +5729,19 @@ export interface MetricDatum {
    *          </note>
    * @public
    */
-  StandardMetricName?: AutoMLMetricExtendedEnum;
+  StandardMetricName?: AutoMLMetricExtendedEnum | undefined;
 
   /**
    * <p>The value of the metric.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 
   /**
    * <p>The dataset split from which the AutoML job produced the metric.</p>
    * @public
    */
-  Set?: MetricSetSource;
+  Set?: MetricSetSource | undefined;
 }
 
 /**
@@ -5423,13 +5753,13 @@ export interface CandidateProperties {
    * <p>The Amazon S3 prefix to the artifacts generated for an AutoML candidate.</p>
    * @public
    */
-  CandidateArtifactLocations?: CandidateArtifactLocations;
+  CandidateArtifactLocations?: CandidateArtifactLocations | undefined;
 
   /**
    * <p>Information about the candidate metrics for an AutoML job.</p>
    * @public
    */
-  CandidateMetrics?: MetricDatum[];
+  CandidateMetrics?: MetricDatum[] | undefined;
 }
 
 /**
@@ -5511,7 +5841,7 @@ export interface FinalAutoMLJobObjectiveMetric {
    * <p>The type of metric with the best result.</p>
    * @public
    */
-  Type?: AutoMLJobObjectiveType;
+  Type?: AutoMLJobObjectiveType | undefined;
 
   /**
    * <p>The name of the metric with the best result. For a description of the possible objective
@@ -5531,7 +5861,7 @@ export interface FinalAutoMLJobObjectiveMetric {
    *             candidate metrics</a>.</p>
    * @public
    */
-  StandardMetricName?: AutoMLMetricEnum;
+  StandardMetricName?: AutoMLMetricEnum | undefined;
 }
 
 /**
@@ -5575,7 +5905,7 @@ export interface AutoMLContainerDefinition {
    *             ContainerDefinition</a>.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 }
 
 /**
@@ -5609,7 +5939,7 @@ export interface AutoMLCandidate {
    * <p>The best candidate result from an AutoML training job.</p>
    * @public
    */
-  FinalAutoMLJobObjectiveMetric?: FinalAutoMLJobObjectiveMetric;
+  FinalAutoMLJobObjectiveMetric?: FinalAutoMLJobObjectiveMetric | undefined;
 
   /**
    * <p>The objective's status.</p>
@@ -5633,7 +5963,7 @@ export interface AutoMLCandidate {
    * <p>Information about the recommended inference container definitions.</p>
    * @public
    */
-  InferenceContainers?: AutoMLContainerDefinition[];
+  InferenceContainers?: AutoMLContainerDefinition[] | undefined;
 
   /**
    * <p>The creation time.</p>
@@ -5645,7 +5975,7 @@ export interface AutoMLCandidate {
    * <p>The end time.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The last modified time.</p>
@@ -5657,13 +5987,13 @@ export interface AutoMLCandidate {
    * <p>The failure reason.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The properties of an AutoML candidate job.</p>
    * @public
    */
-  CandidateProperties?: CandidateProperties;
+  CandidateProperties?: CandidateProperties | undefined;
 
   /**
    * <p>The mapping of all supported processing unit (CPU, GPU, etc...) to inference container
@@ -5672,7 +6002,7 @@ export interface AutoMLCandidate {
    *          classification problem types only.</p>
    * @public
    */
-  InferenceContainerDefinitions?: Partial<Record<AutoMLProcessingUnit, AutoMLContainerDefinition[]>>;
+  InferenceContainerDefinitions?: Partial<Record<AutoMLProcessingUnit, AutoMLContainerDefinition[]>> | undefined;
 }
 
 /**
@@ -5709,18 +6039,20 @@ export interface AutoMLCandidateGenerationConfig {
    *          of columns provided must not include the target column.</p>
    * @public
    */
-  FeatureSpecificationS3Uri?: string;
+  FeatureSpecificationS3Uri?: string | undefined;
 
   /**
-   * <p>Stores the configuration information for the selection of algorithms trained on tabular data.</p>
+   * <p>Stores the configuration information for the selection of algorithms trained on tabular
+   *          data.</p>
    *          <p>The list of available algorithms to choose from depends on the training mode set in
-   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html">
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html">
    *                <code>TabularJobConfig.Mode</code>
    *             </a>.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AlgorithmsConfig</code> should not be set if the training mode is set on <code>AUTO</code>.</p>
+   *                   <code>AlgorithmsConfig</code> should not be set if the training mode is set on
+   *                   <code>AUTO</code>.</p>
    *             </li>
    *             <li>
    *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
@@ -5731,16 +6063,16 @@ export interface AutoMLCandidateGenerationConfig {
    *             </li>
    *             <li>
    *                <p>When <code>AlgorithmsConfig</code> is not provided,
-   *                <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
+   *                   <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
    *                given training mode.</p>
    *             </li>
    *          </ul>
    *          <p>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-   *          AutoMLAlgorithmConfig</a>.</p>
+   *             AutoMLAlgorithmConfig</a>.</p>
    *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    * @public
    */
-  AlgorithmsConfig?: AutoMLAlgorithmConfig[];
+  AlgorithmsConfig?: AutoMLAlgorithmConfig[] | undefined;
 }
 
 /**
@@ -5782,7 +6114,7 @@ export interface AutoMLS3DataSource {
    *          <ul>
    *             <li>
    *                <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
-   *                prefix. SageMaker uses all objects that match the specified key name prefix
+   *                prefix. SageMaker AI uses all objects that match the specified key name prefix
    *                for model training.</p>
    *                <p>The <code>S3Prefix</code> should have the following format:</p>
    *                <p>
@@ -5791,7 +6123,7 @@ export interface AutoMLS3DataSource {
    *             </li>
    *             <li>
    *                <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
-   *                that is a manifest file containing a list of object keys that you want SageMaker to use for model training.</p>
+   *                that is a manifest file containing a list of object keys that you want SageMaker AI to use for model training.</p>
    *                <p>A <code>ManifestFile</code> should have the format shown below:</p>
    *                <p>
    *                   <code>[ \{"prefix":
@@ -5864,14 +6196,14 @@ export interface AutoMLChannel {
    * <p>The data source for an AutoML channel.</p>
    * @public
    */
-  DataSource?: AutoMLDataSource;
+  DataSource?: AutoMLDataSource | undefined;
 
   /**
    * <p>You can use <code>Gzip</code> or <code>None</code>. The default value is
    *             <code>None</code>.</p>
    * @public
    */
-  CompressionType?: CompressionType;
+  CompressionType?: CompressionType | undefined;
 
   /**
    * <p>The name of the target variable in supervised learning, usually represented by
@@ -5886,7 +6218,7 @@ export interface AutoMLChannel {
    *          The default value is <code>text/csv;header=present</code>.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The channel type (optional) is an <code>enum</code> string. The default value is
@@ -5895,7 +6227,7 @@ export interface AutoMLChannel {
    *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">How to specify training and validation datasets</a>.</p>
    * @public
    */
-  ChannelType?: AutoMLChannelType;
+  ChannelType?: AutoMLChannelType | undefined;
 
   /**
    * <p>If specified, this column name indicates which column of the dataset should be treated
@@ -5910,7 +6242,55 @@ export interface AutoMLChannel {
    *          mode only.</p>
    * @public
    */
-  SampleWeightAttributeName?: string;
+  SampleWeightAttributeName?: string | undefined;
+}
+
+/**
+ * <note>
+ *             <p>This data type is intended for use exclusively by SageMaker Canvas and cannot be used in
+ *             other contexts at the moment.</p>
+ *          </note>
+ *          <p>Specifies the compute configuration for the EMR Serverless job.</p>
+ * @public
+ */
+export interface EmrServerlessComputeConfig {
+  /**
+   * <p>The ARN of the IAM role granting the AutoML job V2 the necessary
+   *          permissions access policies to list, connect to, or manage EMR Serverless jobs. For
+   *          detailed information about the required permissions of this role, see "How to configure
+   *          AutoML to initiate a remote job on EMR Serverless for large datasets" in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html">Create a regression or classification job for tabular data using the AutoML API</a>
+   *          or <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-timeseries-forecasting.html#timeseries-forecasting-api-optional-params">Create an AutoML job for time-series forecasting using the API</a>.</p>
+   * @public
+   */
+  ExecutionRoleARN: string | undefined;
+}
+
+/**
+ * <note>
+ *             <p>This data type is intended for use exclusively by SageMaker Canvas and cannot be used in
+ *             other contexts at the moment.</p>
+ *          </note>
+ *          <p>Specifies the compute configuration for an AutoML job V2.</p>
+ * @public
+ */
+export interface AutoMLComputeConfig {
+  /**
+   * <p>The configuration for using <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless.html"> EMR Serverless</a>
+   *          to run the AutoML job V2.</p>
+   *          <p>To allow your AutoML job V2 to automatically initiate a remote job on EMR Serverless
+   *          when additional compute resources are needed to process large datasets, you need to provide
+   *          an <code>EmrServerlessComputeConfig</code> object, which includes an
+   *             <code>ExecutionRoleARN</code> attribute, to the <code>AutoMLComputeConfig</code> of the
+   *          AutoML job V2 input request.</p>
+   *          <p>By seamlessly transitioning to EMR Serverless when required, the AutoML job can handle
+   *          datasets that would otherwise exceed the initially provisioned resources, without any
+   *          manual intervention from you. </p>
+   *          <p>EMR Serverless is available for the tabular and time series problem types. We
+   *          recommend setting up this option for tabular datasets larger than 5 GB and time series
+   *          datasets larger than 30 GB.</p>
+   * @public
+   */
+  EmrServerlessComputeConfig?: EmrServerlessComputeConfig | undefined;
 }
 
 /**
@@ -5928,7 +6308,7 @@ export interface AutoMLDataSplitConfig {
    *          than 0 and less than 1. We recommend setting this value to be less than 0.5.</p>
    * @public
    */
-  ValidationFraction?: number;
+  ValidationFraction?: number | undefined;
 }
 
 /**
@@ -5940,13 +6320,13 @@ export interface AutoMLJobArtifacts {
    * <p>The URL of the notebook location.</p>
    * @public
    */
-  CandidateDefinitionNotebookLocation?: string;
+  CandidateDefinitionNotebookLocation?: string | undefined;
 
   /**
    * <p>The URL of the notebook location.</p>
    * @public
    */
-  DataExplorationNotebookLocation?: string;
+  DataExplorationNotebookLocation?: string | undefined;
 }
 
 /**
@@ -5966,7 +6346,7 @@ export interface AutoMLJobChannel {
    *          </note>
    * @public
    */
-  ChannelType?: AutoMLChannelType;
+  ChannelType?: AutoMLChannelType | undefined;
 
   /**
    * <p>The content type of the data from the input source. The following are the allowed
@@ -5999,7 +6379,7 @@ export interface AutoMLJobChannel {
    *          </ul>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The allowed compression types depend on the input format and problem type. We allow the
@@ -6008,13 +6388,13 @@ export interface AutoMLJobChannel {
    *          type is provided, we default to <code>None</code>.</p>
    * @public
    */
-  CompressionType?: CompressionType;
+  CompressionType?: CompressionType | undefined;
 
   /**
    * <p>The data source for an AutoML channel (Required).</p>
    * @public
    */
-  DataSource?: AutoMLDataSource;
+  DataSource?: AutoMLDataSource | undefined;
 }
 
 /**
@@ -6030,7 +6410,7 @@ export interface AutoMLJobCompletionCriteria {
    *          maximum value is 750.</p>
    * @public
    */
-  MaxCandidates?: number;
+  MaxCandidates?: number | undefined;
 
   /**
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
@@ -6043,7 +6423,7 @@ export interface AutoMLJobCompletionCriteria {
    *          (259200 seconds).</p>
    * @public
    */
-  MaxRuntimePerTrainingJobInSeconds?: number;
+  MaxRuntimePerTrainingJobInSeconds?: number | undefined;
 
   /**
    * <p>The maximum runtime, in seconds, an AutoML job has to complete.</p>
@@ -6053,7 +6433,7 @@ export interface AutoMLJobCompletionCriteria {
    *          as automatic one-click Autopilot model deployment, are not completed.</p>
    * @public
    */
-  MaxAutoMLJobRuntimeInSeconds?: number;
+  MaxAutoMLJobRuntimeInSeconds?: number | undefined;
 }
 
 /**
@@ -6074,7 +6454,8 @@ export type AutoMLMode = (typeof AutoMLMode)[keyof typeof AutoMLMode];
 /**
  * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
  *             have access to. You can control access to and from your resources by configuring a VPC.
- *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+ *                 Resources in your Amazon VPC</a>. </p>
  * @public
  */
 export interface VpcConfig {
@@ -6103,19 +6484,19 @@ export interface AutoMLSecurityConfig {
    * <p>The key used to encrypt stored data.</p>
    * @public
    */
-  VolumeKmsKeyId?: string;
+  VolumeKmsKeyId?: string | undefined;
 
   /**
    * <p>Whether to use traffic encryption between the container layers.</p>
    * @public
    */
-  EnableInterContainerTrafficEncryption?: boolean;
+  EnableInterContainerTrafficEncryption?: boolean | undefined;
 
   /**
    * <p>The VPC configuration.</p>
    * @public
    */
-  VpcConfig?: VpcConfig;
+  VpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -6128,26 +6509,26 @@ export interface AutoMLJobConfig {
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
    * @public
    */
-  SecurityConfig?: AutoMLSecurityConfig;
+  SecurityConfig?: AutoMLSecurityConfig | undefined;
 
   /**
    * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
    * @public
    */
-  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
+  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig | undefined;
 
   /**
    * <p>The configuration for splitting the input training dataset.</p>
    *          <p>Type: AutoMLDataSplitConfig</p>
    * @public
    */
-  DataSplitConfig?: AutoMLDataSplitConfig;
+  DataSplitConfig?: AutoMLDataSplitConfig | undefined;
 
   /**
    * <p>The method that Autopilot uses to train the data. You can either specify the mode manually
@@ -6168,7 +6549,7 @@ export interface AutoMLJobConfig {
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    * @public
    */
-  Mode?: AutoMLMode;
+  Mode?: AutoMLMode | undefined;
 }
 
 /**
@@ -6331,7 +6712,7 @@ export interface AutoMLJobStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the AutoML job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -6343,7 +6724,7 @@ export interface AutoMLPartialFailureReason {
    * <p>The message containing the reason for a partial failure of an AutoML job.</p>
    * @public
    */
-  PartialFailureMessage?: string;
+  PartialFailureMessage?: string | undefined;
 }
 
 /**
@@ -6385,7 +6766,7 @@ export interface AutoMLJobSummary {
    * <p>The end time of an AutoML job.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>When the AutoML job was last modified.</p>
@@ -6397,13 +6778,13 @@ export interface AutoMLJobSummary {
    * <p>The failure reason of an AutoML job.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The list of reasons for partial failures within an AutoML job.</p>
    * @public
    */
-  PartialFailureReasons?: AutoMLPartialFailureReason[];
+  PartialFailureReasons?: AutoMLPartialFailureReason[] | undefined;
 }
 
 /**
@@ -6415,10 +6796,10 @@ export interface AutoMLOutputDataConfig {
    * <p>The Key Management Service encryption key ID.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
-   * <p>The Amazon S3 output path. Must be 128 characters or less.</p>
+   * <p>The Amazon S3 output path. Must be 512 characters or less.</p>
    * @public
    */
   S3OutputPath: string | undefined;
@@ -6435,7 +6816,7 @@ export interface ImageClassificationJobConfig {
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 }
 
 /**
@@ -6454,9 +6835,9 @@ export interface CandidateGenerationConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>For the tabular problem type <code>TabularJobConfig</code>,</b>
-   *             the list of available algorithms to choose from depends on the training mode set
-   *                in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
+   *                   <b>For the tabular problem type
+   *                   <code>TabularJobConfig</code>,</b> the list of available algorithms to
+   *                choose from depends on the training mode set in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
    *                      <code>AutoMLJobConfig.Mode</code>
    *                   </a>.</p>
    *                <ul>
@@ -6485,11 +6866,13 @@ export interface CandidateGenerationConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>For the time-series forecasting problem type <code>TimeSeriesForecastingJobConfig</code>,</b>
-   *             choose your algorithms from the list provided in
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                   <b>For the time-series forecasting problem type
+   *                      <code>TimeSeriesForecastingJobConfig</code>,</b> choose your algorithms
+   *                from the list provided in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
    *                   AlgorithmConfig</a>.</p>
-   *                <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-forecasting-algorithms.html">Algorithms support for time-series forecasting</a> section in the Autopilot developer guide.</p>
+   *                <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-forecasting-algorithms.html">Algorithms
+   *                   support for time-series forecasting</a> section in the Autopilot developer
+   *                guide.</p>
    *                <ul>
    *                   <li>
    *                      <p>When <code>AlgorithmsConfig</code> is provided, one
@@ -6509,7 +6892,7 @@ export interface CandidateGenerationConfig {
    *          </ul>
    * @public
    */
-  AlgorithmsConfig?: AutoMLAlgorithmConfig[];
+  AlgorithmsConfig?: AutoMLAlgorithmConfig[] | undefined;
 }
 
 /**
@@ -6536,14 +6919,14 @@ export interface TabularJobConfig {
    * <p>The configuration information of how model candidates are generated.</p>
    * @public
    */
-  CandidateGenerationConfig?: CandidateGenerationConfig;
+  CandidateGenerationConfig?: CandidateGenerationConfig | undefined;
 
   /**
    * <p>How long a job is allowed to run, or how many candidates a job is allowed to
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>A URL to the Amazon S3 data source containing selected features from the input
@@ -6574,7 +6957,7 @@ export interface TabularJobConfig {
    *          of columns provided must not include the target column.</p>
    * @public
    */
-  FeatureSpecificationS3Uri?: string;
+  FeatureSpecificationS3Uri?: string | undefined;
 
   /**
    * <p>The method that Autopilot uses to train the data. You can either specify the mode manually
@@ -6595,14 +6978,14 @@ export interface TabularJobConfig {
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    * @public
    */
-  Mode?: AutoMLMode;
+  Mode?: AutoMLMode | undefined;
 
   /**
    * <p>Generates possible candidates without training the models. A model candidate is a
    *          combination of data preprocessors, algorithms, and algorithm parameter settings.</p>
    * @public
    */
-  GenerateCandidateDefinitionsOnly?: boolean;
+  GenerateCandidateDefinitionsOnly?: boolean | undefined;
 
   /**
    * <p>The type of supervised learning problem available for the model candidates of the AutoML
@@ -6614,7 +6997,7 @@ export interface TabularJobConfig {
    *          </note>
    * @public
    */
-  ProblemType?: ProblemType;
+  ProblemType?: ProblemType | undefined;
 
   /**
    * <p>The name of the target variable in supervised learning, usually represented by
@@ -6636,7 +7019,7 @@ export interface TabularJobConfig {
    *          mode only.</p>
    * @public
    */
-  SampleWeightAttributeName?: string;
+  SampleWeightAttributeName?: string | undefined;
 }
 
 /**
@@ -6650,7 +7033,7 @@ export interface TextClassificationJobConfig {
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>The name of the column used to provide the sentences to be classified. It should not be
@@ -6684,7 +7067,7 @@ export interface TextGenerationJobConfig {
    *             <code>AutoMLJobCompletionCriteria</code> defaults to 72h (259200s).</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety of large
@@ -6692,7 +7075,7 @@ export interface TextGenerationJobConfig {
    *             <code>BaseModelName</code> is provided, the default model used is <b>Falcon7BInstruct</b>. </p>
    * @public
    */
-  BaseModelName?: string;
+  BaseModelName?: string | undefined;
 
   /**
    * <p>The hyperparameters used to configure and optimize the learning process of the base
@@ -6733,7 +7116,7 @@ export interface TextGenerationJobConfig {
    *          </p>
    * @public
    */
-  TextGenerationHyperParameters?: Record<string, string>;
+  TextGenerationHyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
@@ -6751,7 +7134,7 @@ export interface TextGenerationJobConfig {
    *          </ul>
    * @public
    */
-  ModelAccessConfig?: ModelAccessConfig;
+  ModelAccessConfig?: ModelAccessConfig | undefined;
 }
 
 /**
@@ -6767,7 +7150,7 @@ export interface HolidayConfigAttributes {
    *          choice.</p>
    * @public
    */
-  CountryCode?: string;
+  CountryCode?: string | undefined;
 }
 
 /**
@@ -6801,7 +7184,7 @@ export interface TimeSeriesConfig {
    *          composite key for which a target value is predicted.</p>
    * @public
    */
-  GroupingAttributeNames?: string[];
+  GroupingAttributeNames?: string[] | undefined;
 }
 
 /**
@@ -6869,7 +7252,7 @@ export interface TimeSeriesTransformations {
    *             <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>.</p>
    * @public
    */
-  Filling?: Record<string, Partial<Record<FillingType, string>>>;
+  Filling?: Record<string, Partial<Record<FillingType, string>>> | undefined;
 
   /**
    * <p>A key value pair defining the aggregation method for a column, where the key is the
@@ -6881,7 +7264,7 @@ export interface TimeSeriesTransformations {
    *          </note>
    * @public
    */
-  Aggregation?: Record<string, AggregationTransformationValue>;
+  Aggregation?: Record<string, AggregationTransformationValue> | undefined;
 }
 
 /**
@@ -6915,14 +7298,14 @@ export interface TimeSeriesForecastingJobConfig {
    *          </note>
    * @public
    */
-  FeatureSpecificationS3Uri?: string;
+  FeatureSpecificationS3Uri?: string | undefined;
 
   /**
    * <p>How long a job is allowed to run, or how many candidates a job is allowed to
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
@@ -6972,14 +7355,14 @@ export interface TimeSeriesForecastingJobConfig {
    *          p50, and p90 as default.</p>
    * @public
    */
-  ForecastQuantiles?: string[];
+  ForecastQuantiles?: string[] | undefined;
 
   /**
    * <p>The transformations modifying specific attributes of the time-series, such as filling
    *          strategies for missing values.</p>
    * @public
    */
-  Transformations?: TimeSeriesTransformations;
+  Transformations?: TimeSeriesTransformations | undefined;
 
   /**
    * <p>The collection of components that defines the time-series.</p>
@@ -6992,14 +7375,14 @@ export interface TimeSeriesForecastingJobConfig {
    *          information into your forecasting model.</p>
    * @public
    */
-  HolidayConfig?: HolidayConfigAttributes[];
+  HolidayConfig?: HolidayConfigAttributes[] | undefined;
 
   /**
    * <p>Stores the configuration information for how model candidates are generated using an
    *          AutoML job V2.</p>
    * @public
    */
-  CandidateGenerationConfig?: CandidateGenerationConfig;
+  CandidateGenerationConfig?: CandidateGenerationConfig | undefined;
 }
 
 /**
@@ -7159,7 +7542,7 @@ export interface TabularResolvedAttributes {
    *             SageMaker Autopilot problem types</a>.</p>
    * @public
    */
-  ProblemType?: ProblemType;
+  ProblemType?: ProblemType | undefined;
 }
 
 /**
@@ -7171,7 +7554,7 @@ export interface TextGenerationResolvedAttributes {
    * <p>The name of the base model to fine-tune.</p>
    * @public
    */
-  BaseModelName?: string;
+  BaseModelName?: string | undefined;
 }
 
 /**
@@ -7240,20 +7623,20 @@ export interface AutoMLResolvedAttributes {
    * <p>Specifies a metric to minimize or maximize as the objective of an AutoML job.</p>
    * @public
    */
-  AutoMLJobObjective?: AutoMLJobObjective;
+  AutoMLJobObjective?: AutoMLJobObjective | undefined;
 
   /**
    * <p>How long a job is allowed to run, or how many candidates a job is allowed to
    *          generate.</p>
    * @public
    */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
+  CompletionCriteria?: AutoMLJobCompletionCriteria | undefined;
 
   /**
    * <p>Defines the resolved attributes specific to a problem type.</p>
    * @public
    */
-  AutoMLProblemTypeResolvedAttributes?: AutoMLProblemTypeResolvedAttributes;
+  AutoMLProblemTypeResolvedAttributes?: AutoMLProblemTypeResolvedAttributes | undefined;
 }
 
 /**
@@ -7284,6 +7667,21 @@ export const AutoMLSortOrder = {
  * @public
  */
 export type AutoMLSortOrder = (typeof AutoMLSortOrder)[keyof typeof AutoMLSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMountHomeEFS = {
+  DEFAULT_AS_DOMAIN: "DefaultAsDomain",
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMountHomeEFS = (typeof AutoMountHomeEFS)[keyof typeof AutoMountHomeEFS];
 
 /**
  * <p>The name and an example value of the hyperparameter that you want to use in Autotune.
@@ -7317,7 +7715,7 @@ export interface AutoRollbackConfig {
    *             deployment.</p>
    * @public
    */
-  Alarms?: Alarm[];
+  Alarms?: Alarm[] | undefined;
 }
 
 /**
@@ -7433,13 +7831,101 @@ export interface BatchDataCaptureConfig {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Flag that indicates whether to append inference id to the output.</p>
    * @public
    */
-  GenerateInferenceId?: boolean;
+  GenerateInferenceId?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteClusterNodesRequest {
+  /**
+   * <p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of node IDs to be deleted from the specified cluster.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
+   *                   instances that are configured as Slurm controller nodes.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a> for assistance.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  NodeIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchDeleteClusterNodesErrorCode = {
+  INVALID_NODE_STATUS: "InvalidNodeStatus",
+  NODE_ID_IN_USE: "NodeIdInUse",
+  NODE_ID_NOT_FOUND: "NodeIdNotFound",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchDeleteClusterNodesErrorCode =
+  (typeof BatchDeleteClusterNodesErrorCode)[keyof typeof BatchDeleteClusterNodesErrorCode];
+
+/**
+ * <p>Represents an error encountered when deleting a node from a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchDeleteClusterNodesError {
+  /**
+   * <p>The error code associated with the error encountered when deleting a node.</p>
+   *          <p>The code provides information about the specific issue encountered, such as the node not
+   *          being found, the node's status being invalid for deletion, or the node ID being in use by
+   *          another process.</p>
+   * @public
+   */
+  Code: BatchDeleteClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A message describing the error encountered when deleting a node.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The ID of the node that encountered an error during the deletion process.</p>
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteClusterNodesResponse {
+  /**
+   * <p>A list of errors encountered when deleting the specified nodes.</p>
+   * @public
+   */
+  Failed?: BatchDeleteClusterNodesError[] | undefined;
+
+  /**
+   * <p>A list of node IDs that were successfully deleted from the specified cluster.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
 }
 
 /**
@@ -7489,7 +7975,7 @@ export interface InferenceSpecification {
    *             models.</p>
    * @public
    */
-  SupportedTransformInstanceTypes?: TransformInstanceType[];
+  SupportedTransformInstanceTypes?: TransformInstanceType[] | undefined;
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
@@ -7497,19 +7983,19 @@ export interface InferenceSpecification {
    *             models.</p>
    * @public
    */
-  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[];
+  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[] | undefined;
 
   /**
    * <p>The supported MIME types for the input data.</p>
    * @public
    */
-  SupportedContentTypes?: string[];
+  SupportedContentTypes?: string[] | undefined;
 
   /**
    * <p>The supported MIME types for the output data.</p>
    * @public
    */
-  SupportedResponseMIMETypes?: string[];
+  SupportedResponseMIMETypes?: string[] | undefined;
 }
 
 /**
@@ -7559,7 +8045,7 @@ export interface BatchDescribeModelPackageSummary {
    * <p>The version number of a versioned model.</p>
    * @public
    */
-  ModelPackageVersion?: number;
+  ModelPackageVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
@@ -7571,7 +8057,7 @@ export interface BatchDescribeModelPackageSummary {
    * <p>The description of the model package.</p>
    * @public
    */
-  ModelPackageDescription?: string;
+  ModelPackageDescription?: string | undefined;
 
   /**
    * <p>The creation time of the mortgage package summary.</p>
@@ -7595,7 +8081,7 @@ export interface BatchDescribeModelPackageSummary {
    * <p>The approval status of the model.</p>
    * @public
    */
-  ModelApprovalStatus?: ModelApprovalStatus;
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
 }
 
 /**
@@ -7606,14 +8092,14 @@ export interface BatchDescribeModelPackageOutput {
    * <p>The summaries for the model package versions</p>
    * @public
    */
-  ModelPackageSummaries?: Record<string, BatchDescribeModelPackageSummary>;
+  ModelPackageSummaries?: Record<string, BatchDescribeModelPackageSummary> | undefined;
 
   /**
-   * <p>A map of the resource and BatchDescribeModelPackageError objects
-   *             reporting the error associated with describing the model package.</p>
+   * <p>A map of the resource and BatchDescribeModelPackageError objects reporting the error
+   *             associated with describing the model package.</p>
    * @public
    */
-  BatchDescribeModelPackageErrorMap?: Record<string, BatchDescribeModelPackageError>;
+  BatchDescribeModelPackageErrorMap?: Record<string, BatchDescribeModelPackageError> | undefined;
 }
 
 /**
@@ -7625,7 +8111,7 @@ export interface MonitoringCsvDatasetFormat {
    * <p>Indicates if the CSV data has a header.</p>
    * @public
    */
-  Header?: boolean;
+  Header?: boolean | undefined;
 }
 
 /**
@@ -7637,7 +8123,7 @@ export interface MonitoringJsonDatasetFormat {
    * <p>Indicates if the file should be read as a JSON object per line. </p>
    * @public
    */
-  Line?: boolean;
+  Line?: boolean | undefined;
 }
 
 /**
@@ -7655,19 +8141,19 @@ export interface MonitoringDatasetFormat {
    * <p>The CSV dataset used in the monitoring job.</p>
    * @public
    */
-  Csv?: MonitoringCsvDatasetFormat;
+  Csv?: MonitoringCsvDatasetFormat | undefined;
 
   /**
    * <p>The JSON dataset used in the monitoring job</p>
    * @public
    */
-  Json?: MonitoringJsonDatasetFormat;
+  Json?: MonitoringJsonDatasetFormat | undefined;
 
   /**
    * <p>The Parquet dataset used in the monitoring job</p>
    * @public
    */
-  Parquet?: MonitoringParquetDatasetFormat;
+  Parquet?: MonitoringParquetDatasetFormat | undefined;
 }
 
 /**
@@ -7729,7 +8215,7 @@ export interface BatchTransformInput {
    *             <code>File</code>.</p>
    * @public
    */
-  S3InputMode?: ProcessingS3InputMode;
+  S3InputMode?: ProcessingS3InputMode | undefined;
 
   /**
    * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
@@ -7737,31 +8223,31 @@ export interface BatchTransformInput {
    *          </p>
    * @public
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType;
+  S3DataDistributionType?: ProcessingS3DataDistributionType | undefined;
 
   /**
    * <p>The attributes of the input data that are the input features.</p>
    * @public
    */
-  FeaturesAttribute?: string;
+  FeaturesAttribute?: string | undefined;
 
   /**
    * <p>The attribute of the input data that represents the ground truth label.</p>
    * @public
    */
-  InferenceAttribute?: string;
+  InferenceAttribute?: string | undefined;
 
   /**
    * <p>In a classification problem, the attribute that represents the class probability.</p>
    * @public
    */
-  ProbabilityAttribute?: string;
+  ProbabilityAttribute?: string | undefined;
 
   /**
    * <p>The threshold for the class probability to be evaluated as a positive result.</p>
    * @public
    */
-  ProbabilityThresholdAttribute?: number;
+  ProbabilityThresholdAttribute?: number | undefined;
 
   /**
    * <p>If specified, monitoring jobs substract this time from the start time. For information
@@ -7769,7 +8255,7 @@ export interface BatchTransformInput {
    *                 Quality Monitoring Jobs</a>.</p>
    * @public
    */
-  StartTimeOffset?: string;
+  StartTimeOffset?: string | undefined;
 
   /**
    * <p>If specified, monitoring jobs subtract this time from the end time. For information
@@ -7777,13 +8263,13 @@ export interface BatchTransformInput {
    *                 Quality Monitoring Jobs</a>.</p>
    * @public
    */
-  EndTimeOffset?: string;
+  EndTimeOffset?: string | undefined;
 
   /**
    * <p>The attributes of the input data to exclude from the analysis.</p>
    * @public
    */
-  ExcludeFeaturesAttribute?: string;
+  ExcludeFeaturesAttribute?: string | undefined;
 }
 
 /**
@@ -7798,7 +8284,7 @@ export interface BestObjectiveNotImproving {
    *             greater over prior training jobs as evaluated against an objective function.</p>
    * @public
    */
-  MaxNumberOfTrainingJobsNotImproving?: number;
+  MaxNumberOfTrainingJobsNotImproving?: number | undefined;
 }
 
 /**
@@ -7816,7 +8302,7 @@ export interface MetricsSource {
    * <p>The hash key used for the metrics source.</p>
    * @public
    */
-  ContentDigest?: string;
+  ContentDigest?: string | undefined;
 
   /**
    * <p>The S3 URI for the metrics source.</p>
@@ -7834,19 +8320,19 @@ export interface Bias {
    * <p>The bias report for a model</p>
    * @public
    */
-  Report?: MetricsSource;
+  Report?: MetricsSource | undefined;
 
   /**
    * <p>The pre-training bias report for a model.</p>
    * @public
    */
-  PreTrainingReport?: MetricsSource;
+  PreTrainingReport?: MetricsSource | undefined;
 
   /**
    * <p>The post-training bias report for a model.</p>
    * @public
    */
-  PostTrainingReport?: MetricsSource;
+  PostTrainingReport?: MetricsSource | undefined;
 }
 
 /**
@@ -7915,8 +8401,8 @@ export const TrafficRoutingConfigType = {
 export type TrafficRoutingConfigType = (typeof TrafficRoutingConfigType)[keyof typeof TrafficRoutingConfigType];
 
 /**
- * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic from the
- *             old fleet to the new fleet.</p>
+ * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic
+ *             from the old fleet to the new fleet.</p>
  * @public
  */
 export interface TrafficRoutingConfig {
@@ -7925,22 +8411,19 @@ export interface TrafficRoutingConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet
-   *                 in a single step.
-   *             </p>
+   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single
+   *                     step. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet
-   *                 in two steps. The first step is the canary, which is a small portion of the traffic. The
-   *                 second step is the remainder of the traffic.
-   *             </p>
+   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps.
+   *                     The first step is the canary, which is a small portion of the traffic. The
+   *                     second step is the remainder of the traffic. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in
-   *                 n steps of a configurable size.
-   *             </p>
+   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a
+   *                     configurable size. </p>
    *             </li>
    *          </ul>
    * @public
@@ -7948,25 +8431,26 @@ export interface TrafficRoutingConfig {
   Type: TrafficRoutingConfigType | undefined;
 
   /**
-   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the
-   *             new endpoint fleet.</p>
+   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the new
+   *             endpoint fleet.</p>
    * @public
    */
   WaitIntervalInSeconds: number | undefined;
 
   /**
-   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet. <code>Value</code> must be less than
-   *             or equal to 50% of the variant's total instance count.</p>
+   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet.
+   *                 <code>Value</code> must be less than or equal to 50% of the variant's total instance
+   *             count.</p>
    * @public
    */
-  CanarySize?: CapacitySize;
+  CanarySize?: CapacitySize | undefined;
 
   /**
-   * <p>Batch size for each step to turn on traffic on the new endpoint fleet. <code>Value</code> must be
-   *             10-50% of the variant's total instance count.</p>
+   * <p>Batch size for each step to turn on traffic on the new endpoint fleet.
+   *                 <code>Value</code> must be 10-50% of the variant's total instance count.</p>
    * @public
    */
-  LinearStepSize?: CapacitySize;
+  LinearStepSize?: CapacitySize | undefined;
 }
 
 /**
@@ -7991,7 +8475,7 @@ export interface BlueGreenUpdatePolicy {
    *             before terminating the old endpoint fleet. Default is 0.</p>
    * @public
    */
-  TerminationWaitInSeconds?: number;
+  TerminationWaitInSeconds?: number | undefined;
 
   /**
    * <p>Maximum execution timeout for the deployment. Note that the timeout value should be
@@ -7999,7 +8483,7 @@ export interface BlueGreenUpdatePolicy {
    *             and <code>WaitIntervalInSeconds</code>.</p>
    * @public
    */
-  MaximumExecutionTimeoutInSeconds?: number;
+  MaximumExecutionTimeoutInSeconds?: number | undefined;
 }
 
 /**
@@ -8025,7 +8509,7 @@ export interface CacheHitResult {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  SourcePipelineExecutionArn?: string;
+  SourcePipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -8055,19 +8539,19 @@ export interface CallbackStepMetadata {
    * <p>The pipeline generated token from the Amazon SQS queue.</p>
    * @public
    */
-  CallbackToken?: string;
+  CallbackToken?: string | undefined;
 
   /**
    * <p>The URL of the Amazon Simple Queue Service (Amazon SQS) queue used by the callback step.</p>
    * @public
    */
-  SqsQueueUrl?: string;
+  SqsQueueUrl?: string | undefined;
 
   /**
    * <p>A list of the output parameters of the callback step.</p>
    * @public
    */
-  OutputParameters?: OutputParameter[];
+  OutputParameters?: OutputParameter[] | undefined;
 }
 
 /**
@@ -8086,20 +8570,6 @@ export const CandidateSortBy = {
 export type CandidateSortBy = (typeof CandidateSortBy)[keyof typeof CandidateSortBy];
 
 /**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  Disabled: "DISABLED",
-  Enabled: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
-
-/**
  * <p>The model deployment settings for the SageMaker Canvas application.</p>
  *          <note>
  *             <p>In order to enable model deployment for Canvas, the SageMaker Domain's or user profile's Amazon Web Services IAM
@@ -8113,7 +8583,29 @@ export interface DirectDeploySettings {
    * <p>Describes whether model deployment permissions are enabled or disabled in the Canvas application.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
+}
+
+/**
+ * <p>The settings for running Amazon EMR Serverless jobs in SageMaker Canvas.</p>
+ * @public
+ */
+export interface EmrServerlessSettings {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM role that is assumed for
+   *       running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary
+   *       permissions to read and write data attached and a trust relationship with
+   *       EMR Serverless.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker
+   *       Canvas application.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
 }
 
 /**
@@ -8130,7 +8622,7 @@ export interface GenerativeAiSettings {
    *       establishes <code>bedrock.amazonaws.com</code> as a service principal.</p>
    * @public
    */
-  AmazonBedrockRoleArn?: string;
+  AmazonBedrockRoleArn?: string | undefined;
 }
 
 /**
@@ -8157,21 +8649,21 @@ export interface IdentityProviderOAuthSetting {
    * <p>The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud.</p>
    * @public
    */
-  DataSourceName?: DataSourceName;
+  DataSourceName?: DataSourceName | undefined;
 
   /**
    * <p>Describes whether OAuth for a data source is enabled or disabled in the Canvas
    *       application.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 
   /**
    * <p>The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your
    *       identity provider, such as the client ID and secret, authorization URL, and token URL. </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 }
 
 /**
@@ -8185,7 +8677,7 @@ export interface KendraSettings {
    *       or disabled in the Canvas application.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 }
 
 /**
@@ -8198,7 +8690,7 @@ export interface ModelRegisterSettings {
    *       Canvas application.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions
@@ -8206,7 +8698,7 @@ export interface ModelRegisterSettings {
    *       account in which SageMaker model registry is set up.</p>
    * @public
    */
-  CrossAccountModelRegisterRoleArn?: string;
+  CrossAccountModelRegisterRoleArn?: string | undefined;
 }
 
 /**
@@ -8219,7 +8711,7 @@ export interface TimeSeriesForecastingSettings {
    *       application.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 
   /**
    * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default,
@@ -8232,7 +8724,7 @@ export interface TimeSeriesForecastingSettings {
    *       principal.</p>
    * @public
    */
-  AmazonForecastRoleArn?: string;
+  AmazonForecastRoleArn?: string | undefined;
 }
 
 /**
@@ -8246,13 +8738,13 @@ export interface WorkspaceSettings {
    *       must log out and log back in to apply the new location.</p>
    * @public
    */
-  S3ArtifactPath?: string;
+  S3ArtifactPath?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.</p>
    * @public
    */
-  S3KmsKeyId?: string;
+  S3KmsKeyId?: string | undefined;
 }
 
 /**
@@ -8264,64 +8756,70 @@ export interface CanvasAppSettings {
    * <p>Time series forecast settings for the SageMaker Canvas application.</p>
    * @public
    */
-  TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings;
+  TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings | undefined;
 
   /**
    * <p>The model registry settings for the SageMaker Canvas application.</p>
    * @public
    */
-  ModelRegisterSettings?: ModelRegisterSettings;
+  ModelRegisterSettings?: ModelRegisterSettings | undefined;
 
   /**
    * <p>The workspace settings for the SageMaker Canvas application.</p>
    * @public
    */
-  WorkspaceSettings?: WorkspaceSettings;
+  WorkspaceSettings?: WorkspaceSettings | undefined;
 
   /**
    * <p>The settings for connecting to an external data source with OAuth.</p>
    * @public
    */
-  IdentityProviderOAuthSettings?: IdentityProviderOAuthSetting[];
+  IdentityProviderOAuthSettings?: IdentityProviderOAuthSetting[] | undefined;
 
   /**
    * <p>The model deployment settings for the SageMaker Canvas application.</p>
    * @public
    */
-  DirectDeploySettings?: DirectDeploySettings;
+  DirectDeploySettings?: DirectDeploySettings | undefined;
 
   /**
    * <p>The settings for document querying.</p>
    * @public
    */
-  KendraSettings?: KendraSettings;
+  KendraSettings?: KendraSettings | undefined;
 
   /**
    * <p>The generative AI settings for the SageMaker Canvas application.</p>
    * @public
    */
-  GenerativeAiSettings?: GenerativeAiSettings;
+  GenerativeAiSettings?: GenerativeAiSettings | undefined;
+
+  /**
+   * <p>The settings for running Amazon EMR Serverless data processing jobs in SageMaker Canvas.</p>
+   * @public
+   */
+  EmrServerlessSettings?: EmrServerlessSettings | undefined;
 }
 
 /**
  * <p>Configuration specifying how to treat different headers. If no headers are specified
- *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
+ *             Amazon SageMaker AI will by default base64 encode when capturing the data.</p>
  * @public
  */
 export interface CaptureContentTypeHeader {
   /**
-   * <p>The list of all content type headers that Amazon SageMaker will treat as CSV and
+   * <p>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
    *          capture accordingly.</p>
    * @public
    */
-  CsvContentTypes?: string[];
+  CsvContentTypes?: string[] | undefined;
 
   /**
-   * <p>The list of all content type headers that SageMaker will treat as JSON and
+   * <p>The list of all content type headers that SageMaker AI will treat as JSON and
    *          capture accordingly.</p>
    * @public
    */
-  JsonContentTypes?: string[];
+  JsonContentTypes?: string[] | undefined;
 }
 
 /**
@@ -8430,13 +8928,13 @@ export interface ChannelSpecification {
    * <p>A brief description of the channel.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Indicates whether the channel is required by the algorithm.</p>
    * @public
    */
-  IsRequired?: boolean;
+  IsRequired?: boolean | undefined;
 
   /**
    * <p>The supported MIME types for the data.</p>
@@ -8448,7 +8946,7 @@ export interface ChannelSpecification {
    * <p>The allowed compression types, if data compression is used.</p>
    * @public
    */
-  SupportedCompressionTypes?: CompressionType[];
+  SupportedCompressionTypes?: CompressionType[] | undefined;
 
   /**
    * <p>The allowed input mode, either FILE or PIPE.</p>
@@ -8480,13 +8978,13 @@ export interface CheckpointConfig {
    *                 <code>/opt/ml/checkpoints/</code>. </p>
    * @public
    */
-  LocalPath?: string;
+  LocalPath?: string | undefined;
 }
 
 /**
- * <p>The container for the metadata for the ClarifyCheck step. For more information,
- *             see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-clarify-check">ClarifyCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
- *         </p>
+ * <p>The container for the metadata for the ClarifyCheck step. For more information, see
+ *             the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-clarify-check">ClarifyCheck step</a> in the <i>Amazon SageMaker Developer
+ *                 Guide</i>. </p>
  * @public
  */
 export interface ClarifyCheckStepMetadata {
@@ -8494,53 +8992,57 @@ export interface ClarifyCheckStepMetadata {
    * <p>The type of the Clarify Check step</p>
    * @public
    */
-  CheckType?: string;
+  CheckType?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of baseline constraints file to be used for the drift check.</p>
    * @public
    */
-  BaselineUsedForDriftCheckConstraints?: string;
+  BaselineUsedForDriftCheckConstraints?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the newly calculated baseline constraints file.</p>
    * @public
    */
-  CalculatedBaselineConstraints?: string;
+  CalculatedBaselineConstraints?: string | undefined;
 
   /**
    * <p>The model package group name.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the violation report if violations are detected.</p>
    * @public
    */
-  ViolationReport?: string;
+  ViolationReport?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the check processing job that was run by this step's execution.</p>
+   * <p>The Amazon Resource Name (ARN) of the check processing job that was run by this step's
+   *             execution.</p>
    * @public
    */
-  CheckJobArn?: string;
+  CheckJobArn?: string | undefined;
 
   /**
-   * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
-   *             If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
+   * <p>This flag indicates if the drift check against the previous baseline will be skipped
+   *             or not. If it is set to <code>False</code>, the previous baseline of the configured
+   *             check type must be available.</p>
    * @public
    */
-  SkipCheck?: boolean;
+  SkipCheck?: boolean | undefined;
 
   /**
-   * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
-   *             <code>BaselineUsedForDriftCheckConstraints</code> and <code>BaselineUsedForDriftCheckStatistics</code>.
-   *             If it is set to <code>False</code>, the previous baseline of the configured check type must also be available.
-   *             These can be accessed through the <code>BaselineUsedForDriftCheckConstraints</code> property. </p>
+   * <p>This flag indicates if a newly calculated baseline can be accessed through step
+   *             properties <code>BaselineUsedForDriftCheckConstraints</code> and
+   *                 <code>BaselineUsedForDriftCheckStatistics</code>. If it is set to
+   *             <code>False</code>, the previous baseline of the configured check type must also be
+   *             available. These can be accessed through the
+   *                 <code>BaselineUsedForDriftCheckConstraints</code> property. </p>
    * @public
    */
-  RegisterNewBaseline?: boolean;
+  RegisterNewBaseline?: boolean | undefined;
 }
 
 /**
@@ -8570,7 +9072,7 @@ export interface ClarifyInferenceConfig {
    *                 <code>[1,2,3]</code> from request data <code>'\{"myfeatures":[1,2,3]\}'</code>.</p>
    * @public
    */
-  FeaturesAttribute?: string;
+  FeaturesAttribute?: string | undefined;
 
   /**
    * <p>A template string used to format a JSON record into an acceptable model container
@@ -8580,7 +9082,7 @@ export interface ClarifyInferenceConfig {
    *             Required only when the model container input is in JSON Lines format.</p>
    * @public
    */
-  ContentTemplate?: string;
+  ContentTemplate?: string | undefined;
 
   /**
    * <p>The maximum number of records in a request that the model container can process when
@@ -8593,14 +9095,14 @@ export interface ClarifyInferenceConfig {
    *             runtime.</p>
    * @public
    */
-  MaxRecordCount?: number;
+  MaxRecordCount?: number | undefined;
 
   /**
    * <p>The maximum payload size (MB) allowed of a request from the explainer to the model
    *             container. Defaults to <code>6</code> MB.</p>
    * @public
    */
-  MaxPayloadInMB?: number;
+  MaxPayloadInMB?: number | undefined;
 
   /**
    * <p>A zero-based index used to extract a probability value (score) or list from model
@@ -8619,7 +9121,7 @@ export interface ClarifyInferenceConfig {
    *                 <code>[0.1,0.6,0.3]</code>.</p>
    * @public
    */
-  ProbabilityIndex?: number;
+  ProbabilityIndex?: number | undefined;
 
   /**
    * <p>A zero-based index used to extract a label header or list of label headers from model
@@ -8632,7 +9134,7 @@ export interface ClarifyInferenceConfig {
    *                 <code>['cat','dog','fish']</code>.</p>
    * @public
    */
-  LabelIndex?: number;
+  LabelIndex?: number | undefined;
 
   /**
    * <p>A JMESPath expression used to extract the probability (or score) from the model
@@ -8643,7 +9145,7 @@ export interface ClarifyInferenceConfig {
    *                 <code>ProbabilityAttribute</code> to <code>'probability'</code>.</p>
    * @public
    */
-  ProbabilityAttribute?: string;
+  ProbabilityAttribute?: string | undefined;
 
   /**
    * <p>A JMESPath expression used to locate the list of label headers in the model container
@@ -8656,7 +9158,7 @@ export interface ClarifyInferenceConfig {
    *          </p>
    * @public
    */
-  LabelAttribute?: string;
+  LabelAttribute?: string | undefined;
 
   /**
    * <p>For multiclass classification problems, the label headers are the names of the
@@ -8667,7 +9169,7 @@ export interface ClarifyInferenceConfig {
    *             container output, provide them manually using this parameter.</p>
    * @public
    */
-  LabelHeaders?: string[];
+  LabelHeaders?: string[] | undefined;
 
   /**
    * <p>The names of the features. If provided, these are included in the endpoint response
@@ -8675,7 +9177,7 @@ export interface ClarifyInferenceConfig {
    *             in the Developer Guide for more information.</p>
    * @public
    */
-  FeatureHeaders?: string[];
+  FeatureHeaders?: string[] | undefined;
 
   /**
    * <p>A list of data types of the features (optional). Applicable only to NLP
@@ -8687,7 +9189,7 @@ export interface ClarifyInferenceConfig {
    *             in the Developer Guide for more information.</p>
    * @public
    */
-  FeatureTypes?: ClarifyFeatureType[];
+  FeatureTypes?: ClarifyFeatureType[] | undefined;
 }
 
 /**
@@ -8718,7 +9220,7 @@ export interface ClarifyShapBaselineConfig {
    *                 <code>'application/jsonlines'</code>. Defaults to <code>'text/csv'</code>.</p>
    * @public
    */
-  MimeType?: string;
+  MimeType?: string | undefined;
 
   /**
    * <p>The inline SHAP baseline data in string format. <code>ShapBaseline</code> can have one
@@ -8733,7 +9235,7 @@ export interface ClarifyShapBaselineConfig {
    *             of baseline data.</p>
    * @public
    */
-  ShapBaseline?: string;
+  ShapBaseline?: string | undefined;
 
   /**
    * <p>The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is
@@ -8747,7 +9249,7 @@ export interface ClarifyShapBaselineConfig {
    *                 Resources in your Amazon Virtual Private Cloud</a>.</p>
    * @public
    */
-  ShapBaselineUri?: string;
+  ShapBaselineUri?: string | undefined;
 }
 
 /**
@@ -8884,21 +9386,21 @@ export interface ClarifyShapConfig {
    *          </note>
    * @public
    */
-  NumberOfSamples?: number;
+  NumberOfSamples?: number | undefined;
 
   /**
    * <p>A Boolean toggle to indicate if you want to use the logit function (true) or log-odds
    *             units (false) for model predictions. Defaults to false.</p>
    * @public
    */
-  UseLogit?: boolean;
+  UseLogit?: boolean | undefined;
 
   /**
    * <p>The starting value used to initialize the random number generator in the explainer.
    *             Provide a value for this parameter to obtain a deterministic SHAP result.</p>
    * @public
    */
-  Seed?: number;
+  Seed?: number | undefined;
 
   /**
    * <p>A parameter that indicates if text features are treated as text and explanations are
@@ -8906,7 +9408,7 @@ export interface ClarifyShapConfig {
    *             explainability only.</p>
    * @public
    */
-  TextConfig?: ClarifyTextConfig;
+  TextConfig?: ClarifyTextConfig | undefined;
 }
 
 /**
@@ -8921,13 +9423,13 @@ export interface ClarifyExplainerConfig {
    *             </a>for additional information.</p>
    * @public
    */
-  EnableExplanations?: string;
+  EnableExplanations?: string | undefined;
 
   /**
    * <p>The inference configuration parameter for the model container.</p>
    * @public
    */
-  InferenceConfig?: ClarifyInferenceConfig;
+  InferenceConfig?: ClarifyInferenceConfig | undefined;
 
   /**
    * <p>The configuration for SHAP analysis.</p>
@@ -9014,6 +9516,15 @@ export const ClusterInstanceType = {
   ML_C5_9XLARGE: "ml.c5.9xlarge",
   ML_C5_LARGE: "ml.c5.large",
   ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
   ML_G5_12XLARGE: "ml.g5.12xlarge",
   ML_G5_16XLARGE: "ml.g5.16xlarge",
   ML_G5_24XLARGE: "ml.g5.24xlarge",
@@ -9022,6 +9533,24 @@ export const ClusterInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_GR6_4XLARGE: "ml.gr6.4xlarge",
+  ML_GR6_8XLARGE: "ml.gr6.8xlarge",
   ML_M5_12XLARGE: "ml.m5.12xlarge",
   ML_M5_16XLARGE: "ml.m5.16xlarge",
   ML_M5_24XLARGE: "ml.m5.24xlarge",
@@ -9030,15 +9559,36 @@ export const ClusterInstanceType = {
   ML_M5_8XLARGE: "ml.m5.8xlarge",
   ML_M5_LARGE: "ml.m5.large",
   ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",
   ML_T3_MEDIUM: "ml.t3.medium",
   ML_T3_XLARGE: "ml.t3.xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -9073,6 +9623,39 @@ export interface ClusterLifeCycleConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DeepHealthCheckType = {
+  INSTANCE_CONNECTIVITY: "InstanceConnectivity",
+  INSTANCE_STRESS: "InstanceStress",
+} as const;
+
+/**
+ * @public
+ */
+export type DeepHealthCheckType = (typeof DeepHealthCheckType)[keyof typeof DeepHealthCheckType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGroupStatus = {
+  CREATING: "Creating",
+  DEGRADED: "Degraded",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INSERVICE: "InService",
+  SYSTEMUPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGroupStatus = (typeof InstanceGroupStatus)[keyof typeof InstanceGroupStatus];
+
+/**
  * <p>Details of an instance group in a SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -9082,38 +9665,38 @@ export interface ClusterInstanceGroupDetails {
    *          cluster.</p>
    * @public
    */
-  CurrentCount?: number;
+  CurrentCount?: number | undefined;
 
   /**
    * <p>The number of instances you specified to add to the instance group of a SageMaker HyperPod
    *          cluster.</p>
    * @public
    */
-  TargetCount?: number;
+  TargetCount?: number | undefined;
 
   /**
    * <p>The name of the instance group of a SageMaker HyperPod cluster.</p>
    * @public
    */
-  InstanceGroupName?: string;
+  InstanceGroupName?: string | undefined;
 
   /**
    * <p>The instance type of the instance group of a SageMaker HyperPod cluster.</p>
    * @public
    */
-  InstanceType?: ClusterInstanceType;
+  InstanceType?: ClusterInstanceType | undefined;
 
   /**
    * <p>Details of LifeCycle configuration for the instance group.</p>
    * @public
    */
-  LifeCycleConfig?: ClusterLifeCycleConfig;
+  LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
 
   /**
    * <p>The execution role for the instance group to assume.</p>
    * @public
    */
-  ExecutionRole?: string;
+  ExecutionRole?: string | undefined;
 
   /**
    * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for
@@ -9124,14 +9707,79 @@ export interface ClusterInstanceGroupDetails {
    *             Guide</i>.</p>
    * @public
    */
-  ThreadsPerCore?: number;
+  ThreadsPerCore?: number | undefined;
 
   /**
    * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster instance
    *          group.</p>
    * @public
    */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster
+   *          instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The current status of the cluster instance group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code>: The instance group is active and healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code>: The instance group is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: The instance group is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: The instance group has failed to provision or is no longer
+   *                healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Degraded</code>: The instance group is degraded, meaning that some instances
+   *                have failed to provision or are no longer healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>: The instance group is being deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: InstanceGroupStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan associated with this cluster instance group.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>The current status of the training plan associated with this cluster instance
+   *          group.</p>
+   * @public
+   */
+  TrainingPlanStatus?: string | undefined;
+
+  /**
+   * <p>The customized Amazon VPC configuration at the instance group level that
+   *          overrides the default Amazon VPC configuration of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -9180,14 +9828,69 @@ export interface ClusterInstanceGroupSpecification {
    *             Guide</i>.</p>
    * @public
    */
-  ThreadsPerCore?: number;
+  ThreadsPerCore?: number | undefined;
 
   /**
    * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster
    *          instance group.</p>
    * @public
    */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster
+   *          instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to use for this cluster instance group.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>To configure multi-AZ deployments, customize the Amazon VPC configuration at the
+   *          instance group level. You can specify different subnets and security groups across
+   *          different AZs in the instance group specification to override a SageMaker HyperPod cluster's default
+   *             Amazon VPC configuration. For more information about deploying a cluster in
+   *          multiple AZs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-multiple-availability-zones">Setting up SageMaker HyperPod clusters across multiple AZs</a>.</p>
+   *          <note>
+   *             <p>When your Amazon VPC and subnets support IPv6, network communications differ
+   *             based on the cluster orchestration platform:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Slurm-orchestrated clusters automatically configure nodes with dual IPv6 and
+   *                   IPv4 addresses, allowing immediate IPv6 network communications.</p>
+   *                </li>
+   *                <li>
+   *                   <p>In Amazon EKS-orchestrated clusters, nodes receive dual-stack
+   *                   addressing, but pods can only use IPv6 when the Amazon EKS cluster is
+   *                   explicitly IPv6-enabled. For information about deploying an IPv6 Amazon EKS cluster, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/deploy-ipv6-cluster.html#_deploy_an_ipv6_cluster_with_eksctl">Amazon EKS IPv6 Cluster Deployment</a>.</p>
+   *                </li>
+   *             </ul>
+   *             <p>Additional resources for IPv6 configuration:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>For information about adding IPv6 support to your VPC, see to <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6
+   *                      Support for VPC</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For information about creating a new IPv6-compatible VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Amazon VPC Creation Guide</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>To configure SageMaker HyperPod with a custom Amazon VPC, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-optional-vpc">Custom Amazon VPC Setup for SageMaker HyperPod</a>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -9200,14 +9903,14 @@ export interface ClusterInstancePlacement {
    * <p>The Availability Zone where the node in the SageMaker HyperPod cluster is launched.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The unique identifier (ID) of the Availability Zone where the node in the SageMaker HyperPod cluster
    *          is launched.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -9215,6 +9918,7 @@ export interface ClusterInstancePlacement {
  * @enum
  */
 export const ClusterInstanceStatus = {
+  DEEP_HEALTH_CHECK_IN_PROGRESS: "DeepHealthCheckInProgress",
   FAILURE: "Failure",
   PENDING: "Pending",
   RUNNING: "Running",
@@ -9242,7 +9946,7 @@ export interface ClusterInstanceStatusDetails {
    * <p>The message from an instance in a SageMaker HyperPod cluster.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -9255,70 +9959,99 @@ export interface ClusterNodeDetails {
    * <p>The instance group name in which the instance is.</p>
    * @public
    */
-  InstanceGroupName?: string;
+  InstanceGroupName?: string | undefined;
 
   /**
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The status of the instance.</p>
    * @public
    */
-  InstanceStatus?: ClusterInstanceStatusDetails;
+  InstanceStatus?: ClusterInstanceStatusDetails | undefined;
 
   /**
    * <p>The type of the instance.</p>
    * @public
    */
-  InstanceType?: ClusterInstanceType;
+  InstanceType?: ClusterInstanceType | undefined;
 
   /**
    * <p>The time when the instance is launched.</p>
    * @public
    */
-  LaunchTime?: Date;
+  LaunchTime?: Date | undefined;
 
   /**
    * <p>The LifeCycle configuration applied to the instance.</p>
    * @public
    */
-  LifeCycleConfig?: ClusterLifeCycleConfig;
+  LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
+
+  /**
+   * <p>The customized Amazon VPC configuration at the instance group level that
+   *          overrides the default Amazon VPC configuration of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The number of threads per CPU core you specified under
    *          <code>CreateCluster</code>.</p>
    * @public
    */
-  ThreadsPerCore?: number;
+  ThreadsPerCore?: number | undefined;
 
   /**
    * <p>The configurations of additional storage specified to the instance group where the
    *          instance (node) is launched.</p>
    * @public
    */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
 
   /**
    * <p>The private primary IP address of the SageMaker HyperPod cluster node.</p>
    * @public
    */
-  PrivatePrimaryIp?: string;
+  PrivatePrimaryIp?: string | undefined;
+
+  /**
+   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node when configured with an
+   *             Amazon VPC that supports IPv6 and includes subnets with IPv6 addressing enabled
+   *          in either the cluster Amazon VPC configuration or the instance group Amazon VPC configuration.</p>
+   * @public
+   */
+  PrivatePrimaryIpv6?: string | undefined;
 
   /**
    * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
    * @public
    */
-  PrivateDnsHostname?: string;
+  PrivateDnsHostname?: string | undefined;
 
   /**
    * <p>The placement details of the SageMaker HyperPod cluster node.</p>
    * @public
    */
-  Placement?: ClusterInstancePlacement;
+  Placement?: ClusterInstancePlacement | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterNodeRecovery = {
+  AUTOMATIC: "Automatic",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
 
 /**
  * <p>Lists a summary of the properties of an instance (also called a
@@ -9355,6 +10088,110 @@ export interface ClusterNodeSummary {
    * @public
    */
   InstanceStatus: ClusterInstanceStatusDetails | undefined;
+}
+
+/**
+ * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the
+ *          SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestratorEksConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod
+   *          cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestrator {
+  /**
+   * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Eks: ClusterOrchestratorEksConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchedulerResourceStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_ROLLBACK_FAILED: "CreateRollbackFailed",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_ROLLBACK_FAILED: "DeleteRollbackFailed",
+  DELETING: "Deleting",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_ROLLBACK_FAILED: "UpdateRollbackFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type SchedulerResourceStatus = (typeof SchedulerResourceStatus)[keyof typeof SchedulerResourceStatus];
+
+/**
+ * <p>Summary of the cluster policy.</p>
+ * @public
+ */
+export interface ClusterSchedulerConfigSummary {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
 }
 
 /**
@@ -9418,11 +10255,22 @@ export interface ClusterSummary {
    * @public
    */
   ClusterStatus: ClusterStatus | undefined;
+
+  /**
+   * <p>A list of Amazon Resource Names (ARNs) of the training plans associated with this
+   *          cluster.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArns?: string[] | undefined;
 }
 
 /**
- * <p>A custom SageMaker image. For more information, see
- *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
+ * <p>A custom SageMaker AI image. For more information, see
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
  * @public
  */
 export interface CustomImage {
@@ -9436,7 +10284,7 @@ export interface CustomImage {
    * <p>The version number of the CustomImage.</p>
    * @public
    */
-  ImageVersionNumber?: number;
+  ImageVersionNumber?: number | undefined;
 
   /**
    * <p>The name of the AppImageConfig.</p>
@@ -9453,28 +10301,46 @@ export interface CustomImage {
  */
 export interface CodeEditorAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
+   *          <note>
+   *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+   *          </note>
    * @public
    */
-  DefaultResourceSpec?: ResourceSpec;
+  DefaultResourceSpec?: ResourceSpec | undefined;
 
   /**
    * <p>A list of custom SageMaker images that are configured to run as a Code Editor app.</p>
    * @public
    */
-  CustomImages?: CustomImage[];
+  CustomImages?: CustomImage[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Code Editor application
    *       lifecycle configuration.</p>
    * @public
    */
-  LifecycleConfigArns?: string[];
+  LifecycleConfigArns?: string[] | undefined;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor
+   *       applications.</p>
+   * @public
+   */
+  AppLifecycleManagement?: AppLifecycleManagement | undefined;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can
+   *       override changes made in the default lifecycle configuration.</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string | undefined;
 }
 
 /**
- * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
+ * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the
+ *       JupyterServer application.</p>
  * @public
  */
 export interface CodeRepository {
@@ -9530,7 +10396,7 @@ export interface GitConfig {
    * <p>The default branch for the Git repository.</p>
    * @public
    */
-  Branch?: string;
+  Branch?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
@@ -9542,7 +10408,7 @@ export interface GitConfig {
    *          </p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 }
 
 /**
@@ -9580,7 +10446,7 @@ export interface CodeRepositorySummary {
    *             credentials used to access the repository.</p>
    * @public
    */
-  GitConfig?: GitConfig;
+  GitConfig?: GitConfig | undefined;
 }
 
 /**
@@ -9700,7 +10566,7 @@ export interface CollectionConfiguration {
    * <p>The name of the tensor collection. The name must be unique relative to other rule configuration names.</p>
    * @public
    */
-  CollectionName?: string;
+  CollectionName?: string | undefined;
 
   /**
    * <p>Parameter values for the tensor collection. The allowed parameters are
@@ -9709,7 +10575,7 @@ export interface CollectionConfiguration {
    *                 <code>"save_histogram"</code>.</p>
    * @public
    */
-  CollectionParameters?: Record<string, string>;
+  CollectionParameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -9868,47 +10734,47 @@ export interface CompilationJobSummary {
    * <p>The time when the model compilation job started.</p>
    * @public
    */
-  CompilationStartTime?: Date;
+  CompilationStartTime?: Date | undefined;
 
   /**
    * <p>The time when the model compilation job completed.</p>
    * @public
    */
-  CompilationEndTime?: Date;
+  CompilationEndTime?: Date | undefined;
 
   /**
    * <p>The type of device that the model will run on after the compilation job has
    *             completed.</p>
    * @public
    */
-  CompilationTargetDevice?: TargetDevice;
+  CompilationTargetDevice?: TargetDevice | undefined;
 
   /**
    * <p>The type of OS that the model will run on after the compilation job has
    *             completed.</p>
    * @public
    */
-  CompilationTargetPlatformOs?: TargetPlatformOs;
+  CompilationTargetPlatformOs?: TargetPlatformOs | undefined;
 
   /**
    * <p>The type of architecture that the model will run on after the compilation job has
    *             completed.</p>
    * @public
    */
-  CompilationTargetPlatformArch?: TargetPlatformArch;
+  CompilationTargetPlatformArch?: TargetPlatformArch | undefined;
 
   /**
    * <p>The type of accelerator that the model will run on after the compilation job has
    *             completed.</p>
    * @public
    */
-  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator;
+  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | undefined;
 
   /**
    * <p>The time when the model compilation job was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The status of the model compilation job.</p>
@@ -9930,6 +10796,218 @@ export const CompleteOnConvergence = {
  * @public
  */
 export type CompleteOnConvergence = (typeof CompleteOnConvergence)[keyof typeof CompleteOnConvergence];
+
+/**
+ * <p>Configuration of the resources used for the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaResourceConfig {
+  /**
+   * <p>The instance type of the instance group for the cluster.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The number of instances to add to the instance group of a SageMaker HyperPod
+   *          cluster.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PreemptTeamTasks = {
+  LOWERPRIORITY: "LowerPriority",
+  NEVER: "Never",
+} as const;
+
+/**
+ * @public
+ */
+export type PreemptTeamTasks = (typeof PreemptTeamTasks)[keyof typeof PreemptTeamTasks];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSharingStrategy = {
+  DONTLEND: "DontLend",
+  LEND: "Lend",
+  LENDANDBORROW: "LendAndBorrow",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSharingStrategy = (typeof ResourceSharingStrategy)[keyof typeof ResourceSharingStrategy];
+
+/**
+ * <p>Resource sharing configuration.</p>
+ * @public
+ */
+export interface ResourceSharingConfig {
+  /**
+   * <p>The strategy of how idle compute is shared within the cluster. The following are the
+   *          options of strategies.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DontLend</code>: entities do not lend idle compute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Lend</code>: entities can lend idle compute to entities that can
+   *                borrow.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute
+   *                from other entities.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default is <code>LendandBorrow</code>.</p>
+   * @public
+   */
+  Strategy: ResourceSharingStrategy | undefined;
+
+  /**
+   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of
+   *          idle compute that the team is allowed to borrow.</p>
+   *          <p>Default is <code>50</code>.</p>
+   * @public
+   */
+  BorrowLimit?: number | undefined;
+}
+
+/**
+ * <p>Configuration of the compute allocation definition for an entity. This includes the
+ *          resource sharing option and the setting to preempt low priority tasks.</p>
+ * @public
+ */
+export interface ComputeQuotaConfig {
+  /**
+   * <p>Allocate compute resources by instance types.</p>
+   * @public
+   */
+  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
+
+  /**
+   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle
+   *          compute with other entities within the cluster.</p>
+   * @public
+   */
+  ResourceSharingConfig?: ResourceSharingConfig | undefined;
+
+  /**
+   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to
+   *             <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own
+   *          higher priority tasks.</p>
+   *          <p>Default is <code>LowerPriority</code>.</p>
+   * @public
+   */
+  PreemptTeamTasks?: PreemptTeamTasks | undefined;
+}
+
+/**
+ * <p>The target entity to allocate compute resources to.</p>
+ * @public
+ */
+export interface ComputeQuotaTarget {
+  /**
+   * <p>Name of the team to allocate compute resources to.</p>
+   * @public
+   */
+  TeamName: string | undefined;
+
+  /**
+   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on
+   *          these assigned weights. This weight is only used when <code>FairShare</code> is
+   *          enabled.</p>
+   *          <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the
+   *          default.</p>
+   * @public
+   */
+  FairShareWeight?: number | undefined;
+}
+
+/**
+ * <p>Summary of the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaSummary {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing
+   *          option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute
+   *          allocation.</p>
+   *          <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation definition.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation definition.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
 
 /**
  * @public
@@ -9954,7 +11032,7 @@ export interface ConditionStepMetadata {
    * <p>The outcome of the Condition step evaluation.</p>
    * @public
    */
-  Outcome?: ConditionOutcome;
+  Outcome?: ConditionOutcome | undefined;
 }
 
 /**
@@ -9965,7 +11043,7 @@ export interface ConditionStepMetadata {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -10047,7 +11125,7 @@ export interface ImageConfig {
    *          authentication.</p>
    * @public
    */
-  RepositoryAuthConfig?: RepositoryAuthConfig;
+  RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
 }
 
 /**
@@ -10092,7 +11170,7 @@ export interface MultiModelConfig {
    *             this parameter to <code>Disabled</code>.</p>
    * @public
    */
-  ModelCacheSetting?: ModelCacheSetting;
+  ModelCacheSetting?: ModelCacheSetting | undefined;
 }
 
 /**
@@ -10116,7 +11194,7 @@ export interface ContainerDefinition {
    *             in that pipeline.</p>
    * @public
    */
-  ContainerHostname?: string;
+  ContainerHostname?: string | undefined;
 
   /**
    * <p>The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a
@@ -10133,7 +11211,7 @@ export interface ContainerDefinition {
    *          </note>
    * @public
    */
-  Image?: string;
+  Image?: string | undefined;
 
   /**
    * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
@@ -10147,13 +11225,13 @@ export interface ContainerDefinition {
    *          </note>
    * @public
    */
-  ImageConfig?: ImageConfig;
+  ImageConfig?: ImageConfig | undefined;
 
   /**
    * <p>Whether the container hosts a single model or multiple models.</p>
    * @public
    */
-  Mode?: ContainerMode;
+  Mode?: ContainerMode | undefined;
 
   /**
    * <p>The S3 path where the model artifacts, which result from model training, are stored.
@@ -10178,7 +11256,7 @@ export interface ContainerDefinition {
    *          </important>
    * @public
    */
-  ModelDataUrl?: string;
+  ModelDataUrl?: string | undefined;
 
   /**
    * <p>Specifies the location of ML model data to deploy.</p>
@@ -10189,36 +11267,43 @@ export interface ContainerDefinition {
    *          </note>
    * @public
    */
-  ModelDataSource?: ModelDataSource;
+  ModelDataSource?: ModelDataSource | undefined;
 
   /**
-   * <p>The environment variables to set in the Docker container.</p>
+   * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
+   * @public
+   */
+  AdditionalModelDataSources?: AdditionalModelDataSource[] | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Don't include any
+   *             sensitive data in your environment variables.</p>
    *          <p>The maximum length of each key and value in the <code>Environment</code> map is
    *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
    *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum
    *             length of all of their maps, combined, is also 32 KB.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to use to create the
    *             model.</p>
    * @public
    */
-  ModelPackageName?: string;
+  ModelPackageName?: string | undefined;
 
   /**
    * <p>The inference specification name in the model package version.</p>
    * @public
    */
-  InferenceSpecificationName?: string;
+  InferenceSpecificationName?: string | undefined;
 
   /**
    * <p>Specifies additional configuration for multi-model endpoints.</p>
    * @public
    */
-  MultiModelConfig?: MultiModelConfig;
+  MultiModelConfig?: MultiModelConfig | undefined;
 }
 
 /**
@@ -10250,13 +11335,13 @@ export interface ContextSource {
    * <p>The type of the source.</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>The ID of the source.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 }
 
 /**
@@ -10269,37 +11354,37 @@ export interface ContextSummary {
    * <p>The Amazon Resource Name (ARN) of the context.</p>
    * @public
    */
-  ContextArn?: string;
+  ContextArn?: string | undefined;
 
   /**
    * <p>The name of the context.</p>
    * @public
    */
-  ContextName?: string;
+  ContextName?: string | undefined;
 
   /**
    * <p>The source of the context.</p>
    * @public
    */
-  Source?: ContextSource;
+  Source?: ContextSource | undefined;
 
   /**
    * <p>The type of the context.</p>
    * @public
    */
-  ContextType?: string;
+  ContextType?: string | undefined;
 
   /**
    * <p>When the context was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the context was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -10376,972 +11461,5 @@ export interface ContinuousParameterRange {
    *          </dl>
    * @public
    */
-  ScalingType?: HyperParameterScalingType;
-}
-
-/**
- * <p>Defines the possible values for a continuous hyperparameter.</p>
- * @public
- */
-export interface ContinuousParameterRangeSpecification {
-  /**
-   * <p>The minimum floating-point value allowed.</p>
-   * @public
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum floating-point value allowed.</p>
-   * @public
-   */
-  MaxValue: string | undefined;
-}
-
-/**
- * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence,
- *             defined as a lack of significant improvement (1% or less) against an objective
- *             metric.</p>
- * @public
- */
-export interface ConvergenceDetected {
-  /**
-   * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
-   * @public
-   */
-  CompleteOnConvergence?: CompleteOnConvergence;
-}
-
-/**
- * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
- * @public
- */
-export interface MetadataProperties {
-  /**
-   * <p>The commit ID.</p>
-   * @public
-   */
-  CommitId?: string;
-
-  /**
-   * <p>The repository.</p>
-   * @public
-   */
-  Repository?: string;
-
-  /**
-   * <p>The entity this entity was generated by.</p>
-   * @public
-   */
-  GeneratedBy?: string;
-
-  /**
-   * <p>The project ID.</p>
-   * @public
-   */
-  ProjectId?: string;
-}
-
-/**
- * @public
- */
-export interface CreateActionRequest {
-  /**
-   * <p>The name of the action. Must be unique to your account in an Amazon Web Services Region.</p>
-   * @public
-   */
-  ActionName: string | undefined;
-
-  /**
-   * <p>The source type, ID, and URI.</p>
-   * @public
-   */
-  Source: ActionSource | undefined;
-
-  /**
-   * <p>The action type.</p>
-   * @public
-   */
-  ActionType: string | undefined;
-
-  /**
-   * <p>The description of the action.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the action.</p>
-   * @public
-   */
-  Status?: ActionStatus;
-
-  /**
-   * <p>A list of properties to add to the action.</p>
-   * @public
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A list of tags to apply to the action.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateActionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   * @public
-   */
-  ActionArn?: string;
-}
-
-/**
- * <p>Defines the possible values for an integer hyperparameter.</p>
- * @public
- */
-export interface IntegerParameterRangeSpecification {
-  /**
-   * <p>The minimum integer value allowed.</p>
-   * @public
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum integer value allowed.</p>
-   * @public
-   */
-  MaxValue: string | undefined;
-}
-
-/**
- * <p>Defines the possible values for categorical, continuous, and integer hyperparameters
- *             to be used by an algorithm.</p>
- * @public
- */
-export interface ParameterRange {
-  /**
-   * <p>A <code>IntegerParameterRangeSpecification</code> object that defines the possible
-   *             values for an integer hyperparameter.</p>
-   * @public
-   */
-  IntegerParameterRangeSpecification?: IntegerParameterRangeSpecification;
-
-  /**
-   * <p>A <code>ContinuousParameterRangeSpecification</code> object that defines the possible
-   *             values for a continuous hyperparameter.</p>
-   * @public
-   */
-  ContinuousParameterRangeSpecification?: ContinuousParameterRangeSpecification;
-
-  /**
-   * <p>A <code>CategoricalParameterRangeSpecification</code> object that defines the possible
-   *             values for a categorical hyperparameter.</p>
-   * @public
-   */
-  CategoricalParameterRangeSpecification?: CategoricalParameterRangeSpecification;
-}
-
-/**
- * @public
- * @enum
- */
-export const ParameterType = {
-  CATEGORICAL: "Categorical",
-  CONTINUOUS: "Continuous",
-  FREE_TEXT: "FreeText",
-  INTEGER: "Integer",
-} as const;
-
-/**
- * @public
- */
-export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
-
-/**
- * <p>Defines a hyperparameter to be used by an algorithm.</p>
- * @public
- */
-export interface HyperParameterSpecification {
-  /**
-   * <p>The name of this hyperparameter. The name must be unique.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A brief description of the hyperparameter.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The type of this hyperparameter. The valid types are <code>Integer</code>,
-   *                 <code>Continuous</code>, <code>Categorical</code>, and <code>FreeText</code>.</p>
-   * @public
-   */
-  Type: ParameterType | undefined;
-
-  /**
-   * <p>The allowed range for this hyperparameter.</p>
-   * @public
-   */
-  Range?: ParameterRange;
-
-  /**
-   * <p>Indicates whether this hyperparameter is tunable in a hyperparameter tuning
-   *             job.</p>
-   * @public
-   */
-  IsTunable?: boolean;
-
-  /**
-   * <p>Indicates whether this hyperparameter is required.</p>
-   * @public
-   */
-  IsRequired?: boolean;
-
-  /**
-   * <p>The default value for this hyperparameter. If a default value is specified, a
-   *             hyperparameter cannot be required.</p>
-   * @public
-   */
-  DefaultValue?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const HyperParameterTuningJobObjectiveType = {
-  MAXIMIZE: "Maximize",
-  MINIMIZE: "Minimize",
-} as const;
-
-/**
- * @public
- */
-export type HyperParameterTuningJobObjectiveType =
-  (typeof HyperParameterTuningJobObjectiveType)[keyof typeof HyperParameterTuningJobObjectiveType];
-
-/**
- * <p>Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning
- *             uses the value of this metric to evaluate the training jobs it launches, and returns the
- *             training job that results in either the highest or lowest value for this metric,
- *             depending on the value you specify for the <code>Type</code> parameter. If you want to
- *             define a custom objective metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
- * @public
- */
-export interface HyperParameterTuningJobObjective {
-  /**
-   * <p>Whether to minimize or maximize the objective metric.</p>
-   * @public
-   */
-  Type: HyperParameterTuningJobObjectiveType | undefined;
-
-  /**
-   * <p>The
-   *             name of the metric to use for the objective metric.</p>
-   * @public
-   */
-  MetricName: string | undefined;
-}
-
-/**
- * <p>Defines how the algorithm is used for a training job.</p>
- * @public
- */
-export interface TrainingSpecification {
-  /**
-   * <p>The Amazon ECR registry path of the Docker image that contains the training
-   *             algorithm.</p>
-   * @public
-   */
-  TrainingImage: string | undefined;
-
-  /**
-   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
-   *             training.</p>
-   * @public
-   */
-  TrainingImageDigest?: string;
-
-  /**
-   * <p>A list of the <code>HyperParameterSpecification</code> objects, that define the
-   *             supported hyperparameters. This is required if the algorithm supports automatic model
-   *             tuning.></p>
-   * @public
-   */
-  SupportedHyperParameters?: HyperParameterSpecification[];
-
-  /**
-   * <p>A list of the instance types that this algorithm can use for training.</p>
-   * @public
-   */
-  SupportedTrainingInstanceTypes: TrainingInstanceType[] | undefined;
-
-  /**
-   * <p>Indicates whether the algorithm supports distributed training. If set to false, buyers
-   *             can't request more than one instance during training.</p>
-   * @public
-   */
-  SupportsDistributedTraining?: boolean;
-
-  /**
-   * <p>A list of <code>MetricDefinition</code> objects, which are used for parsing metrics
-   *             generated by the algorithm.</p>
-   * @public
-   */
-  MetricDefinitions?: MetricDefinition[];
-
-  /**
-   * <p>A list of <code>ChannelSpecification</code> objects, which specify the input sources
-   *             to be used by the algorithm.</p>
-   * @public
-   */
-  TrainingChannels: ChannelSpecification[] | undefined;
-
-  /**
-   * <p>A list of the metrics that the algorithm emits that can be used as the objective
-   *             metric in a hyperparameter tuning job.</p>
-   * @public
-   */
-  SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[];
-
-  /**
-   * <p>The additional data source used during the training job.</p>
-   * @public
-   */
-  AdditionalS3DataSource?: AdditionalS3DataSource;
-}
-
-/**
- * @public
- */
-export interface CreateAlgorithmInput {
-  /**
-   * <p>The name of the algorithm.</p>
-   * @public
-   */
-  AlgorithmName: string | undefined;
-
-  /**
-   * <p>A description of the algorithm.</p>
-   * @public
-   */
-  AlgorithmDescription?: string;
-
-  /**
-   * <p>Specifies details about training jobs run by this algorithm, including the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The Amazon ECR path of the container and the version digest of the
-   *                     algorithm.</p>
-   *             </li>
-   *             <li>
-   *                <p>The hyperparameters that the algorithm supports.</p>
-   *             </li>
-   *             <li>
-   *                <p>The instance types that the algorithm supports for training.</p>
-   *             </li>
-   *             <li>
-   *                <p>Whether the algorithm supports distributed training.</p>
-   *             </li>
-   *             <li>
-   *                <p>The metrics that the algorithm emits to Amazon CloudWatch.</p>
-   *             </li>
-   *             <li>
-   *                <p>Which metrics that the algorithm emits can be used as the objective metric for
-   *                     hyperparameter tuning jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>The input channels that the algorithm supports for training data. For example,
-   *                     an algorithm might support <code>train</code>, <code>validation</code>, and
-   *                         <code>test</code> channels.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TrainingSpecification: TrainingSpecification | undefined;
-
-  /**
-   * <p>Specifies details about inference jobs that the algorithm runs, including the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The Amazon ECR paths of containers that contain the inference code and model
-   *                     artifacts.</p>
-   *             </li>
-   *             <li>
-   *                <p>The instance types that the algorithm supports for transform jobs and
-   *                     real-time endpoints used for inference.</p>
-   *             </li>
-   *             <li>
-   *                <p>The input and output content formats that the algorithm supports for
-   *                     inference.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Specifies configurations for one or more training jobs and that SageMaker runs to test the
-   *             algorithm's training code and, optionally, one or more batch transform jobs that SageMaker
-   *             runs to test the algorithm's inference code.</p>
-   * @public
-   */
-  ValidationSpecification?: AlgorithmValidationSpecification;
-
-  /**
-   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services
-   *             Marketplace.</p>
-   * @public
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateAlgorithmOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
-   * @public
-   */
-  AlgorithmArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAppRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
-   * @public
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *       must be set.</p>
-   * @public
-   */
-  SpaceName?: string;
-
-  /**
-   * <p>The type of app.</p>
-   * @public
-   */
-  AppType: AppType | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   * @public
-   */
-  AppName: string | undefined;
-
-  /**
-   * <p>Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
-   *          <note>
-   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code> in the <code>CreateApp</code> call overrides the value passed as part of the <code>ResourceSpec</code> configured for
-   *           the user profile or the domain. If <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code> values for a
-   *           <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a request validation error.</p>
-   *          </note>
-   * @public
-   */
-  ResourceSpec?: ResourceSpec;
-}
-
-/**
- * @public
- */
-export interface CreateAppResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the app.</p>
-   * @public
-   */
-  AppArn?: string;
-}
-
-/**
- * <p>Resource being accessed is in use.</p>
- * @public
- */
-export class ResourceInUse extends __BaseException {
-  readonly name: "ResourceInUse" = "ResourceInUse";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
-    super({
-      name: "ResourceInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUse.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig. Must be unique to your account.</p>
-   * @public
-   */
-  AppImageConfigName: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the AppImageConfig.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The KernelGatewayImageConfig. You can only specify one image kernel in the
-   *          AppImageConfig API. This kernel will be shown to users before the
-   *          image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
-   * @public
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
-
-  /**
-   * <p>The <code>JupyterLabAppImageConfig</code>. You can only specify one image kernel in the <code>AppImageConfig</code> API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab.</p>
-   * @public
-   */
-  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
-
-  /**
-   * <p>The <code>CodeEditorAppImageConfig</code>. You can only specify one image kernel
-   *       in the AppImageConfig API. This kernel is shown to users before the image starts.
-   *       After the image runs, all kernels are visible in Code Editor.</p>
-   * @public
-   */
-  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
-}
-
-/**
- * @public
- */
-export interface CreateAppImageConfigResponse {
-  /**
-   * <p>The ARN of the AppImageConfig.</p>
-   * @public
-   */
-  AppImageConfigArn?: string;
-}
-
-/**
- * @public
- */
-export interface CreateArtifactRequest {
-  /**
-   * <p>The name of the artifact. Must be unique to your account in an Amazon Web Services Region.</p>
-   * @public
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The ID, ID type, and URI of the source.</p>
-   * @public
-   */
-  Source: ArtifactSource | undefined;
-
-  /**
-   * <p>The artifact type.</p>
-   * @public
-   */
-  ArtifactType: string | undefined;
-
-  /**
-   * <p>A list of properties to add to the artifact.</p>
-   * @public
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A list of tags to apply to the artifact.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   * @public
-   */
-  ArtifactArn?: string;
-}
-
-/**
- * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
- *          deployment.</p>
- * @public
- */
-export interface ModelDeployConfig {
-  /**
-   * <p>Set to <code>True</code> to automatically generate an endpoint name for a one-click
-   *          Autopilot model deployment; set to <code>False</code> otherwise. The default value is
-   *             <code>False</code>.</p>
-   *          <note>
-   *             <p>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
-   *             the <code>EndpointName</code>; otherwise a 400 error is thrown.</p>
-   *          </note>
-   * @public
-   */
-  AutoGenerateEndpointName?: boolean;
-
-  /**
-   * <p>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
-   *          endpoint name is not generated automatically.</p>
-   *          <note>
-   *             <p>Specify the <code>EndpointName</code> if and only if you set
-   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error is
-   *             thrown.</p>
-   *          </note>
-   * @public
-   */
-  EndpointName?: string;
-}
-
-/**
- * @public
- */
-export interface CreateAutoMLJobRequest {
-  /**
-   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
-   *          insensitive.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV, Parquet. A
-   *          minimum of 500 rows is required for the training dataset. There is not a minimum number of
-   *          rows required for the validation dataset.</p>
-   * @public
-   */
-  InputDataConfig: AutoMLChannel[] | undefined;
-
-  /**
-   * <p>Provides information about encryption and the Amazon S3 output path needed to
-   *          store artifacts from an AutoML job. Format(s) supported: CSV.</p>
-   * @public
-   */
-  OutputDataConfig: AutoMLOutputDataConfig | undefined;
-
-  /**
-   * <p>Defines the type of supervised learning problem available for the candidates. For more
-   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-   *             SageMaker Autopilot problem types</a>.</p>
-   * @public
-   */
-  ProblemType?: ProblemType;
-
-  /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
-   *          the default objective metric depends on the problem type. See <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a> for the default values.</p>
-   * @public
-   */
-  AutoMLJobObjective?: AutoMLJobObjective;
-
-  /**
-   * <p>A collection of settings used to configure an AutoML job.</p>
-   * @public
-   */
-  AutoMLJobConfig?: AutoMLJobConfig;
-
-  /**
-   * <p>The ARN of the role that is used to access the data.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Generates possible candidates without training the models. A candidate is a combination
-   *          of data preprocessors, algorithms, and algorithm parameter settings.</p>
-   * @public
-   */
-  GenerateCandidateDefinitionsOnly?: boolean;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *          resources in different ways, for example, by purpose, owner, or environment. For more
-   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
-   *          resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
-   *          deployment.</p>
-   * @public
-   */
-  ModelDeployConfig?: ModelDeployConfig;
-}
-
-/**
- * @public
- */
-export interface CreateAutoMLJobResponse {
-  /**
-   * <p>The unique ARN assigned to the AutoML job when it is created.</p>
-   * @public
-   */
-  AutoMLJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAutoMLJobV2Request {
-  /**
-   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
-   *          insensitive.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>An array of channel objects describing the input data and their location. Each channel
-   *          is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> attribute in the <code>CreateAutoMLJob</code> input parameters.
-   *          The supported formats depend on the problem type:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For tabular problem types: <code>S3Prefix</code>,
-   *                <code>ManifestFile</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>,
-   *                   <code>AugmentedManifestFile</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For text classification: <code>S3Prefix</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For time-series forecasting: <code>S3Prefix</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For text generation (LLMs fine-tuning): <code>S3Prefix</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
-
-  /**
-   * <p>Provides information about encryption and the Amazon S3 output path needed to
-   *          store artifacts from an AutoML job.</p>
-   * @public
-   */
-  OutputDataConfig: AutoMLOutputDataConfig | undefined;
-
-  /**
-   * <p>Defines the configuration settings of one of the supported problem types.</p>
-   * @public
-   */
-  AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
-
-  /**
-   * <p>The ARN of the role that is used to access the data.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *          resources in different ways, such as by purpose, owner, or environment. For more
-   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
-   *          resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
-   * @public
-   */
-  SecurityConfig?: AutoMLSecurityConfig;
-
-  /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
-   *          the default objective metric depends on the problem type. For the list of default values
-   *          per problem type, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a>.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>For tabular problem types: You must either provide both the
-   *                      <code>AutoMLJobObjective</code> and indicate the type of supervised learning
-   *                   problem in <code>AutoMLProblemTypeConfig</code>
-   *                      (<code>TabularJobConfig.ProblemType</code>), or none at all.</p>
-   *                </li>
-   *                <li>
-   *                   <p>For text generation problem types (LLMs fine-tuning):
-   *                   Fine-tuning language models in Autopilot does not
-   *                   require setting the <code>AutoMLJobObjective</code> field. Autopilot fine-tunes LLMs
-   *                   without requiring multiple candidates to be trained and evaluated.
-   *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
-   *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
-   *                   you can evaluate the quality of its generated text using different metrics.
-   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-metrics.html">Metrics for
-   *                         fine-tuning LLMs in Autopilot</a>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   * @public
-   */
-  AutoMLJobObjective?: AutoMLJobObjective;
-
-  /**
-   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
-   *          deployment.</p>
-   * @public
-   */
-  ModelDeployConfig?: ModelDeployConfig;
-
-  /**
-   * <p>This structure specifies how to split the data into train and validation
-   *          datasets.</p>
-   *          <p>The validation and training datasets must contain the same headers. For jobs created by
-   *          calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in
-   *          size.</p>
-   *          <note>
-   *             <p>This attribute must not be set for the time-series forecasting problem type, as Autopilot
-   *             automatically splits the input dataset into training and validation sets.</p>
-   *          </note>
-   * @public
-   */
-  DataSplitConfig?: AutoMLDataSplitConfig;
-}
-
-/**
- * @public
- */
-export interface CreateAutoMLJobV2Response {
-  /**
-   * <p>The unique ARN assigned to the AutoMLJob when it is created.</p>
-   * @public
-   */
-  AutoMLJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClusterRequest {
-  /**
-   * <p>The name for the new SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The instance groups to be created in the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  InstanceGroups: ClusterInstanceGroupSpecification[] | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
-   *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>Custom tags for managing the SageMaker HyperPod cluster as an Amazon Web Services resource. You can
-   *          add tags to your cluster in the same way you add them in other Amazon Web Services services
-   *          that support tagging. To learn more about tagging Amazon Web Services resources in general,
-   *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
-   *                Amazon Web Services Resources User Guide</a>.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateClusterResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
-   *          characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>Specifies details about the repository, including the URL where the repository is
-   *          located, the default branch, and credentials to use to access the repository.</p>
-   * @public
-   */
-  GitConfig: GitConfig | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *          resources in different ways, for example, by purpose, owner, or environment. For more
-   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[];
+  ScalingType?: HyperParameterScalingType | undefined;
 }

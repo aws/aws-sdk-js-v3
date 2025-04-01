@@ -181,6 +181,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -226,11 +245,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type SSOOIDCClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -246,11 +265,11 @@ export interface SSOOIDCClientConfig extends SSOOIDCClientConfigType {}
 export type SSOOIDCClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -261,15 +280,16 @@ export type SSOOIDCClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfigType {}
 
 /**
- * <p>IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client (such as CLI
- *       or a native application) to register with IAM Identity Center. The service also enables the client to
- *       fetch the user’s access token upon successful authentication and authorization with
- *       IAM Identity Center.</p>
- *          <note>
- *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces.</p>
- *          </note>
+ * <p>IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client (such as CLI or a
+ *       native application) to register with IAM Identity Center. The service also enables the client to fetch the
+ *       user’s access token upon successful authentication and authorization with IAM Identity Center.</p>
  *          <p>
- *             <b>Considerations for Using This Guide</b>
+ *             <b>API namespaces</b>
+ *          </p>
+ *          <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces. IAM Identity Center
+ *       OpenID Connect uses the <code>sso-oidc</code> namespace.</p>
+ *          <p>
+ *             <b>Considerations for using this guide</b>
  *          </p>
  *          <p>Before you begin using this guide, we recommend that you first review the following
  *       important information about how the IAM Identity Center OIDC service works.</p>
@@ -283,8 +303,8 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
  *                <p>With older versions of the CLI, the service only emits OIDC access tokens, so to
  *           obtain a new token, users must explicitly re-authenticate. To access the OIDC flow that
  *           supports token refresh and doesn’t require re-authentication, update to the latest CLI
- *           version (1.27.10 for CLI V1 and 2.9.0 for CLI V2) with support for OIDC token refresh and
- *           configurable IAM Identity Center session durations. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/configure-user-session.html">Configure Amazon Web Services access portal session duration </a>. </p>
+ *           version (1.27.10 for CLI V1 and 2.9.0 for CLI V2) with support for OIDC token refresh
+ *           and configurable IAM Identity Center session durations. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/configure-user-session.html">Configure Amazon Web Services access portal session duration </a>. </p>
  *             </li>
  *             <li>
  *                <p>The access tokens provided by this service grant access to all Amazon Web Services account
@@ -294,7 +314,7 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
  *                <p>The documentation in this guide does not describe the mechanism to convert the access
  *           token into Amazon Web Services Auth (“sigv4”) credentials for use with IAM-protected Amazon Web Services service
  *           endpoints. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html">GetRoleCredentials</a> in the <i>IAM Identity Center Portal API Reference
- *             Guide</i>.</p>
+ *           Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>For general information about IAM Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is
@@ -314,26 +334,30 @@ export class SSOOIDCClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<SSOOIDCClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultSSOOIDCHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: SSOOIDCClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -346,14 +370,5 @@ export class SSOOIDCClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSSOOIDCHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: SSOOIDCClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

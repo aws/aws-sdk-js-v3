@@ -128,6 +128,7 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyScheduledActionCommand extends $Command
@@ -138,9 +139,7 @@ export class ModifyScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class ModifyScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyScheduledActionCommand)
   .de(de_ModifyScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyScheduledActionMessage;
+      output: ScheduledAction;
+    };
+    sdk: {
+      input: ModifyScheduledActionCommandInput;
+      output: ModifyScheduledActionCommandOutput;
+    };
+  };
+}

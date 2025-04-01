@@ -55,7 +55,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *       "STRING_VALUE",
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       "VOICE" || "CHAT" || "TASK" || "EMAIL",
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
@@ -92,7 +92,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
- * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //         RoutingProfile: { // RoutingProfileReference
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
@@ -143,6 +143,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetMetricDataCommand extends $Command
@@ -153,9 +154,7 @@ export class GetMetricDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class GetMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricDataCommand)
   .de(de_GetMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricDataRequest;
+      output: GetMetricDataResponse;
+    };
+    sdk: {
+      input: GetMetricDataCommandInput;
+      output: GetMetricDataCommandOutput;
+    };
+  };
+}

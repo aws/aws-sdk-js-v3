@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableFastLaunchRequest, EnableFastLaunchResult } from "../models/models_5";
+import { EnableFastLaunchRequest, EnableFastLaunchResult } from "../models/models_6";
 import { de_EnableFastLaunchCommand, se_EnableFastLaunchCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -28,14 +28,15 @@ export interface EnableFastLaunchCommandInput extends EnableFastLaunchRequest {}
 export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, __MetadataBearer {}
 
 /**
- * <p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned,
- * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
- * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
- * 			Then it creates a set of reserved snapshots that are used for subsequent launches. The
- * 			reserved snapshots are automatically replenished as they are used, depending on your
- * 			settings for launch frequency.</p>
+ * <p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned, using
+ *       snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2
+ *       launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a
+ *       set of reserved snapshots that are used for subsequent launches. The reserved snapshots are
+ *       automatically replenished as they are used, depending on your settings for launch
+ *       frequency.</p>
  *          <note>
- *             <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p>
+ *             <p>You can only change these settings for Windows AMIs that you own or that have been
+ *         shared with you.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +89,7 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableFastLaunchCommand extends $Command
@@ -98,9 +100,7 @@ export class EnableFastLaunchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class EnableFastLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableFastLaunchCommand)
   .de(de_EnableFastLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableFastLaunchRequest;
+      output: EnableFastLaunchResult;
+    };
+    sdk: {
+      input: EnableFastLaunchCommandInput;
+      output: EnableFastLaunchCommandOutput;
+    };
+  };
+}

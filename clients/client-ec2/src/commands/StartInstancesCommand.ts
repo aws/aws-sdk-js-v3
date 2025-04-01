@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartInstancesRequest, StartInstancesResult } from "../models/models_7";
+import { StartInstancesRequest, StartInstancesResult } from "../models/models_8";
 import { de_StartInstancesCommand, se_StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -65,11 +65,11 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * // { // StartInstancesResult
  * //   StartingInstances: [ // InstanceStateChangeList
  * //     { // InstanceStateChange
+ * //       InstanceId: "STRING_VALUE",
  * //       CurrentState: { // InstanceState
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
  * //       },
- * //       InstanceId: "STRING_VALUE",
  * //       PreviousState: {
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
@@ -89,37 +89,37 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To start a stopped EC2 instance
  * ```javascript
  * // This example starts the specified EC2 instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new StartInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "StartingInstances": [
+ *   StartingInstances: [
  *     {
- *       "CurrentState": {
- *         "Code": 0,
- *         "Name": "pending"
+ *       CurrentState: {
+ *         Code: 0,
+ *         Name: "pending"
  *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 80,
- *         "Name": "stopped"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PreviousState: {
+ *         Code: 80,
+ *         Name: "stopped"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-start-a-stopped-ec2-instance-1529358792730
  * ```
  *
+ * @public
  */
 export class StartInstancesCommand extends $Command
   .classBuilder<
@@ -129,9 +129,7 @@ export class StartInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +141,16 @@ export class StartInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInstancesCommand)
   .de(de_StartInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInstancesRequest;
+      output: StartInstancesResult;
+    };
+    sdk: {
+      input: StartInstancesCommandInput;
+      output: StartInstancesCommandOutput;
+    };
+  };
+}

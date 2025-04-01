@@ -114,6 +114,7 @@ import {
   JobTemplate,
   JobTemplateData,
   LakeFormationConfiguration,
+  ManagedLogs,
   MonitoringConfiguration,
   ParametricCloudWatchMonitoringConfiguration,
   ParametricConfigurationOverrides,
@@ -432,7 +433,7 @@ export const se_ListJobRunsCommand = async (
     [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
     [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
     [_n]: [, input[_n]!],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -476,8 +477,8 @@ export const se_ListManagedEndpointsCommand = async (
   const query: any = map({
     [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
     [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
-    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_t]: [() => input.types !== void 0, () => input[_t]! || []],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -538,7 +539,7 @@ export const se_ListVirtualClustersCommand = async (
     [_cPT]: [, input[_cPT]!],
     [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
     [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
     [_eAEI]: [() => input.eksAccessEntryIntegrated !== void 0, () => input[_eAEI]!.toString()],
@@ -615,10 +616,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1323,6 +1321,8 @@ const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): an
 
 // se_LakeFormationConfiguration omitted.
 
+// se_ManagedLogs omitted.
+
 // se_MonitoringConfiguration omitted.
 
 // se_ParametricCloudWatchMonitoringConfiguration omitted.
@@ -1543,6 +1543,8 @@ const de_JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] =>
 
 // de_LakeFormationConfiguration omitted.
 
+// de_ManagedLogs omitted.
+
 // de_MonitoringConfiguration omitted.
 
 // de_ParametricCloudWatchMonitoringConfiguration omitted.
@@ -1656,13 +1658,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cA = "createdAfter";
 const _cB = "createdBefore";

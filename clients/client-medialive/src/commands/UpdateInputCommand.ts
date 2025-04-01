@@ -39,6 +39,14 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *   Destinations: [ // __listOfInputDestinationRequest
  *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
+ *       Network: "STRING_VALUE",
+ *       NetworkRoutes: [ // __listOfInputRequestDestinationRoute
+ *         { // InputRequestDestinationRoute
+ *           Cidr: "STRING_VALUE",
+ *           Gateway: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StaticIpAddress: "STRING_VALUE",
  *     },
  *   ],
  *   InputDevices: [ // __listOfInputDeviceRequest
@@ -64,6 +72,28 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *       Username: "STRING_VALUE",
  *     },
  *   ],
+ *   SrtSettings: { // SrtSettingsRequest
+ *     SrtCallerSources: [ // __listOfSrtCallerSourceRequest
+ *       { // SrtCallerSourceRequest
+ *         Decryption: { // SrtCallerDecryptionRequest
+ *           Algorithm: "AES128" || "AES192" || "AES256",
+ *           PassphraseSecretArn: "STRING_VALUE",
+ *         },
+ *         MinimumLatency: Number("int"),
+ *         SrtListenerAddress: "STRING_VALUE",
+ *         SrtListenerPort: "STRING_VALUE",
+ *         StreamId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   MulticastSettings: { // MulticastSettingsUpdateRequest
+ *     Sources: [ // __listOfMulticastSourceUpdateRequest
+ *       { // MulticastSourceUpdateRequest
+ *         SourceIp: "STRING_VALUE",
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
@@ -82,6 +112,13 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //           AvailabilityZone: "STRING_VALUE",
  * //           NetworkInterfaceId: "STRING_VALUE",
  * //         },
+ * //         Network: "STRING_VALUE",
+ * //         NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //           { // InputDestinationRoute
+ * //             Cidr: "STRING_VALUE",
+ * //             Gateway: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
@@ -116,7 +153,30 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
+ * //     SrtSettings: { // SrtSettings
+ * //       SrtCallerSources: [ // __listOfSrtCallerSource
+ * //         { // SrtCallerSource
+ * //           Decryption: { // SrtCallerDecryption
+ * //             Algorithm: "AES128" || "AES192" || "AES256",
+ * //             PassphraseSecretArn: "STRING_VALUE",
+ * //           },
+ * //           MinimumLatency: Number("int"),
+ * //           SrtListenerAddress: "STRING_VALUE",
+ * //           SrtListenerPort: "STRING_VALUE",
+ * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
+ * //     MulticastSettings: { // MulticastSettings
+ * //       Sources: [ // __listOfMulticastSource
+ * //         { // MulticastSource
+ * //           SourceIp: "STRING_VALUE",
+ * //           Url: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -152,6 +212,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateInputCommand extends $Command
@@ -162,9 +223,7 @@ export class UpdateInputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +235,16 @@ export class UpdateInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInputCommand)
   .de(de_UpdateInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInputRequest;
+      output: UpdateInputResponse;
+    };
+    sdk: {
+      input: UpdateInputCommandInput;
+      output: UpdateInputCommandOutput;
+    };
+  };
+}

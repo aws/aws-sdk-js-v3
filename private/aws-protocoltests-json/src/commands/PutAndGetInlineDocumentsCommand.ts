@@ -53,6 +53,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class PutAndGetInlineDocumentsCommand extends $Command
@@ -71,4 +72,16 @@ export class PutAndGetInlineDocumentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAndGetInlineDocumentsCommand)
   .de(de_PutAndGetInlineDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAndGetInlineDocumentsInputOutput;
+      output: PutAndGetInlineDocumentsInputOutput;
+    };
+    sdk: {
+      input: PutAndGetInlineDocumentsCommandInput;
+      output: PutAndGetInlineDocumentsCommandOutput;
+    };
+  };
+}

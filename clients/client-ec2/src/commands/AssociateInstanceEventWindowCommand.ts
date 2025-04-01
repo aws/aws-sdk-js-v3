@@ -30,8 +30,8 @@ export interface AssociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
- *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
+ * <p>Associates one or more targets with an event window. Only one type of target (instance
+ *          IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -108,6 +108,7 @@ export interface AssociateInstanceEventWindowCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssociateInstanceEventWindowCommand extends $Command
@@ -118,9 +119,7 @@ export class AssociateInstanceEventWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class AssociateInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateInstanceEventWindowCommand)
   .de(de_AssociateInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateInstanceEventWindowRequest;
+      output: AssociateInstanceEventWindowResult;
+    };
+    sdk: {
+      input: AssociateInstanceEventWindowCommandInput;
+      output: AssociateInstanceEventWindowCommandOutput;
+    };
+  };
+}

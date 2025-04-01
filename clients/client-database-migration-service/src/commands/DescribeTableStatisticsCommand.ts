@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0";
+import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_1";
 import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -98,6 +98,10 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -107,27 +111,27 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe table statistics
  * ```javascript
  * // Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
  * const input = {
- *   "Marker": "",
- *   "MaxRecords": 123,
- *   "ReplicationTaskArn": ""
+ *   Marker: "",
+ *   MaxRecords: 123,
+ *   ReplicationTaskArn: ""
  * };
  * const command = new DescribeTableStatisticsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationTaskArn": "",
- *   "TableStatistics": []
+ *   Marker: "",
+ *   ReplicationTaskArn: "",
+ *   TableStatistics:   []
  * }
  * *\/
- * // example id: describe-table-statistics-1481756071890
  * ```
  *
+ * @public
  */
 export class DescribeTableStatisticsCommand extends $Command
   .classBuilder<
@@ -137,9 +141,7 @@ export class DescribeTableStatisticsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +153,16 @@ export class DescribeTableStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTableStatisticsCommand)
   .de(de_DescribeTableStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTableStatisticsMessage;
+      output: DescribeTableStatisticsResponse;
+    };
+    sdk: {
+      input: DescribeTableStatisticsCommandInput;
+      output: DescribeTableStatisticsCommandOutput;
+    };
+  };
+}

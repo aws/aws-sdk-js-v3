@@ -116,37 +116,37 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To list tags for a KMS key
  * ```javascript
  * // The following example lists tags for a KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "TagKey": "CostCenter",
- *       "TagValue": "87654"
+ *       TagKey: "CostCenter",
+ *       TagValue: "87654"
  *     },
  *     {
- *       "TagKey": "CreatedBy",
- *       "TagValue": "ExampleUser"
+ *       TagKey: "CreatedBy",
+ *       TagValue: "ExampleUser"
  *     },
  *     {
- *       "TagKey": "Purpose",
- *       "TagValue": "Test"
+ *       TagKey: "Purpose",
+ *       TagValue: "Test"
  *     }
  *   ],
- *   "Truncated": false
+ *   Truncated: false
  * }
  * *\/
- * // example id: to-list-tags-for-a-cmk-1483996855796
  * ```
  *
+ * @public
  */
 export class ListResourceTagsCommand extends $Command
   .classBuilder<
@@ -156,9 +156,7 @@ export class ListResourceTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +168,16 @@ export class ListResourceTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceTagsCommand)
   .de(de_ListResourceTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceTagsRequest;
+      output: ListResourceTagsResponse;
+    };
+    sdk: {
+      input: ListResourceTagsCommandInput;
+      output: ListResourceTagsCommandOutput;
+    };
+  };
+}

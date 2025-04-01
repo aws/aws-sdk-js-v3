@@ -135,6 +135,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionCommand extends $Command
@@ -145,9 +146,7 @@ export class DescribeConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class DescribeConnectionCommand extends $Command
   .f(void 0, DescribeConnectionResponseFilterSensitiveLog)
   .ser(se_DescribeConnectionCommand)
   .de(de_DescribeConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionRequest;
+      output: DescribeConnectionResponse;
+    };
+    sdk: {
+      input: DescribeConnectionCommandInput;
+      output: DescribeConnectionCommandOutput;
+    };
+  };
+}

@@ -19,7 +19,7 @@ Reference</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ec2-instance-connect
+To install this package, simply type add or install @aws-sdk/client-ec2-instance-connect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ec2-instance-connect`

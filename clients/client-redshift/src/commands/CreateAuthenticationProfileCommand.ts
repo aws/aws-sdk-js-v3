@@ -68,6 +68,7 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class CreateAuthenticationProfileCommand extends $Command
@@ -78,9 +79,7 @@ export class CreateAuthenticationProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class CreateAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAuthenticationProfileCommand)
   .de(de_CreateAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAuthenticationProfileMessage;
+      output: CreateAuthenticationProfileResult;
+    };
+    sdk: {
+      input: CreateAuthenticationProfileCommandInput;
+      output: CreateAuthenticationProfileCommandOutput;
+    };
+  };
+}

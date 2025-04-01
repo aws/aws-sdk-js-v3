@@ -483,6 +483,7 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowExecutionHistoryCommand extends $Command
@@ -493,9 +494,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -507,4 +506,16 @@ export class GetWorkflowExecutionHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowExecutionHistoryCommand)
   .de(de_GetWorkflowExecutionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowExecutionHistoryInput;
+      output: History;
+    };
+    sdk: {
+      input: GetWorkflowExecutionHistoryCommandInput;
+      output: GetWorkflowExecutionHistoryCommandOutput;
+    };
+  };
+}

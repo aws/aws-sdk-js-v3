@@ -37,7 +37,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
+ * <p>Applies a pending maintenance action to a resource (for example, to a replication
+ *          instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +82,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command
@@ -91,9 +93,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ApplyPendingMaintenanceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApplyPendingMaintenanceActionCommand)
   .de(de_ApplyPendingMaintenanceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApplyPendingMaintenanceActionMessage;
+      output: ApplyPendingMaintenanceActionResponse;
+    };
+    sdk: {
+      input: ApplyPendingMaintenanceActionCommandInput;
+      output: ApplyPendingMaintenanceActionCommandOutput;
+    };
+  };
+}

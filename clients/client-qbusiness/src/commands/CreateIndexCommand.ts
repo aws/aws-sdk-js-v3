@@ -46,8 +46,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const input = { // CreateIndexRequest
  *   applicationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
- *   type: "ENTERPRISE" || "STARTER",
  *   description: "STRING_VALUE",
+ *   type: "ENTERPRISE" || "STARTER",
  *   tags: [ // Tags
  *     { // Tag
  *       key: "STRING_VALUE", // required
@@ -80,15 +80,15 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
@@ -104,6 +104,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class CreateIndexCommand extends $Command
@@ -114,9 +115,7 @@ export class CreateIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class CreateIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIndexCommand)
   .de(de_CreateIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIndexRequest;
+      output: CreateIndexResponse;
+    };
+    sdk: {
+      input: CreateIndexCommandInput;
+      output: CreateIndexCommandOutput;
+    };
+  };
+}

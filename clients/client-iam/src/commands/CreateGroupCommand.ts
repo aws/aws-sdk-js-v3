@@ -80,29 +80,29 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an IAM group
  * ```javascript
  * // The following command creates an IAM group named Admins.
  * const input = {
- *   "GroupName": "Admins"
+ *   GroupName: "Admins"
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Group": {
- *     "Arn": "arn:aws:iam::123456789012:group/Admins",
- *     "CreateDate": "2015-03-09T20:30:24.940Z",
- *     "GroupId": "AIDGPMS9RO4H3FEXAMPLE",
- *     "GroupName": "Admins",
- *     "Path": "/"
+ *   Group: {
+ *     Arn: "arn:aws:iam::123456789012:group/Admins",
+ *     CreateDate: "2015-03-09T20:30:24.940Z",
+ *     GroupId: "AIDGPMS9RO4H3FEXAMPLE",
+ *     GroupName: "Admins",
+ *     Path: "/"
  *   }
  * }
  * *\/
- * // example id: d5da2a90-5e69-4ef7-8ae8-4c33dc21fd21
  * ```
  *
+ * @public
  */
 export class CreateGroupCommand extends $Command
   .classBuilder<
@@ -112,9 +112,7 @@ export class CreateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +124,16 @@ export class CreateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCommand)
   .de(de_CreateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupRequest;
+      output: CreateGroupResponse;
+    };
+    sdk: {
+      input: CreateGroupCommandInput;
+      output: CreateGroupCommandOutput;
+    };
+  };
+}

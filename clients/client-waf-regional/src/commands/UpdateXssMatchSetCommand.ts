@@ -217,35 +217,35 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update an XSS match set
  * ```javascript
  * // The following example deletes an XssMatchTuple object (filters) in an XssMatchSet with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "XssMatchTuple": {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *       Action: "DELETE",
+ *       XssMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     }
  *   ],
- *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatexssmatchset-1475534098881
  * ```
  *
+ * @public
  */
 export class UpdateXssMatchSetCommand extends $Command
   .classBuilder<
@@ -255,9 +255,7 @@ export class UpdateXssMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +267,16 @@ export class UpdateXssMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateXssMatchSetCommand)
   .de(de_UpdateXssMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateXssMatchSetRequest;
+      output: UpdateXssMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateXssMatchSetCommandInput;
+      output: UpdateXssMatchSetCommandOutput;
+    };
+  };
+}

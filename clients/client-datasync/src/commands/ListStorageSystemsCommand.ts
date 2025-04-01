@@ -69,6 +69,7 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class ListStorageSystemsCommand extends $Command
@@ -79,9 +80,7 @@ export class ListStorageSystemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class ListStorageSystemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageSystemsCommand)
   .de(de_ListStorageSystemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageSystemsRequest;
+      output: ListStorageSystemsResponse;
+    };
+    sdk: {
+      input: ListStorageSystemsCommandInput;
+      output: ListStorageSystemsCommandOutput;
+    };
+  };
+}

@@ -75,6 +75,7 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class GetHostCommand extends $Command
@@ -85,9 +86,7 @@ export class GetHostCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class GetHostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostCommand)
   .de(de_GetHostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostInput;
+      output: GetHostOutput;
+    };
+    sdk: {
+      input: GetHostCommandInput;
+      output: GetHostCommandOutput;
+    };
+  };
+}

@@ -41,7 +41,7 @@ export interface ApplicationSummary {
    * <p>An optional description of the web application.</p>
    * @public
    */
-  applicationDescription?: string;
+  applicationDescription?: string | undefined;
 
   /**
    * <p>The URL of the web application.</p>
@@ -53,19 +53,19 @@ export interface ApplicationSummary {
    * <p>The date (in Unix epoch time) when the web application was created.</p>
    * @public
    */
-  applicationCreationDate?: number;
+  applicationCreationDate?: number | undefined;
 
   /**
    * <p>The date (in Unix epoch time) when the web application was last updated.</p>
    * @public
    */
-  applicationLastUpdateDate?: number;
+  applicationLastUpdateDate?: number | undefined;
 
   /**
    * <p>The current state of the web application.</p>
    * @public
    */
-  applicationState?: ApplicationState;
+  applicationState?: ApplicationState | undefined;
 }
 
 /**
@@ -82,14 +82,14 @@ export interface CreateApplicationRequest {
    * <p>An optional description of the web application.</p>
    * @public
    */
-  applicationDescription?: string;
+  applicationDescription?: string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ARN of the role that the web application assumes when it interacts with Amazon Web Services IoT Core.</p>
@@ -105,7 +105,7 @@ export interface CreateApplicationRequest {
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -220,7 +220,7 @@ export interface DeleteApplicationRequest {
    *       Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -285,7 +285,7 @@ export interface DescribeApplicationResponse {
    * <p>An optional description of the web application.</p>
    * @public
    */
-  applicationDescription?: string;
+  applicationDescription?: string | undefined;
 
   /**
    * <p>The URL of the web application.</p>
@@ -321,20 +321,20 @@ export interface DescribeApplicationResponse {
    * <p>The Id of the single sign-on client that you use to authenticate and authorize users on the web application.</p>
    * @public
    */
-  ssoClientId?: string;
+  ssoClientId?: string | undefined;
 
   /**
    * <p>A message that explains any failures included in the <code>applicationState</code> response field. This message
    *     explains failures in the <code>CreateApplication</code> and <code>DeleteApplication</code> actions.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -345,7 +345,7 @@ export interface ListApplicationsRequest {
    * <p>A token used to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -356,13 +356,13 @@ export interface ListApplicationsResponse {
    * <p>An array of objects that provide summaries of information about the web applications in the list.</p>
    * @public
    */
-  applicationSummaries?: ApplicationSummary[];
+  applicationSummaries?: ApplicationSummary[] | undefined;
 
   /**
    * <p>A token used to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags assigned to the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -465,20 +465,20 @@ export interface UpdateApplicationRequest {
    * <p>The name of the web application.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>An optional description of the web application.</p>
    * @public
    */
-  applicationDescription?: string;
+  applicationDescription?: string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**

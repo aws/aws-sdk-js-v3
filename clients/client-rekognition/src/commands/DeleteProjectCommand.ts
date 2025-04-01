@@ -86,23 +86,23 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To delete an Amazon Rekognition Custom Labels project
  * ```javascript
  * // Deletes an Amazon Rekognition Custom Labels projects.
  * const input = {
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "DELETING"
+ *   Status: "DELETING"
  * }
  * *\/
- * // example id: to-delete-an-amazon-rekognition-custom-labels-project-1690409093478
  * ```
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<
@@ -112,9 +112,7 @@ export class DeleteProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +124,16 @@ export class DeleteProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectCommand)
   .de(de_DeleteProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectRequest;
+      output: DeleteProjectResponse;
+    };
+    sdk: {
+      input: DeleteProjectCommandInput;
+      output: DeleteProjectCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
@@ -91,9 +92,7 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCertificateBasedAuthPropertiesCommand)
   .de(de_ModifyCertificateBasedAuthPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCertificateBasedAuthPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyCertificateBasedAuthPropertiesCommandInput;
+      output: ModifyCertificateBasedAuthPropertiesCommandOutput;
+    };
+  };
+}

@@ -68,6 +68,7 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListReportsCommand extends $Command
@@ -78,9 +79,7 @@ export class ListReportsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class ListReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReportsCommand)
   .de(de_ListReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReportsInput;
+      output: ListReportsOutput;
+    };
+    sdk: {
+      input: ListReportsCommandInput;
+      output: ListReportsCommandOutput;
+    };
+  };
+}

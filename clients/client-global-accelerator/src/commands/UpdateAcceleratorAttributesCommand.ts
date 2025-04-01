@@ -77,8 +77,12 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link TransactionInProgressException} (client fault)
+ *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +94,7 @@ export class UpdateAcceleratorAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +106,16 @@ export class UpdateAcceleratorAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAcceleratorAttributesCommand)
   .de(de_UpdateAcceleratorAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAcceleratorAttributesRequest;
+      output: UpdateAcceleratorAttributesResponse;
+    };
+    sdk: {
+      input: UpdateAcceleratorAttributesCommandInput;
+      output: UpdateAcceleratorAttributesCommandOutput;
+    };
+  };
+}

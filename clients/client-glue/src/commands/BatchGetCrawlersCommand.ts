@@ -191,6 +191,7 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCrawlersCommand extends $Command
@@ -201,9 +202,7 @@ export class BatchGetCrawlersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -215,4 +214,16 @@ export class BatchGetCrawlersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCrawlersCommand)
   .de(de_BatchGetCrawlersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCrawlersRequest;
+      output: BatchGetCrawlersResponse;
+    };
+    sdk: {
+      input: BatchGetCrawlersCommandInput;
+      output: BatchGetCrawlersCommandOutput;
+    };
+  };
+}

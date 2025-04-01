@@ -27,7 +27,7 @@ Amazon Web Services Cost and Usage Report API.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cost-and-usage-report-service
+To install this package, simply type add or install @aws-sdk/client-cost-and-usage-report-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cost-and-usage-report-service`

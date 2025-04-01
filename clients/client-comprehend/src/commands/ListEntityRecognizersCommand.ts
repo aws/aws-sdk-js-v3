@@ -165,6 +165,7 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class ListEntityRecognizersCommand extends $Command
@@ -175,9 +176,7 @@ export class ListEntityRecognizersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -189,4 +188,16 @@ export class ListEntityRecognizersCommand extends $Command
   .f(void 0, ListEntityRecognizersResponseFilterSensitiveLog)
   .ser(se_ListEntityRecognizersCommand)
   .de(de_ListEntityRecognizersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntityRecognizersRequest;
+      output: ListEntityRecognizersResponse;
+    };
+    sdk: {
+      input: ListEntityRecognizersCommandInput;
+      output: ListEntityRecognizersCommandOutput;
+    };
+  };
+}

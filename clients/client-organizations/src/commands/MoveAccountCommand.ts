@@ -135,6 +135,9 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -175,6 +178,9 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -201,20 +207,23 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To move an OU or account to another OU or the root
  * ```javascript
  * // The following example shows how to move a member account from the root to an OU:/n/n
  * const input = {
- *   "AccountId": "333333333333",
- *   "DestinationParentId": "ou-examplerootid111-exampleouid111",
- *   "SourceParentId": "r-examplerootid111"
+ *   AccountId: "333333333333",
+ *   DestinationParentId: "ou-examplerootid111-exampleouid111",
+ *   SourceParentId: "r-examplerootid111"
  * };
  * const command = new MoveAccountCommand(input);
- * await client.send(command);
- * // example id: to-move-an-ou-or-account-to-another-ou-or-the-root
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class MoveAccountCommand extends $Command
   .classBuilder<
@@ -224,9 +233,7 @@ export class MoveAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -238,4 +245,16 @@ export class MoveAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MoveAccountCommand)
   .de(de_MoveAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MoveAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: MoveAccountCommandInput;
+      output: MoveAccountCommandOutput;
+    };
+  };
+}

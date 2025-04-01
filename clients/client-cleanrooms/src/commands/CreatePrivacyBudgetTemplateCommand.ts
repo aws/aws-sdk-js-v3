@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePrivacyBudgetTemplateInput, CreatePrivacyBudgetTemplateOutput } from "../models/models_0";
+import { CreatePrivacyBudgetTemplateInput, CreatePrivacyBudgetTemplateOutput } from "../models/models_1";
 import {
   de_CreatePrivacyBudgetTemplateCommand,
   se_CreatePrivacyBudgetTemplateCommand,
@@ -104,6 +104,7 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class CreatePrivacyBudgetTemplateCommand extends $Command
@@ -114,9 +115,7 @@ export class CreatePrivacyBudgetTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class CreatePrivacyBudgetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrivacyBudgetTemplateCommand)
   .de(de_CreatePrivacyBudgetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrivacyBudgetTemplateInput;
+      output: CreatePrivacyBudgetTemplateOutput;
+    };
+    sdk: {
+      input: CreatePrivacyBudgetTemplateCommandInput;
+      output: CreatePrivacyBudgetTemplateCommandOutput;
+    };
+  };
+}

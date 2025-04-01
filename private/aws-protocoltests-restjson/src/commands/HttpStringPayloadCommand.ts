@@ -54,6 +54,7 @@ export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __Me
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class HttpStringPayloadCommand extends $Command
   .classBuilder<
@@ -71,4 +72,16 @@ export class HttpStringPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpStringPayloadCommand)
   .de(de_HttpStringPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StringPayloadInput;
+      output: StringPayloadInput;
+    };
+    sdk: {
+      input: HttpStringPayloadCommandInput;
+      output: HttpStringPayloadCommandOutput;
+    };
+  };
+}

@@ -42,7 +42,7 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   JobName: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
+ *   JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
  *   SubmittedBefore: new Date("TIMESTAMP"),
  *   SubmittedAfter: new Date("TIMESTAMP"),
  * };
@@ -53,7 +53,7 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * //     { // ImportJobProperties
  * //       JobId: "STRING_VALUE", // required
  * //       JobName: "STRING_VALUE",
- * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //       JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //       SubmitTime: new Date("TIMESTAMP"), // required
  * //       EndTime: new Date("TIMESTAMP"),
  * //       DatastoreId: "STRING_VALUE", // required
@@ -109,6 +109,7 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class ListFHIRImportJobsCommand extends $Command
@@ -119,9 +120,7 @@ export class ListFHIRImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class ListFHIRImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFHIRImportJobsCommand)
   .de(de_ListFHIRImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFHIRImportJobsRequest;
+      output: ListFHIRImportJobsResponse;
+    };
+    sdk: {
+      input: ListFHIRImportJobsCommandInput;
+      output: ListFHIRImportJobsCommandOutput;
+    };
+  };
+}

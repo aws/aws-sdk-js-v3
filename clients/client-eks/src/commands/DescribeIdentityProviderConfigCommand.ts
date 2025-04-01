@@ -92,7 +92,8 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -102,6 +103,7 @@ export interface DescribeIdentityProviderConfigCommandOutput
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +115,7 @@ export class DescribeIdentityProviderConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class DescribeIdentityProviderConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityProviderConfigCommand)
   .de(de_DescribeIdentityProviderConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityProviderConfigRequest;
+      output: DescribeIdentityProviderConfigResponse;
+    };
+    sdk: {
+      input: DescribeIdentityProviderConfigCommandInput;
+      output: DescribeIdentityProviderConfigCommandOutput;
+    };
+  };
+}

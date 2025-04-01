@@ -49,6 +49,11 @@ import {
 } from "./commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommand, CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
+  CreateLFTagExpressionCommand,
+  CreateLFTagExpressionCommandInput,
+  CreateLFTagExpressionCommandOutput,
+} from "./commands/CreateLFTagExpressionCommand";
+import {
   DeleteDataCellsFilterCommand,
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
@@ -64,6 +69,11 @@ import {
   DeleteLakeFormationOptInCommandOutput,
 } from "./commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommand, DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
+import {
+  DeleteLFTagExpressionCommand,
+  DeleteLFTagExpressionCommandInput,
+  DeleteLFTagExpressionCommandOutput,
+} from "./commands/DeleteLFTagExpressionCommand";
 import {
   DeleteObjectsOnCancelCommand,
   DeleteObjectsOnCancelCommandInput,
@@ -115,6 +125,11 @@ import {
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
 import { GetLFTagCommand, GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import {
+  GetLFTagExpressionCommand,
+  GetLFTagExpressionCommandInput,
+  GetLFTagExpressionCommandOutput,
+} from "./commands/GetLFTagExpressionCommand";
 import {
   GetQueryStateCommand,
   GetQueryStateCommandInput,
@@ -170,6 +185,11 @@ import {
   ListLakeFormationOptInsCommandInput,
   ListLakeFormationOptInsCommandOutput,
 } from "./commands/ListLakeFormationOptInsCommand";
+import {
+  ListLFTagExpressionsCommand,
+  ListLFTagExpressionsCommandInput,
+  ListLFTagExpressionsCommandOutput,
+} from "./commands/ListLFTagExpressionsCommand";
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import {
   ListPermissionsCommand,
@@ -243,6 +263,11 @@ import {
 } from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommand, UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import {
+  UpdateLFTagExpressionCommand,
+  UpdateLFTagExpressionCommandInput,
+  UpdateLFTagExpressionCommandOutput,
+} from "./commands/UpdateLFTagExpressionCommand";
+import {
   UpdateResourceCommand,
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
@@ -270,10 +295,12 @@ const commands = {
   CreateLakeFormationIdentityCenterConfigurationCommand,
   CreateLakeFormationOptInCommand,
   CreateLFTagCommand,
+  CreateLFTagExpressionCommand,
   DeleteDataCellsFilterCommand,
   DeleteLakeFormationIdentityCenterConfigurationCommand,
   DeleteLakeFormationOptInCommand,
   DeleteLFTagCommand,
+  DeleteLFTagExpressionCommand,
   DeleteObjectsOnCancelCommand,
   DeregisterResourceCommand,
   DescribeLakeFormationIdentityCenterConfigurationCommand,
@@ -285,6 +312,7 @@ const commands = {
   GetDataLakeSettingsCommand,
   GetEffectivePermissionsForPathCommand,
   GetLFTagCommand,
+  GetLFTagExpressionCommand,
   GetQueryStateCommand,
   GetQueryStatisticsCommand,
   GetResourceLFTagsCommand,
@@ -296,6 +324,7 @@ const commands = {
   GrantPermissionsCommand,
   ListDataCellsFilterCommand,
   ListLakeFormationOptInsCommand,
+  ListLFTagExpressionsCommand,
   ListLFTagsCommand,
   ListPermissionsCommand,
   ListResourcesCommand,
@@ -312,6 +341,7 @@ const commands = {
   UpdateDataCellsFilterCommand,
   UpdateLakeFormationIdentityCenterConfigurationCommand,
   UpdateLFTagCommand,
+  UpdateLFTagExpressionCommand,
   UpdateResourceCommand,
   UpdateTableObjectsCommand,
   UpdateTableStorageOptimizerCommand,
@@ -484,6 +514,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link CreateLFTagExpressionCommand}
+   */
+  createLFTagExpression(
+    args: CreateLFTagExpressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLFTagExpressionCommandOutput>;
+  createLFTagExpression(
+    args: CreateLFTagExpressionCommandInput,
+    cb: (err: any, data?: CreateLFTagExpressionCommandOutput) => void
+  ): void;
+  createLFTagExpression(
+    args: CreateLFTagExpressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLFTagExpressionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataCellsFilterCommand}
    */
   deleteDataCellsFilter(): Promise<DeleteDataCellsFilterCommandOutput>;
@@ -545,6 +592,23 @@ export interface LakeFormation {
     args: DeleteLFTagCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLFTagCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLFTagExpressionCommand}
+   */
+  deleteLFTagExpression(
+    args: DeleteLFTagExpressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLFTagExpressionCommandOutput>;
+  deleteLFTagExpression(
+    args: DeleteLFTagExpressionCommandInput,
+    cb: (err: any, data?: DeleteLFTagExpressionCommandOutput) => void
+  ): void;
+  deleteLFTagExpression(
+    args: DeleteLFTagExpressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLFTagExpressionCommandOutput) => void
   ): void;
 
   /**
@@ -733,6 +797,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link GetLFTagExpressionCommand}
+   */
+  getLFTagExpression(
+    args: GetLFTagExpressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLFTagExpressionCommandOutput>;
+  getLFTagExpression(
+    args: GetLFTagExpressionCommandInput,
+    cb: (err: any, data?: GetLFTagExpressionCommandOutput) => void
+  ): void;
+  getLFTagExpression(
+    args: GetLFTagExpressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLFTagExpressionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetQueryStateCommand}
    */
   getQueryState(args: GetQueryStateCommandInput, options?: __HttpHandlerOptions): Promise<GetQueryStateCommandOutput>;
@@ -904,6 +985,24 @@ export interface LakeFormation {
     args: ListLakeFormationOptInsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLFTagExpressionsCommand}
+   */
+  listLFTagExpressions(): Promise<ListLFTagExpressionsCommandOutput>;
+  listLFTagExpressions(
+    args: ListLFTagExpressionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLFTagExpressionsCommandOutput>;
+  listLFTagExpressions(
+    args: ListLFTagExpressionsCommandInput,
+    cb: (err: any, data?: ListLFTagExpressionsCommandOutput) => void
+  ): void;
+  listLFTagExpressions(
+    args: ListLFTagExpressionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLFTagExpressionsCommandOutput) => void
   ): void;
 
   /**
@@ -1161,6 +1260,23 @@ export interface LakeFormation {
     args: UpdateLFTagCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLFTagCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLFTagExpressionCommand}
+   */
+  updateLFTagExpression(
+    args: UpdateLFTagExpressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLFTagExpressionCommandOutput>;
+  updateLFTagExpression(
+    args: UpdateLFTagExpressionCommandInput,
+    cb: (err: any, data?: UpdateLFTagExpressionCommandOutput) => void
+  ): void;
+  updateLFTagExpression(
+    args: UpdateLFTagExpressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLFTagExpressionCommandOutput) => void
   ): void;
 
   /**

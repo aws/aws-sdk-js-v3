@@ -96,6 +96,23 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  *   experimentOptions: { // UpdateExperimentTemplateExperimentOptionsInput
  *     emptyTargetResolutionMode: "fail" || "skip",
  *   },
+ *   experimentReportConfiguration: { // UpdateExperimentTemplateReportConfigurationInput
+ *     outputs: { // ExperimentTemplateReportConfigurationOutputsInput
+ *       s3Configuration: { // ReportConfigurationS3OutputInput
+ *         bucketName: "STRING_VALUE",
+ *         prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     dataSources: { // ExperimentTemplateReportConfigurationDataSourcesInput
+ *       cloudWatchDashboards: [ // ReportConfigurationCloudWatchDashboardInputList
+ *         { // ReportConfigurationCloudWatchDashboardInput
+ *           dashboardIdentifier: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     preExperimentDuration: "STRING_VALUE",
+ *     postExperimentDuration: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateExperimentTemplateCommand(input);
  * const response = await client.send(command);
@@ -169,6 +186,23 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * //       emptyTargetResolutionMode: "fail" || "skip",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentTemplateReportConfiguration
+ * //       outputs: { // ExperimentTemplateReportConfigurationOutputs
+ * //         s3Configuration: { // ReportConfigurationS3Output
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentTemplateReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentTemplateReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentTemplateReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -192,6 +226,7 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class UpdateExperimentTemplateCommand extends $Command
@@ -202,9 +237,7 @@ export class UpdateExperimentTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +249,16 @@ export class UpdateExperimentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExperimentTemplateCommand)
   .de(de_UpdateExperimentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExperimentTemplateRequest;
+      output: UpdateExperimentTemplateResponse;
+    };
+    sdk: {
+      input: UpdateExperimentTemplateCommandInput;
+      output: UpdateExperimentTemplateCommandOutput;
+    };
+  };
+}

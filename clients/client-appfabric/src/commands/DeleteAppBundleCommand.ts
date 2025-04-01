@@ -70,6 +70,7 @@ export interface DeleteAppBundleCommandOutput extends DeleteAppBundleResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppBundleCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteAppBundleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteAppBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppBundleCommand)
   .de(de_DeleteAppBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppBundleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppBundleCommandInput;
+      output: DeleteAppBundleCommandOutput;
+    };
+  };
+}

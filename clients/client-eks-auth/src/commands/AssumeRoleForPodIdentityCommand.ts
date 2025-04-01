@@ -115,6 +115,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * @throws {@link EKSAuthServiceException}
  * <p>Base exception class for all service exceptions from EKSAuth service.</p>
  *
+ *
  * @public
  */
 export class AssumeRoleForPodIdentityCommand extends $Command
@@ -125,9 +126,7 @@ export class AssumeRoleForPodIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSAuthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class AssumeRoleForPodIdentityCommand extends $Command
   .f(AssumeRoleForPodIdentityRequestFilterSensitiveLog, AssumeRoleForPodIdentityResponseFilterSensitiveLog)
   .ser(se_AssumeRoleForPodIdentityCommand)
   .de(de_AssumeRoleForPodIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeRoleForPodIdentityRequest;
+      output: AssumeRoleForPodIdentityResponse;
+    };
+    sdk: {
+      input: AssumeRoleForPodIdentityCommandInput;
+      output: AssumeRoleForPodIdentityCommandOutput;
+    };
+  };
+}

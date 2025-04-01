@@ -14,7 +14,7 @@ more information about using this service, see <a href="https://docs.aws.amazon.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sts
+To install this package, simply type add or install @aws-sdk/client-sts
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sts`
@@ -229,6 +229,14 @@ AssumeRoleWithWebIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleWithWebIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithWebIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithWebIdentityCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssumeRoot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRootCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRootCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRootCommandOutput/)
 
 </details>
 <details>

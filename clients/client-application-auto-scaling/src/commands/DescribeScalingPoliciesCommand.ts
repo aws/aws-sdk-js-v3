@@ -62,7 +62,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * //       ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required
  * //       ResourceId: "STRING_VALUE", // required
  * //       ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount" || "workspaces:workspacespool:DesiredUserSessions", // required
- * //       PolicyType: "StepScaling" || "TargetTrackingScaling", // required
+ * //       PolicyType: "StepScaling" || "TargetTrackingScaling" || "PredictiveScaling", // required
  * //       StepScalingPolicyConfiguration: { // StepScalingPolicyConfiguration
  * //         AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
  * //         StepAdjustments: [ // StepAdjustments
@@ -79,7 +79,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * //       TargetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
  * //         TargetValue: Number("double"), // required
  * //         PredefinedMetricSpecification: { // PredefinedMetricSpecification
- * //           PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization" || "SageMakerVariantProvisionedConcurrencyUtilization" || "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage" || "SageMakerInferenceComponentInvocationsPerCopy" || "WorkSpacesAverageUserSessionsCapacityUtilization", // required
+ * //           PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization" || "SageMakerVariantProvisionedConcurrencyUtilization" || "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage" || "SageMakerInferenceComponentInvocationsPerCopy" || "WorkSpacesAverageUserSessionsCapacityUtilization" || "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution" || "SageMakerVariantConcurrentRequestsPerModelHighResolution", // required
  * //           ResourceLabel: "STRING_VALUE",
  * //         },
  * //         CustomizedMetricSpecification: { // CustomizedMetricSpecification
@@ -119,6 +119,101 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * //         ScaleOutCooldown: Number("int"),
  * //         ScaleInCooldown: Number("int"),
  * //         DisableScaleIn: true || false,
+ * //       },
+ * //       PredictiveScalingPolicyConfiguration: { // PredictiveScalingPolicyConfiguration
+ * //         MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
+ * //           { // PredictiveScalingMetricSpecification
+ * //             TargetValue: Number("double"), // required
+ * //             PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPairSpecification
+ * //               PredefinedMetricType: "STRING_VALUE", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetricSpecification
+ * //               PredefinedMetricType: "STRING_VALUE", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetricSpecification
+ * //               PredefinedMetricType: "STRING_VALUE", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedMetricSpecification
+ * //               MetricDataQueries: [ // PredictiveScalingMetricDataQueries // required
+ * //                 { // PredictiveScalingMetricDataQuery
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: { // PredictiveScalingMetricStat
+ * //                     Metric: { // PredictiveScalingMetric
+ * //                       Dimensions: [ // PredictiveScalingMetricDimensions
+ * //                         { // PredictiveScalingMetricDimension
+ * //                           Name: "STRING_VALUE", // required
+ * //                           Value: "STRING_VALUE", // required
+ * //                         },
+ * //                       ],
+ * //                       MetricName: "STRING_VALUE",
+ * //                       Namespace: "STRING_VALUE",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //             CustomizedLoadMetricSpecification: {
+ * //               MetricDataQueries: [ // required
+ * //                 {
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: {
+ * //                     Metric: {
+ * //                       Dimensions: [
+ * //                         {
+ * //                           Name: "STRING_VALUE", // required
+ * //                           Value: "STRING_VALUE", // required
+ * //                         },
+ * //                       ],
+ * //                       MetricName: "STRING_VALUE",
+ * //                       Namespace: "STRING_VALUE",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //             CustomizedCapacityMetricSpecification: {
+ * //               MetricDataQueries: [ // required
+ * //                 {
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: {
+ * //                     Metric: {
+ * //                       Dimensions: [
+ * //                         {
+ * //                           Name: "STRING_VALUE", // required
+ * //                           Value: "STRING_VALUE", // required
+ * //                         },
+ * //                       ],
+ * //                       MetricName: "STRING_VALUE",
+ * //                       Namespace: "STRING_VALUE",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         Mode: "ForecastOnly" || "ForecastAndScale",
+ * //         SchedulingBufferTime: Number("int"),
+ * //         MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
+ * //         MaxCapacityBuffer: Number("int"),
  * //       },
  * //       Alarms: [ // Alarms
  * //         { // Alarm
@@ -163,40 +258,40 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the scaling policies for the ECS service namespace.
  * const input = {
- *   "ServiceNamespace": "ecs"
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new DescribeScalingPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "ScalingPolicies": [
+ *   NextToken: "",
+ *   ScalingPolicies: [
  *     {
- *       "Alarms": [
+ *       Alarms: [
  *         {
- *           "AlarmARN": "arn:aws:cloudwatch:us-west-2:012345678910:alarm:web-app-cpu-gt-75",
- *           "AlarmName": "web-app-cpu-gt-75"
+ *           AlarmARN: "arn:aws:cloudwatch:us-west-2:012345678910:alarm:web-app-cpu-gt-75",
+ *           AlarmName: "web-app-cpu-gt-75"
  *         }
  *       ],
- *       "CreationTime": "2019-05-06T12:11:39.230Z",
- *       "PolicyARN": "arn:aws:autoscaling:us-west-2:012345678910:scalingPolicy:6d8972f3-efc8-437c-92d1-6270f29a66e7:resource/ecs/service/default/web-app:policyName/web-app-cpu-gt-75",
- *       "PolicyName": "web-app-cpu-gt-75",
- *       "PolicyType": "StepScaling",
- *       "ResourceId": "service/default/web-app",
- *       "ScalableDimension": "ecs:service:DesiredCount",
- *       "ServiceNamespace": "ecs",
- *       "StepScalingPolicyConfiguration": {
- *         "AdjustmentType": "PercentChangeInCapacity",
- *         "Cooldown": 60,
- *         "StepAdjustments": [
+ *       CreationTime: "2019-05-06T12:11:39.230Z",
+ *       PolicyARN: "arn:aws:autoscaling:us-west-2:012345678910:scalingPolicy:6d8972f3-efc8-437c-92d1-6270f29a66e7:resource/ecs/service/default/web-app:policyName/web-app-cpu-gt-75",
+ *       PolicyName: "web-app-cpu-gt-75",
+ *       PolicyType: "StepScaling",
+ *       ResourceId: "service/default/web-app",
+ *       ScalableDimension: "ecs:service:DesiredCount",
+ *       ServiceNamespace: "ecs",
+ *       StepScalingPolicyConfiguration: {
+ *         AdjustmentType: "PercentChangeInCapacity",
+ *         Cooldown: 60,
+ *         StepAdjustments: [
  *           {
- *             "MetricIntervalLowerBound": 0,
- *             "ScalingAdjustment": 200
+ *             MetricIntervalLowerBound: 0,
+ *             ScalingAdjustment: 200
  *           }
  *         ]
  *       }
@@ -204,9 +299,9 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *   ]
  * }
  * *\/
- * // example id: to-describe-scaling-policies-1470864609734
  * ```
  *
+ * @public
  */
 export class DescribeScalingPoliciesCommand extends $Command
   .classBuilder<
@@ -216,9 +311,7 @@ export class DescribeScalingPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -230,4 +323,16 @@ export class DescribeScalingPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingPoliciesCommand)
   .de(de_DescribeScalingPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingPoliciesRequest;
+      output: DescribeScalingPoliciesResponse;
+    };
+    sdk: {
+      input: DescribeScalingPoliciesCommandInput;
+      output: DescribeScalingPoliciesCommandOutput;
+    };
+  };
+}

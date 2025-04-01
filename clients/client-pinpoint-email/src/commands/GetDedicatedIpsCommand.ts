@@ -75,6 +75,7 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class GetDedicatedIpsCommand extends $Command
@@ -85,9 +86,7 @@ export class GetDedicatedIpsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class GetDedicatedIpsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDedicatedIpsCommand)
   .de(de_GetDedicatedIpsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDedicatedIpsRequest;
+      output: GetDedicatedIpsResponse;
+    };
+    sdk: {
+      input: GetDedicatedIpsCommandInput;
+      output: GetDedicatedIpsCommandOutput;
+    };
+  };
+}

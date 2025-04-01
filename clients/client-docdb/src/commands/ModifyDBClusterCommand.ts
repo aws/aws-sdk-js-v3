@@ -62,6 +62,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   AllowMajorVersionUpgrade: true || false,
  *   DeletionProtection: true || false,
  *   StorageType: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   RotateMasterUserPassword: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -123,6 +126,11 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -177,6 +185,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBClusterCommand extends $Command
@@ -187,9 +196,7 @@ export class ModifyDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +208,16 @@ export class ModifyDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBClusterCommand)
   .de(de_ModifyDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBClusterMessage;
+      output: ModifyDBClusterResult;
+    };
+    sdk: {
+      input: ModifyDBClusterCommandInput;
+      output: ModifyDBClusterCommandOutput;
+    };
+  };
+}

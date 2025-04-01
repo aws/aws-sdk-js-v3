@@ -83,6 +83,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ *
  * @public
  */
 export class DeleteRepositoryCommand extends $Command
@@ -93,9 +94,7 @@ export class DeleteRepositoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DeleteRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryCommand)
   .de(de_DeleteRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryRequest;
+      output: DeleteRepositoryResponse;
+    };
+    sdk: {
+      input: DeleteRepositoryCommandInput;
+      output: DeleteRepositoryCommandOutput;
+    };
+  };
+}

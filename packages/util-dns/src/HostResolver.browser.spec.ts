@@ -1,7 +1,5 @@
-/**
- * @jest-environment jsdom
- */
 import { HostAddress, HostAddressType, HostResolverArguments } from "@aws-sdk/types";
+import { describe, expect, test } from "vitest";
 
 import { HostResolver } from "./HostResolver.browser";
 

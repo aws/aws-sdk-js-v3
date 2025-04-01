@@ -77,6 +77,7 @@ export interface DisassociateGatewayFromServerCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class DisassociateGatewayFromServerCommand extends $Command
@@ -87,9 +88,7 @@ export class DisassociateGatewayFromServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DisassociateGatewayFromServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateGatewayFromServerCommand)
   .de(de_DisassociateGatewayFromServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateGatewayFromServerInput;
+      output: DisassociateGatewayFromServerOutput;
+    };
+    sdk: {
+      input: DisassociateGatewayFromServerCommandInput;
+      output: DisassociateGatewayFromServerCommandOutput;
+    };
+  };
+}

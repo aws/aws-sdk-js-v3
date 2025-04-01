@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_0";
+import {
+  GetKnowledgeBaseRequest,
+  GetKnowledgeBaseResponse,
+  GetKnowledgeBaseResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_GetKnowledgeBaseCommand, se_GetKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
@@ -48,12 +52,64 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //     knowledgeBaseType: "STRING_VALUE", // required
  * //     status: "STRING_VALUE", // required
  * //     lastContentModificationTime: new Date("TIMESTAMP"),
+ * //     vectorIngestionConfiguration: { // VectorIngestionConfiguration
+ * //       chunkingConfiguration: { // ChunkingConfiguration
+ * //         chunkingStrategy: "STRING_VALUE", // required
+ * //         fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           overlapPercentage: Number("int"), // required
+ * //         },
+ * //         hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ * //           levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ * //             { // HierarchicalChunkingLevelConfiguration
+ * //               maxTokens: Number("int"), // required
+ * //             },
+ * //           ],
+ * //           overlapTokens: Number("int"), // required
+ * //         },
+ * //         semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           bufferSize: Number("int"), // required
+ * //           breakpointPercentileThreshold: Number("int"), // required
+ * //         },
+ * //       },
+ * //       parsingConfiguration: { // ParsingConfiguration
+ * //         parsingStrategy: "STRING_VALUE", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfigurationForParsing
+ * //           modelArn: "STRING_VALUE", // required
+ * //           parsingPrompt: { // ParsingPrompt
+ * //             parsingPromptText: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
  * //     sourceConfiguration: { // SourceConfiguration Union: only one key present
  * //       appIntegrations: { // AppIntegrationsConfiguration
  * //         appIntegrationArn: "STRING_VALUE", // required
  * //         objectFields: [ // ObjectFieldsList
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       managedSourceConfiguration: { // ManagedSourceConfiguration Union: only one key present
+ * //         webCrawlerConfiguration: { // WebCrawlerConfiguration
+ * //           urlConfiguration: { // UrlConfiguration
+ * //             seedUrls: [ // SeedUrls
+ * //               { // SeedUrl
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           crawlerLimits: { // WebCrawlerLimits
+ * //             rateLimit: Number("int"),
+ * //           },
+ * //           inclusionFilters: [ // UrlFilterList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exclusionFilters: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           scope: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     renderingConfiguration: { // RenderingConfiguration
@@ -66,6 +122,10 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     ingestionStatus: "STRING_VALUE",
+ * //     ingestionFailureReasons: [ // FailureReason
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
@@ -89,6 +149,7 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetKnowledgeBaseCommand extends $Command
@@ -99,9 +160,7 @@ export class GetKnowledgeBaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,7 +169,19 @@ export class GetKnowledgeBaseCommand extends $Command
   })
   .s("WisdomService", "GetKnowledgeBase", {})
   .n("QConnectClient", "GetKnowledgeBaseCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetKnowledgeBaseResponseFilterSensitiveLog)
   .ser(se_GetKnowledgeBaseCommand)
   .de(de_GetKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKnowledgeBaseRequest;
+      output: GetKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: GetKnowledgeBaseCommandInput;
+      output: GetKnowledgeBaseCommandOutput;
+    };
+  };
+}

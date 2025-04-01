@@ -49,7 +49,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * //       DirectoryId: "STRING_VALUE",
  * //       RegionName: "STRING_VALUE",
  * //       RegionType: "Primary" || "Additional",
- * //       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       VpcSettings: { // DirectoryVpcSettings
  * //         VpcId: "STRING_VALUE", // required
  * //         SubnetIds: [ // SubnetIds // required
@@ -74,7 +74,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -97,6 +97,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegionsCommand extends $Command
@@ -107,9 +108,7 @@ export class DescribeRegionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class DescribeRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegionsCommand)
   .de(de_DescribeRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegionsRequest;
+      output: DescribeRegionsResult;
+    };
+    sdk: {
+      input: DescribeRegionsCommandInput;
+      output: DescribeRegionsCommandOutput;
+    };
+  };
+}

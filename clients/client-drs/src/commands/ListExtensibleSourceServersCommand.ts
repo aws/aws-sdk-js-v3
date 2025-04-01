@@ -93,6 +93,7 @@ export interface ListExtensibleSourceServersCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class ListExtensibleSourceServersCommand extends $Command
@@ -103,9 +104,7 @@ export class ListExtensibleSourceServersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class ListExtensibleSourceServersCommand extends $Command
   .f(void 0, ListExtensibleSourceServersResponseFilterSensitiveLog)
   .ser(se_ListExtensibleSourceServersCommand)
   .de(de_ListExtensibleSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExtensibleSourceServersRequest;
+      output: ListExtensibleSourceServersResponse;
+    };
+    sdk: {
+      input: ListExtensibleSourceServersCommandInput;
+      output: ListExtensibleSourceServersCommandOutput;
+    };
+  };
+}

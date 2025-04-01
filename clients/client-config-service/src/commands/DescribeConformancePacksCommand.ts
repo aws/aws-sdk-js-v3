@@ -95,6 +95,7 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeConformancePacksCommand extends $Command
@@ -105,9 +106,7 @@ export class DescribeConformancePacksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class DescribeConformancePacksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConformancePacksCommand)
   .de(de_DescribeConformancePacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConformancePacksRequest;
+      output: DescribeConformancePacksResponse;
+    };
+    sdk: {
+      input: DescribeConformancePacksCommandInput;
+      output: DescribeConformancePacksCommandOutput;
+    };
+  };
+}

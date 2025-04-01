@@ -310,6 +310,7 @@ import {
   ReplicaNotFoundException,
   ReplicaSettingsDescription,
   ReplicaSettingsUpdate,
+  ReplicatedWriteConflictException,
   ReplicationGroupUpdate,
   ReplicaUpdate,
   RequestLimitExceeded,
@@ -367,6 +368,7 @@ import {
   UpdateTableReplicaAutoScalingInput,
   UpdateTableReplicaAutoScalingOutput,
   UpdateTimeToLiveInput,
+  WarmThroughput,
   WriteRequest,
 } from "../models/models_0";
 
@@ -2288,6 +2290,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
+    case "ReplicatedWriteConflictException":
+    case "com.amazonaws.dynamodb#ReplicatedWriteConflictException":
+      throw await de_ReplicatedWriteConflictExceptionRes(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
       throw await de_TransactionConflictExceptionRes(parsedOutput, context);
@@ -2734,6 +2739,22 @@ const de_ReplicaNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_0ReplicatedWriteConflictExceptionRes
+ */
+const de_ReplicatedWriteConflictExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplicatedWriteConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ReplicatedWriteConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0RequestLimitExceededRes
  */
 const de_RequestLimitExceededRes = async (
@@ -2908,7 +2929,7 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
     NULL: (value) => ({ NULL: value }),
     S: (value) => ({ S: value }),
     SS: (value) => ({ SS: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3976,6 +3997,8 @@ const se_UpdateTableReplicaAutoScalingInput = (
 
 // se_UpdateTimeToLiveInput omitted.
 
+// se_WarmThroughput omitted.
+
 /**
  * serializeAws_json1_0WriteRequest
  */
@@ -4681,6 +4704,7 @@ const de_GlobalSecondaryIndexDescription = (output: any, context: __SerdeContext
     OnDemandThroughput: _json,
     Projection: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -4704,6 +4728,8 @@ const de_GlobalSecondaryIndexDescriptionList = (
 // de_GlobalSecondaryIndexInfo omitted.
 
 // de_GlobalSecondaryIndexList omitted.
+
+// de_GlobalSecondaryIndexWarmThroughputDescription omitted.
 
 // de_GlobalTable omitted.
 
@@ -5058,6 +5084,7 @@ const de_PointInTimeRecoveryDescription = (output: any, context: __SerdeContext)
     EarliestRestorableDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LatestRestorableDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PointInTimeRecoveryStatus: __expectString,
+    RecoveryPeriodInDays: __expectInt32,
   }) as any;
 };
 
@@ -5184,6 +5211,7 @@ const de_ReplicaDescription = (output: any, context: __SerdeContext): ReplicaDes
     ReplicaStatusDescription: __expectString,
     ReplicaStatusPercentProgress: __expectString,
     ReplicaTableClassSummary: (_: any) => de_TableClassSummary(_, context),
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -5297,6 +5325,8 @@ const de_ReplicaSettingsDescriptionList = (output: any, context: __SerdeContext)
     });
   return retVal;
 };
+
+// de_ReplicatedWriteConflictException omitted.
 
 // de_RequestLimitExceeded omitted.
 
@@ -5453,6 +5483,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     LatestStreamArn: __expectString,
     LatestStreamLabel: __expectString,
     LocalSecondaryIndexes: _json,
+    MultiRegionConsistency: __expectString,
     OnDemandThroughput: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
     Replicas: (_: any) => de_ReplicaDescriptionList(_, context),
@@ -5465,6 +5496,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     TableName: __expectString,
     TableSizeBytes: __expectLong,
     TableStatus: __expectString,
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -5473,6 +5505,8 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
 // de_TableNameList omitted.
 
 // de_TableNotFoundException omitted.
+
+// de_TableWarmThroughputDescription omitted.
 
 // de_Tag omitted.
 
@@ -5583,6 +5617,8 @@ const de_UpdateTableReplicaAutoScalingOutput = (
 };
 
 // de_UpdateTimeToLiveOutput omitted.
+
+// de_WarmThroughput omitted.
 
 /**
  * deserializeAws_json1_0WriteRequest

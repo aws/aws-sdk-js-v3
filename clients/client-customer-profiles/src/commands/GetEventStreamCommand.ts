@@ -84,6 +84,7 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetEventStreamCommand extends $Command
@@ -94,9 +95,7 @@ export class GetEventStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class GetEventStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventStreamCommand)
   .de(de_GetEventStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventStreamRequest;
+      output: GetEventStreamResponse;
+    };
+    sdk: {
+      input: GetEventStreamCommandInput;
+      output: GetEventStreamCommandOutput;
+    };
+  };
+}

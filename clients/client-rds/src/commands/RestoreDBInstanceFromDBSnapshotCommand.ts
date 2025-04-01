@@ -44,6 +44,9 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *             DB instance with the DB instance created from the snapshot.</p>
  *          <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
  *       must be the ARN of the shared DB snapshot.</p>
+ *          <p>To restore from a DB snapshot with an unsupported engine version, you must first upgrade the
+ *         engine version of the snapshot. For more information about upgrading a RDS for MySQL DB snapshot engine version, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">Upgrading a MySQL DB snapshot engine version</a>.
+ *         For more information about upgrading a RDS for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading a PostgreSQL DB snapshot engine version</a>.</p>
  *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
  *          </note>
@@ -272,6 +275,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -441,42 +445,42 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To restore a DB instance from a DB snapshot
  * ```javascript
  * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.
  * const input = {
- *   "DBInstanceClass": "db.t3.small",
- *   "DBInstanceIdentifier": "db7-new-instance",
- *   "DBSnapshotIdentifier": "db7-test-snapshot"
+ *   DBInstanceClass: "db.t3.small",
+ *   DBInstanceIdentifier: "db7-new-instance",
+ *   DBSnapshotIdentifier: "db7-test-snapshot"
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "AssociatedRoles": [],
- *     "AutoMinorVersionUpgrade": true,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
- *     "DBInstanceClass": "db.t3.small",
- *     "DBInstanceIdentifier": "db7-new-instance",
- *     "DBInstanceStatus": "creating",
- *     "DeletionProtection": false,
- *     "Engine": "mysql",
- *     "EngineVersion": "5.7.22",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "LicenseModel": "general-public-license",
- *     "MultiAZ": false,
- *     "PendingModifiedValues": {},
- *     "PerformanceInsightsEnabled": false,
- *     "PreferredMaintenanceWindow": "mon:07:37-mon:08:07",
- *     "ReadReplicaDBInstanceIdentifiers": []
+ *   DBInstance: {
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: true,
+ *     DBInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
+ *     DBInstanceClass: "db.t3.small",
+ *     DBInstanceIdentifier: "db7-new-instance",
+ *     DBInstanceStatus: "creating",
+ *     DeletionProtection: false,
+ *     Engine: "mysql",
+ *     EngineVersion: "5.7.22",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     LicenseModel: "general-public-license",
+ *     MultiAZ: false,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PerformanceInsightsEnabled: false,
+ *     PreferredMaintenanceWindow: "mon:07:37-mon:08:07",
+ *     ReadReplicaDBInstanceIdentifiers:     []
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-from-a-db-snapshot-1680093236214
  * ```
  *
+ * @public
  */
 export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   .classBuilder<
@@ -486,9 +490,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -500,4 +502,16 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBInstanceFromDBSnapshotCommand)
   .de(de_RestoreDBInstanceFromDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBInstanceFromDBSnapshotMessage;
+      output: RestoreDBInstanceFromDBSnapshotResult;
+    };
+    sdk: {
+      input: RestoreDBInstanceFromDBSnapshotCommandInput;
+      output: RestoreDBInstanceFromDBSnapshotCommandOutput;
+    };
+  };
+}

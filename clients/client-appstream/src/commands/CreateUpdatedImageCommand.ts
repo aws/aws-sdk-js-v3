@@ -59,7 +59,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //     Visibility: "PUBLIC" || "PRIVATE" || "SHARED",
  * //     ImageBuilderSupported: true || false,
  * //     ImageBuilderName: "STRING_VALUE",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //     Description: "STRING_VALUE",
  * //     StateChangeReason: { // ImageStateChangeReason
  * //       Code: "INTERNAL_ERROR" || "IMAGE_BUILDER_NOT_AVAILABLE" || "IMAGE_COPY_FAILURE",
@@ -85,7 +85,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //           S3Key: "STRING_VALUE",
  * //         },
  * //         Platforms: [ // Platforms
- * //           "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //           "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //         ],
  * //         InstanceFamilies: [ // StringList
  * //           "STRING_VALUE",
@@ -107,6 +107,12 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //         ErrorTimestamp: new Date("TIMESTAMP"),
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
+ * //     SupportedInstanceFamilies: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
+ * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //   },
  * //   canUpdateImage: true || false,
  * // };
@@ -143,6 +149,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateUpdatedImageCommand extends $Command
@@ -153,9 +160,7 @@ export class CreateUpdatedImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +172,16 @@ export class CreateUpdatedImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUpdatedImageCommand)
   .de(de_CreateUpdatedImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUpdatedImageRequest;
+      output: CreateUpdatedImageResult;
+    };
+    sdk: {
+      input: CreateUpdatedImageCommandInput;
+      output: CreateUpdatedImageCommandOutput;
+    };
+  };
+}

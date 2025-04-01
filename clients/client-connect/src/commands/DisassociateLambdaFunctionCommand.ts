@@ -40,6 +40,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * const input = { // DisassociateLambdaFunctionRequest
  *   InstanceId: "STRING_VALUE", // required
  *   FunctionArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
@@ -71,6 +72,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateLambdaFunctionCommand extends $Command
@@ -81,9 +83,7 @@ export class DisassociateLambdaFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DisassociateLambdaFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLambdaFunctionCommand)
   .de(de_DisassociateLambdaFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLambdaFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLambdaFunctionCommandInput;
+      output: DisassociateLambdaFunctionCommandOutput;
+    };
+  };
+}

@@ -28,10 +28,10 @@ export interface CancelDeploymentJobCommandInput extends CancelDeploymentJobRequ
 export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels the specified deployment job.</p>
- *          <important>
- *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+ * <important>
+ *             <p>This API is no longer supported. For more information, see the May 2, 2022 update in the <a href="https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022">Support policy</a> page.</p>
  *          </important>
+ *          <p>Cancels the specified deployment job.</p>
  *
  * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  * @example
@@ -71,6 +71,7 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class CancelDeploymentJobCommand extends $Command
@@ -81,9 +82,7 @@ export class CancelDeploymentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class CancelDeploymentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelDeploymentJobCommand)
   .de(de_CancelDeploymentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelDeploymentJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelDeploymentJobCommandInput;
+      output: CancelDeploymentJobCommandOutput;
+    };
+  };
+}

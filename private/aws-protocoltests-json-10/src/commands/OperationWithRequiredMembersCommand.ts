@@ -72,6 +72,7 @@ export interface OperationWithRequiredMembersCommandOutput
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  */
 export class OperationWithRequiredMembersCommand extends $Command
   .classBuilder<
@@ -89,4 +90,16 @@ export class OperationWithRequiredMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_OperationWithRequiredMembersCommand)
   .de(de_OperationWithRequiredMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: OperationWithRequiredMembersOutput;
+    };
+    sdk: {
+      input: OperationWithRequiredMembersCommandInput;
+      output: OperationWithRequiredMembersCommandOutput;
+    };
+  };
+}

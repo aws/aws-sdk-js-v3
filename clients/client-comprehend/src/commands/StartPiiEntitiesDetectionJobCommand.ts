@@ -116,6 +116,7 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class StartPiiEntitiesDetectionJobCommand extends $Command
@@ -126,9 +127,7 @@ export class StartPiiEntitiesDetectionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class StartPiiEntitiesDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPiiEntitiesDetectionJobCommand)
   .de(de_StartPiiEntitiesDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPiiEntitiesDetectionJobRequest;
+      output: StartPiiEntitiesDetectionJobResponse;
+    };
+    sdk: {
+      input: StartPiiEntitiesDetectionJobCommandInput;
+      output: StartPiiEntitiesDetectionJobCommandOutput;
+    };
+  };
+}

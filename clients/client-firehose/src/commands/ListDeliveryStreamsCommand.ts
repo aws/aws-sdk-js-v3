@@ -28,14 +28,14 @@ export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInpu
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists your delivery streams in alphabetical order of their names.</p>
- *          <p>The number of delivery streams might be too large to return using a single call to
- *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
+ * <p>Lists your Firehose streams in alphabetical order of their names.</p>
+ *          <p>The number of Firehose streams might be too large to return using a single call to
+ *             <code>ListDeliveryStreams</code>. You can limit the number of Firehose streams returned,
  *          using the <code>Limit</code> parameter. To determine whether there are more delivery
  *          streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
- *          there are more delivery streams to list, you can request them by calling this operation
+ *          there are more Firehose streams to list, you can request them by calling this operation
  *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
- *          of the last delivery stream returned in the last call.</p>
+ *          of the last Firehose stream returned in the last call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * const client = new FirehoseClient(config);
  * const input = { // ListDeliveryStreamsInput
  *   Limit: Number("int"),
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource",
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource" || "DatabaseAsSource",
  *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
  * };
  * const command = new ListDeliveryStreamsCommand(input);
@@ -67,6 +67,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class ListDeliveryStreamsCommand extends $Command
@@ -77,9 +78,7 @@ export class ListDeliveryStreamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class ListDeliveryStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeliveryStreamsCommand)
   .de(de_ListDeliveryStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeliveryStreamsInput;
+      output: ListDeliveryStreamsOutput;
+    };
+    sdk: {
+      input: ListDeliveryStreamsCommandInput;
+      output: ListDeliveryStreamsCommandOutput;
+    };
+  };
+}

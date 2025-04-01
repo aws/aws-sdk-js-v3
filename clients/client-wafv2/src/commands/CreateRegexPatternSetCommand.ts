@@ -125,6 +125,7 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateRegexPatternSetCommand extends $Command
@@ -135,9 +136,7 @@ export class CreateRegexPatternSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class CreateRegexPatternSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRegexPatternSetCommand)
   .de(de_CreateRegexPatternSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRegexPatternSetRequest;
+      output: CreateRegexPatternSetResponse;
+    };
+    sdk: {
+      input: CreateRegexPatternSetCommandInput;
+      output: CreateRegexPatternSetCommandOutput;
+    };
+  };
+}

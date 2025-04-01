@@ -88,6 +88,7 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class UpdateVocabularyCommand extends $Command
@@ -98,9 +99,7 @@ export class UpdateVocabularyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class UpdateVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVocabularyCommand)
   .de(de_UpdateVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVocabularyRequest;
+      output: UpdateVocabularyResponse;
+    };
+    sdk: {
+      input: UpdateVocabularyCommandInput;
+      output: UpdateVocabularyCommandOutput;
+    };
+  };
+}

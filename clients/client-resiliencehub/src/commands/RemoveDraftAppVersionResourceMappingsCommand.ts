@@ -107,6 +107,7 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
@@ -117,9 +118,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveDraftAppVersionResourceMappingsCommand)
   .de(de_RemoveDraftAppVersionResourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveDraftAppVersionResourceMappingsRequest;
+      output: RemoveDraftAppVersionResourceMappingsResponse;
+    };
+    sdk: {
+      input: RemoveDraftAppVersionResourceMappingsCommandInput;
+      output: RemoveDraftAppVersionResourceMappingsCommandOutput;
+    };
+  };
+}

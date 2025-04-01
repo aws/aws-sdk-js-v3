@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_7";
+import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_8";
 import { de_RevokeSecurityGroupIngressCommand, se_RevokeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -58,18 +58,30 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  *   GroupName: "STRING_VALUE",
  *   IpPermissions: [ // IpPermissionList
  *     { // IpPermission
- *       FromPort: Number("int"),
  *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *         },
+ *       ],
  *       IpRanges: [ // IpRangeList
  *         { // IpRange
- *           CidrIp: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIp: "STRING_VALUE",
  *         },
  *       ],
  *       Ipv6Ranges: [ // Ipv6RangeList
  *         { // Ipv6Range
- *           CidrIpv6: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIpv6: "STRING_VALUE",
  *         },
  *       ],
  *       PrefixListIds: [ // PrefixListIdList
@@ -78,28 +90,16 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  *           PrefixListId: "STRING_VALUE",
  *         },
  *       ],
- *       ToPort: Number("int"),
- *       UserIdGroupPairs: [ // UserIdGroupPairList
- *         { // UserIdGroupPair
- *           Description: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *           GroupName: "STRING_VALUE",
- *           PeeringStatus: "STRING_VALUE",
- *           UserId: "STRING_VALUE",
- *           VpcId: "STRING_VALUE",
- *           VpcPeeringConnectionId: "STRING_VALUE",
- *         },
- *       ],
  *     },
  *   ],
  *   IpProtocol: "STRING_VALUE",
  *   SourceSecurityGroupName: "STRING_VALUE",
  *   SourceSecurityGroupOwnerId: "STRING_VALUE",
  *   ToPort: Number("int"),
- *   DryRun: true || false,
  *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new RevokeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
@@ -107,18 +107,30 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * //   Return: true || false,
  * //   UnknownIpPermissions: [ // IpPermissionList
  * //     { // IpPermission
- * //       FromPort: Number("int"),
  * //       IpProtocol: "STRING_VALUE",
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //       UserIdGroupPairs: [ // UserIdGroupPairList
+ * //         { // UserIdGroupPair
+ * //           Description: "STRING_VALUE",
+ * //           UserId: "STRING_VALUE",
+ * //           GroupName: "STRING_VALUE",
+ * //           GroupId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           VpcPeeringConnectionId: "STRING_VALUE",
+ * //           PeeringStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       IpRanges: [ // IpRangeList
  * //         { // IpRange
- * //           CidrIp: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           CidrIp: "STRING_VALUE",
  * //         },
  * //       ],
  * //       Ipv6Ranges: [ // Ipv6RangeList
  * //         { // Ipv6Range
- * //           CidrIpv6: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           CidrIpv6: "STRING_VALUE",
  * //         },
  * //       ],
  * //       PrefixListIds: [ // PrefixListIdList
@@ -127,18 +139,21 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * //           PrefixListId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //     },
+ * //   ],
+ * //   RevokedSecurityGroupRules: [ // RevokedSecurityGroupRuleList
+ * //     { // RevokedSecurityGroupRule
+ * //       SecurityGroupRuleId: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       IsEgress: true || false,
+ * //       IpProtocol: "STRING_VALUE",
+ * //       FromPort: Number("int"),
  * //       ToPort: Number("int"),
- * //       UserIdGroupPairs: [ // UserIdGroupPairList
- * //         { // UserIdGroupPair
- * //           Description: "STRING_VALUE",
- * //           GroupId: "STRING_VALUE",
- * //           GroupName: "STRING_VALUE",
- * //           PeeringStatus: "STRING_VALUE",
- * //           UserId: "STRING_VALUE",
- * //           VpcId: "STRING_VALUE",
- * //           VpcPeeringConnectionId: "STRING_VALUE",
- * //         },
- * //       ],
+ * //       CidrIpv4: "STRING_VALUE",
+ * //       CidrIpv6: "STRING_VALUE",
+ * //       PrefixListId: "STRING_VALUE",
+ * //       ReferencedGroupId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -154,6 +169,7 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class RevokeSecurityGroupIngressCommand extends $Command
@@ -164,9 +180,7 @@ export class RevokeSecurityGroupIngressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +192,16 @@ export class RevokeSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeSecurityGroupIngressCommand)
   .de(de_RevokeSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSecurityGroupIngressRequest;
+      output: RevokeSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: RevokeSecurityGroupIngressCommandInput;
+      output: RevokeSecurityGroupIngressCommandOutput;
+    };
+  };
+}

@@ -7,10 +7,12 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -21,6 +23,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CancelTagSyncTaskCommandInput, CancelTagSyncTaskCommandOutput } from "../commands/CancelTagSyncTaskCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
@@ -31,14 +34,21 @@ import {
 } from "../commands/GetGroupConfigurationCommand";
 import { GetGroupQueryCommandInput, GetGroupQueryCommandOutput } from "../commands/GetGroupQueryCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
+import { GetTagSyncTaskCommandInput, GetTagSyncTaskCommandOutput } from "../commands/GetTagSyncTaskCommand";
 import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "../commands/GroupResourcesCommand";
+import {
+  ListGroupingStatusesCommandInput,
+  ListGroupingStatusesCommandOutput,
+} from "../commands/ListGroupingStatusesCommand";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "../commands/ListGroupResourcesCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
+import { ListTagSyncTasksCommandInput, ListTagSyncTasksCommandOutput } from "../commands/ListTagSyncTasksCommand";
 import {
   PutGroupConfigurationCommandInput,
   PutGroupConfigurationCommandOutput,
 } from "../commands/PutGroupConfigurationCommand";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../commands/SearchResourcesCommand";
+import { StartTagSyncTaskCommandInput, StartTagSyncTaskCommandOutput } from "../commands/StartTagSyncTaskCommand";
 import { TagCommandInput, TagCommandOutput } from "../commands/TagCommand";
 import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "../commands/UngroupResourcesCommand";
 import { UntagCommandInput, UntagCommandOutput } from "../commands/UntagCommand";
@@ -54,15 +64,41 @@ import {
   GroupConfigurationItem,
   GroupConfigurationParameter,
   GroupFilter,
+  GroupingStatusesItem,
   InternalServerErrorException,
+  ListGroupingStatusesFilter,
+  ListTagSyncTasksFilter,
   MethodNotAllowedException,
   NotFoundException,
   ResourceFilter,
   ResourceQuery,
+  TagSyncTaskItem,
   TooManyRequestsException,
   UnauthorizedException,
 } from "../models/models_0";
 import { ResourceGroupsServiceException as __BaseException } from "../models/ResourceGroupsServiceException";
+
+/**
+ * serializeAws_restJson1CancelTagSyncTaskCommand
+ */
+export const se_CancelTagSyncTaskCommand = async (
+  input: CancelTagSyncTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cancel-tag-sync-task");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      TaskArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateGroupCommand
@@ -80,8 +116,11 @@ export const se_CreateGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       Configuration: (_) => _json(_),
+      Criticality: [],
       Description: [],
+      DisplayName: [],
       Name: [],
+      Owner: [],
       ResourceQuery: (_) => _json(_),
       Tags: (_) => _json(_),
     })
@@ -213,6 +252,28 @@ export const se_GetTagsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetTagSyncTaskCommand
+ */
+export const se_GetTagSyncTaskCommand = async (
+  input: GetTagSyncTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-tag-sync-task");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      TaskArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GroupResourcesCommand
  */
 export const se_GroupResourcesCommand = async (
@@ -229,6 +290,31 @@ export const se_GroupResourcesCommand = async (
     take(input, {
       Group: [],
       ResourceArns: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListGroupingStatusesCommand
+ */
+export const se_ListGroupingStatusesCommand = async (
+  input: ListGroupingStatusesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-grouping-statuses");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      Group: [],
+      MaxResults: [],
+      NextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -288,6 +374,30 @@ export const se_ListGroupsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTagSyncTasksCommand
+ */
+export const se_ListTagSyncTasksCommand = async (
+  input: ListTagSyncTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-tag-sync-tasks");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutGroupConfigurationCommand
  */
 export const se_PutGroupConfigurationCommand = async (
@@ -328,6 +438,31 @@ export const se_SearchResourcesCommand = async (
       MaxResults: [],
       NextToken: [],
       ResourceQuery: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartTagSyncTaskCommand
+ */
+export const se_StartTagSyncTaskCommand = async (
+  input: StartTagSyncTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/start-tag-sync-task");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Group: [],
+      RoleArn: [],
+      TagKey: [],
+      TagValue: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -434,9 +569,12 @@ export const se_UpdateGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Criticality: [],
       Description: [],
+      DisplayName: [],
       Group: [],
       GroupName: [],
+      Owner: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -465,6 +603,23 @@ export const se_UpdateGroupQueryCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CancelTagSyncTaskCommand
+ */
+export const de_CancelTagSyncTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelTagSyncTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
 };
 
 /**
@@ -619,6 +774,35 @@ export const de_GetTagsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetTagSyncTaskCommand
+ */
+export const de_GetTagSyncTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTagSyncTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    GroupArn: __expectString,
+    GroupName: __expectString,
+    RoleArn: __expectString,
+    Status: __expectString,
+    TagKey: __expectString,
+    TagValue: __expectString,
+    TaskArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GroupResourcesCommand
  */
 export const de_GroupResourcesCommand = async (
@@ -636,6 +820,29 @@ export const de_GroupResourcesCommand = async (
     Failed: _json,
     Pending: _json,
     Succeeded: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListGroupingStatusesCommand
+ */
+export const de_ListGroupingStatusesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupingStatusesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Group: __expectString,
+    GroupingStatuses: (_) => de_GroupingStatusesList(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -689,6 +896,28 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTagSyncTasksCommand
+ */
+export const de_ListTagSyncTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagSyncTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TagSyncTasks: (_) => de_TagSyncTaskList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutGroupConfigurationCommand
  */
 export const de_PutGroupConfigurationCommand = async (
@@ -723,6 +952,32 @@ export const de_SearchResourcesCommand = async (
     NextToken: __expectString,
     QueryErrors: _json,
     ResourceIdentifiers: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartTagSyncTaskCommand
+ */
+export const de_StartTagSyncTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTagSyncTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GroupArn: __expectString,
+    GroupName: __expectString,
+    RoleArn: __expectString,
+    TagKey: __expectString,
+    TagValue: __expectString,
+    TaskArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -877,12 +1132,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyRequestsException":
     case "com.amazonaws.resourcegroups#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.resourcegroups#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1041,6 +1296,16 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_GroupParameterList omitted.
 
+// se_ListGroupingStatusesFilter omitted.
+
+// se_ListGroupingStatusesFilterList omitted.
+
+// se_ListGroupingStatusesFilterValues omitted.
+
+// se_ListTagSyncTasksFilter omitted.
+
+// se_ListTagSyncTasksFilterList omitted.
+
 // se_ResourceArnList omitted.
 
 // se_ResourceFilter omitted.
@@ -1056,6 +1321,8 @@ const de_UnauthorizedExceptionRes = async (
 // se_Tags omitted.
 
 // de_AccountSettings omitted.
+
+// de_ApplicationTag omitted.
 
 // de_FailedResource omitted.
 
@@ -1076,6 +1343,32 @@ const de_UnauthorizedExceptionRes = async (
 // de_GroupIdentifier omitted.
 
 // de_GroupIdentifierList omitted.
+
+/**
+ * deserializeAws_restJson1GroupingStatusesItem
+ */
+const de_GroupingStatusesItem = (output: any, context: __SerdeContext): GroupingStatusesItem => {
+  return take(output, {
+    Action: __expectString,
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GroupingStatusesList
+ */
+const de_GroupingStatusesList = (output: any, context: __SerdeContext): GroupingStatusesItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GroupingStatusesItem(entry, context);
+    });
+  return retVal;
+};
 
 // de_GroupList omitted.
 
@@ -1109,6 +1402,35 @@ const de_UnauthorizedExceptionRes = async (
 
 // de_Tags omitted.
 
+/**
+ * deserializeAws_restJson1TagSyncTaskItem
+ */
+const de_TagSyncTaskItem = (output: any, context: __SerdeContext): TagSyncTaskItem => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    GroupArn: __expectString,
+    GroupName: __expectString,
+    RoleArn: __expectString,
+    Status: __expectString,
+    TagKey: __expectString,
+    TagValue: __expectString,
+    TaskArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TagSyncTaskList
+ */
+const de_TagSyncTaskList = (output: any, context: __SerdeContext): TagSyncTaskItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TagSyncTaskItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -1120,13 +1442,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

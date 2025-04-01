@@ -67,7 +67,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   estimatedMonthlyCost: Number("double"),
  * //   implementationEffort: "VeryLow" || "Low" || "Medium" || "High" || "VeryHigh",
  * //   restartNeeded: true || false,
- * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton",
+ * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete" || "ScaleIn",
  * //   rollbackPossible: true || false,
  * //   currentResourceDetails: { // ResourceDetails Union: only one key present
  * //     lambdaFunction: { // LambdaFunction
@@ -199,6 +199,13 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         instance: {
  * //           type: "STRING_VALUE",
  * //         },
+ * //         mixedInstances: [ // MixedInstanceConfigurationList
+ * //           { // MixedInstanceConfiguration
+ * //             type: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
  * //       },
  * //       costCalculation: {
  * //         usages: [
@@ -471,6 +478,13 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         instance: {
  * //           type: "STRING_VALUE",
  * //         },
+ * //         mixedInstances: [
+ * //           {
+ * //             type: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
  * //       },
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
@@ -667,6 +681,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationCommand extends $Command
@@ -677,9 +692,7 @@ export class GetRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -691,4 +704,16 @@ export class GetRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationCommand)
   .de(de_GetRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationRequest;
+      output: GetRecommendationResponse;
+    };
+    sdk: {
+      input: GetRecommendationCommandInput;
+      output: GetRecommendationCommandOutput;
+    };
+  };
+}

@@ -66,28 +66,37 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AssociatePermissionCommandInput,
+  AssociatePermissionCommandOutput,
+} from "./commands/AssociatePermissionCommand";
+import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
 import { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "./commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import { CreatePluginCommandInput, CreatePluginCommandOutput } from "./commands/CreatePluginCommand";
 import { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "./commands/CreateRetrieverCommand";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateWebExperienceCommandInput,
   CreateWebExperienceCommandOutput,
 } from "./commands/CreateWebExperienceCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
 import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
 } from "./commands/DeleteChatControlsConfigurationCommand";
 import { DeleteConversationCommandInput, DeleteConversationCommandOutput } from "./commands/DeleteConversationCommand";
+import { DeleteDataAccessorCommandInput, DeleteDataAccessorCommandOutput } from "./commands/DeleteDataAccessorCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
@@ -98,20 +107,29 @@ import {
   DeleteWebExperienceCommandInput,
   DeleteWebExperienceCommandOutput,
 } from "./commands/DeleteWebExperienceCommand";
+import {
+  DisassociatePermissionCommandInput,
+  DisassociatePermissionCommandOutput,
+} from "./commands/DisassociatePermissionCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetChatControlsConfigurationCommandInput,
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
+import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "./commands/GetRetrieverCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "./commands/ListConversationsCommand";
+import { ListDataAccessorsCommandInput, ListDataAccessorsCommandOutput } from "./commands/ListDataAccessorsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
@@ -121,8 +139,18 @@ import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./command
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
+import { ListPluginActionsCommandInput, ListPluginActionsCommandOutput } from "./commands/ListPluginActionsCommand";
 import { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import {
+  ListPluginTypeActionsCommandInput,
+  ListPluginTypeActionsCommandOutput,
+} from "./commands/ListPluginTypeActionsCommand";
+import {
+  ListPluginTypeMetadataCommandInput,
+  ListPluginTypeMetadataCommandOutput,
+} from "./commands/ListPluginTypeMetadataCommand";
 import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "./commands/ListRetrieversCommand";
+import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -130,6 +158,10 @@ import {
 import { ListWebExperiencesCommandInput, ListWebExperiencesCommandOutput } from "./commands/ListWebExperiencesCommand";
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
+import {
+  SearchRelevantContentCommandInput,
+  SearchRelevantContentCommandOutput,
+} from "./commands/SearchRelevantContentCommand";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -145,10 +177,12 @@ import {
   UpdateChatControlsConfigurationCommandInput,
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
+import { UpdateDataAccessorCommandInput, UpdateDataAccessorCommandOutput } from "./commands/UpdateDataAccessorCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "./commands/UpdatePluginCommand";
 import { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "./commands/UpdateRetrieverCommand";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommandInput,
@@ -169,20 +203,26 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociatePermissionCommandInput
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
+  | CancelSubscriptionCommandInput
   | ChatCommandInput
   | ChatSyncCommandInput
   | CreateApplicationCommandInput
+  | CreateDataAccessorCommandInput
   | CreateDataSourceCommandInput
   | CreateIndexCommandInput
   | CreatePluginCommandInput
   | CreateRetrieverCommandInput
+  | CreateSubscriptionCommandInput
   | CreateUserCommandInput
   | CreateWebExperienceCommandInput
   | DeleteApplicationCommandInput
+  | DeleteAttachmentCommandInput
   | DeleteChatControlsConfigurationCommandInput
   | DeleteConversationCommandInput
+  | DeleteDataAccessorCommandInput
   | DeleteDataSourceCommandInput
   | DeleteGroupCommandInput
   | DeleteIndexCommandInput
@@ -190,39 +230,52 @@ export type ServiceInputTypes =
   | DeleteRetrieverCommandInput
   | DeleteUserCommandInput
   | DeleteWebExperienceCommandInput
+  | DisassociatePermissionCommandInput
   | GetApplicationCommandInput
   | GetChatControlsConfigurationCommandInput
+  | GetDataAccessorCommandInput
   | GetDataSourceCommandInput
   | GetGroupCommandInput
   | GetIndexCommandInput
+  | GetMediaCommandInput
   | GetPluginCommandInput
+  | GetPolicyCommandInput
   | GetRetrieverCommandInput
   | GetUserCommandInput
   | GetWebExperienceCommandInput
   | ListApplicationsCommandInput
+  | ListAttachmentsCommandInput
   | ListConversationsCommandInput
+  | ListDataAccessorsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListDocumentsCommandInput
   | ListGroupsCommandInput
   | ListIndicesCommandInput
   | ListMessagesCommandInput
+  | ListPluginActionsCommandInput
+  | ListPluginTypeActionsCommandInput
+  | ListPluginTypeMetadataCommandInput
   | ListPluginsCommandInput
   | ListRetrieversCommandInput
+  | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
   | ListWebExperiencesCommandInput
   | PutFeedbackCommandInput
   | PutGroupCommandInput
+  | SearchRelevantContentCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateChatControlsConfigurationCommandInput
+  | UpdateDataAccessorCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput
   | UpdatePluginCommandInput
   | UpdateRetrieverCommandInput
+  | UpdateSubscriptionCommandInput
   | UpdateUserCommandInput
   | UpdateWebExperienceCommandInput;
 
@@ -230,20 +283,26 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociatePermissionCommandOutput
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
+  | CancelSubscriptionCommandOutput
   | ChatCommandOutput
   | ChatSyncCommandOutput
   | CreateApplicationCommandOutput
+  | CreateDataAccessorCommandOutput
   | CreateDataSourceCommandOutput
   | CreateIndexCommandOutput
   | CreatePluginCommandOutput
   | CreateRetrieverCommandOutput
+  | CreateSubscriptionCommandOutput
   | CreateUserCommandOutput
   | CreateWebExperienceCommandOutput
   | DeleteApplicationCommandOutput
+  | DeleteAttachmentCommandOutput
   | DeleteChatControlsConfigurationCommandOutput
   | DeleteConversationCommandOutput
+  | DeleteDataAccessorCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIndexCommandOutput
@@ -251,39 +310,52 @@ export type ServiceOutputTypes =
   | DeleteRetrieverCommandOutput
   | DeleteUserCommandOutput
   | DeleteWebExperienceCommandOutput
+  | DisassociatePermissionCommandOutput
   | GetApplicationCommandOutput
   | GetChatControlsConfigurationCommandOutput
+  | GetDataAccessorCommandOutput
   | GetDataSourceCommandOutput
   | GetGroupCommandOutput
   | GetIndexCommandOutput
+  | GetMediaCommandOutput
   | GetPluginCommandOutput
+  | GetPolicyCommandOutput
   | GetRetrieverCommandOutput
   | GetUserCommandOutput
   | GetWebExperienceCommandOutput
   | ListApplicationsCommandOutput
+  | ListAttachmentsCommandOutput
   | ListConversationsCommandOutput
+  | ListDataAccessorsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListDocumentsCommandOutput
   | ListGroupsCommandOutput
   | ListIndicesCommandOutput
   | ListMessagesCommandOutput
+  | ListPluginActionsCommandOutput
+  | ListPluginTypeActionsCommandOutput
+  | ListPluginTypeMetadataCommandOutput
   | ListPluginsCommandOutput
   | ListRetrieversCommandOutput
+  | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebExperiencesCommandOutput
   | PutFeedbackCommandOutput
   | PutGroupCommandOutput
+  | SearchRelevantContentCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateChatControlsConfigurationCommandOutput
+  | UpdateDataAccessorCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput
   | UpdatePluginCommandOutput
   | UpdateRetrieverCommandOutput
+  | UpdateSubscriptionCommandOutput
   | UpdateUserCommandOutput
   | UpdateWebExperienceCommandOutput;
 
@@ -379,6 +451,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -435,11 +526,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type QBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
   EventStreamInputConfig &
@@ -457,11 +548,11 @@ export interface QBusinessClientConfig extends QBusinessClientConfigType {}
 export type QBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   EventStreamResolvedConfig &
@@ -528,28 +619,32 @@ export class QBusinessClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<QBusinessClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveEventStreamSerdeConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveEventStreamConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    super(_config_10);
     this.config = _config_10;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultQBusinessHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: QBusinessClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -562,14 +657,5 @@ export class QBusinessClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultQBusinessHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: QBusinessClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

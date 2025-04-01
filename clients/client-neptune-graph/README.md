@@ -12,7 +12,7 @@ algorithms in low-latency queries, and getting analytics results in seconds.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-neptune-graph
+To install this package, simply type add or install @aws-sdk/client-neptune-graph
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-neptune-graph`
@@ -207,6 +207,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CancelExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/CancelExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/CancelExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/CancelExportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelImportTask
 </summary>
 
@@ -287,6 +295,14 @@ ExecuteQuery
 </details>
 <details>
 <summary>
+GetExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/GetExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetExportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetGraph
 </summary>
 
@@ -331,6 +347,14 @@ GetQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/GetQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListExportTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/ListExportTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListExportTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListExportTasksCommandOutput/)
 
 </details>
 <details>
@@ -395,6 +419,14 @@ RestoreGraphFromSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/RestoreGraphFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/RestoreGraphFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/RestoreGraphFromSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/StartExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartExportTaskCommandOutput/)
 
 </details>
 <details>

@@ -36,9 +36,9 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the resources that are not currently supported in Resilience Hub. An unsupported
- *       resource is a resource that exists in the object that was used to create an app, but is not
- *       supported by Resilience Hub.</p>
+ * <p>Lists the resources that are not currently supported in Resilience Hub. An
+ *       unsupported resource is a resource that exists in the object that was used to create an app,
+ *       but is not supported by Resilience Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +66,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * //       },
  * //       physicalResourceId: { // PhysicalResourceId
  * //         identifier: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "Arn" || "Native", // required
  * //         awsRegion: "STRING_VALUE",
  * //         awsAccountId: "STRING_VALUE",
  * //       },
@@ -113,6 +113,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListUnsupportedAppVersionResourcesCommand extends $Command
@@ -123,9 +124,7 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUnsupportedAppVersionResourcesCommand)
   .de(de_ListUnsupportedAppVersionResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUnsupportedAppVersionResourcesRequest;
+      output: ListUnsupportedAppVersionResourcesResponse;
+    };
+    sdk: {
+      input: ListUnsupportedAppVersionResourcesCommandInput;
+      output: ListUnsupportedAppVersionResourcesCommandOutput;
+    };
+  };
+}

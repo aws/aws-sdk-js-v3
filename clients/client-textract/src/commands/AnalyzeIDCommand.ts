@@ -182,6 +182,7 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class AnalyzeIDCommand extends $Command
@@ -192,9 +193,7 @@ export class AnalyzeIDCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +205,16 @@ export class AnalyzeIDCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AnalyzeIDCommand)
   .de(de_AnalyzeIDCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AnalyzeIDRequest;
+      output: AnalyzeIDResponse;
+    };
+    sdk: {
+      input: AnalyzeIDCommandInput;
+      output: AnalyzeIDCommandOutput;
+    };
+  };
+}

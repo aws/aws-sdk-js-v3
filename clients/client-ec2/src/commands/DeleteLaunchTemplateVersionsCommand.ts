@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_2";
+import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_3";
 import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersionsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -37,7 +37,7 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  *          <p>You can delete up to 200 launch template versions in a single request. To delete more
  *             than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which
  *             deletes the launch template and all of its versions.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version">Delete a launch template version</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version">Delete a launch template version</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,33 +87,33 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a launch template version
  * ```javascript
  * // This example deletes the specified launch template version.
  * const input = {
- *   "LaunchTemplateId": "lt-0abcd290751193123",
- *   "Versions": [
+ *   LaunchTemplateId: "lt-0abcd290751193123",
+ *   Versions: [
  *     "1"
  *   ]
  * };
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SuccessfullyDeletedLaunchTemplateVersions": [
+ *   SuccessfullyDeletedLaunchTemplateVersions: [
  *     {
- *       "LaunchTemplateId": "lt-0abcd290751193123",
- *       "LaunchTemplateName": "my-template",
- *       "VersionNumber": 1
+ *       LaunchTemplateId: "lt-0abcd290751193123",
+ *       LaunchTemplateName: "my-template",
+ *       VersionNumber: 1
  *     }
  *   ],
- *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
+ *   UnsuccessfullyDeletedLaunchTemplateVersions:   []
  * }
  * *\/
- * // example id: to-delete-a-launch-template-version-1529024790864
  * ```
  *
+ * @public
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command
   .classBuilder<
@@ -123,9 +123,7 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +135,16 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLaunchTemplateVersionsCommand)
   .de(de_DeleteLaunchTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchTemplateVersionsRequest;
+      output: DeleteLaunchTemplateVersionsResult;
+    };
+    sdk: {
+      input: DeleteLaunchTemplateVersionsCommandInput;
+      output: DeleteLaunchTemplateVersionsCommandOutput;
+    };
+  };
+}

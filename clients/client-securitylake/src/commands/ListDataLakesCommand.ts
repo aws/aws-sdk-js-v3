@@ -118,6 +118,7 @@ export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __Met
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class ListDataLakesCommand extends $Command
@@ -128,9 +129,7 @@ export class ListDataLakesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class ListDataLakesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataLakesCommand)
   .de(de_ListDataLakesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataLakesRequest;
+      output: ListDataLakesResponse;
+    };
+    sdk: {
+      input: ListDataLakesCommandInput;
+      output: ListDataLakesCommandOutput;
+    };
+  };
+}

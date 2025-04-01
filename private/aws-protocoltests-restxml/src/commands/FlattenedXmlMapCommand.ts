@@ -57,6 +57,7 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapResponse, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class FlattenedXmlMapCommand extends $Command
@@ -75,4 +76,16 @@ export class FlattenedXmlMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FlattenedXmlMapCommand)
   .de(de_FlattenedXmlMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FlattenedXmlMapRequest;
+      output: FlattenedXmlMapResponse;
+    };
+    sdk: {
+      input: FlattenedXmlMapCommandInput;
+      output: FlattenedXmlMapCommandOutput;
+    };
+  };
+}

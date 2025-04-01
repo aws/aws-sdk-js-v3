@@ -179,88 +179,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
- * @public
- * @example To retrieve all the stream records from a shard
- * ```javascript
- * // The following example retrieves all the stream records from a shard.
- * const input = {
- *   "ShardIterator": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
- * };
- * const command = new GetRecordsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NextShardIterator": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAGQBYshYDEe ... <remaining characters omitted> ...",
- *   "Records": [
- *     {
- *       "awsRegion": "us-west-2",
- *       "dynamodb": {
- *         "ApproximateCreationDateTime": "1.46480646E9",
- *         "Keys": {
- *           "ForumName": {
- *             "S": "DynamoDB"
- *           },
- *           "Subject": {
- *             "S": "DynamoDB Thread 3"
- *           }
- *         },
- *         "SequenceNumber": "300000000000000499659",
- *         "SizeBytes": 41,
- *         "StreamViewType": "KEYS_ONLY"
- *       },
- *       "eventID": "e2fd9c34eff2d779b297b26f5fef4206",
- *       "eventName": "INSERT",
- *       "eventSource": "aws:dynamodb",
- *       "eventVersion": "1.0"
- *     },
- *     {
- *       "awsRegion": "us-west-2",
- *       "dynamodb": {
- *         "ApproximateCreationDateTime": "1.46480527E9",
- *         "Keys": {
- *           "ForumName": {
- *             "S": "DynamoDB"
- *           },
- *           "Subject": {
- *             "S": "DynamoDB Thread 1"
- *           }
- *         },
- *         "SequenceNumber": "400000000000000499660",
- *         "SizeBytes": 41,
- *         "StreamViewType": "KEYS_ONLY"
- *       },
- *       "eventID": "4b25bd0da9a181a155114127e4837252",
- *       "eventName": "MODIFY",
- *       "eventSource": "aws:dynamodb",
- *       "eventVersion": "1.0"
- *     },
- *     {
- *       "awsRegion": "us-west-2",
- *       "dynamodb": {
- *         "ApproximateCreationDateTime": "1.46480646E9",
- *         "Keys": {
- *           "ForumName": {
- *             "S": "DynamoDB"
- *           },
- *           "Subject": {
- *             "S": "DynamoDB Thread 2"
- *           }
- *         },
- *         "SequenceNumber": "500000000000000499661",
- *         "SizeBytes": 41,
- *         "StreamViewType": "KEYS_ONLY"
- *       },
- *       "eventID": "740280c73a3df7842edab3548a1b08ad",
- *       "eventName": "REMOVE",
- *       "eventSource": "aws:dynamodb",
- *       "eventVersion": "1.0"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-retrieve-all-the-stream-records-from-a-shard-1473707781419
- * ```
  *
+ * @public
  */
 export class GetRecordsCommand extends $Command
   .classBuilder<
@@ -270,9 +190,7 @@ export class GetRecordsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBStreamsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -284,4 +202,16 @@ export class GetRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecordsCommand)
   .de(de_GetRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecordsInput;
+      output: GetRecordsOutput;
+    };
+    sdk: {
+      input: GetRecordsCommandInput;
+      output: GetRecordsCommandOutput;
+    };
+  };
+}

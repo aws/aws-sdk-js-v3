@@ -63,6 +63,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBParameterGroupCommand extends $Command
@@ -73,9 +74,7 @@ export class DeleteDBParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class DeleteDBParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBParameterGroupCommand)
   .de(de_DeleteDBParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBParameterGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDBParameterGroupCommandInput;
+      output: DeleteDBParameterGroupCommandOutput;
+    };
+  };
+}

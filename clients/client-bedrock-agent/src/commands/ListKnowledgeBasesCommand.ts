@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_0";
+import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_1";
 import { de_ListKnowledgeBasesCommand, se_ListKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,7 +28,7 @@ export interface ListKnowledgeBasesCommandInput extends ListKnowledgeBasesReques
 export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the knowledge bases in an account and information about each of them.</p>
+ * <p>Lists the knowledge bases in an account. The list also includesinformation about each knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +77,7 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class ListKnowledgeBasesCommand extends $Command
@@ -87,9 +88,7 @@ export class ListKnowledgeBasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class ListKnowledgeBasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKnowledgeBasesCommand)
   .de(de_ListKnowledgeBasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKnowledgeBasesRequest;
+      output: ListKnowledgeBasesResponse;
+    };
+    sdk: {
+      input: ListKnowledgeBasesCommandInput;
+      output: ListKnowledgeBasesCommandOutput;
+    };
+  };
+}

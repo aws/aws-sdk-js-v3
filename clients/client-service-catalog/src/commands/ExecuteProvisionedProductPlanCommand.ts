@@ -97,6 +97,7 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ExecuteProvisionedProductPlanCommand extends $Command
@@ -107,9 +108,7 @@ export class ExecuteProvisionedProductPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class ExecuteProvisionedProductPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteProvisionedProductPlanCommand)
   .de(de_ExecuteProvisionedProductPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteProvisionedProductPlanInput;
+      output: ExecuteProvisionedProductPlanOutput;
+    };
+    sdk: {
+      input: ExecuteProvisionedProductPlanCommandInput;
+      output: ExecuteProvisionedProductPlanCommandOutput;
+    };
+  };
+}

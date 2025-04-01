@@ -66,6 +66,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command
@@ -76,9 +77,7 @@ export class DeleteLifecyclePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class DeleteLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLifecyclePolicyCommand)
   .de(de_DeleteLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLifecyclePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLifecyclePolicyCommandInput;
+      output: DeleteLifecyclePolicyCommandOutput;
+    };
+  };
+}

@@ -84,8 +84,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>A newly created account has a waiting period before it can be removed from
- *                         its organization. If you get an error that indicates that a wait period is
- *                         required, then try again in a few days.</p>
+ *                         its organization.
+ *                         You must wait until at least seven days after the account was created. Invited accounts aren't subject to this waiting period.</p>
  *                </li>
  *                <li>
  *                   <p>If you are using an organization principal to call
@@ -179,6 +179,11 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -322,9 +327,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -383,6 +387,9 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -423,6 +430,9 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -450,16 +460,19 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To leave an organization as a member account
  * ```javascript
  * // TThe following example shows how to remove your member account from an organization:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new LeaveOrganizationCommand(input);
- * await client.send(command);
- * // example id: to-leave-an-organization-as-a-member-account-1472508784736
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class LeaveOrganizationCommand extends $Command
   .classBuilder<
@@ -469,9 +482,7 @@ export class LeaveOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -483,4 +494,16 @@ export class LeaveOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LeaveOrganizationCommand)
   .de(de_LeaveOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: LeaveOrganizationCommandInput;
+      output: LeaveOrganizationCommandOutput;
+    };
+  };
+}

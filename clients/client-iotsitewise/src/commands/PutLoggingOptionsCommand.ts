@@ -75,6 +75,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class PutLoggingOptionsCommand extends $Command
@@ -85,9 +86,7 @@ export class PutLoggingOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class PutLoggingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLoggingOptionsCommand)
   .de(de_PutLoggingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLoggingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutLoggingOptionsCommandInput;
+      output: PutLoggingOptionsCommandOutput;
+    };
+  };
+}

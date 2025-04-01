@@ -125,6 +125,7 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class SearchTablesByLFTagsCommand extends $Command
@@ -135,9 +136,7 @@ export class SearchTablesByLFTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class SearchTablesByLFTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchTablesByLFTagsCommand)
   .de(de_SearchTablesByLFTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTablesByLFTagsRequest;
+      output: SearchTablesByLFTagsResponse;
+    };
+    sdk: {
+      input: SearchTablesByLFTagsCommandInput;
+      output: SearchTablesByLFTagsCommandOutput;
+    };
+  };
+}

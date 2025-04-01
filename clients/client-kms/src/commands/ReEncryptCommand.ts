@@ -251,26 +251,26 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To reencrypt data
  * ```javascript
  * // The following example reencrypts data with the specified KMS key.
  * const input = {
- *   "CiphertextBlob": "<binary data>",
- *   "DestinationKeyId": "0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   CiphertextBlob: "<binary data>",
+ *   DestinationKeyId: "0987dcba-09fe-87dc-65ba-ab0987654321"
  * };
  * const command = new ReEncryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "SourceKeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   SourceKeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-reencrypt-data-1481230358001
  * ```
  *
+ * @public
  */
 export class ReEncryptCommand extends $Command
   .classBuilder<
@@ -280,9 +280,7 @@ export class ReEncryptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -294,4 +292,16 @@ export class ReEncryptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReEncryptCommand)
   .de(de_ReEncryptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReEncryptRequest;
+      output: ReEncryptResponse;
+    };
+    sdk: {
+      input: ReEncryptCommandInput;
+      output: ReEncryptCommandOutput;
+    };
+  };
+}

@@ -67,7 +67,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
  * //       rank: Number("int"),
  * //       projectedMetrics: [ // RDSDatabaseProjectedMetrics
  * //         { // RDSDatabaseProjectedMetric
- * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections",
+ * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
  * //           timestamps: [ // Timestamps
  * //             new Date("TIMESTAMP"),
  * //           ],
@@ -116,6 +116,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends $Command
@@ -126,9 +127,7 @@ export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_GetRDSDatabaseRecommendationProjectedMetricsCommand)
   .de(de_GetRDSDatabaseRecommendationProjectedMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRDSDatabaseRecommendationProjectedMetricsRequest;
+      output: GetRDSDatabaseRecommendationProjectedMetricsResponse;
+    };
+    sdk: {
+      input: GetRDSDatabaseRecommendationProjectedMetricsCommandInput;
+      output: GetRDSDatabaseRecommendationProjectedMetricsCommandOutput;
+    };
+  };
+}

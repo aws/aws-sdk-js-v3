@@ -95,6 +95,7 @@ export interface CreateIpAccessSettingsCommandOutput extends CreateIpAccessSetti
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateIpAccessSettingsCommand extends $Command
@@ -105,9 +106,7 @@ export class CreateIpAccessSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CreateIpAccessSettingsCommand extends $Command
   .f(CreateIpAccessSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIpAccessSettingsCommand)
   .de(de_CreateIpAccessSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIpAccessSettingsRequest;
+      output: CreateIpAccessSettingsResponse;
+    };
+    sdk: {
+      input: CreateIpAccessSettingsCommandInput;
+      output: CreateIpAccessSettingsCommandOutput;
+    };
+  };
+}

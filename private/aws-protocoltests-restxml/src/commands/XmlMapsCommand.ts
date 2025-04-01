@@ -61,6 +61,7 @@ export interface XmlMapsCommandOutput extends XmlMapsResponse, __MetadataBearer 
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlMapsCommand extends $Command
@@ -79,4 +80,16 @@ export class XmlMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlMapsCommand)
   .de(de_XmlMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlMapsRequest;
+      output: XmlMapsResponse;
+    };
+    sdk: {
+      input: XmlMapsCommandInput;
+      output: XmlMapsCommandOutput;
+    };
+  };
+}

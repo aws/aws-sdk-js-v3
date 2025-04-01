@@ -62,6 +62,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command
@@ -72,9 +73,7 @@ export class DeregisterOnPremisesInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class DeregisterOnPremisesInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterOnPremisesInstanceCommand)
   .de(de_DeregisterOnPremisesInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterOnPremisesInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterOnPremisesInstanceCommandInput;
+      output: DeregisterOnPremisesInstanceCommandOutput;
+    };
+  };
+}

@@ -47,6 +47,9 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * //   arn: "STRING_VALUE",
  * //   authType: "STRING_VALUE",
+ * //   sharingConfig: { // SharingConfig
+ * //     enabled: true || false,
+ * //   },
  * //   numberOfAssociatedVPCs: Number("long"),
  * //   numberOfAssociatedServices: Number("long"),
  * // };
@@ -78,6 +81,7 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetServiceNetworkCommand extends $Command
@@ -88,9 +92,7 @@ export class GetServiceNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +104,16 @@ export class GetServiceNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceNetworkCommand)
   .de(de_GetServiceNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceNetworkRequest;
+      output: GetServiceNetworkResponse;
+    };
+    sdk: {
+      input: GetServiceNetworkCommandInput;
+      output: GetServiceNetworkCommandOutput;
+    };
+  };
+}

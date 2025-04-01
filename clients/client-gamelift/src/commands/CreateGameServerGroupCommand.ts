@@ -168,6 +168,7 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateGameServerGroupCommand extends $Command
@@ -178,9 +179,7 @@ export class CreateGameServerGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +191,16 @@ export class CreateGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGameServerGroupCommand)
   .de(de_CreateGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGameServerGroupInput;
+      output: CreateGameServerGroupOutput;
+    };
+    sdk: {
+      input: CreateGameServerGroupCommandInput;
+      output: CreateGameServerGroupCommandOutput;
+    };
+  };
+}

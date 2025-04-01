@@ -28,7 +28,7 @@ export interface CreateInferenceComponentCommandInput extends CreateInferenceCom
 export interface CreateInferenceComponentCommandOutput extends CreateInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an inference component, which is a SageMaker hosting object that you can
+ * <p>Creates an inference component, which is a SageMaker AI hosting object that you can
  *          use to deploy a model to an endpoint. In the inference component settings, you specify the
  *          model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You
  *          can optimize resource utilization by tailoring how the required CPU cores, accelerators,
@@ -45,7 +45,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * const input = { // CreateInferenceComponentInput
  *   InferenceComponentName: "STRING_VALUE", // required
  *   EndpointName: "STRING_VALUE", // required
- *   VariantName: "STRING_VALUE", // required
+ *   VariantName: "STRING_VALUE",
  *   Specification: { // InferenceComponentSpecification
  *     ModelName: "STRING_VALUE",
  *     Container: { // InferenceComponentContainerSpecification
@@ -65,6 +65,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *       MinMemoryRequiredInMb: Number("int"), // required
  *       MaxMemoryRequiredInMb: Number("int"),
  *     },
+ *     BaseInferenceComponentName: "STRING_VALUE",
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required
@@ -97,6 +98,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateInferenceComponentCommand extends $Command
@@ -107,9 +109,7 @@ export class CreateInferenceComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class CreateInferenceComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInferenceComponentCommand)
   .de(de_CreateInferenceComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInferenceComponentInput;
+      output: CreateInferenceComponentOutput;
+    };
+    sdk: {
+      input: CreateInferenceComponentCommandInput;
+      output: CreateInferenceComponentCommandOutput;
+    };
+  };
+}

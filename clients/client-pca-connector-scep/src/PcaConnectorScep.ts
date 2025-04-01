@@ -250,11 +250,7 @@ export interface PcaConnectorScep {
 }
 
 /**
- * <note>
- *             <p>Connector for SCEP (Preview) is in preview release for Amazon Web Services Private Certificate Authority and is subject to change.</p>
- *          </note>
- *          <p>Connector for SCEP (Preview) creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more
- *       information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
+ * <p>Connector for SCEP creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
  * @public
  */
 export class PcaConnectorScep extends PcaConnectorScepClient implements PcaConnectorScep {}

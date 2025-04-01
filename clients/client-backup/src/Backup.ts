@@ -214,6 +214,11 @@ import {
   GetLegalHoldCommandOutput,
 } from "./commands/GetLegalHoldCommand";
 import {
+  GetRecoveryPointIndexDetailsCommand,
+  GetRecoveryPointIndexDetailsCommandInput,
+  GetRecoveryPointIndexDetailsCommandOutput,
+} from "./commands/GetRecoveryPointIndexDetailsCommand";
+import {
   GetRecoveryPointRestoreMetadataCommand,
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -293,6 +298,11 @@ import {
   ListFrameworksCommandInput,
   ListFrameworksCommandOutput,
 } from "./commands/ListFrameworksCommand";
+import {
+  ListIndexedRecoveryPointsCommand,
+  ListIndexedRecoveryPointsCommandInput,
+  ListIndexedRecoveryPointsCommandOutput,
+} from "./commands/ListIndexedRecoveryPointsCommand";
 import {
   ListLegalHoldsCommand,
   ListLegalHoldsCommandInput,
@@ -426,6 +436,11 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  UpdateRecoveryPointIndexSettingsCommand,
+  UpdateRecoveryPointIndexSettingsCommandInput,
+  UpdateRecoveryPointIndexSettingsCommandOutput,
+} from "./commands/UpdateRecoveryPointIndexSettingsCommand";
+import {
   UpdateRecoveryPointLifecycleCommand,
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
@@ -494,6 +509,7 @@ const commands = {
   GetBackupVaultAccessPolicyCommand,
   GetBackupVaultNotificationsCommand,
   GetLegalHoldCommand,
+  GetRecoveryPointIndexDetailsCommand,
   GetRecoveryPointRestoreMetadataCommand,
   GetRestoreJobMetadataCommand,
   GetRestoreTestingInferredMetadataCommand,
@@ -510,6 +526,7 @@ const commands = {
   ListCopyJobsCommand,
   ListCopyJobSummariesCommand,
   ListFrameworksCommand,
+  ListIndexedRecoveryPointsCommand,
   ListLegalHoldsCommand,
   ListProtectedResourcesCommand,
   ListProtectedResourcesByBackupVaultCommand,
@@ -538,6 +555,7 @@ const commands = {
   UpdateBackupPlanCommand,
   UpdateFrameworkCommand,
   UpdateGlobalSettingsCommand,
+  UpdateRecoveryPointIndexSettingsCommand,
   UpdateRecoveryPointLifecycleCommand,
   UpdateRegionSettingsCommand,
   UpdateReportPlanCommand,
@@ -1236,6 +1254,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link GetRecoveryPointIndexDetailsCommand}
+   */
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPointIndexDetailsCommandOutput>;
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    cb: (err: any, data?: GetRecoveryPointIndexDetailsCommandOutput) => void
+  ): void;
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPointIndexDetailsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRecoveryPointRestoreMetadataCommand}
    */
   getRecoveryPointRestoreMetadata(
@@ -1499,6 +1534,24 @@ export interface Backup {
     args: ListFrameworksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFrameworksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIndexedRecoveryPointsCommand}
+   */
+  listIndexedRecoveryPoints(): Promise<ListIndexedRecoveryPointsCommandOutput>;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexedRecoveryPointsCommandOutput>;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    cb: (err: any, data?: ListIndexedRecoveryPointsCommandOutput) => void
+  ): void;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIndexedRecoveryPointsCommandOutput) => void
   ): void;
 
   /**
@@ -1929,6 +1982,23 @@ export interface Backup {
     args: UpdateGlobalSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecoveryPointIndexSettingsCommand}
+   */
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecoveryPointIndexSettingsCommandOutput>;
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    cb: (err: any, data?: UpdateRecoveryPointIndexSettingsCommandOutput) => void
+  ): void;
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecoveryPointIndexSettingsCommandOutput) => void
   ): void;
 
   /**

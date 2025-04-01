@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_4";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_5";
 import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -82,14 +82,6 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * // const { EC2Client, DescribeSnapshotsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSnapshotsRequest
- *   Filters: [ // FilterList
- *     { // Filter
- *       Name: "STRING_VALUE",
- *       Values: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   OwnerIds: [ // OwnerStringList
@@ -102,24 +94,21 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSnapshotsResult
+ * //   NextToken: "STRING_VALUE",
  * //   Snapshots: [ // SnapshotList
  * //     { // Snapshot
- * //       DataEncryptionKeyId: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       Encrypted: true || false,
- * //       KmsKeyId: "STRING_VALUE",
- * //       OwnerId: "STRING_VALUE",
- * //       Progress: "STRING_VALUE",
- * //       SnapshotId: "STRING_VALUE",
- * //       StartTime: new Date("TIMESTAMP"),
- * //       State: "pending" || "completed" || "error" || "recoverable" || "recovering",
- * //       StateMessage: "STRING_VALUE",
- * //       VolumeId: "STRING_VALUE",
- * //       VolumeSize: Number("int"),
  * //       OwnerAlias: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
  * //       Tags: [ // TagList
@@ -131,9 +120,25 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * //       StorageTier: "archive" || "standard",
  * //       RestoreExpiryTime: new Date("TIMESTAMP"),
  * //       SseType: "sse-ebs" || "sse-kms" || "none",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       TransferType: "time-based" || "standard",
+ * //       CompletionDurationMinutes: Number("int"),
+ * //       CompletionTime: new Date("TIMESTAMP"),
+ * //       FullSnapshotSizeInBytes: Number("long"),
+ * //       SnapshotId: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //       State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //       StateMessage: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       Progress: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       VolumeSize: Number("int"),
+ * //       Encrypted: true || false,
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       DataEncryptionKeyId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -147,75 +152,74 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a snapshot
  * ```javascript
  * // This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.
  * const input = {
- *   "SnapshotIds": [
+ *   SnapshotIds: [
  *     "snap-1234567890abcdef0"
  *   ]
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "Snapshots": [
+ *   NextToken: "",
+ *   Snapshots: [
  *     {
- *       "Description": "This is my snapshot.",
- *       "OwnerId": "012345678910",
- *       "Progress": "100%",
- *       "SnapshotId": "snap-1234567890abcdef0",
- *       "StartTime": "2014-02-28T21:28:32.000Z",
- *       "State": "completed",
- *       "VolumeId": "vol-049df61146c4d7901",
- *       "VolumeSize": 8
+ *       Description: "This is my snapshot.",
+ *       OwnerId: "012345678910",
+ *       Progress: "100%",
+ *       SnapshotId: "snap-1234567890abcdef0",
+ *       StartTime: "2014-02-28T21:28:32.000Z",
+ *       State: "completed",
+ *       VolumeId: "vol-049df61146c4d7901",
+ *       VolumeSize: 8
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-snapshot-1472503807850
  * ```
  *
  * @example To describe snapshots using filters
  * ```javascript
  * // This example describes all snapshots owned by the ID 012345678910 that are in the ``pending`` status.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "status",
- *       "Values": [
+ *       Name: "status",
+ *       Values: [
  *         "pending"
  *       ]
  *     }
  *   ],
- *   "OwnerIds": [
+ *   OwnerIds: [
  *     "012345678910"
  *   ]
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "Snapshots": [
+ *   NextToken: "",
+ *   Snapshots: [
  *     {
- *       "Description": "This is my copied snapshot.",
- *       "OwnerId": "012345678910",
- *       "Progress": "87%",
- *       "SnapshotId": "snap-066877671789bd71b",
- *       "StartTime": "2014-02-28T21:37:27.000Z",
- *       "State": "pending",
- *       "VolumeId": "vol-1234567890abcdef0",
- *       "VolumeSize": 8
+ *       Description: "This is my copied snapshot.",
+ *       OwnerId: "012345678910",
+ *       Progress: "87%",
+ *       SnapshotId: "snap-066877671789bd71b",
+ *       StartTime: "2014-02-28T21:37:27.000Z",
+ *       State: "pending",
+ *       VolumeId: "vol-1234567890abcdef0",
+ *       VolumeSize: 8
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-snapshots-using-filters-1472503929793
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<
@@ -225,9 +229,7 @@ export class DescribeSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -239,4 +241,16 @@ export class DescribeSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotsCommand)
   .de(de_DescribeSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotsRequest;
+      output: DescribeSnapshotsResult;
+    };
+    sdk: {
+      input: DescribeSnapshotsCommandInput;
+      output: DescribeSnapshotsCommandOutput;
+    };
+  };
+}

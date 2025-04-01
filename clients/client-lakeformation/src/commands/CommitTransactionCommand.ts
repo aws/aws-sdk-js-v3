@@ -73,6 +73,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class CommitTransactionCommand extends $Command
@@ -83,9 +84,7 @@ export class CommitTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class CommitTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CommitTransactionCommand)
   .de(de_CommitTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CommitTransactionRequest;
+      output: CommitTransactionResponse;
+    };
+    sdk: {
+      input: CommitTransactionCommandInput;
+      output: CommitTransactionCommandOutput;
+    };
+  };
+}

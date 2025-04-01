@@ -70,6 +70,7 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventTypeCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteEventTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteEventTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventTypeCommand)
   .de(de_DeleteEventTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventTypeCommandInput;
+      output: DeleteEventTypeCommandOutput;
+    };
+  };
+}

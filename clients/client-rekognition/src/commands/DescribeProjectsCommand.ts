@@ -102,49 +102,8 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
- * @example To describe an Amazon Rekognition Custom Labels project.
- * ```javascript
- * // Describes an Amazon Rekognition Custom Labels projects.
- * const input = {
- *   "ProjectNames": [
- *     "my-project"
- *   ]
- * };
- * const command = new DescribeProjectsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ProjectDescriptions": [
- *     {
- *       "CreationTimestamp": "2022-06-13T15:16:00.634000-07:00",
- *       "Datasets": [
- *         {
- *           "CreationTimestamp": "2022-06-13T15:17:34.620000-07:00",
- *           "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/test/1655158654491",
- *           "DatasetType": "TEST",
- *           "Status": "CREATE_COMPLETE",
- *           "StatusMessage": "The dataset was successfully created from the manifest file.",
- *           "StatusMessageCode": "SUCCESS"
- *         },
- *         {
- *           "CreationTimestamp": "2022-06-13T15:17:50.118000-07:00",
- *           "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1655158669954",
- *           "DatasetType": "TRAIN",
- *           "Status": "CREATE_COMPLETE",
- *           "StatusMessage": "The dataset was successfully created from the manifest file.",
- *           "StatusMessageCode": "SUCCESS"
- *         }
- *       ],
- *       "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1655158560634",
- *       "Status": "CREATED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-an-amazon-rekognition-custom-labels-project-1690400952376
- * ```
  *
+ * @public
  */
 export class DescribeProjectsCommand extends $Command
   .classBuilder<
@@ -154,9 +113,7 @@ export class DescribeProjectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +125,16 @@ export class DescribeProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectsCommand)
   .de(de_DescribeProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectsRequest;
+      output: DescribeProjectsResponse;
+    };
+    sdk: {
+      input: DescribeProjectsCommandInput;
+      output: DescribeProjectsCommandOutput;
+    };
+  };
+}

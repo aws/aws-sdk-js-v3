@@ -24,6 +24,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -37,6 +38,7 @@ import {
 } from "../commands/CreateWebLoginTokenCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "../commands/DeleteEnvironmentCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
+import { InvokeRestApiCommandInput, InvokeRestApiCommandOutput } from "../commands/InvokeRestApiCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -57,6 +59,8 @@ import {
   ModuleLoggingConfigurationInput,
   NetworkConfiguration,
   ResourceNotFoundException,
+  RestApiClientException,
+  RestApiServerException,
   StatisticSet,
   UpdateNetworkConfigurationInput,
   ValidationException,
@@ -214,6 +218,40 @@ export const se_GetEnvironmentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1InvokeRestApiCommand
+ */
+export const se_InvokeRestApiCommand = async (
+  input: InvokeRestApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restapi/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Body: (_) => se_RestApiRequestBody(_, context),
+      Method: [],
+      Path: [],
+      QueryParameters: (_) => se_Document(_, context),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "env." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListEnvironmentsCommand
  */
 export const se_ListEnvironmentsCommand = async (
@@ -338,10 +376,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -513,6 +548,28 @@ export const de_GetEnvironmentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1InvokeRestApiCommand
+ */
+export const de_InvokeRestApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InvokeRestApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestApiResponse: (_) => de_RestApiResponse(_, context),
+    RestApiStatusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListEnvironmentsCommand
  */
 export const de_ListEnvironmentsCommand = async (
@@ -649,6 +706,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.mwaa#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "RestApiClientException":
+    case "com.amazonaws.mwaa#RestApiClientException":
+      throw await de_RestApiClientExceptionRes(parsedOutput, context);
+    case "RestApiServerException":
+    case "com.amazonaws.mwaa#RestApiServerException":
+      throw await de_RestApiServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -721,6 +784,48 @@ const de_ResourceNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1RestApiClientExceptionRes
+ */
+const de_RestApiClientExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RestApiClientException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    RestApiResponse: (_) => de_RestApiResponse(_, context),
+    RestApiStatusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  const exception = new RestApiClientException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1RestApiServerExceptionRes
+ */
+const de_RestApiServerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RestApiServerException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    RestApiResponse: (_) => de_RestApiResponse(_, context),
+    RestApiStatusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  const exception = new RestApiServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
@@ -774,6 +879,13 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
 
 // se_NetworkConfiguration omitted.
 
+/**
+ * serializeAws_restJson1RestApiRequestBody
+ */
+const se_RestApiRequestBody = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_SecurityGroupList omitted.
 
 /**
@@ -793,6 +905,13 @@ const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
 // se_TagMap omitted.
 
 // se_UpdateNetworkConfigurationInput omitted.
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // de_AirflowConfigurationOptions omitted.
 
@@ -858,6 +977,13 @@ const de_LastUpdate = (output: any, context: __SerdeContext): LastUpdate => {
 
 // de_NetworkConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1RestApiResponse
+ */
+const de_RestApiResponse = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 // de_SecurityGroupList omitted.
 
 // de_SubnetList omitted.
@@ -877,13 +1003,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

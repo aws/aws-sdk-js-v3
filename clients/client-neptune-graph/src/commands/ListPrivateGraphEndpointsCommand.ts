@@ -79,6 +79,7 @@ export interface ListPrivateGraphEndpointsCommandOutput extends ListPrivateGraph
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ListPrivateGraphEndpointsCommand extends $Command
@@ -104,4 +105,16 @@ export class ListPrivateGraphEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrivateGraphEndpointsCommand)
   .de(de_ListPrivateGraphEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrivateGraphEndpointsInput;
+      output: ListPrivateGraphEndpointsOutput;
+    };
+    sdk: {
+      input: ListPrivateGraphEndpointsCommandInput;
+      output: ListPrivateGraphEndpointsCommandOutput;
+    };
+  };
+}

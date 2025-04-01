@@ -29,6 +29,18 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
 
 /**
  * <p>Updates an existing Amazon Q Business application.</p>
+ *          <note>
+ *             <p>Amazon Q Business applications may securely transmit data for processing across
+ *                     Amazon Web Services Regions within your geography. For more information, see
+ *                     <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html">Cross region
+ *                     inference in Amazon Q Business</a>.</p>
+ *          </note>
+ *          <note>
+ *             <p>An Amazon Q Apps service-linked role will be created if it's absent in the
+ *                     Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in
+ *                 the request. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html">Using
+ *                     service-linked roles for Q Apps</a>. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +62,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   personalizationConfiguration: { // PersonalizationConfiguration
  *     personalizationControlMode: "ENABLED" || "DISABLED", // required
  *   },
+ *   autoSubscriptionConfiguration: { // AutoSubscriptionConfiguration
+ *     autoSubscribe: "ENABLED" || "DISABLED", // required
+ *     defaultSubscriptionType: "Q_LITE" || "Q_BUSINESS",
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -69,15 +85,15 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -90,6 +106,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationCommand extends $Command
@@ -100,9 +117,7 @@ export class UpdateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +129,16 @@ export class UpdateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationCommand)
   .de(de_UpdateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateApplicationCommandInput;
+      output: UpdateApplicationCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSourceRunsInput, ListDataSourceRunsOutput } from "../models/models_0";
+import { ListDataSourceRunsInput, ListDataSourceRunsOutput } from "../models/models_1";
 import { de_ListDataSourceRunsCommand, se_ListDataSourceRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -67,6 +67,9 @@ export interface ListDataSourceRunsCommandOutput extends ListDataSourceRunsOutpu
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       startedAt: new Date("TIMESTAMP"),
  * //       stoppedAt: new Date("TIMESTAMP"),
+ * //       lineageSummary: { // DataSourceRunLineageSummary
+ * //         importStatus: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -107,6 +110,7 @@ export interface ListDataSourceRunsCommandOutput extends ListDataSourceRunsOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListDataSourceRunsCommand extends $Command
@@ -117,9 +121,7 @@ export class ListDataSourceRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +133,16 @@ export class ListDataSourceRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataSourceRunsCommand)
   .de(de_ListDataSourceRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourceRunsInput;
+      output: ListDataSourceRunsOutput;
+    };
+    sdk: {
+      input: ListDataSourceRunsCommandInput;
+      output: ListDataSourceRunsCommandOutput;
+    };
+  };
+}

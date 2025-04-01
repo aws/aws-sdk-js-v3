@@ -85,20 +85,23 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To abort a multipart upload identified by the upload ID
  * ```javascript
  * // The example deletes an in-progress multipart upload to a vault named my-vault:
  * const input = {
- *   "accountId": "-",
- *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   uploadId: "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
+ *   vaultName: "my-vault"
  * };
  * const command = new AbortMultipartUploadCommand(input);
- * await client.send(command);
- * // example id: f3d907f6-e71c-420c-8f71-502346a2c48a
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AbortMultipartUploadCommand extends $Command
   .classBuilder<
@@ -108,9 +111,7 @@ export class AbortMultipartUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +123,16 @@ export class AbortMultipartUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AbortMultipartUploadCommand)
   .de(de_AbortMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortMultipartUploadInput;
+      output: {};
+    };
+    sdk: {
+      input: AbortMultipartUploadCommandInput;
+      output: AbortMultipartUploadCommandOutput;
+    };
+  };
+}

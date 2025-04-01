@@ -79,6 +79,7 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class CopyDBClusterParameterGroupCommand extends $Command
@@ -89,9 +90,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class CopyDBClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterParameterGroupCommand)
   .de(de_CopyDBClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterParameterGroupMessage;
+      output: CopyDBClusterParameterGroupResult;
+    };
+    sdk: {
+      input: CopyDBClusterParameterGroupCommandInput;
+      output: CopyDBClusterParameterGroupCommandOutput;
+    };
+  };
+}

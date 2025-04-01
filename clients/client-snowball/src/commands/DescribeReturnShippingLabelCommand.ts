@@ -69,6 +69,7 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class DescribeReturnShippingLabelCommand extends $Command
@@ -79,9 +80,7 @@ export class DescribeReturnShippingLabelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DescribeReturnShippingLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReturnShippingLabelCommand)
   .de(de_DescribeReturnShippingLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReturnShippingLabelRequest;
+      output: DescribeReturnShippingLabelResult;
+    };
+    sdk: {
+      input: DescribeReturnShippingLabelCommandInput;
+      output: DescribeReturnShippingLabelCommandOutput;
+    };
+  };
+}

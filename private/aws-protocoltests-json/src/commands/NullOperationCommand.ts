@@ -54,6 +54,7 @@ export interface NullOperationCommandOutput extends NullOperationInputOutput, __
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class NullOperationCommand extends $Command
   .classBuilder<
@@ -71,4 +72,16 @@ export class NullOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NullOperationCommand)
   .de(de_NullOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NullOperationInputOutput;
+      output: NullOperationInputOutput;
+    };
+    sdk: {
+      input: NullOperationCommandInput;
+      output: NullOperationCommandOutput;
+    };
+  };
+}

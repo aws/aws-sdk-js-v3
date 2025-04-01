@@ -67,6 +67,7 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DeleteRegistryPolicyCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteRegistryPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteRegistryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegistryPolicyCommand)
   .de(de_DeleteRegistryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteRegistryPolicyResponse;
+    };
+    sdk: {
+      input: DeleteRegistryPolicyCommandInput;
+      output: DeleteRegistryPolicyCommandOutput;
+    };
+  };
+}

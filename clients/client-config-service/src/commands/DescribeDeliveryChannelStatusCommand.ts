@@ -34,7 +34,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
 
 /**
  * <p>Returns the current status of the specified delivery channel.
- * 			If a delivery channel is not specified, this action returns the
+ * 			If a delivery channel is not specified, this operation returns the
  * 			current status of all delivery channels associated with the
  * 			account.</p>
  *          <note>
@@ -99,6 +99,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliveryChannelStatusCommand extends $Command
@@ -109,9 +110,7 @@ export class DescribeDeliveryChannelStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DescribeDeliveryChannelStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliveryChannelStatusCommand)
   .de(de_DescribeDeliveryChannelStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliveryChannelStatusRequest;
+      output: DescribeDeliveryChannelStatusResponse;
+    };
+    sdk: {
+      input: DescribeDeliveryChannelStatusCommandInput;
+      output: DescribeDeliveryChannelStatusCommandOutput;
+    };
+  };
+}

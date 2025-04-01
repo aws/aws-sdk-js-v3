@@ -77,6 +77,7 @@ export interface GetPrimaryEmailCommandOutput extends GetPrimaryEmailResponse, _
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class GetPrimaryEmailCommand extends $Command
@@ -87,9 +88,7 @@ export class GetPrimaryEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetPrimaryEmailCommand extends $Command
   .f(void 0, GetPrimaryEmailResponseFilterSensitiveLog)
   .ser(se_GetPrimaryEmailCommand)
   .de(de_GetPrimaryEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrimaryEmailRequest;
+      output: GetPrimaryEmailResponse;
+    };
+    sdk: {
+      input: GetPrimaryEmailCommandInput;
+      output: GetPrimaryEmailCommandOutput;
+    };
+  };
+}

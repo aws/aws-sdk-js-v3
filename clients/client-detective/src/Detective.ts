@@ -667,7 +667,7 @@ export interface Detective {
  *                <p>Remove their account from a behavior graph.</p>
  *             </li>
  *          </ul>
- *          <p>All API actions are logged as CloudTrail events. See <a href="https://docs.aws.amazon.com/detective/latest/adminguide/logging-using-cloudtrail.html">Logging Detective API Calls with CloudTrail</a>.</p>
+ *          <p>All API actions are logged as CloudTrail events. See <a href="https://docs.aws.amazon.com/detective/latest/userguide/logging-using-cloudtrail.html">Logging Detective API Calls with CloudTrail</a>.</p>
  *          <note>
  *             <p>We replaced the term "master account" with the term "administrator account". An
  *             administrator account is used to centrally manage multiple accounts. In the case of

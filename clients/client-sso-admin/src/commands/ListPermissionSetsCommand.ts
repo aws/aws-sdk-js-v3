@@ -77,6 +77,7 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionSetsCommand extends $Command
@@ -87,9 +88,7 @@ export class ListPermissionSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class ListPermissionSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionSetsCommand)
   .de(de_ListPermissionSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionSetsRequest;
+      output: ListPermissionSetsResponse;
+    };
+    sdk: {
+      input: ListPermissionSetsCommandInput;
+      output: ListPermissionSetsCommandOutput;
+    };
+  };
+}

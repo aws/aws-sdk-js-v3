@@ -28,9 +28,14 @@ export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSe
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the stale security group rules for security groups in a specified VPC.
- *           Rules are stale when they reference a deleted security group in the same VPC or peered VPC. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has
- *           been deleted.</p>
+ * <p>Describes the stale security group rules for security groups referenced across a VPC
+ *             peering connection, transit gateway connection, or with a security group VPC
+ *             association. Rules are stale when they reference a deleted security group. Rules can
+ *             also be stale if they reference a security group in a peer VPC for which the VPC peering
+ *             connection has been deleted, across a transit gateway where the transit gateway has been
+ *             deleted (or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">the transit
+ *                 gateway security group referencing feature</a> has been disabled), or if a
+ *             security group VPC association has been disassociated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,12 +71,12 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * //           UserIdGroupPairs: [ // UserIdGroupPairSet
  * //             { // UserIdGroupPair
  * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
  * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
  * //               VpcId: "STRING_VALUE",
  * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -90,12 +95,12 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * //           UserIdGroupPairs: [
  * //             {
  * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
  * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
  * //               VpcId: "STRING_VALUE",
  * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -116,6 +121,7 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeStaleSecurityGroupsCommand extends $Command
@@ -126,9 +132,7 @@ export class DescribeStaleSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +144,16 @@ export class DescribeStaleSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStaleSecurityGroupsCommand)
   .de(de_DescribeStaleSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStaleSecurityGroupsRequest;
+      output: DescribeStaleSecurityGroupsResult;
+    };
+    sdk: {
+      input: DescribeStaleSecurityGroupsCommandInput;
+      output: DescribeStaleSecurityGroupsCommandOutput;
+    };
+  };
+}

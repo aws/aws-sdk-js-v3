@@ -99,32 +99,32 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To get a list of intents
  * ```javascript
  * // This example shows how to get a list of all of the intents in your account.
  * const input = {
- *   "maxResults": 10,
- *   "nextToken": ""
+ *   maxResults: 10,
+ *   nextToken: ""
  * };
  * const command = new GetIntentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "intents": [
+ *   intents: [
  *     {
- *       "version": "$LATEST",
- *       "name": "DocOrderPizza",
- *       "createdDate": 1494359783.453,
- *       "description": "Order a pizza from a local pizzeria.",
- *       "lastUpdatedDate": 1494359783.453
+ *       createdDate: 1.494359783453E9,
+ *       description: "Order a pizza from a local pizzeria.",
+ *       lastUpdatedDate: 1.494359783453E9,
+ *       name: "DocOrderPizza",
+ *       version: "$LATEST"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-intents-1494432416363
  * ```
  *
+ * @public
  */
 export class GetIntentsCommand extends $Command
   .classBuilder<
@@ -134,9 +134,7 @@ export class GetIntentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +146,16 @@ export class GetIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntentsCommand)
   .de(de_GetIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntentsRequest;
+      output: GetIntentsResponse;
+    };
+    sdk: {
+      input: GetIntentsCommandInput;
+      output: GetIntentsCommandOutput;
+    };
+  };
+}

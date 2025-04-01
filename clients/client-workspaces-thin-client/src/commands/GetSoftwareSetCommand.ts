@@ -94,6 +94,7 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class GetSoftwareSetCommand extends $Command
@@ -104,9 +105,7 @@ export class GetSoftwareSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class GetSoftwareSetCommand extends $Command
   .f(void 0, GetSoftwareSetResponseFilterSensitiveLog)
   .ser(se_GetSoftwareSetCommand)
   .de(de_GetSoftwareSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSoftwareSetRequest;
+      output: GetSoftwareSetResponse;
+    };
+    sdk: {
+      input: GetSoftwareSetCommandInput;
+      output: GetSoftwareSetCommandOutput;
+    };
+  };
+}

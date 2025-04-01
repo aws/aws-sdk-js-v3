@@ -71,19 +71,22 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete a policy from an IAM group
  * ```javascript
  * // The following command deletes the policy named ExamplePolicy from the group named Admins:
  * const input = {
- *   "GroupName": "Admins",
- *   "PolicyName": "ExamplePolicy"
+ *   GroupName: "Admins",
+ *   PolicyName: "ExamplePolicy"
  * };
  * const command = new DeleteGroupPolicyCommand(input);
- * await client.send(command);
- * // example id: e683f2bd-98a4-4fe0-bb66-33169c692d4a
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteGroupPolicyCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class DeleteGroupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class DeleteGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupPolicyCommand)
   .de(de_DeleteGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGroupPolicyCommandInput;
+      output: DeleteGroupPolicyCommandOutput;
+    };
+  };
+}

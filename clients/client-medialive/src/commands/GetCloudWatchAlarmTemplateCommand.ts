@@ -57,7 +57,7 @@ export interface GetCloudWatchAlarmTemplateCommandOutput extends GetCloudWatchAl
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET",
+ * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION",
  * //   Threshold: Number("double"),
  * //   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing",
  * // };
@@ -88,6 +88,7 @@ export interface GetCloudWatchAlarmTemplateCommandOutput extends GetCloudWatchAl
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class GetCloudWatchAlarmTemplateCommand extends $Command
@@ -98,9 +99,7 @@ export class GetCloudWatchAlarmTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetCloudWatchAlarmTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCloudWatchAlarmTemplateCommand)
   .de(de_GetCloudWatchAlarmTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCloudWatchAlarmTemplateRequest;
+      output: GetCloudWatchAlarmTemplateResponse;
+    };
+    sdk: {
+      input: GetCloudWatchAlarmTemplateCommandInput;
+      output: GetCloudWatchAlarmTemplateCommandOutput;
+    };
+  };
+}

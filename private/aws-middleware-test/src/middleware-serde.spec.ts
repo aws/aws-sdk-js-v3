@@ -2,13 +2,20 @@ import { EC2 } from "@aws-sdk/client-ec2";
 import { S3 } from "@aws-sdk/client-s3";
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { SageMakerRuntime } from "@aws-sdk/client-sagemaker-runtime";
+import { describe, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 
 describe("middleware-serde", () => {
   describe(S3.name, () => {
     it("should serialize xml", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         method: "PUT",
         hostname: "s3.us-west-2.amazonaws.com",
@@ -20,7 +27,7 @@ describe("middleware-serde", () => {
           "x-amz-acl": "private",
           "content-length": "509",
           Expect: "100-continue",
-          "content-md5": "qpwmS0vhCISEXes008aoXA==",
+          "x-amz-checksum-crc32": "XnKFaw==",
           host: "s3.us-west-2.amazonaws.com",
           "x-amz-content-sha256": "c0a89780e1aac5dfa17604e9e25616e7babba0b655db189be49b4c352543bb22",
         },
@@ -53,7 +60,13 @@ describe("middleware-serde", () => {
 
   describe(EC2.name, () => {
     it("should serialize query", async () => {
-      const client = new EC2({ region: "us-west-2" });
+      const client = new EC2({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         method: "POST",
         hostname: "ec2.us-west-2.amazonaws.com",
@@ -77,7 +90,13 @@ describe("middleware-serde", () => {
 
   describe(SageMaker.name, () => {
     it("should serialize json", async () => {
-      const client = new SageMaker({ region: "us-west-2" });
+      const client = new SageMaker({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         method: "POST",
         hostname: "api.sagemaker.us-west-2.amazonaws.com",
@@ -100,7 +119,13 @@ describe("middleware-serde", () => {
 
   describe(SageMakerRuntime.name, () => {
     it("should serialize json", async () => {
-      const client = new SageMakerRuntime({ region: "us-west-2" });
+      const client = new SageMakerRuntime({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         method: "POST",
         hostname: "runtime.sagemaker.us-west-2.amazonaws.com",

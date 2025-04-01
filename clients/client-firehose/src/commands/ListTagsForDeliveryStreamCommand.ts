@@ -28,7 +28,7 @@ export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDelive
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
+ * <p>Lists the tags for the specified Firehose stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +73,7 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForDeliveryStreamCommand extends $Command
@@ -83,9 +84,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class ListTagsForDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForDeliveryStreamCommand)
   .de(de_ListTagsForDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForDeliveryStreamInput;
+      output: ListTagsForDeliveryStreamOutput;
+    };
+    sdk: {
+      input: ListTagsForDeliveryStreamCommandInput;
+      output: ListTagsForDeliveryStreamCommandOutput;
+    };
+  };
+}

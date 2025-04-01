@@ -262,6 +262,7 @@ import {
   ConfigurationSetAttribute,
   ConfigurationSetDoesNotExistException,
   ConfigurationSetSendingPausedException,
+  ConnectAction,
   Content,
   CreateConfigurationSetEventDestinationRequest,
   CreateConfigurationSetEventDestinationResponse,
@@ -3997,6 +3998,20 @@ const se_ConfigurationSetAttributeList = (input: ConfigurationSetAttribute[], co
 };
 
 /**
+ * serializeAws_queryConnectAction
+ */
+const se_ConnectAction = (input: ConnectAction, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IARN] != null) {
+    entries[_IARN] = input[_IARN];
+  }
+  if (input[_IAMRARN] != null) {
+    entries[_IAMRARN] = input[_IAMRARN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryContent
  */
 const se_Content = (input: Content, context: __SerdeContext): any => {
@@ -4964,6 +4979,13 @@ const se_ReceiptAction = (input: ReceiptAction, context: __SerdeContext): any =>
       entries[loc] = value;
     });
   }
+  if (input[_CAo] != null) {
+    const memberEntries = se_ConnectAction(input[_CAo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectAction.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -5163,6 +5185,9 @@ const se_S3Action = (input: S3Action, context: __SerdeContext): any => {
   }
   if (input[_KKA] != null) {
     entries[_KKA] = input[_KKA];
+  }
+  if (input[_IRA] != null) {
+    entries[_IRA] = input[_IRA];
   }
   return entries;
 };
@@ -6101,6 +6126,20 @@ const de_ConfigurationSetSendingPausedException = (
   }
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryConnectAction
+ */
+const de_ConnectAction = (output: any, context: __SerdeContext): ConnectAction => {
+  const contents: any = {};
+  if (output[_IARN] != null) {
+    contents[_IARN] = __expectString(output[_IARN]);
+  }
+  if (output[_IAMRARN] != null) {
+    contents[_IAMRARN] = __expectString(output[_IAMRARN]);
   }
   return contents;
 };
@@ -7290,6 +7329,9 @@ const de_ReceiptAction = (output: any, context: __SerdeContext): ReceiptAction =
   if (output[_SNSA] != null) {
     contents[_SNSA] = de_SNSAction(output[_SNSA], context);
   }
+  if (output[_CAo] != null) {
+    contents[_CAo] = de_ConnectAction(output[_CAo], context);
+  }
   return contents;
 };
 
@@ -7489,6 +7531,9 @@ const de_S3Action = (output: any, context: __SerdeContext): S3Action => {
   }
   if (output[_KKA] != null) {
     contents[_KKA] = __expectString(output[_KKA]);
+  }
+  if (output[_IRA] != null) {
+    contents[_IRA] = __expectString(output[_IRA]);
   }
   return contents;
 };
@@ -7992,6 +8037,7 @@ const _Bo = "Bounces";
 const _Bu = "Bucket";
 const _C = "Charset";
 const _CA = "CcAddresses";
+const _CAo = "ConnectAction";
 const _CCS = "CreateConfigurationSet";
 const _CCSED = "CreateConfigurationSetEventDestination";
 const _CCSTO = "CreateConfigurationSetTrackingOptions";
@@ -8084,7 +8130,9 @@ const _HP = "HtmlPart";
 const _HV = "HeaderValue";
 const _I = "Identity";
 const _IAMRARN = "IAMRoleARN";
+const _IARN = "InstanceARN";
 const _IF = "IpFilter";
+const _IRA = "IamRoleArn";
 const _IT = "InvocationType";
 const _ITd = "IdentityType";
 const _Id = "Identities";

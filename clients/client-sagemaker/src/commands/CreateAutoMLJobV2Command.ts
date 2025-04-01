@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAutoMLJobV2Request, CreateAutoMLJobV2Response } from "../models/models_0";
+import { CreateAutoMLJobV2Request, CreateAutoMLJobV2Response } from "../models/models_1";
 import { de_CreateAutoMLJobV2Command, se_CreateAutoMLJobV2Command } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -29,6 +29,21 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
 
 /**
  * <p>Creates an Autopilot job also referred to as Autopilot experiment or AutoML job V2.</p>
+ *          <p>An AutoML job in SageMaker AI is a fully automated process that allows you to build machine
+ *          learning models with minimal effort and machine learning expertise. When initiating an
+ *          AutoML job, you provide your data and optionally specify parameters tailored to your use
+ *          case. SageMaker AI then automates the entire model development lifecycle, including data
+ *          preprocessing, model training, tuning, and evaluation. AutoML jobs are designed to simplify
+ *          and accelerate the model building process by automating various tasks and exploring
+ *          different combinations of machine learning algorithms, data preprocessing techniques, and
+ *          hyperparameter values. The output of an AutoML job comprises one or more trained models
+ *          ready for deployment and inference. Additionally, SageMaker AI AutoML jobs generate a candidate
+ *          model leaderboard, allowing you to select the best-performing model for deployment.</p>
+ *          <p>For more information about AutoML jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html</a>
+ *          in the SageMaker AI developer guide.</p>
+ *          <p>AutoML jobs V2 support various problem types such as regression, binary, and multiclass
+ *          classification with tabular data, text and image classification, time-series forecasting,
+ *          and fine-tuning of large language models (LLMs) for text generation.</p>
  *          <note>
  *             <p>
  *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a> are new versions of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>
@@ -197,6 +212,11 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *   DataSplitConfig: { // AutoMLDataSplitConfig
  *     ValidationFraction: Number("float"),
  *   },
+ *   AutoMLComputeConfig: { // AutoMLComputeConfig
+ *     EmrServerlessComputeConfig: { // EmrServerlessComputeConfig
+ *       ExecutionRoleARN: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
@@ -222,6 +242,7 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateAutoMLJobV2Command extends $Command
@@ -232,9 +253,7 @@ export class CreateAutoMLJobV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +265,16 @@ export class CreateAutoMLJobV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAutoMLJobV2Command)
   .de(de_CreateAutoMLJobV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutoMLJobV2Request;
+      output: CreateAutoMLJobV2Response;
+    };
+    sdk: {
+      input: CreateAutoMLJobV2CommandInput;
+      output: CreateAutoMLJobV2CommandOutput;
+    };
+  };
+}

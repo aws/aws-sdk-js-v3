@@ -112,6 +112,7 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateSiteCommand extends $Command
@@ -122,9 +123,7 @@ export class CreateSiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class CreateSiteCommand extends $Command
   .f(CreateSiteRequestFilterSensitiveLog, CreateSiteResponseFilterSensitiveLog)
   .ser(se_CreateSiteCommand)
   .de(de_CreateSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSiteRequest;
+      output: CreateSiteResponse;
+    };
+    sdk: {
+      input: CreateSiteCommandInput;
+      output: CreateSiteCommandOutput;
+    };
+  };
+}

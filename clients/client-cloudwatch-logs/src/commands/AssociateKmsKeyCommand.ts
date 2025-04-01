@@ -34,7 +34,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *     or the <code>resourceIdentifier</code> parameter. You can't specify both of those parameters in the same operation.</p>
  *          <ul>
  *             <li>
- *                <p>Specify the <code>logGroupName</code> parameter to cause all log events stored in the log group to
+ *                <p>Specify the <code>logGroupName</code> parameter to cause log events ingested into that log group to
  *     be encrypted with that key. Only the log events ingested after the key is associated are encrypted with that key.</p>
  *                <p>Associating a KMS key with a log group overrides any existing
  *       associations between the log group and a KMS key. After a KMS key is associated with a log group, all newly ingested data for the log group is encrypted
@@ -110,6 +110,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class AssociateKmsKeyCommand extends $Command
@@ -120,9 +121,7 @@ export class AssociateKmsKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class AssociateKmsKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateKmsKeyCommand)
   .de(de_AssociateKmsKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateKmsKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateKmsKeyCommandInput;
+      output: AssociateKmsKeyCommandOutput;
+    };
+  };
+}

@@ -75,6 +75,7 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListRegistriesCommand extends $Command
@@ -85,9 +86,7 @@ export class ListRegistriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListRegistriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRegistriesCommand)
   .de(de_ListRegistriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRegistriesInput;
+      output: ListRegistriesResponse;
+    };
+    sdk: {
+      input: ListRegistriesCommandInput;
+      output: ListRegistriesCommandOutput;
+    };
+  };
+}

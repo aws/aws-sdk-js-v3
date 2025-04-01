@@ -137,6 +137,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigCommand extends $Command
@@ -147,9 +148,7 @@ export class CreateConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class CreateConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigCommand)
   .de(de_CreateConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: CreateConfigCommandInput;
+      output: CreateConfigCommandOutput;
+    };
+  };
+}

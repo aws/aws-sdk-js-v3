@@ -32,7 +32,7 @@ export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
 
 /**
- * <p>Allows you to send a request that sends a voice message through Amazon Pinpoint.
+ * <p>Allows you to send a request that sends a voice message.
  *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
  *             convert a text script into a voice message.</p>
  * @example
@@ -55,6 +55,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *   },
  *   DryRun: true || false,
  *   ProtectConfigurationId: "STRING_VALUE",
+ *   MessageFeedbackEnabled: true || false,
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
@@ -100,6 +101,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class SendVoiceMessageCommand extends $Command
@@ -110,9 +112,7 @@ export class SendVoiceMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class SendVoiceMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendVoiceMessageCommand)
   .de(de_SendVoiceMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendVoiceMessageRequest;
+      output: SendVoiceMessageResult;
+    };
+    sdk: {
+      input: SendVoiceMessageCommandInput;
+      output: SendVoiceMessageCommandOutput;
+    };
+  };
+}

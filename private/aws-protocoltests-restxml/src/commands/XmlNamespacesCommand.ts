@@ -64,6 +64,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlNamespacesCommand extends $Command
   .classBuilder<
@@ -81,4 +82,16 @@ export class XmlNamespacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlNamespacesCommand)
   .de(de_XmlNamespacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlNamespacesRequest;
+      output: XmlNamespacesResponse;
+    };
+    sdk: {
+      input: XmlNamespacesCommandInput;
+      output: XmlNamespacesCommandOutput;
+    };
+  };
+}

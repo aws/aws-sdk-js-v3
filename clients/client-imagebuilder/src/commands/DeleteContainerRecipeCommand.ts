@@ -81,6 +81,7 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteContainerRecipeCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteContainerRecipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteContainerRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContainerRecipeCommand)
   .de(de_DeleteContainerRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContainerRecipeRequest;
+      output: DeleteContainerRecipeResponse;
+    };
+    sdk: {
+      input: DeleteContainerRecipeCommandInput;
+      output: DeleteContainerRecipeCommandOutput;
+    };
+  };
+}

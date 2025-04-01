@@ -116,6 +116,7 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomLineItemCommand extends $Command
@@ -126,9 +127,7 @@ export class CreateCustomLineItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class CreateCustomLineItemCommand extends $Command
   .f(CreateCustomLineItemInputFilterSensitiveLog, void 0)
   .ser(se_CreateCustomLineItemCommand)
   .de(de_CreateCustomLineItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomLineItemInput;
+      output: CreateCustomLineItemOutput;
+    };
+    sdk: {
+      input: CreateCustomLineItemCommandInput;
+      output: CreateCustomLineItemCommandOutput;
+    };
+  };
+}

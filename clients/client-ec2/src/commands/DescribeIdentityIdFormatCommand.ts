@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_3";
+import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_4";
 import { de_DescribeIdentityIdFormatCommand, se_DescribeIdentityIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -54,8 +54,8 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  * // const { EC2Client, DescribeIdentityIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeIdentityIdFormatRequest
- *   PrincipalArn: "STRING_VALUE", // required
  *   Resource: "STRING_VALUE",
+ *   PrincipalArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeIdentityIdFormatCommand(input);
  * const response = await client.send(command);
@@ -80,6 +80,7 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityIdFormatCommand extends $Command
@@ -90,9 +91,7 @@ export class DescribeIdentityIdFormatCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DescribeIdentityIdFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityIdFormatCommand)
   .de(de_DescribeIdentityIdFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityIdFormatRequest;
+      output: DescribeIdentityIdFormatResult;
+    };
+    sdk: {
+      input: DescribeIdentityIdFormatCommandInput;
+      output: DescribeIdentityIdFormatCommandOutput;
+    };
+  };
+}

@@ -33,6 +33,12 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
 
 /**
  * <p>Changes the settings of an existing Cloud9 development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +87,23 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example UpdateEnvironment
  * ```javascript
  * //
  * const input = {
- *   "name": "my-changed-demo-environment",
- *   "description": "This is my changed demonstration environment.",
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ *   description: "This is my changed demonstration environment.",
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *   name: "my-changed-demo-environment"
  * };
  * const command = new UpdateEnvironmentCommand(input);
- * await client.send(command);
- * // example id: updateenvironment-1516823781910
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<
@@ -104,9 +113,7 @@ export class UpdateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +125,16 @@ export class UpdateEnvironmentCommand extends $Command
   .f(UpdateEnvironmentRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateEnvironmentCommand)
   .de(de_UpdateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEnvironmentCommandInput;
+      output: UpdateEnvironmentCommandOutput;
+    };
+  };
+}

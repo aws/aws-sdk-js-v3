@@ -70,6 +70,7 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DeleteRealtimeEndpointCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteRealtimeEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteRealtimeEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRealtimeEndpointCommand)
   .de(de_DeleteRealtimeEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRealtimeEndpointInput;
+      output: DeleteRealtimeEndpointOutput;
+    };
+    sdk: {
+      input: DeleteRealtimeEndpointCommandInput;
+      output: DeleteRealtimeEndpointCommandOutput;
+    };
+  };
+}

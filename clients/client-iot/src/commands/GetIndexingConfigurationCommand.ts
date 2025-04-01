@@ -112,6 +112,7 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetIndexingConfigurationCommand extends $Command
@@ -122,9 +123,7 @@ export class GetIndexingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class GetIndexingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIndexingConfigurationCommand)
   .de(de_GetIndexingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetIndexingConfigurationResponse;
+    };
+    sdk: {
+      input: GetIndexingConfigurationCommandInput;
+      output: GetIndexingConfigurationCommandOutput;
+    };
+  };
+}

@@ -68,6 +68,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class GreetingWithErrorsCommand extends $Command
@@ -86,4 +87,16 @@ export class GreetingWithErrorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GreetingWithErrorsCommand)
   .de(de_GreetingWithErrorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GreetingWithErrorsOutput;
+    };
+    sdk: {
+      input: GreetingWithErrorsCommandInput;
+      output: GreetingWithErrorsCommandOutput;
+    };
+  };
+}

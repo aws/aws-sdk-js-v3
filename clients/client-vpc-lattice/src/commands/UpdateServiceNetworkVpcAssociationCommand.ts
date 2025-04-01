@@ -37,9 +37,9 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
 
 /**
  * <p>Updates the service network and VPC association. If you add a security group to the service
- *    network and VPC association, the association must continue to always have at least one security
+ *    network and VPC association, the association must continue to have at least one security
  *    group. You can add or edit security groups at any time. However, to remove all security groups,
- *    you must first delete the association and recreate it without security groups.</p>
+ *    you must first delete the association and then recreate it without security groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +95,7 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceNetworkVpcAssociationCommand extends $Command
@@ -105,9 +106,7 @@ export class UpdateServiceNetworkVpcAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class UpdateServiceNetworkVpcAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceNetworkVpcAssociationCommand)
   .de(de_UpdateServiceNetworkVpcAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceNetworkVpcAssociationRequest;
+      output: UpdateServiceNetworkVpcAssociationResponse;
+    };
+    sdk: {
+      input: UpdateServiceNetworkVpcAssociationCommandInput;
+      output: UpdateServiceNetworkVpcAssociationCommandOutput;
+    };
+  };
+}

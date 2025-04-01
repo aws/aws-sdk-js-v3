@@ -106,6 +106,7 @@ export interface UpdateTestConfigurationCommandOutput extends UpdateTestConfigur
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class UpdateTestConfigurationCommand extends $Command
@@ -116,9 +117,7 @@ export class UpdateTestConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class UpdateTestConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTestConfigurationCommand)
   .de(de_UpdateTestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTestConfigurationRequest;
+      output: UpdateTestConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateTestConfigurationCommandInput;
+      output: UpdateTestConfigurationCommandOutput;
+    };
+  };
+}

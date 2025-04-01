@@ -10,7 +10,7 @@ import {
   GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForAnonymousUserResponse,
   GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_GenerateEmbedUrlForAnonymousUserCommand,
   se_GenerateEmbedUrlForAnonymousUserCommand,
@@ -78,6 +78,17 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  *   ExperienceConfiguration: { // AnonymousUserEmbeddingExperienceConfiguration
  *     Dashboard: { // AnonymousUserDashboardEmbeddingConfiguration
  *       InitialDashboardId: "STRING_VALUE", // required
+ *       EnabledFeatures: [ // AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures
+ *         "SHARED_VIEW",
+ *       ],
+ *       DisabledFeatures: [ // AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures
+ *         "SHARED_VIEW",
+ *       ],
+ *       FeatureConfigurations: { // AnonymousUserDashboardFeatureConfigurations
+ *         SharedView: { // SharedViewConfigurations
+ *           Enabled: true || false, // required
+ *         },
+ *       },
  *     },
  *     DashboardVisual: { // AnonymousUserDashboardVisualEmbeddingConfiguration
  *       InitialDashboardVisualId: { // DashboardVisualId
@@ -156,6 +167,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
@@ -166,9 +178,7 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +193,16 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
   )
   .ser(se_GenerateEmbedUrlForAnonymousUserCommand)
   .de(de_GenerateEmbedUrlForAnonymousUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateEmbedUrlForAnonymousUserRequest;
+      output: GenerateEmbedUrlForAnonymousUserResponse;
+    };
+    sdk: {
+      input: GenerateEmbedUrlForAnonymousUserCommandInput;
+      output: GenerateEmbedUrlForAnonymousUserCommandOutput;
+    };
+  };
+}

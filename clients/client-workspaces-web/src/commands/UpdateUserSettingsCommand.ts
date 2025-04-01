@@ -67,6 +67,14 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *     ],
  *   },
  *   deepLinkAllowed: "STRING_VALUE",
+ *   toolbarConfiguration: { // ToolbarConfiguration
+ *     toolbarType: "STRING_VALUE",
+ *     visualMode: "STRING_VALUE",
+ *     hiddenToolbarItems: [ // HiddenToolbarItemList
+ *       "STRING_VALUE",
+ *     ],
+ *     maxDisplayResolution: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -104,6 +112,14 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     deepLinkAllowed: "STRING_VALUE",
+ * //     toolbarConfiguration: { // ToolbarConfiguration
+ * //       toolbarType: "STRING_VALUE",
+ * //       visualMode: "STRING_VALUE",
+ * //       hiddenToolbarItems: [ // HiddenToolbarItemList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       maxDisplayResolution: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -133,6 +149,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserSettingsCommand extends $Command
@@ -143,9 +160,7 @@ export class UpdateUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +172,16 @@ export class UpdateUserSettingsCommand extends $Command
   .f(UpdateUserSettingsRequestFilterSensitiveLog, UpdateUserSettingsResponseFilterSensitiveLog)
   .ser(se_UpdateUserSettingsCommand)
   .de(de_UpdateUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserSettingsRequest;
+      output: UpdateUserSettingsResponse;
+    };
+    sdk: {
+      input: UpdateUserSettingsCommandInput;
+      output: UpdateUserSettingsCommandOutput;
+    };
+  };
+}

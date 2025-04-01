@@ -153,6 +153,7 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeploymentCommand extends $Command
@@ -163,9 +164,7 @@ export class DeleteDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +176,16 @@ export class DeleteDeploymentCommand extends $Command
   .f(void 0, DeleteDeploymentOutputFilterSensitiveLog)
   .ser(se_DeleteDeploymentCommand)
   .de(de_DeleteDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentInput;
+      output: DeleteDeploymentOutput;
+    };
+    sdk: {
+      input: DeleteDeploymentCommandInput;
+      output: DeleteDeploymentCommandOutput;
+    };
+  };
+}

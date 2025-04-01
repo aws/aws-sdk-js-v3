@@ -29,7 +29,7 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
  *             OK</code> response upon successfully deleting a website configuration on the specified
@@ -80,18 +80,21 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete bucket website configuration
  * ```javascript
  * // The following example deletes bucket website configuration.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketWebsiteCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-website-configuration-1483043937825
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketWebsiteCommand extends $Command
   .classBuilder<
@@ -117,4 +120,16 @@ export class DeleteBucketWebsiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketWebsiteCommand)
   .de(de_DeleteBucketWebsiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketWebsiteRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketWebsiteCommandInput;
+      output: DeleteBucketWebsiteCommandOutput;
+    };
+  };
+}

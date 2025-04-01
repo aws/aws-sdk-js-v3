@@ -23,6 +23,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -38,6 +39,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "../commands/CancelImportTaskCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "../commands/CancelQueryCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "../commands/CreateGraphCommand";
@@ -63,6 +65,7 @@ import {
   DeletePrivateGraphEndpointCommandOutput,
 } from "../commands/DeletePrivateGraphEndpointCommand";
 import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
+import { GetExportTaskCommandInput, GetExportTaskCommandOutput } from "../commands/GetExportTaskCommand";
 import { GetGraphCommandInput, GetGraphCommandOutput } from "../commands/GetGraphCommand";
 import { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "../commands/GetGraphSnapshotCommand";
 import { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "../commands/GetGraphSummaryCommand";
@@ -72,6 +75,7 @@ import {
   GetPrivateGraphEndpointCommandOutput,
 } from "../commands/GetPrivateGraphEndpointCommand";
 import { GetQueryCommandInput, GetQueryCommandOutput } from "../commands/GetQueryCommand";
+import { ListExportTasksCommandInput, ListExportTasksCommandOutput } from "../commands/ListExportTasksCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { ListGraphSnapshotsCommandInput, ListGraphSnapshotsCommandOutput } from "../commands/ListGraphSnapshotsCommand";
 import { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "../commands/ListImportTasksCommand";
@@ -89,6 +93,7 @@ import {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "../commands/RestoreGraphFromSnapshotCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "../commands/StartExportTaskCommand";
 import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "../commands/StartImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -96,6 +101,10 @@ import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "../commands/U
 import {
   AccessDeniedException,
   ConflictException,
+  ExportFilter,
+  ExportFilterElement,
+  ExportFilterPropertyAttributes,
+  ExportTaskDetails,
   GraphSnapshotSummary,
   ImportOptions,
   ImportTaskDetails,
@@ -109,6 +118,22 @@ import {
   VectorSearchConfiguration,
 } from "../models/models_0";
 import { NeptuneGraphServiceException as __BaseException } from "../models/NeptuneGraphServiceException";
+
+/**
+ * serializeAws_restJson1CancelExportTaskCommand
+ */
+export const se_CancelExportTaskCommand = async (
+  input: CancelExportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/exporttasks/{taskIdentifier}");
+  b.p("taskIdentifier", () => input.taskIdentifier!, "{taskIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelImportTaskCommand
@@ -224,6 +249,7 @@ export const se_CreateGraphUsingImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      blankNodeHandling: [],
       deletionProtection: [],
       failOnError: [],
       format: [],
@@ -232,6 +258,7 @@ export const se_CreateGraphUsingImportTaskCommand = async (
       kmsKeyIdentifier: [],
       maxProvisionedMemory: [],
       minProvisionedMemory: [],
+      parquetType: [],
       publicConnectivity: [],
       replicaCount: [],
       roleArn: [],
@@ -362,6 +389,22 @@ export const se_ExecuteQueryCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetExportTaskCommand
+ */
+export const se_GetExportTaskCommand = async (
+  input: GetExportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/exporttasks/{taskIdentifier}");
+  b.p("taskIdentifier", () => input.taskIdentifier!, "{taskIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetGraphCommand
  */
 export const se_GetGraphCommand = async (
@@ -485,6 +528,26 @@ export const se_GetQueryCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListExportTasksCommand
+ */
+export const se_ListExportTasksCommand = async (
+  input: ListExportTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/exporttasks");
+  const query: any = map({
+    [_gI]: [, input[_gI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -667,6 +730,35 @@ export const se_RestoreGraphFromSnapshotCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartExportTaskCommand
+ */
+export const se_StartExportTaskCommand = async (
+  input: StartExportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/exporttasks");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      destination: [],
+      exportFilter: (_) => _json(_),
+      format: [],
+      graphIdentifier: [],
+      kmsKeyIdentifier: [],
+      parquetType: [],
+      roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartImportTaskCommand
  */
 export const se_StartImportTaskCommand = async (
@@ -682,9 +774,11 @@ export const se_StartImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      blankNodeHandling: [],
       failOnError: [],
       format: [],
       importOptions: (_) => _json(_),
+      parquetType: [],
       roleArn: [],
       source: [],
     })
@@ -728,10 +822,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -764,6 +855,35 @@ export const se_UpdateGraphCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelExportTaskCommand
+ */
+export const de_CancelExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelExportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    destination: __expectString,
+    format: __expectString,
+    graphId: __expectString,
+    kmsKeyIdentifier: __expectString,
+    parquetType: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelImportTaskCommand
  */
 export const de_CancelImportTaskCommand = async (
@@ -780,6 +900,7 @@ export const de_CancelImportTaskCommand = async (
   const doc = take(data, {
     format: __expectString,
     graphId: __expectString,
+    parquetType: __expectString,
     roleArn: __expectString,
     source: __expectString,
     status: __expectString,
@@ -886,6 +1007,7 @@ export const de_CreateGraphUsingImportTaskCommand = async (
     format: __expectString,
     graphId: __expectString,
     importOptions: (_) => _json(__expectUnion(_)),
+    parquetType: __expectString,
     roleArn: __expectString,
     source: __expectString,
     status: __expectString,
@@ -1025,6 +1147,37 @@ export const de_ExecuteQueryCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetExportTaskCommand
+ */
+export const de_GetExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    destination: __expectString,
+    exportFilter: _json,
+    exportTaskDetails: (_) => de_ExportTaskDetails(_, context),
+    format: __expectString,
+    graphId: __expectString,
+    kmsKeyIdentifier: __expectString,
+    parquetType: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetGraphCommand
  */
 export const de_GetGraphCommand = async (
@@ -1129,6 +1282,7 @@ export const de_GetImportTaskCommand = async (
     graphId: __expectString,
     importOptions: (_) => _json(__expectUnion(_)),
     importTaskDetails: (_) => de_ImportTaskDetails(_, context),
+    parquetType: __expectString,
     roleArn: __expectString,
     source: __expectString,
     status: __expectString,
@@ -1183,6 +1337,28 @@ export const de_GetQueryCommand = async (
     queryString: __expectString,
     state: __expectString,
     waited: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExportTasksCommand
+ */
+export const de_ListExportTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    tasks: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1389,6 +1565,36 @@ export const de_RestoreGraphFromSnapshotCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartExportTaskCommand
+ */
+export const de_StartExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExportTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    destination: __expectString,
+    exportFilter: _json,
+    format: __expectString,
+    graphId: __expectString,
+    kmsKeyIdentifier: __expectString,
+    parquetType: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartImportTaskCommand
  */
 export const de_StartImportTaskCommand = async (
@@ -1406,6 +1612,7 @@ export const de_StartImportTaskCommand = async (
     format: __expectString,
     graphId: __expectString,
     importOptions: (_) => _json(__expectUnion(_)),
+    parquetType: __expectString,
     roleArn: __expectString,
     source: __expectString,
     status: __expectString,
@@ -1700,6 +1907,16 @@ const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __
   }, {});
 };
 
+// se_ExportFilter omitted.
+
+// se_ExportFilterElement omitted.
+
+// se_ExportFilterPerLabelMap omitted.
+
+// se_ExportFilterPropertyAttributes omitted.
+
+// se_ExportFilterPropertyMap omitted.
+
 // se_ImportOptions omitted.
 
 // se_NeptuneImportOptions omitted.
@@ -1726,6 +1943,33 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // de_EdgeStructure omitted.
 
 // de_EdgeStructures omitted.
+
+// de_ExportFilter omitted.
+
+// de_ExportFilterElement omitted.
+
+// de_ExportFilterPerLabelMap omitted.
+
+// de_ExportFilterPropertyAttributes omitted.
+
+// de_ExportFilterPropertyMap omitted.
+
+/**
+ * deserializeAws_restJson1ExportTaskDetails
+ */
+const de_ExportTaskDetails = (output: any, context: __SerdeContext): ExportTaskDetails => {
+  return take(output, {
+    numEdgesWritten: __expectLong,
+    numVerticesWritten: __expectLong,
+    progressPercentage: __expectInt32,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    timeElapsedSeconds: __expectLong,
+  }) as any;
+};
+
+// de_ExportTaskSummary omitted.
+
+// de_ExportTaskSummaryList omitted.
 
 // de_GraphDataSummary omitted.
 
@@ -1823,13 +2067,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _g = "graphidentifier";
 const _gI = "graphIdentifier";

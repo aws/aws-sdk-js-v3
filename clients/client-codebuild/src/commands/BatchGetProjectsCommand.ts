@@ -57,7 +57,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: { // SourceAuth
- * //           type: "OAUTH" || "CODECONNECTIONS", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -78,7 +78,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //           },
  * //           buildspec: "STRING_VALUE",
  * //           auth: {
- * //             type: "OAUTH" || "CODECONNECTIONS", // required
+ * //             type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //             resource: "STRING_VALUE",
  * //           },
  * //           reportBuildStatus: true || false,
@@ -129,11 +129,18 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         modes: [ // ProjectCacheModes
  * //           "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //         ],
+ * //         cacheNamespace: "STRING_VALUE",
  * //       },
  * //       environment: { // ProjectEnvironment
- * //         type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
+ * //         type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM", // required
  * //         image: "STRING_VALUE", // required
- * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
+ * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE", // required
+ * //         computeConfiguration: { // ComputeConfiguration
+ * //           vCpu: Number("long"),
+ * //           memory: Number("long"),
+ * //           disk: Number("long"),
+ * //           machineType: "GENERAL" || "NVME",
+ * //         },
  * //         fleet: { // ProjectFleet
  * //           fleetArn: "STRING_VALUE",
  * //         },
@@ -172,20 +179,22 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         filterGroups: [ // FilterGroups
  * //           [ // FilterGroup
  * //             { // WebhookFilter
- * //               type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME", // required
+ * //               type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME" || "ORGANIZATION_NAME", // required
  * //               pattern: "STRING_VALUE", // required
  * //               excludeMatchedPattern: true || false,
  * //             },
  * //           ],
  * //         ],
- * //         buildType: "BUILD" || "BUILD_BATCH",
+ * //         buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * //         manualCreation: true || false,
  * //         lastModifiedSecret: new Date("TIMESTAMP"),
  * //         scopeConfiguration: { // ScopeConfiguration
  * //           name: "STRING_VALUE", // required
  * //           domain: "STRING_VALUE",
- * //           scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //           scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  * //         },
+ * //         status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING",
+ * //         statusMessage: "STRING_VALUE",
  * //       },
  * //       vpcConfig: { // VpcConfig
  * //         vpcId: "STRING_VALUE",
@@ -230,6 +239,9 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //           computeTypesAllowed: [ // ComputeTypesAllowed
  * //             "STRING_VALUE",
  * //           ],
+ * //           fleetsAllowed: [ // FleetsAllowed
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         timeoutInMins: Number("int"),
  * //         batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
@@ -238,6 +250,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //       projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * //       publicProjectAlias: "STRING_VALUE",
  * //       resourceAccessRole: "STRING_VALUE",
+ * //       autoRetryLimit: Number("int"),
  * //     },
  * //   ],
  * //   projectsNotFound: [ // ProjectNames
@@ -259,6 +272,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class BatchGetProjectsCommand extends $Command
@@ -269,9 +283,7 @@ export class BatchGetProjectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -283,4 +295,16 @@ export class BatchGetProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetProjectsCommand)
   .de(de_BatchGetProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetProjectsInput;
+      output: BatchGetProjectsOutput;
+    };
+    sdk: {
+      input: BatchGetProjectsCommandInput;
+      output: BatchGetProjectsCommandOutput;
+    };
+  };
+}

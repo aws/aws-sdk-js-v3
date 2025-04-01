@@ -108,6 +108,7 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class PurchaseReservedNodesOfferingCommand extends $Command
@@ -118,9 +119,7 @@ export class PurchaseReservedNodesOfferingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class PurchaseReservedNodesOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseReservedNodesOfferingCommand)
   .de(de_PurchaseReservedNodesOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseReservedNodesOfferingRequest;
+      output: PurchaseReservedNodesOfferingResponse;
+    };
+    sdk: {
+      input: PurchaseReservedNodesOfferingCommandInput;
+      output: PurchaseReservedNodesOfferingCommandOutput;
+    };
+  };
+}

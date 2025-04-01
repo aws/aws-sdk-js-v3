@@ -1,8 +1,11 @@
 import { LexRuntimeV2 } from "@aws-sdk/client-lex-runtime-v2";
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
+import { Decoder, Encoder, EventStreamPayloadHandlerProvider } from "@smithy/types";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
+import { resolveEventStreamConfig } from "./eventStreamConfiguration";
 
 describe("middleware-eventstream", () => {
   const logger = {
@@ -13,8 +16,20 @@ describe("middleware-eventstream", () => {
     error() {},
   };
 
+  describe("config resolver", () => {
+    it("maintains object custody", () => {
+      const input = {
+        utf8Encoder: vi.fn(),
+        utf8Decoder: vi.fn(),
+        signer: vi.fn(),
+        eventStreamPayloadHandlerProvider: vi.fn(),
+      };
+      expect(resolveEventStreamConfig(input)).toBe(input);
+    });
+  });
+
   // TODO: http2 in CI
-  xdescribe(LexRuntimeV2.name, () => {
+  describe.skip(LexRuntimeV2.name, () => {
     it("should set streaming headers", async () => {
       const client = new LexRuntimeV2({ region: "us-west-2", logger });
 
@@ -30,15 +45,7 @@ describe("middleware-eventstream", () => {
         botAliasId: "undefined",
         localeId: "undefined",
         sessionId: "undefined",
-        requestEventStream: {
-          [Symbol.asyncIterator]() {
-            return {
-              next() {
-                return this as any;
-              },
-            };
-          },
-        },
+        requestEventStream: (async function* () {})(),
       });
 
       expect.assertions(2);
@@ -47,7 +54,14 @@ describe("middleware-eventstream", () => {
 
   describe(RekognitionStreaming.name, () => {
     it("should set streaming headers", async () => {
-      const client = new RekognitionStreaming({ region: "us-west-2", logger });
+      const client = new RekognitionStreaming({
+        region: "us-west-2",
+        logger,
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
 
       requireRequestsFrom(client).toMatch({
         headers: {
@@ -61,15 +75,7 @@ describe("middleware-eventstream", () => {
         VideoWidth: "undefined",
         VideoHeight: "undefined",
         ChallengeVersions: "undefined",
-        LivenessRequestStream: {
-          [Symbol.asyncIterator]() {
-            return {
-              next() {
-                return this as any;
-              },
-            };
-          },
-        },
+        LivenessRequestStream: (async function* () {})(),
       });
 
       expect.assertions(2);
@@ -77,7 +83,7 @@ describe("middleware-eventstream", () => {
   });
 
   // TODO: http2 in CI
-  xdescribe(TranscribeStreaming.name, () => {
+  describe.skip(TranscribeStreaming.name, () => {
     it("should set streaming headers", async () => {
       const client = new TranscribeStreaming({ region: "us-west-2", logger });
 
@@ -91,15 +97,7 @@ describe("middleware-eventstream", () => {
       await client.startStreamTranscription({
         MediaSampleRateHertz: 144,
         MediaEncoding: "ogg-opus",
-        AudioStream: {
-          [Symbol.asyncIterator]() {
-            return {
-              next() {
-                return this as any;
-              },
-            };
-          },
-        },
+        AudioStream: (async function* () {})(),
       });
 
       expect.assertions(2);

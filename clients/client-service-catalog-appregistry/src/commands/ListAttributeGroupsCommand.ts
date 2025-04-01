@@ -77,6 +77,7 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class ListAttributeGroupsCommand extends $Command
@@ -87,9 +88,7 @@ export class ListAttributeGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class ListAttributeGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttributeGroupsCommand)
   .de(de_ListAttributeGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttributeGroupsRequest;
+      output: ListAttributeGroupsResponse;
+    };
+    sdk: {
+      input: ListAttributeGroupsCommandInput;
+      output: ListAttributeGroupsCommandOutput;
+    };
+  };
+}

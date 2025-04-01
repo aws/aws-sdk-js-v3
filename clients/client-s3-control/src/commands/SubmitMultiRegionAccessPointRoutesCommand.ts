@@ -116,6 +116,7 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class SubmitMultiRegionAccessPointRoutesCommand extends $Command
@@ -144,4 +145,16 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitMultiRegionAccessPointRoutesCommand)
   .de(de_SubmitMultiRegionAccessPointRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitMultiRegionAccessPointRoutesRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubmitMultiRegionAccessPointRoutesCommandInput;
+      output: SubmitMultiRegionAccessPointRoutesCommandOutput;
+    };
+  };
+}

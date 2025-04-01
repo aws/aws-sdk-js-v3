@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_3";
+import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_4";
 import {
   de_DescribeTemplatePermissionsCommand,
   se_DescribeTemplatePermissionsCommand,
@@ -49,7 +49,7 @@ export interface DescribeTemplatePermissionsCommandOutput
  * // { // DescribeTemplatePermissionsResponse
  * //   TemplateId: "STRING_VALUE",
  * //   TemplateArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -93,6 +93,7 @@ export interface DescribeTemplatePermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTemplatePermissionsCommand extends $Command
@@ -103,9 +104,7 @@ export class DescribeTemplatePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DescribeTemplatePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTemplatePermissionsCommand)
   .de(de_DescribeTemplatePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTemplatePermissionsRequest;
+      output: DescribeTemplatePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeTemplatePermissionsCommandInput;
+      output: DescribeTemplatePermissionsCommandOutput;
+    };
+  };
+}

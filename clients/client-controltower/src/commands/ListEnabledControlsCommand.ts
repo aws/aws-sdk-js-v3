@@ -100,6 +100,7 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListEnabledControlsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListEnabledControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListEnabledControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnabledControlsCommand)
   .de(de_ListEnabledControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnabledControlsInput;
+      output: ListEnabledControlsOutput;
+    };
+    sdk: {
+      input: ListEnabledControlsCommandInput;
+      output: ListEnabledControlsCommandOutput;
+    };
+  };
+}

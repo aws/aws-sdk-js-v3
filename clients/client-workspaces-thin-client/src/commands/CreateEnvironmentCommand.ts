@@ -50,7 +50,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   desktopEndpoint: "STRING_VALUE",
  *   softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  *   maintenanceWindow: { // MaintenanceWindow
- *     type: "SYSTEM" || "CUSTOM",
+ *     type: "SYSTEM" || "CUSTOM", // required
  *     startTimeHour: Number("int"),
  *     startTimeMinute: Number("int"),
  *     endTimeHour: Number("int"),
@@ -83,7 +83,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     activationCode: "STRING_VALUE",
  * //     softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  * //     maintenanceWindow: { // MaintenanceWindow
- * //       type: "SYSTEM" || "CUSTOM",
+ * //       type: "SYSTEM" || "CUSTOM", // required
  * //       startTimeHour: Number("int"),
  * //       startTimeMinute: Number("int"),
  * //       endTimeHour: Number("int"),
@@ -136,6 +136,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command
@@ -146,9 +147,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(CreateEnvironmentRequestFilterSensitiveLog, CreateEnvironmentResponseFilterSensitiveLog)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentRequest;
+      output: CreateEnvironmentResponse;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

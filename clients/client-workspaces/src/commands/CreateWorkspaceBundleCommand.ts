@@ -42,7 +42,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  *   BundleDescription: "STRING_VALUE", // required
  *   ImageId: "STRING_VALUE", // required
  *   ComputeType: { // ComputeType
- *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *   },
  *   UserStorage: { // UserStorage
  *     Capacity: "STRING_VALUE", // required
@@ -73,7 +73,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * //       Capacity: "STRING_VALUE", // required
  * //     },
  * //     ComputeType: { // ComputeType
- * //       Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //       Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //     },
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     CreationTime: new Date("TIMESTAMP"),
@@ -111,6 +111,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceBundleCommand extends $Command
@@ -121,9 +122,7 @@ export class CreateWorkspaceBundleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class CreateWorkspaceBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspaceBundleCommand)
   .de(de_CreateWorkspaceBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceBundleRequest;
+      output: CreateWorkspaceBundleResult;
+    };
+    sdk: {
+      input: CreateWorkspaceBundleCommandInput;
+      output: CreateWorkspaceBundleCommandOutput;
+    };
+  };
+}

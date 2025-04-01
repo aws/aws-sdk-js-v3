@@ -160,6 +160,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class StartDBClusterCommand extends $Command
@@ -170,9 +171,7 @@ export class StartDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +183,16 @@ export class StartDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBClusterCommand)
   .de(de_StartDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBClusterMessage;
+      output: StartDBClusterResult;
+    };
+    sdk: {
+      input: StartDBClusterCommandInput;
+      output: StartDBClusterCommandOutput;
+    };
+  };
+}

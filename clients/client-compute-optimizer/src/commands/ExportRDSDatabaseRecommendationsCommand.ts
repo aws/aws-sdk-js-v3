@@ -60,7 +60,7 @@ export interface ExportRDSDatabaseRecommendationsCommandOutput
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableRDSDBFields
- *     "ResourceArn" || "AccountId" || "Engine" || "EngineVersion" || "Idle" || "MultiAZDBInstance" || "CurrentDBInstanceClass" || "CurrentStorageConfigurationStorageType" || "CurrentStorageConfigurationAllocatedStorage" || "CurrentStorageConfigurationMaxAllocatedStorage" || "CurrentStorageConfigurationIOPS" || "CurrentStorageConfigurationStorageThroughput" || "CurrentInstanceOnDemandHourlyPrice" || "CurrentStorageOnDemandMonthlyPrice" || "LookbackPeriodInDays" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum" || "UtilizationMetricsNetworkReceiveThroughputMaximum" || "UtilizationMetricsNetworkTransmitThroughputMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsEBSVolumeReadThroughputMaximum" || "UtilizationMetricsEBSVolumeWriteThroughputMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "InstanceFinding" || "InstanceFindingReasonCodes" || "StorageFinding" || "StorageFindingReasonCodes" || "InstanceRecommendationOptionsDBInstanceClass" || "InstanceRecommendationOptionsRank" || "InstanceRecommendationOptionsPerformanceRisk" || "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "StorageRecommendationOptionsStorageType" || "StorageRecommendationOptionsAllocatedStorage" || "StorageRecommendationOptionsMaxAllocatedStorage" || "StorageRecommendationOptionsIOPS" || "StorageRecommendationOptionsStorageThroughput" || "StorageRecommendationOptionsRank" || "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice" || "InstanceRecommendationOptionsSavingsOpportunityPercentage" || "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency" || "InstanceRecommendationOptionsEstimatedMonthlySavingsValue" || "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage" || "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts" || "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts" || "StorageRecommendationOptionsOnDemandMonthlyPrice" || "StorageRecommendationOptionsSavingsOpportunityPercentage" || "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency" || "StorageRecommendationOptionsEstimatedMonthlySavingsValue" || "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage" || "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts" || "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts" || "EffectiveRecommendationPreferencesCpuVendorArchitectures" || "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics" || "EffectiveRecommendationPreferencesLookBackPeriod" || "EffectiveRecommendationPreferencesSavingsEstimationMode" || "LastRefreshTimestamp" || "Tags",
+ *     "ResourceArn" || "AccountId" || "Engine" || "EngineVersion" || "Idle" || "MultiAZDBInstance" || "CurrentDBInstanceClass" || "CurrentStorageConfigurationStorageType" || "CurrentStorageConfigurationAllocatedStorage" || "CurrentStorageConfigurationMaxAllocatedStorage" || "CurrentStorageConfigurationIOPS" || "CurrentStorageConfigurationStorageThroughput" || "CurrentInstanceOnDemandHourlyPrice" || "CurrentStorageOnDemandMonthlyPrice" || "LookbackPeriodInDays" || "CurrentInstancePerformanceRisk" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum" || "UtilizationMetricsNetworkReceiveThroughputMaximum" || "UtilizationMetricsNetworkTransmitThroughputMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsEBSVolumeReadThroughputMaximum" || "UtilizationMetricsEBSVolumeWriteThroughputMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "UtilizationMetricsStorageNetworkReceiveThroughputMaximum" || "UtilizationMetricsStorageNetworkTransmitThroughputMaximum" || "UtilizationMetricsAuroraMemoryHealthStateMaximum" || "UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum" || "UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum" || "UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum" || "UtilizationMetricsReadIOPSEphemeralStorageMaximum" || "UtilizationMetricsWriteIOPSEphemeralStorageMaximum" || "InstanceFinding" || "InstanceFindingReasonCodes" || "StorageFinding" || "StorageFindingReasonCodes" || "InstanceRecommendationOptionsDBInstanceClass" || "InstanceRecommendationOptionsRank" || "InstanceRecommendationOptionsPerformanceRisk" || "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "StorageRecommendationOptionsStorageType" || "StorageRecommendationOptionsAllocatedStorage" || "StorageRecommendationOptionsMaxAllocatedStorage" || "StorageRecommendationOptionsIOPS" || "StorageRecommendationOptionsStorageThroughput" || "StorageRecommendationOptionsRank" || "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice" || "InstanceRecommendationOptionsSavingsOpportunityPercentage" || "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency" || "InstanceRecommendationOptionsEstimatedMonthlySavingsValue" || "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage" || "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts" || "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts" || "StorageRecommendationOptionsOnDemandMonthlyPrice" || "StorageRecommendationOptionsSavingsOpportunityPercentage" || "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency" || "StorageRecommendationOptionsEstimatedMonthlySavingsValue" || "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage" || "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts" || "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts" || "EffectiveRecommendationPreferencesCpuVendorArchitectures" || "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics" || "EffectiveRecommendationPreferencesLookBackPeriod" || "EffectiveRecommendationPreferencesSavingsEstimationMode" || "LastRefreshTimestamp" || "Tags" || "DBClusterIdentifier" || "PromotionTier",
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",
@@ -121,6 +121,7 @@ export interface ExportRDSDatabaseRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class ExportRDSDatabaseRecommendationsCommand extends $Command
@@ -131,9 +132,7 @@ export class ExportRDSDatabaseRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class ExportRDSDatabaseRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportRDSDatabaseRecommendationsCommand)
   .de(de_ExportRDSDatabaseRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportRDSDatabaseRecommendationsRequest;
+      output: ExportRDSDatabaseRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportRDSDatabaseRecommendationsCommandInput;
+      output: ExportRDSDatabaseRecommendationsCommandOutput;
+    };
+  };
+}

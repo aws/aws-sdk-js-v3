@@ -80,6 +80,7 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetFlowTemplateRevisionsCommand extends $Command
@@ -90,9 +91,7 @@ export class GetFlowTemplateRevisionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class GetFlowTemplateRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFlowTemplateRevisionsCommand)
   .de(de_GetFlowTemplateRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFlowTemplateRevisionsRequest;
+      output: GetFlowTemplateRevisionsResponse;
+    };
+    sdk: {
+      input: GetFlowTemplateRevisionsCommandInput;
+      output: GetFlowTemplateRevisionsCommandOutput;
+    };
+  };
+}

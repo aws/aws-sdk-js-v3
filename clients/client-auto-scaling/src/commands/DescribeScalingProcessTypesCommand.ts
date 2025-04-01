@@ -28,8 +28,8 @@ export interface DescribeScalingProcessTypesCommandInput {}
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
- * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
- *             and <a>SuspendProcesses</a> APIs.</p>
+ * <p>Describes the scaling process types for use with the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a>
+ *             and <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_SuspendProcesses.html">SuspendProcesses</a> APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,46 +62,46 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Auto Scaling process types
  * ```javascript
  * // This example describes the Auto Scaling process types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Processes": [
+ *   Processes: [
  *     {
- *       "ProcessName": "AZRebalance"
+ *       ProcessName: "AZRebalance"
  *     },
  *     {
- *       "ProcessName": "AddToLoadBalancer"
+ *       ProcessName: "AddToLoadBalancer"
  *     },
  *     {
- *       "ProcessName": "AlarmNotification"
+ *       ProcessName: "AlarmNotification"
  *     },
  *     {
- *       "ProcessName": "HealthCheck"
+ *       ProcessName: "HealthCheck"
  *     },
  *     {
- *       "ProcessName": "Launch"
+ *       ProcessName: "Launch"
  *     },
  *     {
- *       "ProcessName": "ReplaceUnhealthy"
+ *       ProcessName: "ReplaceUnhealthy"
  *     },
  *     {
- *       "ProcessName": "ScheduledActions"
+ *       ProcessName: "ScheduledActions"
  *     },
  *     {
- *       "ProcessName": "Terminate"
+ *       ProcessName: "Terminate"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-scaling-process-types-1
  * ```
  *
+ * @public
  */
 export class DescribeScalingProcessTypesCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class DescribeScalingProcessTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class DescribeScalingProcessTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingProcessTypesCommand)
   .de(de_DescribeScalingProcessTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ProcessesType;
+    };
+    sdk: {
+      input: DescribeScalingProcessTypesCommandInput;
+      output: DescribeScalingProcessTypesCommandOutput;
+    };
+  };
+}

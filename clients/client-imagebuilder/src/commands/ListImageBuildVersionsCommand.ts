@@ -58,7 +58,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       name: "STRING_VALUE",
  * //       type: "AMI" || "DOCKER",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       osVersion: "STRING_VALUE",
  * //       state: { // ImageState
  * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
@@ -92,7 +92,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",
@@ -136,6 +136,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImageBuildVersionsCommand extends $Command
@@ -146,9 +147,7 @@ export class ListImageBuildVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class ListImageBuildVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageBuildVersionsCommand)
   .de(de_ListImageBuildVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageBuildVersionsRequest;
+      output: ListImageBuildVersionsResponse;
+    };
+    sdk: {
+      input: ListImageBuildVersionsCommandInput;
+      output: ListImageBuildVersionsCommandOutput;
+    };
+  };
+}

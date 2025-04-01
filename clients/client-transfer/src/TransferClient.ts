@@ -59,6 +59,7 @@ import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./com
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { CreateWebAppCommandInput, CreateWebAppCommandOutput } from "./commands/CreateWebAppCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
@@ -69,6 +70,11 @@ import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./command
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DeleteWebAppCommandInput, DeleteWebAppCommandOutput } from "./commands/DeleteWebAppCommand";
+import {
+  DeleteWebAppCustomizationCommandInput,
+  DeleteWebAppCustomizationCommandOutput,
+} from "./commands/DeleteWebAppCustomizationCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
 import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "./commands/DescribeAgreementCommand";
@@ -86,6 +92,11 @@ import {
 } from "./commands/DescribeSecurityPolicyCommand";
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { DescribeWebAppCommandInput, DescribeWebAppCommandOutput } from "./commands/DescribeWebAppCommand";
+import {
+  DescribeWebAppCustomizationCommandInput,
+  DescribeWebAppCustomizationCommandOutput,
+} from "./commands/DescribeWebAppCustomizationCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "./commands/ImportHostKeyCommand";
@@ -95,6 +106,10 @@ import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "./comma
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import {
+  ListFileTransferResultsCommandInput,
+  ListFileTransferResultsCommandOutput,
+} from "./commands/ListFileTransferResultsCommand";
 import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "./commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
 import {
@@ -107,6 +122,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListWebAppsCommandInput, ListWebAppsCommandOutput } from "./commands/ListWebAppsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
   SendWorkflowStepStateCommandInput,
@@ -134,6 +150,11 @@ import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "./command
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { UpdateWebAppCommandInput, UpdateWebAppCommandOutput } from "./commands/UpdateWebAppCommand";
+import {
+  UpdateWebAppCustomizationCommandInput,
+  UpdateWebAppCustomizationCommandOutput,
+} from "./commands/UpdateWebAppCustomizationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -155,6 +176,7 @@ export type ServiceInputTypes =
   | CreateProfileCommandInput
   | CreateServerCommandInput
   | CreateUserCommandInput
+  | CreateWebAppCommandInput
   | CreateWorkflowCommandInput
   | DeleteAccessCommandInput
   | DeleteAgreementCommandInput
@@ -165,6 +187,8 @@ export type ServiceInputTypes =
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
+  | DeleteWebAppCommandInput
+  | DeleteWebAppCustomizationCommandInput
   | DeleteWorkflowCommandInput
   | DescribeAccessCommandInput
   | DescribeAgreementCommandInput
@@ -176,6 +200,8 @@ export type ServiceInputTypes =
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
+  | DescribeWebAppCommandInput
+  | DescribeWebAppCustomizationCommandInput
   | DescribeWorkflowCommandInput
   | ImportCertificateCommandInput
   | ImportHostKeyCommandInput
@@ -185,12 +211,14 @@ export type ServiceInputTypes =
   | ListCertificatesCommandInput
   | ListConnectorsCommandInput
   | ListExecutionsCommandInput
+  | ListFileTransferResultsCommandInput
   | ListHostKeysCommandInput
   | ListProfilesCommandInput
   | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
+  | ListWebAppsCommandInput
   | ListWorkflowsCommandInput
   | SendWorkflowStepStateCommandInput
   | StartDirectoryListingCommandInput
@@ -208,7 +236,9 @@ export type ServiceInputTypes =
   | UpdateHostKeyCommandInput
   | UpdateProfileCommandInput
   | UpdateServerCommandInput
-  | UpdateUserCommandInput;
+  | UpdateUserCommandInput
+  | UpdateWebAppCommandInput
+  | UpdateWebAppCustomizationCommandInput;
 
 /**
  * @public
@@ -220,6 +250,7 @@ export type ServiceOutputTypes =
   | CreateProfileCommandOutput
   | CreateServerCommandOutput
   | CreateUserCommandOutput
+  | CreateWebAppCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteAccessCommandOutput
   | DeleteAgreementCommandOutput
@@ -230,6 +261,8 @@ export type ServiceOutputTypes =
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
+  | DeleteWebAppCommandOutput
+  | DeleteWebAppCustomizationCommandOutput
   | DeleteWorkflowCommandOutput
   | DescribeAccessCommandOutput
   | DescribeAgreementCommandOutput
@@ -241,6 +274,8 @@ export type ServiceOutputTypes =
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
+  | DescribeWebAppCommandOutput
+  | DescribeWebAppCustomizationCommandOutput
   | DescribeWorkflowCommandOutput
   | ImportCertificateCommandOutput
   | ImportHostKeyCommandOutput
@@ -250,12 +285,14 @@ export type ServiceOutputTypes =
   | ListCertificatesCommandOutput
   | ListConnectorsCommandOutput
   | ListExecutionsCommandOutput
+  | ListFileTransferResultsCommandOutput
   | ListHostKeysCommandOutput
   | ListProfilesCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
+  | ListWebAppsCommandOutput
   | ListWorkflowsCommandOutput
   | SendWorkflowStepStateCommandOutput
   | StartDirectoryListingCommandOutput
@@ -273,7 +310,9 @@ export type ServiceOutputTypes =
   | UpdateHostKeyCommandOutput
   | UpdateProfileCommandOutput
   | UpdateServerCommandOutput
-  | UpdateUserCommandOutput;
+  | UpdateUserCommandOutput
+  | UpdateWebAppCommandOutput
+  | UpdateWebAppCustomizationCommandOutput;
 
 /**
  * @public
@@ -367,6 +406,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -412,11 +470,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type TransferClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -432,11 +490,11 @@ export interface TransferClientConfig extends TransferClientConfigType {}
 export type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -454,7 +512,7 @@ export interface TransferClientResolvedConfig extends TransferClientResolvedConf
  *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
  *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
  *       nothing changes for your customers and partners, or their applications. With your data in
- *       Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+ *       Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
  *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
  *       set up.</p>
  * @public
@@ -472,26 +530,30 @@ export class TransferClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<TransferClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultTransferHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: TransferClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -504,14 +566,5 @@ export class TransferClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultTransferHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: TransferClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

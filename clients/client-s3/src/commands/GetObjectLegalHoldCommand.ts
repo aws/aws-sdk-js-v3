@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -29,7 +30,7 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>
@@ -74,6 +75,7 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class GetObjectLegalHoldCommand extends $Command
@@ -92,6 +94,7 @@ export class GetObjectLegalHoldCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetObjectLegalHold", {})
@@ -99,4 +102,16 @@ export class GetObjectLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectLegalHoldCommand)
   .de(de_GetObjectLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectLegalHoldRequest;
+      output: GetObjectLegalHoldOutput;
+    };
+    sdk: {
+      input: GetObjectLegalHoldCommandInput;
+      output: GetObjectLegalHoldCommandOutput;
+    };
+  };
+}

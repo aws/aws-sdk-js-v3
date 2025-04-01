@@ -208,7 +208,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  *             specify the node type as branch, sensor, actuator, or attribute.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
@@ -225,6 +226,7 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateSignalCatalogCommand extends $Command
@@ -235,9 +237,7 @@ export class UpdateSignalCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -249,4 +249,16 @@ export class UpdateSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSignalCatalogCommand)
   .de(de_UpdateSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSignalCatalogRequest;
+      output: UpdateSignalCatalogResponse;
+    };
+    sdk: {
+      input: UpdateSignalCatalogCommandInput;
+      output: UpdateSignalCatalogCommandOutput;
+    };
+  };
+}

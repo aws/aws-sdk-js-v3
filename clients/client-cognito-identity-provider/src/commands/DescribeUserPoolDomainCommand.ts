@@ -32,7 +32,28 @@ export interface DescribeUserPoolDomainCommandInput extends DescribeUserPoolDoma
 export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a domain.</p>
+ * <p>Given a user pool domain name, returns information about the domain
+ *             configuration.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +77,7 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * //     CustomDomainConfig: { // CustomDomainConfigType
  * //       CertificateArn: "STRING_VALUE", // required
  * //     },
+ * //     ManagedLoginVersion: Number("int"),
  * //   },
  * // };
  *
@@ -84,6 +106,7 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserPoolDomainCommand extends $Command
@@ -94,9 +117,7 @@ export class DescribeUserPoolDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +129,16 @@ export class DescribeUserPoolDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserPoolDomainCommand)
   .de(de_DescribeUserPoolDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserPoolDomainRequest;
+      output: DescribeUserPoolDomainResponse;
+    };
+    sdk: {
+      input: DescribeUserPoolDomainCommandInput;
+      output: DescribeUserPoolDomainCommandOutput;
+    };
+  };
+}

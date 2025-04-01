@@ -116,6 +116,7 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationRevisionsCommand extends $Command
@@ -126,9 +127,7 @@ export class ListApplicationRevisionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class ListApplicationRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationRevisionsCommand)
   .de(de_ListApplicationRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationRevisionsInput;
+      output: ListApplicationRevisionsOutput;
+    };
+    sdk: {
+      input: ListApplicationRevisionsCommandInput;
+      output: ListApplicationRevisionsCommandOutput;
+    };
+  };
+}

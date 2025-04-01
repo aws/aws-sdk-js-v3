@@ -89,6 +89,7 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationStatesCommand extends $Command
@@ -99,9 +100,7 @@ export class ListApplicationStatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListApplicationStatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationStatesCommand)
   .de(de_ListApplicationStatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationStatesRequest;
+      output: ListApplicationStatesResult;
+    };
+    sdk: {
+      input: ListApplicationStatesCommandInput;
+      output: ListApplicationStatesCommandOutput;
+    };
+  };
+}

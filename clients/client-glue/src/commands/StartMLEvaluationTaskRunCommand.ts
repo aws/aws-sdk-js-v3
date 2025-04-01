@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_2";
+import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_3";
 import { de_StartMLEvaluationTaskRunCommand, se_StartMLEvaluationTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -78,6 +78,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartMLEvaluationTaskRunCommand extends $Command
@@ -88,9 +89,7 @@ export class StartMLEvaluationTaskRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class StartMLEvaluationTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMLEvaluationTaskRunCommand)
   .de(de_StartMLEvaluationTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMLEvaluationTaskRunRequest;
+      output: StartMLEvaluationTaskRunResponse;
+    };
+    sdk: {
+      input: StartMLEvaluationTaskRunCommandInput;
+      output: StartMLEvaluationTaskRunCommandOutput;
+    };
+  };
+}

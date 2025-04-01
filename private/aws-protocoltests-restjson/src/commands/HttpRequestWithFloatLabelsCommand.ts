@@ -53,6 +53,7 @@ export interface HttpRequestWithFloatLabelsCommandOutput extends __MetadataBeare
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class HttpRequestWithFloatLabelsCommand extends $Command
   .classBuilder<
@@ -70,4 +71,16 @@ export class HttpRequestWithFloatLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpRequestWithFloatLabelsCommand)
   .de(de_HttpRequestWithFloatLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithFloatLabelsInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithFloatLabelsCommandInput;
+      output: HttpRequestWithFloatLabelsCommandOutput;
+    };
+  };
+}

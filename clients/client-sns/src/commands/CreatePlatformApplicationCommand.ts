@@ -38,12 +38,12 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *             the notification service.</p>
  *          <ul>
  *             <li>
- *                <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code>
- *                     and <code>PlatformCredential</code> is <code>client secret</code>.</p>
+ *                <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code> and
+ *                         <code>PlatformCredential</code> is <code>client secret</code>.</p>
  *             </li>
  *             <li>
- *                <p>For APNS and <code>APNS_SANDBOX</code> using certificate
- *                     credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
+ *                <p>For APNS and <code>APNS_SANDBOX</code> using certificate credentials,
+ *                         <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
  *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
  *             </li>
  *             <li>
@@ -52,8 +52,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
  *             </li>
  *             <li>
- *                <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code>
- *                     and <code>PlatformCredential</code> is <code>secret key</code>.</p>
+ *                <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code> and
+ *                         <code>PlatformCredential</code> is <code>secret key</code>.</p>
  *             </li>
  *             <li>
  *                <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no
@@ -69,9 +69,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *                         @json <<< cat service.json`</code>.</p>
  *             </li>
  *             <li>
- *                <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS
- *                         certificate</code> and <code>PlatformCredential</code> is <code>private
- *                         key</code>.</p>
+ *                <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and
+ *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
  *             </li>
  *             <li>
  *                <p>For WNS, <code>PlatformPrincipal</code> is <code>Package Security
@@ -121,6 +120,7 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class CreatePlatformApplicationCommand extends $Command
@@ -131,9 +131,7 @@ export class CreatePlatformApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +143,16 @@ export class CreatePlatformApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlatformApplicationCommand)
   .de(de_CreatePlatformApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlatformApplicationInput;
+      output: CreatePlatformApplicationResponse;
+    };
+    sdk: {
+      input: CreatePlatformApplicationCommandInput;
+      output: CreatePlatformApplicationCommandOutput;
+    };
+  };
+}

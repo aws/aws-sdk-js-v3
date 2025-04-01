@@ -2,6 +2,9 @@ import type { HttpResponse, SerdeContext } from "@smithy/types";
 
 import { collectBodyString } from "../common";
 
+/**
+ * @internal
+ */
 export const parseJsonBody = (streamBody: any, context: SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -19,12 +22,18 @@ export const parseJsonBody = (streamBody: any, context: SerdeContext): any =>
     return {};
   });
 
+/**
+ * @internal
+ */
 export const parseJsonErrorBody = async (errorBody: any, context: SerdeContext) => {
   const value = await parseJsonBody(errorBody, context);
   value.message = value.message ?? value.Message;
   return value;
 };
 
+/**
+ * @internal
+ */
 export const loadRestJsonErrorCode = (output: HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 

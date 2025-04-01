@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableImageRequest, EnableImageResult } from "../models/models_5";
+import { EnableImageRequest, EnableImageResult } from "../models/models_6";
 import { de_EnableImageCommand, se_EnableImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -63,6 +63,7 @@ export interface EnableImageCommandOutput extends EnableImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableImageCommand extends $Command
@@ -73,9 +74,7 @@ export class EnableImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class EnableImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableImageCommand)
   .de(de_EnableImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableImageRequest;
+      output: EnableImageResult;
+    };
+    sdk: {
+      input: EnableImageCommandInput;
+      output: EnableImageCommandOutput;
+    };
+  };
+}

@@ -63,6 +63,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * //             BucketName: "STRING_VALUE", // required
  * //             ObjectKeyPrefix: "STRING_VALUE",
  * //             KmsKeyArn: "STRING_VALUE",
+ * //             IamRoleArn: "STRING_VALUE",
  * //           },
  * //           BounceAction: { // BounceAction
  * //             TopicArn: "STRING_VALUE",
@@ -92,6 +93,10 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * //             TopicArn: "STRING_VALUE", // required
  * //             Encoding: "UTF-8" || "Base64",
  * //           },
+ * //           ConnectAction: { // ConnectAction
+ * //             InstanceARN: "STRING_VALUE", // required
+ * //             IAMRoleARN: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       ],
  * //       ScanEnabled: true || false,
@@ -110,40 +115,40 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DescribeActiveReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules for the receipt rule set that is currently active:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Metadata": {
- *     "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
- *     "Name": "default-rule-set"
+ *   Metadata: {
+ *     CreatedTimestamp: "2016-07-15T16:25:59.607Z",
+ *     Name: "default-rule-set"
  *   },
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "S3Action": {
- *             "BucketName": "MyBucket",
- *             "ObjectKeyPrefix": "email"
+ *           S3Action: {
+ *             BucketName: "MyBucket",
+ *             ObjectKeyPrefix: "email"
  *           }
  *         }
  *       ],
- *       "Enabled": true,
- *       "Name": "MyRule",
- *       "ScanEnabled": true,
- *       "TlsPolicy": "Optional"
+ *       Enabled: true,
+ *       Name: "MyRule",
+ *       ScanEnabled: true,
+ *       TlsPolicy: "Optional"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describeactivereceiptruleset-1469121611502
  * ```
  *
+ * @public
  */
 export class DescribeActiveReceiptRuleSetCommand extends $Command
   .classBuilder<
@@ -153,9 +158,7 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +170,16 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeActiveReceiptRuleSetCommand)
   .de(de_DescribeActiveReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeActiveReceiptRuleSetResponse;
+    };
+    sdk: {
+      input: DescribeActiveReceiptRuleSetCommandInput;
+      output: DescribeActiveReceiptRuleSetCommandOutput;
+    };
+  };
+}

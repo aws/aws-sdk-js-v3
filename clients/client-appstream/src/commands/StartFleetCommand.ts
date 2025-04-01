@@ -77,6 +77,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class StartFleetCommand extends $Command
@@ -87,9 +88,7 @@ export class StartFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class StartFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFleetCommand)
   .de(de_StartFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartFleetCommandInput;
+      output: StartFleetCommandOutput;
+    };
+  };
+}

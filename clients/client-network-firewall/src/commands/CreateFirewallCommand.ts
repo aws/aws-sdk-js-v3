@@ -35,6 +35,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *          themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>
  *          <p>To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>
+ *          <p>To generate a report on the last 30 days of traffic monitored by a firewall, use <a>StartAnalysisReport</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,8 +45,8 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * const input = { // CreateFirewallRequest
  *   FirewallName: "STRING_VALUE", // required
  *   FirewallPolicyArn: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE", // required
- *   SubnetMappings: [ // SubnetMappings // required
+ *   VpcId: "STRING_VALUE",
+ *   SubnetMappings: [ // SubnetMappings
  *     { // SubnetMapping
  *       SubnetId: "STRING_VALUE", // required
  *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
@@ -65,6 +66,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *     KeyId: "STRING_VALUE",
  *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  *   },
+ *   EnabledAnalysisTypes: [ // EnabledAnalysisTypes
+ *     "TLS_SNI" || "HTTP_HOST",
+ *   ],
  * };
  * const command = new CreateFirewallCommand(input);
  * const response = await client.send(command);
@@ -95,6 +99,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     EnabledAnalysisTypes: [ // EnabledAnalysisTypes
+ * //       "TLS_SNI" || "HTTP_HOST",
+ * //     ],
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
@@ -174,6 +181,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class CreateFirewallCommand extends $Command
@@ -184,9 +192,7 @@ export class CreateFirewallCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +204,16 @@ export class CreateFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallCommand)
   .de(de_CreateFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallRequest;
+      output: CreateFirewallResponse;
+    };
+    sdk: {
+      input: CreateFirewallCommandInput;
+      output: CreateFirewallCommandOutput;
+    };
+  };
+}

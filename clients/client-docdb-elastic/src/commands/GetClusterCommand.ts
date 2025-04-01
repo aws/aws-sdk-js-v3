@@ -98,6 +98,7 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class GetClusterCommand extends $Command
@@ -108,9 +109,7 @@ export class GetClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class GetClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClusterCommand)
   .de(de_GetClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterInput;
+      output: GetClusterOutput;
+    };
+    sdk: {
+      input: GetClusterCommandInput;
+      output: GetClusterCommandOutput;
+    };
+  };
+}

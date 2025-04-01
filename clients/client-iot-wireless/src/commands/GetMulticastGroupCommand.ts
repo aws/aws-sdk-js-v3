@@ -51,6 +51,12 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * //     DlClass: "ClassB" || "ClassC",
  * //     NumberOfDevicesRequested: Number("int"),
  * //     NumberOfDevicesInGroup: Number("int"),
+ * //     ParticipatingGateways: { // ParticipatingGatewaysMulticast
+ * //       GatewayList: [ // GatewayListMulticast
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TransmissionInterval: Number("int"),
+ * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * // };
@@ -81,6 +87,7 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetMulticastGroupCommand extends $Command
@@ -91,9 +98,7 @@ export class GetMulticastGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +110,16 @@ export class GetMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMulticastGroupCommand)
   .de(de_GetMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMulticastGroupRequest;
+      output: GetMulticastGroupResponse;
+    };
+    sdk: {
+      input: GetMulticastGroupCommandInput;
+      output: GetMulticastGroupCommandOutput;
+    };
+  };
+}

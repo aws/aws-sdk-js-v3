@@ -122,6 +122,7 @@ export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResp
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkflowCommand extends $Command
@@ -132,9 +133,7 @@ export class UpdateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class UpdateWorkflowCommand extends $Command
   .f(UpdateMigrationWorkflowRequestFilterSensitiveLog, UpdateMigrationWorkflowResponseFilterSensitiveLog)
   .ser(se_UpdateWorkflowCommand)
   .de(de_UpdateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMigrationWorkflowRequest;
+      output: UpdateMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: UpdateWorkflowCommandInput;
+      output: UpdateWorkflowCommandOutput;
+    };
+  };
+}

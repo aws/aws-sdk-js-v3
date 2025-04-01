@@ -97,6 +97,7 @@ export interface ListKxVolumesCommandOutput extends ListKxVolumesResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxVolumesCommand extends $Command
@@ -107,9 +108,7 @@ export class ListKxVolumesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class ListKxVolumesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxVolumesCommand)
   .de(de_ListKxVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxVolumesRequest;
+      output: ListKxVolumesResponse;
+    };
+    sdk: {
+      input: ListKxVolumesCommandInput;
+      output: ListKxVolumesCommandOutput;
+    };
+  };
+}

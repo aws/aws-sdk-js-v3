@@ -91,6 +91,7 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class BatchPutFieldOptionsCommand extends $Command
@@ -101,9 +102,7 @@ export class BatchPutFieldOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class BatchPutFieldOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutFieldOptionsCommand)
   .de(de_BatchPutFieldOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutFieldOptionsRequest;
+      output: BatchPutFieldOptionsResponse;
+    };
+    sdk: {
+      input: BatchPutFieldOptionsCommandInput;
+      output: BatchPutFieldOptionsCommandOutput;
+    };
+  };
+}

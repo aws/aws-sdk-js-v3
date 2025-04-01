@@ -31,7 +31,6 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * <note>
  *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
- *
  *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
  *          <p>The following fields are required when creating a case:</p>
@@ -116,6 +115,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateCaseCommand extends $Command
@@ -126,9 +126,7 @@ export class CreateCaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +138,16 @@ export class CreateCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCaseCommand)
   .de(de_CreateCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCaseRequest;
+      output: CreateCaseResponse;
+    };
+    sdk: {
+      input: CreateCaseCommandInput;
+      output: CreateCaseCommandOutput;
+    };
+  };
+}

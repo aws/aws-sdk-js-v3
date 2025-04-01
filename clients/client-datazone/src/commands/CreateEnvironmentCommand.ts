@@ -57,6 +57,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   environmentAccountIdentifier: "STRING_VALUE",
  *   environmentAccountRegion: "STRING_VALUE",
  *   environmentBlueprintIdentifier: "STRING_VALUE",
+ *   deploymentOrder: Number("int"),
+ *   environmentConfigurationId: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -130,6 +132,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * //     endTimeoutMinutes: Number("int"),
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
+ * //   environmentConfigurationId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -164,6 +167,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command
@@ -174,9 +178,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +190,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(void 0, CreateEnvironmentOutputFilterSensitiveLog)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentInput;
+      output: CreateEnvironmentOutput;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

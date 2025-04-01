@@ -109,6 +109,11 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateIntegrationCommand,
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import {
   CreateRedshiftIdcApplicationCommand,
   CreateRedshiftIdcApplicationCommandInput,
   CreateRedshiftIdcApplicationCommandOutput,
@@ -195,6 +200,11 @@ import {
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import {
   DeletePartnerCommand,
   DeletePartnerCommandInput,
   DeletePartnerCommandOutput,
@@ -230,6 +240,11 @@ import {
   DeleteUsageLimitCommandInput,
   DeleteUsageLimitCommandOutput,
 } from "./commands/DeleteUsageLimitCommand";
+import {
+  DeregisterNamespaceCommand,
+  DeregisterNamespaceCommandInput,
+  DeregisterNamespaceCommandOutput,
+} from "./commands/DeregisterNamespaceCommand";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
@@ -350,6 +365,11 @@ import {
   DescribeInboundIntegrationsCommandInput,
   DescribeInboundIntegrationsCommandOutput,
 } from "./commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommand,
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import {
   DescribeLoggingStatusCommand,
   DescribeLoggingStatusCommandInput,
@@ -556,6 +576,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyIntegrationCommand,
+  ModifyIntegrationCommandInput,
+  ModifyIntegrationCommandOutput,
+} from "./commands/ModifyIntegrationCommand";
+import {
   ModifyRedshiftIdcApplicationCommand,
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
@@ -600,6 +625,11 @@ import {
   RebootClusterCommandInput,
   RebootClusterCommandOutput,
 } from "./commands/RebootClusterCommand";
+import {
+  RegisterNamespaceCommand,
+  RegisterNamespaceCommandInput,
+  RegisterNamespaceCommandOutput,
+} from "./commands/RegisterNamespaceCommand";
 import {
   RejectDataShareCommand,
   RejectDataShareCommandInput,
@@ -680,6 +710,7 @@ const commands = {
   CreateEventSubscriptionCommand,
   CreateHsmClientCertificateCommand,
   CreateHsmConfigurationCommand,
+  CreateIntegrationCommand,
   CreateRedshiftIdcApplicationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCopyGrantCommand,
@@ -698,6 +729,7 @@ const commands = {
   DeleteEventSubscriptionCommand,
   DeleteHsmClientCertificateCommand,
   DeleteHsmConfigurationCommand,
+  DeleteIntegrationCommand,
   DeletePartnerCommand,
   DeleteRedshiftIdcApplicationCommand,
   DeleteResourcePolicyCommand,
@@ -706,6 +738,7 @@ const commands = {
   DeleteSnapshotScheduleCommand,
   DeleteTagsCommand,
   DeleteUsageLimitCommand,
+  DeregisterNamespaceCommand,
   DescribeAccountAttributesCommand,
   DescribeAuthenticationProfilesCommand,
   DescribeClusterDbRevisionsCommand,
@@ -730,6 +763,7 @@ const commands = {
   DescribeHsmClientCertificatesCommand,
   DescribeHsmConfigurationsCommand,
   DescribeInboundIntegrationsCommand,
+  DescribeIntegrationsCommand,
   DescribeLoggingStatusCommand,
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
@@ -771,6 +805,7 @@ const commands = {
   ModifyCustomDomainAssociationCommand,
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
+  ModifyIntegrationCommand,
   ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
@@ -780,6 +815,7 @@ const commands = {
   PurchaseReservedNodeOfferingCommand,
   PutResourcePolicyCommand,
   RebootClusterCommand,
+  RegisterNamespaceCommand,
   RejectDataShareCommand,
   ResetClusterParameterGroupCommand,
   ResizeClusterCommand,
@@ -1151,6 +1187,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateIntegrationCommand}
+   */
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationCommandOutput>;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRedshiftIdcApplicationCommand}
    */
   createRedshiftIdcApplication(
@@ -1446,6 +1499,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePartnerCommand}
    */
   deletePartner(args: DeletePartnerCommandInput, options?: __HttpHandlerOptions): Promise<DeletePartnerCommandOutput>;
@@ -1567,6 +1637,23 @@ export interface Redshift {
     args: DeleteUsageLimitCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterNamespaceCommand}
+   */
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterNamespaceCommandOutput>;
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    cb: (err: any, data?: DeregisterNamespaceCommandOutput) => void
+  ): void;
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -1994,6 +2081,24 @@ export interface Redshift {
     args: DescribeInboundIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   */
+  describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
   ): void;
 
   /**
@@ -2681,6 +2786,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link ModifyIntegrationCommand}
+   */
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIntegrationCommandOutput>;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyRedshiftIdcApplicationCommand}
    */
   modifyRedshiftIdcApplication(
@@ -2819,6 +2941,23 @@ export interface Redshift {
     args: RebootClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterNamespaceCommand}
+   */
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterNamespaceCommandOutput>;
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    cb: (err: any, data?: RegisterNamespaceCommandOutput) => void
+  ): void;
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterNamespaceCommandOutput) => void
   ): void;
 
   /**

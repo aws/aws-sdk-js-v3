@@ -45,7 +45,10 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * const client = new RUMClient(config);
  * const input = { // CreateAppMonitorRequest
  *   Name: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   DomainList: [ // AppMonitorDomainList
+ *     "STRING_VALUE",
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -71,6 +74,12 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  *   CwLogEnabled: true || false,
  *   CustomEvents: { // CustomEvents
  *     Status: "STRING_VALUE",
+ *   },
+ *   DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ *     JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ *       Status: "STRING_VALUE", // required
+ *       S3Uri: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateAppMonitorCommand(input);
@@ -111,6 +120,7 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class CreateAppMonitorCommand extends $Command
@@ -121,9 +131,7 @@ export class CreateAppMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +143,16 @@ export class CreateAppMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppMonitorCommand)
   .de(de_CreateAppMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppMonitorRequest;
+      output: CreateAppMonitorResponse;
+    };
+    sdk: {
+      input: CreateAppMonitorCommandInput;
+      output: CreateAppMonitorCommandOutput;
+    };
+  };
+}

@@ -88,29 +88,29 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Preview agents
  * ```javascript
  * // Previews the agents installed on the EC2 instances that are part of the specified assessment target.
  * const input = {
- *   "maxResults": 123,
- *   "previewAgentsArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ *   maxResults: 123,
+ *   previewAgentsArn: "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
  * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "agentPreviews": [
+ *   agentPreviews: [
  *     {
- *       "agentId": "i-49113b93"
+ *       agentId: "i-49113b93"
  *     }
  *   ],
- *   "nextToken": "1"
+ *   nextToken: "1"
  * }
  * *\/
- * // example id: preview-agents-1481067101888
  * ```
  *
+ * @public
  */
 export class PreviewAgentsCommand extends $Command
   .classBuilder<
@@ -120,9 +120,7 @@ export class PreviewAgentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +132,16 @@ export class PreviewAgentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PreviewAgentsCommand)
   .de(de_PreviewAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PreviewAgentsRequest;
+      output: PreviewAgentsResponse;
+    };
+    sdk: {
+      input: PreviewAgentsCommandInput;
+      output: PreviewAgentsCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDatabasesRequest, GetDatabasesResponse } from "../models/models_1";
+import { GetDatabasesRequest, GetDatabasesResponse } from "../models/models_2";
 import { de_GetDatabasesCommand, se_GetDatabasesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -89,6 +89,15 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  * @see {@link GetDatabasesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
+ *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
  *
@@ -104,6 +113,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetDatabasesCommand extends $Command
@@ -114,9 +124,7 @@ export class GetDatabasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +136,16 @@ export class GetDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatabasesCommand)
   .de(de_GetDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatabasesRequest;
+      output: GetDatabasesResponse;
+    };
+    sdk: {
+      input: GetDatabasesCommandInput;
+      output: GetDatabasesCommandOutput;
+    };
+  };
+}

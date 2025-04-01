@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_1";
+import { UpdatePortalRequest, UpdatePortalRequestFilterSensitiveLog, UpdatePortalResponse } from "../models/models_1";
 import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -54,12 +54,20 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *     alarmRoleArn: "STRING_VALUE", // required
  *     notificationLambdaArn: "STRING_VALUE",
  *   },
+ *   portalType: "SITEWISE_PORTAL_V1" || "SITEWISE_PORTAL_V2",
+ *   portalTypeConfiguration: { // PortalTypeConfiguration
+ *     "<keys>": { // PortalTypeEntry
+ *       portalTools: [ // PortalTools
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
  * // { // UpdatePortalResponse
  * //   portalStatus: { // PortalStatus
- * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //     error: { // MonitorErrorDetails
  * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //       message: "STRING_VALUE",
@@ -98,6 +106,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdatePortalCommand extends $Command
@@ -108,9 +117,7 @@ export class UpdatePortalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,7 +126,19 @@ export class UpdatePortalCommand extends $Command
   })
   .s("AWSIoTSiteWise", "UpdatePortal", {})
   .n("IoTSiteWiseClient", "UpdatePortalCommand")
-  .f(void 0, void 0)
+  .f(UpdatePortalRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePortalCommand)
   .de(de_UpdatePortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePortalRequest;
+      output: UpdatePortalResponse;
+    };
+    sdk: {
+      input: UpdatePortalCommandInput;
+      output: UpdatePortalCommandOutput;
+    };
+  };
+}

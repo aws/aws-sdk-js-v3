@@ -54,6 +54,7 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpChecksumRequiredCommand extends $Command
@@ -72,4 +73,16 @@ export class HttpChecksumRequiredCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpChecksumRequiredCommand)
   .de(de_HttpChecksumRequiredCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpChecksumRequiredInputOutput;
+      output: HttpChecksumRequiredInputOutput;
+    };
+    sdk: {
+      input: HttpChecksumRequiredCommandInput;
+      output: HttpChecksumRequiredCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_0";
+import { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_StartServiceSoftwareUpdateCommand, se_StartServiceSoftwareUpdateCommand } from "../protocols/Aws_restJson1";
 
@@ -80,6 +80,7 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class StartServiceSoftwareUpdateCommand extends $Command
@@ -90,9 +91,7 @@ export class StartServiceSoftwareUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class StartServiceSoftwareUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartServiceSoftwareUpdateCommand)
   .de(de_StartServiceSoftwareUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartServiceSoftwareUpdateRequest;
+      output: StartServiceSoftwareUpdateResponse;
+    };
+    sdk: {
+      input: StartServiceSoftwareUpdateCommandInput;
+      output: StartServiceSoftwareUpdateCommandOutput;
+    };
+  };
+}

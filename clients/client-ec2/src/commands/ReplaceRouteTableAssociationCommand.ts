@@ -42,8 +42,8 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * // const { EC2Client, ReplaceRouteTableAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceRouteTableAssociationRequest
- *   AssociationId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AssociationId: "STRING_VALUE", // required
  *   RouteTableId: "STRING_VALUE", // required
  * };
  * const command = new ReplaceRouteTableAssociationCommand(input);
@@ -67,24 +67,24 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To replace the route table associated with a subnet
  * ```javascript
  * // This example associates the specified route table with the subnet for the specified route table association.
  * const input = {
- *   "AssociationId": "rtbassoc-781d0d1a",
- *   "RouteTableId": "rtb-22574640"
+ *   AssociationId: "rtbassoc-781d0d1a",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new ReplaceRouteTableAssociationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NewAssociationId": "rtbassoc-3a1f0f58"
+ *   NewAssociationId: "rtbassoc-3a1f0f58"
  * }
  * *\/
- * // example id: ec2-replace-route-table-association-1
  * ```
  *
+ * @public
  */
 export class ReplaceRouteTableAssociationCommand extends $Command
   .classBuilder<
@@ -94,9 +94,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +106,16 @@ export class ReplaceRouteTableAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceRouteTableAssociationCommand)
   .de(de_ReplaceRouteTableAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceRouteTableAssociationRequest;
+      output: ReplaceRouteTableAssociationResult;
+    };
+    sdk: {
+      input: ReplaceRouteTableAssociationCommandInput;
+      output: ReplaceRouteTableAssociationCommandOutput;
+    };
+  };
+}

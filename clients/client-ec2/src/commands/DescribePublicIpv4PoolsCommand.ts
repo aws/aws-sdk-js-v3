@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_4";
+import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_5";
 import { de_DescribePublicIpv4PoolsCommand, se_DescribePublicIpv4PoolsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -90,6 +90,7 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribePublicIpv4PoolsCommand extends $Command
@@ -100,9 +101,7 @@ export class DescribePublicIpv4PoolsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DescribePublicIpv4PoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePublicIpv4PoolsCommand)
   .de(de_DescribePublicIpv4PoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePublicIpv4PoolsRequest;
+      output: DescribePublicIpv4PoolsResult;
+    };
+    sdk: {
+      input: DescribePublicIpv4PoolsCommandInput;
+      output: DescribePublicIpv4PoolsCommandOutput;
+    };
+  };
+}

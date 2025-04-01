@@ -101,7 +101,7 @@
         "GatewayType": {
           "target": "com.amazonaws.storagegateway#GatewayType",
           "traits": {
-            "smithy.api#documentation": "<p>A value that defines the type of gateway to activate. The type specified is critical to\n         all later functions of the gateway and cannot be changed after activation. The default\n         value is <code>CACHED</code>.</p>\n         <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code>\n         | <code>FILE_S3</code> |\n         <code>FILE_FSX_SMB</code>\n         </p>"
+            "smithy.api#documentation": "<p>A value that defines the type of gateway to activate. The type specified is critical to\n         all later functions of the gateway and cannot be changed after activation. The default\n         value is <code>CACHED</code>.</p>\n         <important>\n            <p>Amazon FSx File Gateway is no longer available to new customers. Existing\n            customers of FSx File Gateway can continue to use the service normally. For\n            capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p>\n         </important>\n         <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code>\n         | <code>FILE_S3</code> |\n         <code>FILE_FSX_SMB</code>\n         </p>"
           }
         },
         "TapeDriveType": {
@@ -898,18 +898,18 @@
         "AverageUploadRateLimitInBitsPerSec": {
           "target": "com.amazonaws.storagegateway#BandwidthUploadRateLimit",
           "traits": {
-            "smithy.api#documentation": "<p> The average upload rate limit component of the bandwidth rate limit interval, in bits\n         per second. This field does not appear in the response if the upload rate limit is not set. </p>\n         <note>\n            <p>For Tape Gateway and Volume Gateway, the minimum value is <code>51200</code>.</p>\n            <p>For S3 File Gateway and FSx File Gateway, the minimum value is\n            <code>104857600</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p> The average upload rate limit component of the bandwidth rate limit interval, in bits\n         per second. This field does not appear in the response if the upload rate limit is not set. </p>\n         <note>\n            <p>For Tape Gateway and Volume Gateway, the minimum value is <code>51200</code>.</p>\n            <p>This field is required for S3 File Gateway, and the minimum value is\n               <code>104857600</code>.</p>\n         </note>"
           }
         },
         "AverageDownloadRateLimitInBitsPerSec": {
           "target": "com.amazonaws.storagegateway#BandwidthDownloadRateLimit",
           "traits": {
-            "smithy.api#documentation": "<p> The average download rate limit component of the bandwidth rate limit interval, in bits\n         per second. This field does not appear in the response if the download rate limit is not\n         set. </p>"
+            "smithy.api#documentation": "<p> The average download rate limit component of the bandwidth rate limit interval, in bits\n         per second. This field does not appear in the response if the download rate limit is not\n         set. </p>\n         <note>\n            <p>S3 File Gateway does not support this feature.</p>\n         </note>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit\n         schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit\n         interval defines a period of time on one or more days of the week, during which bandwidth\n         rate limits are specified for uploading, downloading, or both. </p>"
+        "smithy.api#documentation": "<p>Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit schedule\n         consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval\n         defines a period of time on one or more days of the week, during which bandwidth rate\n         limits are specified for uploading, downloading, or both.</p>\n         <note>\n            <p>FSx File Gateway does not support this feature.</p>\n         </note>"
       }
     },
     "com.amazonaws.storagegateway#BandwidthRateLimitIntervals": {
@@ -962,6 +962,199 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The refresh cache information for the file share or FSx file systems.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportARN": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 50,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportFilter": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter name for a filter that determines which files are included or excluded\n         from a cache report.</p>\n         <p>\n            <b>Valid Names:</b>\n         </p>\n         <p>UploadFailureReason | UploadState</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter value for a filter that determines which files are included or excluded\n         from a cache report.</p>\n         <p>\n            <b>Valid <code>UploadFailureReason</code> Values:</b>\n         </p>\n         <p>\n            <code>InaccessibleStorageClass</code> | <code>InvalidObjectState</code> |\n            <code>ObjectMissing</code> | <code>S3AccessDenied</code>\n         </p>\n         <p>\n            <b>Valid <code>UploadState</code> Values:</b>\n         </p>\n         <p>\n            <code>FailingUpload</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A list of filter parameters and associated values that determine which files are\n         included or excluded from a cache report created by a <code>StartCacheReport</code>\n         request. Multiple instances of the same filter parameter are combined with an OR operation,\n         while different parameters are combined with an AND operation.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.storagegateway#CacheReportFilter"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportFilterName": {
+      "type": "enum",
+      "members": {
+        "UploadState": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UploadState"
+          }
+        },
+        "UploadFailureReason": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UploadFailureReason"
+          }
+        }
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportFilterValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.storagegateway#CacheReportFilterValue"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportInfo": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to describe.</p>"
+          }
+        },
+        "CacheReportStatus": {
+          "target": "com.amazonaws.storagegateway#CacheReportStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the specified cache report.</p>"
+          }
+        },
+        "ReportCompletionPercent": {
+          "target": "com.amazonaws.storagegateway#ReportCompletionPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>The percentage of the report generation process that has been completed at time of\n         inquiry.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.storagegateway#Time",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the gateway stopped generating the cache report.</p>"
+          }
+        },
+        "Role": {
+          "target": "com.amazonaws.storagegateway#Role"
+        },
+        "FileShareARN": {
+          "target": "com.amazonaws.storagegateway#FileShareARN"
+        },
+        "LocationARN": {
+          "target": "com.amazonaws.storagegateway#LocationARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon S3 bucket location where the cache report is saved.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.storagegateway#Time",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the gateway started generating the cache report.</p>"
+          }
+        },
+        "InclusionFilters": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters and parameters that determine which files are included in the\n         report.</p>"
+          }
+        },
+        "ExclusionFilters": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters and parameters that determine which files are excluded from the\n         report.</p>"
+          }
+        },
+        "ReportName": {
+          "target": "com.amazonaws.storagegateway#CacheReportName",
+          "traits": {
+            "smithy.api#documentation": "<p>The file name of the completed cache report object stored in Amazon S3.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.storagegateway#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of key/value tags associated with the report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains all informational fields associated with a cache report. Includes name, ARN,\n         tags, status, progress, filters, start time, and end time.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.storagegateway#CacheReportInfo"
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.storagegateway#CacheReportStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.storagegateway#CacheStaleTimeoutInSeconds": {
@@ -1124,6 +1317,55 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>CancelArchivalOutput</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.storagegateway#CancelCacheReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#CancelCacheReportInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#CancelCacheReportOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Cancels generation of a specified cache report. You can use this operation to manually\n         cancel an IN-PROGRESS report for any reason. This action changes the report status from\n         IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the report you\n         attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation returns an\n         error.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#CancelCacheReportInput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#CancelCacheReportOutput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#output": {}
       }
     },
@@ -1454,16 +1696,25 @@
             "smithy.api#required": {}
           }
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.storagegateway#KMSKey",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This\n         value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>"
+            "smithy.api#documentation": "<p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used\n         for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric\n         CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if\n            <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>"
           }
         },
         "Role": {
@@ -1476,7 +1727,7 @@
         "LocationARN": {
           "target": "com.amazonaws.storagegateway#LocationARN",
           "traits": {
-            "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::my-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
+            "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -1531,7 +1782,7 @@
         "FileShareName": {
           "target": "com.amazonaws.storagegateway#FileShareName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n            <p>A valid NFS file share name can only contain the following characters:\n               <code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>,\n               <code>0</code>-<code>9</code>, <code>-</code>, <code>.</code>, and\n            <code>_</code>.</p>\n         </note>"
           }
         },
         "CacheAttributes": {
@@ -1543,7 +1794,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "VPCEndpointDNSName": {
@@ -1622,16 +1873,25 @@
             "smithy.api#required": {}
           }
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.storagegateway#KMSKey",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This\n         value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>"
+            "smithy.api#documentation": "<p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used\n         for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric\n         CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if\n            <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>"
           }
         },
         "Role": {
@@ -1644,7 +1904,7 @@
         "LocationARN": {
           "target": "com.amazonaws.storagegateway#LocationARN",
           "traits": {
-            "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::my-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
+            "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -1681,7 +1941,7 @@
         "SMBACLEnabled": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file\n         share. Set it to <code>false</code> to map file and directory permissions to the POSIX\n         permissions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html\">Using Microsoft Windows ACLs to\n            control access to an SMB file share</a> in the <i>Storage Gateway User\n            Guide</i>.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#documentation": "<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file\n         share. Set it to <code>false</code> to map file and directory permissions to the POSIX\n         permissions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share\n            access</a> in the <i>Amazon S3 File Gateway User\n         Guide</i>.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "AccessBasedEnumeration": {
@@ -1735,7 +1995,7 @@
         "FileShareName": {
           "target": "com.amazonaws.storagegateway#FileShareName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n            <p>A valid SMB file share name cannot contain the following characters:\n               <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>\"</code>,<code>\\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>,\n            or ASCII control characters <code>1-31</code>.</p>\n         </note>"
           }
         },
         "CacheAttributes": {
@@ -1747,7 +2007,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "VPCEndpointDNSName": {
@@ -2572,6 +2832,55 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.storagegateway#DeleteCacheReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#DeleteCacheReportInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#DeleteCacheReportOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified cache report and any associated tags from the Storage Gateway database. You can only delete completed reports. If the status of the\n         report you attempt to delete still IN-PROGRESS, the delete operation returns an error. You\n         can use <code>CancelCacheReport</code> to cancel an IN-PROGRESS report.</p>\n         <note>\n            <p>\n               <code>DeleteCacheReport</code> does not delete the report object from your Amazon S3 bucket.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.storagegateway#DeleteCacheReportInput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#DeleteCacheReportOutput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to delete.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.storagegateway#DeleteChapCredentials": {
       "type": "operation",
       "input": {
@@ -3382,6 +3691,55 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.storagegateway#DescribeCacheReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#DescribeCacheReportInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#DescribeCacheReportOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about the specified cache report, including completion status and\n         generation progress.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#DescribeCacheReportInput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report you want to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#DescribeCacheReportOutput": {
+      "type": "structure",
+      "members": {
+        "CacheReportInfo": {
+          "target": "com.amazonaws.storagegateway#CacheReportInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains all informational fields associated with a cache report. Includes name, ARN,\n         tags, status, progress, filters, start time, and end time.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.storagegateway#DescribeCachediSCSIVolumes": {
       "type": "operation",
       "input": {
@@ -3676,7 +4034,7 @@
         "GatewayType": {
           "target": "com.amazonaws.storagegateway#GatewayType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the gateway.</p>"
+            "smithy.api#documentation": "<p>The type of the gateway.</p>\n         <important>\n            <p>Amazon FSx File Gateway is no longer available to new customers. Existing\n            customers of FSx File Gateway can continue to use the service normally. For\n            capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p>\n         </important>"
           }
         },
         "NextUpdateAvailabilityDate": {
@@ -3865,7 +4223,7 @@
         "SoftwareUpdatePreferences": {
           "target": "com.amazonaws.storagegateway#SoftwareUpdatePreferences",
           "traits": {
-            "smithy.api#documentation": "<p>A set of variables indicating the software update preferences for the gateway.</p>\n         <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance\n         updates.</p>"
+            "smithy.api#documentation": "<p>A set of variables indicating the software update preferences for the gateway.</p>\n         <p>Includes <code>AutomaticUpdatePolicy</code> parameter with the following inputs:</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The\n         gateway will still receive emergency version updates on rare occasions if necessary to\n         remedy highly critical security or durability issues. You will be notified before an\n         emergency version update is applied. These updates are applied during your gateway's\n         scheduled maintenance window.</p>"
           }
         }
       },
@@ -4025,7 +4383,7 @@
         "ActiveDirectoryStatus": {
           "target": "com.amazonaws.storagegateway#ActiveDirectoryStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the status of a gateway that is a member of the Active Directory\n         domain.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ACCESS_DENIED</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to an authentication error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DETACHED</code>: Indicates that gateway is not joined to a domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINED</code>: Indicates that the gateway has successfully joined a\n               domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINING</code>: Indicates that a <code>JoinDomain</code> operation is in\n               progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_ERROR</code>: Indicates that <code>JoinDomain</code> operation\n               failed due to a network or connectivity error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TIMEOUT</code>: Indicates that the <code>JoinDomain</code> operation failed\n               because the operation didn't complete within the allotted time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNKNOWN_ERROR</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to another type of error.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Indicates the status of a gateway that is a member of the Active Directory\n         domain.</p>\n         <note>\n            <p>This field is only used as part of a <code>JoinDomain</code> request. It is not\n            affected by Active Directory connectivity changes that occur after the\n               <code>JoinDomain</code> request succeeds.</p>\n         </note>\n         <ul>\n            <li>\n               <p>\n                  <code>ACCESS_DENIED</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to an authentication error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DETACHED</code>: Indicates that gateway is not joined to a domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINED</code>: Indicates that the gateway has successfully joined a\n               domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINING</code>: Indicates that a <code>JoinDomain</code> operation is in\n               progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_ERROR</code>: Indicates that <code>JoinDomain</code> operation\n               failed due to a network or connectivity error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TIMEOUT</code>: Indicates that the <code>JoinDomain</code> operation failed\n               because the operation didn't complete within the allotted time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNKNOWN_ERROR</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to another type of error.</p>\n            </li>\n         </ul>"
           }
         },
         "SMBGuestPasswordSet": {
@@ -4514,19 +4872,6 @@
         "smithy.api#documentation": "<p>Returns information about the upload buffer of a gateway. This operation is supported\n         for the stored volume, cached volume, and tape gateway types.</p>\n         <p>The response includes disk IDs that are configured as upload buffer space, and it\n         includes the amount of upload buffer space allocated and used.</p>",
         "smithy.api#examples": [
           {
-            "title": "To describe upload buffer of gateway",
-            "documentation": "Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated/used.",
-            "input": {
-              "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
-            },
-            "output": {
-              "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
-              "DiskIds": ["pci-0000:03:00.0-scsi-0:0:0:0", "pci-0000:04:00.0-scsi-0:1:0:0"],
-              "UploadBufferUsedInBytes": 161061273600,
-              "UploadBufferAllocatedInBytes": 0
-            }
-          },
-          {
             "title": "To describe upload buffer of a gateway",
             "documentation": "Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated and used.",
             "input": {
@@ -4537,6 +4882,19 @@
               "DiskIds": ["pci-0000:03:00.0-scsi-0:0:0:0", "pci-0000:04:00.0-scsi-0:1:0:0"],
               "UploadBufferUsedInBytes": 0,
               "UploadBufferAllocatedInBytes": 161061273600
+            }
+          },
+          {
+            "title": "To describe upload buffer of gateway",
+            "documentation": "Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated/used.",
+            "input": {
+              "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+            },
+            "output": {
+              "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+              "DiskIds": ["pci-0000:03:00.0-scsi-0:0:0:0", "pci-0000:04:00.0-scsi-0:1:0:0"],
+              "UploadBufferUsedInBytes": 161061273600,
+              "UploadBufferAllocatedInBytes": 0
             }
           }
         ]
@@ -5177,6 +5535,29 @@
     "com.amazonaws.storagegateway#Ec2InstanceRegion": {
       "type": "string"
     },
+    "com.amazonaws.storagegateway#EncryptionType": {
+      "type": "enum",
+      "members": {
+        "SseS3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SseS3"
+          }
+        },
+        "SseKms": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SseKms"
+          }
+        },
+        "DsseKms": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DsseKms"
+          }
+        }
+      }
+    },
     "com.amazonaws.storagegateway#EndpointNetworkConfiguration": {
       "type": "structure",
       "members": {
@@ -5577,6 +5958,62 @@
         }
       }
     },
+    "com.amazonaws.storagegateway#EvictFilesFailingUpload": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#EvictFilesFailingUploadInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#EvictFilesFailingUploadOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts a process that cleans the specified file share's cache of file entries that are\n         failing upload to Amazon S3. This API operation reports success if the request is\n         received with valid arguments, and there are no other cache clean operations currently\n         in-progress for the specified file share. After a successful request, the cache clean\n         operation occurs asynchronously and reports progress using CloudWatch logs and\n         notifications.</p>\n         <important>\n            <p>If <code>ForceRemove</code> is set to <code>True</code>, the cache clean operation\n            will delete file data from the gateway which might otherwise be recoverable. We\n            recommend using this operation only after all other methods to clear files failing\n            upload have been exhausted, and if your business need outweighs the potential data\n            loss.</p>\n         </important>"
+      }
+    },
+    "com.amazonaws.storagegateway#EvictFilesFailingUploadInput": {
+      "type": "structure",
+      "members": {
+        "FileShareARN": {
+          "target": "com.amazonaws.storagegateway#FileShareARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the file share for which you want to start the cache\n         clean operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ForceRemove": {
+          "target": "com.amazonaws.storagegateway#Boolean2",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Specifies whether cache entries with full or partial file data currently stored on the\n         gateway will be forcibly removed by the cache clean operation.</p>\n         <p>Valid arguments:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>False</code> - The cache clean operation skips cache entries failing upload\n               if they are associated with data currently stored on the gateway. This preserves the\n               cached data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>True</code> - The cache clean operation removes cache entries failing upload\n               even if they are associated with data currently stored on the gateway. This deletes\n               the cached data.</p>\n               <important>\n                  <p>If <code>ForceRemove</code> is set to <code>True</code>, the cache clean\n                  operation will delete file data from the gateway which might otherwise be\n                  recoverable.</p>\n               </important>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#EvictFilesFailingUploadOutput": {
+      "type": "structure",
+      "members": {
+        "NotificationId": {
+          "target": "com.amazonaws.storagegateway#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The randomly generated ID of the CloudWatch notification associated with the\n         cache clean operation. This ID is in UUID format.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.storagegateway#FileShareARN": {
       "type": "string",
       "traits": {
@@ -5939,7 +6376,7 @@
         "GatewayType": {
           "target": "com.amazonaws.storagegateway#GatewayType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the gateway.</p>"
+            "smithy.api#documentation": "<p>The type of the gateway.</p>\n         <important>\n            <p>Amazon FSx File Gateway is no longer available to new customers. Existing\n            customers of FSx File Gateway can continue to use the service normally. For\n            capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p>\n         </important>"
           }
         },
         "GatewayOperationalState": {
@@ -6313,7 +6750,7 @@
         "ActiveDirectoryStatus": {
           "target": "com.amazonaws.storagegateway#ActiveDirectoryStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the status of the gateway as a member of the Active Directory domain.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ACCESS_DENIED</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to an authentication error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DETACHED</code>: Indicates that gateway is not joined to a domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINED</code>: Indicates that the gateway has successfully joined a\n               domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINING</code>: Indicates that a <code>JoinDomain</code> operation is in\n               progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_ERROR</code>: Indicates that <code>JoinDomain</code> operation\n               failed due to a network or connectivity error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TIMEOUT</code>: Indicates that the <code>JoinDomain</code> operation failed\n               because the operation didn't complete within the allotted time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNKNOWN_ERROR</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to another type of error.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Indicates the status of the gateway as a member of the Active Directory domain.</p>\n         <note>\n            <p>This field is only used as part of a <code>JoinDomain</code> request. It is not\n            affected by Active Directory connectivity changes that occur after the\n               <code>JoinDomain</code> request succeeds.</p>\n         </note>\n         <ul>\n            <li>\n               <p>\n                  <code>ACCESS_DENIED</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to an authentication error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DETACHED</code>: Indicates that gateway is not joined to a domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINED</code>: Indicates that the gateway has successfully joined a\n               domain.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JOINING</code>: Indicates that a <code>JoinDomain</code> operation is in\n               progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_ERROR</code>: Indicates that <code>JoinDomain</code> operation\n               failed due to a network or connectivity error.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TIMEOUT</code>: Indicates that the <code>JoinDomain</code> operation failed\n               because the operation didn't complete within the allotted time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNKNOWN_ERROR</code>: Indicates that the <code>JoinDomain</code> operation\n               failed due to another type of error.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -6325,7 +6762,7 @@
     "com.amazonaws.storagegateway#KMSKey": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This\n         value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>",
+        "smithy.api#documentation": "<p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used\n         for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric\n         CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if\n            <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>",
         "smithy.api#length": {
           "min": 7,
           "max": 2048
@@ -6380,6 +6817,60 @@
           "target": "com.amazonaws.storagegateway#AutomaticTapeCreationPolicyInfos",
           "traits": {
             "smithy.api#documentation": "<p>Gets a listing of information about the gateway's automatic tape creation policies,\n         including the automatic tape creation rules and the gateway that is using the\n         policies.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.storagegateway#ListCacheReports": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#ListCacheReportsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#ListCacheReportsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of existing cache reports for all file shares associated with your\n            Amazon Web Services account. This list includes all information provided by the\n            <code>DescribeCacheReport</code> action, such as report name, status, completion\n         progress, start time, end time, filters, and tags.</p>"
+      }
+    },
+    "com.amazonaws.storagegateway#ListCacheReportsInput": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.storagegateway#Marker",
+          "traits": {
+            "smithy.api#documentation": "<p>Opaque pagination token returned from a previous <code>ListCacheReports</code>\n         operation. If present, <code>Marker</code> specifies where to continue the list from after\n         a previous call to <code>ListCacheReports</code>. Optional.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#ListCacheReportsOutput": {
+      "type": "structure",
+      "members": {
+        "CacheReportList": {
+          "target": "com.amazonaws.storagegateway#CacheReportList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of existing cache reports for all file shares associated with your Amazon Web Services account. This list includes all information provided by the\n            <code>DescribeCacheReport</code> action, such as report status, completion progress,\n         start time, end time, filters, and tags.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.storagegateway#Marker",
+          "traits": {
+            "smithy.api#documentation": "<p>If the request includes <code>Marker</code>, the response returns that value in this\n         field.</p>"
           }
         }
       },
@@ -7197,7 +7688,7 @@
     "com.amazonaws.storagegateway#LocationARN": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::my-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
+        "smithy.api#documentation": "<p>A custom ARN for the backend storage used for storing data for file shares. It includes\n         a resource ARN with an optional prefix concatenation. The prefix must end with a forward\n         slash (/).</p>\n         <note>\n            <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,\n            as shown in the following examples.</p>\n            <p>Bucket ARN:</p>\n            <p>\n               <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>\n            </p>\n            <p>Access point ARN:</p>\n            <p>\n               <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code>\n            </p>\n            <p>If you specify an access point, the bucket policy must be configured to delegate\n            access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n            <p>Access point alias:</p>\n            <p>\n               <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code>\n            </p>\n         </note>",
         "smithy.api#length": {
           "min": 16,
           "max": 1400
@@ -7290,11 +7781,20 @@
         "GatewayARN": {
           "target": "com.amazonaws.storagegateway#GatewayARN"
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean2",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
@@ -7363,7 +7863,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "VPCEndpointDNSName": {
@@ -7474,7 +7974,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends you notification through CloudWatch Events when all files written to your file\n         share have been uploaded to Amazon S3.</p>\n         <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all\n         files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you\n         make a request for notification. When the upload is done, Storage Gateway sends you\n         notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to\n         send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification\">Getting\n            file upload notification</a> in the <i>Amazon S3 File Gateway User\n            Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Sends you notification through Amazon EventBridge when all files written to your file\n         share have been uploaded to Amazon S3.</p>\n         <p>Storage Gateway can send a notification through Amazon EventBridge when all\n         files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you\n         make a request for notification. When the upload is done, Storage Gateway sends you\n         notification through EventBridge. You can configure EventBridge to send the\n         notification through event targets such as Amazon SNS or Lambda\n         function. This operation is only supported for S3 File Gateways.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification\">Getting\n            file upload notification</a> in the <i>Amazon S3 File Gateway User\n            Guide</i>.</p>"
       }
     },
     "com.amazonaws.storagegateway#NotifyWhenUploadedInput": {
@@ -7859,6 +8359,15 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.storagegateway#ReportCompletionPercent": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.storagegateway#ResetCache": {
       "type": "operation",
       "input": {
@@ -8124,11 +8633,20 @@
         "GatewayARN": {
           "target": "com.amazonaws.storagegateway#GatewayARN"
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean2",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
@@ -8176,7 +8694,7 @@
         "SMBACLEnabled": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>If this value is set to <code>true</code>, it indicates that access control list (ACL)\n         is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that\n         file and directory permissions are mapped to the POSIX permission.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html\">Using Microsoft Windows ACLs to\n            control access to an SMB file share</a> in the <i>Storage Gateway User\n            Guide</i>.</p>"
+            "smithy.api#documentation": "<p>If this value is set to <code>true</code>, it indicates that access control list (ACL)\n         is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that\n         file and directory permissions are mapped to the POSIX permission.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share\n            access</a> in the <i>Amazon S3 File Gateway User\n         Guide</i>.</p>"
           }
         },
         "AccessBasedEnumeration": {
@@ -8239,7 +8757,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "VPCEndpointDNSName": {
@@ -8547,7 +9065,7 @@
         "AutomaticUpdatePolicy": {
           "target": "com.amazonaws.storagegateway#AutomaticUpdatePolicy",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the automatic update policy for a gateway.</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance\n         updates.</p>"
+            "smithy.api#documentation": "<p>Indicates the automatic update policy for a gateway.</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The\n         gateway will still receive emergency version updates on rare occasions if necessary to\n         remedy highly critical security or durability issues. You will be notified before an\n         emergency version update is applied. These updates are applied during your gateway's\n         scheduled maintenance window.</p>"
           }
         }
       },
@@ -8616,6 +9134,106 @@
       "members": {
         "GatewayARN": {
           "target": "com.amazonaws.storagegateway#GatewayARN"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.storagegateway#StartCacheReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.storagegateway#StartCacheReportInput"
+      },
+      "output": {
+        "target": "com.amazonaws.storagegateway#StartCacheReportOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.storagegateway#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#InvalidGatewayRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts generating a report of the file metadata currently cached by an S3 File Gateway for a specific file share. You can use this report to identify and resolve\n         issues if you have files failing upload from your gateway to Amazon S3. The report\n         is a CSV file containing a list of files which match the set of filter parameters you\n         specify in the request.</p>\n         <note>\n            <p>The <b>Files Failing Upload</b> flag is reset every 24\n            hours and during gateway reboot. If this report captures the files after the reset, but\n            before they become flagged again, they will not be reported as <b>Files Failing Upload</b>.</p>\n         </note>\n         <p>The following requirements must be met to successfully generate a cache report:</p>\n         <ul>\n            <li>\n               <p>You must have permissions to list the entire Amazon S3 bucket associated\n               with the specified file share.</p>\n            </li>\n            <li>\n               <p>No other cache reports can currently be in-progress for the specified file\n               share.</p>\n            </li>\n            <li>\n               <p>There must be fewer than 10 existing cache reports for the specified file\n               share.</p>\n            </li>\n            <li>\n               <p>The gateway must be online and connected to Amazon Web Services.</p>\n            </li>\n            <li>\n               <p>The root disk must have at least 20GB of free space when report generation\n               starts.</p>\n            </li>\n            <li>\n               <p>You must specify at least one value for <code>InclusionFilters</code> or\n                  <code>ExclusionFilters</code> in the request.</p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.storagegateway#StartCacheReportInput": {
+      "type": "structure",
+      "members": {
+        "FileShareARN": {
+          "target": "com.amazonaws.storagegateway#FileShareARN",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Role": {
+          "target": "com.amazonaws.storagegateway#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role used when saving the cache report to Amazon S3.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LocationARN": {
+          "target": "com.amazonaws.storagegateway#LocationARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon S3 bucket where the cache report will be saved.</p>\n         <note>\n            <p>We do not recommend saving the cache report to the same Amazon S3 bucket for\n            which you are generating the report.</p>\n            <p>This field does not accept access point ARNs.</p>\n         </note>",
+            "smithy.api#required": {}
+          }
+        },
+        "BucketRegion": {
+          "target": "com.amazonaws.storagegateway#RegionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Region of the Amazon S3 bucket associated with the file\n         share for which you want to generate the cache report.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VPCEndpointDNSName": {
+          "target": "com.amazonaws.storagegateway#DNSHostName",
+          "traits": {
+            "smithy.api#documentation": "<p>The DNS name of the VPC endpoint associated with the Amazon S3 where you want to\n         save the cache report. Optional.</p>"
+          }
+        },
+        "InclusionFilters": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters and parameters that determine which files are included in the\n         report. You must specify at least one value for <code>InclusionFilters</code> or\n            <code>ExclusionFilters</code> in a <code>StartCacheReport</code> request.</p>"
+          }
+        },
+        "ExclusionFilters": {
+          "target": "com.amazonaws.storagegateway#CacheReportFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters and parameters that determine which files are excluded from the\n         report. You must specify at least one value for <code>InclusionFilters</code> or\n            <code>ExclusionFilters</code> in a <code>StartCacheReport</code> request.</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.storagegateway#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier that you use to ensure idempotent report generation if you need to\n         retry an unsuccessful <code>StartCacheReport</code> request. If you retry a request, use\n         the same <code>ClientToken</code> you specified in the initial request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.storagegateway#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of up to 50 key/value tags that you can assign to the cache report. Using tags\n         can help you categorize your reports and more easily locate them in search results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.storagegateway#StartCacheReportOutput": {
+      "type": "structure",
+      "members": {
+        "CacheReportARN": {
+          "target": "com.amazonaws.storagegateway#CacheReportARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cache report generated by the\n            <code>StartCacheReport</code> request.</p>"
+          }
         }
       },
       "traits": {
@@ -8743,6 +9361,9 @@
           "target": "com.amazonaws.storagegateway#CancelArchival"
         },
         {
+          "target": "com.amazonaws.storagegateway#CancelCacheReport"
+        },
+        {
           "target": "com.amazonaws.storagegateway#CancelRetrieval"
         },
         {
@@ -8777,6 +9398,9 @@
         },
         {
           "target": "com.amazonaws.storagegateway#DeleteBandwidthRateLimit"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#DeleteCacheReport"
         },
         {
           "target": "com.amazonaws.storagegateway#DeleteChapCredentials"
@@ -8816,6 +9440,9 @@
         },
         {
           "target": "com.amazonaws.storagegateway#DescribeCachediSCSIVolumes"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#DescribeCacheReport"
         },
         {
           "target": "com.amazonaws.storagegateway#DescribeChapCredentials"
@@ -8872,10 +9499,16 @@
           "target": "com.amazonaws.storagegateway#DisassociateFileSystem"
         },
         {
+          "target": "com.amazonaws.storagegateway#EvictFilesFailingUpload"
+        },
+        {
           "target": "com.amazonaws.storagegateway#JoinDomain"
         },
         {
           "target": "com.amazonaws.storagegateway#ListAutomaticTapeCreationPolicies"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#ListCacheReports"
         },
         {
           "target": "com.amazonaws.storagegateway#ListFileShares"
@@ -8936,6 +9569,9 @@
         },
         {
           "target": "com.amazonaws.storagegateway#StartAvailabilityMonitorTest"
+        },
+        {
+          "target": "com.amazonaws.storagegateway#StartCacheReport"
         },
         {
           "target": "com.amazonaws.storagegateway#StartGateway"
@@ -8999,7 +9635,7 @@
           "name": "storagegateway"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>Storage Gateway Service</fullname>\n         <p>Storage Gateway is the service that connects an on-premises software appliance\n         with cloud-based storage to provide seamless and secure integration between an\n         organization's on-premises IT environment and the Amazon Web Services storage\n         infrastructure. The service enables you to securely upload data to the Amazon Web Services Cloud for cost effective backup and rapid disaster recovery.</p>\n         <p>Use the following links to get started using the <i>Storage Gateway\n            Service API Reference</i>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders\">Storage Gateway required request headers</a>: Describes the required\n               headers that you must send with every POST request to Storage Gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests\">Signing requests</a>: Storage Gateway requires that you authenticate\n               every request you send; this topic describes how sign such a request.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses\">Error responses</a>: Provides reference information about Storage Gateway errors.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html\">Operations in Storage Gateway</a>: Contains detailed descriptions of all Storage Gateway operations, their request parameters, response elements, possible errors, and\n               examples of requests and responses.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/general/latest/gr/sg.html\">Storage Gateway\n                  endpoints and quotas</a>: Provides a list of each Amazon Web Services Region\n               and the endpoints available for use with Storage Gateway.</p>\n            </li>\n         </ul>\n         <note>\n            <p>Storage Gateway resource IDs are in uppercase. When you use these resource IDs\n            with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change\n            your resource ID to lowercase to use it with the EC2 API. For example, in Storage\n            Gateway the ID for a volume might be <code>vol-AA22BB012345DAF670</code>. When you use\n            this ID with the EC2 API, you must change it to <code>vol-aa22bb012345daf670</code>.\n            Otherwise, the EC2 API might not behave as expected.</p>\n         </note>\n         <important>\n            <p>IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway\n            volumes are changing to a longer format. Starting in December 2016, all new volumes and\n            snapshots will be created with a 17-character string. Starting in April 2016, you will\n            be able to use these longer IDs so you can test your systems with the new format. For\n            more information, see <a href=\"http://aws.amazon.com/ec2/faqs/#longer-ids\">Longer EC2 and\n               EBS resource IDs</a>.</p>\n            <p>For example, a volume Amazon Resource Name (ARN) with the longer volume ID format\n            looks like the following:</p>\n            <p>\n               <code>arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG</code>.</p>\n            <p>A snapshot ID with the longer ID format looks like the following:\n               <code>snap-78e226633445566ee</code>.</p>\n            <p>For more information, see <a href=\"http://forums.aws.amazon.com/ann.jspa?annID=3557\">Announcement:\n               Heads-up – Longer Storage Gateway volume and snapshot IDs coming in\n            2016</a>.</p>\n         </important>",
+        "smithy.api#documentation": "<fullname>Storage Gateway Service</fullname>\n         <important>\n            <p>Amazon FSx File Gateway is no longer available to new customers. Existing\n            customers of FSx File Gateway can continue to use the service normally. For\n            capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p>\n         </important>\n         <p>Storage Gateway is the service that connects an on-premises software appliance\n         with cloud-based storage to provide seamless and secure integration between an\n         organization's on-premises IT environment and the Amazon Web Services storage\n         infrastructure. The service enables you to securely upload data to the Amazon Web Services Cloud for cost effective backup and rapid disaster recovery.</p>\n         <p>Use the following links to get started using the <i>Storage Gateway\n            Service API Reference</i>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders\">Storage Gateway required request headers</a>: Describes the required\n               headers that you must send with every POST request to Storage Gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests\">Signing requests</a>: Storage Gateway requires that you authenticate\n               every request you send; this topic describes how sign such a request.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses\">Error responses</a>: Provides reference information about Storage Gateway errors.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html\">Operations in Storage Gateway</a>: Contains detailed descriptions of all Storage Gateway operations, their request parameters, response elements, possible errors, and\n               examples of requests and responses.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/general/latest/gr/sg.html\">Storage Gateway\n                  endpoints and quotas</a>: Provides a list of each Amazon Web Services Region\n               and the endpoints available for use with Storage Gateway.</p>\n            </li>\n         </ul>\n         <note>\n            <p>Storage Gateway resource IDs are in uppercase. When you use these resource IDs\n            with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change\n            your resource ID to lowercase to use it with the EC2 API. For example, in Storage\n            Gateway the ID for a volume might be <code>vol-AA22BB012345DAF670</code>. When you use\n            this ID with the EC2 API, you must change it to <code>vol-aa22bb012345daf670</code>.\n            Otherwise, the EC2 API might not behave as expected.</p>\n         </note>\n         <important>\n            <p>IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway\n            volumes are changing to a longer format. Starting in December 2016, all new volumes and\n            snapshots will be created with a 17-character string. Starting in April 2016, you will\n            be able to use these longer IDs so you can test your systems with the new format. For\n            more information, see <a href=\"http://aws.amazon.com/ec2/faqs/#longer-ids\">Longer EC2 and\n               EBS resource IDs</a>.</p>\n            <p>For example, a volume Amazon Resource Name (ARN) with the longer volume ID format\n            looks like the following:</p>\n            <p>\n               <code>arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG</code>.</p>\n            <p>A snapshot ID with the longer ID format looks like the following:\n               <code>snap-78e226633445566ee</code>.</p>\n            <p>For more information, see <a href=\"http://forums.aws.amazon.com/ann.jspa?annID=3557\">Announcement:\n               Heads-up – Longer Storage Gateway volume and snapshot IDs coming in\n            2016</a>.</p>\n         </important>",
         "smithy.api#title": "AWS Storage Gateway",
         "smithy.api#xmlNamespace": {
           "uri": "http://storagegateway.amazonaws.com/doc/2013-06-30"
@@ -11112,7 +11748,7 @@
         "SoftwareUpdatePreferences": {
           "target": "com.amazonaws.storagegateway#SoftwareUpdatePreferences",
           "traits": {
-            "smithy.api#documentation": "<p>A set of variables indicating the software update preferences for the gateway.</p>\n         <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance\n         updates.</p>"
+            "smithy.api#documentation": "<p>A set of variables indicating the software update preferences for the gateway.</p>\n         <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>\n         <p>\n            <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>\n         <p>\n            <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The\n         gateway will still receive emergency version updates on rare occasions if necessary to\n         remedy highly critical security or durability issues. You will be notified before an\n         emergency version update is applied. These updates are applied during your gateway's\n         scheduled maintenance window.</p>"
           }
         }
       },
@@ -11163,16 +11799,25 @@
             "smithy.api#required": {}
           }
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.storagegateway#KMSKey",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This\n         value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>"
+            "smithy.api#documentation": "<p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used\n         for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric\n         CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if\n            <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>"
           }
         },
         "NFSFileShareDefaults": {
@@ -11226,7 +11871,7 @@
         "FileShareName": {
           "target": "com.amazonaws.storagegateway#FileShareName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n            <p>A valid NFS file share name can only contain the following characters:\n               <code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>,\n               <code>0</code>-<code>9</code>, <code>-</code>, <code>.</code>, and\n            <code>_</code>.</p>\n         </note>"
           }
         },
         "CacheAttributes": {
@@ -11238,7 +11883,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "AuditDestinationARN": {
@@ -11298,16 +11943,25 @@
             "smithy.api#required": {}
           }
         },
+        "EncryptionType": {
+          "target": "com.amazonaws.storagegateway#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that specifies the type of server-side encryption that the file share will use\n         for the data that it stores in Amazon S3.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>"
+          }
+        },
         "KMSEncrypted": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own\n            KMS key, or <code>false</code> to use a key managed by Amazon S3.\n         Optional.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#deprecated": {
+              "message": "KMSEncrypted is deprecated, use EncryptionType instead."
+            },
+            "smithy.api#documentation": "<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with\n         your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by\n            Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the\n            <code>EncryptionType</code> parameter instead.</p>\n         <note>\n            <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>\n            to set the file share encryption method. You do not need to provide values for both\n            parameters.</p>\n            <p>If values for both parameters exist in the same request, then the specified\n            encryption methods must not conflict. For example, if <code>EncryptionType</code> is\n               <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If\n               <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then\n               <code>KMSEncrypted</code> must be <code>true</code>.</p>\n         </note>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.storagegateway#KMSKey",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This\n         value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>"
+            "smithy.api#documentation": "<p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used\n         for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric\n         CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if\n            <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>"
           }
         },
         "DefaultStorageClass": {
@@ -11343,7 +11997,7 @@
         "SMBACLEnabled": {
           "target": "com.amazonaws.storagegateway#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file\n         share. Set it to <code>false</code> to map file and directory permissions to the POSIX\n         permissions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html\">Using Microsoft Windows ACLs to\n            control access to an SMB file share</a> in the <i>Storage Gateway User\n            Guide</i>.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
+            "smithy.api#documentation": "<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file\n         share. Set it to <code>false</code> to map file and directory permissions to the POSIX\n         permissions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share\n            access</a> in the <i>Amazon S3 File Gateway User\n         Guide</i>.</p>\n         <p>Valid Values: <code>true</code> | <code>false</code>\n         </p>"
           }
         },
         "AccessBasedEnumeration": {
@@ -11385,7 +12039,7 @@
         "FileShareName": {
           "target": "com.amazonaws.storagegateway#FileShareName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The name of the file share. Optional.</p>\n         <note>\n            <p>\n               <code>FileShareName</code> must be set if an S3 prefix name is set in\n               <code>LocationARN</code>, or if an access point or access point alias is used.</p>\n            <p>A valid SMB file share name cannot contain the following characters:\n               <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>\"</code>,<code>\\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>,\n            or ASCII control characters <code>1-31</code>.</p>\n         </note>"
           }
         },
         "CacheAttributes": {
@@ -11397,7 +12051,7 @@
         "NotificationPolicy": {
           "target": "com.amazonaws.storagegateway#NotificationPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls\n         the number of seconds to wait after the last point in time a client wrote to a file before\n         generating an <code>ObjectUploaded</code> notification. Because clients can make many small\n         writes to files, it's best to set this parameter for as long as possible to avoid\n         generating multiple notifications for the same file in a small time period.</p>\n         <note>\n            <p>\n               <code>SettlingTimeInSeconds</code> has no effect on the timing of the object\n            uploading to Amazon S3, only the timing of the notification.</p>\n            <p>This setting is not meant to specify an exact time at which the notification will be\n            sent. In some cases, the gateway might require more than the specified delay time to\n            generate and send notifications.</p>\n         </note>\n         <p>The following example sets <code>NotificationPolicy</code> on with\n            <code>SettlingTimeInSeconds</code> set to 60.</p>\n         <p>\n            <code>{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}</code>\n         </p>\n         <p>The following example sets <code>NotificationPolicy</code> off.</p>\n         <p>\n            <code>{}</code>\n         </p>"
           }
         },
         "OplocksEnabled": {
@@ -11840,7 +12494,8 @@
         "smithy.api#length": {
           "min": 50,
           "max": 500
-        }
+        },
+        "smithy.api#pattern": "^arn:(aws(|-cn|-us-gov|-iso[A-Za-z0-9_-]*)):storagegateway:[a-z\\-0-9]+:[0-9]+:gateway\\/(.+)\\/volume\\/vol-(\\S+)$"
       }
     },
     "com.amazonaws.storagegateway#VolumeARNs": {

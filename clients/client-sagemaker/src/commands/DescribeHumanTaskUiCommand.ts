@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHumanTaskUiRequest, DescribeHumanTaskUiResponse } from "../models/models_2";
+import { DescribeHumanTaskUiRequest } from "../models/models_2";
+import { DescribeHumanTaskUiResponse } from "../models/models_3";
 import { de_DescribeHumanTaskUiCommand, se_DescribeHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -65,6 +66,7 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeHumanTaskUiCommand extends $Command
@@ -75,9 +77,7 @@ export class DescribeHumanTaskUiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DescribeHumanTaskUiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHumanTaskUiCommand)
   .de(de_DescribeHumanTaskUiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHumanTaskUiRequest;
+      output: DescribeHumanTaskUiResponse;
+    };
+    sdk: {
+      input: DescribeHumanTaskUiCommandInput;
+      output: DescribeHumanTaskUiCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,7 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class SendTaskHeartbeatCommand extends $Command
@@ -86,9 +87,7 @@ export class SendTaskHeartbeatCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class SendTaskHeartbeatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendTaskHeartbeatCommand)
   .de(de_SendTaskHeartbeatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTaskHeartbeatInput;
+      output: {};
+    };
+    sdk: {
+      input: SendTaskHeartbeatCommandInput;
+      output: SendTaskHeartbeatCommandOutput;
+    };
+  };
+}

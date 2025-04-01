@@ -246,6 +246,7 @@ export interface GetEarthObservationJobCommandOutput extends GetEarthObservation
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class GetEarthObservationJobCommand extends $Command
@@ -256,9 +257,7 @@ export class GetEarthObservationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -270,4 +269,16 @@ export class GetEarthObservationJobCommand extends $Command
   .f(void 0, GetEarthObservationJobOutputFilterSensitiveLog)
   .ser(se_GetEarthObservationJobCommand)
   .de(de_GetEarthObservationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEarthObservationJobInput;
+      output: GetEarthObservationJobOutput;
+    };
+    sdk: {
+      input: GetEarthObservationJobCommandInput;
+      output: GetEarthObservationJobCommandOutput;
+    };
+  };
+}

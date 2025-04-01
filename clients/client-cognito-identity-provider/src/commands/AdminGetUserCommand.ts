@@ -37,8 +37,10 @@ export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
 export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
- *             user.</p>
+ * <p>Given a username, returns details about a user profile in a user pool. You can specify
+ *             alias attributes in the <code>Username</code> request parameter.</p>
+ *          <p>This operation contributes to your monthly active user (MAU) count for the purpose of
+ *             billing.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -127,6 +129,7 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminGetUserCommand extends $Command
@@ -137,9 +140,7 @@ export class AdminGetUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +152,16 @@ export class AdminGetUserCommand extends $Command
   .f(AdminGetUserRequestFilterSensitiveLog, AdminGetUserResponseFilterSensitiveLog)
   .ser(se_AdminGetUserCommand)
   .de(de_AdminGetUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminGetUserRequest;
+      output: AdminGetUserResponse;
+    };
+    sdk: {
+      input: AdminGetUserCommandInput;
+      output: AdminGetUserCommandOutput;
+    };
+  };
+}

@@ -95,6 +95,7 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetIntentVersionsCommand extends $Command
@@ -105,9 +106,7 @@ export class GetIntentVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetIntentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntentVersionsCommand)
   .de(de_GetIntentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntentVersionsRequest;
+      output: GetIntentVersionsResponse;
+    };
+    sdk: {
+      input: GetIntentVersionsCommandInput;
+      output: GetIntentVersionsCommandOutput;
+    };
+  };
+}

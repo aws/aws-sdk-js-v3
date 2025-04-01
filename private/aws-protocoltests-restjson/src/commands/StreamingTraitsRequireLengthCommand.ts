@@ -65,6 +65,7 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class StreamingTraitsRequireLengthCommand extends $Command
@@ -83,4 +84,16 @@ export class StreamingTraitsRequireLengthCommand extends $Command
   .f(StreamingTraitsRequireLengthInputFilterSensitiveLog, void 0)
   .ser(se_StreamingTraitsRequireLengthCommand)
   .de(de_StreamingTraitsRequireLengthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsRequireLengthInput;
+      output: {};
+    };
+    sdk: {
+      input: StreamingTraitsRequireLengthCommandInput;
+      output: StreamingTraitsRequireLengthCommandOutput;
+    };
+  };
+}

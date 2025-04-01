@@ -162,6 +162,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class DetectDocumentTextCommand extends $Command
@@ -172,9 +173,7 @@ export class DetectDocumentTextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +185,16 @@ export class DetectDocumentTextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectDocumentTextCommand)
   .de(de_DetectDocumentTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectDocumentTextRequest;
+      output: DetectDocumentTextResponse;
+    };
+    sdk: {
+      input: DetectDocumentTextCommandInput;
+      output: DetectDocumentTextCommandOutput;
+    };
+  };
+}

@@ -70,6 +70,7 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DescribeLiveSourceCommand extends $Command
@@ -80,9 +81,7 @@ export class DescribeLiveSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DescribeLiveSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLiveSourceCommand)
   .de(de_DescribeLiveSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLiveSourceRequest;
+      output: DescribeLiveSourceResponse;
+    };
+    sdk: {
+      input: DescribeLiveSourceCommandInput;
+      output: DescribeLiveSourceCommandOutput;
+    };
+  };
+}

@@ -65,6 +65,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class CreateUserProfileCommand extends $Command
@@ -75,9 +76,7 @@ export class CreateUserProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class CreateUserProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserProfileCommand)
   .de(de_CreateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserProfileRequest;
+      output: CreateUserProfileResult;
+    };
+    sdk: {
+      input: CreateUserProfileCommandInput;
+      output: CreateUserProfileCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_1";
+import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
 import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -86,6 +86,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountSettingsCommand extends $Command
@@ -96,9 +97,7 @@ export class UpdateAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class UpdateAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountSettingsCommand)
   .de(de_UpdateAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccountSettingsCommandInput;
+      output: UpdateAccountSettingsCommandOutput;
+    };
+  };
+}

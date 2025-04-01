@@ -32,7 +32,7 @@ export interface GetParametersByPathCommandInput extends GetParametersByPathRequ
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
+ * <p>Retrieve information about one or more parameters under a specified level in a hierarchy. </p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
  *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
@@ -110,6 +110,7 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetParametersByPathCommand extends $Command
@@ -120,9 +121,7 @@ export class GetParametersByPathCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class GetParametersByPathCommand extends $Command
   .f(void 0, GetParametersByPathResultFilterSensitiveLog)
   .ser(se_GetParametersByPathCommand)
   .de(de_GetParametersByPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersByPathRequest;
+      output: GetParametersByPathResult;
+    };
+    sdk: {
+      input: GetParametersByPathCommandInput;
+      output: GetParametersByPathCommandOutput;
+    };
+  };
+}

@@ -69,6 +69,12 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * // const { EC2Client, DescribeInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceStatusRequest
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -77,12 +83,6 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *       ],
  *     },
  *   ],
- *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   DryRun: true || false,
  *   IncludeAllInstances: true || false,
  * };
  * const command = new DescribeInstanceStatusCommand(input);
@@ -92,6 +92,10 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //     { // InstanceStatus
  * //       AvailabilityZone: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //       Events: [ // InstanceStatusEventList
  * //         { // InstanceStatusEvent
  * //           InstanceEventId: "STRING_VALUE",
@@ -127,6 +131,16 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //         ],
  * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
  * //       },
+ * //       AttachedEbsStatus: { // EbsStatusSummary
+ * //         Details: [ // EbsStatusDetailsList
+ * //           { // EbsStatusDetails
+ * //             ImpairedSince: new Date("TIMESTAMP"),
+ * //             Name: "reachability",
+ * //             Status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //           },
+ * //         ],
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -143,52 +157,52 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the status of an instance
  * ```javascript
  * // This example describes the current status of the specified instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new DescribeInstanceStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceStatuses": [
+ *   InstanceStatuses: [
  *     {
- *       "AvailabilityZone": "us-east-1d",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "InstanceState": {
- *         "Code": 16,
- *         "Name": "running"
+ *       AvailabilityZone: "us-east-1d",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       InstanceState: {
+ *         Code: 16,
+ *         Name: "running"
  *       },
- *       "InstanceStatus": {
- *         "Details": [
+ *       InstanceStatus: {
+ *         Details: [
  *           {
- *             "Name": "reachability",
- *             "Status": "passed"
+ *             Name: "reachability",
+ *             Status: "passed"
  *           }
  *         ],
- *         "Status": "ok"
+ *         Status: "ok"
  *       },
- *       "SystemStatus": {
- *         "Details": [
+ *       SystemStatus: {
+ *         Details: [
  *           {
- *             "Name": "reachability",
- *             "Status": "passed"
+ *             Name: "reachability",
+ *             Status: "passed"
  *           }
  *         ],
- *         "Status": "ok"
+ *         Status: "ok"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-status-of-an-instance-1529025696830
  * ```
  *
+ * @public
  */
 export class DescribeInstanceStatusCommand extends $Command
   .classBuilder<
@@ -198,9 +212,7 @@ export class DescribeInstanceStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -212,4 +224,16 @@ export class DescribeInstanceStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceStatusCommand)
   .de(de_DescribeInstanceStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceStatusRequest;
+      output: DescribeInstanceStatusResult;
+    };
+    sdk: {
+      input: DescribeInstanceStatusCommandInput;
+      output: DescribeInstanceStatusCommandOutput;
+    };
+  };
+}

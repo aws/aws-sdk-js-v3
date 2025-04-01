@@ -92,6 +92,7 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class BatchAssociateAssessmentReportEvidenceCommand extends $Command
@@ -102,9 +103,7 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchAssociateAssessmentReportEvidenceCommand)
   .de(de_BatchAssociateAssessmentReportEvidenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateAssessmentReportEvidenceRequest;
+      output: BatchAssociateAssessmentReportEvidenceResponse;
+    };
+    sdk: {
+      input: BatchAssociateAssessmentReportEvidenceCommandInput;
+      output: BatchAssociateAssessmentReportEvidenceCommandOutput;
+    };
+  };
+}

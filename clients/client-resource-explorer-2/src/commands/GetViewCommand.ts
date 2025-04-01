@@ -99,6 +99,7 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class GetViewCommand extends $Command
@@ -109,9 +110,7 @@ export class GetViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class GetViewCommand extends $Command
   .f(void 0, GetViewOutputFilterSensitiveLog)
   .ser(se_GetViewCommand)
   .de(de_GetViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetViewInput;
+      output: GetViewOutput;
+    };
+    sdk: {
+      input: GetViewCommandInput;
+      output: GetViewCommandOutput;
+    };
+  };
+}

@@ -80,6 +80,7 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionGroupCommand extends $Command
@@ -90,9 +91,7 @@ export class DeletePermissionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeletePermissionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePermissionGroupCommand)
   .de(de_DeletePermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePermissionGroupRequest;
+      output: DeletePermissionGroupResponse;
+    };
+    sdk: {
+      input: DeletePermissionGroupCommandInput;
+      output: DeletePermissionGroupCommandOutput;
+    };
+  };
+}

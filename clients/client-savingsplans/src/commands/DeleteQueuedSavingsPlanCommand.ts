@@ -65,6 +65,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command
@@ -75,9 +76,7 @@ export class DeleteQueuedSavingsPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DeleteQueuedSavingsPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueuedSavingsPlanCommand)
   .de(de_DeleteQueuedSavingsPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueuedSavingsPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQueuedSavingsPlanCommandInput;
+      output: DeleteQueuedSavingsPlanCommandOutput;
+    };
+  };
+}

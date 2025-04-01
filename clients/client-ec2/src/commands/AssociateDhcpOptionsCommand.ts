@@ -58,31 +58,36 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To associate a DHCP options set with a VPC
  * ```javascript
  * // This example associates the specified DHCP options set with the specified VPC.
  * const input = {
- *   "DhcpOptionsId": "dopt-d9070ebb",
- *   "VpcId": "vpc-a01106c2"
+ *   DhcpOptionsId: "dopt-d9070ebb",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new AssociateDhcpOptionsCommand(input);
- * await client.send(command);
- * // example id: ec2-associate-dhcp-options-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To associate the default DHCP options set with a VPC
  * ```javascript
  * // This example associates the default DHCP options set with the specified VPC.
  * const input = {
- *   "DhcpOptionsId": "default",
- *   "VpcId": "vpc-a01106c2"
+ *   DhcpOptionsId: "default",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new AssociateDhcpOptionsCommand(input);
- * await client.send(command);
- * // example id: ec2-associate-dhcp-options-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AssociateDhcpOptionsCommand extends $Command
   .classBuilder<
@@ -92,9 +97,7 @@ export class AssociateDhcpOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +109,16 @@ export class AssociateDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDhcpOptionsCommand)
   .de(de_AssociateDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDhcpOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDhcpOptionsCommandInput;
+      output: AssociateDhcpOptionsCommandOutput;
+    };
+  };
+}

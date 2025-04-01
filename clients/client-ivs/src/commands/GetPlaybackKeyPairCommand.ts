@@ -75,6 +75,7 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetPlaybackKeyPairCommand extends $Command
@@ -85,9 +86,7 @@ export class GetPlaybackKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class GetPlaybackKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlaybackKeyPairCommand)
   .de(de_GetPlaybackKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaybackKeyPairRequest;
+      output: GetPlaybackKeyPairResponse;
+    };
+    sdk: {
+      input: GetPlaybackKeyPairCommandInput;
+      output: GetPlaybackKeyPairCommandOutput;
+    };
+  };
+}

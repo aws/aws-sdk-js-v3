@@ -28,7 +28,7 @@ export interface ListCustomDataIdentifiersCommandInput extends ListCustomDataIde
 export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>
+ * <p>Retrieves a subset of information about the custom data identifiers for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +86,7 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class ListCustomDataIdentifiersCommand extends $Command
@@ -96,9 +97,7 @@ export class ListCustomDataIdentifiersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListCustomDataIdentifiersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomDataIdentifiersCommand)
   .de(de_ListCustomDataIdentifiersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomDataIdentifiersRequest;
+      output: ListCustomDataIdentifiersResponse;
+    };
+    sdk: {
+      input: ListCustomDataIdentifiersCommandInput;
+      output: ListCustomDataIdentifiersCommandOutput;
+    };
+  };
+}

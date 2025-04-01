@@ -75,6 +75,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class CreateUserCommand extends $Command
@@ -85,9 +86,7 @@ export class CreateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class CreateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserCommand)
   .de(de_CreateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateUserCommandInput;
+      output: CreateUserCommandOutput;
+    };
+  };
+}

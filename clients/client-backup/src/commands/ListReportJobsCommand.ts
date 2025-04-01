@@ -87,6 +87,7 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListReportJobsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListReportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListReportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReportJobsCommand)
   .de(de_ListReportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReportJobsInput;
+      output: ListReportJobsOutput;
+    };
+    sdk: {
+      input: ListReportJobsCommandInput;
+      output: ListReportJobsCommandOutput;
+    };
+  };
+}

@@ -96,6 +96,7 @@ export interface UpdateAdapterCommandOutput extends UpdateAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class UpdateAdapterCommand extends $Command
@@ -106,9 +107,7 @@ export class UpdateAdapterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class UpdateAdapterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAdapterCommand)
   .de(de_UpdateAdapterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAdapterRequest;
+      output: UpdateAdapterResponse;
+    };
+    sdk: {
+      input: UpdateAdapterCommandInput;
+      output: UpdateAdapterCommandOutput;
+    };
+  };
+}

@@ -141,6 +141,7 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutJobTaggingCommand extends $Command
@@ -168,4 +169,16 @@ export class PutJobTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutJobTaggingCommand)
   .de(de_PutJobTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutJobTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutJobTaggingCommandInput;
+      output: PutJobTaggingCommandOutput;
+    };
+  };
+}

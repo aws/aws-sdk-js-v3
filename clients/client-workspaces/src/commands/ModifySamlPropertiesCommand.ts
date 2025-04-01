@@ -75,6 +75,7 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifySamlPropertiesCommand extends $Command
@@ -85,9 +86,7 @@ export class ModifySamlPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ModifySamlPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySamlPropertiesCommand)
   .de(de_ModifySamlPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySamlPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySamlPropertiesCommandInput;
+      output: ModifySamlPropertiesCommandOutput;
+    };
+  };
+}

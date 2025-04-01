@@ -84,6 +84,10 @@ import {
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "../commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "../commands/DeleteVoiceConnectorExternalSystemsConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
 } from "../commands/DeleteVoiceConnectorGroupCommand";
@@ -153,6 +157,10 @@ import {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "../commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
+  GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+  GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "../commands/GetVoiceConnectorExternalSystemsConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
@@ -243,6 +251,10 @@ import {
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "../commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+  PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "../commands/PutVoiceConnectorExternalSystemsConfigurationCommand";
+import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "../commands/PutVoiceConnectorLoggingConfigurationCommand";
@@ -331,6 +343,7 @@ import {
   BadRequestException,
   Capability,
   ConflictException,
+  ContactCenterSystemType,
   Credential,
   DNISEmergencyCallingConfiguration,
   EmergencyCallingConfiguration,
@@ -350,6 +363,7 @@ import {
   ServerSideEncryptionConfiguration,
   ServiceFailureException,
   ServiceUnavailableException,
+  SessionBorderControllerType,
   SipMediaApplication,
   SipMediaApplicationAlexaSkillConfiguration,
   SipMediaApplicationEndpoint,
@@ -629,6 +643,7 @@ export const se_CreateVoiceConnectorCommand = async (
   body = JSON.stringify(
     take(input, {
       AwsRegion: [],
+      IntegrationType: [],
       Name: [],
       RequireEncryption: [],
       Tags: (_) => _json(_),
@@ -800,6 +815,22 @@ export const se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand = async
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const se_DeleteVoiceConnectorExternalSystemsConfigurationCommand = async (
+  input: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/voice-connectors/{VoiceConnectorId}/external-systems-configuration");
   b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -1182,6 +1213,22 @@ export const se_GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const se_GetVoiceConnectorExternalSystemsConfigurationCommand = async (
+  input: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/voice-connectors/{VoiceConnectorId}/external-systems-configuration");
   b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -1661,6 +1708,30 @@ export const se_PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       EmergencyCallingConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const se_PutVoiceConnectorExternalSystemsConfigurationCommand = async (
+  input: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/voice-connectors/{VoiceConnectorId}/external-systems-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactCenterSystemTypes: (_) => _json(_),
+      SessionBorderControllerTypes: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2665,6 +2736,23 @@ export const de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand = async
 };
 
 /**
+ * deserializeAws_restJson1DeleteVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const de_DeleteVoiceConnectorExternalSystemsConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteVoiceConnectorGroupCommand
  */
 export const de_DeleteVoiceConnectorGroupCommand = async (
@@ -3090,6 +3178,27 @@ export const de_GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EmergencyCallingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const de_GetVoiceConnectorExternalSystemsConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceConnectorExternalSystemsConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ExternalSystemsConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3645,6 +3754,27 @@ export const de_PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EmergencyCallingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutVoiceConnectorExternalSystemsConfigurationCommand
+ */
+export const de_PutVoiceConnectorExternalSystemsConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVoiceConnectorExternalSystemsConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ExternalSystemsConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4472,6 +4602,8 @@ const de_UnprocessableEntityExceptionRes = async (
 
 // se_CapabilityList omitted.
 
+// se_ContactCenterSystemTypeList omitted.
+
 // se_CountryList omitted.
 
 // se_Credential omitted.
@@ -4505,6 +4637,8 @@ const de_UnprocessableEntityExceptionRes = async (
 // se_SensitiveStringList omitted.
 
 // se_ServerSideEncryptionConfiguration omitted.
+
+// se_SessionBorderControllerTypeList omitted.
 
 // se_SipHeadersMap omitted.
 
@@ -4564,6 +4698,8 @@ const de_UnprocessableEntityExceptionRes = async (
 
 // de_CapabilityList omitted.
 
+// de_ContactCenterSystemTypeList omitted.
+
 // de_DNISEmergencyCallingConfiguration omitted.
 
 // de_DNISEmergencyCallingConfigurationList omitted.
@@ -4571,6 +4707,8 @@ const de_UnprocessableEntityExceptionRes = async (
 // de_E164PhoneNumberList omitted.
 
 // de_EmergencyCallingConfiguration omitted.
+
+// de_ExternalSystemsConfiguration omitted.
 
 // de_GeoMatchParams omitted.
 
@@ -4728,6 +4866,8 @@ const de_ProxySessions = (output: any, context: __SerdeContext): ProxySession[] 
 
 // de_ServerSideEncryptionConfiguration omitted.
 
+// de_SessionBorderControllerTypeList omitted.
+
 /**
  * deserializeAws_restJson1SipMediaApplication
  */
@@ -4876,6 +5016,7 @@ const de_VoiceConnector = (output: any, context: __SerdeContext): VoiceConnector
   return take(output, {
     AwsRegion: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    IntegrationType: __expectString,
     Name: __expectString,
     OutboundHostName: __expectString,
     RequireEncryption: __expectBoolean,
@@ -5038,13 +5179,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _AC = "AreaCode";
 const _C = "City";

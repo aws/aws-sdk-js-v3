@@ -140,6 +140,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class ListJobTemplatesCommand extends $Command
@@ -150,9 +151,7 @@ export class ListJobTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +163,16 @@ export class ListJobTemplatesCommand extends $Command
   .f(void 0, ListJobTemplatesResponseFilterSensitiveLog)
   .ser(se_ListJobTemplatesCommand)
   .de(de_ListJobTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobTemplatesRequest;
+      output: ListJobTemplatesResponse;
+    };
+    sdk: {
+      input: ListJobTemplatesCommandInput;
+      output: ListJobTemplatesCommandOutput;
+    };
+  };
+}

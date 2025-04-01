@@ -75,6 +75,7 @@ export interface ListRuleBasedMatchesCommandOutput extends ListRuleBasedMatchesR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListRuleBasedMatchesCommand extends $Command
@@ -85,9 +86,7 @@ export class ListRuleBasedMatchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListRuleBasedMatchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleBasedMatchesCommand)
   .de(de_ListRuleBasedMatchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleBasedMatchesRequest;
+      output: ListRuleBasedMatchesResponse;
+    };
+    sdk: {
+      input: ListRuleBasedMatchesCommandInput;
+      output: ListRuleBasedMatchesCommandOutput;
+    };
+  };
+}

@@ -9,7 +9,7 @@ import {
   UpdateDashboardRequest,
   UpdateDashboardRequestFilterSensitiveLog,
   UpdateDashboardResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateDashboardCommand, se_UpdateDashboardCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -132,6 +132,9 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *     DataPointTooltipOption: { // DataPointTooltipOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
+ *     DataQAEnabledOption: { // DataQAEnabledOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
  *   },
  *   ThemeArn: "STRING_VALUE",
  *   Definition: { // DashboardVersionDefinition
@@ -159,6 +162,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   FontConfiguration: { // FontConfiguration
  *                     FontSize: { // FontSize
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                       Absolute: "STRING_VALUE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
@@ -166,6 +170,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontFamily: "STRING_VALUE",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
@@ -174,6 +179,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   InfoIconText: "STRING_VALUE",
  *                 },
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *             },
  *             List: { // ParameterListControl
@@ -192,6 +199,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   FontConfiguration: {
  *                     FontSize: {
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                       Absolute: "STRING_VALUE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
@@ -199,6 +207,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontFamily: "STRING_VALUE",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
@@ -242,6 +251,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   FontConfiguration: {
  *                     FontSize: {
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                       Absolute: "STRING_VALUE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
@@ -249,6 +259,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontFamily: "STRING_VALUE",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
@@ -278,6 +289,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 ],
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             TextField: { // ParameterTextFieldControl
  *               ParameterControlId: "STRING_VALUE", // required
@@ -289,6 +301,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   FontConfiguration: {
  *                     FontSize: {
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                       Absolute: "STRING_VALUE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
@@ -296,6 +309,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontFamily: "STRING_VALUE",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
@@ -319,6 +333,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   FontConfiguration: {
  *                     FontSize: {
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                       Absolute: "STRING_VALUE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
@@ -326,6 +341,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontFamily: "STRING_VALUE",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
@@ -362,8 +378,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             List: { // FilterListControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -422,6 +441,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 ],
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             TextField: { // FilterTextFieldControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -470,6 +490,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             CrossSheet: { // FilterCrossSheetControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -522,12 +543,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                   ThousandsSeparator: { // ThousandSeparatorOptions
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: { // DecimalPlacesConfiguration
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: { // NegativeValueConfiguration
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -543,13 +565,14 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -565,6 +588,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: {
@@ -597,12 +621,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -618,13 +643,14 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -655,7 +681,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -665,7 +691,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -700,7 +726,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -710,7 +736,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -737,7 +763,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -747,7 +773,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -780,7 +806,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     ],
  *                   },
  *                   TableUnaggregatedFieldWells: { // TableUnaggregatedFieldWells
- *                     Values: [ // UnaggregatedFieldList
+ *                     Values: [ // TableUnaggregatedFieldList
  *                       { // UnaggregatedField
  *                         FieldId: "STRING_VALUE", // required
  *                         Column: "<ColumnIdentifier>", // required
@@ -974,6 +1000,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       "STRING_VALUE",
  *                     ],
  *                   },
+ *                   TransposedTableOptions: [ // TransposedTableOptionList
+ *                     { // TransposedTableOption
+ *                       ColumnIndex: Number("int"),
+ *                       ColumnWidth: "STRING_VALUE",
+ *                       ColumnType: "ROW_HEADER_COLUMN" || "VALUE_COLUMN", // required
+ *                     },
+ *                   ],
  *                 },
  *                 PaginatedReportOptions: { // TablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -1169,6 +1202,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   ],
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             PivotTableVisual: { // PivotTableVisual
  *               VisualId: "STRING_VALUE", // required
@@ -1633,6 +1667,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   ],
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             BarChartVisual: { // BarChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -1981,6 +2016,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
+ *                   ValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: { // DataLabelOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -2240,6 +2276,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             KPIVisual: { // KPIVisual
  *               VisualId: "STRING_VALUE", // required
@@ -2563,6 +2600,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             PieChartVisual: { // PieChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -2677,6 +2715,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
+ *                   ValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -2853,6 +2892,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             GaugeChartVisual: { // GaugeChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -2973,6 +3013,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 ],
  *               },
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             LineChartVisual: { // LineChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3251,6 +3292,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
+ *                   ValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -3387,6 +3429,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                 },
  *               ],
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             HeatMapVisual: { // HeatMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3433,6 +3476,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
+ *                   ValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -3517,6 +3561,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 },
  *               ],
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             TreeMapVisual: { // TreeMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3562,6 +3607,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
+ *                   ValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
@@ -3569,6 +3615,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             GeospatialMapVisual: { // GeospatialMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3629,6 +3676,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             FilledMapVisual: { // FilledMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3678,6 +3726,284 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             LayerMapVisual: { // LayerMapVisual
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // GeospatialLayerMapConfiguration
+ *                 Legend: "<LegendOptions>",
+ *                 MapLayers: [ // GeospatialMapLayerList
+ *                   { // GeospatialLayerItem
+ *                     LayerId: "STRING_VALUE", // required
+ *                     LayerType: "POINT" || "LINE" || "POLYGON",
+ *                     DataSource: { // GeospatialDataSourceItem
+ *                       StaticFileDataSource: { // GeospatialStaticFileSource
+ *                         StaticFileId: "STRING_VALUE", // required
+ *                       },
+ *                     },
+ *                     Label: "STRING_VALUE",
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     LayerDefinition: { // GeospatialLayerDefinition
+ *                       PointLayer: { // GeospatialPointLayer
+ *                         Style: { // GeospatialPointStyle
+ *                           CircleSymbolStyle: { // GeospatialCircleSymbolStyle
+ *                             FillColor: { // GeospatialColor
+ *                               Solid: { // GeospatialSolidColor
+ *                                 Color: "STRING_VALUE", // required
+ *                                 State: "ENABLED" || "DISABLED",
+ *                               },
+ *                               Gradient: { // GeospatialGradientColor
+ *                                 StepColors: [ // GeospatialGradientStepColorList // required
+ *                                   { // GeospatialGradientStepColor
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: Number("double"), // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: { // GeospatialNullDataSettings
+ *                                   SymbolStyle: { // GeospatialNullSymbolStyle
+ *                                     FillColor: "STRING_VALUE",
+ *                                     StrokeColor: "STRING_VALUE",
+ *                                     StrokeWidth: Number("double"),
+ *                                   },
+ *                                 },
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                               Categorical: { // GeospatialCategoricalColor
+ *                                 CategoryDataColors: [ // GeospatialCategoricalDataColorList // required
+ *                                   { // GeospatialCategoricalDataColor
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: "STRING_VALUE", // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: {
+ *                                   SymbolStyle: {
+ *                                     FillColor: "STRING_VALUE",
+ *                                     StrokeColor: "STRING_VALUE",
+ *                                     StrokeWidth: Number("double"),
+ *                                   },
+ *                                 },
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                             },
+ *                             StrokeColor: {
+ *                               Solid: {
+ *                                 Color: "STRING_VALUE", // required
+ *                                 State: "ENABLED" || "DISABLED",
+ *                               },
+ *                               Gradient: {
+ *                                 StepColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: Number("double"), // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: {
+ *                                   SymbolStyle: {
+ *                                     FillColor: "STRING_VALUE",
+ *                                     StrokeColor: "STRING_VALUE",
+ *                                     StrokeWidth: Number("double"),
+ *                                   },
+ *                                 },
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                               Categorical: {
+ *                                 CategoryDataColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: "STRING_VALUE", // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: {
+ *                                   SymbolStyle: {
+ *                                     FillColor: "STRING_VALUE",
+ *                                     StrokeColor: "STRING_VALUE",
+ *                                     StrokeWidth: Number("double"),
+ *                                   },
+ *                                 },
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                             },
+ *                             StrokeWidth: { // GeospatialLineWidth
+ *                               LineWidth: Number("double"),
+ *                             },
+ *                             CircleRadius: { // GeospatialCircleRadius
+ *                               Radius: Number("double"),
+ *                             },
+ *                           },
+ *                         },
+ *                       },
+ *                       LineLayer: { // GeospatialLineLayer
+ *                         Style: { // GeospatialLineStyle
+ *                           LineSymbolStyle: { // GeospatialLineSymbolStyle
+ *                             FillColor: {
+ *                               Solid: {
+ *                                 Color: "STRING_VALUE", // required
+ *                                 State: "ENABLED" || "DISABLED",
+ *                               },
+ *                               Gradient: {
+ *                                 StepColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: Number("double"), // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: {
+ *                                   SymbolStyle: {
+ *                                     FillColor: "STRING_VALUE",
+ *                                     StrokeColor: "STRING_VALUE",
+ *                                     StrokeWidth: Number("double"),
+ *                                   },
+ *                                 },
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                               Categorical: {
+ *                                 CategoryDataColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: "STRING_VALUE", // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                             },
+ *                             LineWidth: {
+ *                               LineWidth: Number("double"),
+ *                             },
+ *                           },
+ *                         },
+ *                       },
+ *                       PolygonLayer: { // GeospatialPolygonLayer
+ *                         Style: { // GeospatialPolygonStyle
+ *                           PolygonSymbolStyle: { // GeospatialPolygonSymbolStyle
+ *                             FillColor: {
+ *                               Solid: {
+ *                                 Color: "STRING_VALUE", // required
+ *                                 State: "ENABLED" || "DISABLED",
+ *                               },
+ *                               Gradient: {
+ *                                 StepColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: Number("double"), // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                               Categorical: {
+ *                                 CategoryDataColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: "STRING_VALUE", // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                             },
+ *                             StrokeColor: {
+ *                               Solid: {
+ *                                 Color: "STRING_VALUE", // required
+ *                                 State: "ENABLED" || "DISABLED",
+ *                               },
+ *                               Gradient: {
+ *                                 StepColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: Number("double"), // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                               Categorical: {
+ *                                 CategoryDataColors: [ // required
+ *                                   {
+ *                                     Color: "STRING_VALUE", // required
+ *                                     DataValue: "STRING_VALUE", // required
+ *                                   },
+ *                                 ],
+ *                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ *                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ *                                 DefaultOpacity: Number("double"),
+ *                               },
+ *                             },
+ *                             StrokeWidth: {
+ *                               LineWidth: Number("double"),
+ *                             },
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                     Tooltip: "<TooltipOptions>",
+ *                     JoinDefinition: { // GeospatialLayerJoinDefinition
+ *                       ShapeKeyField: "STRING_VALUE",
+ *                       DatasetKeyField: {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         FormatConfiguration: {
+ *                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ *                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ *                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ *                         },
+ *                       },
+ *                       ColorField: { // GeospatialLayerColorField
+ *                         ColorDimensionsFields: [ // GeospatialLayerDimensionFieldList
+ *                           "<DimensionField>",
+ *                         ],
+ *                         ColorValuesFields: [ // GeospatialLayerMeasureFieldList
+ *                           "<MeasureField>",
+ *                         ],
+ *                       },
+ *                     },
+ *                     Actions: [ // LayerCustomActionList
+ *                       { // LayerCustomAction
+ *                         CustomActionId: "STRING_VALUE", // required
+ *                         Name: "STRING_VALUE", // required
+ *                         Status: "ENABLED" || "DISABLED",
+ *                         Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
+ *                         ActionOperations: [ // LayerCustomActionOperationList // required
+ *                           { // LayerCustomActionOperation
+ *                             FilterOperation: "<CustomActionFilterOperation>",
+ *                             NavigationOperation: "<CustomActionNavigationOperation>",
+ *                             URLOperation: "<CustomActionURLOperation>",
+ *                             SetParametersOperation: "<CustomActionSetParametersOperation>",
+ *                           },
+ *                         ],
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
+ *                 MapState: { // GeospatialMapState
+ *                   Bounds: {
+ *                     North: Number("double"), // required
+ *                     South: Number("double"), // required
+ *                     West: Number("double"), // required
+ *                     East: Number("double"), // required
+ *                   },
+ *                   MapNavigation: "ENABLED" || "DISABLED",
+ *                 },
+ *                 MapStyle: { // GeospatialMapStyle
+ *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                   BaseMapVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             FunnelChartVisual: { // FunnelChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3715,6 +4041,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             ScatterPlotVisual: { // ScatterPlotVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3752,6 +4079,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             ComboChartVisual: { // ComboChartVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3828,6 +4156,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             BoxPlotVisual: { // BoxPlotVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3903,6 +4232,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             WaterfallVisual: { // WaterfallVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3941,6 +4271,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             HistogramVisual: { // HistogramVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3974,6 +4305,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             WordCloudVisual: { // WordCloudVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4007,6 +4339,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             InsightVisual: { // InsightVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4099,6 +4432,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             SankeyDiagramVisual: { // SankeyDiagramVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4121,6 +4455,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             CustomContentVisual: { // CustomContentVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4134,6 +4469,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             EmptyVisual: { // EmptyVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4185,6 +4521,52 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             PluginVisual: { // PluginVisual
+ *               VisualId: "STRING_VALUE", // required
+ *               PluginArn: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // PluginVisualConfiguration
+ *                 FieldWells: [ // PluginVisualFieldWells
+ *                   { // PluginVisualFieldWell
+ *                     AxisName: "GROUP_BY" || "VALUE",
+ *                     Dimensions: "<DimensionFieldList>",
+ *                     Measures: "<MeasureFieldList>",
+ *                     Unaggregated: [ // UnaggregatedFieldList
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         FormatConfiguration: {
+ *                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ *                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ *                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
+ *                 VisualOptions: { // PluginVisualOptions
+ *                   VisualProperties: [ // PluginVisualPropertiesList
+ *                     { // PluginVisualProperty
+ *                       Name: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *                 SortConfiguration: { // PluginVisualSortConfiguration
+ *                   PluginVisualTableQuerySort: { // PluginVisualTableQuerySort
+ *                     RowSort: [
+ *                       "<FieldSortOptions>",
+ *                     ],
+ *                     ItemsLimitConfiguration: { // PluginVisualItemsLimitConfiguration
+ *                       ItemsLimit: Number("long"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *               VisualContentAltText: "STRING_VALUE",
  *             },
  *           },
  *         ],
@@ -4194,6 +4576,46 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *             Content: "STRING_VALUE",
  *           },
  *         ],
+ *         Images: [ // SheetImageList
+ *           { // SheetImage
+ *             SheetImageId: "STRING_VALUE", // required
+ *             Source: { // SheetImageSource
+ *               SheetImageStaticFileSource: { // SheetImageStaticFileSource
+ *                 StaticFileId: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             Scaling: { // SheetImageScalingConfiguration
+ *               ScalingType: "SCALE_TO_WIDTH" || "SCALE_TO_HEIGHT" || "SCALE_TO_CONTAINER" || "SCALE_NONE",
+ *             },
+ *             Tooltip: { // SheetImageTooltipConfiguration
+ *               TooltipText: { // SheetImageTooltipText
+ *                 PlainText: "STRING_VALUE",
+ *               },
+ *               Visibility: "HIDDEN" || "VISIBLE",
+ *             },
+ *             ImageContentAltText: "STRING_VALUE",
+ *             Interactions: { // ImageInteractionOptions
+ *               ImageMenuOption: { // ImageMenuOption
+ *                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ *               },
+ *             },
+ *             Actions: [ // ImageCustomActionList
+ *               { // ImageCustomAction
+ *                 CustomActionId: "STRING_VALUE", // required
+ *                 Name: "STRING_VALUE", // required
+ *                 Status: "ENABLED" || "DISABLED",
+ *                 Trigger: "CLICK" || "MENU", // required
+ *                 ActionOperations: [ // ImageCustomActionOperationList // required
+ *                   { // ImageCustomActionOperation
+ *                     NavigationOperation: "<CustomActionNavigationOperation>",
+ *                     URLOperation: "<CustomActionURLOperation>",
+ *                     SetParametersOperation: "<CustomActionSetParametersOperation>",
+ *                   },
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         ],
  *         Layouts: [ // LayoutList
  *           { // Layout
  *             Configuration: { // LayoutConfiguration
@@ -4201,7 +4623,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 Elements: [ // GridLayoutElementList // required
  *                   { // GridLayoutElement
  *                     ElementId: "STRING_VALUE", // required
- *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  *                     ColumnIndex: Number("int"),
  *                     ColumnSpan: Number("int"), // required
  *                     RowIndex: Number("int"),
@@ -4219,7 +4641,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 Elements: [ // FreeFromLayoutElementList // required
  *                   { // FreeFormLayoutElement
  *                     ElementId: "STRING_VALUE", // required
- *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  *                     XAxisLocation: "STRING_VALUE", // required
  *                     YAxisLocation: "STRING_VALUE", // required
  *                     Width: "STRING_VALUE", // required
@@ -4265,7 +4687,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                         Elements: [ // required
  *                           {
  *                             ElementId: "STRING_VALUE", // required
- *                             ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ *                             ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  *                             XAxisLocation: "STRING_VALUE", // required
  *                             YAxisLocation: "STRING_VALUE", // required
  *                             Width: "STRING_VALUE", // required
@@ -4405,7 +4827,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 Elements: [ // required
  *                   {
  *                     ElementId: "STRING_VALUE", // required
- *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  *                     ColumnIndex: Number("int"),
  *                     ColumnSpan: Number("int"), // required
  *                     RowIndex: Number("int"),
@@ -4566,7 +4988,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: { // DefaultFilterListControlOptions
  *                     DisplayOptions: {
@@ -4596,6 +5021,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     SelectableValues: {
  *                       Values: "<ParameterSelectableValueList>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: { // DefaultTextFieldControlOptions
  *                     DisplayOptions: {
@@ -4630,6 +5056,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4659,7 +5086,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: {
@@ -4683,6 +5113,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     },
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -4715,6 +5146,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4737,7 +5169,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: {
@@ -4759,6 +5194,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     },
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -4791,6 +5227,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4811,6 +5248,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  *                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4821,6 +5259,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4842,6 +5281,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4874,6 +5314,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  *                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4884,6 +5325,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4901,6 +5343,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                   DefaultRelativeDateTimeOptions: {
  *                     DisplayOptions: "<RelativeDateTimeControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -5048,7 +5491,41 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *     Options: { // AssetOptions
  *       Timezone: "STRING_VALUE",
  *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *       QBusinessInsightsStatus: "ENABLED" || "DISABLED",
+ *       ExcludedDataSetArns: [ // DataSetArnsList
+ *         "STRING_VALUE",
+ *       ],
  *     },
+ *     StaticFiles: [ // StaticFileList
+ *       { // StaticFile
+ *         ImageStaticFile: { // ImageStaticFile
+ *           StaticFileId: "STRING_VALUE", // required
+ *           Source: { // StaticFileSource
+ *             UrlOptions: { // StaticFileUrlSourceOptions
+ *               Url: "STRING_VALUE", // required
+ *             },
+ *             S3Options: { // StaticFileS3SourceOptions
+ *               BucketName: "STRING_VALUE", // required
+ *               ObjectKey: "STRING_VALUE", // required
+ *               Region: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         SpatialStaticFile: { // SpatialStaticFile
+ *           StaticFileId: "STRING_VALUE", // required
+ *           Source: {
+ *             UrlOptions: {
+ *               Url: "STRING_VALUE", // required
+ *             },
+ *             S3Options: {
+ *               BucketName: "STRING_VALUE", // required
+ *               ObjectKey: "STRING_VALUE", // required
+ *               Region: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
  *   },
  *   ValidationStrategy: { // ValidationStrategy
  *     Mode: "STRICT" || "LENIENT", // required
@@ -5100,6 +5577,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardCommand extends $Command
@@ -5110,9 +5588,7 @@ export class UpdateDashboardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -5124,4 +5600,16 @@ export class UpdateDashboardCommand extends $Command
   .f(UpdateDashboardRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDashboardCommand)
   .de(de_UpdateDashboardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDashboardRequest;
+      output: UpdateDashboardResponse;
+    };
+    sdk: {
+      input: UpdateDashboardCommandInput;
+      output: UpdateDashboardCommandOutput;
+    };
+  };
+}

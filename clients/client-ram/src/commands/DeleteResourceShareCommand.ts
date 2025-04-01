@@ -93,6 +93,7 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceShareCommand extends $Command
@@ -103,9 +104,7 @@ export class DeleteResourceShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DeleteResourceShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceShareCommand)
   .de(de_DeleteResourceShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceShareRequest;
+      output: DeleteResourceShareResponse;
+    };
+    sdk: {
+      input: DeleteResourceShareCommandInput;
+      output: DeleteResourceShareCommandOutput;
+    };
+  };
+}

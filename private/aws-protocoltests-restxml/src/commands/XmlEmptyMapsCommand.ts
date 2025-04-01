@@ -62,6 +62,7 @@ export interface XmlEmptyMapsCommandOutput extends XmlEmptyMapsResponse, __Metad
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyMapsCommand extends $Command
   .classBuilder<
@@ -79,4 +80,16 @@ export class XmlEmptyMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyMapsCommand)
   .de(de_XmlEmptyMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyMapsRequest;
+      output: XmlEmptyMapsResponse;
+    };
+    sdk: {
+      input: XmlEmptyMapsCommandInput;
+      output: XmlEmptyMapsCommandOutput;
+    };
+  };
+}

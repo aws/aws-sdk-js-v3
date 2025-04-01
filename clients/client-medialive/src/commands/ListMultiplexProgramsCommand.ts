@@ -84,6 +84,7 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListMultiplexProgramsCommand extends $Command
@@ -94,9 +95,7 @@ export class ListMultiplexProgramsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListMultiplexProgramsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultiplexProgramsCommand)
   .de(de_ListMultiplexProgramsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultiplexProgramsRequest;
+      output: ListMultiplexProgramsResponse;
+    };
+    sdk: {
+      input: ListMultiplexProgramsCommandInput;
+      output: ListMultiplexProgramsCommandOutput;
+    };
+  };
+}

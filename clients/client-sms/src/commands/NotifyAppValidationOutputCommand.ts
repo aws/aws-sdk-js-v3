@@ -74,6 +74,7 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class NotifyAppValidationOutputCommand extends $Command
@@ -84,9 +85,7 @@ export class NotifyAppValidationOutputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class NotifyAppValidationOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyAppValidationOutputCommand)
   .de(de_NotifyAppValidationOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyAppValidationOutputRequest;
+      output: {};
+    };
+    sdk: {
+      input: NotifyAppValidationOutputCommandInput;
+      output: NotifyAppValidationOutputCommandOutput;
+    };
+  };
+}

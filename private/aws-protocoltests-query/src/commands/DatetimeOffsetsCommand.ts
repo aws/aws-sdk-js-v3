@@ -52,6 +52,7 @@ export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __M
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class DatetimeOffsetsCommand extends $Command
   .classBuilder<
@@ -69,4 +70,16 @@ export class DatetimeOffsetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DatetimeOffsetsCommand)
   .de(de_DatetimeOffsetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DatetimeOffsetsOutput;
+    };
+    sdk: {
+      input: DatetimeOffsetsCommandInput;
+      output: DatetimeOffsetsCommandOutput;
+    };
+  };
+}

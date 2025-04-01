@@ -55,8 +55,19 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *   autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
  *     storageConfigurationArn: "STRING_VALUE", // required
  *     mediaTypes: [ // ParticipantRecordingMediaTypeList
- *       "STRING_VALUE",
+ *       "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
  *     ],
+ *     thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ *       targetIntervalSeconds: Number("int"),
+ *       storage: [ // ThumbnailStorageTypeList
+ *         "SEQUENTIAL" || "LATEST",
+ *       ],
+ *       recordingMode: "INTERVAL" || "DISABLED",
+ *     },
+ *     recordingReconnectWindowSeconds: Number("int"),
+ *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ *       targetSegmentDurationSeconds: Number("int"),
+ *     },
  *   },
  * };
  * const command = new CreateStageCommand(input);
@@ -72,12 +83,25 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
  * //       storageConfigurationArn: "STRING_VALUE", // required
  * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
- * //         "STRING_VALUE",
+ * //         "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
  * //       ],
+ * //       thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ * //         targetIntervalSeconds: Number("int"),
+ * //         storage: [ // ThumbnailStorageTypeList
+ * //           "SEQUENTIAL" || "LATEST",
+ * //         ],
+ * //         recordingMode: "INTERVAL" || "DISABLED",
+ * //       },
+ * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ * //         targetSegmentDurationSeconds: Number("int"),
+ * //       },
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
  * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * //   participantTokens: [ // ParticipantTokenList
@@ -120,6 +144,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class CreateStageCommand extends $Command
@@ -130,9 +155,7 @@ export class CreateStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +167,16 @@ export class CreateStageCommand extends $Command
   .f(void 0, CreateStageResponseFilterSensitiveLog)
   .ser(se_CreateStageCommand)
   .de(de_CreateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStageRequest;
+      output: CreateStageResponse;
+    };
+    sdk: {
+      input: CreateStageCommandInput;
+      output: CreateStageCommandOutput;
+    };
+  };
+}

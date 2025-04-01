@@ -88,6 +88,7 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class ImportDocumentationPartsCommand extends $Command
@@ -98,9 +99,7 @@ export class ImportDocumentationPartsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ImportDocumentationPartsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDocumentationPartsCommand)
   .de(de_ImportDocumentationPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDocumentationPartsRequest;
+      output: DocumentationPartIds;
+    };
+    sdk: {
+      input: ImportDocumentationPartsCommandInput;
+      output: ImportDocumentationPartsCommandOutput;
+    };
+  };
+}

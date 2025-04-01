@@ -120,6 +120,7 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class DeleteGeoMatchSetCommand extends $Command
@@ -130,9 +131,7 @@ export class DeleteGeoMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class DeleteGeoMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGeoMatchSetCommand)
   .de(de_DeleteGeoMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGeoMatchSetRequest;
+      output: DeleteGeoMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteGeoMatchSetCommandInput;
+      output: DeleteGeoMatchSetCommandOutput;
+    };
+  };
+}

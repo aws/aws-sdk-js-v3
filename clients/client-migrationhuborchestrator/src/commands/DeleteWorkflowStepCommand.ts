@@ -75,6 +75,7 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkflowStepCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteWorkflowStepCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteWorkflowStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkflowStepCommand)
   .de(de_DeleteWorkflowStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkflowStepRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkflowStepCommandInput;
+      output: DeleteWorkflowStepCommandOutput;
+    };
+  };
+}

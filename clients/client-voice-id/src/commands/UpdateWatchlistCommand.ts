@@ -97,6 +97,7 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class UpdateWatchlistCommand extends $Command
@@ -107,9 +108,7 @@ export class UpdateWatchlistCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateWatchlistCommand extends $Command
   .f(UpdateWatchlistRequestFilterSensitiveLog, UpdateWatchlistResponseFilterSensitiveLog)
   .ser(se_UpdateWatchlistCommand)
   .de(de_UpdateWatchlistCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWatchlistRequest;
+      output: UpdateWatchlistResponse;
+    };
+    sdk: {
+      input: UpdateWatchlistCommandInput;
+      output: UpdateWatchlistCommandOutput;
+    };
+  };
+}

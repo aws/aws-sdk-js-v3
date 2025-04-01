@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVerifiedAccessEndpointRequest, ModifyVerifiedAccessEndpointResult } from "../models/models_6";
+import { ModifyVerifiedAccessEndpointRequest, ModifyVerifiedAccessEndpointResult } from "../models/models_7";
 import { de_ModifyVerifiedAccessEndpointCommand, se_ModifyVerifiedAccessEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -44,16 +44,43 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  *     SubnetIds: [ // ModifyVerifiedAccessEndpointSubnetIdList
  *       "STRING_VALUE",
  *     ],
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
+ *     PortRanges: [ // ModifyVerifiedAccessEndpointPortRangeList
+ *       { // ModifyVerifiedAccessEndpointPortRange
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   NetworkInterfaceOptions: { // ModifyVerifiedAccessEndpointEniOptions
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   RdsOptions: { // ModifyVerifiedAccessEndpointRdsOptions
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Port: Number("int"),
+ *     RdsEndpoint: "STRING_VALUE",
+ *   },
+ *   CidrOptions: { // ModifyVerifiedAccessEndpointCidrOptions
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new ModifyVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
@@ -63,7 +90,7 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //     VerifiedAccessGroupId: "STRING_VALUE",
  * //     VerifiedAccessEndpointId: "STRING_VALUE",
  * //     ApplicationDomain: "STRING_VALUE",
- * //     EndpointType: "load-balancer" || "network-interface",
+ * //     EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr",
  * //     AttachmentType: "vpc",
  * //     DomainCertificateArn: "STRING_VALUE",
  * //     EndpointDomain: "STRING_VALUE",
@@ -72,17 +99,29 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       PortRanges: [ // VerifiedAccessEndpointPortRangeList
+ * //         { // VerifiedAccessEndpointPortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
  * //       NetworkInterfaceId: "STRING_VALUE",
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     Status: { // VerifiedAccessEndpointStatus
  * //       Code: "pending" || "active" || "updating" || "deleting" || "deleted",
@@ -102,6 +141,30 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     RdsOptions: { // VerifiedAccessEndpointRdsOptions
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       Port: Number("int"),
+ * //       RdsDbInstanceArn: "STRING_VALUE",
+ * //       RdsDbClusterArn: "STRING_VALUE",
+ * //       RdsDbProxyArn: "STRING_VALUE",
+ * //       RdsEndpoint: "STRING_VALUE",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CidrOptions: { // VerifiedAccessEndpointCidrOptions
+ * //       Cidr: "STRING_VALUE",
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -116,6 +179,7 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVerifiedAccessEndpointCommand extends $Command
@@ -126,9 +190,7 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +202,16 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessEndpointCommand)
   .de(de_ModifyVerifiedAccessEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessEndpointRequest;
+      output: ModifyVerifiedAccessEndpointResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessEndpointCommandInput;
+      output: ModifyVerifiedAccessEndpointCommandOutput;
+    };
+  };
+}

@@ -280,7 +280,9 @@ import {
   AudioLogDestination,
   AudioLogSetting,
   AudioSpecification,
+  BedrockGuardrailConfiguration,
   BedrockKnowledgeStoreConfiguration,
+  BedrockKnowledgeStoreExactResponseFields,
   BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
@@ -332,7 +334,6 @@ import {
   DialogCodeHookSettings,
   DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
-  EncryptionSetting,
   ExactResponseFields,
   ExportResourceSpecification,
   ExternalSourceSetting,
@@ -402,6 +403,7 @@ import {
   DefaultConditionalBranch,
   DialogCodeHookInvocationSetting,
   DialogState,
+  EncryptionSetting,
   ExportFilter,
   ExportSortBy,
   ExportSummary,
@@ -2569,10 +2571,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceARN}");
   b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -5772,7 +5771,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioSpecification omitted.
 
+// se_BedrockGuardrailConfiguration omitted.
+
 // se_BedrockKnowledgeStoreConfiguration omitted.
+
+// se_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // se_BedrockModelSpecification omitted.
 
@@ -6726,7 +6729,11 @@ const de_AnalyticsUtteranceResults = (output: any, context: __SerdeContext): Ana
 
 // de_AudioSpecification omitted.
 
+// de_BedrockGuardrailConfiguration omitted.
+
 // de_BedrockKnowledgeStoreConfiguration omitted.
+
+// de_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // de_BedrockModelSpecification omitted.
 
@@ -8228,13 +8235,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _eRI = "expectedRevisionId";
 const _lI = "localeId";

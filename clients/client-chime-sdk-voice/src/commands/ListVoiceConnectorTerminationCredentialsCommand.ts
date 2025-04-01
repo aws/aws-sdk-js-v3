@@ -88,6 +88,7 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   .f(void 0, ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog)
   .ser(se_ListVoiceConnectorTerminationCredentialsCommand)
   .de(de_ListVoiceConnectorTerminationCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVoiceConnectorTerminationCredentialsRequest;
+      output: ListVoiceConnectorTerminationCredentialsResponse;
+    };
+    sdk: {
+      input: ListVoiceConnectorTerminationCredentialsCommandInput;
+      output: ListVoiceConnectorTerminationCredentialsCommandOutput;
+    };
+  };
+}

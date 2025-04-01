@@ -74,6 +74,7 @@ export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppInstanceCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteAppInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteAppInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppInstanceCommand)
   .de(de_DeleteAppInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppInstanceCommandInput;
+      output: DeleteAppInstanceCommandOutput;
+    };
+  };
+}

@@ -172,76 +172,8 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To list grants for a KMS key
- * ```javascript
- * // The following example lists grants for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new ListGrantsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Grants": [
- *     {
- *       "CreationDate": "2016-10-25T14:37:41-07:00",
- *       "GrantId": "91ad875e49b04a9d1f3bdeb84d821f9db6ea95e1098813f6d47f0c65fbe2a172",
- *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
- *       "IssuingAccount": "arn:aws:iam::111122223333:root",
- *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "Operations": [
- *         "Encrypt",
- *         "ReEncryptFrom",
- *         "ReEncryptTo"
- *       ],
- *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
- *     },
- *     {
- *       "CreationDate": "2016-10-25T14:37:41-07:00",
- *       "GrantId": "a5d67d3e207a8fc1f4928749ee3e52eb0440493a8b9cf05bbfad91655b056200",
- *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
- *       "IssuingAccount": "arn:aws:iam::111122223333:root",
- *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "Operations": [
- *         "ReEncryptFrom",
- *         "ReEncryptTo"
- *       ],
- *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
- *     },
- *     {
- *       "CreationDate": "2016-10-25T14:37:41-07:00",
- *       "GrantId": "c541aaf05d90cb78846a73b346fc43e65be28b7163129488c738e0c9e0628f4f",
- *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
- *       "IssuingAccount": "arn:aws:iam::111122223333:root",
- *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "Operations": [
- *         "Encrypt",
- *         "ReEncryptFrom",
- *         "ReEncryptTo"
- *       ],
- *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
- *     },
- *     {
- *       "CreationDate": "2016-10-25T14:37:41-07:00",
- *       "GrantId": "dd2052c67b4c76ee45caf1dc6a1e2d24e8dc744a51b36ae2f067dc540ce0105c",
- *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
- *       "IssuingAccount": "arn:aws:iam::111122223333:root",
- *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "Operations": [
- *         "Encrypt",
- *         "ReEncryptFrom",
- *         "ReEncryptTo"
- *       ],
- *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
- *     }
- *   ],
- *   "Truncated": true
- * }
- * *\/
- * // example id: to-list-grants-for-a-cmk-1481067365389
- * ```
  *
+ * @public
  */
 export class ListGrantsCommand extends $Command
   .classBuilder<
@@ -251,9 +183,7 @@ export class ListGrantsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -265,4 +195,16 @@ export class ListGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGrantsCommand)
   .de(de_ListGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGrantsRequest;
+      output: ListGrantsResponse;
+    };
+    sdk: {
+      input: ListGrantsCommandInput;
+      output: ListGrantsCommandOutput;
+    };
+  };
+}

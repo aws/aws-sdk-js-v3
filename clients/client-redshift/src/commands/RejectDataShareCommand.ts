@@ -57,6 +57,7 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```
@@ -73,6 +74,7 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class RejectDataShareCommand extends $Command
@@ -83,9 +85,7 @@ export class RejectDataShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class RejectDataShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectDataShareCommand)
   .de(de_RejectDataShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectDataShareMessage;
+      output: DataShare;
+    };
+    sdk: {
+      input: RejectDataShareCommandInput;
+      output: RejectDataShareCommandOutput;
+    };
+  };
+}

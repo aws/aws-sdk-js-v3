@@ -138,7 +138,7 @@ further actions.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-proton
+To install this package, simply type add or install @aws-sdk/client-proton
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-proton`

@@ -77,6 +77,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   KmsKeyId: "STRING_VALUE",
  *   PreSignedUrl: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
+ *   DatabaseInsightsMode: "standard" || "advanced",
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
@@ -270,6 +271,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -439,30 +441,30 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB instance read replica
  * ```javascript
  * // This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance-repl",
- *   "SourceDBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance-repl",
+ *   SourceDBInstanceIdentifier: "test-instance"
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
- *     "DBInstanceIdentifier": "test-instance-repl",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MonitoringInterval": 0,
- *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance"
+ *   DBInstance: {
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     DBInstanceIdentifier: "test-instance-repl",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MonitoringInterval: 0,
+ *     ReadReplicaSourceDBInstanceIdentifier: "test-instance"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-instance-read-replica-1680129486105
  * ```
  *
+ * @public
  */
 export class CreateDBInstanceReadReplicaCommand extends $Command
   .classBuilder<
@@ -472,9 +474,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -487,4 +487,16 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBInstanceReadReplicaCommand)
   .de(de_CreateDBInstanceReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBInstanceReadReplicaMessage;
+      output: CreateDBInstanceReadReplicaResult;
+    };
+    sdk: {
+      input: CreateDBInstanceReadReplicaCommandInput;
+      output: CreateDBInstanceReadReplicaCommandOutput;
+    };
+  };
+}

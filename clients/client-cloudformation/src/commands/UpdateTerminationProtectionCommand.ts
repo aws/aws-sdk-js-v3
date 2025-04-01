@@ -28,12 +28,13 @@ export interface UpdateTerminationProtectionCommandInput extends UpdateTerminati
 export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**
- * <p>Updates termination protection for the specified stack. If a user attempts to delete a stack with termination
- *    protection enabled, the operation fails and the stack remains unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From
- *    Being Deleted</a> in the <i>CloudFormation User Guide</i>.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
- *    stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested
- *    stack.</p>
+ * <p>Updates termination protection for the specified stack. If a user attempts to delete a
+ *       stack with termination protection enabled, the operation fails and the stack remains
+ *       unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protect a CloudFormation
+ *         stack from being deleted</a> in the <i>CloudFormation User Guide</i>.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
+ *       termination protection is set on the root stack and can't be changed directly on the nested
+ *       stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,7 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateTerminationProtectionCommand extends $Command
@@ -71,9 +73,7 @@ export class UpdateTerminationProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class UpdateTerminationProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTerminationProtectionCommand)
   .de(de_UpdateTerminationProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTerminationProtectionInput;
+      output: UpdateTerminationProtectionOutput;
+    };
+    sdk: {
+      input: UpdateTerminationProtectionCommandInput;
+      output: UpdateTerminationProtectionCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class UpdateExportCommand extends $Command
@@ -109,9 +110,7 @@ export class UpdateExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class UpdateExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExportCommand)
   .de(de_UpdateExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExportRequest;
+      output: UpdateExportResponse;
+    };
+    sdk: {
+      input: UpdateExportCommandInput;
+      output: UpdateExportCommandOutput;
+    };
+  };
+}

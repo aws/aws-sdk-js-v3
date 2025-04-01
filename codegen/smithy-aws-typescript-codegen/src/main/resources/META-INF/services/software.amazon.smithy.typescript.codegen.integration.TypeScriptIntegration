@@ -1,6 +1,9 @@
 software.amazon.smithy.aws.typescript.codegen.AddEndpointsV2ParameterNameMap
 software.amazon.smithy.aws.typescript.codegen.AddAwsRuntimeConfig
+software.amazon.smithy.aws.typescript.codegen.AddAccountIdEndpointModeRuntimeConfig
 software.amazon.smithy.aws.typescript.codegen.AddBuiltinPlugins
+software.amazon.smithy.aws.typescript.codegen.AddEndpointsPlugin
+software.amazon.smithy.aws.typescript.codegen.AddServiceCustomizationPlugins
 software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddTokenAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddProtocols
@@ -23,9 +26,8 @@ software.amazon.smithy.aws.typescript.codegen.AddCrossRegionCopyingPlugin
 software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
 software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
 software.amazon.smithy.aws.typescript.codegen.AddHttpChecksumDependency
-software.amazon.smithy.aws.typescript.codegen.AddEventBridgePlugin
 software.amazon.smithy.aws.typescript.codegen.AddSigv4aPlugin
-software.amazon.smithy.aws.typescript.codegen.AddCloudFrontKeyValueStorePlugin
+software.amazon.smithy.aws.typescript.codegen.ProcessAwsQueryWaiters
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustomizeHttpBearerTokenAuth
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.SupportSigV4Auth
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustomizeSigV4Auth

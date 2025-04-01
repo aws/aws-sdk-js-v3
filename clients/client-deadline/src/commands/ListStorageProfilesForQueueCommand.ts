@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStorageProfilesForQueueRequest } from "../models/models_0";
-import { ListStorageProfilesForQueueResponse } from "../models/models_1";
+import { ListStorageProfilesForQueueRequest, ListStorageProfilesForQueueResponse } from "../models/models_1";
 import {
   de_ListStorageProfilesForQueueCommand,
   se_ListStorageProfilesForQueueCommand,
@@ -87,6 +86,7 @@ export interface ListStorageProfilesForQueueCommandOutput
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListStorageProfilesForQueueCommand extends $Command
@@ -97,9 +97,7 @@ export class ListStorageProfilesForQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +109,16 @@ export class ListStorageProfilesForQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageProfilesForQueueCommand)
   .de(de_ListStorageProfilesForQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageProfilesForQueueRequest;
+      output: ListStorageProfilesForQueueResponse;
+    };
+    sdk: {
+      input: ListStorageProfilesForQueueCommandInput;
+      output: ListStorageProfilesForQueueCommandOutput;
+    };
+  };
+}

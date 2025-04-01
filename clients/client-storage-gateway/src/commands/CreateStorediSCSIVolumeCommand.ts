@@ -87,30 +87,30 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To create a stored iSCSI volume
  * ```javascript
  * // Creates a stored volume on a specified stored gateway.
  * const input = {
- *   "DiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "NetworkInterfaceId": "10.1.1.1",
- *   "PreserveExistingData": true,
- *   "SnapshotId": "snap-f47b7b94",
- *   "TargetName": "my-volume"
+ *   DiskId: "pci-0000:03:00.0-scsi-0:0:0:0",
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   NetworkInterfaceId: "10.1.1.1",
+ *   PreserveExistingData: true,
+ *   SnapshotId: "snap-f47b7b94",
+ *   TargetName: "my-volume"
  * };
  * const command = new CreateStorediSCSIVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
- *   "VolumeSizeInBytes": 1099511627776
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *   VolumeSizeInBytes: 1099511627776
  * }
  * *\/
- * // example id: to-create-a-stored-iscsi-volume-1471367662813
  * ```
  *
+ * @public
  */
 export class CreateStorediSCSIVolumeCommand extends $Command
   .classBuilder<
@@ -120,9 +120,7 @@ export class CreateStorediSCSIVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +132,16 @@ export class CreateStorediSCSIVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStorediSCSIVolumeCommand)
   .de(de_CreateStorediSCSIVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStorediSCSIVolumeInput;
+      output: CreateStorediSCSIVolumeOutput;
+    };
+    sdk: {
+      input: CreateStorediSCSIVolumeCommandInput;
+      output: CreateStorediSCSIVolumeCommandOutput;
+    };
+  };
+}

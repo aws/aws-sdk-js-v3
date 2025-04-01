@@ -84,6 +84,13 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //           },
  * //         ],
  * //         essential: true || false,
+ * //         restartPolicy: { // ContainerRestartPolicy
+ * //           enabled: true || false, // required
+ * //           ignoredExitCodes: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           restartAttemptPeriod: Number("int"),
+ * //         },
  * //         entryPoint: [
  * //           "STRING_VALUE",
  * //         ],
@@ -159,6 +166,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //         ],
  * //         startTimeout: Number("int"),
  * //         stopTimeout: Number("int"),
+ * //         versionConsistency: "enabled" || "disabled",
  * //         hostname: "STRING_VALUE",
  * //         user: "STRING_VALUE",
  * //         workingDirectory: "STRING_VALUE",
@@ -320,6 +328,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * // };
  *
@@ -335,16 +344,66 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To deregister a revision of a task definition
+ * ```javascript
+ * // This example deregisters the first revision of the curler task definition
+ * const input = {
+ *   taskDefinition: "curler:1"
+ * };
+ * const command = new DeregisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   taskDefinition: {
+ *     containerDefinitions: [
+ *       {
+ *         command: [
+ *           "curl -v http://example.com/"
+ *         ],
+ *         cpu: 100,
+ *         entryPoint:         [],
+ *         environment:         [],
+ *         essential: true,
+ *         image: "curl:latest",
+ *         memory: 256,
+ *         mountPoints:         [],
+ *         name: "curler",
+ *         portMappings:         [],
+ *         volumesFrom:         []
+ *       }
+ *     ],
+ *     family: "curler",
+ *     revision: 1,
+ *     status: "INACTIVE",
+ *     taskDefinitionArn: "arn:aws:ecs:us-west-2:123456789012:task-definition/curler:1",
+ *     volumes:     []
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -356,9 +415,7 @@ export class DeregisterTaskDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -370,4 +427,16 @@ export class DeregisterTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTaskDefinitionCommand)
   .de(de_DeregisterTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTaskDefinitionRequest;
+      output: DeregisterTaskDefinitionResponse;
+    };
+    sdk: {
+      input: DeregisterTaskDefinitionCommandInput;
+      output: DeregisterTaskDefinitionCommandOutput;
+    };
+  };
+}

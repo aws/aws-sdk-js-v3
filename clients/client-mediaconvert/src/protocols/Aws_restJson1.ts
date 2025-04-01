@@ -7,6 +7,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -58,6 +59,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
+import { ProbeCommandInput, ProbeCommandOutput } from "../commands/ProbeCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -105,10 +108,12 @@ import {
   DestinationSettings,
   DvbSubDestinationSettings,
   DvbSubSourceSettings,
+  DynamicAudioSelector,
   Eac3AtmosSettings,
   Eac3Settings,
   EmbeddedDestinationSettings,
   EmbeddedSourceSettings,
+  EncryptionContractConfiguration,
   Endpoint,
   EsamManifestConfirmConditionNotification,
   EsamSettings,
@@ -147,14 +152,12 @@ import {
   Mp3Settings,
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
-  MsSmoothGroupSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
   OutputChannelMapping,
   OutputDetail,
   OutputGroupDetail,
-  OutputGroupSettings,
   QueueTransition,
   Rectangle,
   RemixSettings,
@@ -175,6 +178,8 @@ import {
   VideoOverlay,
   VideoOverlayInput,
   VideoOverlayInputClipping,
+  VideoOverlayPosition,
+  VideoOverlayTransition,
   VideoSelector,
   VorbisSettings,
   WavSettings,
@@ -186,12 +191,10 @@ import {
   Av1Settings,
   AvcIntraSettings,
   AvcIntraUhdSettings,
-  BadRequestException,
   BandwidthReductionFilter,
   ClipLimits,
   CmfcSettings,
   ColorCorrector,
-  ConflictException,
   ContainerSettings,
   Deinterlacer,
   DolbyVision,
@@ -200,19 +203,16 @@ import {
   DvbSdtSettings,
   DvbTdtSettings,
   F4vSettings,
-  ForbiddenException,
   FrameCaptureSettings,
+  GifSettings,
   H264QvbrSettings,
   H264Settings,
   H265QvbrSettings,
   H265Settings,
   Hdr10Plus,
   HlsSettings,
-  InternalServerErrorException,
   Job,
   JobSettings,
-  JobTemplate,
-  JobTemplateSettings,
   M2tsScte35Esam,
   M2tsSettings,
   M3u8Settings,
@@ -220,6 +220,7 @@ import {
   Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
+  MsSmoothGroupSettings,
   MxfSettings,
   MxfXavcProfileSettings,
   NexGuardFileMarkerSettings,
@@ -227,16 +228,12 @@ import {
   NoiseReducerFilterSettings,
   NoiseReducerSpatialFilterSettings,
   NoiseReducerTemporalFilterSettings,
-  NotFoundException,
   Output,
   OutputGroup,
+  OutputGroupSettings,
   OutputSettings,
   PartnerWatermarking,
-  Preset,
-  PresetSettings,
   ProresSettings,
-  Queue,
-  ReservationPlan,
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
@@ -256,7 +253,35 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
-import { Policy, ReservationPlanSettings, ResourceTags, TooManyRequestsException } from "../models/models_2";
+import {
+  AudioProperties,
+  BadRequestException,
+  ConflictException,
+  Container,
+  DataProperties,
+  ForbiddenException,
+  FrameRate,
+  InternalServerErrorException,
+  JobEngineVersion,
+  JobTemplate,
+  JobTemplateSettings,
+  Metadata,
+  NotFoundException,
+  Policy,
+  Preset,
+  PresetSettings,
+  ProbeInputFile,
+  ProbeResult,
+  Queue,
+  ReservationPlan,
+  ReservationPlanSettings,
+  ResourceTags,
+  ServiceOverride,
+  TooManyRequestsException,
+  Track,
+  TrackMapping,
+  VideoProperties,
+} from "../models/models_2";
 
 /**
  * serializeAws_restJson1AssociateCertificateCommand
@@ -315,6 +340,7 @@ export const se_CreateJobCommand = async (
       billingTagsSource: [, , `BillingTagsSource`],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientRequestToken`],
       hopDestinations: [, (_) => se___listOfHopDestination(_, context), `HopDestinations`],
+      jobEngineVersion: [, , `JobEngineVersion`],
       jobTemplate: [, , `JobTemplate`],
       priority: [, , `Priority`],
       queue: [, , `Queue`],
@@ -402,6 +428,7 @@ export const se_CreateQueueCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      concurrentJobs: [, , `ConcurrentJobs`],
       description: [, , `Description`],
       name: [, , `Name`],
       pricingPlan: [, , `PricingPlan`],
@@ -697,6 +724,44 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListVersionsCommand
+ */
+export const se_ListVersionsCommand = async (
+  input: ListVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2017-08-29/versions");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ProbeCommand
+ */
+export const se_ProbeCommand = async (input: ProbeCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2017-08-29/probe");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      inputFiles: [, (_) => se___listOfProbeInputFile(_, context), `InputFiles`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutPolicyCommand
  */
 export const se_PutPolicyCommand = async (
@@ -858,6 +923,7 @@ export const se_UpdateQueueCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      concurrentJobs: [, , `ConcurrentJobs`],
       description: [, , `Description`],
       reservationPlanSettings: [, (_) => se_ReservationPlanSettings(_, context), `ReservationPlanSettings`],
       status: [, , `Status`],
@@ -1280,6 +1346,8 @@ export const de_ListQueuesCommand = async (
   const doc = take(data, {
     NextToken: [, __expectString, `nextToken`],
     Queues: [, (_) => de___listOfQueue(_, context), `queues`],
+    TotalConcurrentJobs: [, __expectInt32, `totalConcurrentJobs`],
+    UnallocatedConcurrentJobs: [, __expectInt32, `unallocatedConcurrentJobs`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -1301,6 +1369,46 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ResourceTags: [, (_) => de_ResourceTags(_, context), `resourceTags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListVersionsCommand
+ */
+export const de_ListVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Versions: [, (_) => de___listOfJobEngineVersion(_, context), `versions`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ProbeCommand
+ */
+export const de_ProbeCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<ProbeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProbeResults: [, (_) => de___listOfProbeResult(_, context), `probeResults`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -1855,6 +1963,17 @@ const se___listOfOutputGroup = (input: OutputGroup[], context: __SerdeContext): 
     });
 };
 
+/**
+ * serializeAws_restJson1__listOfProbeInputFile
+ */
+const se___listOfProbeInputFile = (input: ProbeInputFile[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ProbeInputFile(entry, context);
+    });
+};
+
 // se___listOfTeletextPageType omitted.
 
 /**
@@ -1876,6 +1995,17 @@ const se___listOfVideoOverlayInputClipping = (input: VideoOverlayInputClipping[]
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_VideoOverlayInputClipping(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfVideoOverlayTransition
+ */
+const se___listOfVideoOverlayTransition = (input: VideoOverlayTransition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlayTransition(entry, context);
     });
 };
 
@@ -1916,6 +2046,19 @@ const se___mapOfCaptionSelector = (input: Record<string, CaptionSelector>, conte
       return acc;
     }
     acc[key] = se_CaptionSelector(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1__mapOfDynamicAudioSelector
+ */
+const se___mapOfDynamicAudioSelector = (input: Record<string, DynamicAudioSelector>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_DynamicAudioSelector(value, context);
     return acc;
   }, {});
 };
@@ -2119,6 +2262,7 @@ const se_AutomatedAbrRule = (input: AutomatedAbrRule, context: __SerdeContext): 
 const se_AutomatedAbrSettings = (input: AutomatedAbrSettings, context: __SerdeContext): any => {
   return take(input, {
     maxAbrBitrate: [, , `MaxAbrBitrate`],
+    maxQualityLevel: [, __serializeFloat, `MaxQualityLevel`],
     maxRenditions: [, , `MaxRenditions`],
     minAbrBitrate: [, , `MinAbrBitrate`],
     rules: [, (_) => se___listOfAutomatedAbrRule(_, context), `Rules`],
@@ -2234,6 +2378,7 @@ const se_BurninDestinationSettings = (input: BurninDestinationSettings, context:
     hexFontColor: [, , `HexFontColor`],
     outlineColor: [, , `OutlineColor`],
     outlineSize: [, , `OutlineSize`],
+    removeRubyReserveAttributes: [, , `RemoveRubyReserveAttributes`],
     shadowColor: [, , `ShadowColor`],
     shadowOpacity: [, , `ShadowOpacity`],
     shadowXOffset: [, , `ShadowXOffset`],
@@ -2689,6 +2834,19 @@ const se_DvbTdtSettings = (input: DvbTdtSettings, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1DynamicAudioSelector
+ */
+const se_DynamicAudioSelector = (input: DynamicAudioSelector, context: __SerdeContext): any => {
+  return take(input, {
+    audioDurationCorrection: [, , `AudioDurationCorrection`],
+    externalAudioFileInput: [, , `ExternalAudioFileInput`],
+    languageCode: [, , `LanguageCode`],
+    offset: [, , `Offset`],
+    selectorType: [, , `SelectorType`],
+  });
+};
+
+/**
  * serializeAws_restJson1Eac3AtmosSettings
  */
 const se_Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext): any => {
@@ -2761,6 +2919,16 @@ const se_EmbeddedSourceSettings = (input: EmbeddedSourceSettings, context: __Ser
     source608ChannelNumber: [, , `Source608ChannelNumber`],
     source608TrackNumber: [, , `Source608TrackNumber`],
     terminateCaptions: [, , `TerminateCaptions`],
+  });
+};
+
+/**
+ * serializeAws_restJson1EncryptionContractConfiguration
+ */
+const se_EncryptionContractConfiguration = (input: EncryptionContractConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    spekeAudioPreset: [, , `SpekeAudioPreset`],
+    spekeVideoPreset: [, , `SpekeVideoPreset`],
   });
 };
 
@@ -2838,6 +3006,7 @@ const se_FileGroupSettings = (input: FileGroupSettings, context: __SerdeContext)
  */
 const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContext): any => {
   return take(input, {
+    byteRateLimit: [, , `ByteRateLimit`],
     convert608To708: [, , `Convert608To708`],
     convertPaintToPop: [, , `ConvertPaintToPop`],
     framerate: [, (_) => se_CaptionSourceFramerate(_, context), `Framerate`],
@@ -2877,6 +3046,18 @@ const se_FrameCaptureSettings = (input: FrameCaptureSettings, context: __SerdeCo
     framerateNumerator: [, , `FramerateNumerator`],
     maxCaptures: [, , `MaxCaptures`],
     quality: [, , `Quality`],
+  });
+};
+
+/**
+ * serializeAws_restJson1GifSettings
+ */
+const se_GifSettings = (input: GifSettings, context: __SerdeContext): any => {
+  return take(input, {
+    framerateControl: [, , `FramerateControl`],
+    framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
   });
 };
 
@@ -2929,6 +3110,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     qvbrSettings: [, (_) => se_H264QvbrSettings(_, context), `QvbrSettings`],
     rateControlMode: [, , `RateControlMode`],
     repeatPps: [, , `RepeatPps`],
+    saliencyAwareEncoding: [, , `SaliencyAwareEncoding`],
     scanTypeConversionMode: [, , `ScanTypeConversionMode`],
     sceneChangeDetect: [, , `SceneChangeDetect`],
     slices: [, , `Slices`],
@@ -2939,6 +3121,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     telecine: [, , `Telecine`],
     temporalAdaptiveQuantization: [, , `TemporalAdaptiveQuantization`],
     unregisteredSeiTimecode: [, , `UnregisteredSeiTimecode`],
+    writeMp4PackagingType: [, , `WriteMp4PackagingType`],
   });
 };
 
@@ -2964,6 +3147,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     bitrate: [, , `Bitrate`],
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
+    deblocking: [, , `Deblocking`],
     dynamicSubGop: [, , `DynamicSubGop`],
     endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
@@ -3211,6 +3395,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     decryptionSettings: [, (_) => se_InputDecryptionSettings(_, context), `DecryptionSettings`],
     denoiseFilter: [, , `DenoiseFilter`],
     dolbyVisionMetadataXml: [, , `DolbyVisionMetadataXml`],
+    dynamicAudioSelectors: [, (_) => se___mapOfDynamicAudioSelector(_, context), `DynamicAudioSelectors`],
     fileInput: [, , `FileInput`],
     filterEnable: [, , `FilterEnable`],
     filterStrength: [, , `FilterStrength`],
@@ -3265,6 +3450,7 @@ const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any =>
     deblockFilter: [, , `DeblockFilter`],
     denoiseFilter: [, , `DenoiseFilter`],
     dolbyVisionMetadataXml: [, , `DolbyVisionMetadataXml`],
+    dynamicAudioSelectors: [, (_) => se___mapOfDynamicAudioSelector(_, context), `DynamicAudioSelectors`],
     filterEnable: [, , `FilterEnable`],
     filterStrength: [, , `FilterStrength`],
     imageInserter: [, (_) => se_ImageInserter(_, context), `ImageInserter`],
@@ -3403,6 +3589,7 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     audioDuration: [, , `AudioDuration`],
     audioFramesPerPes: [, , `AudioFramesPerPes`],
     audioPids: [, _json, `AudioPids`],
+    audioPtsOffsetDelta: [, , `AudioPtsOffsetDelta`],
     bitrate: [, , `Bitrate`],
     bufferModel: [, , `BufferModel`],
     dataPTSControl: [, , `DataPTSControl`],
@@ -3452,6 +3639,7 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
     audioDuration: [, , `AudioDuration`],
     audioFramesPerPes: [, , `AudioFramesPerPes`],
     audioPids: [, _json, `AudioPids`],
+    audioPtsOffsetDelta: [, , `AudioPtsOffsetDelta`],
     dataPTSControl: [, , `DataPTSControl`],
     maxPcrInterval: [, , `MaxPcrInterval`],
     nielsenId3: [, , `NielsenId3`],
@@ -3895,6 +4083,15 @@ const se_PresetSettings = (input: PresetSettings, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1ProbeInputFile
+ */
+const se_ProbeInputFile = (input: ProbeInputFile, context: __SerdeContext): any => {
+  return take(input, {
+    fileUrl: [, , `FileUrl`],
+  });
+};
+
+/**
  * serializeAws_restJson1ProresSettings
  */
 const se_ProresSettings = (input: ProresSettings, context: __SerdeContext): any => {
@@ -3997,6 +4194,11 @@ const se_SccDestinationSettings = (input: SccDestinationSettings, context: __Ser
 const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
   return take(input, {
     certificateArn: [, , `CertificateArn`],
+    encryptionContractConfiguration: [
+      ,
+      (_) => se_EncryptionContractConfiguration(_, context),
+      `EncryptionContractConfiguration`,
+    ],
     resourceId: [, , `ResourceId`],
     systemIds: [, _json, `SystemIds`],
     url: [, , `Url`],
@@ -4010,6 +4212,11 @@ const se_SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf, context: __SerdeCo
   return take(input, {
     certificateArn: [, , `CertificateArn`],
     dashSignaledSystemIds: [, _json, `DashSignaledSystemIds`],
+    encryptionContractConfiguration: [
+      ,
+      (_) => se_EncryptionContractConfiguration(_, context),
+      `EncryptionContractConfiguration`,
+    ],
     hlsSignaledSystemIds: [, _json, `HlsSignaledSystemIds`],
     resourceId: [, , `ResourceId`],
     url: [, , `Url`],
@@ -4149,6 +4356,7 @@ const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContex
     avcIntraSettings: [, (_) => se_AvcIntraSettings(_, context), `AvcIntraSettings`],
     codec: [, , `Codec`],
     frameCaptureSettings: [, (_) => se_FrameCaptureSettings(_, context), `FrameCaptureSettings`],
+    gifSettings: [, (_) => se_GifSettings(_, context), `GifSettings`],
     h264Settings: [, (_) => se_H264Settings(_, context), `H264Settings`],
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
     mpeg2Settings: [, (_) => se_Mpeg2Settings(_, context), `Mpeg2Settings`],
@@ -4168,6 +4376,7 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
   return take(input, {
     afdSignaling: [, , `AfdSignaling`],
     antiAlias: [, , `AntiAlias`],
+    chromaPositionMode: [, , `ChromaPositionMode`],
     codecSettings: [, (_) => se_VideoCodecSettings(_, context), `CodecSettings`],
     colorMetadata: [, , `ColorMetadata`],
     crop: [, (_) => se_Rectangle(_, context), `Crop`],
@@ -4179,6 +4388,7 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
     scalingBehavior: [, , `ScalingBehavior`],
     sharpness: [, , `Sharpness`],
     timecodeInsertion: [, , `TimecodeInsertion`],
+    timecodeTrack: [, , `TimecodeTrack`],
     videoPreprocessors: [, (_) => se_VideoPreprocessor(_, context), `VideoPreprocessors`],
     width: [, , `Width`],
   });
@@ -4190,8 +4400,11 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
 const se_VideoOverlay = (input: VideoOverlay, context: __SerdeContext): any => {
   return take(input, {
     endTimecode: [, , `EndTimecode`],
+    initialPosition: [, (_) => se_VideoOverlayPosition(_, context), `InitialPosition`],
     input: [, (_) => se_VideoOverlayInput(_, context), `Input`],
+    playback: [, , `Playback`],
     startTimecode: [, , `StartTimecode`],
+    transitions: [, (_) => se___listOfVideoOverlayTransition(_, context), `Transitions`],
   });
 };
 
@@ -4212,6 +4425,30 @@ const se_VideoOverlayInput = (input: VideoOverlayInput, context: __SerdeContext)
  */
 const se_VideoOverlayInputClipping = (input: VideoOverlayInputClipping, context: __SerdeContext): any => {
   return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayPosition
+ */
+const se_VideoOverlayPosition = (input: VideoOverlayPosition, context: __SerdeContext): any => {
+  return take(input, {
+    height: [, , `Height`],
+    unit: [, , `Unit`],
+    width: [, , `Width`],
+    xPosition: [, , `XPosition`],
+    yPosition: [, , `YPosition`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayTransition
+ */
+const se_VideoOverlayTransition = (input: VideoOverlayTransition, context: __SerdeContext): any => {
+  return take(input, {
+    endPosition: [, (_) => se_VideoOverlayPosition(_, context), `EndPosition`],
     endTimecode: [, , `EndTimecode`],
     startTimecode: [, , `StartTimecode`],
   });
@@ -4445,6 +4682,8 @@ const de___listOf__doubleMinNegative60Max6 = (output: any, context: __SerdeConte
     });
   return retVal;
 };
+
+// de___listOf__integer omitted.
 
 // de___listOf__integerMin1Max2147483647 omitted.
 
@@ -4698,6 +4937,18 @@ const de___listOfJob = (output: any, context: __SerdeContext): Job[] => {
 };
 
 /**
+ * deserializeAws_restJson1__listOfJobEngineVersion
+ */
+const de___listOfJobEngineVersion = (output: any, context: __SerdeContext): JobEngineVersion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobEngineVersion(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfJobTemplate
  */
 const de___listOfJobTemplate = (output: any, context: __SerdeContext): JobTemplate[] => {
@@ -4794,6 +5045,18 @@ const de___listOfPreset = (output: any, context: __SerdeContext): Preset[] => {
 };
 
 /**
+ * deserializeAws_restJson1__listOfProbeResult
+ */
+const de___listOfProbeResult = (output: any, context: __SerdeContext): ProbeResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProbeResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfQueue
  */
 const de___listOfQueue = (output: any, context: __SerdeContext): Queue[] => {
@@ -4817,7 +5080,43 @@ const de___listOfQueueTransition = (output: any, context: __SerdeContext): Queue
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1__listOfServiceOverride
+ */
+const de___listOfServiceOverride = (output: any, context: __SerdeContext): ServiceOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceOverride(entry, context);
+    });
+  return retVal;
+};
+
 // de___listOfTeletextPageType omitted.
+
+/**
+ * deserializeAws_restJson1__listOfTrack
+ */
+const de___listOfTrack = (output: any, context: __SerdeContext): Track[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Track(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfTrackMapping
+ */
+const de___listOfTrackMapping = (output: any, context: __SerdeContext): TrackMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrackMapping(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfVideoOverlay
@@ -4839,6 +5138,18 @@ const de___listOfVideoOverlayInputClipping = (output: any, context: __SerdeConte
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_VideoOverlayInputClipping(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfVideoOverlayTransition
+ */
+const de___listOfVideoOverlayTransition = (output: any, context: __SerdeContext): VideoOverlayTransition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlayTransition(entry, context);
     });
   return retVal;
 };
@@ -4894,6 +5205,19 @@ const de___mapOfCaptionSelector = (output: any, context: __SerdeContext): Record
     acc[key as string] = de_CaptionSelector(value, context);
     return acc;
   }, {} as Record<string, CaptionSelector>);
+};
+
+/**
+ * deserializeAws_restJson1__mapOfDynamicAudioSelector
+ */
+const de___mapOfDynamicAudioSelector = (output: any, context: __SerdeContext): Record<string, DynamicAudioSelector> => {
+  return Object.entries(output).reduce((acc: Record<string, DynamicAudioSelector>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_DynamicAudioSelector(value, context);
+    return acc;
+  }, {} as Record<string, DynamicAudioSelector>);
 };
 
 /**
@@ -5052,6 +5376,20 @@ const de_AudioNormalizationSettings = (output: any, context: __SerdeContext): Au
 };
 
 /**
+ * deserializeAws_restJson1AudioProperties
+ */
+const de_AudioProperties = (output: any, context: __SerdeContext): AudioProperties => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    BitRate: [, __expectInt32, `bitRate`],
+    Channels: [, __expectInt32, `channels`],
+    FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
+    LanguageCode: [, __expectString, `languageCode`],
+    SampleRate: [, __expectInt32, `sampleRate`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AudioSelector
  */
 const de_AudioSelector = (output: any, context: __SerdeContext): AudioSelector => {
@@ -5099,6 +5437,7 @@ const de_AutomatedAbrRule = (output: any, context: __SerdeContext): AutomatedAbr
 const de_AutomatedAbrSettings = (output: any, context: __SerdeContext): AutomatedAbrSettings => {
   return take(output, {
     MaxAbrBitrate: [, __expectInt32, `maxAbrBitrate`],
+    MaxQualityLevel: [, __limitedParseDouble, `maxQualityLevel`],
     MaxRenditions: [, __expectInt32, `maxRenditions`],
     MinAbrBitrate: [, __expectInt32, `minAbrBitrate`],
     Rules: [, (_: any) => de___listOfAutomatedAbrRule(_, context), `rules`],
@@ -5214,6 +5553,7 @@ const de_BurninDestinationSettings = (output: any, context: __SerdeContext): Bur
     HexFontColor: [, __expectString, `hexFontColor`],
     OutlineColor: [, __expectString, `outlineColor`],
     OutlineSize: [, __expectInt32, `outlineSize`],
+    RemoveRubyReserveAttributes: [, __expectString, `removeRubyReserveAttributes`],
     ShadowColor: [, __expectString, `shadowColor`],
     ShadowOpacity: [, __expectInt32, `shadowOpacity`],
     ShadowXOffset: [, __expectInt32, `shadowXOffset`],
@@ -5467,6 +5807,17 @@ const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector
 };
 
 /**
+ * deserializeAws_restJson1Container
+ */
+const de_Container = (output: any, context: __SerdeContext): Container => {
+  return take(output, {
+    Duration: [, __limitedParseDouble, `duration`],
+    Format: [, __expectString, `format`],
+    Tracks: [, (_: any) => de___listOfTrack(_, context), `tracks`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ContainerSettings
  */
 const de_ContainerSettings = (output: any, context: __SerdeContext): ContainerSettings => {
@@ -5551,6 +5902,15 @@ const de_DashIsoImageBasedTrickPlaySettings = (
     ThumbnailWidth: [, __expectInt32, `thumbnailWidth`],
     TileHeight: [, __expectInt32, `tileHeight`],
     TileWidth: [, __expectInt32, `tileWidth`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProperties
+ */
+const de_DataProperties = (output: any, context: __SerdeContext): DataProperties => {
+  return take(output, {
+    LanguageCode: [, __expectString, `languageCode`],
   }) as any;
 };
 
@@ -5677,6 +6037,19 @@ const de_DvbTdtSettings = (output: any, context: __SerdeContext): DvbTdtSettings
 };
 
 /**
+ * deserializeAws_restJson1DynamicAudioSelector
+ */
+const de_DynamicAudioSelector = (output: any, context: __SerdeContext): DynamicAudioSelector => {
+  return take(output, {
+    AudioDurationCorrection: [, __expectString, `audioDurationCorrection`],
+    ExternalAudioFileInput: [, __expectString, `externalAudioFileInput`],
+    LanguageCode: [, __expectString, `languageCode`],
+    Offset: [, __expectInt32, `offset`],
+    SelectorType: [, __expectString, `selectorType`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Eac3AtmosSettings
  */
 const de_Eac3AtmosSettings = (output: any, context: __SerdeContext): Eac3AtmosSettings => {
@@ -5749,6 +6122,16 @@ const de_EmbeddedSourceSettings = (output: any, context: __SerdeContext): Embedd
     Source608ChannelNumber: [, __expectInt32, `source608ChannelNumber`],
     Source608TrackNumber: [, __expectInt32, `source608TrackNumber`],
     TerminateCaptions: [, __expectString, `terminateCaptions`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EncryptionContractConfiguration
+ */
+const de_EncryptionContractConfiguration = (output: any, context: __SerdeContext): EncryptionContractConfiguration => {
+  return take(output, {
+    SpekeAudioPreset: [, __expectString, `spekeAudioPreset`],
+    SpekeVideoPreset: [, __expectString, `spekeVideoPreset`],
   }) as any;
 };
 
@@ -5838,6 +6221,7 @@ const de_FileGroupSettings = (output: any, context: __SerdeContext): FileGroupSe
  */
 const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSourceSettings => {
   return take(output, {
+    ByteRateLimit: [, __expectString, `byteRateLimit`],
     Convert608To708: [, __expectString, `convert608To708`],
     ConvertPaintToPop: [, __expectString, `convertPaintToPop`],
     Framerate: [, (_: any) => de_CaptionSourceFramerate(_, context), `framerate`],
@@ -5877,6 +6261,28 @@ const de_FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCap
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
     MaxCaptures: [, __expectInt32, `maxCaptures`],
     Quality: [, __expectInt32, `quality`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FrameRate
+ */
+const de_FrameRate = (output: any, context: __SerdeContext): FrameRate => {
+  return take(output, {
+    Denominator: [, __expectInt32, `denominator`],
+    Numerator: [, __expectInt32, `numerator`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GifSettings
+ */
+const de_GifSettings = (output: any, context: __SerdeContext): GifSettings => {
+  return take(output, {
+    FramerateControl: [, __expectString, `framerateControl`],
+    FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
   }) as any;
 };
 
@@ -5929,6 +6335,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     QvbrSettings: [, (_: any) => de_H264QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     RepeatPps: [, __expectString, `repeatPps`],
+    SaliencyAwareEncoding: [, __expectString, `saliencyAwareEncoding`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
     SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
     Slices: [, __expectInt32, `slices`],
@@ -5939,6 +6346,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     Telecine: [, __expectString, `telecine`],
     TemporalAdaptiveQuantization: [, __expectString, `temporalAdaptiveQuantization`],
     UnregisteredSeiTimecode: [, __expectString, `unregisteredSeiTimecode`],
+    WriteMp4PackagingType: [, __expectString, `writeMp4PackagingType`],
   }) as any;
 };
 
@@ -5964,6 +6372,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     Bitrate: [, __expectInt32, `bitrate`],
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
+    Deblocking: [, __expectString, `deblocking`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
     EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
@@ -6219,6 +6628,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     DecryptionSettings: [, (_: any) => de_InputDecryptionSettings(_, context), `decryptionSettings`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
+    DynamicAudioSelectors: [, (_: any) => de___mapOfDynamicAudioSelector(_, context), `dynamicAudioSelectors`],
     FileInput: [, __expectString, `fileInput`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
@@ -6277,6 +6687,7 @@ const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate =
     DeblockFilter: [, __expectString, `deblockFilter`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
+    DynamicAudioSelectors: [, (_: any) => de___mapOfDynamicAudioSelector(_, context), `dynamicAudioSelectors`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
     ImageInserter: [, (_: any) => de_ImageInserter(_, context), `imageInserter`],
@@ -6340,6 +6751,8 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     ErrorMessage: [, __expectString, `errorMessage`],
     HopDestinations: [, (_: any) => de___listOfHopDestination(_, context), `hopDestinations`],
     Id: [, __expectString, `id`],
+    JobEngineVersionRequested: [, __expectString, `jobEngineVersionRequested`],
+    JobEngineVersionUsed: [, __expectString, `jobEngineVersionUsed`],
     JobPercentComplete: [, __expectInt32, `jobPercentComplete`],
     JobTemplate: [, __expectString, `jobTemplate`],
     Messages: [, (_: any) => de_JobMessages(_, context), `messages`],
@@ -6356,6 +6769,16 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     Timing: [, (_: any) => de_Timing(_, context), `timing`],
     UserMetadata: [, _json, `userMetadata`],
     Warnings: [, (_: any) => de___listOfWarningGroup(_, context), `warnings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1JobEngineVersion
+ */
+const de_JobEngineVersion = (output: any, context: __SerdeContext): JobEngineVersion => {
+  return take(output, {
+    ExpirationDate: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `expirationDate`],
+    Version: [, __expectString, `version`],
   }) as any;
 };
 
@@ -6489,6 +6912,7 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     AudioDuration: [, __expectString, `audioDuration`],
     AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
     AudioPids: [, _json, `audioPids`],
+    AudioPtsOffsetDelta: [, __expectInt32, `audioPtsOffsetDelta`],
     Bitrate: [, __expectInt32, `bitrate`],
     BufferModel: [, __expectString, `bufferModel`],
     DataPTSControl: [, __expectString, `dataPTSControl`],
@@ -6538,6 +6962,7 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     AudioDuration: [, __expectString, `audioDuration`],
     AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
     AudioPids: [, _json, `audioPids`],
+    AudioPtsOffsetDelta: [, __expectInt32, `audioPtsOffsetDelta`],
     DataPTSControl: [, __expectString, `dataPTSControl`],
     MaxPcrInterval: [, __expectInt32, `maxPcrInterval`],
     NielsenId3: [, __expectString, `nielsenId3`],
@@ -6556,6 +6981,18 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     TimedMetadataPid: [, __expectInt32, `timedMetadataPid`],
     TransportStreamId: [, __expectInt32, `transportStreamId`],
     VideoPid: [, __expectInt32, `videoPid`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
+  return take(output, {
+    ETag: [, __expectString, `eTag`],
+    FileSize: [, __expectLong, `fileSize`],
+    LastModified: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastModified`],
+    MimeType: [, __expectString, `mimeType`],
   }) as any;
 };
 
@@ -7016,6 +7453,17 @@ const de_PresetSettings = (output: any, context: __SerdeContext): PresetSettings
 };
 
 /**
+ * deserializeAws_restJson1ProbeResult
+ */
+const de_ProbeResult = (output: any, context: __SerdeContext): ProbeResult => {
+  return take(output, {
+    Container: [, (_: any) => de_Container(_, context), `container`],
+    Metadata: [, (_: any) => de_Metadata(_, context), `metadata`],
+    TrackMappings: [, (_: any) => de___listOfTrackMapping(_, context), `trackMappings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ProresSettings
  */
 const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings => {
@@ -7042,6 +7490,7 @@ const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings
 const de_Queue = (output: any, context: __SerdeContext): Queue => {
   return take(output, {
     Arn: [, __expectString, `arn`],
+    ConcurrentJobs: [, __expectInt32, `concurrentJobs`],
     CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Description: [, __expectString, `description`],
     LastUpdated: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
@@ -7049,6 +7498,7 @@ const de_Queue = (output: any, context: __SerdeContext): Queue => {
     PricingPlan: [, __expectString, `pricingPlan`],
     ProgressingJobsCount: [, __expectInt32, `progressingJobsCount`],
     ReservationPlan: [, (_: any) => de_ReservationPlan(_, context), `reservationPlan`],
+    ServiceOverrides: [, (_: any) => de___listOfServiceOverride(_, context), `serviceOverrides`],
     Status: [, __expectString, `status`],
     SubmittedJobsCount: [, __expectInt32, `submittedJobsCount`],
     Type: [, __expectString, `type`],
@@ -7156,11 +7606,28 @@ const de_SccDestinationSettings = (output: any, context: __SerdeContext): SccDes
 };
 
 /**
+ * deserializeAws_restJson1ServiceOverride
+ */
+const de_ServiceOverride = (output: any, context: __SerdeContext): ServiceOverride => {
+  return take(output, {
+    Message: [, __expectString, `message`],
+    Name: [, __expectString, `name`],
+    OverrideValue: [, __expectString, `overrideValue`],
+    Value: [, __expectString, `value`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1SpekeKeyProvider
  */
 const de_SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return take(output, {
     CertificateArn: [, __expectString, `certificateArn`],
+    EncryptionContractConfiguration: [
+      ,
+      (_: any) => de_EncryptionContractConfiguration(_, context),
+      `encryptionContractConfiguration`,
+    ],
     ResourceId: [, __expectString, `resourceId`],
     SystemIds: [, _json, `systemIds`],
     Url: [, __expectString, `url`],
@@ -7174,6 +7641,11 @@ const de_SpekeKeyProviderCmaf = (output: any, context: __SerdeContext): SpekeKey
   return take(output, {
     CertificateArn: [, __expectString, `certificateArn`],
     DashSignaledSystemIds: [, _json, `dashSignaledSystemIds`],
+    EncryptionContractConfiguration: [
+      ,
+      (_: any) => de_EncryptionContractConfiguration(_, context),
+      `encryptionContractConfiguration`,
+    ],
     HlsSignaledSystemIds: [, _json, `hlsSignaledSystemIds`],
     ResourceId: [, __expectString, `resourceId`],
     Url: [, __expectString, `url`],
@@ -7264,6 +7736,32 @@ const de_Timing = (output: any, context: __SerdeContext): Timing => {
 };
 
 /**
+ * deserializeAws_restJson1Track
+ */
+const de_Track = (output: any, context: __SerdeContext): Track => {
+  return take(output, {
+    AudioProperties: [, (_: any) => de_AudioProperties(_, context), `audioProperties`],
+    Codec: [, __expectString, `codec`],
+    DataProperties: [, (_: any) => de_DataProperties(_, context), `dataProperties`],
+    Duration: [, __limitedParseDouble, `duration`],
+    Index: [, __expectInt32, `index`],
+    TrackType: [, __expectString, `trackType`],
+    VideoProperties: [, (_: any) => de_VideoProperties(_, context), `videoProperties`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrackMapping
+ */
+const de_TrackMapping = (output: any, context: __SerdeContext): TrackMapping => {
+  return take(output, {
+    AudioTrackIndexes: [, _json, `audioTrackIndexes`],
+    DataTrackIndexes: [, _json, `dataTrackIndexes`],
+    VideoTrackIndexes: [, _json, `videoTrackIndexes`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1TrackSourceSettings
  */
 const de_TrackSourceSettings = (output: any, context: __SerdeContext): TrackSourceSettings => {
@@ -7324,6 +7822,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
     AvcIntraSettings: [, (_: any) => de_AvcIntraSettings(_, context), `avcIntraSettings`],
     Codec: [, __expectString, `codec`],
     FrameCaptureSettings: [, (_: any) => de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
+    GifSettings: [, (_: any) => de_GifSettings(_, context), `gifSettings`],
     H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
     Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
@@ -7343,6 +7842,7 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
   return take(output, {
     AfdSignaling: [, __expectString, `afdSignaling`],
     AntiAlias: [, __expectString, `antiAlias`],
+    ChromaPositionMode: [, __expectString, `chromaPositionMode`],
     CodecSettings: [, (_: any) => de_VideoCodecSettings(_, context), `codecSettings`],
     ColorMetadata: [, __expectString, `colorMetadata`],
     Crop: [, (_: any) => de_Rectangle(_, context), `crop`],
@@ -7354,6 +7854,7 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
     ScalingBehavior: [, __expectString, `scalingBehavior`],
     Sharpness: [, __expectInt32, `sharpness`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
+    TimecodeTrack: [, __expectString, `timecodeTrack`],
     VideoPreprocessors: [, (_: any) => de_VideoPreprocessor(_, context), `videoPreprocessors`],
     Width: [, __expectInt32, `width`],
   }) as any;
@@ -7375,8 +7876,11 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
 const de_VideoOverlay = (output: any, context: __SerdeContext): VideoOverlay => {
   return take(output, {
     EndTimecode: [, __expectString, `endTimecode`],
+    InitialPosition: [, (_: any) => de_VideoOverlayPosition(_, context), `initialPosition`],
     Input: [, (_: any) => de_VideoOverlayInput(_, context), `input`],
+    Playback: [, __expectString, `playback`],
     StartTimecode: [, __expectString, `startTimecode`],
+    Transitions: [, (_: any) => de___listOfVideoOverlayTransition(_, context), `transitions`],
   }) as any;
 };
 
@@ -7403,6 +7907,30 @@ const de_VideoOverlayInputClipping = (output: any, context: __SerdeContext): Vid
 };
 
 /**
+ * deserializeAws_restJson1VideoOverlayPosition
+ */
+const de_VideoOverlayPosition = (output: any, context: __SerdeContext): VideoOverlayPosition => {
+  return take(output, {
+    Height: [, __expectInt32, `height`],
+    Unit: [, __expectString, `unit`],
+    Width: [, __expectInt32, `width`],
+    XPosition: [, __expectInt32, `xPosition`],
+    YPosition: [, __expectInt32, `yPosition`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayTransition
+ */
+const de_VideoOverlayTransition = (output: any, context: __SerdeContext): VideoOverlayTransition => {
+  return take(output, {
+    EndPosition: [, (_: any) => de_VideoOverlayPosition(_, context), `endPosition`],
+    EndTimecode: [, __expectString, `endTimecode`],
+    StartTimecode: [, __expectString, `startTimecode`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1VideoPreprocessor
  */
 const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPreprocessor => {
@@ -7415,6 +7943,22 @@ const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPrepro
     NoiseReducer: [, (_: any) => de_NoiseReducer(_, context), `noiseReducer`],
     PartnerWatermarking: [, (_: any) => de_PartnerWatermarking(_, context), `partnerWatermarking`],
     TimecodeBurnin: [, (_: any) => de_TimecodeBurnin(_, context), `timecodeBurnin`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoProperties
+ */
+const de_VideoProperties = (output: any, context: __SerdeContext): VideoProperties => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    BitRate: [, __expectInt32, `bitRate`],
+    ColorPrimaries: [, __expectString, `colorPrimaries`],
+    FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
+    Height: [, __expectInt32, `height`],
+    MatrixCoefficients: [, __expectString, `matrixCoefficients`],
+    TransferCharacteristics: [, __expectString, `transferCharacteristics`],
+    Width: [, __expectInt32, `width`],
   }) as any;
 };
 
@@ -7640,13 +8184,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _C = "Category";
 const _IF = "InputFile";

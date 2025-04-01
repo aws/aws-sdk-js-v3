@@ -136,6 +136,7 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ReadPresetCommand extends $Command
@@ -146,9 +147,7 @@ export class ReadPresetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticTranscoderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class ReadPresetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReadPresetCommand)
   .de(de_ReadPresetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReadPresetRequest;
+      output: ReadPresetResponse;
+    };
+    sdk: {
+      input: ReadPresetCommandInput;
+      output: ReadPresetCommandOutput;
+    };
+  };
+}

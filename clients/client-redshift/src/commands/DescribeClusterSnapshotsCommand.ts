@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/models_0";
+import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/models_1";
 import { de_DescribeClusterSnapshotsCommand, se_DescribeClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -154,6 +154,7 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterSnapshotsCommand extends $Command
@@ -164,9 +165,7 @@ export class DescribeClusterSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +177,16 @@ export class DescribeClusterSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterSnapshotsCommand)
   .de(de_DescribeClusterSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterSnapshotsMessage;
+      output: SnapshotMessage;
+    };
+    sdk: {
+      input: DescribeClusterSnapshotsCommandInput;
+      output: DescribeClusterSnapshotsCommandOutput;
+    };
+  };
+}

@@ -80,6 +80,7 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DeleteResiliencyPolicyCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteResiliencyPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteResiliencyPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResiliencyPolicyCommand)
   .de(de_DeleteResiliencyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResiliencyPolicyRequest;
+      output: DeleteResiliencyPolicyResponse;
+    };
+    sdk: {
+      input: DeleteResiliencyPolicyCommandInput;
+      output: DeleteResiliencyPolicyCommandOutput;
+    };
+  };
+}

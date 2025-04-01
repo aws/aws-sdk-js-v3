@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0";
+import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_1";
 import {
   de_PutDeliverabilityDashboardOptionCommand,
   se_PutDeliverabilityDashboardOptionCommand,
@@ -90,6 +90,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command
@@ -100,9 +101,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliverabilityDashboardOptionCommand)
   .de(de_PutDeliverabilityDashboardOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliverabilityDashboardOptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDeliverabilityDashboardOptionCommandInput;
+      output: PutDeliverabilityDashboardOptionCommandOutput;
+    };
+  };
+}

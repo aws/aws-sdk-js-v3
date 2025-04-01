@@ -60,6 +60,7 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrialCommand extends $Command
@@ -70,9 +71,7 @@ export class DeleteTrialCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +83,16 @@ export class DeleteTrialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrialCommand)
   .de(de_DeleteTrialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrialRequest;
+      output: DeleteTrialResponse;
+    };
+    sdk: {
+      input: DeleteTrialCommandInput;
+      output: DeleteTrialCommandOutput;
+    };
+  };
+}

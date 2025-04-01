@@ -28,12 +28,8 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
+ * <p>Returns the tags assigned to the resource, such as a target recovery point, backup plan, or
  *          backup vault.</p>
- *          <p>
- *             <code>ListTags</code> only works for resource types that support full Backup
- *          management of their backups. Those resource types are listed in the "Full Backup management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
- *             availability by resource</a> table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +74,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListTagsCommand extends $Command
@@ -88,9 +85,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +97,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, ListTagsOutputFilterSensitiveLog)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsInput;
+      output: ListTagsOutput;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

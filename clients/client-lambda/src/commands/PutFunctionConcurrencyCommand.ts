@@ -79,6 +79,23 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To configure a reserved concurrency limit for a function
+ * ```javascript
+ * // The following example configures 100 reserved concurrent executions for the my-function function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   ReservedConcurrentExecutions: 100
+ * };
+ * const command = new PutFunctionConcurrencyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ReservedConcurrentExecutions: 100
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutFunctionConcurrencyCommand extends $Command
@@ -89,9 +106,7 @@ export class PutFunctionConcurrencyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +118,16 @@ export class PutFunctionConcurrencyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFunctionConcurrencyCommand)
   .de(de_PutFunctionConcurrencyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFunctionConcurrencyRequest;
+      output: Concurrency;
+    };
+    sdk: {
+      input: PutFunctionConcurrencyCommandInput;
+      output: PutFunctionConcurrencyCommandOutput;
+    };
+  };
+}

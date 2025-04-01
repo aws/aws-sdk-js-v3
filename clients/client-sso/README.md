@@ -25,7 +25,7 @@ information about the AWS SDKs, including how to download and install them, see 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sso
+To install this package, simply type add or install @aws-sdk/client-sso
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sso`

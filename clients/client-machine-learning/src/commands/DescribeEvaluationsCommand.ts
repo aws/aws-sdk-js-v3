@@ -93,6 +93,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DescribeEvaluationsCommand extends $Command
@@ -103,9 +104,7 @@ export class DescribeEvaluationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DescribeEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEvaluationsCommand)
   .de(de_DescribeEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEvaluationsInput;
+      output: DescribeEvaluationsOutput;
+    };
+    sdk: {
+      input: DescribeEvaluationsCommandInput;
+      output: DescribeEvaluationsCommandOutput;
+    };
+  };
+}

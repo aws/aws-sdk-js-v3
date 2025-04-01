@@ -29,7 +29,8 @@ export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets, measurements, metrics, transforms, and aggregates.</p>
+ * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets,
+ *       measurements, metrics, transforms, and aggregates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +41,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  *   queryStatement: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
@@ -112,6 +114,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ExecuteQueryCommand extends $Command
@@ -122,9 +125,7 @@ export class ExecuteQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +137,16 @@ export class ExecuteQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteQueryCommand)
   .de(de_ExecuteQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteQueryRequest;
+      output: ExecuteQueryResponse;
+    };
+    sdk: {
+      input: ExecuteQueryCommandInput;
+      output: ExecuteQueryCommandOutput;
+    };
+  };
+}

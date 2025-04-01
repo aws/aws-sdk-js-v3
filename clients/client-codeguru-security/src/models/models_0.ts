@@ -20,13 +20,13 @@ export class AccessDeniedException extends __BaseException {
    * <p>The identifier for the resource you don't have access to.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of resource you don't have access to.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -54,31 +54,31 @@ export interface FindingMetricsValuePerSeverity {
    * <p>A numeric value corresponding to an informational finding.</p>
    * @public
    */
-  info?: number;
+  info?: number | undefined;
 
   /**
    * <p>A numeric value corresponding to a low severity finding.</p>
    * @public
    */
-  low?: number;
+  low?: number | undefined;
 
   /**
    * <p>A numeric value corresponding to a medium severity finding.</p>
    * @public
    */
-  medium?: number;
+  medium?: number | undefined;
 
   /**
    * <p>A numeric value corresponding to a high severity finding.</p>
    * @public
    */
-  high?: number;
+  high?: number | undefined;
 
   /**
    * <p>A numeric value corresponding to a critical finding.</p>
    * @public
    */
-  critical?: number;
+  critical?: number | undefined;
 }
 
 /**
@@ -90,32 +90,32 @@ export interface AccountFindingsMetric {
    * <p>The date from which the findings metrics were retrieved.</p>
    * @public
    */
-  date?: Date;
+  date?: Date | undefined;
 
   /**
    * <p>The number of new findings of each severity on the specified date.</p>
    * @public
    */
-  newFindings?: FindingMetricsValuePerSeverity;
+  newFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
    * <p>The number of closed findings of each severity on the specified date.</p>
    * @public
    */
-  closedFindings?: FindingMetricsValuePerSeverity;
+  closedFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
    * <p>The number of open findings of each severity as of the specified date.</p>
    * @public
    */
-  openFindings?: FindingMetricsValuePerSeverity;
+  openFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
    * <p>The average time in days it takes to close findings of each severity as of a specified
    *       date.</p>
    * @public
    */
-  meanTimeToClose?: FindingMetricsValuePerSeverity;
+  meanTimeToClose?: FindingMetricsValuePerSeverity | undefined;
 }
 
 /**
@@ -219,13 +219,13 @@ export interface Recommendation {
    * <p>The recommended course of action to remediate the finding.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>The URL address to the recommendation for remediating the finding. </p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -237,13 +237,13 @@ export interface SuggestedFix {
    * <p>A description of the suggested code fix and why it is being suggested. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The suggested code fix. If applicable, includes code patch to replace your source code. </p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 }
 
 /**
@@ -255,14 +255,14 @@ export interface Remediation {
    * <p>An object that contains information about the recommended course of action to remediate a finding.</p>
    * @public
    */
-  recommendation?: Recommendation;
+  recommendation?: Recommendation | undefined;
 
   /**
    * <p>A list of <code>SuggestedFix</code> objects. Each object contains information about a suggested code
    *       fix to remediate the finding.</p>
    * @public
    */
-  suggestedFixes?: SuggestedFix[];
+  suggestedFixes?: SuggestedFix[] | undefined;
 }
 
 /**
@@ -274,13 +274,13 @@ export interface Resource {
    * <p>The <code>scanName</code> of the scan that was run on the resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The identifier for a section of the resource.</p>
    * @public
    */
-  subResourceId?: string;
+  subResourceId?: string | undefined;
 }
 
 /**
@@ -324,13 +324,13 @@ export interface CodeLine {
    * <p>The code line number.</p>
    * @public
    */
-  number?: number;
+  number?: number | undefined;
 
   /**
    * <p>The code that contains a vulnerability.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 }
 
 /**
@@ -343,33 +343,33 @@ export interface FilePath {
    * <p>The name of the file.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The path to the resource with the security vulnerability.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The first line number of the code snippet where the security vulnerability appears in your code.</p>
    * @public
    */
-  startLine?: number;
+  startLine?: number | undefined;
 
   /**
    * <p>The last line number of the code snippet where the security vulnerability appears in your
    *       code.</p>
    * @public
    */
-  endLine?: number;
+  endLine?: number | undefined;
 
   /**
    * <p>A list of <code>CodeLine</code> objects that describe where the security vulnerability
    *       appears in your code.</p>
    * @public
    */
-  codeSnippet?: CodeLine[];
+  codeSnippet?: CodeLine[] | undefined;
 }
 
 /**
@@ -381,34 +381,34 @@ export interface Vulnerability {
    * <p>One or more URL addresses that contain details about a vulnerability.</p>
    * @public
    */
-  referenceUrls?: string[];
+  referenceUrls?: string[] | undefined;
 
   /**
    * <p>One or more vulnerabilities that are related to the vulnerability being described.</p>
    * @public
    */
-  relatedVulnerabilities?: string[];
+  relatedVulnerabilities?: string[] | undefined;
 
   /**
    * <p>The identifier for the vulnerability.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> An object that describes the location of the detected security vulnerability in your
    *       code.</p>
    * @public
    */
-  filePath?: FilePath;
+  filePath?: FilePath | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The number of times the vulnerability appears in your code.</p>
+   *
+   * @deprecated
    * @public
    */
-  itemCount?: number;
+  itemCount?: number | undefined;
 }
 
 /**
@@ -420,56 +420,56 @@ export interface Finding {
    * <p>The time when the finding was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>A description of the finding.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The identifier for the component that generated a finding such as AmazonCodeGuruSecurity.</p>
    * @public
    */
-  generatorId?: string;
+  generatorId?: string | undefined;
 
   /**
    * <p>The identifier for a finding.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The time when the finding was last updated. Findings are updated when you remediate them
    *       or when the finding code location changes. </p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The type of finding. </p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The status of the finding. A finding status can be open or closed. </p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The resource where Amazon CodeGuru Security detected a finding.</p>
    * @public
    */
-  resource?: Resource;
+  resource?: Resource | undefined;
 
   /**
    * <p>An object that describes the detected security vulnerability.</p>
    * @public
    */
-  vulnerability?: Vulnerability;
+  vulnerability?: Vulnerability | undefined;
 
   /**
    * <p>The severity of the finding. Severity can be critical, high, medium, low, or
@@ -478,19 +478,19 @@ export interface Finding {
    *       <i>Amazon CodeGuru Security User Guide</i>.</p>
    * @public
    */
-  severity?: Severity;
+  severity?: Severity | undefined;
 
   /**
    * <p>An object that contains the details about how to remediate a finding.</p>
    * @public
    */
-  remediation?: Remediation;
+  remediation?: Remediation | undefined;
 
   /**
    * <p>The title of the finding.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>One or more tags or categorizations that are associated with a detector. These tags are
@@ -498,26 +498,26 @@ export interface Finding {
    *       consistency.</p>
    * @public
    */
-  detectorTags?: string[];
+  detectorTags?: string[] | undefined;
 
   /**
    * <p>The identifier for the detector that detected the finding in your code. A detector is a
    *       defined rule based on industry standards and AWS best practices. </p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The name of the detector that identified the security vulnerability in your code. </p>
    * @public
    */
-  detectorName?: string;
+  detectorName?: string | undefined;
 
   /**
    * <p>The identifier for the rule that generated the finding.</p>
    * @public
    */
-  ruleId?: string;
+  ruleId?: string | undefined;
 }
 
 /**
@@ -551,7 +551,7 @@ export class InternalServerException extends __BaseException {
    * <p>The internal error encountered by the server.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * @internal
@@ -587,13 +587,13 @@ export class ThrottlingException extends __BaseException {
    * <p>The identifier for the originating service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The identifier for the originating quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -669,7 +669,7 @@ export class ValidationException extends __BaseException {
    * <p>The field that caused the error, if applicable.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -793,7 +793,7 @@ export interface CreateScanRequest {
    *       the accidental creation of duplicate scans if there are failures and retries.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The identifier for the resource object to be scanned.</p>
@@ -817,7 +817,7 @@ export interface CreateScanRequest {
    *       and use the full set of detectors to analyze your code.</p>
    * @public
    */
-  scanType?: ScanType;
+  scanType?: ScanType | undefined;
 
   /**
    * <p>The type of analysis you want CodeGuru Security to perform in the scan, either
@@ -826,7 +826,7 @@ export interface CreateScanRequest {
    *       quality findings. Defaults to <code>Security</code> type if missing.</p>
    * @public
    */
-  analysisType?: AnalysisType;
+  analysisType?: AnalysisType | undefined;
 
   /**
    * <p>An array of key-value pairs used to tag a scan. A tag is a custom attribute
@@ -844,7 +844,7 @@ export interface CreateScanRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -895,7 +895,7 @@ export interface CreateScanResponse {
    * <p>The ARN for the scan name.</p>
    * @public
    */
-  scanNameArn?: string;
+  scanNameArn?: string | undefined;
 }
 
 /**
@@ -994,7 +994,7 @@ export interface EncryptionConfig {
    *       returns empty.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1027,7 +1027,7 @@ export interface GetFindingsRequest {
    *       returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. Use this parameter when
@@ -1036,14 +1036,14 @@ export interface GetFindingsRequest {
    *       additional results. If not specified, returns 1000 results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The status of the findings you want to get. Pass either <code>Open</code>,
    *       <code>Closed</code>, or <code>All</code>.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 }
 
 /**
@@ -1054,14 +1054,14 @@ export interface GetFindingsResponse {
    * <p>A list of findings generated by the specified scan.</p>
    * @public
    */
-  findings?: Finding[];
+  findings?: Finding[] | undefined;
 
   /**
    * <p>A pagination token. You can use this in future calls to <code>GetFindings</code> to continue listing
    *       results after the current page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1086,13 +1086,13 @@ export interface CategoryWithFindingNum {
    *       detected the finding.</p>
    * @public
    */
-  categoryName?: string;
+  categoryName?: string | undefined;
 
   /**
    * <p>The number of open findings in the category.</p>
    * @public
    */
-  findingNumber?: number;
+  findingNumber?: number | undefined;
 }
 
 /**
@@ -1104,13 +1104,13 @@ export interface ScanNameWithFindingNum {
    * <p>The name of the scan.</p>
    * @public
    */
-  scanName?: string;
+  scanName?: string | undefined;
 
   /**
    * <p>The number of findings generated by a scan.</p>
    * @public
    */
-  findingNumber?: number;
+  findingNumber?: number | undefined;
 }
 
 /**
@@ -1122,34 +1122,34 @@ export interface MetricsSummary {
    * <p>The date from which the metrics summary information was retrieved.</p>
    * @public
    */
-  date?: Date;
+  date?: Date | undefined;
 
   /**
    * <p>The number of open findings of each severity.</p>
    * @public
    */
-  openFindings?: FindingMetricsValuePerSeverity;
+  openFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
    * <p>A list of <code>CategoryWithFindingNum</code> objects for the top 5 finding categories
    *       with the most findings.</p>
    * @public
    */
-  categoriesWithMostFindings?: CategoryWithFindingNum[];
+  categoriesWithMostFindings?: CategoryWithFindingNum[] | undefined;
 
   /**
    * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most
    *       number of open findings.</p>
    * @public
    */
-  scansWithMostOpenFindings?: ScanNameWithFindingNum[];
+  scansWithMostOpenFindings?: ScanNameWithFindingNum[] | undefined;
 
   /**
    * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most
    *       number of open critical findings.</p>
    * @public
    */
-  scansWithMostOpenCriticalFindings?: ScanNameWithFindingNum[];
+  scansWithMostOpenCriticalFindings?: ScanNameWithFindingNum[] | undefined;
 }
 
 /**
@@ -1160,7 +1160,7 @@ export interface GetMetricsSummaryResponse {
    * <p>The summary metrics from the specified date.</p>
    * @public
    */
-  metricsSummary?: MetricsSummary;
+  metricsSummary?: MetricsSummary | undefined;
 }
 
 /**
@@ -1178,7 +1178,7 @@ export interface GetScanRequest {
    *       this when you call the <code>CreateScan</code> operation. Defaults to the latest scan run if missing.</p>
    * @public
    */
-  runId?: string;
+  runId?: string | undefined;
 }
 
 /**
@@ -1223,25 +1223,25 @@ export interface GetScanResponse {
    * <p>The time when the scan was last updated. Only available for <code>STANDARD</code> scan types.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The number of times a scan has been re-run on a revised resource.</p>
    * @public
    */
-  numberOfRevisions?: number;
+  numberOfRevisions?: number | undefined;
 
   /**
    * <p>The ARN for the scan name.</p>
    * @public
    */
-  scanNameArn?: string;
+  scanNameArn?: string | undefined;
 
   /**
    * <p>Details about the error that causes a scan to fail to be retrieved.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1255,7 +1255,7 @@ export interface ListFindingsMetricsRequest {
    *       page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. Use this parameter when
@@ -1264,7 +1264,7 @@ export interface ListFindingsMetricsRequest {
    *       additional results. If not specified, returns 1000 results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The start date of the interval which you want to retrieve metrics from. Rounds to the
@@ -1289,14 +1289,14 @@ export interface ListFindingsMetricsResponse {
    * <p>A list of <code>AccountFindingsMetric</code> objects retrieved from the specified time interval.</p>
    * @public
    */
-  findingsMetrics?: AccountFindingsMetric[];
+  findingsMetrics?: AccountFindingsMetric[] | undefined;
 
   /**
    * <p>A pagination token. You can use this in future calls to <code>ListFindingMetrics</code> to continue
    *       listing results after the current page. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1309,7 +1309,7 @@ export interface ListScansRequest {
    *       returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. Use this parameter when
@@ -1318,7 +1318,7 @@ export interface ListScansRequest {
    *       additional results. If not specified, returns 100 results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1343,7 +1343,7 @@ export interface ScanSummary {
    * <p>The time the scan was last updated. A scan is updated when it is re-run.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name of the scan. </p>
@@ -1361,7 +1361,7 @@ export interface ScanSummary {
    * <p>The ARN for the scan name.</p>
    * @public
    */
-  scanNameArn?: string;
+  scanNameArn?: string | undefined;
 }
 
 /**
@@ -1372,14 +1372,14 @@ export interface ListScansResponse {
    * <p>A list of <code>ScanSummary</code> objects with information about all scans in an account.</p>
    * @public
    */
-  summaries?: ScanSummary[];
+  summaries?: ScanSummary[] | undefined;
 
   /**
    * <p>A pagination token. You can use this in future calls to <code>ListScans</code> to continue listing
    *       results after the current page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1414,7 +1414,7 @@ export interface ListTagsForResourceResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

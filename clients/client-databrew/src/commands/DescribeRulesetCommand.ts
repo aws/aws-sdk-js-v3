@@ -92,6 +92,7 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeRulesetCommand extends $Command
@@ -102,9 +103,7 @@ export class DescribeRulesetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class DescribeRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRulesetCommand)
   .de(de_DescribeRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRulesetRequest;
+      output: DescribeRulesetResponse;
+    };
+    sdk: {
+      input: DescribeRulesetCommandInput;
+      output: DescribeRulesetCommandOutput;
+    };
+  };
+}

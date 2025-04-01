@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_0";
+import { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_StartDomainMaintenanceCommand, se_StartDomainMaintenanceCommand } from "../protocols/Aws_restJson1";
 
@@ -73,6 +73,7 @@ export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintena
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class StartDomainMaintenanceCommand extends $Command
@@ -83,9 +84,7 @@ export class StartDomainMaintenanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class StartDomainMaintenanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDomainMaintenanceCommand)
   .de(de_StartDomainMaintenanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDomainMaintenanceRequest;
+      output: StartDomainMaintenanceResponse;
+    };
+    sdk: {
+      input: StartDomainMaintenanceCommandInput;
+      output: StartDomainMaintenanceCommandOutput;
+    };
+  };
+}

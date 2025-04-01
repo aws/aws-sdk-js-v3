@@ -73,6 +73,7 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class GetExtensionAssociationCommand extends $Command
@@ -83,9 +84,7 @@ export class GetExtensionAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetExtensionAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExtensionAssociationCommand)
   .de(de_GetExtensionAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExtensionAssociationRequest;
+      output: ExtensionAssociation;
+    };
+    sdk: {
+      input: GetExtensionAssociationCommandInput;
+      output: GetExtensionAssociationCommandOutput;
+    };
+  };
+}

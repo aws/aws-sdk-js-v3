@@ -77,6 +77,10 @@ import {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
+import {
+  CreateStackRefactorCommandInput,
+  CreateStackRefactorCommandOutput,
+} from "./commands/CreateStackRefactorCommand";
 import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
 import {
   DeactivateOrganizationsAccessCommandInput,
@@ -130,6 +134,10 @@ import {
   DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
+  DescribeStackRefactorCommandInput,
+  DescribeStackRefactorCommandOutput,
+} from "./commands/DescribeStackRefactorCommand";
+import {
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand";
@@ -167,6 +175,10 @@ import {
 } from "./commands/EstimateTemplateCostCommand";
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
 import {
+  ExecuteStackRefactorCommandInput,
+  ExecuteStackRefactorCommandOutput,
+} from "./commands/ExecuteStackRefactorCommand";
+import {
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
 } from "./commands/GetGeneratedTemplateCommand";
@@ -183,6 +195,7 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
+import { ListHookResultsCommandInput, ListHookResultsCommandOutput } from "./commands/ListHookResultsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListResourceScanRelatedResourcesCommandInput,
@@ -198,6 +211,11 @@ import {
   ListStackInstanceResourceDriftsCommandOutput,
 } from "./commands/ListStackInstanceResourceDriftsCommand";
 import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
+import {
+  ListStackRefactorActionsCommandInput,
+  ListStackRefactorActionsCommandOutput,
+} from "./commands/ListStackRefactorActionsCommand";
+import { ListStackRefactorsCommandInput, ListStackRefactorsCommandOutput } from "./commands/ListStackRefactorsCommand";
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
@@ -282,6 +300,7 @@ export type ServiceInputTypes =
   | CreateGeneratedTemplateCommandInput
   | CreateStackCommandInput
   | CreateStackInstancesCommandInput
+  | CreateStackRefactorCommandInput
   | CreateStackSetCommandInput
   | DeactivateOrganizationsAccessCommandInput
   | DeactivateTypeCommandInput
@@ -301,6 +320,7 @@ export type ServiceInputTypes =
   | DescribeStackDriftDetectionStatusCommandInput
   | DescribeStackEventsCommandInput
   | DescribeStackInstanceCommandInput
+  | DescribeStackRefactorCommandInput
   | DescribeStackResourceCommandInput
   | DescribeStackResourceDriftsCommandInput
   | DescribeStackResourcesCommandInput
@@ -314,6 +334,7 @@ export type ServiceInputTypes =
   | DetectStackSetDriftCommandInput
   | EstimateTemplateCostCommandInput
   | ExecuteChangeSetCommandInput
+  | ExecuteStackRefactorCommandInput
   | GetGeneratedTemplateCommandInput
   | GetStackPolicyCommandInput
   | GetTemplateCommandInput
@@ -322,12 +343,15 @@ export type ServiceInputTypes =
   | ListChangeSetsCommandInput
   | ListExportsCommandInput
   | ListGeneratedTemplatesCommandInput
+  | ListHookResultsCommandInput
   | ListImportsCommandInput
   | ListResourceScanRelatedResourcesCommandInput
   | ListResourceScanResourcesCommandInput
   | ListResourceScansCommandInput
   | ListStackInstanceResourceDriftsCommandInput
   | ListStackInstancesCommandInput
+  | ListStackRefactorActionsCommandInput
+  | ListStackRefactorsCommandInput
   | ListStackResourcesCommandInput
   | ListStackSetAutoDeploymentTargetsCommandInput
   | ListStackSetOperationResultsCommandInput
@@ -369,6 +393,7 @@ export type ServiceOutputTypes =
   | CreateGeneratedTemplateCommandOutput
   | CreateStackCommandOutput
   | CreateStackInstancesCommandOutput
+  | CreateStackRefactorCommandOutput
   | CreateStackSetCommandOutput
   | DeactivateOrganizationsAccessCommandOutput
   | DeactivateTypeCommandOutput
@@ -388,6 +413,7 @@ export type ServiceOutputTypes =
   | DescribeStackDriftDetectionStatusCommandOutput
   | DescribeStackEventsCommandOutput
   | DescribeStackInstanceCommandOutput
+  | DescribeStackRefactorCommandOutput
   | DescribeStackResourceCommandOutput
   | DescribeStackResourceDriftsCommandOutput
   | DescribeStackResourcesCommandOutput
@@ -401,6 +427,7 @@ export type ServiceOutputTypes =
   | DetectStackSetDriftCommandOutput
   | EstimateTemplateCostCommandOutput
   | ExecuteChangeSetCommandOutput
+  | ExecuteStackRefactorCommandOutput
   | GetGeneratedTemplateCommandOutput
   | GetStackPolicyCommandOutput
   | GetTemplateCommandOutput
@@ -409,12 +436,15 @@ export type ServiceOutputTypes =
   | ListChangeSetsCommandOutput
   | ListExportsCommandOutput
   | ListGeneratedTemplatesCommandOutput
+  | ListHookResultsCommandOutput
   | ListImportsCommandOutput
   | ListResourceScanRelatedResourcesCommandOutput
   | ListResourceScanResourcesCommandOutput
   | ListResourceScansCommandOutput
   | ListStackInstanceResourceDriftsCommandOutput
   | ListStackInstancesCommandOutput
+  | ListStackRefactorActionsCommandOutput
+  | ListStackRefactorsCommandOutput
   | ListStackResourcesCommandOutput
   | ListStackSetAutoDeploymentTargetsCommandOutput
   | ListStackSetOperationResultsCommandOutput
@@ -535,6 +565,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -580,11 +629,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CloudFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -600,11 +649,11 @@ export interface CloudFormationClientConfig extends CloudFormationClientConfigTy
 export type CloudFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -617,16 +666,16 @@ export interface CloudFormationClientResolvedConfig extends CloudFormationClient
 /**
  * <fullname>CloudFormation</fullname>
  *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably and
- *    repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly
- *    scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services
- *    infrastructure.</p>
- *          <p>With CloudFormation, you declare all your resources and dependencies in a template file. The template defines a
- *    collection of resources as a single unit called a stack. CloudFormation creates and deletes all member resources of the stack
- *    together and manages all dependencies between the resources for you.</p>
- *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation
- *    product page</a>.</p>
- *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information about a
- *    specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
+ *    repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
+ *    Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto Scaling to build highly reliable, highly scalable, cost-effective
+ *    applications without creating or configuring the underlying Amazon Web Services infrastructure.</p>
+ *          <p>With CloudFormation, you declare all your resources and dependencies in a template file. The
+ *    template defines a collection of resources as a single unit called a stack. CloudFormation creates
+ *    and deletes all member resources of the stack together and manages all dependencies between the
+ *    resources for you.</p>
+ *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
+ *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
+ *    about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
  * @public
  */
 export class CloudFormationClient extends __Client<
@@ -642,26 +691,30 @@ export class CloudFormationClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CloudFormationClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCloudFormationHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CloudFormationClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -674,14 +727,5 @@ export class CloudFormationClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCloudFormationHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CloudFormationClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

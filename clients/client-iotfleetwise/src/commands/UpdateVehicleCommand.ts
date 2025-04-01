@@ -43,6 +43,23 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  *     "<keys>": "STRING_VALUE",
  *   },
  *   attributeUpdateMode: "Overwrite" || "Merge",
+ *   stateTemplatesToAdd: [ // StateTemplateAssociations
+ *     { // StateTemplateAssociation
+ *       identifier: "STRING_VALUE", // required
+ *       stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *         periodic: { // PeriodicStateTemplateUpdateStrategy
+ *           stateTemplateUpdateRate: { // TimePeriod
+ *             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *             value: Number("int"), // required
+ *           },
+ *         },
+ *         onChange: {},
+ *       },
+ *     },
+ *   ],
+ *   stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateVehicleCommand(input);
  * const response = await client.send(command);
@@ -69,6 +86,9 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource wasn't found.</p>
  *
@@ -81,6 +101,7 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateVehicleCommand extends $Command
@@ -91,9 +112,7 @@ export class UpdateVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +124,16 @@ export class UpdateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVehicleCommand)
   .de(de_UpdateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVehicleRequest;
+      output: UpdateVehicleResponse;
+    };
+    sdk: {
+      input: UpdateVehicleCommandInput;
+      output: UpdateVehicleCommandOutput;
+    };
+  };
+}

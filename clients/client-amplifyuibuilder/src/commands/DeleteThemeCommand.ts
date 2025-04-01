@@ -64,6 +64,7 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteThemeCommand extends $Command
@@ -74,9 +75,7 @@ export class DeleteThemeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +87,16 @@ export class DeleteThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteThemeCommand)
   .de(de_DeleteThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteThemeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteThemeCommandInput;
+      output: DeleteThemeCommandOutput;
+    };
+  };
+}

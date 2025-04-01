@@ -79,19 +79,22 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update Security Hub settings
  * ```javascript
  * // The following example updates Security Hub settings to turn on consolidated control findings, and to automatically enable new controls in enabled standards.
  * const input = {
- *   "AutoEnableControls": true,
- *   "ControlFindingGenerator": "SECURITY_CONTROL"
+ *   AutoEnableControls: true,
+ *   ControlFindingGenerator: "SECURITY_CONTROL"
  * };
  * const command = new UpdateSecurityHubConfigurationCommand(input);
- * await client.send(command);
- * // example id: to-update-security-hub-settings-1678912194496
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateSecurityHubConfigurationCommand extends $Command
   .classBuilder<
@@ -101,9 +104,7 @@ export class UpdateSecurityHubConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class UpdateSecurityHubConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityHubConfigurationCommand)
   .de(de_UpdateSecurityHubConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityHubConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSecurityHubConfigurationCommandInput;
+      output: UpdateSecurityHubConfigurationCommandOutput;
+    };
+  };
+}

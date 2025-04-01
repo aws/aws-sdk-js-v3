@@ -10,7 +10,7 @@ import { ApplicationSignalsServiceException as __BaseException } from "./Applica
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -95,8 +95,24 @@ export type ServiceLevelObjectiveBudgetStatus =
  * @public
  * @enum
  */
+export const EvaluationType = {
+  PERIOD_BASED: "PeriodBased",
+  REQUEST_BASED: "RequestBased",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DurationUnit = {
   DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
   MONTH: "MONTH",
 } as const;
 
@@ -218,25 +234,28 @@ export interface Goal {
    *          <p>If you omit this parameter, a rolling interval of 7 days is used.</p>
    * @public
    */
-  Interval?: Interval;
+  Interval?: Interval | undefined;
 
   /**
-   * <p>The threshold that determines if the goal is being met. An <i>attainment goal</i> is the
-   *          ratio of good periods that meet the threshold requirements to the total periods within the interval.
+   * <p>The threshold that determines if the goal is being met.</p>
+   *          <p>If this is a period-based SLO, the attainment goal is the
+   *          percentage of good periods that meet the threshold requirements to the total periods within the interval.
    *          For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the
    *          periods to be in healthy state.</p>
+   *          <p>If this is a request-based SLO, the attainment goal is the percentage of requests that must be
+   *       successful to meet the attainment goal.</p>
    *          <p>If you omit this parameter, 99 is used
    *          to represent 99% as the attainment goal.</p>
    * @public
    */
-  AttainmentGoal?: number;
+  AttainmentGoal?: number | undefined;
 
   /**
    * <p>The percentage of remaining budget over total budget that you want to get warnings for.
    *          If you omit this parameter, the default of 50.0 is used. </p>
    * @public
    */
-  WarningThreshold?: number;
+  WarningThreshold?: number | undefined;
 }
 
 /**
@@ -255,6 +274,21 @@ export const ServiceLevelIndicatorComparisonOperator = {
  */
 export type ServiceLevelIndicatorComparisonOperator =
   (typeof ServiceLevelIndicatorComparisonOperator)[keyof typeof ServiceLevelIndicatorComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceLevelIndicatorMetricType = {
+  AVAILABILITY: "AVAILABILITY",
+  LATENCY: "LATENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceLevelIndicatorMetricType =
+  (typeof ServiceLevelIndicatorMetricType)[keyof typeof ServiceLevelIndicatorMetricType];
 
 /**
  * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
@@ -294,13 +328,13 @@ export interface Metric {
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">Namespaces</a>.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The name of the metric to use.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>An array of one or more dimensions to use to define the metric that you want to use.
@@ -308,7 +342,7 @@ export interface Metric {
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">Dimensions</a>.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 }
 
 /**
@@ -383,7 +417,7 @@ export interface MetricStat {
    *          If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 }
 
 /**
@@ -415,7 +449,7 @@ export interface MetricDataQuery {
    *          <code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
-  MetricStat?: MetricStat;
+  MetricStat?: MetricStat | undefined;
 
   /**
    * <p>This field can contain a metric math expression to be performed on the other metrics that
@@ -430,7 +464,7 @@ export interface MetricDataQuery {
    *          <code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A human-readable label for this metric or expression. This is especially useful
@@ -442,7 +476,7 @@ export interface MetricDataQuery {
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>Use this only if you are using a metric math expression for the SLO.
@@ -450,7 +484,7 @@ export interface MetricDataQuery {
    *          other metrics and expressions in the same <code>CreateServiceLevelObjective</code> operation, specify <code>ReturnData</code> as <code>false</code>.</p>
    * @public
    */
-  ReturnData?: boolean;
+  ReturnData?: boolean | undefined;
 
   /**
    * <p>The granularity, in seconds, of the returned data points for this metric. For metrics with regular resolution, a period can
@@ -472,33 +506,178 @@ export interface MetricDataQuery {
    *          </ul>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
-   * <p>The ID of the account where this metric is located.  If you are performing this operatiion in a monitoring account,
+   * <p>The ID of the account where this metric is located.  If you are performing this operation in a monitoring account,
    *          use this to specify which source account to retrieve this metric from.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
+ * <p>This structure defines the metric that is used as the "good request" or "bad request"
+ *          value for a request-based SLO.
+ *          This value observed for the metric defined in
+ *          <code>TotalRequestCountMetric</code> is divided by the number found for
+ *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+ *          this SLO tracks.</p>
  * @public
- * @enum
  */
-export const ServiceLevelIndicatorMetricType = {
-  AVAILABILITY: "AVAILABILITY",
-  LATENCY: "LATENCY",
-} as const;
+export type MonitoredRequestCountMetricDataQueries =
+  | MonitoredRequestCountMetricDataQueries.BadCountMetricMember
+  | MonitoredRequestCountMetricDataQueries.GoodCountMetricMember
+  | MonitoredRequestCountMetricDataQueries.$UnknownMember;
 
 /**
  * @public
  */
-export type ServiceLevelIndicatorMetricType =
-  (typeof ServiceLevelIndicatorMetricType)[keyof typeof ServiceLevelIndicatorMetricType];
+export namespace MonitoredRequestCountMetricDataQueries {
+  /**
+   * <p>If you want to count "good requests" to determine the percentage of successful requests for this
+   *       request-based SLO, specify the metric to use as "good requests" in this structure.</p>
+   * @public
+   */
+  export interface GoodCountMetricMember {
+    GoodCountMetric: MetricDataQuery[];
+    BadCountMetric?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>If you want to count "bad requests" to determine the percentage of successful requests for this
+   *          request-based SLO, specify the metric to use as "bad requests" in this structure.</p>
+   * @public
+   */
+  export interface BadCountMetricMember {
+    GoodCountMetric?: never;
+    BadCountMetric: MetricDataQuery[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    GoodCountMetric?: never;
+    BadCountMetric?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    GoodCountMetric: (value: MetricDataQuery[]) => T;
+    BadCountMetric: (value: MetricDataQuery[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MonitoredRequestCountMetricDataQueries, visitor: Visitor<T>): T => {
+    if (value.GoodCountMetric !== undefined) return visitor.GoodCountMetric(value.GoodCountMetric);
+    if (value.BadCountMetric !== undefined) return visitor.BadCountMetric(value.BadCountMetric);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
- * <p>This structure contains the information about the metric that is used for the SLO.</p>
+ * <p>This structure contains the information about the metric that is used for a request-based SLO.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorMetric {
+  /**
+   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can
+   *          include the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code> designates the type of object that this SLO is related to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
+   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
+   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Identifier</code> identifies the resource objects of this resource.
+   *             This is used only if the value of the <code>Type</code> field
+   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>If the SLO monitors a specific operation of the service, this field displays that operation name.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+
+  /**
+   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
+   *          collects, this field displays which of those metrics is used.</p>
+   * @public
+   */
+  MetricType?: ServiceLevelIndicatorMetricType | undefined;
+
+  /**
+   * <p>This structure defines the metric that is used as the "total requests" number for a request-based SLO.
+   *          The number observed for this metric is divided by the number of "good requests" or "bad requests" that is
+   *          observed for the metric defined in
+   *          <code>MonitoredRequestCountMetric</code>.</p>
+   * @public
+   */
+  TotalRequestCountMetric: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>This structure defines the metric that is used as the "good request" or "bad request"
+   *          value for a request-based SLO.
+   *          This value observed for the metric defined in
+   *          <code>TotalRequestCountMetric</code> is divided by the number found for
+   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+   *          this SLO tracks.</p>
+   * @public
+   */
+  MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries | undefined;
+}
+
+/**
+ * <p>This structure contains information about the performance metric that a request-based SLO monitors.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicator {
+  /**
+   * <p>A structure that contains information about the metric that the SLO monitors. </p>
+   * @public
+   */
+  RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric | undefined;
+
+  /**
+   * <p>This value is the threshold that
+   *          the observed metric values of the SLI metric are compared to.</p>
+   * @public
+   */
+  MetricThreshold?: number | undefined;
+
+  /**
+   * <p>The arithmetic operation used when comparing the specified metric to the
+   *          threshold.</p>
+   * @public
+   */
+  ComparisonOperator?: ServiceLevelIndicatorComparisonOperator | undefined;
+}
+
+/**
+ * <p>This structure contains the information about the metric that is used for a period-based SLO.</p>
  * @public
  */
 export interface ServiceLevelIndicatorMetric {
@@ -533,20 +712,20 @@ export interface ServiceLevelIndicatorMetric {
    *          </ul>
    * @public
    */
-  KeyAttributes?: Record<string, string>;
+  KeyAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>If the SLO monitors a specific operation of the service, this field displays that operation name.</p>
    * @public
    */
-  OperationName?: string;
+  OperationName?: string | undefined;
 
   /**
    * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
    *          collects, this field displays which of those metrics is used.</p>
    * @public
    */
-  MetricType?: ServiceLevelIndicatorMetricType;
+  MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
    * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression,
@@ -557,7 +736,7 @@ export interface ServiceLevelIndicatorMetric {
 }
 
 /**
- * <p>This structure contains information about the performance metric that an SLO monitors.</p>
+ * <p>This structure contains information about the performance metric that a period-based SLO monitors.</p>
  * @public
  */
 export interface ServiceLevelIndicator {
@@ -599,6 +778,12 @@ export interface ServiceLevelObjectiveBudgetReport {
   Name: string | undefined;
 
   /**
+   * <p>Displays whether this budget report is for a period-based SLO or a request-based SLO.</p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
    * <p>The status of this SLO, as it relates to the error budget for the entire time interval.</p>
    *          <ul>
    *             <li>
@@ -618,7 +803,7 @@ export interface ServiceLevelObjectiveBudgetReport {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INSUFFICIENT_DATA</code> means that the specifed start and end times were before the
+   *                   <code>INSUFFICIENT_DATA</code> means that the specified start and end times were before the
    *             SLO was created, or that attainment data is missing.</p>
    *             </li>
    *          </ul>
@@ -627,39 +812,71 @@ export interface ServiceLevelObjectiveBudgetReport {
   BudgetStatus: ServiceLevelObjectiveBudgetStatus | undefined;
 
   /**
-   * <p>A number between 0 and 100 that represents the percentage of time periods that the service has
+   * <p>A number between 0 and 100 that represents the success percentage of your application compared
+   *          to the goal set by the SLO.</p>
+   *          <p>If this is a period-based SLO, the number is the percentage of time periods that the service has
    *          attained the SLO's attainment goal, as of the time of the request.</p>
+   *          <p>If this is a request-based SLO, the number is the number of successful requests divided
+   *          by the number of total requests, multiplied by 100, during the time range that you specified in your request.</p>
    * @public
    */
-  Attainment?: number;
+  Attainment?: number | undefined;
 
   /**
-   * <p>The total number of seconds in the error budget for the interval.</p>
+   * <p>The total number of seconds in the error budget for the interval. This field is included only
+   *       if the SLO is a period-based SLO.</p>
    * @public
    */
-  TotalBudgetSeconds?: number;
+  TotalBudgetSeconds?: number | undefined;
 
   /**
    * <p>The budget amount remaining before the SLO status becomes <code>BREACHING</code>, at the time specified in
    *          the
    *          <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code>
    *          status.</p>
+   *          <p> This field is included only
+   *          if the SLO is a period-based SLO.</p>
    * @public
    */
-  BudgetSecondsRemaining?: number;
+  BudgetSecondsRemaining?: number | undefined;
+
+  /**
+   * <p>This field is displayed only for request-based SLOs. It displays the total number of failed requests that can be tolerated during the time range between the start of the
+   *          interval and the time stamp supplied in the budget report request. It is based on the total number of requests that occurred,
+   *       and the percentage specified in the attainment goal. If the number of failed requests matches this number or is higher, then
+   *       this SLO is currently breaching.</p>
+   *          <p>This number can go up and down between reports with different time stamps, based on both how many total requests occur.</p>
+   * @public
+   */
+  TotalBudgetRequests?: number | undefined;
+
+  /**
+   * <p>This field is displayed only for request-based SLOs. It displays the number of failed requests that can be tolerated before any more successful requests occur,
+   *          and still have the application meet its SLO goal.</p>
+   *          <p>This number can go up and down between different reports, based on both how many successful requests and how many failed
+   *          requests occur in that time.</p>
+   * @public
+   */
+  BudgetRequestsRemaining?: number | undefined;
 
   /**
    * <p>A structure that contains information about the performance metric that this SLO monitors.</p>
    * @public
    */
-  Sli?: ServiceLevelIndicator;
+  Sli?: ServiceLevelIndicator | undefined;
+
+  /**
+   * <p>This structure contains information about the performance metric that a request-based SLO monitors.</p>
+   * @public
+   */
+  RequestBasedSli?: RequestBasedServiceLevelIndicator | undefined;
 
   /**
    * <p>This structure contains the attributes that determine the goal of an SLO. This includes
    *          the time period for evaluation and the attainment threshold.</p>
    * @public
    */
-  Goal?: Goal;
+  Goal?: Goal | undefined;
 }
 
 /**
@@ -729,6 +946,166 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The recurrence rule for the SLO time window exclusion .</p>
+ * @public
+ */
+export interface RecurrenceRule {
+  /**
+   * <p>A cron or rate expression that specifies the schedule for the exclusion window.</p>
+   * @public
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * <p>The object that defines the time length of an exclusion window.</p>
+ * @public
+ */
+export interface Window {
+  /**
+   * <p>The unit of time for the exclusion window duration. Valid values: MINUTE, HOUR, DAY, MONTH.</p>
+   * @public
+   */
+  DurationUnit: DurationUnit | undefined;
+
+  /**
+   * <p>The number of time units for the exclusion window length.</p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>The core SLO time window exclusion object that includes Window, StartTime, RecurrenceRule, and Reason.</p>
+ * @public
+ */
+export interface ExclusionWindow {
+  /**
+   * <p>The SLO time window exclusion .</p>
+   * @public
+   */
+  Window: Window | undefined;
+
+  /**
+   * <p>The start of the SLO time window exclusion. Defaults to current time if not specified.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The recurrence rule for the SLO time window exclusion. Supports both cron and rate expressions.</p>
+   * @public
+   */
+  RecurrenceRule?: RecurrenceRule | undefined;
+
+  /**
+   * <p>A description explaining why this time period should be excluded from SLO calculations.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsInput {
+  /**
+   * <p>The list of SLO IDs to add or remove exclusion windows from.</p>
+   * @public
+   */
+  SloIds: string[] | undefined;
+
+  /**
+   * <p>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion windows per SLO.</p>
+   * @public
+   */
+  AddExclusionWindows?: ExclusionWindow[] | undefined;
+
+  /**
+   * <p>A list of exclusion windows to remove from the specified SLOs. The window configuration must match an existing exclusion window.</p>
+   * @public
+   */
+  RemoveExclusionWindows?: ExclusionWindow[] | undefined;
+}
+
+/**
+ * <p>An array of structures, where each structure includes an error indicating that one of the requests in the array was not valid.</p>
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsError {
+  /**
+   * <p>The SLO ID in the error.</p>
+   * @public
+   */
+  SloId: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsOutput {
+  /**
+   * <p>The list of SLO IDs that were successfully processed.</p>
+   * @public
+   */
+  SloIds: string[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred while processing the request.</p>
+   * @public
+   */
+  Errors: BatchUpdateExclusionWindowsError[] | undefined;
+}
+
+/**
+ * <p>Resource not found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The resource type is not valid.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Can't find the resource id.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceType = opts.ResourceType;
+    this.ResourceId = opts.ResourceId;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface GetServiceInput {
@@ -736,6 +1113,7 @@ export interface GetServiceInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -744,6 +1122,7 @@ export interface GetServiceInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -809,13 +1188,19 @@ export interface MetricReference {
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">CloudWatchDimensions</a>.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The name of the metric.</p>
    * @public
    */
   MetricName: string | undefined;
+
+  /**
+   * <p>Amazon Web Services account ID.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
 }
 
 /**
@@ -902,7 +1287,7 @@ export interface Service {
    *                   <code>Host</code> is the name of the host, for all platform types.</p>
    *             </li>
    *          </ul>
-   *          <p>Applciation attributes contain information about the application.</p>
+   *          <p>Application attributes contain information about the application.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -930,13 +1315,37 @@ export interface Service {
    *          </ul>
    * @public
    */
-  AttributeMaps?: Record<string, string>[];
+  AttributeMaps?: Record<string, string>[] | undefined;
 
   /**
    * <p>An array of structures that each contain information about one metric associated with this service.</p>
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
+
+  /**
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
+   *          string-to-string map includes the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Type": "AWS::Resource"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogGroupReferences?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -952,6 +1361,8 @@ export interface GetServiceOutput {
   /**
    * <p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -959,9 +1370,35 @@ export interface GetServiceOutput {
   /**
    * <p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
+
+  /**
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
+   *          string-to-string map includes the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Type": "AWS::Resource"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogGroupReferences?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -972,6 +1409,7 @@ export interface ListServiceDependenciesInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -980,6 +1418,7 @@ export interface ListServiceDependenciesInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1024,13 +1463,13 @@ export interface ListServiceDependenciesInput {
    *          parameter, the default of 50 is used.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of service dependencies.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1101,6 +1540,8 @@ export interface ListServiceDependenciesOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1109,6 +1550,8 @@ export interface ListServiceDependenciesOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1124,7 +1567,7 @@ export interface ListServiceDependenciesOutput {
    *          of service dependencies.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1135,6 +1578,7 @@ export interface ListServiceDependentsInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1143,6 +1587,7 @@ export interface ListServiceDependentsInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1187,13 +1632,13 @@ export interface ListServiceDependentsInput {
    *          parameter, the default of 50 is used.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of service dependents.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1207,7 +1652,7 @@ export interface ServiceDependent {
    * <p>If the invoked entity is an operation on an entity, the name of that dependent operation is displayed here.</p>
    * @public
    */
-  OperationName?: string;
+  OperationName?: string | undefined;
 
   /**
    * <p>This is a string-to-string map. It can
@@ -1247,7 +1692,7 @@ export interface ServiceDependent {
    *          is displayed here.</p>
    * @public
    */
-  DependentOperationName?: string;
+  DependentOperationName?: string | undefined;
 
   /**
    * <p>An array of structures that each contain information about one metric associated with this service dependent
@@ -1266,6 +1711,8 @@ export interface ListServiceDependentsOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1274,6 +1721,8 @@ export interface ListServiceDependentsOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1289,7 +1738,53 @@ export interface ListServiceDependentsOutput {
    *          of service dependents.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceLevelObjectiveExclusionWindowsInput {
+  /**
+   * <p>The ID of the SLO to list exclusion windows for.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.
+   *
+   *       </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
+   *
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceLevelObjectiveExclusionWindowsOutput {
+  /**
+   * <p>A list of exclusion windows configured for the SLO.</p>
+   * @public
+   */
+  ExclusionWindows: ExclusionWindow[] | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
+   *
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1300,6 +1795,7 @@ export interface ListServiceOperationsInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1308,6 +1804,7 @@ export interface ListServiceOperationsInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1352,13 +1849,13 @@ export interface ListServiceOperationsInput {
    *          parameter, the default of 50 is used.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1392,6 +1889,8 @@ export interface ListServiceOperationsOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1400,6 +1899,8 @@ export interface ListServiceOperationsOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1415,7 +1916,7 @@ export interface ListServiceOperationsOutput {
    *          of service operations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1426,6 +1927,7 @@ export interface ListServicesInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1434,6 +1936,7 @@ export interface ListServicesInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1449,18 +1952,32 @@ export interface ListServicesInput {
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of services.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data.
+   *
+   *       </p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>Amazon Web Services Account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
 }
 
 /**
  * <p>This structure contains information about one of your services that
- *       was discoverd by Application Signals</p>
+ *       was discovered by Application Signals</p>
  * @public
  */
 export interface ServiceSummary {
@@ -1542,7 +2059,7 @@ export interface ServiceSummary {
    *                   <code>Host</code> is the name of the host, for all platform types.</p>
    *             </li>
    *          </ul>
-   *          <p>Applciation attributes contain information about the application.</p>
+   *          <p>Application attributes contain information about the application.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1570,7 +2087,7 @@ export interface ServiceSummary {
    *          </ul>
    * @public
    */
-  AttributeMaps?: Record<string, string>[];
+  AttributeMaps?: Record<string, string>[] | undefined;
 
   /**
    * <p>An array of structures that each contain information about one metric associated with this service.</p>
@@ -1587,6 +2104,8 @@ export interface ListServicesOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1595,6 +2114,8 @@ export interface ListServicesOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1612,7 +2133,7 @@ export interface ListServicesOutput {
    *          of services.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1660,43 +2181,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    * @public
    */
-  Tags?: Tag[];
-}
-
-/**
- * <p>Resource not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource type is not valid.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Cannot find the resource id.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceType = opts.ResourceType;
-    this.ResourceId = opts.ResourceId;
-    this.Message = opts.Message;
-  }
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1722,7 +2207,125 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Use this structure to specify the information for the metric that the SLO will monitor.</p>
+ * <p>This object defines the length of the look-back window used to calculate one burn rate metric
+ *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of
+ *       exactly 1 indicates that the SLO goal will be met exactly.</p>
+ *          <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p>
+ *          <p>
+ *             <i>burn rate = error rate over the look-back window / (100% - attainment goal percentage)</i>
+ *          </p>
+ *          <p>For more information about burn rates, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn">Calculate burn rates</a>.</p>
+ * @public
+ */
+export interface BurnRateConfiguration {
+  /**
+   * <p>The number of minutes to use as the look-back window.</p>
+   * @public
+   */
+  LookBackWindowMinutes: number | undefined;
+}
+
+/**
+ * <p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorMetricConfig {
+  /**
+   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service
+   *          the SLO metric is related to. To do so, you must specify at least the <code>Type</code>,
+   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
+   *          <p>This is a string-to-string map. It can
+   *          include the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code> designates the type of object this is.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
+   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
+   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Identifier</code> identifies the resource objects of this resource.
+   *             This is used only if the value of the <code>Type</code> field
+   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>If the SLO is to monitor a specific operation of the service, use this field to specify the name of that operation.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+
+  /**
+   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
+   *          collects, use this field to specify which of those metrics is used.</p>
+   * @public
+   */
+  MetricType?: ServiceLevelIndicatorMetricType | undefined;
+
+  /**
+   * <p>Use this structure to define the metric that you want to use as the "total requests" number for a request-based SLO.
+   *       This result will be divided by the "good request" or "bad request" value defined in
+   *       <code>MonitoredRequestCountMetric</code>.</p>
+   * @public
+   */
+  TotalRequestCountMetric?: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>Use this structure to define the metric that you want to use as the "good request" or "bad request"
+   *          value for a request-based SLO.
+   *          This value observed for the metric defined in
+   *          <code>TotalRequestCountMetric</code> will be divided by the number found for
+   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+   *          this SLO tracks.</p>
+   * @public
+   */
+  MonitoredRequestCountMetric?: MonitoredRequestCountMetricDataQueries | undefined;
+}
+
+/**
+ * <p>This structure specifies the information about the service and the performance metric that a request-based SLO is to monitor.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorConfig {
+  /**
+   * <p>Use this structure to specify the metric to be used for the SLO.</p>
+   * @public
+   */
+  RequestBasedSliMetricConfig: RequestBasedServiceLevelIndicatorMetricConfig | undefined;
+
+  /**
+   * <p>The value that the SLI metric is compared to. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
+   * @public
+   */
+  MetricThreshold?: number | undefined;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified metric to the
+   *          threshold. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
+   * @public
+   */
+  ComparisonOperator?: ServiceLevelIndicatorComparisonOperator | undefined;
+}
+
+/**
+ * <p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>
  * @public
  */
 export interface ServiceLevelIndicatorMetricConfig {
@@ -1760,45 +2363,45 @@ export interface ServiceLevelIndicatorMetricConfig {
    *          </ul>
    * @public
    */
-  KeyAttributes?: Record<string, string>;
+  KeyAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>If the SLO is to monitor a specific operation of the service, use this field to specify the name of that operation.</p>
    * @public
    */
-  OperationName?: string;
+  OperationName?: string | undefined;
 
   /**
    * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
    *       collects, use this field to specify which of those metrics is used.</p>
    * @public
    */
-  MetricType?: ServiceLevelIndicatorMetricType;
+  MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
    * <p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics,
    *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
    * @public
    */
-  Statistic?: string;
+  Statistic?: string | undefined;
 
   /**
    * <p>The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the
    *          SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.</p>
    * @public
    */
-  PeriodSeconds?: number;
+  PeriodSeconds?: number | undefined;
 
   /**
    * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression,
    *      use this structure to specify that metric or expression. </p>
    * @public
    */
-  MetricDataQueries?: MetricDataQuery[];
+  MetricDataQueries?: MetricDataQuery[] | undefined;
 }
 
 /**
- * <p>This structure specifies the information about the service and the performance metric that an SLO is to monitor.</p>
+ * <p>This structure specifies the information about the service and the performance metric that a period-based SLO is to monitor.</p>
  * @public
  */
 export interface ServiceLevelIndicatorConfig {
@@ -1809,7 +2412,8 @@ export interface ServiceLevelIndicatorConfig {
   SliMetricConfig: ServiceLevelIndicatorMetricConfig | undefined;
 
   /**
-   * <p>The value that the SLI metric is compared to.</p>
+   * <p>This parameter is used only when a request-based SLO tracks the <code>Latency</code> metric. Specify the threshold value that the
+   *          observed <code>Latency</code> metric values are to be compared to.</p>
    * @public
    */
   MetricThreshold: number | undefined;
@@ -1836,20 +2440,27 @@ export interface CreateServiceLevelObjectiveInput {
    * <p>An optional description for this SLO.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
-   * <p>A structure that contains information about what service and what performance metric that this SLO will monitor.</p>
+   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
    * @public
    */
-  SliConfig: ServiceLevelIndicatorConfig | undefined;
+  SliConfig?: ServiceLevelIndicatorConfig | undefined;
 
   /**
-   * <p>A structure that contains the attributes that determine the goal of the SLO. This includes
-   *       the time period for evaluation and the attainment threshold.</p>
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
    * @public
    */
-  Goal?: Goal;
+  RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig | undefined;
+
+  /**
+   * <p>This structure contains the attributes that determine the goal of the SLO.</p>
+   * @public
+   */
+  Goal?: Goal | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO.
@@ -1860,7 +2471,14 @@ export interface CreateServiceLevelObjectiveInput {
    *       permission to access or change only resources with certain tag values.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
+   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**
@@ -1889,7 +2507,7 @@ export interface ServiceLevelObjective {
    * <p>The description that you created for this SLO.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that this SLO was created. When used in a raw HTTP Query API, it is formatted as
@@ -1908,10 +2526,22 @@ export interface ServiceLevelObjective {
   LastUpdatedTime: Date | undefined;
 
   /**
-   * <p>A structure containing information about the performance metric that this SLO monitors.</p>
+   * <p>A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.</p>
    * @public
    */
-  Sli: ServiceLevelIndicator | undefined;
+  Sli?: ServiceLevelIndicator | undefined;
+
+  /**
+   * <p>A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.</p>
+   * @public
+   */
+  RequestBasedSli?: RequestBasedServiceLevelIndicator | undefined;
+
+  /**
+   * <p>Displays whether this is a period-based SLO or a request-based SLO.</p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
 
   /**
    * <p>This structure contains the attributes that determine the goal of an SLO. This includes
@@ -1919,6 +2549,13 @@ export interface ServiceLevelObjective {
    * @public
    */
   Goal: Goal | undefined;
+
+  /**
+   * <p>Each object in this array defines the length of the look-back window used to calculate one burn rate metric
+   *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**
@@ -2030,26 +2667,43 @@ export interface ListServiceLevelObjectivesInput {
    *          </ul>
    * @public
    */
-  KeyAttributes?: Record<string, string>;
+  KeyAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the operation that this SLO is associated with.</p>
    * @public
    */
-  OperationName?: string;
+  OperationName?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in one operation. If you omit this
    *          parameter, the default of 50 is used.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data.
+   *
+   *       </p>
+   *          <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account.
+   *
+   *       </p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>SLO's Amazon Web Services account ID.</p>
+   * @public
+   */
+  SloOwnerAwsAccountId?: string | undefined;
 }
 
 /**
@@ -2100,20 +2754,20 @@ export interface ServiceLevelObjectiveSummary {
    *          </ul>
    * @public
    */
-  KeyAttributes?: Record<string, string>;
+  KeyAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>If this service level objective is specific to a single operation, this
    *       field displays the name of that operation.</p>
    * @public
    */
-  OperationName?: string;
+  OperationName?: string | undefined;
 
   /**
    * <p>The date and time that this service level objective was created. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -2124,14 +2778,14 @@ export interface ListServiceLevelObjectivesOutput {
    * <p>An array of structures, where each structure contains information about one SLO.</p>
    * @public
    */
-  SloSummaries?: ServiceLevelObjectiveSummary[];
+  SloSummaries?: ServiceLevelObjectiveSummary[] | undefined;
 
   /**
    * <p>Include this value in your next use of this API to get next set
    *          of service level objectives.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2148,20 +2802,34 @@ export interface UpdateServiceLevelObjectiveInput {
    * <p>An optional description for the SLO.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
-   * <p>A structure that contains information about what performance metric this SLO will monitor.</p>
+   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
    * @public
    */
-  SliConfig?: ServiceLevelIndicatorConfig;
+  SliConfig?: ServiceLevelIndicatorConfig | undefined;
+
+  /**
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>SliConfig</code> and <code>RequestBasedSliConfig</code> in the same operation.</p>
+   * @public
+   */
+  RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig | undefined;
 
   /**
    * <p>A structure that contains the attributes that determine the goal of the SLO. This includes
    *          the time period for evaluation and the attainment threshold.</p>
    * @public
    */
-  Goal?: Goal;
+  Goal?: Goal | undefined;
+
+  /**
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
+   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**

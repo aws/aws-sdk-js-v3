@@ -109,6 +109,7 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command
@@ -119,9 +120,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutServiceQuotaIncreaseRequestIntoTemplateCommand)
   .de(de_PutServiceQuotaIncreaseRequestIntoTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutServiceQuotaIncreaseRequestIntoTemplateRequest;
+      output: PutServiceQuotaIncreaseRequestIntoTemplateResponse;
+    };
+    sdk: {
+      input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput;
+      output: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput;
+    };
+  };
+}

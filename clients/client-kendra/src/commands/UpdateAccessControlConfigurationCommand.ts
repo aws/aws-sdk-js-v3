@@ -52,6 +52,12 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code>
  *             file. Amazon Kendra currently only supports access control configuration for S3
  *             data sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
+ *          <important>
+ *             <p>You can't configure access control using
+ *                     <code>CreateAccessControlConfiguration</code> for an Amazon Kendra Gen AI Enterprise
+ *                 Edition index. Amazon Kendra will return a <code>ValidationException</code> error for a
+ *                     <code>Gen_AI_ENTERPRISE_EDITION</code> index.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,6 +135,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccessControlConfigurationCommand extends $Command
@@ -139,9 +146,7 @@ export class UpdateAccessControlConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +158,16 @@ export class UpdateAccessControlConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessControlConfigurationCommand)
   .de(de_UpdateAccessControlConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessControlConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccessControlConfigurationCommandInput;
+      output: UpdateAccessControlConfigurationCommandOutput;
+    };
+  };
+}

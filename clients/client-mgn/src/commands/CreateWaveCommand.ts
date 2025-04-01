@@ -90,6 +90,7 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateWaveCommand extends $Command
@@ -100,9 +101,7 @@ export class CreateWaveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class CreateWaveCommand extends $Command
   .f(CreateWaveRequestFilterSensitiveLog, WaveFilterSensitiveLog)
   .ser(se_CreateWaveCommand)
   .de(de_CreateWaveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWaveRequest;
+      output: Wave;
+    };
+    sdk: {
+      input: CreateWaveCommandInput;
+      output: CreateWaveCommandOutput;
+    };
+  };
+}

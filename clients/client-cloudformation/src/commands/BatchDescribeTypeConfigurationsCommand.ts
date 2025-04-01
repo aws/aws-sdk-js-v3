@@ -33,10 +33,11 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry
- *    for the account and Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring extensions at
- *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation
+ *       registry for the account and Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
+ *         data for extensions in your account</a> in the
+ *       <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +110,7 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class BatchDescribeTypeConfigurationsCommand extends $Command
@@ -119,9 +121,7 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDescribeTypeConfigurationsCommand)
   .de(de_BatchDescribeTypeConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDescribeTypeConfigurationsInput;
+      output: BatchDescribeTypeConfigurationsOutput;
+    };
+    sdk: {
+      input: BatchDescribeTypeConfigurationsCommandInput;
+      output: BatchDescribeTypeConfigurationsCommandOutput;
+    };
+  };
+}

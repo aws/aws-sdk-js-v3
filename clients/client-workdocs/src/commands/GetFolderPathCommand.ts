@@ -93,6 +93,7 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetFolderPathCommand extends $Command
@@ -103,9 +104,7 @@ export class GetFolderPathCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class GetFolderPathCommand extends $Command
   .f(GetFolderPathRequestFilterSensitiveLog, GetFolderPathResponseFilterSensitiveLog)
   .ser(se_GetFolderPathCommand)
   .de(de_GetFolderPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFolderPathRequest;
+      output: GetFolderPathResponse;
+    };
+    sdk: {
+      input: GetFolderPathCommandInput;
+      output: GetFolderPathCommandOutput;
+    };
+  };
+}

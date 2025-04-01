@@ -18,6 +18,8 @@ const partitionHash: PartitionHash = {
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
       "eu-central-1",
@@ -31,13 +33,14 @@ const partitionHash: PartitionHash = {
       "il-central-1",
       "me-central-1",
       "me-south-1",
+      "mx-central-1",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
       "us-west-1",
       "us-west-2",
     ],
-    regionRegex: "^(us|eu|ap|sa|ca|me|af|il)\\-\\w+\\-\\d+$",
+    regionRegex: "^(us|eu|ap|sa|ca|me|af|il|mx)\\-\\w+\\-\\d+$",
     variants: [
       {
         hostname: "restxml.{region}.amazonaws.com",
@@ -122,7 +125,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso-f": {
-    regions: [],
+    regions: ["us-isof-east-1", "us-isof-south-1"],
     regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
     variants: [
       {

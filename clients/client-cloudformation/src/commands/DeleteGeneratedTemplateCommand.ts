@@ -61,18 +61,21 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To delete a generated template
  * ```javascript
  * // This example deletes a generated template
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate"
+ *   GeneratedTemplateName: "JazzyTemplate"
  * };
  * const command = new DeleteGeneratedTemplateCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-generated-template
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteGeneratedTemplateCommand extends $Command
   .classBuilder<
@@ -82,9 +85,7 @@ export class DeleteGeneratedTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +97,16 @@ export class DeleteGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGeneratedTemplateCommand)
   .de(de_DeleteGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGeneratedTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGeneratedTemplateCommandInput;
+      output: DeleteGeneratedTemplateCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UnarchiveApplicationCommand extends $Command
@@ -91,9 +92,7 @@ export class UnarchiveApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class UnarchiveApplicationCommand extends $Command
   .f(void 0, ApplicationFilterSensitiveLog)
   .ser(se_UnarchiveApplicationCommand)
   .de(de_UnarchiveApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnarchiveApplicationRequest;
+      output: Application;
+    };
+    sdk: {
+      input: UnarchiveApplicationCommandInput;
+      output: UnarchiveApplicationCommandOutput;
+    };
+  };
+}

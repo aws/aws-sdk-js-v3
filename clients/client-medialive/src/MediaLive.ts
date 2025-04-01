@@ -27,6 +27,11 @@ import {
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  CreateChannelPlacementGroupCommand,
+  CreateChannelPlacementGroupCommandInput,
+  CreateChannelPlacementGroupCommandOutput,
+} from "./commands/CreateChannelPlacementGroupCommand";
+import {
   CreateCloudWatchAlarmTemplateCommand,
   CreateCloudWatchAlarmTemplateCommandInput,
   CreateCloudWatchAlarmTemplateCommandOutput,
@@ -36,6 +41,11 @@ import {
   CreateCloudWatchAlarmTemplateGroupCommandInput,
   CreateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/CreateCloudWatchAlarmTemplateGroupCommand";
+import {
+  CreateClusterCommand,
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput,
+} from "./commands/CreateClusterCommand";
 import {
   CreateEventBridgeRuleTemplateCommand,
   CreateEventBridgeRuleTemplateCommandInput,
@@ -63,6 +73,17 @@ import {
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
 import {
+  CreateNetworkCommand,
+  CreateNetworkCommandInput,
+  CreateNetworkCommandOutput,
+} from "./commands/CreateNetworkCommand";
+import { CreateNodeCommand, CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
+import {
+  CreateNodeRegistrationScriptCommand,
+  CreateNodeRegistrationScriptCommandInput,
+  CreateNodeRegistrationScriptCommandOutput,
+} from "./commands/CreateNodeRegistrationScriptCommand";
+import {
   CreatePartnerInputCommand,
   CreatePartnerInputCommandInput,
   CreatePartnerInputCommandOutput,
@@ -79,6 +100,11 @@ import {
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  DeleteChannelPlacementGroupCommand,
+  DeleteChannelPlacementGroupCommandInput,
+  DeleteChannelPlacementGroupCommandOutput,
+} from "./commands/DeleteChannelPlacementGroupCommand";
+import {
   DeleteCloudWatchAlarmTemplateCommand,
   DeleteCloudWatchAlarmTemplateCommandInput,
   DeleteCloudWatchAlarmTemplateCommandOutput,
@@ -88,6 +114,11 @@ import {
   DeleteCloudWatchAlarmTemplateGroupCommandInput,
   DeleteCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/DeleteCloudWatchAlarmTemplateGroupCommand";
+import {
+  DeleteClusterCommand,
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput,
+} from "./commands/DeleteClusterCommand";
 import {
   DeleteEventBridgeRuleTemplateCommand,
   DeleteEventBridgeRuleTemplateCommandInput,
@@ -115,6 +146,12 @@ import {
   DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand";
 import {
+  DeleteNetworkCommand,
+  DeleteNetworkCommandInput,
+  DeleteNetworkCommandOutput,
+} from "./commands/DeleteNetworkCommand";
+import { DeleteNodeCommand, DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import {
   DeleteReservationCommand,
   DeleteReservationCommandInput,
   DeleteReservationCommandOutput,
@@ -140,6 +177,16 @@ import {
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
+import {
+  DescribeChannelPlacementGroupCommand,
+  DescribeChannelPlacementGroupCommandInput,
+  DescribeChannelPlacementGroupCommandOutput,
+} from "./commands/DescribeChannelPlacementGroupCommand";
+import {
+  DescribeClusterCommand,
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput,
+} from "./commands/DescribeClusterCommand";
 import {
   DescribeInputCommand,
   DescribeInputCommandInput,
@@ -170,6 +217,16 @@ import {
   DescribeMultiplexProgramCommandInput,
   DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand";
+import {
+  DescribeNetworkCommand,
+  DescribeNetworkCommandInput,
+  DescribeNetworkCommandOutput,
+} from "./commands/DescribeNetworkCommand";
+import {
+  DescribeNodeCommand,
+  DescribeNodeCommandInput,
+  DescribeNodeCommandOutput,
+} from "./commands/DescribeNodeCommand";
 import {
   DescribeOfferingCommand,
   DescribeOfferingCommandInput,
@@ -216,6 +273,11 @@ import {
   GetSignalMapCommandOutput,
 } from "./commands/GetSignalMapCommand";
 import {
+  ListChannelPlacementGroupsCommand,
+  ListChannelPlacementGroupsCommandInput,
+  ListChannelPlacementGroupsCommandOutput,
+} from "./commands/ListChannelPlacementGroupsCommand";
+import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
@@ -230,6 +292,11 @@ import {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplatesCommand";
+import {
+  ListClustersCommand,
+  ListClustersCommandInput,
+  ListClustersCommandOutput,
+} from "./commands/ListClustersCommand";
 import {
   ListEventBridgeRuleTemplateGroupsCommand,
   ListEventBridgeRuleTemplateGroupsCommandInput,
@@ -267,6 +334,12 @@ import {
   ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand";
 import {
+  ListNetworksCommand,
+  ListNetworksCommandInput,
+  ListNetworksCommandOutput,
+} from "./commands/ListNetworksCommand";
+import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
@@ -286,6 +359,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVersionsCommand,
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
+} from "./commands/ListVersionsCommand";
 import {
   PurchaseOfferingCommand,
   PurchaseOfferingCommandInput,
@@ -373,6 +451,11 @@ import {
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  UpdateChannelPlacementGroupCommand,
+  UpdateChannelPlacementGroupCommandInput,
+  UpdateChannelPlacementGroupCommandOutput,
+} from "./commands/UpdateChannelPlacementGroupCommand";
+import {
   UpdateCloudWatchAlarmTemplateCommand,
   UpdateCloudWatchAlarmTemplateCommandInput,
   UpdateCloudWatchAlarmTemplateCommandOutput,
@@ -382,6 +465,11 @@ import {
   UpdateCloudWatchAlarmTemplateGroupCommandInput,
   UpdateCloudWatchAlarmTemplateGroupCommandOutput,
 } from "./commands/UpdateCloudWatchAlarmTemplateGroupCommand";
+import {
+  UpdateClusterCommand,
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput,
+} from "./commands/UpdateClusterCommand";
 import {
   UpdateEventBridgeRuleTemplateCommand,
   UpdateEventBridgeRuleTemplateCommandInput,
@@ -414,6 +502,17 @@ import {
   UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand";
 import {
+  UpdateNetworkCommand,
+  UpdateNetworkCommandInput,
+  UpdateNetworkCommandOutput,
+} from "./commands/UpdateNetworkCommand";
+import { UpdateNodeCommand, UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
+import {
+  UpdateNodeStateCommand,
+  UpdateNodeStateCommandInput,
+  UpdateNodeStateCommandOutput,
+} from "./commands/UpdateNodeStateCommand";
+import {
   UpdateReservationCommand,
   UpdateReservationCommandInput,
   UpdateReservationCommandOutput,
@@ -429,38 +528,51 @@ const commands = {
   CancelInputDeviceTransferCommand,
   ClaimDeviceCommand,
   CreateChannelCommand,
+  CreateChannelPlacementGroupCommand,
   CreateCloudWatchAlarmTemplateCommand,
   CreateCloudWatchAlarmTemplateGroupCommand,
+  CreateClusterCommand,
   CreateEventBridgeRuleTemplateCommand,
   CreateEventBridgeRuleTemplateGroupCommand,
   CreateInputCommand,
   CreateInputSecurityGroupCommand,
   CreateMultiplexCommand,
   CreateMultiplexProgramCommand,
+  CreateNetworkCommand,
+  CreateNodeCommand,
+  CreateNodeRegistrationScriptCommand,
   CreatePartnerInputCommand,
   CreateSignalMapCommand,
   CreateTagsCommand,
   DeleteChannelCommand,
+  DeleteChannelPlacementGroupCommand,
   DeleteCloudWatchAlarmTemplateCommand,
   DeleteCloudWatchAlarmTemplateGroupCommand,
+  DeleteClusterCommand,
   DeleteEventBridgeRuleTemplateCommand,
   DeleteEventBridgeRuleTemplateGroupCommand,
   DeleteInputCommand,
   DeleteInputSecurityGroupCommand,
   DeleteMultiplexCommand,
   DeleteMultiplexProgramCommand,
+  DeleteNetworkCommand,
+  DeleteNodeCommand,
   DeleteReservationCommand,
   DeleteScheduleCommand,
   DeleteSignalMapCommand,
   DeleteTagsCommand,
   DescribeAccountConfigurationCommand,
   DescribeChannelCommand,
+  DescribeChannelPlacementGroupCommand,
+  DescribeClusterCommand,
   DescribeInputCommand,
   DescribeInputDeviceCommand,
   DescribeInputDeviceThumbnailCommand,
   DescribeInputSecurityGroupCommand,
   DescribeMultiplexCommand,
   DescribeMultiplexProgramCommand,
+  DescribeNetworkCommand,
+  DescribeNodeCommand,
   DescribeOfferingCommand,
   DescribeReservationCommand,
   DescribeScheduleCommand,
@@ -470,9 +582,11 @@ const commands = {
   GetEventBridgeRuleTemplateCommand,
   GetEventBridgeRuleTemplateGroupCommand,
   GetSignalMapCommand,
+  ListChannelPlacementGroupsCommand,
   ListChannelsCommand,
   ListCloudWatchAlarmTemplateGroupsCommand,
   ListCloudWatchAlarmTemplatesCommand,
+  ListClustersCommand,
   ListEventBridgeRuleTemplateGroupsCommand,
   ListEventBridgeRuleTemplatesCommand,
   ListInputDevicesCommand,
@@ -481,10 +595,13 @@ const commands = {
   ListInputSecurityGroupsCommand,
   ListMultiplexesCommand,
   ListMultiplexProgramsCommand,
+  ListNetworksCommand,
+  ListNodesCommand,
   ListOfferingsCommand,
   ListReservationsCommand,
   ListSignalMapsCommand,
   ListTagsForResourceCommand,
+  ListVersionsCommand,
   PurchaseOfferingCommand,
   RebootInputDeviceCommand,
   RejectInputDeviceTransferCommand,
@@ -503,8 +620,10 @@ const commands = {
   UpdateAccountConfigurationCommand,
   UpdateChannelCommand,
   UpdateChannelClassCommand,
+  UpdateChannelPlacementGroupCommand,
   UpdateCloudWatchAlarmTemplateCommand,
   UpdateCloudWatchAlarmTemplateGroupCommand,
+  UpdateClusterCommand,
   UpdateEventBridgeRuleTemplateCommand,
   UpdateEventBridgeRuleTemplateGroupCommand,
   UpdateInputCommand,
@@ -512,6 +631,9 @@ const commands = {
   UpdateInputSecurityGroupCommand,
   UpdateMultiplexCommand,
   UpdateMultiplexProgramCommand,
+  UpdateNetworkCommand,
+  UpdateNodeCommand,
+  UpdateNodeStateCommand,
   UpdateReservationCommand,
 };
 
@@ -628,6 +750,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link CreateChannelPlacementGroupCommand}
+   */
+  createChannelPlacementGroup(
+    args: CreateChannelPlacementGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelPlacementGroupCommandOutput>;
+  createChannelPlacementGroup(
+    args: CreateChannelPlacementGroupCommandInput,
+    cb: (err: any, data?: CreateChannelPlacementGroupCommandOutput) => void
+  ): void;
+  createChannelPlacementGroup(
+    args: CreateChannelPlacementGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelPlacementGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateCloudWatchAlarmTemplateCommand}
    */
   createCloudWatchAlarmTemplate(
@@ -659,6 +798,18 @@ export interface MediaLive {
     args: CreateCloudWatchAlarmTemplateGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateClusterCommand}
+   */
+  createCluster(): Promise<CreateClusterCommandOutput>;
+  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
+  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
   /**
@@ -757,6 +908,46 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link CreateNetworkCommand}
+   */
+  createNetwork(): Promise<CreateNetworkCommandOutput>;
+  createNetwork(args: CreateNetworkCommandInput, options?: __HttpHandlerOptions): Promise<CreateNetworkCommandOutput>;
+  createNetwork(args: CreateNetworkCommandInput, cb: (err: any, data?: CreateNetworkCommandOutput) => void): void;
+  createNetwork(
+    args: CreateNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNodeCommand}
+   */
+  createNode(args: CreateNodeCommandInput, options?: __HttpHandlerOptions): Promise<CreateNodeCommandOutput>;
+  createNode(args: CreateNodeCommandInput, cb: (err: any, data?: CreateNodeCommandOutput) => void): void;
+  createNode(
+    args: CreateNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNodeRegistrationScriptCommand}
+   */
+  createNodeRegistrationScript(
+    args: CreateNodeRegistrationScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNodeRegistrationScriptCommandOutput>;
+  createNodeRegistrationScript(
+    args: CreateNodeRegistrationScriptCommandInput,
+    cb: (err: any, data?: CreateNodeRegistrationScriptCommandOutput) => void
+  ): void;
+  createNodeRegistrationScript(
+    args: CreateNodeRegistrationScriptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNodeRegistrationScriptCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePartnerInputCommand}
    */
   createPartnerInput(
@@ -810,6 +1001,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link DeleteChannelPlacementGroupCommand}
+   */
+  deleteChannelPlacementGroup(
+    args: DeleteChannelPlacementGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelPlacementGroupCommandOutput>;
+  deleteChannelPlacementGroup(
+    args: DeleteChannelPlacementGroupCommandInput,
+    cb: (err: any, data?: DeleteChannelPlacementGroupCommandOutput) => void
+  ): void;
+  deleteChannelPlacementGroup(
+    args: DeleteChannelPlacementGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelPlacementGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCloudWatchAlarmTemplateCommand}
    */
   deleteCloudWatchAlarmTemplate(
@@ -841,6 +1049,17 @@ export interface MediaLive {
     args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteClusterCommand}
+   */
+  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
   /**
@@ -937,6 +1156,28 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link DeleteNetworkCommand}
+   */
+  deleteNetwork(args: DeleteNetworkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNetworkCommandOutput>;
+  deleteNetwork(args: DeleteNetworkCommandInput, cb: (err: any, data?: DeleteNetworkCommandOutput) => void): void;
+  deleteNetwork(
+    args: DeleteNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNodeCommand}
+   */
+  deleteNode(args: DeleteNodeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNodeCommandOutput>;
+  deleteNode(args: DeleteNodeCommandInput, cb: (err: any, data?: DeleteNodeCommandOutput) => void): void;
+  deleteNode(
+    args: DeleteNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNodeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteReservationCommand}
    */
   deleteReservation(
@@ -1022,6 +1263,37 @@ export interface MediaLive {
     args: DescribeChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelPlacementGroupCommand}
+   */
+  describeChannelPlacementGroup(
+    args: DescribeChannelPlacementGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelPlacementGroupCommandOutput>;
+  describeChannelPlacementGroup(
+    args: DescribeChannelPlacementGroupCommandInput,
+    cb: (err: any, data?: DescribeChannelPlacementGroupCommandOutput) => void
+  ): void;
+  describeChannelPlacementGroup(
+    args: DescribeChannelPlacementGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelPlacementGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   */
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterCommandOutput>;
+  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
   ): void;
 
   /**
@@ -1118,6 +1390,31 @@ export interface MediaLive {
     args: DescribeMultiplexProgramCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeMultiplexProgramCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeNetworkCommand}
+   */
+  describeNetwork(
+    args: DescribeNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNetworkCommandOutput>;
+  describeNetwork(args: DescribeNetworkCommandInput, cb: (err: any, data?: DescribeNetworkCommandOutput) => void): void;
+  describeNetwork(
+    args: DescribeNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeNodeCommand}
+   */
+  describeNode(args: DescribeNodeCommandInput, options?: __HttpHandlerOptions): Promise<DescribeNodeCommandOutput>;
+  describeNode(args: DescribeNodeCommandInput, cb: (err: any, data?: DescribeNodeCommandOutput) => void): void;
+  describeNode(
+    args: DescribeNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNodeCommandOutput) => void
   ): void;
 
   /**
@@ -1268,6 +1565,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link ListChannelPlacementGroupsCommand}
+   */
+  listChannelPlacementGroups(
+    args: ListChannelPlacementGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelPlacementGroupsCommandOutput>;
+  listChannelPlacementGroups(
+    args: ListChannelPlacementGroupsCommandInput,
+    cb: (err: any, data?: ListChannelPlacementGroupsCommandOutput) => void
+  ): void;
+  listChannelPlacementGroups(
+    args: ListChannelPlacementGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelPlacementGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListChannelsCommand}
    */
   listChannels(): Promise<ListChannelsCommandOutput>;
@@ -1313,6 +1627,18 @@ export interface MediaLive {
     args: ListCloudWatchAlarmTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCloudWatchAlarmTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClustersCommand}
+   */
+  listClusters(): Promise<ListClustersCommandOutput>;
+  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
+  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
   /**
@@ -1449,6 +1775,29 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link ListNetworksCommand}
+   */
+  listNetworks(): Promise<ListNetworksCommandOutput>;
+  listNetworks(args: ListNetworksCommandInput, options?: __HttpHandlerOptions): Promise<ListNetworksCommandOutput>;
+  listNetworks(args: ListNetworksCommandInput, cb: (err: any, data?: ListNetworksCommandOutput) => void): void;
+  listNetworks(
+    args: ListNetworksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNodesCommand}
+   */
+  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOfferingsCommand}
    */
   listOfferings(): Promise<ListOfferingsCommandOutput>;
@@ -1508,6 +1857,18 @@ export interface MediaLive {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   */
+  listVersions(): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -1788,6 +2149,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link UpdateChannelPlacementGroupCommand}
+   */
+  updateChannelPlacementGroup(
+    args: UpdateChannelPlacementGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelPlacementGroupCommandOutput>;
+  updateChannelPlacementGroup(
+    args: UpdateChannelPlacementGroupCommandInput,
+    cb: (err: any, data?: UpdateChannelPlacementGroupCommandOutput) => void
+  ): void;
+  updateChannelPlacementGroup(
+    args: UpdateChannelPlacementGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelPlacementGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCloudWatchAlarmTemplateCommand}
    */
   updateCloudWatchAlarmTemplate(
@@ -1819,6 +2197,17 @@ export interface MediaLive {
     args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateClusterCommand}
+   */
+  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
+  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
   /**
@@ -1929,6 +2318,42 @@ export interface MediaLive {
     args: UpdateMultiplexProgramCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMultiplexProgramCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNetworkCommand}
+   */
+  updateNetwork(args: UpdateNetworkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNetworkCommandOutput>;
+  updateNetwork(args: UpdateNetworkCommandInput, cb: (err: any, data?: UpdateNetworkCommandOutput) => void): void;
+  updateNetwork(
+    args: UpdateNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNodeCommand}
+   */
+  updateNode(args: UpdateNodeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNodeCommandOutput>;
+  updateNode(args: UpdateNodeCommandInput, cb: (err: any, data?: UpdateNodeCommandOutput) => void): void;
+  updateNode(
+    args: UpdateNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNodeStateCommand}
+   */
+  updateNodeState(
+    args: UpdateNodeStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNodeStateCommandOutput>;
+  updateNodeState(args: UpdateNodeStateCommandInput, cb: (err: any, data?: UpdateNodeStateCommandOutput) => void): void;
+  updateNodeState(
+    args: UpdateNodeStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNodeStateCommandOutput) => void
   ): void;
 
   /**

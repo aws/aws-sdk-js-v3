@@ -80,6 +80,7 @@ export interface ListLicenseEndpointsCommandOutput extends ListLicenseEndpointsR
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListLicenseEndpointsCommand extends $Command
@@ -90,9 +91,7 @@ export class ListLicenseEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListLicenseEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseEndpointsCommand)
   .de(de_ListLicenseEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseEndpointsRequest;
+      output: ListLicenseEndpointsResponse;
+    };
+    sdk: {
+      input: ListLicenseEndpointsCommandInput;
+      output: ListLicenseEndpointsCommandOutput;
+    };
+  };
+}

@@ -265,6 +265,7 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ *
  * @public
  */
 export class PostTextCommand extends $Command
@@ -275,9 +276,7 @@ export class PostTextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -289,4 +288,16 @@ export class PostTextCommand extends $Command
   .f(PostTextRequestFilterSensitiveLog, PostTextResponseFilterSensitiveLog)
   .ser(se_PostTextCommand)
   .de(de_PostTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostTextRequest;
+      output: PostTextResponse;
+    };
+    sdk: {
+      input: PostTextCommandInput;
+      output: PostTextCommandOutput;
+    };
+  };
+}

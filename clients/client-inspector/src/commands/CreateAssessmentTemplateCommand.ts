@@ -90,34 +90,34 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Create assessment template
  * ```javascript
  * // Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.
  * const input = {
- *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
- *   "assessmentTemplateName": "ExampleAssessmentTemplate",
- *   "durationInSeconds": 180,
- *   "rulesPackageArns": [
+ *   assessmentTargetArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+ *   assessmentTemplateName: "ExampleAssessmentTemplate",
+ *   durationInSeconds: 180,
+ *   rulesPackageArns: [
  *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-11B9DBXp"
  *   ],
- *   "userAttributesForFindings": [
+ *   userAttributesForFindings: [
  *     {
- *       "key": "Example",
- *       "value": "example"
+ *       key: "Example",
+ *       value: "example"
  *     }
  *   ]
  * };
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+ *   assessmentTemplateArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
  * }
  * *\/
- * // example id: create-assessment-template-1481064046719
  * ```
  *
+ * @public
  */
 export class CreateAssessmentTemplateCommand extends $Command
   .classBuilder<
@@ -127,9 +127,7 @@ export class CreateAssessmentTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +139,16 @@ export class CreateAssessmentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssessmentTemplateCommand)
   .de(de_CreateAssessmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentTemplateRequest;
+      output: CreateAssessmentTemplateResponse;
+    };
+    sdk: {
+      input: CreateAssessmentTemplateCommandInput;
+      output: CreateAssessmentTemplateCommandOutput;
+    };
+  };
+}

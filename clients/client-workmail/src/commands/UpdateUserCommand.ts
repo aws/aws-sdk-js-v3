@@ -55,6 +55,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *   Department: "STRING_VALUE",
  *   Country: "STRING_VALUE",
  *   Office: "STRING_VALUE",
+ *   IdentityProviderUserId: "STRING_VALUE",
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
@@ -99,6 +100,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserCommand extends $Command
@@ -109,9 +111,7 @@ export class UpdateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class UpdateUserCommand extends $Command
   .f(UpdateUserRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateUserCommand)
   .de(de_UpdateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserCommandInput;
+      output: UpdateUserCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateActionRequest, CreateActionResponse } from "../models/models_0";
+import { CreateActionRequest, CreateActionResponse } from "../models/models_1";
 import { de_CreateActionCommand, se_CreateActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -86,6 +86,7 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateActionCommand extends $Command
@@ -96,9 +97,7 @@ export class CreateActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class CreateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActionCommand)
   .de(de_CreateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActionRequest;
+      output: CreateActionResponse;
+    };
+    sdk: {
+      input: CreateActionCommandInput;
+      output: CreateActionCommandOutput;
+    };
+  };
+}

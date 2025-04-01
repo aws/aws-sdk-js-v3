@@ -97,10 +97,11 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * 			<code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -112,9 +113,7 @@ export class PublishFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class PublishFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishFunctionCommand)
   .de(de_PublishFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishFunctionRequest;
+      output: PublishFunctionResult;
+    };
+    sdk: {
+      input: PublishFunctionCommandInput;
+      output: PublishFunctionCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UnassignPrivateNatGatewayAddressRequest, UnassignPrivateNatGatewayAddressResult } from "../models/models_7";
+import { UnassignPrivateNatGatewayAddressRequest, UnassignPrivateNatGatewayAddressResult } from "../models/models_8";
 import {
   de_UnassignPrivateNatGatewayAddressCommand,
   se_UnassignPrivateNatGatewayAddressCommand,
@@ -33,7 +33,9 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information,
+ *             see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a>
+ *             in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
  *             private IP addresses stay associated and support the existing connections, but do not
@@ -85,6 +87,7 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class UnassignPrivateNatGatewayAddressCommand extends $Command
@@ -95,9 +98,7 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +110,16 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignPrivateNatGatewayAddressCommand)
   .de(de_UnassignPrivateNatGatewayAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignPrivateNatGatewayAddressRequest;
+      output: UnassignPrivateNatGatewayAddressResult;
+    };
+    sdk: {
+      input: UnassignPrivateNatGatewayAddressCommandInput;
+      output: UnassignPrivateNatGatewayAddressCommandOutput;
+    };
+  };
+}

@@ -90,6 +90,7 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class UpdateFolderCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateFolderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateFolderCommand extends $Command
   .f(UpdateFolderRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFolderCommand)
   .de(de_UpdateFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFolderRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFolderCommandInput;
+      output: UpdateFolderCommandOutput;
+    };
+  };
+}

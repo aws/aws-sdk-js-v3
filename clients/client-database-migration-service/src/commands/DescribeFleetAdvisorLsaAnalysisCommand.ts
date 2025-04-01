@@ -75,6 +75,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
@@ -85,9 +86,7 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetAdvisorLsaAnalysisCommand)
   .de(de_DescribeFleetAdvisorLsaAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetAdvisorLsaAnalysisRequest;
+      output: DescribeFleetAdvisorLsaAnalysisResponse;
+    };
+    sdk: {
+      input: DescribeFleetAdvisorLsaAnalysisCommandInput;
+      output: DescribeFleetAdvisorLsaAnalysisCommandOutput;
+    };
+  };
+}

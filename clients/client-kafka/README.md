@@ -10,7 +10,7 @@ AWS SDK for JavaScript Kafka Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kafka
+To install this package, simply type add or install @aws-sdk/client-kafka
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kafka`

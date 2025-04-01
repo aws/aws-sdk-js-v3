@@ -83,6 +83,7 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListKeyGroupsCommand extends $Command
@@ -93,9 +94,7 @@ export class ListKeyGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListKeyGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyGroupsCommand)
   .de(de_ListKeyGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyGroupsRequest;
+      output: ListKeyGroupsResult;
+    };
+    sdk: {
+      input: ListKeyGroupsCommandInput;
+      output: ListKeyGroupsCommandOutput;
+    };
+  };
+}

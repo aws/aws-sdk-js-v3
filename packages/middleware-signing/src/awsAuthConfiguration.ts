@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentityProvider, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { memoize } from "@smithy/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
@@ -23,6 +24,7 @@ const CREDENTIAL_EXPIRE_WINDOW = 300000;
 
 /**
  * @public
+ * @deprecated only used in legacy auth.
  */
 export interface AwsAuthInputConfig {
   /**
@@ -62,6 +64,7 @@ export interface AwsAuthInputConfig {
 
 /**
  * @public
+ * @deprecated only used in legacy auth.
  */
 export interface SigV4AuthInputConfig {
   /**
@@ -85,6 +88,10 @@ export interface SigV4AuthInputConfig {
   systemClockOffset?: number;
 }
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
@@ -97,6 +104,10 @@ interface PreviouslyResolved {
   useDualstackEndpoint: Provider<boolean>;
 }
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 interface SigV4PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
@@ -105,6 +116,10 @@ interface SigV4PreviouslyResolved {
   logger?: Logger;
 }
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 export interface AwsAuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
@@ -126,18 +141,21 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 export const resolveAwsAuthConfig = <T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
 ): T & AwsAuthResolvedConfig => {
-  const normalizedCreds = input.credentials
-    ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(
-        Object.assign({}, input, {
-          parentClientConfig: input,
-        })
-      );
+  const normalizedCreds = createConfigBoundCredentialProvider(input);
+
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
@@ -228,26 +246,22 @@ export const resolveAwsAuthConfig = <T>(
     };
   }
 
-  return {
-    ...input,
+  return Object.assign(input, {
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer,
-  };
+  });
 };
 
-// TODO: reduce code duplication
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 export const resolveSigV4AuthConfig = <T>(
   input: T & SigV4AuthInputConfig & SigV4PreviouslyResolved
 ): T & SigV4AuthResolvedConfig => {
-  const normalizedCreds = input.credentials
-    ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(
-        Object.assign({}, input, {
-          parentClientConfig: input,
-        })
-      );
+  const normalizedCreds = createConfigBoundCredentialProvider(input);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
@@ -264,17 +278,20 @@ export const resolveSigV4AuthConfig = <T>(
       })
     );
   }
-  return {
-    ...input,
+  return Object.assign(input, {
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer,
-  };
+  });
 };
 
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ */
 const normalizeCredentialProvider = (
-  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity> | RuntimeConfigAwsCredentialIdentityProvider
 ): MemoizedProvider<AwsCredentialIdentity> => {
   if (typeof credentials === "function") {
     return memoize(
@@ -286,4 +303,34 @@ const normalizeCredentialProvider = (
     );
   }
   return normalizeProvider(credentials);
+};
+
+/**
+ * @internal
+ * @deprecated only used in legacy auth.
+ *
+ * normalizes the credentials from the input config into a provider that has
+ * a binding to the config itself.
+ */
+const createConfigBoundCredentialProvider = (input: {
+  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider | RuntimeConfigAwsCredentialIdentityProvider;
+  credentialDefaultProvider: PreviouslyResolved["credentialDefaultProvider"];
+  region: PreviouslyResolved["region"];
+  profile?: string;
+}): AwsCredentialIdentityProvider => {
+  const normalizedCredentialsProvider = input.credentials
+    ? normalizeCredentialProvider(input.credentials)
+    : input.credentialDefaultProvider(
+        Object.assign({}, input, {
+          parentClientConfig: input,
+        })
+      );
+  const normalizedCreds = async () =>
+    (normalizedCredentialsProvider as RuntimeConfigAwsCredentialIdentityProvider)({
+      callerClientConfig: {
+        region: normalizeProvider(input.region),
+        profile: input.profile,
+      },
+    });
+  return normalizedCreds;
 };

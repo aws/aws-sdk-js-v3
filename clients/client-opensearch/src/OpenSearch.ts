@@ -12,12 +12,22 @@ import {
   AddDataSourceCommandInput,
   AddDataSourceCommandOutput,
 } from "./commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommand,
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "./commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociatePackageCommand,
   AssociatePackageCommandInput,
   AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
+import {
+  AssociatePackagesCommand,
+  AssociatePackagesCommandInput,
+  AssociatePackagesCommandOutput,
+} from "./commands/AssociatePackagesCommand";
 import {
   AuthorizeVpcEndpointAccessCommand,
   AuthorizeVpcEndpointAccessCommandInput,
@@ -33,6 +43,11 @@ import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
+import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
@@ -54,10 +69,20 @@ import {
   CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommand,
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "./commands/DeleteDirectQueryDataSourceCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -164,6 +189,16 @@ import {
   DissociatePackageCommandOutput,
 } from "./commands/DissociatePackageCommand";
 import {
+  DissociatePackagesCommand,
+  DissociatePackagesCommandInput,
+  DissociatePackagesCommandOutput,
+} from "./commands/DissociatePackagesCommand";
+import {
+  GetApplicationCommand,
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput,
+} from "./commands/GetApplicationCommand";
+import {
   GetCompatibleVersionsCommand,
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
@@ -173,6 +208,11 @@ import {
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
+import {
+  GetDirectQueryDataSourceCommand,
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "./commands/GetDirectQueryDataSourceCommand";
 import {
   GetDomainMaintenanceStatusCommand,
   GetDomainMaintenanceStatusCommandInput,
@@ -194,10 +234,20 @@ import {
   GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
 import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
+import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommand,
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "./commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommand,
   ListDomainMaintenancesCommandInput,
@@ -276,10 +326,20 @@ import {
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateDirectQueryDataSourceCommand,
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "./commands/UpdateDirectQueryDataSourceCommand";
 import {
   UpdateDomainConfigCommand,
   UpdateDomainConfigCommandInput,
@@ -290,6 +350,11 @@ import {
   UpdatePackageCommandInput,
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
+import {
+  UpdatePackageScopeCommand,
+  UpdatePackageScopeCommandInput,
+  UpdatePackageScopeCommandOutput,
+} from "./commands/UpdatePackageScopeCommand";
 import {
   UpdateScheduledActionCommand,
   UpdateScheduledActionCommandInput,
@@ -310,16 +375,21 @@ import { OpenSearchClient, OpenSearchClientConfig } from "./OpenSearchClient";
 const commands = {
   AcceptInboundConnectionCommand,
   AddDataSourceCommand,
+  AddDirectQueryDataSourceCommand,
   AddTagsCommand,
   AssociatePackageCommand,
+  AssociatePackagesCommand,
   AuthorizeVpcEndpointAccessCommand,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
+  CreateApplicationCommand,
   CreateDomainCommand,
   CreateOutboundConnectionCommand,
   CreatePackageCommand,
   CreateVpcEndpointCommand,
+  DeleteApplicationCommand,
   DeleteDataSourceCommand,
+  DeleteDirectQueryDataSourceCommand,
   DeleteDomainCommand,
   DeleteInboundConnectionCommand,
   DeleteOutboundConnectionCommand,
@@ -341,13 +411,18 @@ const commands = {
   DescribeReservedInstancesCommand,
   DescribeVpcEndpointsCommand,
   DissociatePackageCommand,
+  DissociatePackagesCommand,
+  GetApplicationCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
+  GetDirectQueryDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
+  ListApplicationsCommand,
   ListDataSourcesCommand,
+  ListDirectQueryDataSourcesCommand,
   ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
@@ -365,9 +440,12 @@ const commands = {
   RevokeVpcEndpointAccessCommand,
   StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
+  UpdateApplicationCommand,
   UpdateDataSourceCommand,
+  UpdateDirectQueryDataSourceCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
+  UpdatePackageScopeCommand,
   UpdateScheduledActionCommand,
   UpdateVpcEndpointCommand,
   UpgradeDomainCommand,
@@ -403,6 +481,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link AddDirectQueryDataSourceCommand}
+   */
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddDirectQueryDataSourceCommandOutput>;
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link AddTagsCommand}
    */
   addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
@@ -428,6 +523,23 @@ export interface OpenSearch {
     args: AssociatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociatePackagesCommand}
+   */
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePackagesCommandOutput>;
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    cb: (err: any, data?: AssociatePackagesCommandOutput) => void
+  ): void;
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePackagesCommandOutput) => void
   ): void;
 
   /**
@@ -479,6 +591,23 @@ export interface OpenSearch {
     args: CancelServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -538,6 +667,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataSourceCommand}
    */
   deleteDataSource(
@@ -552,6 +698,23 @@ export interface OpenSearch {
     args: DeleteDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDirectQueryDataSourceCommand}
+   */
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDirectQueryDataSourceCommandOutput>;
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: DeleteDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -899,6 +1062,37 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DissociatePackagesCommand}
+   */
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DissociatePackagesCommandOutput>;
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    cb: (err: any, data?: DissociatePackagesCommandOutput) => void
+  ): void;
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DissociatePackagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCompatibleVersionsCommand}
    */
   getCompatibleVersions(): Promise<GetCompatibleVersionsCommandOutput>;
@@ -925,6 +1119,23 @@ export interface OpenSearch {
     args: GetDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDirectQueryDataSourceCommand}
+   */
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDirectQueryDataSourceCommandOutput>;
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: GetDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -996,6 +1207,24 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDataSourcesCommand}
    */
   listDataSources(
@@ -1007,6 +1236,24 @@ export interface OpenSearch {
     args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDirectQueryDataSourcesCommand}
+   */
+  listDirectQueryDataSources(): Promise<ListDirectQueryDataSourcesCommandOutput>;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDirectQueryDataSourcesCommandOutput>;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    cb: (err: any, data?: ListDirectQueryDataSourcesCommandOutput) => void
+  ): void;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDirectQueryDataSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -1281,6 +1528,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDataSourceCommand}
    */
   updateDataSource(
@@ -1295,6 +1559,23 @@ export interface OpenSearch {
     args: UpdateDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDirectQueryDataSourceCommand}
+   */
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDirectQueryDataSourceCommandOutput>;
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: UpdateDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -1323,6 +1604,23 @@ export interface OpenSearch {
     args: UpdatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageScopeCommand}
+   */
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageScopeCommandOutput>;
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    cb: (err: any, data?: UpdatePackageScopeCommandOutput) => void
+  ): void;
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageScopeCommandOutput) => void
   ): void;
 
   /**

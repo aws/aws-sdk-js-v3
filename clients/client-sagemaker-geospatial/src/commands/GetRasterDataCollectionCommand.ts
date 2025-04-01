@@ -92,6 +92,7 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class GetRasterDataCollectionCommand extends $Command
@@ -102,9 +103,7 @@ export class GetRasterDataCollectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetRasterDataCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRasterDataCollectionCommand)
   .de(de_GetRasterDataCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRasterDataCollectionInput;
+      output: GetRasterDataCollectionOutput;
+    };
+    sdk: {
+      input: GetRasterDataCollectionCommandInput;
+      output: GetRasterDataCollectionCommandOutput;
+    };
+  };
+}

@@ -71,6 +71,7 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DisassociateIpGroupsCommand extends $Command
@@ -81,9 +82,7 @@ export class DisassociateIpGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DisassociateIpGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateIpGroupsCommand)
   .de(de_DisassociateIpGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateIpGroupsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateIpGroupsCommandInput;
+      output: DisassociateIpGroupsCommandOutput;
+    };
+  };
+}

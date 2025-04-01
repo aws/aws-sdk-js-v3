@@ -80,28 +80,28 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript
  * // This example associates a security group with the specified load balancer in a VPC.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "SecurityGroups": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   SecurityGroups: [
  *     "sg-fc448899"
  *   ]
  * };
  * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroups": [
+ *   SecurityGroups: [
  *     "sg-fc448899"
  *   ]
  * }
  * *\/
- * // example id: elb-apply-security-groups-to-load-balancer-1
  * ```
  *
+ * @public
  */
 export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApplySecurityGroupsToLoadBalancerCommand)
   .de(de_ApplySecurityGroupsToLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApplySecurityGroupsToLoadBalancerInput;
+      output: ApplySecurityGroupsToLoadBalancerOutput;
+    };
+    sdk: {
+      input: ApplySecurityGroupsToLoadBalancerCommandInput;
+      output: ApplySecurityGroupsToLoadBalancerCommandOutput;
+    };
+  };
+}

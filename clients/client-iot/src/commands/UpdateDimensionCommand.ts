@@ -83,6 +83,7 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateDimensionCommand extends $Command
@@ -93,9 +94,7 @@ export class UpdateDimensionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class UpdateDimensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDimensionCommand)
   .de(de_UpdateDimensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDimensionRequest;
+      output: UpdateDimensionResponse;
+    };
+    sdk: {
+      input: UpdateDimensionCommandInput;
+      output: UpdateDimensionCommandOutput;
+    };
+  };
+}

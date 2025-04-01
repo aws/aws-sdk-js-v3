@@ -77,6 +77,7 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class SetSubscriptionAttributesCommand extends $Command
@@ -87,9 +88,7 @@ export class SetSubscriptionAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class SetSubscriptionAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSubscriptionAttributesCommand)
   .de(de_SetSubscriptionAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSubscriptionAttributesInput;
+      output: {};
+    };
+    sdk: {
+      input: SetSubscriptionAttributesCommandInput;
+      output: SetSubscriptionAttributesCommandOutput;
+    };
+  };
+}

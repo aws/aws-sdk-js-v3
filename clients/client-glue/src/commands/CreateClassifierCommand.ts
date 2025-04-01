@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateClassifierRequest, CreateClassifierResponse } from "../models/models_0";
+import { CreateClassifierRequest, CreateClassifierResponse } from "../models/models_1";
 import { de_CreateClassifierCommand, se_CreateClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -94,6 +94,7 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateClassifierCommand extends $Command
@@ -104,9 +105,7 @@ export class CreateClassifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class CreateClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClassifierCommand)
   .de(de_CreateClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateClassifierCommandInput;
+      output: CreateClassifierCommandOutput;
+    };
+  };
+}

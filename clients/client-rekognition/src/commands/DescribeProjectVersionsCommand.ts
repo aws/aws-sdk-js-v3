@@ -194,112 +194,8 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
- * @example To describe an Amazon Rekognition Custom Labels model
- * ```javascript
- * // Describes a version of an Amazon Rekognition Custom Labels model.
- * const input = {
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690474772815",
- *   "VersionNames": [
- *     "1"
- *   ]
- * };
- * const command = new DescribeProjectVersionsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NextToken": "",
- *   "ProjectVersionDescriptions": [
- *     {
- *       "BillableTrainingTimeInSeconds": 1899,
- *       "CreationTimestamp": "2023-07-28T08:05:51.958000-07:00",
- *       "EvaluationResult": {
- *         "F1Score": 1,
- *         "Summary": {
- *           "S3Object": {
- *             "Bucket": "custom-labels-console-us-east-1-111111111",
- *             "Name": "my-model-output/EvaluationResultSummary-my-project-1.json"
- *           }
- *         }
- *       },
- *       "ManifestSummary": {
- *         "S3Object": {
- *           "Bucket": "custom-labels-console-us-east-1-111111111",
- *           "Name": "my-model-output/ManifestSummary-my-project-1.json"
- *         }
- *       },
- *       "OutputConfig": {
- *         "S3Bucket": "custom-labels-console-us-east-1-111111111",
- *         "S3KeyPrefix": "my-model-output"
- *       },
- *       "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958",
- *       "Status": "TRAINING_COMPLETED",
- *       "StatusMessage": "The model is ready to run.",
- *       "TestingDataResult": {
- *         "Input": {
- *           "AutoCreate": false
- *         },
- *         "Output": {
- *           "Assets": [
- *             {
- *               "GroundTruthManifest": {
- *                 "S3Object": {
- *                   "Bucket": "custom-labels-console-us-east-1-111111111",
- *                   "Name": "my-model-output/TestingGroundTruth-my-project-1.json"
- *                 }
- *               }
- *             }
- *           ],
- *           "AutoCreate": false
- *         },
- *         "Validation": {
- *           "Assets": [
- *             {
- *               "GroundTruthManifest": {
- *                 "S3Object": {
- *                   "Bucket": "custom-labels-console-us-east-1-111111111",
- *                   "Name": "my-model-output/TestingManifestWithValidation-my-project-1.json"
- *                 }
- *               }
- *             }
- *           ]
- *         }
- *       },
- *       "TrainingDataResult": {
- *         "Input": {},
- *         "Output": {
- *           "Assets": [
- *             {
- *               "GroundTruthManifest": {
- *                 "S3Object": {
- *                   "Bucket": "custom-labels-console-us-east-1-111111111",
- *                   "Name": "my-model-output/TrainingGroundTruth-my-project-1.json"
- *                 }
- *               }
- *             }
- *           ]
- *         },
- *         "Validation": {
- *           "Assets": [
- *             {
- *               "GroundTruthManifest": {
- *                 "S3Object": {
- *                   "Bucket": "custom-labels-console-us-east-1-111111111",
- *                   "Name": "my-model-output/TrainingManifestWithValidation-my-project-1.json"
- *                 }
- *               }
- *             }
- *           ]
- *         }
- *       },
- *       "TrainingEndTimestamp": "2023-07-28T08:33:10.827000-07:00"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describes-an-amazon-rekognition-custom-labels-model-1690558265950
- * ```
  *
+ * @public
  */
 export class DescribeProjectVersionsCommand extends $Command
   .classBuilder<
@@ -309,9 +205,7 @@ export class DescribeProjectVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -323,4 +217,16 @@ export class DescribeProjectVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectVersionsCommand)
   .de(de_DescribeProjectVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectVersionsRequest;
+      output: DescribeProjectVersionsResponse;
+    };
+    sdk: {
+      input: DescribeProjectVersionsCommandInput;
+      output: DescribeProjectVersionsCommandOutput;
+    };
+  };
+}

@@ -102,45 +102,45 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To purchase a reserved DB instance
  * ```javascript
  * // The following example shows how to buy the reserved DB instance offering from the previous example.
  * const input = {
- *   "ReservedDBInstanceId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
- *   "ReservedDBInstancesOfferingId": ""
+ *   ReservedDBInstanceId: "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *   ReservedDBInstancesOfferingId: ""
  * };
  * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReservedDBInstance": {
- *     "CurrencyCode": "USD",
- *     "DBInstanceClass": "db.t2.micro",
- *     "DBInstanceCount": 1,
- *     "Duration": 31536000,
- *     "FixedPrice": 51,
- *     "MultiAZ": false,
- *     "OfferingType": "Partial Upfront",
- *     "ProductDescription": "mysql",
- *     "RecurringCharges": [
+ *   ReservedDBInstance: {
+ *     CurrencyCode: "USD",
+ *     DBInstanceClass: "db.t2.micro",
+ *     DBInstanceCount: 1,
+ *     Duration: 31536000,
+ *     FixedPrice: 51,
+ *     MultiAZ: false,
+ *     OfferingType: "Partial Upfront",
+ *     ProductDescription: "mysql",
+ *     RecurringCharges: [
  *       {
- *         "RecurringChargeAmount": 0.006,
- *         "RecurringChargeFrequency": "Hourly"
+ *         RecurringChargeAmount: 0.006,
+ *         RecurringChargeFrequency: "Hourly"
  *       }
  *     ],
- *     "ReservedDBInstanceArn": "arn:aws:rds:us-west-2:123456789012:ri:ri-2020-06-29-16-54-57-670",
- *     "ReservedDBInstanceId": "ri-2020-06-29-16-54-57-670",
- *     "ReservedDBInstancesOfferingId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
- *     "StartTime": "2020-06-29T16:54:57.670Z",
- *     "State": "payment-pending",
- *     "UsagePrice": 0
+ *     ReservedDBInstanceArn: "arn:aws:rds:us-west-2:123456789012:ri:ri-2020-06-29-16-54-57-670",
+ *     ReservedDBInstanceId: "ri-2020-06-29-16-54-57-670",
+ *     ReservedDBInstancesOfferingId: "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *     StartTime: "2020-06-29T16:54:57.670Z",
+ *     State: "payment-pending",
+ *     UsagePrice: 0
  *   }
  * }
  * *\/
- * // example id: to-purchase-a-reserved-db-instance-1680263732858
  * ```
  *
+ * @public
  */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command
   .classBuilder<
@@ -150,9 +150,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +162,16 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseReservedDBInstancesOfferingCommand)
   .de(de_PurchaseReservedDBInstancesOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseReservedDBInstancesOfferingMessage;
+      output: PurchaseReservedDBInstancesOfferingResult;
+    };
+    sdk: {
+      input: PurchaseReservedDBInstancesOfferingCommandInput;
+      output: PurchaseReservedDBInstancesOfferingCommandOutput;
+    };
+  };
+}

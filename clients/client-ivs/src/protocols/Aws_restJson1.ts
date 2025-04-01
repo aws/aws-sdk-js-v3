@@ -113,6 +113,7 @@ import {
   ConflictException,
   DestinationConfiguration,
   InternalServerException,
+  MultitrackInputConfiguration,
   PendingVerification,
   RenditionConfiguration,
   RenditionConfigurationRendition,
@@ -213,8 +214,10 @@ export const se_CreateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       authorized: [],
+      containerFormat: [],
       insecureIngest: [],
       latencyMode: [],
+      multitrackInputConfiguration: (_) => _json(_),
       name: [],
       playbackRestrictionPolicyArn: [],
       preset: [],
@@ -879,10 +882,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -906,8 +906,10 @@ export const se_UpdateChannelCommand = async (
     take(input, {
       arn: [],
       authorized: [],
+      containerFormat: [],
       insecureIngest: [],
       latencyMode: [],
+      multitrackInputConfiguration: (_) => _json(_),
       name: [],
       playbackRestrictionPolicyArn: [],
       preset: [],
@@ -1894,6 +1896,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DestinationConfiguration omitted.
 
+// se_MultitrackInputConfiguration omitted.
+
 // se_PlaybackRestrictionPolicyAllowedCountryList omitted.
 
 // se_PlaybackRestrictionPolicyAllowedOriginList omitted.
@@ -1916,6 +1920,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AudioConfiguration omitted.
 
+// de_AudioConfigurationList omitted.
+
 // de_BatchError omitted.
 
 // de_BatchErrors omitted.
@@ -1935,6 +1941,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_DestinationConfiguration omitted.
 
 // de_IngestConfiguration omitted.
+
+// de_IngestConfigurations omitted.
+
+// de_MultitrackInputConfiguration omitted.
 
 // de_PlaybackKeyPair omitted.
 
@@ -1986,6 +1996,7 @@ const de__Stream = (output: any, context: __SerdeContext): _Stream => {
  */
 const de_StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
   return take(output, {
+    code: __expectString,
     eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     type: __expectString,
@@ -2032,6 +2043,7 @@ const de_StreamSession = (output: any, context: __SerdeContext): StreamSession =
     channel: _json,
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ingestConfiguration: _json,
+    ingestConfigurations: _json,
     recordingConfiguration: _json,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     streamId: __expectString,
@@ -2085,6 +2097,8 @@ const de_StreamSummary = (output: any, context: __SerdeContext): StreamSummary =
 
 // de_VideoConfiguration omitted.
 
+// de_VideoConfigurationList omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -2096,12 +2110,5 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _tK = "tagKeys";

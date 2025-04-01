@@ -76,6 +76,7 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListUserPoliciesCommand extends $Command
@@ -86,9 +87,7 @@ export class ListUserPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListUserPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserPoliciesCommand)
   .de(de_ListUserPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserPoliciesRequest;
+      output: ListUserPoliciesResponse;
+    };
+    sdk: {
+      input: ListUserPoliciesCommandInput;
+      output: ListUserPoliciesCommandOutput;
+    };
+  };
+}

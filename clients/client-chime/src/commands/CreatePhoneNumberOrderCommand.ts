@@ -100,6 +100,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class CreatePhoneNumberOrderCommand extends $Command
@@ -110,9 +111,7 @@ export class CreatePhoneNumberOrderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class CreatePhoneNumberOrderCommand extends $Command
   .f(CreatePhoneNumberOrderRequestFilterSensitiveLog, CreatePhoneNumberOrderResponseFilterSensitiveLog)
   .ser(se_CreatePhoneNumberOrderCommand)
   .de(de_CreatePhoneNumberOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePhoneNumberOrderRequest;
+      output: CreatePhoneNumberOrderResponse;
+    };
+    sdk: {
+      input: CreatePhoneNumberOrderCommandInput;
+      output: CreatePhoneNumberOrderCommandOutput;
+    };
+  };
+}

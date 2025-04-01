@@ -81,6 +81,7 @@ export interface DeleteCustomDomainAssociationCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomDomainAssociationCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteCustomDomainAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteCustomDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomDomainAssociationCommand)
   .de(de_DeleteCustomDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomDomainAssociationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomDomainAssociationCommandInput;
+      output: DeleteCustomDomainAssociationCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface StopInputDeviceCommandOutput extends StopInputDeviceResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StopInputDeviceCommand extends $Command
@@ -87,9 +88,7 @@ export class StopInputDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class StopInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopInputDeviceCommand)
   .de(de_StopInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopInputDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopInputDeviceCommandInput;
+      output: StopInputDeviceCommandOutput;
+    };
+  };
+}

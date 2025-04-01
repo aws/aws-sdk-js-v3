@@ -69,6 +69,7 @@ export interface DeregisterAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class DeregisterAdminCommand extends $Command
@@ -79,9 +80,7 @@ export class DeregisterAdminCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeregisterAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterAdminCommand)
   .de(de_DeregisterAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterAdminInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterAdminCommandInput;
+      output: DeregisterAdminCommandOutput;
+    };
+  };
+}

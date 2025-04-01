@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CancelExportTaskCommand,
+  CancelExportTaskCommandInput,
+  CancelExportTaskCommandOutput,
+} from "./commands/CancelExportTaskCommand";
+import {
   CancelImportTaskCommand,
   CancelImportTaskCommandInput,
   CancelImportTaskCommandOutput,
@@ -40,6 +45,11 @@ import {
   ExecuteQueryCommandInput,
   ExecuteQueryCommandOutput,
 } from "./commands/ExecuteQueryCommand";
+import {
+  GetExportTaskCommand,
+  GetExportTaskCommandInput,
+  GetExportTaskCommandOutput,
+} from "./commands/GetExportTaskCommand";
 import { GetGraphCommand, GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
 import {
   GetGraphSnapshotCommand,
@@ -62,6 +72,11 @@ import {
   GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
 import { GetQueryCommand, GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
+import {
+  ListExportTasksCommand,
+  ListExportTasksCommandInput,
+  ListExportTasksCommandOutput,
+} from "./commands/ListExportTasksCommand";
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
   ListGraphSnapshotsCommand,
@@ -91,6 +106,11 @@ import {
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
 import {
+  StartExportTaskCommand,
+  StartExportTaskCommandInput,
+  StartExportTaskCommandOutput,
+} from "./commands/StartExportTaskCommand";
+import {
   StartImportTaskCommand,
   StartImportTaskCommandInput,
   StartImportTaskCommandOutput,
@@ -105,6 +125,7 @@ import { UpdateGraphCommand, UpdateGraphCommandInput, UpdateGraphCommandOutput }
 import { NeptuneGraphClient, NeptuneGraphClientConfig } from "./NeptuneGraphClient";
 
 const commands = {
+  CancelExportTaskCommand,
   CancelImportTaskCommand,
   CancelQueryCommand,
   CreateGraphCommand,
@@ -115,12 +136,14 @@ const commands = {
   DeleteGraphSnapshotCommand,
   DeletePrivateGraphEndpointCommand,
   ExecuteQueryCommand,
+  GetExportTaskCommand,
   GetGraphCommand,
   GetGraphSnapshotCommand,
   GetGraphSummaryCommand,
   GetImportTaskCommand,
   GetPrivateGraphEndpointCommand,
   GetQueryCommand,
+  ListExportTasksCommand,
   ListGraphsCommand,
   ListGraphSnapshotsCommand,
   ListImportTasksCommand,
@@ -129,6 +152,7 @@ const commands = {
   ListTagsForResourceCommand,
   ResetGraphCommand,
   RestoreGraphFromSnapshotCommand,
+  StartExportTaskCommand,
   StartImportTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -136,6 +160,23 @@ const commands = {
 };
 
 export interface NeptuneGraph {
+  /**
+   * @see {@link CancelExportTaskCommand}
+   */
+  cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelExportTaskCommandOutput>;
+  cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+  cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelImportTaskCommand}
    */
@@ -283,6 +324,17 @@ export interface NeptuneGraph {
   ): void;
 
   /**
+   * @see {@link GetExportTaskCommand}
+   */
+  getExportTask(args: GetExportTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetExportTaskCommandOutput>;
+  getExportTask(args: GetExportTaskCommandInput, cb: (err: any, data?: GetExportTaskCommandOutput) => void): void;
+  getExportTask(
+    args: GetExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExportTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGraphCommand}
    */
   getGraph(args: GetGraphCommandInput, options?: __HttpHandlerOptions): Promise<GetGraphCommandOutput>;
@@ -361,6 +413,21 @@ export interface NeptuneGraph {
     args: GetQueryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExportTasksCommand}
+   */
+  listExportTasks(): Promise<ListExportTasksCommandOutput>;
+  listExportTasks(
+    args: ListExportTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportTasksCommandOutput>;
+  listExportTasks(args: ListExportTasksCommandInput, cb: (err: any, data?: ListExportTasksCommandOutput) => void): void;
+  listExportTasks(
+    args: ListExportTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportTasksCommandOutput) => void
   ): void;
 
   /**
@@ -479,6 +546,20 @@ export interface NeptuneGraph {
     args: RestoreGraphFromSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestoreGraphFromSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartExportTaskCommand}
+   */
+  startExportTask(
+    args: StartExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExportTaskCommandOutput>;
+  startExportTask(args: StartExportTaskCommandInput, cb: (err: any, data?: StartExportTaskCommandOutput) => void): void;
+  startExportTask(
+    args: StartExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
   ): void;
 
   /**

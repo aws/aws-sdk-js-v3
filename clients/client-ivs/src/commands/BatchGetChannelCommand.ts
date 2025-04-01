@@ -67,6 +67,12 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //         passphrase: "STRING_VALUE",
  * //       },
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //       multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //         enabled: true || false,
+ * //         policy: "ALLOW" || "REQUIRE",
+ * //         maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //       },
+ * //       containerFormat: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors
@@ -89,6 +95,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class BatchGetChannelCommand extends $Command
@@ -99,9 +106,7 @@ export class BatchGetChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +118,16 @@ export class BatchGetChannelCommand extends $Command
   .f(void 0, BatchGetChannelResponseFilterSensitiveLog)
   .ser(se_BatchGetChannelCommand)
   .de(de_BatchGetChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetChannelRequest;
+      output: BatchGetChannelResponse;
+    };
+    sdk: {
+      input: BatchGetChannelCommandInput;
+      output: BatchGetChannelCommandOutput;
+    };
+  };
+}

@@ -16,6 +16,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -31,20 +32,29 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AcceptDataGrantCommandInput, AcceptDataGrantCommandOutput } from "../commands/AcceptDataGrantCommand";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
+import { CreateDataGrantCommandInput, CreateDataGrantCommandOutput } from "../commands/CreateDataGrantCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
 import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "../commands/CreateEventActionCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "../commands/CreateRevisionCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
+import { DeleteDataGrantCommandInput, DeleteDataGrantCommandOutput } from "../commands/DeleteDataGrantCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
 import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "../commands/DeleteEventActionCommand";
 import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "../commands/DeleteRevisionCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
+import { GetDataGrantCommandInput, GetDataGrantCommandOutput } from "../commands/GetDataGrantCommand";
 import { GetDataSetCommandInput, GetDataSetCommandOutput } from "../commands/GetDataSetCommand";
 import { GetEventActionCommandInput, GetEventActionCommandOutput } from "../commands/GetEventActionCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
+import {
+  GetReceivedDataGrantCommandInput,
+  GetReceivedDataGrantCommandOutput,
+} from "../commands/GetReceivedDataGrantCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "../commands/GetRevisionCommand";
+import { ListDataGrantsCommandInput, ListDataGrantsCommandOutput } from "../commands/ListDataGrantsCommand";
 import {
   ListDataSetRevisionsCommandInput,
   ListDataSetRevisionsCommandOutput,
@@ -52,6 +62,10 @@ import {
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "../commands/ListDataSetsCommand";
 import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "../commands/ListEventActionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
+import {
+  ListReceivedDataGrantsCommandInput,
+  ListReceivedDataGrantsCommandOutput,
+} from "../commands/ListReceivedDataGrantsCommand";
 import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "../commands/ListRevisionAssetsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -85,6 +99,7 @@ import {
   CreateS3DataAccessFromS3BucketRequestDetails,
   DatabaseLFTagPolicyAndPermissions,
   DatabaseLFTagPolicyPermission,
+  DataGrantSummaryEntry,
   DataSetEntry,
   DataUpdateRequestDetails,
   DeprecationRequestDetails,
@@ -109,6 +124,7 @@ import {
   LakeFormationTagPolicyDetails,
   LFTag,
   NotificationDetails,
+  ReceivedDataGrantSummariesEntry,
   RedshiftDataShareAssetSourceEntry,
   RedshiftDataShareDetails,
   RequestDetails,
@@ -131,6 +147,22 @@ import {
 } from "../models/models_0";
 
 /**
+ * serializeAws_restJson1AcceptDataGrantCommand
+ */
+export const se_AcceptDataGrantCommand = async (
+  input: AcceptDataGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/data-grants/{DataGrantArn}/accept");
+  b.p("DataGrantArn", () => input.DataGrantArn!, "{DataGrantArn}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CancelJobCommand
  */
 export const se_CancelJobCommand = async (
@@ -143,6 +175,34 @@ export const se_CancelJobCommand = async (
   b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataGrantCommand
+ */
+export const se_CreateDataGrantCommand = async (
+  input: CreateDataGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/data-grants");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      EndsAt: (_) => __serializeDateTime(_),
+      GrantDistributionScope: [],
+      Name: [],
+      ReceiverPrincipal: [],
+      SourceDataSetId: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -260,6 +320,22 @@ export const se_DeleteAssetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteDataGrantCommand
+ */
+export const se_DeleteDataGrantCommand = async (
+  input: DeleteDataGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/data-grants/{DataGrantId}");
+  b.p("DataGrantId", () => input.DataGrantId!, "{DataGrantId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDataSetCommand
  */
 export const se_DeleteDataSetCommand = async (
@@ -327,6 +403,22 @@ export const se_GetAssetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataGrantCommand
+ */
+export const se_GetDataGrantCommand = async (
+  input: GetDataGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/data-grants/{DataGrantId}");
+  b.p("DataGrantId", () => input.DataGrantId!, "{DataGrantId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDataSetCommand
  */
 export const se_GetDataSetCommand = async (
@@ -372,6 +464,22 @@ export const se_GetJobCommand = async (input: GetJobCommandInput, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1GetReceivedDataGrantCommand
+ */
+export const se_GetReceivedDataGrantCommand = async (
+  input: GetReceivedDataGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/received-data-grants/{DataGrantArn}");
+  b.p("DataGrantArn", () => input.DataGrantArn!, "{DataGrantArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetRevisionCommand
  */
 export const se_GetRevisionCommand = async (
@@ -385,6 +493,25 @@ export const se_GetRevisionCommand = async (
   b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataGrantsCommand
+ */
+export const se_ListDataGrantsCommand = async (
+  input: ListDataGrantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/data-grants");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -463,6 +590,26 @@ export const se_ListJobsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
     [_rI]: [, input[_RI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListReceivedDataGrantsCommand
+ */
+export const se_ListReceivedDataGrantsCommand = async (
+  input: ListReceivedDataGrantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/received-data-grants");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_aS]: [() => input.AcceptanceState !== void 0, () => input[_AS]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -649,10 +796,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -757,6 +901,39 @@ export const se_UpdateRevisionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AcceptDataGrantCommand
+ */
+export const de_AcceptDataGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptDataGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Description: __expectString,
+    EndsAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GrantDistributionScope: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelJobCommand
  */
 export const de_CancelJobCommand = async (
@@ -770,6 +947,41 @@ export const de_CancelJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataGrantCommand
+ */
+export const de_CreateDataGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataGrantCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Description: __expectString,
+    EndsAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GrantDistributionScope: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    SourceDataSetId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -908,6 +1120,23 @@ export const de_DeleteAssetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDataGrantCommand
+ */
+export const de_DeleteDataGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataGrantCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataSetCommand
  */
 export const de_DeleteDataSetCommand = async (
@@ -982,6 +1211,41 @@ export const de_GetAssetCommand = async (
     Name: __expectString,
     RevisionId: __expectString,
     SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataGrantCommand
+ */
+export const de_GetDataGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Description: __expectString,
+    EndsAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GrantDistributionScope: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    SourceDataSetId: __expectString,
+    Tags: _json,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
@@ -1074,6 +1338,39 @@ export const de_GetJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetReceivedDataGrantCommand
+ */
+export const de_GetReceivedDataGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReceivedDataGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Description: __expectString,
+    EndsAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GrantDistributionScope: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetRevisionCommand
  */
 export const de_GetRevisionCommand = async (
@@ -1100,6 +1397,28 @@ export const de_GetRevisionCommand = async (
     SourceId: __expectString,
     Tags: _json,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataGrantsCommand
+ */
+export const de_ListDataGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataGrantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataGrantSummaries: (_) => de_ListOfDataGrantSummaryEntry(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1187,6 +1506,28 @@ export const de_ListJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Jobs: (_) => de_ListOfJobEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReceivedDataGrantsCommand
+ */
+export const de_ListReceivedDataGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedDataGrantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataGrantSummaries: (_) => de_ListOfReceivedDataGrantSummariesEntry(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1489,6 +1830,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.dataexchange#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1504,9 +1848,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.dataexchange#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.dataexchange#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.dataexchange#ServiceLimitExceededException":
       throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
@@ -1853,6 +2194,26 @@ const de_AssetEntry = (output: any, context: __SerdeContext): AssetEntry => {
 // de_DatabaseLFTagPolicyAndPermissions omitted.
 
 /**
+ * deserializeAws_restJson1DataGrantSummaryEntry
+ */
+const de_DataGrantSummaryEntry = (output: any, context: __SerdeContext): DataGrantSummaryEntry => {
+  return take(output, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    EndsAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    SourceDataSetId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DataSetEntry
  */
 const de_DataSetEntry = (output: any, context: __SerdeContext): DataSetEntry => {
@@ -2021,6 +2382,18 @@ const de_ListOfAssetEntry = (output: any, context: __SerdeContext): AssetEntry[]
 // de_ListOfDatabaseLFTagPolicyPermissions omitted.
 
 /**
+ * deserializeAws_restJson1ListOfDataGrantSummaryEntry
+ */
+const de_ListOfDataGrantSummaryEntry = (output: any, context: __SerdeContext): DataGrantSummaryEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataGrantSummaryEntry(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ListOfDataSetEntry
  */
 const de_ListOfDataSetEntry = (output: any, context: __SerdeContext): DataSetEntry[] => {
@@ -2076,6 +2449,21 @@ const de_ListOfJobError = (output: any, context: __SerdeContext): JobError[] => 
 
 // de_ListOfLFTagValues omitted.
 
+/**
+ * deserializeAws_restJson1ListOfReceivedDataGrantSummariesEntry
+ */
+const de_ListOfReceivedDataGrantSummariesEntry = (
+  output: any,
+  context: __SerdeContext
+): ReceivedDataGrantSummariesEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReceivedDataGrantSummariesEntry(entry, context);
+    });
+  return retVal;
+};
+
 // de_ListOfRedshiftDataShareAssetSourceEntry omitted.
 
 // de_ListOfRevisionDestinationEntry omitted.
@@ -2097,6 +2485,25 @@ const de_ListOfRevisionEntry = (output: any, context: __SerdeContext): RevisionE
 // de_MapOf__string omitted.
 
 // de_OriginDetails omitted.
+
+/**
+ * deserializeAws_restJson1ReceivedDataGrantSummariesEntry
+ */
+const de_ReceivedDataGrantSummariesEntry = (output: any, context: __SerdeContext): ReceivedDataGrantSummariesEntry => {
+  return take(output, {
+    AcceptanceState: __expectString,
+    AcceptedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    EndsAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+    Name: __expectString,
+    ReceiverPrincipal: __expectString,
+    SenderPrincipal: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
 
 // de_RedshiftDataShareAsset omitted.
 
@@ -2171,14 +2578,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _AI = "AssetId";
+const _AS = "AcceptanceState";
 const _DSI = "DataSetId";
 const _ESI = "EventSourceId";
 const _M = "Method";
@@ -2188,6 +2589,7 @@ const _O = "Origin";
 const _P = "Path";
 const _RI = "RevisionId";
 const _TK = "TagKeys";
+const _aS = "acceptanceState";
 const _dSI = "dataSetId";
 const _eSI = "eventSourceId";
 const _mR = "maxResults";

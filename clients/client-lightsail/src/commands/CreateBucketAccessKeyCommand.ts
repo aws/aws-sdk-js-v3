@@ -36,7 +36,7 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  *       an access key ID and corresponding secret access key.</p>
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
  *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">GetBucketAccessKeys</a> action to get a list of current access keys for a specific bucket. For more
- *       information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
+ *       information about access keys, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  *          <important>
  *             <p>The <code>secretAccessKey</code> value is returned only in response to the
@@ -122,6 +122,7 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateBucketAccessKeyCommand extends $Command
@@ -132,9 +133,7 @@ export class CreateBucketAccessKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class CreateBucketAccessKeyCommand extends $Command
   .f(void 0, CreateBucketAccessKeyResultFilterSensitiveLog)
   .ser(se_CreateBucketAccessKeyCommand)
   .de(de_CreateBucketAccessKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBucketAccessKeyRequest;
+      output: CreateBucketAccessKeyResult;
+    };
+    sdk: {
+      input: CreateBucketAccessKeyCommandInput;
+      output: CreateBucketAccessKeyCommandOutput;
+    };
+  };
+}

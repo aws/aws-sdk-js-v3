@@ -74,6 +74,7 @@ export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteAttachedFileCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteAttachedFileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteAttachedFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAttachedFileCommand)
   .de(de_DeleteAttachedFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAttachedFileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAttachedFileCommandInput;
+      output: DeleteAttachedFileCommandOutput;
+    };
+  };
+}

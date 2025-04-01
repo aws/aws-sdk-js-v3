@@ -143,59 +143,8 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
- * @example Get export job
- * ```javascript
- * // Gets the export job with ID ef28cf62-9d8e-4b60-9283-b09816c99a99
- * const input = {
- *   "JobId": "ef28cf62-9d8e-4b60-9283-b09816c99a99"
- * };
- * const command = new GetExportJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreatedTimestamp": "1685700961057",
- *   "ExportDataSource": {
- *     "MetricsDataSource": {
- *       "Dimensions": {
- *         "ISP": [
- *           "*"
- *         ]
- *       },
- *       "EndDate": "1675209600000",
- *       "Metrics": [
- *         {
- *           "Aggregation": "VOLUME",
- *           "Name": "SEND"
- *         },
- *         {
- *           "Aggregation": "VOLUME",
- *           "Name": "COMPLAINT"
- *         },
- *         {
- *           "Aggregation": "RATE",
- *           "Name": "COMPLAINT"
- *         }
- *       ],
- *       "Namespace": "VDM",
- *       "StartDate": "1672531200000"
- *     }
- *   },
- *   "ExportDestination": {
- *     "DataFormat": "CSV"
- *   },
- *   "ExportSourceType": "METRICS_DATA",
- *   "JobId": "ef28cf62-9d8e-4b60-9283-b09816c99a99",
- *   "JobStatus": "PROCESSING",
- *   "Statistics": {
- *     "ExportedRecordsCount": 5,
- *     "ProcessedRecordsCount": 5
- *   }
- * }
- * *\/
- * // example id: get-export-job-1685699942772
- * ```
  *
+ * @public
  */
 export class GetExportJobCommand extends $Command
   .classBuilder<
@@ -205,9 +154,7 @@ export class GetExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -219,4 +166,16 @@ export class GetExportJobCommand extends $Command
   .f(void 0, GetExportJobResponseFilterSensitiveLog)
   .ser(se_GetExportJobCommand)
   .de(de_GetExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExportJobRequest;
+      output: GetExportJobResponse;
+    };
+    sdk: {
+      input: GetExportJobCommandInput;
+      output: GetExportJobCommandOutput;
+    };
+  };
+}

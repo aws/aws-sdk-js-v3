@@ -59,9 +59,12 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //         },
  * //       ],
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST" || "CUSTOM",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //       ],
- * //       analysisMethod: "STRING_VALUE",
+ * //       analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE",
+ * //       selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //         "DIRECT_QUERY" || "DIRECT_JOB",
+ * //       ],
  * //       creatorAccountId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       collaborationId: "STRING_VALUE", // required
@@ -69,22 +72,33 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //       description: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
- * //       type: "TABLE", // required
+ * //       type: "TABLE" || "ID_MAPPING_TABLE", // required
  * //       schemaStatusDetails: [ // SchemaStatusDetailList // required
  * //         { // SchemaStatusDetail
  * //           status: "READY" || "NOT_READY", // required
  * //           reasons: [ // SchemaStatusReasonList
  * //             { // SchemaStatusReason
- * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED", // required
+ * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED" || "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_CONFIGURED" || "RESULT_RECEIVERS_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_ALLOWED" || "RESULT_RECEIVERS_NOT_ALLOWED" || "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE", // required
  * //               message: "STRING_VALUE", // required
  * //             },
  * //           ],
- * //           analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM",
+ * //           analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //           configurations: [ // SchemaConfigurationList
  * //             "DIFFERENTIAL_PRIVACY",
  * //           ],
+ * //           analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
  * //         },
  * //       ],
+ * //       schemaTypeProperties: { // SchemaTypeProperties Union: only one key present
+ * //         idMappingTable: { // IdMappingTableSchemaTypeProperties
+ * //           idMappingTableInputSource: [ // IdMappingTableInputSourceList // required
+ * //             { // IdMappingTableInputSource
+ * //               idNamespaceAssociationId: "STRING_VALUE", // required
+ * //               type: "SOURCE" || "TARGET", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // BatchGetSchemaErrorList // required
@@ -122,6 +136,7 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class BatchGetSchemaCommand extends $Command
@@ -132,9 +147,7 @@ export class BatchGetSchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +159,16 @@ export class BatchGetSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetSchemaCommand)
   .de(de_BatchGetSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetSchemaInput;
+      output: BatchGetSchemaOutput;
+    };
+    sdk: {
+      input: BatchGetSchemaCommandInput;
+      output: BatchGetSchemaCommandOutput;
+    };
+  };
+}

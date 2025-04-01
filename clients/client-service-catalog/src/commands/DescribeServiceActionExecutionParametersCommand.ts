@@ -80,6 +80,7 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command
@@ -90,9 +91,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceActionExecutionParametersCommand)
   .de(de_DescribeServiceActionExecutionParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceActionExecutionParametersInput;
+      output: DescribeServiceActionExecutionParametersOutput;
+    };
+    sdk: {
+      input: DescribeServiceActionExecutionParametersCommandInput;
+      output: DescribeServiceActionExecutionParametersCommandOutput;
+    };
+  };
+}

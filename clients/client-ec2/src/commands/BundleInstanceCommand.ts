@@ -34,9 +34,11 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
 
 /**
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
- *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
+ *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance
+ *       store volumes is not preserved.</p>
  *          <note>
- *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
+ *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are
+ *         backed by Amazon EBS.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,15 +63,11 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * const response = await client.send(command);
  * // { // BundleInstanceResult
  * //   BundleTask: { // BundleTask
- * //     BundleId: "STRING_VALUE",
- * //     BundleTaskError: { // BundleTaskError
- * //       Code: "STRING_VALUE",
- * //       Message: "STRING_VALUE",
- * //     },
  * //     InstanceId: "STRING_VALUE",
- * //     Progress: "STRING_VALUE",
- * //     StartTime: new Date("TIMESTAMP"),
+ * //     BundleId: "STRING_VALUE",
  * //     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     UpdateTime: new Date("TIMESTAMP"),
  * //     Storage: { // Storage
  * //       S3: { // S3Storage
  * //         AWSAccessKeyId: "STRING_VALUE",
@@ -79,7 +77,11 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * //         UploadPolicySignature: "STRING_VALUE",
  * //       },
  * //     },
- * //     UpdateTime: new Date("TIMESTAMP"),
+ * //     Progress: "STRING_VALUE",
+ * //     BundleTaskError: { // BundleTaskError
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -94,6 +96,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class BundleInstanceCommand extends $Command
@@ -104,9 +107,7 @@ export class BundleInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +119,16 @@ export class BundleInstanceCommand extends $Command
   .f(BundleInstanceRequestFilterSensitiveLog, BundleInstanceResultFilterSensitiveLog)
   .ser(se_BundleInstanceCommand)
   .de(de_BundleInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BundleInstanceRequest;
+      output: BundleInstanceResult;
+    };
+    sdk: {
+      input: BundleInstanceCommandInput;
+      output: BundleInstanceCommandOutput;
+    };
+  };
+}

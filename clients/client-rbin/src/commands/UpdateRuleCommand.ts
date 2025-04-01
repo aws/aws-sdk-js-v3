@@ -52,6 +52,12 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *       ResourceTagValue: "STRING_VALUE",
  *     },
  *   ],
+ *   ExcludeResourceTags: [ // ExcludeResourceTags
+ *     {
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
@@ -73,6 +79,12 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   LockEndTime: new Date("TIMESTAMP"),
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -101,6 +113,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleCommand extends $Command
@@ -111,9 +124,7 @@ export class UpdateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +136,16 @@ export class UpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleCommand)
   .de(de_UpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleRequest;
+      output: UpdateRuleResponse;
+    };
+    sdk: {
+      input: UpdateRuleCommandInput;
+      output: UpdateRuleCommandOutput;
+    };
+  };
+}

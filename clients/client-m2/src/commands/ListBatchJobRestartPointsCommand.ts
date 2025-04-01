@@ -28,7 +28,7 @@ export interface ListBatchJobRestartPointsCommandInput extends ListBatchJobResta
 export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRestartPointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the job steps for JCL files to restart a batch job. This is only applicable for Micro Focus engine with versions 8.0.6 and above.</p>
+ * <p>Lists all the job steps for a JCL file to restart a batch job. This is only applicable for Micro Focus engine with versions 8.0.6 and above.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,7 @@ export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRest
  * const input = { // ListBatchJobRestartPointsRequest
  *   applicationId: "STRING_VALUE", // required
  *   executionId: "STRING_VALUE", // required
+ *   authSecretsManagerArn: "STRING_VALUE",
  * };
  * const command = new ListBatchJobRestartPointsCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRest
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class ListBatchJobRestartPointsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListBatchJobRestartPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListBatchJobRestartPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBatchJobRestartPointsCommand)
   .de(de_ListBatchJobRestartPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBatchJobRestartPointsRequest;
+      output: ListBatchJobRestartPointsResponse;
+    };
+    sdk: {
+      input: ListBatchJobRestartPointsCommandInput;
+      output: ListBatchJobRestartPointsCommandOutput;
+    };
+  };
+}

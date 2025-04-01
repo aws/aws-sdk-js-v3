@@ -56,6 +56,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * //           DomainNameStatusMessage: "STRING_VALUE",
  * //           EndpointType: "REGIONAL" || "EDGE",
  * //           HostedZoneId: "STRING_VALUE",
+ * //           IpAddressType: "ipv4" || "dualstack",
  * //           SecurityPolicy: "TLS_1_0" || "TLS_1_2",
  * //           OwnershipVerificationCertificateArn: "STRING_VALUE",
  * //         },
@@ -95,6 +96,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNamesCommand extends $Command
@@ -105,9 +107,7 @@ export class GetDomainNamesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class GetDomainNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainNamesCommand)
   .de(de_GetDomainNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainNamesRequest;
+      output: GetDomainNamesResponse;
+    };
+    sdk: {
+      input: GetDomainNamesCommandInput;
+      output: GetDomainNamesCommandOutput;
+    };
+  };
+}

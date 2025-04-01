@@ -105,6 +105,7 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class GetAppValidationOutputCommand extends $Command
@@ -115,9 +116,7 @@ export class GetAppValidationOutputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class GetAppValidationOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppValidationOutputCommand)
   .de(de_GetAppValidationOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppValidationOutputRequest;
+      output: GetAppValidationOutputResponse;
+    };
+    sdk: {
+      input: GetAppValidationOutputCommandInput;
+      output: GetAppValidationOutputCommandOutput;
+    };
+  };
+}

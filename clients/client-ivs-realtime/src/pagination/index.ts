@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListCompositionsPaginator";
 export * from "./ListEncoderConfigurationsPaginator";
+export * from "./ListIngestConfigurationsPaginator";
 export * from "./ListParticipantEventsPaginator";
 export * from "./ListParticipantsPaginator";
 export * from "./ListPublicKeysPaginator";

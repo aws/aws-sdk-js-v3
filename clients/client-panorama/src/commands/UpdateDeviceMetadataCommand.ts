@@ -71,6 +71,7 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeviceMetadataCommand extends $Command
@@ -81,9 +82,7 @@ export class UpdateDeviceMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class UpdateDeviceMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeviceMetadataCommand)
   .de(de_UpdateDeviceMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceMetadataRequest;
+      output: UpdateDeviceMetadataResponse;
+    };
+    sdk: {
+      input: UpdateDeviceMetadataCommandInput;
+      output: UpdateDeviceMetadataCommandOutput;
+    };
+  };
+}

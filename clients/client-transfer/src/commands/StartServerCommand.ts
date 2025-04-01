@@ -75,6 +75,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class StartServerCommand extends $Command
@@ -85,9 +86,7 @@ export class StartServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StartServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartServerCommand)
   .de(de_StartServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartServerCommandInput;
+      output: StartServerCommandOutput;
+    };
+  };
+}

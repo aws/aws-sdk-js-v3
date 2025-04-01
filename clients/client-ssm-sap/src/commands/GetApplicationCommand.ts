@@ -56,6 +56,9 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * //     ],
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     StatusMessage: "STRING_VALUE",
+ * //     AssociatedApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -79,6 +82,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command
@@ -89,9 +93,7 @@ export class GetApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +105,16 @@ export class GetApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationCommand)
   .de(de_GetApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationInput;
+      output: GetApplicationOutput;
+    };
+    sdk: {
+      input: GetApplicationCommandInput;
+      output: GetApplicationCommandOutput;
+    };
+  };
+}

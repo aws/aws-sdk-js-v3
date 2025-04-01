@@ -26,7 +26,7 @@ export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeade
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
- * Null and empty headers are not sent over the wire.
+ * Null headers are not sent over the wire, empty headers are serialized to ""
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +61,7 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class NullAndEmptyHeadersClientCommand extends $Command
@@ -79,4 +80,16 @@ export class NullAndEmptyHeadersClientCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NullAndEmptyHeadersClientCommand)
   .de(de_NullAndEmptyHeadersClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NullAndEmptyHeadersIO;
+      output: NullAndEmptyHeadersIO;
+    };
+    sdk: {
+      input: NullAndEmptyHeadersClientCommandInput;
+      output: NullAndEmptyHeadersClientCommandOutput;
+    };
+  };
+}

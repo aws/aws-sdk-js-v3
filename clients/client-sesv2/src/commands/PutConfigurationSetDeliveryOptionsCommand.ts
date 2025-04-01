@@ -48,6 +48,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   TlsPolicy: "REQUIRE" || "OPTIONAL",
  *   SendingPoolName: "STRING_VALUE",
+ *   MaxDeliverySeconds: Number("long"),
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
@@ -73,6 +74,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command
@@ -83,9 +85,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationSetDeliveryOptionsCommand)
   .de(de_PutConfigurationSetDeliveryOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationSetDeliveryOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationSetDeliveryOptionsCommandInput;
+      output: PutConfigurationSetDeliveryOptionsCommandOutput;
+    };
+  };
+}

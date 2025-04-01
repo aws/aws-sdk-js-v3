@@ -81,6 +81,7 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class ListAccessPoliciesCommand extends $Command
@@ -91,9 +92,7 @@ export class ListAccessPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListAccessPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessPoliciesCommand)
   .de(de_ListAccessPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessPoliciesRequest;
+      output: ListAccessPoliciesResponse;
+    };
+    sdk: {
+      input: ListAccessPoliciesCommandInput;
+      output: ListAccessPoliciesCommandOutput;
+    };
+  };
+}

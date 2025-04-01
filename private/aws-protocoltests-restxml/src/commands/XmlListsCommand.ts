@@ -168,6 +168,7 @@ export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlListsCommand extends $Command
@@ -186,4 +187,16 @@ export class XmlListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlListsCommand)
   .de(de_XmlListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlListsRequest;
+      output: XmlListsResponse;
+    };
+    sdk: {
+      input: XmlListsCommandInput;
+      output: XmlListsCommandOutput;
+    };
+  };
+}

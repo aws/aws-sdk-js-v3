@@ -61,6 +61,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class GetAccountConfigurationCommand extends $Command
@@ -71,9 +72,7 @@ export class GetAccountConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class GetAccountConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountConfigurationCommand)
   .de(de_GetAccountConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountConfigurationResponse;
+    };
+    sdk: {
+      input: GetAccountConfigurationCommandInput;
+      output: GetAccountConfigurationCommandOutput;
+    };
+  };
+}

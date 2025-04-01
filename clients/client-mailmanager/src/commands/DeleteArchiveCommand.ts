@@ -69,6 +69,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteArchiveCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArchiveCommand)
   .de(de_DeleteArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArchiveRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteArchiveCommandInput;
+      output: DeleteArchiveCommandOutput;
+    };
+  };
+}

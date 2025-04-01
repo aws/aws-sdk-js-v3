@@ -1,5 +1,5 @@
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { defaultProvider as credentialProvider } from "@aws-sdk/credential-provider-node";
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients/sts";
 
 // Preprocessor needs to be a function
 function createCredentialPreprocessor() {
@@ -14,7 +14,14 @@ function createCredentialPreprocessor() {
     })();
     // This will affect the generated (ES5) JS
     const regionCode = `var defaultRegion = '${region}';`;
-    const credentialsCode = `var credentials = ${JSON.stringify(credentials)};`;
+    let credentialsCode = `var credentials = ${JSON.stringify(credentials)};
+delete credentials.expiration;`;
+
+    if (Number.isInteger(credentials.expiration?.getTime?.())) {
+      credentialsCode += `
+credentials.expiration = new Date(${credentials.expiration!.getTime()});`;
+    }
+
     const isBrowser = `var isBrowser = true;`;
     const contents = content.split("\n");
     let idx = -1;

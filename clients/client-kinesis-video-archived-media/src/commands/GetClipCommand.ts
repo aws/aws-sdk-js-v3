@@ -92,6 +92,11 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * };
  * const command = new GetClipCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Payload.transformToByteArray();
+ * // const str = await response.Payload.transformToString();
+ * // response.Payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetClipOutput
  * //   ContentType: "STRING_VALUE",
  * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -153,6 +158,7 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class GetClipCommand extends $Command
@@ -163,9 +169,7 @@ export class GetClipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +181,16 @@ export class GetClipCommand extends $Command
   .f(void 0, GetClipOutputFilterSensitiveLog)
   .ser(se_GetClipCommand)
   .de(de_GetClipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClipInput;
+      output: GetClipOutput;
+    };
+    sdk: {
+      input: GetClipCommandInput;
+      output: GetClipCommandOutput;
+    };
+  };
+}

@@ -55,6 +55,7 @@ export interface MalformedTimestampQueryDefaultCommandOutput extends __MetadataB
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampQueryDefaultCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedTimestampQueryDefaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampQueryDefaultCommand)
   .de(de_MalformedTimestampQueryDefaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampQueryDefaultInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampQueryDefaultCommandInput;
+      output: MalformedTimestampQueryDefaultCommandOutput;
+    };
+  };
+}

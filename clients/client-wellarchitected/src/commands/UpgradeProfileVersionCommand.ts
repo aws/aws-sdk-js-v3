@@ -77,6 +77,7 @@ export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class UpgradeProfileVersionCommand extends $Command
@@ -87,9 +88,7 @@ export class UpgradeProfileVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class UpgradeProfileVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpgradeProfileVersionCommand)
   .de(de_UpgradeProfileVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpgradeProfileVersionInput;
+      output: {};
+    };
+    sdk: {
+      input: UpgradeProfileVersionCommandInput;
+      output: UpgradeProfileVersionCommandOutput;
+    };
+  };
+}

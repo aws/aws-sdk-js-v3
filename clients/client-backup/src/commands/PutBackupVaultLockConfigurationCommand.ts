@@ -40,10 +40,11 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  *             <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments
  *             that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
  *             how Backup Vault Lock relates to these regulations, see the
- *             <a href="samples/cohassetreport.zip">Cohasset Associates
+ *             <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip">Cohasset Associates
  *                Compliance Assessment.</a>
  *             </p>
  *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html">Backup Vault Lock</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,6 +89,7 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command
@@ -98,9 +100,7 @@ export class PutBackupVaultLockConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class PutBackupVaultLockConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupVaultLockConfigurationCommand)
   .de(de_PutBackupVaultLockConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupVaultLockConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBackupVaultLockConfigurationCommandInput;
+      output: PutBackupVaultLockConfigurationCommandOutput;
+    };
+  };
+}

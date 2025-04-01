@@ -74,6 +74,16 @@ import {
   DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand";
 import {
+  DeleteIndexPolicyCommand,
+  DeleteIndexPolicyCommandInput,
+  DeleteIndexPolicyCommandOutput,
+} from "./commands/DeleteIndexPolicyCommand";
+import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import {
   DeleteLogAnomalyDetectorCommand,
   DeleteLogAnomalyDetectorCommandInput,
   DeleteLogAnomalyDetectorCommandOutput,
@@ -114,10 +124,20 @@ import {
   DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
 import {
+  DeleteTransformerCommand,
+  DeleteTransformerCommandInput,
+  DeleteTransformerCommandOutput,
+} from "./commands/DeleteTransformerCommand";
+import {
   DescribeAccountPoliciesCommand,
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
+import {
+  DescribeConfigurationTemplatesCommand,
+  DescribeConfigurationTemplatesCommandInput,
+  DescribeConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeConfigurationTemplatesCommand";
 import {
   DescribeDeliveriesCommand,
   DescribeDeliveriesCommandInput,
@@ -143,6 +163,16 @@ import {
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
+import {
+  DescribeFieldIndexesCommand,
+  DescribeFieldIndexesCommandInput,
+  DescribeFieldIndexesCommandOutput,
+} from "./commands/DescribeFieldIndexesCommand";
+import {
+  DescribeIndexPoliciesCommand,
+  DescribeIndexPoliciesCommandInput,
+  DescribeIndexPoliciesCommandOutput,
+} from "./commands/DescribeIndexPoliciesCommand";
 import {
   DescribeLogGroupsCommand,
   DescribeLogGroupsCommandInput,
@@ -210,6 +240,11 @@ import {
   GetDeliverySourceCommandOutput,
 } from "./commands/GetDeliverySourceCommand";
 import {
+  GetIntegrationCommand,
+  GetIntegrationCommandInput,
+  GetIntegrationCommandOutput,
+} from "./commands/GetIntegrationCommand";
+import {
   GetLogAnomalyDetectorCommand,
   GetLogAnomalyDetectorCommandInput,
   GetLogAnomalyDetectorCommandOutput,
@@ -235,15 +270,30 @@ import {
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  GetTransformerCommand,
+  GetTransformerCommandInput,
+  GetTransformerCommandOutput,
+} from "./commands/GetTransformerCommand";
+import {
   ListAnomaliesCommand,
   ListAnomaliesCommandInput,
   ListAnomaliesCommandOutput,
 } from "./commands/ListAnomaliesCommand";
 import {
+  ListIntegrationsCommand,
+  ListIntegrationsCommandInput,
+  ListIntegrationsCommandOutput,
+} from "./commands/ListIntegrationsCommand";
+import {
   ListLogAnomalyDetectorsCommand,
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
 } from "./commands/ListLogAnomalyDetectorsCommand";
+import {
+  ListLogGroupsForQueryCommand,
+  ListLogGroupsForQueryCommandInput,
+  ListLogGroupsForQueryCommandOutput,
+} from "./commands/ListLogGroupsForQueryCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -290,6 +340,16 @@ import {
   PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand";
 import {
+  PutIndexPolicyCommand,
+  PutIndexPolicyCommandInput,
+  PutIndexPolicyCommandOutput,
+} from "./commands/PutIndexPolicyCommand";
+import {
+  PutIntegrationCommand,
+  PutIntegrationCommandInput,
+  PutIntegrationCommandOutput,
+} from "./commands/PutIntegrationCommand";
+import {
   PutLogEventsCommand,
   PutLogEventsCommandInput,
   PutLogEventsCommandOutput,
@@ -320,6 +380,11 @@ import {
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
 import {
+  PutTransformerCommand,
+  PutTransformerCommandInput,
+  PutTransformerCommandOutput,
+} from "./commands/PutTransformerCommand";
+import {
   StartLiveTailCommand,
   StartLiveTailCommandInput,
   StartLiveTailCommandOutput,
@@ -333,6 +398,11 @@ import {
   TestMetricFilterCommandInput,
   TestMetricFilterCommandOutput,
 } from "./commands/TestMetricFilterCommand";
+import {
+  TestTransformerCommand,
+  TestTransformerCommandInput,
+  TestTransformerCommandOutput,
+} from "./commands/TestTransformerCommand";
 import {
   UntagLogGroupCommand,
   UntagLogGroupCommandInput,
@@ -348,6 +418,11 @@ import {
   UpdateAnomalyCommandInput,
   UpdateAnomalyCommandOutput,
 } from "./commands/UpdateAnomalyCommand";
+import {
+  UpdateDeliveryConfigurationCommand,
+  UpdateDeliveryConfigurationCommandInput,
+  UpdateDeliveryConfigurationCommandOutput,
+} from "./commands/UpdateDeliveryConfigurationCommand";
 import {
   UpdateLogAnomalyDetectorCommand,
   UpdateLogAnomalyDetectorCommandInput,
@@ -369,6 +444,8 @@ const commands = {
   DeleteDeliveryDestinationPolicyCommand,
   DeleteDeliverySourceCommand,
   DeleteDestinationCommand,
+  DeleteIndexPolicyCommand,
+  DeleteIntegrationCommand,
   DeleteLogAnomalyDetectorCommand,
   DeleteLogGroupCommand,
   DeleteLogStreamCommand,
@@ -377,12 +454,16 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteRetentionPolicyCommand,
   DeleteSubscriptionFilterCommand,
+  DeleteTransformerCommand,
   DescribeAccountPoliciesCommand,
+  DescribeConfigurationTemplatesCommand,
   DescribeDeliveriesCommand,
   DescribeDeliveryDestinationsCommand,
   DescribeDeliverySourcesCommand,
   DescribeDestinationsCommand,
   DescribeExportTasksCommand,
+  DescribeFieldIndexesCommand,
+  DescribeIndexPoliciesCommand,
   DescribeLogGroupsCommand,
   DescribeLogStreamsCommand,
   DescribeMetricFiltersCommand,
@@ -397,13 +478,17 @@ const commands = {
   GetDeliveryDestinationCommand,
   GetDeliveryDestinationPolicyCommand,
   GetDeliverySourceCommand,
+  GetIntegrationCommand,
   GetLogAnomalyDetectorCommand,
   GetLogEventsCommand,
   GetLogGroupFieldsCommand,
   GetLogRecordCommand,
   GetQueryResultsCommand,
+  GetTransformerCommand,
   ListAnomaliesCommand,
+  ListIntegrationsCommand,
   ListLogAnomalyDetectorsCommand,
+  ListLogGroupsForQueryCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
@@ -413,21 +498,26 @@ const commands = {
   PutDeliverySourceCommand,
   PutDestinationCommand,
   PutDestinationPolicyCommand,
+  PutIndexPolicyCommand,
+  PutIntegrationCommand,
   PutLogEventsCommand,
   PutMetricFilterCommand,
   PutQueryDefinitionCommand,
   PutResourcePolicyCommand,
   PutRetentionPolicyCommand,
   PutSubscriptionFilterCommand,
+  PutTransformerCommand,
   StartLiveTailCommand,
   StartQueryCommand,
   StopQueryCommand,
   TagLogGroupCommand,
   TagResourceCommand,
   TestMetricFilterCommand,
+  TestTransformerCommand,
   UntagLogGroupCommand,
   UntagResourceCommand,
   UpdateAnomalyCommand,
+  UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
 };
 
@@ -656,6 +746,40 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link DeleteIndexPolicyCommand}
+   */
+  deleteIndexPolicy(
+    args: DeleteIndexPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIndexPolicyCommandOutput>;
+  deleteIndexPolicy(
+    args: DeleteIndexPolicyCommandInput,
+    cb: (err: any, data?: DeleteIndexPolicyCommandOutput) => void
+  ): void;
+  deleteIndexPolicy(
+    args: DeleteIndexPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIndexPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteLogAnomalyDetectorCommand}
    */
   deleteLogAnomalyDetector(
@@ -787,6 +911,23 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link DeleteTransformerCommand}
+   */
+  deleteTransformer(
+    args: DeleteTransformerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransformerCommandOutput>;
+  deleteTransformer(
+    args: DeleteTransformerCommandInput,
+    cb: (err: any, data?: DeleteTransformerCommandOutput) => void
+  ): void;
+  deleteTransformer(
+    args: DeleteTransformerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransformerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAccountPoliciesCommand}
    */
   describeAccountPolicies(
@@ -801,6 +942,24 @@ export interface CloudWatchLogs {
     args: DescribeAccountPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeConfigurationTemplatesCommand}
+   */
+  describeConfigurationTemplates(): Promise<DescribeConfigurationTemplatesCommandOutput>;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConfigurationTemplatesCommandOutput>;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeConfigurationTemplatesCommandOutput) => void
+  ): void;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConfigurationTemplatesCommandOutput) => void
   ): void;
 
   /**
@@ -891,6 +1050,40 @@ export interface CloudWatchLogs {
     args: DescribeExportTasksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFieldIndexesCommand}
+   */
+  describeFieldIndexes(
+    args: DescribeFieldIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFieldIndexesCommandOutput>;
+  describeFieldIndexes(
+    args: DescribeFieldIndexesCommandInput,
+    cb: (err: any, data?: DescribeFieldIndexesCommandOutput) => void
+  ): void;
+  describeFieldIndexes(
+    args: DescribeFieldIndexesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFieldIndexesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIndexPoliciesCommand}
+   */
+  describeIndexPolicies(
+    args: DescribeIndexPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIndexPoliciesCommandOutput>;
+  describeIndexPolicies(
+    args: DescribeIndexPoliciesCommandInput,
+    cb: (err: any, data?: DescribeIndexPoliciesCommandOutput) => void
+  ): void;
+  describeIndexPolicies(
+    args: DescribeIndexPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIndexPoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -1128,6 +1321,20 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetIntegrationCommand}
+   */
+  getIntegration(
+    args: GetIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntegrationCommandOutput>;
+  getIntegration(args: GetIntegrationCommandInput, cb: (err: any, data?: GetIntegrationCommandOutput) => void): void;
+  getIntegration(
+    args: GetIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLogAnomalyDetectorCommand}
    */
   getLogAnomalyDetector(
@@ -1199,6 +1406,20 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetTransformerCommand}
+   */
+  getTransformer(
+    args: GetTransformerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransformerCommandOutput>;
+  getTransformer(args: GetTransformerCommandInput, cb: (err: any, data?: GetTransformerCommandOutput) => void): void;
+  getTransformer(
+    args: GetTransformerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransformerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAnomaliesCommand}
    */
   listAnomalies(): Promise<ListAnomaliesCommandOutput>;
@@ -1208,6 +1429,24 @@ export interface CloudWatchLogs {
     args: ListAnomaliesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomaliesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntegrationsCommand}
+   */
+  listIntegrations(): Promise<ListIntegrationsCommandOutput>;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntegrationsCommandOutput>;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    cb: (err: any, data?: ListIntegrationsCommandOutput) => void
+  ): void;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntegrationsCommandOutput) => void
   ): void;
 
   /**
@@ -1226,6 +1465,23 @@ export interface CloudWatchLogs {
     args: ListLogAnomalyDetectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLogAnomalyDetectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLogGroupsForQueryCommand}
+   */
+  listLogGroupsForQuery(
+    args: ListLogGroupsForQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLogGroupsForQueryCommandOutput>;
+  listLogGroupsForQuery(
+    args: ListLogGroupsForQueryCommandInput,
+    cb: (err: any, data?: ListLogGroupsForQueryCommandOutput) => void
+  ): void;
+  listLogGroupsForQuery(
+    args: ListLogGroupsForQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLogGroupsForQueryCommandOutput) => void
   ): void;
 
   /**
@@ -1379,6 +1635,34 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link PutIndexPolicyCommand}
+   */
+  putIndexPolicy(
+    args: PutIndexPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutIndexPolicyCommandOutput>;
+  putIndexPolicy(args: PutIndexPolicyCommandInput, cb: (err: any, data?: PutIndexPolicyCommandOutput) => void): void;
+  putIndexPolicy(
+    args: PutIndexPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutIndexPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutIntegrationCommand}
+   */
+  putIntegration(
+    args: PutIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutIntegrationCommandOutput>;
+  putIntegration(args: PutIntegrationCommandInput, cb: (err: any, data?: PutIntegrationCommandOutput) => void): void;
+  putIntegration(
+    args: PutIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutLogEventsCommand}
    */
   putLogEvents(args: PutLogEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutLogEventsCommandOutput>;
@@ -1473,6 +1757,20 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link PutTransformerCommand}
+   */
+  putTransformer(
+    args: PutTransformerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTransformerCommandOutput>;
+  putTransformer(args: PutTransformerCommandInput, cb: (err: any, data?: PutTransformerCommandOutput) => void): void;
+  putTransformer(
+    args: PutTransformerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTransformerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartLiveTailCommand}
    */
   startLiveTail(args: StartLiveTailCommandInput, options?: __HttpHandlerOptions): Promise<StartLiveTailCommandOutput>;
@@ -1545,6 +1843,20 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link TestTransformerCommand}
+   */
+  testTransformer(
+    args: TestTransformerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestTransformerCommandOutput>;
+  testTransformer(args: TestTransformerCommandInput, cb: (err: any, data?: TestTransformerCommandOutput) => void): void;
+  testTransformer(
+    args: TestTransformerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestTransformerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagLogGroupCommand}
    */
   untagLogGroup(args: UntagLogGroupCommandInput, options?: __HttpHandlerOptions): Promise<UntagLogGroupCommandOutput>;
@@ -1575,6 +1887,23 @@ export interface CloudWatchLogs {
     args: UpdateAnomalyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnomalyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDeliveryConfigurationCommand}
+   */
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeliveryConfigurationCommandOutput>;
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDeliveryConfigurationCommandOutput) => void
+  ): void;
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeliveryConfigurationCommandOutput) => void
   ): void;
 
   /**

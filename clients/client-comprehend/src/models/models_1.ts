@@ -24,7 +24,7 @@ export interface StopEntitiesDetectionJobResponse {
    * <p>The identifier of the entities detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
@@ -32,7 +32,7 @@ export interface StopEntitiesDetectionJobResponse {
    *         <code>StopEntitiesDetectionJob</code> operation.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -54,13 +54,13 @@ export interface StopEventsDetectionJobResponse {
    * <p>The identifier of the events detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The status of the events detection job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -82,7 +82,7 @@ export interface StopKeyPhrasesDetectionJobResponse {
    * <p>The identifier of the key phrases detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
@@ -90,7 +90,7 @@ export interface StopKeyPhrasesDetectionJobResponse {
    *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -112,13 +112,13 @@ export interface StopPiiEntitiesDetectionJobResponse {
    * <p>The identifier of the PII entities detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The status of the PII entities detection job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface StopSentimentDetectionJobResponse {
    * <p>The identifier of the sentiment detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
@@ -148,7 +148,7 @@ export interface StopSentimentDetectionJobResponse {
    *         <code>StopSentimentDetectionJob</code> operation.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
@@ -178,7 +178,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
    *       <code>StopSentimentDetectionJob</code> operation.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -223,7 +223,7 @@ export interface StopTrainingEntityRecognizerResponse {}
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -270,7 +270,7 @@ export interface TagResourceResponse {}
 export class TooManyTagKeysException extends __BaseException {
   readonly name: "TooManyTagKeysException" = "TooManyTagKeysException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -325,7 +325,7 @@ export interface UpdateEndpointRequest {
    * <p>The ARN of the new model to use when updating an existing endpoint.</p>
    * @public
    */
-  DesiredModelArn?: string;
+  DesiredModelArn?: string | undefined;
 
   /**
    * <p> The desired number of inference units to be used by the model using this endpoint.
@@ -333,19 +333,19 @@ export interface UpdateEndpointRequest {
    *       Each inference unit represents of a throughput of 100 characters per second.</p>
    * @public
    */
-  DesiredInferenceUnits?: number;
+  DesiredInferenceUnits?: number | undefined;
 
   /**
    * <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
    * @public
    */
-  DesiredDataAccessRoleArn?: string;
+  DesiredDataAccessRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel</p>
    * @public
    */
-  FlywheelArn?: string;
+  FlywheelArn?: string | undefined;
 }
 
 /**
@@ -356,7 +356,7 @@ export interface UpdateEndpointResponse {
    * <p>The Amazon Resource Number (ARN) of the new model.</p>
    * @public
    */
-  DesiredModelArn?: string;
+  DesiredModelArn?: string | undefined;
 }
 
 /**
@@ -380,13 +380,13 @@ export interface UpdateDataSecurityConfig {
    *          </ul>
    * @public
    */
-  ModelKmsKeyId?: string;
+  ModelKmsKeyId?: string | undefined;
 
   /**
    * <p>ID for the KMS key that Amazon Comprehend uses to encrypt the volume.</p>
    * @public
    */
-  VolumeKmsKeyId?: string;
+  VolumeKmsKeyId?: string | undefined;
 
   /**
    * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
@@ -394,7 +394,7 @@ export interface UpdateDataSecurityConfig {
    *         VPC</a>. </p>
    * @public
    */
-  VpcConfig?: VpcConfig;
+  VpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -411,20 +411,20 @@ export interface UpdateFlywheelRequest {
    * <p>The Amazon Resource Number (ARN) of the active model version.</p>
    * @public
    */
-  ActiveModelArn?: string;
+  ActiveModelArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that
    *       grants Amazon Comprehend permission to access the flywheel data.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>Flywheel data security configuration.</p>
    * @public
    */
-  DataSecurityConfig?: UpdateDataSecurityConfig;
+  DataSecurityConfig?: UpdateDataSecurityConfig | undefined;
 }
 
 /**
@@ -435,5 +435,5 @@ export interface UpdateFlywheelResponse {
    * <p>The flywheel properties.</p>
    * @public
    */
-  FlywheelProperties?: FlywheelProperties;
+  FlywheelProperties?: FlywheelProperties | undefined;
 }

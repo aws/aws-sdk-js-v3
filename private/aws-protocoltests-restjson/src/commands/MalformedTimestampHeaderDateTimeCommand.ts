@@ -55,6 +55,7 @@ export interface MalformedTimestampHeaderDateTimeCommandOutput extends __Metadat
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampHeaderDateTimeCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedTimestampHeaderDateTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampHeaderDateTimeCommand)
   .de(de_MalformedTimestampHeaderDateTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampHeaderDateTimeInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampHeaderDateTimeCommandInput;
+      output: MalformedTimestampHeaderDateTimeCommandOutput;
+    };
+  };
+}

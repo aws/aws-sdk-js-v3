@@ -123,6 +123,7 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListCandidatesForAutoMLJobCommand extends $Command
@@ -133,9 +134,7 @@ export class ListCandidatesForAutoMLJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class ListCandidatesForAutoMLJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCandidatesForAutoMLJobCommand)
   .de(de_ListCandidatesForAutoMLJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCandidatesForAutoMLJobRequest;
+      output: ListCandidatesForAutoMLJobResponse;
+    };
+    sdk: {
+      input: ListCandidatesForAutoMLJobCommandInput;
+      output: ListCandidatesForAutoMLJobCommandOutput;
+    };
+  };
+}

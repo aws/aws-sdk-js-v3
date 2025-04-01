@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_2";
+import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_3";
 import { de_DescribeLineageGroupCommand, se_DescribeLineageGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -85,6 +85,7 @@ export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeLineageGroupCommand extends $Command
@@ -95,9 +96,7 @@ export class DescribeLineageGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DescribeLineageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLineageGroupCommand)
   .de(de_DescribeLineageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLineageGroupRequest;
+      output: DescribeLineageGroupResponse;
+    };
+    sdk: {
+      input: DescribeLineageGroupCommandInput;
+      output: DescribeLineageGroupCommandOutput;
+    };
+  };
+}

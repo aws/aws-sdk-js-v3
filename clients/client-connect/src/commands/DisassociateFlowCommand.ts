@@ -38,7 +38,7 @@ export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse,
  * const input = { // DisassociateFlowRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "SMS_PHONE_NUMBER", // required
+ *   ResourceType: "SMS_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR" || "WHATSAPP_MESSAGING_PHONE_NUMBER", // required
  * };
  * const command = new DisassociateFlowCommand(input);
  * const response = await client.send(command);
@@ -73,6 +73,7 @@ export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateFlowCommand extends $Command
@@ -83,9 +84,7 @@ export class DisassociateFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DisassociateFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateFlowCommand)
   .de(de_DisassociateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateFlowCommandInput;
+      output: DisassociateFlowCommandOutput;
+    };
+  };
+}

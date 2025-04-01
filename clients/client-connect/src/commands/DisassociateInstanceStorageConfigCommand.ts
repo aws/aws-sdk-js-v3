@@ -43,7 +43,8 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * const input = { // DisassociateInstanceStorageConfigRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AssociationId: "STRING_VALUE", // required
- *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS" || "SCREEN_RECORDINGS" || "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS" || "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS" || "SCREEN_RECORDINGS" || "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS" || "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS" || "EMAIL_MESSAGES", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,7 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateInstanceStorageConfigCommand extends $Command
@@ -85,9 +87,7 @@ export class DisassociateInstanceStorageConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DisassociateInstanceStorageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateInstanceStorageConfigCommand)
   .de(de_DisassociateInstanceStorageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateInstanceStorageConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateInstanceStorageConfigCommandInput;
+      output: DisassociateInstanceStorageConfigCommandOutput;
+    };
+  };
+}

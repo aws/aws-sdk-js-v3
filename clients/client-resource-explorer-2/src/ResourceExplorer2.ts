@@ -32,6 +32,11 @@ import {
   GetDefaultViewCommandOutput,
 } from "./commands/GetDefaultViewCommand";
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import {
+  GetManagedViewCommand,
+  GetManagedViewCommandInput,
+  GetManagedViewCommandOutput,
+} from "./commands/GetManagedViewCommand";
 import { GetViewCommand, GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
 import {
@@ -39,6 +44,16 @@ import {
   ListIndexesForMembersCommandInput,
   ListIndexesForMembersCommandOutput,
 } from "./commands/ListIndexesForMembersCommand";
+import {
+  ListManagedViewsCommand,
+  ListManagedViewsCommandInput,
+  ListManagedViewsCommandOutput,
+} from "./commands/ListManagedViewsCommand";
+import {
+  ListResourcesCommand,
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput,
+} from "./commands/ListResourcesCommand";
 import {
   ListSupportedResourceTypesCommand,
   ListSupportedResourceTypesCommandInput,
@@ -76,9 +91,12 @@ const commands = {
   GetAccountLevelServiceConfigurationCommand,
   GetDefaultViewCommand,
   GetIndexCommand,
+  GetManagedViewCommand,
   GetViewCommand,
   ListIndexesCommand,
   ListIndexesForMembersCommand,
+  ListManagedViewsCommand,
+  ListResourcesCommand,
   ListSupportedResourceTypesCommand,
   ListTagsForResourceCommand,
   ListViewsCommand,
@@ -228,6 +246,20 @@ export interface ResourceExplorer2 {
   ): void;
 
   /**
+   * @see {@link GetManagedViewCommand}
+   */
+  getManagedView(
+    args: GetManagedViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedViewCommandOutput>;
+  getManagedView(args: GetManagedViewCommandInput, cb: (err: any, data?: GetManagedViewCommandOutput) => void): void;
+  getManagedView(
+    args: GetManagedViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedViewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetViewCommand}
    */
   getView(args: GetViewCommandInput, options?: __HttpHandlerOptions): Promise<GetViewCommandOutput>;
@@ -265,6 +297,36 @@ export interface ResourceExplorer2 {
     args: ListIndexesForMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIndexesForMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedViewsCommand}
+   */
+  listManagedViews(): Promise<ListManagedViewsCommandOutput>;
+  listManagedViews(
+    args: ListManagedViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedViewsCommandOutput>;
+  listManagedViews(
+    args: ListManagedViewsCommandInput,
+    cb: (err: any, data?: ListManagedViewsCommandOutput) => void
+  ): void;
+  listManagedViews(
+    args: ListManagedViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedViewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   */
+  listResources(): Promise<ListResourcesCommandOutput>;
+  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
+  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
   ): void;
 
   /**

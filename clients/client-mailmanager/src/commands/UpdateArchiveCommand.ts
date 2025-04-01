@@ -75,6 +75,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateArchiveCommand extends $Command
@@ -85,9 +86,7 @@ export class UpdateArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class UpdateArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateArchiveCommand)
   .de(de_UpdateArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateArchiveRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateArchiveCommandInput;
+      output: UpdateArchiveCommandOutput;
+    };
+  };
+}

@@ -113,6 +113,7 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetLayoutCommand extends $Command
@@ -123,9 +124,7 @@ export class GetLayoutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class GetLayoutCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLayoutCommand)
   .de(de_GetLayoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLayoutRequest;
+      output: GetLayoutResponse;
+    };
+    sdk: {
+      input: GetLayoutCommandInput;
+      output: GetLayoutCommandOutput;
+    };
+  };
+}

@@ -158,6 +158,7 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class StartNetworkResourceUpdateCommand extends $Command
@@ -168,9 +169,7 @@ export class StartNetworkResourceUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +181,16 @@ export class StartNetworkResourceUpdateCommand extends $Command
   .f(StartNetworkResourceUpdateRequestFilterSensitiveLog, StartNetworkResourceUpdateResponseFilterSensitiveLog)
   .ser(se_StartNetworkResourceUpdateCommand)
   .de(de_StartNetworkResourceUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartNetworkResourceUpdateRequest;
+      output: StartNetworkResourceUpdateResponse;
+    };
+    sdk: {
+      input: StartNetworkResourceUpdateCommandInput;
+      output: StartNetworkResourceUpdateCommandOutput;
+    };
+  };
+}

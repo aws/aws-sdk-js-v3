@@ -155,36 +155,36 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To create an XSS match set
  * ```javascript
  * // The following example creates an XSS match set named MySampleXssMatchSet.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Name": "MySampleXssMatchSet"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Name: "MySampleXssMatchSet"
  * };
  * const command = new CreateXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "XssMatchSet": {
- *     "Name": "MySampleXssMatchSet",
- *     "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "XssMatchTuples": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   XssMatchSet: {
+ *     Name: "MySampleXssMatchSet",
+ *     XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     XssMatchTuples: [
  *       {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: createxssmatchset-1474560868500
  * ```
  *
+ * @public
  */
 export class CreateXssMatchSetCommand extends $Command
   .classBuilder<
@@ -194,9 +194,7 @@ export class CreateXssMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +206,16 @@ export class CreateXssMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateXssMatchSetCommand)
   .de(de_CreateXssMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateXssMatchSetRequest;
+      output: CreateXssMatchSetResponse;
+    };
+    sdk: {
+      input: CreateXssMatchSetCommandInput;
+      output: CreateXssMatchSetCommandOutput;
+    };
+  };
+}

@@ -4291,6 +4291,87 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *       },
  *       ProcessedAt: "STRING_VALUE",
  *       AwsAccountName: "STRING_VALUE",
+ *       Detection: { // Detection
+ *         Sequence: { // Sequence
+ *           Uid: "STRING_VALUE",
+ *           Actors: [ // ActorsList
+ *             { // Actor
+ *               Id: "STRING_VALUE",
+ *               User: { // ActorUser
+ *                 Name: "STRING_VALUE",
+ *                 Uid: "STRING_VALUE",
+ *                 Type: "STRING_VALUE",
+ *                 CredentialUid: "STRING_VALUE",
+ *                 Account: { // UserAccount
+ *                   Uid: "STRING_VALUE",
+ *                   Name: "STRING_VALUE",
+ *                 },
+ *               },
+ *               Session: { // ActorSession
+ *                 Uid: "STRING_VALUE",
+ *                 MfaStatus: "ENABLED" || "DISABLED",
+ *                 CreatedTime: Number("long"),
+ *                 Issuer: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           Endpoints: [ // NetworkEndpointsList
+ *             { // NetworkEndpoint
+ *               Id: "STRING_VALUE",
+ *               Ip: "STRING_VALUE",
+ *               Domain: "STRING_VALUE",
+ *               Port: Number("int"),
+ *               Location: { // NetworkGeoLocation
+ *                 City: "STRING_VALUE",
+ *                 Country: "STRING_VALUE",
+ *                 Lat: Number("double"),
+ *                 Lon: Number("double"),
+ *               },
+ *               AutonomousSystem: { // NetworkAutonomousSystem
+ *                 Name: "STRING_VALUE",
+ *                 Number: Number("int"),
+ *               },
+ *               Connection: { // NetworkConnection
+ *                 Direction: "INBOUND" || "OUTBOUND",
+ *               },
+ *             },
+ *           ],
+ *           Signals: [ // SignalsList
+ *             { // Signal
+ *               Type: "STRING_VALUE",
+ *               Id: "STRING_VALUE",
+ *               Title: "STRING_VALUE",
+ *               ProductArn: "STRING_VALUE",
+ *               ResourceIds: "<NonEmptyStringList>",
+ *               SignalIndicators: [ // IndicatorsList
+ *                 { // Indicator
+ *                   Key: "STRING_VALUE",
+ *                   Values: "<NonEmptyStringList>",
+ *                   Title: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Name: "STRING_VALUE",
+ *               CreatedAt: Number("long"),
+ *               UpdatedAt: Number("long"),
+ *               FirstSeenAt: Number("long"),
+ *               LastSeenAt: Number("long"),
+ *               Severity: Number("double"),
+ *               Count: Number("int"),
+ *               ActorIds: "<NonEmptyStringList>",
+ *               EndpointIds: "<NonEmptyStringList>",
+ *             },
+ *           ],
+ *           SequenceIndicators: [
+ *             {
+ *               Key: "STRING_VALUE",
+ *               Values: "<NonEmptyStringList>",
+ *               Title: "STRING_VALUE",
+ *               Type: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   ],
  * };
@@ -4333,54 +4414,54 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To import security findings from a third party provider to Security Hub
  * ```javascript
  * // The following example imports findings from a third party provider to Security Hub.
  * const input = {
- *   "Findings": [
+ *   Findings: [
  *     {
- *       "AwsAccountId": "123456789012",
- *       "CreatedAt": "2020-05-27T17:05:54.832Z",
- *       "Description": "Vulnerability in a CloudTrail trail",
- *       "FindingProviderFields": {
- *         "Severity": {
- *           "Label": "LOW",
- *           "Original": "10"
+ *       AwsAccountId: "123456789012",
+ *       CreatedAt: "2020-05-27T17:05:54.832Z",
+ *       Description: "Vulnerability in a CloudTrail trail",
+ *       FindingProviderFields: {
+ *         Severity: {
+ *           Label: "LOW",
+ *           Original: "10"
  *         },
- *         "Types": [
+ *         Types: [
  *           "Software and Configuration Checks/Vulnerabilities/CVE"
  *         ]
  *       },
- *       "GeneratorId": "TestGeneratorId",
- *       "Id": "Id1",
- *       "ProductArn": "arn:aws:securityhub:us-west-1:123456789012:product/123456789012/default",
- *       "Resources": [
+ *       GeneratorId: "TestGeneratorId",
+ *       Id: "Id1",
+ *       ProductArn: "arn:aws:securityhub:us-west-1:123456789012:product/123456789012/default",
+ *       Resources: [
  *         {
- *           "Id": "arn:aws:cloudtrail:us-west-1:123456789012:trail/TrailName",
- *           "Partition": "aws",
- *           "Region": "us-west-1",
- *           "Type": "AwsCloudTrailTrail"
+ *           Id: "arn:aws:cloudtrail:us-west-1:123456789012:trail/TrailName",
+ *           Partition: "aws",
+ *           Region: "us-west-1",
+ *           Type: "AwsCloudTrailTrail"
  *         }
  *       ],
- *       "SchemaVersion": "2018-10-08",
- *       "Title": "CloudTrail trail vulnerability",
- *       "UpdatedAt": "2020-06-02T16:05:54.832Z"
+ *       SchemaVersion: "2018-10-08",
+ *       Title: "CloudTrail trail vulnerability",
+ *       UpdatedAt: "2020-06-02T16:05:54.832Z"
  *     }
  *   ]
  * };
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FailedCount": 123,
- *   "FailedFindings": [],
- *   "SuccessCount": 123
+ *   FailedCount: 123,
+ *   FailedFindings:   [],
+ *   SuccessCount: 123
  * }
  * *\/
- * // example id: to-import-security-findings-from-a-third-party-provider-to-security-hub-1675090935260
  * ```
  *
+ * @public
  */
 export class BatchImportFindingsCommand extends $Command
   .classBuilder<
@@ -4390,9 +4471,7 @@ export class BatchImportFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -4404,4 +4483,16 @@ export class BatchImportFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchImportFindingsCommand)
   .de(de_BatchImportFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchImportFindingsRequest;
+      output: BatchImportFindingsResponse;
+    };
+    sdk: {
+      input: BatchImportFindingsCommandInput;
+      output: BatchImportFindingsCommandOutput;
+    };
+  };
+}

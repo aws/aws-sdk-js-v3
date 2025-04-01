@@ -25,8 +25,8 @@ configure your game session management to minimize player latency, and add
 FlexMatch for matchmaking.</p>
 </li>
 <li>
-<p>Managed hosting with Realtime Servers -- With Amazon GameLift Realtime Servers, you can quickly configure
-and set up ready-to-go game servers for your game. Realtime Servers provides a game server
+<p>Managed hosting with Amazon GameLift Realtime -- With Amazon GameLift Amazon GameLift Realtime, you can quickly configure
+and set up ready-to-go game servers for your game. Amazon GameLift Realtime provides a game server
 framework with core Amazon GameLift infrastructure already built in. Then use the full
 range of Amazon GameLift managed hosting features, including FlexMatch, for your
 game.</p>
@@ -67,7 +67,7 @@ and resources</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-gamelift
+To install this package, simply type add or install @aws-sdk/client-gamelift
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-gamelift`
@@ -294,6 +294,14 @@ CreateBuild
 </details>
 <details>
 <summary>
+CreateContainerFleet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/CreateContainerFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/CreateContainerFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/CreateContainerFleetCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateContainerGroupDefinition
 </summary>
 
@@ -418,6 +426,14 @@ DeleteBuild
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DeleteBuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DeleteBuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DeleteBuildCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteContainerFleet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DeleteContainerFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DeleteContainerFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DeleteContainerFleetCommandOutput/)
 
 </details>
 <details>
@@ -558,6 +574,14 @@ DescribeCompute
 </details>
 <details>
 <summary>
+DescribeContainerFleet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DescribeContainerFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeContainerFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeContainerFleetCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeContainerGroupDefinition
 </summary>
 
@@ -586,6 +610,14 @@ DescribeFleetCapacity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DescribeFleetCapacityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeFleetCapacityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeFleetCapacityCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeFleetDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DescribeFleetDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeFleetDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeFleetDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -830,10 +862,34 @@ ListCompute
 </details>
 <details>
 <summary>
+ListContainerFleets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/ListContainerFleetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerFleetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerFleetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListContainerGroupDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/ListContainerGroupDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerGroupDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerGroupDefinitionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListContainerGroupDefinitionVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/ListContainerGroupDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerGroupDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListContainerGroupDefinitionVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListFleetDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/ListFleetDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListFleetDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/ListFleetDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -1014,6 +1070,14 @@ TagResource
 </details>
 <details>
 <summary>
+TerminateGameSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/TerminateGameSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/TerminateGameSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/TerminateGameSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 
@@ -1034,6 +1098,22 @@ UpdateBuild
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/UpdateBuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateBuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateBuildCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateContainerFleet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/UpdateContainerFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateContainerFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateContainerFleetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateContainerGroupDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/UpdateContainerGroupDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateContainerGroupDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/UpdateContainerGroupDefinitionCommandOutput/)
 
 </details>
 <details>

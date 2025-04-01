@@ -38,7 +38,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  *       or <code>GetInstances</code> API operation initially responds with a state of
  *         <code>pending</code>. After the parameter modifications are successfully applied, the state
  *       changes to <code>applied</code> in subsequent <code>GetInstance</code> or
- *         <code>GetInstances</code> API calls. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *         <code>GetInstances</code> API calls. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,6 +115,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateInstanceMetadataOptionsCommand extends $Command
@@ -125,9 +126,7 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInstanceMetadataOptionsCommand)
   .de(de_UpdateInstanceMetadataOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceMetadataOptionsRequest;
+      output: UpdateInstanceMetadataOptionsResult;
+    };
+    sdk: {
+      input: UpdateInstanceMetadataOptionsCommandInput;
+      output: UpdateInstanceMetadataOptionsCommandOutput;
+    };
+  };
+}

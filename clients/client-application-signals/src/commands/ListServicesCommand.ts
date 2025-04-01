@@ -46,6 +46,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  *   EndTime: new Date("TIMESTAMP"), // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   AwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
@@ -73,6 +75,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //             },
  * //           ],
  * //           MetricName: "STRING_VALUE", // required
+ * //           AccountId: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },
@@ -97,6 +100,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class ListServicesCommand extends $Command
@@ -107,9 +111,7 @@ export class ListServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +123,16 @@ export class ListServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServicesCommand)
   .de(de_ListServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServicesInput;
+      output: ListServicesOutput;
+    };
+    sdk: {
+      input: ListServicesCommandInput;
+      output: ListServicesCommandOutput;
+    };
+  };
+}

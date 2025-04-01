@@ -58,7 +58,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -72,7 +72,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  *     </p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid.</p>
@@ -91,6 +91,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateDirectorySetupCommand extends $Command
@@ -101,9 +102,7 @@ export class UpdateDirectorySetupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UpdateDirectorySetupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDirectorySetupCommand)
   .de(de_UpdateDirectorySetupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDirectorySetupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDirectorySetupCommandInput;
+      output: UpdateDirectorySetupCommandOutput;
+    };
+  };
+}

@@ -71,34 +71,34 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To list the provisioned capacity units for an account
  * ```javascript
  * // The example lists the provisioned capacity units for an account.
  * const input = {
- *   "accountId": "-"
+ *   accountId: "-"
  * };
  * const command = new ListProvisionedCapacityCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProvisionedCapacityList": [
+ *   ProvisionedCapacityList: [
  *     {
- *       "CapacityId": "zSaq7NzHFQDANTfQkDen4V7z",
- *       "ExpirationDate": "2016-12-12T00:00:00.000Z",
- *       "StartDate": "2016-11-11T20:11:51.095Z"
+ *       CapacityId: "zSaq7NzHFQDANTfQkDen4V7z",
+ *       ExpirationDate: "2016-12-12T00:00:00.000Z",
+ *       StartDate: "2016-11-11T20:11:51.095Z"
  *     },
  *     {
- *       "CapacityId": "yXaq7NzHFQNADTfQkDen4V7z",
- *       "ExpirationDate": "2017-01-15T00:00:00.000Z",
- *       "StartDate": "2016-12-13T20:11:51.095Z"
+ *       CapacityId: "yXaq7NzHFQNADTfQkDen4V7z",
+ *       ExpirationDate: "2017-01-15T00:00:00.000Z",
+ *       StartDate: "2016-12-13T20:11:51.095Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-provisioned-capacity-units-for-an-account-1481923656130
  * ```
  *
+ * @public
  */
 export class ListProvisionedCapacityCommand extends $Command
   .classBuilder<
@@ -108,9 +108,7 @@ export class ListProvisionedCapacityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class ListProvisionedCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisionedCapacityCommand)
   .de(de_ListProvisionedCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisionedCapacityInput;
+      output: ListProvisionedCapacityOutput;
+    };
+    sdk: {
+      input: ListProvisionedCapacityCommandInput;
+      output: ListProvisionedCapacityCommandOutput;
+    };
+  };
+}

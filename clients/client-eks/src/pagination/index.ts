@@ -1,4 +1,6 @@
 export * from "./DescribeAddonVersionsPaginator";
+
+export * from "./DescribeClusterVersionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAccessEntriesPaginator";

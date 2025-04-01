@@ -83,6 +83,7 @@ export interface GetGraphCommandOutput extends GetGraphOutput, __MetadataBearer 
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetGraphCommand extends $Command
@@ -108,4 +109,16 @@ export class GetGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGraphCommand)
   .de(de_GetGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGraphInput;
+      output: GetGraphOutput;
+    };
+    sdk: {
+      input: GetGraphCommandInput;
+      output: GetGraphCommandOutput;
+    };
+  };
+}

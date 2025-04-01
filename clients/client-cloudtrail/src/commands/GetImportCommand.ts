@@ -89,6 +89,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetImportCommand extends $Command
@@ -99,9 +100,7 @@ export class GetImportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class GetImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImportCommand)
   .de(de_GetImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportRequest;
+      output: GetImportResponse;
+    };
+    sdk: {
+      input: GetImportCommandInput;
+      output: GetImportCommandOutput;
+    };
+  };
+}

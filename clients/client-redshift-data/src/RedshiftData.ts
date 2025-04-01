@@ -33,6 +33,11 @@ import {
   GetStatementResultCommandOutput,
 } from "./commands/GetStatementResultCommand";
 import {
+  GetStatementResultV2Command,
+  GetStatementResultV2CommandInput,
+  GetStatementResultV2CommandOutput,
+} from "./commands/GetStatementResultV2Command";
+import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
@@ -53,6 +58,7 @@ const commands = {
   DescribeTableCommand,
   ExecuteStatementCommand,
   GetStatementResultCommand,
+  GetStatementResultV2Command,
   ListDatabasesCommand,
   ListSchemasCommand,
   ListStatementsCommand,
@@ -151,6 +157,23 @@ export interface RedshiftData {
     args: GetStatementResultCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStatementResultCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStatementResultV2Command}
+   */
+  getStatementResultV2(
+    args: GetStatementResultV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStatementResultV2CommandOutput>;
+  getStatementResultV2(
+    args: GetStatementResultV2CommandInput,
+    cb: (err: any, data?: GetStatementResultV2CommandOutput) => void
+  ): void;
+  getStatementResultV2(
+    args: GetStatementResultV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStatementResultV2CommandOutput) => void
   ): void;
 
   /**

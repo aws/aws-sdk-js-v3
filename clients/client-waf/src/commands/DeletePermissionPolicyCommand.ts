@@ -71,6 +71,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionPolicyCommand extends $Command
@@ -81,9 +82,7 @@ export class DeletePermissionPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DeletePermissionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePermissionPolicyCommand)
   .de(de_DeletePermissionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePermissionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePermissionPolicyCommandInput;
+      output: DeletePermissionPolicyCommandOutput;
+    };
+  };
+}

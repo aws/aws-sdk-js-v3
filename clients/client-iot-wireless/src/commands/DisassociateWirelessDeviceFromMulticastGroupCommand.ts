@@ -78,6 +78,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
@@ -88,9 +89,7 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DisassociateWirelessDeviceFromMulticastGroupCommand)
   .de(de_DisassociateWirelessDeviceFromMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWirelessDeviceFromMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWirelessDeviceFromMulticastGroupCommandInput;
+      output: DisassociateWirelessDeviceFromMulticastGroupCommandOutput;
+    };
+  };
+}

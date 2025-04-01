@@ -17,7 +17,7 @@ export class AccessDeniedException extends __BaseException {
    * <p>A coded string to provide more information about the access denied exception. You can use the error code to check the exception type.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * @internal
@@ -48,18 +48,18 @@ export const AccessType = {
 export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
- * <p>The AWS identity.</p>
+ * <p>The Amazon Web Services identity.</p>
  * @public
  */
 export interface AwsIdentity {
   /**
-   * <p>The AWS identity principal.</p>
+   * <p>The Amazon Web Services identity principal.</p>
    * @public
    */
   principal: string | undefined;
 
   /**
-   * <p>The external ID used to estalish trust relationship with the AWS identity.</p>
+   * <p>The external ID used to establish trust relationship with the Amazon Web Services identity.</p>
    * @public
    */
   externalId: string | undefined;
@@ -86,7 +86,8 @@ export const AwsLogSourceName = {
 export type AwsLogSourceName = (typeof AwsLogSourceName)[keyof typeof AwsLogSourceName];
 
 /**
- * <p>The Security Lake logs source configuration file describes the information needed to generate Security Lake logs. </p>
+ * <p>To add a natively-supported Amazon Web Services service as a log source, use these
+ *          parameters to specify the configuration settings for the log source. </p>
  * @public
  */
 export interface AwsLogSourceConfiguration {
@@ -94,7 +95,7 @@ export interface AwsLogSourceConfiguration {
    * <p>Specify the Amazon Web Services account information where you want to enable Security Lake.</p>
    * @public
    */
-  accounts?: string[];
+  accounts?: string[] | undefined;
 
   /**
    * <p>Specify the Regions where you want to enable Security Lake.</p>
@@ -103,20 +104,21 @@ export interface AwsLogSourceConfiguration {
   regions: string[] | undefined;
 
   /**
-   * <p>The name for a Amazon Web Services source. This must be a Regionally unique value.</p>
+   * <p>The name for a Amazon Web Services source. </p>
    * @public
    */
   sourceName: AwsLogSourceName | undefined;
 
   /**
-   * <p>The version for a Amazon Web Services source. This must be a Regionally unique value.</p>
+   * <p>The version for a Amazon Web Services source. </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 }
 
 /**
- * <p>Amazon Security Lake can collect logs and events from natively-supported Amazon Web Services services.</p>
+ * <p>Amazon Security Lake can collect logs and events from natively-supported Amazon Web Services
+ *          services.</p>
  * @public
  */
 export interface AwsLogSourceResource {
@@ -124,13 +126,13 @@ export interface AwsLogSourceResource {
    * <p>The name for a Amazon Web Services source. This must be a Regionally unique value.</p>
    * @public
    */
-  sourceName?: AwsLogSourceName;
+  sourceName?: AwsLogSourceName | undefined;
 
   /**
    * <p>The version for a Amazon Web Services source. This must be a Regionally unique value.</p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 }
 
 /**
@@ -167,13 +169,13 @@ export class ConflictException extends __BaseException {
    * <p>The resource name.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -206,12 +208,12 @@ export interface CreateAwsLogSourceRequest {
  */
 export interface CreateAwsLogSourceResponse {
   /**
-   * <p>Lists all accounts in which enabling a natively supported Amazon Web Service as
+   * <p>Lists all accounts in which enabling a natively supported Amazon Web Services service as
    *          a Security Lake source failed. The failure occurred as these accounts are not part of an
    *          organization.</p>
    * @public
    */
-  failed?: string[];
+  failed?: string[] | undefined;
 }
 
 /**
@@ -247,13 +249,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The name of the resource that could not be found.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The type of the resource that could not be found.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -284,19 +286,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The code for the service in Service Quotas.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>That the rate of requests to Security Lake is exceeding the request quotas for your Amazon Web Services account.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Retry the request after the specified time.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -315,7 +317,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The configuration for the Glue Crawler for the third-party custom source.</p>
+ * <p>The configuration used for the Glue Crawler for a third-party custom source.</p>
  * @public
  */
 export interface CustomLogSourceCrawlerConfiguration {
@@ -338,12 +340,12 @@ export interface CustomLogSourceCrawlerConfiguration {
 }
 
 /**
- * <p>The configuration for the third-party custom source.</p>
+ * <p>The configuration used for the third-party custom source.</p>
  * @public
  */
 export interface CustomLogSourceConfiguration {
   /**
-   * <p>The configuration for the Glue Crawler for the third-party custom source.</p>
+   * <p>The configuration used for the Glue Crawler for a third-party custom source.</p>
    * @public
    */
   crawlerConfiguration: CustomLogSourceCrawlerConfiguration | undefined;
@@ -361,7 +363,12 @@ export interface CustomLogSourceConfiguration {
 export interface CreateCustomLogSourceRequest {
   /**
    * <p>Specify the name for a third-party custom source. This must be a Regionally unique
-   *          value.</p>
+   *          value. The <code>sourceName</code> you enter here, is used in the
+   *             <code>LogProviderRole</code> name which follows the convention
+   *             <code>AmazonSecurityLake-Provider-\{name of the custom source\}-\{region\}</code>. You must
+   *          use a <code>CustomLogSource</code> name that is shorter than or equal to 20 characters.
+   *          This ensures that the <code>LogProviderRole</code> name is below the 64 character
+   *          limit.</p>
    * @public
    */
   sourceName: string | undefined;
@@ -371,164 +378,17 @@ export interface CreateCustomLogSourceRequest {
    *          a specific version of custom data source.</p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of
-   *          data that the custom source will send to Security Lake. The supported event classes are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACCESS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FILE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KERNEL_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KERNEL_EXTENSION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEMORY_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODULE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PROCESS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGISTRY_KEY_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGISTRY_VALUE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOURCE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED_JOB_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECURITY_FINDING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCOUNT_CHANGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHENTICATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHORIZATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENTITY_MANAGEMENT_AUDIT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DHCP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NETWORK_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DNS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FTP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RDP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SMB_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSH_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONFIG_STATE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INVENTORY_INFO</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EMAIL_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>API_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_API</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          data that the custom source will send to Security Lake. For the list of supported event classes, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
-  eventClasses?: string[];
+  eventClasses?: string[] | undefined;
 
   /**
-   * <p>The configuration for the third-party custom source.</p>
+   * <p>The configuration used for the third-party custom source.</p>
    * @public
    */
   configuration: CustomLogSourceConfiguration | undefined;
@@ -543,20 +403,20 @@ export interface CustomLogSourceAttributes {
    * <p>The ARN of the Glue crawler.</p>
    * @public
    */
-  crawlerArn?: string;
+  crawlerArn?: string | undefined;
 
   /**
    * <p>The ARN of the Glue database where results are written, such as:
    *          <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
    * @public
    */
-  databaseArn?: string;
+  databaseArn?: string | undefined;
 
   /**
    * <p>The ARN of the Glue table.</p>
    * @public
    */
-  tableArn?: string;
+  tableArn?: string | undefined;
 }
 
 /**
@@ -572,13 +432,13 @@ export interface CustomLogSourceProvider {
    *          <code>logProviderAccountId</code> to assume the role.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 }
 
 /**
@@ -590,25 +450,25 @@ export interface CustomLogSourceResource {
    * <p>The name for a third-party custom source. This must be a Regionally unique value.</p>
    * @public
    */
-  sourceName?: string;
+  sourceName?: string | undefined;
 
   /**
    * <p>The version for a third-party custom source. This must be a Regionally unique value.</p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>The details of the log provider for a third-party custom source.</p>
    * @public
    */
-  provider?: CustomLogSourceProvider;
+  provider?: CustomLogSourceProvider | undefined;
 
   /**
    * <p>The attributes of a third-party custom source.</p>
    * @public
    */
-  attributes?: CustomLogSourceAttributes;
+  attributes?: CustomLogSourceAttributes | undefined;
 }
 
 /**
@@ -616,10 +476,10 @@ export interface CustomLogSourceResource {
  */
 export interface CreateCustomLogSourceResponse {
   /**
-   * <p>The created third-party custom source.</p>
+   * <p>The third-party custom source that was created.</p>
    * @public
    */
-  source?: CustomLogSourceResource;
+  source?: CustomLogSourceResource | undefined;
 }
 
 /**
@@ -628,11 +488,11 @@ export interface CreateCustomLogSourceResponse {
  */
 export interface DataLakeEncryptionConfiguration {
   /**
-   * <p>The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake
+   * <p>The identifier of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake
    *          object.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -644,7 +504,7 @@ export interface DataLakeLifecycleExpiration {
    * <p>Number of days before data expires in the Amazon Security Lake object.</p>
    * @public
    */
-  days?: number;
+  days?: number | undefined;
 }
 
 /**
@@ -657,13 +517,13 @@ export interface DataLakeLifecycleTransition {
    *          resiliency, and cost requirements of your workloads.</p>
    * @public
    */
-  storageClass?: string;
+  storageClass?: string | undefined;
 
   /**
    * <p>Number of days before data transitions to a different S3 Storage Class in the Amazon Security Lake object.</p>
    * @public
    */
-  days?: number;
+  days?: number | undefined;
 }
 
 /**
@@ -675,13 +535,13 @@ export interface DataLakeLifecycleConfiguration {
    * <p>Provides data expiration details of Amazon Security Lake object.</p>
    * @public
    */
-  expiration?: DataLakeLifecycleExpiration;
+  expiration?: DataLakeLifecycleExpiration | undefined;
 
   /**
    * <p>Provides data storage transition details of Amazon Security Lake object.</p>
    * @public
    */
-  transitions?: DataLakeLifecycleTransition[];
+  transitions?: DataLakeLifecycleTransition[] | undefined;
 }
 
 /**
@@ -705,14 +565,14 @@ export interface DataLakeReplicationConfiguration {
    *            can be in different Regions or within the same Region as the source bucket.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 
   /**
    * <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to
    *          ensure the replication setting is correct.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -730,19 +590,19 @@ export interface DataLakeConfiguration {
    * <p>Provides encryption details of Amazon Security Lake object.</p>
    * @public
    */
-  encryptionConfiguration?: DataLakeEncryptionConfiguration;
+  encryptionConfiguration?: DataLakeEncryptionConfiguration | undefined;
 
   /**
    * <p>Provides lifecycle details of Amazon Security Lake object.</p>
    * @public
    */
-  lifecycleConfiguration?: DataLakeLifecycleConfiguration;
+  lifecycleConfiguration?: DataLakeLifecycleConfiguration | undefined;
 
   /**
    * <p>Provides replication details of Amazon Security Lake object.</p>
    * @public
    */
-  replicationConfiguration?: DataLakeReplicationConfiguration;
+  replicationConfiguration?: DataLakeReplicationConfiguration | undefined;
 }
 
 /**
@@ -795,7 +655,7 @@ export interface CreateDataLakeRequest {
    *          value cannot be null, but it can be an empty string.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -825,14 +685,14 @@ export interface DataLakeUpdateException {
    *          <code>DeleteDataLake</code> API request.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The reason code for the exception of the last <code>UpdateDataLake</code> or
    *          <code>DeleteDataLake</code> API request.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 }
 
 /**
@@ -847,21 +707,21 @@ export interface DataLakeUpdateStatus {
    *          request.</p>
    * @public
    */
-  requestId?: string;
+  requestId?: string | undefined;
 
   /**
    * <p>The status of the last <code>UpdateDataLake</code> or <code>DeleteDataLake</code> API
    *          request that was requested.</p>
    * @public
    */
-  status?: DataLakeStatus;
+  status?: DataLakeStatus | undefined;
 
   /**
    * <p>The details of the last <code>UpdateDataLake</code>or <code>DeleteDataLake</code> API
    *          request which failed.</p>
    * @public
    */
-  exception?: DataLakeUpdateException;
+  exception?: DataLakeUpdateException | undefined;
 }
 
 /**
@@ -885,38 +745,38 @@ export interface DataLakeResource {
    * <p>The ARN for the Amazon Security Lake Amazon S3 bucket.</p>
    * @public
    */
-  s3BucketArn?: string;
+  s3BucketArn?: string | undefined;
 
   /**
    * <p>Provides encryption details of Amazon Security Lake object.</p>
    * @public
    */
-  encryptionConfiguration?: DataLakeEncryptionConfiguration;
+  encryptionConfiguration?: DataLakeEncryptionConfiguration | undefined;
 
   /**
    * <p>Provides lifecycle details of Amazon Security Lake object.</p>
    * @public
    */
-  lifecycleConfiguration?: DataLakeLifecycleConfiguration;
+  lifecycleConfiguration?: DataLakeLifecycleConfiguration | undefined;
 
   /**
    * <p>Provides replication details of Amazon Security Lake object.</p>
    * @public
    */
-  replicationConfiguration?: DataLakeReplicationConfiguration;
+  replicationConfiguration?: DataLakeReplicationConfiguration | undefined;
 
   /**
-   * <p>Retrieves the status of the configuration operation for an account in Amazon Security Lake.</p>
+   * <p>Retrieves the status of the <code>CreateDatalake</code> API call for an account in Amazon Security Lake.</p>
    * @public
    */
-  createStatus?: DataLakeStatus;
+  createStatus?: DataLakeStatus | undefined;
 
   /**
    * <p>The status of the last <code>UpdateDataLake </code>or <code>DeleteDataLake</code> API
    *          request.</p>
    * @public
    */
-  updateStatus?: DataLakeUpdateStatus;
+  updateStatus?: DataLakeUpdateStatus | undefined;
 }
 
 /**
@@ -927,7 +787,7 @@ export interface CreateDataLakeResponse {
    * <p>The created Security Lake configuration object.</p>
    * @public
    */
-  dataLakes?: DataLakeResource[];
+  dataLakes?: DataLakeResource[] | undefined;
 }
 
 /**
@@ -947,10 +807,10 @@ export interface CreateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string | undefined;
 
   /**
-   * <p>The expiration period and time-to-live (TTL).</p>
+   * <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p>
    * @public
    */
-  exceptionTimeToLive?: number;
+  exceptionTimeToLive?: number | undefined;
 }
 
 /**
@@ -986,7 +846,7 @@ export interface CreateDataLakeOrganizationConfigurationRequest {
    *          data for new accounts in your organization.</p>
    * @public
    */
-  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[];
+  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[] | undefined;
 }
 
 /**
@@ -996,7 +856,7 @@ export interface CreateDataLakeOrganizationConfigurationResponse {}
 
 /**
  * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
- *          For a list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+ *          For a list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  * @public
  */
 export type LogSourceResource =
@@ -1009,7 +869,7 @@ export type LogSourceResource =
  */
 export namespace LogSourceResource {
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
   export interface AwsLogSourceMember {
@@ -1070,11 +930,11 @@ export interface CreateSubscriberRequest {
    * <p>The description for your subscriber account in Security Lake.</p>
    * @public
    */
-  subscriberDescription?: string;
+  subscriberDescription?: string | undefined;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected.
-   *          Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected.
+   *          Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
    * @public
    */
   sources: LogSourceResource[] | undefined;
@@ -1083,14 +943,14 @@ export interface CreateSubscriberRequest {
    * <p>The Amazon S3 or Lake Formation access type.</p>
    * @public
    */
-  accessTypes?: AccessType[];
+  accessTypes?: AccessType[] | undefined;
 
   /**
    * <p>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag
    *          value cannot be null, but it can be an empty string.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1146,10 +1006,10 @@ export interface SubscriberResource {
    *          <code>subscriberId</code>.</p>
    * @public
    */
-  subscriberDescription?: string;
+  subscriberDescription?: string | undefined;
 
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/source-management.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/source-management.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
   sources: LogSourceResource[] | undefined;
@@ -1163,31 +1023,31 @@ export interface SubscriberResource {
    *          type is defined as <code>LAKEFORMATION</code>.</p>
    * @public
    */
-  accessTypes?: AccessType[];
+  accessTypes?: AccessType[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) specifying the role of the subscriber.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The ARN for the Amazon S3 bucket.</p>
    * @public
    */
-  s3BucketArn?: string;
+  s3BucketArn?: string | undefined;
 
   /**
    * <p>The subscriber endpoint to which exception messages are posted.</p>
    * @public
    */
-  subscriberEndpoint?: string;
+  subscriberEndpoint?: string | undefined;
 
   /**
    * <p>The subscriber status of the Amazon Security Lake subscriber account.</p>
    * @public
    */
-  subscriberStatus?: SubscriberStatus;
+  subscriberStatus?: SubscriberStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) which uniquely defines the Amazon Web Services RAM resource share. Before
@@ -1196,25 +1056,25 @@ export interface SubscriberResource {
    *          <p>This field is available only for Lake Formation subscribers created after March 8, 2023.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The name of the resource share.</p>
    * @public
    */
-  resourceShareName?: string;
+  resourceShareName?: string | undefined;
 
   /**
    * <p>The date and time when the subscriber was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time when the subscriber was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1226,7 +1086,7 @@ export interface CreateSubscriberResponse {
    *             <code>CreateSubscriber</code> API.</p>
    * @public
    */
-  subscriber?: SubscriberResource;
+  subscriber?: SubscriberResource | undefined;
 }
 
 /**
@@ -1244,7 +1104,7 @@ export const HttpMethod = {
 export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
 
 /**
- * <p>The configurations for HTTPS subscriber notification.</p>
+ * <p>The configurations used for HTTPS subscriber notification.</p>
  * @public
  */
 export interface HttpsNotificationConfiguration {
@@ -1259,19 +1119,19 @@ export interface HttpsNotificationConfiguration {
    * <p>The key name for the notification subscription.</p>
    * @public
    */
-  authorizationApiKeyName?: string;
+  authorizationApiKeyName?: string | undefined;
 
   /**
    * <p>The key value for the notification subscription.</p>
    * @public
    */
-  authorizationApiKeyValue?: string;
+  authorizationApiKeyValue?: string | undefined;
 
   /**
    * <p>The HTTPS method used for the notification subscription.</p>
    * @public
    */
-  httpMethod?: HttpMethod;
+  httpMethod?: HttpMethod | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
@@ -1283,7 +1143,7 @@ export interface HttpsNotificationConfiguration {
 }
 
 /**
- * <p>The configurations for SQS subscriber notification.</p>
+ * <p>The configurations used for EventBridge subscriber notification.</p>
  * @public
  */
 export interface SqsNotificationConfiguration {}
@@ -1314,7 +1174,7 @@ export namespace NotificationConfiguration {
   }
 
   /**
-   * <p>The configurations for HTTPS subscriber notification.</p>
+   * <p>The configurations used for HTTPS subscriber notification.</p>
    * @public
    */
   export interface HttpsNotificationConfigurationMember {
@@ -1373,7 +1233,7 @@ export interface CreateSubscriberNotificationResponse {
    * <p>The subscriber endpoint to which exception messages are posted.</p>
    * @public
    */
-  subscriberEndpoint?: string;
+  subscriberEndpoint?: string | undefined;
 }
 
 /**
@@ -1396,7 +1256,7 @@ export interface DeleteAwsLogSourceResponse {
    * <p>Deletion of the Amazon Web Services sources failed as the account is not a part of the organization.</p>
    * @public
    */
-  failed?: string[];
+  failed?: string[] | undefined;
 }
 
 /**
@@ -1414,7 +1274,7 @@ export interface DeleteCustomLogSourceRequest {
    *          removal to the specified source version.</p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 }
 
 /**
@@ -1446,7 +1306,7 @@ export interface DeleteDataLakeOrganizationConfigurationRequest {
    * <p>Turns off automatic enablement of Security Lake for member accounts that are added to an organization.</p>
    * @public
    */
-  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[];
+  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[] | undefined;
 }
 
 /**
@@ -1464,10 +1324,10 @@ export interface GetDataLakeOrganizationConfigurationRequest {}
  */
 export interface GetDataLakeOrganizationConfigurationResponse {
   /**
-   * <p>The configuration for new accounts.</p>
+   * <p>The configuration used for new accounts in Security Lake.</p>
    * @public
    */
-  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[];
+  autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[] | undefined;
 }
 
 /**
@@ -1478,14 +1338,14 @@ export interface GetDataLakeSourcesRequest {
    * <p>The Amazon Web Services account ID for which a static snapshot of the current Amazon Web Services Region, including enabled accounts and log sources, is retrieved.</p>
    * @public
    */
-  accounts?: string[];
+  accounts?: string[] | undefined;
 
   /**
    * <p>The maximum limit of accounts for which the static snapshot of the current Region,
    *          including enabled accounts and log sources, is retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination
@@ -1495,7 +1355,7 @@ export interface GetDataLakeSourcesRequest {
    *          return an HTTP 400 InvalidToken error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1523,18 +1383,18 @@ export interface DataLakeSourceStatus {
    *          applications, and services.</p>
    * @public
    */
-  resource?: string;
+  resource?: string | undefined;
 
   /**
    * <p>The health status of services, including error codes and patterns.</p>
    * @public
    */
-  status?: SourceCollectionStatus;
+  status?: SourceCollectionStatus | undefined;
 }
 
 /**
- * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services and
- *          custom sources. For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+ * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services services and
+ *          custom sources. For the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  * @public
  */
 export interface DataLakeSource {
@@ -1542,174 +1402,27 @@ export interface DataLakeSource {
    * <p>The ID of the Security Lake account for which logs are collected.</p>
    * @public
    */
-  account?: string;
+  account?: string | undefined;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected.
-   *          Amazon Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected.
+   *          Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
    * @public
    */
-  sourceName?: string;
+  sourceName?: string | undefined;
 
   /**
-   * <p>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of
-   *          data that the custom source will send to Security Lake. The supported event classes are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACCESS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FILE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KERNEL_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KERNEL_EXTENSION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEMORY_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODULE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PROCESS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGISTRY_KEY_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGISTRY_VALUE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOURCE_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED_JOB_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECURITY_FINDING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCOUNT_CHANGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHENTICATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHORIZATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENTITY_MANAGEMENT_AUDIT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DHCP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NETWORK_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DNS_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FTP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RDP_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SMB_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSH_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONFIG_STATE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INVENTORY_INFO</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EMAIL_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>API_ACTIVITY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_API</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The Open Cybersecurity Schema Framework (OCSF) event classes describes the type of
+   *          data that the custom source will send to Security Lake. For the list of supported event classes, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass.html">Supported OCSF Event classes</a> in the Amazon Security Lake User Guide.</p>
    * @public
    */
-  eventClasses?: string[];
+  eventClasses?: string[] | undefined;
 
   /**
    * <p>The log status for the Security Lake account.</p>
    * @public
    */
-  sourceStatuses?: DataLakeSourceStatus[];
+  sourceStatuses?: DataLakeSourceStatus[] | undefined;
 }
 
 /**
@@ -1720,13 +1433,13 @@ export interface GetDataLakeSourcesResponse {
    * <p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more information about ARNs and how to use them in policies, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/subscriber-management.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
-  dataLakeArn?: string;
+  dataLakeArn?: string | undefined;
 
   /**
    * <p>The list of enabled accounts and enabled sources.</p>
    * @public
    */
-  dataLakeSources?: DataLakeSource[];
+  dataLakeSources?: DataLakeSource[] | undefined;
 
   /**
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination
@@ -1736,7 +1449,7 @@ export interface GetDataLakeSourcesResponse {
    *          return an HTTP 400 InvalidToken error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1747,7 +1460,7 @@ export interface ListDataLakesRequest {
    * <p>The list of Regions where Security Lake is enabled.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 }
 
 /**
@@ -1758,7 +1471,7 @@ export interface ListDataLakesResponse {
    * <p>Retrieves the Security Lake configuration object.</p>
    * @public
    */
-  dataLakes?: DataLakeResource[];
+  dataLakes?: DataLakeResource[] | undefined;
 }
 
 /**
@@ -1769,32 +1482,32 @@ export interface ListLogSourcesRequest {
    * <p>The list of Amazon Web Services accounts for which log sources are displayed.</p>
    * @public
    */
-  accounts?: string[];
+  accounts?: string[] | undefined;
 
   /**
    * <p>The list of Regions for which log sources are displayed.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 
   /**
    * <p>The list of sources for which log sources are displayed.</p>
    * @public
    */
-  sources?: LogSourceResource[];
+  sources?: LogSourceResource[] | undefined;
 
   /**
    * <p>The maximum number of accounts for which the log sources are displayed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If nextToken is returned, there are more results available. You can repeat the call
    *          using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1806,19 +1519,19 @@ export interface LogSource {
    * <p>Specify the account from which you want to collect logs.</p>
    * @public
    */
-  account?: string;
+  account?: string | undefined;
 
   /**
    * <p>Specify the Regions from which you want to collect logs.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>Specify the sources from which you want to collect logs.</p>
    * @public
    */
-  sources?: LogSourceResource[];
+  sources?: LogSourceResource[] | undefined;
 }
 
 /**
@@ -1829,14 +1542,14 @@ export interface ListLogSourcesResponse {
    * <p>The list of log sources in your organization that send data to the data lake.</p>
    * @public
    */
-  sources?: LogSource[];
+  sources?: LogSource[] | undefined;
 
   /**
    * <p>If nextToken is returned, there are more results available. You can repeat the call
    *       using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1844,7 +1557,7 @@ export interface ListLogSourcesResponse {
  */
 export interface UpdateDataLakeRequest {
   /**
-   * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
+   * <p>Specifies the Region or Regions that will contribute data to the rollup region.</p>
    * @public
    */
   configurations: DataLakeConfiguration[] | undefined;
@@ -1855,7 +1568,7 @@ export interface UpdateDataLakeRequest {
    *          Amazon Web Services log sources and custom sources.</p>
    * @public
    */
-  metaStoreManagerRoleArn?: string;
+  metaStoreManagerRoleArn?: string | undefined;
 }
 
 /**
@@ -1866,7 +1579,7 @@ export interface UpdateDataLakeResponse {
    * <p>The created Security Lake configuration object.</p>
    * @public
    */
-  dataLakes?: DataLakeResource[];
+  dataLakes?: DataLakeResource[] | undefined;
 }
 
 /**
@@ -1878,25 +1591,25 @@ export interface DataLakeException {
    * <p>The Amazon Web Services Regions where the exception occurred.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The underlying exception of a Security Lake exception.</p>
    * @public
    */
-  exception?: string;
+  exception?: string | undefined;
 
   /**
    * <p>List of all remediation steps for a Security Lake exception.</p>
    * @public
    */
-  remediation?: string;
+  remediation?: string | undefined;
 
   /**
    * <p>This error can occur if you configure the wrong timestamp format, or if the subset of entries used for validation had errors or missing values.</p>
    * @public
    */
-  timestamp?: Date;
+  timestamp?: Date | undefined;
 }
 
 /**
@@ -1964,19 +1677,19 @@ export interface GetDataLakeExceptionSubscriptionResponse {
    * <p>The subscription protocol to which exception notifications are posted.</p>
    * @public
    */
-  subscriptionProtocol?: string;
+  subscriptionProtocol?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account where you receive exception notifications.</p>
    * @public
    */
-  notificationEndpoint?: string;
+  notificationEndpoint?: string | undefined;
 
   /**
-   * <p>The expiration period and time-to-live (TTL).</p>
+   * <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p>
    * @public
    */
-  exceptionTimeToLive?: number;
+  exceptionTimeToLive?: number | undefined;
 }
 
 /**
@@ -1999,7 +1712,7 @@ export interface GetSubscriberResponse {
    * <p>The subscriber information for the specified subscriber ID.</p>
    * @public
    */
-  subscriber?: SubscriberResource;
+  subscriber?: SubscriberResource | undefined;
 }
 
 /**
@@ -2010,23 +1723,23 @@ export interface ListDataLakeExceptionsRequest {
    * <p>The Amazon Web Services Regions from which exceptions are retrieved.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 
   /**
-   * <p>List the maximum number of failures in Security Lake.</p>
+   * <p>Lists the maximum number of failures in Security Lake.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
-   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
    *          token for each page. Repeat the call using the returned token to retrieve the next page.
    *          Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
    *          return an HTTP 400 InvalidToken error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2034,20 +1747,20 @@ export interface ListDataLakeExceptionsRequest {
  */
 export interface ListDataLakeExceptionsResponse {
   /**
-   * <p>Lists the failures that cannot be retried in the current Region.</p>
+   * <p>Lists the failures that cannot be retried.</p>
    * @public
    */
-  exceptions?: DataLakeException[];
+  exceptions?: DataLakeException[] | undefined;
 
   /**
-   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
    *          token for each page. Repeat the call using the returned token to retrieve the next page.
    *          Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
    *          return an HTTP 400 InvalidToken error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2059,13 +1772,13 @@ export interface ListSubscribersRequest {
    *          using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of accounts for which the configuration is displayed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2076,14 +1789,14 @@ export interface ListSubscribersResponse {
    * <p>The subscribers available for the specified Security Lake account ID.</p>
    * @public
    */
-  subscribers?: SubscriberResource[];
+  subscribers?: SubscriberResource[] | undefined;
 
   /**
    * <p>If nextToken is returned, there are more results available. You can repeat the call
    *          using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2105,7 +1818,7 @@ export interface ListTagsForResourceResponse {
    * <p>An array of objects, one for each tag (key and value) that’s associated with the Amazon Security Lake resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2135,29 +1848,29 @@ export interface UpdateSubscriberRequest {
   subscriberId: string | undefined;
 
   /**
-   * <p>The AWS identity used to access your data.</p>
+   * <p>The Amazon Web Services identity used to access your data.</p>
    * @public
    */
-  subscriberIdentity?: AwsIdentity;
+  subscriberIdentity?: AwsIdentity | undefined;
 
   /**
    * <p>The name of the Security Lake account subscriber.</p>
    * @public
    */
-  subscriberName?: string;
+  subscriberName?: string | undefined;
 
   /**
    * <p>The description of the Security Lake account subscriber.</p>
    * @public
    */
-  subscriberDescription?: string;
+  subscriberDescription?: string | undefined;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected. For
-   *          the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected. For
+   *          the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
-  sources?: LogSourceResource[];
+  sources?: LogSourceResource[] | undefined;
 }
 
 /**
@@ -2168,7 +1881,7 @@ export interface UpdateSubscriberResponse {
    * <p>The updated subscriber information.</p>
    * @public
    */
-  subscriber?: SubscriberResource;
+  subscriber?: SubscriberResource | undefined;
 }
 
 /**
@@ -2196,7 +1909,7 @@ export interface UpdateSubscriberNotificationResponse {
    * <p>The subscriber endpoint to which exception messages are posted.</p>
    * @public
    */
-  subscriberEndpoint?: string;
+  subscriberEndpoint?: string | undefined;
 }
 
 /**
@@ -2261,10 +1974,10 @@ export interface UpdateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string | undefined;
 
   /**
-   * <p>The time-to-live (TTL) for the exception message to remain.</p>
+   * <p>The time-to-live (TTL) for the exception message to remain. It is the duration of time until which the exception message remains. </p>
    * @public
    */
-  exceptionTimeToLive?: number;
+  exceptionTimeToLive?: number | undefined;
 }
 
 /**

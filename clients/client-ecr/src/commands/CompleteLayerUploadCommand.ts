@@ -102,6 +102,7 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class CompleteLayerUploadCommand extends $Command
@@ -112,9 +113,7 @@ export class CompleteLayerUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class CompleteLayerUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteLayerUploadCommand)
   .de(de_CompleteLayerUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteLayerUploadRequest;
+      output: CompleteLayerUploadResponse;
+    };
+    sdk: {
+      input: CompleteLayerUploadCommandInput;
+      output: CompleteLayerUploadCommandOutput;
+    };
+  };
+}

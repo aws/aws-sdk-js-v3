@@ -51,12 +51,25 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
  * //       storageConfigurationArn: "STRING_VALUE", // required
  * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
- * //         "STRING_VALUE",
+ * //         "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
  * //       ],
+ * //       thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ * //         targetIntervalSeconds: Number("int"),
+ * //         storage: [ // ThumbnailStorageTypeList
+ * //           "SEQUENTIAL" || "LATEST",
+ * //         ],
+ * //         recordingMode: "INTERVAL" || "DISABLED",
+ * //       },
+ * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ * //         targetSegmentDurationSeconds: Number("int"),
+ * //       },
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
  * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -81,6 +94,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class GetStageCommand extends $Command
@@ -91,9 +105,7 @@ export class GetStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +117,16 @@ export class GetStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStageCommand)
   .de(de_GetStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStageRequest;
+      output: GetStageResponse;
+    };
+    sdk: {
+      input: GetStageCommandInput;
+      output: GetStageCommandOutput;
+    };
+  };
+}

@@ -321,6 +321,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorProfileCommand extends $Command
@@ -331,9 +332,7 @@ export class CreateConnectorProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -345,4 +344,16 @@ export class CreateConnectorProfileCommand extends $Command
   .f(CreateConnectorProfileRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectorProfileCommand)
   .de(de_CreateConnectorProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorProfileRequest;
+      output: CreateConnectorProfileResponse;
+    };
+    sdk: {
+      input: CreateConnectorProfileCommandInput;
+      output: CreateConnectorProfileCommandOutput;
+    };
+  };
+}

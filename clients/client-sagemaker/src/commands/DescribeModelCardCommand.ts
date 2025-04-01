@@ -9,7 +9,7 @@ import {
   DescribeModelCardRequest,
   DescribeModelCardResponse,
   DescribeModelCardResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_DescribeModelCardCommand, se_DescribeModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -93,6 +93,7 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeModelCardCommand extends $Command
@@ -103,9 +104,7 @@ export class DescribeModelCardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DescribeModelCardCommand extends $Command
   .f(void 0, DescribeModelCardResponseFilterSensitiveLog)
   .ser(se_DescribeModelCardCommand)
   .de(de_DescribeModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelCardRequest;
+      output: DescribeModelCardResponse;
+    };
+    sdk: {
+      input: DescribeModelCardCommandInput;
+      output: DescribeModelCardCommandOutput;
+    };
+  };
+}

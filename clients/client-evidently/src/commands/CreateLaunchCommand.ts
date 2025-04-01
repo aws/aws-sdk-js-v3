@@ -178,6 +178,7 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class CreateLaunchCommand extends $Command
@@ -188,9 +189,7 @@ export class CreateLaunchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +201,16 @@ export class CreateLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLaunchCommand)
   .de(de_CreateLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchRequest;
+      output: CreateLaunchResponse;
+    };
+    sdk: {
+      input: CreateLaunchCommandInput;
+      output: CreateLaunchCommandOutput;
+    };
+  };
+}

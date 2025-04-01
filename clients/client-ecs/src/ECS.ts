@@ -83,6 +83,16 @@ import {
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
 import {
+  DescribeServiceDeploymentsCommand,
+  DescribeServiceDeploymentsCommandInput,
+  DescribeServiceDeploymentsCommandOutput,
+} from "./commands/DescribeServiceDeploymentsCommand";
+import {
+  DescribeServiceRevisionsCommand,
+  DescribeServiceRevisionsCommandInput,
+  DescribeServiceRevisionsCommandOutput,
+} from "./commands/DescribeServiceRevisionsCommand";
+import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
   DescribeServicesCommandOutput,
@@ -137,6 +147,11 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServiceDeploymentsCommand,
+  ListServiceDeploymentsCommandInput,
+  ListServiceDeploymentsCommandOutput,
+} from "./commands/ListServiceDeploymentsCommand";
 import {
   ListServicesByNamespaceCommand,
   ListServicesByNamespaceCommandInput,
@@ -281,6 +296,8 @@ const commands = {
   DescribeCapacityProvidersCommand,
   DescribeClustersCommand,
   DescribeContainerInstancesCommand,
+  DescribeServiceDeploymentsCommand,
+  DescribeServiceRevisionsCommand,
   DescribeServicesCommand,
   DescribeTaskDefinitionCommand,
   DescribeTasksCommand,
@@ -292,6 +309,7 @@ const commands = {
   ListAttributesCommand,
   ListClustersCommand,
   ListContainerInstancesCommand,
+  ListServiceDeploymentsCommand,
   ListServicesCommand,
   ListServicesByNamespaceCommand,
   ListTagsForResourceCommand,
@@ -564,6 +582,40 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link DescribeServiceDeploymentsCommand}
+   */
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceDeploymentsCommandOutput>;
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    cb: (err: any, data?: DescribeServiceDeploymentsCommandOutput) => void
+  ): void;
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServiceRevisionsCommand}
+   */
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceRevisionsCommandOutput>;
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    cb: (err: any, data?: DescribeServiceRevisionsCommandOutput) => void
+  ): void;
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceRevisionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeServicesCommand}
    */
   describeServices(
@@ -734,6 +786,23 @@ export interface ECS {
     args: ListContainerInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContainerInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceDeploymentsCommand}
+   */
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceDeploymentsCommandOutput>;
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    cb: (err: any, data?: ListServiceDeploymentsCommandOutput) => void
+  ): void;
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceDeploymentsCommandOutput) => void
   ): void;
 
   /**

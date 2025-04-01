@@ -47,6 +47,9 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  *   CodeSigningPolicies: { // CodeSigningPolicies
  *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
  *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCodeSigningConfigCommand(input);
  * const response = await client.send(command);
@@ -84,6 +87,7 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class CreateCodeSigningConfigCommand extends $Command
@@ -94,9 +98,7 @@ export class CreateCodeSigningConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class CreateCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCodeSigningConfigCommand)
   .de(de_CreateCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCodeSigningConfigRequest;
+      output: CreateCodeSigningConfigResponse;
+    };
+    sdk: {
+      input: CreateCodeSigningConfigCommandInput;
+      output: CreateCodeSigningConfigCommandOutput;
+    };
+  };
+}

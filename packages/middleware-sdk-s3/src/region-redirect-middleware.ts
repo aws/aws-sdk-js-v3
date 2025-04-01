@@ -35,22 +35,23 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
       try {
         return await next(args);
       } catch (err) {
-        if (
-          clientConfig.followRegionRedirects &&
-          // err.name === "PermanentRedirect" && --> removing the error name check, as that allows for HEAD operations (which have the 301 status code, but not the same error name) to be covered for region redirection as well
-          err?.$metadata?.httpStatusCode === 301
-        ) {
-          try {
-            const actualRegion = err.$response.headers["x-amz-bucket-region"];
-            context.logger?.debug(`Redirecting from ${await clientConfig.region()} to ${actualRegion}`);
-            context.__s3RegionRedirect = actualRegion;
-          } catch (e) {
-            throw new Error("Region redirect failed: " + e);
+        if (clientConfig.followRegionRedirects) {
+          if (
+            err?.$metadata?.httpStatusCode === 301 ||
+            // err.name === "PermanentRedirect" && --> removing the error name check, as that allows for HEAD operations (which have the 301 status code, but not the same error name) to be covered for region redirection as well
+            (err?.$metadata?.httpStatusCode === 400 && err?.name === "IllegalLocationConstraintException")
+          ) {
+            try {
+              const actualRegion = err.$response.headers["x-amz-bucket-region"];
+              context.logger?.debug(`Redirecting from ${await clientConfig.region()} to ${actualRegion}`);
+              context.__s3RegionRedirect = actualRegion;
+            } catch (e) {
+              throw new Error("Region redirect failed: " + e);
+            }
+            return next(args);
           }
-          return next(args);
-        } else {
-          throw err;
         }
+        throw err;
       }
     };
 }

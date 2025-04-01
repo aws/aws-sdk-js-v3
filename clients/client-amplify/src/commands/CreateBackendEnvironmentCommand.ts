@@ -86,6 +86,7 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateBackendEnvironmentCommand extends $Command
@@ -96,9 +97,7 @@ export class CreateBackendEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class CreateBackendEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackendEnvironmentCommand)
   .de(de_CreateBackendEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendEnvironmentRequest;
+      output: CreateBackendEnvironmentResult;
+    };
+    sdk: {
+      input: CreateBackendEnvironmentCommandInput;
+      output: CreateBackendEnvironmentCommandOutput;
+    };
+  };
+}

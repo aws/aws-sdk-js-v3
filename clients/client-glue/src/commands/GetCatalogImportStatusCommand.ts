@@ -65,6 +65,7 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetCatalogImportStatusCommand extends $Command
@@ -75,9 +76,7 @@ export class GetCatalogImportStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class GetCatalogImportStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCatalogImportStatusCommand)
   .de(de_GetCatalogImportStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCatalogImportStatusRequest;
+      output: GetCatalogImportStatusResponse;
+    };
+    sdk: {
+      input: GetCatalogImportStatusCommandInput;
+      output: GetCatalogImportStatusCommandOutput;
+    };
+  };
+}

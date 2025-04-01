@@ -74,6 +74,7 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class StopTextTranslationJobCommand extends $Command
@@ -84,9 +85,7 @@ export class StopTextTranslationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class StopTextTranslationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTextTranslationJobCommand)
   .de(de_StopTextTranslationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTextTranslationJobRequest;
+      output: StopTextTranslationJobResponse;
+    };
+    sdk: {
+      input: StopTextTranslationJobCommandInput;
+      output: StopTextTranslationJobCommandOutput;
+    };
+  };
+}

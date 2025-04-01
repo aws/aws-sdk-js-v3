@@ -166,23 +166,23 @@ export interface RotateKeyOnDemandCommandOutput extends RotateKeyOnDemandRespons
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To perform on-demand rotation of key material
  * ```javascript
  * // The following example immediately initiates rotation of the key material for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new RotateKeyOnDemandCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-perform-on-demand-rotation-of-key-material-1712499025700
  * ```
  *
+ * @public
  */
 export class RotateKeyOnDemandCommand extends $Command
   .classBuilder<
@@ -192,9 +192,7 @@ export class RotateKeyOnDemandCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +204,16 @@ export class RotateKeyOnDemandCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RotateKeyOnDemandCommand)
   .de(de_RotateKeyOnDemandCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateKeyOnDemandRequest;
+      output: RotateKeyOnDemandResponse;
+    };
+    sdk: {
+      input: RotateKeyOnDemandCommandInput;
+      output: RotateKeyOnDemandCommandOutput;
+    };
+  };
+}

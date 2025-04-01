@@ -67,6 +67,7 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class DeleteApprovalRuleTemplateCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteApprovalRuleTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteApprovalRuleTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApprovalRuleTemplateCommand)
   .de(de_DeleteApprovalRuleTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApprovalRuleTemplateInput;
+      output: DeleteApprovalRuleTemplateOutput;
+    };
+    sdk: {
+      input: DeleteApprovalRuleTemplateCommandInput;
+      output: DeleteApprovalRuleTemplateCommandOutput;
+    };
+  };
+}

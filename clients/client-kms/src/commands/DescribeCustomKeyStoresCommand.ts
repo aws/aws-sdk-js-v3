@@ -155,108 +155,21 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To get detailed information about custom key stores in the account and Region
  * ```javascript
  * // This example gets detailed information about all AWS KMS custom key stores in an AWS account and Region. To get all key stores, do not enter a custom key store name or ID.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeCustomKeyStoresCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomKeyStores": []
+ *   CustomKeyStores:   []
  * }
  * *\/
- * // example id: to-get-detailed-information-about-custom-key-stores-in-the-account-and-region-1
  * ```
  *
- * @example To get detailed information about an AWS CloudHSM key store by specifying its friendly name
- * ```javascript
- * // This example gets detailed information about a particular AWS CloudHSM key store by specifying its friendly name. To limit the output to a particular custom key store, provide either the custom key store name or ID.
- * const input = {
- *   "CustomKeyStoreName": "ExampleKeyStore"
- * };
- * const command = new DescribeCustomKeyStoresCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CustomKeyStores": [
- *     {
- *       "CloudHsmClusterId": "cluster-234abcdefABC",
- *       "ConnectionState": "CONNECTED",
- *       "CreationDate": "1.499288695918E9",
- *       "CustomKeyStoreId": "cks-1234567890abcdef0",
- *       "CustomKeyStoreName": "ExampleKeyStore",
- *       "CustomKeyStoreType": "AWS_CLOUDHSM",
- *       "TrustAnchorCertificate": "<certificate appears here>"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-detailed-information-about-a-cloudhsm-custom-key-store-by-name-2
- * ```
- *
- * @example To get detailed information about an external key store by specifying its ID
- * ```javascript
- * // This example gets detailed information about an external key store by specifying its ID.  The example external key store proxy uses public endpoint connectivity.
- * const input = {
- *   "CustomKeyStoreId": "cks-9876543210fedcba9"
- * };
- * const command = new DescribeCustomKeyStoresCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CustomKeyStores": [
- *     {
- *       "ConnectionState": "CONNECTED",
- *       "CreationDate": "1.599288695918E9",
- *       "CustomKeyStoreId": "cks-9876543210fedcba9",
- *       "CustomKeyStoreName": "ExampleExternalKeyStore",
- *       "CustomKeyStoreType": "EXTERNAL_KEY_STORE",
- *       "XksProxyConfiguration": {
- *         "AccessKeyId": "ABCDE12345670EXAMPLE",
- *         "Connectivity": "PUBLIC_ENDPOINT",
- *         "UriEndpoint": "https://myproxy.xks.example.com",
- *         "UriPath": "/kms/xks/v1"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-detailed-information-about-an-external-key-store--3
- * ```
- *
- * @example To get detailed information about an external key store VPC endpoint connectivity by specifying its friendly name
- * ```javascript
- * // This example gets detailed information about a particular external key store by specifying its friendly name. To limit the output to a particular custom key store, provide either the custom key store name or ID. The proxy URI path for this external key store includes an optional prefix. Also, because this example external key store uses VPC endpoint connectivity, the response includes the associated VPC endpoint service name.
- * const input = {
- *   "CustomKeyStoreName": "VPCExternalKeystore"
- * };
- * const command = new DescribeCustomKeyStoresCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CustomKeyStores": [
- *     {
- *       "ConnectionState": "CONNECTED",
- *       "CreationDate": "1.643057863.842",
- *       "CustomKeyStoreId": "cks-876543210fedcba98",
- *       "CustomKeyStoreName": "ExampleVPCExternalKeyStore",
- *       "CustomKeyStoreType": "EXTERNAL_KEY_STORE",
- *       "XksProxyConfiguration": {
- *         "AccessKeyId": "ABCDE12345670EXAMPLE",
- *         "Connectivity": "VPC_ENDPOINT_SERVICE",
- *         "UriEndpoint": "https://myproxy-private.xks.example.com",
- *         "UriPath": "/example-prefix/kms/xks/v1",
- *         "VpcEndpointServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-example1"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-detailed-information-about-an-external-custom-key-store-by-name-4
- * ```
- *
+ * @public
  */
 export class DescribeCustomKeyStoresCommand extends $Command
   .classBuilder<
@@ -266,9 +179,7 @@ export class DescribeCustomKeyStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -280,4 +191,16 @@ export class DescribeCustomKeyStoresCommand extends $Command
   .f(void 0, DescribeCustomKeyStoresResponseFilterSensitiveLog)
   .ser(se_DescribeCustomKeyStoresCommand)
   .de(de_DescribeCustomKeyStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomKeyStoresRequest;
+      output: DescribeCustomKeyStoresResponse;
+    };
+    sdk: {
+      input: DescribeCustomKeyStoresCommandInput;
+      output: DescribeCustomKeyStoresCommandOutput;
+    };
+  };
+}

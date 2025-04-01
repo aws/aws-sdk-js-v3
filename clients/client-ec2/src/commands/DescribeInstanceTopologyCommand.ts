@@ -62,13 +62,15 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *                   <li>
  *                      <p>
  *                         <code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> |
- *                                 <code>p4de.24xlarge</code> | <code>p5.48xlarge</code>
+ *                                 <code>p4de.24xlarge</code> | <code>p5.48xlarge</code> |
+ *                                 <code>p5e.48xlarge</code> | <code>p5en.48xlarge</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
  *                         <code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> |
- *                                 <code>trn1n.32xlarge</code>
+ *                                 <code>trn1n.32xlarge</code> | <code>trn2.48xlarge</code> |
+ *                                 <code>trn2u.48xlarge</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -130,6 +132,7 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceTopologyCommand extends $Command
@@ -140,9 +143,7 @@ export class DescribeInstanceTopologyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +155,16 @@ export class DescribeInstanceTopologyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceTopologyCommand)
   .de(de_DescribeInstanceTopologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceTopologyRequest;
+      output: DescribeInstanceTopologyResult;
+    };
+    sdk: {
+      input: DescribeInstanceTopologyCommandInput;
+      output: DescribeInstanceTopologyCommandOutput;
+    };
+  };
+}

@@ -61,7 +61,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *  <p>Access denied.</p>
  *
  * @throws {@link IllegalDelete} (client fault)
- *  <p>You cannot delete a managed policy.</p>
+ *  <p>Deletion is not allowed for this entity.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -80,6 +80,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeleteOriginRequestPolicyCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteOriginRequestPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteOriginRequestPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOriginRequestPolicyCommand)
   .de(de_DeleteOriginRequestPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOriginRequestPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOriginRequestPolicyCommandInput;
+      output: DeleteOriginRequestPolicyCommandOutput;
+    };
+  };
+}

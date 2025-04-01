@@ -80,6 +80,7 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class PutPartnerEventsCommand extends $Command
@@ -90,9 +91,7 @@ export class PutPartnerEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class PutPartnerEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPartnerEventsCommand)
   .de(de_PutPartnerEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPartnerEventsRequest;
+      output: PutPartnerEventsResponse;
+    };
+    sdk: {
+      input: PutPartnerEventsCommandInput;
+      output: PutPartnerEventsCommandOutput;
+    };
+  };
+}

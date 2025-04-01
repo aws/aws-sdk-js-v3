@@ -29,8 +29,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
 
 /**
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>
- *          <p>For more information about Contributor Insights, see
- * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
+ *          <p>For more information about Contributor Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor
+ *             Insights to Analyze High-Cardinality Data</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +70,7 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeInsightRulesCommand extends $Command
@@ -80,9 +81,7 @@ export class DescribeInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DescribeInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInsightRulesCommand)
   .de(de_DescribeInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInsightRulesInput;
+      output: DescribeInsightRulesOutput;
+    };
+    sdk: {
+      input: DescribeInsightRulesCommandInput;
+      output: DescribeInsightRulesCommandOutput;
+    };
+  };
+}

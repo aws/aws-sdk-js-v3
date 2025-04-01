@@ -90,6 +90,7 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppInstanceUserEndpointCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command
   .f(UpdateAppInstanceUserEndpointRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppInstanceUserEndpointCommand)
   .de(de_UpdateAppInstanceUserEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppInstanceUserEndpointRequest;
+      output: UpdateAppInstanceUserEndpointResponse;
+    };
+    sdk: {
+      input: UpdateAppInstanceUserEndpointCommandInput;
+      output: UpdateAppInstanceUserEndpointCommandOutput;
+    };
+  };
+}

@@ -38,62 +38,157 @@ export interface CreateContainerGroupDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation is used with the Amazon GameLift containers feature, which is currently in public preview. </b>
- *          </p>
- *          <p>Creates a <code>ContainerGroupDefinition</code> resource that describes a set of
- *       containers for hosting your game server with Amazon GameLift managed EC2 hosting. An Amazon GameLift container
- *       group is similar to a container "task" and "pod". Each container group can have one or more
- *       containers. </p>
- *          <p>Use container group definitions when you create a container fleet. Container group
- *       definitions determine how Amazon GameLift deploys your containers to each instance in a container
- *       fleet. </p>
- *          <p>You can create two types of container groups, based on scheduling strategy:</p>
+ * <p>Creates a <code>ContainerGroupDefinition</code> that describes a set of containers for
+ *       hosting your game server with Amazon GameLift managed containers hosting. An Amazon GameLift container group
+ *       is similar to a container task or pod. Use container group definitions when you create a
+ *       container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>. </p>
+ *          <p>A container group definition determines how Amazon GameLift deploys your containers to each
+ *       instance in a container fleet. You can maintain multiple versions of a container group
+ *       definition.</p>
+ *          <p>There are two types of container groups:</p>
  *          <ul>
  *             <li>
- *                <p>A <b>replica container group</b> manages the containers that run
- *         your game server application and supporting software. Replica container groups might be
- *         replicated multiple times on each fleet instance, depending on instance resources. </p>
+ *                <p>A <b>game server container group</b> has the containers that run
+ *           your game server application and supporting software. A game server container group can
+ *           have these container types:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Game server container. This container runs your game server. You can define one
+ *               game server container in a game server container group.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Support container. This container runs software in parallel with your game server.
+ *               You can define up to 8 support containers in a game server group.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>When building a game server container group definition, you can choose to bundle your
+ *           game server executable and all dependent software into a single game server container.
+ *           Alternatively, you can separate the software into one game server container and one or
+ *           more support containers.</p>
+ *                <p>On a container fleet instance, a game server container group can be deployed multiple
+ *           times (depending on the compute resources of the instance). This means that all containers
+ *           in the container group are replicated together.</p>
  *             </li>
  *             <li>
- *                <p>A <b>daemon container group</b> manages containers that run other
- *         software, such as background services, logging, or test processes. You might use a daemon
- *         container group for processes that need to run only once per fleet instance, or processes
- *         that need to persist independently of the replica container group. </p>
+ *                <p>A <b>per-instance container group</b> has containers for processes
+ *           that aren't replicated on a container fleet instance. This might include background
+ *           services, logging, test processes, or processes that need to persist independently of the
+ *           game server container group. When building a per-instance container group, you can define
+ *           up to 10 support containers.</p>
  *             </li>
  *          </ul>
- *          <p>To create a container group definition, specify a group name, a list of container
- *       definitions, and maximum total CPU and memory requirements for the container group. Specify an
- *       operating system and scheduling strategy or use the default values. When using the Amazon Web Services CLI
- *       tool, you can pass in your container definitions as a JSON file.</p>
  *          <note>
  *             <p>This operation requires Identity and Access Management (IAM) permissions to access container images in
  *         Amazon ECR repositories. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html"> IAM permissions
  *           for Amazon GameLift</a> for help setting the appropriate permissions.</p>
  *          </note>
- *          <p>If successful, this operation creates a new <code>ContainerGroupDefinition</code> resource
- *       with an ARN value assigned. You can't change the properties of a container group definition.
- *       Instead, create a new one. </p>
  *          <p>
- *             <b>Learn more</b>
+ *             <b>Request options</b>
  *          </p>
+ *          <p>Use this operation to make the following types of requests. You can specify values for the
+ *       minimum required parameters and customize optional values later.</p>
  *          <ul>
  *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Create a container group definition</a>
- *                </p>
+ *                <p>Create a game server container group definition. Provide the following required parameter values:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Name</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>ContainerGroupType</code> (<code>GAME_SERVER</code>)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>OperatingSystem</code> (omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>TotalMemoryLimitMebibytes</code> (omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>TotalVcpuLimit </code>(omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>At least one <code>GameServerContainerDefinition</code>
+ *                      </p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>
+ *                               <code>ContainerName</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>ImageUrl</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>PortConfiguration</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>ServerSdkVersion</code> (omit to use default value)</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet.html">Container fleet design guide</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-definitions.html#containers-definitions-create">Create a container definition as a JSON file</a>
- *                </p>
+ *                <p>Create a per-instance container group definition. Provide the following required parameter
+ *           values:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Name</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>ContainerGroupType</code> (<code>PER_INSTANCE</code>)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>OperatingSystem</code> (omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>TotalMemoryLimitMebibytes</code> (omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>TotalVcpuLimit </code>(omit to use default value)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>At least one <code>SupportContainerDefinition</code>
+ *                      </p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>
+ *                               <code>ContainerName</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>ImageUrl</code>
+ *                            </p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                </ul>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Results</b>
+ *          </p>
+ *          <p>If successful, this request creates a <code>ContainerGroupDefinition</code> resource and
+ *       assigns a unique ARN value. You can update most properties of a container group definition by
+ *       calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>, and optionally save the update as a new version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,59 +197,90 @@ export interface CreateContainerGroupDefinitionCommandOutput
  * const client = new GameLiftClient(config);
  * const input = { // CreateContainerGroupDefinitionInput
  *   Name: "STRING_VALUE", // required
- *   SchedulingStrategy: "REPLICA" || "DAEMON",
- *   TotalMemoryLimit: Number("int"), // required
- *   TotalCpuLimit: Number("int"), // required
- *   ContainerDefinitions: [ // ContainerDefinitionInputList // required
- *     { // ContainerDefinitionInput
- *       ContainerName: "STRING_VALUE", // required
- *       ImageUri: "STRING_VALUE", // required
- *       MemoryLimits: { // ContainerMemoryLimits
- *         SoftLimit: Number("int"),
- *         HardLimit: Number("int"),
+ *   ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
+ *   TotalMemoryLimitMebibytes: Number("int"), // required
+ *   TotalVcpuLimit: Number("double"), // required
+ *   GameServerContainerDefinition: { // GameServerContainerDefinitionInput
+ *     ContainerName: "STRING_VALUE", // required
+ *     DependsOn: [ // ContainerDependencyList
+ *       { // ContainerDependency
+ *         ContainerName: "STRING_VALUE", // required
+ *         Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
  *       },
- *       PortConfiguration: { // ContainerPortConfiguration
- *         ContainerPortRanges: [ // ContainerPortRangeList // required
- *           { // ContainerPortRange
+ *     ],
+ *     MountPoints: [ // ContainerMountPointList
+ *       { // ContainerMountPoint
+ *         InstancePath: "STRING_VALUE", // required
+ *         ContainerPath: "STRING_VALUE",
+ *         AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ *       },
+ *     ],
+ *     EnvironmentOverride: [ // ContainerEnvironmentList
+ *       { // ContainerEnvironment
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ImageUri: "STRING_VALUE", // required
+ *     PortConfiguration: { // ContainerPortConfiguration
+ *       ContainerPortRanges: [ // ContainerPortRangeList // required
+ *         { // ContainerPortRange
+ *           FromPort: Number("int"), // required
+ *           ToPort: Number("int"), // required
+ *           Protocol: "TCP" || "UDP", // required
+ *         },
+ *       ],
+ *     },
+ *     ServerSdkVersion: "STRING_VALUE", // required
+ *   },
+ *   SupportContainerDefinitions: [ // SupportContainerDefinitionInputList
+ *     { // SupportContainerDefinitionInput
+ *       ContainerName: "STRING_VALUE", // required
+ *       DependsOn: [
+ *         {
+ *           ContainerName: "STRING_VALUE", // required
+ *           Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
+ *         },
+ *       ],
+ *       MountPoints: [
+ *         {
+ *           InstancePath: "STRING_VALUE", // required
+ *           ContainerPath: "STRING_VALUE",
+ *           AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ *         },
+ *       ],
+ *       EnvironmentOverride: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Essential: true || false,
+ *       HealthCheck: { // ContainerHealthCheck
+ *         Command: [ // ContainerCommandStringList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Interval: Number("int"),
+ *         Retries: Number("int"),
+ *         StartPeriod: Number("int"),
+ *         Timeout: Number("int"),
+ *       },
+ *       ImageUri: "STRING_VALUE", // required
+ *       MemoryHardLimitMebibytes: Number("int"),
+ *       PortConfiguration: {
+ *         ContainerPortRanges: [ // required
+ *           {
  *             FromPort: Number("int"), // required
  *             ToPort: Number("int"), // required
  *             Protocol: "TCP" || "UDP", // required
  *           },
  *         ],
  *       },
- *       Cpu: Number("int"),
- *       HealthCheck: { // ContainerHealthCheck
- *         Command: [ // ContainerCommandStringList // required
- *           "STRING_VALUE",
- *         ],
- *         Interval: Number("int"),
- *         Timeout: Number("int"),
- *         Retries: Number("int"),
- *         StartPeriod: Number("int"),
- *       },
- *       Command: [
- *         "STRING_VALUE",
- *       ],
- *       Essential: true || false,
- *       EntryPoint: [ // ContainerEntryPointList
- *         "STRING_VALUE",
- *       ],
- *       WorkingDirectory: "STRING_VALUE",
- *       Environment: [ // ContainerEnvironmentList
- *         { // ContainerEnvironment
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       DependsOn: [ // ContainerDependencyList
- *         { // ContainerDependency
- *           ContainerName: "STRING_VALUE", // required
- *           Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
- *         },
- *       ],
+ *       Vcpu: Number("double"),
  *     },
  *   ],
  *   OperatingSystem: "AMAZON_LINUX_2023", // required
+ *   VersionDescription: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -169,60 +295,93 @@ export interface CreateContainerGroupDefinitionCommandOutput
  * //     ContainerGroupDefinitionArn: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     OperatingSystem: "AMAZON_LINUX_2023",
- * //     Name: "STRING_VALUE",
- * //     SchedulingStrategy: "REPLICA" || "DAEMON",
- * //     TotalMemoryLimit: Number("int"),
- * //     TotalCpuLimit: Number("int"),
- * //     ContainerDefinitions: [ // ContainerDefinitionList
- * //       { // ContainerDefinition
- * //         ContainerName: "STRING_VALUE", // required
- * //         ImageUri: "STRING_VALUE", // required
- * //         ResolvedImageDigest: "STRING_VALUE",
- * //         MemoryLimits: { // ContainerMemoryLimits
- * //           SoftLimit: Number("int"),
- * //           HardLimit: Number("int"),
+ * //     Name: "STRING_VALUE", // required
+ * //     ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
+ * //     TotalMemoryLimitMebibytes: Number("int"),
+ * //     TotalVcpuLimit: Number("double"),
+ * //     GameServerContainerDefinition: { // GameServerContainerDefinition
+ * //       ContainerName: "STRING_VALUE",
+ * //       DependsOn: [ // ContainerDependencyList
+ * //         { // ContainerDependency
+ * //           ContainerName: "STRING_VALUE", // required
+ * //           Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
  * //         },
- * //         PortConfiguration: { // ContainerPortConfiguration
- * //           ContainerPortRanges: [ // ContainerPortRangeList // required
- * //             { // ContainerPortRange
+ * //       ],
+ * //       MountPoints: [ // ContainerMountPointList
+ * //         { // ContainerMountPoint
+ * //           InstancePath: "STRING_VALUE", // required
+ * //           ContainerPath: "STRING_VALUE",
+ * //           AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //         },
+ * //       ],
+ * //       EnvironmentOverride: [ // ContainerEnvironmentList
+ * //         { // ContainerEnvironment
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       ImageUri: "STRING_VALUE",
+ * //       PortConfiguration: { // ContainerPortConfiguration
+ * //         ContainerPortRanges: [ // ContainerPortRangeList // required
+ * //           { // ContainerPortRange
+ * //             FromPort: Number("int"), // required
+ * //             ToPort: Number("int"), // required
+ * //             Protocol: "TCP" || "UDP", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       ResolvedImageDigest: "STRING_VALUE",
+ * //       ServerSdkVersion: "STRING_VALUE",
+ * //     },
+ * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
+ * //       { // SupportContainerDefinition
+ * //         ContainerName: "STRING_VALUE",
+ * //         DependsOn: [
+ * //           {
+ * //             ContainerName: "STRING_VALUE", // required
+ * //             Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
+ * //           },
+ * //         ],
+ * //         MountPoints: [
+ * //           {
+ * //             InstancePath: "STRING_VALUE", // required
+ * //             ContainerPath: "STRING_VALUE",
+ * //             AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //           },
+ * //         ],
+ * //         EnvironmentOverride: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         Essential: true || false,
+ * //         HealthCheck: { // ContainerHealthCheck
+ * //           Command: [ // ContainerCommandStringList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Interval: Number("int"),
+ * //           Retries: Number("int"),
+ * //           StartPeriod: Number("int"),
+ * //           Timeout: Number("int"),
+ * //         },
+ * //         ImageUri: "STRING_VALUE",
+ * //         MemoryHardLimitMebibytes: Number("int"),
+ * //         PortConfiguration: {
+ * //           ContainerPortRanges: [ // required
+ * //             {
  * //               FromPort: Number("int"), // required
  * //               ToPort: Number("int"), // required
  * //               Protocol: "TCP" || "UDP", // required
  * //             },
  * //           ],
  * //         },
- * //         Cpu: Number("int"),
- * //         HealthCheck: { // ContainerHealthCheck
- * //           Command: [ // ContainerCommandStringList // required
- * //             "STRING_VALUE",
- * //           ],
- * //           Interval: Number("int"),
- * //           Timeout: Number("int"),
- * //           Retries: Number("int"),
- * //           StartPeriod: Number("int"),
- * //         },
- * //         Command: [
- * //           "STRING_VALUE",
- * //         ],
- * //         Essential: true || false,
- * //         EntryPoint: [ // ContainerEntryPointList
- * //           "STRING_VALUE",
- * //         ],
- * //         WorkingDirectory: "STRING_VALUE",
- * //         Environment: [ // ContainerEnvironmentList
- * //           { // ContainerEnvironment
- * //             Name: "STRING_VALUE", // required
- * //             Value: "STRING_VALUE", // required
- * //           },
- * //         ],
- * //         DependsOn: [ // ContainerDependencyList
- * //           { // ContainerDependency
- * //             ContainerName: "STRING_VALUE", // required
- * //             Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
- * //           },
- * //         ],
+ * //         ResolvedImageDigest: "STRING_VALUE",
+ * //         Vcpu: Number("double"),
  * //       },
  * //     ],
+ * //     VersionNumber: Number("int"),
+ * //     VersionDescription: "STRING_VALUE",
  * //     Status: "READY" || "COPYING" || "FAILED",
  * //     StatusReason: "STRING_VALUE",
  * //   },
@@ -268,6 +427,7 @@ export interface CreateContainerGroupDefinitionCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateContainerGroupDefinitionCommand extends $Command
@@ -278,9 +438,7 @@ export class CreateContainerGroupDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -292,4 +450,16 @@ export class CreateContainerGroupDefinitionCommand extends $Command
   .f(CreateContainerGroupDefinitionInputFilterSensitiveLog, CreateContainerGroupDefinitionOutputFilterSensitiveLog)
   .ser(se_CreateContainerGroupDefinitionCommand)
   .de(de_CreateContainerGroupDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContainerGroupDefinitionInput;
+      output: CreateContainerGroupDefinitionOutput;
+    };
+    sdk: {
+      input: CreateContainerGroupDefinitionCommandInput;
+      output: CreateContainerGroupDefinitionCommandOutput;
+    };
+  };
+}

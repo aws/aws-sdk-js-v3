@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-web-identity",
-  "version": "3.609.0",
+  "version": "3.777.0",
   "description": "AWS credential provider that calls STS assumeRole for temporary AWS credentials",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -12,11 +12,12 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "browser": {
-    "./dist-es/fromTokenFile": false,
-    "./dist-cjs/fromTokenFile": false
+    "./dist-cjs/fromTokenFile": false,
+    "./dist-es/fromTokenFile": false
   },
   "react-native": {
     "./dist-es/fromTokenFile": false,
@@ -32,25 +33,24 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "*",
+    "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.3",
-    "@smithy/types": "^3.3.0",
+    "@smithy/property-provider": "^4.0.2",
+    "@smithy/types": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-sts": "*"
+    "typescript": "~5.2.2"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -62,7 +62,7 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-web-identity",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-web-identity",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

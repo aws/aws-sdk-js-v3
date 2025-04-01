@@ -86,6 +86,7 @@ export interface UpdateAnnotationStoreVersionCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnnotationStoreVersionCommand extends $Command
@@ -96,9 +97,7 @@ export class UpdateAnnotationStoreVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class UpdateAnnotationStoreVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnnotationStoreVersionCommand)
   .de(de_UpdateAnnotationStoreVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnnotationStoreVersionRequest;
+      output: UpdateAnnotationStoreVersionResponse;
+    };
+    sdk: {
+      input: UpdateAnnotationStoreVersionCommandInput;
+      output: UpdateAnnotationStoreVersionCommandOutput;
+    };
+  };
+}

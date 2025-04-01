@@ -68,6 +68,20 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example GetDefaultScraperConfiguration
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new GetDefaultScraperConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   configuration: "blob"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetDefaultScraperConfigurationCommand extends $Command
@@ -78,9 +92,7 @@ export class GetDefaultScraperConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +104,16 @@ export class GetDefaultScraperConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDefaultScraperConfigurationCommand)
   .de(de_GetDefaultScraperConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDefaultScraperConfigurationResponse;
+    };
+    sdk: {
+      input: GetDefaultScraperConfigurationCommandInput;
+      output: GetDefaultScraperConfigurationCommandOutput;
+    };
+  };
+}

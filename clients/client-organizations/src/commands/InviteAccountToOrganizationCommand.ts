@@ -189,6 +189,11 @@ export interface InviteAccountToOrganizationCommandOutput
  *                </important>
  *             </li>
  *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
+ *             </li>
+ *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
  *                     register a suspended account as a delegated administrator.</p>
  *             </li>
@@ -330,9 +335,8 @@ export interface InviteAccountToOrganizationCommandOutput
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -463,6 +467,9 @@ export interface InviteAccountToOrganizationCommandOutput
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -503,6 +510,9 @@ export interface InviteAccountToOrganizationCommandOutput
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -525,68 +535,68 @@ export interface InviteAccountToOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To invite an account to join an organization
  * ```javascript
  * // The following example shows the admin of the master account owned by bill@example.com inviting the account owned by juan@example.com to join an organization.
  * const input = {
- *   "Notes": "This is a request for Juan's account to join Bill's organization",
- *   "Target": {
- *     "Id": "juan@example.com",
- *     "Type": "EMAIL"
+ *   Notes: "This is a request for Juan's account to join Bill's organization",
+ *   Target: {
+ *     Id: "juan@example.com",
+ *     Type: "EMAIL"
  *   }
  * };
  * const command = new InviteAccountToOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "2017-02-16T09:36:05.02Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
+ *   Handshake: {
+ *     Action: "INVITE",
+ *     Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     ExpirationTimestamp: "2017-02-16T09:36:05.02Z",
+ *     Id: "h-examplehandshakeid111",
+ *     Parties: [
  *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
+ *         Id: "o-exampleorgid",
+ *         Type: "ORGANIZATION"
  *       },
  *       {
- *         "Id": "juan@example.com",
- *         "Type": "EMAIL"
+ *         Id: "juan@example.com",
+ *         Type: "EMAIL"
  *       }
  *     ],
- *     "RequestedTimestamp": "2017-02-01T09:36:05.02Z",
- *     "Resources": [
+ *     RequestedTimestamp: "2017-02-01T09:36:05.02Z",
+ *     Resources: [
  *       {
- *         "Resources": [
+ *         Resources: [
  *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@amazon.com"
+ *             Type: "MASTER_EMAIL",
+ *             Value: "bill@amazon.com"
  *           },
  *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Org Master Account"
+ *             Type: "MASTER_NAME",
+ *             Value: "Org Master Account"
  *           },
  *           {
- *             "Type": "ORGANIZATION_FEATURE_SET",
- *             "Value": "FULL"
+ *             Type: "ORGANIZATION_FEATURE_SET",
+ *             Value: "FULL"
  *           }
  *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
+ *         Type: "ORGANIZATION",
+ *         Value: "o-exampleorgid"
  *       },
  *       {
- *         "Type": "EMAIL",
- *         "Value": "juan@example.com"
+ *         Type: "EMAIL",
+ *         Value: "juan@example.com"
  *       }
  *     ],
- *     "State": "OPEN"
+ *     State: "OPEN"
  *   }
  * }
  * *\/
- * // example id: to-invite-an-account-to-join-an-organization-1472508594110
  * ```
  *
+ * @public
  */
 export class InviteAccountToOrganizationCommand extends $Command
   .classBuilder<
@@ -596,9 +606,7 @@ export class InviteAccountToOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -610,4 +618,16 @@ export class InviteAccountToOrganizationCommand extends $Command
   .f(InviteAccountToOrganizationRequestFilterSensitiveLog, InviteAccountToOrganizationResponseFilterSensitiveLog)
   .ser(se_InviteAccountToOrganizationCommand)
   .de(de_InviteAccountToOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InviteAccountToOrganizationRequest;
+      output: InviteAccountToOrganizationResponse;
+    };
+    sdk: {
+      input: InviteAccountToOrganizationCommandInput;
+      output: InviteAccountToOrganizationCommandOutput;
+    };
+  };
+}

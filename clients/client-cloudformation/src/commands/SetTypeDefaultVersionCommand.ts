@@ -28,7 +28,8 @@ export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersion
 export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Specify the default version of an extension. The default version of an extension will be used in CloudFormation operations.</p>
+ * <p>Specify the default version of an extension. The default version of an extension will be
+ *       used in CloudFormation operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,7 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class SetTypeDefaultVersionCommand extends $Command
@@ -72,9 +74,7 @@ export class SetTypeDefaultVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class SetTypeDefaultVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTypeDefaultVersionCommand)
   .de(de_SetTypeDefaultVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTypeDefaultVersionInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTypeDefaultVersionCommandInput;
+      output: SetTypeDefaultVersionCommandOutput;
+    };
+  };
+}

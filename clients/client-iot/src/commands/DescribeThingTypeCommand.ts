@@ -50,6 +50,15 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * //     searchableAttributes: [ // SearchableAttributes
  * //       "STRING_VALUE",
  * //     ],
+ * //     mqtt5Configuration: { // Mqtt5Configuration
+ * //       propagatingAttributes: [ // PropagatingAttributeList
+ * //         { // PropagatingAttribute
+ * //           userPropertyKey: "STRING_VALUE",
+ * //           thingAttribute: "STRING_VALUE",
+ * //           connectionAttribute: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   thingTypeMetadata: { // ThingTypeMetadata
  * //     deprecated: true || false,
@@ -87,6 +96,7 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeThingTypeCommand extends $Command
@@ -97,9 +107,7 @@ export class DescribeThingTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +119,16 @@ export class DescribeThingTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeThingTypeCommand)
   .de(de_DescribeThingTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeThingTypeRequest;
+      output: DescribeThingTypeResponse;
+    };
+    sdk: {
+      input: DescribeThingTypeCommandInput;
+      output: DescribeThingTypeCommandOutput;
+    };
+  };
+}

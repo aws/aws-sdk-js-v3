@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateImageRequest, UpdateImageResponse } from "../models/models_4";
+import { UpdateImageRequest, UpdateImageResponse } from "../models/models_5";
 import { de_UpdateImageCommand, se_UpdateImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -28,7 +28,7 @@ export interface UpdateImageCommandInput extends UpdateImageRequest {}
 export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
+ * <p>Updates the properties of a SageMaker AI image. To change the image's tags, use the
  *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">DeleteTags</a> APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +68,7 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateImageCommand extends $Command
@@ -78,9 +79,7 @@ export class UpdateImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class UpdateImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateImageCommand)
   .de(de_UpdateImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImageRequest;
+      output: UpdateImageResponse;
+    };
+    sdk: {
+      input: UpdateImageCommandInput;
+      output: UpdateImageCommandOutput;
+    };
+  };
+}

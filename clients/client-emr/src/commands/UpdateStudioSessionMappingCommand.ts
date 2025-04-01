@@ -64,6 +64,7 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class UpdateStudioSessionMappingCommand extends $Command
@@ -74,9 +75,7 @@ export class UpdateStudioSessionMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +87,16 @@ export class UpdateStudioSessionMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStudioSessionMappingCommand)
   .de(de_UpdateStudioSessionMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStudioSessionMappingInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStudioSessionMappingCommandInput;
+      output: UpdateStudioSessionMappingCommandOutput;
+    };
+  };
+}

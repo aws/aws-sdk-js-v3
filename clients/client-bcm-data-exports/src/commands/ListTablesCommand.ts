@@ -83,6 +83,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class ListTablesCommand extends $Command
@@ -93,9 +94,7 @@ export class ListTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class ListTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTablesCommand)
   .de(de_ListTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTablesRequest;
+      output: ListTablesResponse;
+    };
+    sdk: {
+      input: ListTablesCommandInput;
+      output: ListTablesCommandOutput;
+    };
+  };
+}

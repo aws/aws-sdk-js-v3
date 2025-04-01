@@ -159,6 +159,7 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetMaintenanceWindowTaskCommand extends $Command
@@ -169,9 +170,7 @@ export class GetMaintenanceWindowTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +182,16 @@ export class GetMaintenanceWindowTaskCommand extends $Command
   .f(void 0, GetMaintenanceWindowTaskResultFilterSensitiveLog)
   .ser(se_GetMaintenanceWindowTaskCommand)
   .de(de_GetMaintenanceWindowTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMaintenanceWindowTaskRequest;
+      output: GetMaintenanceWindowTaskResult;
+    };
+    sdk: {
+      input: GetMaintenanceWindowTaskCommandInput;
+      output: GetMaintenanceWindowTaskCommandOutput;
+    };
+  };
+}

@@ -29,8 +29,8 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation creates a link between the user's identity calling the operation and a
- *       specific Q App. This is useful to mark the Q App as a <i>favorite</i> for
- *       the user if the user doesn't own the Amazon Q App so they can still run it and see it in their
+ *       specific Q App. This is useful to mark the Q App as a <i>favorite</i> for the
+ *       user if the user doesn't own the Amazon Q App so they can still run it and see it in their
  *       inventory of Q Apps.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,12 +64,12 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -79,6 +79,21 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Links an Amazon Q App to the invoker's list of apps
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ * };
+ * const command = new AssociateQAppWithUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -90,9 +105,7 @@ export class AssociateQAppWithUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +117,16 @@ export class AssociateQAppWithUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateQAppWithUserCommand)
   .de(de_AssociateQAppWithUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateQAppWithUserInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateQAppWithUserCommandInput;
+      output: AssociateQAppWithUserCommandOutput;
+    };
+  };
+}

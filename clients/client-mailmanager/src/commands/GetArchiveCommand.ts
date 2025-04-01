@@ -76,6 +76,7 @@ export interface GetArchiveCommandOutput extends GetArchiveResponse, __MetadataB
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveCommand extends $Command
@@ -86,9 +87,7 @@ export class GetArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GetArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArchiveCommand)
   .de(de_GetArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveRequest;
+      output: GetArchiveResponse;
+    };
+    sdk: {
+      input: GetArchiveCommandInput;
+      output: GetArchiveCommandOutput;
+    };
+  };
+}

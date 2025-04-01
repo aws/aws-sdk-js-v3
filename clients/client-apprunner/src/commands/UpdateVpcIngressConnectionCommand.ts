@@ -101,6 +101,7 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class UpdateVpcIngressConnectionCommand extends $Command
@@ -111,9 +112,7 @@ export class UpdateVpcIngressConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class UpdateVpcIngressConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVpcIngressConnectionCommand)
   .de(de_UpdateVpcIngressConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVpcIngressConnectionRequest;
+      output: UpdateVpcIngressConnectionResponse;
+    };
+    sdk: {
+      input: UpdateVpcIngressConnectionCommandInput;
+      output: UpdateVpcIngressConnectionCommandOutput;
+    };
+  };
+}

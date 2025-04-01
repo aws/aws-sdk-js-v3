@@ -98,6 +98,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class RegisterTargetsCommand extends $Command
@@ -108,9 +109,7 @@ export class RegisterTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class RegisterTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTargetsCommand)
   .de(de_RegisterTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTargetsRequest;
+      output: RegisterTargetsResponse;
+    };
+    sdk: {
+      input: RegisterTargetsCommandInput;
+      output: RegisterTargetsCommandOutput;
+    };
+  };
+}

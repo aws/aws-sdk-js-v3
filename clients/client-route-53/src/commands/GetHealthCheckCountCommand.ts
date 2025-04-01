@@ -53,6 +53,7 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetHealthCheckCountCommand extends $Command
@@ -63,9 +64,7 @@ export class GetHealthCheckCountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -77,4 +76,16 @@ export class GetHealthCheckCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHealthCheckCountCommand)
   .de(de_GetHealthCheckCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetHealthCheckCountResponse;
+    };
+    sdk: {
+      input: GetHealthCheckCountCommandInput;
+      output: GetHealthCheckCountCommandOutput;
+    };
+  };
+}

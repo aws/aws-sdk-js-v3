@@ -87,13 +87,13 @@ export interface Tag {
    *             existing tag value will be updated to the new value.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the tag. Tag values are case-sensitive and can be null. </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface CreateClusterRequest {
    * <p>A description of the cluster.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The number of nodes in the DAX cluster. A replication factor of 1 will
@@ -154,7 +154,7 @@ export interface CreateClusterRequest {
    *          If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The name of the subnet group to be used for the replication group.</p>
@@ -164,7 +164,7 @@ export interface CreateClusterRequest {
    *         </important>
    * @public
    */
-  SubnetGroupName?: string;
+  SubnetGroupName?: string | undefined;
 
   /**
    * <p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the
@@ -173,7 +173,7 @@ export interface CreateClusterRequest {
    *             each node.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>Specifies the weekly time range during which maintenance on the DAX cluster is
@@ -226,7 +226,7 @@ export interface CreateClusterRequest {
    *          </note>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
@@ -236,7 +236,7 @@ export interface CreateClusterRequest {
    *         </note>
    * @public
    */
-  NotificationTopicArn?: string;
+  NotificationTopicArn?: string | undefined;
 
   /**
    * <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
@@ -250,19 +250,19 @@ export interface CreateClusterRequest {
    * <p>The parameter group to be associated with the DAX cluster.</p>
    * @public
    */
-  ParameterGroupName?: string;
+  ParameterGroupName?: string | undefined;
 
   /**
    * <p>A set of tags to associate with the DAX cluster.  </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Represents the settings used to enable server-side encryption on the cluster.</p>
    * @public
    */
-  SSESpecification?: SSESpecification;
+  SSESpecification?: SSESpecification | undefined;
 
   /**
    * <p>The type of encryption the cluster's endpoint should support. Values are:</p>
@@ -278,7 +278,7 @@ export interface CreateClusterRequest {
    *          </ul>
    * @public
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | undefined;
 }
 
 /**
@@ -291,20 +291,20 @@ export interface Endpoint {
    * <p>The DNS hostname of the endpoint.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The port number that applications should use to connect to the endpoint.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The URL that applications should use to connect to the endpoint. The default
    *             ports are 8111 for the "dax" protocol and 9111 for the "daxs" protocol.</p>
    * @public
    */
-  URL?: string;
+  URL?: string | undefined;
 }
 
 /**
@@ -316,7 +316,7 @@ export interface Node {
    * <p>A system-generated identifier for the node.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 
   /**
    * <p>The endpoint for the node, consisting of a DNS name and a port number. Client
@@ -325,32 +325,32 @@ export interface Node {
    *             the DAX cluster.</p>
    * @public
    */
-  Endpoint?: Endpoint;
+  Endpoint?: Endpoint | undefined;
 
   /**
    * <p>The date and time (in UNIX epoch format) when the node was launched.</p>
    * @public
    */
-  NodeCreateTime?: Date;
+  NodeCreateTime?: Date | undefined;
 
   /**
    * <p>The Availability Zone (AZ) in which the node has been deployed.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The current status of the node. For example: <code>available</code>.</p>
    * @public
    */
-  NodeStatus?: string;
+  NodeStatus?: string | undefined;
 
   /**
    * <p>The status of the parameter group associated with this node. For example,
    *                 <code>in-sync</code>.</p>
    * @public
    */
-  ParameterGroupStatus?: string;
+  ParameterGroupStatus?: string | undefined;
 }
 
 /**
@@ -364,7 +364,7 @@ export interface NotificationConfiguration {
    * <p>The Amazon Resource Name (ARN) that identifies the topic. </p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The current state of the topic. A value of “active” means that notifications will
@@ -372,7 +372,7 @@ export interface NotificationConfiguration {
    *         topic.</p>
    * @public
    */
-  TopicStatus?: string;
+  TopicStatus?: string | undefined;
 }
 
 /**
@@ -384,19 +384,19 @@ export interface ParameterGroupStatus {
    * <p>The name of the parameter group.</p>
    * @public
    */
-  ParameterGroupName?: string;
+  ParameterGroupName?: string | undefined;
 
   /**
    * <p>The status of parameter updates. </p>
    * @public
    */
-  ParameterApplyStatus?: string;
+  ParameterApplyStatus?: string | undefined;
 
   /**
    * <p>The node IDs of one or more nodes to be rebooted.</p>
    * @public
    */
-  NodeIdsToReboot?: string[];
+  NodeIdsToReboot?: string[] | undefined;
 }
 
 /**
@@ -408,13 +408,13 @@ export interface SecurityGroupMembership {
    * <p>The unique ID for this security group.</p>
    * @public
    */
-  SecurityGroupIdentifier?: string;
+  SecurityGroupIdentifier?: string | undefined;
 
   /**
    * <p>The status of this security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -460,7 +460,7 @@ export interface SSEDescription {
    *          </ul>
    * @public
    */
-  Status?: SSEStatus;
+  Status?: SSEStatus | undefined;
 }
 
 /**
@@ -472,46 +472,46 @@ export interface Cluster {
    * <p>The name of the DAX cluster.</p>
    * @public
    */
-  ClusterName?: string;
+  ClusterName?: string | undefined;
 
   /**
    * <p>The description of the cluster.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.
    *         </p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>The total number of nodes in the cluster.</p>
    * @public
    */
-  TotalNodes?: number;
+  TotalNodes?: number | undefined;
 
   /**
    * <p>The number of nodes in the cluster that are active (i.e., capable of serving
    *             requests).</p>
    * @public
    */
-  ActiveNodes?: number;
+  ActiveNodes?: number | undefined;
 
   /**
    * <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of
    *             the same type.)</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The current status of the cluster.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The endpoint for this DAX cluster, consisting of a DNS name, a port number,
@@ -519,19 +519,19 @@ export interface Cluster {
    *              their cluster.</p>
    * @public
    */
-  ClusterDiscoveryEndpoint?: Endpoint;
+  ClusterDiscoveryEndpoint?: Endpoint | undefined;
 
   /**
    * <p>A list of nodes to be removed from the cluster.</p>
    * @public
    */
-  NodeIdsToRemove?: string[];
+  NodeIdsToRemove?: string[] | undefined;
 
   /**
    * <p>A list of nodes that are currently in the cluster.</p>
    * @public
    */
-  Nodes?: Node[];
+  Nodes?: Node[] | undefined;
 
   /**
    * <p>A range of time when maintenance of DAX cluster software will be performed. For
@@ -539,7 +539,7 @@ export interface Cluster {
    *             30 minutes, and is performed automatically within the maintenance window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Describes a notification topic and its status. Notification topics are used for
@@ -547,19 +547,19 @@ export interface Cluster {
    *             (SNS).</p>
    * @public
    */
-  NotificationConfiguration?: NotificationConfiguration;
+  NotificationConfiguration?: NotificationConfiguration | undefined;
 
   /**
    * <p>The subnet group where the DAX cluster is running.</p>
    * @public
    */
-  SubnetGroup?: string;
+  SubnetGroup?: string | undefined;
 
   /**
    * <p>A list of security groups, and the status of each, for the nodes in the cluster.</p>
    * @public
    */
-  SecurityGroups?: SecurityGroupMembership[];
+  SecurityGroups?: SecurityGroupMembership[] | undefined;
 
   /**
    * <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
@@ -567,19 +567,19 @@ export interface Cluster {
    *             behalf.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>The parameter group being used by nodes in the cluster.</p>
    * @public
    */
-  ParameterGroup?: ParameterGroupStatus;
+  ParameterGroup?: ParameterGroupStatus | undefined;
 
   /**
    * <p>The description of the server-side encryption status on the specified DAX cluster.</p>
    * @public
    */
-  SSEDescription?: SSEDescription;
+  SSEDescription?: SSEDescription | undefined;
 
   /**
    * <p>The type of encryption supported by the cluster's endpoint. Values are:</p>
@@ -593,7 +593,7 @@ export interface Cluster {
    *          </ul>
    * @public
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | undefined;
 }
 
 /**
@@ -604,7 +604,7 @@ export interface CreateClusterResponse {
    * <p>A description of the DAX cluster that you have created.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -889,7 +889,7 @@ export interface CreateParameterGroupRequest {
    * <p>A description of the parameter group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -902,13 +902,13 @@ export interface ParameterGroup {
    * <p>The name of the parameter group.</p>
    * @public
    */
-  ParameterGroupName?: string;
+  ParameterGroupName?: string | undefined;
 
   /**
    * <p>A description of the parameter group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -920,7 +920,7 @@ export interface CreateParameterGroupResponse {
    *             action.</p>
    * @public
    */
-  ParameterGroup?: ParameterGroup;
+  ParameterGroup?: ParameterGroup | undefined;
 }
 
 /**
@@ -977,7 +977,7 @@ export interface CreateSubnetGroupRequest {
    * <p>A description for the subnet group</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of VPC subnet IDs for the subnet group.</p>
@@ -997,13 +997,13 @@ export interface Subnet {
    * <p>The system-assigned identifier for the subnet.</p>
    * @public
    */
-  SubnetIdentifier?: string;
+  SubnetIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone (AZ) for the subnet.</p>
    * @public
    */
-  SubnetAvailabilityZone?: string;
+  SubnetAvailabilityZone?: string | undefined;
 }
 
 /**
@@ -1027,25 +1027,25 @@ export interface SubnetGroup {
    * <p>The name of the subnet group.</p>
    * @public
    */
-  SubnetGroupName?: string;
+  SubnetGroupName?: string | undefined;
 
   /**
    * <p>The description of the subnet group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>A list of subnets associated with the subnet group. </p>
    * @public
    */
-  Subnets?: Subnet[];
+  Subnets?: Subnet[] | undefined;
 }
 
 /**
@@ -1057,7 +1057,7 @@ export interface CreateSubnetGroupResponse {
    *             operation.</p>
    * @public
    */
-  SubnetGroup?: SubnetGroup;
+  SubnetGroup?: SubnetGroup | undefined;
 }
 
 /**
@@ -1182,13 +1182,13 @@ export interface DecreaseReplicationFactorRequest {
    * <p>The Availability Zone(s) from which to remove nodes.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The unique identifiers of the nodes to be removed from the cluster.</p>
    * @public
    */
-  NodeIdsToRemove?: string[];
+  NodeIdsToRemove?: string[] | undefined;
 }
 
 /**
@@ -1200,7 +1200,7 @@ export interface DecreaseReplicationFactorResponse {
    *             factor.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -1242,7 +1242,7 @@ export interface DeleteClusterResponse {
    * <p>A description of the DAX cluster that is being deleted.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -1265,7 +1265,7 @@ export interface DeleteParameterGroupResponse {
    *             group).</p>
    * @public
    */
-  DeletionMessage?: string;
+  DeletionMessage?: string | undefined;
 }
 
 /**
@@ -1288,7 +1288,7 @@ export interface DeleteSubnetGroupResponse {
    *             group).</p>
    * @public
    */
-  DeletionMessage?: string;
+  DeletionMessage?: string | undefined;
 }
 
 /**
@@ -1319,7 +1319,7 @@ export interface DescribeClustersRequest {
    * <p>The names of the DAX clusters being described.</p>
    * @public
    */
-  ClusterNames?: string[];
+  ClusterNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1328,7 +1328,7 @@ export interface DescribeClustersRequest {
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1337,7 +1337,7 @@ export interface DescribeClustersRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1348,14 +1348,14 @@ export interface DescribeClustersResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The descriptions of your DAX clusters, in response to a
    *             <i>DescribeClusters</i> request.</p>
    * @public
    */
-  Clusters?: Cluster[];
+  Clusters?: Cluster[] | undefined;
 }
 
 /**
@@ -1369,7 +1369,7 @@ export interface DescribeDefaultParametersRequest {
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1378,7 +1378,7 @@ export interface DescribeDefaultParametersRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1420,13 +1420,13 @@ export interface NodeTypeSpecificValue {
    * <p>A node type to which the parameter value applies.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The parameter value for this node type.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1453,57 +1453,57 @@ export interface Parameter {
    * <p>The name of the parameter.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
 
   /**
    * <p>Determines whether the parameter can be applied to any nodes, or only nodes of a
    *             particular type.</p>
    * @public
    */
-  ParameterType?: ParameterType;
+  ParameterType?: ParameterType | undefined;
 
   /**
    * <p>The value for the parameter.</p>
    * @public
    */
-  ParameterValue?: string;
+  ParameterValue?: string | undefined;
 
   /**
    * <p>A list of node types, and specific parameter values for each node.</p>
    * @public
    */
-  NodeTypeSpecificValues?: NodeTypeSpecificValue[];
+  NodeTypeSpecificValues?: NodeTypeSpecificValue[] | undefined;
 
   /**
    * <p>A description of the parameter</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>How the parameter is defined. For example, <code>system</code> denotes a
    *             system-defined parameter.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The data type of the parameter. For example, <code>integer</code>:</p>
    * @public
    */
-  DataType?: string;
+  DataType?: string | undefined;
 
   /**
    * <p>A range of values within which the parameter can be set.</p>
    * @public
    */
-  AllowedValues?: string;
+  AllowedValues?: string | undefined;
 
   /**
    * <p>Whether the customer is allowed to modify the parameter.</p>
    * @public
    */
-  IsModifiable?: IsModifiable;
+  IsModifiable?: IsModifiable | undefined;
 
   /**
    * <p>The conditions under which changes to this parameter can be applied. For example,
@@ -1511,7 +1511,7 @@ export interface Parameter {
    *             take effect if a node is rebooted.</p>
    * @public
    */
-  ChangeType?: ChangeType;
+  ChangeType?: ChangeType | undefined;
 }
 
 /**
@@ -1522,13 +1522,13 @@ export interface DescribeDefaultParametersResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of parameters.  Each element in the list represents one parameter.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -1555,34 +1555,34 @@ export interface DescribeEventsRequest {
    *             specified, then all sources are included in the response.</p>
    * @public
    */
-  SourceName?: string;
+  SourceName?: string | undefined;
 
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *             returned.</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
    *             format.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
    *             format.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The number of minutes' worth of events to retrieve.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1591,7 +1591,7 @@ export interface DescribeEventsRequest {
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1600,7 +1600,7 @@ export interface DescribeEventsRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1615,26 +1615,26 @@ export interface Event {
    *             source would be the node ID.</p>
    * @public
    */
-  SourceName?: string;
+  SourceName?: string | undefined;
 
   /**
    * <p>Specifies the origin of this event - a cluster, a parameter group, a node ID,
    *             etc.</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p>A user-defined message associated with the event.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The date and time when the event occurred.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 }
 
 /**
@@ -1645,13 +1645,13 @@ export interface DescribeEventsResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of events.  Each element in the array represents one event.</p>
    * @public
    */
-  Events?: Event[];
+  Events?: Event[] | undefined;
 }
 
 /**
@@ -1662,7 +1662,7 @@ export interface DescribeParameterGroupsRequest {
    * <p>The names of the parameter groups.</p>
    * @public
    */
-  ParameterGroupNames?: string[];
+  ParameterGroupNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1671,7 +1671,7 @@ export interface DescribeParameterGroupsRequest {
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1680,7 +1680,7 @@ export interface DescribeParameterGroupsRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1691,13 +1691,13 @@ export interface DescribeParameterGroupsResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of parameter groups.  Each element in the array represents one parameter group.</p>
    * @public
    */
-  ParameterGroups?: ParameterGroup[];
+  ParameterGroups?: ParameterGroup[] | undefined;
 }
 
 /**
@@ -1715,7 +1715,7 @@ export interface DescribeParametersRequest {
    *             system-defined parameter.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1724,7 +1724,7 @@ export interface DescribeParametersRequest {
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1733,7 +1733,7 @@ export interface DescribeParametersRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1744,13 +1744,13 @@ export interface DescribeParametersResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -1761,7 +1761,7 @@ export interface DescribeSubnetGroupsRequest {
    * <p>The name of the subnet group.</p>
    * @public
    */
-  SubnetGroupNames?: string[];
+  SubnetGroupNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1770,7 +1770,7 @@ export interface DescribeSubnetGroupsRequest {
    *             <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -1779,7 +1779,7 @@ export interface DescribeSubnetGroupsRequest {
    *             <code>MaxResults</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1790,13 +1790,13 @@ export interface DescribeSubnetGroupsResponse {
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of subnet groups.  Each element in the array represents a single subnet group.</p>
    * @public
    */
-  SubnetGroups?: SubnetGroup[];
+  SubnetGroups?: SubnetGroup[] | undefined;
 }
 
 /**
@@ -1821,7 +1821,7 @@ export interface IncreaseReplicationFactorRequest {
    *             to distribute the nodes across multiple AZs.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 }
 
 /**
@@ -1832,7 +1832,7 @@ export interface IncreaseReplicationFactorResponse {
    * <p>A description of the DAX cluster. with its new replication factor.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -1871,7 +1871,7 @@ export interface ListTagsRequest {
    *             results beyond the token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1882,14 +1882,14 @@ export interface ListTagsResponse {
    * <p>A list of tags currently associated with the DAX cluster.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If this value is present, there are additional results to be displayed.  To retrieve them, call
    *             <code>ListTags</code> again, with <code>NextToken</code> set to this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1917,7 +1917,7 @@ export interface RebootNodeResponse {
    * <p>A description of the DAX cluster after a node has been rebooted.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface TagResourceResponse {
    * <p>The list of tags that are associated with the DAX resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1993,7 +1993,7 @@ export interface UntagResourceResponse {
    * <p>The tag keys that have been removed from the cluster.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2010,7 +2010,7 @@ export interface UpdateClusterRequest {
    * <p>A description of the changes being made to the cluster.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A range of time when maintenance of DAX cluster software will be performed. For
@@ -2018,13 +2018,13 @@ export interface UpdateClusterRequest {
    *             30 minutes, and is performed automatically within the maintenance window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
    * @public
    */
-  NotificationTopicArn?: string;
+  NotificationTopicArn?: string | undefined;
 
   /**
    * <p>The current state of the topic. A value of “active” means that notifications will
@@ -2032,20 +2032,20 @@ export interface UpdateClusterRequest {
    *         topic.</p>
    * @public
    */
-  NotificationTopicStatus?: string;
+  NotificationTopicStatus?: string | undefined;
 
   /**
    * <p>The name of a parameter group for this cluster.</p>
    * @public
    */
-  ParameterGroupName?: string;
+  ParameterGroupName?: string | undefined;
 
   /**
    * <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not
    *             specified, DAX assigns the default VPC security group to each node.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -2056,7 +2056,7 @@ export interface UpdateClusterResponse {
    * <p>A description of the DAX cluster, after it has been modified.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -2068,13 +2068,13 @@ export interface ParameterNameValue {
    * <p>The name of the parameter.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
 
   /**
    * <p>The value of the parameter.</p>
    * @public
    */
-  ParameterValue?: string;
+  ParameterValue?: string | undefined;
 }
 
 /**
@@ -2107,7 +2107,7 @@ export interface UpdateParameterGroupResponse {
    * <p>The parameter group that has been modified.</p>
    * @public
    */
-  ParameterGroup?: ParameterGroup;
+  ParameterGroup?: ParameterGroup | undefined;
 }
 
 /**
@@ -2144,13 +2144,13 @@ export interface UpdateSubnetGroupRequest {
    * <p>A description of the subnet group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of subnet IDs in the subnet group.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 }
 
 /**
@@ -2161,5 +2161,5 @@ export interface UpdateSubnetGroupResponse {
    * <p>The subnet group that has been modified.</p>
    * @public
    */
-  SubnetGroup?: SubnetGroup;
+  SubnetGroup?: SubnetGroup | undefined;
 }

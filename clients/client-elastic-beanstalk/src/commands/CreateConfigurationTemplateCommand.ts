@@ -127,29 +127,29 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a configuration template
  * ```javascript
  * // The following operation creates a configuration template named my-app-v1 from the settings applied to an environment with the id e-rpqsewtp2j:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "EnvironmentId": "e-rpqsewtp2j",
- *   "TemplateName": "my-app-v1"
+ *   ApplicationName: "my-app",
+ *   EnvironmentId: "e-rpqsewtp2j",
+ *   TemplateName: "my-app-v1"
  * };
  * const command = new CreateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationName": "my-app",
- *   "DateCreated": "2015-08-12T18:40:39Z",
- *   "DateUpdated": "2015-08-12T18:40:39Z",
- *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *   "TemplateName": "my-app-v1"
+ *   ApplicationName: "my-app",
+ *   DateCreated: "2015-08-12T18:40:39Z",
+ *   DateUpdated: "2015-08-12T18:40:39Z",
+ *   SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   TemplateName: "my-app-v1"
  * }
  * *\/
- * // example id: to-create-a-configuration-template-1456269283586
  * ```
  *
+ * @public
  */
 export class CreateConfigurationTemplateCommand extends $Command
   .classBuilder<
@@ -159,9 +159,7 @@ export class CreateConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +171,16 @@ export class CreateConfigurationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationTemplateCommand)
   .de(de_CreateConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationTemplateMessage;
+      output: ConfigurationSettingsDescription;
+    };
+    sdk: {
+      input: CreateConfigurationTemplateCommandInput;
+      output: CreateConfigurationTemplateCommandOutput;
+    };
+  };
+}

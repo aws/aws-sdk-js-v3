@@ -78,6 +78,7 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class GetCompatibleVersionsCommand extends $Command
@@ -88,9 +89,7 @@ export class GetCompatibleVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class GetCompatibleVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCompatibleVersionsCommand)
   .de(de_GetCompatibleVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCompatibleVersionsRequest;
+      output: GetCompatibleVersionsResponse;
+    };
+    sdk: {
+      input: GetCompatibleVersionsCommandInput;
+      output: GetCompatibleVersionsCommandOutput;
+    };
+  };
+}

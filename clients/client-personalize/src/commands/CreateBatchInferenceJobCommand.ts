@@ -123,6 +123,7 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchInferenceJobCommand extends $Command
@@ -133,9 +134,7 @@ export class CreateBatchInferenceJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class CreateBatchInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBatchInferenceJobCommand)
   .de(de_CreateBatchInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchInferenceJobRequest;
+      output: CreateBatchInferenceJobResponse;
+    };
+    sdk: {
+      input: CreateBatchInferenceJobCommandInput;
+      output: CreateBatchInferenceJobCommandOutput;
+    };
+  };
+}

@@ -10,7 +10,7 @@ AWS SDK for JavaScript SnowDeviceManagement Client for Node.js, Browser and Reac
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-snow-device-management
+To install this package, simply type add or install @aws-sdk/client-snow-device-management
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-snow-device-management`

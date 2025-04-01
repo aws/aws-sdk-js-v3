@@ -7,6 +7,8 @@ import {
   collectBody,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   map,
   serializeFloat as __serializeFloat,
   take,
@@ -18,9 +20,32 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { BatchGetMetricsCommandInput, BatchGetMetricsCommandOutput } from "../commands/BatchGetMetricsCommand";
 import { BatchPutMetricsCommandInput, BatchPutMetricsCommandOutput } from "../commands/BatchPutMetricsCommand";
-import { RawMetricData } from "../models/models_0";
+import { MetricQuery, MetricQueryResult, RawMetricData } from "../models/models_0";
 import { SageMakerMetricsServiceException as __BaseException } from "../models/SageMakerMetricsServiceException";
+
+/**
+ * serializeAws_restJson1BatchGetMetricsCommand
+ */
+export const se_BatchGetMetricsCommand = async (
+  input: BatchGetMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/BatchGetMetrics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MetricQueries: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1BatchPutMetricsCommand
@@ -43,6 +68,27 @@ export const se_BatchPutMetricsCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchGetMetricsCommand
+ */
+export const de_BatchGetMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MetricQueryResults: (_) => de_MetricQueryResultList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -84,6 +130,10 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
 };
 
 const throwDefaultError = withBaseException(__BaseException);
+// se_MetricQuery omitted.
+
+// se_MetricQueryList omitted.
+
 /**
  * serializeAws_restJson1RawMetricData
  */
@@ -111,6 +161,44 @@ const se_RawMetricDataList = (input: RawMetricData[], context: __SerdeContext): 
 
 // de_BatchPutMetricsErrorList omitted.
 
+/**
+ * deserializeAws_restJson1MetricQueryResult
+ */
+const de_MetricQueryResult = (output: any, context: __SerdeContext): MetricQueryResult => {
+  return take(output, {
+    Message: __expectString,
+    MetricValues: (_: any) => de_MetricValues(_, context),
+    Status: __expectString,
+    XAxisValues: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MetricQueryResultList
+ */
+const de_MetricQueryResultList = (output: any, context: __SerdeContext): MetricQueryResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricQueryResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MetricValues
+ */
+const de_MetricValues = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
+// de_XAxisValues omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -122,10 +210,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

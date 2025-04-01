@@ -28,8 +28,8 @@ export interface StartResourceScanCommandInput extends StartResourceScanInput {}
 export interface StartResourceScanCommandOutput extends StartResourceScanOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a scan of the resources in this account in this Region. You can the status of a scan using the
- *    <code>ListResourceScans</code> API action.</p>
+ * <p>Starts a scan of the resources in this account in this Region. You can the status of a
+ *       scan using the <code>ListResourceScans</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,13 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * const client = new CloudFormationClient(config);
  * const input = { // StartResourceScanInput
  *   ClientRequestToken: "STRING_VALUE",
+ *   ScanFilters: [ // ScanFilters
+ *     { // ScanFilter
+ *       Types: [ // ResourceTypeFilters
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
@@ -74,21 +81,21 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To start a resource scan
  * ```javascript
  * // This example shows how to start a new resource scan
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/88f09db1-d211-4cb7-964b-434e2b8469ca"
+ *   ResourceScanId: "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/88f09db1-d211-4cb7-964b-434e2b8469ca"
  * }
  * *\/
- * // example id: to-start-a-generated-template
  * ```
  *
+ * @public
  */
 export class StartResourceScanCommand extends $Command
   .classBuilder<
@@ -98,9 +105,7 @@ export class StartResourceScanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +117,16 @@ export class StartResourceScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartResourceScanCommand)
   .de(de_StartResourceScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartResourceScanInput;
+      output: StartResourceScanOutput;
+    };
+    sdk: {
+      input: StartResourceScanCommandInput;
+      output: StartResourceScanCommandOutput;
+    };
+  };
+}

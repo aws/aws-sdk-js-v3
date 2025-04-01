@@ -63,10 +63,21 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -74,28 +85,28 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To modify the default account settings for all IAM users or roles on an account
  * ```javascript
  * // This example modifies the default account setting for the specified resource for all IAM users or roles on an account. These changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
  * const input = {
- *   "name": "serviceLongArnFormat",
- *   "value": "enabled"
+ *   name: "serviceLongArnFormat",
+ *   value: "enabled"
  * };
  * const command = new PutAccountSettingDefaultCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "setting": {
- *     "name": "serviceLongArnFormat",
- *     "value": "enabled",
- *     "principalArn": "arn:aws:iam::<aws_account_id>:root"
+ *   setting: {
+ *     name: "serviceLongArnFormat",
+ *     principalArn: "arn:aws:iam::<aws_account_id>:root",
+ *     value: "enabled"
  *   }
  * }
  * *\/
- * // example id: to-modify-the-default-account-settings-for-all-iam-users-or-roles-on-your-account-1549523794603
  * ```
  *
+ * @public
  */
 export class PutAccountSettingDefaultCommand extends $Command
   .classBuilder<
@@ -105,9 +116,7 @@ export class PutAccountSettingDefaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +128,16 @@ export class PutAccountSettingDefaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountSettingDefaultCommand)
   .de(de_PutAccountSettingDefaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountSettingDefaultRequest;
+      output: PutAccountSettingDefaultResponse;
+    };
+    sdk: {
+      input: PutAccountSettingDefaultCommandInput;
+      output: PutAccountSettingDefaultCommandOutput;
+    };
+  };
+}

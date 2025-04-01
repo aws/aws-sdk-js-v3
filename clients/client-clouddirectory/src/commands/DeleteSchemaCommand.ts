@@ -81,6 +81,22 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To delete a schema
+ * ```javascript
+ * //
+ * const input = {
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
+ * };
+ * const command = new DeleteSchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteSchemaCommand extends $Command
@@ -91,9 +107,7 @@ export class DeleteSchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +119,16 @@ export class DeleteSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSchemaCommand)
   .de(de_DeleteSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSchemaRequest;
+      output: DeleteSchemaResponse;
+    };
+    sdk: {
+      input: DeleteSchemaCommandInput;
+      output: DeleteSchemaCommandOutput;
+    };
+  };
+}

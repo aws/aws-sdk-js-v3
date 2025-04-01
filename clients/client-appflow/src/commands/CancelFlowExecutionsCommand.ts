@@ -95,6 +95,7 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class CancelFlowExecutionsCommand extends $Command
@@ -105,9 +106,7 @@ export class CancelFlowExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CancelFlowExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelFlowExecutionsCommand)
   .de(de_CancelFlowExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelFlowExecutionsRequest;
+      output: CancelFlowExecutionsResponse;
+    };
+    sdk: {
+      input: CancelFlowExecutionsCommandInput;
+      output: CancelFlowExecutionsCommandOutput;
+    };
+  };
+}

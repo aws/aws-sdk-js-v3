@@ -30,6 +30,12 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
 /**
  * <p>Changes the settings of an existing environment member for an Cloud9 development
  *       environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,30 +91,30 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example UpdateEnvironmentMembership
  * ```javascript
  * //
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "permissions": "read-only",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *   permissions: "read-only",
+ *   userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser"
  * };
  * const command = new UpdateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "membership": {
- *     "environmentId": "8d9967e2f0624182b74e7690ad69eb31",
- *     "permissions": "read-only",
- *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
- *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+ *   membership: {
+ *     environmentId: "8d9967e2f0624182b74e7690ad69eb31",
+ *     permissions: "read-only",
+ *     userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser",
+ *     userId: "AIDAJ3BA6O2FMJWCWXHEX"
  *   }
  * }
  * *\/
- * // example id: updateenvironmentmembership-1516823876645
  * ```
  *
+ * @public
  */
 export class UpdateEnvironmentMembershipCommand extends $Command
   .classBuilder<
@@ -118,9 +124,7 @@ export class UpdateEnvironmentMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +136,16 @@ export class UpdateEnvironmentMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentMembershipCommand)
   .de(de_UpdateEnvironmentMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentMembershipRequest;
+      output: UpdateEnvironmentMembershipResult;
+    };
+    sdk: {
+      input: UpdateEnvironmentMembershipCommandInput;
+      output: UpdateEnvironmentMembershipCommandOutput;
+    };
+  };
+}

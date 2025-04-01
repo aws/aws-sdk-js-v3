@@ -28,18 +28,20 @@ export interface UpdateStackInstancesCommandInput extends UpdateStackInstancesIn
 export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the parameter values for stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and Region.</p>
- *          <p>You can only update stack instances in Amazon Web Services Regions and accounts where they already exist; to
- *    create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.</p>
- *          <p>During stack set updates, any parameters overridden for a stack instance aren't updated, but retain their
- *    overridden value.</p>
- *          <p>You can only update the parameter <i>values</i> that are specified in the stack set; to add or
- *    delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set
- *    template. If you add a parameter to a template, before you can override the parameter value specified in the stack
- *    set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update all stack
- *    instances with the updated template and parameter value specified in the stack set. Once a stack instance has been
- *    updated with the new parameter, you can then override the parameter value using
- *    <code>UpdateStackInstances</code>.</p>
+ * <p>Updates the parameter values for stack instances for the specified accounts, within the
+ *       specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and
+ *       Region.</p>
+ *          <p>You can only update stack instances in Amazon Web Services Regions and accounts where they already
+ *       exist; to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.</p>
+ *          <p>During stack set updates, any parameters overridden for a stack instance aren't updated,
+ *       but retain their overridden value.</p>
+ *          <p>You can only update the parameter <i>values</i> that are specified in the
+ *       stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+ *       to update the stack set template. If you add a parameter to a template, before you can
+ *       override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update all stack instances with the updated template and
+ *       parameter value specified in the stack set. Once a stack instance has been updated with the
+ *       new parameter, you can then override the parameter value using
+ *         <code>UpdateStackInstances</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,6 +124,7 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateStackInstancesCommand extends $Command
@@ -132,9 +135,7 @@ export class UpdateStackInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +147,16 @@ export class UpdateStackInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStackInstancesCommand)
   .de(de_UpdateStackInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStackInstancesInput;
+      output: UpdateStackInstancesOutput;
+    };
+    sdk: {
+      input: UpdateStackInstancesCommandInput;
+      output: UpdateStackInstancesCommandOutput;
+    };
+  };
+}

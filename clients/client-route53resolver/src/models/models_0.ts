@@ -12,7 +12,7 @@ import { Route53ResolverServiceException as __BaseException } from "./Route53Res
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -86,7 +86,7 @@ export interface AssociateFirewallRuleGroupRequest {
    * 			can be any unique string, for example, a date/time stamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The unique identifier of the firewall rule group. </p>
@@ -123,13 +123,13 @@ export interface AssociateFirewallRuleGroupRequest {
    *        When you create the association, the default setting is <code>DISABLED</code>. </p>
    * @public
    */
-  MutationProtection?: MutationProtectionStatus;
+  MutationProtection?: MutationProtectionStatus | undefined;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -158,63 +158,63 @@ export interface FirewallRuleGroupAssociation {
    * <p>The identifier for the association.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall rule group association.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The unique identifier of the firewall rule group. </p>
    * @public
    */
-  FirewallRuleGroupId?: string;
+  FirewallRuleGroupId?: string | undefined;
 
   /**
    * <p>The unique identifier of the VPC that is associated with the rule group. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The name of the association.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall
    *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    * @public
    */
-  MutationProtection?: MutationProtectionStatus;
+  MutationProtection?: MutationProtectionStatus | undefined;
 
   /**
    * <p>The owner of the association, used only for associations that are not managed by you. If you use Firewall Manager to
    *    manage your DNS Firewalls, then this reports Firewall Manager as the managed owner.</p>
    * @public
    */
-  ManagedOwnerName?: string;
+  ManagedOwnerName?: string | undefined;
 
   /**
    * <p>The current status of the association.</p>
    * @public
    */
-  Status?: FirewallRuleGroupAssociationStatus;
+  Status?: FirewallRuleGroupAssociationStatus | undefined;
 
   /**
    * <p>Additional information about the status of the response, if available.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -222,19 +222,19 @@ export interface FirewallRuleGroupAssociation {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC). </p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface AssociateFirewallRuleGroupResponse {
    * 			identify it in other requests, like update and delete.</p>
    * @public
    */
-  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation | undefined;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface AssociateFirewallRuleGroupResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -280,7 +280,7 @@ export class ConflictException extends __BaseException {
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -302,12 +302,12 @@ export class InternalServiceErrorException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -330,12 +330,12 @@ export class LimitExceededException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -358,7 +358,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -381,7 +381,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -410,20 +410,20 @@ export interface IpAddressUpdate {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>.</p>
    * @public
    */
-  IpId?: string;
+  IpId?: string | undefined;
 
   /**
    * <p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The new IPv4 address.</p>
    * @public
    */
-  Ip?: string;
+  Ip?: string | undefined;
 
   /**
    * <p>
@@ -431,7 +431,7 @@ export interface IpAddressUpdate {
    * 		</p>
    * @public
    */
-  Ipv6?: string;
+  Ipv6?: string | undefined;
 }
 
 /**
@@ -530,7 +530,7 @@ export interface ResolverEndpoint {
    * <p>The ID of the Resolver endpoint.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request that created the Resolver endpoint. The
@@ -538,13 +538,13 @@ export interface ResolverEndpoint {
    * 			of running the operation twice.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) for the Resolver endpoint.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name that you assigned to the Resolver endpoint when you submitted a
@@ -552,7 +552,7 @@ export interface ResolverEndpoint {
    * 			request.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules
@@ -560,7 +560,7 @@ export interface ResolverEndpoint {
    * 			For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:</p>
@@ -576,19 +576,19 @@ export interface ResolverEndpoint {
    *          </ul>
    * @public
    */
-  Direction?: ResolverEndpointDirection;
+  Direction?: ResolverEndpointDirection | undefined;
 
   /**
    * <p>The number of IP addresses that the Resolver endpoint can use for DNS queries.</p>
    * @public
    */
-  IpAddressCount?: number;
+  IpAddressCount?: number | undefined;
 
   /**
    * <p>The ID of the VPC that you want to create the Resolver endpoint in.</p>
    * @public
    */
-  HostVPCId?: string;
+  HostVPCId?: string | undefined;
 
   /**
    * <p>A code that specifies the current status of the Resolver endpoint. Valid values include the following:</p>
@@ -637,31 +637,31 @@ export interface ResolverEndpoint {
    *          </ul>
    * @public
    */
-  Status?: ResolverEndpointStatus;
+  Status?: ResolverEndpointStatus | undefined;
 
   /**
    * <p>A detailed description of the status of the Resolver endpoint.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>
@@ -669,7 +669,7 @@ export interface ResolverEndpoint {
    * 		</p>
    * @public
    */
-  PreferredInstanceType?: string;
+  PreferredInstanceType?: string | undefined;
 
   /**
    * <p>
@@ -677,7 +677,7 @@ export interface ResolverEndpoint {
    * 		</p>
    * @public
    */
-  ResolverEndpointType?: ResolverEndpointType;
+  ResolverEndpointType?: ResolverEndpointType | undefined;
 
   /**
    * <p>
@@ -721,7 +721,7 @@ export interface ResolverEndpoint {
    *          </ul>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 }
 
 /**
@@ -732,7 +732,7 @@ export interface AssociateResolverEndpointIpAddressResponse {
    * <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -747,7 +747,7 @@ export class InvalidParameterException extends __BaseException {
    * <p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>
    * @public
    */
-  FieldName?: string;
+  FieldName?: string | undefined;
   /**
    * @internal
    */
@@ -770,7 +770,7 @@ export class InvalidParameterException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -792,12 +792,12 @@ export class InvalidRequestException extends __BaseException {
 export class ResourceExistsException extends __BaseException {
   readonly name: "ResourceExistsException" = "ResourceExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -883,19 +883,19 @@ export interface ResolverQueryLogConfigAssociation {
    * <p>The ID of the query logging association.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ID of the query logging configuration that a VPC is associated with.</p>
    * @public
    */
-  ResolverQueryLogConfigId?: string;
+  ResolverQueryLogConfigId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon VPC that is associated with the query logging configuration.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The status of the specified query logging association. Valid values include the following:</p>
@@ -906,7 +906,7 @@ export interface ResolverQueryLogConfigAssociation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATED</code>: The association between an Amazon VPC and a query logging configuration
+   *                   <code>ACTIVE</code>: The association between an Amazon VPC and a query logging configuration
    * 				was successfully created. Resolver is logging queries that originate in the specified VPC.</p>
    *             </li>
    *             <li>
@@ -920,7 +920,7 @@ export interface ResolverQueryLogConfigAssociation {
    *          </ul>
    * @public
    */
-  Status?: ResolverQueryLogConfigAssociationStatus;
+  Status?: ResolverQueryLogConfigAssociationStatus | undefined;
 
   /**
    * <p>If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause:</p>
@@ -937,19 +937,19 @@ export interface ResolverQueryLogConfigAssociation {
    *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    * @public
    */
-  Error?: ResolverQueryLogConfigAssociationError;
+  Error?: ResolverQueryLogConfigAssociationError | undefined;
 
   /**
    * <p>Contains additional information about the error. If the value or <code>Error</code> is null, the value of <code>ErrorMessage</code> also is null.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The date and time that the VPC was associated with the query logging configuration, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 }
 
 /**
@@ -960,7 +960,7 @@ export interface AssociateResolverQueryLogConfigResponse {
    * <p>A complex type that contains settings for a specified association between an Amazon VPC and a query logging configuration.</p>
    * @public
    */
-  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
+  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation | undefined;
 }
 
 /**
@@ -978,7 +978,7 @@ export interface AssociateResolverRuleRequest {
    * <p>A name for the association that you're creating between a Resolver rule and a VPC.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the VPC that you want to associate the Resolver rule with.</p>
@@ -1022,37 +1022,37 @@ export interface ResolverRuleAssociation {
    * 			request.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ID of the Resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>
    * @public
    */
-  ResolverRuleId?: string;
+  ResolverRuleId?: string | undefined;
 
   /**
    * <p>The name of an association between a Resolver rule and a VPC.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the VPC that you associated the Resolver rule with.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 
   /**
    * <p>A code that specifies the current status of the association between a Resolver rule and a VPC.</p>
    * @public
    */
-  Status?: ResolverRuleAssociationStatus;
+  Status?: ResolverRuleAssociationStatus | undefined;
 
   /**
    * <p>A detailed description of the status of the association between a Resolver rule and a VPC.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -1063,7 +1063,7 @@ export interface AssociateResolverRuleResponse {
    * <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverRuleAssociation?: ResolverRuleAssociation;
+  ResolverRuleAssociation?: ResolverRuleAssociation | undefined;
 }
 
 /**
@@ -1073,12 +1073,12 @@ export interface AssociateResolverRuleResponse {
 export class ResourceUnavailableException extends __BaseException {
   readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -1139,6 +1139,21 @@ export type BlockResponse = (typeof BlockResponse)[keyof typeof BlockResponse];
 
 /**
  * @public
+ * @enum
+ */
+export const ConfidenceThreshold = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfidenceThreshold = (typeof ConfidenceThreshold)[keyof typeof ConfidenceThreshold];
+
+/**
+ * @public
  */
 export interface CreateFirewallDomainListRequest {
   /**
@@ -1147,7 +1162,7 @@ export interface CreateFirewallDomainListRequest {
    * 			any unique string, for example, a date/time stamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>A name that lets you identify the domain list to manage and use it.</p>
@@ -1159,7 +1174,7 @@ export interface CreateFirewallDomainListRequest {
    * <p>A list of the tag keys and values that you want to associate with the domain list. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1189,43 +1204,43 @@ export interface FirewallDomainList {
    * <p>The ID of the domain list. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall domain list.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the domain list. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The number of domain names that are specified in the domain list.</p>
    * @public
    */
-  DomainCount?: number;
+  DomainCount?: number | undefined;
 
   /**
    * <p>The status of the domain list.  </p>
    * @public
    */
-  Status?: FirewallDomainListStatus;
+  Status?: FirewallDomainListStatus | undefined;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
    * @public
    */
-  ManagedOwnerName?: string;
+  ManagedOwnerName?: string | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -1233,19 +1248,19 @@ export interface FirewallDomainList {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC). </p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC). </p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 }
 
 /**
@@ -1256,8 +1271,22 @@ export interface CreateFirewallDomainListResponse {
    * <p>The domain list that you just created.</p>
    * @public
    */
-  FirewallDomainList?: FirewallDomainList;
+  FirewallDomainList?: FirewallDomainList | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsThreatProtection = {
+  DGA: "DGA",
+  DNS_TUNNELING: "DNS_TUNNELING",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsThreatProtection = (typeof DnsThreatProtection)[keyof typeof DnsThreatProtection];
 
 /**
  * @public
@@ -1284,7 +1313,7 @@ export interface CreateFirewallRuleRequest {
    * 			any unique string, for example, a date/time stamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The unique identifier of the firewall rule group where you want to create the rule. </p>
@@ -1293,10 +1322,10 @@ export interface CreateFirewallRuleRequest {
   FirewallRuleGroupId: string | undefined;
 
   /**
-   * <p>The ID of the domain list that you want to use in the rule. </p>
+   * <p>The ID of the domain list that you want to use in the rule. Can't be used together with <code>DnsThreatProtecton</code>.</p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
@@ -1309,11 +1338,11 @@ export interface CreateFirewallRuleRequest {
   Priority: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1348,28 +1377,28 @@ export interface CreateFirewallRuleRequest {
    *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
    * @public
    */
-  BlockResponse?: BlockResponse;
+  BlockResponse?: BlockResponse | undefined;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDomain?: string;
+  BlockOverrideDomain?: string | undefined;
 
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType;
+  BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideTtl?: number;
+  BlockOverrideTtl?: number | undefined;
 
   /**
    * <p>A name that lets you identify the rule in the rule group.</p>
@@ -1382,14 +1411,14 @@ export interface CreateFirewallRuleRequest {
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
-  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
 
   /**
    * <p>
@@ -1446,7 +1475,38 @@ export interface CreateFirewallRuleRequest {
    *          </ul>
    * @public
    */
-  Qtype?: string;
+  Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			Use to create a DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**
@@ -1455,35 +1515,43 @@ export interface CreateFirewallRuleRequest {
  */
 export interface FirewallRule {
   /**
-   * <p>The unique identifier of the firewall rule group of the rule. </p>
+   * <p>The unique identifier of the Firewall rule group of the rule. </p>
    * @public
    */
-  FirewallRuleGroupId?: string;
+  FirewallRuleGroupId?: string | undefined;
 
   /**
    * <p>The ID of the domain list that's used in the rule. </p>
    * @public
    */
-  FirewallDomainListId?: string;
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			ID of the DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>The name of the rule. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The priority of the rule in the rule group. This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1496,7 +1564,7 @@ export interface FirewallRule {
    *          </ul>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
@@ -1516,58 +1584,58 @@ export interface FirewallRule {
    *          </ul>
    * @public
    */
-  BlockResponse?: BlockResponse;
+  BlockResponse?: BlockResponse | undefined;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDomain?: string;
+  BlockOverrideDomain?: string | undefined;
 
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType;
+  BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideTtl?: number;
+  BlockOverrideTtl?: number | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
    *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC). </p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 
   /**
    * <p>
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
-  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
 
   /**
    * <p>
@@ -1624,7 +1692,50 @@ export interface FirewallRule {
    *          </ul>
    * @public
    */
-  Qtype?: string;
+  Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			The type of the DNS Firewall Advanced rule. Valid values are:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains
+   * 				to to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without
+   * 				making a network connection to the client.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**
@@ -1636,7 +1747,7 @@ export interface CreateFirewallRuleResponse {
    * 			firewall rule that you just created. </p>
    * @public
    */
-  FirewallRule?: FirewallRule;
+  FirewallRule?: FirewallRule | undefined;
 }
 
 /**
@@ -1649,7 +1760,7 @@ export interface CreateFirewallRuleGroupRequest {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>A name that lets you identify the rule group, to manage and use it.</p>
@@ -1661,7 +1772,7 @@ export interface CreateFirewallRuleGroupRequest {
    * <p>A list of the tag keys and values that you want to associate with the rule group. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1703,44 +1814,44 @@ export interface FirewallRuleGroup {
    * <p>The ID of the rule group. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the rule group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the rule group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The number of rules in the rule group.</p>
    * @public
    */
-  RuleCount?: number;
+  RuleCount?: number | undefined;
 
   /**
    * <p>The status of the domain list.  </p>
    * @public
    */
-  Status?: FirewallRuleGroupStatus;
+  Status?: FirewallRuleGroupStatus | undefined;
 
   /**
    * <p>Additional information about the status of the rule group, if available.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account,
    *        this is the account that has shared the rule group with you.  </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -1748,26 +1859,26 @@ export interface FirewallRuleGroup {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC). </p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 }
 
 /**
@@ -1778,7 +1889,7 @@ export interface CreateFirewallRuleGroupResponse {
    * <p>A collection of rules used to filter DNS network traffic. </p>
    * @public
    */
-  FirewallRuleGroup?: FirewallRuleGroup;
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
 }
 
 /**
@@ -1807,7 +1918,7 @@ export interface CreateOutpostResolverRequest {
    * 		The default and minimal value is 4.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>
@@ -1829,7 +1940,7 @@ export interface CreateOutpostResolverRequest {
    * 		</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1860,38 +1971,38 @@ export interface OutpostResolver {
    * <p>The ARN (Amazon Resource Name) for the Resolver on an Outpost.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the Outpost Resolver was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the Outpost Resolver was modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request that created the Resolver endpoint.
    * 		The <code>CreatorRequestId</code> allows failed requests to be retried without the risk of running the operation twice.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The ID of the Resolver on Outpost.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Amazon EC2 instance count for the Resolver on the Outpost.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>
@@ -1899,31 +2010,31 @@ export interface OutpostResolver {
    * 		</p>
    * @public
    */
-  PreferredInstanceType?: string;
+  PreferredInstanceType?: string | undefined;
 
   /**
    * <p>Name of the Resolver.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Status of the Resolver.</p>
    * @public
    */
-  Status?: OutpostResolverStatus;
+  Status?: OutpostResolverStatus | undefined;
 
   /**
    * <p>A detailed description of the Resolver.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 }
 
 /**
@@ -1935,7 +2046,7 @@ export interface CreateOutpostResolverResponse {
    * 		request, including the status of the request.</p>
    * @public
    */
-  OutpostResolver?: OutpostResolver;
+  OutpostResolver?: OutpostResolver | undefined;
 }
 
 /**
@@ -1945,7 +2056,7 @@ export interface CreateOutpostResolverResponse {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1978,7 +2089,7 @@ export interface IpAddressRequest {
    * <p>The IPv4 address that you want to use for DNS queries.</p>
    * @public
    */
-  Ip?: string;
+  Ip?: string | undefined;
 
   /**
    * <p>
@@ -1986,7 +2097,7 @@ export interface IpAddressRequest {
    * 		</p>
    * @public
    */
-  Ipv6?: string;
+  Ipv6?: string | undefined;
 }
 
 /**
@@ -2005,7 +2116,7 @@ export interface CreateResolverEndpointRequest {
    * <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify
@@ -2051,19 +2162,19 @@ export interface CreateResolverEndpointRequest {
    * 			value for the <code>PreferredInstanceType</code>. </p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
    * @public
    */
-  PreferredInstanceType?: string;
+  PreferredInstanceType?: string | undefined;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -2073,7 +2184,7 @@ export interface CreateResolverEndpointRequest {
    * 		</p>
    * @public
    */
-  ResolverEndpointType?: ResolverEndpointType;
+  ResolverEndpointType?: ResolverEndpointType | undefined;
 
   /**
    * <p>
@@ -2117,7 +2228,7 @@ export interface CreateResolverEndpointRequest {
    *          </ul>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 }
 
 /**
@@ -2128,7 +2239,7 @@ export interface CreateResolverEndpointResponse {
    * <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -2149,11 +2260,11 @@ export interface CreateResolverQueryLogConfigRequest {
    *                <p>
    *                   <b>S3 bucket</b>: </p>
    *                <p>
-   *                   <code>arn:aws:s3:::examplebucket</code>
+   *                   <code>arn:aws:s3:::amzn-s3-demo-bucket</code>
    *                </p>
    *                <p>You can optionally append a file prefix to the end of the ARN.</p>
    *                <p>
-   *                   <code>arn:aws:s3:::examplebucket/development/</code>
+   *                   <code>arn:aws:s3:::amzn-s3-demo-bucket/development/</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2181,13 +2292,13 @@ export interface CreateResolverQueryLogConfigRequest {
    * 			any unique string, for example, a date/time stamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the query logging configuration.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2222,13 +2333,13 @@ export interface ResolverQueryLogConfig {
    * <p>The ID for the query logging configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID for the account that created the query logging configuration. </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The status of the specified query logging configuration. Valid values include the following:</p>
@@ -2262,39 +2373,39 @@ export interface ResolverQueryLogConfig {
    *          </ul>
    * @public
    */
-  Status?: ResolverQueryLogConfigStatus;
+  Status?: ResolverQueryLogConfigStatus | undefined;
 
   /**
    * <p>An indication of whether the query logging configuration is shared with other Amazon Web Services accounts, or was shared with the current account by another
    * 			Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>The number of VPCs that are associated with the query logging configuration.</p>
    * @public
    */
-  AssociationCount?: number;
+  AssociationCount?: number | undefined;
 
   /**
    * <p>The ARN for the query logging configuration.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the query logging configuration. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or
    * 			a Kinesis Data Firehose delivery stream.</p>
    * @public
    */
-  DestinationArn?: string;
+  DestinationArn?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request that created the query logging configuration.
@@ -2302,13 +2413,13 @@ export interface ResolverQueryLogConfig {
    * 			of running the operation twice.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The date and time that the query logging configuration was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 }
 
 /**
@@ -2319,7 +2430,7 @@ export interface CreateResolverQueryLogConfigResponse {
    * <p>Information about the <code>CreateResolverQueryLogConfig</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverQueryLogConfig?: ResolverQueryLogConfig;
+  ResolverQueryLogConfig?: ResolverQueryLogConfig | undefined;
 }
 
 /**
@@ -2348,13 +2459,13 @@ export interface TargetAddress {
    * <p>One IPv4 address that you want to forward DNS queries to.</p>
    * @public
    */
-  Ip?: string;
+  Ip?: string | undefined;
 
   /**
    * <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>
@@ -2362,52 +2473,23 @@ export interface TargetAddress {
    * 		</p>
    * @public
    */
-  Ipv6?: string;
+  Ipv6?: string | undefined;
 
   /**
    * <p>
-   * 			The protocols for the Resolver endpoints. DoH-FIPS is applicable for inbound endpoints only.
-   *
-   * 		</p>
-   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Do53  and DoH in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53  and DoH-FIPS in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53 alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH-FIPS alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>None, which is treated as Do53.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Do53  and DoH in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53 alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>None, which is treated as Do53.</p>
-   *             </li>
-   *          </ul>
+   * 			The protocols for the target address. The protocol you choose needs to be supported by the outbound endpoint of the Resolver rule.</p>
    * @public
    */
-  Protocol?: Protocol;
+  Protocol?: Protocol | undefined;
+
+  /**
+   * <p>
+   * 			The Server Name Indication of the DoH server that you want to forward queries to.
+   * 			This is only used if the Protocol of the <code>TargetAddress</code> is <code>DoH</code>.
+   * 		</p>
+   * @public
+   */
+  ServerNameIndication?: string | undefined;
 }
 
 /**
@@ -2426,7 +2508,7 @@ export interface CreateResolverRuleRequest {
    * <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
@@ -2446,7 +2528,7 @@ export interface CreateResolverRuleRequest {
    * 			the most specific domain name (www.example.com).</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4 or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</p>
@@ -2454,20 +2536,20 @@ export interface CreateResolverRuleRequest {
    *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
    * @public
    */
-  TargetIps?: TargetAddress[];
+  TargetIps?: TargetAddress[] | undefined;
 
   /**
    * <p>The ID of the outbound Resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify
    * 			in <code>TargetIps</code>.</p>
    * @public
    */
-  ResolverEndpointId?: string;
+  ResolverEndpointId?: string | undefined;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2502,7 +2584,7 @@ export interface ResolverRule {
    * <p>The ID that Resolver assigned to the Resolver rule when you created it.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A unique string that you specified when you created the Resolver rule.
@@ -2510,13 +2592,13 @@ export interface ResolverRule {
    * 			be retried without the risk of running the operation twice. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) for the Resolver rule specified by <code>Id</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>DNS queries for this domain name are forwarded to the IP addresses that are specified in <code>TargetIps</code>. If a query matches
@@ -2524,19 +2606,19 @@ export interface ResolverRule {
    * 			(www.example.com).</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>A code that specifies the current status of the Resolver rule.</p>
    * @public
    */
-  Status?: ResolverRuleStatus;
+  Status?: ResolverRuleStatus | undefined;
 
   /**
    * <p>A detailed description of the status of a Resolver rule.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
@@ -2548,51 +2630,51 @@ export interface ResolverRule {
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    * @public
    */
-  RuleType?: RuleTypeOption;
+  RuleType?: RuleTypeOption | undefined;
 
   /**
    * <p>The name for the Resolver rule, which you specified when you created the Resolver rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically,
    * 			these are the IP addresses of DNS resolvers on your network. </p>
    * @public
    */
-  TargetIps?: TargetAddress[];
+  TargetIps?: TargetAddress[] | undefined;
 
   /**
    * <p>The ID of the endpoint that the rule is associated with.</p>
    * @public
    */
-  ResolverEndpointId?: string;
+  ResolverEndpointId?: string | undefined;
 
   /**
    * <p>When a rule is shared with another Amazon Web Services account, the account ID of the account that the rule is shared with.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with
    * 			another account, or another account is sharing the rule with the current account.</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>The date and time that the Resolver rule was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the Resolver rule was last updated, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 }
 
 /**
@@ -2603,7 +2685,7 @@ export interface CreateResolverRuleResponse {
    * <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverRule?: ResolverRule;
+  ResolverRule?: ResolverRule | undefined;
 }
 
 /**
@@ -2625,7 +2707,7 @@ export interface DeleteFirewallDomainListResponse {
    * <p>The domain list that you just deleted. </p>
    * @public
    */
-  FirewallDomainList?: FirewallDomainList;
+  FirewallDomainList?: FirewallDomainList | undefined;
 }
 
 /**
@@ -2642,7 +2724,15 @@ export interface DeleteFirewallRuleRequest {
    * <p>The ID of the domain list that's used in the rule.  </p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The ID that is created for a DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>
@@ -2699,7 +2789,7 @@ export interface DeleteFirewallRuleRequest {
    *          </ul>
    * @public
    */
-  Qtype?: string;
+  Qtype?: string | undefined;
 }
 
 /**
@@ -2710,7 +2800,7 @@ export interface DeleteFirewallRuleResponse {
    * <p>The specification for the firewall rule that you just deleted.</p>
    * @public
    */
-  FirewallRule?: FirewallRule;
+  FirewallRule?: FirewallRule | undefined;
 }
 
 /**
@@ -2732,7 +2822,7 @@ export interface DeleteFirewallRuleGroupResponse {
    * <p>A collection of rules used to filter DNS network traffic. </p>
    * @public
    */
-  FirewallRuleGroup?: FirewallRuleGroup;
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
 }
 
 /**
@@ -2755,7 +2845,7 @@ export interface DeleteOutpostResolverResponse {
    * 		request, including the status of the request.</p>
    * @public
    */
-  OutpostResolver?: OutpostResolver;
+  OutpostResolver?: OutpostResolver | undefined;
 }
 
 /**
@@ -2777,7 +2867,7 @@ export interface DeleteResolverEndpointResponse {
    * <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -2799,7 +2889,7 @@ export interface DeleteResolverQueryLogConfigResponse {
    * <p>Information about the query logging configuration that you deleted, including the status of the request.</p>
    * @public
    */
-  ResolverQueryLogConfig?: ResolverQueryLogConfig;
+  ResolverQueryLogConfig?: ResolverQueryLogConfig | undefined;
 }
 
 /**
@@ -2821,7 +2911,7 @@ export interface DeleteResolverRuleResponse {
    * <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverRule?: ResolverRule;
+  ResolverRule?: ResolverRule | undefined;
 }
 
 /**
@@ -2831,12 +2921,12 @@ export interface DeleteResolverRuleResponse {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -2871,7 +2961,7 @@ export interface DisassociateFirewallRuleGroupResponse {
    * <p>The firewall rule group association that you just removed. </p>
    * @public
    */
-  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation | undefined;
 }
 
 /**
@@ -2899,7 +2989,7 @@ export interface DisassociateResolverEndpointIpAddressResponse {
    * <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -2927,7 +3017,7 @@ export interface DisassociateResolverQueryLogConfigResponse {
    * <p>A complex type that contains settings for the association that you deleted between an Amazon VPC and a query logging configuration.</p>
    * @public
    */
-  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
+  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation | undefined;
 }
 
 /**
@@ -2955,7 +3045,7 @@ export interface DisassociateResolverRuleResponse {
    * <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
    * @public
    */
-  ResolverRuleAssociation?: ResolverRuleAssociation;
+  ResolverRuleAssociation?: ResolverRuleAssociation | undefined;
 }
 
 /**
@@ -3210,7 +3300,7 @@ export interface Filter {
    *          </ul>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as Resolver endpoints or Resolver rules,
@@ -3218,7 +3308,7 @@ export interface Filter {
    * 			<code>Name</code> and specify <code>INBOUND</code> for <code>Values</code>.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -3246,19 +3336,19 @@ export interface FirewallConfig {
    * <p>The ID of the firewall configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ID of the VPC that this firewall configuration applies to.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p>
@@ -3275,7 +3365,7 @@ export interface FirewallConfig {
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    * @public
    */
-  FirewallFailOpen?: FirewallFailOpenStatus;
+  FirewallFailOpen?: FirewallFailOpenStatus | undefined;
 }
 
 /**
@@ -3302,19 +3392,19 @@ export interface FirewallDomainListMetadata {
    * <p>The ID of the domain list. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall domain list metadata.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the domain list. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -3322,13 +3412,13 @@ export interface FirewallDomainListMetadata {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
    * @public
    */
-  ManagedOwnerName?: string;
+  ManagedOwnerName?: string | undefined;
 }
 
 /**
@@ -3357,26 +3447,26 @@ export interface FirewallRuleGroupMetadata {
    * <p>The ID of the rule group. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the rule group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the rule group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account,
    *        this is the account that has shared the rule group with you.  </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -3384,14 +3474,14 @@ export interface FirewallRuleGroupMetadata {
    * 			for example, a timestamp. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 }
 
 /**
@@ -3414,7 +3504,7 @@ export interface GetFirewallConfigResponse {
    * 			AmazonVPC. </p>
    * @public
    */
-  FirewallConfig?: FirewallConfig;
+  FirewallConfig?: FirewallConfig | undefined;
 }
 
 /**
@@ -3436,7 +3526,7 @@ export interface GetFirewallDomainListResponse {
    * <p>The domain list that you requested.  </p>
    * @public
    */
-  FirewallDomainList?: FirewallDomainList;
+  FirewallDomainList?: FirewallDomainList | undefined;
 }
 
 /**
@@ -3458,7 +3548,7 @@ export interface GetFirewallRuleGroupResponse {
    * <p>A collection of rules used to filter DNS network traffic. </p>
    * @public
    */
-  FirewallRuleGroup?: FirewallRuleGroup;
+  FirewallRuleGroup?: FirewallRuleGroup | undefined;
 }
 
 /**
@@ -3480,7 +3570,7 @@ export interface GetFirewallRuleGroupAssociationResponse {
    * <p>The association that you requested. </p>
    * @public
    */
-  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation | undefined;
 }
 
 /**
@@ -3504,7 +3594,7 @@ export interface GetFirewallRuleGroupPolicyResponse {
    * 			(RAM). </p>
    * @public
    */
-  FirewallRuleGroupPolicy?: string;
+  FirewallRuleGroupPolicy?: string | undefined;
 }
 
 /**
@@ -3527,7 +3617,7 @@ export interface GetOutpostResolverResponse {
    * 		request, including the status of the request.</p>
    * @public
    */
-  OutpostResolver?: OutpostResolver;
+  OutpostResolver?: OutpostResolver | undefined;
 }
 
 /**
@@ -3569,19 +3659,19 @@ export interface ResolverConfig {
    * <p>ID for the Resolver configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The owner account ID of the Amazon Virtual Private Cloud VPC.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p> The status of whether or not the Resolver will create autodefined rules for reverse DNS
@@ -3610,7 +3700,7 @@ export interface ResolverConfig {
    *          </ul>
    * @public
    */
-  AutodefinedReverse?: ResolverAutodefinedReverseStatus;
+  AutodefinedReverse?: ResolverAutodefinedReverseStatus | undefined;
 }
 
 /**
@@ -3622,7 +3712,7 @@ export interface GetResolverConfigResponse {
    * 			specified in the <code>GetResolverConfig</code> request.</p>
    * @public
    */
-  ResolverConfig?: ResolverConfig;
+  ResolverConfig?: ResolverConfig | undefined;
 }
 
 /**
@@ -3664,19 +3754,19 @@ export interface ResolverDnssecConfig {
    * <p>The ID for a configuration for DNSSEC validation.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The validation status for a DNSSEC configuration. The status can be one of the following:</p>
@@ -3700,7 +3790,7 @@ export interface ResolverDnssecConfig {
    *          </ul>
    * @public
    */
-  ValidationStatus?: ResolverDNSSECValidationStatus;
+  ValidationStatus?: ResolverDNSSECValidationStatus | undefined;
 }
 
 /**
@@ -3711,7 +3801,7 @@ export interface GetResolverDnssecConfigResponse {
    * <p>The information about a configuration for DNSSEC validation.</p>
    * @public
    */
-  ResolverDNSSECConfig?: ResolverDnssecConfig;
+  ResolverDNSSECConfig?: ResolverDnssecConfig | undefined;
 }
 
 /**
@@ -3733,7 +3823,7 @@ export interface GetResolverEndpointResponse {
    * <p>Information about the Resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -3755,7 +3845,7 @@ export interface GetResolverQueryLogConfigResponse {
    * <p>Information about the Resolver query logging configuration that you specified in a <code>GetQueryLogConfig</code> request.</p>
    * @public
    */
-  ResolverQueryLogConfig?: ResolverQueryLogConfig;
+  ResolverQueryLogConfig?: ResolverQueryLogConfig | undefined;
 }
 
 /**
@@ -3777,7 +3867,7 @@ export interface GetResolverQueryLogConfigAssociationResponse {
    * <p>Information about the Resolver query logging configuration association that you specified in a <code>GetQueryLogConfigAssociation</code> request.</p>
    * @public
    */
-  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
+  ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation | undefined;
 }
 
 /**
@@ -3800,7 +3890,7 @@ export interface GetResolverQueryLogConfigPolicyResponse {
    * 			<code>GetResolverQueryLogConfigPolicy</code> request.</p>
    * @public
    */
-  ResolverQueryLogConfigPolicy?: string;
+  ResolverQueryLogConfigPolicy?: string | undefined;
 }
 
 /**
@@ -3810,7 +3900,7 @@ export interface GetResolverQueryLogConfigPolicyResponse {
 export class UnknownResourceException extends __BaseException {
   readonly name: "UnknownResourceException" = "UnknownResourceException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3844,7 +3934,7 @@ export interface GetResolverRuleResponse {
    * <p>Information about the Resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
    * @public
    */
-  ResolverRule?: ResolverRule;
+  ResolverRule?: ResolverRule | undefined;
 }
 
 /**
@@ -3866,7 +3956,7 @@ export interface GetResolverRuleAssociationResponse {
    * <p>Information about the Resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
    * @public
    */
-  ResolverRuleAssociation?: ResolverRuleAssociation;
+  ResolverRuleAssociation?: ResolverRuleAssociation | undefined;
 }
 
 /**
@@ -3888,7 +3978,7 @@ export interface GetResolverRulePolicyResponse {
    * <p>The Resolver rule policy for the rule that you specified in a <code>GetResolverRulePolicy</code> request.</p>
    * @public
    */
-  ResolverRulePolicy?: string;
+  ResolverRulePolicy?: string | undefined;
 }
 
 /**
@@ -3925,25 +4015,25 @@ export interface ImportFirewallDomainsResponse {
    * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the domain list. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Status of the import request.</p>
    * @public
    */
-  Status?: FirewallDomainListStatus;
+  Status?: FirewallDomainListStatus | undefined;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -3953,7 +4043,7 @@ export interface ImportFirewallDomainsResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3975,7 +4065,7 @@ export class InvalidNextTokenException extends __BaseException {
 export class InvalidPolicyDocument extends __BaseException {
   readonly name: "InvalidPolicyDocument" = "InvalidPolicyDocument";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3997,7 +4087,7 @@ export class InvalidPolicyDocument extends __BaseException {
 export class InvalidTagException extends __BaseException {
   readonly name: "InvalidTagException" = "InvalidTagException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4047,19 +4137,19 @@ export interface IpAddressResponse {
    * <p>The ID of one IP address.</p>
    * @public
    */
-  IpId?: string;
+  IpId?: string | undefined;
 
   /**
    * <p>The ID of one subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>One IPv4 address that the Resolver endpoint uses for DNS queries.</p>
    * @public
    */
-  Ip?: string;
+  Ip?: string | undefined;
 
   /**
    * <p>
@@ -4067,31 +4157,31 @@ export interface IpAddressResponse {
    * 		</p>
    * @public
    */
-  Ipv6?: string;
+  Ipv6?: string | undefined;
 
   /**
    * <p>A status code that gives the current status of the request.</p>
    * @public
    */
-  Status?: IpAddressStatus;
+  Status?: IpAddressStatus | undefined;
 
   /**
    * <p>A message that provides additional information about the status of the request.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time that the IP address was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ModificationTime?: string;
+  ModificationTime?: string | undefined;
 }
 
 /**
@@ -4105,7 +4195,7 @@ export interface ListFirewallConfigsRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4115,7 +4205,7 @@ export interface ListFirewallConfigsRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4127,14 +4217,14 @@ export interface ListFirewallConfigsResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The configurations for the firewall behavior provided by DNS Firewall for VPCs from
    * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
    * @public
    */
-  FirewallConfigs?: FirewallConfig[];
+  FirewallConfigs?: FirewallConfig[] | undefined;
 }
 
 /**
@@ -4148,7 +4238,7 @@ export interface ListFirewallDomainListsRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4158,7 +4248,7 @@ export interface ListFirewallDomainListsRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4170,7 +4260,7 @@ export interface ListFirewallDomainListsResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the domain lists that you have defined.   </p>
@@ -4178,7 +4268,7 @@ export interface ListFirewallDomainListsResponse {
    * 			see <code>MaxResults</code>. </p>
    * @public
    */
-  FirewallDomainLists?: FirewallDomainListMetadata[];
+  FirewallDomainLists?: FirewallDomainListMetadata[] | undefined;
 }
 
 /**
@@ -4198,7 +4288,7 @@ export interface ListFirewallDomainsRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4208,7 +4298,7 @@ export interface ListFirewallDomainsRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4220,7 +4310,7 @@ export interface ListFirewallDomainsResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the domains in the firewall domain list.  </p>
@@ -4228,7 +4318,7 @@ export interface ListFirewallDomainsResponse {
    * 			information, see <code>MaxResults</code>. </p>
    * @public
    */
-  Domains?: string[];
+  Domains?: string[] | undefined;
 }
 
 /**
@@ -4240,14 +4330,14 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    *            for. Leave this blank to retrieve associations for any rule group. </p>
    * @public
    */
-  FirewallRuleGroupId?: string;
+  FirewallRuleGroupId?: string | undefined;
 
   /**
    * <p>The unique identifier of the VPC that you want to retrieve the associations
    *            for. Leave this blank to retrieve associations for any VPC. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule group among the rule
@@ -4255,13 +4345,13 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    * 			from the rule group with the lowest numeric priority setting. </p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
    * @public
    */
-  Status?: FirewallRuleGroupAssociationStatus;
+  Status?: FirewallRuleGroupAssociationStatus | undefined;
 
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -4270,7 +4360,7 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4280,7 +4370,7 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4292,14 +4382,14 @@ export interface ListFirewallRuleGroupAssociationsResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of your firewall rule group associations.</p>
    *          <p>This might be a partial list of the associations that you have defined. For information, see <code>MaxResults</code>. </p>
    * @public
    */
-  FirewallRuleGroupAssociations?: FirewallRuleGroupAssociation[];
+  FirewallRuleGroupAssociations?: FirewallRuleGroupAssociation[] | undefined;
 }
 
 /**
@@ -4313,7 +4403,7 @@ export interface ListFirewallRuleGroupsRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4323,7 +4413,7 @@ export interface ListFirewallRuleGroupsRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4335,14 +4425,14 @@ export interface ListFirewallRuleGroupsResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of your firewall rule groups.</p>
    *          <p>This might be a partial list of the rule groups that you have defined. For information, see <code>MaxResults</code>. </p>
    * @public
    */
-  FirewallRuleGroups?: FirewallRuleGroupMetadata[];
+  FirewallRuleGroups?: FirewallRuleGroupMetadata[] | undefined;
 }
 
 /**
@@ -4361,15 +4451,15 @@ export interface ListFirewallRulesRequest {
    *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>Optional additional filter for the rules to retrieve.</p>
-   *          <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not availabe for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4382,7 +4472,7 @@ export interface ListFirewallRulesRequest {
    *          </ul>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -4391,7 +4481,7 @@ export interface ListFirewallRulesRequest {
    *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first call to this list request, omit this value.</p>
@@ -4401,7 +4491,7 @@ export interface ListFirewallRulesRequest {
    *                batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4413,7 +4503,7 @@ export interface ListFirewallRulesResponse {
    *            To retrieve the next batch of objects, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the rules that you have defined.  </p>
@@ -4421,7 +4511,7 @@ export interface ListFirewallRulesResponse {
    * 			see <code>MaxResults</code>. </p>
    * @public
    */
-  FirewallRules?: FirewallRule[];
+  FirewallRules?: FirewallRule[] | undefined;
 }
 
 /**
@@ -4432,7 +4522,7 @@ export interface ListOutpostResolversRequest {
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>The maximum number of Resolvers on the Outpost that you want to return in the response to a
@@ -4440,14 +4530,14 @@ export interface ListOutpostResolversRequest {
    * 				<code>MaxResults</code>, the request returns up to 100 Resolvers.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListOutpostResolver</code> request, omit this value.</p>
    *          <p></p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4459,14 +4549,14 @@ export interface ListOutpostResolversResponse {
    * 		and that match the specified filters, if any.</p>
    * @public
    */
-  OutpostResolvers?: OutpostResolver[];
+  OutpostResolvers?: OutpostResolver[] | undefined;
 
   /**
    * <p>If more than <code>MaxResults</code> Resolvers match the specified criteria, you can submit another
    * 		<code>ListOutpostResolver</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4479,7 +4569,7 @@ export interface ListResolverConfigsRequest {
    * 			up to 100 Resolver configurations are returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> Resolver configurations, use
@@ -4489,7 +4579,7 @@ export interface ListResolverConfigsRequest {
    * 			specify that value for <code>NextToken</code> in the request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4505,14 +4595,14 @@ export interface ListResolverConfigsResponse {
    * 			<code>NextToken</code> in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array that contains one <code>ResolverConfigs</code> element for each Resolver configuration that is associated
    * 			with the current Amazon Web Services account.</p>
    * @public
    */
-  ResolverConfigs?: ResolverConfig[];
+  ResolverConfigs?: ResolverConfig[] | undefined;
 }
 
 /**
@@ -4525,7 +4615,7 @@ export interface ListResolverDnssecConfigsRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
@@ -4535,13 +4625,13 @@ export interface ListResolverDnssecConfigsRequest {
    * 			for <code>NextToken</code> in the request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of objects.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -4557,7 +4647,7 @@ export interface ListResolverDnssecConfigsResponse {
    * 			<code>NextToken</code> in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array that contains one
@@ -4566,7 +4656,7 @@ export interface ListResolverDnssecConfigsResponse {
    * 			 It doesn't contain disabled DNSSEC configurations for the resource.</p>
    * @public
    */
-  ResolverDnssecConfigs?: ResolverDnssecConfig[];
+  ResolverDnssecConfigs?: ResolverDnssecConfig[] | undefined;
 }
 
 /**
@@ -4584,7 +4674,7 @@ export interface ListResolverEndpointIpAddressesRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 IP addresses. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>
@@ -4593,7 +4683,7 @@ export interface ListResolverEndpointIpAddressesRequest {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4606,20 +4696,20 @@ export interface ListResolverEndpointIpAddressesResponse {
    * 			specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Information about the IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward
    * 			DNS queries to (for inbound endpoints).</p>
    * @public
    */
-  IpAddresses?: IpAddressResponse[];
+  IpAddresses?: IpAddressResponse[] | undefined;
 }
 
 /**
@@ -4631,7 +4721,7 @@ export interface ListResolverEndpointsRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver endpoints. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p>
@@ -4639,7 +4729,7 @@ export interface ListResolverEndpointsRequest {
    * 			to get the next group of Resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of Resolver endpoints, such as all inbound Resolver endpoints.</p>
@@ -4649,7 +4739,7 @@ export interface ListResolverEndpointsRequest {
    *          </note>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -4661,19 +4751,19 @@ export interface ListResolverEndpointsResponse {
    * 			to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Resolver endpoints that were created by using the current Amazon Web Services account, and that match the specified filters, if any.</p>
    * @public
    */
-  ResolverEndpoints?: ResolverEndpoint[];
+  ResolverEndpoints?: ResolverEndpoint[] | undefined;
 }
 
 /**
@@ -4699,7 +4789,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 query logging associations. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigAssociations</code> request, omit this value.</p>
@@ -4708,7 +4798,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of query logging associations.</p>
@@ -4718,7 +4808,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *          </note>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The element that you want Resolver to sort query logging associations by. </p>
@@ -4795,7 +4885,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *          </ul>
    * @public
    */
-  SortBy?: string;
+  SortBy?: string | undefined;
 
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging associations to be listed in,
@@ -4806,7 +4896,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *          </note>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -4818,7 +4908,7 @@ export interface ListResolverQueryLogConfigAssociationsResponse {
    * 			to get the next group of associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of query logging associations that were created by the current account in the specified Region. This count can differ from the
@@ -4826,7 +4916,7 @@ export interface ListResolverQueryLogConfigAssociationsResponse {
    * 			in the request.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 
   /**
    * <p>The total number of query logging associations that were created by the current account in the specified Region and that match the filters
@@ -4834,14 +4924,14 @@ export interface ListResolverQueryLogConfigAssociationsResponse {
    * 			current account in the specified Region, see <code>TotalCount</code>.</p>
    * @public
    */
-  TotalFilteredCount?: number;
+  TotalFilteredCount?: number | undefined;
 
   /**
    * <p>A list that contains one <code>ResolverQueryLogConfigAssociations</code> element for each query logging association that matches the
    * 			values that you specified for <code>Filter</code>.</p>
    * @public
    */
-  ResolverQueryLogConfigAssociations?: ResolverQueryLogConfigAssociation[];
+  ResolverQueryLogConfigAssociations?: ResolverQueryLogConfigAssociation[] | undefined;
 }
 
 /**
@@ -4853,7 +4943,7 @@ export interface ListResolverQueryLogConfigsRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 query logging configurations. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigs</code> request, omit this value.</p>
@@ -4862,7 +4952,7 @@ export interface ListResolverQueryLogConfigsRequest {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of query logging configurations.</p>
@@ -4872,7 +4962,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *          </note>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The element that you want Resolver to sort query logging configurations by. </p>
@@ -4954,7 +5044,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *          </ul>
    * @public
    */
-  SortBy?: string;
+  SortBy?: string | undefined;
 
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging configurations to be listed in,
@@ -4965,7 +5055,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *          </note>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -4977,7 +5067,7 @@ export interface ListResolverQueryLogConfigsResponse {
    * 			to get the next group of configurations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of query logging configurations that were created by the current account in the specified Region. This count can differ from the
@@ -4985,7 +5075,7 @@ export interface ListResolverQueryLogConfigsResponse {
    * 			in the request.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 
   /**
    * <p>The total number of query logging configurations that were created by the current account in the specified Region and that match the filters
@@ -4993,14 +5083,14 @@ export interface ListResolverQueryLogConfigsResponse {
    * 			current account in the specified Region, see <code>TotalCount</code>.</p>
    * @public
    */
-  TotalFilteredCount?: number;
+  TotalFilteredCount?: number | undefined;
 
   /**
    * <p>A list that contains one <code>ResolverQueryLogConfig</code> element for each query logging configuration that matches the
    * 			values that you specified for <code>Filter</code>.</p>
    * @public
    */
-  ResolverQueryLogConfigs?: ResolverQueryLogConfig[];
+  ResolverQueryLogConfigs?: ResolverQueryLogConfig[] | undefined;
 }
 
 /**
@@ -5012,7 +5102,7 @@ export interface ListResolverRuleAssociationsRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>
@@ -5020,7 +5110,7 @@ export interface ListResolverRuleAssociationsRequest {
    * 			to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as Resolver rules that are associated with the same VPC ID.</p>
@@ -5030,7 +5120,7 @@ export interface ListResolverRuleAssociationsRequest {
    *          </note>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -5043,20 +5133,20 @@ export interface ListResolverRuleAssociationsResponse {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The associations that were created between Resolver rules and VPCs using the current Amazon Web Services account, and that match the
    * 			specified filters, if any.</p>
    * @public
    */
-  ResolverRuleAssociations?: ResolverRuleAssociation[];
+  ResolverRuleAssociations?: ResolverRuleAssociation[] | undefined;
 }
 
 /**
@@ -5068,7 +5158,7 @@ export interface ListResolverRulesRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver rules.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListResolverRules</code> request, omit this value.</p>
@@ -5076,7 +5166,7 @@ export interface ListResolverRulesRequest {
    * 			to get the next group of Resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as all Resolver rules that are associated with the same Resolver endpoint.</p>
@@ -5086,7 +5176,7 @@ export interface ListResolverRulesRequest {
    *          </note>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -5099,19 +5189,19 @@ export interface ListResolverRulesResponse {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Resolver rules that were created using the current Amazon Web Services account and that match the specified filters, if any.</p>
    * @public
    */
-  ResolverRules?: ResolverRule[];
+  ResolverRules?: ResolverRule[] | undefined;
 }
 
 /**
@@ -5129,7 +5219,7 @@ export interface ListTagsForResourceRequest {
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 tags.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>For the first <code>ListTagsForResource</code> request, omit this value.</p>
@@ -5137,7 +5227,7 @@ export interface ListTagsForResourceRequest {
    * 			to get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5148,7 +5238,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another
@@ -5156,7 +5246,7 @@ export interface ListTagsForResourceResponse {
    * 			<code>NextToken</code> from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5184,7 +5274,7 @@ export interface PutFirewallRuleGroupPolicyResponse {
    * <p></p>
    * @public
    */
-  ReturnValue?: boolean;
+  ReturnValue?: boolean | undefined;
 }
 
 /**
@@ -5234,7 +5324,7 @@ export interface PutResolverQueryLogConfigPolicyResponse {
    * <p>Whether the <code>PutResolverQueryLogConfigPolicy</code> request was successful.</p>
    * @public
    */
-  ReturnValue?: boolean;
+  ReturnValue?: boolean | undefined;
 }
 
 /**
@@ -5293,7 +5383,7 @@ export interface PutResolverRulePolicyResponse {
    * <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>
    * @public
    */
-  ReturnValue?: boolean;
+  ReturnValue?: boolean | undefined;
 }
 
 /**
@@ -5307,20 +5397,20 @@ export interface ResolverRuleConfig {
    * <p>The new name for the Resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>
    * @public
    */
-  TargetIps?: TargetAddress[];
+  TargetIps?: TargetAddress[] | undefined;
 
   /**
    * <p>The ID of the new outbound Resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in
    * 			<code>TargetIps</code>.</p>
    * @public
    */
-  ResolverEndpointId?: string;
+  ResolverEndpointId?: string | undefined;
 }
 
 /**
@@ -5469,7 +5559,7 @@ export interface UpdateFirewallConfigResponse {
    * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC. </p>
    * @public
    */
-  FirewallConfig?: FirewallConfig;
+  FirewallConfig?: FirewallConfig | undefined;
 }
 
 /**
@@ -5535,25 +5625,25 @@ export interface UpdateFirewallDomainsResponse {
    * <p>The ID of the firewall domain list that DNS Firewall just updated.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the domain list. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    * @public
    */
-  Status?: FirewallDomainListStatus;
+  Status?: FirewallDomainListStatus | undefined;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -5570,7 +5660,15 @@ export interface UpdateFirewallRuleRequest {
    * <p>The ID of the domain list to use in the rule.  </p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The DNS Firewall Advanced rule ID.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
@@ -5580,14 +5678,14 @@ export interface UpdateFirewallRuleRequest {
    *    can change the priority setting for the rules in a rule group at any time.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5600,7 +5698,7 @@ export interface UpdateFirewallRuleRequest {
    *          </ul>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
@@ -5620,45 +5718,45 @@ export interface UpdateFirewallRuleRequest {
    *          </ul>
    * @public
    */
-  BlockResponse?: BlockResponse;
+  BlockResponse?: BlockResponse | undefined;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDomain?: string;
+  BlockOverrideDomain?: string | undefined;
 
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType;
+  BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    * @public
    */
-  BlockOverrideTtl?: number;
+  BlockOverrideTtl?: number | undefined;
 
   /**
    * <p>The name of the rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
-  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
 
   /**
    * <p>
@@ -5711,11 +5809,58 @@ export interface UpdateFirewallRuleRequest {
    * 				NUMBER can be 1-65334, for
    * 				example, TYPE28. For more information, see
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
+   *                <note>
+   *                   <p>If you set up a firewall BLOCK rule with action NXDOMAIN on query type equals AAAA,
+   * 					this action will not be applied to synthetic IPv6 addresses generated when DNS64 is enabled. </p>
+   *                </note>
    *             </li>
    *          </ul>
    * @public
    */
-  Qtype?: string;
+  Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			The type of the DNS Firewall Advanced rule. Valid values are:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains
+   * 				to to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without
+   * 				making a network connection to the client.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**
@@ -5726,7 +5871,7 @@ export interface UpdateFirewallRuleResponse {
    * <p>The firewall rule that you just updated. </p>
    * @public
    */
-  FirewallRule?: FirewallRule;
+  FirewallRule?: FirewallRule | undefined;
 }
 
 /**
@@ -5748,19 +5893,19 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
    *    can change the priority setting for a rule group association after you create it.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    * @public
    */
-  MutationProtection?: MutationProtectionStatus;
+  MutationProtection?: MutationProtectionStatus | undefined;
 
   /**
    * <p>The name of the rule group association.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5771,7 +5916,7 @@ export interface UpdateFirewallRuleGroupAssociationResponse {
    * <p>The association that you just updated. </p>
    * @public
    */
-  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation | undefined;
 }
 
 /**
@@ -5788,13 +5933,13 @@ export interface UpdateOutpostResolverRequest {
    * <p>Name of the Resolver on the Outpost.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon EC2 instance count for a Resolver on the Outpost.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>
@@ -5802,7 +5947,7 @@ export interface UpdateOutpostResolverRequest {
    * 		</p>
    * @public
    */
-  PreferredInstanceType?: string;
+  PreferredInstanceType?: string | undefined;
 }
 
 /**
@@ -5813,7 +5958,7 @@ export interface UpdateOutpostResolverResponse {
    * <p>The response to an <code>UpdateOutpostResolver</code> request.</p>
    * @public
    */
-  OutpostResolver?: OutpostResolver;
+  OutpostResolver?: OutpostResolver | undefined;
 }
 
 /**
@@ -5852,7 +5997,7 @@ export interface UpdateResolverConfigResponse {
    * <p>An array that contains settings for the specified Resolver configuration.</p>
    * @public
    */
-  ResolverConfig?: ResolverConfig;
+  ResolverConfig?: ResolverConfig | undefined;
 }
 
 /**
@@ -5896,7 +6041,7 @@ export interface UpdateResolverDnssecConfigResponse {
    * <p>A complex type that contains settings for the specified DNSSEC configuration.</p>
    * @public
    */
-  ResolverDNSSECConfig?: ResolverDnssecConfig;
+  ResolverDNSSECConfig?: ResolverDnssecConfig | undefined;
 }
 
 /**
@@ -5935,7 +6080,7 @@ export interface UpdateResolverEndpointRequest {
    * <p>The name of the Resolver endpoint that you want to update.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -5944,7 +6089,7 @@ export interface UpdateResolverEndpointRequest {
    *          <p>Updating to <code>IPV6</code> type isn't currently supported.</p>
    * @public
    */
-  ResolverEndpointType?: ResolverEndpointType;
+  ResolverEndpointType?: ResolverEndpointType | undefined;
 
   /**
    * <p>
@@ -5953,7 +6098,7 @@ export interface UpdateResolverEndpointRequest {
    * 		</p>
    * @public
    */
-  UpdateIpAddresses?: UpdateIpAddress[];
+  UpdateIpAddresses?: UpdateIpAddress[] | undefined;
 
   /**
    * <p>
@@ -6005,7 +6150,7 @@ export interface UpdateResolverEndpointRequest {
    *          </important>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 }
 
 /**
@@ -6016,7 +6161,7 @@ export interface UpdateResolverEndpointResponse {
    * <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
    * @public
    */
-  ResolverEndpoint?: ResolverEndpoint;
+  ResolverEndpoint?: ResolverEndpoint | undefined;
 }
 
 /**
@@ -6044,5 +6189,5 @@ export interface UpdateResolverRuleResponse {
    * <p>The response to an <code>UpdateResolverRule</code> request.</p>
    * @public
    */
-  ResolverRule?: ResolverRule;
+  ResolverRule?: ResolverRule | undefined;
 }

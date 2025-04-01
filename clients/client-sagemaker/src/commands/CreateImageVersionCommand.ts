@@ -28,7 +28,7 @@ export interface CreateImageVersionCommandInput extends CreateImageVersionReques
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
+ * <p>Creates a version of the SageMaker AI image specified by <code>ImageName</code>. The version
  *         represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +78,7 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateImageVersionCommand extends $Command
@@ -88,9 +89,7 @@ export class CreateImageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class CreateImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageVersionCommand)
   .de(de_CreateImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageVersionRequest;
+      output: CreateImageVersionResponse;
+    };
+    sdk: {
+      input: CreateImageVersionCommandInput;
+      output: CreateImageVersionCommandOutput;
+    };
+  };
+}

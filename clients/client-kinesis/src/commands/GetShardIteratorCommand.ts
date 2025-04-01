@@ -117,6 +117,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class GetShardIteratorCommand extends $Command
@@ -143,4 +144,16 @@ export class GetShardIteratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetShardIteratorCommand)
   .de(de_GetShardIteratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetShardIteratorInput;
+      output: GetShardIteratorOutput;
+    };
+    sdk: {
+      input: GetShardIteratorCommandInput;
+      output: GetShardIteratorCommandOutput;
+    };
+  };
+}

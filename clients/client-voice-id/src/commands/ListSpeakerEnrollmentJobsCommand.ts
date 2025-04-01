@@ -102,6 +102,7 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class ListSpeakerEnrollmentJobsCommand extends $Command
@@ -112,9 +113,7 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command
   .f(void 0, ListSpeakerEnrollmentJobsResponseFilterSensitiveLog)
   .ser(se_ListSpeakerEnrollmentJobsCommand)
   .de(de_ListSpeakerEnrollmentJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpeakerEnrollmentJobsRequest;
+      output: ListSpeakerEnrollmentJobsResponse;
+    };
+    sdk: {
+      input: ListSpeakerEnrollmentJobsCommandInput;
+      output: ListSpeakerEnrollmentJobsCommandOutput;
+    };
+  };
+}

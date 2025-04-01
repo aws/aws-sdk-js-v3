@@ -160,11 +160,18 @@ export const se_CancelBatchJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/applications/{applicationId}/batch-job-executions/{executionId}/cancel");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("executionId", () => input.executionId!, "{executionId}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      authSecretsManagerArn: [],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -270,6 +277,7 @@ export const se_CreateEnvironmentCommand = async (
       instanceType: [],
       kmsKeyId: [],
       name: [],
+      networkType: [],
       preferredMaintenanceWindow: [],
       publiclyAccessible: [],
       securityGroupIds: (_) => _json(_),
@@ -476,7 +484,7 @@ export const se_ListApplicationsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_n]: [() => input.names !== void 0, () => (input[_n]! || []).map((_entry) => _entry as any)],
+    [_n]: [() => input.names !== void 0, () => input[_n]! || []],
     [_eI]: [, input[_eI]!],
   });
   let body: any;
@@ -539,7 +547,7 @@ export const se_ListBatchJobExecutionsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_eIx]: [() => input.executionIds !== void 0, () => (input[_eIx]! || []).map((_entry) => _entry as any)],
+    [_eIx]: [() => input.executionIds !== void 0, () => input[_eIx]! || []],
     [_jN]: [, input[_jN]!],
     [_s]: [, input[_s]!],
     [_sA]: [() => input.startedAfter !== void 0, () => __serializeDateTime(input[_sA]!).toString()],
@@ -562,8 +570,11 @@ export const se_ListBatchJobRestartPointsCommand = async (
   b.bp("/applications/{applicationId}/batch-job-executions/{executionId}/steps");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("executionId", () => input.executionId!, "{executionId}", false);
+  const query: any = map({
+    [_aSMA]: [, input[_aSMA]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -662,7 +673,7 @@ export const se_ListEnvironmentsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_n]: [() => input.names !== void 0, () => (input[_n]! || []).map((_entry) => _entry as any)],
+    [_n]: [() => input.names !== void 0, () => input[_n]! || []],
     [_eT]: [, input[_eT]!],
   });
   let body: any;
@@ -718,6 +729,7 @@ export const se_StartBatchJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      authSecretsManagerArn: [],
       batchJobIdentifier: (_) => _json(_),
       jobParams: (_) => _json(_),
     })
@@ -784,10 +796,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1207,6 +1216,7 @@ export const de_GetEnvironmentCommand = async (
     kmsKeyId: __expectString,
     loadBalancerArn: __expectString,
     name: __expectString,
+    networkType: __expectString,
     pendingMaintenance: (_) => de_PendingMaintenance(_, context),
     preferredMaintenanceWindow: __expectString,
     publiclyAccessible: __expectBoolean,
@@ -1922,7 +1932,7 @@ const se_StorageConfiguration = (input: StorageConfiguration, context: __SerdeCo
   return StorageConfiguration.visit(input, {
     efs: (value) => ({ efs: se_EfsStorageConfiguration(value, context) }),
     fsx: (value) => ({ fsx: se_FsxStorageConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2135,6 +2145,7 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
     environmentId: __expectString,
     instanceType: __expectString,
     name: __expectString,
+    networkType: __expectString,
     status: __expectString,
   }) as any;
 };
@@ -2266,13 +2277,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
+const _aSMA = "authSecretsManagerArn";
 const _eI = "environmentId";
 const _eIx = "executionIds";
 const _eT = "engineType";

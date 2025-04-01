@@ -94,7 +94,7 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *   ],
  *   Template: "STRING_VALUE", // required
  *   TemplateArn: "STRING_VALUE",
- *   DefaultTemplateData: "STRING_VALUE",
+ *   DefaultTemplateData: "STRING_VALUE", // required
  *   Destinations: [ // BulkEmailDestinationList // required
  *     { // BulkEmailDestination
  *       Destination: { // Destination
@@ -166,6 +166,7 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class SendBulkTemplatedEmailCommand extends $Command
@@ -176,9 +177,7 @@ export class SendBulkTemplatedEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +189,16 @@ export class SendBulkTemplatedEmailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendBulkTemplatedEmailCommand)
   .de(de_SendBulkTemplatedEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendBulkTemplatedEmailRequest;
+      output: SendBulkTemplatedEmailResponse;
+    };
+    sdk: {
+      input: SendBulkTemplatedEmailCommandInput;
+      output: SendBulkTemplatedEmailCommandOutput;
+    };
+  };
+}

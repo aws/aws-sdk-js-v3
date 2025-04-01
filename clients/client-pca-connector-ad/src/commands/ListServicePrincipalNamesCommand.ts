@@ -49,7 +49,7 @@ export interface ListServicePrincipalNamesCommandOutput extends ListServicePrinc
  * //       DirectoryRegistrationArn: "STRING_VALUE",
  * //       ConnectorArn: "STRING_VALUE",
  * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- * //       StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "INTERNAL_FAILURE",
+ * //       StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "SPN_LIMIT_EXCEEDED" || "INTERNAL_FAILURE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //     },
@@ -90,6 +90,7 @@ export interface ListServicePrincipalNamesCommandOutput extends ListServicePrinc
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class ListServicePrincipalNamesCommand extends $Command
@@ -100,9 +101,7 @@ export class ListServicePrincipalNamesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListServicePrincipalNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServicePrincipalNamesCommand)
   .de(de_ListServicePrincipalNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServicePrincipalNamesRequest;
+      output: ListServicePrincipalNamesResponse;
+    };
+    sdk: {
+      input: ListServicePrincipalNamesCommandInput;
+      output: ListServicePrincipalNamesCommandOutput;
+    };
+  };
+}

@@ -71,6 +71,7 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class DisassociateCertificateCommand extends $Command
@@ -81,9 +82,7 @@ export class DisassociateCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DisassociateCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateCertificateCommand)
   .de(de_DisassociateCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateCertificateCommandInput;
+      output: DisassociateCertificateCommandOutput;
+    };
+  };
+}

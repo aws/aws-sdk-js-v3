@@ -88,6 +88,7 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatabaseCommand extends $Command
@@ -98,14 +99,16 @@ export class DescribeDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "DescribeDatabase", {})
@@ -113,4 +116,16 @@ export class DescribeDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDatabaseCommand)
   .de(de_DescribeDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDatabaseRequest;
+      output: DescribeDatabaseResponse;
+    };
+    sdk: {
+      input: DescribeDatabaseCommandInput;
+      output: DescribeDatabaseCommandOutput;
+    };
+  };
+}

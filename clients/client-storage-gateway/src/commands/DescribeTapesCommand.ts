@@ -94,43 +94,43 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe virtual tape(s) associated with gateway
  * ```javascript
  * // Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a TapeARN is not specified, returns a description of all virtual tapes.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "Limit": 2,
- *   "Marker": "1",
- *   "TapeARNs": [
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   Limit: 2,
+ *   Marker: "1",
+ *   TapeARNs: [
  *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
  *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0"
  *   ]
  * };
  * const command = new DescribeTapesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "1",
- *   "Tapes": [
+ *   Marker: "1",
+ *   Tapes: [
  *     {
- *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
- *       "TapeBarcode": "TEST04A2A1",
- *       "TapeSizeInBytes": 107374182400,
- *       "TapeStatus": "AVAILABLE"
+ *       TapeARN: "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
+ *       TapeBarcode: "TEST04A2A1",
+ *       TapeSizeInBytes: 107374182400,
+ *       TapeStatus: "AVAILABLE"
  *     },
  *     {
- *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0",
- *       "TapeBarcode": "TEST05A2A0",
- *       "TapeSizeInBytes": 107374182400,
- *       "TapeStatus": "AVAILABLE"
+ *       TapeARN: "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0",
+ *       TapeBarcode: "TEST05A2A0",
+ *       TapeSizeInBytes: 107374182400,
+ *       TapeStatus: "AVAILABLE"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-virtual-tapes-associated-with-gateway-1471629287727
  * ```
  *
+ * @public
  */
 export class DescribeTapesCommand extends $Command
   .classBuilder<
@@ -140,9 +140,7 @@ export class DescribeTapesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +152,16 @@ export class DescribeTapesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTapesCommand)
   .de(de_DescribeTapesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTapesInput;
+      output: DescribeTapesOutput;
+    };
+    sdk: {
+      input: DescribeTapesCommandInput;
+      output: DescribeTapesCommandOutput;
+    };
+  };
+}

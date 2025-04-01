@@ -70,7 +70,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * //       imageSizeInBytes: Number("long"),
  * //       imagePushedAt: new Date("TIMESTAMP"),
  * //       imageScanStatus: { // ImageScanStatus
- * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE",
+ * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
  * //         description: "STRING_VALUE",
  * //       },
  * //       imageScanFindingsSummary: { // ImageScanFindingsSummary
@@ -113,6 +113,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeImagesCommand extends $Command
@@ -123,9 +124,7 @@ export class DescribeImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class DescribeImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImagesCommand)
   .de(de_DescribeImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImagesRequest;
+      output: DescribeImagesResponse;
+    };
+    sdk: {
+      input: DescribeImagesCommandInput;
+      output: DescribeImagesCommandOutput;
+    };
+  };
+}

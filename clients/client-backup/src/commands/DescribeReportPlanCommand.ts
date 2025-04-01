@@ -99,6 +99,7 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeReportPlanCommand extends $Command
@@ -109,9 +110,7 @@ export class DescribeReportPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DescribeReportPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReportPlanCommand)
   .de(de_DescribeReportPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReportPlanInput;
+      output: DescribeReportPlanOutput;
+    };
+    sdk: {
+      input: DescribeReportPlanCommandInput;
+      output: DescribeReportPlanCommandOutput;
+    };
+  };
+}

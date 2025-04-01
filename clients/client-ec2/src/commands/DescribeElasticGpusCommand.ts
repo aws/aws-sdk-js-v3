@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_3";
+import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_4";
 import { de_DescribeElasticGpusCommand, se_DescribeElasticGpusCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -29,8 +29,7 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>Describes the Elastic Graphics accelerator associated with your instances.</p>
  * @example
@@ -91,6 +90,7 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeElasticGpusCommand extends $Command
@@ -101,9 +101,7 @@ export class DescribeElasticGpusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +113,16 @@ export class DescribeElasticGpusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeElasticGpusCommand)
   .de(de_DescribeElasticGpusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeElasticGpusRequest;
+      output: DescribeElasticGpusResult;
+    };
+    sdk: {
+      input: DescribeElasticGpusCommandInput;
+      output: DescribeElasticGpusCommandOutput;
+    };
+  };
+}

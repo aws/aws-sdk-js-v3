@@ -54,6 +54,7 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * //     SyncType: "CFN_STACK_SYNC", // required
  * //     PublishDeploymentStatus: "ENABLED" || "DISABLED",
  * //     TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ * //     PullRequestComment: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *
@@ -83,6 +84,7 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class GetSyncConfigurationCommand extends $Command
@@ -93,9 +95,7 @@ export class GetSyncConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class GetSyncConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSyncConfigurationCommand)
   .de(de_GetSyncConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSyncConfigurationInput;
+      output: GetSyncConfigurationOutput;
+    };
+    sdk: {
+      input: GetSyncConfigurationCommandInput;
+      output: GetSyncConfigurationCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,7 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class CreateHsmConfigurationCommand extends $Command
@@ -109,9 +110,7 @@ export class CreateHsmConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateHsmConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmConfigurationCommand)
   .de(de_CreateHsmConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmConfigurationMessage;
+      output: CreateHsmConfigurationResult;
+    };
+    sdk: {
+      input: CreateHsmConfigurationCommandInput;
+      output: CreateHsmConfigurationCommandOutput;
+    };
+  };
+}

@@ -115,6 +115,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class CopyDBClusterSnapshotCommand extends $Command
@@ -125,9 +126,7 @@ export class CopyDBClusterSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class CopyDBClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterSnapshotCommand)
   .de(de_CopyDBClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterSnapshotMessage;
+      output: CopyDBClusterSnapshotResult;
+    };
+    sdk: {
+      input: CopyDBClusterSnapshotCommandInput;
+      output: CopyDBClusterSnapshotCommandOutput;
+    };
+  };
+}

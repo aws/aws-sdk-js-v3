@@ -81,6 +81,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListPartnerEventSourceAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListPartnerEventSourceAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartnerEventSourceAccountsCommand)
   .de(de_ListPartnerEventSourceAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnerEventSourceAccountsRequest;
+      output: ListPartnerEventSourceAccountsResponse;
+    };
+    sdk: {
+      input: ListPartnerEventSourceAccountsCommandInput;
+      output: ListPartnerEventSourceAccountsCommandOutput;
+    };
+  };
+}

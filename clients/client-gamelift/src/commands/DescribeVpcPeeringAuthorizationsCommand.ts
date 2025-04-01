@@ -85,6 +85,7 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command
@@ -95,9 +96,7 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcPeeringAuthorizationsCommand)
   .de(de_DescribeVpcPeeringAuthorizationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeVpcPeeringAuthorizationsOutput;
+    };
+    sdk: {
+      input: DescribeVpcPeeringAuthorizationsCommandInput;
+      output: DescribeVpcPeeringAuthorizationsCommandOutput;
+    };
+  };
+}

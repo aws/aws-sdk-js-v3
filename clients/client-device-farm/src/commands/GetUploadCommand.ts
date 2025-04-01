@@ -78,23 +78,23 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about a specific upload
  * ```javascript
  * // The following example gets information about a specific upload.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:upload:EXAMPLE-GUID-123-456"
  * };
  * const command = new GetUploadCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "upload": {}
+ *   upload:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-get-information-about-a-specific-upload-1471025996221
  * ```
  *
+ * @public
  */
 export class GetUploadCommand extends $Command
   .classBuilder<
@@ -104,9 +104,7 @@ export class GetUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +116,16 @@ export class GetUploadCommand extends $Command
   .f(void 0, GetUploadResultFilterSensitiveLog)
   .ser(se_GetUploadCommand)
   .de(de_GetUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUploadRequest;
+      output: GetUploadResult;
+    };
+    sdk: {
+      input: GetUploadCommandInput;
+      output: GetUploadCommandOutput;
+    };
+  };
+}

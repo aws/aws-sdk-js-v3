@@ -94,6 +94,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DeleteSignalingChannelCommand extends $Command
@@ -104,9 +105,7 @@ export class DeleteSignalingChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class DeleteSignalingChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSignalingChannelCommand)
   .de(de_DeleteSignalingChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSignalingChannelInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSignalingChannelCommandInput;
+      output: DeleteSignalingChannelCommandOutput;
+    };
+  };
+}

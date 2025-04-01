@@ -144,6 +144,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               JA3Fingerprint: { // JA3Fingerprint
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: { // JA4Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: { // UriFragment
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -211,6 +217,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -274,6 +286,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -331,6 +349,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -467,6 +491,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -583,6 +613,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                     },
  * //                     UriPath: { // RateLimitUriPath
  * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     JA3Fingerprint: { // RateLimitJA3Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                     },
  * //                   },
  * //                 ],
@@ -797,6 +833,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 UriPath: {
  * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
+ * //                 JA3Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 JA4Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
  * //               },
  * //             ],
  * //           },
@@ -999,6 +1041,21 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //       SampledRequestsEnabled: true || false, // required
  * //       CloudWatchMetricsEnabled: true || false, // required
  * //       MetricName: "STRING_VALUE", // required
+ * //     },
+ * //     DataProtectionConfig: { // DataProtectionConfig
+ * //       DataProtections: [ // DataProtections // required
+ * //         { // DataProtection
+ * //           Field: { // FieldToProtect
+ * //             FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ * //             FieldKeys: [ // FieldToProtectKeys
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Action: "SUBSTITUTION" || "HASH", // required
+ * //           ExcludeRuleMatchDetails: true || false,
+ * //           ExcludeRateBasedDetails: true || false,
+ * //         },
+ * //       ],
  * //     },
  * //     Capacity: Number("long"),
  * //     PreProcessFirewallManagerRuleGroups: [ // FirewallManagerRuleGroups
@@ -1225,6 +1282,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //         },
  * //       },
  * //     },
+ * //     RetrofittedByFirewallManager: true || false,
  * //   },
  * // };
  *
@@ -1274,11 +1332,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *  <p>WAF couldn’t retrieve a resource that you specified for this operation.
  *        If you've just created a resource that you're using in this operation, you might
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resources that you are specifying in your request
+ *        for changes to propagate. Verify the resource specifications in your request
  *        parameters and then retry the operation.</p>
  *
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
+ *
  *
  * @public
  */
@@ -1290,9 +1349,7 @@ export class GetWebACLForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1304,4 +1361,16 @@ export class GetWebACLForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLForResourceCommand)
   .de(de_GetWebACLForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLForResourceRequest;
+      output: GetWebACLForResourceResponse;
+    };
+    sdk: {
+      input: GetWebACLForResourceCommandInput;
+      output: GetWebACLForResourceCommandOutput;
+    };
+  };
+}

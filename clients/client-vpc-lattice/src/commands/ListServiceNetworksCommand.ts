@@ -28,8 +28,8 @@ export interface ListServiceNetworksCommandInput extends ListServiceNetworksRequ
 export interface ListServiceNetworksCommandOutput extends ListServiceNetworksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the service networks owned by the caller account or shared with the caller account.
- *    Also includes the account ID in the ARN to show which account owns the service network.</p>
+ * <p>Lists the service networks owned by or shared with this account. The account ID in the ARN
+ *    shows which account owns the service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +52,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //       numberOfAssociatedVPCs: Number("long"),
  * //       numberOfAssociatedServices: Number("long"),
+ * //       numberOfAssociatedResourceConfigurations: Number("long"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -81,6 +82,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListServiceNetworksCommand extends $Command
@@ -91,9 +93,7 @@ export class ListServiceNetworksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListServiceNetworksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceNetworksCommand)
   .de(de_ListServiceNetworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceNetworksRequest;
+      output: ListServiceNetworksResponse;
+    };
+    sdk: {
+      input: ListServiceNetworksCommandInput;
+      output: ListServiceNetworksCommandOutput;
+    };
+  };
+}

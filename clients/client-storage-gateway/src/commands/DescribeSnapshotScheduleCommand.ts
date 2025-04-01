@@ -76,27 +76,27 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe snapshot schedule for gateway volume
  * ```javascript
  * // Describes the snapshot schedule for the specified gateway volume including intervals at which snapshots are automatically initiated.
  * const input = {
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * };
  * const command = new DescribeSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Description": "sgw-AABB1122:vol-AABB1122:Schedule",
- *   "RecurrenceInHours": 24,
- *   "StartAt": 6,
- *   "Timezone": "GMT+7:00",
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   Description: "sgw-AABB1122:vol-AABB1122:Schedule",
+ *   RecurrenceInHours: 24,
+ *   StartAt: 6,
+ *   Timezone: "GMT+7:00",
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
- * // example id: to-describe-snapshot-schedule-for-gateway-volume-1471471139538
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotScheduleCommand extends $Command
   .classBuilder<
@@ -106,9 +106,7 @@ export class DescribeSnapshotScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +118,16 @@ export class DescribeSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotScheduleCommand)
   .de(de_DescribeSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotScheduleInput;
+      output: DescribeSnapshotScheduleOutput;
+    };
+    sdk: {
+      input: DescribeSnapshotScheduleCommandInput;
+      output: DescribeSnapshotScheduleCommandOutput;
+    };
+  };
+}

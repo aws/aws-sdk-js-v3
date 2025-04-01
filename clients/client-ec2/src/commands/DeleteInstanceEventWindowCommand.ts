@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_2";
+import { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_3";
 import { de_DeleteInstanceEventWindowCommand, se_DeleteInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -62,6 +62,7 @@ export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEv
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteInstanceEventWindowCommand extends $Command
@@ -72,9 +73,7 @@ export class DeleteInstanceEventWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class DeleteInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceEventWindowCommand)
   .de(de_DeleteInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceEventWindowRequest;
+      output: DeleteInstanceEventWindowResult;
+    };
+    sdk: {
+      input: DeleteInstanceEventWindowCommandInput;
+      output: DeleteInstanceEventWindowCommandOutput;
+    };
+  };
+}

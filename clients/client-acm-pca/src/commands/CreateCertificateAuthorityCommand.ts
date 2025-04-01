@@ -57,7 +57,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityRequest
  *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
- *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "SM2", // required
+ *     KeyAlgorithm: "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1" || "SM2", // required
  *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2", // required
  *     Subject: { // ASN1Subject
  *       Country: "STRING_VALUE",
@@ -150,6 +150,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
  *         OmitExtension: true || false, // required
  *       },
+ *       CrlType: "COMPLETE" || "PARTITIONED",
+ *       CustomPath: "STRING_VALUE",
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
@@ -199,6 +201,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateAuthorityCommand extends $Command
@@ -209,9 +212,7 @@ export class CreateCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -223,4 +224,16 @@ export class CreateCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCertificateAuthorityCommand)
   .de(de_CreateCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCertificateAuthorityRequest;
+      output: CreateCertificateAuthorityResponse;
+    };
+    sdk: {
+      input: CreateCertificateAuthorityCommandInput;
+      output: CreateCertificateAuthorityCommandOutput;
+    };
+  };
+}

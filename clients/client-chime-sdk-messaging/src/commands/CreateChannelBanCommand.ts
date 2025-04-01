@@ -104,6 +104,7 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelBanCommand extends $Command
@@ -114,9 +115,7 @@ export class CreateChannelBanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class CreateChannelBanCommand extends $Command
   .f(void 0, CreateChannelBanResponseFilterSensitiveLog)
   .ser(se_CreateChannelBanCommand)
   .de(de_CreateChannelBanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelBanRequest;
+      output: CreateChannelBanResponse;
+    };
+    sdk: {
+      input: CreateChannelBanCommandInput;
+      output: CreateChannelBanCommandOutput;
+    };
+  };
+}

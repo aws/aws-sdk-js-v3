@@ -77,6 +77,7 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ *
  * @public
  */
 export class GenerateDataSetCommand extends $Command
@@ -87,9 +88,7 @@ export class GenerateDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCommerceAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GenerateDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateDataSetCommand)
   .de(de_GenerateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataSetRequest;
+      output: GenerateDataSetResult;
+    };
+    sdk: {
+      input: GenerateDataSetCommandInput;
+      output: GenerateDataSetCommandOutput;
+    };
+  };
+}

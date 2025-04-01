@@ -128,6 +128,7 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribeWhatIfForecastCommand extends $Command
@@ -138,9 +139,7 @@ export class DescribeWhatIfForecastCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class DescribeWhatIfForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWhatIfForecastCommand)
   .de(de_DescribeWhatIfForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWhatIfForecastRequest;
+      output: DescribeWhatIfForecastResponse;
+    };
+    sdk: {
+      input: DescribeWhatIfForecastCommandInput;
+      output: DescribeWhatIfForecastCommandOutput;
+    };
+  };
+}

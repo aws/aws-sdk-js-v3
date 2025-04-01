@@ -99,6 +99,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class CreateKeyCommand extends $Command
@@ -109,9 +110,7 @@ export class CreateKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateKeyCommand extends $Command
   .f(void 0, CreateKeyResponseFilterSensitiveLog)
   .ser(se_CreateKeyCommand)
   .de(de_CreateKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyRequest;
+      output: CreateKeyResponse;
+    };
+    sdk: {
+      input: CreateKeyCommandInput;
+      output: CreateKeyCommandOutput;
+    };
+  };
+}

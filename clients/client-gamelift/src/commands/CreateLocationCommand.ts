@@ -90,6 +90,7 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationCommand extends $Command
@@ -100,9 +101,7 @@ export class CreateLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class CreateLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationCommand)
   .de(de_CreateLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationInput;
+      output: CreateLocationOutput;
+    };
+    sdk: {
+      input: CreateLocationCommandInput;
+      output: CreateLocationCommandOutput;
+    };
+  };
+}

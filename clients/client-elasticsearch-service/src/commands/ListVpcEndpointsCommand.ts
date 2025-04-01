@@ -76,6 +76,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class ListVpcEndpointsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListVpcEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListVpcEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVpcEndpointsCommand)
   .de(de_ListVpcEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVpcEndpointsRequest;
+      output: ListVpcEndpointsResponse;
+    };
+    sdk: {
+      input: ListVpcEndpointsCommandInput;
+      output: ListVpcEndpointsCommandOutput;
+    };
+  };
+}

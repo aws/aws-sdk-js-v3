@@ -28,12 +28,13 @@ export interface UpdateStackCommandInput extends UpdateStackInput {}
 export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a stack as specified in the template. After the call completes successfully, the stack update starts.
- *    You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
- *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a>
- *    action.</p>
- *          <p>For more information about creating an update template, updating a stack, and monitoring the progress of the
- *    update, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating a Stack</a>.</p>
+ * <p>Updates a stack as specified in the template. After the call completes successfully, the
+ *       stack update starts. You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
+ *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
+ *          <p>For more information about updating a stack and monitoring the progress of the update, see
+ *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Managing
+ *         Amazon Web Services resources as a single unit with CloudFormation stacks</a> in the
+ *         <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +110,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateStackCommand extends $Command
@@ -119,9 +121,7 @@ export class UpdateStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class UpdateStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStackCommand)
   .de(de_UpdateStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStackInput;
+      output: UpdateStackOutput;
+    };
+    sdk: {
+      input: UpdateStackCommandInput;
+      output: UpdateStackCommandOutput;
+    };
+  };
+}

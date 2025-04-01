@@ -12,7 +12,7 @@ export interface AlgorithmImage {
    * <p>The name of the algorithm image.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The URI of the Docker container for the algorithm image.</p>
@@ -32,19 +32,19 @@ export interface DefaultCategoricalHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A list of the categories for the hyperparameter.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 
   /**
    * <p>Whether the hyperparameter is tunable.</p>
    * @public
    */
-  isTunable?: boolean;
+  isTunable?: boolean | undefined;
 }
 
 /**
@@ -58,25 +58,25 @@ export interface DefaultContinuousHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    * @public
    */
-  minValue?: number;
+  minValue?: number | undefined;
 
   /**
    * <p>The maximum allowable value for the hyperparameter.</p>
    * @public
    */
-  maxValue?: number;
+  maxValue?: number | undefined;
 
   /**
    * <p>Whether the hyperparameter is tunable.</p>
    * @public
    */
-  isTunable?: boolean;
+  isTunable?: boolean | undefined;
 }
 
 /**
@@ -90,25 +90,25 @@ export interface DefaultIntegerHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    * @public
    */
-  minValue?: number;
+  minValue?: number | undefined;
 
   /**
    * <p>The maximum allowable value for the hyperparameter.</p>
    * @public
    */
-  maxValue?: number;
+  maxValue?: number | undefined;
 
   /**
    * <p>Indicates whether the hyperparameter is tunable.</p>
    * @public
    */
-  isTunable?: boolean;
+  isTunable?: boolean | undefined;
 }
 
 /**
@@ -121,19 +121,19 @@ export interface DefaultHyperParameterRanges {
    * <p>The integer-valued hyperparameters and their default ranges.</p>
    * @public
    */
-  integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[];
+  integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[] | undefined;
 
   /**
    * <p>The continuous hyperparameters and their default ranges.</p>
    * @public
    */
-  continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[];
+  continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[] | undefined;
 
   /**
    * <p>The categorical hyperparameters and their default ranges.</p>
    * @public
    */
-  categoricalHyperParameterRanges?: DefaultCategoricalHyperParameterRange[];
+  categoricalHyperParameterRanges?: DefaultCategoricalHyperParameterRange[] | undefined;
 }
 
 /**
@@ -145,25 +145,25 @@ export interface Algorithm {
    * <p>The name of the algorithm.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
    * @public
    */
-  algorithmArn?: string;
+  algorithmArn?: string | undefined;
 
   /**
    * <p>The URI of the Docker container for the algorithm image.</p>
    * @public
    */
-  algorithmImage?: AlgorithmImage;
+  algorithmImage?: AlgorithmImage | undefined;
 
   /**
    * <p>Specifies the default hyperparameters.</p>
    * @public
    */
-  defaultHyperParameters?: Record<string, string>;
+  defaultHyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the default hyperparameters, their ranges, and whether they
@@ -171,37 +171,37 @@ export interface Algorithm {
    *       have its value determined during hyperparameter optimization (HPO).</p>
    * @public
    */
-  defaultHyperParameterRanges?: DefaultHyperParameterRanges;
+  defaultHyperParameterRanges?: DefaultHyperParameterRanges | undefined;
 
   /**
    * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
    * @public
    */
-  defaultResourceConfig?: Record<string, string>;
+  defaultResourceConfig?: Record<string, string> | undefined;
 
   /**
    * <p>The training input mode.</p>
    * @public
    */
-  trainingInputMode?: string;
+  trainingInputMode?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the algorithm was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface BatchInferenceJobConfig {
    *       See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</p>
    * @public
    */
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Record<string, string> | undefined;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface S3DataConfig {
    *       encrypt or decrypt the input and output files.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -344,13 +344,13 @@ export interface CreateBatchInferenceJobRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The number of recommendations to retrieve.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
@@ -376,13 +376,13 @@ export interface CreateBatchInferenceJobRequest {
    * <p>The configuration details of a batch inference job.</p>
    * @public
    */
-  batchInferenceJobConfig?: BatchInferenceJobConfig;
+  batchInferenceJobConfig?: BatchInferenceJobConfig | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the batch inference job.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The mode of the batch inference job. To generate descriptive themes for groups of similar items, set the
@@ -392,14 +392,14 @@ export interface CreateBatchInferenceJobRequest {
    *     </p>
    * @public
    */
-  batchInferenceJobMode?: BatchInferenceJobMode;
+  batchInferenceJobMode?: BatchInferenceJobMode | undefined;
 
   /**
    * <p>For theme generation jobs, specify the name of the column in your Items
    *       dataset that contains each item's name.</p>
    * @public
    */
-  themeGenerationConfig?: ThemeGenerationConfig;
+  themeGenerationConfig?: ThemeGenerationConfig | undefined;
 }
 
 /**
@@ -410,7 +410,7 @@ export interface CreateBatchInferenceJobResponse {
    * <p>The ARN of the batch inference job.</p>
    * @public
    */
-  batchInferenceJobArn?: string;
+  batchInferenceJobArn?: string | undefined;
 }
 
 /**
@@ -579,13 +579,13 @@ export interface CreateBatchSegmentJobRequest {
    *       filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The number of predicted users generated by the batch segment job for each line of input data. The maximum number of users per segment is 5 million.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The Amazon S3 path for the input data used to generate the batch segment job.</p>
@@ -610,7 +610,7 @@ export interface CreateBatchSegmentJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the batch segment job.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -621,7 +621,7 @@ export interface CreateBatchSegmentJobResponse {
    * <p>The ARN of the batch segment job.</p>
    * @public
    */
-  batchSegmentJobArn?: string;
+  batchSegmentJobArn?: string | undefined;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface CampaignConfig {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a> recipe.</p>
    * @public
    */
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Record<string, string> | undefined;
 
   /**
    * <p>Whether metadata with recommendations is enabled for the campaign.
@@ -647,7 +647,7 @@ export interface CampaignConfig {
    *     </p>
    * @public
    */
-  enableMetadataWithRecommendations?: boolean;
+  enableMetadataWithRecommendations?: boolean | undefined;
 
   /**
    * <p>Whether the campaign automatically updates to use the latest solution version (trained model) of a solution. If you specify <code>True</code>,
@@ -660,7 +660,7 @@ export interface CampaignConfig {
    *     </p>
    * @public
    */
-  syncWithLatestSolutionVersion?: boolean;
+  syncWithLatestSolutionVersion?: boolean | undefined;
 }
 
 /**
@@ -696,19 +696,19 @@ export interface CreateCampaignRequest {
    *       your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code> as necessary.</p>
    * @public
    */
-  minProvisionedTPS?: number;
+  minProvisionedTPS?: number | undefined;
 
   /**
    * <p>The configuration details of a campaign.</p>
    * @public
    */
-  campaignConfig?: CampaignConfig;
+  campaignConfig?: CampaignConfig | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the campaign.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -719,7 +719,7 @@ export interface CreateCampaignResponse {
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 }
 
 /**
@@ -745,7 +745,7 @@ export interface DataSource {
    *          </p>
    * @public
    */
-  dataLocation?: string;
+  dataLocation?: string | undefined;
 }
 
 /**
@@ -782,7 +782,7 @@ export interface CreateDataDeletionJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the data deletion job.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface CreateDataDeletionJobResponse {
    * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
    * @public
    */
-  dataDeletionJobArn?: string;
+  dataDeletionJobArn?: string | undefined;
 }
 
 /**
@@ -848,7 +848,7 @@ export interface CreateDatasetRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the dataset.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -859,7 +859,7 @@ export interface CreateDatasetResponse {
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 }
 
 /**
@@ -915,7 +915,7 @@ export interface CreateDatasetExportJobRequest {
    *     </p>
    * @public
    */
-  ingestionMode?: IngestionMode;
+  ingestionMode?: IngestionMode | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that has
@@ -934,7 +934,7 @@ export interface CreateDatasetExportJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the dataset export job.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -945,7 +945,7 @@ export interface CreateDatasetExportJobResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
    * @public
    */
-  datasetExportJobArn?: string;
+  datasetExportJobArn?: string | undefined;
 }
 
 /**
@@ -978,14 +978,14 @@ export interface CreateDatasetGroupRequest {
    *       specifying a KMS key.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to
    *       encrypt the datasets.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The domain of the dataset group. Specify a domain to create a
@@ -995,13 +995,13 @@ export interface CreateDatasetGroupRequest {
    *       versions that you deploy with a campaign. </p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the dataset group.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1012,13 +1012,13 @@ export interface CreateDatasetGroupResponse {
    * <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The domain for the new Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -1068,7 +1068,7 @@ export interface CreateDatasetImportJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the dataset import job.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Specify how to add the new records to an existing dataset. The default
@@ -1087,13 +1087,13 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    * @public
    */
-  importMode?: ImportMode;
+  importMode?: ImportMode | undefined;
 
   /**
    * <p>If you created a metric attribution, specify whether to publish metrics for this import job to Amazon S3</p>
    * @public
    */
-  publishAttributionMetricsToS3?: boolean;
+  publishAttributionMetricsToS3?: boolean | undefined;
 }
 
 /**
@@ -1104,7 +1104,7 @@ export interface CreateDatasetImportJobResponse {
    * <p>The ARN of the dataset import job.</p>
    * @public
    */
-  datasetImportJobArn?: string;
+  datasetImportJobArn?: string | undefined;
 }
 
 /**
@@ -1127,7 +1127,7 @@ export interface CreateEventTrackerRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the event tracker.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1138,14 +1138,14 @@ export interface CreateEventTrackerResponse {
    * <p>The ARN of the event tracker.</p>
    * @public
    */
-  eventTrackerArn?: string;
+  eventTrackerArn?: string | undefined;
 
   /**
    * <p>The ID of the event tracker. Include this ID in requests to the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
    * @public
    */
-  trackingId?: string;
+  trackingId?: string | undefined;
 }
 
 /**
@@ -1176,7 +1176,7 @@ export interface CreateFilterRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the filter.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1187,7 +1187,7 @@ export interface CreateFilterResponse {
    * <p>The ARN of the new filter.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 }
 
 /**
@@ -1224,7 +1224,7 @@ export interface MetricAttributionOutput {
    * <p>The configuration details of an Amazon S3 input or output bucket.</p>
    * @public
    */
-  s3DataDestination?: S3DataConfig;
+  s3DataDestination?: S3DataConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your output Amazon S3 bucket and add metrics to Amazon CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
@@ -1272,7 +1272,7 @@ export interface CreateMetricAttributionResponse {
    * <p>The Amazon Resource Name (ARN) for the new metric attribution.</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface TrainingDataConfig {
    *     </p>
    * @public
    */
-  excludedDatasetColumns?: Record<string, string[]>;
+  excludedDatasetColumns?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1304,7 +1304,7 @@ export interface RecommenderConfig {
    *       (not popular items or similar items).</p>
    * @public
    */
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the requested minimum provisioned recommendation requests per second that
@@ -1313,7 +1313,7 @@ export interface RecommenderConfig {
    *       as necessary.</p>
    * @public
    */
-  minRecommendationRequestsPerSecond?: number;
+  minRecommendationRequestsPerSecond?: number | undefined;
 
   /**
    * <p>
@@ -1321,7 +1321,7 @@ export interface RecommenderConfig {
    *     </p>
    * @public
    */
-  trainingDataConfig?: TrainingDataConfig;
+  trainingDataConfig?: TrainingDataConfig | undefined;
 
   /**
    * <p>Whether metadata with recommendations is enabled for the recommender.
@@ -1332,7 +1332,7 @@ export interface RecommenderConfig {
    *     </p>
    * @public
    */
-  enableMetadataWithRecommendations?: boolean;
+  enableMetadataWithRecommendations?: boolean | undefined;
 }
 
 /**
@@ -1363,13 +1363,13 @@ export interface CreateRecommenderRequest {
    * <p>The configuration details of the recommender.</p>
    * @public
    */
-  recommenderConfig?: RecommenderConfig;
+  recommenderConfig?: RecommenderConfig | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the recommender.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1380,7 +1380,7 @@ export interface CreateRecommenderResponse {
    * <p>The Amazon Resource Name (ARN) of the recommender.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 }
 
 /**
@@ -1404,7 +1404,7 @@ export interface CreateSchemaRequest {
    *     the domain you chose when you created the Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -1415,7 +1415,7 @@ export interface CreateSchemaResponse {
    * <p>The Amazon Resource Name (ARN) of the created schema.</p>
    * @public
    */
-  schemaArn?: string;
+  schemaArn?: string | undefined;
 }
 
 /**
@@ -1430,13 +1430,13 @@ export interface AutoMLConfig {
    * <p>The metric to optimize.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>The list of candidate recipes.</p>
    * @public
    */
-  recipeList?: string[];
+  recipeList?: string[] | undefined;
 }
 
 /**
@@ -1452,7 +1452,7 @@ export interface AutoTrainingConfig {
    *          <p>For more information about auto training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating and configuring a solution</a>.</p>
    * @public
    */
-  schedulingExpression?: string;
+  schedulingExpression?: string | undefined;
 }
 
 /**
@@ -1464,13 +1464,13 @@ export interface CategoricalHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A list of the categories for the hyperparameter.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -1482,19 +1482,19 @@ export interface ContinuousHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    * @public
    */
-  minValue?: number;
+  minValue?: number | undefined;
 
   /**
    * <p>The maximum allowable value for the hyperparameter.</p>
    * @public
    */
-  maxValue?: number;
+  maxValue?: number | undefined;
 }
 
 /**
@@ -1506,19 +1506,19 @@ export interface IntegerHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    * @public
    */
-  minValue?: number;
+  minValue?: number | undefined;
 
   /**
    * <p>The maximum allowable value for the hyperparameter.</p>
    * @public
    */
-  maxValue?: number;
+  maxValue?: number | undefined;
 }
 
 /**
@@ -1531,19 +1531,19 @@ export interface HyperParameterRanges {
    * <p>The integer-valued hyperparameters and their ranges.</p>
    * @public
    */
-  integerHyperParameterRanges?: IntegerHyperParameterRange[];
+  integerHyperParameterRanges?: IntegerHyperParameterRange[] | undefined;
 
   /**
    * <p>The continuous hyperparameters and their ranges.</p>
    * @public
    */
-  continuousHyperParameterRanges?: ContinuousHyperParameterRange[];
+  continuousHyperParameterRanges?: ContinuousHyperParameterRange[] | undefined;
 
   /**
    * <p>The categorical hyperparameters and their ranges.</p>
    * @public
    */
-  categoricalHyperParameterRanges?: CategoricalHyperParameterRange[];
+  categoricalHyperParameterRanges?: CategoricalHyperParameterRange[] | undefined;
 }
 
 /**
@@ -1559,19 +1559,19 @@ export interface HPOObjective {
    * <p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The name of the metric.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>A regular expression for finding the metric in the training job logs.</p>
    * @public
    */
-  metricRegex?: string;
+  metricRegex?: string | undefined;
 }
 
 /**
@@ -1588,7 +1588,7 @@ export interface HPOResourceConfig {
    *       <code>40</code>.</p>
    * @public
    */
-  maxNumberOfTrainingJobs?: string;
+  maxNumberOfTrainingJobs?: string | undefined;
 
   /**
    * <p>The maximum number of parallel training
@@ -1599,7 +1599,7 @@ export interface HPOResourceConfig {
    *       <code>10</code>.</p>
    * @public
    */
-  maxParallelTrainingJobs?: string;
+  maxParallelTrainingJobs?: string | undefined;
 }
 
 /**
@@ -1615,19 +1615,19 @@ export interface HPOConfig {
    *          </note>
    * @public
    */
-  hpoObjective?: HPOObjective;
+  hpoObjective?: HPOObjective | undefined;
 
   /**
    * <p>Describes the resource configuration for HPO.</p>
    * @public
    */
-  hpoResourceConfig?: HPOResourceConfig;
+  hpoResourceConfig?: HPOResourceConfig | undefined;
 
   /**
    * <p>The hyperparameters and their allowable ranges.</p>
    * @public
    */
-  algorithmHyperParameterRanges?: HyperParameterRanges;
+  algorithmHyperParameterRanges?: HyperParameterRanges | undefined;
 }
 
 /**
@@ -1656,13 +1656,13 @@ export interface OptimizationObjective {
    * <p>The numerical metadata column in an Items dataset related to the optimization objective. For example, VIDEO_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).</p>
    * @public
    */
-  itemAttribute?: string;
+  itemAttribute?: string | undefined;
 
   /**
    * <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
    * @public
    */
-  objectiveSensitivity?: ObjectiveSensitivity;
+  objectiveSensitivity?: ObjectiveSensitivity | undefined;
 }
 
 /**
@@ -1675,39 +1675,39 @@ export interface SolutionConfig {
    *       used for training a model.</p>
    * @public
    */
-  eventValueThreshold?: string;
+  eventValueThreshold?: string | undefined;
 
   /**
    * <p>Describes the properties for hyperparameter optimization (HPO).</p>
    * @public
    */
-  hpoConfig?: HPOConfig;
+  hpoConfig?: HPOConfig | undefined;
 
   /**
    * <p>Lists the algorithm hyperparameters and their values.</p>
    * @public
    */
-  algorithmHyperParameters?: Record<string, string>;
+  algorithmHyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Lists the feature transformation parameters.</p>
    * @public
    */
-  featureTransformationParameters?: Record<string, string>;
+  featureTransformationParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html">AutoMLConfig</a> object containing a list of recipes to search
    *       when AutoML is performed.</p>
    * @public
    */
-  autoMLConfig?: AutoMLConfig;
+  autoMLConfig?: AutoMLConfig | undefined;
 
   /**
    * <p>Describes the additional objective for the solution, such as maximizing streaming
    *       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
    * @public
    */
-  optimizationObjective?: OptimizationObjective;
+  optimizationObjective?: OptimizationObjective | undefined;
 
   /**
    * <p>
@@ -1715,13 +1715,13 @@ export interface SolutionConfig {
    *     </p>
    * @public
    */
-  trainingDataConfig?: TrainingDataConfig;
+  trainingDataConfig?: TrainingDataConfig | undefined;
 
   /**
    * <p>Specifies the automatic training configuration to use.</p>
    * @public
    */
-  autoTrainingConfig?: AutoTrainingConfig;
+  autoTrainingConfig?: AutoTrainingConfig | undefined;
 }
 
 /**
@@ -1741,7 +1741,7 @@ export interface CreateSolutionRequest {
    *       should not set it to <code>false</code>.</p>
    * @public
    */
-  performHPO?: boolean;
+  performHPO?: boolean | undefined;
 
   /**
    * <important>
@@ -1757,7 +1757,7 @@ export interface CreateSolutionRequest {
    *       AutoML lengthens the training process as compared to selecting a specific recipe.</p>
    * @public
    */
-  performAutoML?: boolean;
+  performAutoML?: boolean | undefined;
 
   /**
    * <p>Whether the solution uses automatic training to create new solution versions (trained models). The default is
@@ -1766,7 +1766,7 @@ export interface CreateSolutionRequest {
    *       configuration. For more information about automatic training,
    *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.</p>
    *          <p>
-   *       Automatic solution version creation starts one hour after the solution is ACTIVE. If you manually create a solution version within
+   *       Automatic solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within
    *       the hour, the solution skips the first automatic training.
    *     </p>
    *          <p>
@@ -1776,7 +1776,7 @@ export interface CreateSolutionRequest {
    *     </p>
    * @public
    */
-  performAutoTraining?: boolean;
+  performAutoTraining?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required when
@@ -1785,7 +1785,7 @@ export interface CreateSolutionRequest {
    *     </p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
@@ -1801,10 +1801,10 @@ export interface CreateSolutionRequest {
    *        equal weight regardless of type.</p>
    * @public
    */
-  eventType?: string;
+  eventType?: string | undefined;
 
   /**
-   * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
+   * <p>The configuration properties for the solution. When <code>performAutoML</code> is set to
    *       true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section
    *       of the solution configuration.</p>
    *          <note>
@@ -1813,13 +1813,13 @@ export interface CreateSolutionRequest {
    *          </note>
    * @public
    */
-  solutionConfig?: SolutionConfig;
+  solutionConfig?: SolutionConfig | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the solution.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1830,7 +1830,7 @@ export interface CreateSolutionResponse {
    * <p>The ARN of the solution.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 }
 
 /**
@@ -1856,7 +1856,7 @@ export interface CreateSolutionVersionRequest {
    * <p>The name of the solution version.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
@@ -1887,13 +1887,13 @@ export interface CreateSolutionVersionRequest {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    * @public
    */
-  trainingMode?: TrainingMode;
+  trainingMode?: TrainingMode | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the solution version.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1904,7 +1904,7 @@ export interface CreateSolutionVersionResponse {
    * <p>The ARN of the new solution version.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 }
 
 /**
@@ -2025,7 +2025,7 @@ export interface DescribeAlgorithmResponse {
    * <p>A listing of the properties of the algorithm.</p>
    * @public
    */
-  algorithm?: Algorithm;
+  algorithm?: Algorithm | undefined;
 }
 
 /**
@@ -2048,76 +2048,76 @@ export interface BatchInferenceJob {
    * <p>The name of the batch inference job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
    * @public
    */
-  batchInferenceJobArn?: string;
+  batchInferenceJobArn?: string | undefined;
 
   /**
    * <p>The ARN of the filter used on the batch inference job.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>If the batch inference job failed, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
    *       was created.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The number of recommendations generated by the batch inference job. This number includes
    *       the error messages generated for failed input records.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The Amazon S3 path that leads to the input data used to generate the batch inference
    *       job.</p>
    * @public
    */
-  jobInput?: BatchInferenceJobInput;
+  jobInput?: BatchInferenceJobInput | undefined;
 
   /**
    * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
    * @public
    */
-  jobOutput?: BatchInferenceJobOutput;
+  jobOutput?: BatchInferenceJobOutput | undefined;
 
   /**
    * <p>A string to string map of the configuration details of a batch inference job.</p>
    * @public
    */
-  batchInferenceJobConfig?: BatchInferenceJobConfig;
+  batchInferenceJobConfig?: BatchInferenceJobConfig | undefined;
 
   /**
    * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The job's mode.</p>
    * @public
    */
-  batchInferenceJobMode?: BatchInferenceJobMode;
+  batchInferenceJobMode?: BatchInferenceJobMode | undefined;
 
   /**
    * <p>The job's theme generation settings.</p>
    * @public
    */
-  themeGenerationConfig?: ThemeGenerationConfig;
+  themeGenerationConfig?: ThemeGenerationConfig | undefined;
 
   /**
    * <p>The status of the batch inference job. The status is one of the following values:</p>
@@ -2137,19 +2137,19 @@ export interface BatchInferenceJob {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The time at which the batch inference job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch inference job was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -2160,7 +2160,7 @@ export interface DescribeBatchInferenceJobResponse {
    * <p>Information on the specified batch inference job.</p>
    * @public
    */
-  batchInferenceJob?: BatchInferenceJob;
+  batchInferenceJob?: BatchInferenceJob | undefined;
 }
 
 /**
@@ -2183,55 +2183,55 @@ export interface BatchSegmentJob {
    * <p>The name of the batch segment job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the batch segment job.</p>
    * @public
    */
-  batchSegmentJobArn?: string;
+  batchSegmentJobArn?: string | undefined;
 
   /**
    * <p>The ARN of the filter used on the batch segment job.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>If the batch segment job failed, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version used by the batch segment job to generate batch segments.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The number of predicted users generated by the batch segment job for each line of input data. The maximum number of users per segment is 5 million.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The Amazon S3 path that leads to the input data used to generate the batch segment job.</p>
    * @public
    */
-  jobInput?: BatchSegmentJobInput;
+  jobInput?: BatchSegmentJobInput | undefined;
 
   /**
    * <p>The Amazon S3 bucket that contains the output data generated by the batch segment job.</p>
    * @public
    */
-  jobOutput?: BatchSegmentJobOutput;
+  jobOutput?: BatchSegmentJobOutput | undefined;
 
   /**
    * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch segment job.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The status of the batch segment job. The status is one of the following values:</p>
@@ -2251,19 +2251,19 @@ export interface BatchSegmentJob {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The time at which the batch segment job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch segment job last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -2274,7 +2274,7 @@ export interface DescribeBatchSegmentJobResponse {
    * <p>Information on the specified batch segment job.</p>
    * @public
    */
-  batchSegmentJob?: BatchSegmentJob;
+  batchSegmentJob?: BatchSegmentJob | undefined;
 }
 
 /**
@@ -2298,20 +2298,20 @@ export interface CampaignUpdateSummary {
    * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
    * @public
    */
-  minProvisionedTPS?: number;
+  minProvisionedTPS?: number | undefined;
 
   /**
    * <p>The configuration details of a campaign.</p>
    * @public
    */
-  campaignConfig?: CampaignConfig;
+  campaignConfig?: CampaignConfig | undefined;
 
   /**
    * <p>The status of the campaign update.</p>
@@ -2326,25 +2326,25 @@ export interface CampaignUpdateSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If a campaign update fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the campaign update was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the campaign update was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -2357,19 +2357,19 @@ export interface Campaign {
    * <p>The name of the campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign. </p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version the campaign uses.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second. A high <code>minProvisionedTPS</code> will increase your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track
@@ -2377,13 +2377,13 @@ export interface Campaign {
    *       as necessary.</p>
    * @public
    */
-  minProvisionedTPS?: number;
+  minProvisionedTPS?: number | undefined;
 
   /**
    * <p>The configuration details of a campaign.</p>
    * @public
    */
-  campaignConfig?: CampaignConfig;
+  campaignConfig?: CampaignConfig | undefined;
 
   /**
    * <p>The status of the campaign.</p>
@@ -2398,32 +2398,32 @@ export interface Campaign {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If a campaign fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the campaign was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the campaign was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
    * @public
    */
-  latestCampaignUpdate?: CampaignUpdateSummary;
+  latestCampaignUpdate?: CampaignUpdateSummary | undefined;
 }
 
 /**
@@ -2434,7 +2434,7 @@ export interface DescribeCampaignResponse {
    * <p>The properties of the campaign.</p>
    * @public
    */
-  campaign?: Campaign;
+  campaign?: Campaign | undefined;
 }
 
 /**
@@ -2459,33 +2459,33 @@ export interface DataDeletionJob {
    * <p>The name of the data deletion job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
    * @public
    */
-  dataDeletionJobArn?: string;
+  dataDeletionJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group the job deletes records from.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>Describes the data source that contains the data to upload to a dataset, or the list of
    *       records to delete from Amazon Personalize.</p>
    * @public
    */
-  dataSource?: DataSource;
+  dataSource?: DataSource | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3
    *       data source.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The status of the data deletion job.</p>
@@ -2497,32 +2497,32 @@ export interface DataDeletionJob {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The number of records deleted by a COMPLETED job.</p>
    * @public
    */
-  numDeleted?: number;
+  numDeleted?: number | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the data deletion
    *       job.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) the data deletion job was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a data deletion job fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -2548,7 +2548,7 @@ export interface DescribeDataDeletionJobResponse {
    *          </ul>
    * @public
    */
-  dataDeletionJob?: DataDeletionJob;
+  dataDeletionJob?: DataDeletionJob | undefined;
 }
 
 /**
@@ -2571,31 +2571,31 @@ export interface DatasetUpdateSummary {
    * <p>The Amazon Resource Name (ARN) of the schema that replaced the previous schema of the dataset.</p>
    * @public
    */
-  schemaArn?: string;
+  schemaArn?: string | undefined;
 
   /**
    * <p>The status of the dataset update. </p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If updating a dataset fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the dataset update.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The last update date and time (in Unix time) of the dataset.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -2607,20 +2607,20 @@ export interface Dataset {
    * <p>The name of the dataset.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata
    *       for.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>One of the following values:</p>
@@ -2643,13 +2643,13 @@ export interface Dataset {
    *          </ul>
    * @public
    */
-  datasetType?: string;
+  datasetType?: string | undefined;
 
   /**
    * <p>The ARN of the associated schema.</p>
    * @public
    */
-  schemaArn?: string;
+  schemaArn?: string | undefined;
 
   /**
    * <p>The status of the dataset.</p>
@@ -2665,32 +2665,32 @@ export interface Dataset {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the dataset.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A time stamp that shows when the dataset was updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>Describes the latest update to the dataset.</p>
    * @public
    */
-  latestDatasetUpdate?: DatasetUpdateSummary;
+  latestDatasetUpdate?: DatasetUpdateSummary | undefined;
 
   /**
    * <p>The ID of the event tracker for an Action interactions dataset.
    *       You specify the tracker's ID in the <code>PutActionInteractions</code> API operation. Amazon Personalize uses it to direct new data to the Action interactions dataset in your dataset group.</p>
    * @public
    */
-  trackingId?: string;
+  trackingId?: string | undefined;
 }
 
 /**
@@ -2701,7 +2701,7 @@ export interface DescribeDatasetResponse {
    * <p>A listing of the dataset's properties.</p>
    * @public
    */
-  dataset?: Dataset;
+  dataset?: Dataset | undefined;
 }
 
 /**
@@ -2733,19 +2733,19 @@ export interface DatasetExportJob {
    * <p>The name of the export job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
    * @public
    */
-  datasetExportJobArn?: string;
+  datasetExportJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to export.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>The data to export, based on how you imported the data. You can choose
@@ -2755,14 +2755,14 @@ export interface DatasetExportJob {
    *       for both types. The default value is <code>PUT</code>. </p>
    * @public
    */
-  ingestionMode?: IngestionMode;
+  ingestionMode?: IngestionMode | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that has
    *       permissions to add data to your output Amazon S3 bucket.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The status of the dataset export job.</p>
@@ -2775,7 +2775,7 @@ export interface DatasetExportJob {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The path to the Amazon S3 bucket where the job's output is stored. For
@@ -2785,27 +2785,27 @@ export interface DatasetExportJob {
    *          </p>
    * @public
    */
-  jobOutput?: DatasetExportJobOutput;
+  jobOutput?: DatasetExportJobOutput | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the dataset export
    *       job.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) the status of the dataset export job
    *       was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a dataset export job fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -2831,7 +2831,7 @@ export interface DescribeDatasetExportJobResponse {
    *          </ul>
    * @public
    */
-  datasetExportJob?: DatasetExportJob;
+  datasetExportJob?: DatasetExportJob | undefined;
 }
 
 /**
@@ -2861,13 +2861,13 @@ export interface DatasetGroup {
    * <p>The name of the dataset group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The current status of the dataset group.</p>
@@ -2883,7 +2883,7 @@ export interface DatasetGroup {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access
@@ -2891,39 +2891,39 @@ export interface DatasetGroup {
    *       specifying a KMS key.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to
    *       encrypt the datasets.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the dataset group.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The last update date and time (in Unix time) of the dataset
    *       group.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If creating a dataset group fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The domain of a Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -2934,7 +2934,7 @@ export interface DescribeDatasetGroupResponse {
    * <p>A listing of the dataset group's properties.</p>
    * @public
    */
-  datasetGroup?: DatasetGroup;
+  datasetGroup?: DatasetGroup | undefined;
 }
 
 /**
@@ -2966,33 +2966,33 @@ export interface DatasetImportJob {
    * <p>The name of the import job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The ARN of the dataset import job.</p>
    * @public
    */
-  datasetImportJobArn?: string;
+  datasetImportJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that receives the
    *       imported data.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket that contains the training data to import.</p>
    * @public
    */
-  dataSource?: DataSource;
+  dataSource?: DataSource | undefined;
 
   /**
    * <p>The ARN of the IAM role that has permissions to read from the Amazon S3
    *       data source.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The status of the dataset import job.</p>
@@ -3005,39 +3005,39 @@ export interface DatasetImportJob {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the dataset import
    *       job.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) the dataset was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a dataset import job fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The import mode used by the dataset import job to import new
    *       records.</p>
    * @public
    */
-  importMode?: ImportMode;
+  importMode?: ImportMode | undefined;
 
   /**
    * <p>Whether the job publishes metrics to Amazon S3 for a metric attribution.</p>
    * @public
    */
-  publishAttributionMetricsToS3?: boolean;
+  publishAttributionMetricsToS3?: boolean | undefined;
 }
 
 /**
@@ -3063,7 +3063,7 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    * @public
    */
-  datasetImportJob?: DatasetImportJob;
+  datasetImportJob?: DatasetImportJob | undefined;
 }
 
 /**
@@ -3086,32 +3086,32 @@ export interface EventTracker {
    * <p>The name of the event tracker.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the event tracker.</p>
    * @public
    */
-  eventTrackerArn?: string;
+  eventTrackerArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account that owns the event tracker.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The ID of the event tracker. Include this ID in requests to the
    *     <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
    * @public
    */
-  trackingId?: string;
+  trackingId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -3126,19 +3126,19 @@ export interface EventTracker {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the event tracker was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3149,7 +3149,7 @@ export interface DescribeEventTrackerResponse {
    * <p>An object that describes the event tracker.</p>
    * @public
    */
-  eventTracker?: EventTracker;
+  eventTracker?: EventTracker | undefined;
 }
 
 /**
@@ -3173,31 +3173,31 @@ export interface FeatureTransformation {
    * <p>The name of the feature transformation.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>
    * @public
    */
-  featureTransformationArn?: string;
+  featureTransformationArn?: string | undefined;
 
   /**
    * <p>Provides the default parameters for feature transformation.</p>
    * @public
    */
-  defaultParameters?: Record<string, string>;
+  defaultParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the feature transformation.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The last update date and time (in Unix time) of the feature transformation.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The status of the feature transformation.</p>
@@ -3209,7 +3209,7 @@ export interface FeatureTransformation {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -3220,7 +3220,7 @@ export interface DescribeFeatureTransformationResponse {
    * <p>A listing of the FeatureTransformation properties.</p>
    * @public
    */
-  featureTransformation?: FeatureTransformation;
+  featureTransformation?: FeatureTransformation | undefined;
 }
 
 /**
@@ -3244,37 +3244,37 @@ export interface Filter {
    * <p>The name of the filter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the filter.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The time at which the filter was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the filter was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The ARN of the dataset group to which the filter belongs.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>If the filter failed, the reason for its failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>Specifies the type of item interactions to filter out of recommendation results. The
@@ -3282,13 +3282,13 @@ export interface Filter {
    *             <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter expressions</a>.</p>
    * @public
    */
-  filterExpression?: string;
+  filterExpression?: string | undefined;
 
   /**
    * <p>The status of the filter.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -3299,7 +3299,7 @@ export interface DescribeFilterResponse {
    * <p>The filter's details.</p>
    * @public
    */
-  filter?: Filter;
+  filter?: Filter | undefined;
 }
 
 /**
@@ -3324,49 +3324,49 @@ export interface MetricAttribution {
    * <p>The metric attribution's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The metric attribution's Amazon Resource Name (ARN).</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 
   /**
    * <p>The metric attribution's dataset group Amazon Resource Name (ARN).</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The metric attribution's output configuration.</p>
    * @public
    */
-  metricsOutputConfig?: MetricAttributionOutput;
+  metricsOutputConfig?: MetricAttributionOutput | undefined;
 
   /**
    * <p>The metric attribution's status.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The metric attribution's creation date time.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The metric attribution's last updated date time.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The metric attribution's failure reason.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -3377,7 +3377,7 @@ export interface DescribeMetricAttributionResponse {
    * <p>The details of the metric attribution.</p>
    * @public
    */
-  metricAttribution?: MetricAttribution;
+  metricAttribution?: MetricAttribution | undefined;
 }
 
 /**
@@ -3402,44 +3402,44 @@ export interface Recipe {
    * <p>The name of the recipe.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
    *       the model.</p>
    * @public
    */
-  algorithmArn?: string;
+  algorithmArn?: string | undefined;
 
   /**
    * <p>The ARN of the FeatureTransformation object.</p>
    * @public
    */
-  featureTransformationArn?: string;
+  featureTransformationArn?: string | undefined;
 
   /**
    * <p>The status of the recipe.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The description of the recipe.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recipe was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>One of the following values:</p>
@@ -3456,13 +3456,13 @@ export interface Recipe {
    *          </ul>
    * @public
    */
-  recipeType?: string;
+  recipeType?: string | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recipe was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3473,7 +3473,7 @@ export interface DescribeRecipeResponse {
    * <p>An object that describes the recipe.</p>
    * @public
    */
-  recipe?: Recipe;
+  recipe?: Recipe | undefined;
 }
 
 /**
@@ -3497,43 +3497,32 @@ export interface RecommenderUpdateSummary {
    * <p>The configuration details of the recommender update.</p>
    * @public
    */
-  recommenderConfig?: RecommenderConfig;
+  recommenderConfig?: RecommenderConfig | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recommender update was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the recommender update was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
-   * <p>The status of the recommender update.</p>
-   *          <p>A recommender can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the recommender update. A recommender update can be in one of the following states:</p>
+   *          <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If a recommender update fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -3546,44 +3535,44 @@ export interface Recommender {
    * <p>The Amazon Resource Name (ARN) of the recommender.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Domain dataset group that contains the recommender.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The name of the recommender.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe (Domain dataset group use case) that the recommender was created for.
    * </p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The configuration details of the recommender.</p>
    * @public
    */
-  recommenderConfig?: RecommenderConfig;
+  recommenderConfig?: RecommenderConfig | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recommender was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recommender was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The status of the recommender.</p>
@@ -3601,19 +3590,19 @@ export interface Recommender {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If a recommender fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>Provides a summary of the latest updates to the recommender. </p>
    * @public
    */
-  latestRecommenderUpdate?: RecommenderUpdateSummary;
+  latestRecommenderUpdate?: RecommenderUpdateSummary | undefined;
 
   /**
    * <p>Provides evaluation metrics that help you determine the performance
@@ -3622,7 +3611,7 @@ export interface Recommender {
    *         Evaluating a recommender</a>.</p>
    * @public
    */
-  modelMetrics?: Record<string, number>;
+  modelMetrics?: Record<string, number> | undefined;
 }
 
 /**
@@ -3633,7 +3622,7 @@ export interface DescribeRecommenderResponse {
    * <p>The properties of the recommender.</p>
    * @public
    */
-  recommender?: Recommender;
+  recommender?: Recommender | undefined;
 }
 
 /**
@@ -3657,37 +3646,37 @@ export interface DatasetSchema {
    * <p>The name of the schema.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  schemaArn?: string;
+  schemaArn?: string | undefined;
 
   /**
    * <p>The schema.</p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the schema was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the schema was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -3698,7 +3687,7 @@ export interface DescribeSchemaResponse {
    * <p>The requested schema.</p>
    * @public
    */
-  schema?: DatasetSchema;
+  schema?: DatasetSchema | undefined;
 }
 
 /**
@@ -3723,7 +3712,63 @@ export interface AutoMLResult {
    * <p>The Amazon Resource Name (ARN) of the best recipe.</p>
    * @public
    */
-  bestRecipeArn?: string;
+  bestRecipeArn?: string | undefined;
+}
+
+/**
+ * <p>The configuration details of the solution update.</p>
+ * @public
+ */
+export interface SolutionUpdateConfig {
+  /**
+   * <p>The automatic training configuration to use when <code>performAutoTraining</code> is true.</p>
+   * @public
+   */
+  autoTrainingConfig?: AutoTrainingConfig | undefined;
+}
+
+/**
+ * <p>Provides a summary of the properties of a solution update. For a complete listing, call the
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API.</p>
+ * @public
+ */
+export interface SolutionUpdateSummary {
+  /**
+   * <p>The configuration details of the solution.</p>
+   * @public
+   */
+  solutionUpdateConfig?: SolutionUpdateConfig | undefined;
+
+  /**
+   * <p>The status of the solution update. A solution update can be in one of the following states:</p>
+   *          <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>Whether the solution automatically creates solution versions.</p>
+   * @public
+   */
+  performAutoTraining?: boolean | undefined;
+
+  /**
+   * <p>The date and time (in Unix format) that the solution update was created.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time (in Unix time) that the solution update was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>If a solution update fails, the reason behind the failure.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 }
 
 /**
@@ -3750,7 +3795,7 @@ export interface SolutionVersionSummary {
    * <p>The Amazon Resource Name (ARN) of the solution version.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The status of the solution version.</p>
@@ -3762,7 +3807,7 @@ export interface SolutionVersionSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The scope of training to be performed when creating the solution version. A
@@ -3773,37 +3818,39 @@ export interface SolutionVersionSummary {
    *     </p>
    * @public
    */
-  trainingMode?: TrainingMode;
+  trainingMode?: TrainingMode | undefined;
 
   /**
    * <p>Whether the solution version was created automatically or manually.</p>
    * @public
    */
-  trainingType?: TrainingType;
+  trainingType?: TrainingType | undefined;
 
   /**
    * <p>The date and time (in Unix time) that this version of a solution was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the solution version was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a solution version fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
  * <important>
- *             <p>After you create a solution, you can’t change its configuration. By default, all new solutions use automatic training. With automatic training, you incur training costs while
- *            your solution is active. You can't stop automatic training for a solution. To avoid unnecessary costs, make sure to delete the solution when you are finished. For information about training
+ *             <p>By default, all new solutions use automatic training. With automatic training, you incur training costs while
+ *            your solution is active. To avoid unnecessary costs, when you are finished you can
+ *            <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">update the solution</a> to turn off automatic training.
+ *            For information about training
  *   costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
  *          </important>
  *          <p>An object that provides information about a solution. A solution includes the custom recipe, customized parameters, and
@@ -3817,20 +3864,20 @@ export interface Solution {
    * <p>The name of the solution.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the solution.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
    *       default is <code>false</code>.</p>
    * @public
    */
-  performHPO?: boolean;
+  performHPO?: boolean | undefined;
 
   /**
    * <important>
@@ -3843,7 +3890,7 @@ export interface Solution {
    *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
    * @public
    */
-  performAutoML?: boolean;
+  performAutoML?: boolean | undefined;
 
   /**
    * <p>Specifies whether the solution automatically creates solution versions. The default is <code>True</code>
@@ -3851,20 +3898,20 @@ export interface Solution {
    *          <p>For more information about auto training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating and configuring a solution</a>.</p>
    * @public
    */
-  performAutoTraining?: boolean;
+  performAutoTraining?: boolean | undefined;
 
   /**
    * <p>The ARN of the recipe used to create the solution. This is required when
    *       <code>performAutoML</code> is false.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The event type (for example, 'click' or 'like') that is used for training the model.
@@ -3872,19 +3919,19 @@ export interface Solution {
    *       equal weight regardless of type.</p>
    * @public
    */
-  eventType?: string;
+  eventType?: string | undefined;
 
   /**
    * <p>Describes the configuration properties for the solution.</p>
    * @public
    */
-  solutionConfig?: SolutionConfig;
+  solutionConfig?: SolutionConfig | undefined;
 
   /**
    * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
    * @public
    */
-  autoMLResult?: AutoMLResult;
+  autoMLResult?: AutoMLResult | undefined;
 
   /**
    * <p>The status of the solution.</p>
@@ -3899,25 +3946,31 @@ export interface Solution {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the solution.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the solution was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>Describes the latest version of the solution, including the status and the ARN.</p>
    * @public
    */
-  latestSolutionVersion?: SolutionVersionSummary;
+  latestSolutionVersion?: SolutionVersionSummary | undefined;
+
+  /**
+   * <p>Provides a summary of the latest updates to the solution.</p>
+   * @public
+   */
+  latestSolutionUpdate?: SolutionUpdateSummary | undefined;
 }
 
 /**
@@ -3928,7 +3981,7 @@ export interface DescribeSolutionResponse {
    * <p>An object that describes the solution.</p>
    * @public
    */
-  solution?: Solution;
+  solution?: Solution | undefined;
 }
 
 /**
@@ -3952,7 +4005,7 @@ export interface TunedHPOParams {
    * <p>A list of the hyperparameter values of the best performing model.</p>
    * @public
    */
-  algorithmHyperParameters?: Record<string, string>;
+  algorithmHyperParameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -3964,65 +4017,65 @@ export interface SolutionVersion {
    * <p>The name of the solution version.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the solution version.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The ARN of the solution.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
    *         <code>false</code>.</p>
    * @public
    */
-  performHPO?: boolean;
+  performHPO?: boolean | undefined;
 
   /**
    * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
    *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
    * @public
    */
-  performAutoML?: boolean;
+  performAutoML?: boolean | undefined;
 
   /**
    * <p>The ARN of the recipe used in the solution.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The event type (for example, 'click' or 'like') that is used for training the
    *       model.</p>
    * @public
    */
-  eventType?: string;
+  eventType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>Describes the configuration properties for the solution.</p>
    * @public
    */
-  solutionConfig?: SolutionConfig;
+  solutionConfig?: SolutionConfig | undefined;
 
   /**
    * <p>The time used to train the model. You are billed for the time it takes to train a model.
    *       This field is visible only after Amazon Personalize successfully trains a model.</p>
    * @public
    */
-  trainingHours?: number;
+  trainingHours?: number | undefined;
 
   /**
    * <p>The scope of training to be performed when creating the solution version. A
@@ -4033,14 +4086,14 @@ export interface SolutionVersion {
    *     </p>
    * @public
    */
-  trainingMode?: TrainingMode;
+  trainingMode?: TrainingMode | undefined;
 
   /**
    * <p>If hyperparameter optimization was performed, contains the hyperparameter values of the
    *       best performing model.</p>
    * @public
    */
-  tunedHPOParams?: TunedHPOParams;
+  tunedHPOParams?: TunedHPOParams | undefined;
 
   /**
    * <p>The status of the solution version.</p>
@@ -4067,13 +4120,13 @@ export interface SolutionVersion {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>If training a solution version fails, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The date and
@@ -4081,7 +4134,7 @@ export interface SolutionVersion {
    *       (in Unix time) that this version of the solution was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in
@@ -4089,13 +4142,13 @@ export interface SolutionVersion {
    *       time) that the solution was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>Whether the solution version was created automatically or manually.</p>
    * @public
    */
-  trainingType?: TrainingType;
+  trainingType?: TrainingType | undefined;
 }
 
 /**
@@ -4106,7 +4159,7 @@ export interface DescribeSolutionVersionResponse {
    * <p>The solution version.</p>
    * @public
    */
-  solutionVersion?: SolutionVersion;
+  solutionVersion?: SolutionVersion | undefined;
 }
 
 /**
@@ -4128,7 +4181,7 @@ export interface GetSolutionMetricsResponse {
    * <p>The same solution version ARN as specified in the request.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The metrics for the solution version. For more information, see
@@ -4137,7 +4190,7 @@ export interface GetSolutionMetricsResponse {
    *       </a>.</p>
    * @public
    */
-  metrics?: Record<string, number>;
+  metrics?: Record<string, number> | undefined;
 }
 
 /**
@@ -4169,20 +4222,20 @@ export interface ListBatchInferenceJobsRequest {
    *       were created.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of batch inference job results to return in each page. The default
    *       value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4196,13 +4249,13 @@ export interface BatchInferenceJobSummary {
    * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
    * @public
    */
-  batchInferenceJobArn?: string;
+  batchInferenceJobArn?: string | undefined;
 
   /**
    * <p>The name of the batch inference job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The status of the batch inference job. The status is one of the following values:</p>
@@ -4222,37 +4275,37 @@ export interface BatchInferenceJobSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The time at which the batch inference job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch inference job was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If the batch inference job failed, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The ARN of the solution version used by the batch inference job.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The job's mode.</p>
    * @public
    */
-  batchInferenceJobMode?: BatchInferenceJobMode;
+  batchInferenceJobMode?: BatchInferenceJobMode | undefined;
 }
 
 /**
@@ -4263,14 +4316,14 @@ export interface ListBatchInferenceJobsResponse {
    * <p>A list containing information on each job that is returned.</p>
    * @public
    */
-  batchInferenceJobs?: BatchInferenceJobSummary[];
+  batchInferenceJobs?: BatchInferenceJobSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when
    *       there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4281,20 +4334,20 @@ export interface ListBatchSegmentJobsRequest {
    * <p>The Amazon Resource Name (ARN) of the solution version that the batch segment jobs used to generate batch segments.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of batch segment job results to return in each page. The default
    *       value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4308,13 +4361,13 @@ export interface BatchSegmentJobSummary {
    * <p>The Amazon Resource Name (ARN) of the batch segment job.</p>
    * @public
    */
-  batchSegmentJobArn?: string;
+  batchSegmentJobArn?: string | undefined;
 
   /**
    * <p>The name of the batch segment job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The status of the batch segment job. The status is one of the following values:</p>
@@ -4334,31 +4387,31 @@ export interface BatchSegmentJobSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The time at which the batch segment job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch segment job was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If the batch segment job failed, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version used by the batch segment job to generate batch segments.</p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 }
 
 /**
@@ -4369,14 +4422,14 @@ export interface ListBatchSegmentJobsResponse {
    * <p>A list containing information on each job that is returned.</p>
    * @public
    */
-  batchSegmentJobs?: BatchSegmentJobSummary[];
+  batchSegmentJobs?: BatchSegmentJobSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when
    *       there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4388,20 +4441,20 @@ export interface ListCampaignsRequest {
    *       a solution is not specified, all the campaigns associated with the account are listed.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a> for getting
    *       the next set of campaigns (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of campaigns to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4414,13 +4467,13 @@ export interface CampaignSummary {
    * <p>The name of the campaign.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 
   /**
    * <p>The status of the campaign.</p>
@@ -4435,25 +4488,25 @@ export interface CampaignSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the campaign was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the campaign was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a campaign fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -4464,13 +4517,13 @@ export interface ListCampaignsResponse {
    * <p>A list of the campaigns.</p>
    * @public
    */
-  campaigns?: CampaignSummary[];
+  campaigns?: CampaignSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of campaigns (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4481,20 +4534,20 @@ export interface ListDataDeletionJobsRequest {
    * <p>The Amazon Resource Name (ARN) of the dataset group to list data deletion jobs for.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to
    *       <code>ListDataDeletionJobs</code> for getting the next set of jobs (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of data deletion jobs to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4507,19 +4560,19 @@ export interface DataDeletionJobSummary {
    * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
    * @public
    */
-  dataDeletionJobArn?: string;
+  dataDeletionJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group the job deleted records from.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The name of the data deletion job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The status of the data deletion job.</p>
@@ -4531,26 +4584,26 @@ export interface DataDeletionJobSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The creation date and time (in Unix time) of the data deletion
    *       job.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) the data deletion job was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a data deletion job fails, provides the reason why.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -4561,14 +4614,14 @@ export interface ListDataDeletionJobsResponse {
    * <p>The list of data deletion jobs.</p>
    * @public
    */
-  dataDeletionJobs?: DataDeletionJobSummary[];
+  dataDeletionJobs?: DataDeletionJobSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of data deletion jobs (if they
    *       exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4580,7 +4633,7 @@ export interface ListDatasetExportJobsRequest {
    *       export jobs for.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to
@@ -4588,13 +4641,13 @@ export interface ListDatasetExportJobsRequest {
    *       export jobs (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of dataset export jobs to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4607,13 +4660,13 @@ export interface DatasetExportJobSummary {
    * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
    * @public
    */
-  datasetExportJobArn?: string;
+  datasetExportJobArn?: string | undefined;
 
   /**
    * <p>The name of the dataset export job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The status of the dataset export job.</p>
@@ -4625,25 +4678,25 @@ export interface DatasetExportJobSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset export job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset export job status was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a dataset export job fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -4654,14 +4707,14 @@ export interface ListDatasetExportJobsResponse {
    * <p>The list of dataset export jobs.</p>
    * @public
    */
-  datasetExportJobs?: DatasetExportJobSummary[];
+  datasetExportJobs?: DatasetExportJobSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of dataset export jobs (if they
    *       exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4674,13 +4727,13 @@ export interface ListDatasetGroupsRequest {
    *       groups (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of dataset groups to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4693,13 +4746,13 @@ export interface DatasetGroupSummary {
    * <p>The name of the dataset group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The status of the dataset group.</p>
@@ -4714,31 +4767,31 @@ export interface DatasetGroupSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset group was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset group was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If creating a dataset group fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The domain of a Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -4749,14 +4802,14 @@ export interface ListDatasetGroupsResponse {
    * <p>The list of your dataset groups.</p>
    * @public
    */
-  datasetGroups?: DatasetGroupSummary[];
+  datasetGroups?: DatasetGroupSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of dataset groups (if they
    *       exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4768,7 +4821,7 @@ export interface ListDatasetImportJobsRequest {
    *       import jobs for.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to
@@ -4776,13 +4829,13 @@ export interface ListDatasetImportJobsRequest {
    *       import jobs (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of dataset import jobs to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4795,13 +4848,13 @@ export interface DatasetImportJobSummary {
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    * @public
    */
-  datasetImportJobArn?: string;
+  datasetImportJobArn?: string | undefined;
 
   /**
    * <p>The name of the dataset import job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The status of the dataset import job.</p>
@@ -4813,25 +4866,25 @@ export interface DatasetImportJobSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset import job was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset import job status was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>If a dataset import job fails, the reason behind the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The import mode the dataset import job used to update the data in the dataset.
@@ -4840,7 +4893,7 @@ export interface DatasetImportJobSummary {
    *     </p>
    * @public
    */
-  importMode?: ImportMode;
+  importMode?: ImportMode | undefined;
 }
 
 /**
@@ -4851,14 +4904,14 @@ export interface ListDatasetImportJobsResponse {
    * <p>The list of dataset import jobs.</p>
    * @public
    */
-  datasetImportJobs?: DatasetImportJobSummary[];
+  datasetImportJobs?: DatasetImportJobSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of dataset import jobs (if they
    *       exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4870,7 +4923,7 @@ export interface ListDatasetsRequest {
    *       datasets to list.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to
@@ -4878,13 +4931,13 @@ export interface ListDatasetsRequest {
    *       import jobs (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of datasets to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4897,13 +4950,13 @@ export interface DatasetSummary {
    * <p>The name of the dataset.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>The dataset type. One of the following values:</p>
@@ -4923,7 +4976,7 @@ export interface DatasetSummary {
    *          </ul>
    * @public
    */
-  datasetType?: string;
+  datasetType?: string | undefined;
 
   /**
    * <p>The status of the dataset.</p>
@@ -4938,19 +4991,19 @@ export interface DatasetSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the dataset was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -4962,13 +5015,13 @@ export interface ListDatasetsResponse {
    *       metadata information.</p>
    * @public
    */
-  datasets?: DatasetSummary[];
+  datasets?: DatasetSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of datasets (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4979,20 +5032,20 @@ export interface ListEventTrackersRequest {
    * <p>The ARN of a dataset group used to filter the response.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
    *       the next set of event trackers (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of event trackers to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5005,13 +5058,13 @@ export interface EventTrackerSummary {
    * <p>The name of the event tracker.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the event tracker.</p>
    * @public
    */
-  eventTrackerArn?: string;
+  eventTrackerArn?: string | undefined;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -5026,19 +5079,19 @@ export interface EventTrackerSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the event tracker was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -5049,13 +5102,13 @@ export interface ListEventTrackersResponse {
    * <p>A list of event trackers.</p>
    * @public
    */
-  eventTrackers?: EventTrackerSummary[];
+  eventTrackers?: EventTrackerSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of event trackers (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5066,20 +5119,20 @@ export interface ListFiltersRequest {
    * <p>The ARN of the dataset group that contains the filters.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListFilters</code> for getting the
    *             next set of filters (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of filters to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5091,43 +5144,43 @@ export interface FilterSummary {
    * <p>The name of the filter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the filter.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The time at which the filter was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The time at which the filter was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The ARN of the dataset group to which the filter belongs.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>If the filter failed, the reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>The status of the filter.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -5138,13 +5191,13 @@ export interface ListFiltersResponse {
    * <p>A list of returned filters.</p>
    * @public
    */
-  Filters?: FilterSummary[];
+  Filters?: FilterSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of filters (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5155,19 +5208,19 @@ export interface ListMetricAttributionMetricsRequest {
    * <p>The Amazon Resource Name (ARN) of the metric attribution to retrieve attributes for.</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of metrics to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5178,13 +5231,13 @@ export interface ListMetricAttributionMetricsResponse {
    * <p>The metrics for the specified metric attribution.</p>
    * @public
    */
-  metrics?: MetricAttribute[];
+  metrics?: MetricAttribute[] | undefined;
 
   /**
    * <p>Specify the pagination token from a previous <code>ListMetricAttributionMetricsResponse</code> request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5195,19 +5248,19 @@ export interface ListMetricAttributionsRequest {
    * <p>The metric attributions' dataset group Amazon Resource Name (ARN).</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of metric attributions to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5219,37 +5272,37 @@ export interface MetricAttributionSummary {
    * <p>The name of the metric attribution.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The metric attribution's Amazon Resource Name (ARN).</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 
   /**
    * <p>The metric attribution's status.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The metric attribution's creation date time.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The metric attribution's last updated date time.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The metric attribution's failure reason.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -5260,13 +5313,13 @@ export interface ListMetricAttributionsResponse {
    * <p>The list of metric attributions.</p>
    * @public
    */
-  metricAttributions?: MetricAttributionSummary[];
+  metricAttributions?: MetricAttributionSummary[] | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5290,20 +5343,20 @@ export interface ListRecipesRequest {
    * <p>The default is <code>SERVICE</code>.</p>
    * @public
    */
-  recipeProvider?: RecipeProvider;
+  recipeProvider?: RecipeProvider | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListRecipes</code> for getting
    *       the next set of recipes (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of recipes to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -5312,7 +5365,7 @@ export interface ListRecipesRequest {
    *     </p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -5325,37 +5378,37 @@ export interface RecipeSummary {
    * <p>The name of the recipe.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The status of the recipe.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the recipe was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the recipe was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The domain of the recipe (if the recipe is a Domain dataset group use case).</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -5366,13 +5419,13 @@ export interface ListRecipesResponse {
    * <p>The list of available recipes.</p>
    * @public
    */
-  recipes?: RecipeSummary[];
+  recipes?: RecipeSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of recipes.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5384,20 +5437,20 @@ export interface ListRecommendersRequest {
    *       a Domain dataset group is not specified, all the recommenders associated with the account are listed.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListRecommenders</code> for getting
    *       the next set of recommenders (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of recommenders to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5409,31 +5462,31 @@ export interface RecommenderSummary {
    * <p>The name of the recommender.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Domain dataset group that contains the recommender.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe (Domain dataset group use case) that the recommender was created for.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 
   /**
    * <p>The configuration details of the recommender.</p>
    * @public
    */
-  recommenderConfig?: RecommenderConfig;
+  recommenderConfig?: RecommenderConfig | undefined;
 
   /**
    * <p>The status of the recommender. A recommender can be in one of the following states:</p>
@@ -5450,19 +5503,19 @@ export interface RecommenderSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recommender was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix format) that the recommender was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -5473,13 +5526,13 @@ export interface ListRecommendersResponse {
    * <p>A list of the recommenders.</p>
    * @public
    */
-  recommenders?: RecommenderSummary[];
+  recommenders?: RecommenderSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of recommenders (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5491,13 +5544,13 @@ export interface ListSchemasRequest {
    *       the next set of schemas (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of schemas to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5510,31 +5563,31 @@ export interface DatasetSchemaSummary {
    * <p>The name of the schema.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  schemaArn?: string;
+  schemaArn?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the schema was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the schema was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    * @public
    */
-  domain?: Domain;
+  domain?: Domain | undefined;
 }
 
 /**
@@ -5545,13 +5598,13 @@ export interface ListSchemasResponse {
    * <p>A list of schemas.</p>
    * @public
    */
-  schemas?: DatasetSchemaSummary[];
+  schemas?: DatasetSchemaSummary[] | undefined;
 
   /**
    * <p>A token used to get the next set of schemas (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5562,20 +5615,20 @@ export interface ListSolutionsRequest {
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  datasetGroupArn?: string;
+  datasetGroupArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListSolutions</code> for getting
    *       the next set of solutions (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of solutions to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5588,13 +5641,13 @@ export interface SolutionSummary {
    * <p>The name of the solution.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 
   /**
    * <p>The status of the solution.</p>
@@ -5609,25 +5662,25 @@ export interface SolutionSummary {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the solution was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The date and time (in Unix time) that the solution was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe used by the solution.</p>
    * @public
    */
-  recipeArn?: string;
+  recipeArn?: string | undefined;
 }
 
 /**
@@ -5638,13 +5691,13 @@ export interface ListSolutionsResponse {
    * <p>A list of the current solutions.</p>
    * @public
    */
-  solutions?: SolutionSummary[];
+  solutions?: SolutionSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of solutions (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5655,20 +5708,20 @@ export interface ListSolutionVersionsRequest {
    * <p>The Amazon Resource Name (ARN) of the solution.</p>
    * @public
    */
-  solutionArn?: string;
+  solutionArn?: string | undefined;
 
   /**
    * <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
    *       the next set of solution versions (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of solution versions to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5679,13 +5732,13 @@ export interface ListSolutionVersionsResponse {
    * <p>A list of solution versions describing the version properties.</p>
    * @public
    */
-  solutionVersions?: SolutionVersionSummary[];
+  solutionVersions?: SolutionVersionSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of solution versions (if they exist).</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5707,7 +5760,7 @@ export interface ListTagsForResourceResponse {
    * <p>The resource's tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5729,7 +5782,7 @@ export interface StartRecommenderResponse {
    * <p>The Amazon Resource Name (ARN) of the recommender you started.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 }
 
 /**
@@ -5751,7 +5804,7 @@ export interface StopRecommenderResponse {
    * <p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 }
 
 /**
@@ -5854,7 +5907,7 @@ export interface UpdateCampaignRequest {
    *     </p>
    * @public
    */
-  solutionVersionArn?: string;
+  solutionVersionArn?: string | undefined;
 
   /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
@@ -5863,13 +5916,13 @@ export interface UpdateCampaignRequest {
    *       as necessary.</p>
    * @public
    */
-  minProvisionedTPS?: number;
+  minProvisionedTPS?: number | undefined;
 
   /**
    * <p>The configuration details of a campaign.</p>
    * @public
    */
-  campaignConfig?: CampaignConfig;
+  campaignConfig?: CampaignConfig | undefined;
 }
 
 /**
@@ -5880,7 +5933,7 @@ export interface UpdateCampaignResponse {
    * <p>The same campaign ARN as given in the request.</p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 }
 
 /**
@@ -5908,7 +5961,7 @@ export interface UpdateDatasetResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset you updated.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 }
 
 /**
@@ -5919,25 +5972,25 @@ export interface UpdateMetricAttributionRequest {
    * <p>Add new metric attributes to the metric attribution.</p>
    * @public
    */
-  addMetrics?: MetricAttribute[];
+  addMetrics?: MetricAttribute[] | undefined;
 
   /**
    * <p>Remove metric attributes from the metric attribution.</p>
    * @public
    */
-  removeMetrics?: string[];
+  removeMetrics?: string[] | undefined;
 
   /**
    * <p>An output config for the metric attribution.</p>
    * @public
    */
-  metricsOutputConfig?: MetricAttributionOutput;
+  metricsOutputConfig?: MetricAttributionOutput | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the metric attribution to update.</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 }
 
 /**
@@ -5948,7 +6001,7 @@ export interface UpdateMetricAttributionResponse {
    * <p>The Amazon Resource Name (ARN) for the metric attribution that you updated.</p>
    * @public
    */
-  metricAttributionArn?: string;
+  metricAttributionArn?: string | undefined;
 }
 
 /**
@@ -5976,7 +6029,54 @@ export interface UpdateRecommenderResponse {
    * <p>The same recommender Amazon Resource Name (ARN) as given in the request.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSolutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution to update.</p>
+   * @public
+   */
+  solutionArn: string | undefined;
+
+  /**
+   * <p>Whether the solution uses automatic training to create new solution versions (trained models). You can change the training
+   *       frequency by specifying a <code>schedulingExpression</code> in the <code>AutoTrainingConfig</code> as part of solution
+   *       configuration. </p>
+   *          <p>
+   *       If you turn on automatic training, the first automatic training starts within one hour after the solution update
+   *       completes. If you manually create a solution version within the hour, the solution skips the first automatic training.
+   *       For more information about automatic training,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.
+   *     </p>
+   *          <p>
+   *       After training starts, you can
+   *       get the solution version's Amazon Resource Name (ARN) with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a> API operation.
+   *       To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
+   *     </p>
+   * @public
+   */
+  performAutoTraining?: boolean | undefined;
+
+  /**
+   * <p>The new configuration details of the solution.</p>
+   * @public
+   */
+  solutionUpdateConfig?: SolutionUpdateConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSolutionResponse {
+  /**
+   * <p>The same solution Amazon Resource Name (ARN) as given in the request.</p>
+   * @public
+   */
+  solutionArn?: string | undefined;
 }
 
 /**

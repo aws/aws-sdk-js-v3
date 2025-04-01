@@ -72,6 +72,7 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListKeywordsForDataSourceCommand extends $Command
@@ -82,9 +83,7 @@ export class ListKeywordsForDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class ListKeywordsForDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeywordsForDataSourceCommand)
   .de(de_ListKeywordsForDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeywordsForDataSourceRequest;
+      output: ListKeywordsForDataSourceResponse;
+    };
+    sdk: {
+      input: ListKeywordsForDataSourceCommandInput;
+      output: ListKeywordsForDataSourceCommandOutput;
+    };
+  };
+}

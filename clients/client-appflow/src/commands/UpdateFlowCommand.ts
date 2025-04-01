@@ -358,6 +358,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class UpdateFlowCommand extends $Command
@@ -368,9 +369,7 @@ export class UpdateFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -382,4 +381,16 @@ export class UpdateFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowCommand)
   .de(de_UpdateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowRequest;
+      output: UpdateFlowResponse;
+    };
+    sdk: {
+      input: UpdateFlowCommandInput;
+      output: UpdateFlowCommandOutput;
+    };
+  };
+}

@@ -90,6 +90,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateTrustStoreCommand extends $Command
@@ -100,9 +101,7 @@ export class CreateTrustStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class CreateTrustStoreCommand extends $Command
   .f(CreateTrustStoreRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTrustStoreCommand)
   .de(de_CreateTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustStoreRequest;
+      output: CreateTrustStoreResponse;
+    };
+    sdk: {
+      input: CreateTrustStoreCommandInput;
+      output: CreateTrustStoreCommandOutput;
+    };
+  };
+}

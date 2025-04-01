@@ -24,25 +24,24 @@ export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof Authen
  */
 export interface AccessConfigResponse {
   /**
-   * <p>Specifies whether or not the cluster creator IAM principal was set as a
-   *             cluster admin access entry during cluster creation time.</p>
+   * <p>Specifies whether or not the cluster creator IAM principal was set as a cluster
+   *             admin access entry during cluster creation time.</p>
    * @public
    */
-  bootstrapClusterCreatorAdminPermissions?: boolean;
+  bootstrapClusterCreatorAdminPermissions?: boolean | undefined;
 
   /**
    * <p>The current authentication mode of the cluster.</p>
    * @public
    */
-  authenticationMode?: AuthenticationMode;
+  authenticationMode?: AuthenticationMode | undefined;
 }
 
 /**
  * <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached
- *             that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>.
- *         </p>
+ *             making the request must have at least one IAM permissions policy attached that grants
+ *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 management</a> in the <i>IAM User Guide</i>. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -62,8 +61,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An access entry allows an IAM principal (user or role) to access your
- *             cluster. Access entries can replace the need to maintain the <code>aws-auth</code>
+ * <p>An access entry allows an IAM principal (user or role) to access your cluster.
+ *             Access entries can replace the need to maintain the <code>aws-auth</code>
  *             <code>ConfigMap</code> for authentication. For more information about access entries,
  *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access
  *                 entries</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -74,23 +73,23 @@ export interface AccessEntry {
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM principal for the access entry. If you ever delete
-   *             the IAM principal with this ARN, the access entry isn't automatically
-   *             deleted. We recommend that you delete the access entry with an ARN for an IAM principal that you delete. If you don't delete the access entry and ever
-   *             recreate the IAM principal, even if it has the same ARN, the access
-   *             entry won't work. This is because even though the ARN is the same for the recreated
-   *                 IAM principal, the <code>roleID</code> or <code>userID</code> (you
-   *             can see this with the Security Token Service
-   *             <code>GetCallerIdentity</code> API) is different for the recreated IAM
-   *             principal than it was for the original IAM principal. Even though you
-   *             don't see the IAM principal's <code>roleID</code> or <code>userID</code>
-   *             for an access entry, Amazon EKS stores it with the access entry.</p>
+   * <p>The ARN of the IAM principal for the access entry. If you ever delete the IAM
+   *             principal with this ARN, the access entry isn't automatically deleted. We recommend
+   *             that you delete the access entry with an ARN for an IAM principal that you delete.
+   *             If you don't delete the access entry and ever recreate the IAM principal, even if it
+   *             has the same ARN, the access entry won't work. This is because even though the ARN
+   *             is the same for the recreated IAM principal, the <code>roleID</code> or
+   *                 <code>userID</code> (you can see this with the Security Token Service
+   *                 <code>GetCallerIdentity</code> API) is different for the recreated IAM principal
+   *             than it was for the original IAM principal. Even though you don't see the IAM
+   *             principal's <code>roleID</code> or <code>userID</code> for an access entry, Amazon EKS stores
+   *             it with the access entry.</p>
    * @public
    */
-  principalArn?: string;
+  principalArn?: string | undefined;
 
   /**
    * <p>A <code>name</code> that you've specified in a Kubernetes <code>RoleBinding</code> or
@@ -98,25 +97,25 @@ export interface AccessEntry {
    *                 <code>principalARN</code> access to cluster objects.</p>
    * @public
    */
-  kubernetesGroups?: string[];
+  kubernetesGroups?: string[] | undefined;
 
   /**
    * <p>The ARN of the access entry.</p>
    * @public
    */
-  accessEntryArn?: string;
+  accessEntryArn?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Unix epoch timestamp for the last modification to the object.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -124,29 +123,29 @@ export interface AccessEntry {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The <code>name</code> of a user that can authenticate to your cluster.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p>The type of the access entry.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 }
 
 /**
  * <p>An access policy includes permissions that allow Amazon EKS to authorize an
  *             IAM principal to work with Kubernetes objects on your cluster. The policies are
- *             managed by Amazon EKS, but they're not IAM policies. You can't
- *             view the permissions in the policies using the API. The permissions for many of the
- *             policies are similar to the Kubernetes <code>cluster-admin</code>, <code>admin</code>,
- *                 <code>edit</code>, and <code>view</code> cluster roles. For more information about
- *             these cluster roles, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles">User-facing roles</a> in the Kubernetes documentation. To view the contents of the
+ *             managed by Amazon EKS, but they're not IAM policies. You can't view the permissions in the
+ *             policies using the API. The permissions for many of the policies are similar to the
+ *             Kubernetes <code>cluster-admin</code>, <code>admin</code>, <code>edit</code>, and
+ *                 <code>view</code> cluster roles. For more information about these cluster roles, see
+ *                 <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles">User-facing roles</a> in the Kubernetes documentation. To view the contents of the
  *             policies, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions">Access
  *                 policy permissions</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @public
@@ -156,13 +155,13 @@ export interface AccessPolicy {
    * <p>The name of the access policy.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the access policy.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -189,14 +188,14 @@ export interface AccessScope {
    * <p>The scope type of an access policy.</p>
    * @public
    */
-  type?: AccessScopeType;
+  type?: AccessScopeType | undefined;
 
   /**
    * <p>A Kubernetes <code>namespace</code> that an access policy is scoped to. A value is required
    *             if you specified <code>namespace</code> for <code>Type</code>.</p>
    * @public
    */
-  namespaces?: string[];
+  namespaces?: string[] | undefined;
 }
 
 /**
@@ -230,19 +229,19 @@ export interface AddonIssue {
    * <p>A code that describes the type of issue.</p>
    * @public
    */
-  code?: AddonIssueCode;
+  code?: AddonIssueCode | undefined;
 
   /**
    * <p>A message that provides details about the issue and what might cause it.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The resource IDs of the issue.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 }
 
 /**
@@ -254,7 +253,7 @@ export interface AddonHealth {
    * <p>An object representing the health issues for an add-on.</p>
    * @public
    */
-  issues?: AddonIssue[];
+  issues?: AddonIssue[] | undefined;
 }
 
 /**
@@ -266,13 +265,13 @@ export interface MarketplaceInformation {
    * <p>The product ID from the Amazon Web Services Marketplace.</p>
    * @public
    */
-  productId?: string;
+  productId?: string | undefined;
 
   /**
    * <p>The product URL from the Amazon Web Services Marketplace.</p>
    * @public
    */
-  productUrl?: string;
+  productUrl?: string | undefined;
 }
 
 /**
@@ -296,8 +295,8 @@ export const AddonStatus = {
 export type AddonStatus = (typeof AddonStatus)[keyof typeof AddonStatus];
 
 /**
- * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
- *             the <i>Amazon EKS User Guide</i>.</p>
+ * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the
+ *             <i>Amazon EKS User Guide</i>.</p>
  * @public
  */
 export interface Addon {
@@ -305,56 +304,56 @@ export interface Addon {
    * <p>The name of the add-on.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The status of the add-on.</p>
    * @public
    */
-  status?: AddonStatus;
+  status?: AddonStatus | undefined;
 
   /**
    * <p>The version of the add-on.</p>
    * @public
    */
-  addonVersion?: string;
+  addonVersion?: string | undefined;
 
   /**
    * <p>An object that represents the health of the add-on.</p>
    * @public
    */
-  health?: AddonHealth;
+  health?: AddonHealth | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the add-on.</p>
    * @public
    */
-  addonArn?: string;
+  addonArn?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Unix epoch timestamp for the last modification to the object.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that's bound to the Kubernetes
-   *                 <code>ServiceAccount</code> object that the add-on uses.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that's bound to the Kubernetes <code>ServiceAccount</code>
+   *             object that the add-on uses.</p>
    * @public
    */
-  serviceAccountRoleArn?: string;
+  serviceAccountRoleArn?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -362,38 +361,59 @@ export interface Addon {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The publisher of the add-on.</p>
    * @public
    */
-  publisher?: string;
+  publisher?: string | undefined;
 
   /**
    * <p>The owner of the add-on.</p>
    * @public
    */
-  owner?: string;
+  owner?: string | undefined;
 
   /**
    * <p>Information about an Amazon EKS add-on from the Amazon Web Services Marketplace.</p>
    * @public
    */
-  marketplaceInformation?: MarketplaceInformation;
+  marketplaceInformation?: MarketplaceInformation | undefined;
 
   /**
    * <p>The configuration values that you provided.</p>
    * @public
    */
-  configurationValues?: string;
+  configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations owned by the Addon. Each EKS Pod Identity association maps a role to a service account in a namespace in the cluster.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * <p>An array of Pod Identity Assocations owned by the Addon. Each EKS Pod Identity
+   *             association maps a role to a service account in a namespace in the cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
+   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  podIdentityAssociations?: string[];
+  podIdentityAssociations?: string[] | undefined;
+}
+
+/**
+ * <p>The summary information about the Amazon EKS add-on compatibility for the next Kubernetes
+ *             version for an insight check in the <code>UPGRADE_READINESS</code> category.</p>
+ * @public
+ */
+export interface AddonCompatibilityDetail {
+  /**
+   * <p>The name of the Amazon EKS add-on.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The list of compatible Amazon EKS add-on versions for the next Kubernetes version.</p>
+   * @public
+   */
+  compatibleVersions?: string[] | undefined;
 }
 
 /**
@@ -405,19 +425,19 @@ export interface Compatibility {
    * <p>The supported Kubernetes version of the cluster.</p>
    * @public
    */
-  clusterVersion?: string;
+  clusterVersion?: string | undefined;
 
   /**
    * <p>The supported compute platform.</p>
    * @public
    */
-  platformVersions?: string[];
+  platformVersions?: string[] | undefined;
 
   /**
    * <p>The supported default version.</p>
    * @public
    */
-  defaultVersion?: boolean;
+  defaultVersion?: boolean | undefined;
 }
 
 /**
@@ -429,31 +449,38 @@ export interface AddonVersionInfo {
    * <p>The version of the add-on.</p>
    * @public
    */
-  addonVersion?: string;
+  addonVersion?: string | undefined;
 
   /**
    * <p>The architectures that the version supports.</p>
    * @public
    */
-  architecture?: string[];
+  architecture?: string[] | undefined;
+
+  /**
+   * <p>Indicates the compute type of the addon version.</p>
+   * @public
+   */
+  computeTypes?: string[] | undefined;
 
   /**
    * <p>An object representing the compatibilities of a version.</p>
    * @public
    */
-  compatibilities?: Compatibility[];
+  compatibilities?: Compatibility[] | undefined;
 
   /**
    * <p>Whether the add-on requires configuration.</p>
    * @public
    */
-  requiresConfiguration?: boolean;
+  requiresConfiguration?: boolean | undefined;
 
   /**
-   * <p>Indicates if the Addon requires IAM Permissions to operate, such as networking permissions.</p>
+   * <p>Indicates if the Addon requires IAM Permissions to operate, such as networking
+   *             permissions.</p>
    * @public
    */
-  requiresIamPermissions?: boolean;
+  requiresIamPermissions?: boolean | undefined;
 }
 
 /**
@@ -465,44 +492,46 @@ export interface AddonInfo {
    * <p>The name of the add-on.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The type of the add-on.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>An object representing information about available add-on versions and compatible
    *             Kubernetes versions.</p>
    * @public
    */
-  addonVersions?: AddonVersionInfo[];
+  addonVersions?: AddonVersionInfo[] | undefined;
 
   /**
    * <p>The publisher of the add-on.</p>
    * @public
    */
-  publisher?: string;
+  publisher?: string | undefined;
 
   /**
    * <p>The owner of the add-on.</p>
    * @public
    */
-  owner?: string;
+  owner?: string | undefined;
 
   /**
    * <p>Information about the add-on from the Amazon Web Services Marketplace.</p>
    * @public
    */
-  marketplaceInformation?: MarketplaceInformation;
+  marketplaceInformation?: MarketplaceInformation | undefined;
 }
 
 /**
  * <p>A type of Pod Identity Association owned by an Amazon EKS Add-on.</p>
- *          <p>Each EKS Pod Identity Association maps a role to a service account in a namespace in the cluster.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+ *          <p>Each EKS Pod Identity Association maps a role to a service account in a namespace in
+ *             the cluster.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
+ *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @public
  */
 export interface AddonPodIdentityAssociations {
@@ -528,13 +557,13 @@ export interface AddonPodIdentityConfiguration {
    * <p>The Kubernetes Service Account name used by the addon.</p>
    * @public
    */
-  serviceAccount?: string;
+  serviceAccount?: string | undefined;
 
   /**
    * <p>A suggested IAM Policy for the addon.</p>
    * @public
    */
-  recommendedManagedPolicies?: string[];
+  recommendedManagedPolicies?: string[] | undefined;
 }
 
 /**
@@ -543,13 +572,17 @@ export interface AddonPodIdentityConfiguration {
  */
 export const AMITypes = {
   AL2023_ARM_64_STANDARD: "AL2023_ARM_64_STANDARD",
+  AL2023_x86_64_NEURON: "AL2023_x86_64_NEURON",
+  AL2023_x86_64_NVIDIA: "AL2023_x86_64_NVIDIA",
   AL2023_x86_64_STANDARD: "AL2023_x86_64_STANDARD",
   AL2_ARM_64: "AL2_ARM_64",
   AL2_x86_64: "AL2_x86_64",
   AL2_x86_64_GPU: "AL2_x86_64_GPU",
   BOTTLEROCKET_ARM_64: "BOTTLEROCKET_ARM_64",
+  BOTTLEROCKET_ARM_64_FIPS: "BOTTLEROCKET_ARM_64_FIPS",
   BOTTLEROCKET_ARM_64_NVIDIA: "BOTTLEROCKET_ARM_64_NVIDIA",
   BOTTLEROCKET_x86_64: "BOTTLEROCKET_x86_64",
+  BOTTLEROCKET_x86_64_FIPS: "BOTTLEROCKET_x86_64_FIPS",
   BOTTLEROCKET_x86_64_NVIDIA: "BOTTLEROCKET_x86_64_NVIDIA",
   CUSTOM: "CUSTOM",
   WINDOWS_CORE_2019_x86_64: "WINDOWS_CORE_2019_x86_64",
@@ -574,8 +607,8 @@ export interface AssociateAccessPolicyRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM user or role for the <code>AccessEntry</code>
-   *             that you're associating the access policy to. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM user or role for the <code>AccessEntry</code> that you're
+   *             associating the access policy to. </p>
    * @public
    */
   principalArn: string | undefined;
@@ -604,26 +637,26 @@ export interface AssociatedAccessPolicy {
    * <p>The ARN of the <code>AccessPolicy</code>.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>The scope of the access policy.</p>
    * @public
    */
-  accessScope?: AccessScope;
+  accessScope?: AccessScope | undefined;
 
   /**
    * <p>The date and time the <code>AccessPolicy</code> was associated with an
    *                 <code>AccessEntry</code>.</p>
    * @public
    */
-  associatedAt?: Date;
+  associatedAt?: Date | undefined;
 
   /**
    * <p>The Unix epoch timestamp for the last modification to the object.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -634,20 +667,20 @@ export interface AssociateAccessPolicyResponse {
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
    * @public
    */
-  principalArn?: string;
+  principalArn?: string | undefined;
 
   /**
    * <p>The <code>AccessPolicy</code> and scope associated to the
    *             <code>AccessEntry</code>.</p>
    * @public
    */
-  associatedAccessPolicy?: AssociatedAccessPolicy;
+  associatedAccessPolicy?: AssociatedAccessPolicy | undefined;
 }
 
 /**
@@ -662,32 +695,32 @@ export class InvalidParameterException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Fargate profile associated with the exception.</p>
    * @public
    */
-  fargateProfileName?: string;
+  fargateProfileName?: string | undefined;
 
   /**
    * <p>The specified parameter for the add-on name is invalid. Review the available
    *             parameters for the API request</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -719,26 +752,26 @@ export class InvalidRequestException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The request is invalid given the state of the add-on name. Check the state of the
    *             cluster and the associated operations.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -760,7 +793,8 @@ export class InvalidRequestException extends __BaseException {
 /**
  * <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -770,31 +804,31 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Fargate profile associated with the exception.</p>
    * @public
    */
-  fargateProfileName?: string;
+  fargateProfileName?: string | undefined;
 
   /**
    * <p>The Amazon EKS add-on name associated with the exception.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -825,25 +859,25 @@ export class ServerException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Amazon EKS add-on name associated with the exception.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -863,21 +897,20 @@ export class ServerException extends __BaseException {
 }
 
 /**
- * <p>Identifies the Key Management Service (KMS) key used to encrypt the
- *             secrets.</p>
+ * <p>Identifies the Key Management Service (KMS) key used to encrypt the secrets.</p>
  * @public
  */
 export interface Provider {
   /**
-   * <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be
-   *             symmetric and created in the same Amazon Web Services Region as the cluster. If the
-   *                 KMS key was created in a different account, the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> must
-   *             have access to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
-   *                 users in other accounts to use a KMS key</a> in the
-   *                     <i>Key Management Service Developer Guide</i>.</p>
+   * <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric and created in
+   *             the same Amazon Web Services Region as the cluster. If the KMS key was created in a different
+   *             account, the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> must have access to the KMS key. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
+   *                 users in other accounts to use a KMS key</a> in the <i>Key Management Service
+   *                 Developer Guide</i>.</p>
    * @public
    */
-  keyArn?: string;
+  keyArn?: string | undefined;
 }
 
 /**
@@ -890,14 +923,13 @@ export interface EncryptionConfig {
    *                 <code>secrets</code>.</p>
    * @public
    */
-  resources?: string[];
+  resources?: string[] | undefined;
 
   /**
-   * <p>Key Management Service (KMS) key. Either the ARN or the alias can be
-   *             used.</p>
+   * <p>Key Management Service (KMS) key. Either the ARN or the alias can be used.</p>
    * @public
    */
-  provider?: Provider;
+  provider?: Provider | undefined;
 }
 
 /**
@@ -921,7 +953,7 @@ export interface AssociateEncryptionConfigRequest {
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -990,7 +1022,7 @@ export interface ErrorDetail {
    *                <p>
    *                   <b>OperationNotPermitted</b>: The service role
    *                     associated with the cluster doesn't have the required access permissions for
-   *                         Amazon EKS.</p>
+   *                     Amazon EKS.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1000,19 +1032,19 @@ export interface ErrorDetail {
    *          </ul>
    * @public
    */
-  errorCode?: ErrorCode;
+  errorCode?: ErrorCode | undefined;
 
   /**
    * <p>A more complete description of the error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>An optional field that contains the resource IDs associated with the error.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 }
 
 /**
@@ -1023,12 +1055,14 @@ export const UpdateParamType = {
   ADDON_VERSION: "AddonVersion",
   AUTHENTICATION_MODE: "AuthenticationMode",
   CLUSTER_LOGGING: "ClusterLogging",
+  COMPUTE_CONFIG: "ComputeConfig",
   CONFIGURATION_VALUES: "ConfigurationValues",
   DESIRED_SIZE: "DesiredSize",
   ENCRYPTION_CONFIG: "EncryptionConfig",
   ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
   ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
   IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
+  KUBERNETES_NETWORK_CONFIG: "KubernetesNetworkConfig",
   LABELS_TO_ADD: "LabelsToAdd",
   LABELS_TO_REMOVE: "LabelsToRemove",
   LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
@@ -1037,17 +1071,23 @@ export const UpdateParamType = {
   MAX_UNAVAILABLE: "MaxUnavailable",
   MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
   MIN_SIZE: "MinSize",
+  NODE_REPAIR_ENABLED: "NodeRepairEnabled",
   PLATFORM_VERSION: "PlatformVersion",
   POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
   RELEASE_VERSION: "ReleaseVersion",
+  REMOTE_NETWORK_CONFIG: "RemoteNetworkConfig",
   RESOLVE_CONFLICTS: "ResolveConflicts",
   SECURITY_GROUPS: "SecurityGroups",
   SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  STORAGE_CONFIG: "StorageConfig",
   SUBNETS: "Subnets",
   TAINTS_TO_ADD: "TaintsToAdd",
   TAINTS_TO_REMOVE: "TaintsToRemove",
+  UPDATE_STRATEGY: "UpdateStrategy",
+  UPGRADE_POLICY: "UpgradePolicy",
   VERSION: "Version",
+  ZONAL_SHIFT_CONFIG: "ZonalShiftConfig",
 } as const;
 
 /**
@@ -1064,13 +1104,13 @@ export interface UpdateParam {
    * <p>The keys associated with an update request.</p>
    * @public
    */
-  type?: UpdateParamType;
+  type?: UpdateParamType | undefined;
 
   /**
    * <p>The value of the keys submitted as part of an update request.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1098,12 +1138,16 @@ export const UpdateType = {
   ADDON_UPDATE: "AddonUpdate",
   ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
   ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
+  AUTO_MODE_UPDATE: "AutoModeUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
   LOGGING_UPDATE: "LoggingUpdate",
+  REMOTE_NETWORK_CONFIG_UPDATE: "RemoteNetworkConfigUpdate",
+  UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
   VERSION_UPDATE: "VersionUpdate",
   VPC_CONFIG_UPDATE: "VpcConfigUpdate",
+  ZONAL_SHIFT_CONFIG_UPDATE: "ZonalShiftConfigUpdate",
 } as const;
 
 /**
@@ -1120,37 +1164,37 @@ export interface Update {
    * <p>A UUID that is used to track the update.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The current status of the update.</p>
    * @public
    */
-  status?: UpdateStatus;
+  status?: UpdateStatus | undefined;
 
   /**
    * <p>The type of the update.</p>
    * @public
    */
-  type?: UpdateType;
+  type?: UpdateType | undefined;
 
   /**
    * <p>A key-value map that contains the parameters associated with the update.</p>
    * @public
    */
-  params?: UpdateParam[];
+  params?: UpdateParam[] | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Any errors associated with a <code>Failed</code> update.</p>
    * @public
    */
-  errors?: ErrorDetail[];
+  errors?: ErrorDetail[] | undefined;
 }
 
 /**
@@ -1161,7 +1205,7 @@ export interface AssociateEncryptionConfigResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -1177,25 +1221,25 @@ export class ClientException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Amazon EKS add-on name associated with the exception.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -1225,19 +1269,19 @@ export class ResourceInUseException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The specified add-on name is in use.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * @internal
@@ -1252,6 +1296,34 @@ export class ResourceInUseException extends __BaseException {
     this.clusterName = opts.clusterName;
     this.nodegroupName = opts.nodegroupName;
     this.addonName = opts.addonName;
+  }
+}
+
+/**
+ * <p>The request or operation couldn't be performed because a service is throttling
+ *             requests.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.clusterName = opts.clusterName;
   }
 }
 
@@ -1297,7 +1369,7 @@ export interface OidcIdentityProviderConfigRequest {
    *             issuer URL to prevent naming clashes with other plug-ins.</p>
    * @public
    */
-  usernameClaim?: string;
+  usernameClaim?: string | undefined;
 
   /**
    * <p>The prefix that is prepended to username claims to prevent clashes with existing
@@ -1306,13 +1378,13 @@ export interface OidcIdentityProviderConfigRequest {
    *             value <code>-</code> to disable all prefixing.</p>
    * @public
    */
-  usernamePrefix?: string;
+  usernamePrefix?: string | undefined;
 
   /**
    * <p>The JWT claim that the provider uses to return your groups.</p>
    * @public
    */
-  groupsClaim?: string;
+  groupsClaim?: string | undefined;
 
   /**
    * <p>The prefix that is prepended to group claims to prevent clashes with existing names
@@ -1321,16 +1393,16 @@ export interface OidcIdentityProviderConfigRequest {
    *             <code>oidc:infra</code>.</p>
    * @public
    */
-  groupsPrefix?: string;
+  groupsPrefix?: string | undefined;
 
   /**
    * <p>The key value pairs that describe required claims in the identity token. If set, each
    *             claim is verified to be present in the token with a matching value. For the maximum
-   *             number of claims that you can require, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service
-   *                 quotas</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             number of claims that you can require, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service quotas</a> in the
+   *             <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  requiredClaims?: Record<string, string>;
+  requiredClaims?: Record<string, string> | undefined;
 }
 
 /**
@@ -1355,14 +1427,14 @@ export interface AssociateIdentityProviderConfigRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -1373,27 +1445,25 @@ export interface AssociateIdentityProviderConfigResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 
   /**
    * <p>The tags for the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>An Auto Scaling group that is associated with an Amazon EKS managed node
- *             group.</p>
+ * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
  * @public
  */
 export interface AutoScalingGroup {
   /**
-   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed
-   *             node group.</p>
+   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1411,16 +1481,18 @@ export interface CreateAccessEntryRequest {
    *             same ARN in more than one access entry. This value can't be changed after access entry
    *             creation.</p>
    *          <p>The valid principals differ depending on the type of the access entry in the
-   *                 <code>type</code> field. The only valid ARN is IAM roles for the types of access
-   *             entries for nodes: <code></code>
-   *             <code></code>. You can use every IAM principal type for <code>STANDARD</code> access entries.
+   *                 <code>type</code> field. For <code>STANDARD</code> access entries, you can use every
+   *             IAM principal type. For nodes (<code>EC2</code> (for EKS Auto Mode),
+   *                 <code>EC2_LINUX</code>, <code>EC2_WINDOWS</code>, <code>FARGATE_LINUX</code>, and
+   *                 <code>HYBRID_LINUX</code>), the only valid ARN is IAM roles.
+   *
    *             You can't use the STS session principal type with access entries because this is a
    *             temporary principal for each session and not a permanent identity that can be assigned
    *             permissions.</p>
    *          <p>
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM best practices</a> recommend using IAM roles with
-   *             temporary credentials, rather than IAM users with long-term credentials.
-   *         </p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM best
+   *                 practices</a> recommend using IAM roles with temporary credentials, rather
+   *             than IAM users with long-term credentials. </p>
    * @public
    */
   principalArn: string | undefined;
@@ -1428,9 +1500,9 @@ export interface CreateAccessEntryRequest {
   /**
    * <p>The value for <code>name</code> that you've specified for <code>kind: Group</code> as
    *             a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or
-   *                 <code>ClusterRoleBinding</code> object. Amazon EKS doesn't confirm that the
-   *             value for <code>name</code> exists in any bindings on your cluster. You can specify one
-   *             or more names.</p>
+   *                 <code>ClusterRoleBinding</code> object. Amazon EKS doesn't confirm that the value for
+   *                 <code>name</code> exists in any bindings on your cluster. You can specify one or
+   *             more names.</p>
    *          <p>Kubernetes authorizes the <code>principalArn</code> of the access entry to access any
    *             cluster objects that you've specified in a Kubernetes <code>Role</code> or
    *                 <code>ClusterRole</code> object that is also specified in a binding's
@@ -1438,16 +1510,16 @@ export interface CreateAccessEntryRequest {
    *                 <code>RoleBinding</code>, <code>ClusterRoleBinding</code>, <code>Role</code>, or
    *                 <code>ClusterRole</code> objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
    *                 Authorization in the Kubernetes documentation</a>.</p>
-   *          <p>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of,
-   *             or in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate
-   *             one or more access policies to the access entry using
-   *             <code>AssociateAccessPolicy</code>. If you associate any access policies, the
-   *                 <code>principalARN</code> has all permissions assigned in the associated access
-   *             policies and all permissions in any Kubernetes <code>Role</code> or <code>ClusterRole</code>
-   *             objects that the group names are bound to.</p>
+   *          <p>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or in
+   *             addition to Kubernetes authorizing the <code>principalArn</code>), you can associate one or
+   *             more access policies to the access entry using <code>AssociateAccessPolicy</code>. If
+   *             you associate any access policies, the <code>principalARN</code> has all permissions
+   *             assigned in the associated access policies and all permissions in any Kubernetes
+   *                 <code>Role</code> or <code>ClusterRole</code> objects that the group names are bound
+   *             to.</p>
    * @public
    */
-  kubernetesGroups?: string[];
+  kubernetesGroups?: string[] | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -1455,36 +1527,37 @@ export interface CreateAccessEntryRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The username to authenticate to Kubernetes with. We recommend not specifying a username and
-   *             letting Amazon EKS specify it for you. For more information about the value
-   *                 Amazon EKS specifies for you, or constraints before specifying your own
-   *             username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
+   *             letting Amazon EKS specify it for you. For more information about the value Amazon EKS specifies
+   *             for you, or constraints before specifying your own username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
    *                 access entries</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
-   * <p>The type of the new access entry. Valid values are <code>Standard</code>,
-   *                 <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, and
-   *             <code>EC2_WINDOWS</code>.</p>
-   *          <p>If the <code>principalArn</code> is for an IAM role that's used for
-   *             self-managed Amazon EC2 nodes, specify <code>EC2_LINUX</code> or
-   *                 <code>EC2_WINDOWS</code>. Amazon EKS grants the necessary permissions to the
-   *             node for you. If the <code>principalArn</code> is for any other purpose, specify
-   *                 <code>STANDARD</code>. If you don't specify a value, Amazon EKS sets the
-   *             value to <code>STANDARD</code>. It's unnecessary to create access entries for IAM roles used with Fargate profiles or managed Amazon EC2 nodes, because Amazon EKS creates entries in the
-   *                 <code>aws-auth</code>
+   * <p>The type of the new access entry. Valid values are <code>STANDARD</code>,
+   *                 <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, <code>EC2_WINDOWS</code>,
+   *                 <code>EC2</code> (for EKS Auto Mode), <code>HYBRID_LINUX</code>, and
+   *                 <code>HYPERPOD_LINUX</code>. </p>
+   *          <p>If the <code>principalArn</code> is for an IAM role that's used for self-managed
+   *             Amazon EC2 nodes, specify <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>. Amazon EKS grants
+   *             the necessary permissions to the node for you. If the <code>principalArn</code> is for
+   *             any other purpose, specify <code>STANDARD</code>. If you don't specify a value, Amazon EKS
+   *             sets the value to <code>STANDARD</code>. If you have the access mode of the cluster set
+   *             to <code>API_AND_CONFIG_MAP</code>, it's unnecessary to create access entries for IAM
+   *             roles used with Fargate profiles or managed Amazon EC2 nodes, because Amazon EKS creates entries
+   *             in the <code>aws-auth</code>
    *             <code>ConfigMap</code> for the roles. You can't change this value once you've created
    *             the access entry.</p>
    *          <p>If you set the value to <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>, you can't
@@ -1492,7 +1565,7 @@ export interface CreateAccessEntryRequest {
    *                 <code>AccessPolicy</code> to the access entry.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 }
 
 /**
@@ -1500,14 +1573,14 @@ export interface CreateAccessEntryRequest {
  */
 export interface CreateAccessEntryResponse {
   /**
-   * <p>An access entry allows an IAM principal (user or role) to access your
-   *             cluster. Access entries can replace the need to maintain the <code>aws-auth</code>
+   * <p>An access entry allows an IAM principal (user or role) to access your cluster.
+   *             Access entries can replace the need to maintain the <code>aws-auth</code>
    *             <code>ConfigMap</code> for authentication. For more information about access entries,
    *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access
    *                 entries</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  accessEntry?: AccessEntry;
+  accessEntry?: AccessEntry | undefined;
 }
 
 /**
@@ -1521,19 +1594,19 @@ export class ResourceLimitExceededException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * @internal
@@ -1589,7 +1662,7 @@ export interface CreateAddonRequest {
    *             </a>.</p>
    * @public
    */
-  addonVersion?: string;
+  addonVersion?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account. The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the
@@ -1602,47 +1675,49 @@ export interface CreateAddonRequest {
    *          </note>
    * @public
    */
-  serviceAccountRoleArn?: string;
+  serviceAccountRoleArn?: string | undefined;
 
   /**
-   * <p>How to resolve field value conflicts for an Amazon EKS add-on. Conflicts are
-   *             handled based on the value you choose:</p>
+   * <p>How to resolve field value conflicts for an Amazon EKS add-on. Conflicts are handled based
+   *             on the value you choose:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>None</b> – If the self-managed version of
-   *                     the add-on is installed on your cluster, Amazon EKS doesn't change the
-   *                     value. Creation of the add-on might fail.</p>
+   *                     the add-on is installed on your cluster, Amazon EKS doesn't change the value.
+   *                     Creation of the add-on might fail.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Overwrite</b> – If the self-managed
-   *                     version of the add-on is installed on your cluster and the Amazon EKS
-   *                     default value is different than the existing value, Amazon EKS changes
-   *                     the value to the Amazon EKS default value.</p>
+   *                     version of the add-on is installed on your cluster and the Amazon EKS default value
+   *                     is different than the existing value, Amazon EKS changes the value to the Amazon EKS
+   *                     default value.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Preserve</b> – This is similar to the NONE
    *                     option. If the self-managed version of the add-on is installed on your cluster
-   *                         Amazon EKS doesn't change the add-on resource properties. Creation
-   *                     of the add-on might fail if conflicts are detected. This option works
-   *                     differently during the update operation. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html">UpdateAddon</a>.</p>
+   *                     Amazon EKS doesn't change the add-on resource properties. Creation of the add-on
+   *                     might fail if conflicts are detected. This option works differently during the
+   *                     update operation. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html">
+   *                      <code>UpdateAddon</code>
+   *                   </a>.</p>
    *             </li>
    *          </ul>
    *          <p>If you don't currently have the self-managed version of the add-on installed on your
-   *             cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values
-   *             to default values, regardless of the option that you specify.</p>
+   *             cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values to default values,
+   *             regardless of the option that you specify.</p>
    * @public
    */
-  resolveConflicts?: ResolveConflicts;
+  resolveConflicts?: ResolveConflicts | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -1650,7 +1725,7 @@ export interface CreateAddonRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The set of configuration values for the add-on that's created. The values that you
@@ -1658,14 +1733,16 @@ export interface CreateAddonRequest {
    *                 <code>DescribeAddonConfiguration</code>.</p>
    * @public
    */
-  configurationValues?: string;
+  configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association maps a Kubernetes service account to an IAM Role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * <p>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association
+   *             maps a Kubernetes service account to an IAM Role.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
+   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  podIdentityAssociations?: AddonPodIdentityAssociations[];
+  podIdentityAssociations?: AddonPodIdentityAssociations[] | undefined;
 }
 
 /**
@@ -1673,11 +1750,11 @@ export interface CreateAddonRequest {
  */
 export interface CreateAddonResponse {
   /**
-   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
-   *             the <i>Amazon EKS User Guide</i>.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the
+   *             <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  addon?: Addon;
+  addon?: Addon | undefined;
 }
 
 /**
@@ -1686,12 +1763,12 @@ export interface CreateAddonResponse {
  */
 export interface CreateAccessConfigRequest {
   /**
-   * <p>Specifies whether or not the cluster creator IAM principal was set as a
-   *             cluster admin access entry during cluster creation time. The default value is
-   *                 <code>true</code>.</p>
+   * <p>Specifies whether or not the cluster creator IAM principal was set as a cluster
+   *             admin access entry during cluster creation time. The default value is
+   *             <code>true</code>.</p>
    * @public
    */
-  bootstrapClusterCreatorAdminPermissions?: boolean;
+  bootstrapClusterCreatorAdminPermissions?: boolean | undefined;
 
   /**
    * <p>The desired authentication mode for the cluster. If you create a cluster by using the
@@ -1700,7 +1777,56 @@ export interface CreateAccessConfigRequest {
    *             <code>API_AND_CONFIG_MAP</code>.</p>
    * @public
    */
-  authenticationMode?: AuthenticationMode;
+  authenticationMode?: AuthenticationMode | undefined;
+}
+
+/**
+ * <p>Request to update the configuration of the compute capability of your EKS Auto Mode
+ *             cluster. For example, enable the capability. For more information, see EKS Auto Mode
+ *             compute capability in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface ComputeConfigRequest {
+  /**
+   * <p>Request to enable or disable the compute capability on your EKS Auto Mode cluster. If
+   *             the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed
+   *             Instances in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>Configuration for node pools that defines the compute resources for your EKS Auto Mode
+   *             cluster. For more information, see EKS Auto Mode Node Pools in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  nodePools?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto
+   *             Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode
+   *             is enabled. For more information, see the IAM Reference in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  nodeRoleArn?: string | undefined;
+}
+
+/**
+ * <p>Indicates the current configuration of the load balancing capability on your EKS Auto
+ *             Mode cluster. For example, if the capability is enabled or disabled. For more
+ *             information, see EKS Auto Mode load balancing capability in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface ElasticLoadBalancing {
+  /**
+   * <p>Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster.
+   *             If the load balancing capability is enabled, EKS Auto Mode will create and delete load
+   *             balancers in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -1748,7 +1874,7 @@ export interface KubernetesNetworkConfigRequest {
    *          </important>
    * @public
    */
-  serviceIpv4Cidr?: string;
+  serviceIpv4Cidr?: string | undefined;
 
   /**
    * <p>Specify which IP family is used to assign Kubernetes pod and service IP addresses. If you
@@ -1762,13 +1888,21 @@ export interface KubernetesNetworkConfigRequest {
    *             use version <code>1.10.1</code> or later of the Amazon VPC CNI add-on. If you specify
    *                 <code>ipv6</code>, then ensure that your VPC meets the requirements listed in the
    *             considerations listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning IPv6 addresses to pods and
-   *                 services</a> in the Amazon EKS User Guide. Kubernetes assigns services
-   *                 <code>IPv6</code> addresses from the unique local address range
-   *                 <code>(fc00::/7)</code>. You can't specify a custom <code>IPv6</code> CIDR block.
-   *             Pod addresses are assigned from the subnet's <code>IPv6</code> CIDR.</p>
+   *                 services</a> in the <i>Amazon EKS User Guide</i>. Kubernetes assigns services <code>IPv6</code>
+   *             addresses from the unique local address range <code>(fc00::/7)</code>. You can't specify
+   *             a custom <code>IPv6</code> CIDR block. Pod addresses are assigned from the subnet's
+   *                 <code>IPv6</code> CIDR.</p>
    * @public
    */
-  ipFamily?: IpFamily;
+  ipFamily?: IpFamily | undefined;
+
+  /**
+   * <p>Request to enable or disable the load balancing capability on your EKS Auto Mode
+   *             cluster. For more information, see EKS Auto Mode load balancing capability in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  elasticLoadBalancing?: ElasticLoadBalancing | undefined;
 }
 
 /**
@@ -1798,14 +1932,15 @@ export interface LogSetup {
    * <p>The available cluster control plane log types.</p>
    * @public
    */
-  types?: LogType[];
+  types?: LogType[] | undefined;
 
   /**
-   * <p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs. If a log type isn't enabled, that log type doesn't export its control
-   *             plane logs. Each individual log type can be enabled or disabled independently.</p>
+   * <p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs . If a
+   *             log type isn't enabled, that log type doesn't export its control plane logs. Each
+   *             individual log type can be enabled or disabled independently.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -1817,13 +1952,13 @@ export interface Logging {
    * <p>The cluster control plane logging configuration for your cluster.</p>
    * @public
    */
-  clusterLogging?: LogSetup[];
+  clusterLogging?: LogSetup[] | undefined;
 }
 
 /**
- * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
- *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
- *                 considerations</a> in the Amazon EKS User Guide.</p>
+ * <p>The placement configuration for all the control plane instances of your local Amazon EKS
+ *             cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+ *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @public
  */
 export interface ControlPlanePlacementRequest {
@@ -1832,27 +1967,28 @@ export interface ControlPlanePlacementRequest {
    *             can't be changed after cluster creation. </p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
- * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services
- *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local
+ * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services Outpost. Before creating a
+ *             cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local
  *                 cluster on an Outpost</a> in the <i>Amazon EKS User Guide</i>. This API isn't available for
- *                 Amazon EKS clusters on the Amazon Web Services cloud.</p>
+ *             Amazon EKS clusters on the Amazon Web Services cloud.</p>
  * @public
  */
 export interface OutpostConfigRequest {
   /**
-   * <p>The ARN of the Outpost that you want to use for your local Amazon EKS
-   *             cluster on Outposts. Only a single Outpost ARN is supported.</p>
+   * <p>The ARN of the Outpost that you want to use for your local Amazon EKS cluster on
+   *             Outposts. Only a single Outpost ARN is supported.</p>
    * @public
    */
   outpostArns: string[] | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. Choose an instance type based on the number of nodes
-   *             that your cluster will have. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts.
+   *             Choose an instance type based on the number of nodes that your cluster will have. For
+   *             more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
    *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
    *          <p>The instance type that you specify is used for all Kubernetes control plane instances. The
    *             instance type can't be changed after cluster creation. The control plane is not
@@ -1864,82 +2000,356 @@ export interface OutpostConfigRequest {
 
   /**
    * <p>An object representing the placement configuration for all the control plane instances
-   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  controlPlanePlacement?: ControlPlanePlacementRequest;
+  controlPlanePlacement?: ControlPlanePlacementRequest | undefined;
 }
 
 /**
- * <p>An object representing the VPC configuration to use for an Amazon EKS
- *             cluster.</p>
+ * <p>A network CIDR that can contain hybrid nodes.</p>
+ *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+ *             the cluster. These blocks are typically determined by your network administrator. </p>
+ *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+ *                 <code> 10.2.0.0/16</code>).</p>
+ *          <p>It must satisfy the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+ *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     aren't supported.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+ *                     resources, or the block of the Kubernetes service IP range.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+ *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+ *                     Site-to-Site VPN, or Direct Connect.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+ *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+ *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+ *             </li>
+ *             <li>
+ *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+ *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+ *                     names.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RemoteNodeNetwork {
+  /**
+   * <p>A network CIDR that can contain hybrid nodes.</p>
+   *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+   *             the cluster. These blocks are typically determined by your network administrator. </p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+   *                 <code> 10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+   *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+   *                     Site-to-Site VPN, or Direct Connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+   *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+   *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+   *             </li>
+   *             <li>
+   *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+   *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+   *                     names.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+}
+
+/**
+ * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+ *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+ *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+ *             available for on-premises and edge locations.</p>
+ *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+ *                 <code> 10.2.0.0/16</code>).</p>
+ *          <p>It must satisfy the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+ *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     aren't supported.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+ *                     resources, or the block of the Kubernetes service IP range.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RemotePodNetwork {
+  /**
+   * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+   *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+   *             available for on-premises and edge locations.</p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+   *                 <code> 10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+}
+
+/**
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+ *             configuration after the cluster is created.</p>
+ * @public
+ */
+export interface RemoteNetworkConfigRequest {
+  /**
+   * <p>The list of network CIDRs that can contain hybrid nodes.</p>
+   *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+   *             the cluster. These blocks are typically determined by your network administrator. </p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+   *                 <code> 10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+   *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+   *                     Site-to-Site VPN, or Direct Connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+   *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+   *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+   *             </li>
+   *             <li>
+   *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+   *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+   *                     names.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  remoteNodeNetworks?: RemoteNodeNetwork[] | undefined;
+
+  /**
+   * <p>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid
+   *             nodes.</p>
+   *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+   *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+   *             available for on-premises and edge locations.</p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example,
+   *                 <code> 10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  remotePodNetworks?: RemotePodNetwork[] | undefined;
+}
+
+/**
+ * <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
  * @public
  */
 export interface VpcConfigRequest {
   /**
-   * <p>Specify subnets for your Amazon EKS nodes. Amazon EKS creates
-   *             cross-account elastic network interfaces in these subnets to allow communication between
-   *             your nodes and the Kubernetes control plane.</p>
+   * <p>Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network
+   *             interfaces in these subnets to allow communication between your nodes and the Kubernetes
+   *             control plane.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>Specify one or more security groups for the cross-account elastic network interfaces
-   *             that Amazon EKS creates to use that allow communication between your nodes and
-   *             the Kubernetes control plane. If you don't specify any security groups, then familiarize
-   *             yourself with the difference between Amazon EKS defaults for clusters deployed
-   *             with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Amazon EKS security group
+   *             that Amazon EKS creates to use that allow communication between your nodes and the Kubernetes
+   *             control plane. If you don't specify any security groups, then familiarize yourself with
+   *             the difference between Amazon EKS defaults for clusters deployed with Kubernetes. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Amazon EKS security group
    *                 considerations</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>Set this value to <code>false</code> to disable public access to your cluster's Kubernetes
    *             API server endpoint. If you disable public access, your cluster's Kubernetes API server can
    *             only receive requests from within the cluster VPC. The default value for this parameter
    *             is <code>true</code>, which enables public access for your Kubernetes API server. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in
-   *             the <i>
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in the
+   *                 <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
    */
-  endpointPublicAccess?: boolean;
+  endpointPublicAccess?: boolean | undefined;
 
   /**
    * <p>Set this value to <code>true</code> to enable private access for your cluster's Kubernetes
    *             API server endpoint. If you enable private access, Kubernetes API requests from within your
    *             cluster's VPC use the private VPC endpoint. The default value for this parameter is
    *                 <code>false</code>, which disables private access for your Kubernetes API server. If you
-   *             disable private access and you have nodes or Fargate pods in the
-   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the nodes or Fargate pods. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in
-   *             the <i>
+   *             disable private access and you have nodes or Fargate pods in the cluster, then
+   *             ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for
+   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
    */
-  endpointPrivateAccess?: boolean;
+  endpointPrivateAccess?: boolean | undefined;
 
   /**
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
    *             you specify is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled
    *             private endpoint access, make sure that you specify the necessary CIDR blocks for every
-   *             node and Fargate
-   *             <code>Pod</code> in the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in the
-   *                 <i>
+   *             node and Fargate <code>Pod</code> in the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
    */
-  publicAccessCidrs?: string[];
+  publicAccessCidrs?: string[] | undefined;
+}
+
+/**
+ * <p>Indicates the current configuration of the block storage capability on your EKS Auto
+ *             Mode cluster. For example, if the capability is enabled or disabled. If the block
+ *             storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your
+ *             Amazon Web Services account. For more information, see EKS Auto Mode block storage capability in the
+ *             <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface BlockStorage {
+  /**
+   * <p>Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If
+   *             the block storage capability is enabled, EKS Auto Mode will create and delete EBS
+   *             volumes in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
+ * <p>Request to update the configuration of the storage capability of your EKS Auto Mode
+ *             cluster. For example, enable the capability. For more information, see EKS Auto Mode
+ *             block storage capability in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface StorageConfigRequest {
+  /**
+   * <p>Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.</p>
+   * @public
+   */
+  blockStorage?: BlockStorage | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportType = {
+  EXTENDED: "EXTENDED",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportType = (typeof SupportType)[keyof typeof SupportType];
+
+/**
+ * <p>The support policy to use for the cluster. Extended support allows you to remain on
+ *             specific Kubernetes versions for longer. Clusters in extended support have higher costs. The
+ *             default value is <code>EXTENDED</code>. Use <code>STANDARD</code> to disable extended
+ *             support.</p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a>
+ *          </p>
+ * @public
+ */
+export interface UpgradePolicyRequest {
+  /**
+   * <p>If the cluster is set to <code>EXTENDED</code>, it will enter extended support at the
+   *             end of standard support. If the cluster is set to <code>STANDARD</code>, it will be
+   *             automatically upgraded at the end of standard support.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a>
+   *          </p>
+   * @public
+   */
+  supportType?: SupportType | undefined;
+}
+
+/**
+ * <p>The configuration for zonal shift for the cluster.</p>
+ * @public
+ */
+export interface ZonalShiftConfigRequest {
+  /**
+   * <p>If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -1947,7 +2357,10 @@ export interface VpcConfigRequest {
  */
 export interface CreateClusterRequest {
   /**
-   * <p>The unique name to give to your cluster.</p>
+   * <p>The unique name to give to your cluster. The name can contain only alphanumeric characters (case-sensitive),
+   * hyphens, and underscores. It must start with an alphanumeric character and can't be longer than
+   * 100 characters. The name must be unique within the Amazon Web Services Region and Amazon Web Services account that you're
+   * creating the cluster in.</p>
    * @public
    */
   name: string | undefined;
@@ -1960,12 +2373,12 @@ export interface CreateClusterRequest {
    *          </note>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes
-   *             control plane to make calls to Amazon Web Services API operations on your behalf. For
-   *             more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in the <i>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane
+   *             to make calls to Amazon Web Services API operations on your behalf. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service
+   *                 IAM Role</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
@@ -1973,9 +2386,8 @@ export interface CreateClusterRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The VPC configuration that's used by the cluster control plane. Amazon EKS VPC
-   *             resources have specific requirements to work properly with Kubernetes. For more information,
-   *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
+   * <p>The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources
+   *             have specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
    *                 Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
    *             <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five
    *             security groups. However, we recommend that you use a dedicated security group for your
@@ -1988,28 +2400,30 @@ export interface CreateClusterRequest {
    * <p>The Kubernetes network configuration for the cluster.</p>
    * @public
    */
-  kubernetesNetworkConfig?: KubernetesNetworkConfigRequest;
+  kubernetesNetworkConfig?: KubernetesNetworkConfigRequest | undefined;
 
   /**
-   * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster control plane logs</a> in the
-   *                 <i>
+   * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs .
+   *             By default, cluster control plane logs aren't exported to CloudWatch Logs . For more information,
+   *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
+   *                 Cluster control plane logs</a> in the
+   *             <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    *          <note>
-   *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
-   *                 exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
-   *                 Pricing</a>.</p>
+   *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
    *          </note>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -2017,38 +2431,89 @@ export interface CreateClusterRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The encryption configuration for the cluster.</p>
    * @public
    */
-  encryptionConfig?: EncryptionConfig[];
+  encryptionConfig?: EncryptionConfig[] | undefined;
 
   /**
-   * <p>An object representing the configuration of your local Amazon EKS cluster on
-   *             an Amazon Web Services Outpost. Before creating a local cluster on an Outpost, review
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html">Local clusters
-   *                 for Amazon EKS on Amazon Web Services Outposts</a> in the
-   *             <i>Amazon EKS User Guide</i>. This object isn't available for creating Amazon EKS clusters
-   *             on the Amazon Web Services cloud.</p>
+   * <p>An object representing the configuration of your local Amazon EKS cluster on an Amazon Web Services
+   *             Outpost. Before creating a local cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html">Local clusters
+   *                 for Amazon EKS on Amazon Web Services Outposts</a> in the <i>Amazon EKS User Guide</i>. This object isn't
+   *             available for creating Amazon EKS clusters on the Amazon Web Services cloud.</p>
    * @public
    */
-  outpostConfig?: OutpostConfigRequest;
+  outpostConfig?: OutpostConfigRequest | undefined;
 
   /**
    * <p>The access configuration for the cluster.</p>
    * @public
    */
-  accessConfig?: CreateAccessConfigRequest;
+  accessConfig?: CreateAccessConfigRequest | undefined;
 
   /**
-   * <p>If you set this value to <code>False</code> when creating a cluster, the default networking add-ons will not be installed.</p>
+   * <p>If you set this value to <code>False</code> when creating a cluster, the default
+   *             networking add-ons will not be installed.</p>
    *          <p>The default networking addons include vpc-cni, coredns, and kube-proxy.</p>
-   *          <p>Use this option when you plan to install third-party alternative add-ons or self-manage the default networking add-ons.</p>
+   *          <p>Use this option when you plan to install third-party alternative add-ons or
+   *             self-manage the default networking add-ons.</p>
    * @public
    */
-  bootstrapSelfManagedAddons?: boolean;
+  bootstrapSelfManagedAddons?: boolean | undefined;
+
+  /**
+   * <p>New clusters, by default, have extended support enabled. You can disable extended
+   *             support when creating a cluster by setting this value to <code>STANDARD</code>.</p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyRequest | undefined;
+
+  /**
+   * <p>Enable or disable ARC zonal shift for the cluster. If zonal shift is enabled, Amazon Web Services
+   *             configures zonal autoshift for the cluster.</p>
+   *          <p>Zonal shift is a feature of Amazon Application Recovery Controller (ARC). ARC zonal shift is designed to be a
+   *             temporary measure that allows you to move traffic for a resource away from an impaired
+   *             AZ until the zonal shift expires or you cancel it. You can extend the zonal shift if
+   *             necessary.</p>
+   *          <p>You can start a zonal shift for an Amazon EKS cluster, or you can allow Amazon Web Services to do it for
+   *             you by enabling <i>zonal autoshift</i>. This shift updates the flow of
+   *             east-to-west network traffic in your cluster to only consider network endpoints for Pods
+   *             running on worker nodes in healthy AZs. Additionally, any ALB or NLB handling ingress
+   *             traffic for applications in your Amazon EKS cluster will automatically route traffic to
+   *             targets in the healthy AZs. For more information about zonal shift in EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html">Learn about
+   *                 Amazon Application Recovery Controller (ARC) Zonal Shift in Amazon EKS</a> in the
+   *                 <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigRequest | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigRequest | undefined;
+
+  /**
+   * <p>Enable or disable the compute capability of EKS Auto Mode when creating your EKS Auto
+   *             Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete
+   *             EC2 Managed Instances in your Amazon Web Services account</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigRequest | undefined;
+
+  /**
+   * <p>Enable or disable the block storage capability of EKS Auto Mode when creating your EKS
+   *             Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create
+   *             and delete EBS volumes in your Amazon Web Services account.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigRequest | undefined;
 }
 
 /**
@@ -2063,7 +2528,36 @@ export interface Certificate {
    *                 <code>kubeconfig</code> file for your cluster.</p>
    * @public
    */
-  data?: string;
+  data?: string | undefined;
+}
+
+/**
+ * <p>Indicates the status of the request to update the compute capability of your EKS Auto
+ *             Mode cluster.</p>
+ * @public
+ */
+export interface ComputeConfigResponse {
+  /**
+   * <p>Indicates if the compute capability is enabled on your EKS Auto Mode cluster. If the
+   *             compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed
+   *             Instances in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates the current configuration of node pools in your EKS Auto Mode cluster. For
+   *             more information, see EKS Auto Mode Node Pools in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  nodePools?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto
+   *             Mode cluster.</p>
+   * @public
+   */
+  nodeRoleArn?: string | undefined;
 }
 
 /**
@@ -2075,33 +2569,33 @@ export interface ConnectorConfigResponse {
    * <p>A unique ID associated with the cluster for registration purposes.</p>
    * @public
    */
-  activationId?: string;
+  activationId?: string | undefined;
 
   /**
    * <p>A unique code associated with the cluster for registration purposes.</p>
    * @public
    */
-  activationCode?: string;
+  activationCode?: string | undefined;
 
   /**
    * <p>The expiration time of the connected cluster. The cluster's YAML file must be applied
    *             through the native provider.</p>
    * @public
    */
-  activationExpiry?: Date;
+  activationExpiry?: Date | undefined;
 
   /**
    * <p>The cluster's cloud service provider.</p>
    * @public
    */
-  provider?: string;
+  provider?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role to communicate with services from the connected Kubernetes
    *             cluster.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -2144,19 +2638,19 @@ export interface ClusterIssue {
    * <p>The error code of the issue.</p>
    * @public
    */
-  code?: ClusterIssueCode;
+  code?: ClusterIssueCode | undefined;
 
   /**
    * <p>A description of the issue.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The resource IDs that the issue relates to.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 }
 
 /**
@@ -2168,7 +2662,7 @@ export interface ClusterHealth {
    * <p>An object representing the health issues of your Amazon EKS cluster.</p>
    * @public
    */
-  issues?: ClusterIssue[];
+  issues?: ClusterIssue[] | undefined;
 }
 
 /**
@@ -2181,7 +2675,7 @@ export interface OIDC {
    * <p>The issuer URL for the OIDC identity provider.</p>
    * @public
    */
-  issuer?: string;
+  issuer?: string | undefined;
 }
 
 /**
@@ -2194,7 +2688,7 @@ export interface Identity {
    *             identity provider information.</p>
    * @public
    */
-  oidc?: OIDC;
+  oidc?: OIDC | undefined;
 }
 
 /**
@@ -2213,7 +2707,7 @@ export interface KubernetesNetworkConfigResponse {
    *             changed.</p>
    * @public
    */
-  serviceIpv4Cidr?: string;
+  serviceIpv4Cidr?: string | undefined;
 
   /**
    * <p>The CIDR block that Kubernetes pod and service IP addresses are assigned from if you
@@ -2224,7 +2718,7 @@ export interface KubernetesNetworkConfigResponse {
    *             create the cluster.</p>
    * @public
    */
-  serviceIpv6Cidr?: string;
+  serviceIpv6Cidr?: string | undefined;
 
   /**
    * <p>The IP family used to assign Kubernetes <code>Pod</code> and <code>Service</code> objects
@@ -2234,12 +2728,19 @@ export interface KubernetesNetworkConfigResponse {
    *         </p>
    * @public
    */
-  ipFamily?: IpFamily;
+  ipFamily?: IpFamily | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the load balancing capability on your EKS Auto
+   *             Mode cluster. For example, if the capability is enabled or disabled.</p>
+   * @public
+   */
+  elasticLoadBalancing?: ElasticLoadBalancing | undefined;
 }
 
 /**
- * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
- *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * <p>The placement configuration for all the control plane instances of your local Amazon EKS
+ *             cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @public
  */
 export interface ControlPlanePlacementResponse {
@@ -2247,43 +2748,60 @@ export interface ControlPlanePlacementResponse {
    * <p>The name of the placement group for the Kubernetes control plane instances.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
- * <p>An object representing the configuration of your local Amazon EKS cluster on
- *             an Amazon Web Services Outpost. This API isn't available for Amazon EKS clusters
- *             on the Amazon Web Services cloud.</p>
+ * <p>An object representing the configuration of your local Amazon EKS cluster on an Amazon Web Services
+ *             Outpost. This API isn't available for Amazon EKS clusters on the Amazon Web Services cloud.</p>
  * @public
  */
 export interface OutpostConfigResponse {
   /**
-   * <p>The ARN of the Outpost that you specified for use with your local Amazon EKS
-   *             cluster on Outposts.</p>
+   * <p>The ARN of the Outpost that you specified for use with your local Amazon EKS cluster on
+   *             Outposts.</p>
    * @public
    */
   outpostArns: string[] | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type used for the control plane. The instance type is
-   *             the same for all control plane instances.</p>
+   * <p>The Amazon EC2 instance type used for the control plane. The instance type is the same for
+   *             all control plane instances.</p>
    * @public
    */
   controlPlaneInstanceType: string | undefined;
 
   /**
    * <p>An object representing the placement configuration for all the control plane instances
-   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
    *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  controlPlanePlacement?: ControlPlanePlacementResponse;
+  controlPlanePlacement?: ControlPlanePlacementResponse | undefined;
 }
 
 /**
- * <p>An object representing an Amazon EKS cluster VPC configuration
- *             response.</p>
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+ *             configuration after the cluster is created.</p>
+ * @public
+ */
+export interface RemoteNetworkConfigResponse {
+  /**
+   * <p>The list of network CIDRs that can contain hybrid nodes.</p>
+   * @public
+   */
+  remoteNodeNetworks?: RemoteNodeNetwork[] | undefined;
+
+  /**
+   * <p>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid
+   *             nodes.</p>
+   * @public
+   */
+  remotePodNetworks?: RemotePodNetwork[] | undefined;
+}
+
+/**
+ * <p>An object representing an Amazon EKS cluster VPC configuration response.</p>
  * @public
  */
 export interface VpcConfigResponse {
@@ -2291,56 +2809,56 @@ export interface VpcConfigResponse {
    * <p>The subnets associated with your cluster.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The security groups associated with the cross-account elastic network interfaces that
    *             are used to allow communication between your nodes and the Kubernetes control plane.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The cluster security group that was created by Amazon EKS for the cluster.
-   *             Managed node groups use this security group for control-plane-to-data-plane
-   *             communication.</p>
+   * <p>The cluster security group that was created by Amazon EKS for the cluster. Managed node
+   *             groups use this security group for control-plane-to-data-plane communication.</p>
    * @public
    */
-  clusterSecurityGroupId?: string;
+  clusterSecurityGroupId?: string | undefined;
 
   /**
    * <p>The VPC associated with your cluster.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>Whether the public API server endpoint is enabled.</p>
    * @public
    */
-  endpointPublicAccess?: boolean;
+  endpointPublicAccess?: boolean | undefined;
 
   /**
-   * <p>This parameter indicates whether the Amazon EKS private API server endpoint is
-   *             enabled. If the Amazon EKS private API server endpoint is enabled, Kubernetes API
-   *             requests that originate from within your cluster's VPC use the private VPC endpoint
-   *             instead of traversing the internet. If this value is disabled and you have nodes or
-   *                 Fargate pods in the cluster, then ensure that
-   *                 <code>publicAccessCidrs</code> includes the necessary CIDR blocks for communication
-   *             with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in the
-   *                 <i>
+   * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
+   *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate from
+   *             within your cluster's VPC use the private VPC endpoint instead of traversing the
+   *             internet. If this value is disabled and you have nodes or Fargate pods in the
+   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
+   *             blocks for communication with the nodes or Fargate pods. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
+   *                 cluster endpoint access control</a> in the
+   *             <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
    */
-  endpointPrivateAccess?: boolean;
+  endpointPrivateAccess?: boolean | undefined;
 
   /**
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint.</p>
    * @public
    */
-  publicAccessCidrs?: string[];
+  publicAccessCidrs?: string[] | undefined;
 }
 
 /**
@@ -2362,6 +2880,53 @@ export const ClusterStatus = {
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
+ * <p>Indicates the status of the request to update the block storage capability of your EKS
+ *             Auto Mode cluster.</p>
+ * @public
+ */
+export interface StorageConfigResponse {
+  /**
+   * <p>Indicates the current configuration of the block storage capability on your EKS Auto
+   *             Mode cluster. For example, if the capability is enabled or disabled.</p>
+   * @public
+   */
+  blockStorage?: BlockStorage | undefined;
+}
+
+/**
+ * <p>This value indicates if extended support is enabled or disabled for the
+ *             cluster.</p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a>
+ *          </p>
+ * @public
+ */
+export interface UpgradePolicyResponse {
+  /**
+   * <p>If the cluster is set to <code>EXTENDED</code>, it will enter extended support at the
+   *             end of standard support. If the cluster is set to <code>STANDARD</code>, it will be
+   *             automatically upgraded at the end of standard support.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a>
+   *          </p>
+   * @public
+   */
+  supportType?: SupportType | undefined;
+}
+
+/**
+ * <p>The status of zonal shift configuration for the cluster</p>
+ * @public
+ */
+export interface ZonalShiftConfigResponse {
+  /**
+   * <p>Whether the zonal shift is enabled.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>An object representing an Amazon EKS cluster.</p>
  * @public
  */
@@ -2370,89 +2935,88 @@ export interface Cluster {
    * <p>The name of your cluster.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Kubernetes server version for the cluster.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The endpoint for your Kubernetes API server.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes
-   *             control plane to make calls to Amazon Web Services API operations on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane
+   *             to make calls to Amazon Web Services API operations on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
-   * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC
-   *             resources have specific requirements to work properly with Kubernetes. For more information,
-   *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
+   * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have
+   *             specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
    *                 considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster security group considerations</a> in the
    *             <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  resourcesVpcConfig?: VpcConfigResponse;
+  resourcesVpcConfig?: VpcConfigResponse | undefined;
 
   /**
    * <p>The Kubernetes network configuration for the cluster.</p>
    * @public
    */
-  kubernetesNetworkConfig?: KubernetesNetworkConfigResponse;
+  kubernetesNetworkConfig?: KubernetesNetworkConfigResponse | undefined;
 
   /**
    * <p>The logging configuration for your cluster.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>The identity provider information for the cluster.</p>
    * @public
    */
-  identity?: Identity;
+  identity?: Identity | undefined;
 
   /**
    * <p>The current status of the cluster.</p>
    * @public
    */
-  status?: ClusterStatus;
+  status?: ClusterStatus | undefined;
 
   /**
    * <p>The <code>certificate-authority-data</code> for your cluster.</p>
    * @public
    */
-  certificateAuthority?: Certificate;
+  certificateAuthority?: Certificate | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
-   * <p>The platform version of your Amazon EKS cluster. For more information about
-   *             clusters deployed on the Amazon Web Services Cloud, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html">Platform
+   * <p>The platform version of your Amazon EKS cluster. For more information about clusters
+   *             deployed on the Amazon Web Services Cloud, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html">Platform
    *                 versions</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>. For more information
@@ -2462,7 +3026,7 @@ export interface Cluster {
    *             </i>.</p>
    * @public
    */
-  platformVersion?: string;
+  platformVersion?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -2470,46 +3034,88 @@ export interface Cluster {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The encryption configuration for the cluster.</p>
    * @public
    */
-  encryptionConfig?: EncryptionConfig[];
+  encryptionConfig?: EncryptionConfig[] | undefined;
 
   /**
    * <p>The configuration used to connect to a cluster for registration.</p>
    * @public
    */
-  connectorConfig?: ConnectorConfigResponse;
+  connectorConfig?: ConnectorConfigResponse | undefined;
 
   /**
-   * <p>The ID of your local Amazon EKS cluster on an Amazon Web Services Outpost. This
-   *             property isn't available for an Amazon EKS cluster on the Amazon Web Services
-   *             cloud.</p>
+   * <p>The ID of your local Amazon EKS cluster on an Amazon Web Services Outpost. This property isn't available
+   *             for an Amazon EKS cluster on the Amazon Web Services cloud.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>An object representing the health of your Amazon EKS cluster.</p>
    * @public
    */
-  health?: ClusterHealth;
+  health?: ClusterHealth | undefined;
 
   /**
-   * <p>An object representing the configuration of your local Amazon EKS cluster on
-   *             an Amazon Web Services Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
+   * <p>An object representing the configuration of your local Amazon EKS cluster on an Amazon Web Services
+   *             Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
    * @public
    */
-  outpostConfig?: OutpostConfigResponse;
+  outpostConfig?: OutpostConfigResponse | undefined;
 
   /**
    * <p>The access configuration for the cluster.</p>
    * @public
    */
-  accessConfig?: AccessConfigResponse;
+  accessConfig?: AccessConfigResponse | undefined;
+
+  /**
+   * <p>This value indicates if extended support is enabled or disabled for the
+   *             cluster.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a>
+   *          </p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyResponse | undefined;
+
+  /**
+   * <p>The configuration for zonal shift for the cluster.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigResponse | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigResponse | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the compute capability on your EKS Auto Mode
+   *             cluster. For example, if the capability is enabled or disabled. If the compute
+   *             capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in
+   *             your Amazon Web Services account. For more information, see EKS Auto Mode compute capability in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigResponse | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the block storage capability on your EKS Auto
+   *             Mode cluster. For example, if the capability is enabled or disabled. If the block
+   *             storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your
+   *             Amazon Web Services account. For more information, see EKS Auto Mode block storage capability in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigResponse | undefined;
 }
 
 /**
@@ -2520,7 +3126,7 @@ export interface CreateClusterResponse {
    * <p>The full description of your new cluster.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -2544,10 +3150,9 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>At least one of your specified cluster subnets is in an Availability Zone that does
- *             not support Amazon EKS. The exception output specifies the supported
- *             Availability Zones for your account, from which you can choose subnets for your
- *             cluster.</p>
+ * <p>At least one of your specified cluster subnets is in an Availability Zone that does not support
+ *             Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which
+ *             you can choose subnets for your cluster.</p>
  * @public
  */
 export class UnsupportedAvailabilityZoneException extends __BaseException {
@@ -2557,20 +3162,20 @@ export class UnsupportedAvailabilityZoneException extends __BaseException {
    * <p>The Amazon EKS cluster associated with the exception.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
-   * <p>The supported Availability Zones for your account. Choose subnets in these
-   *             Availability Zones for your cluster.</p>
+   * <p>The supported Availability Zones for your account. Choose subnets in these Availability Zones for your
+   *             cluster.</p>
    * @public
    */
-  validZones?: string[];
+  validZones?: string[] | undefined;
 
   /**
    * @internal
@@ -2628,13 +3233,13 @@ export interface EksAnywhereSubscriptionTerm {
    *             month or 36 month subscription.</p>
    * @public
    */
-  duration?: number;
+  duration?: number | undefined;
 
   /**
    * <p>The term unit of the subscription. Valid value is <code>MONTHS</code>.</p>
    * @public
    */
-  unit?: EksAnywhereSubscriptionTermUnit;
+  unit?: EksAnywhereSubscriptionTermUnit | undefined;
 }
 
 /**
@@ -2664,7 +3269,7 @@ export interface CreateEksAnywhereSubscriptionRequest {
    *             and 100. This value can't be changed after creating the subscription.</p>
    * @public
    */
-  licenseQuantity?: number;
+  licenseQuantity?: number | undefined;
 
   /**
    * <p>The license type for all licenses in the subscription. Valid value is CLUSTER. With
@@ -2672,21 +3277,21 @@ export interface CreateEksAnywhereSubscriptionRequest {
    *             cluster.</p>
    * @public
    */
-  licenseType?: EksAnywhereSubscriptionLicenseType;
+  licenseType?: EksAnywhereSubscriptionLicenseType | undefined;
 
   /**
    * <p>A boolean indicating whether the subscription auto renews at the end of the
    *             term.</p>
    * @public
    */
-  autoRenew?: boolean;
+  autoRenew?: boolean | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The metadata for a subscription to assist with categorization and organization. Each
@@ -2694,7 +3299,25 @@ export interface CreateEksAnywhereSubscriptionRequest {
    *             other resources associated with the subscription.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>An EKS Anywhere license associated with a subscription.</p>
+ * @public
+ */
+export interface License {
+  /**
+   * <p>An id associated with an EKS Anywhere subscription license.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>An optional license token that can be used for extended support verification.</p>
+   * @public
+   */
+  token?: string | undefined;
 }
 
 /**
@@ -2707,39 +3330,39 @@ export interface EksAnywhereSubscription {
    * <p>UUID identifying a subscription.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the subscription.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Unix timestamp in seconds for when the subscription was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Unix timestamp in seconds for when the subscription is effective.</p>
    * @public
    */
-  effectiveDate?: Date;
+  effectiveDate?: Date | undefined;
 
   /**
    * <p>The Unix timestamp in seconds for when the subscription will expire or auto renew,
    *             depending on the auto renew configuration of the subscription object.</p>
    * @public
    */
-  expirationDate?: Date;
+  expirationDate?: Date | undefined;
 
   /**
    * <p>The number of licenses included in a subscription. Valid values are between 1 and
    *             100.</p>
    * @public
    */
-  licenseQuantity?: number;
+  licenseQuantity?: number | undefined;
 
   /**
    * <p>The type of licenses included in the subscription. Valid value is CLUSTER. With the
@@ -2747,32 +3370,39 @@ export interface EksAnywhereSubscription {
    *             cluster.</p>
    * @public
    */
-  licenseType?: EksAnywhereSubscriptionLicenseType;
+  licenseType?: EksAnywhereSubscriptionLicenseType | undefined;
 
   /**
    * <p>An EksAnywhereSubscriptionTerm object. </p>
    * @public
    */
-  term?: EksAnywhereSubscriptionTerm;
+  term?: EksAnywhereSubscriptionTerm | undefined;
 
   /**
    * <p>The status of a subscription.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>A boolean indicating whether or not a subscription will auto renew when it
    *             expires.</p>
    * @public
    */
-  autoRenew?: boolean;
+  autoRenew?: boolean | undefined;
 
   /**
    * <p>Amazon Web Services License Manager ARN associated with the subscription.</p>
    * @public
    */
-  licenseArns?: string[];
+  licenseArns?: string[] | undefined;
+
+  /**
+   * <p>Includes all of the claims in the license token necessary to validate the license for
+   *             extended support.</p>
+   * @public
+   */
+  licenses?: License[] | undefined;
 
   /**
    * <p>The metadata for a subscription to assist with categorization and organization. Each
@@ -2780,7 +3410,7 @@ export interface EksAnywhereSubscription {
    *             other resources associated with the subscription.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2791,7 +3421,7 @@ export interface CreateEksAnywhereSubscriptionResponse {
    * <p>The full description of the subscription.</p>
    * @public
    */
-  subscription?: EksAnywhereSubscription;
+  subscription?: EksAnywhereSubscription | undefined;
 }
 
 /**
@@ -2803,14 +3433,14 @@ export interface FargateProfileSelector {
    * <p>The Kubernetes <code>namespace</code> that the selector should match.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The Kubernetes labels that the selector should match. A pod must contain all of the labels
    *             that are specified in the selector for it to be considered a match.</p>
    * @public
    */
-  labels?: Record<string, string>;
+  labels?: Record<string, string> | undefined;
 }
 
 /**
@@ -2831,39 +3461,37 @@ export interface CreateFargateProfileRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for a <code>Pod</code>
-   *             that matches the selectors in the Fargate profile. The <code>Pod</code>
-   *             execution role allows Fargate infrastructure to register with your
-   *             cluster as a node, and it provides read access to Amazon ECR image repositories.
-   *             For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">
-   *                <code>Pod</code> execution
-   *                 role</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             that matches the selectors in the Fargate profile. The <code>Pod</code> execution role
+   *             allows Fargate infrastructure to register with your cluster as a node, and it provides
+   *             read access to Amazon ECR image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">
+   *                <code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   podExecutionRoleArn: string | undefined;
 
   /**
    * <p>The IDs of subnets to launch a <code>Pod</code> into. A <code>Pod</code> running on
-   *                 Fargate isn't assigned a public IP address, so only private subnets
-   *             (with no direct route to an Internet Gateway) are accepted for this parameter.</p>
+   *             Fargate isn't assigned a public IP address, so only private subnets (with no direct
+   *             route to an Internet Gateway) are accepted for this parameter.</p>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 
   /**
-   * <p>The selectors to match for a <code>Pod</code> to use this Fargate
-   *             profile. Each selector must have an associated Kubernetes <code>namespace</code>. Optionally,
-   *             you can also specify <code>labels</code> for a <code>namespace</code>. You may specify
-   *             up to five selectors in a Fargate profile.</p>
+   * <p>The selectors to match for a <code>Pod</code> to use this Fargate profile. Each
+   *             selector must have an associated Kubernetes <code>namespace</code>. Optionally, you can also
+   *             specify <code>labels</code> for a <code>namespace</code>. You may specify up to five
+   *             selectors in a Fargate profile.</p>
    * @public
    */
-  selectors?: FargateProfileSelector[];
+  selectors?: FargateProfileSelector[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -2871,7 +3499,7 @@ export interface CreateFargateProfileRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2899,24 +3527,24 @@ export interface FargateProfileIssue {
    * <p>A brief description of the error.</p>
    * @public
    */
-  code?: FargateProfileIssueCode;
+  code?: FargateProfileIssueCode | undefined;
 
   /**
    * <p>The error message associated with the issue.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services resources that are affected by this issue.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 }
 
 /**
- * <p>The health status of the Fargate  profile. If there are issues with
- *             your Fargate profile's health, they are listed here.</p>
+ * <p>The health status of the Fargate profile. If there are issues with your Fargate
+ *             profile's health, they are listed here.</p>
  * @public
  */
 export interface FargateProfileHealth {
@@ -2924,7 +3552,7 @@ export interface FargateProfileHealth {
    * <p>Any issues that are associated with the Fargate profile.</p>
    * @public
    */
-  issues?: FargateProfileIssue[];
+  issues?: FargateProfileIssue[] | undefined;
 }
 
 /**
@@ -2953,53 +3581,51 @@ export interface FargateProfile {
    * <p>The name of the Fargate profile.</p>
    * @public
    */
-  fargateProfileName?: string;
+  fargateProfileName?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>
    * @public
    */
-  fargateProfileArn?: string;
+  fargateProfileArn?: string | undefined;
 
   /**
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for any <code>Pod</code>
-   *             that matches the selectors in the Fargate profile. For more information,
-   *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">
+   *             that matches the selectors in the Fargate profile. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">
    *                <code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  podExecutionRoleArn?: string;
+  podExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The IDs of subnets to launch a <code>Pod</code> into.</p>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 
   /**
-   * <p>The selectors to match for a <code>Pod</code> to use this Fargate
-   *             profile.</p>
+   * <p>The selectors to match for a <code>Pod</code> to use this Fargate profile.</p>
    * @public
    */
-  selectors?: FargateProfileSelector[];
+  selectors?: FargateProfileSelector[] | undefined;
 
   /**
    * <p>The current status of the Fargate profile.</p>
    * @public
    */
-  status?: FargateProfileStatus;
+  status?: FargateProfileStatus | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -3007,14 +3633,14 @@ export interface FargateProfile {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The health status of the Fargate  profile. If there are issues with
-   *             your Fargate profile's health, they are listed here.</p>
+   * <p>The health status of the Fargate profile. If there are issues with your Fargate
+   *             profile's health, they are listed here.</p>
    * @public
    */
-  health?: FargateProfileHealth;
+  health?: FargateProfileHealth | undefined;
 }
 
 /**
@@ -3025,7 +3651,7 @@ export interface CreateFargateProfileResponse {
    * <p>The full description of your new Fargate profile.</p>
    * @public
    */
-  fargateProfile?: FargateProfile;
+  fargateProfile?: FargateProfile | undefined;
 }
 
 /**
@@ -3058,8 +3684,8 @@ export type CapacityTypes = (typeof CapacityTypes)[keyof typeof CapacityTypes];
  *             </a>, or the node group  deployment or
  *             update will fail. For more information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">
  *                <code>CreateLaunchTemplate</code>
- *             </a> in the Amazon EC2 API
- *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             </a> in the Amazon EC2 API Reference.
+ *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <p>You must specify either the launch template ID or the launch template name in the
  *             request, but not both.</p>
  * @public
@@ -3068,25 +3694,40 @@ export interface LaunchTemplateSpecification {
   /**
    * <p>The name of the launch template.</p>
    *          <p>You must specify either the launch template name or the launch template ID in the
-   *             request, but not both.</p>
+   *             request, but not both. After node group creation, you cannot use a different
+   *             name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The version number of the launch template to use. If no version is specified, then the
-   *             template's default version is used.</p>
+   *             template's default version is used. You can use a different version for node group
+   *             updates.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The ID of the launch template.</p>
    *          <p>You must specify either the launch template ID or the launch template name in the
-   *             request, but not both.</p>
+   *             request, but not both. After node group creation, you cannot use a different ID.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
+}
+
+/**
+ * <p>The node auto repair configuration for the node group.</p>
+ * @public
+ */
+export interface NodeRepairConfig {
+  /**
+   * <p>Specifies whether to enable node auto repair for the node group. Node auto repair is
+   *             disabled by default.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -3096,31 +3737,31 @@ export interface LaunchTemplateSpecification {
  */
 export interface RemoteAccessConfig {
   /**
-   * <p>The Amazon EC2 SSH key name that provides access for SSH communication with
-   *             the nodes in the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For
-   *             Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Windows instances</a> in
-   *             the <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>
+   * <p>The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in
+   *             the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key
+   *                 pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For Windows, an Amazon EC2 SSH
+   *             key is used to obtain the RDP password. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html">Amazon EC2 key
+   *                 pairs and Windows instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>
    * @public
    */
-  ec2SshKey?: string;
+  ec2SshKey?: string | undefined;
 
   /**
    * <p>The security group IDs that are allowed SSH access (port 22) to the nodes. For
-   *             Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't
-   *             specify a source security group when you create a managed node group, then the port on
-   *             the nodes is opened to the internet (<code>0.0.0.0/0</code>). For more information, see
-   *                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source
+   *             security group when you create a managed node group, then the port on the nodes is
+   *             opened to the internet (<code>0.0.0.0/0</code>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+   *                 Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    * @public
    */
-  sourceSecurityGroups?: string[];
+  sourceSecurityGroups?: string[] | undefined;
 }
 
 /**
- * <p>An object representing the scaling configuration details for the Auto Scaling
- *             group that is associated with your node group. When creating a node group, you must
- *             specify all or none of the properties. When updating a node group, you can specify any
- *             or none of the properties.</p>
+ * <p>An object representing the scaling configuration details for the Auto Scaling group that is
+ *             associated with your node group. When creating a node group, you must specify all or
+ *             none of the properties. When updating a node group, you can specify any or none of the
+ *             properties.</p>
  * @public
  */
 export interface NodegroupScalingConfig {
@@ -3128,14 +3769,15 @@ export interface NodegroupScalingConfig {
    * <p>The minimum number of nodes that the managed node group can scale in to.</p>
    * @public
    */
-  minSize?: number;
+  minSize?: number | undefined;
 
   /**
    * <p>The maximum number of nodes that the managed node group can scale out to. For
-   *             information about the maximum number that you can specify, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service quotas</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             information about the maximum number that you can specify, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service
+   *                 quotas</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  maxSize?: number;
+  maxSize?: number | undefined;
 
   /**
    * <p>The current number of nodes that the managed node group should maintain.</p>
@@ -3161,7 +3803,7 @@ export interface NodegroupScalingConfig {
    *             node group lower than <code>minSize</code> or higher than <code>maxSize</code>.</p>
    * @public
    */
-  desiredSize?: number;
+  desiredSize?: number | undefined;
 }
 
 /**
@@ -3190,23 +3832,39 @@ export interface Taint {
    * <p>The key of the taint.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The value of the taint.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The effect of the taint.</p>
    * @public
    */
-  effect?: TaintEffect;
+  effect?: TaintEffect | undefined;
 }
 
 /**
- * <p>The node group update configuration.</p>
+ * @public
+ * @enum
+ */
+export const NodegroupUpdateStrategies = {
+  DEFAULT: "DEFAULT",
+  MINIMAL: "MINIMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type NodegroupUpdateStrategies = (typeof NodegroupUpdateStrategies)[keyof typeof NodegroupUpdateStrategies];
+
+/**
+ * <p>The node group update configuration. An Amazon EKS managed node group updates by replacing
+ *             nodes with new nodes of newer AMI versions in parallel. You choose the <i>maximum
+ *                 unavailable</i> and the <i>update strategy</i>.</p>
  * @public
  */
 export interface NodegroupUpdateConfig {
@@ -3216,7 +3874,7 @@ export interface NodegroupUpdateConfig {
    *             have a value.The maximum number is 100.</p>
    * @public
    */
-  maxUnavailable?: number;
+  maxUnavailable?: number | undefined;
 
   /**
    * <p>The maximum percentage of nodes unavailable during a version update. This percentage
@@ -3224,7 +3882,26 @@ export interface NodegroupUpdateConfig {
    *                 <code>maxUnavailable</code> is required to have a value.</p>
    * @public
    */
-  maxUnavailablePercentage?: number;
+  maxUnavailablePercentage?: number | undefined;
+
+  /**
+   * <p>The configuration for the behavior to follow during a node group version update of
+   *             this managed node group. You choose between two possible strategies for replacing nodes
+   *             during an <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateNodegroupVersion.html">
+   *                <code>UpdateNodegroupVersion</code>
+   *             </a> action.</p>
+   *          <p>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer AMI
+   *             versions in parallel. The <i>update strategy</i> changes the managed node
+   *             update behavior of the managed node group for each quantity. The
+   *                 <i>default</i> strategy has guardrails to protect you from
+   *             misconfiguration and launches the new instances first, before terminating the old
+   *             instances. The <i>minimal</i> strategy removes the guardrails and
+   *             terminates the old instances before launching the new instances. This minimal strategy
+   *             is useful in scenarios where you are constrained to resources or costs (for example,
+   *             with hardware accelerators such as GPUs).</p>
+   * @public
+   */
+  updateStrategy?: NodegroupUpdateStrategies | undefined;
 }
 
 /**
@@ -3248,7 +3925,7 @@ export interface CreateNodegroupRequest {
    *             node group.</p>
    * @public
    */
-  scalingConfig?: NodegroupScalingConfig;
+  scalingConfig?: NodegroupScalingConfig | undefined;
 
   /**
    * <p>The root device disk size (in GiB) for your node group instances. The default disk
@@ -3257,7 +3934,7 @@ export interface CreateNodegroupRequest {
    *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  diskSize?: number;
+  diskSize?: number | undefined;
 
   /**
    * <p>The subnets to use for the Auto Scaling group that is created for your node group.
@@ -3279,11 +3956,11 @@ export interface CreateNodegroupRequest {
    *             deployment will fail. If you don't specify an instance type in a launch template or for
    *                 <code>instanceTypes</code>, then <code>t3.medium</code> is used, by default. If you
    *             specify <code>Spot</code> for <code>capacityType</code>, then we recommend specifying
-   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in
-   *             the <i>Amazon EKS User Guide</i>.</p>
+   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with
+   *                 launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * <p>The AMI type for your node group. If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI,
@@ -3294,7 +3971,7 @@ export interface CreateNodegroupRequest {
    *             <code>ConfigMap</code>. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  amiType?: AMITypes;
+  amiType?: AMITypes | undefined;
 
   /**
    * <p>The remote access configuration to use with your node group. For Linux, the protocol
@@ -3303,18 +3980,19 @@ export interface CreateNodegroupRequest {
    *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  remoteAccess?: RemoteAccessConfig;
+  remoteAccess?: RemoteAccessConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with your node group. The
-   *                 Amazon EKS worker node <code>kubelet</code> daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive permissions for these API calls
-   *             through an IAM instance profile and associated policies. Before you can
-   *             launch nodes and register them into a cluster, you must create an IAM
-   *             role for those nodes to use when they are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon EKS node IAM role</a> in the
-   *                 <i>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with your node group. The Amazon EKS worker
+   *             node <code>kubelet</code> daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive
+   *             permissions for these API calls through an IAM instance profile and associated
+   *             policies. Before you can launch nodes and register them into a cluster, you must create
+   *             an IAM role for those nodes to use when they are launched. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon EKS
+   *                 node IAM role</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
-   *             </i>. If you specify <code>launchTemplate</code>, then don't specify
-   *                     <code>
+   *             </i>.
+   *             If you specify <code>launchTemplate</code>, then don't specify  <code>
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a>
    *             </code> in your launch template, or the node group
    *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -3327,7 +4005,7 @@ export interface CreateNodegroupRequest {
    *             created.</p>
    * @public
    */
-  labels?: Record<string, string>;
+  labels?: Record<string, string> | undefined;
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group. For more information,
@@ -3335,7 +4013,7 @@ export interface CreateNodegroupRequest {
    *                 managed node groups</a>.</p>
    * @public
    */
-  taints?: Taint[];
+  taints?: Taint[] | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -3343,37 +4021,44 @@ export interface CreateNodegroupRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>An object representing a node group's launch template specification. When using this
    *             object, don't directly specify <code>instanceTypes</code>, <code>diskSize</code>, or
-   *             <code>remoteAccess</code>. Make sure that
-   *             the launch template meets the requirements in <code>launchTemplateSpecification</code>. Also refer to
-   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in
-   *             the <i>Amazon EKS User Guide</i>.</p>
+   *                 <code>remoteAccess</code>. You cannot later specify a different launch template ID
+   *             or name than what was used to create the node group.</p>
+   *          <p>Make sure that the launch template meets the requirements in
+   *                 <code>launchTemplateSpecification</code>. Also refer to <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with
+   *                 launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  launchTemplate?: LaunchTemplateSpecification;
+  launchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>The node group update configuration.</p>
    * @public
    */
-  updateConfig?: NodegroupUpdateConfig;
+  updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>The capacity type for your node group.</p>
    * @public
    */
-  capacityType?: CapacityTypes;
+  capacityType?: CapacityTypes | undefined;
 
   /**
    * <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes version of the
@@ -3382,20 +4067,22 @@ export interface CreateNodegroupRequest {
    *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
-   * <p>The AMI version of the Amazon EKS optimized AMI to use with your node group.
-   *             By default, the latest available AMI version for the node group's current Kubernetes version
-   *             is used. For information about Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon EKS managed node groups support the November 2022 and later releases of the
-   *             Windows AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon EKS optimized Windows AMI versions</a> in the
-   *             <i>Amazon EKS User Guide</i>.</p>
+   * <p>The AMI version of the Amazon EKS optimized AMI to use with your node group. By default,
+   *             the latest available AMI version for the node group's current Kubernetes version is used. For
+   *             information about Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS
+   *                 optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon EKS managed node
+   *             groups support the November 2022 and later releases of the Windows AMIs. For information
+   *             about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon EKS
+   *                 optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
    *          <p>If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify
    *                 <code>releaseVersion</code>, or the node group  deployment will fail.
    *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  releaseVersion?: string;
+  releaseVersion?: string | undefined;
 }
 
 /**
@@ -3412,6 +4099,7 @@ export const NodegroupIssueCode = {
   AUTO_SCALING_GROUP_OPT_IN_REQUIRED: "AutoScalingGroupOptInRequired",
   AUTO_SCALING_GROUP_RATE_LIMIT_EXCEEDED: "AutoScalingGroupRateLimitExceeded",
   CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  EC2_INSTANCE_TYPE_DOES_NOT_EXIST: "Ec2InstanceTypeDoesNotExist",
   EC2_LAUNCH_TEMPLATE_DELETION_FAILURE: "Ec2LaunchTemplateDeletionFailure",
   EC2_LAUNCH_TEMPLATE_INVALID_CONFIGURATION: "Ec2LaunchTemplateInvalidConfiguration",
   EC2_LAUNCH_TEMPLATE_MAX_LIMIT_EXCEEDED: "Ec2LaunchTemplateMaxLimitExceeded",
@@ -3455,40 +4143,47 @@ export interface Issue {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>AccessDenied</b>: Amazon EKS or one or
-   *                     more of your managed nodes is failing to authenticate or authorize with your
-   *                     Kubernetes cluster API server.</p>
+   *                   <b>AccessDenied</b>: Amazon EKS or one or more of your
+   *                     managed nodes is failing to authenticate or authorize with your Kubernetes cluster
+   *                     API server.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AsgInstanceLaunchFailures</b>: Your Auto Scaling group is experiencing failures while attempting to launch
-   *                     instances.</p>
+   *                   <b>AsgInstanceLaunchFailures</b>: Your Auto Scaling group is
+   *                     experiencing failures while attempting to launch instances.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>AutoScalingGroupNotFound</b>: We couldn't find
-   *                     the Auto Scaling group associated with the managed node group. You may be
-   *                     able to recreate an Auto Scaling group with the same settings to
-   *                     recover.</p>
+   *                     the Auto Scaling group associated with the managed node group. You may be able to
+   *                     recreate an Auto Scaling group with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ClusterUnreachable</b>: Amazon EKS or one
-   *                     or more of your managed nodes is unable to to communicate with your Kubernetes
-   *                     cluster API server. This can happen if there are network disruptions or if API
-   *                     servers are timing out processing requests. </p>
+   *                   <b>ClusterUnreachable</b>: Amazon EKS or one or more of
+   *                     your managed nodes is unable to to communicate with your Kubernetes cluster API
+   *                     server. This can happen if there are network disruptions or if API servers are
+   *                     timing out processing requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Ec2InstanceTypeDoesNotExist</b>: One or more of
+   *                     the supplied Amazon EC2 instance types do not exist. Amazon EKS checked for the
+   *                     instance types that you provided in this Amazon Web Services Region, and one or more aren't
+   *                     available.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Ec2LaunchTemplateNotFound</b>: We couldn't find
-   *                     the Amazon EC2 launch template for your managed node group. You may be
-   *                     able to recreate a launch template with the same settings to recover.</p>
+   *                     the Amazon EC2 launch template for your managed node group. You may be able to
+   *                     recreate a launch template with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Ec2LaunchTemplateVersionMismatch</b>: The Amazon EC2 launch template version for your managed node group does not
-   *                     match the version that Amazon EKS created. You may be able to revert to
-   *                     the version that Amazon EKS created to recover.</p>
+   *                   <b>Ec2LaunchTemplateVersionMismatch</b>: The Amazon EC2
+   *                     launch template version for your managed node group does not match the version
+   *                     that Amazon EKS created. You may be able to revert to the version that Amazon EKS created
+   *                     to recover.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3505,31 +4200,30 @@ export interface Issue {
    *             <li>
    *                <p>
    *                   <b>Ec2SubnetInvalidConfiguration</b>: One or more
-   *                         Amazon EC2 subnets specified for a node group do not automatically
-   *                     assign public IP addresses to instances launched into it. If you want your
-   *                     instances to be assigned a public IP address, then you need to enable the
-   *                         <code>auto-assign public IP address</code> setting for the subnet. See
-   *                         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip">Modifying
+   *                     Amazon EC2 subnets specified for a node group do not automatically assign public IP
+   *                     addresses to instances launched into it. If you want your instances to be
+   *                     assigned a public IP address, then you need to enable the <code>auto-assign
+   *                         public IP address</code> setting for the subnet. See <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip">Modifying
    *                         the public <code>IPv4</code> addressing attribute for your subnet</a> in
    *                     the <i>Amazon VPC User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>IamInstanceProfileNotFound</b>: We couldn't find
-   *                     the IAM instance profile for your managed node group. You may be
-   *                     able to recreate an instance profile with the same settings to recover.</p>
+   *                     the IAM instance profile for your managed node group. You may be able to
+   *                     recreate an instance profile with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>IamNodeRoleNotFound</b>: We couldn't find the
-   *                         IAM role for your managed node group. You may be able to
-   *                     recreate an IAM role with the same settings to recover.</p>
+   *                     IAM role for your managed node group. You may be able to recreate an IAM
+   *                     role with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>InstanceLimitExceeded</b>: Your Amazon Web Services account is unable to launch any more instances of the specified instance
-   *                     type. You may be able to request an Amazon EC2 instance limit increase
-   *                     to recover.</p>
+   *                   <b>InstanceLimitExceeded</b>: Your Amazon Web Services account is
+   *                     unable to launch any more instances of the specified instance type. You may be
+   *                     able to request an Amazon EC2 instance limit increase to recover.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3545,27 +4239,26 @@ export interface Issue {
    *             <li>
    *                <p>
    *                   <b>NodeCreationFailure</b>: Your launched instances
-   *                     are unable to register with your Amazon EKS cluster. Common causes of
-   *                     this failure are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">node IAM
-   *                         role</a> permissions or lack of outbound internet access for the nodes.
-   *                 </p>
+   *                     are unable to register with your Amazon EKS cluster. Common causes of this failure
+   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">node IAM role</a>
+   *                     permissions or lack of outbound internet access for the nodes. </p>
    *             </li>
    *          </ul>
    * @public
    */
-  code?: NodegroupIssueCode;
+  code?: NodegroupIssueCode | undefined;
 
   /**
    * <p>The error message associated with the issue.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services resources that are afflicted by this issue.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 }
 
 /**
@@ -3577,7 +4270,7 @@ export interface NodegroupHealth {
    * <p>Any issues that are associated with the node group. </p>
    * @public
    */
-  issues?: Issue[];
+  issues?: Issue[] | undefined;
 }
 
 /**
@@ -3590,14 +4283,14 @@ export interface NodegroupResources {
    * <p>The Auto Scaling groups associated with the node group.</p>
    * @public
    */
-  autoScalingGroups?: AutoScalingGroup[];
+  autoScalingGroups?: AutoScalingGroup[] | undefined;
 
   /**
    * <p>The remote access security group associated with the node group. This security group
    *             controls SSH access to the nodes.</p>
    * @public
    */
-  remoteAccessSecurityGroup?: string;
+  remoteAccessSecurityGroup?: string | undefined;
 }
 
 /**
@@ -3628,65 +4321,65 @@ export interface Nodegroup {
    * <p>The name associated with an Amazon EKS managed node group.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) associated with the managed node group.</p>
    * @public
    */
-  nodegroupArn?: string;
+  nodegroupArn?: string | undefined;
 
   /**
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The Kubernetes version of the managed node group.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>If the node group was deployed using a launch template with a custom AMI, then this is
    *             the AMI ID that was specified in the launch template. For node groups that weren't
-   *             deployed using a launch template, this is the version of the Amazon EKS
-   *             optimized AMI that the node group was deployed with.</p>
+   *             deployed using a launch template, this is the version of the Amazon EKS optimized AMI that
+   *             the node group was deployed with.</p>
    * @public
    */
-  releaseVersion?: string;
+  releaseVersion?: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp at object creation.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Unix epoch timestamp for the last modification to the object.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>The current status of the managed node group.</p>
    * @public
    */
-  status?: NodegroupStatus;
+  status?: NodegroupStatus | undefined;
 
   /**
    * <p>The capacity type of your managed node group.</p>
    * @public
    */
-  capacityType?: CapacityTypes;
+  capacityType?: CapacityTypes | undefined;
 
   /**
    * <p>The scaling configuration details for the Auto Scaling group that is associated with
    *             your node group.</p>
    * @public
    */
-  scalingConfig?: NodegroupScalingConfig;
+  scalingConfig?: NodegroupScalingConfig | undefined;
 
   /**
    * <p>If the node group wasn't deployed with a launch template, then this is the instance
@@ -3694,14 +4387,14 @@ export interface Nodegroup {
    *             launch template, then this is <code>null</code>.</p>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * <p>The subnets that were specified for the Auto Scaling group that is associated with
    *             your node group.</p>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 
   /**
    * <p>If the node group wasn't deployed with a launch template, then this is the remote
@@ -3709,7 +4402,7 @@ export interface Nodegroup {
    *             deployed with a launch template, then this is <code>null</code>.</p>
    * @public
    */
-  remoteAccess?: RemoteAccessConfig;
+  remoteAccess?: RemoteAccessConfig | undefined;
 
   /**
    * <p>If the node group was deployed using a launch template with a custom AMI, then this is
@@ -3717,27 +4410,25 @@ export interface Nodegroup {
    *             this is the AMI type that was specified in the node group configuration.</p>
    * @public
    */
-  amiType?: AMITypes;
+  amiType?: AMITypes | undefined;
 
   /**
-   * <p>The IAM role associated with your node group. The Amazon EKS
-   *             node <code>kubelet</code> daemon makes calls to Amazon Web Services APIs on your behalf.
-   *             Nodes receive permissions for these API calls through an IAM instance
-   *             profile and associated policies.</p>
+   * <p>The IAM role associated with your node group. The Amazon EKS node <code>kubelet</code>
+   *             daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive permissions for these API
+   *             calls through an IAM instance profile and associated policies.</p>
    * @public
    */
-  nodeRole?: string;
+  nodeRole?: string | undefined;
 
   /**
    * <p>The Kubernetes <code>labels</code> applied to the nodes in the node group.</p>
    *          <note>
-   *             <p>Only <code>labels</code> that are applied with the Amazon EKS API are
-   *                 shown here. There may be other Kubernetes <code>labels</code> applied to the nodes in
-   *                 this group.</p>
+   *             <p>Only <code>labels</code> that are applied with the Amazon EKS API are shown here. There
+   *                 may be other Kubernetes <code>labels</code> applied to the nodes in this group.</p>
    *          </note>
    * @public
    */
-  labels?: Record<string, string>;
+  labels?: Record<string, string> | undefined;
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group when they are created.
@@ -3746,14 +4437,14 @@ export interface Nodegroup {
    *             control how workloads are scheduled to your nodes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
    * @public
    */
-  taints?: Taint[];
+  taints?: Taint[] | undefined;
 
   /**
    * <p>The resources associated with the node group, such as Auto Scaling groups and security
    *             groups for remote access.</p>
    * @public
    */
-  resources?: NodegroupResources;
+  resources?: NodegroupResources | undefined;
 
   /**
    * <p>If the node group wasn't deployed with a launch template, then this is the disk size
@@ -3761,27 +4452,33 @@ export interface Nodegroup {
    *             then this is <code>null</code>.</p>
    * @public
    */
-  diskSize?: number;
+  diskSize?: number | undefined;
 
   /**
    * <p>The health status of the node group. If there are issues with your node group's
    *             health, they are listed here.</p>
    * @public
    */
-  health?: NodegroupHealth;
+  health?: NodegroupHealth | undefined;
 
   /**
    * <p>The node group update configuration.</p>
    * @public
    */
-  updateConfig?: NodegroupUpdateConfig;
+  updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>If a launch template was used to create the node group, then this is the launch
    *             template that was used.</p>
    * @public
    */
-  launchTemplate?: LaunchTemplateSpecification;
+  launchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -3789,7 +4486,7 @@ export interface Nodegroup {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3800,7 +4497,7 @@ export interface CreateNodegroupResponse {
    * <p>The full description of your new node group.</p>
    * @public
    */
-  nodegroup?: Nodegroup;
+  nodegroup?: Nodegroup | undefined;
 }
 
 /**
@@ -3822,7 +4519,8 @@ export interface CreatePodIdentityAssociationRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM
+   *             credentials with.</p>
    * @public
    */
   serviceAccount: string | undefined;
@@ -3840,7 +4538,7 @@ export interface CreatePodIdentityAssociationRequest {
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -3879,7 +4577,7 @@ export interface CreatePodIdentityAssociationRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3891,7 +4589,7 @@ export interface PodIdentityAssociation {
    * <p>The name of the cluster that the association is in.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
@@ -3899,13 +4597,14 @@ export interface PodIdentityAssociation {
    *             namespace.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
-   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM
+   *             credentials with.</p>
    * @public
    */
-  serviceAccount?: string;
+  serviceAccount?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity
@@ -3913,19 +4612,19 @@ export interface PodIdentityAssociation {
    *             pods that use this service account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  associationArn?: string;
+  associationArn?: string | undefined;
 
   /**
    * <p>The ID of the association.</p>
    * @public
    */
-  associationId?: string;
+  associationId?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -3964,25 +4663,25 @@ export interface PodIdentityAssociation {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp that the association was created at.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The most recent timestamp that the association was modified at</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
    * @public
    */
-  ownerArn?: string;
+  ownerArn?: string | undefined;
 }
 
 /**
@@ -3995,7 +4694,7 @@ export interface CreatePodIdentityAssociationResponse {
    *             actions to manage the association.</p>
    * @public
    */
-  association?: PodIdentityAssociation;
+  association?: PodIdentityAssociation | undefined;
 }
 
 /**
@@ -4039,11 +4738,12 @@ export interface DeleteAddonRequest {
   addonName: string | undefined;
 
   /**
-   * <p>Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on. If an IAM
-   *             account is associated with the add-on, it isn't removed.</p>
+   * <p>Specifying this option preserves the add-on software on your cluster but Amazon EKS stops
+   *             managing any settings for the add-on. If an IAM account is associated with the add-on,
+   *             it isn't removed.</p>
    * @public
    */
-  preserve?: boolean;
+  preserve?: boolean | undefined;
 }
 
 /**
@@ -4051,11 +4751,11 @@ export interface DeleteAddonRequest {
  */
 export interface DeleteAddonResponse {
   /**
-   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
-   *             the <i>Amazon EKS User Guide</i>.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the
+   *             <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  addon?: Addon;
+  addon?: Addon | undefined;
 }
 
 /**
@@ -4077,7 +4777,7 @@ export interface DeleteClusterResponse {
    * <p>The full description of the cluster to delete.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -4099,7 +4799,7 @@ export interface DeleteEksAnywhereSubscriptionResponse {
    * <p>The full description of the subscription to be deleted.</p>
    * @public
    */
-  subscription?: EksAnywhereSubscription;
+  subscription?: EksAnywhereSubscription | undefined;
 }
 
 /**
@@ -4127,7 +4827,7 @@ export interface DeleteFargateProfileResponse {
    * <p>The deleted Fargate profile.</p>
    * @public
    */
-  fargateProfile?: FargateProfile;
+  fargateProfile?: FargateProfile | undefined;
 }
 
 /**
@@ -4155,7 +4855,7 @@ export interface DeleteNodegroupResponse {
    * <p>The full description of your deleted node group.</p>
    * @public
    */
-  nodegroup?: Nodegroup;
+  nodegroup?: Nodegroup | undefined;
 }
 
 /**
@@ -4183,7 +4883,7 @@ export interface DeletePodIdentityAssociationResponse {
    * <p>The full description of the EKS Pod Identity association that was deleted.</p>
    * @public
    */
-  association?: PodIdentityAssociation;
+  association?: PodIdentityAssociation | undefined;
 }
 
 /**
@@ -4205,7 +4905,7 @@ export interface DeregisterClusterResponse {
    * <p>An object representing an Amazon EKS cluster.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -4233,7 +4933,7 @@ export interface DescribeAccessEntryResponse {
    * <p>Information about the access entry.</p>
    * @public
    */
-  accessEntry?: AccessEntry;
+  accessEntry?: AccessEntry | undefined;
 }
 
 /**
@@ -4260,11 +4960,11 @@ export interface DescribeAddonRequest {
  */
 export interface DescribeAddonResponse {
   /**
-   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
-   *             the <i>Amazon EKS User Guide</i>.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the
+   *             <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  addon?: Addon;
+  addon?: Addon | undefined;
 }
 
 /**
@@ -4295,7 +4995,7 @@ export interface DescribeAddonConfigurationResponse {
    * <p>The name of the add-on.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
@@ -4303,20 +5003,21 @@ export interface DescribeAddonConfigurationResponse {
    *             </a>.</p>
    * @public
    */
-  addonVersion?: string;
+  addonVersion?: string | undefined;
 
   /**
    * <p>A JSON schema that's used to validate the configuration values you provide when an
    *             add-on is created or updated.</p>
    * @public
    */
-  configurationSchema?: string;
+  configurationSchema?: string | undefined;
 
   /**
-   * <p>The Kubernetes service account name used by the addon, and any suggested IAM policies. Use this information to create an IAM Role for the Addon.</p>
+   * <p>The Kubernetes service account name used by the addon, and any suggested IAM policies.
+   *             Use this information to create an IAM Role for the Addon.</p>
    * @public
    */
-  podIdentityConfiguration?: AddonPodIdentityConfiguration[];
+  podIdentityConfiguration?: AddonPodIdentityConfiguration[] | undefined;
 }
 
 /**
@@ -4327,7 +5028,7 @@ export interface DescribeAddonVersionsRequest {
    * <p>The Kubernetes versions that you can use the add-on with.</p>
    * @public
    */
-  kubernetesVersion?: string;
+  kubernetesVersion?: string | undefined;
 
   /**
    * <p>The maximum number of results, returned in paginated output. You receive
@@ -4339,7 +5040,7 @@ export interface DescribeAddonVersionsRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -4351,7 +5052,7 @@ export interface DescribeAddonVersionsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
@@ -4359,28 +5060,28 @@ export interface DescribeAddonVersionsRequest {
    *             </a>.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The type of the add-on. For valid <code>types</code>, don't specify a value for this
    *             property.</p>
    * @public
    */
-  types?: string[];
+  types?: string[] | undefined;
 
   /**
    * <p>The publisher of the add-on. For valid <code>publishers</code>, don't specify a value
    *             for this property.</p>
    * @public
    */
-  publishers?: string[];
+  publishers?: string[] | undefined;
 
   /**
    * <p>The owner of the add-on. For valid <code>owners</code>, don't specify a value for this
    *             property.</p>
    * @public
    */
-  owners?: string[];
+  owners?: string[] | undefined;
 }
 
 /**
@@ -4392,7 +5093,7 @@ export interface DescribeAddonVersionsResponse {
    *             properties.</p>
    * @public
    */
-  addons?: AddonInfo[];
+  addons?: AddonInfo[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4406,7 +5107,7 @@ export interface DescribeAddonVersionsResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4428,7 +5129,183 @@ export interface DescribeClusterResponse {
    * <p>The full description of your specified cluster.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterVersionStatus = {
+  extended_support: "extended-support",
+  standard_support: "standard-support",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterVersionStatus = (typeof ClusterVersionStatus)[keyof typeof ClusterVersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VersionStatus = {
+  EXTENDED_SUPPORT: "EXTENDED_SUPPORT",
+  STANDARD_SUPPORT: "STANDARD_SUPPORT",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsRequest {
+  /**
+   * <p>The type of cluster to filter versions by.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter to show only default versions.</p>
+   * @public
+   */
+  defaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Include all available versions in the response.</p>
+   * @public
+   */
+  includeAll?: boolean | undefined;
+
+  /**
+   * <p>List of specific cluster versions to describe.</p>
+   * @public
+   */
+  clusterVersions?: string[] | undefined;
+
+  /**
+   * <important>
+   *             <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field
+   *                 matches for input and output of this action.</p>
+   *          </important>
+   *          <p>Filter versions by their current status.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>Filter versions by their current status.</p>
+   * @public
+   */
+  versionStatus?: VersionStatus | undefined;
+}
+
+/**
+ * <p>Contains details about a specific EKS cluster version.</p>
+ * @public
+ */
+export interface ClusterVersionInformation {
+  /**
+   * <p>The Kubernetes version for the cluster.</p>
+   * @public
+   */
+  clusterVersion?: string | undefined;
+
+  /**
+   * <p>The type of cluster this version is for.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Default platform version for this Kubernetes version.</p>
+   * @public
+   */
+  defaultPlatformVersion?: string | undefined;
+
+  /**
+   * <p>Indicates if this is a default version.</p>
+   * @public
+   */
+  defaultVersion?: boolean | undefined;
+
+  /**
+   * <p>The release date of this cluster version.</p>
+   * @public
+   */
+  releaseDate?: Date | undefined;
+
+  /**
+   * <p>Date when standard support ends for this version.</p>
+   * @public
+   */
+  endOfStandardSupportDate?: Date | undefined;
+
+  /**
+   * <p>Date when extended support ends for this version.</p>
+   * @public
+   */
+  endOfExtendedSupportDate?: Date | undefined;
+
+  /**
+   * <important>
+   *             <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field
+   *                 matches for input and output of this action.</p>
+   *          </important>
+   *          <p>Current status of this cluster version.</p>
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>Current status of this cluster version.</p>
+   * @public
+   */
+  versionStatus?: VersionStatus | undefined;
+
+  /**
+   * <p>The patch version of Kubernetes for this cluster version.</p>
+   * @public
+   */
+  kubernetesPatchVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsResponse {
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>List of cluster version information objects.</p>
+   * @public
+   */
+  clusterVersions?: ClusterVersionInformation[] | undefined;
 }
 
 /**
@@ -4450,7 +5327,7 @@ export interface DescribeEksAnywhereSubscriptionResponse {
    * <p>The full description of the subscription.</p>
    * @public
    */
-  subscription?: EksAnywhereSubscription;
+  subscription?: EksAnywhereSubscription | undefined;
 }
 
 /**
@@ -4478,7 +5355,7 @@ export interface DescribeFargateProfileResponse {
    * <p>The full description of your Fargate profile.</p>
    * @public
    */
-  fargateProfile?: FargateProfile;
+  fargateProfile?: FargateProfile | undefined;
 }
 
 /**
@@ -4542,39 +5419,39 @@ export interface OidcIdentityProviderConfig {
    * <p>The name of the configuration.</p>
    * @public
    */
-  identityProviderConfigName?: string;
+  identityProviderConfigName?: string | undefined;
 
   /**
    * <p>The ARN of the configuration.</p>
    * @public
    */
-  identityProviderConfigArn?: string;
+  identityProviderConfigArn?: string | undefined;
 
   /**
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The URL of the OIDC identity provider that allows the API server to discover public
    *             signing keys for verifying tokens.</p>
    * @public
    */
-  issuerUrl?: string;
+  issuerUrl?: string | undefined;
 
   /**
    * <p>This is also known as <i>audience</i>. The ID of the client application
    *             that makes authentication requests to the OIDC identity provider.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 
   /**
    * <p>The JSON Web token (JWT) claim that is used as the username.</p>
    * @public
    */
-  usernameClaim?: string;
+  usernameClaim?: string | undefined;
 
   /**
    * <p>The prefix that is prepended to username claims to prevent clashes with existing
@@ -4582,13 +5459,13 @@ export interface OidcIdentityProviderConfig {
    *          </p>
    * @public
    */
-  usernamePrefix?: string;
+  usernamePrefix?: string | undefined;
 
   /**
    * <p>The JSON web token (JWT) claim that the provider uses to return your groups.</p>
    * @public
    */
-  groupsClaim?: string;
+  groupsClaim?: string | undefined;
 
   /**
    * <p>The prefix that is prepended to group claims to prevent clashes with existing names
@@ -4598,14 +5475,14 @@ export interface OidcIdentityProviderConfig {
    *          </p>
    * @public
    */
-  groupsPrefix?: string;
+  groupsPrefix?: string | undefined;
 
   /**
    * <p>The key-value pairs that describe required claims in the identity token. If set, each
    *             claim is verified to be present in the token with a matching value.</p>
    * @public
    */
-  requiredClaims?: Record<string, string>;
+  requiredClaims?: Record<string, string> | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -4613,13 +5490,13 @@ export interface OidcIdentityProviderConfig {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the OIDC identity provider.</p>
    * @public
    */
-  status?: ConfigStatus;
+  status?: ConfigStatus | undefined;
 }
 
 /**
@@ -4631,7 +5508,7 @@ export interface IdentityProviderConfigResponse {
    * <p>An object representing an OpenID Connect (OIDC) identity provider configuration.</p>
    * @public
    */
-  oidc?: OidcIdentityProviderConfig;
+  oidc?: OidcIdentityProviderConfig | undefined;
 }
 
 /**
@@ -4643,7 +5520,7 @@ export interface DescribeIdentityProviderConfigResponse {
    *             configuration.</p>
    * @public
    */
-  identityProviderConfig?: IdentityProviderConfigResponse;
+  identityProviderConfig?: IdentityProviderConfigResponse | undefined;
 }
 
 /**
@@ -4685,19 +5562,19 @@ export interface ClientStat {
    * <p>The user agent of the Kubernetes client using the deprecated resource.</p>
    * @public
    */
-  userAgent?: string;
+  userAgent?: string | undefined;
 
   /**
    * <p>The number of requests from the Kubernetes client seen over the last 30 days.</p>
    * @public
    */
-  numberOfRequestsLast30Days?: number;
+  numberOfRequestsLast30Days?: number | undefined;
 
   /**
    * <p>The timestamp of the last request seen from the Kubernetes client.</p>
    * @public
    */
-  lastRequestTime?: Date;
+  lastRequestTime?: Date | undefined;
 }
 
 /**
@@ -4710,33 +5587,33 @@ export interface DeprecationDetail {
    * <p>The deprecated version of the resource.</p>
    * @public
    */
-  usage?: string;
+  usage?: string | undefined;
 
   /**
    * <p>The newer version of the resource to migrate to if applicable. </p>
    * @public
    */
-  replacedWith?: string;
+  replacedWith?: string | undefined;
 
   /**
    * <p>The version of the software where the deprecated resource version will stop being
    *             served.</p>
    * @public
    */
-  stopServingVersion?: string;
+  stopServingVersion?: string | undefined;
 
   /**
    * <p>The version of the software where the newer resource version became available to
    *             migrate to if applicable.</p>
    * @public
    */
-  startServingReplacementVersion?: string;
+  startServingReplacementVersion?: string | undefined;
 
   /**
    * <p>Details about Kubernetes clients using the deprecated resources.</p>
    * @public
    */
-  clientStats?: ClientStat[];
+  clientStats?: ClientStat[] | undefined;
 }
 
 /**
@@ -4750,7 +5627,13 @@ export interface InsightCategorySpecificSummary {
    *                 <code>UPGRADE_READINESS</code> category.</p>
    * @public
    */
-  deprecationDetails?: DeprecationDetail[];
+  deprecationDetails?: DeprecationDetail[] | undefined;
+
+  /**
+   * <p>A list of <code>AddonCompatibilityDetail</code> objects for Amazon EKS add-ons.</p>
+   * @public
+   */
+  addonCompatibilityDetails?: AddonCompatibilityDetail[] | undefined;
 }
 
 /**
@@ -4778,13 +5661,13 @@ export interface InsightStatus {
    * <p>The status of the resource.</p>
    * @public
    */
-  status?: InsightStatusValue;
+  status?: InsightStatusValue | undefined;
 
   /**
    * <p>Explanation on the reasoning for the status of the resource. </p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -4796,19 +5679,19 @@ export interface InsightResourceDetail {
    * <p>An object containing more detail on the status of the insight resource.</p>
    * @public
    */
-  insightStatus?: InsightStatus;
+  insightStatus?: InsightStatus | undefined;
 
   /**
    * <p>The Kubernetes resource URI if applicable.</p>
    * @public
    */
-  kubernetesResourceUri?: string;
+  kubernetesResourceUri?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) if applicable.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4821,76 +5704,76 @@ export interface Insight {
    * <p>The ID of the insight.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the insight.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The category of the insight.</p>
    * @public
    */
-  category?: Category;
+  category?: Category | undefined;
 
   /**
    * <p>The Kubernetes minor version associated with an insight if applicable.</p>
    * @public
    */
-  kubernetesVersion?: string;
+  kubernetesVersion?: string | undefined;
 
   /**
    * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the
    *             cluster.</p>
    * @public
    */
-  lastRefreshTime?: Date;
+  lastRefreshTime?: Date | undefined;
 
   /**
    * <p>The time the status of the insight last changed.</p>
    * @public
    */
-  lastTransitionTime?: Date;
+  lastTransitionTime?: Date | undefined;
 
   /**
    * <p>The description of the insight which includes alert criteria, remediation
    *             recommendation, and additional resources (contains Markdown).</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An object containing more detail on the status of the insight resource.</p>
    * @public
    */
-  insightStatus?: InsightStatus;
+  insightStatus?: InsightStatus | undefined;
 
   /**
    * <p>A summary of how to remediate the finding of this insight if applicable. </p>
    * @public
    */
-  recommendation?: string;
+  recommendation?: string | undefined;
 
   /**
    * <p>Links to sources that provide additional context on the insight.</p>
    * @public
    */
-  additionalInfo?: Record<string, string>;
+  additionalInfo?: Record<string, string> | undefined;
 
   /**
    * <p>The details about each resource listed in the insight check result.</p>
    * @public
    */
-  resources?: InsightResourceDetail[];
+  resources?: InsightResourceDetail[] | undefined;
 
   /**
    * <p>Summary information that relates to the category of the insight. Currently only
    *             returned with certain insights having category <code>UPGRADE_READINESS</code>.</p>
    * @public
    */
-  categorySpecificSummary?: InsightCategorySpecificSummary;
+  categorySpecificSummary?: InsightCategorySpecificSummary | undefined;
 }
 
 /**
@@ -4901,7 +5784,7 @@ export interface DescribeInsightResponse {
    * <p>The full description of the insight.</p>
    * @public
    */
-  insight?: Insight;
+  insight?: Insight | undefined;
 }
 
 /**
@@ -4929,7 +5812,7 @@ export interface DescribeNodegroupResponse {
    * <p>The full description of your node group.</p>
    * @public
    */
-  nodegroup?: Nodegroup;
+  nodegroup?: Nodegroup | undefined;
 }
 
 /**
@@ -4957,7 +5840,7 @@ export interface DescribePodIdentityAssociationResponse {
    * <p>The full description of the EKS Pod Identity association.</p>
    * @public
    */
-  association?: PodIdentityAssociation;
+  association?: PodIdentityAssociation | undefined;
 }
 
 /**
@@ -4978,11 +5861,11 @@ export interface DescribeUpdateRequest {
   updateId: string | undefined;
 
   /**
-   * <p>The name of the Amazon EKS node group associated with the update. This
-   *             parameter is required if the update is a node group update.</p>
+   * <p>The name of the Amazon EKS node group associated with the update. This parameter is
+   *             required if the update is a node group update.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
@@ -4990,7 +5873,7 @@ export interface DescribeUpdateRequest {
    *             </a>. This parameter is required if the update is an add-on update.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 }
 
 /**
@@ -5001,7 +5884,7 @@ export interface DescribeUpdateResponse {
    * <p>The full description of the specified update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -5054,7 +5937,7 @@ export interface DisassociateIdentityProviderConfigRequest {
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -5065,7 +5948,7 @@ export interface DisassociateIdentityProviderConfigResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -5084,7 +5967,7 @@ export interface ListAccessEntriesRequest {
    *             available policy ARNs, use <code>ListAccessPolicies</code>.</p>
    * @public
    */
-  associatedPolicyArn?: string;
+  associatedPolicyArn?: string | undefined;
 
   /**
    * <p>The maximum number of results, returned in paginated output. You receive
@@ -5096,7 +5979,7 @@ export interface ListAccessEntriesRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5108,7 +5991,7 @@ export interface ListAccessEntriesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5119,7 +6002,7 @@ export interface ListAccessEntriesResponse {
    * <p>The list of access entries that exist for the cluster.</p>
    * @public
    */
-  accessEntries?: string[];
+  accessEntries?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5131,7 +6014,7 @@ export interface ListAccessEntriesResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5148,7 +6031,7 @@ export interface ListAccessPoliciesRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5160,7 +6043,7 @@ export interface ListAccessPoliciesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5173,7 +6056,7 @@ export interface ListAccessPoliciesResponse {
    *                 policy permissions</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  accessPolicies?: AccessPolicy[];
+  accessPolicies?: AccessPolicy[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5185,7 +6068,7 @@ export interface ListAccessPoliciesResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5208,7 +6091,7 @@ export interface ListAddonsRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5220,7 +6103,7 @@ export interface ListAddonsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5231,7 +6114,7 @@ export interface ListAddonsResponse {
    * <p>A list of installed add-ons.</p>
    * @public
    */
-  addons?: string[];
+  addons?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListAddons</code>
@@ -5245,7 +6128,7 @@ export interface ListAddonsResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5274,7 +6157,7 @@ export interface ListAssociatedAccessPoliciesRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5286,7 +6169,7 @@ export interface ListAssociatedAccessPoliciesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5297,13 +6180,13 @@ export interface ListAssociatedAccessPoliciesResponse {
    * <p>The name of your cluster.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
    * @public
    */
-  principalArn?: string;
+  principalArn?: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5315,13 +6198,13 @@ export interface ListAssociatedAccessPoliciesResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of access policies associated with the access entry.</p>
    * @public
    */
-  associatedAccessPolicies?: AssociatedAccessPolicy[];
+  associatedAccessPolicies?: AssociatedAccessPolicy[] | undefined;
 }
 
 /**
@@ -5338,7 +6221,7 @@ export interface ListClustersRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5350,16 +6233,16 @@ export interface ListClustersRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Indicates whether external clusters are included in the returned list. Use
    *                 '<code>all</code>' to return <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html</a>connected clusters, or blank to
-   *             return only Amazon EKS clusters. '<code>all</code>' must be in lowercase
-   *             otherwise an error occurs.</p>
+   *             return only Amazon EKS clusters. '<code>all</code>' must be in lowercase otherwise an error
+   *             occurs.</p>
    * @public
    */
-  include?: string[];
+  include?: string[] | undefined;
 }
 
 /**
@@ -5367,10 +6250,10 @@ export interface ListClustersRequest {
  */
 export interface ListClustersResponse {
   /**
-   * <p>A list of all of the clusters for your account in the specified Amazon Web Services Region.</p>
+   * <p>A list of all of the clusters for your account in the specified Amazon Web Services Region .</p>
    * @public
    */
-  clusters?: string[];
+  clusters?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5382,7 +6265,7 @@ export interface ListClustersResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5418,7 +6301,7 @@ export interface ListEksAnywhereSubscriptionsRequest {
    *             returns up to 10 results and a nextToken value if applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -5427,13 +6310,13 @@ export interface ListEksAnywhereSubscriptionsRequest {
    *             end of the previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of subscription statuses to filter on.</p>
    * @public
    */
-  includeStatus?: EksAnywhereSubscriptionStatus[];
+  includeStatus?: EksAnywhereSubscriptionStatus[] | undefined;
 }
 
 /**
@@ -5445,7 +6328,7 @@ export interface ListEksAnywhereSubscriptionsResponse {
    *             paginated by nextToken and maxResults.</p>
    * @public
    */
-  subscriptions?: EksAnywhereSubscription[];
+  subscriptions?: EksAnywhereSubscription[] | undefined;
 
   /**
    * <p>The nextToken value to include in a future ListEksAnywhereSubscriptions request. When
@@ -5454,7 +6337,7 @@ export interface ListEksAnywhereSubscriptionsResponse {
    *             more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5477,7 +6360,7 @@ export interface ListFargateProfilesRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5489,7 +6372,7 @@ export interface ListFargateProfilesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5497,11 +6380,10 @@ export interface ListFargateProfilesRequest {
  */
 export interface ListFargateProfilesResponse {
   /**
-   * <p>A list of all of the Fargate profiles associated with the specified
-   *             cluster.</p>
+   * <p>A list of all of the Fargate profiles associated with the specified cluster.</p>
    * @public
    */
-  fargateProfileNames?: string[];
+  fargateProfileNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5513,7 +6395,7 @@ export interface ListFargateProfilesResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5536,7 +6418,7 @@ export interface ListIdentityProviderConfigsRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5548,7 +6430,7 @@ export interface ListIdentityProviderConfigsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5559,7 +6441,7 @@ export interface ListIdentityProviderConfigsResponse {
    * <p>The identity provider configurations for the cluster.</p>
    * @public
    */
-  identityProviderConfigs?: IdentityProviderConfig[];
+  identityProviderConfigs?: IdentityProviderConfig[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -5574,7 +6456,7 @@ export interface ListIdentityProviderConfigsResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5586,19 +6468,19 @@ export interface InsightsFilter {
    * <p>The categories to use to filter insights.</p>
    * @public
    */
-  categories?: Category[];
+  categories?: Category[] | undefined;
 
   /**
    * <p>The Kubernetes versions to use to filter the insights.</p>
    * @public
    */
-  kubernetesVersions?: string[];
+  kubernetesVersions?: string[] | undefined;
 
   /**
    * <p>The statuses to use to filter the insights. </p>
    * @public
    */
-  statuses?: InsightStatusValue[];
+  statuses?: InsightStatusValue[] | undefined;
 }
 
 /**
@@ -5616,7 +6498,7 @@ export interface ListInsightsRequest {
    *             insights are returned by category, associated Kubernetes version, and status.</p>
    * @public
    */
-  filter?: InsightsFilter;
+  filter?: InsightsFilter | undefined;
 
   /**
    * <p>The maximum number of identity provider configurations returned by
@@ -5630,7 +6512,7 @@ export interface ListInsightsRequest {
    *             applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -5640,7 +6522,7 @@ export interface ListInsightsRequest {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5652,51 +6534,51 @@ export interface InsightSummary {
    * <p>The ID of the insight.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the insight.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The category of the insight.</p>
    * @public
    */
-  category?: Category;
+  category?: Category | undefined;
 
   /**
    * <p>The Kubernetes minor version associated with an insight if applicable. </p>
    * @public
    */
-  kubernetesVersion?: string;
+  kubernetesVersion?: string | undefined;
 
   /**
    * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the
    *             cluster.</p>
    * @public
    */
-  lastRefreshTime?: Date;
+  lastRefreshTime?: Date | undefined;
 
   /**
    * <p>The time the status of the insight last changed.</p>
    * @public
    */
-  lastTransitionTime?: Date;
+  lastTransitionTime?: Date | undefined;
 
   /**
    * <p>The description of the insight which includes alert criteria, remediation
    *             recommendation, and additional resources (contains Markdown).</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An object containing more detail on the status of the insight.</p>
    * @public
    */
-  insightStatus?: InsightStatus;
+  insightStatus?: InsightStatus | undefined;
 }
 
 /**
@@ -5707,7 +6589,7 @@ export interface ListInsightsResponse {
    * <p>The returned list of insights.</p>
    * @public
    */
-  insights?: InsightSummary[];
+  insights?: InsightSummary[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListInsights</code>
@@ -5717,7 +6599,7 @@ export interface ListInsightsResponse {
    *             return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5740,7 +6622,7 @@ export interface ListNodegroupsRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5752,7 +6634,7 @@ export interface ListNodegroupsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5763,7 +6645,7 @@ export interface ListNodegroupsResponse {
    * <p>A list of all of the node groups associated with the specified cluster.</p>
    * @public
    */
-  nodegroups?: string[];
+  nodegroups?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -5775,7 +6657,7 @@ export interface ListNodegroupsResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5792,13 +6674,13 @@ export interface ListPodIdentityAssociationsRequest {
    * <p>The name of the Kubernetes namespace inside the cluster that the associations are in.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the Kubernetes service account that the associations use.</p>
    * @public
    */
-  serviceAccount?: string;
+  serviceAccount?: string | undefined;
 
   /**
    * <p>The maximum number of EKS Pod Identity association results returned by
@@ -5813,7 +6695,7 @@ export interface ListPodIdentityAssociationsRequest {
    *             and a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -5826,14 +6708,14 @@ export interface ListPodIdentityAssociationsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
  * <p>The summarized description of the association.</p>
- *          <p>Each summary is simplified by removing these fields compared to the full <code>
- *                <a>PodIdentityAssociation</a>
- *             </code>:</p>
+ *          <p>Each summary is simplified by removing these fields compared to the full <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_PodIdentityAssociation.html">
+ *                <code>PodIdentityAssociation</code>
+ *             </a>:</p>
  *          <ul>
  *             <li>
  *                <p>The IAM role: <code>roleArn</code>
@@ -5859,7 +6741,7 @@ export interface PodIdentityAssociationSummary {
    * <p>The name of the cluster that the association is in.</p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 
   /**
    * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
@@ -5867,32 +6749,32 @@ export interface PodIdentityAssociationSummary {
    *             namespace.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the Kubernetes service account inside the cluster to associate the IAM
    *             credentials with.</p>
    * @public
    */
-  serviceAccount?: string;
+  serviceAccount?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  associationArn?: string;
+  associationArn?: string | undefined;
 
   /**
    * <p>The ID of the association.</p>
    * @public
    */
-  associationId?: string;
+  associationId?: string | undefined;
 
   /**
    * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
    * @public
    */
-  ownerArn?: string;
+  ownerArn?: string | undefined;
 }
 
 /**
@@ -5902,9 +6784,9 @@ export interface ListPodIdentityAssociationsResponse {
   /**
    * <p>The list of summarized descriptions of the associations that are in the cluster and match
    *             any filters that you provided.</p>
-   *          <p>Each summary is simplified by removing these fields compared to the full <code>
-   *                <a>PodIdentityAssociation</a>
-   *             </code>:</p>
+   *          <p>Each summary is simplified by removing these fields compared to the full <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_PodIdentityAssociation.html">
+   *                <code>PodIdentityAssociation</code>
+   *             </a>:</p>
    *          <ul>
    *             <li>
    *                <p>The IAM role: <code>roleArn</code>
@@ -5925,7 +6807,7 @@ export interface ListPodIdentityAssociationsResponse {
    *          </ul>
    * @public
    */
-  associations?: PodIdentityAssociationSummary[];
+  associations?: PodIdentityAssociationSummary[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -5939,7 +6821,7 @@ export interface ListPodIdentityAssociationsResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5982,7 +6864,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6020,13 +6902,13 @@ export interface ListUpdatesRequest {
    * <p>The name of the Amazon EKS managed node group to list updates for.</p>
    * @public
    */
-  nodegroupName?: string;
+  nodegroupName?: string | undefined;
 
   /**
    * <p>The names of the installed add-ons that have available updates.</p>
    * @public
    */
-  addonName?: string;
+  addonName?: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -6038,7 +6920,7 @@ export interface ListUpdatesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results, returned in paginated output. You receive
@@ -6050,7 +6932,7 @@ export interface ListUpdatesRequest {
    *             returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6061,7 +6943,7 @@ export interface ListUpdatesResponse {
    * <p>A list of all the updates for the specified cluster and Region.</p>
    * @public
    */
-  updateIds?: string[];
+  updateIds?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
@@ -6073,7 +6955,7 @@ export interface ListUpdatesResponse {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6127,7 +7009,8 @@ export interface RegisterClusterRequest {
   name: string | undefined;
 
   /**
-   * <p>The configuration settings required to connect the Kubernetes cluster to the Amazon EKS control plane.</p>
+   * <p>The configuration settings required to connect the Kubernetes cluster to the Amazon EKS control
+   *             plane.</p>
    * @public
    */
   connectorConfig: ConnectorConfigRequest | undefined;
@@ -6137,7 +7020,7 @@ export interface RegisterClusterRequest {
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Metadata that assists with categorization and organization.
@@ -6145,7 +7028,7 @@ export interface RegisterClusterRequest {
    *             propagate to any other cluster or Amazon Web Services resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6156,7 +7039,7 @@ export interface RegisterClusterResponse {
    * <p>An object representing an Amazon EKS cluster.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -6245,9 +7128,9 @@ export interface UpdateAccessEntryRequest {
   /**
    * <p>The value for <code>name</code> that you've specified for <code>kind: Group</code> as
    *             a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or
-   *                 <code>ClusterRoleBinding</code> object. Amazon EKS doesn't confirm that the
-   *             value for <code>name</code> exists in any bindings on your cluster. You can specify one
-   *             or more names.</p>
+   *                 <code>ClusterRoleBinding</code> object. Amazon EKS doesn't confirm that the value for
+   *                 <code>name</code> exists in any bindings on your cluster. You can specify one or
+   *             more names.</p>
    *          <p>Kubernetes authorizes the <code>principalArn</code> of the access entry to access any
    *             cluster objects that you've specified in a Kubernetes <code>Role</code> or
    *                 <code>ClusterRole</code> object that is also specified in a binding's
@@ -6255,33 +7138,32 @@ export interface UpdateAccessEntryRequest {
    *                 <code>RoleBinding</code>, <code>ClusterRoleBinding</code>, <code>Role</code>, or
    *                 <code>ClusterRole</code> objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
    *                 Authorization in the Kubernetes documentation</a>.</p>
-   *          <p>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of,
-   *             or in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate
-   *             one or more access policies to the access entry using
-   *             <code>AssociateAccessPolicy</code>. If you associate any access policies, the
-   *                 <code>principalARN</code> has all permissions assigned in the associated access
-   *             policies and all permissions in any Kubernetes <code>Role</code> or <code>ClusterRole</code>
-   *             objects that the group names are bound to.</p>
+   *          <p>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or in
+   *             addition to Kubernetes authorizing the <code>principalArn</code>), you can associate one or
+   *             more access policies to the access entry using <code>AssociateAccessPolicy</code>. If
+   *             you associate any access policies, the <code>principalARN</code> has all permissions
+   *             assigned in the associated access policies and all permissions in any Kubernetes
+   *                 <code>Role</code> or <code>ClusterRole</code> objects that the group names are bound
+   *             to.</p>
    * @public
    */
-  kubernetesGroups?: string[];
+  kubernetesGroups?: string[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The username to authenticate to Kubernetes with. We recommend not specifying a username and
-   *             letting Amazon EKS specify it for you. For more information about the value
-   *                 Amazon EKS specifies for you, or constraints before specifying your own
-   *             username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
+   *             letting Amazon EKS specify it for you. For more information about the value Amazon EKS specifies
+   *             for you, or constraints before specifying your own username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
    *                 access entries</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 }
 
 /**
@@ -6292,7 +7174,7 @@ export interface UpdateAccessEntryResponse {
    * <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
    * @public
    */
-  accessEntry?: AccessEntry;
+  accessEntry?: AccessEntry | undefined;
 }
 
 /**
@@ -6319,7 +7201,7 @@ export interface UpdateAddonRequest {
    *             </a>.</p>
    * @public
    */
-  addonVersion?: string;
+  addonVersion?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account. The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the
@@ -6332,42 +7214,41 @@ export interface UpdateAddonRequest {
    *          </note>
    * @public
    */
-  serviceAccountRoleArn?: string;
+  serviceAccountRoleArn?: string | undefined;
 
   /**
-   * <p>How to resolve field value conflicts for an Amazon EKS add-on if you've
-   *             changed a value from the Amazon EKS default value. Conflicts are handled based
-   *             on the option you choose:</p>
+   * <p>How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value
+   *             from the Amazon EKS default value. Conflicts are handled based on the option you
+   *             choose:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>None</b> – Amazon EKS doesn't
-   *                     change the value. The update might fail.</p>
+   *                   <b>None</b> – Amazon EKS doesn't change the value.
+   *                     The update might fail.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Overwrite</b> – Amazon EKS
-   *                     overwrites the changed value back to the Amazon EKS default
-   *                     value.</p>
+   *                   <b>Overwrite</b> – Amazon EKS overwrites the
+   *                     changed value back to the Amazon EKS default value.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Preserve</b> – Amazon EKS
-   *                     preserves the value. If you choose this option, we recommend that you test any
-   *                     field and value changes on a non-production cluster before updating the add-on
-   *                     on your production cluster.</p>
+   *                   <b>Preserve</b> – Amazon EKS preserves the value.
+   *                     If you choose this option, we recommend that you test any field and value
+   *                     changes on a non-production cluster before updating the add-on on your
+   *                     production cluster.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  resolveConflicts?: ResolveConflicts;
+  resolveConflicts?: ResolveConflicts | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The set of configuration values for the add-on that's created. The values that you
@@ -6375,14 +7256,18 @@ export interface UpdateAddonRequest {
    *                 <code>DescribeAddonConfiguration</code>.</p>
    * @public
    */
-  configurationValues?: string;
+  configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations to be updated. Each EKS Pod Identity association maps a Kubernetes service account to an IAM Role. If this value is left blank, no change. If an empty array is provided, existing Pod Identity Assocations owned by the Addon are deleted.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * <p>An array of Pod Identity Assocations to be updated. Each EKS Pod Identity association
+   *             maps a Kubernetes service account to an IAM Role. If this value is left blank, no change.
+   *             If an empty array is provided, existing Pod Identity Assocations owned by the Addon are
+   *             deleted.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
+   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  podIdentityAssociations?: AddonPodIdentityAssociations[];
+  podIdentityAssociations?: AddonPodIdentityAssociations[] | undefined;
 }
 
 /**
@@ -6393,7 +7278,7 @@ export interface UpdateAddonResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -6405,7 +7290,7 @@ export interface UpdateAccessConfigRequest {
    * <p>The desired authentication mode for the cluster.</p>
    * @public
    */
-  authenticationMode?: AuthenticationMode;
+  authenticationMode?: AuthenticationMode | undefined;
 }
 
 /**
@@ -6419,38 +7304,95 @@ export interface UpdateClusterConfigRequest {
   name: string | undefined;
 
   /**
-   * <p>An object representing the VPC configuration to use for an Amazon EKS
-   *             cluster.</p>
+   * <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
    * @public
    */
-  resourcesVpcConfig?: VpcConfigRequest;
+  resourcesVpcConfig?: VpcConfigRequest | undefined;
 
   /**
-   * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the
-   *                 <i>
+   * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs .
+   *             By default, cluster control plane logs aren't exported to CloudWatch Logs . For more information,
+   *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
+   *                 cluster control plane logs</a> in the
+   *             <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    *          <note>
-   *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
-   *                 exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
-   *                 Pricing</a>.</p>
+   *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
    *          </note>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The access configuration for the cluster.</p>
    * @public
    */
-  accessConfig?: UpdateAccessConfigRequest;
+  accessConfig?: UpdateAccessConfigRequest | undefined;
+
+  /**
+   * <p>You can enable or disable extended support for clusters currently on standard support.
+   *             You cannot disable extended support once it starts. You must enable extended support
+   *             before your cluster exits standard support.</p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyRequest | undefined;
+
+  /**
+   * <p>Enable or disable ARC zonal shift for the cluster. If zonal shift is enabled, Amazon Web Services
+   *             configures zonal autoshift for the cluster.</p>
+   *          <p>Zonal shift is a feature of Amazon Application Recovery Controller (ARC). ARC zonal shift is designed to be a
+   *             temporary measure that allows you to move traffic for a resource away from an impaired
+   *             AZ until the zonal shift expires or you cancel it. You can extend the zonal shift if
+   *             necessary.</p>
+   *          <p>You can start a zonal shift for an EKS cluster, or you can allow Amazon Web Services to do it for
+   *             you by enabling <i>zonal autoshift</i>. This shift updates the flow of
+   *             east-to-west network traffic in your cluster to only consider network endpoints for Pods
+   *             running on worker nodes in healthy AZs. Additionally, any ALB or NLB handling ingress
+   *             traffic for applications in your EKS cluster will automatically route traffic to targets
+   *             in the healthy AZs. For more information about zonal shift in EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html">Learn about
+   *                 Amazon Application Recovery Controller (ARC) Zonal Shift in Amazon EKS</a> in the
+   *                 <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigRequest | undefined;
+
+  /**
+   * <p>Update the configuration of the compute capability of your EKS Auto Mode cluster. For
+   *             example, enable the capability.</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes network configuration for the cluster.</p>
+   * @public
+   */
+  kubernetesNetworkConfig?: KubernetesNetworkConfigRequest | undefined;
+
+  /**
+   * <p>Update the configuration of the block storage capability of your EKS Auto Mode
+   *             cluster. For example, enable the capability.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigRequest | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigRequest | undefined;
 }
 
 /**
@@ -6461,7 +7403,40 @@ export interface UpdateClusterConfigResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
+}
+
+/**
+ * <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
+ *                <code>ListInsights</code>
+ *             </a> API to view detected upgrade blocking issues.
+ *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
+ *                <code>force</code>
+ *             </a> flag when updating to override upgrade readiness
+ *             errors.</p>
+ * @public
+ */
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.clusterName = opts.clusterName;
+  }
 }
 
 /**
@@ -6485,7 +7460,14 @@ export interface UpdateClusterVersionRequest {
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>Set this value to <code>true</code> to override upgrade-blocking readiness checks when
+   *             updating a cluster.</p>
+   * @public
+   */
+  force?: boolean | undefined;
 }
 
 /**
@@ -6496,7 +7478,7 @@ export interface UpdateClusterVersionResponse {
    * <p>The full description of the specified update</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -6519,7 +7501,7 @@ export interface UpdateEksAnywhereSubscriptionRequest {
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -6530,7 +7512,7 @@ export interface UpdateEksAnywhereSubscriptionResponse {
    * <p>The full description of the updated subscription.</p>
    * @public
    */
-  subscription?: EksAnywhereSubscription;
+  subscription?: EksAnywhereSubscription | undefined;
 }
 
 /**
@@ -6543,13 +7525,13 @@ export interface UpdateLabelsPayload {
    * <p>The Kubernetes <code>labels</code> to add or update.</p>
    * @public
    */
-  addOrUpdateLabels?: Record<string, string>;
+  addOrUpdateLabels?: Record<string, string> | undefined;
 
   /**
    * <p>The Kubernetes <code>labels</code> to remove.</p>
    * @public
    */
-  removeLabels?: string[];
+  removeLabels?: string[] | undefined;
 }
 
 /**
@@ -6563,13 +7545,13 @@ export interface UpdateTaintsPayload {
    * <p>Kubernetes taints to be added or updated.</p>
    * @public
    */
-  addOrUpdateTaints?: Taint[];
+  addOrUpdateTaints?: Taint[] | undefined;
 
   /**
    * <p>Kubernetes taints to remove.</p>
    * @public
    */
-  removeTaints?: Taint[];
+  removeTaints?: Taint[] | undefined;
 }
 
 /**
@@ -6593,7 +7575,7 @@ export interface UpdateNodegroupConfigRequest {
    *             update.</p>
    * @public
    */
-  labels?: UpdateLabelsPayload;
+  labels?: UpdateLabelsPayload | undefined;
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group after the update. For
@@ -6601,26 +7583,32 @@ export interface UpdateNodegroupConfigRequest {
    *                 managed node groups</a>.</p>
    * @public
    */
-  taints?: UpdateTaintsPayload;
+  taints?: UpdateTaintsPayload | undefined;
 
   /**
    * <p>The scaling configuration details for the Auto Scaling group after the update.</p>
    * @public
    */
-  scalingConfig?: NodegroupScalingConfig;
+  scalingConfig?: NodegroupScalingConfig | undefined;
 
   /**
    * <p>The node group update configuration.</p>
    * @public
    */
-  updateConfig?: NodegroupUpdateConfig;
+  updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -6631,7 +7619,7 @@ export interface UpdateNodegroupConfigResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -6658,28 +7646,30 @@ export interface UpdateNodegroupVersionRequest {
    *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
-   * <p>The AMI version of the Amazon EKS optimized AMI to use for the update. By
-   *             default, the latest available AMI version for the node group's Kubernetes version is used.
-   *             For information about Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon EKS managed node groups support the November 2022 and later releases of the
-   *             Windows AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon EKS optimized Windows AMI versions</a> in the
-   *             <i>Amazon EKS User Guide</i>.</p>
+   * <p>The AMI version of the Amazon EKS optimized AMI to use for the update. By default, the
+   *             latest available AMI version for the node group's Kubernetes version is used. For information
+   *             about Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux AMI versions</a> in the
+   *             <i>Amazon EKS User Guide</i>. Amazon EKS managed node groups support the November 2022 and later releases
+   *             of the Windows AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon EKS
+   *                 optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
    *          <p>If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify
    *                 <code>releaseVersion</code>, or the node group  update will fail.
    *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
-  releaseVersion?: string;
+  releaseVersion?: string | undefined;
 
   /**
    * <p>An object representing a node group's launch template specification. You can only
    *             update a node group using a launch template if the node group was originally deployed
-   *             with a launch template.</p>
+   *             with a launch template. When updating, you must specify the same launch template ID or
+   *             name that was used to create the node group.</p>
    * @public
    */
-  launchTemplate?: LaunchTemplateSpecification;
+  launchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>Force the update if any <code>Pod</code> on the existing node group can't be drained
@@ -6688,14 +7678,14 @@ export interface UpdateNodegroupVersionRequest {
    *             whether or not any <code>Pod</code> is running on the node.</p>
    * @public
    */
-  force?: boolean;
+  force?: boolean | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -6706,7 +7696,7 @@ export interface UpdateNodegroupVersionResponse {
    * <p>An object representing an asynchronous update.</p>
    * @public
    */
-  update?: Update;
+  update?: Update | undefined;
 }
 
 /**
@@ -6729,14 +7719,14 @@ export interface UpdatePodIdentityAssociationRequest {
    * <p>The new IAM role to change the </p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
    * the idempotency of the request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -6747,5 +7737,5 @@ export interface UpdatePodIdentityAssociationResponse {
    * <p>The full description of the EKS Pod Identity association that was updated.</p>
    * @public
    */
-  association?: PodIdentityAssociation;
+  association?: PodIdentityAssociation | undefined;
 }

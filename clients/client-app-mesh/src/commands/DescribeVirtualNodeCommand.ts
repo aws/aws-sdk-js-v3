@@ -318,6 +318,7 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DescribeVirtualNodeCommand extends $Command
@@ -328,9 +329,7 @@ export class DescribeVirtualNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -342,4 +341,16 @@ export class DescribeVirtualNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualNodeCommand)
   .de(de_DescribeVirtualNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualNodeInput;
+      output: DescribeVirtualNodeOutput;
+    };
+    sdk: {
+      input: DescribeVirtualNodeCommandInput;
+      output: DescribeVirtualNodeCommandOutput;
+    };
+  };
+}

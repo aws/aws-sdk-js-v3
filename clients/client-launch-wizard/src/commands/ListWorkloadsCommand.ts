@@ -69,6 +69,29 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List all available workloads supported by AWS Launch Wizard.
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListWorkloadsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloads: [
+ *     {
+ *       displayName: "SAP",
+ *       workloadName: "SAP"
+ *     },
+ *     {
+ *       displayName: "MS SQL Server",
+ *       workloadName: "SQL"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListWorkloadsCommand extends $Command
@@ -79,9 +102,7 @@ export class ListWorkloadsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +114,16 @@ export class ListWorkloadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadsCommand)
   .de(de_ListWorkloadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadsInput;
+      output: ListWorkloadsOutput;
+    };
+    sdk: {
+      input: ListWorkloadsCommandInput;
+      output: ListWorkloadsCommandOutput;
+    };
+  };
+}

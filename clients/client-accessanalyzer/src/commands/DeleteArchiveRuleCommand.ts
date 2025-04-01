@@ -70,6 +70,7 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class DeleteArchiveRuleCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteArchiveRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArchiveRuleCommand)
   .de(de_DeleteArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArchiveRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteArchiveRuleCommandInput;
+      output: DeleteArchiveRuleCommandOutput;
+    };
+  };
+}

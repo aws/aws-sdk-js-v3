@@ -82,42 +82,42 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe connections
  * ```javascript
  * // Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Connections": [
+ *   Connections: [
  *     {
- *       "EndpointArn": "arn:aws:dms:us-east-arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
- *       "EndpointIdentifier": "testsrc1",
- *       "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *       "ReplicationInstanceIdentifier": "test",
- *       "Status": "successful"
+ *       EndpointArn: "arn:aws:dms:us-east-arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *       EndpointIdentifier: "testsrc1",
+ *       ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *       ReplicationInstanceIdentifier: "test",
+ *       Status: "successful"
  *     }
  *   ],
- *   "Marker": ""
+ *   Marker: ""
  * }
  * *\/
- * // example id: describe-connections-1481754477953
  * ```
  *
+ * @public
  */
 export class DescribeConnectionsCommand extends $Command
   .classBuilder<
@@ -127,9 +127,7 @@ export class DescribeConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +139,16 @@ export class DescribeConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectionsCommand)
   .de(de_DescribeConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionsMessage;
+      output: DescribeConnectionsResponse;
+    };
+    sdk: {
+      input: DescribeConnectionsCommandInput;
+      output: DescribeConnectionsCommandOutput;
+    };
+  };
+}

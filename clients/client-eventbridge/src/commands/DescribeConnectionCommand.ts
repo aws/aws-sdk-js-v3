@@ -48,7 +48,13 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //   ConnectionArn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   InvocationConnectivityParameters: { // DescribeConnectionConnectivityParameters
+ * //     ResourceParameters: { // DescribeConnectionResourceParameters
+ * //       ResourceConfigurationArn: "STRING_VALUE", // required
+ * //       ResourceAssociationArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   StateReason: "STRING_VALUE",
  * //   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
  * //   SecretArn: "STRING_VALUE",
@@ -112,6 +118,12 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //         },
  * //       ],
  * //     },
+ * //     ConnectivityParameters: {
+ * //       ResourceParameters: {
+ * //         ResourceConfigurationArn: "STRING_VALUE", // required
+ * //         ResourceAssociationArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
@@ -135,6 +147,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionCommand extends $Command
@@ -145,9 +158,7 @@ export class DescribeConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +170,16 @@ export class DescribeConnectionCommand extends $Command
   .f(void 0, DescribeConnectionResponseFilterSensitiveLog)
   .ser(se_DescribeConnectionCommand)
   .de(de_DescribeConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionRequest;
+      output: DescribeConnectionResponse;
+    };
+    sdk: {
+      input: DescribeConnectionCommandInput;
+      output: DescribeConnectionCommandOutput;
+    };
+  };
+}

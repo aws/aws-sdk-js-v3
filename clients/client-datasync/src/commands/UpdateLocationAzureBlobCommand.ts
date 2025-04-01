@@ -32,7 +32,8 @@ export interface UpdateLocationAzureBlobCommandInput extends UpdateLocationAzure
 export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies some configurations of the Microsoft Azure Blob Storage transfer location that you're using with DataSync.</p>
+ * <p>Modifies the following configurations of the Microsoft Azure Blob Storage transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html">Configuring DataSync transfers with Azure Blob Storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +75,7 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationAzureBlobCommand extends $Command
@@ -84,9 +86,7 @@ export class UpdateLocationAzureBlobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class UpdateLocationAzureBlobCommand extends $Command
   .f(UpdateLocationAzureBlobRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLocationAzureBlobCommand)
   .de(de_UpdateLocationAzureBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationAzureBlobRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationAzureBlobCommandInput;
+      output: UpdateLocationAzureBlobCommandOutput;
+    };
+  };
+}

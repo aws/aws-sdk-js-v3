@@ -48,6 +48,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   SubnetIds: [ // SubnetIds // required
  *     "STRING_VALUE",
  *   ],
+ *   NetworkType: "IPV4" || "DUALSTACK",
  *   TagList: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -74,21 +75,25 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         SubnetId: "STRING_VALUE",
  * //         EniId: "STRING_VALUE",
  * //         EniIp: "STRING_VALUE",
+ * //         EniIpV6: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
+ * //         HsmType: "STRING_VALUE",
  * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
  * //       },
  * //     ],
  * //     HsmType: "STRING_VALUE",
+ * //     HsmTypeRollbackExpiration: new Date("TIMESTAMP"),
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
- * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
+ * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "MODIFY_IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //     StateMessage: "STRING_VALUE",
  * //     SubnetMapping: { // ExternalSubnetMapping
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     VpcId: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //     Certificates: { // Certificates
  * //       ClusterCsr: "STRING_VALUE",
  * //       HsmCertificate: "STRING_VALUE",
@@ -138,6 +143,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterCommand extends $Command
@@ -148,9 +154,7 @@ export class CreateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +166,16 @@ export class CreateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterRequest;
+      output: CreateClusterResponse;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

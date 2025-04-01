@@ -93,6 +93,12 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         minSize: Number("int"),
  * //         maxSize: Number("int"),
  * //         instanceType: "STRING_VALUE",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
+ * //         estimatedInstanceHourReductionPercentage: Number("double"),
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         mixedInstanceTypes: [ // MixedInstanceTypes
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       currentInstanceGpuInfo: { // GpuInfo
  * //         gpus: [ // Gpus
@@ -109,6 +115,12 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //             minSize: Number("int"),
  * //             maxSize: Number("int"),
  * //             instanceType: "STRING_VALUE",
+ * //             allocationStrategy: "Prioritized" || "LowestPrice",
+ * //             estimatedInstanceHourReductionPercentage: Number("double"),
+ * //             type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //             mixedInstanceTypes: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           instanceGpuInfo: {
  * //             gpus: [
@@ -233,6 +245,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command
@@ -243,9 +256,7 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +268,16 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoScalingGroupRecommendationsCommand)
   .de(de_GetAutoScalingGroupRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoScalingGroupRecommendationsRequest;
+      output: GetAutoScalingGroupRecommendationsResponse;
+    };
+    sdk: {
+      input: GetAutoScalingGroupRecommendationsCommandInput;
+      output: GetAutoScalingGroupRecommendationsCommandOutput;
+    };
+  };
+}

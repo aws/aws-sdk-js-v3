@@ -45,7 +45,7 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  *       AuthScheme: "SECRETS",
  *       SecretArn: "STRING_VALUE",
  *       IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "MYSQL_CACHING_SHA2_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
  *     },
  *   ],
  *   RoleArn: "STRING_VALUE", // required
@@ -87,7 +87,7 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * //         AuthScheme: "SECRETS",
  * //         SecretArn: "STRING_VALUE",
  * //         IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "MYSQL_CACHING_SHA2_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
  * //       },
  * //     ],
  * //     RoleArn: "STRING_VALUE",
@@ -120,6 +120,7 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class CreateDBProxyCommand extends $Command
@@ -130,9 +131,7 @@ export class CreateDBProxyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class CreateDBProxyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBProxyCommand)
   .de(de_CreateDBProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBProxyRequest;
+      output: CreateDBProxyResponse;
+    };
+    sdk: {
+      input: CreateDBProxyCommandInput;
+      output: CreateDBProxyCommandOutput;
+    };
+  };
+}

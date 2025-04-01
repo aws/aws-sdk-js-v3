@@ -93,21 +93,24 @@ export interface StartConfigurationPolicyDisassociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To disassociate a configuration from a target
  * ```javascript
  * // This operation disassociates a configuration policy or self-managed behavior from the target account, organizational unit, or the root.
  * const input = {
- *   "ConfigurationPolicyIdentifier": "SELF_MANAGED_SECURITY_HUB",
- *   "Target": {
- *     "RootId": "r-f6g7h8i9j0example"
+ *   ConfigurationPolicyIdentifier: "SELF_MANAGED_SECURITY_HUB",
+ *   Target: {
+ *     RootId: "r-f6g7h8i9j0example"
  *   }
  * };
  * const command = new StartConfigurationPolicyDisassociationCommand(input);
- * await client.send(command);
- * // example id: to-disassociate-a-configuration-from-a-target-1695177176748
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class StartConfigurationPolicyDisassociationCommand extends $Command
   .classBuilder<
@@ -117,9 +120,7 @@ export class StartConfigurationPolicyDisassociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +132,16 @@ export class StartConfigurationPolicyDisassociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConfigurationPolicyDisassociationCommand)
   .de(de_StartConfigurationPolicyDisassociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConfigurationPolicyDisassociationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartConfigurationPolicyDisassociationCommandInput;
+      output: StartConfigurationPolicyDisassociationCommandOutput;
+    };
+  };
+}

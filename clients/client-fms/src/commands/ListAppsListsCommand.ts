@@ -91,6 +91,7 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListAppsListsCommand extends $Command
@@ -101,9 +102,7 @@ export class ListAppsListsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListAppsListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppsListsCommand)
   .de(de_ListAppsListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppsListsRequest;
+      output: ListAppsListsResponse;
+    };
+    sdk: {
+      input: ListAppsListsCommandInput;
+      output: ListAppsListsCommandOutput;
+    };
+  };
+}

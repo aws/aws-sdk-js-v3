@@ -83,6 +83,7 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomMetadataCommand extends $Command
@@ -93,9 +94,7 @@ export class DeleteCustomMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DeleteCustomMetadataCommand extends $Command
   .f(DeleteCustomMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteCustomMetadataCommand)
   .de(de_DeleteCustomMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomMetadataCommandInput;
+      output: DeleteCustomMetadataCommandOutput;
+    };
+  };
+}

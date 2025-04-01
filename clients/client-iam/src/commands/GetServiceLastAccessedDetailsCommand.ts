@@ -148,40 +148,40 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get details from a previously-generated report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplef-1305-c245-eba4-71fe298bcda7
  * const input = {
- *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7"
+ *   JobId: "examplef-1305-c245-eba4-71fe298bcda7"
  * };
  * const command = new GetServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IsTruncated": false,
- *   "JobCompletionDate": "2018-10-24T19:47:35.241Z",
- *   "JobCreationDate": "2018-10-24T19:47:31.466Z",
- *   "JobStatus": "COMPLETED",
- *   "ServicesLastAccessed": [
+ *   IsTruncated: false,
+ *   JobCompletionDate: "2018-10-24T19:47:35.241Z",
+ *   JobCreationDate: "2018-10-24T19:47:31.466Z",
+ *   JobStatus: "COMPLETED",
+ *   ServicesLastAccessed: [
  *     {
- *       "LastAuthenticated": "2018-10-24T19:11:00Z",
- *       "LastAuthenticatedEntity": "arn:aws:iam::123456789012:user/AWSExampleUser01",
- *       "ServiceName": "AWS Identity and Access Management",
- *       "ServiceNamespace": "iam",
- *       "TotalAuthenticatedEntities": 2
+ *       LastAuthenticated: "2018-10-24T19:11:00Z",
+ *       LastAuthenticatedEntity: "arn:aws:iam::123456789012:user/AWSExampleUser01",
+ *       ServiceName: "AWS Identity and Access Management",
+ *       ServiceNamespace: "iam",
+ *       TotalAuthenticatedEntities: 2
  *     },
  *     {
- *       "ServiceName": "Amazon Simple Storage Service",
- *       "ServiceNamespace": "s3",
- *       "TotalAuthenticatedEntities": 0
+ *       ServiceName: "Amazon Simple Storage Service",
+ *       ServiceNamespace: "s3",
+ *       TotalAuthenticatedEntities: 0
  *     }
  *   ]
  * }
  * *\/
- * // example id: getserviceaccessdetails-policy-1541696298085
  * ```
  *
+ * @public
  */
 export class GetServiceLastAccessedDetailsCommand extends $Command
   .classBuilder<
@@ -191,9 +191,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -205,4 +203,16 @@ export class GetServiceLastAccessedDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceLastAccessedDetailsCommand)
   .de(de_GetServiceLastAccessedDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceLastAccessedDetailsRequest;
+      output: GetServiceLastAccessedDetailsResponse;
+    };
+    sdk: {
+      input: GetServiceLastAccessedDetailsCommandInput;
+      output: GetServiceLastAccessedDetailsCommandOutput;
+    };
+  };
+}

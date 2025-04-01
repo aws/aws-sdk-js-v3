@@ -76,6 +76,7 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkResourceCountsCommand extends $Command
@@ -86,9 +87,7 @@ export class GetNetworkResourceCountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GetNetworkResourceCountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkResourceCountsCommand)
   .de(de_GetNetworkResourceCountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkResourceCountsRequest;
+      output: GetNetworkResourceCountsResponse;
+    };
+    sdk: {
+      input: GetNetworkResourceCountsCommandInput;
+      output: GetNetworkResourceCountsCommandOutput;
+    };
+  };
+}

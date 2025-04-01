@@ -63,7 +63,7 @@ from the user guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rds
+To install this package, simply type add or install @aws-sdk/client-rds
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rds`

@@ -116,6 +116,7 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelModeratorCommand extends $Command
@@ -126,9 +127,7 @@ export class CreateChannelModeratorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class CreateChannelModeratorCommand extends $Command
   .f(void 0, CreateChannelModeratorResponseFilterSensitiveLog)
   .ser(se_CreateChannelModeratorCommand)
   .de(de_CreateChannelModeratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelModeratorRequest;
+      output: CreateChannelModeratorResponse;
+    };
+    sdk: {
+      input: CreateChannelModeratorCommandInput;
+      output: CreateChannelModeratorCommandOutput;
+    };
+  };
+}

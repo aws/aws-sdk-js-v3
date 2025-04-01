@@ -85,6 +85,7 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ListNodesCommand extends $Command
@@ -95,9 +96,7 @@ export class ListNodesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNodesCommand)
   .de(de_ListNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNodesRequest;
+      output: ListNodesResponse;
+    };
+    sdk: {
+      input: ListNodesCommandInput;
+      output: ListNodesCommandOutput;
+    };
+  };
+}

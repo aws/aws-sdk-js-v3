@@ -21,7 +21,7 @@ to sign requests is: <i>iotdevicegateway</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iot-data-plane
+To install this package, simply type add or install @aws-sdk/client-iot-data-plane
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iot-data-plane`

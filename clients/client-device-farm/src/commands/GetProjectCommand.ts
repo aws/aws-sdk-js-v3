@@ -81,27 +81,8 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To get information about a project
- * ```javascript
- * // The following example gets information about a specific project.
- * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
- * };
- * const command = new GetProjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "project": {
- *     "name": "My Project",
- *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- *     "created": "1472660939.152"
- *   }
- * }
- * *\/
- * // example id: to-get-a-project-1470975038449
- * ```
  *
+ * @public
  */
 export class GetProjectCommand extends $Command
   .classBuilder<
@@ -111,9 +92,7 @@ export class GetProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +104,16 @@ export class GetProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProjectCommand)
   .de(de_GetProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProjectRequest;
+      output: GetProjectResult;
+    };
+    sdk: {
+      input: GetProjectCommandInput;
+      output: GetProjectCommandOutput;
+    };
+  };
+}

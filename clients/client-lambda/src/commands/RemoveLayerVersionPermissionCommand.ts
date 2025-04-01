@@ -62,8 +62,17 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>
@@ -77,6 +86,22 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To delete layer-version permissions
+ * ```javascript
+ * // The following example deletes permission for an account to configure a layer version.
+ * const input = {
+ *   LayerName: "my-layer",
+ *   StatementId: "xaccount",
+ *   VersionNumber: 1
+ * };
+ * const command = new RemoveLayerVersionPermissionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemoveLayerVersionPermissionCommand extends $Command
@@ -87,9 +112,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +124,16 @@ export class RemoveLayerVersionPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveLayerVersionPermissionCommand)
   .de(de_RemoveLayerVersionPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveLayerVersionPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveLayerVersionPermissionCommandInput;
+      output: RemoveLayerVersionPermissionCommandOutput;
+    };
+  };
+}

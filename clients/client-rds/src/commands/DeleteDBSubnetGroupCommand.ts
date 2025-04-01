@@ -66,18 +66,21 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB subnet group
  * ```javascript
  * // The following example deletes the DB subnet group called mysubnetgroup.
  * const input = {
- *   "DBSubnetGroupName": "mysubnetgroup"
+ *   DBSubnetGroupName: "mysubnetgroup"
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-subnet-group-1680127744982
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDBSubnetGroupCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class DeleteDBSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DeleteDBSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBSubnetGroupCommand)
   .de(de_DeleteDBSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBSubnetGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDBSubnetGroupCommandInput;
+      output: DeleteDBSubnetGroupCommandOutput;
+    };
+  };
+}

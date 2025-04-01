@@ -62,6 +62,7 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetAccountBalanceCommand extends $Command
@@ -72,9 +73,7 @@ export class GetAccountBalanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class GetAccountBalanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountBalanceCommand)
   .de(de_GetAccountBalanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountBalanceResponse;
+    };
+    sdk: {
+      input: GetAccountBalanceCommandInput;
+      output: GetAccountBalanceCommandOutput;
+    };
+  };
+}

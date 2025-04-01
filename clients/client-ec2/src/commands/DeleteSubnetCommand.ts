@@ -54,18 +54,21 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a subnet
  * ```javascript
  * // This example deletes the specified subnet.
  * const input = {
- *   "SubnetId": "subnet-9d4a7b6c"
+ *   SubnetId: "subnet-9d4a7b6c"
  * };
  * const command = new DeleteSubnetCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-subnet-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSubnetCommand extends $Command
   .classBuilder<
@@ -75,9 +78,7 @@ export class DeleteSubnetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +90,16 @@ export class DeleteSubnetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubnetCommand)
   .de(de_DeleteSubnetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubnetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubnetCommandInput;
+      output: DeleteSubnetCommandOutput;
+    };
+  };
+}

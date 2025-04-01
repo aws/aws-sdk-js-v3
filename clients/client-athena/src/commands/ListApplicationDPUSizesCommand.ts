@@ -76,6 +76,7 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationDPUSizesCommand extends $Command
@@ -86,9 +87,7 @@ export class ListApplicationDPUSizesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListApplicationDPUSizesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationDPUSizesCommand)
   .de(de_ListApplicationDPUSizesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationDPUSizesInput;
+      output: ListApplicationDPUSizesOutput;
+    };
+    sdk: {
+      input: ListApplicationDPUSizesCommandInput;
+      output: ListApplicationDPUSizesCommandOutput;
+    };
+  };
+}

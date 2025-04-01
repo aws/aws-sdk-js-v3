@@ -29,6 +29,12 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
 
 /**
  * <p>Adds an environment member to an Cloud9 development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,30 +90,30 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example CreateEnvironmentMembership
  * ```javascript
  * //
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "permissions": "read-write",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *   permissions: "read-write",
+ *   userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser"
  * };
  * const command = new CreateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "membership": {
- *     "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *     "permissions": "read-write",
- *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
- *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+ *   membership: {
+ *     environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *     permissions: "read-write",
+ *     userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser",
+ *     userId: "AIDAJ3BA6O2FMJWCWXHEX"
  *   }
  * }
  * *\/
- * // example id: createenvironmentmembership-1516822583452
  * ```
  *
+ * @public
  */
 export class CreateEnvironmentMembershipCommand extends $Command
   .classBuilder<
@@ -117,9 +123,7 @@ export class CreateEnvironmentMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +135,16 @@ export class CreateEnvironmentMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEnvironmentMembershipCommand)
   .de(de_CreateEnvironmentMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentMembershipRequest;
+      output: CreateEnvironmentMembershipResult;
+    };
+    sdk: {
+      input: CreateEnvironmentMembershipCommandInput;
+      output: CreateEnvironmentMembershipCommandOutput;
+    };
+  };
+}

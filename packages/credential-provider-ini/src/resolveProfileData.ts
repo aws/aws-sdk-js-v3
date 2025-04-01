@@ -15,7 +15,15 @@ export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: Record<string, true> = {}
+  visitedProfiles: Record<string, true> = {},
+  /**
+   * This override comes from recursive calls only.
+   * It is used to flag a recursive profile section
+   * that does not have a role_arn, e.g. a credential_source
+   * with no role_arn, as part of a larger recursive assume-role
+   * call stack, and to re-enter the assume-role resolver function.
+   */
+  isAssumeRoleRecursiveCall = false
 ): Promise<AwsCredentialIdentity> => {
   const data = profiles[profileName];
 
@@ -28,7 +36,7 @@ export const resolveProfileData = async (
 
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
-  if (isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
+  if (isAssumeRoleRecursiveCall || isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
     return resolveAssumeRoleCredentials(profileName, profiles, options, visitedProfiles);
   }
 
@@ -51,7 +59,7 @@ export const resolveProfileData = async (
   }
 
   if (isSsoProfile(data)) {
-    return await resolveSsoCredentials(profileName, options);
+    return await resolveSsoCredentials(profileName, data, options);
   }
 
   // If the profile cannot be parsed or contains neither static credentials

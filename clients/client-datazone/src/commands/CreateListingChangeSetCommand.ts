@@ -39,7 +39,7 @@ export interface CreateListingChangeSetCommandOutput extends CreateListingChange
  * const input = { // CreateListingChangeSetInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   entityIdentifier: "STRING_VALUE", // required
- *   entityType: "ASSET", // required
+ *   entityType: "ASSET" || "DATA_PRODUCT", // required
  *   entityRevision: "STRING_VALUE",
  *   action: "PUBLISH" || "UNPUBLISH", // required
  *   clientToken: "STRING_VALUE",
@@ -87,6 +87,7 @@ export interface CreateListingChangeSetCommandOutput extends CreateListingChange
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateListingChangeSetCommand extends $Command
@@ -97,9 +98,7 @@ export class CreateListingChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class CreateListingChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateListingChangeSetCommand)
   .de(de_CreateListingChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateListingChangeSetInput;
+      output: CreateListingChangeSetOutput;
+    };
+    sdk: {
+      input: CreateListingChangeSetCommandInput;
+      output: CreateListingChangeSetCommandOutput;
+    };
+  };
+}

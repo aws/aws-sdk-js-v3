@@ -47,6 +47,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
  *   attempt: Number("int"),
+ *   accessSystemProfileLogs: true || false,
  * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class GetDashboardForJobRunCommand extends $Command
@@ -85,9 +87,7 @@ export class GetDashboardForJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class GetDashboardForJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDashboardForJobRunCommand)
   .de(de_GetDashboardForJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDashboardForJobRunRequest;
+      output: GetDashboardForJobRunResponse;
+    };
+    sdk: {
+      input: GetDashboardForJobRunCommandInput;
+      output: GetDashboardForJobRunCommandOutput;
+    };
+  };
+}

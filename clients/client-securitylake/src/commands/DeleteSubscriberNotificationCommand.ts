@@ -33,7 +33,7 @@ export interface DeleteSubscriberNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+ * <p>Deletes the specified subscription notification in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +84,7 @@ export interface DeleteSubscriberNotificationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteSubscriberNotificationCommand extends $Command
@@ -94,9 +95,7 @@ export class DeleteSubscriberNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DeleteSubscriberNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriberNotificationCommand)
   .de(de_DeleteSubscriberNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriberNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriberNotificationCommandInput;
+      output: DeleteSubscriberNotificationCommandOutput;
+    };
+  };
+}

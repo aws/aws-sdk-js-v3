@@ -85,19 +85,22 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a role from an instance profile
  * ```javascript
  * // The following command removes the role named Test-Role from the instance profile named ExampleInstanceProfile.
  * const input = {
- *   "InstanceProfileName": "ExampleInstanceProfile",
- *   "RoleName": "Test-Role"
+ *   InstanceProfileName: "ExampleInstanceProfile",
+ *   RoleName: "Test-Role"
  * };
  * const command = new RemoveRoleFromInstanceProfileCommand(input);
- * await client.send(command);
- * // example id: 6d9f46f1-9f4a-4873-b403-51a85c5c627c
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveRoleFromInstanceProfileCommand extends $Command
   .classBuilder<
@@ -107,9 +110,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +122,16 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRoleFromInstanceProfileCommand)
   .de(de_RemoveRoleFromInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRoleFromInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRoleFromInstanceProfileCommandInput;
+      output: RemoveRoleFromInstanceProfileCommandOutput;
+    };
+  };
+}

@@ -136,6 +136,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse,
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class BatchGetFindingsCommand extends $Command
@@ -146,9 +147,7 @@ export class BatchGetFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class BatchGetFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetFindingsCommand)
   .de(de_BatchGetFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetFindingsRequest;
+      output: BatchGetFindingsResponse;
+    };
+    sdk: {
+      input: BatchGetFindingsCommandInput;
+      output: BatchGetFindingsCommandOutput;
+    };
+  };
+}

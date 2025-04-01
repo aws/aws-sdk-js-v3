@@ -77,6 +77,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *   },
  *   TranscodeProfileName: "STRING_VALUE",
  *   VideoContentSourceUrl: "STRING_VALUE",
+ *   AdConditioningConfiguration: { // AdConditioningConfiguration
+ *     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ *   },
  * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
@@ -115,6 +118,22 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   LogConfiguration: { // LogConfiguration
  * //     PercentEnabled: Number("int"), // required
+ * //     EnabledLoggingStrategies: [ // __listOfLoggingStrategies
+ * //       "VENDED_LOGS" || "LEGACY_CLOUDWATCH",
+ * //     ],
+ * //     AdsInteractionLog: { // AdsInteractionLog
+ * //       PublishOptInEventTypes: [ // __adsInteractionPublishOptInEventTypesList
+ * //         "RAW_ADS_RESPONSE",
+ * //       ],
+ * //       ExcludeEventTypes: [ // __adsInteractionExcludeEventTypesList
+ * //         "AD_MARKER_FOUND" || "NON_AD_MARKER_FOUND" || "MAKING_ADS_REQUEST" || "MODIFIED_TARGET_URL" || "VAST_REDIRECT" || "EMPTY_VAST_RESPONSE" || "EMPTY_VMAP_RESPONSE" || "VAST_RESPONSE" || "REDIRECTED_VAST_RESPONSE" || "FILLED_AVAIL" || "FILLED_OVERLAY_AVAIL" || "BEACON_FIRED" || "WARNING_NO_ADVERTISEMENTS" || "WARNING_VPAID_AD_DROPPED" || "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED" || "ERROR_UNKNOWN" || "ERROR_UNKNOWN_HOST" || "ERROR_DISALLOWED_HOST" || "ERROR_ADS_IO" || "ERROR_ADS_TIMEOUT" || "ERROR_ADS_RESPONSE_PARSE" || "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT" || "ERROR_ADS_INVALID_RESPONSE" || "ERROR_VAST_REDIRECT_EMPTY_RESPONSE" || "ERROR_VAST_REDIRECT_MULTIPLE_VAST" || "ERROR_VAST_REDIRECT_FAILED" || "ERROR_VAST_MISSING_MEDIAFILES" || "ERROR_VAST_MISSING_CREATIVES" || "ERROR_VAST_MISSING_OVERLAYS" || "ERROR_VAST_MISSING_IMPRESSION" || "ERROR_VAST_INVALID_VAST_AD_TAG_URI" || "ERROR_VAST_MULTIPLE_TRACKING_EVENTS" || "ERROR_VAST_MULTIPLE_LINEAR" || "ERROR_VAST_INVALID_MEDIA_FILE" || "ERROR_FIRING_BEACON_FAILED" || "ERROR_PERSONALIZATION_DISABLED" || "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET" || "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS" || "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS" || "INTERSTITIAL_VOD_SUCCESS" || "INTERSTITIAL_VOD_FAILURE",
+ * //       ],
+ * //     },
+ * //     ManifestServiceInteractionLog: { // ManifestServiceInteractionLog
+ * //       ExcludeEventTypes: [ // __manifestServiceExcludeEventTypesList
+ * //         "GENERATED_MANIFEST" || "ORIGIN_MANIFEST" || "SESSION_INITIALIZED" || "TRACKING_RESPONSE" || "CONFIG_SYNTAX_ERROR" || "CONFIG_SECURITY_ERROR" || "UNKNOWN_HOST" || "TIMEOUT_ERROR" || "CONNECTION_ERROR" || "IO_ERROR" || "UNKNOWN_ERROR" || "HOST_DISALLOWED" || "PARSING_ERROR" || "MANIFEST_ERROR" || "NO_MASTER_OR_MEDIA_PLAYLIST" || "NO_MASTER_PLAYLIST" || "NO_MEDIA_PLAYLIST" || "INCOMPATIBLE_HLS_VERSION" || "SCTE35_PARSING_ERROR" || "INVALID_SINGLE_PERIOD_DASH_MANIFEST" || "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST" || "LAST_PERIOD_MISSING_AUDIO" || "LAST_PERIOD_MISSING_AUDIO_WARNING" || "ERROR_ORIGIN_PREFIX_INTERPOLATION" || "ERROR_ADS_INTERPOLATION" || "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION" || "ERROR_CDN_AD_SEGMENT_INTERPOLATION" || "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION" || "ERROR_SLATE_AD_URL_INTERPOLATION" || "ERROR_PROFILE_NAME_INTERPOLATION" || "ERROR_BUMPER_START_INTERPOLATION" || "ERROR_BUMPER_END_INTERPOLATION",
+ * //       ],
+ * //     },
  * //   },
  * //   ManifestProcessingRules: { // ManifestProcessingRules
  * //     AdMarkerPassthrough: { // AdMarkerPassthrough
@@ -132,6 +151,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   TranscodeProfileName: "STRING_VALUE",
  * //   VideoContentSourceUrl: "STRING_VALUE",
+ * //   AdConditioningConfiguration: { // AdConditioningConfiguration
+ * //     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ * //   },
  * // };
  *
  * ```
@@ -145,6 +167,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class PutPlaybackConfigurationCommand extends $Command
@@ -155,9 +178,7 @@ export class PutPlaybackConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +190,16 @@ export class PutPlaybackConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPlaybackConfigurationCommand)
   .de(de_PutPlaybackConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPlaybackConfigurationRequest;
+      output: PutPlaybackConfigurationResponse;
+    };
+    sdk: {
+      input: PutPlaybackConfigurationCommandInput;
+      output: PutPlaybackConfigurationCommandOutput;
+    };
+  };
+}

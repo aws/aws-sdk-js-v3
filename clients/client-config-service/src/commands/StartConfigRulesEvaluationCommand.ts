@@ -102,7 +102,9 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception
+ *  <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception
+ * 			is thrown if the number of service-linked roles in the account exceeds the limit.</p>
+ *          <p>For <code>StartConfigRulesEvaluation</code> API, this exception
  * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
  * 			minute.</p>
  *          <p>For <code>PutConfigurationAggregator</code> API, this exception
@@ -141,6 +143,7 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class StartConfigRulesEvaluationCommand extends $Command
@@ -151,9 +154,7 @@ export class StartConfigRulesEvaluationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +166,16 @@ export class StartConfigRulesEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConfigRulesEvaluationCommand)
   .de(de_StartConfigRulesEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConfigRulesEvaluationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartConfigRulesEvaluationCommandInput;
+      output: StartConfigRulesEvaluationCommandOutput;
+    };
+  };
+}

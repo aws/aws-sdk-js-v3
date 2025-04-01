@@ -28,7 +28,8 @@ export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
+ * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by
+ *          CreatedAt in descending order. When listing by origin ENTITLED, there is no order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //       Origin: "STRING_VALUE", // required
  * //       OriginDetails: { // OriginDetails
  * //         ProductId: "STRING_VALUE",
+ * //         DataGrantId: "STRING_VALUE",
  * //       },
  * //       SourceId: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"), // required
@@ -85,6 +87,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class ListDataSetsCommand extends $Command
@@ -95,9 +98,7 @@ export class ListDataSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +110,16 @@ export class ListDataSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataSetsCommand)
   .de(de_ListDataSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSetsRequest;
+      output: ListDataSetsResponse;
+    };
+    sdk: {
+      input: ListDataSetsCommandInput;
+      output: ListDataSetsCommandOutput;
+    };
+  };
+}

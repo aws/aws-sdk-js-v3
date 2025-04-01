@@ -89,7 +89,7 @@ and scheduled scaling.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-application-auto-scaling
+To install this package, simply type add or install @aws-sdk/client-application-auto-scaling
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-application-auto-scaling`
@@ -339,6 +339,14 @@ DescribeScheduledActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-auto-scaling/command/DescribeScheduledActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/DescribeScheduledActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/DescribeScheduledActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPredictiveScalingForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-auto-scaling/command/GetPredictiveScalingForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/GetPredictiveScalingForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/GetPredictiveScalingForecastCommandOutput/)
 
 </details>
 <details>

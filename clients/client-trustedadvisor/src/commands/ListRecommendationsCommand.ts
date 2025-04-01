@@ -107,6 +107,166 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example List all Recommendations
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nextToken: "<REDACTED>",
+ *   recommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation/55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *       awsServices: [
+ *         "iam"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/7DAFEmoDos",
+ *       id: "55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *       lastUpdatedAt: "2023-11-01T15:57:58.673Z",
+ *       name: "MFA Recommendation",
+ *       pillarSpecificAggregates: {
+ *         costOptimizing: {
+ *           estimatedMonthlySavings: 0.0,
+ *           estimatedPercentMonthlySavings: 0.0
+ *         }
+ *       },
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 1,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "error",
+ *       type: "standard"
+ *     },
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation/8b602b6f-452d-4cb2-8a9e-c7650955d9cd",
+ *       awsServices: [
+ *         "rds"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/gjqMBn6pjz",
+ *       id: "8b602b6f-452d-4cb2-8a9e-c7650955d9cd",
+ *       lastUpdatedAt: "2023-11-01T15:58:17.397Z",
+ *       name: "RDS clusters quota warning",
+ *       pillarSpecificAggregates: {
+ *         costOptimizing: {
+ *           estimatedMonthlySavings: 0.0,
+ *           estimatedPercentMonthlySavings: 0.0
+ *         }
+ *       },
+ *       pillars: [
+ *         "service_limits"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 3,
+ *         warningCount: 6
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "standard"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Filter and return a max of one Recommendation that is a part of AWS IAM
+ * ```javascript
+ * //
+ * const input = {
+ *   awsService: "iam",
+ *   maxResults: 100
+ * };
+ * const command = new ListRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nextToken: "<REDACTED>",
+ *   recommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation/55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *       awsServices: [
+ *         "iam"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/7DAFEmoDos",
+ *       id: "55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *       lastUpdatedAt: "2023-11-01T15:57:58.673Z",
+ *       name: "MFA Recommendation",
+ *       pillarSpecificAggregates: {
+ *         costOptimizing: {
+ *           estimatedMonthlySavings: 0.0,
+ *           estimatedPercentMonthlySavings: 0.0
+ *         }
+ *       },
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 1,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "error",
+ *       type: "standard"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Use the "nextToken" returned from a previous request to fetch the next page of filtered Recommendations
+ * ```javascript
+ * //
+ * const input = {
+ *   awsService: "rds",
+ *   maxResults: 100,
+ *   nextToken: "<REDACTED>"
+ * };
+ * const command = new ListRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   recommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation/8b602b6f-452d-4cb2-8a9e-c7650955d9cd",
+ *       awsServices: [
+ *         "rds"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/gjqMBn6pjz",
+ *       id: "8b602b6f-452d-4cb2-8a9e-c7650955d9cd",
+ *       lastUpdatedAt: "2023-11-01T15:58:17.397Z",
+ *       name: "RDS clusters quota warning",
+ *       pillarSpecificAggregates: {
+ *         costOptimizing: {
+ *           estimatedMonthlySavings: 0.0,
+ *           estimatedPercentMonthlySavings: 0.0
+ *         }
+ *       },
+ *       pillars: [
+ *         "service_limits"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 3,
+ *         warningCount: 6
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "standard"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListRecommendationsCommand extends $Command
@@ -117,9 +277,7 @@ export class ListRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +289,16 @@ export class ListRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendationsCommand)
   .de(de_ListRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendationsRequest;
+      output: ListRecommendationsResponse;
+    };
+    sdk: {
+      input: ListRecommendationsCommandInput;
+      output: ListRecommendationsCommandOutput;
+    };
+  };
+}

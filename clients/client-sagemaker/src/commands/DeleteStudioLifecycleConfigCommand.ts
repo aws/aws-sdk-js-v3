@@ -28,7 +28,10 @@ export interface DeleteStudioLifecycleConfigCommandInput extends DeleteStudioLif
 export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon SageMaker Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>
+ * <p>Deletes the Amazon SageMaker AI Studio Lifecycle Configuration. In order to delete the
+ *       Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You
+ *       must also remove the Lifecycle Configuration from UserSettings in all Domains and
+ *       UserProfiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +62,7 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteStudioLifecycleConfigCommand extends $Command
@@ -69,9 +73,7 @@ export class DeleteStudioLifecycleConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +85,16 @@ export class DeleteStudioLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStudioLifecycleConfigCommand)
   .de(de_DeleteStudioLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStudioLifecycleConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStudioLifecycleConfigCommandInput;
+      output: DeleteStudioLifecycleConfigCommandOutput;
+    };
+  };
+}

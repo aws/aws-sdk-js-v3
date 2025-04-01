@@ -116,6 +116,7 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListExportsCommand extends $Command
@@ -126,9 +127,7 @@ export class ListExportsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class ListExportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExportsCommand)
   .de(de_ListExportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExportsRequest;
+      output: ListExportsResponse;
+    };
+    sdk: {
+      input: ListExportsCommandInput;
+      output: ListExportsCommandOutput;
+    };
+  };
+}

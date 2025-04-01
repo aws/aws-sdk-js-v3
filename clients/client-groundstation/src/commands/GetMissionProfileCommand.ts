@@ -85,6 +85,7 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetMissionProfileCommand extends $Command
@@ -95,9 +96,7 @@ export class GetMissionProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetMissionProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMissionProfileCommand)
   .de(de_GetMissionProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMissionProfileRequest;
+      output: GetMissionProfileResponse;
+    };
+    sdk: {
+      input: GetMissionProfileCommandInput;
+      output: GetMissionProfileCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,8 @@ export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsReques
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+ * <p>This operation lists a revision's assets sorted alphabetically in descending
+ *          order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,6 +154,7 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class ListRevisionAssetsCommand extends $Command
@@ -163,9 +165,7 @@ export class ListRevisionAssetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +177,16 @@ export class ListRevisionAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRevisionAssetsCommand)
   .de(de_ListRevisionAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRevisionAssetsRequest;
+      output: ListRevisionAssetsResponse;
+    };
+    sdk: {
+      input: ListRevisionAssetsCommandInput;
+      output: ListRevisionAssetsCommandOutput;
+    };
+  };
+}

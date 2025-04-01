@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainsInput, ListDomainsOutput, ListDomainsOutputFilterSensitiveLog } from "../models/models_0";
+import { ListDomainsInput, ListDomainsOutput, ListDomainsOutputFilterSensitiveLog } from "../models/models_1";
 import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -54,6 +54,7 @@ export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataB
  * //       portalUrl: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       domainVersion: "V1" || "V2",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -94,6 +95,7 @@ export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListDomainsCommand extends $Command
@@ -104,9 +106,7 @@ export class ListDomainsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class ListDomainsCommand extends $Command
   .f(void 0, ListDomainsOutputFilterSensitiveLog)
   .ser(se_ListDomainsCommand)
   .de(de_ListDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainsInput;
+      output: ListDomainsOutput;
+    };
+    sdk: {
+      input: ListDomainsCommandInput;
+      output: ListDomainsCommandOutput;
+    };
+  };
+}

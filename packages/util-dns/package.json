@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dns",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "description": "Implementations of DNS host resolvers.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -12,7 +12,10 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "yarn g:vitest run && yarn test:browser",
+    "test:watch": "yarn g:vitest watch",
+    "test:browser": "yarn g:vitest run -c vitest.config.browser.ts",
+    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.ts"
   },
   "keywords": [
     "dns"
@@ -28,11 +31,11 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
@@ -55,9 +58,9 @@
     "directory": "packages/util-dns"
   },
   "browser": {
-    "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",
-    "./dist-es/NodeDnsLookupHostResolver": false
+    "./dist-es/NodeDnsLookupHostResolver": false,
+    "./dist-es/index": "./dist-es/index.browser"
   },
   "react-native": {
     "./dist-es/index": "./dist-es/index.browser",

@@ -58,7 +58,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * //   Accuracy: { // PositionalAccuracy
  * //     Horizontal: Number("double"), // required
  * //   },
- * //   PositionProperties: { // PropertyMap
+ * //   PositionProperties: { // PositionPropertyMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * // };
@@ -90,6 +90,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetDevicePositionCommand extends $Command
@@ -100,9 +101,7 @@ export class GetDevicePositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class GetDevicePositionCommand extends $Command
   .f(void 0, GetDevicePositionResponseFilterSensitiveLog)
   .ser(se_GetDevicePositionCommand)
   .de(de_GetDevicePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePositionRequest;
+      output: GetDevicePositionResponse;
+    };
+    sdk: {
+      input: GetDevicePositionCommandInput;
+      output: GetDevicePositionCommandOutput;
+    };
+  };
+}

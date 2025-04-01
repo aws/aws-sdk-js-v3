@@ -74,6 +74,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class GetRuleGroupCommand extends $Command
@@ -84,9 +85,7 @@ export class GetRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class GetRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleGroupCommand)
   .de(de_GetRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleGroupRequest;
+      output: GetRuleGroupResponse;
+    };
+    sdk: {
+      input: GetRuleGroupCommandInput;
+      output: GetRuleGroupCommandOutput;
+    };
+  };
+}

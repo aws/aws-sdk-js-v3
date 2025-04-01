@@ -12,6 +12,8 @@ export * from "./encode";
 export * from "./endpoint";
 export * from "./eventStream";
 export * from "./extensions";
+export * from "./feature-ids";
+export * from "./function";
 export * from "./http";
 export * from "./identity";
 export * from "./logger";

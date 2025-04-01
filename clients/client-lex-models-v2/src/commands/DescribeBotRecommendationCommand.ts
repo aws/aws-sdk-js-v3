@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotRecommendationRequest } from "../models/models_0";
 import {
+  DescribeBotRecommendationRequest,
   DescribeBotRecommendationResponse,
   DescribeBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -128,6 +128,7 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBotRecommendationCommand extends $Command
@@ -138,9 +139,7 @@ export class DescribeBotRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class DescribeBotRecommendationCommand extends $Command
   .f(void 0, DescribeBotRecommendationResponseFilterSensitiveLog)
   .ser(se_DescribeBotRecommendationCommand)
   .de(de_DescribeBotRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotRecommendationRequest;
+      output: DescribeBotRecommendationResponse;
+    };
+    sdk: {
+      input: DescribeBotRecommendationCommandInput;
+      output: DescribeBotRecommendationCommandOutput;
+    };
+  };
+}

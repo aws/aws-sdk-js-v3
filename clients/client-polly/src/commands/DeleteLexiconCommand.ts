@@ -66,18 +66,21 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To delete a lexicon
  * ```javascript
  * // Deletes a specified pronunciation lexicon stored in an AWS Region.
  * const input = {
- *   "Name": "example"
+ *   Name: "example"
  * };
  * const command = new DeleteLexiconCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-lexicon-1481922498332
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLexiconCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class DeleteLexiconCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DeleteLexiconCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLexiconCommand)
   .de(de_DeleteLexiconCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLexiconInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLexiconCommandInput;
+      output: DeleteLexiconCommandOutput;
+    };
+  };
+}

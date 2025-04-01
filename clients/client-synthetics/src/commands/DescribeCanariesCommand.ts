@@ -96,6 +96,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         SecurityGroupIds: [ // SecurityGroupIds
  * //           "STRING_VALUE",
  * //         ],
+ * //         Ipv6AllowedForDualStack: true || false,
  * //       },
  * //       VisualReference: { // VisualReferenceOutput
  * //         BaseScreenshots: [ // BaseScreenshots
@@ -108,6 +109,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         ],
  * //         BaseCanaryRunId: "STRING_VALUE",
  * //       },
+ * //       ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -139,6 +141,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DescribeCanariesCommand extends $Command
@@ -149,9 +152,7 @@ export class DescribeCanariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +164,16 @@ export class DescribeCanariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCanariesCommand)
   .de(de_DescribeCanariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCanariesRequest;
+      output: DescribeCanariesResponse;
+    };
+    sdk: {
+      input: DescribeCanariesCommandInput;
+      output: DescribeCanariesCommandOutput;
+    };
+  };
+}

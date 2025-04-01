@@ -52,6 +52,7 @@ export interface MalformedAcceptWithBodyCommandOutput extends GreetingStruct, __
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedAcceptWithBodyCommand extends $Command
   .classBuilder<
@@ -69,4 +70,16 @@ export class MalformedAcceptWithBodyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedAcceptWithBodyCommand)
   .de(de_MalformedAcceptWithBodyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GreetingStruct;
+    };
+    sdk: {
+      input: MalformedAcceptWithBodyCommandInput;
+      output: MalformedAcceptWithBodyCommandOutput;
+    };
+  };
+}

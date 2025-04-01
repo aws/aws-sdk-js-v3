@@ -41,8 +41,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          contexts where those credentials can be safeguarded, usually in a server-based application.
  *          For a comparison of <code>GetFederationToken</code> with the other API operations that
  *          produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <p>Although it is possible to call <code>GetFederationToken</code> using the security
  *          credentials of an Amazon Web Services account root user rather than an IAM user that you
  *          create for the purpose of a proxy application, we do not recommend it. For more
@@ -179,58 +179,58 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
  *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
- *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript
  * //
  * const input = {
- *   "DurationSeconds": 3600,
- *   "Name": "testFedUserSession",
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Stmt1\",\"Effect\":\"Allow\",\"Action\":\"s3:ListAllMyBuckets\",\"Resource\":\"*\"}]}",
- *   "Tags": [
+ *   DurationSeconds: 3600,
+ *   Name: "testFedUserSession",
+ *   Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Stmt1","Effect":"Allow","Action":"s3:ListAllMyBuckets","Resource":"*"}]}`,
+ *   Tags: [
  *     {
- *       "Key": "Project",
- *       "Value": "Pegasus"
+ *       Key: "Project",
+ *       Value: "Pegasus"
  *     },
  *     {
- *       "Key": "Cost-Center",
- *       "Value": "98765"
+ *       Key: "Cost-Center",
+ *       Value: "98765"
  *     }
  *   ]
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Credentials": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "Expiration": "2011-07-15T23:28:33.359Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "SessionToken": "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
+ *   Credentials: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     Expiration: "2011-07-15T23:28:33.359Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     SessionToken: "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
  *   },
- *   "FederatedUser": {
- *     "Arn": "arn:aws:sts::123456789012:federated-user/Bob",
- *     "FederatedUserId": "123456789012:Bob"
+ *   FederatedUser: {
+ *     Arn: "arn:aws:sts::123456789012:federated-user/Bob",
+ *     FederatedUserId: "123456789012:Bob"
  *   },
- *   "PackedPolicySize": 8
+ *   PackedPolicySize: 8
  * }
  * *\/
- * // example id: to-get-temporary-credentials-for-a-role-by-using-getfederationtoken-1480540749900
  * ```
  *
+ * @public
  */
 export class GetFederationTokenCommand extends $Command
   .classBuilder<
@@ -240,9 +240,7 @@ export class GetFederationTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -254,4 +252,16 @@ export class GetFederationTokenCommand extends $Command
   .f(void 0, GetFederationTokenResponseFilterSensitiveLog)
   .ser(se_GetFederationTokenCommand)
   .de(de_GetFederationTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFederationTokenRequest;
+      output: GetFederationTokenResponse;
+    };
+    sdk: {
+      input: GetFederationTokenCommandInput;
+      output: GetFederationTokenCommandOutput;
+    };
+  };
+}

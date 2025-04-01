@@ -58,6 +58,7 @@ export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * //     types: [ // ListOfEndpointType
  * //       "REGIONAL" || "EDGE" || "PRIVATE",
  * //     ],
+ * //     ipAddressType: "ipv4" || "dualstack",
  * //     vpcEndpointIds: [
  * //       "STRING_VALUE",
  * //     ],
@@ -93,6 +94,7 @@ export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetRestApiCommand extends $Command
@@ -103,9 +105,7 @@ export class GetRestApiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRestApiCommand)
   .de(de_GetRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: GetRestApiCommandInput;
+      output: GetRestApiCommandOutput;
+    };
+  };
+}

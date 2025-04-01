@@ -10,7 +10,7 @@ import {
   DeleteDataSourceInput,
   DeleteDataSourceOutput,
   DeleteDataSourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -55,7 +55,8 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -74,6 +75,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -101,6 +103,15 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },
@@ -190,6 +201,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSourceCommand extends $Command
@@ -200,9 +212,7 @@ export class DeleteDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +224,16 @@ export class DeleteDataSourceCommand extends $Command
   .f(void 0, DeleteDataSourceOutputFilterSensitiveLog)
   .ser(se_DeleteDataSourceCommand)
   .de(de_DeleteDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSourceInput;
+      output: DeleteDataSourceOutput;
+    };
+    sdk: {
+      input: DeleteDataSourceCommandInput;
+      output: DeleteDataSourceCommandOutput;
+    };
+  };
+}

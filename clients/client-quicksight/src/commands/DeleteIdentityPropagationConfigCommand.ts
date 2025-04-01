@@ -43,7 +43,7 @@ export interface DeleteIdentityPropagationConfigCommandOutput
  * const client = new QuickSightClient(config);
  * const input = { // DeleteIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Service: "REDSHIFT", // required
+ *   Service: "REDSHIFT" || "QBUSINESS", // required
  * };
  * const command = new DeleteIdentityPropagationConfigCommand(input);
  * const response = await client.send(command);
@@ -81,6 +81,7 @@ export interface DeleteIdentityPropagationConfigCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteIdentityPropagationConfigCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteIdentityPropagationConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteIdentityPropagationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityPropagationConfigCommand)
   .de(de_DeleteIdentityPropagationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityPropagationConfigRequest;
+      output: DeleteIdentityPropagationConfigResponse;
+    };
+    sdk: {
+      input: DeleteIdentityPropagationConfigCommandInput;
+      output: DeleteIdentityPropagationConfigCommandOutput;
+    };
+  };
+}

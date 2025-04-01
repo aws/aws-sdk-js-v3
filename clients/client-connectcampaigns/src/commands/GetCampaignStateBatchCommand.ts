@@ -80,6 +80,7 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignStateBatchCommand extends $Command
@@ -90,9 +91,7 @@ export class GetCampaignStateBatchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class GetCampaignStateBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignStateBatchCommand)
   .de(de_GetCampaignStateBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignStateBatchRequest;
+      output: GetCampaignStateBatchResponse;
+    };
+    sdk: {
+      input: GetCampaignStateBatchCommandInput;
+      output: GetCampaignStateBatchCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfiguredTableAnalysisRuleCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfiguredTableAnalysisRuleCommand)
   .de(de_DeleteConfiguredTableAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfiguredTableAnalysisRuleInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfiguredTableAnalysisRuleCommandInput;
+      output: DeleteConfiguredTableAnalysisRuleCommandOutput;
+    };
+  };
+}

@@ -137,6 +137,7 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ConfigureAccessPointCommand extends $Command
@@ -147,9 +148,7 @@ export class ConfigureAccessPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class ConfigureAccessPointCommand extends $Command
   .f(ConfigureAccessPointRequestFilterSensitiveLog, ConfigureAccessPointResponseFilterSensitiveLog)
   .ser(se_ConfigureAccessPointCommand)
   .de(de_ConfigureAccessPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureAccessPointRequest;
+      output: ConfigureAccessPointResponse;
+    };
+    sdk: {
+      input: ConfigureAccessPointCommandInput;
+      output: ConfigureAccessPointCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,7 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class EnableMacieCommand extends $Command
@@ -86,9 +87,7 @@ export class EnableMacieCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class EnableMacieCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableMacieCommand)
   .de(de_EnableMacieCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableMacieRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableMacieCommandInput;
+      output: EnableMacieCommandOutput;
+    };
+  };
+}

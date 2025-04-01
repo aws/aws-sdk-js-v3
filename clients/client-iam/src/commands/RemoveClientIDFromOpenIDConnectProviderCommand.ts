@@ -74,6 +74,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
@@ -84,9 +85,7 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveClientIDFromOpenIDConnectProviderCommand)
   .de(de_RemoveClientIDFromOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveClientIDFromOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveClientIDFromOpenIDConnectProviderCommandInput;
+      output: RemoveClientIDFromOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

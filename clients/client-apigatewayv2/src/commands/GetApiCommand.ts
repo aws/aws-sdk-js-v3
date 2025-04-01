@@ -68,6 +68,7 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  * //   ImportInfo: [ // __listOf__string
  * //     "STRING_VALUE",
  * //   ],
+ * //   IpAddressType: "ipv4" || "dualstack",
  * //   Name: "STRING_VALUE",
  * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",
@@ -97,6 +98,7 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetApiCommand extends $Command
@@ -107,9 +109,7 @@ export class GetApiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class GetApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApiCommand)
   .de(de_GetApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApiRequest;
+      output: GetApiResponse;
+    };
+    sdk: {
+      input: GetApiCommandInput;
+      output: GetApiCommandOutput;
+    };
+  };
+}

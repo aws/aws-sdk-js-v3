@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagRoleRequest } from "../models/models_0";
+import { TagRoleRequest } from "../models/models_1";
 import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
 /**
@@ -123,28 +123,31 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a tag key and value to an IAM role
  * ```javascript
  * // The following example shows how to add tags to an existing role.
  * const input = {
- *   "RoleName": "taggedrole",
- *   "Tags": [
+ *   RoleName: "taggedrole",
+ *   Tags: [
  *     {
- *       "Key": "Dept",
- *       "Value": "Accounting"
+ *       Key: "Dept",
+ *       Value: "Accounting"
  *     },
  *     {
- *       "Key": "CostCenter",
- *       "Value": "12345"
+ *       Key: "CostCenter",
+ *       Value: "12345"
  *     }
  *   ]
  * };
  * const command = new TagRoleCommand(input);
- * await client.send(command);
- * // example id: to-add-a-tag-key-and-value-to-an-iam-role-1506718791513
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagRoleCommand extends $Command
   .classBuilder<
@@ -154,9 +157,7 @@ export class TagRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +169,16 @@ export class TagRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagRoleCommand)
   .de(de_TagRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagRoleCommandInput;
+      output: TagRoleCommandOutput;
+    };
+  };
+}

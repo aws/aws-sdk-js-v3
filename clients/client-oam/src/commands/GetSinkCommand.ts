@@ -73,6 +73,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class GetSinkCommand extends $Command
@@ -83,9 +84,7 @@ export class GetSinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSinkCommand)
   .de(de_GetSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSinkInput;
+      output: GetSinkOutput;
+    };
+    sdk: {
+      input: GetSinkCommandInput;
+      output: GetSinkCommandOutput;
+    };
+  };
+}

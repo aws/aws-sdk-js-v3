@@ -86,6 +86,7 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class TagStreamCommand extends $Command
@@ -96,9 +97,7 @@ export class TagStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class TagStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagStreamCommand)
   .de(de_TagStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: TagStreamCommandInput;
+      output: TagStreamCommandOutput;
+    };
+  };
+}

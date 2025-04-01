@@ -73,6 +73,7 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackendStorageCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteBackendStorageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteBackendStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackendStorageCommand)
   .de(de_DeleteBackendStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackendStorageRequest;
+      output: DeleteBackendStorageResponse;
+    };
+    sdk: {
+      input: DeleteBackendStorageCommandInput;
+      output: DeleteBackendStorageCommandOutput;
+    };
+  };
+}

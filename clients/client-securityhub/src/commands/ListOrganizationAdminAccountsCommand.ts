@@ -82,28 +82,28 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To list administrator acccounts for an organization
  * ```javascript
  * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AdminAccounts": [
+ *   AdminAccounts: [
  *     {
- *       "AccountId": "777788889999"
+ *       AccountId: "777788889999"
  *     },
  *     {
- *       "Status": "ENABLED"
+ *       Status: "ENABLED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-administrator-acccounts-for-an-organization-1678386548110
  * ```
  *
+ * @public
  */
 export class ListOrganizationAdminAccountsCommand extends $Command
   .classBuilder<
@@ -113,9 +113,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +125,16 @@ export class ListOrganizationAdminAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationAdminAccountsCommand)
   .de(de_ListOrganizationAdminAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationAdminAccountsRequest;
+      output: ListOrganizationAdminAccountsResponse;
+    };
+    sdk: {
+      input: ListOrganizationAdminAccountsCommandInput;
+      output: ListOrganizationAdminAccountsCommandOutput;
+    };
+  };
+}

@@ -60,6 +60,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       NodeType: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
  * //       EngineVersion: "STRING_VALUE",
  * //       MaintenanceWindow: "STRING_VALUE",
  * //       TopicArn: "STRING_VALUE",
@@ -81,6 +82,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * //           SnapshotCreationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       MultiRegionParameterGroupName: "STRING_VALUE",
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //     },
  * //     DataTiering: "true" || "false",
  * //   },
@@ -121,6 +124,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class CopySnapshotCommand extends $Command
@@ -131,9 +135,7 @@ export class CopySnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +147,16 @@ export class CopySnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopySnapshotCommand)
   .de(de_CopySnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopySnapshotRequest;
+      output: CopySnapshotResponse;
+    };
+    sdk: {
+      input: CopySnapshotCommandInput;
+      output: CopySnapshotCommandOutput;
+    };
+  };
+}

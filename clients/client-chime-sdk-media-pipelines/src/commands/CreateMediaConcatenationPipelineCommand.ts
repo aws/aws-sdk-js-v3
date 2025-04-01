@@ -184,6 +184,7 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaConcatenationPipelineCommand extends $Command
@@ -194,9 +195,7 @@ export class CreateMediaConcatenationPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -211,4 +210,16 @@ export class CreateMediaConcatenationPipelineCommand extends $Command
   )
   .ser(se_CreateMediaConcatenationPipelineCommand)
   .de(de_CreateMediaConcatenationPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaConcatenationPipelineRequest;
+      output: CreateMediaConcatenationPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaConcatenationPipelineCommandInput;
+      output: CreateMediaConcatenationPipelineCommandOutput;
+    };
+  };
+}

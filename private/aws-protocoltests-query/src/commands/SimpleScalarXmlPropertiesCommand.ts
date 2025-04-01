@@ -61,6 +61,7 @@ export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlP
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class SimpleScalarXmlPropertiesCommand extends $Command
   .classBuilder<
@@ -78,4 +79,16 @@ export class SimpleScalarXmlPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SimpleScalarXmlPropertiesCommand)
   .de(de_SimpleScalarXmlPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: SimpleScalarXmlPropertiesOutput;
+    };
+    sdk: {
+      input: SimpleScalarXmlPropertiesCommandInput;
+      output: SimpleScalarXmlPropertiesCommandOutput;
+    };
+  };
+}

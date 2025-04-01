@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   withBaseException,
@@ -38,6 +39,10 @@ import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "../
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
 import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "../commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
+import {
+  DeleteSharedTrustStoreAssociationCommandInput,
+  DeleteSharedTrustStoreAssociationCommandOutput,
+} from "../commands/DeleteSharedTrustStoreAssociationCommand";
 import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "../commands/DeleteTargetGroupCommand";
 import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "../commands/DeleteTrustStoreCommand";
 import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "../commands/DeregisterTargetsCommand";
@@ -45,6 +50,14 @@ import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
+import {
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "../commands/DescribeCapacityReservationCommand";
+import {
+  DescribeListenerAttributesCommandInput,
+  DescribeListenerAttributesCommandOutput,
+} from "../commands/DescribeListenerAttributesCommand";
 import {
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput,
@@ -88,6 +101,7 @@ import {
   DescribeTrustStoresCommandInput,
   DescribeTrustStoresCommandOutput,
 } from "../commands/DescribeTrustStoresCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   GetTrustStoreCaCertificatesBundleCommandInput,
   GetTrustStoreCaCertificatesBundleCommandOutput,
@@ -96,6 +110,15 @@ import {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "../commands/GetTrustStoreRevocationContentCommand";
+import {
+  ModifyCapacityReservationCommandInput,
+  ModifyCapacityReservationCommandOutput,
+} from "../commands/ModifyCapacityReservationCommand";
+import { ModifyIpPoolsCommandInput, ModifyIpPoolsCommandOutput } from "../commands/ModifyIpPoolsCommand";
+import {
+  ModifyListenerAttributesCommandInput,
+  ModifyListenerAttributesCommandOutput,
+} from "../commands/ModifyListenerAttributesCommand";
 import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "../commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
@@ -131,6 +154,7 @@ import {
   AddTagsOutput,
   AddTrustStoreRevocationsInput,
   AddTrustStoreRevocationsOutput,
+  AdministrativeOverride,
   AllocationIdNotFoundException,
   ALPNPolicyNotSupportedException,
   AnomalyDetection,
@@ -139,6 +163,10 @@ import {
   AvailabilityZone,
   AvailabilityZoneNotSupportedException,
   CaCertificatesBundleNotFoundException,
+  CapacityDecreaseRequestsLimitExceededException,
+  CapacityReservationPendingException,
+  CapacityReservationStatus,
+  CapacityUnitsLimitExceededException,
   Certificate,
   CertificateNotFoundException,
   Cipher,
@@ -152,12 +180,15 @@ import {
   CreateTargetGroupOutput,
   CreateTrustStoreInput,
   CreateTrustStoreOutput,
+  DeleteAssociationSameAccountException,
   DeleteListenerInput,
   DeleteListenerOutput,
   DeleteLoadBalancerInput,
   DeleteLoadBalancerOutput,
   DeleteRuleInput,
   DeleteRuleOutput,
+  DeleteSharedTrustStoreAssociationInput,
+  DeleteSharedTrustStoreAssociationOutput,
   DeleteTargetGroupInput,
   DeleteTargetGroupOutput,
   DeleteTrustStoreInput,
@@ -166,6 +197,10 @@ import {
   DeregisterTargetsOutput,
   DescribeAccountLimitsInput,
   DescribeAccountLimitsOutput,
+  DescribeCapacityReservationInput,
+  DescribeCapacityReservationOutput,
+  DescribeListenerAttributesInput,
+  DescribeListenerAttributesOutput,
   DescribeListenerCertificatesInput,
   DescribeListenerCertificatesOutput,
   DescribeListenersInput,
@@ -201,6 +236,8 @@ import {
   DuplicateTrustStoreNameException,
   FixedResponseActionConfig,
   ForwardActionConfig,
+  GetResourcePolicyInput,
+  GetResourcePolicyOutput,
   GetTrustStoreCaCertificatesBundleInput,
   GetTrustStoreCaCertificatesBundleOutput,
   GetTrustStoreRevocationContentInput,
@@ -210,6 +247,7 @@ import {
   HttpHeaderConditionConfig,
   HttpRequestMethodConditionConfig,
   IncompatibleProtocolsException,
+  InsufficientCapacityException,
   InvalidCaCertificatesBundleException,
   InvalidConfigurationRequestException,
   InvalidLoadBalancerActionException,
@@ -218,8 +256,10 @@ import {
   InvalidSecurityGroupException,
   InvalidSubnetException,
   InvalidTargetException,
+  IpamPools,
   Limit,
   Listener,
+  ListenerAttribute,
   ListenerNotFoundException,
   LoadBalancer,
   LoadBalancerAddress,
@@ -227,6 +267,13 @@ import {
   LoadBalancerNotFoundException,
   LoadBalancerState,
   Matcher,
+  MinimumLoadBalancerCapacity,
+  ModifyCapacityReservationInput,
+  ModifyCapacityReservationOutput,
+  ModifyIpPoolsInput,
+  ModifyIpPoolsOutput,
+  ModifyListenerAttributesInput,
+  ModifyListenerAttributesOutput,
   ModifyListenerInput,
   ModifyListenerOutput,
   ModifyLoadBalancerAttributesInput,
@@ -243,11 +290,13 @@ import {
   OperationNotPermittedException,
   PathPatternConditionConfig,
   PriorityInUseException,
+  PriorRequestNotCompleteException,
   QueryStringConditionConfig,
   QueryStringKeyValuePair,
   RedirectActionConfig,
   RegisterTargetsInput,
   RegisterTargetsOutput,
+  RemoveIpamPoolEnum,
   RemoveListenerCertificatesInput,
   RemoveListenerCertificatesOutput,
   RemoveTagsInput,
@@ -255,6 +304,7 @@ import {
   RemoveTrustStoreRevocationsInput,
   RemoveTrustStoreRevocationsOutput,
   ResourceInUseException,
+  ResourceNotFoundException,
   RevocationContent,
   RevocationContentNotFoundException,
   RevocationIdNotFoundException,
@@ -300,11 +350,13 @@ import {
   TooManyUniqueTargetGroupsPerLoadBalancerException,
   TrustStore,
   TrustStoreAssociation,
+  TrustStoreAssociationNotFoundException,
   TrustStoreInUseException,
   TrustStoreNotFoundException,
   TrustStoreNotReadyException,
   TrustStoreRevocation,
   UnsupportedProtocolException,
+  ZonalCapacityReservationState,
 } from "../models/models_0";
 
 /**
@@ -495,6 +547,23 @@ export const se_DeleteRuleCommand = async (
 };
 
 /**
+ * serializeAws_queryDeleteSharedTrustStoreAssociationCommand
+ */
+export const se_DeleteSharedTrustStoreAssociationCommand = async (
+  input: DeleteSharedTrustStoreAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteSharedTrustStoreAssociationInput(input, context),
+    [_A]: _DSTSA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteTargetGroupCommand
  */
 export const se_DeleteTargetGroupCommand = async (
@@ -557,6 +626,40 @@ export const se_DescribeAccountLimitsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
     [_A]: _DAL,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeCapacityReservationCommand
+ */
+export const se_DescribeCapacityReservationCommand = async (
+  input: DescribeCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityReservationInput(input, context),
+    [_A]: _DCR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeListenerAttributesCommand
+ */
+export const se_DescribeListenerAttributesCommand = async (
+  input: DescribeListenerAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeListenerAttributesInput(input, context),
+    [_A]: _DLA,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -784,6 +887,23 @@ export const se_DescribeTrustStoresCommand = async (
 };
 
 /**
+ * serializeAws_queryGetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetResourcePolicyInput(input, context),
+    [_A]: _GRP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryGetTrustStoreCaCertificatesBundleCommand
  */
 export const se_GetTrustStoreCaCertificatesBundleCommand = async (
@@ -818,6 +938,40 @@ export const se_GetTrustStoreRevocationContentCommand = async (
 };
 
 /**
+ * serializeAws_queryModifyCapacityReservationCommand
+ */
+export const se_ModifyCapacityReservationCommand = async (
+  input: ModifyCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyCapacityReservationInput(input, context),
+    [_A]: _MCR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyIpPoolsCommand
+ */
+export const se_ModifyIpPoolsCommand = async (
+  input: ModifyIpPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIpPoolsInput(input, context),
+    [_A]: _MIP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryModifyListenerCommand
  */
 export const se_ModifyListenerCommand = async (
@@ -829,6 +983,23 @@ export const se_ModifyListenerCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyListenerInput(input, context),
     [_A]: _ML,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyListenerAttributesCommand
+ */
+export const se_ModifyListenerAttributesCommand = async (
+  input: ModifyListenerAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyListenerAttributesInput(input, context),
+    [_A]: _MLA,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1276,6 +1447,26 @@ export const de_DeleteRuleCommand = async (
 };
 
 /**
+ * deserializeAws_queryDeleteSharedTrustStoreAssociationCommand
+ */
+export const de_DeleteSharedTrustStoreAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSharedTrustStoreAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteSharedTrustStoreAssociationOutput(data.DeleteSharedTrustStoreAssociationResult, context);
+  const response: DeleteSharedTrustStoreAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryDeleteTargetGroupCommand
  */
 export const de_DeleteTargetGroupCommand = async (
@@ -1349,6 +1540,46 @@ export const de_DescribeAccountLimitsCommand = async (
   let contents: any = {};
   contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeCapacityReservationCommand
+ */
+export const de_DescribeCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityReservationOutput(data.DescribeCapacityReservationResult, context);
+  const response: DescribeCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeListenerAttributesCommand
+ */
+export const de_DescribeListenerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeListenerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeListenerAttributesOutput(data.DescribeListenerAttributesResult, context);
+  const response: DescribeListenerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1616,6 +1847,26 @@ export const de_DescribeTrustStoresCommand = async (
 };
 
 /**
+ * deserializeAws_queryGetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetResourcePolicyOutput(data.GetResourcePolicyResult, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommand
  */
 export const de_GetTrustStoreCaCertificatesBundleCommand = async (
@@ -1656,6 +1907,46 @@ export const de_GetTrustStoreRevocationContentCommand = async (
 };
 
 /**
+ * deserializeAws_queryModifyCapacityReservationCommand
+ */
+export const de_ModifyCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyCapacityReservationOutput(data.ModifyCapacityReservationResult, context);
+  const response: ModifyCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyIpPoolsCommand
+ */
+export const de_ModifyIpPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpPoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyIpPoolsOutput(data.ModifyIpPoolsResult, context);
+  const response: ModifyIpPoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryModifyListenerCommand
  */
 export const de_ModifyListenerCommand = async (
@@ -1669,6 +1960,26 @@ export const de_ModifyListenerCommand = async (
   let contents: any = {};
   contents = de_ModifyListenerOutput(data.ModifyListenerResult, context);
   const response: ModifyListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyListenerAttributesCommand
+ */
+export const de_ModifyListenerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyListenerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyListenerAttributesOutput(data.ModifyListenerAttributesResult, context);
+  const response: ModifyListenerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2077,6 +2388,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyTrustStores":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoresException":
       throw await de_TooManyTrustStoresExceptionRes(parsedOutput, context);
+    case "AssociationNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationNotFoundException":
+      throw await de_TrustStoreAssociationNotFoundExceptionRes(parsedOutput, context);
+    case "DeleteAssociationSameAccount":
+    case "com.amazonaws.elasticloadbalancingv2#DeleteAssociationSameAccountException":
+      throw await de_DeleteAssociationSameAccountExceptionRes(parsedOutput, context);
     case "TrustStoreInUse":
     case "com.amazonaws.elasticloadbalancingv2#TrustStoreInUseException":
       throw await de_TrustStoreInUseExceptionRes(parsedOutput, context);
@@ -2089,6 +2406,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "RevocationIdNotFound":
     case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
       throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "CapacityDecreaseRequestLimitExceeded":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityDecreaseRequestsLimitExceededException":
+      throw await de_CapacityDecreaseRequestsLimitExceededExceptionRes(parsedOutput, context);
+    case "CapacityReservationPending":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException":
+      throw await de_CapacityReservationPendingExceptionRes(parsedOutput, context);
+    case "CapacityUnitsLimitExceeded":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityUnitsLimitExceededException":
+      throw await de_CapacityUnitsLimitExceededExceptionRes(parsedOutput, context);
+    case "InsufficientCapacity":
+    case "com.amazonaws.elasticloadbalancingv2#InsufficientCapacityException":
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "PriorRequestNotComplete":
+    case "com.amazonaws.elasticloadbalancingv2#PriorRequestNotCompleteException":
+      throw await de_PriorRequestNotCompleteExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2164,6 +2499,54 @@ const de_CaCertificatesBundleNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryCapacityDecreaseRequestsLimitExceededExceptionRes
+ */
+const de_CapacityDecreaseRequestsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityDecreaseRequestsLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityDecreaseRequestsLimitExceededException(body.Error, context);
+  const exception = new CapacityDecreaseRequestsLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCapacityReservationPendingExceptionRes
+ */
+const de_CapacityReservationPendingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityReservationPendingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityReservationPendingException(body.Error, context);
+  const exception = new CapacityReservationPendingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCapacityUnitsLimitExceededExceptionRes
+ */
+const de_CapacityUnitsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityUnitsLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityUnitsLimitExceededException(body.Error, context);
+  const exception = new CapacityUnitsLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryCertificateNotFoundExceptionRes
  */
 const de_CertificateNotFoundExceptionRes = async (
@@ -2173,6 +2556,22 @@ const de_CertificateNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_CertificateNotFoundException(body.Error, context);
   const exception = new CertificateNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryDeleteAssociationSameAccountExceptionRes
+ */
+const de_DeleteAssociationSameAccountExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DeleteAssociationSameAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DeleteAssociationSameAccountException(body.Error, context);
+  const exception = new DeleteAssociationSameAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2285,6 +2684,22 @@ const de_IncompatibleProtocolsExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_IncompatibleProtocolsException(body.Error, context);
   const exception = new IncompatibleProtocolsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInsufficientCapacityExceptionRes
+ */
+const de_InsufficientCapacityExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InsufficientCapacityException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InsufficientCapacityException(body.Error, context);
+  const exception = new InsufficientCapacityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2484,6 +2899,22 @@ const de_PriorityInUseExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryPriorRequestNotCompleteExceptionRes
+ */
+const de_PriorRequestNotCompleteExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PriorRequestNotCompleteException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_PriorRequestNotCompleteException(body.Error, context);
+  const exception = new PriorRequestNotCompleteException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryResourceInUseExceptionRes
  */
 const de_ResourceInUseExceptionRes = async (
@@ -2493,6 +2924,22 @@ const de_ResourceInUseExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ResourceInUseException(body.Error, context);
   const exception = new ResourceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ResourceNotFoundException(body.Error, context);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2797,6 +3244,22 @@ const de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_TooManyUniqueTargetGroupsPerLoadBalancerException(body.Error, context);
   const exception = new TooManyUniqueTargetGroupsPerLoadBalancerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTrustStoreAssociationNotFoundExceptionRes
+ */
+const de_TrustStoreAssociationNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TrustStoreAssociationNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TrustStoreAssociationNotFoundException(body.Error, context);
+  const exception = new TrustStoreAssociationNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3306,6 +3769,16 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
   if (input[_COIP] != null) {
     entries[_COIP] = input[_COIP];
   }
+  if (input[_EPFISN] != null) {
+    entries[_EPFISN] = input[_EPFISN];
+  }
+  if (input[_IP] != null) {
+    const memberEntries = se_IpamPools(input[_IP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPools.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -3487,6 +3960,23 @@ const se_DeleteRuleInput = (input: DeleteRuleInput, context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryDeleteSharedTrustStoreAssociationInput
+ */
+const se_DeleteSharedTrustStoreAssociationInput = (
+  input: DeleteSharedTrustStoreAssociationInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
+  }
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteTargetGroupInput
  */
 const se_DeleteTargetGroupInput = (input: DeleteTargetGroupInput, context: __SerdeContext): any => {
@@ -3539,6 +4029,28 @@ const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, contex
   }
   if (input[_PS] != null) {
     entries[_PS] = input[_PS];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeCapacityReservationInput
+ */
+const se_DescribeCapacityReservationInput = (input: DescribeCapacityReservationInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeListenerAttributesInput
+ */
+const se_DescribeListenerAttributesInput = (input: DescribeListenerAttributesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
   return entries;
 };
@@ -3919,6 +4431,17 @@ const se_ForwardActionConfig = (input: ForwardActionConfig, context: __SerdeCont
 };
 
 /**
+ * serializeAws_queryGetResourcePolicyInput
+ */
+const se_GetResourcePolicyInput = (input: GetResourcePolicyInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryGetTrustStoreCaCertificatesBundleInput
  */
 const se_GetTrustStoreCaCertificatesBundleInput = (
@@ -4007,6 +4530,17 @@ const se_HttpRequestMethodConditionConfig = (input: HttpRequestMethodConditionCo
 };
 
 /**
+ * serializeAws_queryIpamPools
+ */
+const se_IpamPools = (input: IpamPools, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIPI] != null) {
+    entries[_IIPI] = input[_IIPI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryListenerArns
  */
 const se_ListenerArns = (input: string[], context: __SerdeContext): any => {
@@ -4017,6 +4551,39 @@ const se_ListenerArns = (input: string[], context: __SerdeContext): any => {
       continue;
     }
     entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListenerAttribute
+ */
+const se_ListenerAttribute = (input: ListenerAttribute, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
+  }
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListenerAttributes
+ */
+const se_ListenerAttributes = (input: ListenerAttribute[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ListenerAttribute(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -4132,6 +4699,87 @@ const se_Matcher = (input: Matcher, context: __SerdeContext): any => {
   }
   if (input[_GC] != null) {
     entries[_GC] = input[_GC];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryMinimumLoadBalancerCapacity
+ */
+const se_MinimumLoadBalancerCapacity = (input: MinimumLoadBalancerCapacity, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CU] != null) {
+    entries[_CU] = input[_CU];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyCapacityReservationInput
+ */
+const se_ModifyCapacityReservationInput = (input: ModifyCapacityReservationInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  if (input[_MLBC] != null) {
+    const memberEntries = se_MinimumLoadBalancerCapacity(input[_MLBC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MinimumLoadBalancerCapacity.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RCR] != null) {
+    entries[_RCR] = input[_RCR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyIpPoolsInput
+ */
+const se_ModifyIpPoolsInput = (input: ModifyIpPoolsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  if (input[_IP] != null) {
+    const memberEntries = se_IpamPools(input[_IP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPools.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RIP] != null) {
+    const memberEntries = se_RemoveIpamPools(input[_RIP], context);
+    if (input[_RIP]?.length === 0) {
+      entries.RemoveIpamPools = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveIpamPools.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyListenerAttributesInput
+ */
+const se_ModifyListenerAttributesInput = (input: ModifyListenerAttributesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
+  }
+  if (input[_At] != null) {
+    const memberEntries = se_ListenerAttributes(input[_At], context);
+    if (input[_At]?.length === 0) {
+      entries.Attributes = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Attributes.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4345,6 +4993,12 @@ const se_MutualAuthenticationAttributes = (input: MutualAuthenticationAttributes
   if (input[_ICCE] != null) {
     entries[_ICCE] = input[_ICCE];
   }
+  if (input[_TSAS] != null) {
+    entries[_TSAS] = input[_TSAS];
+  }
+  if (input[_ATSCN] != null) {
+    entries[_ATSCN] = input[_ATSCN];
+  }
   return entries;
 };
 
@@ -4460,6 +5114,22 @@ const se_RegisterTargetsInput = (input: RegisterTargetsInput, context: __SerdeCo
       const loc = `Targets.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRemoveIpamPools
+ */
+const se_RemoveIpamPools = (input: RemoveIpamPoolEnum[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -4839,6 +5509,9 @@ const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): an
   if (input[_IAT] != null) {
     entries[_IAT] = input[_IAT];
   }
+  if (input[_EPFISN] != null) {
+    entries[_EPFISN] = input[_EPFISN];
+  }
   return entries;
 };
 
@@ -4892,6 +5565,9 @@ const se_SubnetMapping = (input: SubnetMapping, context: __SerdeContext): any =>
   }
   if (input[_IPA] != null) {
     entries[_IPA] = input[_IPA];
+  }
+  if (input[_SNIP] != null) {
+    entries[_SNIP] = input[_SNIP];
   }
   return entries;
 };
@@ -5238,6 +5914,23 @@ const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_queryAdministrativeOverride
+ */
+const de_AdministrativeOverride = (output: any, context: __SerdeContext): AdministrativeOverride => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryAllocationIdNotFoundException
  */
 const de_AllocationIdNotFoundException = (output: any, context: __SerdeContext): AllocationIdNotFoundException => {
@@ -5275,8 +5968,8 @@ const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext
  */
 const de_AnomalyDetection = (output: any, context: __SerdeContext): AnomalyDetection => {
   const contents: any = {};
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   if (output[_MIE] != null) {
     contents[_MIE] = __expectString(output[_MIE]);
@@ -5421,6 +6114,11 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
   } else if (output[_LBAoa] != null && output[_LBAoa][_m] != null) {
     contents[_LBAoa] = de_LoadBalancerAddresses(__getArrayIfSingleItem(output[_LBAoa][_m]), context);
   }
+  if (output.SourceNatIpv6Prefixes === "") {
+    contents[_SNIPo] = [];
+  } else if (output[_SNIPo] != null && output[_SNIPo][_m] != null) {
+    contents[_SNIPo] = de_SourceNatIpv6Prefixes(__getArrayIfSingleItem(output[_SNIPo][_m]), context);
+  }
   return contents;
 };
 
@@ -5456,6 +6154,62 @@ const de_CaCertificatesBundleNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CaCertificatesBundleNotFoundException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityDecreaseRequestsLimitExceededException
+ */
+const de_CapacityDecreaseRequestsLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): CapacityDecreaseRequestsLimitExceededException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityReservationPendingException
+ */
+const de_CapacityReservationPendingException = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationPendingException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityReservationStatus
+ */
+const de_CapacityReservationStatus = (output: any, context: __SerdeContext): CapacityReservationStatus => {
+  const contents: any = {};
+  if (output[_Cod] != null) {
+    contents[_Cod] = __expectString(output[_Cod]);
+  }
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityUnitsLimitExceededException
+ */
+const de_CapacityUnitsLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): CapacityUnitsLimitExceededException => {
   const contents: any = {};
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
@@ -5590,6 +6344,20 @@ const de_CreateTrustStoreOutput = (output: any, context: __SerdeContext): Create
 };
 
 /**
+ * deserializeAws_queryDeleteAssociationSameAccountException
+ */
+const de_DeleteAssociationSameAccountException = (
+  output: any,
+  context: __SerdeContext
+): DeleteAssociationSameAccountException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDeleteListenerOutput
  */
 const de_DeleteListenerOutput = (output: any, context: __SerdeContext): DeleteListenerOutput => {
@@ -5609,6 +6377,17 @@ const de_DeleteLoadBalancerOutput = (output: any, context: __SerdeContext): Dele
  * deserializeAws_queryDeleteRuleOutput
  */
 const de_DeleteRuleOutput = (output: any, context: __SerdeContext): DeleteRuleOutput => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeleteSharedTrustStoreAssociationOutput
+ */
+const de_DeleteSharedTrustStoreAssociationOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteSharedTrustStoreAssociationOutput => {
   const contents: any = {};
   return contents;
 };
@@ -5649,6 +6428,47 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
   }
   if (output[_NM] != null) {
     contents[_NM] = __expectString(output[_NM]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeCapacityReservationOutput
+ */
+const de_DescribeCapacityReservationOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityReservationOutput => {
+  const contents: any = {};
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_DRR] != null) {
+    contents[_DRR] = __strictParseInt32(output[_DRR]) as number;
+  }
+  if (output[_MLBC] != null) {
+    contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
+  }
+  if (output.CapacityReservationState === "") {
+    contents[_CRS] = [];
+  } else if (output[_CRS] != null && output[_CRS][_m] != null) {
+    contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeListenerAttributesOutput
+ */
+const de_DescribeListenerAttributesOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeListenerAttributesOutput => {
+  const contents: any = {};
+  if (output.Attributes === "") {
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -5996,6 +6816,17 @@ const de_ForwardActionConfig = (output: any, context: __SerdeContext): ForwardAc
 };
 
 /**
+ * deserializeAws_queryGetResourcePolicyOutput
+ */
+const de_GetResourcePolicyOutput = (output: any, context: __SerdeContext): GetResourcePolicyOutput => {
+  const contents: any = {};
+  if (output[_Pol] != null) {
+    contents[_Pol] = __expectString(output[_Pol]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryGetTrustStoreCaCertificatesBundleOutput
  */
 const de_GetTrustStoreCaCertificatesBundleOutput = (
@@ -6083,6 +6914,17 @@ const de_HttpRequestMethodConditionConfig = (
  * deserializeAws_queryIncompatibleProtocolsException
  */
 const de_IncompatibleProtocolsException = (output: any, context: __SerdeContext): IncompatibleProtocolsException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInsufficientCapacityException
+ */
+const de_InsufficientCapacityException = (output: any, context: __SerdeContext): InsufficientCapacityException => {
   const contents: any = {};
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
@@ -6191,6 +7033,17 @@ const de_InvalidTargetException = (output: any, context: __SerdeContext): Invali
 };
 
 /**
+ * deserializeAws_queryIpamPools
+ */
+const de_IpamPools = (output: any, context: __SerdeContext): IpamPools => {
+  const contents: any = {};
+  if (output[_IIPI] != null) {
+    contents[_IIPI] = __expectString(output[_IIPI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryLimit
  */
 const de_Limit = (output: any, context: __SerdeContext): Limit => {
@@ -6254,6 +7107,31 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
     contents[_MA] = de_MutualAuthenticationAttributes(output[_MA], context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryListenerAttribute
+ */
+const de_ListenerAttribute = (output: any, context: __SerdeContext): ListenerAttribute => {
+  const contents: any = {};
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
+  }
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListenerAttributes
+ */
+const de_ListenerAttributes = (output: any, context: __SerdeContext): ListenerAttribute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListenerAttribute(entry, context);
+    });
 };
 
 /**
@@ -6339,6 +7217,12 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
   }
   if (output[_ESGIROPLT] != null) {
     contents[_ESGIROPLT] = __expectString(output[_ESGIROPLT]);
+  }
+  if (output[_EPFISN] != null) {
+    contents[_EPFISN] = __expectString(output[_EPFISN]);
+  }
+  if (output[_IP] != null) {
+    contents[_IP] = de_IpamPools(output[_IP], context);
   }
   return contents;
 };
@@ -6440,8 +7324,8 @@ const de_LoadBalancerState = (output: any, context: __SerdeContext): LoadBalance
   if (output[_Cod] != null) {
     contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   return contents;
 };
@@ -6456,6 +7340,63 @@ const de_Matcher = (output: any, context: __SerdeContext): Matcher => {
   }
   if (output[_GC] != null) {
     contents[_GC] = __expectString(output[_GC]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMinimumLoadBalancerCapacity
+ */
+const de_MinimumLoadBalancerCapacity = (output: any, context: __SerdeContext): MinimumLoadBalancerCapacity => {
+  const contents: any = {};
+  if (output[_CU] != null) {
+    contents[_CU] = __strictParseInt32(output[_CU]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyCapacityReservationOutput
+ */
+const de_ModifyCapacityReservationOutput = (output: any, context: __SerdeContext): ModifyCapacityReservationOutput => {
+  const contents: any = {};
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_DRR] != null) {
+    contents[_DRR] = __strictParseInt32(output[_DRR]) as number;
+  }
+  if (output[_MLBC] != null) {
+    contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
+  }
+  if (output.CapacityReservationState === "") {
+    contents[_CRS] = [];
+  } else if (output[_CRS] != null && output[_CRS][_m] != null) {
+    contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyIpPoolsOutput
+ */
+const de_ModifyIpPoolsOutput = (output: any, context: __SerdeContext): ModifyIpPoolsOutput => {
+  const contents: any = {};
+  if (output[_IP] != null) {
+    contents[_IP] = de_IpamPools(output[_IP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyListenerAttributesOutput
+ */
+const de_ModifyListenerAttributesOutput = (output: any, context: __SerdeContext): ModifyListenerAttributesOutput => {
+  const contents: any = {};
+  if (output.Attributes === "") {
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -6558,6 +7499,12 @@ const de_MutualAuthenticationAttributes = (output: any, context: __SerdeContext)
   if (output[_ICCE] != null) {
     contents[_ICCE] = __parseBoolean(output[_ICCE]);
   }
+  if (output[_TSAS] != null) {
+    contents[_TSAS] = __expectString(output[_TSAS]);
+  }
+  if (output[_ATSCN] != null) {
+    contents[_ATSCN] = __expectString(output[_ATSCN]);
+  }
   return contents;
 };
 
@@ -6589,6 +7536,20 @@ const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): Pa
  * deserializeAws_queryPriorityInUseException
  */
 const de_PriorityInUseException = (output: any, context: __SerdeContext): PriorityInUseException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryPriorRequestNotCompleteException
+ */
+const de_PriorRequestNotCompleteException = (
+  output: any,
+  context: __SerdeContext
+): PriorRequestNotCompleteException => {
   const contents: any = {};
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
@@ -6702,6 +7663,17 @@ const de_RemoveTrustStoreRevocationsOutput = (
  * deserializeAws_queryResourceInUseException
  */
 const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   const contents: any = {};
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
@@ -6892,6 +7864,9 @@ const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOu
   if (output[_IAT] != null) {
     contents[_IAT] = __expectString(output[_IAT]);
   }
+  if (output[_EPFISN] != null) {
+    contents[_EPFISN] = __expectString(output[_EPFISN]);
+  }
   return contents;
 };
 
@@ -6906,6 +7881,17 @@ const de_SourceIpConditionConfig = (output: any, context: __SerdeContext): Sourc
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_querySourceNatIpv6Prefixes
+ */
+const de_SourceNatIpv6Prefixes = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -7219,8 +8205,8 @@ const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => 
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
@@ -7244,6 +8230,9 @@ const de_TargetHealthDescription = (output: any, context: __SerdeContext): Targe
   }
   if (output[_AD] != null) {
     contents[_AD] = de_AnomalyDetection(output[_AD], context);
+  }
+  if (output[_AO] != null) {
+    contents[_AO] = de_AdministrativeOverride(output[_AO], context);
   }
   return contents;
 };
@@ -7435,6 +8424,20 @@ const de_TrustStoreAssociation = (output: any, context: __SerdeContext): TrustSt
 };
 
 /**
+ * deserializeAws_queryTrustStoreAssociationNotFoundException
+ */
+const de_TrustStoreAssociationNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): TrustStoreAssociationNotFoundException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryTrustStoreAssociations
  */
 const de_TrustStoreAssociations = (output: any, context: __SerdeContext): TrustStoreAssociation[] => {
@@ -7531,6 +8534,34 @@ const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): 
   return contents;
 };
 
+/**
+ * deserializeAws_queryZonalCapacityReservationState
+ */
+const de_ZonalCapacityReservationState = (output: any, context: __SerdeContext): ZonalCapacityReservationState => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = de_CapacityReservationStatus(output[_St], context);
+  }
+  if (output[_AZ] != null) {
+    contents[_AZ] = __expectString(output[_AZ]);
+  }
+  if (output[_ECU] != null) {
+    contents[_ECU] = __strictParseFloat(output[_ECU]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryZonalCapacityReservationStates
+ */
+const de_ZonalCapacityReservationStates = (output: any, context: __SerdeContext): ZonalCapacityReservationState[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ZonalCapacityReservationState(entry, context);
+    });
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -7579,10 +8610,12 @@ const _AD = "AnomalyDetection";
 const _AE = "AuthorizationEndpoint";
 const _AI = "AllocationId";
 const _ALC = "AddListenerCertificates";
+const _AO = "AdministrativeOverride";
 const _AOC = "AuthenticateOidcConfig";
 const _AP = "AlpnPolicy";
 const _AREP = "AuthenticationRequestExtraParams";
 const _AT = "AddTags";
+const _ATSCN = "AdvertiseTrustStoreCaNames";
 const _ATSR = "AddTrustStoreRevocations";
 const _AZ = "AvailabilityZone";
 const _AZv = "AvailabilityZones";
@@ -7599,18 +8632,22 @@ const _CL = "CreateListener";
 const _CLB = "CreateLoadBalancer";
 const _COIP = "CustomerOwnedIpv4Pool";
 const _CR = "CreateRule";
+const _CRS = "CapacityReservationState";
 const _CS = "ClientSecret";
 const _CT = "ContentType";
 const _CTG = "CreateTargetGroup";
 const _CTS = "CreateTrustStore";
 const _CTr = "CreatedTime";
+const _CU = "CapacityUnits";
 const _Ci = "Ciphers";
 const _Co = "Conditions";
 const _Cod = "Code";
 const _D = "Description";
 const _DA = "DefaultActions";
 const _DAL = "DescribeAccountLimits";
+const _DCR = "DescribeCapacityReservation";
 const _DL = "DeleteListener";
+const _DLA = "DescribeListenerAttributes";
 const _DLB = "DeleteLoadBalancer";
 const _DLBA = "DescribeLoadBalancerAttributes";
 const _DLBe = "DescribeLoadBalancers";
@@ -7618,9 +8655,11 @@ const _DLC = "DescribeListenerCertificates";
 const _DLe = "DescribeListeners";
 const _DNSN = "DNSName";
 const _DR = "DeleteRule";
+const _DRR = "DecreaseRequestsRemaining";
 const _DRe = "DescribeRules";
 const _DS = "DurationSeconds";
 const _DSSLP = "DescribeSSLPolicies";
+const _DSTSA = "DeleteSharedTrustStoreAssociation";
 const _DT = "DeregisterTargets";
 const _DTG = "DeleteTargetGroup";
 const _DTGA = "DescribeTargetGroupAttributes";
@@ -7632,11 +8671,14 @@ const _DTSR = "DescribeTrustStoreRevocations";
 const _DTSe = "DescribeTrustStores";
 const _DTe = "DescribeTags";
 const _E = "Enabled";
+const _ECU = "EffectiveCapacityUnits";
+const _EPFISN = "EnablePrefixForIpv6SourceNat";
 const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
 const _F = "Field";
 const _FC = "ForwardConfig";
 const _FRC = "FixedResponseConfig";
 const _GC = "GrpcCode";
+const _GRP = "GetResourcePolicy";
 const _GTSCCB = "GetTrustStoreCaCertificatesBundle";
 const _GTSRC = "GetTrustStoreRevocationContent";
 const _H = "Host";
@@ -7657,6 +8699,8 @@ const _IA = "IpAddress";
 const _IAT = "IpAddressType";
 const _ICCE = "IgnoreClientCertificateExpiry";
 const _ID = "IsDefault";
+const _IIPI = "Ipv4IpamPoolId";
+const _IP = "IpamPools";
 const _IPA = "IPv6Address";
 const _Id = "Id";
 const _In = "Include";
@@ -7670,14 +8714,19 @@ const _LBAo = "LoadBalancerArns";
 const _LBAoa = "LoadBalancerAddresses";
 const _LBN = "LoadBalancerName";
 const _LBT = "LoadBalancerType";
+const _LMT = "LastModifiedTime";
 const _Li = "Limits";
 const _Lo = "Location";
 const _M = "Matcher";
 const _MA = "MutualAuthentication";
 const _MB = "MessageBody";
+const _MCR = "ModifyCapacityReservation";
 const _MIE = "MitigationInEffect";
+const _MIP = "ModifyIpPools";
 const _ML = "ModifyListener";
+const _MLA = "ModifyListenerAttributes";
 const _MLBA = "ModifyLoadBalancerAttributes";
+const _MLBC = "MinimumLoadBalancerCapacity";
 const _MR = "ModifyRule";
 const _MTG = "ModifyTargetGroup";
 const _MTGA = "ModifyTargetGroupAttributes";
@@ -7701,17 +8750,20 @@ const _PS = "PageSize";
 const _PV = "ProtocolVersion";
 const _Pa = "Path";
 const _Po = "Port";
+const _Pol = "Policy";
 const _Pr = "Priority";
 const _Q = "Query";
 const _QSC = "QueryStringConfig";
-const _R = "Result";
+const _R = "Reason";
 const _RA = "ResourceArns";
 const _RAe = "ResourceArn";
 const _RAu = "RuleArn";
 const _RAul = "RuleArns";
 const _RC = "RedirectConfig";
+const _RCR = "ResetCapacityReservation";
 const _RCe = "RevocationContents";
 const _RI = "RevocationIds";
+const _RIP = "RemoveIpamPools";
 const _RIe = "RevocationId";
 const _RLC = "RemoveListenerCertificates";
 const _RP = "RulePriorities";
@@ -7719,7 +8771,7 @@ const _RT = "RegisterTargets";
 const _RTSR = "RemoveTrustStoreRevocations";
 const _RTe = "RemoveTags";
 const _RTev = "RevocationType";
-const _Re = "Reason";
+const _Re = "Result";
 const _Ru = "Rules";
 const _S = "Scope";
 const _SB = "S3Bucket";
@@ -7733,6 +8785,8 @@ const _SIC = "SourceIpConfig";
 const _SK = "S3Key";
 const _SLBT = "SupportedLoadBalancerTypes";
 const _SM = "SubnetMappings";
+const _SNIP = "SourceNatIpv6Prefix";
+const _SNIPo = "SourceNatIpv6Prefixes";
 const _SOV = "S3ObjectVersion";
 const _SP = "SslPolicy";
 const _SPs = "SslPolicies";
@@ -7759,6 +8813,7 @@ const _TK = "TagKeys";
 const _TRE = "TotalRevokedEntries";
 const _TS = "TrustStores";
 const _TSA = "TrustStoreArn";
+const _TSAS = "TrustStoreAssociationStatus";
 const _TSAr = "TrustStoreArns";
 const _TSAru = "TrustStoreAssociations";
 const _TSR = "TrustStoreRevocations";

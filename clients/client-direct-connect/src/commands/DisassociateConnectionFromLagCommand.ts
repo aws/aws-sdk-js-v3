@@ -107,6 +107,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateConnectionFromLagCommand extends $Command
@@ -117,9 +118,7 @@ export class DisassociateConnectionFromLagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class DisassociateConnectionFromLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateConnectionFromLagCommand)
   .de(de_DisassociateConnectionFromLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateConnectionFromLagRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: DisassociateConnectionFromLagCommandInput;
+      output: DisassociateConnectionFromLagCommandOutput;
+    };
+  };
+}

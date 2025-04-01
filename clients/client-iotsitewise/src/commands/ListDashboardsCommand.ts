@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_1";
 import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -79,6 +79,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListDashboardsCommand extends $Command
@@ -89,9 +90,7 @@ export class ListDashboardsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListDashboardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDashboardsCommand)
   .de(de_ListDashboardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDashboardsRequest;
+      output: ListDashboardsResponse;
+    };
+    sdk: {
+      input: ListDashboardsCommandInput;
+      output: ListDashboardsCommandOutput;
+    };
+  };
+}

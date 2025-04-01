@@ -28,7 +28,7 @@ export interface PutParameterCommandInput extends PutParameterRequest {}
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
- * <p>Add a parameter to the system.</p>
+ * <p>Create or update a parameter in Parameter Store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,6 +138,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class PutParameterCommand extends $Command
@@ -148,9 +149,7 @@ export class PutParameterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +161,16 @@ export class PutParameterCommand extends $Command
   .f(PutParameterRequestFilterSensitiveLog, void 0)
   .ser(se_PutParameterCommand)
   .de(de_PutParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutParameterRequest;
+      output: PutParameterResult;
+    };
+    sdk: {
+      input: PutParameterCommandInput;
+      output: PutParameterCommandOutput;
+    };
+  };
+}

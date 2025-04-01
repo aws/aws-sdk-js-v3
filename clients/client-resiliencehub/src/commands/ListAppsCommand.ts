@@ -52,6 +52,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *   fromLastAssessmentTime: new Date("TIMESTAMP"),
  *   toLastAssessmentTime: new Date("TIMESTAMP"),
  *   reverseOrder: true || false,
+ *   awsApplicationArn: "STRING_VALUE",
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
@@ -62,14 +63,15 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       complianceStatus: "STRING_VALUE",
+ * //       complianceStatus: "PolicyBreached" || "PolicyMet" || "NotAssessed" || "ChangesDetected" || "NotApplicable" || "MissingPolicy",
  * //       resiliencyScore: Number("double"),
- * //       assessmentSchedule: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       driftStatus: "STRING_VALUE",
+ * //       assessmentSchedule: "Disabled" || "Daily",
+ * //       status: "Active" || "Deleting",
+ * //       driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //       lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
  * //       rtoInSecs: Number("int"),
  * //       rpoInSecs: Number("int"),
+ * //       awsApplicationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -101,6 +103,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppsCommand extends $Command
@@ -111,9 +114,7 @@ export class ListAppsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +126,16 @@ export class ListAppsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppsCommand)
   .de(de_ListAppsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppsRequest;
+      output: ListAppsResponse;
+    };
+    sdk: {
+      input: ListAppsCommandInput;
+      output: ListAppsCommandOutput;
+    };
+  };
+}

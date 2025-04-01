@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_0";
+import { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_1";
 import { de_StopDataSourceSyncJobCommand, se_StopDataSourceSyncJobCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -57,13 +57,17 @@ export interface StopDataSourceSyncJobCommandOutput extends StopDataSourceSyncJo
  *  <p> You don't have access to perform this action. Make sure you have the required
  *             permission policies and user accounts and try again.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to perform an action that conflicts with the current status of your
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -76,6 +80,7 @@ export interface StopDataSourceSyncJobCommandOutput extends StopDataSourceSyncJo
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class StopDataSourceSyncJobCommand extends $Command
@@ -86,9 +91,7 @@ export class StopDataSourceSyncJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +103,16 @@ export class StopDataSourceSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDataSourceSyncJobCommand)
   .de(de_StopDataSourceSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDataSourceSyncJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopDataSourceSyncJobCommandInput;
+      output: StopDataSourceSyncJobCommandOutput;
+    };
+  };
+}

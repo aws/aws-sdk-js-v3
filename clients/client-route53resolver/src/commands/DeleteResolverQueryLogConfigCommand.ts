@@ -99,6 +99,7 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class DeleteResolverQueryLogConfigCommand extends $Command
@@ -109,9 +110,7 @@ export class DeleteResolverQueryLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DeleteResolverQueryLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResolverQueryLogConfigCommand)
   .de(de_DeleteResolverQueryLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResolverQueryLogConfigRequest;
+      output: DeleteResolverQueryLogConfigResponse;
+    };
+    sdk: {
+      input: DeleteResolverQueryLogConfigCommandInput;
+      output: DeleteResolverQueryLogConfigCommandOutput;
+    };
+  };
+}

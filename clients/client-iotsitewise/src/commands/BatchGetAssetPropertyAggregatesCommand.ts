@@ -133,6 +133,7 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class BatchGetAssetPropertyAggregatesCommand extends $Command
@@ -143,9 +144,7 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +156,16 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAssetPropertyAggregatesCommand)
   .de(de_BatchGetAssetPropertyAggregatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAssetPropertyAggregatesRequest;
+      output: BatchGetAssetPropertyAggregatesResponse;
+    };
+    sdk: {
+      input: BatchGetAssetPropertyAggregatesCommandInput;
+      output: BatchGetAssetPropertyAggregatesCommandOutput;
+    };
+  };
+}

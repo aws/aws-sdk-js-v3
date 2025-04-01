@@ -301,6 +301,7 @@ export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataB
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DeleteRouteCommand extends $Command
@@ -311,9 +312,7 @@ export class DeleteRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -325,4 +324,16 @@ export class DeleteRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRouteCommand)
   .de(de_DeleteRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRouteInput;
+      output: DeleteRouteOutput;
+    };
+    sdk: {
+      input: DeleteRouteCommandInput;
+      output: DeleteRouteCommandOutput;
+    };
+  };
+}

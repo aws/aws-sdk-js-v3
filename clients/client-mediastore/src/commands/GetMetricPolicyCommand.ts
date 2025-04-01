@@ -76,6 +76,7 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class GetMetricPolicyCommand extends $Command
@@ -86,9 +87,7 @@ export class GetMetricPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GetMetricPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricPolicyCommand)
   .de(de_GetMetricPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricPolicyInput;
+      output: GetMetricPolicyOutput;
+    };
+    sdk: {
+      input: GetMetricPolicyCommandInput;
+      output: GetMetricPolicyCommandOutput;
+    };
+  };
+}

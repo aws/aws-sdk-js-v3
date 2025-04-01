@@ -68,6 +68,7 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueryDefinitionCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteQueryDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class DeleteQueryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueryDefinitionCommand)
   .de(de_DeleteQueryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueryDefinitionRequest;
+      output: DeleteQueryDefinitionResponse;
+    };
+    sdk: {
+      input: DeleteQueryDefinitionCommandInput;
+      output: DeleteQueryDefinitionCommandOutput;
+    };
+  };
+}

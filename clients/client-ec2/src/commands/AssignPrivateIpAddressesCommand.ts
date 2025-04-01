@@ -28,9 +28,9 @@ export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAdd
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
- *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
- *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
+ * <p>Assigns the specified secondary private IP addresses to the specified network interface.</p>
+ *          <p>You can specify specific secondary IP addresses, or you can specify the number
+ *             of secondary IP addresses to be automatically assigned from the subnet's CIDR block range.
  *             The number of secondary IP addresses that you can assign to an instance varies by instance type.
  *             For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>When you move a secondary private IP address to another network interface, any Elastic IP address
@@ -50,16 +50,16 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignPrivateIpAddressesRequest
- *   AllowReassignment: true || false,
+ *   Ipv4Prefixes: [ // IpPrefixList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv4PrefixCount: Number("int"),
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   PrivateIpAddresses: [ // PrivateIpAddressStringList
  *     "STRING_VALUE",
  *   ],
  *   SecondaryPrivateIpAddressCount: Number("int"),
- *   Ipv4Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
- *   ],
- *   Ipv4PrefixCount: Number("int"),
+ *   AllowReassignment: true || false,
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
@@ -88,33 +88,38 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript
  * // This example assigns the specified secondary private IP address to the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3",
- *   "PrivateIpAddresses": [
+ *   NetworkInterfaceId: "eni-e5aa89a3",
+ *   PrivateIpAddresses: [
  *     "10.0.0.82"
  *   ]
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
- * await client.send(command);
- * // example id: ec2-assign-private-ip-addresses-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To assign secondary private IP addresses that Amazon EC2 selects to an interface
  * ```javascript
  * // This example assigns two secondary private IP addresses to the specified network interface. Amazon EC2 automatically assigns these IP addresses from the available IP addresses in the CIDR block range of the subnet the network interface is associated with.
  * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3",
- *   "SecondaryPrivateIpAddressCount": 2
+ *   NetworkInterfaceId: "eni-e5aa89a3",
+ *   SecondaryPrivateIpAddressCount: 2
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
- * await client.send(command);
- * // example id: ec2-assign-private-ip-addresses-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AssignPrivateIpAddressesCommand extends $Command
   .classBuilder<
@@ -124,9 +129,7 @@ export class AssignPrivateIpAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +141,16 @@ export class AssignPrivateIpAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignPrivateIpAddressesCommand)
   .de(de_AssignPrivateIpAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignPrivateIpAddressesRequest;
+      output: AssignPrivateIpAddressesResult;
+    };
+    sdk: {
+      input: AssignPrivateIpAddressesCommandInput;
+      output: AssignPrivateIpAddressesCommandOutput;
+    };
+  };
+}

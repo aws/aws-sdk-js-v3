@@ -38,7 +38,7 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  * const input = { // CreatePluginRequest
  *   applicationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
- *   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM", // required
+ *   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA", // required
  *   authConfiguration: { // PluginAuthConfiguration Union: only one key present
  *     basicAuthConfiguration: { // BasicAuthConfiguration
  *       secretArn: "STRING_VALUE", // required
@@ -47,8 +47,14 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  *     oAuth2ClientCredentialConfiguration: { // OAuth2ClientCredentialConfiguration
  *       secretArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
+ *       authorizationUrl: "STRING_VALUE",
+ *       tokenUrl: "STRING_VALUE",
  *     },
  *     noAuthConfiguration: {},
+ *     idcAuthConfiguration: { // IdcAuthConfiguration
+ *       idcApplicationArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   serverUrl: "STRING_VALUE",
  *   customPluginConfiguration: { // CustomPluginConfiguration
@@ -92,15 +98,15 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
@@ -116,6 +122,7 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class CreatePluginCommand extends $Command
@@ -126,9 +133,7 @@ export class CreatePluginCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +145,16 @@ export class CreatePluginCommand extends $Command
   .f(CreatePluginRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePluginCommand)
   .de(de_CreatePluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePluginRequest;
+      output: CreatePluginResponse;
+    };
+    sdk: {
+      input: CreatePluginCommandInput;
+      output: CreatePluginCommandOutput;
+    };
+  };
+}

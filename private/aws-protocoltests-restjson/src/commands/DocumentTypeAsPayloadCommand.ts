@@ -53,6 +53,7 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class DocumentTypeAsPayloadCommand extends $Command
@@ -71,4 +72,16 @@ export class DocumentTypeAsPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DocumentTypeAsPayloadCommand)
   .de(de_DocumentTypeAsPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DocumentTypeAsPayloadInputOutput;
+      output: DocumentTypeAsPayloadInputOutput;
+    };
+    sdk: {
+      input: DocumentTypeAsPayloadCommandInput;
+      output: DocumentTypeAsPayloadCommandOutput;
+    };
+  };
+}

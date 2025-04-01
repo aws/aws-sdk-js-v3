@@ -100,6 +100,7 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeMultiplexCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribeMultiplexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeMultiplexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMultiplexCommand)
   .de(de_DescribeMultiplexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMultiplexRequest;
+      output: DescribeMultiplexResponse;
+    };
+    sdk: {
+      input: DescribeMultiplexCommandInput;
+      output: DescribeMultiplexCommandOutput;
+    };
+  };
+}

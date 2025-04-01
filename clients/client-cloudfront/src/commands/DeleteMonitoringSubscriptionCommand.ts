@@ -65,10 +65,11 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  *  <p>A monitoring subscription does not exist for the specified distribution.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -80,9 +81,7 @@ export class DeleteMonitoringSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteMonitoringSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMonitoringSubscriptionCommand)
   .de(de_DeleteMonitoringSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMonitoringSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMonitoringSubscriptionCommandInput;
+      output: DeleteMonitoringSubscriptionCommandOutput;
+    };
+  };
+}

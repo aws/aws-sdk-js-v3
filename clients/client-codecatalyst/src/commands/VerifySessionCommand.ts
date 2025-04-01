@@ -73,6 +73,7 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class VerifySessionCommand extends $Command
@@ -83,9 +84,7 @@ export class VerifySessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class VerifySessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifySessionCommand)
   .de(de_VerifySessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: VerifySessionResponse;
+    };
+    sdk: {
+      input: VerifySessionCommandInput;
+      output: VerifySessionCommandOutput;
+    };
+  };
+}

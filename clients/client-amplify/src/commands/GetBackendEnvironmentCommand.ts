@@ -81,6 +81,7 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class GetBackendEnvironmentCommand extends $Command
@@ -91,9 +92,7 @@ export class GetBackendEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class GetBackendEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackendEnvironmentCommand)
   .de(de_GetBackendEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackendEnvironmentRequest;
+      output: GetBackendEnvironmentResult;
+    };
+    sdk: {
+      input: GetBackendEnvironmentCommandInput;
+      output: GetBackendEnvironmentCommandOutput;
+    };
+  };
+}

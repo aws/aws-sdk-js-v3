@@ -76,18 +76,21 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To designate a Security Hub administrator
  * ```javascript
  * // The following example designates the specified account as the Security Hub administrator account. The requesting account must be the organization management account.
  * const input = {
- *   "AdminAccountId": "123456789012"
+ *   AdminAccountId: "123456789012"
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
- * await client.send(command);
- * // example id: to-designate-a-security-hub-administrator-1676998319851
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableOrganizationAdminAccountCommand extends $Command
   .classBuilder<
@@ -97,9 +100,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class EnableOrganizationAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableOrganizationAdminAccountCommand)
   .de(de_EnableOrganizationAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableOrganizationAdminAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableOrganizationAdminAccountCommandInput;
+      output: EnableOrganizationAdminAccountCommandOutput;
+    };
+  };
+}

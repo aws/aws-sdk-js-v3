@@ -43,7 +43,7 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   CapacityTaskStatusFilter: [ // CapacityTaskStatusList
- *     "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ *     "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  *   ],
  * };
  * const command = new ListCapacityTasksCommand(input);
@@ -54,7 +54,8 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  * //       CapacityTaskId: "STRING_VALUE",
  * //       OutpostId: "STRING_VALUE",
  * //       OrderId: "STRING_VALUE",
- * //       CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //       AssetId: "STRING_VALUE",
+ * //       CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       CompletionDate: new Date("TIMESTAMP"),
  * //       LastModifiedDate: new Date("TIMESTAMP"),
@@ -86,6 +87,7 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListCapacityTasksCommand extends $Command
@@ -96,9 +98,7 @@ export class ListCapacityTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class ListCapacityTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCapacityTasksCommand)
   .de(de_ListCapacityTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCapacityTasksInput;
+      output: ListCapacityTasksOutput;
+    };
+    sdk: {
+      input: ListCapacityTasksCommandInput;
+      output: ListCapacityTasksCommandOutput;
+    };
+  };
+}

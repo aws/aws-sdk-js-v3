@@ -79,6 +79,7 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateVariantStoreCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateVariantStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateVariantStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVariantStoreCommand)
   .de(de_UpdateVariantStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVariantStoreRequest;
+      output: UpdateVariantStoreResponse;
+    };
+    sdk: {
+      input: UpdateVariantStoreCommandInput;
+      output: UpdateVariantStoreCommandOutput;
+    };
+  };
+}

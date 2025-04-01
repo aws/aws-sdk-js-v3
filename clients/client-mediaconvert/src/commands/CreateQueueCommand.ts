@@ -36,6 +36,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // CreateQueueRequest
+ *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   PricingPlan: "ON_DEMAND" || "RESERVED",
@@ -54,6 +55,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * // { // CreateQueueResponse
  * //   Queue: { // Queue
  * //     Arn: "STRING_VALUE",
+ * //     ConcurrentJobs: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -68,6 +70,14 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * //       ReservedSlots: Number("int"),
  * //       Status: "ACTIVE" || "EXPIRED",
  * //     },
+ * //     ServiceOverrides: [ // __listOfServiceOverride
+ * //       { // ServiceOverride
+ * //         Message: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         OverrideValue: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Status: "ACTIVE" || "PAUSED",
  * //     SubmittedJobsCount: Number("int"),
  * //     Type: "SYSTEM" || "CUSTOM",
@@ -103,6 +113,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class CreateQueueCommand extends $Command
@@ -113,9 +124,7 @@ export class CreateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +136,16 @@ export class CreateQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQueueCommand)
   .de(de_CreateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueRequest;
+      output: CreateQueueResponse;
+    };
+    sdk: {
+      input: CreateQueueCommandInput;
+      output: CreateQueueCommandOutput;
+    };
+  };
+}

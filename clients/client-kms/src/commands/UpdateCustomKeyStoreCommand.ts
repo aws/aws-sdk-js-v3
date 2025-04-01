@@ -319,84 +319,80 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To edit the friendly name of a custom key store
  * ```javascript
  * // This example changes the friendly name of the AWS KMS custom key store to the name that you specify. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "NewCustomKeyStoreName": "DevelopmentKeys"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0",
+ *   NewCustomKeyStoreName: "DevelopmentKeys"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-edit-the-friendly-name-of-a-custom-key-store-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To edit the password of an AWS CloudHSM key store
  * ```javascript
  * // This example tells AWS KMS the password for the kmsuser crypto user in the AWS CloudHSM cluster that is associated with the AWS KMS custom key store. (It does not change the password in the CloudHSM cluster.) This operation does not return any data.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "KeyStorePassword": "ExamplePassword"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0",
+ *   KeyStorePassword: "ExamplePassword"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-edit-the-properties-of-an-aws-cloudhsm-key-store-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
  * ```javascript
  * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
  * const input = {
- *   "CloudHsmClusterId": "cluster-234abcdefABC",
- *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ *   CloudHsmClusterId: "cluster-234abcdefABC",
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-associate-the-custom-key-store-with-a-different-but-related-aws-cloudhsm-cluster-3
- * ```
- *
- * @example To update the proxy authentication credential of an external key store
- * ```javascript
- * // To update the proxy authentication credential for your external key store, specify both the <code>RawSecretAccessKey</code> and the <code>AccessKeyId</code>, even if you are changing only one of the values. You can use this feature to fix an invalid credential or to change the credential when the external key store proxy rotates it.
- * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "XksProxyAuthenticationCredential": {
- *     "AccessKeyId": "ABCDE12345670EXAMPLE",
- *     "RawSecretAccessKey": "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
- *   }
- * };
- * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-update-the-proxy-authentication-credential-of-an-external-key-store-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To edit the proxy URI path of an external key store.
  * ```javascript
  * // This example updates the proxy URI path for an external key store
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "XksProxyUriPath": "/new-path/kms/xks/v1"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0",
+ *   XksProxyUriPath: "/new-path/kms/xks/v1"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-update-the-xks-proxy-api-path-of-an-external-key-store-5
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
  * ```javascript
  * // To change the external key store proxy connectivity option from public endpoint connectivity to VPC endpoint service connectivity, in addition to changing the <code>XksProxyConnectivity</code> value, you must change the <code>XksProxyUriEndpoint</code> value to reflect the private DNS name associated with the VPC endpoint service. You must also add an <code>XksProxyVpcEndpointServiceName</code> value.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "XksProxyConnectivity": "VPC_ENDPOINT_SERVICE",
- *   "XksProxyUriEndpoint": "https://myproxy-private.xks.example.com",
- *   "XksProxyVpcEndpointServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-example"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0",
+ *   XksProxyConnectivity: "VPC_ENDPOINT_SERVICE",
+ *   XksProxyUriEndpoint: "https://myproxy-private.xks.example.com",
+ *   XksProxyVpcEndpointServiceName: "com.amazonaws.vpce.us-east-1.vpce-svc-example"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-update-the-proxy-connectivity-of-an-external-key-store-to-vpc_endpoint_service-6
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateCustomKeyStoreCommand extends $Command
   .classBuilder<
@@ -406,9 +402,7 @@ export class UpdateCustomKeyStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -420,4 +414,16 @@ export class UpdateCustomKeyStoreCommand extends $Command
   .f(UpdateCustomKeyStoreRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateCustomKeyStoreCommand)
   .de(de_UpdateCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCustomKeyStoreCommandInput;
+      output: UpdateCustomKeyStoreCommandOutput;
+    };
+  };
+}

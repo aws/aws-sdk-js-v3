@@ -79,6 +79,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class DeleteFraudsterCommand extends $Command
@@ -89,9 +90,7 @@ export class DeleteFraudsterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeleteFraudsterCommand extends $Command
   .f(DeleteFraudsterRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteFraudsterCommand)
   .de(de_DeleteFraudsterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFraudsterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFraudsterCommandInput;
+      output: DeleteFraudsterCommandOutput;
+    };
+  };
+}

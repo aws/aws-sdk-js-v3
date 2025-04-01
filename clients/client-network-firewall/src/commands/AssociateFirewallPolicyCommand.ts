@@ -98,6 +98,7 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class AssociateFirewallPolicyCommand extends $Command
@@ -108,9 +109,7 @@ export class AssociateFirewallPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class AssociateFirewallPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateFirewallPolicyCommand)
   .de(de_AssociateFirewallPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFirewallPolicyRequest;
+      output: AssociateFirewallPolicyResponse;
+    };
+    sdk: {
+      input: AssociateFirewallPolicyCommandInput;
+      output: AssociateFirewallPolicyCommandOutput;
+    };
+  };
+}

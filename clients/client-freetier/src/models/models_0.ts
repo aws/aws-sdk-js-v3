@@ -75,7 +75,7 @@ export interface FreeTierUsage {
    *       Amazon Elastic Compute Cloud.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>Describes <code>usageType</code> more granularly with the specific Amazon Web Service API
@@ -83,57 +83,57 @@ export interface FreeTierUsage {
    *       Amazon Elastic Compute Cloud.</p>
    * @public
    */
-  operation?: string;
+  operation?: string | undefined;
 
   /**
    * <p>Describes the usage details of the offer. For example, this might be
    *         <code>Global-BoxUsage:freetrial</code>.</p>
    * @public
    */
-  usageType?: string;
+  usageType?: string | undefined;
 
   /**
    * <p>Describes the Amazon Web Services Region for which this offer is applicable</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>Describes the actual usage accrued month-to-day (MTD) that you've used so far.</p>
    * @public
    */
-  actualUsageAmount?: number;
+  actualUsageAmount?: number | undefined;
 
   /**
    * <p>Describes the forecasted usage by the month that you're expected to use.</p>
    * @public
    */
-  forecastedUsageAmount?: number;
+  forecastedUsageAmount?: number | undefined;
 
   /**
    * <p>Describes the maximum usage allowed in Free Tier.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>Describes the unit of the <code>usageType</code>, such as <code>Hrs</code>.</p>
    * @public
    */
-  unit?: string;
+  unit?: string | undefined;
 
   /**
    * <p>The description of the Free Tier offer.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Describes the type of the Free Tier offer. For example, the offer can be <code>"12 Months
    *         Free"</code>,  <code>"Always Free"</code>, and <code>"Free Trial"</code>.</p>
    * @public
    */
-  freeTierType?: string;
+  freeTierType?: string | undefined;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface GetFreeTierUsageResponse {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -257,26 +257,26 @@ export interface Expression {
    *       array.</p>
    * @public
    */
-  Or?: Expression[];
+  Or?: Expression[] | undefined;
 
   /**
    * <p>Return results that match all <code>Expressions</code>  that you specified in the
    *       array.</p>
    * @public
    */
-  And?: Expression[];
+  And?: Expression[] | undefined;
 
   /**
    * <p>Return results that don’t match the <code>Expression</code> that you specified.</p>
    * @public
    */
-  Not?: Expression;
+  Not?: Expression | undefined;
 
   /**
    * <p>The specific dimension, values, and match type to filter objects with.</p>
    * @public
    */
-  Dimensions?: DimensionValues;
+  Dimensions?: DimensionValues | undefined;
 }
 
 /**
@@ -288,7 +288,7 @@ export interface GetFreeTierUsageRequest {
    *     to meet.</p>
    * @public
    */
-  filter?: Expression;
+  filter?: Expression | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. <code>MaxResults</code> means
@@ -296,11 +296,11 @@ export interface GetFreeTierUsageRequest {
    *       on your filters.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }

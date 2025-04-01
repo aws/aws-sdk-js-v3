@@ -98,6 +98,56 @@ export interface ResetNotificationSettingsCommandOutput extends ResetNotificatio
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
+ * @example ResetNotificationSettings - Resets to IAM Roles Anywhere defined default notification settings
+ * ```javascript
+ * //
+ * const input = {
+ *   notificationSettingKeys: [
+ *     {
+ *       event: "END_ENTITY_CERTIFICATE_EXPIRY"
+ *     }
+ *   ],
+ *   trustAnchorId: "c2505e61-2fc1-4a18-9fcf-94e18a22928b"
+ * };
+ * const command = new ResetNotificationSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   trustAnchor: {
+ *     createdAt: "2021-07-19T15:55:25.986591Z",
+ *     enabled: true,
+ *     name: "ResetNotificationSettings - TA with PCA - example",
+ *     notificationSettings: [
+ *       {
+ *         channel: "ALL",
+ *         configuredBy: "rolesanywhere.amazonaws.com",
+ *         enabled: true,
+ *         event: "CA_CERTIFICATE_EXPIRY",
+ *         threshold: 45
+ *       },
+ *       {
+ *         channel: "ALL",
+ *         configuredBy: "123456789012",
+ *         enabled: true,
+ *         event: "END_ENTITY_CERTIFICATE_EXPIRY",
+ *         threshold: 45
+ *       }
+ *     ],
+ *     source: {
+ *       sourceData: {
+ *         acmPcaArn: "arn:aws:acm-pca:us-west-2:123456789012:certificate-authority/123abc00-1233-12b3-1a33-54cb9c1ce2f3"
+ *       },
+ *       sourceType: "AWS_ACM_PCA"
+ *     },
+ *     trustAnchorArn: "arn:aws:rolesanywhere:us-west-2:123456789012:trust-anchor/c2505e61-2fc1-4a18-9fcf-94e18a22928b",
+ *     trustAnchorId: "c2505e61-2fc1-4a18-9fcf-94e18a22928b",
+ *     updatedAt: "2021-07-19T15:55:25.986591Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ResetNotificationSettingsCommand extends $Command
@@ -108,9 +158,7 @@ export class ResetNotificationSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +170,16 @@ export class ResetNotificationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetNotificationSettingsCommand)
   .de(de_ResetNotificationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetNotificationSettingsRequest;
+      output: ResetNotificationSettingsResponse;
+    };
+    sdk: {
+      input: ResetNotificationSettingsCommandInput;
+      output: ResetNotificationSettingsCommandOutput;
+    };
+  };
+}

@@ -61,7 +61,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //     { // FunctionConfiguration
  * //       FunctionName: "STRING_VALUE",
  * //       FunctionArn: "STRING_VALUE",
- * //       Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //       Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //       Role: "STRING_VALUE",
  * //       Handler: "STRING_VALUE",
  * //       CodeSize: Number("long"),
@@ -184,6 +184,63 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a list of Lambda functions
+ * ```javascript
+ * // This operation returns a list of Lambda functions.
+ * const input = { /* empty *\/ };
+ * const command = new ListFunctionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Functions: [
+ *     {
+ *       CodeSha256: "dBG9m8SGdmlEjw/JYXlhhvCrAv5TxvXsbL/RMr0fT/I=",
+ *       CodeSize: 294,
+ *       Description: "",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:helloworld",
+ *       FunctionName: "helloworld",
+ *       Handler: "helloworld.handler",
+ *       LastModified: "2019-09-23T18:32:33.857+0000",
+ *       MemorySize: 128,
+ *       RevisionId: "1718e831-badf-4253-9518-d0644210af7b",
+ *       Role: "arn:aws:iam::123456789012:role/service-role/MyTestFunction-role-zgur6bf4",
+ *       Runtime: "nodejs10.x",
+ *       Timeout: 3,
+ *       TracingConfig: {
+ *         Mode: "PassThrough"
+ *       },
+ *       Version: "$LATEST"
+ *     },
+ *     {
+ *       CodeSha256: "sU0cJ2/hOZevwV/lTxCuQqK3gDZP3i8gUoqUUVRmY6E=",
+ *       CodeSize: 266,
+ *       Description: "",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       FunctionName: "my-function",
+ *       Handler: "index.handler",
+ *       LastModified: "2019-10-01T16:47:28.490+0000",
+ *       MemorySize: 256,
+ *       RevisionId: "93017fc9-59cb-41dc-901b-4845ce4bf668",
+ *       Role: "arn:aws:iam::123456789012:role/service-role/helloWorldPython-role-uy3l9qyq",
+ *       Runtime: "nodejs10.x",
+ *       Timeout: 3,
+ *       TracingConfig: {
+ *         Mode: "PassThrough"
+ *       },
+ *       Version: "$LATEST",
+ *       VpcConfig: {
+ *         SecurityGroupIds:         [],
+ *         SubnetIds:         [],
+ *         VpcId: ""
+ *       }
+ *     }
+ *   ],
+ *   NextMarker: ""
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListFunctionsCommand extends $Command
@@ -194,9 +251,7 @@ export class ListFunctionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +263,16 @@ export class ListFunctionsCommand extends $Command
   .f(void 0, ListFunctionsResponseFilterSensitiveLog)
   .ser(se_ListFunctionsCommand)
   .de(de_ListFunctionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionsRequest;
+      output: ListFunctionsResponse;
+    };
+    sdk: {
+      input: ListFunctionsCommandInput;
+      output: ListFunctionsCommandOutput;
+    };
+  };
+}

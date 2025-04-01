@@ -133,6 +133,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
+import { GetTrackCommand, GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
 import {
   GetUsageLimitCommand,
   GetUsageLimitCommandInput,
@@ -153,6 +154,11 @@ import {
   ListEndpointAccessCommandInput,
   ListEndpointAccessCommandOutput,
 } from "./commands/ListEndpointAccessCommand";
+import {
+  ListManagedWorkgroupsCommand,
+  ListManagedWorkgroupsCommandInput,
+  ListManagedWorkgroupsCommandOutput,
+} from "./commands/ListManagedWorkgroupsCommand";
 import {
   ListNamespacesCommand,
   ListNamespacesCommandInput,
@@ -188,6 +194,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTracksCommand, ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
 import {
   ListUsageLimitsCommand,
   ListUsageLimitsCommandInput,
@@ -299,10 +306,12 @@ const commands = {
   GetScheduledActionCommand,
   GetSnapshotCommand,
   GetTableRestoreStatusCommand,
+  GetTrackCommand,
   GetUsageLimitCommand,
   GetWorkgroupCommand,
   ListCustomDomainAssociationsCommand,
   ListEndpointAccessCommand,
+  ListManagedWorkgroupsCommand,
   ListNamespacesCommand,
   ListRecoveryPointsCommand,
   ListScheduledActionsCommand,
@@ -310,6 +319,7 @@ const commands = {
   ListSnapshotsCommand,
   ListTableRestoreStatusCommand,
   ListTagsForResourceCommand,
+  ListTracksCommand,
   ListUsageLimitsCommand,
   ListWorkgroupsCommand,
   PutResourcePolicyCommand,
@@ -759,6 +769,17 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link GetTrackCommand}
+   */
+  getTrack(args: GetTrackCommandInput, options?: __HttpHandlerOptions): Promise<GetTrackCommandOutput>;
+  getTrack(args: GetTrackCommandInput, cb: (err: any, data?: GetTrackCommandOutput) => void): void;
+  getTrack(
+    args: GetTrackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUsageLimitCommand}
    */
   getUsageLimit(args: GetUsageLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetUsageLimitCommandOutput>;
@@ -814,6 +835,24 @@ export interface RedshiftServerless {
     args: ListEndpointAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedWorkgroupsCommand}
+   */
+  listManagedWorkgroups(): Promise<ListManagedWorkgroupsCommandOutput>;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedWorkgroupsCommandOutput>;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    cb: (err: any, data?: ListManagedWorkgroupsCommandOutput) => void
+  ): void;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedWorkgroupsCommandOutput) => void
   ): void;
 
   /**
@@ -930,6 +969,18 @@ export interface RedshiftServerless {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTracksCommand}
+   */
+  listTracks(): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, options?: __HttpHandlerOptions): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, cb: (err: any, data?: ListTracksCommandOutput) => void): void;
+  listTracks(
+    args: ListTracksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTracksCommandOutput) => void
   ): void;
 
   /**
@@ -1201,15 +1252,12 @@ export interface RedshiftServerless {
  * <p>This is an interface reference for Amazon Redshift Serverless.
  *            It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
  *         </p>
- *         <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
+ *          <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
  *            underlying resources based on workload demands. Amazon Redshift Serverless adjusts capacity in seconds to deliver consistently high
  *            performance and simplified operations for even the most demanding and volatile workloads. Amazon Redshift Serverless lets you
  *            focus on using your data to acquire new insights for your business and customers.
  *         </p>
- *         <p>
- *            To learn more about Amazon Redshift Serverless,
- *            see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless</a>.
- *         </p>
+ *          <p> To learn more about Amazon Redshift Serverless, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless?</a>.</p>
  * @public
  */
 export class RedshiftServerless extends RedshiftServerlessClient implements RedshiftServerless {}

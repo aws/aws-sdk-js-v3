@@ -87,6 +87,7 @@ export interface CreateLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationObjectStorageCommand extends $Command
@@ -97,9 +98,7 @@ export class CreateLocationObjectStorageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class CreateLocationObjectStorageCommand extends $Command
   .f(CreateLocationObjectStorageRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLocationObjectStorageCommand)
   .de(de_CreateLocationObjectStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationObjectStorageRequest;
+      output: CreateLocationObjectStorageResponse;
+    };
+    sdk: {
+      input: CreateLocationObjectStorageCommandInput;
+      output: CreateLocationObjectStorageCommandOutput;
+    };
+  };
+}

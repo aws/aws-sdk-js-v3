@@ -12,7 +12,7 @@ AWS SDK for JavaScript LakeFormation Client for Node.js, Browser and React Nativ
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lakeformation
+To install this package, simply type add or install @aws-sdk/client-lakeformation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lakeformation`
@@ -287,6 +287,14 @@ CreateLFTag
 </details>
 <details>
 <summary>
+CreateLFTagExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateLFTagExpressionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLFTagExpressionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLFTagExpressionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDataCellsFilter
 </summary>
 
@@ -315,6 +323,14 @@ DeleteLFTag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLFTagExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLFTagExpressionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagExpressionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagExpressionCommandOutput/)
 
 </details>
 <details>
@@ -407,6 +423,14 @@ GetLFTag
 </details>
 <details>
 <summary>
+GetLFTagExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetLFTagExpressionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetLFTagExpressionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetLFTagExpressionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetQueryState
 </summary>
 
@@ -491,6 +515,14 @@ ListLakeFormationOptIns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListLakeFormationOptInsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLakeFormationOptInsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLakeFormationOptInsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListLFTagExpressions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListLFTagExpressionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLFTagExpressionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLFTagExpressionsCommandOutput/)
 
 </details>
 <details>
@@ -619,6 +651,14 @@ UpdateLFTag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLFTagExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateLFTagExpressionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagExpressionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagExpressionCommandOutput/)
 
 </details>
 <details>

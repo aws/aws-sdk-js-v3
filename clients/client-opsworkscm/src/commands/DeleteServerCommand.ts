@@ -80,6 +80,7 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class DeleteServerCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServerCommand)
   .de(de_DeleteServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServerCommandInput;
+      output: DeleteServerCommandOutput;
+    };
+  };
+}

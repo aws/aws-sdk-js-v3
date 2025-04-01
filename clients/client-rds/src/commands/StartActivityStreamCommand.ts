@@ -91,30 +91,30 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To start a database activity stream
  * ```javascript
  * // The following example starts an asynchronous activity stream to monitor an Aurora cluster named my-pg-cluster.
  * const input = {
- *   "ApplyImmediately": true,
- *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
- *   "Mode": "async",
- *   "ResourceArn": "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
+ *   ApplyImmediately: true,
+ *   KmsKeyId: "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   Mode: "async",
+ *   ResourceArn: "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
  * };
  * const command = new StartActivityStreamCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplyImmediately": true,
- *   "KinesisStreamName": "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
- *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
- *   "Mode": "async",
- *   "Status": "starting"
+ *   ApplyImmediately: true,
+ *   KinesisStreamName: "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
+ *   KmsKeyId: "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   Mode: "async",
+ *   Status: "starting"
  * }
  * *\/
- * // example id: to-start-a-database-activity-stream-1680035656463
  * ```
  *
+ * @public
  */
 export class StartActivityStreamCommand extends $Command
   .classBuilder<
@@ -124,9 +124,7 @@ export class StartActivityStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +136,16 @@ export class StartActivityStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartActivityStreamCommand)
   .de(de_StartActivityStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartActivityStreamRequest;
+      output: StartActivityStreamResponse;
+    };
+    sdk: {
+      input: StartActivityStreamCommandInput;
+      output: StartActivityStreamCommandOutput;
+    };
+  };
+}

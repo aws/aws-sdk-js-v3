@@ -17,6 +17,9 @@ import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
+/**
+ * @deprecated only used in legacy auth.
+ */
 export const awsAuthMiddleware =
   <Input extends object, Output extends object>(
     options: AwsAuthResolvedConfig
@@ -111,6 +114,9 @@ export const awsAuthMiddleware =
 const getDateHeader = (response: unknown): string | undefined =>
   HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
 
+/**
+ * @deprecated only used in legacy auth.
+ */
 export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "awsAuthMiddleware",
   tags: ["SIGNATURE", "AWSAUTH"],
@@ -119,10 +125,16 @@ export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * @deprecated only used in legacy auth.
+ */
 export const getAwsAuthPlugin = (options: AwsAuthResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(awsAuthMiddleware(options), awsAuthMiddlewareOptions);
   },
 });
 
+/**
+ * @deprecated only used in legacy auth.
+ */
 export const getSigV4AuthPlugin = getAwsAuthPlugin;

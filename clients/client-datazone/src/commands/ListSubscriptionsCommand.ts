@@ -86,6 +86,33 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * //                 shortDescription: "STRING_VALUE",
  * //               },
  * //             ],
+ * //             assetScope: { // AssetScope
+ * //               assetId: "STRING_VALUE", // required
+ * //               filterIds: [ // FilterIds // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               status: "STRING_VALUE", // required
+ * //               errorMessage: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           productListing: { // SubscribedProductListing
+ * //             entityId: "STRING_VALUE",
+ * //             entityRevision: "STRING_VALUE",
+ * //             glossaryTerms: [
+ * //               {
+ * //                 name: "STRING_VALUE",
+ * //                 shortDescription: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             name: "STRING_VALUE",
+ * //             description: "STRING_VALUE",
+ * //             assetListings: [ // AssetInDataProductListingItems
+ * //               { // AssetInDataProductListingItem
+ * //                 entityId: "STRING_VALUE",
+ * //                 entityRevision: "STRING_VALUE",
+ * //                 entityType: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         ownerProjectId: "STRING_VALUE", // required
@@ -127,6 +154,7 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListSubscriptionsCommand extends $Command
@@ -137,9 +165,7 @@ export class ListSubscriptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +177,16 @@ export class ListSubscriptionsCommand extends $Command
   .f(void 0, ListSubscriptionsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionsCommand)
   .de(de_ListSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionsInput;
+      output: ListSubscriptionsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionsCommandInput;
+      output: ListSubscriptionsCommandOutput;
+    };
+  };
+}

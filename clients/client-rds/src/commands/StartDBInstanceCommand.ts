@@ -206,6 +206,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -328,25 +329,25 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To start a DB instance
  * ```javascript
  * // The following example starts the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance"
  * };
  * const command = new StartDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceStatus": "starting"
+ *   DBInstance: {
+ *     DBInstanceStatus: "starting"
  *   }
  * }
  * *\/
- * // example id: to-start-a-db-instance-1679951967681
  * ```
  *
+ * @public
  */
 export class StartDBInstanceCommand extends $Command
   .classBuilder<
@@ -356,9 +357,7 @@ export class StartDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -370,4 +369,16 @@ export class StartDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBInstanceCommand)
   .de(de_StartDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBInstanceMessage;
+      output: StartDBInstanceResult;
+    };
+    sdk: {
+      input: StartDBInstanceCommandInput;
+      output: StartDBInstanceCommandOutput;
+    };
+  };
+}

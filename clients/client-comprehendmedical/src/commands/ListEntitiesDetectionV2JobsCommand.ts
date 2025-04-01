@@ -108,6 +108,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class ListEntitiesDetectionV2JobsCommand extends $Command
@@ -118,9 +119,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitiesDetectionV2JobsCommand)
   .de(de_ListEntitiesDetectionV2JobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitiesDetectionV2JobsRequest;
+      output: ListEntitiesDetectionV2JobsResponse;
+    };
+    sdk: {
+      input: ListEntitiesDetectionV2JobsCommandInput;
+      output: ListEntitiesDetectionV2JobsCommandOutput;
+    };
+  };
+}

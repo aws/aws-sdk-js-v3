@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCodeRepositoryInput } from "../models/models_0";
-import { CreateCodeRepositoryOutput } from "../models/models_1";
+import { CreateCodeRepositoryInput, CreateCodeRepositoryOutput } from "../models/models_1";
 import { de_CreateCodeRepositoryCommand, se_CreateCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -29,13 +28,13 @@ export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryIn
 export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Git repository as a resource in your SageMaker account. You can associate the
- *          repository with notebook instances so that you can use Git source control for the
- *          notebooks you create. The Git repository is a resource in your SageMaker account, so it can
- *          be associated with more than one notebook instance, and it persists independently from
- *          the lifecycle of any notebook instances it is associated with.</p>
+ * <p>Creates a Git repository as a resource in your SageMaker AI account. You can
+ *             associate the repository with notebook instances so that you can use Git source control
+ *             for the notebooks you create. The Git repository is a resource in your SageMaker AI
+ *             account, so it can be associated with more than one notebook instance, and it persists
+ *             independently from the lifecycle of any notebook instances it is associated with.</p>
  *          <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
- *          or in any other Git repository.</p>
+ *             or in any other Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,7 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateCodeRepositoryCommand extends $Command
@@ -83,9 +83,7 @@ export class CreateCodeRepositoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +95,16 @@ export class CreateCodeRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCodeRepositoryCommand)
   .de(de_CreateCodeRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCodeRepositoryInput;
+      output: CreateCodeRepositoryOutput;
+    };
+    sdk: {
+      input: CreateCodeRepositoryCommandInput;
+      output: CreateCodeRepositoryCommandOutput;
+    };
+  };
+}

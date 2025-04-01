@@ -18,7 +18,7 @@ deploying an Amplify application to Amazon Web Services, see the <a href="https:
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-amplifyuibuilder
+To install this package, simply type add or install @aws-sdk/client-amplifyuibuilder
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-amplifyuibuilder`

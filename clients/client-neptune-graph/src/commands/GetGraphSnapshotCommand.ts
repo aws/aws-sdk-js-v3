@@ -73,6 +73,7 @@ export interface GetGraphSnapshotCommandOutput extends GetGraphSnapshotOutput, _
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetGraphSnapshotCommand extends $Command
@@ -98,4 +99,16 @@ export class GetGraphSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGraphSnapshotCommand)
   .de(de_GetGraphSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGraphSnapshotInput;
+      output: GetGraphSnapshotOutput;
+    };
+    sdk: {
+      input: GetGraphSnapshotCommandInput;
+      output: GetGraphSnapshotCommandOutput;
+    };
+  };
+}

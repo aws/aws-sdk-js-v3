@@ -102,6 +102,7 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DescribeRecordCommand extends $Command
@@ -112,9 +113,7 @@ export class DescribeRecordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class DescribeRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecordCommand)
   .de(de_DescribeRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecordInput;
+      output: DescribeRecordOutput;
+    };
+    sdk: {
+      input: DescribeRecordCommandInput;
+      output: DescribeRecordCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -29,7 +30,7 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
  *          bucket.</p>
@@ -100,36 +101,36 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get cors configuration set on a bucket
  * ```javascript
  * // The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketCorsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CORSRules": [
+ *   CORSRules: [
  *     {
- *       "AllowedHeaders": [
+ *       AllowedHeaders: [
  *         "Authorization"
  *       ],
- *       "AllowedMethods": [
+ *       AllowedMethods: [
  *         "GET"
  *       ],
- *       "AllowedOrigins": [
+ *       AllowedOrigins: [
  *         "*"
  *       ],
- *       "MaxAgeSeconds": 3000
+ *       MaxAgeSeconds: 3000
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-cors-configuration-set-on-a-bucket-1481596855475
  * ```
  *
+ * @public
  */
 export class GetBucketCorsCommand extends $Command
   .classBuilder<
@@ -148,6 +149,7 @@ export class GetBucketCorsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketCors", {})
@@ -155,4 +157,16 @@ export class GetBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketCorsCommand)
   .de(de_GetBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketCorsRequest;
+      output: GetBucketCorsOutput;
+    };
+    sdk: {
+      input: GetBucketCorsCommandInput;
+      output: GetBucketCorsCommandOutput;
+    };
+  };
+}

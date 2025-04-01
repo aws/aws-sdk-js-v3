@@ -40,7 +40,9 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -84,7 +86,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -92,6 +94,11 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   MaxResults: Number("int"),
@@ -103,7 +110,9 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //   LakeFormationOptInsInfoList: [ // LakeFormationOptInsInfoList
  * //     { // LakeFormationOptInsInfo
  * //       Resource: { // Resource
- * //         Catalog: {},
+ * //         Catalog: { // CatalogResource
+ * //           Id: "STRING_VALUE",
+ * //         },
  * //         Database: { // DatabaseResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
@@ -147,7 +156,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //         LFTagPolicy: { // LFTagPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           ResourceType: "DATABASE" || "TABLE", // required
- * //           Expression: [ // Expression // required
+ * //           Expression: [ // Expression
  * //             { // LFTag
  * //               TagKey: "STRING_VALUE", // required
  * //               TagValues: [ // required
@@ -155,10 +164,18 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //               ],
  * //             },
  * //           ],
+ * //           ExpressionName: "STRING_VALUE",
+ * //         },
+ * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       Principal: { // DataLakePrincipal
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //       },
+ * //       Condition: { // Condition
+ * //         Expression: "STRING_VALUE",
  * //       },
  * //       LastModified: new Date("TIMESTAMP"),
  * //       LastUpdatedBy: "STRING_VALUE",
@@ -190,6 +207,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListLakeFormationOptInsCommand extends $Command
@@ -200,9 +218,7 @@ export class ListLakeFormationOptInsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +230,16 @@ export class ListLakeFormationOptInsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLakeFormationOptInsCommand)
   .de(de_ListLakeFormationOptInsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLakeFormationOptInsRequest;
+      output: ListLakeFormationOptInsResponse;
+    };
+    sdk: {
+      input: ListLakeFormationOptInsCommandInput;
+      output: ListLakeFormationOptInsCommandOutput;
+    };
+  };
+}

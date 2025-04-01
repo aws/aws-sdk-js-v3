@@ -38,12 +38,18 @@ export interface SparseJsonListsCommandOutput extends SparseJsonListsInputOutput
  *   sparseStringList: [ // SparseStringList
  *     "STRING_VALUE",
  *   ],
+ *   sparseShortList: [ // SparseShortList
+ *     Number("short"),
+ *   ],
  * };
  * const command = new SparseJsonListsCommand(input);
  * const response = await client.send(command);
  * // { // SparseJsonListsInputOutput
  * //   sparseStringList: [ // SparseStringList
  * //     "STRING_VALUE",
+ * //   ],
+ * //   sparseShortList: [ // SparseShortList
+ * //     Number("short"),
  * //   ],
  * // };
  *
@@ -57,6 +63,7 @@ export interface SparseJsonListsCommandOutput extends SparseJsonListsInputOutput
  *
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
  *
  */
 export class SparseJsonListsCommand extends $Command
@@ -75,4 +82,16 @@ export class SparseJsonListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SparseJsonListsCommand)
   .de(de_SparseJsonListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SparseJsonListsInputOutput;
+      output: SparseJsonListsInputOutput;
+    };
+    sdk: {
+      input: SparseJsonListsCommandInput;
+      output: SparseJsonListsCommandOutput;
+    };
+  };
+}

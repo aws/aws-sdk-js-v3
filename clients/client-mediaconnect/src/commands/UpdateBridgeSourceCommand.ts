@@ -28,7 +28,7 @@ export interface UpdateBridgeSourceCommandInput extends UpdateBridgeSourceReques
 export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceResponse, __MetadataBearer {}
 
 /**
- * Updates an existing bridge source.
+ * <p> Updates an existing bridge source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,9 +45,12 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  *   },
  *   NetworkSource: { // UpdateBridgeNetworkSourceRequest
  *     MulticastIp: "STRING_VALUE",
+ *     MulticastSourceSettings: { // MulticastSourceSettings
+ *       MulticastSourceIp: "STRING_VALUE",
+ *     },
  *     NetworkName: "STRING_VALUE",
  *     Port: Number("int"),
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
+ *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
  *   },
  *   SourceName: "STRING_VALUE", // required
  * };
@@ -66,10 +69,13 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  * //     },
  * //     NetworkSource: { // BridgeNetworkSource
  * //       MulticastIp: "STRING_VALUE", // required
+ * //       MulticastSourceSettings: { // MulticastSourceSettings
+ * //         MulticastSourceIp: "STRING_VALUE",
+ * //       },
  * //       Name: "STRING_VALUE", // required
  * //       NetworkName: "STRING_VALUE", // required
  * //       Port: Number("int"), // required
- * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  * //     },
  * //   },
  * // };
@@ -83,28 +89,36 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ * </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ * </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>You do not have sufficient access to perform this action.
+ * </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request.
+ * </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>One or more of the resources in the request does not exist in the system.
+ * </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy.
+ * </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling.
+ * </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
+ *
  *
  * @public
  */
@@ -116,9 +130,7 @@ export class UpdateBridgeSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +142,16 @@ export class UpdateBridgeSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBridgeSourceCommand)
   .de(de_UpdateBridgeSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBridgeSourceRequest;
+      output: UpdateBridgeSourceResponse;
+    };
+    sdk: {
+      input: UpdateBridgeSourceCommandInput;
+      output: UpdateBridgeSourceCommandOutput;
+    };
+  };
+}

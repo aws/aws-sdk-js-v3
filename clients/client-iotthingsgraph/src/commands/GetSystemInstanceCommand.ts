@@ -98,6 +98,7 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetSystemInstanceCommand extends $Command
@@ -108,9 +109,7 @@ export class GetSystemInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class GetSystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSystemInstanceCommand)
   .de(de_GetSystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSystemInstanceRequest;
+      output: GetSystemInstanceResponse;
+    };
+    sdk: {
+      input: GetSystemInstanceCommandInput;
+      output: GetSystemInstanceCommandOutput;
+    };
+  };
+}

@@ -82,6 +82,7 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetDelegationsCommand extends $Command
@@ -92,9 +93,7 @@ export class GetDelegationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class GetDelegationsCommand extends $Command
   .f(void 0, GetDelegationsResponseFilterSensitiveLog)
   .ser(se_GetDelegationsCommand)
   .de(de_GetDelegationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDelegationsRequest;
+      output: GetDelegationsResponse;
+    };
+    sdk: {
+      input: GetDelegationsCommandInput;
+      output: GetDelegationsCommandOutput;
+    };
+  };
+}

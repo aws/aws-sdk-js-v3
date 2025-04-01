@@ -50,6 +50,10 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *   },
  *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
  *   skipAppResign: true || false,
@@ -141,6 +145,10 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
+ * //     },
  * //   },
  * // };
  *
@@ -167,28 +175,28 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To create a remote access session
  * ```javascript
  * // The following example creates a remote access session named MySession.
  * const input = {
- *   "name": "MySession",
- *   "configuration": {
- *     "billingMethod": "METERED"
+ *   configuration: {
+ *     billingMethod: "METERED"
  *   },
- *   "deviceArn": "arn:aws:devicefarm:us-west-2::device:123EXAMPLE",
- *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ *   deviceArn: "arn:aws:devicefarm:us-west-2::device:123EXAMPLE",
+ *   name: "MySession",
+ *   projectArn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
  * };
  * const command = new CreateRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "remoteAccessSession": {}
+ *   remoteAccessSession:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-create-a-remote-access-session-1470970668274
  * ```
  *
+ * @public
  */
 export class CreateRemoteAccessSessionCommand extends $Command
   .classBuilder<
@@ -198,9 +206,7 @@ export class CreateRemoteAccessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -212,4 +218,16 @@ export class CreateRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRemoteAccessSessionCommand)
   .de(de_CreateRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRemoteAccessSessionRequest;
+      output: CreateRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: CreateRemoteAccessSessionCommandInput;
+      output: CreateRemoteAccessSessionCommandOutput;
+    };
+  };
+}

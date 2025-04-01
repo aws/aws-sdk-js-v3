@@ -28,8 +28,7 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release and subject to change.</p>
- *          <p>Creates and persists an Application resource.</p>
+ * <p>Creates and persists an Application resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,31 +107,31 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
- * @public
+ *
  * @example To create an application
  * ```javascript
  * // The following creates an application named My Application with access url https://example.com.
  * const input = {
- *   "ApplicationSourceConfig": {
- *     "ExternalUrlConfig": {
- *       "AccessUrl": "https://example.com"
+ *   ApplicationSourceConfig: {
+ *     ExternalUrlConfig: {
+ *       AccessUrl: "https://example.com"
  *     }
  *   },
- *   "Description": "My first application.",
- *   "Name": "My Application",
- *   "Namespace": "myapplication"
+ *   Description: "My first application.",
+ *   Name: "My Application",
+ *   Namespace: "myapplication"
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
- *   "Id": "98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+ *   Arn: "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+ *   Id: "98542c53-e8ac-4570-9c85-c6552c8d9c5e"
  * }
  * *\/
- * // example id: create-an-application
  * ```
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<
@@ -142,9 +141,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +153,16 @@ export class CreateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: CreateApplicationResponse;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

@@ -179,6 +179,7 @@ export interface ModifyDBRecommendationCommandOutput extends DBRecommendationMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBRecommendationCommand extends $Command
@@ -189,9 +190,7 @@ export class ModifyDBRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +202,16 @@ export class ModifyDBRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBRecommendationCommand)
   .de(de_ModifyDBRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBRecommendationMessage;
+      output: DBRecommendationMessage;
+    };
+    sdk: {
+      input: ModifyDBRecommendationCommandInput;
+      output: ModifyDBRecommendationCommandOutput;
+    };
+  };
+}

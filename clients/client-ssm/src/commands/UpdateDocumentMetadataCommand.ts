@@ -77,6 +77,7 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateDocumentMetadataCommand extends $Command
@@ -87,9 +88,7 @@ export class UpdateDocumentMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class UpdateDocumentMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentMetadataCommand)
   .de(de_UpdateDocumentMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDocumentMetadataCommandInput;
+      output: UpdateDocumentMetadataCommandOutput;
+    };
+  };
+}

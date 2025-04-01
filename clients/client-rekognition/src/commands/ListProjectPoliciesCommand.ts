@@ -95,35 +95,8 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
- * @example ListProjectPolicies
- * ```javascript
- * // This operation lists the project policies that are attached to an Amazon Rekognition Custom Labels project.
- * const input = {
- *   "MaxResults": 5,
- *   "NextToken": "",
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-sdk-project/1656557051929"
- * };
- * const command = new ListProjectPoliciesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NextToken": "",
- *   "ProjectPolicies": [
- *     {
- *       "CreationTimestamp": "2022-07-01T11:51:27.086000-07:00",
- *       "LastUpdatedTimestamp": "2022-07-01T11:51:27.086000-07:00",
- *       "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statemented1\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::111122223333:root\"},\"Action\":\"rekognition:CopyProjectVersion\",\"Resource\":\"*\"}]}",
- *       "PolicyName": "testPolicy",
- *       "PolicyRevisionId": "3b274c25e9203a56a99e00e3ff205fbc",
- *       "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-sdk-project/1656557051929"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listprojectpolicies-1658202290173
- * ```
  *
+ * @public
  */
 export class ListProjectPoliciesCommand extends $Command
   .classBuilder<
@@ -133,9 +106,7 @@ export class ListProjectPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +118,16 @@ export class ListProjectPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProjectPoliciesCommand)
   .de(de_ListProjectPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectPoliciesRequest;
+      output: ListProjectPoliciesResponse;
+    };
+    sdk: {
+      input: ListProjectPoliciesCommandInput;
+      output: ListProjectPoliciesCommandOutput;
+    };
+  };
+}

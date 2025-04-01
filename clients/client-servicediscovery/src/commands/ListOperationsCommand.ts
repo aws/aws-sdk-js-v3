@@ -75,16 +75,16 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example ListOperations Example
  * ```javascript
  * // This example gets the operations that have a STATUS of either PENDING or SUCCESS.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Condition": "IN",
- *       "Name": "STATUS",
- *       "Values": [
+ *       Condition: "IN",
+ *       Name: "STATUS",
+ *       Values: [
  *         "PENDING",
  *         "SUCCESS"
  *       ]
@@ -93,27 +93,27 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Operations": [
+ *   Operations: [
  *     {
- *       "Id": "76yy8ovhpdz0plmjzbsnqgnrqvpv2qdt-kexample",
- *       "Status": "SUCCESS"
+ *       Id: "76yy8ovhpdz0plmjzbsnqgnrqvpv2qdt-kexample",
+ *       Status: "SUCCESS"
  *     },
  *     {
- *       "Id": "prysnyzpji3u2ciy45nke83x2zanl7yk-dexample",
- *       "Status": "SUCCESS"
+ *       Id: "prysnyzpji3u2ciy45nke83x2zanl7yk-dexample",
+ *       Status: "SUCCESS"
  *     },
  *     {
- *       "Id": "ko4ekftir7kzlbechsh7xvcdgcpk66gh-7example",
- *       "Status": "PENDING"
+ *       Id: "ko4ekftir7kzlbechsh7xvcdgcpk66gh-7example",
+ *       Status: "PENDING"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listoperations-example-1590117354396
  * ```
  *
+ * @public
  */
 export class ListOperationsCommand extends $Command
   .classBuilder<
@@ -123,9 +123,7 @@ export class ListOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +135,16 @@ export class ListOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOperationsCommand)
   .de(de_ListOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOperationsRequest;
+      output: ListOperationsResponse;
+    };
+    sdk: {
+      input: ListOperationsCommandInput;
+      output: ListOperationsCommandOutput;
+    };
+  };
+}

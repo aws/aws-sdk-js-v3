@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEnvironmentActionInput, UpdateEnvironmentActionOutput } from "../models/models_1";
+import { UpdateEnvironmentActionInput, UpdateEnvironmentActionOutput } from "../models/models_2";
 import { de_UpdateEnvironmentActionCommand, se_UpdateEnvironmentActionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -94,6 +94,7 @@ export interface UpdateEnvironmentActionCommandOutput extends UpdateEnvironmentA
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentActionCommand extends $Command
@@ -104,9 +105,7 @@ export class UpdateEnvironmentActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class UpdateEnvironmentActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentActionCommand)
   .de(de_UpdateEnvironmentActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentActionInput;
+      output: UpdateEnvironmentActionOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentActionCommandInput;
+      output: UpdateEnvironmentActionCommandOutput;
+    };
+  };
+}

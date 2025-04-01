@@ -79,6 +79,7 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeploymentGroupCommand extends $Command
@@ -89,9 +90,7 @@ export class DeleteDeploymentGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeleteDeploymentGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeploymentGroupCommand)
   .de(de_DeleteDeploymentGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentGroupInput;
+      output: DeleteDeploymentGroupOutput;
+    };
+    sdk: {
+      input: DeleteDeploymentGroupCommandInput;
+      output: DeleteDeploymentGroupCommandOutput;
+    };
+  };
+}

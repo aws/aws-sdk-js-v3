@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_2";
+import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_3";
 import { de_CreateTemplateAliasCommand, se_CreateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -88,6 +88,7 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateTemplateAliasCommand extends $Command
@@ -98,9 +99,7 @@ export class CreateTemplateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class CreateTemplateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTemplateAliasCommand)
   .de(de_CreateTemplateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTemplateAliasRequest;
+      output: CreateTemplateAliasResponse;
+    };
+    sdk: {
+      input: CreateTemplateAliasCommandInput;
+      output: CreateTemplateAliasCommandOutput;
+    };
+  };
+}

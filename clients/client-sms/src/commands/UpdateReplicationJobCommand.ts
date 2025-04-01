@@ -86,6 +86,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class UpdateReplicationJobCommand extends $Command
@@ -96,9 +97,7 @@ export class UpdateReplicationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class UpdateReplicationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReplicationJobCommand)
   .de(de_UpdateReplicationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateReplicationJobCommandInput;
+      output: UpdateReplicationJobCommandOutput;
+    };
+  };
+}

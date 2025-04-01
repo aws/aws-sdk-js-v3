@@ -82,6 +82,7 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListProgressUpdateStreamsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListProgressUpdateStreamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListProgressUpdateStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProgressUpdateStreamsCommand)
   .de(de_ListProgressUpdateStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProgressUpdateStreamsRequest;
+      output: ListProgressUpdateStreamsResult;
+    };
+    sdk: {
+      input: ListProgressUpdateStreamsCommandInput;
+      output: ListProgressUpdateStreamsCommandOutput;
+    };
+  };
+}

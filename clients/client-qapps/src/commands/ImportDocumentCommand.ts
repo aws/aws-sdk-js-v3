@@ -28,11 +28,10 @@ export interface ImportDocumentCommandInput extends ImportDocumentInput {}
 export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads a file that can then be used either as a default in a
- *       <code>FileUploadCard</code> from Q App definition or as a file that
- *       is used inside a single Q App run. The purpose of the document is
- *       determined by a scope parameter that indicates whether it is at the
- *       app definition level or at the app session level.</p>
+ * <p>Uploads a file that can then be used either as a default in a <code>FileUploadCard</code>
+ *       from Q App definition or as a file that is used inside a single Q App run. The purpose of
+ *       the document is determined by a scope parameter that indicates whether it is at the app
+ *       definition level or at the app session level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +65,8 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ContentTooLargeException} (client fault)
- *  <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ *  <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -76,12 +75,12 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -91,6 +90,48 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Upload a file to a specific session
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   cardId: "82f69028-22a9-4bea-8727-0eabf58e9fed",
+ *   fileContentsBase64: "data:text/plain;base64,SomeFileEncodedInBase64",
+ *   fileName: "myFile.txt",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   scope: "SESSION",
+ *   sessionId: "4f0e5b87-9d38-41cd-9eb4-ebce2f2917cc"
+ * };
+ * const command = new ImportDocumentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   fileId: "412aa1b4-341c-45af-936d-da52f8a1a3b4"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Upload a file into a application
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   cardId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   fileContentsBase64: "data:text/plain;base64,SomeFileEncodedInBase64",
+ *   fileName: "anApplicationFile.txt",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   scope: "APPLICATION"
+ * };
+ * const command = new ImportDocumentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   fileId: "bc1a0cc9-076a-4e82-9a6c-f4d2d8a22489"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -102,9 +143,7 @@ export class ImportDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +155,16 @@ export class ImportDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDocumentCommand)
   .de(de_ImportDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDocumentInput;
+      output: ImportDocumentOutput;
+    };
+    sdk: {
+      input: ImportDocumentCommandInput;
+      output: ImportDocumentCommandOutput;
+    };
+  };
+}

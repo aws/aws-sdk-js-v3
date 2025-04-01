@@ -72,6 +72,11 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * //         Result: "anomalous" || "normal",
  * //         MitigationInEffect: "yes" || "no",
  * //       },
+ * //       AdministrativeOverride: { // AdministrativeOverride
+ * //         State: "unknown" || "no_override" || "zonal_shift_active" || "zonal_shift_delegated_to_dns",
+ * //         Reason: "AdministrativeOverride.Unknown" || "AdministrativeOverride.NoOverride" || "AdministrativeOverride.ZonalShiftActive" || "AdministrativeOverride.ZonalShiftDelegatedToDns",
+ * //         Description: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -98,78 +103,77 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe the health of the targets for a target group
  * ```javascript
  * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetHealthDescriptions": [
+ *   TargetHealthDescriptions: [
  *     {
- *       "Target": {
- *         "Id": "i-0f76fade",
- *         "Port": 80
+ *       Target: {
+ *         Id: "i-0f76fade",
+ *         Port: 80
  *       },
- *       "TargetHealth": {
- *         "Description": "Given target group is not configured to receive traffic from ELB",
- *         "Reason": "Target.NotInUse",
- *         "State": "unused"
+ *       TargetHealth: {
+ *         Description: "Given target group is not configured to receive traffic from ELB",
+ *         Reason: "Target.NotInUse",
+ *         State: "unused"
  *       }
  *     },
  *     {
- *       "HealthCheckPort": "80",
- *       "Target": {
- *         "Id": "i-0f76fade",
- *         "Port": 80
+ *       HealthCheckPort: "80",
+ *       Target: {
+ *         Id: "i-0f76fade",
+ *         Port: 80
  *       },
- *       "TargetHealth": {
- *         "State": "healthy"
+ *       TargetHealth: {
+ *         State: "healthy"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-target-health-1
  * ```
  *
  * @example To describe the health of a target
  * ```javascript
  * // This example describes the health of the specified target. This target is healthy.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   Targets: [
  *     {
- *       "Id": "i-0f76fade",
- *       "Port": 80
+ *       Id: "i-0f76fade",
+ *       Port: 80
  *     }
  *   ]
  * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetHealthDescriptions": [
+ *   TargetHealthDescriptions: [
  *     {
- *       "HealthCheckPort": "80",
- *       "Target": {
- *         "Id": "i-0f76fade",
- *         "Port": 80
+ *       HealthCheckPort: "80",
+ *       Target: {
+ *         Id: "i-0f76fade",
+ *         Port: 80
  *       },
- *       "TargetHealth": {
- *         "State": "healthy"
+ *       TargetHealth: {
+ *         State: "healthy"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-target-health-2
  * ```
  *
+ * @public
  */
 export class DescribeTargetHealthCommand extends $Command
   .classBuilder<
@@ -179,9 +183,7 @@ export class DescribeTargetHealthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +195,16 @@ export class DescribeTargetHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetHealthCommand)
   .de(de_DescribeTargetHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetHealthInput;
+      output: DescribeTargetHealthOutput;
+    };
+    sdk: {
+      input: DescribeTargetHealthCommandInput;
+      output: DescribeTargetHealthCommandOutput;
+    };
+  };
+}

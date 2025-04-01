@@ -58,18 +58,21 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a volume
  * ```javascript
  * // This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.
  * const input = {
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   VolumeId: "vol-049df61146c4d7901"
  * };
  * const command = new DeleteVolumeCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-volume-1472503111160
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVolumeCommand extends $Command
   .classBuilder<
@@ -79,9 +82,7 @@ export class DeleteVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class DeleteVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVolumeCommand)
   .de(de_DeleteVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVolumeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVolumeCommandInput;
+      output: DeleteVolumeCommandOutput;
+    };
+  };
+}

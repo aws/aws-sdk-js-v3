@@ -102,6 +102,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetControlCommand extends $Command
@@ -112,9 +113,7 @@ export class GetControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class GetControlCommand extends $Command
   .f(void 0, GetControlResponseFilterSensitiveLog)
   .ser(se_GetControlCommand)
   .de(de_GetControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetControlRequest;
+      output: GetControlResponse;
+    };
+    sdk: {
+      input: GetControlCommandInput;
+      output: GetControlCommandOutput;
+    };
+  };
+}

@@ -34,7 +34,7 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
 /**
  * <p>Creates a new database in Amazon Lightsail.</p>
  *          <p>The <code>create relational database</code> operation supports tag-based access control
- *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       via request tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,6 +124,7 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateRelationalDatabaseCommand extends $Command
@@ -134,9 +135,7 @@ export class CreateRelationalDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class CreateRelationalDatabaseCommand extends $Command
   .f(CreateRelationalDatabaseRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRelationalDatabaseCommand)
   .de(de_CreateRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelationalDatabaseRequest;
+      output: CreateRelationalDatabaseResult;
+    };
+    sdk: {
+      input: CreateRelationalDatabaseCommandInput;
+      output: CreateRelationalDatabaseCommandOutput;
+    };
+  };
+}

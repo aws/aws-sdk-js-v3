@@ -65,19 +65,22 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the sending enabled flag for a specific configuration set.
  * const input = {
- *   "ConfigurationSetName": "foo",
- *   "Enabled": true
+ *   ConfigurationSetName: "foo",
+ *   Enabled: true
  * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
- * await client.send(command);
- * // example id: updateconfigurationsetsendingenabled-2362747741333
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationSetSendingEnabledCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationSetSendingEnabledCommand)
   .de(de_UpdateConfigurationSetSendingEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationSetSendingEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationSetSendingEnabledCommandInput;
+      output: UpdateConfigurationSetSendingEnabledCommandOutput;
+    };
+  };
+}

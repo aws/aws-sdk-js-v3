@@ -67,6 +67,7 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListVolumeInitiatorsCommand extends $Command
@@ -77,9 +78,7 @@ export class ListVolumeInitiatorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class ListVolumeInitiatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVolumeInitiatorsCommand)
   .de(de_ListVolumeInitiatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVolumeInitiatorsInput;
+      output: ListVolumeInitiatorsOutput;
+    };
+    sdk: {
+      input: ListVolumeInitiatorsCommandInput;
+      output: ListVolumeInitiatorsCommandOutput;
+    };
+  };
+}

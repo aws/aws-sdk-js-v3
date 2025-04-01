@@ -129,6 +129,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateStageCommand extends $Command
@@ -139,9 +140,7 @@ export class UpdateStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class UpdateStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStageCommand)
   .de(de_UpdateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStageRequest;
+      output: UpdateStageResponse;
+    };
+    sdk: {
+      input: UpdateStageCommandInput;
+      output: UpdateStageCommandOutput;
+    };
+  };
+}

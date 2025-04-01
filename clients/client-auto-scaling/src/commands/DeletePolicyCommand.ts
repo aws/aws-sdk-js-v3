@@ -66,19 +66,22 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete an Auto Scaling policy
  * ```javascript
  * // This example deletes the specified Auto Scaling policy.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "PolicyName": "my-step-scale-out-policy"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   PolicyName: "my-step-scale-out-policy"
  * };
  * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<
@@ -88,9 +91,7 @@ export class DeletePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +103,16 @@ export class DeletePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyCommand)
   .de(de_DeletePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyType;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyCommandInput;
+      output: DeletePolicyCommandOutput;
+    };
+  };
+}

@@ -148,6 +148,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class PutRecordCommand extends $Command
@@ -174,4 +175,16 @@ export class PutRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordCommand)
   .de(de_PutRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordInput;
+      output: PutRecordOutput;
+    };
+    sdk: {
+      input: PutRecordCommandInput;
+      output: PutRecordCommandOutput;
+    };
+  };
+}

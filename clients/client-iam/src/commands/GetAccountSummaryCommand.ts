@@ -62,48 +62,48 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript
  * // The following command returns information about the IAM entity quotas and usage in the current AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SummaryMap": {
- *     "AccessKeysPerUserQuota": 2,
- *     "AccountAccessKeysPresent": 1,
- *     "AccountMFAEnabled": 0,
- *     "AccountSigningCertificatesPresent": 0,
- *     "AttachedPoliciesPerGroupQuota": 10,
- *     "AttachedPoliciesPerRoleQuota": 10,
- *     "AttachedPoliciesPerUserQuota": 10,
- *     "GlobalEndpointTokenVersion": 2,
- *     "GroupPolicySizeQuota": 5120,
- *     "Groups": 15,
- *     "GroupsPerUserQuota": 10,
- *     "GroupsQuota": 100,
- *     "MFADevices": 6,
- *     "MFADevicesInUse": 3,
- *     "Policies": 8,
- *     "PoliciesQuota": 1000,
- *     "PolicySizeQuota": 5120,
- *     "PolicyVersionsInUse": 22,
- *     "PolicyVersionsInUseQuota": 10000,
- *     "ServerCertificates": 1,
- *     "ServerCertificatesQuota": 20,
- *     "SigningCertificatesPerUserQuota": 2,
- *     "UserPolicySizeQuota": 2048,
- *     "Users": 27,
- *     "UsersQuota": 5000,
- *     "VersionsPerPolicyQuota": 5
+ *   SummaryMap: {
+ *     AccessKeysPerUserQuota: 2,
+ *     AccountAccessKeysPresent: 1,
+ *     AccountMFAEnabled: 0,
+ *     AccountSigningCertificatesPresent: 0,
+ *     AttachedPoliciesPerGroupQuota: 10,
+ *     AttachedPoliciesPerRoleQuota: 10,
+ *     AttachedPoliciesPerUserQuota: 10,
+ *     GlobalEndpointTokenVersion: 2,
+ *     GroupPolicySizeQuota: 5120,
+ *     Groups: 15,
+ *     GroupsPerUserQuota: 10,
+ *     GroupsQuota: 100,
+ *     MFADevices: 6,
+ *     MFADevicesInUse: 3,
+ *     Policies: 8,
+ *     PoliciesQuota: 1000,
+ *     PolicySizeQuota: 5120,
+ *     PolicyVersionsInUse: 22,
+ *     PolicyVersionsInUseQuota: 10000,
+ *     ServerCertificates: 1,
+ *     ServerCertificatesQuota: 20,
+ *     SigningCertificatesPerUserQuota: 2,
+ *     UserPolicySizeQuota: 2048,
+ *     Users: 27,
+ *     UsersQuota: 5000,
+ *     VersionsPerPolicyQuota: 5
  *   }
  * }
  * *\/
- * // example id: 9d8447af-f344-45de-8219-2cebc3cce7f2
  * ```
  *
+ * @public
  */
 export class GetAccountSummaryCommand extends $Command
   .classBuilder<
@@ -113,9 +113,7 @@ export class GetAccountSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +125,16 @@ export class GetAccountSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSummaryCommand)
   .de(de_GetAccountSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountSummaryResponse;
+    };
+    sdk: {
+      input: GetAccountSummaryCommandInput;
+      output: GetAccountSummaryCommandOutput;
+    };
+  };
+}

@@ -37,13 +37,14 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *             returns a <code>ResourceNotFoundException</code>. If table is already in the
  *                 <code>DELETING</code> state, no error is returned. </p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
- *             </p>
+ *             <p>For global tables, this operation only applies to
+ *                 global tables using Version 2019.11.21 (Current version). </p>
  *          </important>
  *          <note>
  *             <p>DynamoDB might continue to accept data read and write operations, such as
  *                     <code>GetItem</code> and <code>PutItem</code>, on a table in the
- *                     <code>DELETING</code> state until the table deletion is complete.</p>
+ *                     <code>DELETING</code> state until the table deletion is complete. For the full
+ *                 list of table states, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TableDescription.html#DDB-Type-TableDescription-TableStatus">TableStatus</a>.</p>
  *          </note>
  *          <p>When you delete a table, any indexes on that table are also deleted.</p>
  *          <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on
@@ -144,6 +145,11 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -166,6 +172,11 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -174,6 +185,11 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -210,6 +226,12 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -243,9 +265,19 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *             this limit may result in request throttling.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ *  <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
@@ -254,33 +286,33 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To delete a table
  * ```javascript
  * // This example deletes the Music table.
  * const input = {
- *   "TableName": "Music"
+ *   TableName: "Music"
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TableDescription": {
- *     "ItemCount": 0,
- *     "ProvisionedThroughput": {
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
+ *   TableDescription: {
+ *     ItemCount: 0,
+ *     ProvisionedThroughput: {
+ *       NumberOfDecreasesToday: 1,
+ *       ReadCapacityUnits: 5,
+ *       WriteCapacityUnits: 5
  *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "DELETING"
+ *     TableName: "Music",
+ *     TableSizeBytes: 0,
+ *     TableStatus: "DELETING"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-table-1475884368755
  * ```
  *
+ * @public
  */
 export class DeleteTableCommand extends $Command
   .classBuilder<
@@ -292,6 +324,7 @@ export class DeleteTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -304,4 +337,16 @@ export class DeleteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTableCommand)
   .de(de_DeleteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTableInput;
+      output: DeleteTableOutput;
+    };
+    sdk: {
+      input: DeleteTableCommandInput;
+      output: DeleteTableCommandOutput;
+    };
+  };
+}

@@ -308,39 +308,39 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To detect labels
  * ```javascript
  * // This operation detects labels in the supplied image
  * const input = {
- *   "Image": {
- *     "S3Object": {
- *       "Bucket": "mybucket",
- *       "Name": "myphoto"
+ *   Image: {
+ *     S3Object: {
+ *       Bucket: "mybucket",
+ *       Name: "myphoto"
  *     }
  *   },
- *   "MaxLabels": 123,
- *   "MinConfidence": 70
+ *   MaxLabels: 123,
+ *   MinConfidence: 70
  * };
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Labels": [
+ *   Labels: [
  *     {
- *       "Confidence": 99.25072479248047,
- *       "Name": "People"
+ *       Confidence: 99.25072479248047,
+ *       Name: "People"
  *     },
  *     {
- *       "Confidence": 99.25074005126953,
- *       "Name": "Person"
+ *       Confidence: 99.25074005126953,
+ *       Name: "Person"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-detect-labels-1481834255770
  * ```
  *
+ * @public
  */
 export class DetectLabelsCommand extends $Command
   .classBuilder<
@@ -350,9 +350,7 @@ export class DetectLabelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -364,4 +362,16 @@ export class DetectLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectLabelsCommand)
   .de(de_DetectLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectLabelsRequest;
+      output: DetectLabelsResponse;
+    };
+    sdk: {
+      input: DetectLabelsCommandInput;
+      output: DetectLabelsCommandOutput;
+    };
+  };
+}

@@ -124,30 +124,30 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an instance profile
  * ```javascript
  * // The following command creates an instance profile named Webserver that is ready to have a role attached and then be associated with an EC2 instance.
  * const input = {
- *   "InstanceProfileName": "Webserver"
+ *   InstanceProfileName: "Webserver"
  * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceProfile": {
- *     "Arn": "arn:aws:iam::123456789012:instance-profile/Webserver",
- *     "CreateDate": "2015-03-09T20:33:19.626Z",
- *     "InstanceProfileId": "AIPAJMBYC7DLSPEXAMPLE",
- *     "InstanceProfileName": "Webserver",
- *     "Path": "/",
- *     "Roles": []
+ *   InstanceProfile: {
+ *     Arn: "arn:aws:iam::123456789012:instance-profile/Webserver",
+ *     CreateDate: "2015-03-09T20:33:19.626Z",
+ *     InstanceProfileId: "AIPAJMBYC7DLSPEXAMPLE",
+ *     InstanceProfileName: "Webserver",
+ *     Path: "/",
+ *     Roles:     []
  *   }
  * }
  * *\/
- * // example id: 5d84e6ae-5921-4e39-8454-10232cd9ff9a
  * ```
  *
+ * @public
  */
 export class CreateInstanceProfileCommand extends $Command
   .classBuilder<
@@ -157,9 +157,7 @@ export class CreateInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +169,16 @@ export class CreateInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceProfileCommand)
   .de(de_CreateInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceProfileRequest;
+      output: CreateInstanceProfileResponse;
+    };
+    sdk: {
+      input: CreateInstanceProfileCommandInput;
+      output: CreateInstanceProfileCommandOutput;
+    };
+  };
+}

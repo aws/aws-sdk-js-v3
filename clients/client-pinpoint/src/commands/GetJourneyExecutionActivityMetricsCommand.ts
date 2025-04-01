@@ -97,6 +97,7 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetJourneyExecutionActivityMetricsCommand extends $Command
@@ -107,9 +108,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyExecutionActivityMetricsCommand)
   .de(de_GetJourneyExecutionActivityMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyExecutionActivityMetricsRequest;
+      output: GetJourneyExecutionActivityMetricsResponse;
+    };
+    sdk: {
+      input: GetJourneyExecutionActivityMetricsCommandInput;
+      output: GetJourneyExecutionActivityMetricsCommandOutput;
+    };
+  };
+}

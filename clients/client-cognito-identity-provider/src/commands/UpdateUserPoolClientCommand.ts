@@ -37,13 +37,16 @@ export interface UpdateUserPoolClientCommandInput extends UpdateUserPoolClientRe
 export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified user pool app client with the specified attributes. You can get
- *             a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p>
+ * <p>Given a user pool app client ID, updates the configuration. To avoid setting
+ *             parameters to Amazon Cognito defaults, construct this API request to pass the existing
+ *             configuration of your app client, modified to include the changes that you want to
+ *             make.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>
- *          <p>You can also use this operation to enable token revocation for user pool clients. For
- *             more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+ *          <p>Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
+ * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
+ * available for your client until after you apply a branding style.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -89,7 +92,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *     "STRING_VALUE",
  *   ],
  *   ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH",
  *   ],
  *   SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  *     "STRING_VALUE",
@@ -145,7 +148,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * //       "STRING_VALUE",
  * //     ],
  * //     ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH",
  * //     ],
  * //     SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  * //       "STRING_VALUE",
@@ -217,6 +220,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserPoolClientCommand extends $Command
@@ -227,9 +231,7 @@ export class UpdateUserPoolClientCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -241,4 +243,16 @@ export class UpdateUserPoolClientCommand extends $Command
   .f(UpdateUserPoolClientRequestFilterSensitiveLog, UpdateUserPoolClientResponseFilterSensitiveLog)
   .ser(se_UpdateUserPoolClientCommand)
   .de(de_UpdateUserPoolClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserPoolClientRequest;
+      output: UpdateUserPoolClientResponse;
+    };
+    sdk: {
+      input: UpdateUserPoolClientCommandInput;
+      output: UpdateUserPoolClientCommandOutput;
+    };
+  };
+}

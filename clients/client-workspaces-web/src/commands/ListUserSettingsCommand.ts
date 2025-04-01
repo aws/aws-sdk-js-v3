@@ -73,6 +73,14 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * //         ],
  * //       },
  * //       deepLinkAllowed: "STRING_VALUE",
+ * //       toolbarConfiguration: { // ToolbarConfiguration
+ * //         toolbarType: "STRING_VALUE",
+ * //         visualMode: "STRING_VALUE",
+ * //         hiddenToolbarItems: [ // HiddenToolbarItemList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         maxDisplayResolution: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -101,6 +109,7 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListUserSettingsCommand extends $Command
@@ -111,9 +120,7 @@ export class ListUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +132,16 @@ export class ListUserSettingsCommand extends $Command
   .f(void 0, ListUserSettingsResponseFilterSensitiveLog)
   .ser(se_ListUserSettingsCommand)
   .de(de_ListUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserSettingsRequest;
+      output: ListUserSettingsResponse;
+    };
+    sdk: {
+      input: ListUserSettingsCommandInput;
+      output: ListUserSettingsCommandOutput;
+    };
+  };
+}

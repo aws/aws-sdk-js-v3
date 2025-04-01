@@ -1,9 +1,10 @@
 import { fromProcess } from "@aws-sdk/credential-provider-process";
 import { Credentials } from "@aws-sdk/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 
-jest.mock("@aws-sdk/credential-provider-process");
+vi.mock("@aws-sdk/credential-provider-process");
 
 const getMockProcessProfile = () => ({
   credential_process: "mock_command",
@@ -40,11 +41,11 @@ describe(resolveProcessCredentials.name, () => {
   };
 
   beforeEach(() => {
-    (fromProcess as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromProcess).mockReturnValue(() => Promise.resolve(mockCreds));
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error when fromProcess throws", async () => {
@@ -52,7 +53,7 @@ describe(resolveProcessCredentials.name, () => {
     const mockOptions = {};
     const expectedError = new Error("error from fromProcess");
 
-    (fromProcess as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
+    vi.mocked(fromProcess).mockReturnValue(() => Promise.reject(expectedError));
 
     try {
       await resolveProcessCredentials(mockOptions, mockProfileName);
@@ -69,7 +70,7 @@ describe(resolveProcessCredentials.name, () => {
     const mockProfileName = "mockProfileName";
     const mockOptions = {};
 
-    (fromProcess as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromProcess).mockReturnValue(() => Promise.resolve(mockCreds));
 
     const receivedCreds = await resolveProcessCredentials(mockOptions, mockProfileName);
     expect(receivedCreds).toStrictEqual(mockCreds);

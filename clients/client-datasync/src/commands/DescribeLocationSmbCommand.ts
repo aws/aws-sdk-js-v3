@@ -53,6 +53,11 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * //     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   DnsIpAddresses: [ // DnsIpList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   KerberosPrincipal: "STRING_VALUE",
+ * //   AuthenticationType: "NTLM" || "KERBEROS",
  * // };
  *
  * ```
@@ -73,6 +78,7 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationSmbCommand extends $Command
@@ -83,9 +89,7 @@ export class DescribeLocationSmbCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +101,16 @@ export class DescribeLocationSmbCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationSmbCommand)
   .de(de_DescribeLocationSmbCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationSmbRequest;
+      output: DescribeLocationSmbResponse;
+    };
+    sdk: {
+      input: DescribeLocationSmbCommandInput;
+      output: DescribeLocationSmbCommandOutput;
+    };
+  };
+}

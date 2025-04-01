@@ -41,9 +41,8 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Generates a user attribute verification code for the specified attribute name. Sends a
- *             message to a user with a code that they must return in a VerifyUserAttribute
- *             request.</p>
+ * <p>Given an attribute name, sends a user attribute verification code for the specified
+ *             attribute name to the currently signed-in user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -59,7 +58,7 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -166,6 +165,7 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetUserAttributeVerificationCodeCommand extends $Command
@@ -176,9 +176,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +188,16 @@ export class GetUserAttributeVerificationCodeCommand extends $Command
   .f(GetUserAttributeVerificationCodeRequestFilterSensitiveLog, void 0)
   .ser(se_GetUserAttributeVerificationCodeCommand)
   .de(de_GetUserAttributeVerificationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserAttributeVerificationCodeRequest;
+      output: GetUserAttributeVerificationCodeResponse;
+    };
+    sdk: {
+      input: GetUserAttributeVerificationCodeCommandInput;
+      output: GetUserAttributeVerificationCodeCommandOutput;
+    };
+  };
+}

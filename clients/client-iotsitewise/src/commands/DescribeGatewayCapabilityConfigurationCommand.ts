@@ -58,7 +58,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * //   gatewayId: "STRING_VALUE", // required
  * //   capabilityNamespace: "STRING_VALUE", // required
  * //   capabilityConfiguration: "STRING_VALUE", // required
- * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN" || "NOT_APPLICABLE", // required
  * // };
  *
  * ```
@@ -88,6 +88,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeGatewayCapabilityConfigurationCommand extends $Command
@@ -98,9 +99,7 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGatewayCapabilityConfigurationCommand)
   .de(de_DescribeGatewayCapabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGatewayCapabilityConfigurationRequest;
+      output: DescribeGatewayCapabilityConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeGatewayCapabilityConfigurationCommandInput;
+      output: DescribeGatewayCapabilityConfigurationCommandOutput;
+    };
+  };
+}

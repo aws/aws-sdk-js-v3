@@ -32,9 +32,11 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
+ *          <p>Use <code>arn:aws:.../contact-flow/\{id\}:\{version\}</code> to retrieve the content of a
+ *    specific flow version.</p>
  *          <p>In the response, <b>Status</b> indicates the flow status as either
  *     <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate
  *    validation on the content. <code>SAVED</code> does not initiate validation of the content.
@@ -57,7 +59,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * //     Arn: "STRING_VALUE",
  * //     Id: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  * //     State: "ACTIVE" || "ARCHIVED",
  * //     Status: "PUBLISHED" || "SAVED",
  * //     Description: "STRING_VALUE",
@@ -65,6 +67,11 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     FlowContentSha256: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //     VersionDescription: "STRING_VALUE",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -97,6 +104,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactFlowCommand extends $Command
@@ -107,9 +115,7 @@ export class DescribeContactFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +127,16 @@ export class DescribeContactFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContactFlowCommand)
   .de(de_DescribeContactFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactFlowRequest;
+      output: DescribeContactFlowResponse;
+    };
+    sdk: {
+      input: DescribeContactFlowCommandInput;
+      output: DescribeContactFlowCommandOutput;
+    };
+  };
+}

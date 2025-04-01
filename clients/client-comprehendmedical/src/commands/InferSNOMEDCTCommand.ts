@@ -143,6 +143,7 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class InferSNOMEDCTCommand extends $Command
@@ -153,9 +154,7 @@ export class InferSNOMEDCTCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class InferSNOMEDCTCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InferSNOMEDCTCommand)
   .de(de_InferSNOMEDCTCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InferSNOMEDCTRequest;
+      output: InferSNOMEDCTResponse;
+    };
+    sdk: {
+      input: InferSNOMEDCTCommandInput;
+      output: InferSNOMEDCTCommandOutput;
+    };
+  };
+}

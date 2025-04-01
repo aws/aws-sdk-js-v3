@@ -108,6 +108,7 @@ export interface DescribeBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeBatchDeleteConfigurationTaskCommand extends $Command
@@ -118,9 +119,7 @@ export class DescribeBatchDeleteConfigurationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class DescribeBatchDeleteConfigurationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBatchDeleteConfigurationTaskCommand)
   .de(de_DescribeBatchDeleteConfigurationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBatchDeleteConfigurationTaskRequest;
+      output: DescribeBatchDeleteConfigurationTaskResponse;
+    };
+    sdk: {
+      input: DescribeBatchDeleteConfigurationTaskCommandInput;
+      output: DescribeBatchDeleteConfigurationTaskCommandOutput;
+    };
+  };
+}

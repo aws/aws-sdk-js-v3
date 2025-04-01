@@ -57,6 +57,10 @@ import {
   GetApproximateUsageRecordsCommandInput,
   GetApproximateUsageRecordsCommandOutput,
 } from "../commands/GetApproximateUsageRecordsCommand";
+import {
+  GetCommitmentPurchaseAnalysisCommandInput,
+  GetCommitmentPurchaseAnalysisCommandOutput,
+} from "../commands/GetCommitmentPurchaseAnalysisCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "../commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -104,6 +108,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "../commands/GetUsageForecastCommand";
 import {
+  ListCommitmentPurchaseAnalysesCommandInput,
+  ListCommitmentPurchaseAnalysesCommandOutput,
+} from "../commands/ListCommitmentPurchaseAnalysesCommand";
+import {
   ListCostAllocationTagBackfillHistoryCommandInput,
   ListCostAllocationTagBackfillHistoryCommandOutput,
 } from "../commands/ListCostAllocationTagBackfillHistoryCommand";
@@ -127,6 +135,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "../commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCommitmentPurchaseAnalysisCommandInput,
+  StartCommitmentPurchaseAnalysisCommandOutput,
+} from "../commands/StartCommitmentPurchaseAnalysisCommand";
 import {
   StartCostAllocationTagBackfillCommandInput,
   StartCostAllocationTagBackfillCommandOutput,
@@ -155,6 +167,8 @@ import {
 } from "../commands/UpdateCostCategoryDefinitionCommand";
 import { CostExplorerServiceException as __BaseException } from "../models/CostExplorerServiceException";
 import {
+  AnalysisNotFoundException,
+  AnalysisSummary,
   Anomaly,
   AnomalyDateInterval,
   AnomalyMonitor,
@@ -162,6 +176,7 @@ import {
   AnomalySubscription,
   BackfillLimitExceededException,
   BillExpirationException,
+  CommitmentPurchaseAnalysisConfiguration,
   CostAllocationTagStatusEntry,
   CostCategory,
   CostCategoryInheritedValueDimension,
@@ -190,6 +205,8 @@ import {
   GetAnomalySubscriptionsRequest,
   GetAnomalySubscriptionsResponse,
   GetApproximateUsageRecordsRequest,
+  GetCommitmentPurchaseAnalysisRequest,
+  GetCommitmentPurchaseAnalysisResponse,
   GetCostAndUsageRequest,
   GetCostAndUsageWithResourcesRequest,
   GetCostCategoriesRequest,
@@ -210,6 +227,8 @@ import {
   Impact,
   InvalidNextTokenException,
   LimitExceededException,
+  ListCommitmentPurchaseAnalysesRequest,
+  ListCommitmentPurchaseAnalysesResponse,
   ListCostAllocationTagBackfillHistoryRequest,
   ListCostAllocationTagsRequest,
   ListCostCategoryDefinitionsRequest,
@@ -221,10 +240,15 @@ import {
   ResourceNotFoundException,
   ResourceTag,
   RightsizingRecommendationConfiguration,
+  RootCause,
+  RootCauseImpact,
+  SavingsPlans,
   SavingsPlansDataType,
+  SavingsPlansPurchaseAnalysisConfiguration,
   ServiceQuotaExceededException,
   ServiceSpecification,
   SortDefinition,
+  StartCommitmentPurchaseAnalysisRequest,
   StartCostAllocationTagBackfillRequest,
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
   Subscriber,
@@ -380,6 +404,19 @@ export const se_GetApproximateUsageRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetApproximateUsageRecords");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetCommitmentPurchaseAnalysisCommand
+ */
+export const se_GetCommitmentPurchaseAnalysisCommand = async (
+  input: GetCommitmentPurchaseAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCommitmentPurchaseAnalysis");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -594,6 +631,19 @@ export const se_GetUsageForecastCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListCommitmentPurchaseAnalysesCommand
+ */
+export const se_ListCommitmentPurchaseAnalysesCommand = async (
+  input: ListCommitmentPurchaseAnalysesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCommitmentPurchaseAnalyses");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCostAllocationTagBackfillHistoryCommand
  */
 export const se_ListCostAllocationTagBackfillHistoryCommand = async (
@@ -668,6 +718,19 @@ export const se_ProvideAnomalyFeedbackCommand = async (
   const headers: __HeaderBag = sharedHeaders("ProvideAnomalyFeedback");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartCommitmentPurchaseAnalysisCommand
+ */
+export const se_StartCommitmentPurchaseAnalysisCommand = async (
+  input: StartCommitmentPurchaseAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartCommitmentPurchaseAnalysis");
+  let body: any;
+  body = JSON.stringify(se_StartCommitmentPurchaseAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -996,6 +1059,26 @@ export const de_GetApproximateUsageRecordsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetCommitmentPurchaseAnalysisCommand
+ */
+export const de_GetCommitmentPurchaseAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommitmentPurchaseAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCommitmentPurchaseAnalysisResponse(data, context);
+  const response: GetCommitmentPurchaseAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetCostAndUsageCommand
  */
 export const de_GetCostAndUsageCommand = async (
@@ -1316,6 +1399,26 @@ export const de_GetUsageForecastCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListCommitmentPurchaseAnalysesCommand
+ */
+export const de_ListCommitmentPurchaseAnalysesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommitmentPurchaseAnalysesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCommitmentPurchaseAnalysesResponse(data, context);
+  const response: ListCommitmentPurchaseAnalysesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListCostAllocationTagBackfillHistoryCommand
  */
 export const de_ListCostAllocationTagBackfillHistoryCommand = async (
@@ -1429,6 +1532,26 @@ export const de_ProvideAnomalyFeedbackCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ProvideAnomalyFeedbackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartCommitmentPurchaseAnalysisCommand
+ */
+export const de_StartCommitmentPurchaseAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCommitmentPurchaseAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartCommitmentPurchaseAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1626,6 +1749,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DataUnavailableException":
     case "com.amazonaws.costexplorer#DataUnavailableException":
       throw await de_DataUnavailableExceptionRes(parsedOutput, context);
+    case "AnalysisNotFoundException":
+    case "com.amazonaws.costexplorer#AnalysisNotFoundException":
+      throw await de_AnalysisNotFoundExceptionRes(parsedOutput, context);
     case "BillExpirationException":
     case "com.amazonaws.costexplorer#BillExpirationException":
       throw await de_BillExpirationExceptionRes(parsedOutput, context);
@@ -1635,12 +1761,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnresolvableUsageUnitException":
     case "com.amazonaws.costexplorer#UnresolvableUsageUnitException":
       throw await de_UnresolvableUsageUnitExceptionRes(parsedOutput, context);
-    case "BackfillLimitExceededException":
-    case "com.amazonaws.costexplorer#BackfillLimitExceededException":
-      throw await de_BackfillLimitExceededExceptionRes(parsedOutput, context);
     case "GenerationExistsException":
     case "com.amazonaws.costexplorer#GenerationExistsException":
       throw await de_GenerationExistsExceptionRes(parsedOutput, context);
+    case "BackfillLimitExceededException":
+    case "com.amazonaws.costexplorer#BackfillLimitExceededException":
+      throw await de_BackfillLimitExceededExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.costexplorer#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
@@ -1652,6 +1778,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1AnalysisNotFoundExceptionRes
+ */
+const de_AnalysisNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AnalysisNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AnalysisNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -1862,6 +2004,8 @@ const de_UnresolvableUsageUnitExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+// se_AnalysisIds omitted.
+
 // se_AnomalyDateInterval omitted.
 
 /**
@@ -1894,6 +2038,18 @@ const se_AnomalySubscription = (input: AnomalySubscription, context: __SerdeCont
     SubscriptionName: [],
     Threshold: __serializeFloat,
     ThresholdExpression: (_) => se_Expression(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_1CommitmentPurchaseAnalysisConfiguration
+ */
+const se_CommitmentPurchaseAnalysisConfiguration = (
+  input: CommitmentPurchaseAnalysisConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    SavingsPlansPurchaseAnalysisConfiguration: (_) => se_SavingsPlansPurchaseAnalysisConfiguration(_, context),
   });
 };
 
@@ -2039,11 +2195,14 @@ const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeCont
 
 // se_GetApproximateUsageRecordsRequest omitted.
 
+// se_GetCommitmentPurchaseAnalysisRequest omitted.
+
 /**
  * serializeAws_json1_1GetCostAndUsageRequest
  */
 const se_GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     GroupBy: _json,
@@ -2061,6 +2220,7 @@ const se_GetCostAndUsageWithResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     GroupBy: _json,
@@ -2075,6 +2235,7 @@ const se_GetCostAndUsageWithResourcesRequest = (
  */
 const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     CostCategoryName: [],
     Filter: (_) => se_Expression(_, context),
     MaxResults: [],
@@ -2090,6 +2251,7 @@ const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: _
  */
 const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     Metric: [],
@@ -2103,6 +2265,7 @@ const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __Ser
  */
 const se_GetDimensionValuesRequest = (input: GetDimensionValuesRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Context: [],
     Dimension: [],
     Filter: (_) => se_Expression(_, context),
@@ -2256,6 +2419,7 @@ const se_GetSavingsPlansUtilizationRequest = (
  */
 const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     MaxResults: [],
     NextPageToken: [],
@@ -2271,6 +2435,7 @@ const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any 
  */
 const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     Metric: [],
@@ -2282,6 +2447,8 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
 // se_GroupDefinition omitted.
 
 // se_GroupDefinitions omitted.
+
+// se_ListCommitmentPurchaseAnalysesRequest omitted.
 
 // se_ListCostAllocationTagBackfillHistoryRequest omitted.
 
@@ -2311,13 +2478,70 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
 
 // se_RightsizingRecommendationConfiguration omitted.
 
+/**
+ * serializeAws_json1_1SavingsPlans
+ */
+const se_SavingsPlans = (input: SavingsPlans, context: __SerdeContext): any => {
+  return take(input, {
+    InstanceFamily: [],
+    OfferingId: [],
+    PaymentOption: [],
+    Region: [],
+    SavingsPlansCommitment: __serializeFloat,
+    SavingsPlansType: [],
+    TermInYears: [],
+  });
+};
+
 // se_SavingsPlansDataTypes omitted.
+
+/**
+ * serializeAws_json1_1SavingsPlansPurchaseAnalysisConfiguration
+ */
+const se_SavingsPlansPurchaseAnalysisConfiguration = (
+  input: SavingsPlansPurchaseAnalysisConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AccountId: [],
+    AccountScope: [],
+    AnalysisType: [],
+    LookBackTimePeriod: _json,
+    SavingsPlansToAdd: (_) => se_SavingsPlansToAdd(_, context),
+    SavingsPlansToExclude: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1SavingsPlansToAdd
+ */
+const se_SavingsPlansToAdd = (input: SavingsPlans[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SavingsPlans(entry, context);
+    });
+};
+
+// se_SavingsPlansToExclude omitted.
 
 // se_ServiceSpecification omitted.
 
 // se_SortDefinition omitted.
 
 // se_SortDefinitions omitted.
+
+/**
+ * serializeAws_json1_1StartCommitmentPurchaseAnalysisRequest
+ */
+const se_StartCommitmentPurchaseAnalysisRequest = (
+  input: StartCommitmentPurchaseAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    CommitmentPurchaseAnalysisConfiguration: (_) => se_CommitmentPurchaseAnalysisConfiguration(_, context),
+  });
+};
 
 // se_StartCostAllocationTagBackfillRequest omitted.
 
@@ -2384,6 +2608,37 @@ const se_UpdateCostCategoryDefinitionRequest = (
 
 // se_Values omitted.
 
+// de_AnalysisDetails omitted.
+
+// de_AnalysisNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1AnalysisSummary
+ */
+const de_AnalysisSummary = (output: any, context: __SerdeContext): AnalysisSummary => {
+  return take(output, {
+    AnalysisCompletionTime: __expectString,
+    AnalysisId: __expectString,
+    AnalysisStartedTime: __expectString,
+    AnalysisStatus: __expectString,
+    CommitmentPurchaseAnalysisConfiguration: (_: any) => de_CommitmentPurchaseAnalysisConfiguration(_, context),
+    ErrorCode: __expectString,
+    EstimatedCompletionTime: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AnalysisSummaryList
+ */
+const de_AnalysisSummaryList = (output: any, context: __SerdeContext): AnalysisSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisSummary(entry, context);
+    });
+  return retVal;
+};
+
 /**
  * deserializeAws_json1_1Anomalies
  */
@@ -2409,7 +2664,7 @@ const de_Anomaly = (output: any, context: __SerdeContext): Anomaly => {
     Feedback: __expectString,
     Impact: (_: any) => de_Impact(_, context),
     MonitorArn: __expectString,
-    RootCauses: _json,
+    RootCauses: (_: any) => de_RootCauses(_, context),
   }) as any;
 };
 
@@ -2487,6 +2742,18 @@ const de_AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalyS
 // de_BackfillLimitExceededException omitted.
 
 // de_BillExpirationException omitted.
+
+/**
+ * deserializeAws_json1_1CommitmentPurchaseAnalysisConfiguration
+ */
+const de_CommitmentPurchaseAnalysisConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CommitmentPurchaseAnalysisConfiguration => {
+  return take(output, {
+    SavingsPlansPurchaseAnalysisConfiguration: (_: any) => de_SavingsPlansPurchaseAnalysisConfiguration(_, context),
+  }) as any;
+};
 
 // de_CostAllocationTag omitted.
 
@@ -2615,6 +2882,8 @@ const de_DescribeCostCategoryDefinitionResponse = (
 
 // de_DiskResourceUtilization omitted.
 
+// de_DynamoDBCapacityDetails omitted.
+
 // de_EBSResourceUtilization omitted.
 
 // de_EC2InstanceDetails omitted.
@@ -2699,6 +2968,25 @@ const de_GetAnomalySubscriptionsResponse = (output: any, context: __SerdeContext
 
 // de_GetApproximateUsageRecordsResponse omitted.
 
+/**
+ * deserializeAws_json1_1GetCommitmentPurchaseAnalysisResponse
+ */
+const de_GetCommitmentPurchaseAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCommitmentPurchaseAnalysisResponse => {
+  return take(output, {
+    AnalysisCompletionTime: __expectString,
+    AnalysisDetails: _json,
+    AnalysisId: __expectString,
+    AnalysisStartedTime: __expectString,
+    AnalysisStatus: __expectString,
+    CommitmentPurchaseAnalysisConfiguration: (_: any) => de_CommitmentPurchaseAnalysisConfiguration(_, context),
+    ErrorCode: __expectString,
+    EstimatedCompletionTime: __expectString,
+  }) as any;
+};
+
 // de_GetCostAndUsageResponse omitted.
 
 // de_GetCostAndUsageWithResourcesResponse omitted.
@@ -2759,6 +3047,19 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_Keys omitted.
 
 // de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1ListCommitmentPurchaseAnalysesResponse
+ */
+const de_ListCommitmentPurchaseAnalysesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCommitmentPurchaseAnalysesResponse => {
+  return take(output, {
+    AnalysisSummaryList: (_: any) => de_AnalysisSummaryList(_, context),
+    NextPageToken: __expectString,
+  }) as any;
+};
 
 // de_ListCostAllocationTagBackfillHistoryResponse omitted.
 
@@ -2822,6 +3123,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 
 // de_ReservationUtilizationGroups omitted.
 
+// de_ReservedCapacityDetails omitted.
+
 // de_ResourceDetails omitted.
 
 // de_ResourceNotFoundException omitted.
@@ -2846,9 +3149,55 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 
 // de_RightsizingRecommendationSummary omitted.
 
-// de_RootCause omitted.
+/**
+ * deserializeAws_json1_1RootCause
+ */
+const de_RootCause = (output: any, context: __SerdeContext): RootCause => {
+  return take(output, {
+    Impact: (_: any) => de_RootCauseImpact(_, context),
+    LinkedAccount: __expectString,
+    LinkedAccountName: __expectString,
+    Region: __expectString,
+    Service: __expectString,
+    UsageType: __expectString,
+  }) as any;
+};
 
-// de_RootCauses omitted.
+/**
+ * deserializeAws_json1_1RootCauseImpact
+ */
+const de_RootCauseImpact = (output: any, context: __SerdeContext): RootCauseImpact => {
+  return take(output, {
+    Contribution: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RootCauses
+ */
+const de_RootCauses = (output: any, context: __SerdeContext): RootCause[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RootCause(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1SavingsPlans
+ */
+const de_SavingsPlans = (output: any, context: __SerdeContext): SavingsPlans => {
+  return take(output, {
+    InstanceFamily: __expectString,
+    OfferingId: __expectString,
+    PaymentOption: __expectString,
+    Region: __expectString,
+    SavingsPlansCommitment: __limitedParseDouble,
+    SavingsPlansType: __expectString,
+    TermInYears: __expectString,
+  }) as any;
+};
 
 // de_SavingsPlansAmortizedCommitment omitted.
 
@@ -2859,6 +3208,25 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_SavingsPlansCoverages omitted.
 
 // de_SavingsPlansDetails omitted.
+
+/**
+ * deserializeAws_json1_1SavingsPlansPurchaseAnalysisConfiguration
+ */
+const de_SavingsPlansPurchaseAnalysisConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SavingsPlansPurchaseAnalysisConfiguration => {
+  return take(output, {
+    AccountId: __expectString,
+    AccountScope: __expectString,
+    AnalysisType: __expectString,
+    LookBackTimePeriod: _json,
+    SavingsPlansToAdd: (_: any) => de_SavingsPlansToAdd(_, context),
+    SavingsPlansToExclude: _json,
+  }) as any;
+};
+
+// de_SavingsPlansPurchaseAnalysisDetails omitted.
 
 // de_SavingsPlansPurchaseRecommendation omitted.
 
@@ -2871,6 +3239,20 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_SavingsPlansPurchaseRecommendationSummary omitted.
 
 // de_SavingsPlansSavings omitted.
+
+/**
+ * deserializeAws_json1_1SavingsPlansToAdd
+ */
+const de_SavingsPlansToAdd = (output: any, context: __SerdeContext): SavingsPlans[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SavingsPlans(entry, context);
+    });
+  return retVal;
+};
+
+// de_SavingsPlansToExclude omitted.
 
 // de_SavingsPlansUtilization omitted.
 
@@ -2887,6 +3269,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_ServiceQuotaExceededException omitted.
 
 // de_ServiceSpecification omitted.
+
+// de_StartCommitmentPurchaseAnalysisResponse omitted.
 
 // de_StartCostAllocationTagBackfillResponse omitted.
 

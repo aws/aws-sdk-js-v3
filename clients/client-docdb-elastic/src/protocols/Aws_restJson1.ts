@@ -24,6 +24,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  ApplyPendingMaintenanceActionCommandInput,
+  ApplyPendingMaintenanceActionCommandOutput,
+} from "../commands/ApplyPendingMaintenanceActionCommand";
+import {
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput,
 } from "../commands/CopyClusterSnapshotCommand";
@@ -39,11 +43,19 @@ import {
 } from "../commands/DeleteClusterSnapshotCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "../commands/GetClusterCommand";
 import { GetClusterSnapshotCommandInput, GetClusterSnapshotCommandOutput } from "../commands/GetClusterSnapshotCommand";
+import {
+  GetPendingMaintenanceActionCommandInput,
+  GetPendingMaintenanceActionCommandOutput,
+} from "../commands/GetPendingMaintenanceActionCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListClusterSnapshotsCommandInput,
   ListClusterSnapshotsCommandOutput,
 } from "../commands/ListClusterSnapshotsCommand";
+import {
+  ListPendingMaintenanceActionsCommandInput,
+  ListPendingMaintenanceActionsCommandOutput,
+} from "../commands/ListPendingMaintenanceActionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -67,6 +79,31 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1ApplyPendingMaintenanceActionCommand
+ */
+export const se_ApplyPendingMaintenanceActionCommand = async (
+  input: ApplyPendingMaintenanceActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/pending-action");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      applyAction: [],
+      applyOn: [],
+      optInType: [],
+      resourceArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CopyClusterSnapshotCommand
@@ -219,6 +256,22 @@ export const se_GetClusterSnapshotCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetPendingMaintenanceActionCommand
+ */
+export const se_GetPendingMaintenanceActionCommand = async (
+  input: GetPendingMaintenanceActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/pending-action/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListClustersCommand
  */
 export const se_ListClustersCommand = async (
@@ -252,6 +305,25 @@ export const se_ListClusterSnapshotsCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_sT]: [, input[_sT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPendingMaintenanceActionsCommand
+ */
+export const se_ListPendingMaintenanceActionsCommand = async (
+  input: ListPendingMaintenanceActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/pending-actions");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -370,10 +442,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -411,6 +480,27 @@ export const se_UpdateClusterCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1ApplyPendingMaintenanceActionCommand
+ */
+export const de_ApplyPendingMaintenanceActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    resourcePendingMaintenanceAction: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -561,6 +651,27 @@ export const de_GetClusterSnapshotCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetPendingMaintenanceActionCommand
+ */
+export const de_GetPendingMaintenanceActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPendingMaintenanceActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    resourcePendingMaintenanceAction: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListClustersCommand
  */
 export const de_ListClustersCommand = async (
@@ -599,6 +710,28 @@ export const de_ListClusterSnapshotsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     snapshots: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPendingMaintenanceActionsCommand
+ */
+export const de_ListPendingMaintenanceActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPendingMaintenanceActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourcePendingMaintenanceActions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -765,15 +898,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.docdbelastic#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.docdbelastic#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.docdbelastic#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.docdbelastic#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.docdbelastic#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -940,6 +1073,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ClusterSnapshotList omitted.
 
+// de_PendingMaintenanceActionDetails omitted.
+
+// de_PendingMaintenanceActionDetailsList omitted.
+
+// de_ResourcePendingMaintenanceAction omitted.
+
+// de_ResourcePendingMaintenanceActionList omitted.
+
 // de_Shard omitted.
 
 // de_ShardList omitted.
@@ -963,13 +1104,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cA = "clusterArn";
 const _mR = "maxResults";

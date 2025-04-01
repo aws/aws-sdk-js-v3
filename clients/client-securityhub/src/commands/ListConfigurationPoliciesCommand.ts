@@ -86,34 +86,34 @@ export interface ListConfigurationPoliciesCommandOutput extends ListConfiguratio
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To view a list of configuration policies
  * ```javascript
  * // This operation provides a list of your configuration policies, including metadata for each policy.
  * const input = {
- *   "MaxResults": 1,
- *   "NextToken": "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOhvw3o2JqjI86QDxdf"
+ *   MaxResults: 1,
+ *   NextToken: "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOhvw3o2JqjI86QDxdf"
  * };
  * const command = new ListConfigurationPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConfigurationPolicySummaries": [
+ *   ConfigurationPolicySummaries: [
  *     {
- *       "Arn": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "Description": "Configuration policy for testing FSBP and CIS",
- *       "Id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "Name": "TestConfigurationPolicy",
- *       "ServiceEnabled": true,
- *       "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *       Arn: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       Description: "Configuration policy for testing FSBP and CIS",
+ *       Id: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       Name: "TestConfigurationPolicy",
+ *       ServiceEnabled: true,
+ *       UpdatedAt: "2023-01-11T06:17:17.154Z"
  *     }
  *   ],
- *   "NextToken": "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOfvw3o2JqjI86QDxef"
+ *   NextToken: "U1FsdGVkX19nBV2zoh+Gou9NgnulLJHWpn9xnG4hqSOfvw3o2JqjI86QDxef"
  * }
  * *\/
- * // example id: to-view-a-list-of-configuration-policies-1695173268602
  * ```
  *
+ * @public
  */
 export class ListConfigurationPoliciesCommand extends $Command
   .classBuilder<
@@ -123,9 +123,7 @@ export class ListConfigurationPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +135,16 @@ export class ListConfigurationPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationPoliciesCommand)
   .de(de_ListConfigurationPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationPoliciesRequest;
+      output: ListConfigurationPoliciesResponse;
+    };
+    sdk: {
+      input: ListConfigurationPoliciesCommandInput;
+      output: ListConfigurationPoliciesCommandOutput;
+    };
+  };
+}

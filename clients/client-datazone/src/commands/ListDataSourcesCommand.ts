@@ -11,7 +11,7 @@ import {
   ListDataSourcesInputFilterSensitiveLog,
   ListDataSourcesOutput,
   ListDataSourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -44,6 +44,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesOutput, __M
  *   domainIdentifier: "STRING_VALUE", // required
  *   projectIdentifier: "STRING_VALUE", // required
  *   environmentIdentifier: "STRING_VALUE",
+ *   connectionIdentifier: "STRING_VALUE",
  *   type: "STRING_VALUE",
  *   status: "CREATING" || "FAILED_CREATION" || "READY" || "UPDATING" || "FAILED_UPDATE" || "RUNNING" || "DELETING" || "FAILED_DELETION",
  *   name: "STRING_VALUE",
@@ -56,7 +57,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesOutput, __M
  * //   items: [ // DataSourceSummaries // required
  * //     { // DataSourceSummary
  * //       domainId: "STRING_VALUE", // required
- * //       environmentId: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE",
+ * //       connectionId: "STRING_VALUE",
  * //       dataSourceId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       type: "STRING_VALUE", // required
@@ -75,6 +77,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesOutput, __M
  * //       lastRunAssetCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -115,6 +118,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListDataSourcesCommand extends $Command
@@ -125,9 +129,7 @@ export class ListDataSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +141,16 @@ export class ListDataSourcesCommand extends $Command
   .f(ListDataSourcesInputFilterSensitiveLog, ListDataSourcesOutputFilterSensitiveLog)
   .ser(se_ListDataSourcesCommand)
   .de(de_ListDataSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourcesInput;
+      output: ListDataSourcesOutput;
+    };
+    sdk: {
+      input: ListDataSourcesCommandInput;
+      output: ListDataSourcesCommandOutput;
+    };
+  };
+}

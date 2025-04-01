@@ -1,7 +1,9 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { getUpdatedSystemClockOffset } from "./getUpdatedSystemClockOffset";
 import { isClockSkewed } from "./isClockSkewed";
 
-jest.mock("./isClockSkewed");
+vi.mock("./isClockSkewed");
 
 describe(getUpdatedSystemClockOffset.name, () => {
   // Mock ServerTime is accurate to last second, to remove milliseconds information.
@@ -9,11 +11,11 @@ describe(getUpdatedSystemClockOffset.name, () => {
   const mockSystemClockOffset = 100;
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("returns passed systemClockOffset when clock is not skewed", () => {
-    (isClockSkewed as jest.Mock).mockReturnValue(false);
+    vi.mocked(isClockSkewed).mockReturnValue(false);
     expect(getUpdatedSystemClockOffset(mockClockTime.toString(), mockSystemClockOffset)).toEqual(mockSystemClockOffset);
   });
 
@@ -21,8 +23,8 @@ describe(getUpdatedSystemClockOffset.name, () => {
     const dateDotNowFn = Date.now;
 
     beforeEach(() => {
-      (isClockSkewed as jest.Mock).mockReturnValue(true);
-      jest.spyOn(Date, "now").mockReturnValueOnce(mockClockTime.getTime());
+      vi.mocked(isClockSkewed).mockReturnValue(true);
+      vi.spyOn(Date, "now").mockReturnValueOnce(mockClockTime.getTime());
     });
 
     afterEach(() => {

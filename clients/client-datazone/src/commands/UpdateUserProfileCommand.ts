@@ -10,7 +10,7 @@ import {
   UpdateUserProfileInput,
   UpdateUserProfileOutput,
   UpdateUserProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateUserProfileCommand, se_UpdateUserProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -93,6 +93,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserProfileCommand extends $Command
@@ -103,9 +104,7 @@ export class UpdateUserProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class UpdateUserProfileCommand extends $Command
   .f(void 0, UpdateUserProfileOutputFilterSensitiveLog)
   .ser(se_UpdateUserProfileCommand)
   .de(de_UpdateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserProfileInput;
+      output: UpdateUserProfileOutput;
+    };
+    sdk: {
+      input: UpdateUserProfileCommandInput;
+      output: UpdateUserProfileCommandOutput;
+    };
+  };
+}

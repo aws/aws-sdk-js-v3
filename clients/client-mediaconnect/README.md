@@ -6,11 +6,36 @@
 
 AWS SDK for JavaScript MediaConnect Client for Node.js, Browser and React Native.
 
-API for AWS Elemental MediaConnect
+<p>Welcome to the Elemental MediaConnect API reference. </p>
+<p>MediaConnect is a service that lets you ingest live video content into the cloud
+and distribute it to destinations all over the world, both inside and outside the Amazon Web Services cloud. This API reference provides descriptions, syntax, and usage examples
+for each of the actions and data types that are supported by MediaConnect. </p>
+<p>Use the following links to get started with the MediaConnect API:</p>
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/mediaconnect/latest/api/API_Operations.html">Actions</a>: An
+alphabetical list of all MediaConnect API operations.</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/mediaconnect/latest/api/API_Types.html">Data types</a>: An
+alphabetical list of all MediaConnect data types.</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/mediaconnect/latest/api/CommonParameters.html">Common
+parameters</a>: Parameters that all operations can use.</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/mediaconnect/latest/api/CommonErrors.html">Common errors</a>: Client and server errors that all operations can return.</p>
+</li>
+</ul>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediaconnect
+To install this package, simply type add or install @aws-sdk/client-mediaconnect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediaconnect`
@@ -329,6 +354,14 @@ DescribeFlowSourceMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconnect/command/DescribeFlowSourceMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeFlowSourceThumbnail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconnect/command/DescribeFlowSourceThumbnailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceThumbnailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceThumbnailCommandOutput/)
 
 </details>
 <details>

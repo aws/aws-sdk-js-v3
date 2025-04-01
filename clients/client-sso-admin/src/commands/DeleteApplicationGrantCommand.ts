@@ -77,6 +77,7 @@ export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationGrantCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteApplicationGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteApplicationGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationGrantCommand)
   .de(de_DeleteApplicationGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationGrantCommandInput;
+      output: DeleteApplicationGrantCommandOutput;
+    };
+  };
+}

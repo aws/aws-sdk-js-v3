@@ -2,11 +2,17 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import { GetControlCommand, GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import {
   ListCommonControlsCommand,
   ListCommonControlsCommandInput,
   ListCommonControlsCommandOutput,
 } from "./commands/ListCommonControlsCommand";
+import {
+  ListControlsCommand,
+  ListControlsCommandInput,
+  ListControlsCommandOutput,
+} from "./commands/ListControlsCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListObjectivesCommand,
@@ -16,12 +22,25 @@ import {
 import { ControlCatalogClient, ControlCatalogClientConfig } from "./ControlCatalogClient";
 
 const commands = {
+  GetControlCommand,
   ListCommonControlsCommand,
+  ListControlsCommand,
   ListDomainsCommand,
   ListObjectivesCommand,
 };
 
 export interface ControlCatalog {
+  /**
+   * @see {@link GetControlCommand}
+   */
+  getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
+  getControl(args: GetControlCommandInput, cb: (err: any, data?: GetControlCommandOutput) => void): void;
+  getControl(
+    args: GetControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetControlCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link ListCommonControlsCommand}
    */
@@ -38,6 +57,18 @@ export interface ControlCatalog {
     args: ListCommonControlsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCommonControlsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListControlsCommand}
+   */
+  listControls(): Promise<ListControlsCommandOutput>;
+  listControls(args: ListControlsCommandInput, options?: __HttpHandlerOptions): Promise<ListControlsCommandOutput>;
+  listControls(args: ListControlsCommandInput, cb: (err: any, data?: ListControlsCommandOutput) => void): void;
+  listControls(
+    args: ListControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListControlsCommandOutput) => void
   ): void;
 
   /**

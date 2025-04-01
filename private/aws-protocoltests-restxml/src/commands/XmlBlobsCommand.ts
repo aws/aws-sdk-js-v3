@@ -53,6 +53,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlBlobsCommand extends $Command
@@ -71,4 +72,16 @@ export class XmlBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlBlobsCommand)
   .de(de_XmlBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlBlobsRequest;
+      output: XmlBlobsResponse;
+    };
+    sdk: {
+      input: XmlBlobsCommandInput;
+      output: XmlBlobsCommandOutput;
+    };
+  };
+}

@@ -46,6 +46,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);
@@ -71,6 +72,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SuspendContactRecordingCommand extends $Command
@@ -81,9 +83,7 @@ export class SuspendContactRecordingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class SuspendContactRecordingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuspendContactRecordingCommand)
   .de(de_SuspendContactRecordingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SuspendContactRecordingRequest;
+      output: {};
+    };
+    sdk: {
+      input: SuspendContactRecordingCommandInput;
+      output: SuspendContactRecordingCommandOutput;
+    };
+  };
+}

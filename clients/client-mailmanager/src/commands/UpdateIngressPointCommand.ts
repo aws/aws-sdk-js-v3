@@ -74,6 +74,68 @@ export interface UpdateIngressPointCommandOutput extends UpdateIngressPointRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Update Open/Auth IngressPoint with new Name
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345",
+ *   IngressPointName: "ingressPointNewName"
+ * };
+ * const command = new UpdateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update Open/Auth IngressPoint with new RuleSetId / TrafficPolicyId
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345",
+ *   RuleSetId: "rs-12345",
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new UpdateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update Auth IngressPoint with new SmtpPassword
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SmtpPassword: "newSmtpPassword"
+ *   },
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new UpdateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update Auth IngressPoint with new SecretArn
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SecretArn: "arn:aws:secretsmanager:us-west-2:123456789012:secret:abcde"
+ *   },
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new UpdateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateIngressPointCommand extends $Command
@@ -84,9 +146,7 @@ export class UpdateIngressPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +158,16 @@ export class UpdateIngressPointCommand extends $Command
   .f(UpdateIngressPointRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateIngressPointCommand)
   .de(de_UpdateIngressPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIngressPointRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateIngressPointCommandInput;
+      output: UpdateIngressPointCommandOutput;
+    };
+  };
+}

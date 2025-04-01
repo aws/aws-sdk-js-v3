@@ -89,6 +89,7 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetDNSSECCommand extends $Command
@@ -99,9 +100,7 @@ export class GetDNSSECCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class GetDNSSECCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDNSSECCommand)
   .de(de_GetDNSSECCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDNSSECRequest;
+      output: GetDNSSECResponse;
+    };
+    sdk: {
+      input: GetDNSSECCommandInput;
+      output: GetDNSSECCommandOutput;
+    };
+  };
+}

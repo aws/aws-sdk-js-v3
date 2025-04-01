@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteEnvironmentProfileInput } from "../models/models_0";
+import { DeleteEnvironmentProfileInput } from "../models/models_1";
 import { de_DeleteEnvironmentProfileCommand, se_DeleteEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -72,6 +72,7 @@ export interface DeleteEnvironmentProfileCommandOutput extends __MetadataBearer 
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentProfileCommand extends $Command
@@ -82,9 +83,7 @@ export class DeleteEnvironmentProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeleteEnvironmentProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentProfileCommand)
   .de(de_DeleteEnvironmentProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentProfileInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentProfileCommandInput;
+      output: DeleteEnvironmentProfileCommandOutput;
+    };
+  };
+}

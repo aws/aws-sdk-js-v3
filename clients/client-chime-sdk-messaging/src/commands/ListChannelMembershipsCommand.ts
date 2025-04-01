@@ -103,6 +103,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListChannelMembershipsCommand extends $Command
@@ -113,9 +114,7 @@ export class ListChannelMembershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListChannelMembershipsCommand extends $Command
   .f(ListChannelMembershipsRequestFilterSensitiveLog, ListChannelMembershipsResponseFilterSensitiveLog)
   .ser(se_ListChannelMembershipsCommand)
   .de(de_ListChannelMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelMembershipsRequest;
+      output: ListChannelMembershipsResponse;
+    };
+    sdk: {
+      input: ListChannelMembershipsCommandInput;
+      output: ListChannelMembershipsCommandOutput;
+    };
+  };
+}

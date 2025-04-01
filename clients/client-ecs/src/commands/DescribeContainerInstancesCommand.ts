@@ -151,13 +151,24 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -165,95 +176,95 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe container instance
  * ```javascript
  * // This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.
  * const input = {
- *   "cluster": "default",
- *   "containerInstances": [
+ *   cluster: "default",
+ *   containerInstances: [
  *     "f2756532-8f13-4d53-87c9-aed50dc94cd7"
  *   ]
  * };
  * const command = new DescribeContainerInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "containerInstances": [
+ *   containerInstances: [
  *     {
- *       "agentConnected": true,
- *       "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/default/f2756532-8f13-4d53-87c9-aed50dc94cd7",
- *       "ec2InstanceId": "i-807f3249",
- *       "pendingTasksCount": 0,
- *       "registeredResources": [
+ *       agentConnected: true,
+ *       containerInstanceArn: "arn:aws:ecs:us-east-1:012345678910:container-instance/default/f2756532-8f13-4d53-87c9-aed50dc94cd7",
+ *       ec2InstanceId: "i-807f3249",
+ *       pendingTasksCount: 0,
+ *       registeredResources: [
  *         {
- *           "name": "CPU",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 2048,
- *           "longValue": 0
+ *           doubleValue: 0.0,
+ *           integerValue: 2048,
+ *           longValue: 0,
+ *           name: "CPU",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "MEMORY",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 3768,
- *           "longValue": 0
+ *           doubleValue: 0.0,
+ *           integerValue: 3768,
+ *           longValue: 0,
+ *           name: "MEMORY",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "PORTS",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": [
+ *           doubleValue: 0.0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS",
+ *           stringSetValue: [
  *             "2376",
  *             "22",
  *             "51678",
  *             "2375"
- *           ]
+ *           ],
+ *           type: "STRINGSET"
  *         }
  *       ],
- *       "remainingResources": [
+ *       remainingResources: [
  *         {
- *           "name": "CPU",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 1948,
- *           "longValue": 0
+ *           doubleValue: 0.0,
+ *           integerValue: 1948,
+ *           longValue: 0,
+ *           name: "CPU",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "MEMORY",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 3668,
- *           "longValue": 0
+ *           doubleValue: 0.0,
+ *           integerValue: 3668,
+ *           longValue: 0,
+ *           name: "MEMORY",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "PORTS",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": [
+ *           doubleValue: 0.0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS",
+ *           stringSetValue: [
  *             "2376",
  *             "22",
  *             "80",
  *             "51678",
  *             "2375"
- *           ]
+ *           ],
+ *           type: "STRINGSET"
  *         }
  *       ],
- *       "runningTasksCount": 1,
- *       "status": "ACTIVE"
+ *       runningTasksCount: 1,
+ *       status: "ACTIVE"
  *     }
  *   ],
- *   "failures": []
+ *   failures:   []
  * }
  * *\/
- * // example id: c8f439de-eb27-4269-8ca7-2c0a7ba75ab0
  * ```
  *
+ * @public
  */
 export class DescribeContainerInstancesCommand extends $Command
   .classBuilder<
@@ -263,9 +274,7 @@ export class DescribeContainerInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -277,4 +286,16 @@ export class DescribeContainerInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContainerInstancesCommand)
   .de(de_DescribeContainerInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContainerInstancesRequest;
+      output: DescribeContainerInstancesResponse;
+    };
+    sdk: {
+      input: DescribeContainerInstancesCommandInput;
+      output: DescribeContainerInstancesCommandOutput;
+    };
+  };
+}

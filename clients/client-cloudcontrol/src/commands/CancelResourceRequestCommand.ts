@@ -52,6 +52,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * //     TypeName: "STRING_VALUE",
  * //     Identifier: "STRING_VALUE",
  * //     RequestToken: "STRING_VALUE",
+ * //     HooksRequestToken: "STRING_VALUE",
  * //     Operation: "STRING_VALUE",
  * //     OperationStatus: "STRING_VALUE",
  * //     EventTime: new Date("TIMESTAMP"),
@@ -79,6 +80,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class CancelResourceRequestCommand extends $Command
@@ -89,9 +91,7 @@ export class CancelResourceRequestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class CancelResourceRequestCommand extends $Command
   .f(void 0, CancelResourceRequestOutputFilterSensitiveLog)
   .ser(se_CancelResourceRequestCommand)
   .de(de_CancelResourceRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelResourceRequestInput;
+      output: CancelResourceRequestOutput;
+    };
+    sdk: {
+      input: CancelResourceRequestCommandInput;
+      output: CancelResourceRequestCommandOutput;
+    };
+  };
+}

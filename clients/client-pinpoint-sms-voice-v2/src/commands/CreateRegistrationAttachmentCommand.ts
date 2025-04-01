@@ -37,7 +37,11 @@ export interface CreateRegistrationAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Create a new registration attachment to use for uploading a file or a URL to a file. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG. For example, many sender ID registrations require a signed “letter of authorization” (LOA) to be submitted.</p>
+ * <p>Create a new registration attachment to use for uploading a file or a URL to a file.
+ *             The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG. For
+ *             example, many sender ID registrations require a signed “letter of authorization” (LOA)
+ *             to be submitted.</p>
+ *          <p>Use either <code>AttachmentUrl</code> or <code>AttachmentBody</code> to upload your attachment. If both are specified then an exception is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +109,7 @@ export interface CreateRegistrationAttachmentCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateRegistrationAttachmentCommand extends $Command
@@ -115,9 +120,7 @@ export class CreateRegistrationAttachmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +132,16 @@ export class CreateRegistrationAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRegistrationAttachmentCommand)
   .de(de_CreateRegistrationAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRegistrationAttachmentRequest;
+      output: CreateRegistrationAttachmentResult;
+    };
+    sdk: {
+      input: CreateRegistrationAttachmentCommandInput;
+      output: CreateRegistrationAttachmentCommandOutput;
+    };
+  };
+}

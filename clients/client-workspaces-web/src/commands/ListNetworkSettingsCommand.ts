@@ -74,6 +74,7 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListNetworkSettingsCommand extends $Command
@@ -84,9 +85,7 @@ export class ListNetworkSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class ListNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworkSettingsCommand)
   .de(de_ListNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkSettingsRequest;
+      output: ListNetworkSettingsResponse;
+    };
+    sdk: {
+      input: ListNetworkSettingsCommandInput;
+      output: ListNetworkSettingsCommandOutput;
+    };
+  };
+}

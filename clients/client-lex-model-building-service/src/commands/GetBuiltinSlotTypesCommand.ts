@@ -86,6 +86,7 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetBuiltinSlotTypesCommand extends $Command
@@ -96,9 +97,7 @@ export class GetBuiltinSlotTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetBuiltinSlotTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBuiltinSlotTypesCommand)
   .de(de_GetBuiltinSlotTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBuiltinSlotTypesRequest;
+      output: GetBuiltinSlotTypesResponse;
+    };
+    sdk: {
+      input: GetBuiltinSlotTypesCommandInput;
+      output: GetBuiltinSlotTypesCommandOutput;
+    };
+  };
+}

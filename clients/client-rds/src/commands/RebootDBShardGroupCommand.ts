@@ -48,10 +48,18 @@ export interface RebootDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   DBShardGroupIdentifier: "STRING_VALUE",
  * //   DBClusterIdentifier: "STRING_VALUE",
  * //   MaxACU: Number("double"),
+ * //   MinACU: Number("double"),
  * //   ComputeRedundancy: Number("int"),
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,
  * //   Endpoint: "STRING_VALUE",
+ * //   DBShardGroupArn: "STRING_VALUE",
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -71,6 +79,7 @@ export interface RebootDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RebootDBShardGroupCommand extends $Command
@@ -81,9 +90,7 @@ export class RebootDBShardGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +102,16 @@ export class RebootDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootDBShardGroupCommand)
   .de(de_RebootDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: RebootDBShardGroupCommandInput;
+      output: RebootDBShardGroupCommandOutput;
+    };
+  };
+}

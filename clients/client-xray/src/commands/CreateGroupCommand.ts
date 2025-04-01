@@ -80,6 +80,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command
@@ -90,9 +91,7 @@ export class CreateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class CreateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCommand)
   .de(de_CreateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupRequest;
+      output: CreateGroupResult;
+    };
+    sdk: {
+      input: CreateGroupCommandInput;
+      output: CreateGroupCommandOutput;
+    };
+  };
+}

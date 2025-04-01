@@ -38,6 +38,13 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  *             <p>The caller of this operation must be granted the <code>PassRole</code> permission
  *                 on the IAM role by a permissions policy.</p>
  *          </note>
+ *          <important>
+ *             <p>When using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#available-keys-for-iam">iam:AssociatedResourceArn</a> condition in a policy to restrict the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">PassRole</a> IAM action, special considerations apply if the policy is
+ *                 intended to define access for the <code>AddRoleToInstanceProfile</code> action. In
+ *                 this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The
+ *                 ARN value must be <code>arn:aws:ec2:*:CallerAccountId:instance/*</code>. Using any
+ *                 other ARN value may lead to unexpected evaluation results.</p>
+ *          </important>
  *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
  *                 <i>IAM User Guide</i>. For more information about instance profiles,
  *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
@@ -89,19 +96,22 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a role to an instance profile
  * ```javascript
  * // The following command adds the role named S3Access to the instance profile named Webserver:
  * const input = {
- *   "InstanceProfileName": "Webserver",
- *   "RoleName": "S3Access"
+ *   InstanceProfileName: "Webserver",
+ *   RoleName: "S3Access"
  * };
  * const command = new AddRoleToInstanceProfileCommand(input);
- * await client.send(command);
- * // example id: c107fac3-edb6-4827-8a71-8863ec91c81f
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddRoleToInstanceProfileCommand extends $Command
   .classBuilder<
@@ -111,9 +121,7 @@ export class AddRoleToInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +133,16 @@ export class AddRoleToInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddRoleToInstanceProfileCommand)
   .de(de_AddRoleToInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddRoleToInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddRoleToInstanceProfileCommandInput;
+      output: AddRoleToInstanceProfileCommandOutput;
+    };
+  };
+}

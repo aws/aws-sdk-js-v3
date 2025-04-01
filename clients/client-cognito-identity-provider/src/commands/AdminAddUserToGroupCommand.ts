@@ -102,6 +102,7 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminAddUserToGroupCommand extends $Command
@@ -112,9 +113,7 @@ export class AdminAddUserToGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class AdminAddUserToGroupCommand extends $Command
   .f(AdminAddUserToGroupRequestFilterSensitiveLog, void 0)
   .ser(se_AdminAddUserToGroupCommand)
   .de(de_AdminAddUserToGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminAddUserToGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminAddUserToGroupCommandInput;
+      output: AdminAddUserToGroupCommandOutput;
+    };
+  };
+}

@@ -73,6 +73,7 @@ export interface CreateMlflowTrackingServerCommandOutput extends CreateMlflowTra
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateMlflowTrackingServerCommand extends $Command
@@ -83,9 +84,7 @@ export class CreateMlflowTrackingServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class CreateMlflowTrackingServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMlflowTrackingServerCommand)
   .de(de_CreateMlflowTrackingServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMlflowTrackingServerRequest;
+      output: CreateMlflowTrackingServerResponse;
+    };
+    sdk: {
+      input: CreateMlflowTrackingServerCommandInput;
+      output: CreateMlflowTrackingServerCommandOutput;
+    };
+  };
+}

@@ -90,6 +90,7 @@ export interface DescribeApplicationOperationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationOperationCommand extends $Command
@@ -100,9 +101,7 @@ export class DescribeApplicationOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DescribeApplicationOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationOperationCommand)
   .de(de_DescribeApplicationOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationOperationRequest;
+      output: DescribeApplicationOperationResponse;
+    };
+    sdk: {
+      input: DescribeApplicationOperationCommandInput;
+      output: DescribeApplicationOperationCommandOutput;
+    };
+  };
+}

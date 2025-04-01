@@ -32,9 +32,9 @@ export interface CreateReplicationConfigCommandInput extends CreateReplicationCo
 export interface CreateReplicationConfigCommandOutput extends CreateReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration that you can later provide to configure and start an DMS Serverless
- *          replication. You can also provide options to validate the configuration inputs before you start the
- *          replication.</p>
+ * <p>Creates a configuration that you can later provide to configure and start an DMS
+ *          Serverless replication. You can also provide options to validate the configuration inputs
+ *          before you start the replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,6 +137,7 @@ export interface CreateReplicationConfigCommandOutput extends CreateReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationConfigCommand extends $Command
@@ -147,9 +148,7 @@ export class CreateReplicationConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class CreateReplicationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationConfigCommand)
   .de(de_CreateReplicationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationConfigMessage;
+      output: CreateReplicationConfigResponse;
+    };
+    sdk: {
+      input: CreateReplicationConfigCommandInput;
+      output: CreateReplicationConfigCommandOutput;
+    };
+  };
+}

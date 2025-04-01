@@ -29,7 +29,8 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
 
 /**
  * <p>Lists all of the Cognito identity pools registered for your account.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +80,7 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class ListIdentityPoolsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListIdentityPoolsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListIdentityPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentityPoolsCommand)
   .de(de_ListIdentityPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentityPoolsInput;
+      output: ListIdentityPoolsResponse;
+    };
+    sdk: {
+      input: ListIdentityPoolsCommandInput;
+      output: ListIdentityPoolsCommandOutput;
+    };
+  };
+}

@@ -69,6 +69,7 @@ export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class DeleteImportJobCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImportJobCommand)
   .de(de_DeleteImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImportJobCommandInput;
+      output: DeleteImportJobCommandOutput;
+    };
+  };
+}

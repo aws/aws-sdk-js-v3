@@ -79,6 +79,7 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class GetMessagingSessionEndpointCommand extends $Command
@@ -89,9 +90,7 @@ export class GetMessagingSessionEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetMessagingSessionEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMessagingSessionEndpointCommand)
   .de(de_GetMessagingSessionEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetMessagingSessionEndpointResponse;
+    };
+    sdk: {
+      input: GetMessagingSessionEndpointCommandInput;
+      output: GetMessagingSessionEndpointCommandOutput;
+    };
+  };
+}

@@ -11,7 +11,7 @@ import {
   UpdateViewContentRequestFilterSensitiveLog,
   UpdateViewContentResponse,
   UpdateViewContentResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_UpdateViewContentCommand, se_UpdateViewContentCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -116,6 +116,7 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateViewContentCommand extends $Command
@@ -126,9 +127,7 @@ export class UpdateViewContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class UpdateViewContentCommand extends $Command
   .f(UpdateViewContentRequestFilterSensitiveLog, UpdateViewContentResponseFilterSensitiveLog)
   .ser(se_UpdateViewContentCommand)
   .de(de_UpdateViewContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateViewContentRequest;
+      output: UpdateViewContentResponse;
+    };
+    sdk: {
+      input: UpdateViewContentCommandInput;
+      output: UpdateViewContentCommandOutput;
+    };
+  };
+}

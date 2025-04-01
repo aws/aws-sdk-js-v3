@@ -34,7 +34,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *             <code>CreateTable</code> is an asynchronous operation. When the request is received, the status of the table is set to <code>CREATING</code>.
  *          You can monitor the creation status of the new table by using the <code>GetTable</code>
  *          operation, which returns the current <code>status</code> of the table. You can start using a table when the status is <code>ACTIVE</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html#tables-create">Creating tables</a> in the <i>Amazon Keyspaces Developer
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.tables.html">Create a table</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,7 +171,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
+ *          or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
@@ -183,6 +184,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class CreateTableCommand extends $Command
@@ -193,9 +195,7 @@ export class CreateTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +207,16 @@ export class CreateTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTableCommand)
   .de(de_CreateTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTableRequest;
+      output: CreateTableResponse;
+    };
+    sdk: {
+      input: CreateTableCommandInput;
+      output: CreateTableCommandOutput;
+    };
+  };
+}

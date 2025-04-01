@@ -28,7 +28,11 @@ export interface DescribeSecurityProfileCommandInput extends DescribeSecurityPro
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Gets basic information about the security profle.</p>
+ * <p>Gets basic information about the security profile.</p>
+ *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
+ *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
+ *     permissions</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +96,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeSecurityProfileCommand extends $Command
@@ -102,9 +107,7 @@ export class DescribeSecurityProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +119,16 @@ export class DescribeSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityProfileCommand)
   .de(de_DescribeSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityProfileRequest;
+      output: DescribeSecurityProfileResponse;
+    };
+    sdk: {
+      input: DescribeSecurityProfileCommandInput;
+      output: DescribeSecurityProfileCommandOutput;
+    };
+  };
+}

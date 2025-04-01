@@ -40,6 +40,7 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE",
+ *   SelfAssignFlowId: "STRING_VALUE",
  *   Constraints: { // TaskTemplateConstraints
  *     RequiredFields: [ // RequiredTaskTemplateFields
  *       { // RequiredFieldInfo
@@ -80,7 +81,7 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  *         Name: "STRING_VALUE",
  *       },
  *       Description: "STRING_VALUE",
- *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL" || "SELF_ASSIGN" || "EXPIRY_DURATION",
  *       SingleSelectOptions: [ // SingleSelectOptions
  *         "STRING_VALUE",
  *       ],
@@ -124,6 +125,7 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateTaskTemplateCommand extends $Command
@@ -134,9 +136,7 @@ export class CreateTaskTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class CreateTaskTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTaskTemplateCommand)
   .de(de_CreateTaskTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTaskTemplateRequest;
+      output: CreateTaskTemplateResponse;
+    };
+    sdk: {
+      input: CreateTaskTemplateCommandInput;
+      output: CreateTaskTemplateCommandOutput;
+    };
+  };
+}

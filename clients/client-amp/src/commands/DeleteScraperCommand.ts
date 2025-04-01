@@ -79,6 +79,26 @@ export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example DeleteScraper with optional clientToken input
+ * ```javascript
+ * //
+ * const input = {
+ *   clientToken: "token",
+ *   scraperId: "scraper-123"
+ * };
+ * const command = new DeleteScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "DELETING"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteScraperCommand extends $Command
@@ -89,9 +109,7 @@ export class DeleteScraperCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +121,16 @@ export class DeleteScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScraperCommand)
   .de(de_DeleteScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScraperRequest;
+      output: DeleteScraperResponse;
+    };
+    sdk: {
+      input: DeleteScraperCommandInput;
+      output: DeleteScraperCommandOutput;
+    };
+  };
+}

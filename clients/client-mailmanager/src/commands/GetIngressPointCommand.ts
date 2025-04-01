@@ -78,6 +78,50 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Get Open IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new GetIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *   IngressPointArn: "arn:aws:ses:us-east-1:123456789012:mailmanager-ingress-point/inp-12345",
+ *   IngressPointId: "inp-12345",
+ *   IngressPointName: "ingressPointName",
+ *   Status: "ACTIVE",
+ *   Type: "OPEN"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Get Auth IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new GetIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *   IngressPointArn: "arn:aws:ses:us-east-1:123456789012:mailmanager-ingress-point/inp-12345",
+ *   IngressPointAuthConfiguration: {
+ *     SecretArn: "arn:aws:secretsmanager:us-west-2:123456789012:secret:abcde"
+ *   },
+ *   IngressPointId: "inp-12345",
+ *   IngressPointName: "ingressPointName",
+ *   Status: "ACTIVE",
+ *   Type: "AUTH"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetIngressPointCommand extends $Command
@@ -88,9 +132,7 @@ export class GetIngressPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +144,16 @@ export class GetIngressPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIngressPointCommand)
   .de(de_GetIngressPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIngressPointRequest;
+      output: GetIngressPointResponse;
+    };
+    sdk: {
+      input: GetIngressPointCommandInput;
+      output: GetIngressPointCommandOutput;
+    };
+  };
+}

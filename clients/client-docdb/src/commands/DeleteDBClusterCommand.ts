@@ -101,6 +101,11 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -131,6 +136,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBClusterCommand extends $Command
@@ -141,9 +147,7 @@ export class DeleteDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +159,16 @@ export class DeleteDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterCommand)
   .de(de_DeleteDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterMessage;
+      output: DeleteDBClusterResult;
+    };
+    sdk: {
+      input: DeleteDBClusterCommandInput;
+      output: DeleteDBClusterCommandOutput;
+    };
+  };
+}

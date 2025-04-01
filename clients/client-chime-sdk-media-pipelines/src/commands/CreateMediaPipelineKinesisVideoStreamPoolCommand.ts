@@ -133,6 +133,7 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
@@ -143,9 +144,7 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   )
   .ser(se_CreateMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_CreateMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolRequest;
+      output: CreateMediaPipelineKinesisVideoStreamPoolResponse;
+    };
+    sdk: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: CreateMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

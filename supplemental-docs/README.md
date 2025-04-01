@@ -14,6 +14,11 @@ Upgrading from AWS SDK for JavaScript (v2) (https://github.com/aws/aws-sdk-js).
 
 Best practices for working within AWS Lambda using the AWS SDK for JavaScript (v3).
 
+#### [Performance](./performance/README.md)
+
+Details what steps the AWS SDK team has taken to optimize performance of the SDK,
+and includes tips for configuring the SDK to run efficiently.
+
 #### [TypeScript](./TYPESCRIPT.md)
 
 TypeScript tips & FAQ related to this project.

@@ -57,7 +57,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * //     id: "STRING_VALUE",
  * //     data: { // ThirdPartyJobData
  * //       actionTypeId: { // ActionTypeId
- * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //         owner: "AWS" || "ThirdParty" || "Custom", // required
  * //         provider: "STRING_VALUE", // required
  * //         version: "STRING_VALUE", // required
@@ -143,6 +143,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class GetThirdPartyJobDetailsCommand extends $Command
@@ -153,9 +154,7 @@ export class GetThirdPartyJobDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class GetThirdPartyJobDetailsCommand extends $Command
   .f(void 0, GetThirdPartyJobDetailsOutputFilterSensitiveLog)
   .ser(se_GetThirdPartyJobDetailsCommand)
   .de(de_GetThirdPartyJobDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThirdPartyJobDetailsInput;
+      output: GetThirdPartyJobDetailsOutput;
+    };
+    sdk: {
+      input: GetThirdPartyJobDetailsCommandInput;
+      output: GetThirdPartyJobDetailsCommandOutput;
+    };
+  };
+}

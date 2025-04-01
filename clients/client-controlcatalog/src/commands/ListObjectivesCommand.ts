@@ -90,6 +90,7 @@ export interface ListObjectivesCommandOutput extends ListObjectivesResponse, __M
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListObjectivesCommand extends $Command
@@ -100,9 +101,7 @@ export class ListObjectivesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListObjectivesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectivesCommand)
   .de(de_ListObjectivesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectivesRequest;
+      output: ListObjectivesResponse;
+    };
+    sdk: {
+      input: ListObjectivesCommandInput;
+      output: ListObjectivesCommandOutput;
+    };
+  };
+}

@@ -68,19 +68,22 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB cluster
  * ```javascript
  * // The following example associates a role with a DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ *   DBClusterIdentifier: "mydbcluster",
+ *   RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3"
  * };
  * const command = new AddRoleToDBClusterCommand(input);
- * await client.send(command);
- * // example id: to-associate-an-aws-identity-and-access-management-iam-role-with-a-db-cluster-1679691203006
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddRoleToDBClusterCommand extends $Command
   .classBuilder<
@@ -90,9 +93,7 @@ export class AddRoleToDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +105,16 @@ export class AddRoleToDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddRoleToDBClusterCommand)
   .de(de_AddRoleToDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddRoleToDBClusterMessage;
+      output: {};
+    };
+    sdk: {
+      input: AddRoleToDBClusterCommandInput;
+      output: AddRoleToDBClusterCommandOutput;
+    };
+  };
+}

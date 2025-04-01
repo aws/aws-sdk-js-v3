@@ -76,6 +76,7 @@ export interface AcceptShareCommandOutput extends AcceptShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class AcceptShareCommand extends $Command
@@ -86,9 +87,7 @@ export class AcceptShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class AcceptShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptShareCommand)
   .de(de_AcceptShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptShareRequest;
+      output: AcceptShareResponse;
+    };
+    sdk: {
+      input: AcceptShareCommandInput;
+      output: AcceptShareCommandOutput;
+    };
+  };
+}

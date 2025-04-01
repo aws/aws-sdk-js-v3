@@ -67,6 +67,7 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  *   jobParams: { // BatchJobParametersMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   authSecretsManagerArn: "STRING_VALUE",
  * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class StartBatchJobCommand extends $Command
@@ -113,9 +115,7 @@ export class StartBatchJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class StartBatchJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBatchJobCommand)
   .de(de_StartBatchJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBatchJobRequest;
+      output: StartBatchJobResponse;
+    };
+    sdk: {
+      input: StartBatchJobCommandInput;
+      output: StartBatchJobCommandOutput;
+    };
+  };
+}

@@ -96,6 +96,7 @@ export interface UpdateSubscriberNotificationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubscriberNotificationCommand extends $Command
@@ -106,9 +107,7 @@ export class UpdateSubscriberNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class UpdateSubscriberNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSubscriberNotificationCommand)
   .de(de_UpdateSubscriberNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriberNotificationRequest;
+      output: UpdateSubscriberNotificationResponse;
+    };
+    sdk: {
+      input: UpdateSubscriberNotificationCommandInput;
+      output: UpdateSubscriberNotificationCommandOutput;
+    };
+  };
+}

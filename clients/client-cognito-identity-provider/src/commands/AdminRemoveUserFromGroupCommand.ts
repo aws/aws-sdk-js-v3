@@ -32,7 +32,9 @@ export interface AdminRemoveUserFromGroupCommandInput extends AdminRemoveUserFro
 export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified user from the specified group.</p>
+ * <p>Given a username and a group name, removes them from the group. User pool groups are
+ *             identifiers that you can reference from the contents of ID and access tokens, and set
+ *             preferred IAM roles for identity-pool authentication. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -100,6 +102,7 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminRemoveUserFromGroupCommand extends $Command
@@ -110,9 +113,7 @@ export class AdminRemoveUserFromGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +125,16 @@ export class AdminRemoveUserFromGroupCommand extends $Command
   .f(AdminRemoveUserFromGroupRequestFilterSensitiveLog, void 0)
   .ser(se_AdminRemoveUserFromGroupCommand)
   .de(de_AdminRemoveUserFromGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminRemoveUserFromGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminRemoveUserFromGroupCommandInput;
+      output: AdminRemoveUserFromGroupCommandOutput;
+    };
+  };
+}

@@ -32,7 +32,7 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>Updates the selected authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +83,7 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateAuthenticationProfileCommand extends $Command
@@ -93,9 +94,7 @@ export class UpdateAuthenticationProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class UpdateAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAuthenticationProfileCommand)
   .de(de_UpdateAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAuthenticationProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAuthenticationProfileCommandInput;
+      output: UpdateAuthenticationProfileCommandOutput;
+    };
+  };
+}

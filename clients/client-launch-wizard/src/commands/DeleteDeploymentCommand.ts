@@ -70,6 +70,23 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Delete a deployment.
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentId: "4c1b59c1-659c-467f-b6e9-6ef6f9d28e1d"
+ * };
+ * const command = new DeleteDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   status: "DELETED",
+ *   statusReason: "Finished processing DeleteApp request"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteDeploymentCommand extends $Command
@@ -80,9 +97,7 @@ export class DeleteDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +109,16 @@ export class DeleteDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeploymentCommand)
   .de(de_DeleteDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentInput;
+      output: DeleteDeploymentOutput;
+    };
+    sdk: {
+      input: DeleteDeploymentCommandInput;
+      output: DeleteDeploymentCommandOutput;
+    };
+  };
+}

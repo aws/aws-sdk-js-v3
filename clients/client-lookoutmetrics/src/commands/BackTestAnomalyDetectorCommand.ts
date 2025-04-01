@@ -69,6 +69,7 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class BackTestAnomalyDetectorCommand extends $Command
@@ -79,9 +80,7 @@ export class BackTestAnomalyDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class BackTestAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BackTestAnomalyDetectorCommand)
   .de(de_BackTestAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BackTestAnomalyDetectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: BackTestAnomalyDetectorCommandInput;
+      output: BackTestAnomalyDetectorCommandOutput;
+    };
+  };
+}

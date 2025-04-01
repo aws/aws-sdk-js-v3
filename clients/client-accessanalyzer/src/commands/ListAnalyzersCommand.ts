@@ -61,6 +61,20 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * //       configuration: { // AnalyzerConfiguration Union: only one key present
  * //         unusedAccess: { // UnusedAccessConfiguration
  * //           unusedAccessAge: Number("int"),
+ * //           analysisRule: { // AnalysisRule
+ * //             exclusions: [ // AnalysisRuleCriteriaList
+ * //               { // AnalysisRuleCriteria
+ * //                 accountIds: [ // AccountIdsList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 resourceTags: [ // TagsList
+ * //                   {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //       },
  * //     },
@@ -91,6 +105,7 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyzersCommand extends $Command
@@ -101,9 +116,7 @@ export class ListAnalyzersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +128,16 @@ export class ListAnalyzersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzersCommand)
   .de(de_ListAnalyzersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzersRequest;
+      output: ListAnalyzersResponse;
+    };
+    sdk: {
+      input: ListAnalyzersCommandInput;
+      output: ListAnalyzersCommandOutput;
+    };
+  };
+}

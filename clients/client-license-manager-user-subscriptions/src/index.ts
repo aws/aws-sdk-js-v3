@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
- *       a per user subscription fee on Amazon EC2 instances.</p>
+ * 		a per user subscription fee on Amazon EC2 instances.</p>
  *
  * @packageDocumentation
  */

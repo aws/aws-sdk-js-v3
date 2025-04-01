@@ -34,6 +34,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -50,12 +51,14 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * const input = { // GetAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  *   ConnectionToken: "STRING_VALUE", // required
+ *   UrlExpiryInSeconds: Number("int"),
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
  * // { // GetAttachmentResponse
  * //   Url: "STRING_VALUE",
  * //   UrlExpiry: "STRING_VALUE",
+ * //   AttachmentSizeInBytes: Number("long"), // required
  * // };
  *
  * ```
@@ -81,6 +84,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class GetAttachmentCommand extends $Command
@@ -91,9 +95,7 @@ export class GetAttachmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +107,16 @@ export class GetAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAttachmentCommand)
   .de(de_GetAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttachmentRequest;
+      output: GetAttachmentResponse;
+    };
+    sdk: {
+      input: GetAttachmentCommandInput;
+      output: GetAttachmentCommandOutput;
+    };
+  };
+}

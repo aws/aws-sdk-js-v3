@@ -36,7 +36,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *             attributes include account tier, which indicates whether your account is in the sandbox
  *             or production environment. When you're ready to move your account out of the sandbox,
  *             create an Amazon Web Services Support case for a service limit increase request.</p>
- *          <p>New Amazon Pinpoint accounts are placed into an SMS or voice sandbox. The sandbox
+ *          <p>New accounts are placed into an SMS or voice sandbox. The sandbox
  *             protects both Amazon Web Services end recipients and SMS or voice recipients from fraud
  *             and abuse. </p>
  * @example
@@ -87,6 +87,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
@@ -97,9 +98,7 @@ export class DescribeAccountAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DescribeAccountAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAttributesCommand)
   .de(de_DescribeAccountAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountAttributesRequest;
+      output: DescribeAccountAttributesResult;
+    };
+    sdk: {
+      input: DescribeAccountAttributesCommandInput;
+      output: DescribeAccountAttributesCommandOutput;
+    };
+  };
+}

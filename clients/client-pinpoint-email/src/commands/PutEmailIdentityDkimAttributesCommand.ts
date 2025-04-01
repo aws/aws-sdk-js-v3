@@ -68,6 +68,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command
@@ -78,9 +79,7 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityDkimAttributesCommand)
   .de(de_PutEmailIdentityDkimAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityDkimAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityDkimAttributesCommandInput;
+      output: PutEmailIdentityDkimAttributesCommandOutput;
+    };
+  };
+}

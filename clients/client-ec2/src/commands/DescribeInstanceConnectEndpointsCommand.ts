@@ -101,6 +101,7 @@ export interface DescribeInstanceConnectEndpointsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceConnectEndpointsCommand extends $Command
@@ -111,9 +112,7 @@ export class DescribeInstanceConnectEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class DescribeInstanceConnectEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceConnectEndpointsCommand)
   .de(de_DescribeInstanceConnectEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceConnectEndpointsRequest;
+      output: DescribeInstanceConnectEndpointsResult;
+    };
+    sdk: {
+      input: DescribeInstanceConnectEndpointsCommandInput;
+      output: DescribeInstanceConnectEndpointsCommandOutput;
+    };
+  };
+}

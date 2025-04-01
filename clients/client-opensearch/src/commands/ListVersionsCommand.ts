@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListVersionsRequest, ListVersionsResponse } from "../models/models_0";
+import { ListVersionsRequest, ListVersionsResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListVersionsCommand, se_ListVersionsCommand } from "../protocols/Aws_restJson1";
 
@@ -72,6 +72,7 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListVersionsCommand extends $Command
@@ -82,9 +83,7 @@ export class ListVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class ListVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVersionsCommand)
   .de(de_ListVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVersionsRequest;
+      output: ListVersionsResponse;
+    };
+    sdk: {
+      input: ListVersionsCommandInput;
+      output: ListVersionsCommandOutput;
+    };
+  };
+}

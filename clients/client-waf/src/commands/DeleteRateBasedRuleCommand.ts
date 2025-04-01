@@ -130,6 +130,7 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class DeleteRateBasedRuleCommand extends $Command
@@ -140,9 +141,7 @@ export class DeleteRateBasedRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DeleteRateBasedRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRateBasedRuleCommand)
   .de(de_DeleteRateBasedRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRateBasedRuleRequest;
+      output: DeleteRateBasedRuleResponse;
+    };
+    sdk: {
+      input: DeleteRateBasedRuleCommandInput;
+      output: DeleteRateBasedRuleCommandOutput;
+    };
+  };
+}

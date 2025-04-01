@@ -90,6 +90,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           Host: "STRING_VALUE", // required
  * //           Port: Number("int"), // required
  * //           Database: "STRING_VALUE", // required
+ * //           UseServiceName: true || false,
  * //         },
  * //         PostgreSqlParameters: { // PostgreSqlParameters
  * //           Host: "STRING_VALUE", // required
@@ -136,6 +137,16 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           Host: "STRING_VALUE", // required
  * //           Database: "STRING_VALUE", // required
  * //           Warehouse: "STRING_VALUE", // required
+ * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           DatabaseAccessControlRole: "STRING_VALUE",
+ * //           OAuthParameters: { // OAuthParameters
+ * //             TokenProviderUrl: "STRING_VALUE", // required
+ * //             OAuthScope: "STRING_VALUE",
+ * //             IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ * //               VpcConnectionArn: "STRING_VALUE", // required
+ * //             },
+ * //             IdentityProviderResourceUri: "STRING_VALUE",
+ * //           },
  * //         },
  * //         SparkParameters: { // SparkParameters
  * //           Host: "STRING_VALUE", // required
@@ -172,6 +183,16 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           Port: Number("int"), // required
  * //           Catalog: "STRING_VALUE", // required
  * //           ProductType: "GALAXY" || "ENTERPRISE",
+ * //           DatabaseAccessControlRole: "STRING_VALUE",
+ * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           OAuthParameters: {
+ * //             TokenProviderUrl: "STRING_VALUE", // required
+ * //             OAuthScope: "STRING_VALUE",
+ * //             IdentityProviderVpcConnectionProperties: {
+ * //               VpcConnectionArn: "STRING_VALUE", // required
+ * //             },
+ * //             IdentityProviderResourceUri: "STRING_VALUE",
+ * //           },
  * //         },
  * //         TrinoParameters: { // TrinoParameters
  * //           Host: "STRING_VALUE", // required
@@ -222,6 +243,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             Host: "STRING_VALUE", // required
  * //             Port: Number("int"), // required
  * //             Database: "STRING_VALUE", // required
+ * //             UseServiceName: true || false,
  * //           },
  * //           PostgreSqlParameters: {
  * //             Host: "STRING_VALUE", // required
@@ -268,6 +290,16 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             Host: "STRING_VALUE", // required
  * //             Database: "STRING_VALUE", // required
  * //             Warehouse: "STRING_VALUE", // required
+ * //             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //             DatabaseAccessControlRole: "STRING_VALUE",
+ * //             OAuthParameters: {
+ * //               TokenProviderUrl: "STRING_VALUE", // required
+ * //               OAuthScope: "STRING_VALUE",
+ * //               IdentityProviderVpcConnectionProperties: {
+ * //                 VpcConnectionArn: "STRING_VALUE", // required
+ * //               },
+ * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //             },
  * //           },
  * //           SparkParameters: {
  * //             Host: "STRING_VALUE", // required
@@ -304,6 +336,16 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             Port: Number("int"), // required
  * //             Catalog: "STRING_VALUE", // required
  * //             ProductType: "GALAXY" || "ENTERPRISE",
+ * //             DatabaseAccessControlRole: "STRING_VALUE",
+ * //             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //             OAuthParameters: {
+ * //               TokenProviderUrl: "STRING_VALUE", // required
+ * //               OAuthScope: "STRING_VALUE",
+ * //               IdentityProviderVpcConnectionProperties: {
+ * //                 VpcConnectionArn: "STRING_VALUE", // required
+ * //               },
+ * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //             },
  * //           },
  * //           TrinoParameters: {
  * //             Host: "STRING_VALUE", // required
@@ -316,9 +358,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           },
  * //         },
  * //       ],
- * //       VpcConnectionProperties: { // VpcConnectionProperties
- * //         VpcConnectionArn: "STRING_VALUE", // required
- * //       },
+ * //       VpcConnectionProperties: "<VpcConnectionProperties>",
  * //       SslProperties: { // SslProperties
  * //         DisableSsl: true || false,
  * //       },
@@ -363,6 +403,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListDataSourcesCommand extends $Command
@@ -373,9 +414,7 @@ export class ListDataSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -387,4 +426,16 @@ export class ListDataSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataSourcesCommand)
   .de(de_ListDataSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourcesRequest;
+      output: ListDataSourcesResponse;
+    };
+    sdk: {
+      input: ListDataSourcesCommandInput;
+      output: ListDataSourcesCommandOutput;
+    };
+  };
+}

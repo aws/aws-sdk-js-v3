@@ -30,7 +30,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
 /**
  * <p>Starts an DataSync transfer task. For each task, you can only run one task
  *       execution at a time.</p>
- *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
+ *          <p>There are several steps to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
  *          <important>
  *             <p>If you're planning to transfer data to or from an Amazon S3 location, review
  *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">how
@@ -143,6 +143,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class StartTaskExecutionCommand extends $Command
@@ -153,9 +154,7 @@ export class StartTaskExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class StartTaskExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTaskExecutionCommand)
   .de(de_StartTaskExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTaskExecutionRequest;
+      output: StartTaskExecutionResponse;
+    };
+    sdk: {
+      input: StartTaskExecutionCommandInput;
+      output: StartTaskExecutionCommandOutput;
+    };
+  };
+}

@@ -15,16 +15,17 @@ operations at scale.</p>
 </p>
 <ul>
 <li>
-<p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+<p>For information about each of the tools that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-tools.html">Using
+Systems Manager tools</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
 </li>
 <li>
-<p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the
+<p>For details about predefined runbooks for Automation, a tool in Amazon Web Services Systems Manager, see the
 <i>
 <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation runbook reference</a>
 </i>.</p>
 </li>
 <li>
-<p>For information about AppConfig, a capability of Systems Manager, see the <i>
+<p>For information about AppConfig, a tool in Systems Manager, see the <i>
 <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig User Guide</a>
 </i>
 and the <i>
@@ -33,7 +34,7 @@ API Reference</a>
 </i>.</p>
 </li>
 <li>
-<p>For information about Incident Manager, a capability of Systems Manager, see the <i>
+<p>For information about Incident Manager, a tool in Systems Manager, see the <i>
 <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Systems Manager Incident Manager User
 Guide</a>
 </i> and the <i>
@@ -45,7 +46,7 @@ Reference</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm
+To install this package, simply type add or install @aws-sdk/client-ssm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm`
@@ -58,16 +59,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSMClient` and
-the commands you need, for example `ListAssociationsCommand`:
+the commands you need, for example `ListNodesCommand`:
 
 ```js
 // ES5 example
-const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm");
+const { SSMClient, ListNodesCommand } = require("@aws-sdk/client-ssm");
 ```
 
 ```ts
 // ES6+ example
-import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm";
+import { SSMClient, ListNodesCommand } from "@aws-sdk/client-ssm";
 ```
 
 ### Usage
@@ -86,7 +87,7 @@ const client = new SSMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListAssociationsCommand(params);
+const command = new ListNodesCommand(params);
 ```
 
 #### Async/await
@@ -165,7 +166,7 @@ const client = new AWS.SSM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listAssociations(params);
+  const data = await client.listNodes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -173,7 +174,7 @@ try {
 
 // Promises.
 client
-  .listAssociations(params)
+  .listNodes(params)
   .then((data) => {
     // process data.
   })
@@ -182,7 +183,7 @@ client
   });
 
 // callbacks.
-client.listAssociations(params, (err, data) => {
+client.listNodes(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -800,6 +801,14 @@ GetDocument
 </details>
 <details>
 <summary>
+GetExecutionPreview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/GetExecutionPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetExecutionPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetExecutionPreviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInventory
 </summary>
 
@@ -1032,6 +1041,22 @@ ListInventoryEntries
 </details>
 <details>
 <summary>
+ListNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListNodesSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListNodesSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesSummaryCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListOpsItemEvents
 </summary>
 
@@ -1212,6 +1237,14 @@ StartChangeRequestExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/StartChangeRequestExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartChangeRequestExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartChangeRequestExecutionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartExecutionPreview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/StartExecutionPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartExecutionPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartExecutionPreviewCommandOutput/)
 
 </details>
 <details>

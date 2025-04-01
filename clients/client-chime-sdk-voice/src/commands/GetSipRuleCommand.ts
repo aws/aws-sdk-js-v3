@@ -92,6 +92,7 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetSipRuleCommand extends $Command
@@ -102,9 +103,7 @@ export class GetSipRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetSipRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSipRuleCommand)
   .de(de_GetSipRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSipRuleRequest;
+      output: GetSipRuleResponse;
+    };
+    sdk: {
+      input: GetSipRuleCommandInput;
+      output: GetSipRuleCommandOutput;
+    };
+  };
+}

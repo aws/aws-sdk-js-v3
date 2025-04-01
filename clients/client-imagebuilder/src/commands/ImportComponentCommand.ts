@@ -42,7 +42,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  *   changeDescription: "STRING_VALUE",
  *   type: "BUILD" || "TEST", // required
  *   format: "SHELL", // required
- *   platform: "Windows" || "Linux", // required
+ *   platform: "Windows" || "Linux" || "macOS", // required
  *   data: "STRING_VALUE",
  *   uri: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
@@ -106,6 +106,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ImportComponentCommand extends $Command
@@ -116,9 +117,7 @@ export class ImportComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class ImportComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportComponentCommand)
   .de(de_ImportComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportComponentRequest;
+      output: ImportComponentResponse;
+    };
+    sdk: {
+      input: ImportComponentCommandInput;
+      output: ImportComponentCommandOutput;
+    };
+  };
+}

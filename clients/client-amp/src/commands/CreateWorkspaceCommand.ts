@@ -89,6 +89,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceCommand extends $Command
@@ -99,9 +100,7 @@ export class CreateWorkspaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class CreateWorkspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspaceCommand)
   .de(de_CreateWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceRequest;
+      output: CreateWorkspaceResponse;
+    };
+    sdk: {
+      input: CreateWorkspaceCommandInput;
+      output: CreateWorkspaceCommandOutput;
+    };
+  };
+}

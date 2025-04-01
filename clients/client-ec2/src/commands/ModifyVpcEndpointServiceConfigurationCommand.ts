@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ModifyVpcEndpointServiceConfigurationCommand,
   se_ModifyVpcEndpointServiceConfigurationCommand,
@@ -37,10 +37,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
- *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
- *             required for requests to connect to your endpoint service through an interface VPC
- *             endpoint.</p>
+ * <p>Modifies the attributes of the specified VPC endpoint service configuration.</p>
  *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
  *             domain name.</p>
  * @example
@@ -71,6 +68,8 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   RemoveSupportedIpAddressTypes: "<ValueStringList>",
+ *   AddSupportedRegions: "<ValueStringList>",
+ *   RemoveSupportedRegions: "<ValueStringList>",
  * };
  * const command = new ModifyVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);
@@ -89,6 +88,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVpcEndpointServiceConfigurationCommand extends $Command
@@ -99,9 +99,7 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +111,16 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcEndpointServiceConfigurationCommand)
   .de(de_ModifyVpcEndpointServiceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcEndpointServiceConfigurationRequest;
+      output: ModifyVpcEndpointServiceConfigurationResult;
+    };
+    sdk: {
+      input: ModifyVpcEndpointServiceConfigurationCommandInput;
+      output: ModifyVpcEndpointServiceConfigurationCommandOutput;
+    };
+  };
+}

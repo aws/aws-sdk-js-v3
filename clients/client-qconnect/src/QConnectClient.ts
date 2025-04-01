@@ -54,6 +54,25 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  ActivateMessageTemplateCommandInput,
+  ActivateMessageTemplateCommandOutput,
+} from "./commands/ActivateMessageTemplateCommand";
+import { CreateAIAgentCommandInput, CreateAIAgentCommandOutput } from "./commands/CreateAIAgentCommand";
+import {
+  CreateAIAgentVersionCommandInput,
+  CreateAIAgentVersionCommandOutput,
+} from "./commands/CreateAIAgentVersionCommand";
+import { CreateAIGuardrailCommandInput, CreateAIGuardrailCommandOutput } from "./commands/CreateAIGuardrailCommand";
+import {
+  CreateAIGuardrailVersionCommandInput,
+  CreateAIGuardrailVersionCommandOutput,
+} from "./commands/CreateAIGuardrailVersionCommand";
+import { CreateAIPromptCommandInput, CreateAIPromptCommandOutput } from "./commands/CreateAIPromptCommand";
+import {
+  CreateAIPromptVersionCommandInput,
+  CreateAIPromptVersionCommandOutput,
+} from "./commands/CreateAIPromptVersionCommand";
+import {
   CreateAssistantAssociationCommandInput,
   CreateAssistantAssociationCommandOutput,
 } from "./commands/CreateAssistantAssociationCommand";
@@ -68,10 +87,41 @@ import {
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  CreateMessageTemplateAttachmentCommandInput,
+  CreateMessageTemplateAttachmentCommandOutput,
+} from "./commands/CreateMessageTemplateAttachmentCommand";
+import {
+  CreateMessageTemplateCommandInput,
+  CreateMessageTemplateCommandOutput,
+} from "./commands/CreateMessageTemplateCommand";
+import {
+  CreateMessageTemplateVersionCommandInput,
+  CreateMessageTemplateVersionCommandOutput,
+} from "./commands/CreateMessageTemplateVersionCommand";
+import {
   CreateQuickResponseCommandInput,
   CreateQuickResponseCommandOutput,
 } from "./commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import {
+  DeactivateMessageTemplateCommandInput,
+  DeactivateMessageTemplateCommandOutput,
+} from "./commands/DeactivateMessageTemplateCommand";
+import { DeleteAIAgentCommandInput, DeleteAIAgentCommandOutput } from "./commands/DeleteAIAgentCommand";
+import {
+  DeleteAIAgentVersionCommandInput,
+  DeleteAIAgentVersionCommandOutput,
+} from "./commands/DeleteAIAgentVersionCommand";
+import { DeleteAIGuardrailCommandInput, DeleteAIGuardrailCommandOutput } from "./commands/DeleteAIGuardrailCommand";
+import {
+  DeleteAIGuardrailVersionCommandInput,
+  DeleteAIGuardrailVersionCommandOutput,
+} from "./commands/DeleteAIGuardrailVersionCommand";
+import { DeleteAIPromptCommandInput, DeleteAIPromptCommandOutput } from "./commands/DeleteAIPromptCommand";
+import {
+  DeleteAIPromptVersionCommandInput,
+  DeleteAIPromptVersionCommandOutput,
+} from "./commands/DeleteAIPromptVersionCommand";
 import {
   DeleteAssistantAssociationCommandInput,
   DeleteAssistantAssociationCommandOutput,
@@ -88,9 +138,20 @@ import {
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  DeleteMessageTemplateAttachmentCommandInput,
+  DeleteMessageTemplateAttachmentCommandOutput,
+} from "./commands/DeleteMessageTemplateAttachmentCommand";
+import {
+  DeleteMessageTemplateCommandInput,
+  DeleteMessageTemplateCommandOutput,
+} from "./commands/DeleteMessageTemplateCommand";
+import {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
+import { GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
+import { GetAIGuardrailCommandInput, GetAIGuardrailCommandOutput } from "./commands/GetAIGuardrailCommand";
+import { GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
@@ -104,9 +165,26 @@ import { GetContentCommandInput, GetContentCommandOutput } from "./commands/GetC
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "./commands/GetContentSummaryCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
+import { GetMessageTemplateCommandInput, GetMessageTemplateCommandOutput } from "./commands/GetMessageTemplateCommand";
+import { GetNextMessageCommandInput, GetNextMessageCommandOutput } from "./commands/GetNextMessageCommand";
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { ListAIAgentsCommandInput, ListAIAgentsCommandOutput } from "./commands/ListAIAgentsCommand";
+import {
+  ListAIAgentVersionsCommandInput,
+  ListAIAgentVersionsCommandOutput,
+} from "./commands/ListAIAgentVersionsCommand";
+import { ListAIGuardrailsCommandInput, ListAIGuardrailsCommandOutput } from "./commands/ListAIGuardrailsCommand";
+import {
+  ListAIGuardrailVersionsCommandInput,
+  ListAIGuardrailVersionsCommandOutput,
+} from "./commands/ListAIGuardrailVersionsCommand";
+import { ListAIPromptsCommandInput, ListAIPromptsCommandOutput } from "./commands/ListAIPromptsCommand";
+import {
+  ListAIPromptVersionsCommandInput,
+  ListAIPromptVersionsCommandOutput,
+} from "./commands/ListAIPromptVersionsCommand";
 import {
   ListAssistantAssociationsCommandInput,
   ListAssistantAssociationsCommandOutput,
@@ -119,6 +197,15 @@ import {
 import { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
+import { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
+import {
+  ListMessageTemplatesCommandInput,
+  ListMessageTemplatesCommandOutput,
+} from "./commands/ListMessageTemplatesCommand";
+import {
+  ListMessageTemplateVersionsCommandInput,
+  ListMessageTemplateVersionsCommandOutput,
+} from "./commands/ListMessageTemplateVersionsCommand";
 import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "./commands/ListQuickResponsesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -131,29 +218,58 @@ import {
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
 import {
+  RemoveAssistantAIAgentCommandInput,
+  RemoveAssistantAIAgentCommandOutput,
+} from "./commands/RemoveAssistantAIAgentCommand";
+import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
+import {
+  RenderMessageTemplateCommandInput,
+  RenderMessageTemplateCommandOutput,
+} from "./commands/RenderMessageTemplateCommand";
 import { SearchContentCommandInput, SearchContentCommandOutput } from "./commands/SearchContentCommand";
+import {
+  SearchMessageTemplatesCommandInput,
+  SearchMessageTemplatesCommandOutput,
+} from "./commands/SearchMessageTemplatesCommand";
 import {
   SearchQuickResponsesCommandInput,
   SearchQuickResponsesCommandOutput,
 } from "./commands/SearchQuickResponsesCommand";
 import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "./commands/SearchSessionsCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "./commands/StartContentUploadCommand";
 import { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAIAgentCommandInput, UpdateAIAgentCommandOutput } from "./commands/UpdateAIAgentCommand";
+import { UpdateAIGuardrailCommandInput, UpdateAIGuardrailCommandOutput } from "./commands/UpdateAIGuardrailCommand";
+import { UpdateAIPromptCommandInput, UpdateAIPromptCommandOutput } from "./commands/UpdateAIPromptCommand";
+import {
+  UpdateAssistantAIAgentCommandInput,
+  UpdateAssistantAIAgentCommandOutput,
+} from "./commands/UpdateAssistantAIAgentCommand";
 import { UpdateContentCommandInput, UpdateContentCommandOutput } from "./commands/UpdateContentCommand";
 import {
   UpdateKnowledgeBaseTemplateUriCommandInput,
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  UpdateMessageTemplateCommandInput,
+  UpdateMessageTemplateCommandOutput,
+} from "./commands/UpdateMessageTemplateCommand";
+import {
+  UpdateMessageTemplateMetadataCommandInput,
+  UpdateMessageTemplateMetadataCommandOutput,
+} from "./commands/UpdateMessageTemplateMetadataCommand";
+import {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
+import { UpdateSessionDataCommandInput, UpdateSessionDataCommandOutput } from "./commands/UpdateSessionDataCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -169,20 +285,42 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ActivateMessageTemplateCommandInput
+  | CreateAIAgentCommandInput
+  | CreateAIAgentVersionCommandInput
+  | CreateAIGuardrailCommandInput
+  | CreateAIGuardrailVersionCommandInput
+  | CreateAIPromptCommandInput
+  | CreateAIPromptVersionCommandInput
   | CreateAssistantAssociationCommandInput
   | CreateAssistantCommandInput
   | CreateContentAssociationCommandInput
   | CreateContentCommandInput
   | CreateKnowledgeBaseCommandInput
+  | CreateMessageTemplateAttachmentCommandInput
+  | CreateMessageTemplateCommandInput
+  | CreateMessageTemplateVersionCommandInput
   | CreateQuickResponseCommandInput
   | CreateSessionCommandInput
+  | DeactivateMessageTemplateCommandInput
+  | DeleteAIAgentCommandInput
+  | DeleteAIAgentVersionCommandInput
+  | DeleteAIGuardrailCommandInput
+  | DeleteAIGuardrailVersionCommandInput
+  | DeleteAIPromptCommandInput
+  | DeleteAIPromptVersionCommandInput
   | DeleteAssistantAssociationCommandInput
   | DeleteAssistantCommandInput
   | DeleteContentAssociationCommandInput
   | DeleteContentCommandInput
   | DeleteImportJobCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeleteMessageTemplateAttachmentCommandInput
+  | DeleteMessageTemplateCommandInput
   | DeleteQuickResponseCommandInput
+  | GetAIAgentCommandInput
+  | GetAIGuardrailCommandInput
+  | GetAIPromptCommandInput
   | GetAssistantAssociationCommandInput
   | GetAssistantCommandInput
   | GetContentAssociationCommandInput
@@ -190,51 +328,95 @@ export type ServiceInputTypes =
   | GetContentSummaryCommandInput
   | GetImportJobCommandInput
   | GetKnowledgeBaseCommandInput
+  | GetMessageTemplateCommandInput
+  | GetNextMessageCommandInput
   | GetQuickResponseCommandInput
   | GetRecommendationsCommandInput
   | GetSessionCommandInput
+  | ListAIAgentVersionsCommandInput
+  | ListAIAgentsCommandInput
+  | ListAIGuardrailVersionsCommandInput
+  | ListAIGuardrailsCommandInput
+  | ListAIPromptVersionsCommandInput
+  | ListAIPromptsCommandInput
   | ListAssistantAssociationsCommandInput
   | ListAssistantsCommandInput
   | ListContentAssociationsCommandInput
   | ListContentsCommandInput
   | ListImportJobsCommandInput
   | ListKnowledgeBasesCommandInput
+  | ListMessageTemplateVersionsCommandInput
+  | ListMessageTemplatesCommandInput
+  | ListMessagesCommandInput
   | ListQuickResponsesCommandInput
   | ListTagsForResourceCommandInput
   | NotifyRecommendationsReceivedCommandInput
   | PutFeedbackCommandInput
   | QueryAssistantCommandInput
+  | RemoveAssistantAIAgentCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
+  | RenderMessageTemplateCommandInput
   | SearchContentCommandInput
+  | SearchMessageTemplatesCommandInput
   | SearchQuickResponsesCommandInput
   | SearchSessionsCommandInput
+  | SendMessageCommandInput
   | StartContentUploadCommandInput
   | StartImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAIAgentCommandInput
+  | UpdateAIGuardrailCommandInput
+  | UpdateAIPromptCommandInput
+  | UpdateAssistantAIAgentCommandInput
   | UpdateContentCommandInput
   | UpdateKnowledgeBaseTemplateUriCommandInput
+  | UpdateMessageTemplateCommandInput
+  | UpdateMessageTemplateMetadataCommandInput
   | UpdateQuickResponseCommandInput
-  | UpdateSessionCommandInput;
+  | UpdateSessionCommandInput
+  | UpdateSessionDataCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | ActivateMessageTemplateCommandOutput
+  | CreateAIAgentCommandOutput
+  | CreateAIAgentVersionCommandOutput
+  | CreateAIGuardrailCommandOutput
+  | CreateAIGuardrailVersionCommandOutput
+  | CreateAIPromptCommandOutput
+  | CreateAIPromptVersionCommandOutput
   | CreateAssistantAssociationCommandOutput
   | CreateAssistantCommandOutput
   | CreateContentAssociationCommandOutput
   | CreateContentCommandOutput
   | CreateKnowledgeBaseCommandOutput
+  | CreateMessageTemplateAttachmentCommandOutput
+  | CreateMessageTemplateCommandOutput
+  | CreateMessageTemplateVersionCommandOutput
   | CreateQuickResponseCommandOutput
   | CreateSessionCommandOutput
+  | DeactivateMessageTemplateCommandOutput
+  | DeleteAIAgentCommandOutput
+  | DeleteAIAgentVersionCommandOutput
+  | DeleteAIGuardrailCommandOutput
+  | DeleteAIGuardrailVersionCommandOutput
+  | DeleteAIPromptCommandOutput
+  | DeleteAIPromptVersionCommandOutput
   | DeleteAssistantAssociationCommandOutput
   | DeleteAssistantCommandOutput
   | DeleteContentAssociationCommandOutput
   | DeleteContentCommandOutput
   | DeleteImportJobCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeleteMessageTemplateAttachmentCommandOutput
+  | DeleteMessageTemplateCommandOutput
   | DeleteQuickResponseCommandOutput
+  | GetAIAgentCommandOutput
+  | GetAIGuardrailCommandOutput
+  | GetAIPromptCommandOutput
   | GetAssistantAssociationCommandOutput
   | GetAssistantCommandOutput
   | GetContentAssociationCommandOutput
@@ -242,32 +424,54 @@ export type ServiceOutputTypes =
   | GetContentSummaryCommandOutput
   | GetImportJobCommandOutput
   | GetKnowledgeBaseCommandOutput
+  | GetMessageTemplateCommandOutput
+  | GetNextMessageCommandOutput
   | GetQuickResponseCommandOutput
   | GetRecommendationsCommandOutput
   | GetSessionCommandOutput
+  | ListAIAgentVersionsCommandOutput
+  | ListAIAgentsCommandOutput
+  | ListAIGuardrailVersionsCommandOutput
+  | ListAIGuardrailsCommandOutput
+  | ListAIPromptVersionsCommandOutput
+  | ListAIPromptsCommandOutput
   | ListAssistantAssociationsCommandOutput
   | ListAssistantsCommandOutput
   | ListContentAssociationsCommandOutput
   | ListContentsCommandOutput
   | ListImportJobsCommandOutput
   | ListKnowledgeBasesCommandOutput
+  | ListMessageTemplateVersionsCommandOutput
+  | ListMessageTemplatesCommandOutput
+  | ListMessagesCommandOutput
   | ListQuickResponsesCommandOutput
   | ListTagsForResourceCommandOutput
   | NotifyRecommendationsReceivedCommandOutput
   | PutFeedbackCommandOutput
   | QueryAssistantCommandOutput
+  | RemoveAssistantAIAgentCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
+  | RenderMessageTemplateCommandOutput
   | SearchContentCommandOutput
+  | SearchMessageTemplatesCommandOutput
   | SearchQuickResponsesCommandOutput
   | SearchSessionsCommandOutput
+  | SendMessageCommandOutput
   | StartContentUploadCommandOutput
   | StartImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAIAgentCommandOutput
+  | UpdateAIGuardrailCommandOutput
+  | UpdateAIPromptCommandOutput
+  | UpdateAssistantAIAgentCommandOutput
   | UpdateContentCommandOutput
   | UpdateKnowledgeBaseTemplateUriCommandOutput
+  | UpdateMessageTemplateCommandOutput
+  | UpdateMessageTemplateMetadataCommandOutput
   | UpdateQuickResponseCommandOutput
-  | UpdateSessionCommandOutput;
+  | UpdateSessionCommandOutput
+  | UpdateSessionDataCommandOutput;
 
 /**
  * @public
@@ -361,6 +565,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -406,11 +629,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type QConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -426,11 +649,11 @@ export interface QConnectClientConfig extends QConnectClientConfigType {}
 export type QConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -441,7 +664,21 @@ export type QConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface QConnectClientResolvedConfig extends QConnectClientResolvedConfigType {}
 
 /**
- * <note>
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html">Amazon Q
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html">Amazon Q data
+ *             types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
  *           detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full advantage of
@@ -476,26 +713,30 @@ export class QConnectClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<QConnectClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultQConnectHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: QConnectClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -508,14 +749,5 @@ export class QConnectClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultQConnectHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: QConnectClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

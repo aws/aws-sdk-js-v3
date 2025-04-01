@@ -134,6 +134,7 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class TestAuthorizationCommand extends $Command
@@ -144,9 +145,7 @@ export class TestAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class TestAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestAuthorizationCommand)
   .de(de_TestAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestAuthorizationRequest;
+      output: TestAuthorizationResponse;
+    };
+    sdk: {
+      input: TestAuthorizationCommandInput;
+      output: TestAuthorizationCommandOutput;
+    };
+  };
+}

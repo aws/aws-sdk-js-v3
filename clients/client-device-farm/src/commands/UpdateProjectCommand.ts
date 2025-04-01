@@ -93,28 +93,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To update a device pool
- * ```javascript
- * // The following example updates the specified project with a new name.
- * const input = {
- *   "name": "NewName",
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:8f75187d-101e-4625-accc-12345EXAMPLE"
- * };
- * const command = new UpdateProjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "project": {
- *     "name": "NewName",
- *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:8f75187d-101e-4625-accc-12345EXAMPLE",
- *     "created": "1448400709.927"
- *   }
- * }
- * *\/
- * // example id: to-update-a-device-pool-1472653887677
- * ```
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<
@@ -124,9 +104,7 @@ export class UpdateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +116,16 @@ export class UpdateProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProjectCommand)
   .de(de_UpdateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProjectRequest;
+      output: UpdateProjectResult;
+    };
+    sdk: {
+      input: UpdateProjectCommandInput;
+      output: UpdateProjectCommandOutput;
+    };
+  };
+}

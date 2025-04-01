@@ -39,6 +39,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeQueryDefinitionsRequest
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  *   queryDefinitionNamePrefix: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -48,6 +49,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * // { // DescribeQueryDefinitionsResponse
  * //   queryDefinitions: [ // QueryDefinitionList
  * //     { // QueryDefinition
+ * //       queryLanguage: "CWLI" || "SQL" || "PPL",
  * //       queryDefinitionId: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       queryString: "STRING_VALUE",
@@ -77,6 +79,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeQueryDefinitionsCommand extends $Command
@@ -87,9 +90,7 @@ export class DescribeQueryDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DescribeQueryDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQueryDefinitionsCommand)
   .de(de_DescribeQueryDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQueryDefinitionsRequest;
+      output: DescribeQueryDefinitionsResponse;
+    };
+    sdk: {
+      input: DescribeQueryDefinitionsCommandInput;
+      output: DescribeQueryDefinitionsCommandOutput;
+    };
+  };
+}

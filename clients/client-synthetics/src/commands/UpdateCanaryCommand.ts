@@ -71,6 +71,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   VisualReference: { // VisualReferenceInput
  *     BaseScreenshots: [ // BaseScreenshots
@@ -90,6 +91,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);
@@ -121,6 +123,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class UpdateCanaryCommand extends $Command
@@ -131,9 +134,7 @@ export class UpdateCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +146,16 @@ export class UpdateCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCanaryCommand)
   .de(de_UpdateCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCanaryCommandInput;
+      output: UpdateCanaryCommandOutput;
+    };
+  };
+}

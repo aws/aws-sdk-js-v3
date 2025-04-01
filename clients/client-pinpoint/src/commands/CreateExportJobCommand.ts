@@ -103,6 +103,7 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class CreateExportJobCommand extends $Command
@@ -113,9 +114,7 @@ export class CreateExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class CreateExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExportJobCommand)
   .de(de_CreateExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExportJobRequest;
+      output: CreateExportJobResponse;
+    };
+    sdk: {
+      input: CreateExportJobCommandInput;
+      output: CreateExportJobCommandOutput;
+    };
+  };
+}

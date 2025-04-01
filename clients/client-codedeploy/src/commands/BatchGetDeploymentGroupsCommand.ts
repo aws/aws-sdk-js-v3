@@ -246,6 +246,7 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDeploymentGroupsCommand extends $Command
@@ -256,9 +257,7 @@ export class BatchGetDeploymentGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -270,4 +269,16 @@ export class BatchGetDeploymentGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetDeploymentGroupsCommand)
   .de(de_BatchGetDeploymentGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDeploymentGroupsInput;
+      output: BatchGetDeploymentGroupsOutput;
+    };
+    sdk: {
+      input: BatchGetDeploymentGroupsCommandInput;
+      output: BatchGetDeploymentGroupsCommandOutput;
+    };
+  };
+}

@@ -180,6 +180,28 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To create policy store
+ * ```javascript
+ * // The following example creates a new policy store with strict validation turned on.
+ * const input = {
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   validationSettings: {
+ *     mode: "STRICT"
+ *   }
+ * };
+ * const command = new CreatePolicyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreatePolicyStoreCommand extends $Command
@@ -190,9 +212,7 @@ export class CreatePolicyStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -204,4 +224,16 @@ export class CreatePolicyStoreCommand extends $Command
   .f(CreatePolicyStoreInputFilterSensitiveLog, void 0)
   .ser(se_CreatePolicyStoreCommand)
   .de(de_CreatePolicyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePolicyStoreInput;
+      output: CreatePolicyStoreOutput;
+    };
+    sdk: {
+      input: CreatePolicyStoreCommandInput;
+      output: CreatePolicyStoreCommandOutput;
+    };
+  };
+}

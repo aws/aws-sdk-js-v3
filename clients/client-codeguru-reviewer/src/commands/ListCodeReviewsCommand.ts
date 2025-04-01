@@ -130,6 +130,7 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class ListCodeReviewsCommand extends $Command
@@ -140,9 +141,7 @@ export class ListCodeReviewsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class ListCodeReviewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCodeReviewsCommand)
   .de(de_ListCodeReviewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCodeReviewsRequest;
+      output: ListCodeReviewsResponse;
+    };
+    sdk: {
+      input: ListCodeReviewsCommandInput;
+      output: ListCodeReviewsCommandOutput;
+    };
+  };
+}

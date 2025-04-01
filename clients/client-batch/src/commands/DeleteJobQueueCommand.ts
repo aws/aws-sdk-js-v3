@@ -66,18 +66,21 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To delete a job queue
  * ```javascript
  * // This example deletes the GPGPU job queue.
  * const input = {
- *   "jobQueue": "GPGPU"
+ *   jobQueue: "GPGPU"
  * };
  * const command = new DeleteJobQueueCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-job-queue-1481153508134
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteJobQueueCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class DeleteJobQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DeleteJobQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteJobQueueCommand)
   .de(de_DeleteJobQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteJobQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteJobQueueCommandInput;
+      output: DeleteJobQueueCommandOutput;
+    };
+  };
+}

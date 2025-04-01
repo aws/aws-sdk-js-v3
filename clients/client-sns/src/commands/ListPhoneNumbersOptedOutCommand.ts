@@ -82,6 +82,7 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command
@@ -92,9 +93,7 @@ export class ListPhoneNumbersOptedOutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListPhoneNumbersOptedOutCommand extends $Command
   .f(void 0, ListPhoneNumbersOptedOutResponseFilterSensitiveLog)
   .ser(se_ListPhoneNumbersOptedOutCommand)
   .de(de_ListPhoneNumbersOptedOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersOptedOutInput;
+      output: ListPhoneNumbersOptedOutResponse;
+    };
+    sdk: {
+      input: ListPhoneNumbersOptedOutCommandInput;
+      output: ListPhoneNumbersOptedOutCommandOutput;
+    };
+  };
+}

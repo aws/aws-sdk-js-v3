@@ -70,6 +70,7 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class GrantAccessCommand extends $Command
@@ -80,9 +81,7 @@ export class GrantAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class GrantAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GrantAccessCommand)
   .de(de_GrantAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GrantAccessRequest;
+      output: GrantAccessResult;
+    };
+    sdk: {
+      input: GrantAccessCommandInput;
+      output: GrantAccessCommandOutput;
+    };
+  };
+}

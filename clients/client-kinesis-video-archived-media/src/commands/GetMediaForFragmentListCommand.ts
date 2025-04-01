@@ -89,6 +89,11 @@ export interface GetMediaForFragmentListCommandOutput
  * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Payload.transformToByteArray();
+ * // const str = await response.Payload.transformToString();
+ * // response.Payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetMediaForFragmentListOutput
  * //   ContentType: "STRING_VALUE",
  * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -128,6 +133,7 @@ export interface GetMediaForFragmentListCommandOutput
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class GetMediaForFragmentListCommand extends $Command
@@ -138,9 +144,7 @@ export class GetMediaForFragmentListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +156,16 @@ export class GetMediaForFragmentListCommand extends $Command
   .f(void 0, GetMediaForFragmentListOutputFilterSensitiveLog)
   .ser(se_GetMediaForFragmentListCommand)
   .de(de_GetMediaForFragmentListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaForFragmentListInput;
+      output: GetMediaForFragmentListOutput;
+    };
+    sdk: {
+      input: GetMediaForFragmentListCommandInput;
+      output: GetMediaForFragmentListCommandOutput;
+    };
+  };
+}

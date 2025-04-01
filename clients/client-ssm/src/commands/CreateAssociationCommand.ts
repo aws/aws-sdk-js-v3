@@ -37,12 +37,12 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *    nodes. For example, an association can specify that anti-virus software must be installed and
  *    running on your managed nodes, or that certain ports must be closed. For static targets, the
  *    association specifies a schedule for when the configuration is reapplied. For dynamic targets,
- *    such as an Amazon Web Services resource group or an Amazon Web Services autoscaling group, State Manager, a capability of
- *    Amazon Web Services Systems Manager applies the configuration when new managed nodes are added to the group. The
- *    association also specifies actions to take when applying the configuration. For example, an
- *    association for anti-virus software might run once a day. If the software isn't installed, then
- *    State Manager installs it. If the software is installed, but the service isn't running, then the
- *    association might instruct State Manager to start the service. </p>
+ *    such as an Amazon Web Services resource group or an Amazon Web Services autoscaling group, State Manager, a tool in Amazon Web Services Systems Manager
+ *    applies the configuration when new managed nodes are added to the group. The association also
+ *    specifies actions to take when applying the configuration. For example, an association for
+ *    anti-virus software might run once a day. If the software isn't installed, then State Manager
+ *    installs it. If the software is installed, but the service isn't running, then the association
+ *    might instruct State Manager to start the service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,6 +103,20 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *           },
  *         ],
  *       },
+ *       IncludeChildOrganizationUnits: true || false,
+ *       ExcludeAccounts: [ // ExcludeAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *       Targets: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetsMaxConcurrency: "STRING_VALUE",
+ *       TargetsMaxErrors: "STRING_VALUE",
  *     },
  *   ],
  *   ScheduleOffset: Number("int"),
@@ -205,6 +219,20 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [ // ExcludeAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
@@ -303,6 +331,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateAssociationCommand extends $Command
@@ -313,9 +342,7 @@ export class CreateAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -327,4 +354,16 @@ export class CreateAssociationCommand extends $Command
   .f(CreateAssociationRequestFilterSensitiveLog, CreateAssociationResultFilterSensitiveLog)
   .ser(se_CreateAssociationCommand)
   .de(de_CreateAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssociationRequest;
+      output: CreateAssociationResult;
+    };
+    sdk: {
+      input: CreateAssociationCommandInput;
+      output: CreateAssociationCommandOutput;
+    };
+  };
+}

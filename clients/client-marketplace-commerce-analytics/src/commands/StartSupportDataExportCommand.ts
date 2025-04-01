@@ -79,6 +79,7 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ *
  * @public
  */
 export class StartSupportDataExportCommand extends $Command
@@ -89,9 +90,7 @@ export class StartSupportDataExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCommerceAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class StartSupportDataExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSupportDataExportCommand)
   .de(de_StartSupportDataExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSupportDataExportRequest;
+      output: StartSupportDataExportResult;
+    };
+    sdk: {
+      input: StartSupportDataExportCommandInput;
+      output: StartSupportDataExportCommandOutput;
+    };
+  };
+}

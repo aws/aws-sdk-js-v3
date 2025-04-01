@@ -138,85 +138,8 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
- * @example Create Metrics export job
- * ```javascript
- * // Creates a new export job for Metrics data
- * const input = {
- *   "ExportDataSource": {
- *     "MetricsDataSource": {
- *       "Dimensions": {
- *         "ISP": [
- *           "*"
- *         ]
- *       },
- *       "EndDate": "2023-07-02T00:00:00",
- *       "Metrics": [
- *         {
- *           "Aggregation": "VOLUME",
- *           "Name": "SEND"
- *         },
- *         {
- *           "Aggregation": "VOLUME",
- *           "Name": "COMPLAINT"
- *         },
- *         {
- *           "Aggregation": "RATE",
- *           "Name": "COMPLAINT"
- *         }
- *       ],
- *       "Namespace": "VDM",
- *       "StartDate": "2023-07-01T00:00:00"
- *     }
- *   },
- *   "ExportDestination": {
- *     "DataFormat": "CSV"
- *   }
- * };
- * const command = new CreateExportJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobId": "ef28cf62-9d8e-4b60-9283-b09816c99a99"
- * }
- * *\/
- * // example id: create-export-job-1685701853690
- * ```
- *
- * @example Create Message Insights export job
- * ```javascript
- * // Creates a new export job for Message Insights data
- * const input = {
- *   "ExportDataSource": {
- *     "MessageInsightsDataSource": {
- *       "EndDate": "2023-07-02T00:00:00",
- *       "Exclude": {
- *         "FromEmailAddress": [
- *           "hello@example.com"
- *         ]
- *       },
- *       "Include": {
- *         "Subject": [
- *           "Hello"
- *         ]
- *       },
- *       "StartDate": "2023-07-01T00:00:00"
- *     }
- *   },
- *   "ExportDestination": {
- *     "DataFormat": "CSV"
- *   }
- * };
- * const command = new CreateExportJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobId": "ef28cf62-9d8e-4b60-9283-b09816c99a99"
- * }
- * *\/
- * // example id: create-export-job-1689957853323
- * ```
- *
  */
 export class CreateExportJobCommand extends $Command
   .classBuilder<
@@ -226,9 +149,7 @@ export class CreateExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -240,4 +161,16 @@ export class CreateExportJobCommand extends $Command
   .f(CreateExportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateExportJobCommand)
   .de(de_CreateExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExportJobRequest;
+      output: CreateExportJobResponse;
+    };
+    sdk: {
+      input: CreateExportJobCommandInput;
+      output: CreateExportJobCommandOutput;
+    };
+  };
+}

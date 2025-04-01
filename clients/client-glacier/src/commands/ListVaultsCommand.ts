@@ -98,34 +98,8 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
- * @example To list all vaults owned by the calling user's account
- * ```javascript
- * // The example lists all vaults owned by the specified AWS account.
- * const input = {
- *   "accountId": "-",
- *   "limit": "",
- *   "marker": ""
- * };
- * const command = new ListVaultsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VaultList": [
- *     {
- *       "CreationDate": "2015-04-06T21:23:45.708Z",
- *       "LastInventoryDate": "2015-04-07T00:26:19.028Z",
- *       "NumberOfArchives": 1,
- *       "SizeInBytes": 3178496,
- *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault",
- *       "VaultName": "my-vault"
- *     }
- *   ]
- * }
- * *\/
- * // example id: list-vaults-1481753006990
- * ```
  *
+ * @public
  */
 export class ListVaultsCommand extends $Command
   .classBuilder<
@@ -135,9 +109,7 @@ export class ListVaultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +121,16 @@ export class ListVaultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVaultsCommand)
   .de(de_ListVaultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVaultsInput;
+      output: ListVaultsOutput;
+    };
+    sdk: {
+      input: ListVaultsCommandInput;
+      output: ListVaultsCommandOutput;
+    };
+  };
+}

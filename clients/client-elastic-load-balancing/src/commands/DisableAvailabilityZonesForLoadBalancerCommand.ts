@@ -83,28 +83,28 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To disable an Availability Zone for a load balancer
  * ```javascript
  * // This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.
  * const input = {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     "us-west-2a"
  *   ],
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     "us-west-2b"
  *   ]
  * }
  * *\/
- * // example id: elb-disable-availability-zones-for-load-balancer-1
  * ```
  *
+ * @public
  */
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command
   .classBuilder<
@@ -114,9 +114,7 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +126,16 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAvailabilityZonesForLoadBalancerCommand)
   .de(de_DisableAvailabilityZonesForLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAvailabilityZonesInput;
+      output: RemoveAvailabilityZonesOutput;
+    };
+    sdk: {
+      input: DisableAvailabilityZonesForLoadBalancerCommandInput;
+      output: DisableAvailabilityZonesForLoadBalancerCommandOutput;
+    };
+  };
+}

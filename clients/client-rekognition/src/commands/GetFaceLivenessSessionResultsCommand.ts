@@ -124,6 +124,7 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class GetFaceLivenessSessionResultsCommand extends $Command
@@ -134,9 +135,7 @@ export class GetFaceLivenessSessionResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class GetFaceLivenessSessionResultsCommand extends $Command
   .f(void 0, GetFaceLivenessSessionResultsResponseFilterSensitiveLog)
   .ser(se_GetFaceLivenessSessionResultsCommand)
   .de(de_GetFaceLivenessSessionResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFaceLivenessSessionResultsRequest;
+      output: GetFaceLivenessSessionResultsResponse;
+    };
+    sdk: {
+      input: GetFaceLivenessSessionResultsCommandInput;
+      output: GetFaceLivenessSessionResultsCommandOutput;
+    };
+  };
+}

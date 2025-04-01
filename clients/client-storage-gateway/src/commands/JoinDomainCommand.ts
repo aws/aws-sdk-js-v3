@@ -82,6 +82,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class JoinDomainCommand extends $Command
@@ -92,9 +93,7 @@ export class JoinDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class JoinDomainCommand extends $Command
   .f(JoinDomainInputFilterSensitiveLog, void 0)
   .ser(se_JoinDomainCommand)
   .de(de_JoinDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JoinDomainInput;
+      output: JoinDomainOutput;
+    };
+    sdk: {
+      input: JoinDomainCommandInput;
+      output: JoinDomainCommandOutput;
+    };
+  };
+}

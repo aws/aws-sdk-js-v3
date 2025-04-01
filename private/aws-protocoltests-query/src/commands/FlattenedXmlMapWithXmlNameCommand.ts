@@ -53,6 +53,7 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command
@@ -71,4 +72,16 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FlattenedXmlMapWithXmlNameCommand)
   .de(de_FlattenedXmlMapWithXmlNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: FlattenedXmlMapWithXmlNameOutput;
+    };
+    sdk: {
+      input: FlattenedXmlMapWithXmlNameCommandInput;
+      output: FlattenedXmlMapWithXmlNameCommandOutput;
+    };
+  };
+}

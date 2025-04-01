@@ -3,6 +3,9 @@ import { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } f
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
+/**
+ * @internal
+ */
 export const endpointDiscoveryMiddlewareOptions: BuildHandlerOptions = {
   name: "endpointDiscoveryMiddleware",
   step: "build",
@@ -10,6 +13,9 @@ export const endpointDiscoveryMiddlewareOptions: BuildHandlerOptions = {
   override: true,
 };
 
+/**
+ * @public
+ */
 export interface EndpointDiscoveryMiddlewareConfig {
   isDiscoveredEndpointRequired: boolean;
   clientStack: MiddlewareStack<any, any>;
@@ -17,6 +23,9 @@ export interface EndpointDiscoveryMiddlewareConfig {
   identifiers?: Record<string, string>;
 }
 
+/**
+ * @internal
+ */
 export const getEndpointDiscoveryPlugin = (
   pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: EndpointDiscoveryMiddlewareConfig
@@ -27,6 +36,7 @@ export const getEndpointDiscoveryPlugin = (
 });
 
 /**
+ * @internal
  * @deprecated Use getEndpointDiscoveryPlugin
  */
 export const getEndpointDiscoveryRequiredPlugin = (
@@ -42,6 +52,7 @@ export const getEndpointDiscoveryRequiredPlugin = (
 });
 
 /**
+ * @internal
  * @deprecated Use getEndpointDiscoveryPlugin
  */
 export const getEndpointDiscoveryOptionalPlugin = (

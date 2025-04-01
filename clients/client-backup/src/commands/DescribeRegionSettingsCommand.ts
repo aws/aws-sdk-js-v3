@@ -65,6 +65,7 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegionSettingsCommand extends $Command
@@ -75,9 +76,7 @@ export class DescribeRegionSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DescribeRegionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegionSettingsCommand)
   .de(de_DescribeRegionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeRegionSettingsOutput;
+    };
+    sdk: {
+      input: DescribeRegionSettingsCommandInput;
+      output: DescribeRegionSettingsCommandOutput;
+    };
+  };
+}

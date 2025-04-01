@@ -67,6 +67,10 @@ import {
 import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "../commands/CreateExportJobCommand";
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "../commands/CreateImportJobCommand";
 import {
+  CreateMultiRegionEndpointCommandInput,
+  CreateMultiRegionEndpointCommandOutput,
+} from "../commands/CreateMultiRegionEndpointCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "../commands/DeleteConfigurationSetCommand";
@@ -96,6 +100,10 @@ import {
   DeleteEmailTemplateCommandInput,
   DeleteEmailTemplateCommandOutput,
 } from "../commands/DeleteEmailTemplateCommand";
+import {
+  DeleteMultiRegionEndpointCommandInput,
+  DeleteMultiRegionEndpointCommandOutput,
+} from "../commands/DeleteMultiRegionEndpointCommand";
 import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
@@ -148,6 +156,10 @@ import { GetExportJobCommandInput, GetExportJobCommandOutput } from "../commands
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import { GetMessageInsightsCommandInput, GetMessageInsightsCommandOutput } from "../commands/GetMessageInsightsCommand";
 import {
+  GetMultiRegionEndpointCommandInput,
+  GetMultiRegionEndpointCommandOutput,
+} from "../commands/GetMultiRegionEndpointCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "../commands/GetSuppressedDestinationCommand";
@@ -181,6 +193,10 @@ import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from 
 import { ListExportJobsCommandInput, ListExportJobsCommandOutput } from "../commands/ListExportJobsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import {
+  ListMultiRegionEndpointsCommandInput,
+  ListMultiRegionEndpointsCommandOutput,
+} from "../commands/ListMultiRegionEndpointsCommand";
+import {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "../commands/ListRecommendationsCommand";
@@ -209,6 +225,10 @@ import {
   PutAccountVdmAttributesCommandInput,
   PutAccountVdmAttributesCommandOutput,
 } from "../commands/PutAccountVdmAttributesCommand";
+import {
+  PutConfigurationSetArchivingOptionsCommandInput,
+  PutConfigurationSetArchivingOptionsCommandOutput,
+} from "../commands/PutConfigurationSetArchivingOptionsCommand";
 import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
@@ -306,6 +326,7 @@ import {
 import {
   AccountSuspendedException,
   AlreadyExistsException,
+  ArchivingOptions,
   BadRequestException,
   BatchGetMetricDataQuery,
   BlacklistEntry,
@@ -327,6 +348,7 @@ import {
   DeliveryEventType,
   DeliveryOptions,
   Destination,
+  Details,
   DkimAttributes,
   DkimSigningAttributes,
   DomainDeliverabilityCampaign,
@@ -369,6 +391,7 @@ import {
   MetricDataResult,
   MetricDimensionName,
   MetricsDataSource,
+  MultiRegionEndpoint,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
@@ -378,6 +401,7 @@ import {
   ReplacementEmailContent,
   ReplacementTemplate,
   ReputationOptions,
+  RouteDetails,
   SendingOptions,
   SendingPausedException,
   SendQuota,
@@ -453,6 +477,7 @@ export const se_CreateConfigurationSetCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ArchivingOptions: (_) => _json(_),
       ConfigurationSetName: [],
       DeliveryOptions: (_) => _json(_),
       ReputationOptions: (_) => se_ReputationOptions(_, context),
@@ -737,6 +762,30 @@ export const se_CreateImportJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateMultiRegionEndpointCommand
+ */
+export const se_CreateMultiRegionEndpointCommand = async (
+  input: CreateMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/multi-region-endpoints");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Details: (_) => _json(_),
+      EndpointName: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const se_DeleteConfigurationSetCommand = async (
@@ -884,6 +933,22 @@ export const se_DeleteEmailTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteMultiRegionEndpointCommand
+ */
+export const se_DeleteMultiRegionEndpointCommand = async (
+  input: DeleteMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints/{EndpointName}");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteSuppressedDestinationCommand
  */
 export const se_DeleteSuppressedDestinationCommand = async (
@@ -925,10 +990,7 @@ export const se_GetBlacklistReportsCommand = async (
   const headers: any = {};
   b.bp("/v2/email/deliverability-dashboard/blacklist-report");
   const query: any = map({
-    [_BIN]: [
-      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
-      () => (input[_BIN]! || []).map((_entry) => _entry as any),
-    ],
+    [_BIN]: [__expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null, () => input[_BIN]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1232,6 +1294,22 @@ export const se_GetMessageInsightsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMultiRegionEndpointCommand
+ */
+export const se_GetMultiRegionEndpointCommand = async (
+  input: GetMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints/{EndpointName}");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const se_GetSuppressedDestinationCommand = async (
@@ -1477,6 +1555,25 @@ export const se_ListImportJobsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMultiRegionEndpointsCommand
+ */
+export const se_ListMultiRegionEndpointsCommand = async (
+  input: ListMultiRegionEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRecommendationsCommand
  */
 export const se_ListRecommendationsCommand = async (
@@ -1511,7 +1608,7 @@ export const se_ListSuppressedDestinationsCommand = async (
   const headers: any = {};
   b.bp("/v2/email/suppression/addresses");
   const query: any = map({
-    [_Re]: [() => input.Reasons !== void 0, () => (input[_R]! || []).map((_entry) => _entry as any)],
+    [_Re]: [() => input.Reasons !== void 0, () => input[_R]! || []],
     [_SD]: [() => input.StartDate !== void 0, () => __serializeDateTime(input[_SD]!).toString()],
     [_ED]: [() => input.EndDate !== void 0, () => __serializeDateTime(input[_ED]!).toString()],
     [_NT]: [, input[_NT]!],
@@ -1656,6 +1753,29 @@ export const se_PutAccountVdmAttributesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutConfigurationSetArchivingOptionsCommand
+ */
+export const se_PutConfigurationSetArchivingOptionsCommand = async (
+  input: PutConfigurationSetArchivingOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/archiving-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ArchiveArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand
  */
 export const se_PutConfigurationSetDeliveryOptionsCommand = async (
@@ -1671,6 +1791,7 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      MaxDeliverySeconds: [],
       SendingPoolName: [],
       TlsPolicy: [],
     })
@@ -1765,6 +1886,7 @@ export const se_PutConfigurationSetTrackingOptionsCommand = async (
   body = JSON.stringify(
     take(input, {
       CustomRedirectDomain: [],
+      HttpsPolicy: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2045,6 +2167,7 @@ export const se_SendBulkEmailCommand = async (
       ConfigurationSetName: [],
       DefaultContent: (_) => _json(_),
       DefaultEmailTags: (_) => _json(_),
+      EndpointId: [],
       FeedbackForwardingEmailAddress: [],
       FeedbackForwardingEmailAddressIdentityArn: [],
       FromEmailAddress: [],
@@ -2099,6 +2222,7 @@ export const se_SendEmailCommand = async (
       Content: (_) => se_EmailContent(_, context),
       Destination: (_) => _json(_),
       EmailTags: (_) => _json(_),
+      EndpointId: [],
       FeedbackForwardingEmailAddress: [],
       FeedbackForwardingEmailAddressIdentityArn: [],
       FromEmailAddress: [],
@@ -2169,10 +2293,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v2/email/tags");
   const query: any = map({
     [_RA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
-    [_TK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_TK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2590,6 +2711,28 @@ export const de_CreateImportJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateMultiRegionEndpointCommand
+ */
+export const de_CreateMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EndpointId: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -2743,6 +2886,27 @@ export const de_DeleteEmailTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteMultiRegionEndpointCommand
+ */
+export const de_DeleteMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteSuppressedDestinationCommand
  */
 export const de_DeleteSuppressedDestinationCommand = async (
@@ -2823,6 +2987,7 @@ export const de_GetConfigurationSetCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ArchivingOptions: _json,
     ConfigurationSetName: __expectString,
     DeliveryOptions: _json,
     ReputationOptions: (_) => de_ReputationOptions(_, context),
@@ -3251,6 +3416,32 @@ export const de_GetMessageInsightsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMultiRegionEndpointCommand
+ */
+export const de_GetMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointId: __expectString,
+    EndpointName: __expectString,
+    LastUpdatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Routes: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const de_GetSuppressedDestinationCommand = async (
@@ -3514,6 +3705,28 @@ export const de_ListImportJobsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMultiRegionEndpointsCommand
+ */
+export const de_ListMultiRegionEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMultiRegionEndpointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MultiRegionEndpoints: (_) => de_MultiRegionEndpoints(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRecommendationsCommand
  */
 export const de_ListRecommendationsCommand = async (
@@ -3653,6 +3866,23 @@ export const de_PutAccountVdmAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountVdmAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutConfigurationSetArchivingOptionsCommand
+ */
+export const de_PutConfigurationSetArchivingOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetArchivingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4470,6 +4700,8 @@ const de_TooManyRequestsExceptionRes = async (
 
 // se_AdditionalContactEmailAddresses omitted.
 
+// se_ArchivingOptions omitted.
+
 /**
  * serializeAws_restJson1BatchGetMetricDataQueries
  */
@@ -4520,6 +4752,8 @@ const se_BatchGetMetricDataQuery = (input: BatchGetMetricDataQuery, context: __S
 // se_DeliveryOptions omitted.
 
 // se_Destination omitted.
+
+// se_Details omitted.
 
 // se_Dimensions omitted.
 
@@ -4687,6 +4921,10 @@ const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext)
   });
 };
 
+// se_RouteDetails omitted.
+
+// se_RoutesDetails omitted.
+
 // se_SendingOptions omitted.
 
 // se_SnsDestination omitted.
@@ -4722,6 +4960,8 @@ const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext)
 // de_AccountDetails omitted.
 
 // de_AdditionalContactEmailAddresses omitted.
+
+// de_ArchivingOptions omitted.
 
 /**
  * deserializeAws_restJson1BlacklistEntries
@@ -5269,6 +5509,32 @@ const de_MetricsDataSource = (output: any, context: __SerdeContext): MetricsData
 // de_MetricValueList omitted.
 
 /**
+ * deserializeAws_restJson1MultiRegionEndpoint
+ */
+const de_MultiRegionEndpoint = (output: any, context: __SerdeContext): MultiRegionEndpoint => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointId: __expectString,
+    EndpointName: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Regions: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MultiRegionEndpoints
+ */
+const de_MultiRegionEndpoints = (output: any, context: __SerdeContext): MultiRegionEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MultiRegionEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1OverallVolume
  */
 const de_OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
@@ -5323,6 +5589,8 @@ const de_RecommendationsList = (output: any, context: __SerdeContext): Recommend
   return retVal;
 };
 
+// de_Regions omitted.
+
 /**
  * deserializeAws_restJson1ReputationOptions
  */
@@ -5334,6 +5602,10 @@ const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationO
 };
 
 // de_ReviewDetails omitted.
+
+// de_Route omitted.
+
+// de_Routes omitted.
 
 // de_SendingOptions omitted.
 
@@ -5452,13 +5724,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _BIN = "BlacklistItemNames";
 const _ED = "EndDate";

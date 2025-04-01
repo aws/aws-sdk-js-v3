@@ -70,6 +70,7 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteOpenIDConnectProviderCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteOpenIDConnectProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOpenIDConnectProviderCommand)
   .de(de_DeleteOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOpenIDConnectProviderCommandInput;
+      output: DeleteOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

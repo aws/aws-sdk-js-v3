@@ -25,7 +25,7 @@ export interface AddRoleToDBClusterMessage {
    *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
    * @public
    */
-  FeatureName?: string;
+  FeatureName?: string | undefined;
 }
 
 /**
@@ -155,19 +155,19 @@ export interface EventSubscription {
    * <p>The Amazon customer account associated with the event notification subscription.</p>
    * @public
    */
-  CustomerAwsId?: string;
+  CustomerAwsId?: string | undefined;
 
   /**
    * <p>The event notification subscription Id.</p>
    * @public
    */
-  CustSubscriptionId?: string;
+  CustSubscriptionId?: string | undefined;
 
   /**
    * <p>The topic ARN of the event notification subscription.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The status of the event notification subscription.</p>
@@ -179,44 +179,44 @@ export interface EventSubscription {
    *       subscription was created.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The time the event notification subscription was created.</p>
    * @public
    */
-  SubscriptionCreationTime?: string;
+  SubscriptionCreationTime?: string | undefined;
 
   /**
    * <p>The source type for the event notification subscription.</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>A list of source IDs for the event notification subscription.</p>
    * @public
    */
-  SourceIdsList?: string[];
+  SourceIdsList?: string[] | undefined;
 
   /**
    * <p>A list of event categories for the event notification subscription.</p>
    * @public
    */
-  EventCategoriesList?: string[];
+  EventCategoriesList?: string[] | undefined;
 
   /**
    * <p>A Boolean value indicating if the subscription is enabled. True indicates the subscription
    *       is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
    * @public
    */
-  EventSubscriptionArn?: string;
+  EventSubscriptionArn?: string | undefined;
 }
 
 /**
@@ -227,7 +227,7 @@ export interface AddSourceIdentifierToSubscriptionResult {
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -282,7 +282,7 @@ export interface Tag {
    *       '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode
@@ -291,7 +291,7 @@ export interface Tag {
    *       '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -409,7 +409,7 @@ export interface PendingMaintenanceAction {
    * <p>The type of pending maintenance action that is available for the resource.</p>
    * @public
    */
-  Action?: string;
+  Action?: string | undefined;
 
   /**
    * <p>The date of the maintenance window when the action is applied. The maintenance action is
@@ -417,7 +417,7 @@ export interface PendingMaintenanceAction {
    *       specified, any <code>next-maintenance</code> opt-in requests are ignored.</p>
    * @public
    */
-  AutoAppliedAfterDate?: Date;
+  AutoAppliedAfterDate?: Date | undefined;
 
   /**
    * <p>The date when the maintenance action is automatically applied. The maintenance action is
@@ -425,13 +425,13 @@ export interface PendingMaintenanceAction {
    *       this date is specified, any <code>immediate</code> opt-in requests are ignored.</p>
    * @public
    */
-  ForcedApplyDate?: Date;
+  ForcedApplyDate?: Date | undefined;
 
   /**
    * <p>Indicates the type of opt-in request that has been received for the resource.</p>
    * @public
    */
-  OptInStatus?: string;
+  OptInStatus?: string | undefined;
 
   /**
    * <p>The effective date when the pending maintenance action is applied to the resource. This
@@ -441,13 +441,13 @@ export interface PendingMaintenanceAction {
    *       <code>ForcedApplyDate</code>.</p>
    * @public
    */
-  CurrentApplyDate?: Date;
+  CurrentApplyDate?: Date | undefined;
 
   /**
    * <p>A description providing more detail about the maintenance action.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -459,14 +459,14 @@ export interface ResourcePendingMaintenanceActions {
    * <p>The ARN of the resource that has pending maintenance actions.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>A list that provides details about the pending maintenance actions for the
    *       resource.</p>
    * @public
    */
-  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
+  PendingMaintenanceActionDetails?: PendingMaintenanceAction[] | undefined;
 }
 
 /**
@@ -477,7 +477,7 @@ export interface ApplyPendingMaintenanceActionResult {
    * <p>Describes the pending maintenance actions for a resource.</p>
    * @public
    */
-  ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
+  ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions | undefined;
 }
 
 /**
@@ -561,7 +561,7 @@ export interface CopyDBClusterParameterGroupMessage {
    * <p>The tags to be assigned to the copied DB cluster parameter group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -574,26 +574,26 @@ export interface DBClusterParameterGroup {
    * <p>Provides the name of the DB cluster parameter group.</p>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>Provides the name of the DB parameter group family that this DB cluster parameter group is
    *       compatible with.</p>
    * @public
    */
-  DBParameterGroupFamily?: string;
+  DBParameterGroupFamily?: string | undefined;
 
   /**
    * <p>Provides the customer-specified description for this DB cluster parameter group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>
    * @public
    */
-  DBClusterParameterGroupArn?: string;
+  DBClusterParameterGroupArn?: string | undefined;
 }
 
 /**
@@ -605,7 +605,7 @@ export interface CopyDBClusterParameterGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
    * @public
    */
-  DBClusterParameterGroup?: DBClusterParameterGroup;
+  DBClusterParameterGroup?: DBClusterParameterGroup | undefined;
 }
 
 /**
@@ -729,26 +729,26 @@ export interface CopyDBClusterSnapshotMessage {
    *       error is returned.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Not currently supported.</p>
    * @public
    */
-  PreSignedUrl?: string;
+  PreSignedUrl?: string | undefined;
 
   /**
    * <p>True to copy all tags from the source DB cluster snapshot to the target DB cluster
    *       snapshot, and otherwise false. The default is false.</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>The tags to assign to the new DB cluster snapshot copy.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface DBClusterSnapshot {
    *       be restored in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>Specifies the identifier for a DB cluster snapshot. Must match the identifier
@@ -779,127 +779,127 @@ export interface DBClusterSnapshot {
    *       and the original DB cluster is deleted.</p>
    * @public
    */
-  DBClusterSnapshotIdentifier?: string;
+  DBClusterSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was
    *       created from.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).</p>
    * @public
    */
-  SnapshotCreateTime?: Date;
+  SnapshotCreateTime?: Date | undefined;
 
   /**
    * <p>Specifies the name of the database engine.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies the status of this DB cluster snapshot.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Specifies the port that the DB cluster was listening on at the time of the
    *       snapshot.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Provides the VPC ID associated with the DB cluster snapshot.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
    *       (UTC).</p>
    * @public
    */
-  ClusterCreateTime?: Date;
+  ClusterCreateTime?: Date | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>Provides the version of the database engine for this DB cluster snapshot.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Provides the license model information for this DB cluster snapshot.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>Provides the type of the DB cluster snapshot.</p>
    * @public
    */
-  SnapshotType?: string;
+  SnapshotType?: string | undefined;
 
   /**
    * <p>Specifies the percentage of the estimated data that has been transferred.</p>
    * @public
    */
-  PercentProgress?: number;
+  PercentProgress?: number | undefined;
 
   /**
    * <p>Specifies whether the DB cluster snapshot is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the Amazon KMS key identifier for the encrypted DB
    *       cluster snapshot.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
    * @public
    */
-  DBClusterSnapshotArn?: string;
+  DBClusterSnapshotArn?: string | undefined;
 
   /**
    * <p>If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon
    *       Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.</p>
    * @public
    */
-  SourceDBClusterSnapshotArn?: string;
+  SourceDBClusterSnapshotArn?: string | undefined;
 
   /**
    * <p>True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts
    *       is enabled, and otherwise false.</p>
    * @public
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>The storage type associated with the DB cluster snapshot.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -911,7 +911,7 @@ export interface CopyDBClusterSnapshotResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
    * @public
    */
-  DBClusterSnapshot?: DBClusterSnapshot;
+  DBClusterSnapshot?: DBClusterSnapshot | undefined;
 }
 
 /**
@@ -1071,7 +1071,7 @@ export interface CopyDBParameterGroupMessage {
    * <p>The tags to be assigned to the copied DB parameter group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1084,26 +1084,26 @@ export interface DBParameterGroup {
    * <p>Provides the name of the DB parameter group.</p>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 
   /**
    * <p>Provides the name of the DB parameter group family that this DB parameter group is
    *       compatible with.</p>
    * @public
    */
-  DBParameterGroupFamily?: string;
+  DBParameterGroupFamily?: string | undefined;
 
   /**
    * <p>Provides the customer-specified description for this DB parameter group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
    * @public
    */
-  DBParameterGroupArn?: string;
+  DBParameterGroupArn?: string | undefined;
 }
 
 /**
@@ -1115,7 +1115,7 @@ export interface CopyDBParameterGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
    * @public
    */
-  DBParameterGroup?: DBParameterGroup;
+  DBParameterGroup?: DBParameterGroup | undefined;
 }
 
 /**
@@ -1130,14 +1130,14 @@ export interface ServerlessV2ScalingConfiguration {
    *       You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
    * @public
    */
-  MinCapacity?: number;
+  MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
    *       You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 }
 
 /**
@@ -1149,7 +1149,7 @@ export interface CreateDBClusterMessage {
    *       in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a minimum
@@ -1163,7 +1163,7 @@ export interface CreateDBClusterMessage {
    *          </ul>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>
@@ -1171,7 +1171,7 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
    * <p>
@@ -1180,14 +1180,14 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a
    *       name, Amazon Neptune will not create a database in the DB cluster you are creating.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
@@ -1220,13 +1220,13 @@ export interface CreateDBClusterMessage {
    *          </ul>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A DB subnet group to associate with this DB cluster.</p>
@@ -1235,7 +1235,7 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
@@ -1251,7 +1251,7 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The port number on which the instances in the DB cluster accept connections.</p>
@@ -1259,19 +1259,19 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>
@@ -1279,7 +1279,7 @@ export interface CreateDBClusterMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are
@@ -1305,7 +1305,7 @@ export interface CreateDBClusterMessage {
    *          </ul>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -1320,26 +1320,26 @@ export interface CreateDBClusterMessage {
    *          <p>Constraints: Minimum 30-minute window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster
    *       is created as a Read Replica.</p>
    * @public
    */
-  ReplicationSourceIdentifier?: string;
+  ReplicationSourceIdentifier?: string | undefined;
 
   /**
    * <p>The tags to assign to the new DB cluster.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Specifies whether the DB cluster is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The Amazon KMS key identifier for an encrypted DB cluster.</p>
@@ -1367,13 +1367,13 @@ export interface CreateDBClusterMessage {
    *       key is used to encrypt the Read Replica in that Amazon Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  PreSignedUrl?: string;
+  PreSignedUrl?: string | undefined;
 
   /**
    * <p>If set to <code>true</code>, enables Amazon Identity and Access Management
@@ -1382,7 +1382,7 @@ export interface CreateDBClusterMessage {
    *          <p>Default: <code>false</code>.</p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>A list of the log types that this DB cluster should export to CloudWatch Logs.
@@ -1391,7 +1391,7 @@ export interface CreateDBClusterMessage {
    *       to Amazon CloudWatch logs</a>.</p>
    * @public
    */
-  EnableCloudwatchLogsExports?: string[];
+  EnableCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
@@ -1399,7 +1399,7 @@ export interface CreateDBClusterMessage {
    *       deletion protection is enabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
@@ -1407,14 +1407,14 @@ export interface CreateDBClusterMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    * @public
    */
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
 
   /**
    * <p>The ID of the Neptune global database to which this new DB cluster
    *       should be added.</p>
    * @public
    */
-  GlobalClusterIdentifier?: string;
+  GlobalClusterIdentifier?: string | undefined;
 
   /**
    * <p>The storage type to associate with the DB cluster.</p>
@@ -1440,7 +1440,7 @@ export interface CreateDBClusterMessage {
    *          </note>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -1454,7 +1454,7 @@ export interface DBClusterRole {
    *       cluster.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Describes the state of association between the IAM role and the DB cluster. The Status
@@ -1479,7 +1479,7 @@ export interface DBClusterRole {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
@@ -1487,7 +1487,7 @@ export interface DBClusterRole {
    *     </p>
    * @public
    */
-  FeatureName?: string;
+  FeatureName?: string | undefined;
 }
 
 /**
@@ -1499,28 +1499,28 @@ export interface DBClusterMember {
    * <p>Specifies the instance identifier for this member of the DB cluster.</p>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Value that is <code>true</code> if the cluster member is the primary instance for the DB
    *       cluster and <code>false</code> otherwise.</p>
    * @public
    */
-  IsClusterWriter?: boolean;
+  IsClusterWriter?: boolean | undefined;
 
   /**
    * <p>Specifies the status of the DB cluster parameter group for this member of the DB
    *       cluster.</p>
    * @public
    */
-  DBClusterParameterGroupStatus?: string;
+  DBClusterParameterGroupStatus?: string | undefined;
 
   /**
    * <p>A value that specifies the order in which a Read Replica is promoted to the primary
    *       instance after a failure of the existing primary instance.</p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 }
 
 /**
@@ -1532,13 +1532,13 @@ export interface DBClusterOptionGroupStatus {
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  DBClusterOptionGroupName?: string;
+  DBClusterOptionGroupName?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -1555,14 +1555,14 @@ export interface PendingCloudwatchLogsExports {
    *       deactivated, these log types aren't exported to CloudWatch Logs.</p>
    * @public
    */
-  LogTypesToEnable?: string[];
+  LogTypesToEnable?: string[] | undefined;
 
   /**
    * <p>Log types that are in the process of being enabled. After they are
    *       enabled, these log types are exported to CloudWatch Logs.</p>
    * @public
    */
-  LogTypesToDisable?: string[];
+  LogTypesToDisable?: string[] | undefined;
 }
 
 /**
@@ -1576,37 +1576,37 @@ export interface ClusterPendingModifiedValues {
    *       pending changes to which CloudWatch logs are enabled and which are disabled.</p>
    * @public
    */
-  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
+  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports | undefined;
 
   /**
    * <p>The DBClusterIdentifier value for the DB cluster.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A value that indicates whether mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    * @public
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>The database engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The number of days for which automatic DB snapshots are retained.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The storage type for the DB cluster.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The allocated storage size in gibibytes (GiB) for database engines. For Neptune,
@@ -1614,13 +1614,13 @@ export interface ClusterPendingModifiedValues {
    *         instead automatically adjusts as needed.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 }
 
 /**
@@ -1635,14 +1635,14 @@ export interface ServerlessV2ScalingConfigurationInfo {
    *       You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
    * @public
    */
-  MinCapacity?: number;
+  MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
    *       You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 }
 
 /**
@@ -1655,13 +1655,13 @@ export interface VpcSecurityGroupMembership {
    * <p>The name of the VPC security group.</p>
    * @public
    */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroupId?: string | undefined;
 
   /**
    * <p>The status of the VPC security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -1676,26 +1676,26 @@ export interface DBCluster {
    *       not fixed, but instead automatically adjusts as needed.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster can be
    *       created in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
    * <p>Contains the name of the initial database of this DB cluster that was provided at create
@@ -1703,52 +1703,52 @@ export interface DBCluster {
    *       life of the DB cluster.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that
    *       identifies a DB cluster.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
    * @public
    */
-  DBClusterParameterGroup?: string;
+  DBClusterParameterGroup?: string | undefined;
 
   /**
    * <p>Specifies information on the subnet group associated with the DB cluster, including the
    *       name, description, and subnets in the subnet group.</p>
    * @public
    */
-  DBSubnetGroup?: string;
+  DBSubnetGroup?: string | undefined;
 
   /**
    * <p>Specifies the current state of this DB cluster.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Specifies the progress of the operation as a percentage.</p>
    * @public
    */
-  PercentProgress?: string;
+  PercentProgress?: string | undefined;
 
   /**
    * <p>Specifies the earliest time to which a database can be restored with point-in-time
    *       restore.</p>
    * @public
    */
-  EarliestRestorableTime?: Date;
+  EarliestRestorableTime?: Date | undefined;
 
   /**
    * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances
@@ -1761,121 +1761,121 @@ export interface DBCluster {
    *       Read Replicas in the cluster, you can then reconnect to the reader endpoint.</p>
    * @public
    */
-  ReaderEndpoint?: string;
+  ReaderEndpoint?: string | undefined;
 
   /**
    * <p>Specifies whether the DB cluster has instances in multiple Availability Zones.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>Provides the name of the database engine to be used for this DB cluster.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>Indicates the database engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *       restore.</p>
    * @public
    */
-  LatestRestorableTime?: Date;
+  LatestRestorableTime?: Date | undefined;
 
   /**
    * <p>Specifies the port that the database engine is listening on.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
+  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[] | undefined;
 
   /**
    * <p>Specifies the daily time range during which automated backups are created if automated
    *       backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
    *       Coordinated Time (UTC).</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  ReplicationSourceIdentifier?: string;
+  ReplicationSourceIdentifier?: string | undefined;
 
   /**
    * <p>Contains one or more identifiers of the Read Replicas associated with this DB
    *       cluster.</p>
    * @public
    */
-  ReadReplicaIdentifiers?: string[];
+  ReadReplicaIdentifiers?: string[] | undefined;
 
   /**
    * <p>Provides the list of instances that make up the DB cluster.</p>
    * @public
    */
-  DBClusterMembers?: DBClusterMember[];
+  DBClusterMembers?: DBClusterMember[] | undefined;
 
   /**
    * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
    * @public
    */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  VpcSecurityGroups?: VpcSecurityGroupMembership[] | undefined;
 
   /**
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    * @public
    */
-  HostedZoneId?: string;
+  HostedZoneId?: string | undefined;
 
   /**
    * <p>Specifies whether the DB cluster is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the Amazon KMS key identifier for the
    *       encrypted DB cluster.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Region-unique, immutable identifier for the DB cluster. This identifier is found
    *       in Amazon CloudTrail log entries whenever the Amazon KMS key for the DB cluster is accessed.</p>
    * @public
    */
-  DbClusterResourceId?: string;
+  DbClusterResourceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
    * @public
    */
-  DBClusterArn?: string;
+  DBClusterArn?: string | undefined;
 
   /**
    * <p>Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated
@@ -1883,27 +1883,27 @@ export interface DBCluster {
    *       DB cluster to access other Amazon services on your behalf.</p>
    * @public
    */
-  AssociatedRoles?: DBClusterRole[];
+  AssociatedRoles?: DBClusterRole[] | undefined;
 
   /**
    * <p>True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts
    *       is enabled, and otherwise false.</p>
    * @public
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>Identifies the clone group to which the DB cluster is associated.</p>
    * @public
    */
-  CloneGroupId?: string;
+  CloneGroupId?: string | undefined;
 
   /**
    * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
    *       (UTC).</p>
    * @public
    */
-  ClusterCreateTime?: Date;
+  ClusterCreateTime?: Date | undefined;
 
   /**
    * <p>
@@ -1912,7 +1912,7 @@ export interface DBCluster {
    *          </p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>A list of the log types that this DB cluster is configured to export to CloudWatch Logs.
@@ -1921,33 +1921,33 @@ export interface DBCluster {
    *       to Amazon CloudWatch logs</a>.</p>
    * @public
    */
-  EnabledCloudwatchLogsExports?: string[];
+  EnabledCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>This data type is used as a response element in the <code>ModifyDBCluster</code> operation and
    *       contains changes that will be applied during the next maintenance window.</p>
    * @public
    */
-  PendingModifiedValues?: ClusterPendingModifiedValues;
+  PendingModifiedValues?: ClusterPendingModifiedValues | undefined;
 
   /**
    * <p>Indicates whether or not the DB cluster has deletion protection enabled.
    *       The database can't be deleted when deletion protection is enabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>If set to <code>true</code>, the DB cluster can be cloned across accounts.</p>
    * @public
    */
-  CrossAccountClone?: boolean;
+  CrossAccountClone?: boolean | undefined;
 
   /**
    * <p>Time at which the DB cluster will be automatically restarted.</p>
    * @public
    */
-  AutomaticRestartTime?: Date;
+  AutomaticRestartTime?: Date | undefined;
 
   /**
    * <p>Shows the scaling configuration for a Neptune Serverless DB cluster.</p>
@@ -1955,26 +1955,26 @@ export interface DBCluster {
    *       <i>Amazon Neptune User Guide</i>.</p>
    * @public
    */
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo | undefined;
 
   /**
    * <p>Contains a user-supplied global database cluster identifier.
    *       This identifier is the unique key that identifies a global database.</p>
    * @public
    */
-  GlobalClusterIdentifier?: string;
+  GlobalClusterIdentifier?: string | undefined;
 
   /**
    * <p>The next time you can modify the DB cluster to use the <code>iopt1</code> storage type.</p>
    * @public
    */
-  IOOptimizedNextAllowedModificationTime?: Date;
+  IOOptimizedNextAllowedModificationTime?: Date | undefined;
 
   /**
    * <p>The storage type associated with the DB cluster.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -1986,7 +1986,7 @@ export interface CreateDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -2285,7 +2285,7 @@ export interface CreateDBClusterEndpointMessage {
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -2293,13 +2293,13 @@ export interface CreateDBClusterEndpointMessage {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 
   /**
    * <p>The tags to be assigned to the Amazon Neptune resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2336,52 +2336,52 @@ export interface CreateDBClusterEndpointOutput {
    * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
    * @public
    */
-  DBClusterEndpointIdentifier?: string;
+  DBClusterEndpointIdentifier?: string | undefined;
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
    *       stored as a lowercase string.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
    * @public
    */
-  DBClusterEndpointResourceIdentifier?: string;
+  DBClusterEndpointResourceIdentifier?: string | undefined;
 
   /**
    * <p>The DNS address of the endpoint.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
    *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
    *       <code>WRITER</code>, <code>ANY</code>.</p>
    * @public
    */
-  CustomEndpointType?: string;
+  CustomEndpointType?: string | undefined;
 
   /**
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -2389,13 +2389,13 @@ export interface CreateDBClusterEndpointOutput {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
    * @public
    */
-  DBClusterEndpointArn?: string;
+  DBClusterEndpointArn?: string | undefined;
 }
 
 /**
@@ -2476,7 +2476,7 @@ export interface CreateDBClusterParameterGroupMessage {
    * <p>The tags to be assigned to the new DB cluster parameter group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2488,7 +2488,7 @@ export interface CreateDBClusterParameterGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
    * @public
    */
-  DBClusterParameterGroup?: DBClusterParameterGroup;
+  DBClusterParameterGroup?: DBClusterParameterGroup | undefined;
 }
 
 /**
@@ -2535,7 +2535,7 @@ export interface CreateDBClusterSnapshotMessage {
    * <p>The tags to be assigned to the DB cluster snapshot.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2547,7 +2547,7 @@ export interface CreateDBClusterSnapshotResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
    * @public
    */
-  DBClusterSnapshot?: DBClusterSnapshot;
+  DBClusterSnapshot?: DBClusterSnapshot | undefined;
 }
 
 /**
@@ -2579,7 +2579,7 @@ export interface CreateDBInstanceMessage {
    * <p>Not supported.</p>
    * @public
    */
-  DBName?: string;
+  DBName?: string | undefined;
 
   /**
    * <p>The DB instance identifier. This parameter is stored as a lowercase string.</p>
@@ -2605,7 +2605,7 @@ export interface CreateDBInstanceMessage {
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
@@ -2626,20 +2626,20 @@ export interface CreateDBInstanceMessage {
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>A list of DB security groups to associate with this DB instance.</p>
    *          <p>Default: The default DB security group for the database engine.</p>
    * @public
    */
-  DBSecurityGroups?: string[];
+  DBSecurityGroups?: string[] | undefined;
 
   /**
    * <p>A list of EC2 VPC security groups to associate with this DB instance.</p>
@@ -2648,7 +2648,7 @@ export interface CreateDBInstanceMessage {
    *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p> The EC2 Availability Zone that the DB instance is created in</p>
@@ -2660,14 +2660,14 @@ export interface CreateDBInstanceMessage {
    *       the current endpoint.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>A DB subnet group to associate with this DB instance.</p>
    *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>The time range each week during which system maintenance can occur, in Universal
@@ -2680,7 +2680,7 @@ export interface CreateDBInstanceMessage {
    *          <p>Constraints: Minimum 30-minute window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The name of the DB parameter group to associate with this DB instance. If this argument is
@@ -2699,7 +2699,7 @@ export interface CreateDBInstanceMessage {
    *          </ul>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 
   /**
    * <p>The number of days for which automated backups are
@@ -2718,7 +2718,7 @@ export interface CreateDBInstanceMessage {
    *          </ul>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p> The daily time range during which automated backups are created.</p>
@@ -2726,7 +2726,7 @@ export interface CreateDBInstanceMessage {
    *       cluster. For more information, see <a>CreateDBCluster</a>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The port number on which the database accepts connections.</p>
@@ -2736,21 +2736,21 @@ export interface CreateDBInstanceMessage {
    *          <p>Type: Integer</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Specifies if the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone
    *       parameter if the MultiAZ parameter is set to true.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The version number of the database engine to use. Currently, setting this
    *       parameter has no effect.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Indicates that minor engine upgrades are applied automatically to the DB instance during
@@ -2759,7 +2759,7 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>License model information for this DB instance.</p>
@@ -2768,14 +2768,14 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially
    *       allocated for the DB instance.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>
@@ -2783,7 +2783,7 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>
@@ -2791,21 +2791,21 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>The tags to assign to the new instance.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The identifier of the DB cluster that the instance will belong to.</p>
@@ -2820,19 +2820,19 @@ export interface CreateDBInstanceMessage {
    *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    * @public
    */
-  TdeCredentialArn?: string;
+  TdeCredentialArn?: string | undefined;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
    * @public
    */
-  TdeCredentialPassword?: string;
+  TdeCredentialPassword?: string | undefined;
 
   /**
    * <p>Specifies whether the DB instance is encrypted.</p>
@@ -2841,7 +2841,7 @@ export interface CreateDBInstanceMessage {
    *          <p>Default: false</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The Amazon KMS key identifier for an encrypted DB instance.</p>
@@ -2857,20 +2857,20 @@ export interface CreateDBInstanceMessage {
    *       different default encryption key for each Amazon Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specify the Active Directory Domain to create the instance in.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
    *       false. The default is false.</p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
@@ -2882,7 +2882,7 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  MonitoringInterval?: number;
+  MonitoringInterval?: number | undefined;
 
   /**
    * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
@@ -2892,14 +2892,14 @@ export interface CreateDBInstanceMessage {
    *       <code>MonitoringRoleArn</code> value.</p>
    * @public
    */
-  MonitoringRoleArn?: string;
+  MonitoringRoleArn?: string | undefined;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory
    *       Service.</p>
    * @public
    */
-  DomainIAMRoleName?: string;
+  DomainIAMRoleName?: string | undefined;
 
   /**
    * <p>A value that specifies the order in which an Read Replica is promoted to the primary
@@ -2909,19 +2909,19 @@ export interface CreateDBInstanceMessage {
    *          <p>Valid Values: 0 - 15</p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 
   /**
    * <p>The time zone of the DB instance.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>Not supported by Neptune (ignored).</p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>
@@ -2929,7 +2929,7 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  EnablePerformanceInsights?: boolean;
+  EnablePerformanceInsights?: boolean | undefined;
 
   /**
    * <p>
@@ -2937,13 +2937,13 @@ export interface CreateDBInstanceMessage {
    *          </p>
    * @public
    */
-  PerformanceInsightsKMSKeyId?: string;
+  PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
    * @public
    */
-  EnableCloudwatchLogsExports?: string[];
+  EnableCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
@@ -2954,7 +2954,7 @@ export interface CreateDBInstanceMessage {
    *       protection is enabled in their parent DB cluster.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 }
 
 /**
@@ -2989,13 +2989,13 @@ export interface DBParameterGroupStatus {
    * <p>The name of the DP parameter group.</p>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 
   /**
    * <p>The status of parameter updates.</p>
    * @public
    */
-  ParameterApplyStatus?: string;
+  ParameterApplyStatus?: string | undefined;
 }
 
 /**
@@ -3007,13 +3007,13 @@ export interface DBSecurityGroupMembership {
    * <p>The name of the DB security group.</p>
    * @public
    */
-  DBSecurityGroupName?: string;
+  DBSecurityGroupName?: string | undefined;
 
   /**
    * <p>The status of the DB security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -3025,7 +3025,7 @@ export interface AvailabilityZone {
    * <p>The name of the availability zone.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -3038,19 +3038,19 @@ export interface Subnet {
    * <p>Specifies the identifier of the subnet.</p>
    * @public
    */
-  SubnetIdentifier?: string;
+  SubnetIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the EC2 Availability Zone that the subnet is in.</p>
    * @public
    */
-  SubnetAvailabilityZone?: AvailabilityZone;
+  SubnetAvailabilityZone?: AvailabilityZone | undefined;
 
   /**
    * <p>Specifies the status of the subnet.</p>
    * @public
    */
-  SubnetStatus?: string;
+  SubnetStatus?: string | undefined;
 }
 
 /**
@@ -3063,37 +3063,37 @@ export interface DBSubnetGroup {
    * <p>The name of the DB subnet group.</p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>Provides the description of the DB subnet group.</p>
    * @public
    */
-  DBSubnetGroupDescription?: string;
+  DBSubnetGroupDescription?: string | undefined;
 
   /**
    * <p>Provides the VpcId of the DB subnet group.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Provides the status of the DB subnet group.</p>
    * @public
    */
-  SubnetGroupStatus?: string;
+  SubnetGroupStatus?: string | undefined;
 
   /**
    * <p> Contains a list of <a>Subnet</a> elements.</p>
    * @public
    */
-  Subnets?: Subnet[];
+  Subnets?: Subnet[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
    * @public
    */
-  DBSubnetGroupArn?: string;
+  DBSubnetGroupArn?: string | undefined;
 }
 
 /**
@@ -3105,26 +3105,26 @@ export interface DomainMembership {
    * <p>The identifier of the Active Directory Domain.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The status of the DB instance's Active Directory Domain membership, such as joined,
    *       pending-join, failed etc).</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The fully qualified domain name of the Active Directory Domain.</p>
    * @public
    */
-  FQDN?: string;
+  FQDN?: string | undefined;
 
   /**
    * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
    * @public
    */
-  IAMRoleName?: string;
+  IAMRoleName?: string | undefined;
 }
 
 /**
@@ -3138,19 +3138,19 @@ export interface Endpoint {
    * <p>Specifies the DNS address of the DB instance.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>Specifies the port that the database engine is listening on.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    * @public
    */
-  HostedZoneId?: string;
+  HostedZoneId?: string | undefined;
 }
 
 /**
@@ -3162,13 +3162,13 @@ export interface OptionGroupMembership {
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -3182,89 +3182,89 @@ export interface PendingModifiedValues {
    *       is currently being applied.</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that will be
    *       applied or is currently being applied.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>Specifies the pending port for the DB instance.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Specifies the pending number of days for which automated backups are retained.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>Indicates the database engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>Specifies the new Provisioned IOPS value for the DB instance that will be applied or is
    *       currently being applied.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that will be
    *       applied or is currently being applied.</p>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>Specifies the identifier of the CA certificate for the DB instance.</p>
    * @public
    */
-  CACertificateIdentifier?: string;
+  CACertificateIdentifier?: string | undefined;
 
   /**
    * <p>The new DB subnet group for the DB instance.</p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>This <code>PendingCloudwatchLogsExports</code> structure specifies
    *       pending changes to which CloudWatch logs are enabled and which are disabled.</p>
    * @public
    */
-  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
+  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports | undefined;
 }
 
 /**
@@ -3276,28 +3276,28 @@ export interface DBInstanceStatusInfo {
    * <p>This value is currently "read replication."</p>
    * @public
    */
-  StatusType?: string;
+  StatusType?: string | undefined;
 
   /**
    * <p>Boolean value that is true if the instance is operating normally, or false if the instance
    *       is in an error state.</p>
    * @public
    */
-  Normal?: boolean;
+  Normal?: boolean | undefined;
 
   /**
    * <p>Status of the DB instance. For a StatusType of read replica, the values can be
    *       replicating, error, stopped, or terminated.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Details of the error if there is an error for the instance. If the instance is not in an
    *       error state, this value is blank.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -3311,172 +3311,172 @@ export interface DBInstance {
    *       identifies a DB instance.</p>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p>Provides the name of the database engine to be used for this DB instance.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>Specifies the current state of this database.</p>
    * @public
    */
-  DBInstanceStatus?: string;
+  DBInstanceStatus?: string | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>The database name.</p>
    * @public
    */
-  DBName?: string;
+  DBName?: string | undefined;
 
   /**
    * <p>Specifies the connection endpoint.</p>
    * @public
    */
-  Endpoint?: Endpoint;
+  Endpoint?: Endpoint | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>Provides the date and time the DB instance was created.</p>
    * @public
    */
-  InstanceCreateTime?: Date;
+  InstanceCreateTime?: Date | undefined;
 
   /**
    * <p> Specifies the daily time range during which automated backups are created if automated
    *       backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p> Provides List of DB security group elements containing only
    *       <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code> subelements.</p>
    * @public
    */
-  DBSecurityGroups?: DBSecurityGroupMembership[];
+  DBSecurityGroups?: DBSecurityGroupMembership[] | undefined;
 
   /**
    * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
    * @public
    */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  VpcSecurityGroups?: VpcSecurityGroupMembership[] | undefined;
 
   /**
    * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
    * @public
    */
-  DBParameterGroups?: DBParameterGroupStatus[];
+  DBParameterGroups?: DBParameterGroupStatus[] | undefined;
 
   /**
    * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>Specifies information on the subnet group associated with the DB instance, including the
    *       name, description, and subnets in the subnet group.</p>
    * @public
    */
-  DBSubnetGroup?: DBSubnetGroup;
+  DBSubnetGroup?: DBSubnetGroup | undefined;
 
   /**
    * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
    *       Coordinated Time (UTC).</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Specifies that changes to the DB instance are pending. This element is only included when
    *       changes are pending. Specific changes are identified by subelements.</p>
    * @public
    */
-  PendingModifiedValues?: PendingModifiedValues;
+  PendingModifiedValues?: PendingModifiedValues | undefined;
 
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *       restore.</p>
    * @public
    */
-  LatestRestorableTime?: Date;
+  LatestRestorableTime?: Date | undefined;
 
   /**
    * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>Indicates the database engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Indicates that minor version patches are applied automatically.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>Contains the identifier of the source DB instance if this DB instance is a Read
    *       Replica.</p>
    * @public
    */
-  ReadReplicaSourceDBInstanceIdentifier?: string;
+  ReadReplicaSourceDBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Contains one or more identifiers of the Read Replicas associated with this DB
    *       instance.</p>
    * @public
    */
-  ReadReplicaDBInstanceIdentifiers?: string[];
+  ReadReplicaDBInstanceIdentifiers?: string[] | undefined;
 
   /**
    * <p>Contains one or more identifiers of DB clusters that are Read Replicas of this DB
    *       instance.</p>
    * @public
    */
-  ReadReplicaDBClusterIdentifiers?: string[];
+  ReadReplicaDBClusterIdentifiers?: string[] | undefined;
 
   /**
    * <p>License model information for this DB instance.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>
@@ -3484,7 +3484,7 @@ export interface DBInstance {
    *          </p>
    * @public
    */
-  OptionGroupMemberships?: OptionGroupMembership[];
+  OptionGroupMemberships?: OptionGroupMembership[] | undefined;
 
   /**
    * <p>
@@ -3492,114 +3492,114 @@ export interface DBInstance {
    *          </p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
    * <p>If present, specifies the name of the secondary Availability Zone for a DB instance with
    *       multi-AZ support.</p>
    * @public
    */
-  SecondaryAvailabilityZone?: string;
+  SecondaryAvailabilityZone?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>The status of a Read Replica. If the instance is not a Read Replica, this is blank.</p>
    * @public
    */
-  StatusInfos?: DBInstanceStatusInfo[];
+  StatusInfos?: DBInstanceStatusInfo[] | undefined;
 
   /**
    * <p>Specifies the storage type associated with DB instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The ARN from the key store with which the instance is associated for TDE
    *       encryption.</p>
    * @public
    */
-  TdeCredentialArn?: string;
+  TdeCredentialArn?: string | undefined;
 
   /**
    * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
    *       cluster, this can be a different port than the DB cluster port.</p>
    * @public
    */
-  DbInstancePort?: number;
+  DbInstancePort?: number | undefined;
 
   /**
    * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
    *       the DB instance is a member of.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>Not supported: The encryption for DB instances is managed by the DB cluster.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p> Not supported: The encryption for DB instances is managed by the DB cluster.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Region-unique, immutable identifier for the DB instance. This identifier is found
    *       in Amazon CloudTrail log entries whenever the Amazon KMS key for the DB instance is accessed.</p>
    * @public
    */
-  DbiResourceId?: string;
+  DbiResourceId?: string | undefined;
 
   /**
    * <p>The identifier of the CA certificate for this DB instance.</p>
    * @public
    */
-  CACertificateIdentifier?: string;
+  CACertificateIdentifier?: string | undefined;
 
   /**
    * <p>Not supported</p>
    * @public
    */
-  DomainMemberships?: DomainMembership[];
+  DomainMemberships?: DomainMembership[] | undefined;
 
   /**
    * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB
    *       instance.</p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
    *       for the DB instance.</p>
    * @public
    */
-  MonitoringInterval?: number;
+  MonitoringInterval?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the
    *       Enhanced Monitoring metrics data for the DB instance.</p>
    * @public
    */
-  EnhancedMonitoringResourceArn?: string;
+  EnhancedMonitoringResourceArn?: string | undefined;
 
   /**
    * <p>The ARN for the IAM role that permits Neptune to send Enhanced Monitoring metrics to
    *       Amazon CloudWatch Logs.</p>
    * @public
    */
-  MonitoringRoleArn?: string;
+  MonitoringRoleArn?: string | undefined;
 
   /**
    * <p>A value that specifies the order in which a Read Replica is promoted to the primary
@@ -3607,26 +3607,26 @@ export interface DBInstance {
    *    </p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
    * @public
    */
-  DBInstanceArn?: string;
+  DBInstanceArn?: string | undefined;
 
   /**
    * <p>Not supported.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>True if Amazon Identity and Access Management (IAM) authentication is enabled, and otherwise
    *       false.</p>
    * @public
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -3634,7 +3634,7 @@ export interface DBInstance {
    *          </p>
    * @public
    */
-  PerformanceInsightsEnabled?: boolean;
+  PerformanceInsightsEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -3642,14 +3642,14 @@ export interface DBInstance {
    *          </p>
    * @public
    */
-  PerformanceInsightsKMSKeyId?: string;
+  PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>A list of log types that this DB instance is configured to export to CloudWatch
    *       Logs.</p>
    * @public
    */
-  EnabledCloudwatchLogsExports?: string[];
+  EnabledCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>Indicates whether or not the DB instance has deletion protection enabled.
@@ -3657,7 +3657,7 @@ export interface DBInstance {
    *       a DB Instance</a>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 }
 
 /**
@@ -3669,7 +3669,7 @@ export interface CreateDBInstanceResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
    * @public
    */
-  DBInstance?: DBInstance;
+  DBInstance?: DBInstance | undefined;
 }
 
 /**
@@ -3879,7 +3879,7 @@ export interface CreateDBParameterGroupMessage {
    * <p>The tags to be assigned to the new DB parameter group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3891,7 +3891,7 @@ export interface CreateDBParameterGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
    * @public
    */
-  DBParameterGroup?: DBParameterGroup;
+  DBParameterGroup?: DBParameterGroup | undefined;
 }
 
 /**
@@ -3924,7 +3924,7 @@ export interface CreateDBSubnetGroupMessage {
    * <p>The tags to be assigned to the new DB subnet group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3936,7 +3936,7 @@ export interface CreateDBSubnetGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
    * @public
    */
-  DBSubnetGroup?: DBSubnetGroup;
+  DBSubnetGroup?: DBSubnetGroup | undefined;
 }
 
 /**
@@ -4028,7 +4028,7 @@ export interface CreateEventSubscriptionMessage {
    *          </p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p> A list of event categories for a SourceType that you want to subscribe to. You can see a
@@ -4036,7 +4036,7 @@ export interface CreateEventSubscriptionMessage {
    *       <b>DescribeEventCategories</b> action.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>The list of identifiers of the event sources for which events are returned. If not
@@ -4067,7 +4067,7 @@ export interface CreateEventSubscriptionMessage {
    *          </ul>
    * @public
    */
-  SourceIds?: string[];
+  SourceIds?: string[] | undefined;
 
   /**
    * <p> A Boolean value; set to <b>true</b> to activate the
@@ -4075,13 +4075,13 @@ export interface CreateEventSubscriptionMessage {
    *       active it.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The tags to be applied to the new event subscription.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4092,7 +4092,7 @@ export interface CreateEventSubscriptionResult {
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -4231,7 +4231,7 @@ export interface CreateGlobalClusterMessage {
    *       global database.</p>
    * @public
    */
-  SourceDBClusterIdentifier?: string;
+  SourceDBClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name of the database engine to be used in the global database.</p>
@@ -4239,14 +4239,14 @@ export interface CreateGlobalClusterMessage {
    *          </p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The Neptune engine version to be used by the global database.</p>
    *          <p>Valid values: <code>1.2.0.0</code> or above.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The deletion protection setting for the new global database.
@@ -4254,14 +4254,14 @@ export interface CreateGlobalClusterMessage {
    *       enabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>The storage encryption setting for the new global database
    *       cluster.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 }
 
 /**
@@ -4278,7 +4278,7 @@ export interface GlobalClusterMember {
    *   </p>
    * @public
    */
-  DBClusterArn?: string;
+  DBClusterArn?: string | undefined;
 
   /**
    * <p>
@@ -4287,7 +4287,7 @@ export interface GlobalClusterMember {
    *   </p>
    * @public
    */
-  Readers?: string[];
+  Readers?: string[] | undefined;
 
   /**
    * <p>
@@ -4297,7 +4297,7 @@ export interface GlobalClusterMember {
    *   </p>
    * @public
    */
-  IsWriter?: boolean;
+  IsWriter?: boolean | undefined;
 }
 
 /**
@@ -4317,7 +4317,7 @@ export interface GlobalCluster {
    *       is the unique key that identifies a global database.</p>
    * @public
    */
-  GlobalClusterIdentifier?: string;
+  GlobalClusterIdentifier?: string | undefined;
 
   /**
    * <p>An immutable identifier for the global database that is unique within in all
@@ -4325,51 +4325,51 @@ export interface GlobalCluster {
    *       key for the DB cluster is accessed.</p>
    * @public
    */
-  GlobalClusterResourceId?: string;
+  GlobalClusterResourceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the global database.</p>
    * @public
    */
-  GlobalClusterArn?: string;
+  GlobalClusterArn?: string | undefined;
 
   /**
    * <p>Specifies the current state of this global database.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The Neptune database engine used by the global database
    *       (<code>"neptune"</code>).</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The Neptune engine version used by the global database.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The storage encryption setting for the global database.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The deletion protection setting for the global database.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>A list of cluster ARNs and instance ARNs for all the DB clusters
    *         that are part of the global database.</p>
    * @public
    */
-  GlobalClusterMembers?: GlobalClusterMember[];
+  GlobalClusterMembers?: GlobalClusterMember[] | undefined;
 }
 
 /**
@@ -4387,7 +4387,7 @@ export interface CreateGlobalClusterResult {
    *       <a>RemoveFromGlobalCluster</a> actions.</p>
    * @public
    */
-  GlobalCluster?: GlobalCluster;
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
@@ -4460,7 +4460,7 @@ export interface DeleteDBClusterMessage {
    *          </p>
    * @public
    */
-  SkipFinalSnapshot?: boolean;
+  SkipFinalSnapshot?: boolean | undefined;
 
   /**
    * <p> The DB cluster snapshot identifier of the new DB cluster snapshot created when
@@ -4483,7 +4483,7 @@ export interface DeleteDBClusterMessage {
    *          </ul>
    * @public
    */
-  FinalDBSnapshotIdentifier?: string;
+  FinalDBSnapshotIdentifier?: string | undefined;
 }
 
 /**
@@ -4495,7 +4495,7 @@ export interface DeleteDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -4563,52 +4563,52 @@ export interface DeleteDBClusterEndpointOutput {
    * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
    * @public
    */
-  DBClusterEndpointIdentifier?: string;
+  DBClusterEndpointIdentifier?: string | undefined;
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
    *       stored as a lowercase string.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
    * @public
    */
-  DBClusterEndpointResourceIdentifier?: string;
+  DBClusterEndpointResourceIdentifier?: string | undefined;
 
   /**
    * <p>The DNS address of the endpoint.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
    *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
    *       <code>WRITER</code>, <code>ANY</code>.</p>
    * @public
    */
-  CustomEndpointType?: string;
+  CustomEndpointType?: string | undefined;
 
   /**
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -4616,13 +4616,13 @@ export interface DeleteDBClusterEndpointOutput {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
    * @public
    */
-  DBClusterEndpointArn?: string;
+  DBClusterEndpointArn?: string | undefined;
 }
 
 /**
@@ -4711,7 +4711,7 @@ export interface DeleteDBClusterSnapshotResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
    * @public
    */
-  DBClusterSnapshot?: DBClusterSnapshot;
+  DBClusterSnapshot?: DBClusterSnapshot | undefined;
 }
 
 /**
@@ -4768,7 +4768,7 @@ export interface DeleteDBInstanceMessage {
    *          </p>
    * @public
    */
-  SkipFinalSnapshot?: boolean;
+  SkipFinalSnapshot?: boolean | undefined;
 
   /**
    * <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to
@@ -4794,7 +4794,7 @@ export interface DeleteDBInstanceMessage {
    *          </ul>
    * @public
    */
-  FinalDBSnapshotIdentifier?: string;
+  FinalDBSnapshotIdentifier?: string | undefined;
 }
 
 /**
@@ -4806,7 +4806,7 @@ export interface DeleteDBInstanceResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
    * @public
    */
-  DBInstance?: DBInstance;
+  DBInstance?: DBInstance | undefined;
 }
 
 /**
@@ -4889,7 +4889,7 @@ export interface DeleteEventSubscriptionResult {
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -4938,7 +4938,7 @@ export interface DeleteGlobalClusterResult {
    *       <a>RemoveFromGlobalCluster</a> actions.</p>
    * @public
    */
-  GlobalCluster?: GlobalCluster;
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
@@ -4975,52 +4975,52 @@ export interface DBClusterEndpoint {
    * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
    * @public
    */
-  DBClusterEndpointIdentifier?: string;
+  DBClusterEndpointIdentifier?: string | undefined;
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
    *       stored as a lowercase string.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
    * @public
    */
-  DBClusterEndpointResourceIdentifier?: string;
+  DBClusterEndpointResourceIdentifier?: string | undefined;
 
   /**
    * <p>The DNS address of the endpoint.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
    *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
    *       <code>WRITER</code>, <code>ANY</code>.</p>
    * @public
    */
-  CustomEndpointType?: string;
+  CustomEndpointType?: string | undefined;
 
   /**
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -5028,13 +5028,13 @@ export interface DBClusterEndpoint {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
    * @public
    */
-  DBClusterEndpointArn?: string;
+  DBClusterEndpointArn?: string | undefined;
 }
 
 /**
@@ -5050,14 +5050,14 @@ export interface DBClusterEndpointMessage {
    *     </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Contains the details of the endpoints associated with the cluster
    *       and matching any filter conditions.</p>
    * @public
    */
-  DBClusterEndpoints?: DBClusterEndpoint[];
+  DBClusterEndpoints?: DBClusterEndpoint[] | undefined;
 }
 
 /**
@@ -5087,13 +5087,13 @@ export interface DescribeDBClusterEndpointsMessage {
    *       stored as a lowercase string.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of the endpoint to describe. This parameter is stored as a lowercase string.</p>
    * @public
    */
-  DBClusterEndpointIdentifier?: string;
+  DBClusterEndpointIdentifier?: string | undefined;
 
   /**
    * <p>A set of name-value pairs that define which endpoints to include in the output.
@@ -5106,7 +5106,7 @@ export interface DescribeDBClusterEndpointsMessage {
    *     </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response.
@@ -5117,7 +5117,7 @@ export interface DescribeDBClusterEndpointsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -5128,7 +5128,7 @@ export interface DescribeDBClusterEndpointsMessage {
    *     </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5142,13 +5142,13 @@ export interface DBClusterParameterGroupsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A list of DB cluster parameter groups.</p>
    * @public
    */
-  DBClusterParameterGroups?: DBClusterParameterGroup[];
+  DBClusterParameterGroups?: DBClusterParameterGroup[] | undefined;
 }
 
 /**
@@ -5165,13 +5165,13 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          </ul>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -5181,7 +5181,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -5190,7 +5190,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5216,43 +5216,43 @@ export interface Parameter {
    * <p>Specifies the name of the parameter.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
 
   /**
    * <p>Specifies the value of the parameter.</p>
    * @public
    */
-  ParameterValue?: string;
+  ParameterValue?: string | undefined;
 
   /**
    * <p>Provides a description of the parameter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Indicates the source of the parameter value.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>Specifies the engine specific parameters type.</p>
    * @public
    */
-  ApplyType?: string;
+  ApplyType?: string | undefined;
 
   /**
    * <p>Specifies the valid data type for the parameter.</p>
    * @public
    */
-  DataType?: string;
+  DataType?: string | undefined;
 
   /**
    * <p>Specifies the valid range of values for the parameter.</p>
    * @public
    */
-  AllowedValues?: string;
+  AllowedValues?: string | undefined;
 
   /**
    * <p> Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be
@@ -5260,19 +5260,19 @@ export interface Parameter {
    *       being changed.</p>
    * @public
    */
-  IsModifiable?: boolean;
+  IsModifiable?: boolean | undefined;
 
   /**
    * <p>The earliest engine version to which the parameter can apply.</p>
    * @public
    */
-  MinimumEngineVersion?: string;
+  MinimumEngineVersion?: string | undefined;
 
   /**
    * <p>Indicates when to apply parameter updates.</p>
    * @public
    */
-  ApplyMethod?: ApplyMethod;
+  ApplyMethod?: ApplyMethod | undefined;
 }
 
 /**
@@ -5283,7 +5283,7 @@ export interface DBClusterParameterGroupDetails {
    * <p>Provides a list of parameters for the DB cluster parameter group.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeDBClusterParameters request.
@@ -5291,7 +5291,7 @@ export interface DBClusterParameterGroupDetails {
    *       the value specified by <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5315,13 +5315,13 @@ export interface DescribeDBClusterParametersMessage {
    *       can be <code>engine</code>, <code>service</code>, or <code>customer</code>.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -5331,7 +5331,7 @@ export interface DescribeDBClusterParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -5340,7 +5340,7 @@ export interface DescribeDBClusterParametersMessage {
    *    </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5351,13 +5351,13 @@ export interface DBClusterMessage {
    * <p>A pagination token that can be used in a subsequent DescribeDBClusters request.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Contains a list of DB clusters for the user.</p>
    * @public
    */
-  DBClusters?: DBCluster[];
+  DBClusters?: DBCluster[] | undefined;
 }
 
 /**
@@ -5375,7 +5375,7 @@ export interface DescribeDBClustersMessage {
    *          </ul>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A filter that specifies one or more DB clusters to describe.</p>
@@ -5397,7 +5397,7 @@ export interface DescribeDBClustersMessage {
    *       Neptune DB clusters are returned, you could use the following command:</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -5407,7 +5407,7 @@ export interface DescribeDBClustersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
@@ -5415,7 +5415,7 @@ export interface DescribeDBClustersMessage {
    *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5443,7 +5443,7 @@ export interface DBClusterSnapshotAttribute {
    *       <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
@@ -5453,7 +5453,7 @@ export interface DBClusterSnapshotAttribute {
    *       snapshot is public and available for any Amazon account to copy or restore.</p>
    * @public
    */
-  AttributeValues?: string[];
+  AttributeValues?: string[] | undefined;
 }
 
 /**
@@ -5467,13 +5467,13 @@ export interface DBClusterSnapshotAttributesResult {
    * <p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>
    * @public
    */
-  DBClusterSnapshotIdentifier?: string;
+  DBClusterSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
    * @public
    */
-  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
+  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[] | undefined;
 }
 
 /**
@@ -5486,7 +5486,7 @@ export interface DescribeDBClusterSnapshotAttributesResult {
    *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    * @public
    */
-  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
+  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult | undefined;
 }
 
 /**
@@ -5499,13 +5499,13 @@ export interface DBClusterSnapshotMessage {
    *    </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Provides a list of DB cluster snapshots for the user.</p>
    * @public
    */
-  DBClusterSnapshots?: DBClusterSnapshot[];
+  DBClusterSnapshots?: DBClusterSnapshot[] | undefined;
 }
 
 /**
@@ -5524,7 +5524,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          </ul>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A specific DB cluster snapshot identifier to describe. This parameter can't be used in
@@ -5542,7 +5542,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          </ul>
    * @public
    */
-  DBClusterSnapshotIdentifier?: string;
+  DBClusterSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>The type of DB cluster snapshots to be returned. You can specify one of the following
@@ -5581,13 +5581,13 @@ export interface DescribeDBClusterSnapshotsMessage {
    *       <code>SnapshotType</code> is set to <code>public</code>.</p>
    * @public
    */
-  SnapshotType?: string;
+  SnapshotType?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -5597,7 +5597,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous
@@ -5606,7 +5606,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *    </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>True to include shared manual DB cluster snapshots from other Amazon accounts that this Amazon
@@ -5617,7 +5617,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *       action.</p>
    * @public
    */
-  IncludeShared?: boolean;
+  IncludeShared?: boolean | undefined;
 
   /**
    * <p>True to include manual DB cluster snapshots that are public and can be copied or restored
@@ -5626,7 +5626,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    * @public
    */
-  IncludePublic?: boolean;
+  IncludePublic?: boolean | undefined;
 }
 
 /**
@@ -5638,13 +5638,13 @@ export interface CharacterSet {
    * <p>The name of the character set.</p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
    * <p>The description of the character set.</p>
    * @public
    */
-  CharacterSetDescription?: string;
+  CharacterSetDescription?: string | undefined;
 }
 
 /**
@@ -5656,7 +5656,7 @@ export interface Timezone {
    * <p>The name of the time zone.</p>
    * @public
    */
-  TimezoneName?: string;
+  TimezoneName?: string | undefined;
 }
 
 /**
@@ -5668,38 +5668,38 @@ export interface UpgradeTarget {
    * <p>The name of the upgrade target database engine.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The version number of the upgrade target database engine.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The version of the database engine that a DB instance can be upgraded to.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A value that indicates whether the target version is applied to any source DB instances
    *       that have AutoMinorVersionUpgrade set to true.</p>
    * @public
    */
-  AutoUpgrade?: boolean;
+  AutoUpgrade?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether a database engine is upgraded to a major version.</p>
    * @public
    */
-  IsMajorVersionUpgrade?: boolean;
+  IsMajorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether you can use Neptune global databases with the target engine version.</p>
    * @public
    */
-  SupportsGlobalDatabases?: boolean;
+  SupportsGlobalDatabases?: boolean | undefined;
 }
 
 /**
@@ -5711,31 +5711,31 @@ export interface DBEngineVersion {
    * <p>The name of the database engine.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The version number of the database engine.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The name of the DB parameter group family for the database engine.</p>
    * @public
    */
-  DBParameterGroupFamily?: string;
+  DBParameterGroupFamily?: string | undefined;
 
   /**
    * <p>The description of the database engine.</p>
    * @public
    */
-  DBEngineDescription?: string;
+  DBEngineDescription?: string | undefined;
 
   /**
    * <p>The description of the database engine version.</p>
    * @public
    */
-  DBEngineVersionDescription?: string;
+  DBEngineVersionDescription?: string | undefined;
 
   /**
    * <p>
@@ -5743,7 +5743,7 @@ export interface DBEngineVersion {
    *          </p>
    * @public
    */
-  DefaultCharacterSet?: CharacterSet;
+  DefaultCharacterSet?: CharacterSet | undefined;
 
   /**
    * <p>
@@ -5751,46 +5751,46 @@ export interface DBEngineVersion {
    *          </p>
    * @public
    */
-  SupportedCharacterSets?: CharacterSet[];
+  SupportedCharacterSets?: CharacterSet[] | undefined;
 
   /**
    * <p>A list of engine versions that this database engine version can be upgraded to.</p>
    * @public
    */
-  ValidUpgradeTarget?: UpgradeTarget[];
+  ValidUpgradeTarget?: UpgradeTarget[] | undefined;
 
   /**
    * <p>A list of the time zones supported by this engine for the <code>Timezone</code> parameter
    *       of the <code>CreateDBInstance</code> action.</p>
    * @public
    */
-  SupportedTimezones?: Timezone[];
+  SupportedTimezones?: Timezone[] | undefined;
 
   /**
    * <p>The types of logs that the database engine has available for export to CloudWatch
    *       Logs.</p>
    * @public
    */
-  ExportableLogTypes?: string[];
+  ExportableLogTypes?: string[] | undefined;
 
   /**
    * <p>A value that indicates whether the engine version supports exporting the log types
    *       specified by ExportableLogTypes to CloudWatch Logs.</p>
    * @public
    */
-  SupportsLogExportsToCloudwatchLogs?: boolean;
+  SupportsLogExportsToCloudwatchLogs?: boolean | undefined;
 
   /**
    * <p>Indicates whether the database engine version supports read replicas.</p>
    * @public
    */
-  SupportsReadReplica?: boolean;
+  SupportsReadReplica?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether you can use Aurora global databases with a specific DB engine version.</p>
    * @public
    */
-  SupportsGlobalDatabases?: boolean;
+  SupportsGlobalDatabases?: boolean | undefined;
 }
 
 /**
@@ -5803,13 +5803,13 @@ export interface DBEngineVersionMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> A list of <code>DBEngineVersion</code> elements.</p>
    * @public
    */
-  DBEngineVersions?: DBEngineVersion[];
+  DBEngineVersions?: DBEngineVersion[] | undefined;
 }
 
 /**
@@ -5820,7 +5820,7 @@ export interface DescribeDBEngineVersionsMessage {
    * <p>The database engine to return.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The database engine version to return.</p>
@@ -5828,7 +5828,7 @@ export interface DescribeDBEngineVersionsMessage {
    *          </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The name of a specific DB parameter group family to return details for.</p>
@@ -5840,13 +5840,13 @@ export interface DescribeDBEngineVersionsMessage {
    *          </ul>
    * @public
    */
-  DBParameterGroupFamily?: string;
+  DBParameterGroupFamily?: string | undefined;
 
   /**
    * <p>Not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more than the
@@ -5856,7 +5856,7 @@ export interface DescribeDBEngineVersionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -5864,14 +5864,14 @@ export interface DescribeDBEngineVersionsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Indicates that only the default version of the specified engine or engine and major
    *       version combination is returned.</p>
    * @public
    */
-  DefaultOnly?: boolean;
+  DefaultOnly?: boolean | undefined;
 
   /**
    * <p>If this parameter is specified and the requested engine supports the
@@ -5879,7 +5879,7 @@ export interface DescribeDBEngineVersionsMessage {
    *       includes a list of supported character sets for each engine version.</p>
    * @public
    */
-  ListSupportedCharacterSets?: boolean;
+  ListSupportedCharacterSets?: boolean | undefined;
 
   /**
    * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
@@ -5887,7 +5887,7 @@ export interface DescribeDBEngineVersionsMessage {
    *       zones for each engine version.</p>
    * @public
    */
-  ListSupportedTimezones?: boolean;
+  ListSupportedTimezones?: boolean | undefined;
 }
 
 /**
@@ -5900,13 +5900,13 @@ export interface DBInstanceMessage {
    *       <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> A list of <a>DBInstance</a> instances.</p>
    * @public
    */
-  DBInstances?: DBInstance[];
+  DBInstances?: DBInstance[] | undefined;
 }
 
 /**
@@ -5924,7 +5924,7 @@ export interface DescribeDBInstancesMessage {
    *          </ul>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>A filter that specifies one or more DB instances to describe.</p>
@@ -5946,7 +5946,7 @@ export interface DescribeDBInstancesMessage {
    *       Neptune DB instances are returned, you could use the following command:</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -5956,7 +5956,7 @@ export interface DescribeDBInstancesMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous <code>DescribeDBInstances</code>
@@ -5964,7 +5964,7 @@ export interface DescribeDBInstancesMessage {
    *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5977,13 +5977,13 @@ export interface DBParameterGroupsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A list of <a>DBParameterGroup</a> instances.</p>
    * @public
    */
-  DBParameterGroups?: DBParameterGroup[];
+  DBParameterGroups?: DBParameterGroup[] | undefined;
 }
 
 /**
@@ -6000,13 +6000,13 @@ export interface DescribeDBParameterGroupsMessage {
    *          </ul>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -6016,7 +6016,7 @@ export interface DescribeDBParameterGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous
@@ -6024,7 +6024,7 @@ export interface DescribeDBParameterGroupsMessage {
    *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6035,7 +6035,7 @@ export interface DBParameterGroupDetails {
    * <p>A list of <a>Parameter</a> values.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
@@ -6043,7 +6043,7 @@ export interface DBParameterGroupDetails {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6069,13 +6069,13 @@ export interface DescribeDBParametersMessage {
    *          </p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -6085,7 +6085,7 @@ export interface DescribeDBParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous <code>DescribeDBParameters</code>
@@ -6093,7 +6093,7 @@ export interface DescribeDBParametersMessage {
    *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6106,13 +6106,13 @@ export interface DBSubnetGroupMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> A list of <a>DBSubnetGroup</a> instances.</p>
    * @public
    */
-  DBSubnetGroups?: DBSubnetGroup[];
+  DBSubnetGroups?: DBSubnetGroup[] | undefined;
 }
 
 /**
@@ -6123,13 +6123,13 @@ export interface DescribeDBSubnetGroupsMessage {
    * <p>The name of the DB subnet group to return details for.</p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6139,7 +6139,7 @@ export interface DescribeDBSubnetGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeDBSubnetGroups request. If
@@ -6147,7 +6147,7 @@ export interface DescribeDBSubnetGroupsMessage {
    *       value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6165,7 +6165,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6175,7 +6175,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -6184,7 +6184,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6197,7 +6197,7 @@ export interface EngineDefaults {
    *       apply to.</p>
    * @public
    */
-  DBParameterGroupFamily?: string;
+  DBParameterGroupFamily?: string | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous EngineDefaults request. If this
@@ -6205,13 +6205,13 @@ export interface EngineDefaults {
    *       specified by <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Contains a list of engine default parameters.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -6222,7 +6222,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
    * @public
    */
-  EngineDefaults?: EngineDefaults;
+  EngineDefaults?: EngineDefaults | undefined;
 }
 
 /**
@@ -6239,7 +6239,7 @@ export interface DescribeEngineDefaultParametersMessage {
    * <p>Not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6249,7 +6249,7 @@ export interface DescribeEngineDefaultParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -6258,7 +6258,7 @@ export interface DescribeEngineDefaultParametersMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6269,7 +6269,7 @@ export interface DescribeEngineDefaultParametersResult {
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
    * @public
    */
-  EngineDefaults?: EngineDefaults;
+  EngineDefaults?: EngineDefaults | undefined;
 }
 
 /**
@@ -6281,13 +6281,13 @@ export interface DescribeEventCategoriesMessage {
    *          <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6299,13 +6299,13 @@ export interface EventCategoriesMap {
    * <p>The source type that the returned categories belong to</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>The event categories for the specified source type</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 }
 
 /**
@@ -6316,7 +6316,7 @@ export interface EventCategoriesMessage {
    * <p>A list of EventCategoriesMap data types.</p>
    * @public
    */
-  EventCategoriesMapList?: EventCategoriesMap[];
+  EventCategoriesMapList?: EventCategoriesMap[] | undefined;
 }
 
 /**
@@ -6371,14 +6371,14 @@ export interface DescribeEventsMessage {
    *          </ul>
    * @public
    */
-  SourceIdentifier?: string;
+  SourceIdentifier?: string | undefined;
 
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *       returned.</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
@@ -6387,7 +6387,7 @@ export interface DescribeEventsMessage {
    *          <p>Example: 2009-07-08T18:00Z</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p> The end of the time interval for which to retrieve events, specified in ISO 8601 format.
@@ -6396,27 +6396,27 @@ export interface DescribeEventsMessage {
    *          <p>Example: 2009-07-08T18:00Z</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The number of minutes to retrieve events for.</p>
    *          <p>Default: 60</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>A list of event categories that trigger notifications for a event notification
    *       subscription.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6426,7 +6426,7 @@ export interface DescribeEventsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeEvents request. If this
@@ -6434,7 +6434,7 @@ export interface DescribeEventsMessage {
    *       specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6447,37 +6447,37 @@ export interface Event {
    * <p>Provides the identifier for the source of the event.</p>
    * @public
    */
-  SourceIdentifier?: string;
+  SourceIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the source type for this event.</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p>Provides the text of this event.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>Specifies the category for the event.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>Specifies the date and time of the event.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the event.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 }
 
 /**
@@ -6490,13 +6490,13 @@ export interface EventsMessage {
    *       <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> A list of <a>Event</a> instances.</p>
    * @public
    */
-  Events?: Event[];
+  Events?: Event[] | undefined;
 }
 
 /**
@@ -6507,13 +6507,13 @@ export interface DescribeEventSubscriptionsMessage {
    * <p>The name of the event notification subscription you want to describe.</p>
    * @public
    */
-  SubscriptionName?: string;
+  SubscriptionName?: string | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6523,7 +6523,7 @@ export interface DescribeEventSubscriptionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
@@ -6531,7 +6531,7 @@ export interface DescribeEventSubscriptionsMessage {
    *       up to the value specified by <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6544,13 +6544,13 @@ export interface EventSubscriptionsMessage {
    *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A list of EventSubscriptions data types.</p>
    * @public
    */
-  EventSubscriptionsList?: EventSubscription[];
+  EventSubscriptionsList?: EventSubscription[] | undefined;
 }
 
 /**
@@ -6564,7 +6564,7 @@ export interface DescribeGlobalClustersMessage {
    *          <p>Constraints: If supplied, must match an existing DB cluster identifier.</p>
    * @public
    */
-  GlobalClusterIdentifier?: string;
+  GlobalClusterIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records
@@ -6575,7 +6575,7 @@ export interface DescribeGlobalClustersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>(<i>Optional</i>) A pagination token returned by a previous
@@ -6584,7 +6584,7 @@ export interface DescribeGlobalClustersMessage {
    *       specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6597,13 +6597,13 @@ export interface GlobalClustersMessage {
    *       calls to <code>DescribeGlobalClusters</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The list of global clusters and instances returned by this request.</p>
    * @public
    */
-  GlobalClusters?: GlobalCluster[];
+  GlobalClusters?: GlobalCluster[] | undefined;
 }
 
 /**
@@ -6621,34 +6621,34 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *       offerings matching the specified engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The DB instance class filter value. Specify this parameter to show only the available
    *       offerings matching the specified DB instance class.</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p>The license model filter value. Specify this parameter to show only the available
    *       offerings matching the specified license model.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The VPC filter value. Specify this parameter to show only the available VPC or non-VPC
    *       offerings.</p>
    * @public
    */
-  Vpc?: boolean;
+  Vpc?: boolean | undefined;
 
   /**
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6658,7 +6658,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
@@ -6666,7 +6666,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *       up to the value specified by <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6679,80 +6679,80 @@ export interface OrderableDBInstanceOption {
    * <p>The engine type of a DB instance.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The engine version of a DB instance.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The DB instance class for a DB instance.</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p>The license model for a DB instance.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>A list of Availability Zones for a DB instance.</p>
    * @public
    */
-  AvailabilityZones?: AvailabilityZone[];
+  AvailabilityZones?: AvailabilityZone[] | undefined;
 
   /**
    * <p>Indicates whether a DB instance is Multi-AZ capable.</p>
    * @public
    */
-  MultiAZCapable?: boolean;
+  MultiAZCapable?: boolean | undefined;
 
   /**
    * <p>Indicates whether a DB instance can have a Read Replica.</p>
    * @public
    */
-  ReadReplicaCapable?: boolean;
+  ReadReplicaCapable?: boolean | undefined;
 
   /**
    * <p>Indicates whether a DB instance is in a VPC.</p>
    * @public
    */
-  Vpc?: boolean;
+  Vpc?: boolean | undefined;
 
   /**
    * <p>Indicates whether a DB instance supports encrypted storage.</p>
    * @public
    */
-  SupportsStorageEncryption?: boolean;
+  SupportsStorageEncryption?: boolean | undefined;
 
   /**
    * <p>Indicates the storage type for a DB instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
    * @public
    */
-  SupportsIops?: boolean;
+  SupportsIops?: boolean | undefined;
 
   /**
    * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60
    *       seconds.</p>
    * @public
    */
-  SupportsEnhancedMonitoring?: boolean;
+  SupportsEnhancedMonitoring?: boolean | undefined;
 
   /**
    * <p>Indicates whether a DB instance supports IAM database authentication.</p>
    * @public
    */
-  SupportsIAMDatabaseAuthentication?: boolean;
+  SupportsIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>
@@ -6760,49 +6760,49 @@ export interface OrderableDBInstanceOption {
    *          </p>
    * @public
    */
-  SupportsPerformanceInsights?: boolean;
+  SupportsPerformanceInsights?: boolean | undefined;
 
   /**
    * <p>Minimum storage size for a DB instance.</p>
    * @public
    */
-  MinStorageSize?: number;
+  MinStorageSize?: number | undefined;
 
   /**
    * <p>Maximum storage size for a DB instance.</p>
    * @public
    */
-  MaxStorageSize?: number;
+  MaxStorageSize?: number | undefined;
 
   /**
    * <p>Minimum total provisioned IOPS for a DB instance.</p>
    * @public
    */
-  MinIopsPerDbInstance?: number;
+  MinIopsPerDbInstance?: number | undefined;
 
   /**
    * <p>Maximum total provisioned IOPS for a DB instance.</p>
    * @public
    */
-  MaxIopsPerDbInstance?: number;
+  MaxIopsPerDbInstance?: number | undefined;
 
   /**
    * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
    * @public
    */
-  MinIopsPerGib?: number;
+  MinIopsPerGib?: number | undefined;
 
   /**
    * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
    * @public
    */
-  MaxIopsPerGib?: number;
+  MaxIopsPerGib?: number | undefined;
 
   /**
    * <p>A value that indicates whether you can use Neptune global databases with a specific combination of other DB engine attributes.</p>
    * @public
    */
-  SupportsGlobalDatabases?: boolean;
+  SupportsGlobalDatabases?: boolean | undefined;
 }
 
 /**
@@ -6814,7 +6814,7 @@ export interface OrderableDBInstanceOptionsMessage {
    *       containing information about orderable options for the DB instance.</p>
    * @public
    */
-  OrderableDBInstanceOptions?: OrderableDBInstanceOption[];
+  OrderableDBInstanceOptions?: OrderableDBInstanceOption[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous OrderableDBInstanceOptions request.
@@ -6822,7 +6822,7 @@ export interface OrderableDBInstanceOptionsMessage {
    *       the value specified by <code>MaxRecords</code> .</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6833,7 +6833,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    * <p>The ARN of a resource to return pending maintenance actions for.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>A filter that specifies one or more resources to return pending maintenance actions
@@ -6855,7 +6855,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -6864,7 +6864,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -6874,7 +6874,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -6885,7 +6885,7 @@ export interface PendingMaintenanceActionsMessage {
    * <p>A list of the pending maintenance actions for the resource.</p>
    * @public
    */
-  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -6894,7 +6894,7 @@ export interface PendingMaintenanceActionsMessage {
    *       <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -6917,13 +6917,13 @@ export interface DoubleRange {
    * <p>The minimum value in the range.</p>
    * @public
    */
-  From?: number;
+  From?: number | undefined;
 
   /**
    * <p>The maximum value in the range.</p>
    * @public
    */
-  To?: number;
+  To?: number | undefined;
 }
 
 /**
@@ -6935,13 +6935,13 @@ export interface Range {
    * <p>The minimum value in the range.</p>
    * @public
    */
-  From?: number;
+  From?: number | undefined;
 
   /**
    * <p>The maximum value in the range.</p>
    * @public
    */
-  To?: number;
+  To?: number | undefined;
 
   /**
    * <p>The step value for the range. For example, if you have a range of 5,000 to 10,000, with a
@@ -6950,7 +6950,7 @@ export interface Range {
    *       7,000, 8,000...</p>
    * @public
    */
-  Step?: number;
+  Step?: number | undefined;
 }
 
 /**
@@ -6964,26 +6964,26 @@ export interface ValidStorageOptions {
    * <p>The valid storage types for your DB instance. For example, gp2, io1.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The valid range of storage in gibibytes. For example, 100 to 16384.</p>
    * @public
    */
-  StorageSize?: Range[];
+  StorageSize?: Range[] | undefined;
 
   /**
    * <p>The valid range of provisioned IOPS. For example, 1000-20000.</p>
    * @public
    */
-  ProvisionedIops?: Range[];
+  ProvisionedIops?: Range[] | undefined;
 
   /**
    * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10,
    *       which means that provisioned IOPS can be between 3 and 10 times storage.</p>
    * @public
    */
-  IopsToStorageRatio?: DoubleRange[];
+  IopsToStorageRatio?: DoubleRange[] | undefined;
 }
 
 /**
@@ -6998,7 +6998,7 @@ export interface ValidDBInstanceModificationsMessage {
    * <p>Valid storage options for your DB instance.</p>
    * @public
    */
-  Storage?: ValidStorageOptions[];
+  Storage?: ValidStorageOptions[] | undefined;
 }
 
 /**
@@ -7012,7 +7012,7 @@ export interface DescribeValidDBInstanceModificationsResult {
    *    </p>
    * @public
    */
-  ValidDBInstanceModificationsMessage?: ValidDBInstanceModificationsMessage;
+  ValidDBInstanceModificationsMessage?: ValidDBInstanceModificationsMessage | undefined;
 }
 
 /**
@@ -7030,7 +7030,7 @@ export interface FailoverDBClusterMessage {
    *          </ul>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name of the instance to promote to the primary instance.</p>
@@ -7038,7 +7038,7 @@ export interface FailoverDBClusterMessage {
    *       example, <code>mydbcluster-replica1</code>.</p>
    * @public
    */
-  TargetDBInstanceIdentifier?: string;
+  TargetDBInstanceIdentifier?: string | undefined;
 }
 
 /**
@@ -7050,7 +7050,7 @@ export interface FailoverDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -7091,7 +7091,7 @@ export interface FailoverGlobalClusterResult {
    *       <a>RemoveFromGlobalCluster</a> actions.</p>
    * @public
    */
-  GlobalCluster?: GlobalCluster;
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
@@ -7110,7 +7110,7 @@ export interface ListTagsForResourceMessage {
    * <p>This parameter is not currently supported.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7121,7 +7121,7 @@ export interface TagListMessage {
    * <p>List of tags returned by the ListTagsForResource operation.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -7159,13 +7159,13 @@ export interface CloudwatchLogsExportConfiguration {
    * <p>The list of log types to enable.</p>
    * @public
    */
-  EnableLogTypes?: string[];
+  EnableLogTypes?: string[] | undefined;
 
   /**
    * <p>The list of log types to disable.</p>
    * @public
    */
-  DisableLogTypes?: string[];
+  DisableLogTypes?: string[] | undefined;
 }
 
 /**
@@ -7204,7 +7204,7 @@ export interface ModifyDBClusterMessage {
    *          </p>
    * @public
    */
-  NewDBClusterIdentifier?: string;
+  NewDBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A value that specifies whether the modifications in this request and any pending
@@ -7221,7 +7221,7 @@ export interface ModifyDBClusterMessage {
    *          </p>
    * @public
    */
-  ApplyImmediately?: boolean;
+  ApplyImmediately?: boolean | undefined;
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a minimum
@@ -7235,19 +7235,19 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>A list of VPC security groups that the DB cluster will belong to.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The port number on which the DB cluster accepts connections.</p>
@@ -7256,13 +7256,13 @@ export interface ModifyDBClusterMessage {
    *          <p>Default: The same port as the original DB cluster.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>
@@ -7270,7 +7270,7 @@ export interface ModifyDBClusterMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are
@@ -7294,7 +7294,7 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -7308,7 +7308,7 @@ export interface ModifyDBClusterMessage {
    *          <p>Constraints: Minimum 30-minute window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
@@ -7317,7 +7317,7 @@ export interface ModifyDBClusterMessage {
    *          </p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
@@ -7325,7 +7325,7 @@ export interface ModifyDBClusterMessage {
    *       CLI to publish Neptune audit logs to CloudWatch Logs</a>.</p>
    * @public
    */
-  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
+  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration | undefined;
 
   /**
    * <p>The version number of the database engine to which you want to upgrade. Changing this
@@ -7335,7 +7335,7 @@ export interface ModifyDBClusterMessage {
    *       Neptune</a>, or call <a>DescribeDBEngineVersions</a>.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>A value that indicates whether upgrades between different major versions are allowed.</p>
@@ -7344,7 +7344,7 @@ export interface ModifyDBClusterMessage {
    *       version.</p>
    * @public
    */
-  AllowMajorVersionUpgrade?: boolean;
+  AllowMajorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>
@@ -7367,7 +7367,7 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    * @public
    */
-  DBInstanceParameterGroupName?: string;
+  DBInstanceParameterGroupName?: string | undefined;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
@@ -7375,7 +7375,7 @@ export interface ModifyDBClusterMessage {
    *       deletion protection is disabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>
@@ -7384,7 +7384,7 @@ export interface ModifyDBClusterMessage {
    *          </p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
@@ -7392,7 +7392,7 @@ export interface ModifyDBClusterMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    * @public
    */
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
 
   /**
    * <p>The storage type to associate with the DB cluster.</p>
@@ -7414,7 +7414,7 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -7426,7 +7426,7 @@ export interface ModifyDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -7443,13 +7443,13 @@ export interface ModifyDBClusterEndpointMessage {
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -7457,7 +7457,7 @@ export interface ModifyDBClusterEndpointMessage {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 }
 
 /**
@@ -7494,52 +7494,52 @@ export interface ModifyDBClusterEndpointOutput {
    * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
    * @public
    */
-  DBClusterEndpointIdentifier?: string;
+  DBClusterEndpointIdentifier?: string | undefined;
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
    *       stored as a lowercase string.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
    * @public
    */
-  DBClusterEndpointResourceIdentifier?: string;
+  DBClusterEndpointResourceIdentifier?: string | undefined;
 
   /**
    * <p>The DNS address of the endpoint.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
    *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
    *       <code>WRITER</code>, <code>ANY</code>.</p>
    * @public
    */
-  CustomEndpointType?: string;
+  CustomEndpointType?: string | undefined;
 
   /**
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    * @public
    */
-  StaticMembers?: string[];
+  StaticMembers?: string[] | undefined;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -7547,13 +7547,13 @@ export interface ModifyDBClusterEndpointOutput {
    *       Only relevant if the list of static members is empty.</p>
    * @public
    */
-  ExcludedMembers?: string[];
+  ExcludedMembers?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
    * @public
    */
-  DBClusterEndpointArn?: string;
+  DBClusterEndpointArn?: string | undefined;
 }
 
 /**
@@ -7579,7 +7579,7 @@ export interface DBClusterParameterGroupNameMessage {
    *          </note>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 }
 
 /**
@@ -7627,7 +7627,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *       accounts.</p>
    * @public
    */
-  ValuesToAdd?: string[];
+  ValuesToAdd?: string[] | undefined;
 
   /**
    * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by
@@ -7639,7 +7639,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *       <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
    * @public
    */
-  ValuesToRemove?: string[];
+  ValuesToRemove?: string[] | undefined;
 }
 
 /**
@@ -7652,7 +7652,7 @@ export interface ModifyDBClusterSnapshotAttributeResult {
    *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    * @public
    */
-  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
+  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult | undefined;
 }
 
 /**
@@ -7736,7 +7736,7 @@ export interface ModifyDBInstanceMessage {
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The new compute and memory capacity of the DB instance, for example,
@@ -7748,7 +7748,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Default: Uses existing setting</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p>The new DB subnet group for the DB instance. You can use this parameter to move your DB
@@ -7761,7 +7761,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>A list of DB security groups to authorize on this DB instance. Changing this setting
@@ -7775,7 +7775,7 @@ export interface ModifyDBInstanceMessage {
    *          </ul>
    * @public
    */
-  DBSecurityGroups?: string[];
+  DBSecurityGroups?: string[] | undefined;
 
   /**
    * <p>A list of EC2 VPC security groups to authorize on this DB instance. This change is
@@ -7790,7 +7790,7 @@ export interface ModifyDBInstanceMessage {
    *          </ul>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>Specifies whether the modifications in this request and any pending modifications are
@@ -7804,13 +7804,13 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  ApplyImmediately?: boolean;
+  ApplyImmediately?: boolean | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>The name of the DB parameter group to apply to the DB instance. Changing this setting
@@ -7823,7 +7823,7 @@ export interface ModifyDBInstanceMessage {
    *       DB instance.</p>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 
   /**
    * <p>Not applicable. The retention period for automated backups is managed by the DB cluster.
@@ -7831,7 +7831,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Default: Uses existing setting</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p> The daily time range during which automated backups are created if automated backups are
@@ -7855,7 +7855,7 @@ export interface ModifyDBInstanceMessage {
    *          </ul>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The weekly time range (in UTC) during which system maintenance can occur, which might
@@ -7871,7 +7871,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Constraints: Must be at least 30 minutes</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't
@@ -7879,7 +7879,7 @@ export interface ModifyDBInstanceMessage {
    *       <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The version number of the database engine to upgrade to. Currently, setting this
@@ -7887,14 +7887,14 @@ export interface ModifyDBInstanceMessage {
    *       use the <a>ApplyPendingMaintenanceAction</a> API.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Indicates that major version upgrades are allowed. Changing this parameter doesn't result
    *       in an outage and the change is asynchronously applied as soon as possible.</p>
    * @public
    */
-  AllowMajorVersionUpgrade?: boolean;
+  AllowMajorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p> Indicates that minor version upgrades are applied automatically to the DB instance during
@@ -7905,13 +7905,13 @@ export interface ModifyDBInstanceMessage {
    *       version.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>Not supported by Neptune.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The new Provisioned IOPS (I/O operations per second) value for the instance.</p>
@@ -7921,7 +7921,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Default: Uses existing setting</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>
@@ -7929,7 +7929,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p> The new DB instance identifier for the DB instance when renaming a DB instance. When you
@@ -7952,44 +7952,44 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  NewDBInstanceIdentifier?: string;
+  NewDBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Not supported.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    * @public
    */
-  TdeCredentialArn?: string;
+  TdeCredentialArn?: string | undefined;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
    * @public
    */
-  TdeCredentialPassword?: string;
+  TdeCredentialPassword?: string | undefined;
 
   /**
    * <p>Indicates the certificate that needs to be associated with the instance.</p>
    * @public
    */
-  CACertificateIdentifier?: string;
+  CACertificateIdentifier?: string | undefined;
 
   /**
    * <p>Not supported.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
    *       false. The default is false.</p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
@@ -8001,7 +8001,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  MonitoringInterval?: number;
+  MonitoringInterval?: number | undefined;
 
   /**
    * <p>The port number on which the database accepts connections.</p>
@@ -8013,15 +8013,15 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  DBPortNumber?: number;
+  DBPortNumber?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
@@ -8030,13 +8030,13 @@ export interface ModifyDBInstanceMessage {
    *       <code>MonitoringRoleArn</code> value.</p>
    * @public
    */
-  MonitoringRoleArn?: string;
+  MonitoringRoleArn?: string | undefined;
 
   /**
    * <p>Not supported</p>
    * @public
    */
-  DomainIAMRoleName?: string;
+  DomainIAMRoleName?: string | undefined;
 
   /**
    * <p>A value that specifies the order in which a Read Replica is promoted to the primary
@@ -8045,7 +8045,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Valid Values: 0 - 15</p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 
   /**
    * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
@@ -8057,7 +8057,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>
@@ -8065,7 +8065,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  EnablePerformanceInsights?: boolean;
+  EnablePerformanceInsights?: boolean | undefined;
 
   /**
    * <p>
@@ -8073,14 +8073,14 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    * @public
    */
-  PerformanceInsightsKMSKeyId?: string;
+  PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
    *       for a specific DB instance or DB cluster.</p>
    * @public
    */
-  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
+  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration | undefined;
 
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
@@ -8089,7 +8089,7 @@ export interface ModifyDBInstanceMessage {
    *       a DB Instance</a>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 }
 
 /**
@@ -8101,7 +8101,7 @@ export interface ModifyDBInstanceResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
    * @public
    */
-  DBInstance?: DBInstance;
+  DBInstance?: DBInstance | undefined;
 }
 
 /**
@@ -8112,7 +8112,7 @@ export interface DBParameterGroupNameMessage {
    * <p>Provides the name of the DB parameter group.</p>
    * @public
    */
-  DBParameterGroupName?: string;
+  DBParameterGroupName?: string | undefined;
 }
 
 /**
@@ -8165,7 +8165,7 @@ export interface ModifyDBSubnetGroupMessage {
    * <p>The description for the DB subnet group.</p>
    * @public
    */
-  DBSubnetGroupDescription?: string;
+  DBSubnetGroupDescription?: string | undefined;
 
   /**
    * <p>The EC2 subnet IDs for the DB subnet group.</p>
@@ -8183,7 +8183,7 @@ export interface ModifyDBSubnetGroupResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
    * @public
    */
-  DBSubnetGroup?: DBSubnetGroup;
+  DBSubnetGroup?: DBSubnetGroup | undefined;
 }
 
 /**
@@ -8221,7 +8221,7 @@ export interface ModifyEventSubscriptionMessage {
    *       created by Amazon SNS when you create a topic and subscribe to it.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The type of source that is generating the events. For example, if you want to be notified
@@ -8230,7 +8230,7 @@ export interface ModifyEventSubscriptionMessage {
    *          <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p> A list of event categories for a SourceType that you want to subscribe to. You can see a
@@ -8239,14 +8239,14 @@ export interface ModifyEventSubscriptionMessage {
    *       by using the <b>DescribeEventCategories</b> action.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p> A Boolean value; set to <b>true</b> to activate the
    *       subscription.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -8257,7 +8257,7 @@ export interface ModifyEventSubscriptionResult {
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -8291,14 +8291,14 @@ export interface ModifyGlobalClusterMessage {
    *          </p>
    * @public
    */
-  NewGlobalClusterIdentifier?: string;
+  NewGlobalClusterIdentifier?: string | undefined;
 
   /**
    * <p>Indicates whether the global database has deletion protection enabled. The
    *       global database cannot be deleted when deletion protection is enabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>The version number of the database engine to which you want to upgrade.
@@ -8307,7 +8307,7 @@ export interface ModifyGlobalClusterMessage {
    *          <p>To list all of the available Neptune engine versions, use the following command:</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>A value that indicates whether major version upgrades are allowed.</p>
@@ -8320,7 +8320,7 @@ export interface ModifyGlobalClusterMessage {
    *       completing the upgrade.</p>
    * @public
    */
-  AllowMajorVersionUpgrade?: boolean;
+  AllowMajorVersionUpgrade?: boolean | undefined;
 }
 
 /**
@@ -8338,7 +8338,7 @@ export interface ModifyGlobalClusterResult {
    *       <a>RemoveFromGlobalCluster</a> actions.</p>
    * @public
    */
-  GlobalCluster?: GlobalCluster;
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
@@ -8361,7 +8361,7 @@ export interface PromoteReadReplicaDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -8386,7 +8386,7 @@ export interface RebootDBInstanceMessage {
    *       MultiAZ.</p>
    * @public
    */
-  ForceFailover?: boolean;
+  ForceFailover?: boolean | undefined;
 }
 
 /**
@@ -8398,7 +8398,7 @@ export interface RebootDBInstanceResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
    * @public
    */
-  DBInstance?: DBInstance;
+  DBInstance?: DBInstance | undefined;
 }
 
 /**
@@ -8435,7 +8435,7 @@ export interface RemoveFromGlobalClusterResult {
    *       <a>RemoveFromGlobalCluster</a> actions.</p>
    * @public
    */
-  GlobalCluster?: GlobalCluster;
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
@@ -8480,7 +8480,7 @@ export interface RemoveRoleFromDBClusterMessage {
    *       For the list of supported feature names, see <a>DescribeDBEngineVersions</a>.</p>
    * @public
    */
-  FeatureName?: string;
+  FeatureName?: string | undefined;
 }
 
 /**
@@ -8510,7 +8510,7 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -8549,7 +8549,7 @@ export interface ResetDBClusterParameterGroupMessage {
    *       parameter.</p>
    * @public
    */
-  ResetAllParameters?: boolean;
+  ResetAllParameters?: boolean | undefined;
 
   /**
    * <p>A list of parameter names in the DB cluster parameter group to reset to the default
@@ -8557,7 +8557,7 @@ export interface ResetDBClusterParameterGroupMessage {
    *       to <code>true</code>.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -8583,7 +8583,7 @@ export interface ResetDBParameterGroupMessage {
    *          </p>
    * @public
    */
-  ResetAllParameters?: boolean;
+  ResetAllParameters?: boolean | undefined;
 
   /**
    * <p>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code> name and
@@ -8594,7 +8594,7 @@ export interface ResetDBParameterGroupMessage {
    *          </p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -8666,7 +8666,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *       be created in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This
@@ -8715,7 +8715,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>The version of the database engine to use for the new DB cluster.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The port number on which the new DB cluster accepts connections.</p>
@@ -8724,7 +8724,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>Default: The same port as the original DB cluster.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The name of the DB subnet group to use for the new DB cluster.</p>
@@ -8733,13 +8733,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>Not supported.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>
@@ -8747,19 +8747,19 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>A list of VPC security groups that the new DB cluster will belong to.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The tags to be assigned to the restored DB cluster.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from a DB
@@ -8783,7 +8783,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
@@ -8792,13 +8792,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.</p>
    * @public
    */
-  EnableCloudwatchLogsExports?: string[];
+  EnableCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>The name of the DB cluster parameter group to associate with the new DB cluster.</p>
@@ -8810,7 +8810,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </ul>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
@@ -8819,7 +8819,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *     </p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>
@@ -8828,7 +8828,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
@@ -8836,7 +8836,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    * @public
    */
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
 
   /**
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
@@ -8846,7 +8846,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -8858,7 +8858,7 @@ export interface RestoreDBClusterFromSnapshotResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -8901,7 +8901,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       as a full copy of the source DB cluster.</p>
    * @public
    */
-  RestoreType?: string;
+  RestoreType?: string | undefined;
 
   /**
    * <p>The identifier of the source DB cluster from which to restore.</p>
@@ -8940,7 +8940,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </p>
    * @public
    */
-  RestoreToTime?: Date;
+  RestoreToTime?: Date | undefined;
 
   /**
    * <p>A value that is set to <code>true</code> to restore the DB cluster to the latest
@@ -8951,7 +8951,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       provided.</p>
    * @public
    */
-  UseLatestRestorableTime?: boolean;
+  UseLatestRestorableTime?: boolean | undefined;
 
   /**
    * <p>The port number on which the new DB cluster accepts connections.</p>
@@ -8960,7 +8960,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>Default: The same port as the original DB cluster.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The DB subnet group name to use for the new DB cluster.</p>
@@ -8969,7 +8969,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </p>
    * @public
    */
-  DBSubnetGroupName?: string;
+  DBSubnetGroupName?: string | undefined;
 
   /**
    * <p>
@@ -8977,19 +8977,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The tags to be applied to the restored DB cluster.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
@@ -9017,7 +9017,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       restore request is rejected.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
@@ -9026,13 +9026,13 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </p>
    * @public
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
    * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</p>
    * @public
    */
-  EnableCloudwatchLogsExports?: string[];
+  EnableCloudwatchLogsExports?: string[] | undefined;
 
   /**
    * <p>The name of the DB cluster parameter group to associate with the new DB cluster.</p>
@@ -9044,7 +9044,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </ul>
    * @public
    */
-  DBClusterParameterGroupName?: string;
+  DBClusterParameterGroupName?: string | undefined;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
@@ -9053,7 +9053,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *     </p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
@@ -9061,7 +9061,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    * @public
    */
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
 
   /**
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
@@ -9071,7 +9071,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -9083,7 +9083,7 @@ export interface RestoreDBClusterToPointInTimeResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -9107,7 +9107,7 @@ export interface StartDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**
@@ -9131,7 +9131,7 @@ export interface StopDBClusterResult {
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    * @public
    */
-  DBCluster?: DBCluster;
+  DBCluster?: DBCluster | undefined;
 }
 
 /**

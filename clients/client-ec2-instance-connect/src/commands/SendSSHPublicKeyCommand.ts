@@ -90,27 +90,27 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @throws {@link EC2InstanceConnectServiceException}
  * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
- * @public
+ *
  * @example To push an SSH key to an EC2 instance
  * ```javascript
  * // The following example pushes a sample SSH public key to the EC2 instance i-abcd1234 in AZ us-west-2b for use by the instance OS user ec2-user.
  * const input = {
- *   "AvailabilityZone": "us-west-2a",
- *   "InstanceId": "i-abcd1234",
- *   "InstanceOSUser": "ec2-user",
- *   "SSHPublicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3FlHqj2eqCdrGHuA6dRjfZXQ4HX5lXEIRHaNbxEwE5Te7xNF7StwhrDtiV7IdT5fDqbRyGw/szPj3xGkNTVoElCZ2dDFb2qYZ1WLIpZwj/UhO9l2mgfjR56UojjQut5Jvn2KZ1OcyrNO0J83kCaJCV7JoVbXY79FBMUccYNY45zmv9+1FMCfY6i2jdIhwR6+yLk8oubL8lIPyq7X+6b9S0yKCkB7Peml1DvghlybpAIUrC9vofHt6XP4V1i0bImw1IlljQS+DUmULRFSccATDscCX9ajnj7Crhm0HAZC0tBPXpFdHkPwL3yzYo546SCS9LKEwz62ymxxbL9k7h09t"
+ *   AvailabilityZone: "us-west-2a",
+ *   InstanceId: "i-abcd1234",
+ *   InstanceOSUser: "ec2-user",
+ *   SSHPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3FlHqj2eqCdrGHuA6dRjfZXQ4HX5lXEIRHaNbxEwE5Te7xNF7StwhrDtiV7IdT5fDqbRyGw/szPj3xGkNTVoElCZ2dDFb2qYZ1WLIpZwj/UhO9l2mgfjR56UojjQut5Jvn2KZ1OcyrNO0J83kCaJCV7JoVbXY79FBMUccYNY45zmv9+1FMCfY6i2jdIhwR6+yLk8oubL8lIPyq7X+6b9S0yKCkB7Peml1DvghlybpAIUrC9vofHt6XP4V1i0bImw1IlljQS+DUmULRFSccATDscCX9ajnj7Crhm0HAZC0tBPXpFdHkPwL3yzYo546SCS9LKEwz62ymxxbL9k7h09t"
  * };
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RequestId": "abcd1234-abcd-1234-abcd-1234abcd1234",
- *   "Success": true
+ *   RequestId: "abcd1234-abcd-1234-abcd-1234abcd1234",
+ *   Success: true
  * }
  * *\/
- * // example id: send-ssh-key-to-an-ec2-instance-1518124883100
  * ```
  *
+ * @public
  */
 export class SendSSHPublicKeyCommand extends $Command
   .classBuilder<
@@ -120,9 +120,7 @@ export class SendSSHPublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2InstanceConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +132,16 @@ export class SendSSHPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendSSHPublicKeyCommand)
   .de(de_SendSSHPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendSSHPublicKeyRequest;
+      output: SendSSHPublicKeyResponse;
+    };
+    sdk: {
+      input: SendSSHPublicKeyCommandInput;
+      output: SendSSHPublicKeyCommandOutput;
+    };
+  };
+}

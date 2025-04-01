@@ -71,6 +71,7 @@ export interface DeleteTestSuiteCommandOutput extends DeleteTestSuiteResponse, _
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class DeleteTestSuiteCommand extends $Command
@@ -81,9 +82,7 @@ export class DeleteTestSuiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DeleteTestSuiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTestSuiteCommand)
   .de(de_DeleteTestSuiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTestSuiteRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTestSuiteCommandInput;
+      output: DeleteTestSuiteCommandOutput;
+    };
+  };
+}

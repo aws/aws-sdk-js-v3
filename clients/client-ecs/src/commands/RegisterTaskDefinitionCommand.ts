@@ -39,12 +39,10 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 			policy that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
  * 				Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>You can specify a Docker networking mode for the containers in your task definition
- * 			with the <code>networkMode</code> parameter. The available network modes correspond to
- * 			those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
- * 				settings</a> in the Docker run reference. If you specify the <code>awsvpc</code>
+ * 			with the <code>networkMode</code> parameter. If you specify the <code>awsvpc</code>
  * 			network mode, the task is allocated an elastic network interface, and you must specify a
- * 				<a>NetworkConfiguration</a> when you create a service or run a task with
- * 			the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a> when you create a service or run a task with the task
+ * 			definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
  * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +79,13 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *         },
  *       ],
  *       essential: true || false,
+ *       restartPolicy: { // ContainerRestartPolicy
+ *         enabled: true || false, // required
+ *         ignoredExitCodes: [ // IntegerList
+ *           Number("int"),
+ *         ],
+ *         restartAttemptPeriod: Number("int"),
+ *       },
  *       entryPoint: [
  *         "STRING_VALUE",
  *       ],
@@ -156,6 +161,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *       ],
  *       startTimeout: Number("int"),
  *       stopTimeout: Number("int"),
+ *       versionConsistency: "enabled" || "disabled",
  *       hostname: "STRING_VALUE",
  *       user: "STRING_VALUE",
  *       workingDirectory: "STRING_VALUE",
@@ -303,6 +309,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *     cpuArchitecture: "X86_64" || "ARM64",
  *     operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  *   },
+ *   enableFaultInjection: true || false,
  * };
  * const command = new RegisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
@@ -333,6 +340,13 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //           },
  * //         ],
  * //         essential: true || false,
+ * //         restartPolicy: { // ContainerRestartPolicy
+ * //           enabled: true || false, // required
+ * //           ignoredExitCodes: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           restartAttemptPeriod: Number("int"),
+ * //         },
  * //         entryPoint: [
  * //           "STRING_VALUE",
  * //         ],
@@ -408,6 +422,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //         ],
  * //         startTimeout: Number("int"),
  * //         stopTimeout: Number("int"),
+ * //         versionConsistency: "enabled" || "disabled",
  * //         hostname: "STRING_VALUE",
  * //         user: "STRING_VALUE",
  * //         workingDirectory: "STRING_VALUE",
@@ -569,6 +584,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * //   tags: [ // Tags
  * //     { // Tag
@@ -590,10 +606,21 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -601,60 +628,60 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To register a task definition
  * ```javascript
  * // This example registers a task definition to the specified family.
  * const input = {
- *   "containerDefinitions": [
+ *   containerDefinitions: [
  *     {
- *       "name": "sleep",
- *       "command": [
+ *       command: [
  *         "sleep",
  *         "360"
  *       ],
- *       "cpu": 10,
- *       "essential": true,
- *       "image": "busybox",
- *       "memory": 10
+ *       cpu: 10,
+ *       essential: true,
+ *       image: "busybox",
+ *       memory: 10,
+ *       name: "sleep"
  *     }
  *   ],
- *   "family": "sleep360",
- *   "taskRoleArn": "",
- *   "volumes": []
+ *   family: "sleep360",
+ *   taskRoleArn: "",
+ *   volumes:   []
  * };
  * const command = new RegisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskDefinition": {
- *     "containerDefinitions": [
+ *   taskDefinition: {
+ *     containerDefinitions: [
  *       {
- *         "name": "sleep",
- *         "command": [
+ *         command: [
  *           "sleep",
  *           "360"
  *         ],
- *         "cpu": 10,
- *         "environment": [],
- *         "essential": true,
- *         "image": "busybox",
- *         "memory": 10,
- *         "mountPoints": [],
- *         "portMappings": [],
- *         "volumesFrom": []
+ *         cpu: 10,
+ *         environment:         [],
+ *         essential: true,
+ *         image: "busybox",
+ *         memory: 10,
+ *         mountPoints:         [],
+ *         name: "sleep",
+ *         portMappings:         [],
+ *         volumesFrom:         []
  *       }
  *     ],
- *     "family": "sleep360",
- *     "revision": 1,
- *     "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:19",
- *     "volumes": []
+ *     family: "sleep360",
+ *     revision: 1,
+ *     taskDefinitionArn: "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:19",
+ *     volumes:     []
  *   }
  * }
  * *\/
- * // example id: to-register-a-task-definition-1470764550877
  * ```
  *
+ * @public
  */
 export class RegisterTaskDefinitionCommand extends $Command
   .classBuilder<
@@ -664,9 +691,7 @@ export class RegisterTaskDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -678,4 +703,16 @@ export class RegisterTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTaskDefinitionCommand)
   .de(de_RegisterTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTaskDefinitionRequest;
+      output: RegisterTaskDefinitionResponse;
+    };
+    sdk: {
+      input: RegisterTaskDefinitionCommandInput;
+      output: RegisterTaskDefinitionCommandOutput;
+    };
+  };
+}

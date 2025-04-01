@@ -29,8 +29,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
 
 /**
  * <p>Starts the specified WorkSpaces.</p>
- *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
- *          state of <code>STOPPED</code>.</p>
+ *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or
+ *          <code>Manual</code> and a state of <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,7 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class StartWorkspacesCommand extends $Command
@@ -77,9 +78,7 @@ export class StartWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class StartWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkspacesCommand)
   .de(de_StartWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWorkspacesRequest;
+      output: StartWorkspacesResult;
+    };
+    sdk: {
+      input: StartWorkspacesCommandInput;
+      output: StartWorkspacesCommandOutput;
+    };
+  };
+}

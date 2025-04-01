@@ -28,24 +28,42 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyInput {}
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
+ * <p>Returns the resource-based policy document attached to the resource, which can be a
+ *             table or stream, in JSON format.</p>
  *          <p>
  *             <code>GetResourcePolicy</code> follows an <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
  *                <i>eventually consistent</i>
- *             </a> model. The following list describes the outcomes when you issue the <code>GetResourcePolicy</code> request immediately after issuing another request:</p>
+ *             </a> model. The following list
+ *             describes the outcomes when you issue the <code>GetResourcePolicy</code> request
+ *             immediately after issuing another request:</p>
  *          <ul>
  *             <li>
- *                <p>If you issue a <code>GetResourcePolicy</code> request immediately after a <code>PutResourcePolicy</code> request, DynamoDB might return a <code>PolicyNotFoundException</code>.</p>
+ *                <p>If you issue a <code>GetResourcePolicy</code> request immediately after a
+ *                         <code>PutResourcePolicy</code> request, DynamoDB might return a
+ *                         <code>PolicyNotFoundException</code>.</p>
  *             </li>
  *             <li>
- *                <p>If you issue a <code>GetResourcePolicy</code>request immediately after a <code>DeleteResourcePolicy</code> request, DynamoDB might return the policy that was present before the deletion request.</p>
+ *                <p>If you issue a <code>GetResourcePolicy</code>request immediately after a
+ *                         <code>DeleteResourcePolicy</code> request, DynamoDB might return
+ *                     the policy that was present before the deletion request.</p>
  *             </li>
  *             <li>
- *                <p>If you issue a <code>GetResourcePolicy</code> request immediately after a <code>CreateTable</code> request, which includes a resource-based policy, DynamoDB might return a <code>ResourceNotFoundException</code> or a <code>PolicyNotFoundException</code>.</p>
+ *                <p>If you issue a <code>GetResourcePolicy</code> request immediately after a
+ *                         <code>CreateTable</code> request, which includes a resource-based policy,
+ *                         DynamoDB might return a <code>ResourceNotFoundException</code> or
+ *                     a <code>PolicyNotFoundException</code>.</p>
  *             </li>
  *          </ul>
- *          <p>Because <code>GetResourcePolicy</code> uses an <i>eventually consistent</i> query, the metadata for your policy or table might not be available at that moment. Wait for a few seconds, and then retry the <code>GetResourcePolicy</code> request.</p>
- *          <p>After a <code>GetResourcePolicy</code> request returns a policy created using the <code>PutResourcePolicy</code> request, the policy will be applied in the authorization of requests to the resource. Because this process is eventually consistent, it will take some time to apply the policy to all requests to a resource. Policies that you attach while creating a table using the <code>CreateTable</code> request will always be applied to all requests for that table.</p>
+ *          <p>Because <code>GetResourcePolicy</code> uses an <i>eventually
+ *                 consistent</i> query, the metadata for your policy or table might not be
+ *             available at that moment. Wait for a few seconds, and then retry the
+ *                 <code>GetResourcePolicy</code> request.</p>
+ *          <p>After a <code>GetResourcePolicy</code> request returns a policy created using the
+ *                 <code>PutResourcePolicy</code> request, the policy will be applied in the
+ *             authorization of requests to the resource. Because this process is eventually
+ *             consistent, it will take some time to apply the policy to all requests to a resource.
+ *             Policies that you attach while creating a table using the <code>CreateTable</code>
+ *             request will always be applied to all requests for that table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +104,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class GetResourcePolicyCommand extends $Command
@@ -98,6 +117,7 @@ export class GetResourcePolicyCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "ResourceArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -110,4 +130,16 @@ export class GetResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcePolicyCommand)
   .de(de_GetResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcePolicyInput;
+      output: GetResourcePolicyOutput;
+    };
+    sdk: {
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
+    };
+  };
+}

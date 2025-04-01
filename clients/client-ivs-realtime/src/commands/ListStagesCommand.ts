@@ -76,6 +76,7 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListStagesCommand extends $Command
@@ -86,9 +87,7 @@ export class ListStagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListStagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStagesCommand)
   .de(de_ListStagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStagesRequest;
+      output: ListStagesResponse;
+    };
+    sdk: {
+      input: ListStagesCommandInput;
+      output: ListStagesCommandOutput;
+    };
+  };
+}

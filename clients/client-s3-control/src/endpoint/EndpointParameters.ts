@@ -19,12 +19,11 @@ export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     defaultSigningName: "s3",
-  };
+  });
 };
 
 export const commonParams = {
@@ -46,4 +45,5 @@ export interface EndpointParameters extends __EndpointParameters {
   Bucket?: string;
   AccessPointName?: string;
   UseArnRegion?: boolean;
+  UseS3ExpressControlEndpoint?: boolean;
 }

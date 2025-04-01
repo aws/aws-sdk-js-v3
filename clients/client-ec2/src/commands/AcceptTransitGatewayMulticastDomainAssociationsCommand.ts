@@ -81,6 +81,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Command
@@ -91,9 +92,7 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
   .f(void 0, void 0)
   .ser(se_AcceptTransitGatewayMulticastDomainAssociationsCommand)
   .de(de_AcceptTransitGatewayMulticastDomainAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptTransitGatewayMulticastDomainAssociationsRequest;
+      output: AcceptTransitGatewayMulticastDomainAssociationsResult;
+    };
+    sdk: {
+      input: AcceptTransitGatewayMulticastDomainAssociationsCommandInput;
+      output: AcceptTransitGatewayMulticastDomainAssociationsCommandOutput;
+    };
+  };
+}

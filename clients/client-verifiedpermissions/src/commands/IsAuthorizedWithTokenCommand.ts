@@ -45,7 +45,6 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             matching policies in the specified policy store. The result of the decision is either
  *                 <code>Allow</code> or <code>Deny</code>, along with a list of the policies that
  *             resulted in the decision.</p>
- *          <p>At this time, Verified Permissions accepts tokens from only Amazon Cognito.</p>
  *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
  *             date and its signature.</p>
  *          <important>
@@ -92,13 +91,18 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             record: { // RecordAttribute
  *               "<keys>": "<AttributeValue>",
  *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
  *           },
  *         ],
  *         record: {
  *           "<keys>": "<AttributeValue>",
  *         },
+ *         ipaddr: "STRING_VALUE",
+ *         decimal: "STRING_VALUE",
  *       },
  *     },
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   entities: { // EntitiesDefinition Union: only one key present
  *     entityList: [ // EntityList
@@ -112,6 +116,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  * };
  * const command = new IsAuthorizedWithTokenCommand(input);
@@ -241,6 +246,43 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example IsAuthorizedWithToken - Example 1
+ * ```javascript
+ * // The following example requests an authorization decision for a user who was authenticated by Amazon Cognito. The request uses the identity token provided by Amazon Cognito instead of the access token. In this example, the specified information store is configured to return principals as entities of type CognitoUser. The policy store contains a policy with the following statement.
+ *
+ * permit(
+ *     principal == CognitoUser::"us-east-1_1a2b3c4d5|a1b2c3d4e5f6g7h8i9j0kalbmc",
+ *     action,
+ *     resource == Photo::"VacationPhoto94.jpg"
+ * );
+ * const input = {
+ *   action: {
+ *     actionId: "View",
+ *     actionType: "Action"
+ *   },
+ *   identityToken: "EgZjxMPlbWUyBggAEEUYOdIBCDM3NDlqMGo3qAIAsAIA",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   resource: {
+ *     entityId: "vacationPhoto94.jpg",
+ *     entityType: "Photo"
+ *   }
+ * };
+ * const command = new IsAuthorizedWithTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   decision: "ALLOW",
+ *   determiningPolicies: [
+ *     {
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY"
+ *     }
+ *   ],
+ *   errors:   []
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class IsAuthorizedWithTokenCommand extends $Command
@@ -251,9 +293,7 @@ export class IsAuthorizedWithTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -265,4 +305,16 @@ export class IsAuthorizedWithTokenCommand extends $Command
   .f(IsAuthorizedWithTokenInputFilterSensitiveLog, IsAuthorizedWithTokenOutputFilterSensitiveLog)
   .ser(se_IsAuthorizedWithTokenCommand)
   .de(de_IsAuthorizedWithTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsAuthorizedWithTokenInput;
+      output: IsAuthorizedWithTokenOutput;
+    };
+    sdk: {
+      input: IsAuthorizedWithTokenCommandInput;
+      output: IsAuthorizedWithTokenCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListGameServerGroupsInput, ListGameServerGroupsOutput } from "../models/models_0";
+import { ListGameServerGroupsInput, ListGameServerGroupsOutput } from "../models/models_1";
 import { de_ListGameServerGroupsCommand, se_ListGameServerGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -90,6 +90,7 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListGameServerGroupsCommand extends $Command
@@ -100,9 +101,7 @@ export class ListGameServerGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListGameServerGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGameServerGroupsCommand)
   .de(de_ListGameServerGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGameServerGroupsInput;
+      output: ListGameServerGroupsOutput;
+    };
+    sdk: {
+      input: ListGameServerGroupsCommandInput;
+      output: ListGameServerGroupsCommandOutput;
+    };
+  };
+}

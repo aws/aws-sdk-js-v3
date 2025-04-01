@@ -7,6 +7,8 @@ import {
   ActiveTrustedSigners,
   Aliases,
   AliasICPRecordal,
+  AnycastIpList,
+  AnycastIpListCollection,
   CacheBehaviors,
   CachePolicy,
   CachePolicyConfig,
@@ -44,24 +46,324 @@ import {
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginGroups,
+  OriginProtocolPolicy,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
   Origins,
+  OriginSslProtocols,
   PriceClass,
   PublicKey,
   PublicKeyConfig,
   QueryArgProfileConfig,
   RealtimeLogConfig,
-  ResponseHeadersPolicyContentSecurityPolicy,
-  ResponseHeadersPolicyContentTypeOptions,
-  ResponseHeadersPolicyCorsConfig,
-  ResponseHeadersPolicyCustomHeadersConfig,
-  ResponseHeadersPolicyRemoveHeadersConfig,
+  ResponseHeadersPolicyAccessControlAllowHeaders,
+  ResponseHeadersPolicyAccessControlAllowMethodsValues,
   Restrictions,
   Tags,
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * <p>A list of HTTP methods that CloudFront includes as values for the
+ * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlAllowMethods {
+  /**
+   * <p>The number of HTTP methods in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP methods. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GET</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEAD</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPTIONS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PATCH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POST</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>ALL</code> is a special value that includes all of the listed HTTP
+   * 			methods.</p>
+   * @public
+   */
+  Items: ResponseHeadersPolicyAccessControlAllowMethodsValues[] | undefined;
+}
+
+/**
+ * <p>A list of origins (domain names) that CloudFront can use as the value for the
+ * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlAllowOrigins {
+  /**
+   * <p>The number of origins in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of origins (domain names). You can specify <code>*</code> to allow all
+   * 			origins.</p>
+   * @public
+   */
+  Items: string[] | undefined;
+}
+
+/**
+ * <p>A list of HTTP headers that CloudFront includes as values for the
+ * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+ * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlExposeHeaders {
+  /**
+   * <p>The number of HTTP headers in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
+   * @public
+   */
+  Items?: string[] | undefined;
+}
+
+/**
+ * <p>A configuration for a set of HTTP response headers that are used for cross-origin
+ * 			resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for
+ * 			CORS requests that match a cache behavior associated with this response headers
+ * 			policy.</p>
+ *          <p>For more information about CORS, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource
+ * 				Sharing (CORS)</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCorsConfig {
+  /**
+   * <p>A list of origins (domain names) that CloudFront can use as the value for the
+   * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOrigins | undefined;
+
+  /**
+   * <p>A list of HTTP header names that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeaders | undefined;
+
+  /**
+   * <p>A list of HTTP methods that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethods | undefined;
+
+  /**
+   * <p>A Boolean that CloudFront uses as the value for the
+   * 				<code>Access-Control-Allow-Credentials</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Credentials</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowCredentials: boolean | undefined;
+
+  /**
+   * <p>A list of HTTP headers that CloudFront includes as values for the
+   * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders | undefined;
+
+  /**
+   * <p>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code> HTTP
+   * 			response header.</p>
+   *          <p>For more information about the <code>Access-Control-Max-Age</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlMaxAgeSec?: number | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides HTTP response headers received from
+   * 			the origin with the ones specified in this response headers policy.</p>
+   * @public
+   */
+  OriginOverride: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP
+ * 			responses that it sends for requests that match a cache behavior that's associated with
+ * 			this response headers policy.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCustomHeader {
+  /**
+   * <p>The HTTP response header name.</p>
+   * @public
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>The value for the HTTP response header.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides a response header with the same name
+   * 			received from the origin with the header specified here.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+}
+
+/**
+ * <p>A list of HTTP response header names and their values. CloudFront includes these headers in
+ * 			HTTP responses that it sends for requests that match a cache behavior that's associated
+ * 			with this response headers policy.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCustomHeadersConfig {
+  /**
+   * <p>The number of HTTP response headers in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP response headers and their values.</p>
+   * @public
+   */
+  Items?: ResponseHeadersPolicyCustomHeader[] | undefined;
+}
+
+/**
+ * <p>The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyRemoveHeader {
+  /**
+   * <p>The HTTP header name.</p>
+   * @public
+   */
+  Header: string | undefined;
+}
+
+/**
+ * <p>A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyRemoveHeadersConfig {
+  /**
+   * <p>The number of HTTP header names in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP header names.</p>
+   * @public
+   */
+  Items?: ResponseHeadersPolicyRemoveHeader[] | undefined;
+}
+
+/**
+ * <p>The policy directives and their values that CloudFront includes as values for the
+ * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyContentSecurityPolicy {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the
+   * 				<code>Content-Security-Policy</code> HTTP response header received from the origin
+   * 			with the one specified in this response headers policy.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>The policy directives and their values that CloudFront includes as values for the
+   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+   * @public
+   */
+  ContentSecurityPolicy: string | undefined;
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
+ * 			header with its value set to <code>nosniff</code>.</p>
+ *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyContentTypeOptions {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the
+   * 				<code>X-Content-Type-Options</code> HTTP response header received from the origin
+   * 			with the one specified in this response headers policy.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+}
 
 /**
  * @public
@@ -210,14 +512,14 @@ export interface ResponseHeadersPolicyStrictTransportSecurity {
    * 			directive in the <code>Strict-Transport-Security</code> HTTP response header.</p>
    * @public
    */
-  IncludeSubdomains?: boolean;
+  IncludeSubdomains?: boolean | undefined;
 
   /**
    * <p>A Boolean that determines whether CloudFront includes the <code>preload</code> directive in
    * 			the <code>Strict-Transport-Security</code> HTTP response header.</p>
    * @public
    */
-  Preload?: boolean;
+  Preload?: boolean | undefined;
 
   /**
    * <p>A number that CloudFront uses as the value for the <code>max-age</code> directive in the
@@ -260,7 +562,7 @@ export interface ResponseHeadersPolicyXSSProtection {
    *          <p>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
    * @public
    */
-  ModeBlock?: boolean;
+  ModeBlock?: boolean | undefined;
 
   /**
    * <p>A reporting URI, which CloudFront uses as the value of the <code>report</code> directive in
@@ -270,7 +572,7 @@ export interface ResponseHeadersPolicyXSSProtection {
    *          <p>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
    * @public
    */
-  ReportUri?: string;
+  ReportUri?: string | undefined;
 }
 
 /**
@@ -287,7 +589,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
    * @public
    */
-  XSSProtection?: ResponseHeadersPolicyXSSProtection;
+  XSSProtection?: ResponseHeadersPolicyXSSProtection | undefined;
 
   /**
    * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
@@ -296,7 +598,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    * @public
    */
-  FrameOptions?: ResponseHeadersPolicyFrameOptions;
+  FrameOptions?: ResponseHeadersPolicyFrameOptions | undefined;
 
   /**
    * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
@@ -305,7 +607,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
    * @public
    */
-  ReferrerPolicy?: ResponseHeadersPolicyReferrerPolicy;
+  ReferrerPolicy?: ResponseHeadersPolicyReferrerPolicy | undefined;
 
   /**
    * <p>The policy directives and their values that CloudFront includes as values for the
@@ -314,7 +616,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
    * @public
    */
-  ContentSecurityPolicy?: ResponseHeadersPolicyContentSecurityPolicy;
+  ContentSecurityPolicy?: ResponseHeadersPolicyContentSecurityPolicy | undefined;
 
   /**
    * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
@@ -323,7 +625,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
    * @public
    */
-  ContentTypeOptions?: ResponseHeadersPolicyContentTypeOptions;
+  ContentTypeOptions?: ResponseHeadersPolicyContentTypeOptions | undefined;
 
   /**
    * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
@@ -332,7 +634,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * 			header, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security">Security headers</a> in the <i>Amazon CloudFront Developer Guide</i> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
    * @public
    */
-  StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
+  StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity | undefined;
 }
 
 /**
@@ -368,7 +670,7 @@ export interface ResponseHeadersPolicyServerTimingHeadersConfig {
    * 			to four decimal places.</p>
    * @public
    */
-  SamplingRate?: number;
+  SamplingRate?: number | undefined;
 }
 
 /**
@@ -383,7 +685,7 @@ export interface ResponseHeadersPolicyConfig {
    *          <p>The comment cannot be longer than 128 characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A name to identify the response headers policy.</p>
@@ -397,32 +699,32 @@ export interface ResponseHeadersPolicyConfig {
    * 			resource sharing (CORS).</p>
    * @public
    */
-  CorsConfig?: ResponseHeadersPolicyCorsConfig;
+  CorsConfig?: ResponseHeadersPolicyCorsConfig | undefined;
 
   /**
    * <p>A configuration for a set of security-related HTTP response headers.</p>
    * @public
    */
-  SecurityHeadersConfig?: ResponseHeadersPolicySecurityHeadersConfig;
+  SecurityHeadersConfig?: ResponseHeadersPolicySecurityHeadersConfig | undefined;
 
   /**
    * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
    * 			sent from CloudFront.</p>
    * @public
    */
-  ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig;
+  ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig | undefined;
 
   /**
    * <p>A configuration for a set of custom HTTP response headers.</p>
    * @public
    */
-  CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
+  CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig | undefined;
 
   /**
    * <p>A configuration for a set of HTTP headers to remove from the HTTP response.</p>
    * @public
    */
-  RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig;
+  RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig | undefined;
 }
 
 /**
@@ -477,19 +779,19 @@ export interface CreateResponseHeadersPolicyResult {
    * <p>Contains a response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+  ResponseHeadersPolicy?: ResponseHeadersPolicy | undefined;
 
   /**
    * <p>The URL of the response headers policy.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The version identifier for the current version of the response headers policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -501,7 +803,7 @@ export interface CreateResponseHeadersPolicyResult {
 export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
   readonly name: "ResponseHeadersPolicyAlreadyExists" = "ResponseHeadersPolicyAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -526,7 +828,7 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
 export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
   readonly name: "TooLongCSPInResponseHeadersPolicy" = "TooLongCSPInResponseHeadersPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -551,7 +853,7 @@ export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
 export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException {
   readonly name: "TooManyCustomHeadersInResponseHeadersPolicy" = "TooManyCustomHeadersInResponseHeadersPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -576,7 +878,7 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
 export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException {
   readonly name: "TooManyRemoveHeadersInResponseHeadersPolicy" = "TooManyRemoveHeadersInResponseHeadersPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -601,7 +903,7 @@ export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException
 export class TooManyResponseHeadersPolicies extends __BaseException {
   readonly name: "TooManyResponseHeadersPolicies" = "TooManyResponseHeadersPolicies";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -636,7 +938,7 @@ export interface StreamingLoggingConfig {
 
   /**
    * <p>The Amazon S3 bucket to store the access logs in, for example,
-   * 				<code>myawslogbucket.s3.amazonaws.com</code>.</p>
+   * 				<code>amzn-s3-demo-bucket.s3.amazonaws.com</code>.</p>
    * @public
    */
   Bucket: string | undefined;
@@ -711,7 +1013,7 @@ export interface StreamingDistributionConfig {
    * 			any, for this streaming distribution.</p>
    * @public
    */
-  Aliases?: Aliases;
+  Aliases?: Aliases | undefined;
 
   /**
    * <p>Any comments you want to include about the streaming distribution.</p>
@@ -724,7 +1026,7 @@ export interface StreamingDistributionConfig {
    * 			distribution.</p>
    * @public
    */
-  Logging?: StreamingLoggingConfig;
+  Logging?: StreamingLoggingConfig | undefined;
 
   /**
    * <p>A complex type that specifies any Amazon Web Services accounts that you want to permit to create
@@ -741,7 +1043,7 @@ export interface StreamingDistributionConfig {
    * 			distribution.</p>
    * @public
    */
-  PriceClass?: PriceClass;
+  PriceClass?: PriceClass | undefined;
 
   /**
    * <p>Whether the streaming distribution is enabled to accept user requests for
@@ -795,7 +1097,7 @@ export interface StreamingDistribution {
    * <p>The date and time that the distribution was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The domain name that corresponds to the streaming distribution, for example,
@@ -836,20 +1138,20 @@ export interface CreateStreamingDistributionResult {
    * <p>The streaming distribution's information.</p>
    * @public
    */
-  StreamingDistribution?: StreamingDistribution;
+  StreamingDistribution?: StreamingDistribution | undefined;
 
   /**
    * <p>The fully qualified URI of the new streaming distribution resource just
    * 			created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the streaming distribution created.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -860,7 +1162,7 @@ export interface CreateStreamingDistributionResult {
 export class StreamingDistributionAlreadyExists extends __BaseException {
   readonly name: "StreamingDistributionAlreadyExists" = "StreamingDistributionAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -882,7 +1184,7 @@ export class StreamingDistributionAlreadyExists extends __BaseException {
 export class TooManyStreamingDistributionCNAMEs extends __BaseException {
   readonly name: "TooManyStreamingDistributionCNAMEs" = "TooManyStreamingDistributionCNAMEs";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -905,7 +1207,7 @@ export class TooManyStreamingDistributionCNAMEs extends __BaseException {
 export class TooManyStreamingDistributions extends __BaseException {
   readonly name: "TooManyStreamingDistributions" = "TooManyStreamingDistributions";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -960,20 +1262,185 @@ export interface CreateStreamingDistributionWithTagsResult {
    * <p>The streaming distribution's information.</p>
    * @public
    */
-  StreamingDistribution?: StreamingDistribution;
+  StreamingDistribution?: StreamingDistribution | undefined;
 
   /**
    * <p>The fully qualified URI of the new streaming distribution resource just
    * 			created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the distribution created.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>An Amazon CloudFront VPC origin endpoint configuration.</p>
+ * @public
+ */
+export interface VpcOriginEndpointConfig {
+  /**
+   * <p>The name of the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ARN of the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is <code>80</code>.</p>
+   * @public
+   */
+  HTTPPort: number | undefined;
+
+  /**
+   * <p>The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is <code>443</code>.</p>
+   * @public
+   */
+  HTTPSPort: number | undefined;
+
+  /**
+   * <p>The origin protocol policy for the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  OriginProtocolPolicy: OriginProtocolPolicy | undefined;
+
+  /**
+   * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
+   * 			when establishing an HTTPS connection with your origin.</p>
+   * @public
+   */
+  OriginSslProtocols?: OriginSslProtocols | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcOriginRequest {
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+}
+
+/**
+ * <p>An Amazon CloudFront VPC origin.</p>
+ * @public
+ */
+export interface VpcOrigin {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin ARN.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The VPC origin status.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The VPC origin created time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin location.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnycastIpListRequest {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the Anycast static IP list that
+   * 			you are deleting.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * <p>Deletion is not allowed for this entity.</p>
+ * @public
+ */
+export class IllegalDelete extends __BaseException {
+  readonly name: "IllegalDelete" = "IllegalDelete";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalDelete, __BaseException>) {
+    super({
+      name: "IllegalDelete",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalDelete.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -994,29 +1461,7 @@ export interface DeleteCachePolicyRequest {
    * 				<code>GetCachePolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
-}
-
-/**
- * <p>You cannot delete a managed policy.</p>
- * @public
- */
-export class IllegalDelete extends __BaseException {
-  readonly name: "IllegalDelete" = "IllegalDelete";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalDelete, __BaseException>) {
-    super({
-      name: "IllegalDelete",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalDelete.prototype);
-    this.Message = opts.Message;
-  }
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1026,7 +1471,7 @@ export class IllegalDelete extends __BaseException {
 export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
   readonly name: "CloudFrontOriginAccessIdentityInUse" = "CloudFrontOriginAccessIdentityInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1058,7 +1503,7 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1068,7 +1513,7 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
 export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
   readonly name: "NoSuchCloudFrontOriginAccessIdentity" = "NoSuchCloudFrontOriginAccessIdentity";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1098,7 +1543,7 @@ export interface DeleteContinuousDeploymentPolicyRequest {
    * 			you are deleting.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1164,7 +1609,7 @@ export interface DeleteDistributionRequest {
    * 			distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1175,7 +1620,7 @@ export interface DeleteDistributionRequest {
 export class DistributionNotDisabled extends __BaseException {
   readonly name: "DistributionNotDisabled" = "DistributionNotDisabled";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1205,7 +1650,7 @@ export interface DeleteFieldLevelEncryptionConfigRequest {
    * 			configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1215,7 +1660,7 @@ export interface DeleteFieldLevelEncryptionConfigRequest {
 export class FieldLevelEncryptionConfigInUse extends __BaseException {
   readonly name: "FieldLevelEncryptionConfigInUse" = "FieldLevelEncryptionConfigInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1245,7 +1690,7 @@ export interface DeleteFieldLevelEncryptionProfileRequest {
    * 			profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1255,7 +1700,7 @@ export interface DeleteFieldLevelEncryptionProfileRequest {
 export class FieldLevelEncryptionProfileInUse extends __BaseException {
   readonly name: "FieldLevelEncryptionProfileInUse" = "FieldLevelEncryptionProfileInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1296,7 +1741,7 @@ export interface DeleteFunctionRequest {
 export class FunctionInUse extends __BaseException {
   readonly name: "FunctionInUse" = "FunctionInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1318,7 +1763,7 @@ export class FunctionInUse extends __BaseException {
 export class NoSuchFunctionExists extends __BaseException {
   readonly name: "NoSuchFunctionExists" = "NoSuchFunctionExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1350,7 +1795,7 @@ export interface DeleteKeyGroupRequest {
    * 			or <code>GetKeyGroupConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1360,7 +1805,7 @@ export interface DeleteKeyGroupRequest {
 export class NoSuchResource extends __BaseException {
   readonly name: "NoSuchResource" = "NoSuchResource";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1382,7 +1827,7 @@ export class NoSuchResource extends __BaseException {
 export class ResourceInUse extends __BaseException {
   readonly name: "ResourceInUse" = "ResourceInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1415,28 +1860,6 @@ export interface DeleteKeyValueStoreRequest {
 }
 
 /**
- * <p>The key value store entity was not found.</p>
- * @public
- */
-export class EntityNotFound extends __BaseException {
-  readonly name: "EntityNotFound" = "EntityNotFound";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
-    super({
-      name: "EntityNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteMonitoringSubscriptionRequest {
@@ -1459,7 +1882,7 @@ export interface DeleteMonitoringSubscriptionResult {}
 export class NoSuchMonitoringSubscription extends __BaseException {
   readonly name: "NoSuchMonitoringSubscription" = "NoSuchMonitoringSubscription";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1489,7 +1912,7 @@ export interface DeleteOriginAccessControlRequest {
    * 			are deleting.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1499,7 +1922,7 @@ export interface DeleteOriginAccessControlRequest {
 export class NoSuchOriginAccessControl extends __BaseException {
   readonly name: "NoSuchOriginAccessControl" = "NoSuchOriginAccessControl";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1522,7 +1945,7 @@ export class NoSuchOriginAccessControl extends __BaseException {
 export class OriginAccessControlInUse extends __BaseException {
   readonly name: "OriginAccessControlInUse" = "OriginAccessControlInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1555,7 +1978,7 @@ export interface DeleteOriginRequestPolicyRequest {
    * 				<code>GetOriginRequestPolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1566,7 +1989,7 @@ export interface DeleteOriginRequestPolicyRequest {
 export class OriginRequestPolicyInUse extends __BaseException {
   readonly name: "OriginRequestPolicyInUse" = "OriginRequestPolicyInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1596,7 +2019,7 @@ export interface DeletePublicKeyRequest {
    * 			key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1606,7 +2029,7 @@ export interface DeletePublicKeyRequest {
 export class PublicKeyInUse extends __BaseException {
   readonly name: "PublicKeyInUse" = "PublicKeyInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1629,13 +2052,13 @@ export interface DeleteRealtimeLogConfigRequest {
    * <p>The name of the real-time log configuration to delete.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the real-time log configuration to delete.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -1646,7 +2069,7 @@ export interface DeleteRealtimeLogConfigRequest {
 export class RealtimeLogConfigInUse extends __BaseException {
   readonly name: "RealtimeLogConfigInUse" = "RealtimeLogConfigInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1680,7 +2103,7 @@ export interface DeleteResponseHeadersPolicyRequest {
    * 				<code>GetResponseHeadersPolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1691,7 +2114,7 @@ export interface DeleteResponseHeadersPolicyRequest {
 export class ResponseHeadersPolicyInUse extends __BaseException {
   readonly name: "ResponseHeadersPolicyInUse" = "ResponseHeadersPolicyInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1722,7 +2145,7 @@ export interface DeleteStreamingDistributionRequest {
    * 			streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1732,7 +2155,7 @@ export interface DeleteStreamingDistributionRequest {
 export class NoSuchStreamingDistribution extends __BaseException {
   readonly name: "NoSuchStreamingDistribution" = "NoSuchStreamingDistribution";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1755,7 +2178,7 @@ export class NoSuchStreamingDistribution extends __BaseException {
 export class StreamingDistributionNotDisabled extends __BaseException {
   readonly name: "StreamingDistributionNotDisabled" = "StreamingDistributionNotDisabled";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1773,6 +2196,40 @@ export class StreamingDistributionNotDisabled extends __BaseException {
 /**
  * @public
  */
+export interface DeleteVpcOriginRequest {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version identifier of the VPC origin to delete. This is the <code>ETag</code> value returned in the response to <a>GetVpcOrigin</a>.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeFunctionRequest {
   /**
    * <p>The name of the function that you are getting information about.</p>
@@ -1784,7 +2241,7 @@ export interface DescribeFunctionRequest {
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * @public
    */
-  Stage?: FunctionStage;
+  Stage?: FunctionStage | undefined;
 }
 
 /**
@@ -1795,13 +2252,13 @@ export interface DescribeFunctionResult {
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
    * @public
    */
-  FunctionSummary?: FunctionSummary;
+  FunctionSummary?: FunctionSummary | undefined;
 
   /**
    * <p>The version identifier for the current version of the CloudFront function.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -1823,13 +2280,41 @@ export interface DescribeKeyValueStoreResult {
    * <p>The resulting key value store.</p>
    * @public
    */
-  KeyValueStore?: KeyValueStore;
+  KeyValueStore?: KeyValueStore | undefined;
 
   /**
    * <p>The <code>ETag</code> of the resulting key value store.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnycastIpListRequest {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnycastIpListResult {
+  /**
+   * <p>The Anycast static IP list details.</p>
+   * @public
+   */
+  AnycastIpList?: AnycastIpList | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the Anycast static IP list.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**
@@ -1855,13 +2340,13 @@ export interface GetCachePolicyResult {
    * <p>The cache policy.</p>
    * @public
    */
-  CachePolicy?: CachePolicy;
+  CachePolicy?: CachePolicy | undefined;
 
   /**
    * <p>The current version of the cache policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -1887,13 +2372,13 @@ export interface GetCachePolicyConfigResult {
    * <p>The cache policy configuration.</p>
    * @public
    */
-  CachePolicyConfig?: CachePolicyConfig;
+  CachePolicyConfig?: CachePolicyConfig | undefined;
 
   /**
    * <p>The current version of the cache policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -1917,14 +2402,14 @@ export interface GetCloudFrontOriginAccessIdentityResult {
    * <p>The origin access identity's information.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
+  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity | undefined;
 
   /**
    * <p>The current version of the origin access identity's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -1949,14 +2434,14 @@ export interface GetCloudFrontOriginAccessIdentityConfigResult {
    * <p>The origin access identity's configuration information.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
+  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig | undefined;
 
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -1978,14 +2463,14 @@ export interface GetContinuousDeploymentPolicyResult {
    * <p>A continuous deployment policy.</p>
    * @public
    */
-  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy | undefined;
 
   /**
    * <p>The version identifier for the current version of the continuous deployment
    * 			policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2008,14 +2493,14 @@ export interface GetContinuousDeploymentPolicyConfigResult {
    * <p>Contains the configuration for a continuous deployment policy.</p>
    * @public
    */
-  ContinuousDeploymentPolicyConfig?: ContinuousDeploymentPolicyConfig;
+  ContinuousDeploymentPolicyConfig?: ContinuousDeploymentPolicyConfig | undefined;
 
   /**
    * <p>The version identifier for the current version of the continuous deployment
    * 			policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2040,14 +2525,14 @@ export interface GetDistributionResult {
    * <p>The distribution's information.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The current version of the distribution's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2072,14 +2557,14 @@ export interface GetDistributionConfigResult {
    * <p>The distribution's configuration information.</p>
    * @public
    */
-  DistributionConfig?: DistributionConfig;
+  DistributionConfig?: DistributionConfig | undefined;
 
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2101,14 +2586,14 @@ export interface GetFieldLevelEncryptionResult {
    * <p>Return the field-level encryption configuration information.</p>
    * @public
    */
-  FieldLevelEncryption?: FieldLevelEncryption;
+  FieldLevelEncryption?: FieldLevelEncryption | undefined;
 
   /**
    * <p>The current version of the field level encryption configuration. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2130,14 +2615,14 @@ export interface GetFieldLevelEncryptionConfigResult {
    * <p>Return the field-level encryption configuration information.</p>
    * @public
    */
-  FieldLevelEncryptionConfig?: FieldLevelEncryptionConfig;
+  FieldLevelEncryptionConfig?: FieldLevelEncryptionConfig | undefined;
 
   /**
    * <p>The current version of the field level encryption configuration. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2159,14 +2644,14 @@ export interface GetFieldLevelEncryptionProfileResult {
    * <p>Return the field-level encryption profile information.</p>
    * @public
    */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile | undefined;
 
   /**
    * <p>The current version of the field level encryption profile. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2188,14 +2673,14 @@ export interface GetFieldLevelEncryptionProfileConfigResult {
    * <p>Return the field-level encryption profile configuration information.</p>
    * @public
    */
-  FieldLevelEncryptionProfileConfig?: FieldLevelEncryptionProfileConfig;
+  FieldLevelEncryptionProfileConfig?: FieldLevelEncryptionProfileConfig | undefined;
 
   /**
    * <p>The current version of the field-level encryption profile configuration result. For
    * 			example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2212,7 +2697,7 @@ export interface GetFunctionRequest {
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * @public
    */
-  Stage?: FunctionStage;
+  Stage?: FunctionStage | undefined;
 }
 
 /**
@@ -2223,19 +2708,19 @@ export interface GetFunctionResult {
    * <p>The function code of a CloudFront function.</p>
    * @public
    */
-  FunctionCode?: Uint8Array;
+  FunctionCode?: Uint8Array | undefined;
 
   /**
    * <p>The version identifier for the current version of the CloudFront function.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The content type (media type) of the response.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 }
 
 /**
@@ -2267,7 +2752,7 @@ export interface GetInvalidationResult {
    * 				Complex Type</a>.</p>
    * @public
    */
-  Invalidation?: Invalidation;
+  Invalidation?: Invalidation | undefined;
 }
 
 /**
@@ -2277,7 +2762,7 @@ export interface GetInvalidationResult {
 export class NoSuchInvalidation extends __BaseException {
   readonly name: "NoSuchInvalidation" = "NoSuchInvalidation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2312,13 +2797,13 @@ export interface GetKeyGroupResult {
    * <p>The key group.</p>
    * @public
    */
-  KeyGroup?: KeyGroup;
+  KeyGroup?: KeyGroup | undefined;
 
   /**
    * <p>The identifier for this version of the key group.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2341,13 +2826,13 @@ export interface GetKeyGroupConfigResult {
    * <p>The key group configuration.</p>
    * @public
    */
-  KeyGroupConfig?: KeyGroupConfig;
+  KeyGroupConfig?: KeyGroupConfig | undefined;
 
   /**
    * <p>The identifier for this version of the key group.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2370,7 +2855,7 @@ export interface GetMonitoringSubscriptionResult {
    * 			additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
    * @public
    */
-  MonitoringSubscription?: MonitoringSubscription;
+  MonitoringSubscription?: MonitoringSubscription | undefined;
 }
 
 /**
@@ -2392,13 +2877,13 @@ export interface GetOriginAccessControlResult {
    * <p>Contains an origin access control, including its unique identifier.</p>
    * @public
    */
-  OriginAccessControl?: OriginAccessControl;
+  OriginAccessControl?: OriginAccessControl | undefined;
 
   /**
    * <p>The version identifier for the current version of the origin access control.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2420,13 +2905,13 @@ export interface GetOriginAccessControlConfigResult {
    * <p>Contains an origin access control configuration.</p>
    * @public
    */
-  OriginAccessControlConfig?: OriginAccessControlConfig;
+  OriginAccessControlConfig?: OriginAccessControlConfig | undefined;
 
   /**
    * <p>The version identifier for the current version of the origin access control.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2452,13 +2937,13 @@ export interface GetOriginRequestPolicyResult {
    * <p>The origin request policy.</p>
    * @public
    */
-  OriginRequestPolicy?: OriginRequestPolicy;
+  OriginRequestPolicy?: OriginRequestPolicy | undefined;
 
   /**
    * <p>The current version of the origin request policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2484,13 +2969,13 @@ export interface GetOriginRequestPolicyConfigResult {
    * <p>The origin request policy configuration.</p>
    * @public
    */
-  OriginRequestPolicyConfig?: OriginRequestPolicyConfig;
+  OriginRequestPolicyConfig?: OriginRequestPolicyConfig | undefined;
 
   /**
    * <p>The current version of the origin request policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2512,13 +2997,13 @@ export interface GetPublicKeyResult {
    * <p>The public key.</p>
    * @public
    */
-  PublicKey?: PublicKey;
+  PublicKey?: PublicKey | undefined;
 
   /**
    * <p>The identifier for this version of the public key.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2540,13 +3025,13 @@ export interface GetPublicKeyConfigResult {
    * <p>A public key configuration.</p>
    * @public
    */
-  PublicKeyConfig?: PublicKeyConfig;
+  PublicKeyConfig?: PublicKeyConfig | undefined;
 
   /**
    * <p>The identifier for this version of the public key configuration.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2557,13 +3042,13 @@ export interface GetRealtimeLogConfigRequest {
    * <p>The name of the real-time log configuration to get.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -2574,7 +3059,7 @@ export interface GetRealtimeLogConfigResult {
    * <p>A real-time log configuration.</p>
    * @public
    */
-  RealtimeLogConfig?: RealtimeLogConfig;
+  RealtimeLogConfig?: RealtimeLogConfig | undefined;
 }
 
 /**
@@ -2601,13 +3086,13 @@ export interface GetResponseHeadersPolicyResult {
    * <p>Contains a response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+  ResponseHeadersPolicy?: ResponseHeadersPolicy | undefined;
 
   /**
    * <p>The version identifier for the current version of the response headers policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2634,13 +3119,13 @@ export interface GetResponseHeadersPolicyConfigResult {
    * <p>Contains a response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicyConfig?: ResponseHeadersPolicyConfig;
+  ResponseHeadersPolicyConfig?: ResponseHeadersPolicyConfig | undefined;
 
   /**
    * <p>The version identifier for the current version of the response headers policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2664,14 +3149,14 @@ export interface GetStreamingDistributionResult {
    * <p>The streaming distribution's information.</p>
    * @public
    */
-  StreamingDistribution?: StreamingDistribution;
+  StreamingDistribution?: StreamingDistribution | undefined;
 
   /**
    * <p>The current version of the streaming distribution's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2695,14 +3180,73 @@ export interface GetStreamingDistributionConfigResult {
    * <p>The streaming distribution's configuration information.</p>
    * @public
    */
-  StreamingDistributionConfig?: StreamingDistributionConfig;
+  StreamingDistributionConfig?: StreamingDistributionConfig | undefined;
 
   /**
    * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.
    * 		</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcOriginRequest {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnycastIpListsRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of Anycast static IP lists that you want returned in the
+   * 			response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnycastIpListsResult {
+  /**
+   * <p>Root level tag for the <code>AnycastIpLists</code> parameters.</p>
+   * @public
+   */
+  AnycastIpLists?: AnycastIpListCollection | undefined;
 }
 
 /**
@@ -2726,7 +3270,7 @@ export interface ListCachePoliciesRequest {
    *          </ul>
    * @public
    */
-  Type?: CachePolicyType;
+  Type?: CachePolicyType | undefined;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2735,13 +3279,13 @@ export interface ListCachePoliciesRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of cache policies that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -2752,7 +3296,7 @@ export interface ListCachePoliciesResult {
    * <p>A list of cache policies.</p>
    * @public
    */
-  CachePolicyList?: CachePolicyList;
+  CachePolicyList?: CachePolicyList | undefined;
 }
 
 /**
@@ -2768,13 +3312,13 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
    * 			the last identity on that page).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of origin access identities you want in the response body.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -2832,7 +3376,7 @@ export interface CloudFrontOriginAccessIdentityList {
    * 			your origin access identities where they left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of origin access identities you want in the response body.</p>
@@ -2861,7 +3405,7 @@ export interface CloudFrontOriginAccessIdentityList {
    * 			Amazon Web Services account.</p>
    * @public
    */
-  Items?: CloudFrontOriginAccessIdentitySummary[];
+  Items?: CloudFrontOriginAccessIdentitySummary[] | undefined;
 }
 
 /**
@@ -2873,7 +3417,7 @@ export interface ListCloudFrontOriginAccessIdentitiesResult {
    * <p>The <code>CloudFrontOriginAccessIdentityList</code> type.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList;
+  CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList | undefined;
 }
 
 /**
@@ -2900,13 +3444,13 @@ export interface ListConflictingAliasesRequest {
    * 			of <code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of conflicting aliases that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -2921,20 +3465,20 @@ export interface ConflictingAlias {
    * <p>An alias (also called a CNAME).</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>The (partially hidden) ID of the CloudFront distribution associated with the alias.</p>
    * @public
    */
-  DistributionId?: string;
+  DistributionId?: string | undefined;
 
   /**
    * <p>The (partially hidden) ID of the Amazon Web Services account that owns the distribution that's
    * 			associated with the alias.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -2951,25 +3495,25 @@ export interface ConflictingAliasesList {
    * 			subsequent request to continue listing conflicting aliases where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of conflicting aliases requested.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The number of conflicting aliases returned in the response.</p>
    * @public
    */
-  Quantity?: number;
+  Quantity?: number | undefined;
 
   /**
    * <p>Contains the conflicting aliases in the list.</p>
    * @public
    */
-  Items?: ConflictingAlias[];
+  Items?: ConflictingAlias[] | undefined;
 }
 
 /**
@@ -2980,7 +3524,7 @@ export interface ListConflictingAliasesResult {
    * <p>A list of conflicting aliases.</p>
    * @public
    */
-  ConflictingAliasesList?: ConflictingAliasesList;
+  ConflictingAliasesList?: ConflictingAliasesList | undefined;
 }
 
 /**
@@ -2994,14 +3538,14 @@ export interface ListContinuousDeploymentPoliciesRequest {
    * 			of <code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of continuous deployment policies that you want returned in the
    * 			response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3026,7 +3570,7 @@ export interface ContinuousDeploymentPolicyList {
    * 			list, use this value in the <code>Marker</code> field of your request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of continuous deployment policies that were specified in your
@@ -3046,7 +3590,7 @@ export interface ContinuousDeploymentPolicyList {
    * <p>A list of continuous deployment policy items.</p>
    * @public
    */
-  Items?: ContinuousDeploymentPolicySummary[];
+  Items?: ContinuousDeploymentPolicySummary[] | undefined;
 }
 
 /**
@@ -3057,7 +3601,7 @@ export interface ListContinuousDeploymentPoliciesResult {
    * <p>A list of continuous deployment policies.</p>
    * @public
    */
-  ContinuousDeploymentPolicyList?: ContinuousDeploymentPolicyList;
+  ContinuousDeploymentPolicyList?: ContinuousDeploymentPolicyList | undefined;
 }
 
 /**
@@ -3073,13 +3617,13 @@ export interface ListDistributionsRequest {
    * 			the last distribution on that page).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distributions you want in the response body.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3139,7 +3683,7 @@ export interface DistributionSummary {
    * 			distribution.</p>
    * @public
    */
-  OriginGroups?: OriginGroups;
+  OriginGroups?: OriginGroups | undefined;
 
   /**
    * <p>A complex type that describes the default cache behavior if you don't specify a
@@ -3226,7 +3770,7 @@ export interface DistributionSummary {
    * 				services in China</i>.</p>
    * @public
    */
-  AliasICPRecordals?: AliasICPRecordal[];
+  AliasICPRecordals?: AliasICPRecordal[] | undefined;
 
   /**
    * <p>A Boolean that indicates whether this is a staging distribution. When this value is
@@ -3235,6 +3779,12 @@ export interface DistributionSummary {
    * @public
    */
   Staging: boolean | undefined;
+
+  /**
+   * <p>ID of the Anycast static IP list that is associated with the distribution.</p>
+   * @public
+   */
+  AnycastIpListId?: string | undefined;
 }
 
 /**
@@ -3254,7 +3804,7 @@ export interface DistributionList {
    * 			your distributions where they left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
@@ -3282,7 +3832,7 @@ export interface DistributionList {
    * 			distribution that was created by the current Amazon Web Services account.</p>
    * @public
    */
-  Items?: DistributionSummary[];
+  Items?: DistributionSummary[] | undefined;
 }
 
 /**
@@ -3294,7 +3844,44 @@ export interface ListDistributionsResult {
    * <p>The <code>DistributionList</code> type.</p>
    * @public
    */
-  DistributionList?: DistributionList;
+  DistributionList?: DistributionList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByAnycastIpListIdRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of distributions that you want returned in the
+   * 			response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  AnycastIpListId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByAnycastIpListIdResult {
+  /**
+   * <p>A distribution list.</p>
+   * @public
+   */
+  DistributionList?: DistributionList | undefined;
 }
 
 /**
@@ -3308,13 +3895,13 @@ export interface ListDistributionsByCachePolicyIdRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distribution IDs that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The ID of the cache policy whose associated distribution IDs you want to list.</p>
@@ -3339,7 +3926,7 @@ export interface DistributionIdList {
    * 			subsequent request to continue listing distribution IDs where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of distribution IDs requested.</p>
@@ -3365,7 +3952,7 @@ export interface DistributionIdList {
    * <p>Contains the distribution IDs in the list.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -3376,7 +3963,7 @@ export interface ListDistributionsByCachePolicyIdResult {
    * <p>A list of distribution IDs.</p>
    * @public
    */
-  DistributionIdList?: DistributionIdList;
+  DistributionIdList?: DistributionIdList | undefined;
 }
 
 /**
@@ -3390,13 +3977,13 @@ export interface ListDistributionsByKeyGroupRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distribution IDs that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The ID of the key group whose associated distribution IDs you are listing.</p>
@@ -3413,7 +4000,7 @@ export interface ListDistributionsByKeyGroupResult {
    * <p>A list of distribution IDs.</p>
    * @public
    */
-  DistributionIdList?: DistributionIdList;
+  DistributionIdList?: DistributionIdList | undefined;
 }
 
 /**
@@ -3427,13 +4014,13 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distribution IDs that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The ID of the origin request policy whose associated distribution IDs you want to
@@ -3451,7 +4038,7 @@ export interface ListDistributionsByOriginRequestPolicyIdResult {
    * <p>A list of distribution IDs.</p>
    * @public
    */
-  DistributionIdList?: DistributionIdList;
+  DistributionIdList?: DistributionIdList | undefined;
 }
 
 /**
@@ -3465,27 +4052,27 @@ export interface ListDistributionsByRealtimeLogConfigRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distributions that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The name of the real-time log configuration whose associated distributions you want to
    * 			list.</p>
    * @public
    */
-  RealtimeLogConfigName?: string;
+  RealtimeLogConfigName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the real-time log configuration whose associated
    * 			distributions you want to list.</p>
    * @public
    */
-  RealtimeLogConfigArn?: string;
+  RealtimeLogConfigArn?: string | undefined;
 }
 
 /**
@@ -3496,7 +4083,7 @@ export interface ListDistributionsByRealtimeLogConfigResult {
    * <p>A distribution list.</p>
    * @public
    */
-  DistributionList?: DistributionList;
+  DistributionList?: DistributionList | undefined;
 }
 
 /**
@@ -3510,13 +4097,13 @@ export interface ListDistributionsByResponseHeadersPolicyIdRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distribution IDs that you want to get in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The ID of the response headers policy whose associated distribution IDs you want to
@@ -3534,7 +4121,41 @@ export interface ListDistributionsByResponseHeadersPolicyIdResult {
    * <p>A list of distribution IDs.</p>
    * @public
    */
-  DistributionIdList?: DistributionIdList;
+  DistributionIdList?: DistributionIdList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByVpcOriginIdRequest {
+  /**
+   * <p>The marker associated with the VPC origin distributions list.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  VpcOriginId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByVpcOriginIdResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   * @public
+   */
+  DistributionIdList?: DistributionIdList | undefined;
 }
 
 /**
@@ -3552,14 +4173,14 @@ export interface ListDistributionsByWebACLIdRequest {
    * 				<code>Marker</code>.)</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of distributions that you want CloudFront to return in the response body.
    * 			The maximum and default values are both 100.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The ID of the WAF web ACL that you want to list the associated distributions. If you
@@ -3583,7 +4204,7 @@ export interface ListDistributionsByWebACLIdResult {
    * <p>The <code>DistributionList</code> type.</p>
    * @public
    */
-  DistributionList?: DistributionList;
+  DistributionList?: DistributionList | undefined;
 }
 
 /**
@@ -3598,14 +4219,14 @@ export interface ListFieldLevelEncryptionConfigsRequest {
    * 			the last configuration on that page).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of field-level encryption configurations you want in the response
    * 			body.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3630,19 +4251,19 @@ export interface FieldLevelEncryptionSummary {
    * 			longer than 128 characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A summary of a query argument-profile mapping.</p>
    * @public
    */
-  QueryArgProfileConfig?: QueryArgProfileConfig;
+  QueryArgProfileConfig?: QueryArgProfileConfig | undefined;
 
   /**
    * <p>A summary of a content type-profile mapping.</p>
    * @public
    */
-  ContentTypeProfileConfig?: ContentTypeProfileConfig;
+  ContentTypeProfileConfig?: ContentTypeProfileConfig | undefined;
 }
 
 /**
@@ -3656,7 +4277,7 @@ export interface FieldLevelEncryptionList {
    * 			your configurations where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of elements you want in the response body.</p>
@@ -3674,7 +4295,7 @@ export interface FieldLevelEncryptionList {
    * <p>An array of field-level encryption items.</p>
    * @public
    */
-  Items?: FieldLevelEncryptionSummary[];
+  Items?: FieldLevelEncryptionSummary[] | undefined;
 }
 
 /**
@@ -3686,7 +4307,7 @@ export interface ListFieldLevelEncryptionConfigsResult {
    * 			CloudFront for this account.</p>
    * @public
    */
-  FieldLevelEncryptionList?: FieldLevelEncryptionList;
+  FieldLevelEncryptionList?: FieldLevelEncryptionList | undefined;
 }
 
 /**
@@ -3701,14 +4322,14 @@ export interface ListFieldLevelEncryptionProfilesRequest {
    * 			page).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of field-level encryption profiles you want in the response body.
    * 		</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3747,7 +4368,7 @@ export interface FieldLevelEncryptionProfileSummary {
    * 			be longer than 128 characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 }
 
 /**
@@ -3761,7 +4382,7 @@ export interface FieldLevelEncryptionProfileList {
    * 			your profiles where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of field-level encryption profiles you want in the response body.
@@ -3780,7 +4401,7 @@ export interface FieldLevelEncryptionProfileList {
    * <p>The field-level encryption profile items.</p>
    * @public
    */
-  Items?: FieldLevelEncryptionProfileSummary[];
+  Items?: FieldLevelEncryptionProfileSummary[] | undefined;
 }
 
 /**
@@ -3792,7 +4413,7 @@ export interface ListFieldLevelEncryptionProfilesResult {
    * 			for this account.</p>
    * @public
    */
-  FieldLevelEncryptionProfileList?: FieldLevelEncryptionProfileList;
+  FieldLevelEncryptionProfileList?: FieldLevelEncryptionProfileList | undefined;
 }
 
 /**
@@ -3806,20 +4427,20 @@ export interface ListFunctionsRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of functions that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>An optional filter to return only the functions that are in the specified stage,
    * 			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * @public
    */
-  Stage?: FunctionStage;
+  Stage?: FunctionStage | undefined;
 }
 
 /**
@@ -3833,7 +4454,7 @@ export interface FunctionList {
    * 			subsequent request to continue listing functions where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of functions requested.</p>
@@ -3851,7 +4472,7 @@ export interface FunctionList {
    * <p>Contains the functions in the list.</p>
    * @public
    */
-  Items?: FunctionSummary[];
+  Items?: FunctionSummary[] | undefined;
 }
 
 /**
@@ -3862,7 +4483,7 @@ export interface ListFunctionsResult {
    * <p>A list of CloudFront functions.</p>
    * @public
    */
-  FunctionList?: FunctionList;
+  FunctionList?: FunctionList | undefined;
 }
 
 /**
@@ -3886,13 +4507,13 @@ export interface ListInvalidationsRequest {
    * 			page.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of invalidation batches that you want in the response body.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3938,7 +4559,7 @@ export interface InvalidationList {
    * 			listing your invalidation batches where they left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
@@ -3967,7 +4588,7 @@ export interface InvalidationList {
    * 			invalidation batch created by the current Amazon Web Services account.</p>
    * @public
    */
-  Items?: InvalidationSummary[];
+  Items?: InvalidationSummary[] | undefined;
 }
 
 /**
@@ -3979,7 +4600,7 @@ export interface ListInvalidationsResult {
    * <p>Information about invalidation batches.</p>
    * @public
    */
-  InvalidationList?: InvalidationList;
+  InvalidationList?: InvalidationList | undefined;
 }
 
 /**
@@ -3993,13 +4614,13 @@ export interface ListKeyGroupsRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of key groups that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4025,7 +4646,7 @@ export interface KeyGroupList {
    * 			subsequent request to continue listing key groups.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of key groups requested.</p>
@@ -4043,7 +4664,7 @@ export interface KeyGroupList {
    * <p>A list of key groups.</p>
    * @public
    */
-  Items?: KeyGroupSummary[];
+  Items?: KeyGroupSummary[] | undefined;
 }
 
 /**
@@ -4054,7 +4675,7 @@ export interface ListKeyGroupsResult {
    * <p>A list of key groups.</p>
    * @public
    */
-  KeyGroupList?: KeyGroupList;
+  KeyGroupList?: KeyGroupList | undefined;
 }
 
 /**
@@ -4065,19 +4686,19 @@ export interface ListKeyValueStoresRequest {
    * <p>The marker associated with the key value stores list.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of items in the key value stores list.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>The status of the request for the key value stores list.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -4089,7 +4710,7 @@ export interface KeyValueStoreList {
    * <p>The next marker associated with the key value store list.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of items in the key value store list.</p>
@@ -4107,7 +4728,7 @@ export interface KeyValueStoreList {
    * <p>The items of the key value store list.</p>
    * @public
    */
-  Items?: KeyValueStore[];
+  Items?: KeyValueStore[] | undefined;
 }
 
 /**
@@ -4118,7 +4739,7 @@ export interface ListKeyValueStoresResult {
    * <p>The resulting key value stores list.</p>
    * @public
    */
-  KeyValueStoreList?: KeyValueStoreList;
+  KeyValueStoreList?: KeyValueStoreList | undefined;
 }
 
 /**
@@ -4132,13 +4753,13 @@ export interface ListOriginAccessControlsRequest {
    * 				<code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of origin access controls that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4222,7 +4843,7 @@ export interface OriginAccessControlList {
    * 			request to continue listing origin access controls.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of origin access controls requested.</p>
@@ -4247,7 +4868,7 @@ export interface OriginAccessControlList {
    * <p>Contains the origin access controls in the list.</p>
    * @public
    */
-  Items?: OriginAccessControlSummary[];
+  Items?: OriginAccessControlSummary[] | undefined;
 }
 
 /**
@@ -4258,7 +4879,7 @@ export interface ListOriginAccessControlsResult {
    * <p>A list of origin access controls.</p>
    * @public
    */
-  OriginAccessControlList?: OriginAccessControlList;
+  OriginAccessControlList?: OriginAccessControlList | undefined;
 }
 
 /**
@@ -4296,7 +4917,7 @@ export interface ListOriginRequestPoliciesRequest {
    *          </ul>
    * @public
    */
-  Type?: OriginRequestPolicyType;
+  Type?: OriginRequestPolicyType | undefined;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -4305,13 +4926,13 @@ export interface ListOriginRequestPoliciesRequest {
    * 			value of <code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of origin request policies that you want in the response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4345,7 +4966,7 @@ export interface OriginRequestPolicyList {
    * 			off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of origin request policies requested.</p>
@@ -4363,7 +4984,7 @@ export interface OriginRequestPolicyList {
    * <p>Contains the origin request policies in the list.</p>
    * @public
    */
-  Items?: OriginRequestPolicySummary[];
+  Items?: OriginRequestPolicySummary[] | undefined;
 }
 
 /**
@@ -4374,7 +4995,7 @@ export interface ListOriginRequestPoliciesResult {
    * <p>A list of origin request policies.</p>
    * @public
    */
-  OriginRequestPolicyList?: OriginRequestPolicyList;
+  OriginRequestPolicyList?: OriginRequestPolicyList | undefined;
 }
 
 /**
@@ -4389,13 +5010,13 @@ export interface ListPublicKeysRequest {
    * 			the last public key on that page).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of public keys you want in the response body.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4432,7 +5053,7 @@ export interface PublicKeySummary {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 }
 
 /**
@@ -4446,7 +5067,7 @@ export interface PublicKeyList {
    * 			your public keys where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of public keys you want in the response.</p>
@@ -4464,7 +5085,7 @@ export interface PublicKeyList {
    * <p>A list of public keys.</p>
    * @public
    */
-  Items?: PublicKeySummary[];
+  Items?: PublicKeySummary[] | undefined;
 }
 
 /**
@@ -4476,7 +5097,7 @@ export interface ListPublicKeysResult {
    * 			account.</p>
    * @public
    */
-  PublicKeyList?: PublicKeyList;
+  PublicKeyList?: PublicKeyList | undefined;
 }
 
 /**
@@ -4488,7 +5109,7 @@ export interface ListRealtimeLogConfigsRequest {
    * 			response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -4497,7 +5118,7 @@ export interface ListRealtimeLogConfigsRequest {
    * 			value to the value of <code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -4515,7 +5136,7 @@ export interface RealtimeLogConfigs {
    * <p>Contains the list of real-time log configurations.</p>
    * @public
    */
-  Items?: RealtimeLogConfig[];
+  Items?: RealtimeLogConfig[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more real-time log configurations than are
@@ -4538,7 +5159,7 @@ export interface RealtimeLogConfigs {
    * 		</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -4549,7 +5170,7 @@ export interface ListRealtimeLogConfigsResult {
    * <p>A list of real-time log configurations.</p>
    * @public
    */
-  RealtimeLogConfigs?: RealtimeLogConfigs;
+  RealtimeLogConfigs?: RealtimeLogConfigs | undefined;
 }
 
 /**
@@ -4586,7 +5207,7 @@ export interface ListResponseHeadersPoliciesRequest {
    *          </ul>
    * @public
    */
-  Type?: ResponseHeadersPolicyType;
+  Type?: ResponseHeadersPolicyType | undefined;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -4595,14 +5216,14 @@ export interface ListResponseHeadersPoliciesRequest {
    * 			the value of <code>NextMarker</code> from the current page's response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of response headers policies that you want to get in the
    * 			response.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4636,7 +5257,7 @@ export interface ResponseHeadersPolicyList {
    * 			off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of response headers policies requested.</p>
@@ -4654,7 +5275,7 @@ export interface ResponseHeadersPolicyList {
    * <p>The response headers policies in the list.</p>
    * @public
    */
-  Items?: ResponseHeadersPolicySummary[];
+  Items?: ResponseHeadersPolicySummary[] | undefined;
 }
 
 /**
@@ -4665,7 +5286,7 @@ export interface ListResponseHeadersPoliciesResult {
    * <p>A list of response headers policies.</p>
    * @public
    */
-  ResponseHeadersPolicyList?: ResponseHeadersPolicyList;
+  ResponseHeadersPolicyList?: ResponseHeadersPolicyList | undefined;
 }
 
 /**
@@ -4677,13 +5298,13 @@ export interface ListStreamingDistributionsRequest {
    * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -4795,7 +5416,7 @@ export interface StreamingDistributionList {
    * 			your RTMP distributions where they left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
@@ -4824,7 +5445,7 @@ export interface StreamingDistributionList {
    * 			each distribution that was created by the current Amazon Web Services account.</p>
    * @public
    */
-  Items?: StreamingDistributionSummary[];
+  Items?: StreamingDistributionSummary[] | undefined;
 }
 
 /**
@@ -4836,7 +5457,7 @@ export interface ListStreamingDistributionsResult {
    * <p>The <code>StreamingDistributionList</code> type.</p>
    * @public
    */
-  StreamingDistributionList?: StreamingDistributionList;
+  StreamingDistributionList?: StreamingDistributionList | undefined;
 }
 
 /**
@@ -4866,6 +5487,127 @@ export interface ListTagsForResourceResult {
 /**
  * @public
  */
+export interface ListVpcOriginsRequest {
+  /**
+   * <p>The marker associated with the VPC origins list.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>A summary of the CloudFront VPC origin.</p>
+ * @public
+ */
+export interface VpcOriginSummary {
+  /**
+   * <p>The VPC origin summary ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin summary name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The VPC origin summary status.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The VPC origin summary created time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin summary last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin summary ARN.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The VPC origin summary origin endpoint ARN.</p>
+   * @public
+   */
+  OriginEndpointArn: string | undefined;
+}
+
+/**
+ * <p>A list of CloudFront VPC origins.</p>
+ * @public
+ */
+export interface VpcOriginList {
+  /**
+   * <p>The marker associated with the VPC origins list.</p>
+   * @public
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>The next marker associated with the VPC origins list.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>A flag that indicates whether more VPC origins remain to be listed. If
+   * 			your results were truncated, you can make a follow-up pagination request using the
+   * 			<code>Marker</code> request parameter to retrieve more VPC origins in the
+   * 			list.</p>
+   * @public
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The number of VPC origins in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The items of the VPC origins list.</p>
+   * @public
+   */
+  Items?: VpcOriginSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcOriginsResult {
+  /**
+   * <p>List of VPC origins.</p>
+   * @public
+   */
+  VpcOriginList?: VpcOriginList | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PublishFunctionRequest {
   /**
    * <p>The name of the function that you are publishing.</p>
@@ -4889,7 +5631,7 @@ export interface PublishFunctionResult {
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
    * @public
    */
-  FunctionSummary?: FunctionSummary;
+  FunctionSummary?: FunctionSummary | undefined;
 }
 
 /**
@@ -4917,7 +5659,7 @@ export interface TagResourceRequest {
 export class TestFunctionFailed extends __BaseException {
   readonly name: "TestFunctionFailed" = "TestFunctionFailed";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4954,7 +5696,7 @@ export interface TestFunctionRequest {
    * 				<code>LIVE</code>.</p>
    * @public
    */
-  Stage?: FunctionStage;
+  Stage?: FunctionStage | undefined;
 
   /**
    * <p>The event object to test the function with. For more information about the structure
@@ -4974,7 +5716,7 @@ export interface TestResult {
    * 			tested.</p>
    * @public
    */
-  FunctionSummary?: FunctionSummary;
+  FunctionSummary?: FunctionSummary | undefined;
 
   /**
    * <p>The amount of time that the function took to run as a percentage of the maximum
@@ -4982,20 +5724,20 @@ export interface TestResult {
    * 			in 35% of the maximum allowed time.</p>
    * @public
    */
-  ComputeUtilization?: string;
+  ComputeUtilization?: string | undefined;
 
   /**
    * <p>Contains the log lines that the function wrote (if any) when running the test.</p>
    * @public
    */
-  FunctionExecutionLogs?: string[];
+  FunctionExecutionLogs?: string[] | undefined;
 
   /**
    * <p>If the result of testing the function was an error, this field contains the error
    * 			message.</p>
    * @public
    */
-  FunctionErrorMessage?: string;
+  FunctionErrorMessage?: string | undefined;
 
   /**
    * <p>The event object returned by the function. For more information about the structure of
@@ -5003,7 +5745,7 @@ export interface TestResult {
    * 				object structure</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  FunctionOutput?: string;
+  FunctionOutput?: string | undefined;
 }
 
 /**
@@ -5015,7 +5757,7 @@ export interface TestFunctionResult {
    * 			object.</p>
    * @public
    */
-  TestResult?: TestResult;
+  TestResult?: TestResult | undefined;
 }
 
 /**
@@ -5027,7 +5769,7 @@ export interface TagKeys {
    * <p>A complex type that contains <code>Tag</code> key elements.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -5072,7 +5814,7 @@ export interface UpdateCachePolicyRequest {
    * 				<code>GetCachePolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5083,13 +5825,13 @@ export interface UpdateCachePolicyResult {
    * <p>A cache policy.</p>
    * @public
    */
-  CachePolicy?: CachePolicy;
+  CachePolicy?: CachePolicy | undefined;
 
   /**
    * <p>The current version of the cache policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5114,7 +5856,7 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
    * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5126,14 +5868,14 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
    * <p>The origin access identity's information.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
+  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity | undefined;
 
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5157,7 +5899,7 @@ export interface UpdateContinuousDeploymentPolicyRequest {
    * 			you are updating.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5168,14 +5910,14 @@ export interface UpdateContinuousDeploymentPolicyResult {
    * <p>A continuous deployment policy.</p>
    * @public
    */
-  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy | undefined;
 
   /**
    * <p>The version identifier for the current version of the continuous deployment
    * 			policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5200,7 +5942,7 @@ export interface UpdateDistributionRequest {
    * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5212,14 +5954,14 @@ export interface UpdateDistributionResult {
    * <p>The distribution's information.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5237,17 +5979,17 @@ export interface UpdateDistributionWithStagingConfigRequest {
    * <p>The identifier of the staging distribution whose configuration you are copying to the primary distribution.</p>
    * @public
    */
-  StagingDistributionId?: string;
+  StagingDistributionId?: string | undefined;
 
   /**
    * <p>The current versions (<code>ETag</code> values) of both primary and staging distributions.
    * 			Provide these in the following format:</p>
    *          <p>
-   *             <code><primary ETag>, <staging ETag></code>
+   *             <code>&lt;primary ETag&gt;, &lt;staging ETag&gt;</code>
    *          </p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5259,13 +6001,13 @@ export interface UpdateDistributionWithStagingConfigResult {
    * 			about how to track and manage content delivery.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The current version of the primary distribution (after it's updated).</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5289,7 +6031,7 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
    * 			configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5300,14 +6042,14 @@ export interface UpdateFieldLevelEncryptionConfigResult {
    * <p>Return the results of updating the configuration.</p>
    * @public
    */
-  FieldLevelEncryption?: FieldLevelEncryption;
+  FieldLevelEncryption?: FieldLevelEncryption | undefined;
 
   /**
    * <p>The value of the <code>ETag</code> header that you received when updating the
    * 			configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5331,7 +6073,7 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
    * 			profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5342,13 +6084,13 @@ export interface UpdateFieldLevelEncryptionProfileResult {
    * <p>Return the results of updating the profile.</p>
    * @public
    */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile | undefined;
 
   /**
    * <p>The result of the field-level encryption profile request.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5391,13 +6133,13 @@ export interface UpdateFunctionResult {
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
    * @public
    */
-  FunctionSummary?: FunctionSummary;
+  FunctionSummary?: FunctionSummary | undefined;
 
   /**
    * <p>The version identifier for the current version of the CloudFront function.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5421,7 +6163,7 @@ export interface UpdateKeyGroupRequest {
    * 				<code>ETag</code> value.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5432,13 +6174,13 @@ export interface UpdateKeyGroupResult {
    * <p>The key group that was just updated.</p>
    * @public
    */
-  KeyGroup?: KeyGroup;
+  KeyGroup?: KeyGroup | undefined;
 
   /**
    * <p>The identifier for this version of the key group.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5472,13 +6214,13 @@ export interface UpdateKeyValueStoreResult {
    * <p>The resulting key value store to update.</p>
    * @public
    */
-  KeyValueStore?: KeyValueStore;
+  KeyValueStore?: KeyValueStore | undefined;
 
   /**
    * <p>The <code>ETag</code> of the resulting key value store.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5502,7 +6244,7 @@ export interface UpdateOriginAccessControlRequest {
    * 			are updating.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5513,13 +6255,13 @@ export interface UpdateOriginAccessControlResult {
    * <p>The origin access control after it has been updated.</p>
    * @public
    */
-  OriginAccessControl?: OriginAccessControl;
+  OriginAccessControl?: OriginAccessControl | undefined;
 
   /**
    * <p>The new version of the origin access control after it has been updated.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5546,7 +6288,7 @@ export interface UpdateOriginRequestPolicyRequest {
    * 				<code>GetOriginRequestPolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5557,13 +6299,13 @@ export interface UpdateOriginRequestPolicyResult {
    * <p>An origin request policy.</p>
    * @public
    */
-  OriginRequestPolicy?: OriginRequestPolicy;
+  OriginRequestPolicy?: OriginRequestPolicy | undefined;
 
   /**
    * <p>The current version of the origin request policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5587,7 +6329,7 @@ export interface UpdatePublicKeyRequest {
    * 			key to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5598,13 +6340,13 @@ export interface UpdatePublicKeyResult {
    * <p>The public key.</p>
    * @public
    */
-  PublicKey?: PublicKey;
+  PublicKey?: PublicKey | undefined;
 
   /**
    * <p>The identifier of the current version of the public key.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5616,7 +6358,7 @@ export interface UpdateRealtimeLogConfigRequest {
    * 			log data.</p>
    * @public
    */
-  EndPoints?: EndPoint[];
+  EndPoints?: EndPoint[] | undefined;
 
   /**
    * <p>A list of fields to include in each real-time log record.</p>
@@ -5624,19 +6366,19 @@ export interface UpdateRealtimeLogConfigRequest {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  Fields?: string[];
+  Fields?: string[] | undefined;
 
   /**
    * <p>The name for this real-time log configuration.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for this real-time log configuration.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The sampling rate for this real-time log configuration. The sampling rate determines
@@ -5644,7 +6386,7 @@ export interface UpdateRealtimeLogConfigRequest {
    * 			must provide an integer between 1 and 100, inclusive.</p>
    * @public
    */
-  SamplingRate?: number;
+  SamplingRate?: number | undefined;
 }
 
 /**
@@ -5655,7 +6397,7 @@ export interface UpdateRealtimeLogConfigResult {
    * <p>A real-time log configuration.</p>
    * @public
    */
-  RealtimeLogConfig?: RealtimeLogConfig;
+  RealtimeLogConfig?: RealtimeLogConfig | undefined;
 }
 
 /**
@@ -5680,7 +6422,7 @@ export interface UpdateResponseHeadersPolicyRequest {
    * 			to <code>GetResponseHeadersPolicyConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5691,13 +6433,13 @@ export interface UpdateResponseHeadersPolicyResult {
    * <p>A response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+  ResponseHeadersPolicy?: ResponseHeadersPolicy | undefined;
 
   /**
    * <p>The current version of the response headers policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5722,7 +6464,7 @@ export interface UpdateStreamingDistributionRequest {
    * 			streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -5734,14 +6476,54 @@ export interface UpdateStreamingDistributionResult {
    * <p>The streaming distribution's information.</p>
    * @public
    */
-  StreamingDistribution?: StreamingDistribution;
+  StreamingDistribution?: StreamingDistribution | undefined;
 
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVpcOriginRequest {
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
+
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin to update, if a match occurs.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**
@@ -5786,6 +6568,15 @@ export const DistributionListFilterSensitiveLog = (obj: DistributionList): any =
  * @internal
  */
 export const ListDistributionsResultFilterSensitiveLog = (obj: ListDistributionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributionsByAnycastIpListIdResultFilterSensitiveLog = (
+  obj: ListDistributionsByAnycastIpListIdResult
+): any => ({
   ...obj,
 });
 

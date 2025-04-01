@@ -55,9 +55,11 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *       AllocationId: "STRING_VALUE",
  *       PrivateIPv4Address: "STRING_VALUE",
  *       IPv6Address: "STRING_VALUE",
+ *       SourceNatIpv6Prefix: "STRING_VALUE",
  *     },
  *   ],
  *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
+ *   EnablePrefixForIpv6SourceNat: "on" || "off",
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
@@ -75,9 +77,13 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * //           IPv6Address: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SourceNatIpv6Prefixes: [ // SourceNatIpv6Prefixes
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
+ * //   EnablePrefixForIpv6SourceNat: "on" || "off",
  * // };
  *
  * ```
@@ -94,6 +100,9 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
  *  <p>The specified Availability Zone is not supported.</p>
  *
+ * @throws {@link CapacityReservationPendingException} (client fault)
+ *  <p>There is a pending capacity reservation.</p>
+ *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration is not valid.</p>
  *
@@ -109,36 +118,36 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To enable Availability Zones for a load balancer
  * ```javascript
  * // This example enables the Availability Zones for the specified subnets for the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *   "Subnets": [
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *   Subnets: [
  *     "subnet-8360a9e7",
  *     "subnet-b7d581c0"
  *   ]
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     {
- *       "SubnetId": "subnet-8360a9e7",
- *       "ZoneName": "us-west-2a"
+ *       SubnetId: "subnet-8360a9e7",
+ *       ZoneName: "us-west-2a"
  *     },
  *     {
- *       "SubnetId": "subnet-b7d581c0",
- *       "ZoneName": "us-west-2b"
+ *       SubnetId: "subnet-b7d581c0",
+ *       ZoneName: "us-west-2b"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-set-subnets-1
  * ```
  *
+ * @public
  */
 export class SetSubnetsCommand extends $Command
   .classBuilder<
@@ -148,9 +157,7 @@ export class SetSubnetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +169,16 @@ export class SetSubnetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSubnetsCommand)
   .de(de_SetSubnetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSubnetsInput;
+      output: SetSubnetsOutput;
+    };
+    sdk: {
+      input: SetSubnetsCommandInput;
+      output: SetSubnetsCommandOutput;
+    };
+  };
+}

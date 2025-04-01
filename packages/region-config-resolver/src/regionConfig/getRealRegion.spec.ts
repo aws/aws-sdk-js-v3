@@ -1,21 +1,23 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { getRealRegion } from "./getRealRegion";
 import { isFipsRegion } from "./isFipsRegion";
 
-jest.mock("./isFipsRegion");
+vi.mock("./isFipsRegion");
 
 describe(getRealRegion.name, () => {
   beforeEach(() => {
-    (isFipsRegion as jest.Mock).mockReturnValue(true);
+    vi.mocked(isFipsRegion).mockReturnValue(true);
   });
 
   afterEach(() => {
     expect(isFipsRegion).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("returns provided region if it's not FIPS", () => {
     const mockRegion = "mockRegion";
-    (isFipsRegion as jest.Mock).mockReturnValue(false);
+    vi.mocked(isFipsRegion).mockReturnValue(false);
     expect(getRealRegion(mockRegion)).toStrictEqual(mockRegion);
   });
 

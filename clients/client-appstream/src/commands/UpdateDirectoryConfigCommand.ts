@@ -85,6 +85,9 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>An API error occurred. Wait a few minutes and try again.</p>
  *
+ * @throws {@link IncompatibleImageException} (client fault)
+ *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
  * @throws {@link InvalidRoleException} (client fault)
  *  <p>The specified role is invalid.</p>
  *
@@ -100,6 +103,7 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateDirectoryConfigCommand extends $Command
@@ -110,9 +114,7 @@ export class UpdateDirectoryConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +126,16 @@ export class UpdateDirectoryConfigCommand extends $Command
   .f(UpdateDirectoryConfigRequestFilterSensitiveLog, UpdateDirectoryConfigResultFilterSensitiveLog)
   .ser(se_UpdateDirectoryConfigCommand)
   .de(de_UpdateDirectoryConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDirectoryConfigRequest;
+      output: UpdateDirectoryConfigResult;
+    };
+    sdk: {
+      input: UpdateDirectoryConfigCommandInput;
+      output: UpdateDirectoryConfigCommandOutput;
+    };
+  };
+}

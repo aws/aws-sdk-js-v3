@@ -76,28 +76,28 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To list IP sets
  * ```javascript
  * // The following example returns an array of up to 100 IP match sets.
  * const input = {
- *   "Limit": 100
+ *   Limit: 100
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IPSets": [
+ *   IPSets: [
  *     {
- *       "IPSetId": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *       "Name": "MyIPSetFriendlyName"
+ *       IPSetId: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *       Name: "MyIPSetFriendlyName"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listipsets-1472235676229
  * ```
  *
+ * @public
  */
 export class ListIPSetsCommand extends $Command
   .classBuilder<
@@ -107,9 +107,7 @@ export class ListIPSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +119,16 @@ export class ListIPSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIPSetsCommand)
   .de(de_ListIPSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIPSetsRequest;
+      output: ListIPSetsResponse;
+    };
+    sdk: {
+      input: ListIPSetsCommandInput;
+      output: ListIPSetsCommandOutput;
+    };
+  };
+}

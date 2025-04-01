@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse } from "../models/models_0";
+import { ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse } from "../models/models_1";
 import {
   de_ExportMetadataModelAssessmentCommand,
   se_ExportMetadataModelAssessmentCommand,
@@ -37,8 +37,8 @@ export interface ExportMetadataModelAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can save
- *          your assessment report as a comma-separated value (CSV) or a PDF file. </p>
+ * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can
+ *          save your assessment report as a comma-separated value (CSV) or a PDF file. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,35 +80,35 @@ export interface ExportMetadataModelAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Export Metadata Model Assessment
  * ```javascript
  * // Saves a copy of a database migration assessment report to your S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.
  * const input = {
- *   "AssessmentReportTypes": [
+ *   AssessmentReportTypes: [
  *     "pdf"
  *   ],
- *   "FileName": "file",
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ *   FileName: "file",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
  * };
  * const command = new ExportMetadataModelAssessmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CsvReport": {
- *     "ObjectURL": "url",
- *     "S3ObjectKey": "object-name"
+ *   CsvReport: {
+ *     ObjectURL: "url",
+ *     S3ObjectKey: "object-name"
  *   },
- *   "PdfReport": {
- *     "ObjectURL": "url",
- *     "S3ObjectKey": "object-name"
+ *   PdfReport: {
+ *     ObjectURL: "url",
+ *     S3ObjectKey: "object-name"
  *   }
  * }
  * *\/
- * // example id: export-metadata-model-assessment-1689720309558
  * ```
  *
+ * @public
  */
 export class ExportMetadataModelAssessmentCommand extends $Command
   .classBuilder<
@@ -118,9 +118,7 @@ export class ExportMetadataModelAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +130,16 @@ export class ExportMetadataModelAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportMetadataModelAssessmentCommand)
   .de(de_ExportMetadataModelAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportMetadataModelAssessmentMessage;
+      output: ExportMetadataModelAssessmentResponse;
+    };
+    sdk: {
+      input: ExportMetadataModelAssessmentCommandInput;
+      output: ExportMetadataModelAssessmentCommandOutput;
+    };
+  };
+}

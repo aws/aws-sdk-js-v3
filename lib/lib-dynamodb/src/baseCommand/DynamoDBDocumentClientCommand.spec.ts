@@ -1,4 +1,5 @@
 import { Handler, MiddlewareStack } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { KeyNodeChildren } from "../commands/utils";
 import { DynamoDBDocumentClientCommand } from "./DynamoDBDocumentClientCommand";
@@ -34,8 +35,7 @@ class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
 }
 
 describe("DynamoDBDocumentClientCommand", () => {
-  // ToDo: Investigate why Jest29 throws TypeError: Class constructor Command cannot be invoked without 'new'
-  it.skip("should not allow usage of the default middlewareStack", () => {
+  it("should not allow usage of the default middlewareStack", () => {
     const command = new AnyCommand();
     command.resolveMiddleware(null as any, null as any, null as any);
     {

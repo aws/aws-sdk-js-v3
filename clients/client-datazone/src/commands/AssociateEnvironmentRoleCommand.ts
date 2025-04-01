@@ -76,6 +76,7 @@ export interface AssociateEnvironmentRoleCommandOutput extends AssociateEnvironm
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class AssociateEnvironmentRoleCommand extends $Command
@@ -86,9 +87,7 @@ export class AssociateEnvironmentRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class AssociateEnvironmentRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateEnvironmentRoleCommand)
   .de(de_AssociateEnvironmentRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateEnvironmentRoleInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateEnvironmentRoleCommandInput;
+      output: AssociateEnvironmentRoleCommandOutput;
+    };
+  };
+}

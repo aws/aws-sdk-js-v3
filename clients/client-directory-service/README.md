@@ -24,7 +24,7 @@ Services</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-directory-service
+To install this package, simply type add or install @aws-sdk/client-directory-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-directory-service`
@@ -419,6 +419,14 @@ DescribeDirectories
 </details>
 <details>
 <summary>
+DescribeDirectoryDataAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DescribeDirectoryDataAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeDirectoryDataAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeDirectoryDataAccessCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDomainControllers
 </summary>
 
@@ -499,6 +507,14 @@ DisableClientAuthentication
 </details>
 <details>
 <summary>
+DisableDirectoryDataAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DisableDirectoryDataAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableDirectoryDataAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableDirectoryDataAccessCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableLDAPS
 </summary>
 
@@ -527,6 +543,14 @@ EnableClientAuthentication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/EnableClientAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableClientAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableClientAuthenticationCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableDirectoryDataAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/EnableDirectoryDataAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableDirectoryDataAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableDirectoryDataAccessCommandOutput/)
 
 </details>
 <details>

@@ -41,6 +41,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * const input = { // ListFleetsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
@@ -84,6 +85,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListFleetsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFleetsCommand)
   .de(de_ListFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFleetsRequest;
+      output: ListFleetsResponse;
+    };
+    sdk: {
+      input: ListFleetsCommandInput;
+      output: ListFleetsCommandOutput;
+    };
+  };
+}

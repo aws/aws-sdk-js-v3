@@ -29,7 +29,7 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
 
 /**
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
- *          operation to find information about the Health event, such as the category, Amazon Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
+ *          operation to find information about the Health event, such as the category, Amazon Web Services service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
  *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
  *          particular order. </p>
  *          <note>
@@ -87,6 +87,7 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventTypesCommand extends $Command
@@ -97,9 +98,7 @@ export class DescribeEventTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DescribeEventTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventTypesCommand)
   .de(de_DescribeEventTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventTypesRequest;
+      output: DescribeEventTypesResponse;
+    };
+    sdk: {
+      input: DescribeEventTypesCommandInput;
+      output: DescribeEventTypesCommandOutput;
+    };
+  };
+}

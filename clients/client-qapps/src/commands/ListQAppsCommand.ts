@@ -28,9 +28,9 @@ export interface ListQAppsCommandInput extends ListQAppsInput {}
 export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Q Apps owned by or associated with the user either because
- *       they created it or because they used it from the library in the past. The user
- *       identity is extracted from the credentials used to invoke this operation..</p>
+ * <p>Lists the Amazon Q Apps owned by or associated with the user either because they created it
+ *       or because they used it from the library in the past. The user identity is extracted from the
+ *       credentials used to invoke this operation..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,7 @@ export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBeare
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       canEdit: true || false,
  * //       status: "STRING_VALUE",
+ * //       isVerified: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -74,8 +75,8 @@ export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBeare
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -85,6 +86,98 @@ export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBeare
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example List at most 3 Amazon Q Apps in an Q Business application
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   limit: 3
+ * };
+ * const command = new ListQAppsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   apps: [
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../7b9fe303-18bb-4643-952c-bfcf9f4c427f",
+ *       appId: "7b9fe303-18bb-4643-952c-bfcf9f4c427f",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 1",
+ *       isVerified: false,
+ *       status: "DRAFT",
+ *       title: "App 1"
+ *     },
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../dd178fd6-ad3d-49b3-a32d-e915cf423e37",
+ *       appId: "dd178fd6-ad3d-49b3-a32d-e915cf423e37",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 2",
+ *       isVerified: true,
+ *       status: "PUBLISHED",
+ *       title: "App 2"
+ *     },
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../3274b744-1a13-4aad-953f-eda2e4149e6e",
+ *       appId: "3274b744-1a13-4aad-953f-eda2e4149e6e",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 3",
+ *       isVerified: false,
+ *       status: "DRAFT",
+ *       title: "App 3"
+ *     }
+ *   ],
+ *   nextToken: "bXlzdGVyaW91c1BhZ2luYXRpb25Ub2tlbg=="
+ * }
+ * *\/
+ * ```
+ *
+ * @example Retrieve the next page of Amazon Q Apps
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   limit: 3,
+ *   nextToken: "bXlzdGVyaW91c1BhZ2luYXRpb25Ub2tlbg=="
+ * };
+ * const command = new ListQAppsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   apps: [
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../bec8ee64-2635-41e8-aace-e1e418f4f295",
+ *       appId: "bec8ee64-2635-41e8-aace-e1e418f4f295",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 4",
+ *       isVerified: true,
+ *       status: "PUBLISHED",
+ *       title: "App 4"
+ *     },
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../c380a45d-bd77-45b0-a0e5-8a266c1d8bc4",
+ *       appId: "c380a45d-bd77-45b0-a0e5-8a266c1d8bc4",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 5",
+ *       isVerified: false,
+ *       status: "PUBLISHED",
+ *       title: "App 5"
+ *     },
+ *     {
+ *       appArn: "arn:aws:qapps:us-west-2:..../afc4ee80-9722-4396-85a6-7aeaff52c177",
+ *       appId: "afc4ee80-9722-4396-85a6-7aeaff52c177",
+ *       createdAt: "2024-05-21T04:09:10.401Z",
+ *       description: "Description 6",
+ *       isVerified: false,
+ *       status: "PUBLISHED",
+ *       title: "App 6"
+ *     }
+ *   ],
+ *   nextToken: "YW5vdGhlclRva2VuIQ=="
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -96,9 +189,7 @@ export class ListQAppsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +201,16 @@ export class ListQAppsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQAppsCommand)
   .de(de_ListQAppsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQAppsInput;
+      output: ListQAppsOutput;
+    };
+    sdk: {
+      input: ListQAppsCommandInput;
+      output: ListQAppsCommandOutput;
+    };
+  };
+}

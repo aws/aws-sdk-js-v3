@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_GetInstanceTypesFromInstanceRequirementsCommand,
   se_GetInstanceTypesFromInstanceRequirementsCommand,
@@ -43,9 +43,9 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
  *          specified parameters. If you specify multiple values for a parameter, you get instance
  *          types that satisfy any of the specified values.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *             placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an
- *             Auto Scaling group using attribute-based instance type selection</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+ *             mixed instance groups using attribute-based instance type selection</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,7 +71,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *       Max: Number("int"),
  *     },
  *     CpuManufacturers: [ // CpuManufacturerSet
- *       "intel" || "amd" || "amazon-web-services",
+ *       "intel" || "amd" || "amazon-web-services" || "apple",
  *     ],
  *     MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *       Min: Number("double"),
@@ -129,6 +129,15 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *       "STRING_VALUE",
  *     ],
  *     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *     BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *       Cpu: { // CpuPerformanceFactorRequest
+ *         References: [ // PerformanceFactorReferenceSetRequest
+ *           { // PerformanceFactorReferenceRequest
+ *             InstanceFamily: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -155,6 +164,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
@@ -165,9 +175,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +187,16 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceTypesFromInstanceRequirementsCommand)
   .de(de_GetInstanceTypesFromInstanceRequirementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceTypesFromInstanceRequirementsRequest;
+      output: GetInstanceTypesFromInstanceRequirementsResult;
+    };
+    sdk: {
+      input: GetInstanceTypesFromInstanceRequirementsCommandInput;
+      output: GetInstanceTypesFromInstanceRequirementsCommandOutput;
+    };
+  };
+}

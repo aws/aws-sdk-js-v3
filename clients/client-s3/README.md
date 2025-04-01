@@ -10,7 +10,7 @@ AWS SDK for JavaScript S3 Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-s3
+To install this package, simply type add or install @aws-sdk/client-s3
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-s3`
@@ -237,6 +237,14 @@ CreateBucket
 </details>
 <details>
 <summary>
+CreateBucketMetadataTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketMetadataTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/CreateBucketMetadataTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/CreateBucketMetadataTableConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateMultipartUpload
 </summary>
 
@@ -305,6 +313,14 @@ DeleteBucketLifecycle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketLifecycleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteBucketLifecycleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteBucketLifecycleCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteBucketMetadataTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketMetadataTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteBucketMetadataTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteBucketMetadataTableConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -465,6 +481,14 @@ GetBucketLogging
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketLoggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetBucketLoggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetBucketLoggingCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetBucketMetadataTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketMetadataTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetBucketMetadataTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetBucketMetadataTableConfigurationCommandOutput/)
 
 </details>
 <details>

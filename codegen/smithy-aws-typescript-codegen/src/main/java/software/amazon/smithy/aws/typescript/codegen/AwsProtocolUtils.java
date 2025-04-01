@@ -46,6 +46,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -249,7 +250,7 @@ final class AwsProtocolUtils {
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
                     writer.addDependency(TypeScriptDependency.UUID);
-                    writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
+                    writer.addDependency(TypeScriptDependency.UUID_TYPES);
                     writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }
@@ -305,29 +306,15 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Remove when requestCompression has been implemented.
-        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
-            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
-            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
+        // TODO: Remove when upstream tests update to serialize empty headers.
+        if (testCase.getId().contains("NullAndEmptyHeaders")) {
             return true;
         }
 
-        if (testCase.getTags().contains("defaults")) {
-            return true;
-        }
-
-        // TODO: remove when there's a decision on separator to use
-        // https://github.com/awslabs/smithy/issues/1014
-        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
-            return true;
-        }
-
-        // TODO: implementation change pending.
-        List<String> extraUnionKey = Arrays.asList(
-            "RestXmlHttpPayloadWithUnsetUnion",
-            "RestJsonHttpPayloadWithUnsetUnion"
-        );
-        if (extraUnionKey.contains(testCase.getId())) {
+        // TODO This test has an arbitrary root XML name NestedXmlMapWithXmlNameRequest
+        // TODO which doesn't match the input structure. We will need to update
+        // TODO the test comparator stub to ignore this if that is indeed intended.
+        if (testCase.getId().contains("NestedXmlMapWithXmlNameSerializes")) {
             return true;
         }
 
@@ -336,8 +323,17 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
-        if (testCase.getId().equals("RestJsonMustSupportParametersInContentType")) {
+        if (testCase.getTags().contains("defaults")) {
+            return true;
+        }
+
+        // not implemented in server sdk.
+        if (SetUtils.of(
+            "SDKAppendedGzipAfterProvidedEncoding_restJson1",
+            "SDKAppliedContentEncoding_restJson1",
+            "RestJsonHttpPayloadWithUnsetUnion",
+            "RestJsonMustSupportParametersInContentType"
+        ).contains(testCase.getId()) && settings.generateServerSdk()) {
             return true;
         }
 
@@ -401,6 +397,11 @@ final class AwsProtocolUtils {
         // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
         if (testCase.getId().equals("RestJsonStringPayloadNoContentType")
             || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
+            return true;
+        }
+
+        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6907
+        if (testCase.getId().equals("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType")) {
             return true;
         }
 

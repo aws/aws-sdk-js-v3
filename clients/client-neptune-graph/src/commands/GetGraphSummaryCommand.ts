@@ -117,6 +117,7 @@ export interface GetGraphSummaryCommandOutput extends GetGraphSummaryOutput, __M
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetGraphSummaryCommand extends $Command
@@ -142,4 +143,16 @@ export class GetGraphSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGraphSummaryCommand)
   .de(de_GetGraphSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGraphSummaryInput;
+      output: GetGraphSummaryOutput;
+    };
+    sdk: {
+      input: GetGraphSummaryCommandInput;
+      output: GetGraphSummaryCommandOutput;
+    };
+  };
+}

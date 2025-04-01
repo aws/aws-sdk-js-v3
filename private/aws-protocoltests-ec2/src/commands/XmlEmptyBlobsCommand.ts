@@ -52,6 +52,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  */
 export class XmlEmptyBlobsCommand extends $Command
   .classBuilder<
@@ -69,4 +70,16 @@ export class XmlEmptyBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyBlobsCommand)
   .de(de_XmlEmptyBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlBlobsOutput;
+    };
+    sdk: {
+      input: XmlEmptyBlobsCommandInput;
+      output: XmlEmptyBlobsCommandOutput;
+    };
+  };
+}

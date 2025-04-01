@@ -92,6 +92,7 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class BatchAssociateProjectAssetsCommand extends $Command
@@ -102,9 +103,7 @@ export class BatchAssociateProjectAssetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class BatchAssociateProjectAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchAssociateProjectAssetsCommand)
   .de(de_BatchAssociateProjectAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateProjectAssetsRequest;
+      output: BatchAssociateProjectAssetsResponse;
+    };
+    sdk: {
+      input: BatchAssociateProjectAssetsCommandInput;
+      output: BatchAssociateProjectAssetsCommandOutput;
+    };
+  };
+}

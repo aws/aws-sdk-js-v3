@@ -1,3 +1,5 @@
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
+
 import { getUserAgentPrefix, partition, setPartitionInfo, useDefaultPartitionInfo } from "./partition";
 
 const MOCK_DEFAULT_PARTITION = {

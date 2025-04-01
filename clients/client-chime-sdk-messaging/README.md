@@ -13,7 +13,7 @@ APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Ope
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-messaging
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-messaging
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-messaging`

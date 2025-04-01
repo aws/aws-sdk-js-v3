@@ -72,6 +72,7 @@ export interface NestedXmlMapsCommandOutput extends NestedXmlMapsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class NestedXmlMapsCommand extends $Command
   .classBuilder<
@@ -89,4 +90,16 @@ export class NestedXmlMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NestedXmlMapsCommand)
   .de(de_NestedXmlMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NestedXmlMapsRequest;
+      output: NestedXmlMapsResponse;
+    };
+    sdk: {
+      input: NestedXmlMapsCommandInput;
+      output: NestedXmlMapsCommandOutput;
+    };
+  };
+}

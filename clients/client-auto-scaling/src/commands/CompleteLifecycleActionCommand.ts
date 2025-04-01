@@ -59,7 +59,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *             <li>
  *                <p>
  *                   <b>If you finish before the timeout period ends, send a
- *                         callback by using the <a>CompleteLifecycleAction</a> API
+ *                         callback by using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a> API
  *                         call.</b>
  *                </p>
  *             </li>
@@ -98,21 +98,24 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To complete the lifecycle action
  * ```javascript
  * // This example notifies Auto Scaling that the specified lifecycle action is complete so that it can finish launching or terminating the instance.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LifecycleActionResult": "CONTINUE",
- *   "LifecycleActionToken": "bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635",
- *   "LifecycleHookName": "my-lifecycle-hook"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LifecycleActionResult: "CONTINUE",
+ *   LifecycleActionToken: "bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635",
+ *   LifecycleHookName: "my-lifecycle-hook"
  * };
  * const command = new CompleteLifecycleActionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-complete-lifecycle-action-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CompleteLifecycleActionCommand extends $Command
   .classBuilder<
@@ -122,9 +125,7 @@ export class CompleteLifecycleActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +137,16 @@ export class CompleteLifecycleActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteLifecycleActionCommand)
   .de(de_CompleteLifecycleActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteLifecycleActionType;
+      output: {};
+    };
+    sdk: {
+      input: CompleteLifecycleActionCommandInput;
+      output: CompleteLifecycleActionCommandOutput;
+    };
+  };
+}

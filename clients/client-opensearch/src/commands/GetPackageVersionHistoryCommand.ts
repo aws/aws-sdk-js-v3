@@ -58,6 +58,12 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * //         ClassName: "STRING_VALUE",
  * //         UncompressedSizeInBytes: Number("long"),
  * //       },
+ * //       PackageConfiguration: { // PackageConfiguration
+ * //         LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //         LicenseFilepath: "STRING_VALUE",
+ * //         ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //         RequiresRestartForConfigurationUpdate: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -89,6 +95,7 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class GetPackageVersionHistoryCommand extends $Command
@@ -99,9 +106,7 @@ export class GetPackageVersionHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +118,16 @@ export class GetPackageVersionHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPackageVersionHistoryCommand)
   .de(de_GetPackageVersionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionHistoryRequest;
+      output: GetPackageVersionHistoryResponse;
+    };
+    sdk: {
+      input: GetPackageVersionHistoryCommandInput;
+      output: GetPackageVersionHistoryCommandOutput;
+    };
+  };
+}

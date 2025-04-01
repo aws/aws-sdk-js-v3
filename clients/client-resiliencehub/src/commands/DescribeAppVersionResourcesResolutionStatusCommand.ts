@@ -57,7 +57,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * //   appArn: "STRING_VALUE", // required
  * //   appVersion: "STRING_VALUE", // required
  * //   resolutionId: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   errorMessage: "STRING_VALUE",
  * // };
  *
@@ -90,6 +90,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
@@ -100,9 +101,7 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppVersionResourcesResolutionStatusCommand)
   .de(de_DescribeAppVersionResourcesResolutionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppVersionResourcesResolutionStatusRequest;
+      output: DescribeAppVersionResourcesResolutionStatusResponse;
+    };
+    sdk: {
+      input: DescribeAppVersionResourcesResolutionStatusCommandInput;
+      output: DescribeAppVersionResourcesResolutionStatusCommandOutput;
+    };
+  };
+}

@@ -67,10 +67,11 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  *  <p>A monitoring subscription does not exist for the specified distribution.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -82,9 +83,7 @@ export class GetMonitoringSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class GetMonitoringSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMonitoringSubscriptionCommand)
   .de(de_GetMonitoringSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMonitoringSubscriptionRequest;
+      output: GetMonitoringSubscriptionResult;
+    };
+    sdk: {
+      input: GetMonitoringSubscriptionCommandInput;
+      output: GetMonitoringSubscriptionCommandOutput;
+    };
+  };
+}

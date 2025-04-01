@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_3";
+import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_4";
 import {
   de_DescribeDashboardPermissionsCommand,
   se_DescribeDashboardPermissionsCommand,
@@ -49,7 +49,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  * // { // DescribeDashboardPermissionsResponse
  * //   DashboardId: "STRING_VALUE",
  * //   DashboardArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -60,7 +60,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",
  * //   LinkSharingConfiguration: { // LinkSharingConfiguration
- * //     Permissions: [
+ * //     Permissions: [ // ResourcePermissionList
  * //       {
  * //         Principal: "STRING_VALUE", // required
  * //         Actions: [ // required
@@ -100,6 +100,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDashboardPermissionsCommand extends $Command
@@ -110,9 +111,7 @@ export class DescribeDashboardPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeDashboardPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDashboardPermissionsCommand)
   .de(de_DescribeDashboardPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDashboardPermissionsRequest;
+      output: DescribeDashboardPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeDashboardPermissionsCommandInput;
+      output: DescribeDashboardPermissionsCommandOutput;
+    };
+  };
+}

@@ -107,48 +107,47 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To configure rotation for a secret
  * ```javascript
  * // The following example configures rotation for a secret using a cron expression. The first rotation happens immediately after the changes are stored in the secret. The rotation schedule is the first and 15th day of every month. The rotation window begins at 4:00 PM UTC and ends at 6:00 PM.
  * const input = {
- *   "RotationLambdaARN": "arn:aws:lambda:us-west-2:123456789012:function:MyTestDatabaseRotationLambda",
- *   "RotationRules": {
- *     "Duration": "2h",
- *     "ScheduleExpression": "cron(0 16 1,15 * ? *)"
+ *   RotationLambdaARN: "arn:aws:lambda:us-west-2:123456789012:function:MyTestDatabaseRotationLambda",
+ *   RotationRules: {
+ *     Duration: "2h",
+ *     ScheduleExpression: "cron(0 16 1,15 * ? *)"
  *   },
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
  * }
  * *\/
- * // example id: to-configure-rotation-for-a-secret-1524001629475
  * ```
  *
  * @example To request an immediate rotation for a secret
  * ```javascript
  * // The following example requests an immediate invocation of the secret's Lambda rotation function. It assumes that the specified secret already has rotation configured. The rotation function runs asynchronously in the background.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
  * }
  * *\/
- * // example id: to-request-an-immediate-rotation-for-a-secret-1524001949004
  * ```
  *
+ * @public
  */
 export class RotateSecretCommand extends $Command
   .classBuilder<
@@ -158,9 +157,7 @@ export class RotateSecretCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +169,16 @@ export class RotateSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RotateSecretCommand)
   .de(de_RotateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateSecretRequest;
+      output: RotateSecretResponse;
+    };
+    sdk: {
+      input: RotateSecretCommandInput;
+      output: RotateSecretCommandOutput;
+    };
+  };
+}

@@ -87,6 +87,7 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class DeleteCertificateAuthorityCommand extends $Command
@@ -97,9 +98,7 @@ export class DeleteCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DeleteCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCertificateAuthorityCommand)
   .de(de_DeleteCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCertificateAuthorityCommandInput;
+      output: DeleteCertificateAuthorityCommandOutput;
+    };
+  };
+}

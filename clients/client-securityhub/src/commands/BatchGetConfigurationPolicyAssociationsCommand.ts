@@ -119,55 +119,55 @@ export interface BatchGetConfigurationPolicyAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get configuration associations for a batch of targets
  * ```javascript
  * // This operation provides details about configuration associations for a batch of target accounts, organizational units, or the root.
  * const input = {
- *   "ConfigurationPolicyAssociationIdentifiers": [
+ *   ConfigurationPolicyAssociationIdentifiers: [
  *     {
- *       "Target": {
- *         "AccountId": "111122223333"
+ *       Target: {
+ *         AccountId: "111122223333"
  *       }
  *     },
  *     {
- *       "Target": {
- *         "RootId": "r-f6g7h8i9j0example"
+ *       Target: {
+ *         RootId: "r-f6g7h8i9j0example"
  *       }
  *     }
  *   ]
  * };
  * const command = new BatchGetConfigurationPolicyAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConfigurationPolicyAssociations": [
+ *   ConfigurationPolicyAssociations: [
  *     {
- *       "AssociationStatus": "SUCCESS",
- *       "AssociationStatusMessage": "This field is only populated for a failed association",
- *       "AssociationType": "INHERITED",
- *       "ConfigurationPolicyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "TargetId": "111122223333",
- *       "TargetType": "ACCOUNT",
- *       "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *       AssociationStatus: "SUCCESS",
+ *       AssociationStatusMessage: "This field is only populated for a failed association",
+ *       AssociationType: "INHERITED",
+ *       ConfigurationPolicyId: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       TargetId: "111122223333",
+ *       TargetType: "ACCOUNT",
+ *       UpdatedAt: "2023-01-11T06:17:17.154Z"
  *     }
  *   ],
- *   "UnprocessedConfigurationPolicyAssociations": [
+ *   UnprocessedConfigurationPolicyAssociations: [
  *     {
- *       "ConfigurationPolicyAssociationIdentifiers": {
- *         "Target": {
- *           "RootId": "r-f6g7h8i9j0example"
+ *       ConfigurationPolicyAssociationIdentifiers: {
+ *         Target: {
+ *           RootId: "r-f6g7h8i9j0example"
  *         }
  *       },
- *       "ErrorCode": "400",
- *       "ErrorReason": "You do not have sufficient access to perform this action."
+ *       ErrorCode: "400",
+ *       ErrorReason: "You do not have sufficient access to perform this action."
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-configuration-associations-for-a-batch-of-targets-1695178953302
  * ```
  *
+ * @public
  */
 export class BatchGetConfigurationPolicyAssociationsCommand extends $Command
   .classBuilder<
@@ -177,9 +177,7 @@ export class BatchGetConfigurationPolicyAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +189,16 @@ export class BatchGetConfigurationPolicyAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetConfigurationPolicyAssociationsCommand)
   .de(de_BatchGetConfigurationPolicyAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetConfigurationPolicyAssociationsRequest;
+      output: BatchGetConfigurationPolicyAssociationsResponse;
+    };
+    sdk: {
+      input: BatchGetConfigurationPolicyAssociationsCommandInput;
+      output: BatchGetConfigurationPolicyAssociationsCommandOutput;
+    };
+  };
+}

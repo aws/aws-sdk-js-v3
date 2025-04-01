@@ -279,6 +279,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxClusterCommand extends $Command
@@ -289,9 +290,7 @@ export class CreateKxClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -303,4 +302,16 @@ export class CreateKxClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxClusterCommand)
   .de(de_CreateKxClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxClusterRequest;
+      output: CreateKxClusterResponse;
+    };
+    sdk: {
+      input: CreateKxClusterCommandInput;
+      output: CreateKxClusterCommandOutput;
+    };
+  };
+}

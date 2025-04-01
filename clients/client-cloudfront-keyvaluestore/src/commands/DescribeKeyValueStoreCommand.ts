@@ -78,6 +78,50 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ *
+ * @example Describe the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58"
+ * };
+ * const command = new DescribeKeyValueStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Created: "2023-11-01T22:18:46Z",
+ *   ETag: "KV7XY89Z0ABC012",
+ *   FailureReason: "Datasource size exceeds the allowed limit",
+ *   ItemCount: 0,
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58",
+ *   LastModified: "2023-11-01T14:28:17Z",
+ *   Status: "IMPORT_FAILURE",
+ *   TotalSizeInBytes: 0
+ * }
+ * *\/
+ * ```
+ *
+ * @example Describe the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-1234a9d35678'
+ * ```javascript
+ * //
+ * const input = {
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-1234a9d35678"
+ * };
+ * const command = new DescribeKeyValueStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Created: "2023-11-01T22:18:46Z",
+ *   ETag: "KV7XY89Z0ABC012",
+ *   ItemCount: 4,
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-1234a9d35678",
+ *   LastModified: "2023-11-01T14:28:17Z",
+ *   Status: "READY",
+ *   TotalSizeInBytes: 15
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeKeyValueStoreCommand extends $Command
@@ -103,4 +147,16 @@ export class DescribeKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyValueStoreCommand)
   .de(de_DescribeKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyValueStoreRequest;
+      output: DescribeKeyValueStoreResponse;
+    };
+    sdk: {
+      input: DescribeKeyValueStoreCommandInput;
+      output: DescribeKeyValueStoreCommandOutput;
+    };
+  };
+}

@@ -31,6 +31,10 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "../commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateDataProtectionSettingsCommandInput,
+  AssociateDataProtectionSettingsCommandOutput,
+} from "../commands/AssociateDataProtectionSettingsCommand";
+import {
   AssociateIpAccessSettingsCommandInput,
   AssociateIpAccessSettingsCommandOutput,
 } from "../commands/AssociateIpAccessSettingsCommand";
@@ -55,6 +59,10 @@ import {
   CreateBrowserSettingsCommandOutput,
 } from "../commands/CreateBrowserSettingsCommand";
 import {
+  CreateDataProtectionSettingsCommandInput,
+  CreateDataProtectionSettingsCommandOutput,
+} from "../commands/CreateDataProtectionSettingsCommand";
+import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "../commands/CreateIdentityProviderCommand";
@@ -77,6 +85,10 @@ import {
   DeleteBrowserSettingsCommandInput,
   DeleteBrowserSettingsCommandOutput,
 } from "../commands/DeleteBrowserSettingsCommand";
+import {
+  DeleteDataProtectionSettingsCommandInput,
+  DeleteDataProtectionSettingsCommandOutput,
+} from "../commands/DeleteDataProtectionSettingsCommand";
 import {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
@@ -101,6 +113,10 @@ import {
   DisassociateBrowserSettingsCommandOutput,
 } from "../commands/DisassociateBrowserSettingsCommand";
 import {
+  DisassociateDataProtectionSettingsCommandInput,
+  DisassociateDataProtectionSettingsCommandOutput,
+} from "../commands/DisassociateDataProtectionSettingsCommand";
+import {
   DisassociateIpAccessSettingsCommandInput,
   DisassociateIpAccessSettingsCommandOutput,
 } from "../commands/DisassociateIpAccessSettingsCommand";
@@ -120,7 +136,12 @@ import {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
 } from "../commands/DisassociateUserSettingsCommand";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
 import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "../commands/GetBrowserSettingsCommand";
+import {
+  GetDataProtectionSettingsCommandInput,
+  GetDataProtectionSettingsCommandOutput,
+} from "../commands/GetDataProtectionSettingsCommand";
 import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
@@ -135,6 +156,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "../commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -150,6 +172,10 @@ import {
   ListBrowserSettingsCommandOutput,
 } from "../commands/ListBrowserSettingsCommand";
 import {
+  ListDataProtectionSettingsCommandInput,
+  ListDataProtectionSettingsCommandOutput,
+} from "../commands/ListDataProtectionSettingsCommand";
+import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "../commands/ListIdentityProvidersCommand";
@@ -162,6 +188,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "../commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -182,6 +209,10 @@ import {
   UpdateBrowserSettingsCommandInput,
   UpdateBrowserSettingsCommandOutput,
 } from "../commands/UpdateBrowserSettingsCommand";
+import {
+  UpdateDataProtectionSettingsCommandInput,
+  UpdateDataProtectionSettingsCommandOutput,
+} from "../commands/UpdateDataProtectionSettingsCommand";
 import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
@@ -208,16 +239,26 @@ import {
   ConflictException,
   CookieSpecification,
   CookieSynchronizationConfiguration,
+  CustomPattern,
+  DataProtectionSettings,
+  DataProtectionSettingsSummary,
+  InlineRedactionConfiguration,
+  InlineRedactionPattern,
   InternalServerException,
   IpAccessSettings,
   IpAccessSettingsSummary,
   IpRule,
   Portal,
   PortalSummary,
+  RedactionPlaceHolder,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  Session,
+  SessionSummary,
   Tag,
   ThrottlingException,
+  ToolbarConfiguration,
+  ToolbarItem,
   TooManyTagsException,
   ValidationException,
 } from "../models/models_0";
@@ -236,6 +277,25 @@ export const se_AssociateBrowserSettingsCommand = async (
   b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
     [_bSA]: [, __expectNonNull(input[_bSA]!, `browserSettingsArn`)],
+  });
+  let body: any;
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateDataProtectionSettingsCommand
+ */
+export const se_AssociateDataProtectionSettingsCommand = async (
+  input: AssociateDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalArn+}/dataProtectionSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  const query: any = map({
+    [_dPSA]: [, __expectNonNull(input[_dPSA]!, `dataProtectionSettingsArn`)],
   });
   let body: any;
   b.m("PUT").h(headers).q(query).b(body);
@@ -356,6 +416,34 @@ export const se_CreateBrowserSettingsCommand = async (
       browserPolicy: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerManagedKey: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataProtectionSettingsCommand
+ */
+export const se_CreateDataProtectionSettingsCommand = async (
+  input: CreateDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/dataProtectionSettings");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      additionalEncryptionContext: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customerManagedKey: [],
+      description: [],
+      displayName: [],
+      inlineRedactionConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -548,6 +636,7 @@ export const se_CreateUserSettingsCommand = async (
       pasteAllowed: [],
       printAllowed: [],
       tags: (_) => _json(_),
+      toolbarConfiguration: (_) => _json(_),
       uploadAllowed: [],
     })
   );
@@ -566,6 +655,22 @@ export const se_DeleteBrowserSettingsCommand = async (
   const headers: any = {};
   b.bp("/browserSettings/{browserSettingsArn+}");
   b.p("browserSettingsArn", () => input.browserSettingsArn!, "{browserSettingsArn+}", true);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDataProtectionSettingsCommand
+ */
+export const se_DeleteDataProtectionSettingsCommand = async (
+  input: DeleteDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/dataProtectionSettings/{dataProtectionSettingsArn+}");
+  b.p("dataProtectionSettingsArn", () => input.dataProtectionSettingsArn!, "{dataProtectionSettingsArn+}", true);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -705,6 +810,22 @@ export const se_DisassociateBrowserSettingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateDataProtectionSettingsCommand
+ */
+export const se_DisassociateDataProtectionSettingsCommand = async (
+  input: DisassociateDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalArn+}/dataProtectionSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DisassociateIpAccessSettingsCommand
  */
 export const se_DisassociateIpAccessSettingsCommand = async (
@@ -785,6 +906,23 @@ export const se_DisassociateUserSettingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ExpireSessionCommand
+ */
+export const se_ExpireSessionCommand = async (
+  input: ExpireSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions/{sessionId}");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetBrowserSettingsCommand
  */
 export const se_GetBrowserSettingsCommand = async (
@@ -795,6 +933,22 @@ export const se_GetBrowserSettingsCommand = async (
   const headers: any = {};
   b.bp("/browserSettings/{browserSettingsArn+}");
   b.p("browserSettingsArn", () => input.browserSettingsArn!, "{browserSettingsArn+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDataProtectionSettingsCommand
+ */
+export const se_GetDataProtectionSettingsCommand = async (
+  input: GetDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/dataProtectionSettings/{dataProtectionSettingsArn+}");
+  b.p("dataProtectionSettingsArn", () => input.dataProtectionSettingsArn!, "{dataProtectionSettingsArn+}", true);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -875,6 +1029,23 @@ export const se_GetPortalServiceProviderMetadataCommand = async (
   const headers: any = {};
   b.bp("/portalIdp/{portalArn+}");
   b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
+  input: GetSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions/{sessionId}");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -972,6 +1143,25 @@ export const se_ListBrowserSettingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDataProtectionSettingsCommand
+ */
+export const se_ListDataProtectionSettingsCommand = async (
+  input: ListDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/dataProtectionSettings");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListIdentityProvidersCommand
  */
 export const se_ListIdentityProvidersCommand = async (
@@ -1042,6 +1232,30 @@ export const se_ListPortalsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSessionsCommand
+ */
+export const se_ListSessionsCommand = async (
+  input: ListSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  const query: any = map({
+    [_u]: [, input[_u]!],
+    [_sI]: [, input[_sI]!],
+    [_sB]: [, input[_sB]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1177,10 +1391,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn+}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1205,6 +1416,32 @@ export const se_UpdateBrowserSettingsCommand = async (
     take(input, {
       browserPolicy: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDataProtectionSettingsCommand
+ */
+export const se_UpdateDataProtectionSettingsCommand = async (
+  input: UpdateDataProtectionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/dataProtectionSettings/{dataProtectionSettingsArn+}");
+  b.p("dataProtectionSettingsArn", () => input.dataProtectionSettingsArn!, "{dataProtectionSettingsArn+}", true);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      displayName: [],
+      inlineRedactionConfiguration: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -1394,6 +1631,7 @@ export const se_UpdateUserSettingsCommand = async (
       idleDisconnectTimeoutInMinutes: [],
       pasteAllowed: [],
       printAllowed: [],
+      toolbarConfiguration: (_) => _json(_),
       uploadAllowed: [],
     })
   );
@@ -1417,6 +1655,28 @@ export const de_AssociateBrowserSettingsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     browserSettingsArn: __expectString,
+    portalArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateDataProtectionSettingsCommand
+ */
+export const de_AssociateDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataProtectionSettingsArn: __expectString,
     portalArn: __expectString,
   });
   Object.assign(contents, doc);
@@ -1549,6 +1809,27 @@ export const de_CreateBrowserSettingsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     browserSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataProtectionSettingsCommand
+ */
+export const de_CreateDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataProtectionSettingsArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1720,6 +2001,23 @@ export const de_DeleteBrowserSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDataProtectionSettingsCommand
+ */
+export const de_DeleteDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteIdentityProviderCommand
  */
 export const de_DeleteIdentityProviderCommand = async (
@@ -1856,6 +2154,23 @@ export const de_DisassociateBrowserSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateDataProtectionSettingsCommand
+ */
+export const de_DisassociateDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisassociateIpAccessSettingsCommand
  */
 export const de_DisassociateIpAccessSettingsCommand = async (
@@ -1941,6 +2256,23 @@ export const de_DisassociateUserSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ExpireSessionCommand
+ */
+export const de_ExpireSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExpireSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetBrowserSettingsCommand
  */
 export const de_GetBrowserSettingsCommand = async (
@@ -1956,6 +2288,27 @@ export const de_GetBrowserSettingsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     browserSettings: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataProtectionSettingsCommand
+ */
+export const de_GetDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataProtectionSettings: (_) => de_DataProtectionSettings(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2062,6 +2415,27 @@ export const de_GetPortalServiceProviderMetadataCommand = async (
   const doc = take(data, {
     portalArn: __expectString,
     serviceProviderSamlMetadata: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    session: (_) => de_Session(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2175,6 +2549,28 @@ export const de_ListBrowserSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListDataProtectionSettingsCommand
+ */
+export const de_ListDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataProtectionSettings: (_) => de_DataProtectionSettingsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListIdentityProvidersCommand
  */
 export const de_ListIdentityProvidersCommand = async (
@@ -2257,6 +2653,28 @@ export const de_ListPortalsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     portals: (_) => de_PortalList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSessionsCommand
+ */
+export const de_ListSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessions: (_) => de_SessionSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2422,6 +2840,27 @@ export const de_UpdateBrowserSettingsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     browserSettings: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataProtectionSettingsCommand
+ */
+export const de_UpdateDataProtectionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataProtectionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataProtectionSettings: (_) => de_DataProtectionSettings(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2806,13 +3245,29 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_CookieSynchronizationConfiguration omitted.
 
+// se_CustomPattern omitted.
+
 // se_EncryptionContextMap omitted.
 
+// se_GlobalInlineRedactionUrls omitted.
+
+// se_HiddenToolbarItemList omitted.
+
 // se_IdentityProviderDetails omitted.
+
+// se_InlineRedactionConfiguration omitted.
+
+// se_InlineRedactionPattern omitted.
+
+// se_InlineRedactionPatterns omitted.
+
+// se_InlineRedactionUrls omitted.
 
 // se_IpRule omitted.
 
 // se_IpRuleList omitted.
+
+// se_RedactionPlaceHolder omitted.
 
 // se_SecurityGroupIdList omitted.
 
@@ -2821,6 +3276,8 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 // se_Tag omitted.
 
 // se_TagList omitted.
+
+// se_ToolbarConfiguration omitted.
 
 // de_ArnList omitted.
 
@@ -2875,7 +3332,53 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
 
 // de_CookieSynchronizationConfiguration omitted.
 
+// de_CustomPattern omitted.
+
+/**
+ * deserializeAws_restJson1DataProtectionSettings
+ */
+const de_DataProtectionSettings = (output: any, context: __SerdeContext): DataProtectionSettings => {
+  return take(output, {
+    additionalEncryptionContext: _json,
+    associatedPortalArns: _json,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerManagedKey: __expectString,
+    dataProtectionSettingsArn: __expectString,
+    description: __expectString,
+    displayName: __expectString,
+    inlineRedactionConfiguration: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProtectionSettingsList
+ */
+const de_DataProtectionSettingsList = (output: any, context: __SerdeContext): DataProtectionSettingsSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataProtectionSettingsSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DataProtectionSettingsSummary
+ */
+const de_DataProtectionSettingsSummary = (output: any, context: __SerdeContext): DataProtectionSettingsSummary => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataProtectionSettingsArn: __expectString,
+    description: __expectString,
+    displayName: __expectString,
+  }) as any;
+};
+
 // de_EncryptionContextMap omitted.
+
+// de_GlobalInlineRedactionUrls omitted.
+
+// de_HiddenToolbarItemList omitted.
 
 // de_IdentityProvider omitted.
 
@@ -2884,6 +3387,14 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
 // de_IdentityProviderList omitted.
 
 // de_IdentityProviderSummary omitted.
+
+// de_InlineRedactionConfiguration omitted.
+
+// de_InlineRedactionPattern omitted.
+
+// de_InlineRedactionPatterns omitted.
+
+// de_InlineRedactionUrls omitted.
 
 /**
  * deserializeAws_restJson1IpAccessSettings
@@ -2925,6 +3436,8 @@ const de_IpAccessSettingsSummary = (output: any, context: __SerdeContext): IpAcc
   }) as any;
 };
 
+// de_IpAddressList omitted.
+
 // de_IpRule omitted.
 
 // de_IpRuleList omitted.
@@ -2946,6 +3459,7 @@ const de_Portal = (output: any, context: __SerdeContext): Portal => {
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     customerManagedKey: __expectString,
+    dataProtectionSettingsArn: __expectString,
     displayName: __expectString,
     instanceType: __expectString,
     ipAccessSettingsArn: __expectString,
@@ -2983,6 +3497,7 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
     browserSettingsArn: __expectString,
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataProtectionSettingsArn: __expectString,
     displayName: __expectString,
     instanceType: __expectString,
     ipAccessSettingsArn: __expectString,
@@ -2998,13 +3513,58 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
   }) as any;
 };
 
+// de_RedactionPlaceHolder omitted.
+
 // de_SecurityGroupIdList omitted.
+
+/**
+ * deserializeAws_restJson1Session
+ */
+const de_Session = (output: any, context: __SerdeContext): Session => {
+  return take(output, {
+    clientIpAddresses: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalArn: __expectString,
+    sessionId: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionSummary
+ */
+const de_SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalArn: __expectString,
+    sessionId: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionSummaryList
+ */
+const de_SessionSummaryList = (output: any, context: __SerdeContext): SessionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SessionSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_SubnetIdList omitted.
 
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_ToolbarConfiguration omitted.
 
 // de_TrustStore omitted.
 
@@ -3040,22 +3600,20 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _bSA = "browserSettingsArn";
+const _dPSA = "dataProtectionSettingsArn";
 const _iASA = "ipAccessSettingsArn";
 const _mR = "maxResults";
 const _nSA = "networkSettingsArn";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";
+const _s = "status";
+const _sB = "sortBy";
+const _sI = "sessionId";
 const _t = "thumbprint";
 const _tK = "tagKeys";
 const _tSA = "trustStoreArn";
+const _u = "username";
 const _uALSA = "userAccessLoggingSettingsArn";
 const _uSA = "userSettingsArn";

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_2";
+import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_3";
 import { de_UpdateTrafficDistributionCommand, se_UpdateTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -29,6 +29,11 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
 
 /**
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
+ *          <important>
+ *             <p>When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they
+ *     can handle the calls in the other Region. If you don't shift the agents, voice calls will go to
+ *     the shifted Region but there won't be any agents available to receive the calls.</p>
+ *          </important>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
@@ -106,6 +111,7 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateTrafficDistributionCommand extends $Command
@@ -116,9 +122,7 @@ export class UpdateTrafficDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +134,16 @@ export class UpdateTrafficDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrafficDistributionCommand)
   .de(de_UpdateTrafficDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrafficDistributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTrafficDistributionCommandInput;
+      output: UpdateTrafficDistributionCommandOutput;
+    };
+  };
+}

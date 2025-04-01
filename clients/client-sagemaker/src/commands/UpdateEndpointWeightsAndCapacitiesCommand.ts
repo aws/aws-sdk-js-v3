@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_4";
+import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_5";
 import {
   de_UpdateEndpointWeightsAndCapacitiesCommand,
   se_UpdateEndpointWeightsAndCapacitiesCommand,
@@ -79,6 +79,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointWeightsAndCapacitiesCommand)
   .de(de_UpdateEndpointWeightsAndCapacitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointWeightsAndCapacitiesInput;
+      output: UpdateEndpointWeightsAndCapacitiesOutput;
+    };
+    sdk: {
+      input: UpdateEndpointWeightsAndCapacitiesCommandInput;
+      output: UpdateEndpointWeightsAndCapacitiesCommandOutput;
+    };
+  };
+}

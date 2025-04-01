@@ -54,6 +54,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
  * // { // GetQueryResultsResponse
+ * //   queryLanguage: "CWLI" || "SQL" || "PPL",
  * //   results: [ // QueryResults
  * //     [ // ResultRows
  * //       { // ResultField
@@ -65,7 +66,10 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * //   statistics: { // QueryStatistics
  * //     recordsMatched: Number("double"),
  * //     recordsScanned: Number("double"),
+ * //     estimatedRecordsSkipped: Number("double"),
  * //     bytesScanned: Number("double"),
+ * //     estimatedBytesSkipped: Number("double"),
+ * //     logGroupsScanned: Number("double"),
  * //   },
  * //   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
  * //   encryptionKey: "STRING_VALUE",
@@ -91,6 +95,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command
@@ -101,9 +106,7 @@ export class GetQueryResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +118,16 @@ export class GetQueryResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryResultsCommand)
   .de(de_GetQueryResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryResultsRequest;
+      output: GetQueryResultsResponse;
+    };
+    sdk: {
+      input: GetQueryResultsCommandInput;
+      output: GetQueryResultsCommandOutput;
+    };
+  };
+}

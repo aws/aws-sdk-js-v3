@@ -90,6 +90,7 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowExecutionCommand extends $Command
@@ -100,9 +101,7 @@ export class GetWorkflowExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class GetWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowExecutionCommand)
   .de(de_GetWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowExecutionRequest;
+      output: GetWorkflowExecutionResponse;
+    };
+    sdk: {
+      input: GetWorkflowExecutionCommandInput;
+      output: GetWorkflowExecutionCommandOutput;
+    };
+  };
+}

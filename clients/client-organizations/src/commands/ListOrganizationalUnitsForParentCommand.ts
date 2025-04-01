@@ -141,6 +141,9 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -181,6 +184,9 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -206,34 +212,34 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to get a list of OUs in a specified root:/n/n
  * const input = {
- *   "ParentId": "r-examplerootid111"
+ *   ParentId: "r-examplerootid111"
  * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnits": [
+ *   OrganizationalUnits: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid111",
- *       "Id": "ou-examplerootid111-exampleouid111",
- *       "Name": "Development"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid111",
+ *       Id: "ou-examplerootid111-exampleouid111",
+ *       Name: "Development"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid222",
- *       "Id": "ou-examplerootid111-exampleouid222",
- *       "Name": "Production"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid222",
+ *       Id: "ou-examplerootid111-exampleouid222",
+ *       Name: "Production"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-OUs-in-a-parent-container
  * ```
  *
+ * @public
  */
 export class ListOrganizationalUnitsForParentCommand extends $Command
   .classBuilder<
@@ -243,9 +249,7 @@ export class ListOrganizationalUnitsForParentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +261,16 @@ export class ListOrganizationalUnitsForParentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationalUnitsForParentCommand)
   .de(de_ListOrganizationalUnitsForParentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationalUnitsForParentRequest;
+      output: ListOrganizationalUnitsForParentResponse;
+    };
+    sdk: {
+      input: ListOrganizationalUnitsForParentCommandInput;
+      output: ListOrganizationalUnitsForParentCommandOutput;
+    };
+  };
+}

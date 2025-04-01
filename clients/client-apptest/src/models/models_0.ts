@@ -35,7 +35,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to retry the query.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -84,13 +84,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The resource ID of the resource not found.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type of the resource not found.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -121,19 +121,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The service code of requests that exceed the limit.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The quota code of requests that exceed the limit.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The number of seconds to retry after for requests that exceed the limit.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -196,13 +196,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the validation exception.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The field list of the validation exception.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -230,25 +230,25 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The resource ID of AWS Application Testing that exceeded the limit.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type of AWS Application Testing that exceeded the limit.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The service code of AWS Application Testing that exceeded the limit.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The quote codes of AWS Application Testing that exceeded the limit.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -300,13 +300,13 @@ export class ConflictException extends __BaseException {
    * <p>The resource ID of the conflicts with existing resources.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type of the conflicts with existing resources.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -604,7 +604,7 @@ export interface OutputFile {
    * <p>The file location of the output file.</p>
    * @public
    */
-  fileLocation?: string;
+  fileLocation?: string | undefined;
 }
 
 /**
@@ -660,7 +660,7 @@ export interface CompareAction {
    * <p>The output of the compare action.</p>
    * @public
    */
-  output?: Output;
+  output?: Output | undefined;
 }
 
 /**
@@ -678,13 +678,13 @@ export interface Batch {
    * <p>The batch job parameters of the batch.</p>
    * @public
    */
-  batchJobParameters?: Record<string, string>;
+  batchJobParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The export data set names of the batch.</p>
    * @public
    */
-  exportDataSetNames?: string[];
+  exportDataSetNames?: string[] | undefined;
 }
 
 /**
@@ -733,7 +733,7 @@ export interface TN3270 {
    * <p>The data set names of the TN3270 protocol.</p>
    * @public
    */
-  exportDataSetNames?: string[];
+  exportDataSetNames?: string[] | undefined;
 }
 
 /**
@@ -800,7 +800,7 @@ export interface MainframeActionProperties {
    * <p>The DMS task ARN of the mainframe action properties.</p>
    * @public
    */
-  dmsTaskArn?: string;
+  dmsTaskArn?: string | undefined;
 }
 
 /**
@@ -824,7 +824,7 @@ export interface MainframeAction {
    * <p>The properties of the mainframe action.</p>
    * @public
    */
-  properties?: MainframeActionProperties;
+  properties?: MainframeActionProperties | undefined;
 }
 
 /**
@@ -856,7 +856,7 @@ export interface CloudFormationAction {
    * <p>The action type of the CloudFormation action.</p>
    * @public
    */
-  actionType?: CloudFormationActionType;
+  actionType?: CloudFormationActionType | undefined;
 }
 
 /**
@@ -882,13 +882,13 @@ export interface M2ManagedActionProperties {
    * <p>Force stops the AWS Mainframe Modernization managed action properties.</p>
    * @public
    */
-  forceStop?: boolean;
+  forceStop?: boolean | undefined;
 
   /**
    * <p>The import data set location of the AWS Mainframe Modernization managed action properties.</p>
    * @public
    */
-  importDataSetLocation?: string;
+  importDataSetLocation?: string | undefined;
 }
 
 /**
@@ -912,7 +912,7 @@ export interface M2ManagedApplicationAction {
    * <p>The properties of the AWS Mainframe Modernization managed application action.</p>
    * @public
    */
-  properties?: M2ManagedActionProperties;
+  properties?: M2ManagedActionProperties | undefined;
 }
 
 /**
@@ -1108,7 +1108,7 @@ export interface Step {
    * <p>The description of the step.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The action of the step.</p>
@@ -1131,7 +1131,7 @@ export interface CreateTestCaseRequest {
    * <p>The description of the test case.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The steps in the test case.</p>
@@ -1143,13 +1143,13 @@ export interface CreateTestCaseRequest {
    * <p>The client token of the test case.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The specified tags of the test case.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1199,7 +1199,7 @@ export interface GetTestCaseRequest {
    * <p>The test case version of the test case.</p>
    * @public
    */
-  testCaseVersion?: number;
+  testCaseVersion?: number | undefined;
 }
 
 /**
@@ -1237,7 +1237,7 @@ export interface TestCaseLatestVersion {
    * <p>The status reason of the test case latest version.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -1266,7 +1266,7 @@ export interface GetTestCaseResponse {
    * <p>The description of the test case.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The latest version of the test case.</p>
@@ -1290,7 +1290,7 @@ export interface GetTestCaseResponse {
    * <p>The status reason of the test case.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The creation time of the test case.</p>
@@ -1314,7 +1314,7 @@ export interface GetTestCaseResponse {
    * <p>The tags of the test case.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1325,19 +1325,19 @@ export interface ListTestCasesRequest {
    * <p>The IDs of the test cases.</p>
    * @public
    */
-  testCaseIds?: string[];
+  testCaseIds?: string[] | undefined;
 
   /**
    * <p>The next token of the test cases.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum results of the test case.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1367,7 +1367,7 @@ export interface TestCaseSummary {
    * <p>The status reason of the test case summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The latest version of the test case summary.</p>
@@ -1408,7 +1408,7 @@ export interface ListTestCasesResponse {
    * <p>The next token in test cases.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1425,13 +1425,13 @@ export interface UpdateTestCaseRequest {
    * <p>The description of the test case.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The steps of the test case.</p>
    * @public
    */
-  steps?: Step[];
+  steps?: Step[] | undefined;
 }
 
 /**
@@ -1466,7 +1466,7 @@ export interface CloudFormation {
    * <p>The CloudFormation properties in the CloudFormation template.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -1503,13 +1503,13 @@ export interface M2ManagedApplication {
    * <p>The VPC endpoint service name of the AWS Mainframe Modernization managed application.</p>
    * @public
    */
-  vpcEndpointServiceName?: string;
+  vpcEndpointServiceName?: string | undefined;
 
   /**
    * <p>The listener port of the AWS Mainframe Modernization managed application.</p>
    * @public
    */
-  listenerPort?: string;
+  listenerPort?: string | undefined;
 }
 
 /**
@@ -1552,7 +1552,7 @@ export interface M2NonManagedApplication {
    * <p>The web application name of the AWS Mainframe Modernization non-managed application.</p>
    * @public
    */
-  webAppName?: string;
+  webAppName?: string | undefined;
 }
 
 /**
@@ -1655,7 +1655,7 @@ export interface ServiceSettings {
    * <p>The KMS key ID of the service settings.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1672,7 +1672,7 @@ export interface CreateTestConfigurationRequest {
    * <p>The description of the test configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The defined resources of the test configuration.</p>
@@ -1684,25 +1684,25 @@ export interface CreateTestConfigurationRequest {
    * <p>The properties of the test configuration.</p>
    * @public
    */
-  properties?: Record<string, string>;
+  properties?: Record<string, string> | undefined;
 
   /**
    * <p>The client token of the test configuration.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags of the test configuration.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The service settings of the test configuration.</p>
    * @public
    */
-  serviceSettings?: ServiceSettings;
+  serviceSettings?: ServiceSettings | undefined;
 }
 
 /**
@@ -1752,7 +1752,7 @@ export interface GetTestConfigurationRequest {
    * <p>The test configuration version.</p>
    * @public
    */
-  testConfigurationVersion?: number;
+  testConfigurationVersion?: number | undefined;
 }
 
 /**
@@ -1790,7 +1790,7 @@ export interface TestConfigurationLatestVersion {
    * <p>The status reason of the test configuration latest version.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -1837,7 +1837,7 @@ export interface GetTestConfigurationResponse {
    * <p>The status reason of the test configuration.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The creation time of the test configuration.</p>
@@ -1855,7 +1855,7 @@ export interface GetTestConfigurationResponse {
    * <p>The description of the test configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The resources of the test configuration.</p>
@@ -1873,13 +1873,13 @@ export interface GetTestConfigurationResponse {
    * <p>The tags of the test configuration.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The service settings of the test configuration.</p>
    * @public
    */
-  serviceSettings?: ServiceSettings;
+  serviceSettings?: ServiceSettings | undefined;
 }
 
 /**
@@ -1890,19 +1890,19 @@ export interface ListTestConfigurationsRequest {
    * <p>The configuration IDs of the test configurations.</p>
    * @public
    */
-  testConfigurationIds?: string[];
+  testConfigurationIds?: string[] | undefined;
 
   /**
    * <p>The next token for the test configurations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum results of the test configuration.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1926,7 +1926,7 @@ export interface TestConfigurationSummary {
    * <p>The status reason of the test configuration summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The latest version of the test configuration summary.</p>
@@ -1973,7 +1973,7 @@ export interface ListTestConfigurationsResponse {
    * <p>The next token in the test configurations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1990,25 +1990,25 @@ export interface UpdateTestConfigurationRequest {
    * <p>The description of the test configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The resources of the test configuration.</p>
    * @public
    */
-  resources?: Resource[];
+  resources?: Resource[] | undefined;
 
   /**
    * <p>The properties of the test configuration.</p>
    * @public
    */
-  properties?: Record<string, string>;
+  properties?: Record<string, string> | undefined;
 
   /**
    * <p>The service settings of the test configuration.</p>
    * @public
    */
-  serviceSettings?: ServiceSettings;
+  serviceSettings?: ServiceSettings | undefined;
 }
 
 /**
@@ -2064,13 +2064,13 @@ export interface GetTestRunStepRequest {
    * <p>The test case ID of a test run step.</p>
    * @public
    */
-  testCaseId?: string;
+  testCaseId?: string | undefined;
 
   /**
    * <p>The test suite ID of a test run step.</p>
    * @public
    */
-  testSuiteId?: string;
+  testSuiteId?: string | undefined;
 }
 
 /**
@@ -2109,7 +2109,7 @@ export interface CompareDatabaseCDCStepInput {
    * <p>The output location of the compare database CDC step input.</p>
    * @public
    */
-  outputLocation?: string;
+  outputLocation?: string | undefined;
 
   /**
    * <p>The source metadata of the compare database CDC step input.</p>
@@ -2172,7 +2172,7 @@ export interface CompareDatabaseCDCSummary {
    * <p>The step output of the compare database CDC summary.</p>
    * @public
    */
-  stepOutput?: CompareDatabaseCDCStepOutput;
+  stepOutput?: CompareDatabaseCDCStepOutput | undefined;
 }
 
 /**
@@ -2238,7 +2238,7 @@ export interface CompareDataSetsSummary {
    * <p>The step output of the compare data sets summary.</p>
    * @public
    */
-  stepOutput?: CompareDataSetsStepOutput;
+  stepOutput?: CompareDataSetsStepOutput | undefined;
 }
 
 /**
@@ -2367,7 +2367,7 @@ export interface M2ManagedApplicationSummary {
    * <p>The listener port of the AWS Mainframe Modernization managed application summary.</p>
    * @public
    */
-  listenerPort?: number;
+  listenerPort?: number | undefined;
 }
 
 /**
@@ -2397,7 +2397,7 @@ export interface M2NonManagedApplicationSummary {
    * <p>The web application name of the AWS Mainframe Modernization non-managed application summary.</p>
    * @public
    */
-  webAppName?: string;
+  webAppName?: string | undefined;
 }
 
 /**
@@ -2477,19 +2477,19 @@ export interface BatchStepInput {
    * <p>The batch job parameters of the batch step input.</p>
    * @public
    */
-  batchJobParameters?: Record<string, string>;
+  batchJobParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The export data set names of the batch step input.</p>
    * @public
    */
-  exportDataSetNames?: string[];
+  exportDataSetNames?: string[] | undefined;
 
   /**
    * <p>The properties of the batch step input.</p>
    * @public
    */
-  properties?: MainframeActionProperties;
+  properties?: MainframeActionProperties | undefined;
 }
 
 /**
@@ -2501,19 +2501,19 @@ export interface BatchStepOutput {
    * <p>The data set export location of the batch step output.</p>
    * @public
    */
-  dataSetExportLocation?: string;
+  dataSetExportLocation?: string | undefined;
 
   /**
    * <p>The Database Migration Service (DMS) output location of the batch step output.</p>
    * @public
    */
-  dmsOutputLocation?: string;
+  dmsOutputLocation?: string | undefined;
 
   /**
    * <p>The data set details of the batch step output.</p>
    * @public
    */
-  dataSetDetails?: DataSet[];
+  dataSetDetails?: DataSet[] | undefined;
 }
 
 /**
@@ -2531,7 +2531,7 @@ export interface BatchSummary {
    * <p>The step output of the batch summary.</p>
    * @public
    */
-  stepOutput?: BatchStepOutput;
+  stepOutput?: BatchStepOutput | undefined;
 }
 
 /**
@@ -2573,13 +2573,13 @@ export interface TN3270StepInput {
    * <p>The export data set names of the TN3270 step input.</p>
    * @public
    */
-  exportDataSetNames?: string[];
+  exportDataSetNames?: string[] | undefined;
 
   /**
    * <p>The properties of the TN3270 step input.</p>
    * @public
    */
-  properties?: MainframeActionProperties;
+  properties?: MainframeActionProperties | undefined;
 }
 
 /**
@@ -2591,19 +2591,19 @@ export interface TN3270StepOutput {
    * <p>The data set export location of the TN3270 step output.</p>
    * @public
    */
-  dataSetExportLocation?: string;
+  dataSetExportLocation?: string | undefined;
 
   /**
    * <p>The output location of the TN3270 step output.</p>
    * @public
    */
-  dmsOutputLocation?: string;
+  dmsOutputLocation?: string | undefined;
 
   /**
    * <p>The data set details of the TN3270 step output.</p>
    * @public
    */
-  dataSetDetails?: DataSet[];
+  dataSetDetails?: DataSet[] | undefined;
 
   /**
    * <p>The script output location of the TN3270 step output.</p>
@@ -2627,7 +2627,7 @@ export interface TN3270Summary {
    * <p>The step output of the TN3270 summary.</p>
    * @public
    */
-  stepOutput?: TN3270StepOutput;
+  stepOutput?: TN3270StepOutput | undefined;
 }
 
 /**
@@ -2700,7 +2700,7 @@ export interface CreateCloudFormationStepInput {
    * <p>The CloudFormation properties of the CloudFormation step input.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -2718,7 +2718,7 @@ export interface CreateCloudFormationStepOutput {
    * <p>The exports of the CloudFormation step output.</p>
    * @public
    */
-  exports?: Record<string, string>;
+  exports?: Record<string, string> | undefined;
 }
 
 /**
@@ -2736,7 +2736,7 @@ export interface CreateCloudFormationSummary {
    * <p>The step output of the CloudFormation summary.</p>
    * @public
    */
-  stepOutput?: CreateCloudFormationStepOutput;
+  stepOutput?: CreateCloudFormationStepOutput | undefined;
 }
 
 /**
@@ -2772,7 +2772,7 @@ export interface DeleteCloudFormationSummary {
    * <p>The step output of the deleted CloudFormation summary.</p>
    * @public
    */
-  stepOutput?: DeleteCloudFormationStepOutput;
+  stepOutput?: DeleteCloudFormationStepOutput | undefined;
 }
 
 /**
@@ -2851,13 +2851,13 @@ export interface M2ManagedApplicationStepInput {
    * <p>The VPC endpoint service name of the AWS Mainframe Modernization managed application step input.</p>
    * @public
    */
-  vpcEndpointServiceName?: string;
+  vpcEndpointServiceName?: string | undefined;
 
   /**
    * <p>The listener port of the AWS Mainframe Modernization managed application step input.</p>
    * @public
    */
-  listenerPort?: number;
+  listenerPort?: number | undefined;
 
   /**
    * <p>The action type of the AWS Mainframe Modernization managed application step input.</p>
@@ -2869,7 +2869,7 @@ export interface M2ManagedApplicationStepInput {
    * <p>The properties of the AWS Mainframe Modernization managed application step input.</p>
    * @public
    */
-  properties?: M2ManagedActionProperties;
+  properties?: M2ManagedActionProperties | undefined;
 }
 
 /**
@@ -2881,7 +2881,7 @@ export interface M2ManagedApplicationStepOutput {
    * <p>The import data set summary of the AWS Mainframe Modernization managed application step output.</p>
    * @public
    */
-  importDataSetSummary?: Record<string, string>;
+  importDataSetSummary?: Record<string, string> | undefined;
 }
 
 /**
@@ -2899,7 +2899,7 @@ export interface M2ManagedApplicationStepSummary {
    * <p>The step output of the AWS Mainframe Modernization managed application step summary.</p>
    * @public
    */
-  stepOutput?: M2ManagedApplicationStepOutput;
+  stepOutput?: M2ManagedApplicationStepOutput | undefined;
 }
 
 /**
@@ -2929,7 +2929,7 @@ export interface M2NonManagedApplicationStepInput {
    * <p>The web app name of the AWS Mainframe Modernization non-managed application step input.</p>
    * @public
    */
-  webAppName?: string;
+  webAppName?: string | undefined;
 
   /**
    * <p>The action type of the AWS Mainframe Modernization non-managed application step input.</p>
@@ -2959,7 +2959,7 @@ export interface M2NonManagedApplicationStepSummary {
    * <p>The step output of the AWS Mainframe Modernization non-managed application step summary.</p>
    * @public
    */
-  stepOutput?: M2NonManagedApplicationStepOutput;
+  stepOutput?: M2NonManagedApplicationStepOutput | undefined;
 }
 
 /**
@@ -3127,37 +3127,37 @@ export interface GetTestRunStepResponse {
    * <p>The test case ID of the test run step.</p>
    * @public
    */
-  testCaseId?: string;
+  testCaseId?: string | undefined;
 
   /**
    * <p>The test case version of the test run step.</p>
    * @public
    */
-  testCaseVersion?: number;
+  testCaseVersion?: number | undefined;
 
   /**
    * <p>The test suite ID of the test run step.</p>
    * @public
    */
-  testSuiteId?: string;
+  testSuiteId?: string | undefined;
 
   /**
    * <p>The test suite version of the test run step.</p>
    * @public
    */
-  testSuiteVersion?: number;
+  testSuiteVersion?: number | undefined;
 
   /**
    * <p>The before steps of the test run step.</p>
    * @public
    */
-  beforeStep?: boolean;
+  beforeStep?: boolean | undefined;
 
   /**
    * <p>The after steps of the test run step.</p>
    * @public
    */
-  afterStep?: boolean;
+  afterStep?: boolean | undefined;
 
   /**
    * <p>The status of the test run step.</p>
@@ -3169,7 +3169,7 @@ export interface GetTestRunStepResponse {
    * <p>The status reason of the test run step.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The run start time of the test run step.</p>
@@ -3181,13 +3181,13 @@ export interface GetTestRunStepResponse {
    * <p>The run end time of the test run step.</p>
    * @public
    */
-  runEndTime?: Date;
+  runEndTime?: Date | undefined;
 
   /**
    * <p>The step run summary of the test run step.</p>
    * @public
    */
-  stepRunSummary?: StepRunSummary;
+  stepRunSummary?: StepRunSummary | undefined;
 }
 
 /**
@@ -3198,25 +3198,25 @@ export interface ListTestRunsRequest {
    * <p>The test suite ID of the test runs.</p>
    * @public
    */
-  testSuiteId?: string;
+  testSuiteId?: string | undefined;
 
   /**
    * <p>The test run IDs of the test runs.</p>
    * @public
    */
-  testRunIds?: string[];
+  testRunIds?: string[] | undefined;
 
   /**
    * <p>The token from the previous request to retrieve the next page of test run results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of test runs to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3268,13 +3268,13 @@ export interface TestRunSummary {
    * <p>The test configuration ID of the test run summary.</p>
    * @public
    */
-  testConfigurationId?: string;
+  testConfigurationId?: string | undefined;
 
   /**
    * <p>The test configuration version of the test run summary.</p>
    * @public
    */
-  testConfigurationVersion?: number;
+  testConfigurationVersion?: number | undefined;
 
   /**
    * <p>The status of the test run summary.</p>
@@ -3286,7 +3286,7 @@ export interface TestRunSummary {
    * <p>The status reason of the test run summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The run start time of the test run summary.</p>
@@ -3298,7 +3298,7 @@ export interface TestRunSummary {
    * <p>The run end time of the test run summary.</p>
    * @public
    */
-  runEndTime?: Date;
+  runEndTime?: Date | undefined;
 }
 
 /**
@@ -3315,7 +3315,7 @@ export interface ListTestRunsResponse {
    * <p>The token from the previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3332,25 +3332,25 @@ export interface ListTestRunStepsRequest {
    * <p>The test case ID of the test run steps.</p>
    * @public
    */
-  testCaseId?: string;
+  testCaseId?: string | undefined;
 
   /**
    * <p>The test suite ID of the test run steps.</p>
    * @public
    */
-  testSuiteId?: string;
+  testSuiteId?: string | undefined;
 
   /**
    * <p>The token from a previous step to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of test run steps to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3374,37 +3374,37 @@ export interface TestRunStepSummary {
    * <p>The test case ID of the test run step summary.</p>
    * @public
    */
-  testCaseId?: string;
+  testCaseId?: string | undefined;
 
   /**
    * <p>The test case version of the test run step summary.</p>
    * @public
    */
-  testCaseVersion?: number;
+  testCaseVersion?: number | undefined;
 
   /**
    * <p>The test suite ID of the test run step summary.</p>
    * @public
    */
-  testSuiteId?: string;
+  testSuiteId?: string | undefined;
 
   /**
    * <p>The test suite version of the test run step summary.</p>
    * @public
    */
-  testSuiteVersion?: number;
+  testSuiteVersion?: number | undefined;
 
   /**
    * <p>The before step of the test run step summary.</p>
    * @public
    */
-  beforeStep?: boolean;
+  beforeStep?: boolean | undefined;
 
   /**
    * <p>The after step of the test run step summary.</p>
    * @public
    */
-  afterStep?: boolean;
+  afterStep?: boolean | undefined;
 
   /**
    * <p>The status of the test run step summary.</p>
@@ -3416,7 +3416,7 @@ export interface TestRunStepSummary {
    * <p>The status reason of the test run step summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The run start time of the test run step summary.</p>
@@ -3428,7 +3428,7 @@ export interface TestRunStepSummary {
    * <p>The run end time of the test run step summary.</p>
    * @public
    */
-  runEndTime?: Date;
+  runEndTime?: Date | undefined;
 }
 
 /**
@@ -3445,7 +3445,7 @@ export interface ListTestRunStepsResponse {
    * <p>The token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3462,13 +3462,13 @@ export interface ListTestRunTestCasesRequest {
    * <p>The token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of test run test cases to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3519,7 +3519,7 @@ export interface TestCaseRunSummary {
    * <p>The status reason of the test case run summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The run start time of the test case run summary.</p>
@@ -3531,7 +3531,7 @@ export interface TestCaseRunSummary {
    * <p>The run end time of the test case run summary.</p>
    * @public
    */
-  runEndTime?: Date;
+  runEndTime?: Date | undefined;
 }
 
 /**
@@ -3548,7 +3548,7 @@ export interface ListTestRunTestCasesResponse {
    * <p>The token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3565,19 +3565,19 @@ export interface StartTestRunRequest {
    * <p>The configuration ID of the test run.</p>
    * @public
    */
-  testConfigurationId?: string;
+  testConfigurationId?: string | undefined;
 
   /**
    * <p>The client token of the test run.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags of the test run.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3649,19 +3649,19 @@ export interface CreateTestSuiteRequest {
    * <p>The description of the test suite.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The before steps of the test suite.</p>
    * @public
    */
-  beforeSteps?: Step[];
+  beforeSteps?: Step[] | undefined;
 
   /**
    * <p>The after steps of the test suite.</p>
    * @public
    */
-  afterSteps?: Step[];
+  afterSteps?: Step[] | undefined;
 
   /**
    * <p>The test cases in the test suite.</p>
@@ -3673,13 +3673,13 @@ export interface CreateTestSuiteRequest {
    * <p>The client token of the test suite.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags of the test suite.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3729,7 +3729,7 @@ export interface GetTestSuiteRequest {
    * <p>The version of the test suite.</p>
    * @public
    */
-  testSuiteVersion?: number;
+  testSuiteVersion?: number | undefined;
 }
 
 /**
@@ -3770,7 +3770,7 @@ export interface TestSuiteLatestVersion {
    * <p>The status reason of the test suite latest version.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -3805,13 +3805,13 @@ export interface GetTestSuiteResponse {
    * <p>The status of the test suite.</p>
    * @public
    */
-  status?: TestSuiteLifecycle;
+  status?: TestSuiteLifecycle | undefined;
 
   /**
    * <p>The status reason of the test suite.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The test suite Amazon Resource Name (ARN).</p>
@@ -3835,7 +3835,7 @@ export interface GetTestSuiteResponse {
    * <p>The description of the test suite.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The before steps of the test suite.</p>
@@ -3859,7 +3859,7 @@ export interface GetTestSuiteResponse {
    * <p>The tags of the test suite.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3870,19 +3870,19 @@ export interface ListTestSuitesRequest {
    * <p>The suite ID of the test suites.</p>
    * @public
    */
-  testSuiteIds?: string[];
+  testSuiteIds?: string[] | undefined;
 
   /**
    * <p>The token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of test suites to return in one page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3906,7 +3906,7 @@ export interface TestSuiteSummary {
    * <p>The status reason of the test suite summary.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The latest version of the test suite summary.</p>
@@ -3953,7 +3953,7 @@ export interface ListTestSuitesResponse {
    * <p>The token from a previous request to retrieve the next page of test suites results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3970,25 +3970,25 @@ export interface UpdateTestSuiteRequest {
    * <p>The description of the test suite.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The before steps for the test suite.</p>
    * @public
    */
-  beforeSteps?: Step[];
+  beforeSteps?: Step[] | undefined;
 
   /**
    * <p>The after steps of the test suite.</p>
    * @public
    */
-  afterSteps?: Step[];
+  afterSteps?: Step[] | undefined;
 
   /**
    * <p>The test cases in the test suite.</p>
    * @public
    */
-  testCases?: TestCases;
+  testCases?: TestCases | undefined;
 }
 
 /**
@@ -4005,7 +4005,7 @@ export interface UpdateTestSuiteResponse {
    * <p>The test suite version of the test suite.</p>
    * @public
    */
-  testSuiteVersion?: number;
+  testSuiteVersion?: number | undefined;
 }
 
 /**

@@ -75,26 +75,26 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update a gateway's metadata
  * ```javascript
  * // Updates a gateway's metadata, which includes the gateway's name and time zone.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "GatewayName": "MyGateway2",
- *   "GatewayTimezone": "GMT-12:00"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   GatewayName: "MyGateway2",
+ *   GatewayTimezone: "GMT-12:00"
  * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "GatewayName": ""
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   GatewayName: ""
  * }
  * *\/
- * // example id: to-update-a-gateways-metadata-1472151688693
  * ```
  *
+ * @public
  */
 export class UpdateGatewayInformationCommand extends $Command
   .classBuilder<
@@ -104,9 +104,7 @@ export class UpdateGatewayInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +116,16 @@ export class UpdateGatewayInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGatewayInformationCommand)
   .de(de_UpdateGatewayInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGatewayInformationInput;
+      output: UpdateGatewayInformationOutput;
+    };
+    sdk: {
+      input: UpdateGatewayInformationCommandInput;
+      output: UpdateGatewayInformationCommandOutput;
+    };
+  };
+}

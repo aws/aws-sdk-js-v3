@@ -82,6 +82,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class ResetUserPasswordCommand extends $Command
@@ -92,9 +93,7 @@ export class ResetUserPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ResetUserPasswordCommand extends $Command
   .f(void 0, ResetUserPasswordResponseFilterSensitiveLog)
   .ser(se_ResetUserPasswordCommand)
   .de(de_ResetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetUserPasswordRequest;
+      output: ResetUserPasswordResponse;
+    };
+    sdk: {
+      input: ResetUserPasswordCommandInput;
+      output: ResetUserPasswordCommandOutput;
+    };
+  };
+}

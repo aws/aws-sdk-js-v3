@@ -100,36 +100,36 @@ export interface GetJourneyRunExecutionActivityMetricsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
- * @public
+ *
  * @example To get the activity execution metrics for a journey run
  * ```javascript
  * // The following example gets activity execution metrics for a single run of a journey.
  * const input = {
- *   "ApplicationId": "11111111112222222222333333333344",
- *   "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd",
- *   "RunId": "99999999998888888888777777777766",
- *   "JourneyActivityId": "AAAAAAAAAA"
+ *   ApplicationId: "11111111112222222222333333333344",
+ *   JourneyActivityId: "AAAAAAAAAA",
+ *   JourneyId: "aaaaaaaaaabbbbbbbbbbccccccccccdd",
+ *   RunId: "99999999998888888888777777777766"
  * };
  * const command = new GetJourneyRunExecutionActivityMetricsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JourneyRunExecutionActivityMetricsResponse": {
- *     "ApplicationId": "11111111112222222222333333333344",
- *     "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd",
- *     "RunId": "99999999998888888888777777777766",
- *     "JourneyActivityId": "AAAAAAAAAA",
- *     "ActivityType": "EMAIL",
- *     "LastEvaluatedTime": "2000-01-01T00:00:05.000Z",
- *     "Metrics": {
- *       "SUCCESS": "1"
- *     }
+ *   JourneyRunExecutionActivityMetricsResponse: {
+ *     ActivityType: "EMAIL",
+ *     ApplicationId: "11111111112222222222333333333344",
+ *     JourneyActivityId: "AAAAAAAAAA",
+ *     JourneyId: "aaaaaaaaaabbbbbbbbbbccccccccccdd",
+ *     LastEvaluatedTime: "2000-01-01T00:00:05.000Z",
+ *     Metrics: {
+ *       SUCCESS: "1"
+ *     },
+ *     RunId: "99999999998888888888777777777766"
  *   }
  * }
  * *\/
- * // example id: to-get-the-activity-execution-metrics-for-a-journey-run
  * ```
  *
+ * @public
  */
 export class GetJourneyRunExecutionActivityMetricsCommand extends $Command
   .classBuilder<
@@ -139,9 +139,7 @@ export class GetJourneyRunExecutionActivityMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +151,16 @@ export class GetJourneyRunExecutionActivityMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyRunExecutionActivityMetricsCommand)
   .de(de_GetJourneyRunExecutionActivityMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyRunExecutionActivityMetricsRequest;
+      output: GetJourneyRunExecutionActivityMetricsResponse;
+    };
+    sdk: {
+      input: GetJourneyRunExecutionActivityMetricsCommandInput;
+      output: GetJourneyRunExecutionActivityMetricsCommandOutput;
+    };
+  };
+}

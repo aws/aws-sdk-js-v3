@@ -29,6 +29,10 @@ import {
   AssociateDiscoveredResourceCommandOutput,
 } from "../commands/AssociateDiscoveredResourceCommand";
 import {
+  AssociateSourceResourceCommandInput,
+  AssociateSourceResourceCommandOutput,
+} from "../commands/AssociateSourceResourceCommand";
+import {
   CreateProgressUpdateStreamCommandInput,
   CreateProgressUpdateStreamCommandOutput,
 } from "../commands/CreateProgressUpdateStreamCommand";
@@ -53,6 +57,10 @@ import {
   DisassociateDiscoveredResourceCommandOutput,
 } from "../commands/DisassociateDiscoveredResourceCommand";
 import {
+  DisassociateSourceResourceCommandInput,
+  DisassociateSourceResourceCommandOutput,
+} from "../commands/DisassociateSourceResourceCommand";
+import {
   ImportMigrationTaskCommandInput,
   ImportMigrationTaskCommandOutput,
 } from "../commands/ImportMigrationTaskCommand";
@@ -70,9 +78,17 @@ import {
 } from "../commands/ListDiscoveredResourcesCommand";
 import { ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput } from "../commands/ListMigrationTasksCommand";
 import {
+  ListMigrationTaskUpdatesCommandInput,
+  ListMigrationTaskUpdatesCommandOutput,
+} from "../commands/ListMigrationTaskUpdatesCommand";
+import {
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
 } from "../commands/ListProgressUpdateStreamsCommand";
+import {
+  ListSourceResourcesCommandInput,
+  ListSourceResourcesCommandOutput,
+} from "../commands/ListSourceResourcesCommand";
 import {
   NotifyApplicationStateCommandInput,
   NotifyApplicationStateCommandOutput,
@@ -91,6 +107,7 @@ import {
   ApplicationState,
   AssociateCreatedArtifactRequest,
   AssociateDiscoveredResourceRequest,
+  AssociateSourceResourceRequest,
   CreatedArtifact,
   CreateProgressUpdateStreamRequest,
   DeleteProgressUpdateStreamRequest,
@@ -100,6 +117,7 @@ import {
   DescribeMigrationTaskResult,
   DisassociateCreatedArtifactRequest,
   DisassociateDiscoveredResourceRequest,
+  DisassociateSourceResourceRequest,
   DiscoveredResource,
   DryRunOperation,
   HomeRegionNotSetException,
@@ -112,9 +130,13 @@ import {
   ListDiscoveredResourcesRequest,
   ListMigrationTasksRequest,
   ListMigrationTasksResult,
+  ListMigrationTaskUpdatesRequest,
+  ListMigrationTaskUpdatesResult,
   ListProgressUpdateStreamsRequest,
+  ListSourceResourcesRequest,
   MigrationTask,
   MigrationTaskSummary,
+  MigrationTaskUpdate,
   NotifyApplicationStateRequest,
   NotifyMigrationTaskStateRequest,
   PolicyErrorException,
@@ -122,6 +144,7 @@ import {
   ResourceAttribute,
   ResourceNotFoundException,
   ServiceUnavailableException,
+  SourceResource,
   Task,
   ThrottlingException,
   UnauthorizedOperation,
@@ -148,6 +171,19 @@ export const se_AssociateDiscoveredResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateDiscoveredResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1AssociateSourceResourceCommand
+ */
+export const se_AssociateSourceResourceCommand = async (
+  input: AssociateSourceResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateSourceResource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -232,6 +268,19 @@ export const se_DisassociateDiscoveredResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisassociateSourceResourceCommand
+ */
+export const se_DisassociateSourceResourceCommand = async (
+  input: DisassociateSourceResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateSourceResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ImportMigrationTaskCommand
  */
 export const se_ImportMigrationTaskCommand = async (
@@ -297,6 +346,19 @@ export const se_ListMigrationTasksCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListMigrationTaskUpdatesCommand
+ */
+export const se_ListMigrationTaskUpdatesCommand = async (
+  input: ListMigrationTaskUpdatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMigrationTaskUpdates");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListProgressUpdateStreamsCommand
  */
 export const se_ListProgressUpdateStreamsCommand = async (
@@ -304,6 +366,19 @@ export const se_ListProgressUpdateStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProgressUpdateStreams");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListSourceResourcesCommand
+ */
+export const se_ListSourceResourcesCommand = async (
+  input: ListSourceResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListSourceResources");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,6 +457,26 @@ export const de_AssociateDiscoveredResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: AssociateDiscoveredResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AssociateSourceResourceCommand
+ */
+export const de_AssociateSourceResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateSourceResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -509,6 +604,26 @@ export const de_DisassociateDiscoveredResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DisassociateSourceResourceCommand
+ */
+export const de_DisassociateSourceResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateSourceResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ImportMigrationTaskCommand
  */
 export const de_ImportMigrationTaskCommand = async (
@@ -609,6 +724,26 @@ export const de_ListMigrationTasksCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListMigrationTaskUpdatesCommand
+ */
+export const de_ListMigrationTaskUpdatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMigrationTaskUpdatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMigrationTaskUpdatesResult(data, context);
+  const response: ListMigrationTaskUpdatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListProgressUpdateStreamsCommand
  */
 export const de_ListProgressUpdateStreamsCommand = async (
@@ -622,6 +757,26 @@ export const de_ListProgressUpdateStreamsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListProgressUpdateStreamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSourceResourcesCommand
+ */
+export const de_ListSourceResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListSourceResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -895,6 +1050,8 @@ const de_UnauthorizedOperationRes = async (
 
 // se_AssociateDiscoveredResourceRequest omitted.
 
+// se_AssociateSourceResourceRequest omitted.
+
 // se_CreatedArtifact omitted.
 
 // se_CreateProgressUpdateStreamRequest omitted.
@@ -909,6 +1066,8 @@ const de_UnauthorizedOperationRes = async (
 
 // se_DisassociateDiscoveredResourceRequest omitted.
 
+// se_DisassociateSourceResourceRequest omitted.
+
 // se_DiscoveredResource omitted.
 
 // se_ImportMigrationTaskRequest omitted.
@@ -921,7 +1080,11 @@ const de_UnauthorizedOperationRes = async (
 
 // se_ListMigrationTasksRequest omitted.
 
+// se_ListMigrationTaskUpdatesRequest omitted.
+
 // se_ListProgressUpdateStreamsRequest omitted.
+
+// se_ListSourceResourcesRequest omitted.
 
 /**
  * serializeAws_json1_1NotifyApplicationStateRequest
@@ -955,6 +1118,8 @@ const se_NotifyMigrationTaskStateRequest = (input: NotifyMigrationTaskStateReque
 
 // se_ResourceAttributeList omitted.
 
+// se_SourceResource omitted.
+
 // se_Task omitted.
 
 // de_AccessDeniedException omitted.
@@ -986,6 +1151,8 @@ const de_ApplicationStateList = (output: any, context: __SerdeContext): Applicat
 
 // de_AssociateDiscoveredResourceResult omitted.
 
+// de_AssociateSourceResourceResult omitted.
+
 // de_CreatedArtifact omitted.
 
 // de_CreatedArtifactList omitted.
@@ -1016,6 +1183,8 @@ const de_DescribeMigrationTaskResult = (output: any, context: __SerdeContext): D
 // de_DisassociateCreatedArtifactResult omitted.
 
 // de_DisassociateDiscoveredResourceResult omitted.
+
+// de_DisassociateSourceResourceResult omitted.
 
 // de_DiscoveredResource omitted.
 
@@ -1057,7 +1226,19 @@ const de_ListMigrationTasksResult = (output: any, context: __SerdeContext): List
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1ListMigrationTaskUpdatesResult
+ */
+const de_ListMigrationTaskUpdatesResult = (output: any, context: __SerdeContext): ListMigrationTaskUpdatesResult => {
+  return take(output, {
+    MigrationTaskUpdateList: (_: any) => de_MigrationTaskUpdateList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
 // de_ListProgressUpdateStreamsResult omitted.
+
+// de_ListSourceResourcesResult omitted.
 
 /**
  * deserializeAws_json1_1MigrationTask
@@ -1098,6 +1279,29 @@ const de_MigrationTaskSummaryList = (output: any, context: __SerdeContext): Migr
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1MigrationTaskUpdate
+ */
+const de_MigrationTaskUpdate = (output: any, context: __SerdeContext): MigrationTaskUpdate => {
+  return take(output, {
+    MigrationTaskState: _json,
+    UpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdateType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1MigrationTaskUpdateList
+ */
+const de_MigrationTaskUpdateList = (output: any, context: __SerdeContext): MigrationTaskUpdate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MigrationTaskUpdate(entry, context);
+    });
+  return retVal;
+};
+
 // de_NotifyApplicationStateResult omitted.
 
 // de_NotifyMigrationTaskStateResult omitted.
@@ -1115,6 +1319,10 @@ const de_MigrationTaskSummaryList = (output: any, context: __SerdeContext): Migr
 // de_ResourceNotFoundException omitted.
 
 // de_ServiceUnavailableException omitted.
+
+// de_SourceResource omitted.
+
+// de_SourceResourceList omitted.
 
 // de_Task omitted.
 

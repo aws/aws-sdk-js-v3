@@ -122,19 +122,19 @@ export interface PutDeploymentParameterRequest {
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date when deployment parameters expire and are scheduled for deletion.</p>
    * @public
    */
-  expirationDate?: Date;
+  expirationDate?: Date | undefined;
 
   /**
    * <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface PutDeploymentParameterResponse {
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -292,7 +292,7 @@ export interface TagResourceRequest {
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

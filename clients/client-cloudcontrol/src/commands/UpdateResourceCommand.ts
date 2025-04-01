@@ -66,6 +66,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * //     TypeName: "STRING_VALUE",
  * //     Identifier: "STRING_VALUE",
  * //     RequestToken: "STRING_VALUE",
+ * //     HooksRequestToken: "STRING_VALUE",
  * //     Operation: "STRING_VALUE",
  * //     OperationStatus: "STRING_VALUE",
  * //     EventTime: new Date("TIMESTAMP"),
@@ -160,6 +161,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCommand extends $Command
@@ -170,9 +172,7 @@ export class UpdateResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +184,16 @@ export class UpdateResourceCommand extends $Command
   .f(UpdateResourceInputFilterSensitiveLog, UpdateResourceOutputFilterSensitiveLog)
   .ser(se_UpdateResourceCommand)
   .de(de_UpdateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceInput;
+      output: UpdateResourceOutput;
+    };
+    sdk: {
+      input: UpdateResourceCommandInput;
+      output: UpdateResourceCommandOutput;
+    };
+  };
+}

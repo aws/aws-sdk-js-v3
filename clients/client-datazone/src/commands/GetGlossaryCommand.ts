@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetGlossaryInput, GetGlossaryOutput, GetGlossaryOutputFilterSensitiveLog } from "../models/models_0";
+import { GetGlossaryInput, GetGlossaryOutput, GetGlossaryOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetGlossaryCommand, se_GetGlossaryCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -83,6 +83,7 @@ export interface GetGlossaryCommandOutput extends GetGlossaryOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetGlossaryCommand extends $Command
@@ -93,9 +94,7 @@ export class GetGlossaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetGlossaryCommand extends $Command
   .f(void 0, GetGlossaryOutputFilterSensitiveLog)
   .ser(se_GetGlossaryCommand)
   .de(de_GetGlossaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGlossaryInput;
+      output: GetGlossaryOutput;
+    };
+    sdk: {
+      input: GetGlossaryCommandInput;
+      output: GetGlossaryCommandOutput;
+    };
+  };
+}

@@ -57,6 +57,7 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  *   name: "STRING_VALUE",
  *   input: "STRING_VALUE",
  *   traceHeader: "STRING_VALUE",
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new StartSyncExecutionCommand(input);
  * const response = await client.send(command);
@@ -101,6 +102,15 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @throws {@link InvalidName} (client fault)
  *  <p>The provided name is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link StateMachineDeleting} (client fault)
  *  <p>The specified state machine is being deleted.</p>
  *
@@ -108,10 +118,11 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  *  <p>The specified state machine does not exist.</p>
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p></p>
+ *  <p>State machine type is not supported.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -123,9 +134,7 @@ export class StartSyncExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +146,16 @@ export class StartSyncExecutionCommand extends $Command
   .f(StartSyncExecutionInputFilterSensitiveLog, StartSyncExecutionOutputFilterSensitiveLog)
   .ser(se_StartSyncExecutionCommand)
   .de(de_StartSyncExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSyncExecutionInput;
+      output: StartSyncExecutionOutput;
+    };
+    sdk: {
+      input: StartSyncExecutionCommandInput;
+      output: StartSyncExecutionCommandOutput;
+    };
+  };
+}

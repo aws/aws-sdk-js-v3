@@ -135,6 +135,7 @@ export interface GenerateCardValidationDataCommandOutput extends GenerateCardVal
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class GenerateCardValidationDataCommand extends $Command
@@ -145,9 +146,7 @@ export class GenerateCardValidationDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class GenerateCardValidationDataCommand extends $Command
   .f(GenerateCardValidationDataInputFilterSensitiveLog, GenerateCardValidationDataOutputFilterSensitiveLog)
   .ser(se_GenerateCardValidationDataCommand)
   .de(de_GenerateCardValidationDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateCardValidationDataInput;
+      output: GenerateCardValidationDataOutput;
+    };
+    sdk: {
+      input: GenerateCardValidationDataCommandInput;
+      output: GenerateCardValidationDataCommandOutput;
+    };
+  };
+}

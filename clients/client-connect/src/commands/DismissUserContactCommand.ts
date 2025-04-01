@@ -77,6 +77,7 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DismissUserContactCommand extends $Command
@@ -87,9 +88,7 @@ export class DismissUserContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DismissUserContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DismissUserContactCommand)
   .de(de_DismissUserContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DismissUserContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DismissUserContactCommandInput;
+      output: DismissUserContactCommandOutput;
+    };
+  };
+}

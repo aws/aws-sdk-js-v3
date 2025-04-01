@@ -1,4 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { describe, expect, test as it } from "vitest";
 
 import { redirectFromPostIdMiddleware } from "./redirect-from-postid";
 

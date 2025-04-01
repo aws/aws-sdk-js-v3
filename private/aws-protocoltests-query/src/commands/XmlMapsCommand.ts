@@ -55,6 +55,7 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlMapsCommand extends $Command
@@ -73,4 +74,16 @@ export class XmlMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlMapsCommand)
   .de(de_XmlMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlMapsOutput;
+    };
+    sdk: {
+      input: XmlMapsCommandInput;
+      output: XmlMapsCommandOutput;
+    };
+  };
+}

@@ -11,6 +11,11 @@ import {
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommand, CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
 import {
+  CreateContainerFleetCommand,
+  CreateContainerFleetCommandInput,
+  CreateContainerFleetCommandOutput,
+} from "./commands/CreateContainerFleetCommand";
+import {
   CreateContainerGroupDefinitionCommand,
   CreateContainerGroupDefinitionCommandInput,
   CreateContainerGroupDefinitionCommandOutput,
@@ -78,6 +83,11 @@ import {
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteBuildCommand, DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import {
+  DeleteContainerFleetCommand,
+  DeleteContainerFleetCommandInput,
+  DeleteContainerFleetCommandOutput,
+} from "./commands/DeleteContainerFleetCommand";
 import {
   DeleteContainerGroupDefinitionCommand,
   DeleteContainerGroupDefinitionCommandInput,
@@ -160,6 +170,11 @@ import {
   DescribeComputeCommandOutput,
 } from "./commands/DescribeComputeCommand";
 import {
+  DescribeContainerFleetCommand,
+  DescribeContainerFleetCommandInput,
+  DescribeContainerFleetCommandOutput,
+} from "./commands/DescribeContainerFleetCommand";
+import {
   DescribeContainerGroupDefinitionCommand,
   DescribeContainerGroupDefinitionCommandInput,
   DescribeContainerGroupDefinitionCommandOutput,
@@ -179,6 +194,11 @@ import {
   DescribeFleetCapacityCommandInput,
   DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand";
+import {
+  DescribeFleetDeploymentCommand,
+  DescribeFleetDeploymentCommandInput,
+  DescribeFleetDeploymentCommandOutput,
+} from "./commands/DescribeFleetDeploymentCommand";
 import {
   DescribeFleetEventsCommand,
   DescribeFleetEventsCommandInput,
@@ -318,10 +338,25 @@ import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput }
 import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
 import {
+  ListContainerFleetsCommand,
+  ListContainerFleetsCommandInput,
+  ListContainerFleetsCommandOutput,
+} from "./commands/ListContainerFleetsCommand";
+import {
   ListContainerGroupDefinitionsCommand,
   ListContainerGroupDefinitionsCommandInput,
   ListContainerGroupDefinitionsCommandOutput,
 } from "./commands/ListContainerGroupDefinitionsCommand";
+import {
+  ListContainerGroupDefinitionVersionsCommand,
+  ListContainerGroupDefinitionVersionsCommandInput,
+  ListContainerGroupDefinitionVersionsCommandOutput,
+} from "./commands/ListContainerGroupDefinitionVersionsCommand";
+import {
+  ListFleetDeploymentsCommand,
+  ListFleetDeploymentsCommandInput,
+  ListFleetDeploymentsCommandOutput,
+} from "./commands/ListFleetDeploymentsCommand";
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommand,
@@ -421,12 +456,27 @@ import {
 } from "./commands/SuspendGameServerGroupCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TerminateGameSessionCommand,
+  TerminateGameSessionCommandInput,
+  TerminateGameSessionCommandOutput,
+} from "./commands/TerminateGameSessionCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import { UpdateBuildCommand, UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
+import {
+  UpdateContainerFleetCommand,
+  UpdateContainerFleetCommandInput,
+  UpdateContainerFleetCommandOutput,
+} from "./commands/UpdateContainerFleetCommand";
+import {
+  UpdateContainerGroupDefinitionCommand,
+  UpdateContainerGroupDefinitionCommandInput,
+  UpdateContainerGroupDefinitionCommandOutput,
+} from "./commands/UpdateContainerGroupDefinitionCommand";
 import {
   UpdateFleetAttributesCommand,
   UpdateFleetAttributesCommandInput,
@@ -489,6 +539,7 @@ const commands = {
   ClaimGameServerCommand,
   CreateAliasCommand,
   CreateBuildCommand,
+  CreateContainerFleetCommand,
   CreateContainerGroupDefinitionCommand,
   CreateFleetCommand,
   CreateFleetLocationsCommand,
@@ -505,6 +556,7 @@ const commands = {
   CreateVpcPeeringConnectionCommand,
   DeleteAliasCommand,
   DeleteBuildCommand,
+  DeleteContainerFleetCommand,
   DeleteContainerGroupDefinitionCommand,
   DeleteFleetCommand,
   DeleteFleetLocationsCommand,
@@ -522,10 +574,12 @@ const commands = {
   DescribeAliasCommand,
   DescribeBuildCommand,
   DescribeComputeCommand,
+  DescribeContainerFleetCommand,
   DescribeContainerGroupDefinitionCommand,
   DescribeEC2InstanceLimitsCommand,
   DescribeFleetAttributesCommand,
   DescribeFleetCapacityCommand,
+  DescribeFleetDeploymentCommand,
   DescribeFleetEventsCommand,
   DescribeFleetLocationAttributesCommand,
   DescribeFleetLocationCapacityCommand,
@@ -556,7 +610,10 @@ const commands = {
   ListAliasesCommand,
   ListBuildsCommand,
   ListComputeCommand,
+  ListContainerFleetsCommand,
   ListContainerGroupDefinitionsCommand,
+  ListContainerGroupDefinitionVersionsCommand,
+  ListFleetDeploymentsCommand,
   ListFleetsCommand,
   ListGameServerGroupsCommand,
   ListGameServersCommand,
@@ -579,9 +636,12 @@ const commands = {
   StopMatchmakingCommand,
   SuspendGameServerGroupCommand,
   TagResourceCommand,
+  TerminateGameSessionCommand,
   UntagResourceCommand,
   UpdateAliasCommand,
   UpdateBuildCommand,
+  UpdateContainerFleetCommand,
+  UpdateContainerGroupDefinitionCommand,
   UpdateFleetAttributesCommand,
   UpdateFleetCapacityCommand,
   UpdateFleetPortSettingsCommand,
@@ -642,6 +702,23 @@ export interface GameLift {
     args: CreateBuildCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBuildCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContainerFleetCommand}
+   */
+  createContainerFleet(
+    args: CreateContainerFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerFleetCommandOutput>;
+  createContainerFleet(
+    args: CreateContainerFleetCommandInput,
+    cb: (err: any, data?: CreateContainerFleetCommandOutput) => void
+  ): void;
+  createContainerFleet(
+    args: CreateContainerFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerFleetCommandOutput) => void
   ): void;
 
   /**
@@ -888,6 +965,23 @@ export interface GameLift {
     args: DeleteBuildCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBuildCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContainerFleetCommand}
+   */
+  deleteContainerFleet(
+    args: DeleteContainerFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerFleetCommandOutput>;
+  deleteContainerFleet(
+    args: DeleteContainerFleetCommandInput,
+    cb: (err: any, data?: DeleteContainerFleetCommandOutput) => void
+  ): void;
+  deleteContainerFleet(
+    args: DeleteContainerFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerFleetCommandOutput) => void
   ): void;
 
   /**
@@ -1150,6 +1244,23 @@ export interface GameLift {
   ): void;
 
   /**
+   * @see {@link DescribeContainerFleetCommand}
+   */
+  describeContainerFleet(
+    args: DescribeContainerFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContainerFleetCommandOutput>;
+  describeContainerFleet(
+    args: DescribeContainerFleetCommandInput,
+    cb: (err: any, data?: DescribeContainerFleetCommandOutput) => void
+  ): void;
+  describeContainerFleet(
+    args: DescribeContainerFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContainerFleetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeContainerGroupDefinitionCommand}
    */
   describeContainerGroupDefinition(
@@ -1218,6 +1329,23 @@ export interface GameLift {
     args: DescribeFleetCapacityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFleetCapacityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFleetDeploymentCommand}
+   */
+  describeFleetDeployment(
+    args: DescribeFleetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetDeploymentCommandOutput>;
+  describeFleetDeployment(
+    args: DescribeFleetDeploymentCommandInput,
+    cb: (err: any, data?: DescribeFleetDeploymentCommandOutput) => void
+  ): void;
+  describeFleetDeployment(
+    args: DescribeFleetDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetDeploymentCommandOutput) => void
   ): void;
 
   /**
@@ -1721,6 +1849,24 @@ export interface GameLift {
   ): void;
 
   /**
+   * @see {@link ListContainerFleetsCommand}
+   */
+  listContainerFleets(): Promise<ListContainerFleetsCommandOutput>;
+  listContainerFleets(
+    args: ListContainerFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContainerFleetsCommandOutput>;
+  listContainerFleets(
+    args: ListContainerFleetsCommandInput,
+    cb: (err: any, data?: ListContainerFleetsCommandOutput) => void
+  ): void;
+  listContainerFleets(
+    args: ListContainerFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContainerFleetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListContainerGroupDefinitionsCommand}
    */
   listContainerGroupDefinitions(): Promise<ListContainerGroupDefinitionsCommandOutput>;
@@ -1736,6 +1882,41 @@ export interface GameLift {
     args: ListContainerGroupDefinitionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContainerGroupDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContainerGroupDefinitionVersionsCommand}
+   */
+  listContainerGroupDefinitionVersions(
+    args: ListContainerGroupDefinitionVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContainerGroupDefinitionVersionsCommandOutput>;
+  listContainerGroupDefinitionVersions(
+    args: ListContainerGroupDefinitionVersionsCommandInput,
+    cb: (err: any, data?: ListContainerGroupDefinitionVersionsCommandOutput) => void
+  ): void;
+  listContainerGroupDefinitionVersions(
+    args: ListContainerGroupDefinitionVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContainerGroupDefinitionVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFleetDeploymentsCommand}
+   */
+  listFleetDeployments(): Promise<ListFleetDeploymentsCommandOutput>;
+  listFleetDeployments(
+    args: ListFleetDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetDeploymentsCommandOutput>;
+  listFleetDeployments(
+    args: ListFleetDeploymentsCommandInput,
+    cb: (err: any, data?: ListFleetDeploymentsCommandOutput) => void
+  ): void;
+  listFleetDeployments(
+    args: ListFleetDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFleetDeploymentsCommandOutput) => void
   ): void;
 
   /**
@@ -2079,6 +2260,23 @@ export interface GameLift {
   ): void;
 
   /**
+   * @see {@link TerminateGameSessionCommand}
+   */
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateGameSessionCommandOutput>;
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    cb: (err: any, data?: TerminateGameSessionCommandOutput) => void
+  ): void;
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateGameSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagResourceCommand}
    */
   untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
@@ -2109,6 +2307,40 @@ export interface GameLift {
     args: UpdateBuildCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBuildCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContainerFleetCommand}
+   */
+  updateContainerFleet(
+    args: UpdateContainerFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContainerFleetCommandOutput>;
+  updateContainerFleet(
+    args: UpdateContainerFleetCommandInput,
+    cb: (err: any, data?: UpdateContainerFleetCommandOutput) => void
+  ): void;
+  updateContainerFleet(
+    args: UpdateContainerFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContainerFleetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContainerGroupDefinitionCommand}
+   */
+  updateContainerGroupDefinition(
+    args: UpdateContainerGroupDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContainerGroupDefinitionCommandOutput>;
+  updateContainerGroupDefinition(
+    args: UpdateContainerGroupDefinitionCommandInput,
+    cb: (err: any, data?: UpdateContainerGroupDefinitionCommandOutput) => void
+  ): void;
+  updateContainerGroupDefinition(
+    args: UpdateContainerGroupDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContainerGroupDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -2313,8 +2545,8 @@ export interface GameLift {
  *                     FlexMatch for matchmaking.</p>
  *             </li>
  *             <li>
- *                <p>Managed hosting with Realtime Servers -- With Amazon GameLift Realtime Servers, you can quickly configure
- *                     and set up ready-to-go game servers for your game. Realtime Servers provides a game server
+ *                <p>Managed hosting with Amazon GameLift Realtime -- With Amazon GameLift Amazon GameLift Realtime, you can quickly configure
+ *                     and set up ready-to-go game servers for your game. Amazon GameLift Realtime provides a game server
  *                     framework with core Amazon GameLift infrastructure already built in. Then use the full
  *                     range of Amazon GameLift managed hosting features, including FlexMatch, for your
  *                     game.</p>

@@ -36,7 +36,7 @@ export interface EnableHttpEndpointCommandOutput extends EnableHttpEndpointRespo
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
  *             <i>Amazon Aurora User Guide</i>.</p>
  *          <note>
- *             <p>This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
+ *             <p>This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
  *         use the <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.</p>
  *          </note>
  * @example
@@ -72,6 +72,7 @@ export interface EnableHttpEndpointCommandOutput extends EnableHttpEndpointRespo
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class EnableHttpEndpointCommand extends $Command
@@ -82,9 +83,7 @@ export class EnableHttpEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class EnableHttpEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableHttpEndpointCommand)
   .de(de_EnableHttpEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableHttpEndpointRequest;
+      output: EnableHttpEndpointResponse;
+    };
+    sdk: {
+      input: EnableHttpEndpointCommandInput;
+      output: EnableHttpEndpointCommandOutput;
+    };
+  };
+}

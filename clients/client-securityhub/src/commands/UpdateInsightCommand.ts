@@ -340,33 +340,36 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update an insight
  * ```javascript
  * // The following example updates the specified Security Hub insight.
  * const input = {
- *   "Filters": {
- *     "ResourceType": [
+ *   Filters: {
+ *     ResourceType: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "AwsIamRole"
+ *         Comparison: "EQUALS",
+ *         Value: "AwsIamRole"
  *       }
  *     ],
- *     "SeverityLabel": [
+ *     SeverityLabel: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "HIGH"
+ *         Comparison: "EQUALS",
+ *         Value: "HIGH"
  *       }
  *     ]
  *   },
- *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Name": "High severity role findings"
+ *   InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Name: "High severity role findings"
  * };
  * const command = new UpdateInsightCommand(input);
- * await client.send(command);
- * // example id: to-update-an-insight-1678816280498
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateInsightCommand extends $Command
   .classBuilder<
@@ -376,9 +379,7 @@ export class UpdateInsightCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -390,4 +391,16 @@ export class UpdateInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInsightCommand)
   .de(de_UpdateInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInsightRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInsightCommandInput;
+      output: UpdateInsightCommandOutput;
+    };
+  };
+}

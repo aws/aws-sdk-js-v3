@@ -81,7 +81,12 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
+ *   ResourcesToReplicateTags: [ // ResourceList
+ *     "lambda-function",
+ *   ],
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -136,6 +141,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       SecurityGroupIds: [ // SecurityGroupIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     VisualReference: { // VisualReferenceOutput
  * //       BaseScreenshots: [ // BaseScreenshots
@@ -148,6 +154,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
  * //     },
+ * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -180,6 +187,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class CreateCanaryCommand extends $Command
@@ -190,9 +198,7 @@ export class CreateCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -204,4 +210,16 @@ export class CreateCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCanaryCommand)
   .de(de_CreateCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCanaryRequest;
+      output: CreateCanaryResponse;
+    };
+    sdk: {
+      input: CreateCanaryCommandInput;
+      output: CreateCanaryCommandOutput;
+    };
+  };
+}

@@ -30,8 +30,7 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
 /**
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
- * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			To delete an attribute, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html">DeleteAttributes</a>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,23 +71,53 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  *
  * @throws {@link AttributeLimitExceededException} (client fault)
  *  <p>You can apply up to 10 custom attributes for each resource. You can view the
- * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
- * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
+ * 			attributes of a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListAttributes.html">ListAttributes</a>.
+ * 			You can remove existing attributes on a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html">DeleteAttributes</a>.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link TargetNotFoundException} (client fault)
  *  <p>The specified target wasn't found. You can view your available container instances
- * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
- * 			cluster-specific and Region-specific.</p>
+ * 			with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>. Amazon ECS container instances are cluster-specific and
+ * 			Region-specific.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To create or update an attribute on a resource
+ * ```javascript
+ * // This example adds an attribute "stack" with the value "production" to a container instance.
+ * const input = {
+ *   attributes: [
+ *     {
+ *       name: "stack",
+ *       targetId: "arn:aws:ecs:us-west-2:123456789012:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34",
+ *       value: "production"
+ *     }
+ *   ],
+ *   cluster: "MyCluster"
+ * };
+ * const command = new PutAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   attributes: [
+ *     {
+ *       name: "stack",
+ *       targetId: "arn:aws:ecs:us-west-2:123456789012:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34",
+ *       value: "production"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -100,9 +129,7 @@ export class PutAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +141,16 @@ export class PutAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAttributesCommand)
   .de(de_PutAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAttributesRequest;
+      output: PutAttributesResponse;
+    };
+    sdk: {
+      input: PutAttributesCommandInput;
+      output: PutAttributesCommandOutput;
+    };
+  };
+}

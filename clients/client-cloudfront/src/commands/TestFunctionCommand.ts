@@ -111,10 +111,11 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  *  <p>The CloudFront function failed.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -126,9 +127,7 @@ export class TestFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class TestFunctionCommand extends $Command
   .f(TestFunctionRequestFilterSensitiveLog, TestFunctionResultFilterSensitiveLog)
   .ser(se_TestFunctionCommand)
   .de(de_TestFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestFunctionRequest;
+      output: TestFunctionResult;
+    };
+    sdk: {
+      input: TestFunctionCommandInput;
+      output: TestFunctionCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteRunCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRunCommand)
   .de(de_DeleteRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRunCommandInput;
+      output: DeleteRunCommandOutput;
+    };
+  };
+}

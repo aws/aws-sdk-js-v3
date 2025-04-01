@@ -74,6 +74,7 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateFileSystemAssociationCommand extends $Command
@@ -84,9 +85,7 @@ export class UpdateFileSystemAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class UpdateFileSystemAssociationCommand extends $Command
   .f(UpdateFileSystemAssociationInputFilterSensitiveLog, void 0)
   .ser(se_UpdateFileSystemAssociationCommand)
   .de(de_UpdateFileSystemAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileSystemAssociationInput;
+      output: UpdateFileSystemAssociationOutput;
+    };
+    sdk: {
+      input: UpdateFileSystemAssociationCommandInput;
+      output: UpdateFileSystemAssociationCommandOutput;
+    };
+  };
+}

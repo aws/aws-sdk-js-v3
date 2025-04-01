@@ -8,10 +8,8 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Consumer;
-import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.knowledge.ServiceIndex;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -27,18 +25,17 @@ public final class AddSigv4aPlugin implements TypeScriptIntegration {
 
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return !settings.getExperimentalIdentityAndAuth();
+        return settings.useLegacyAuth();
     }
 
+    @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
         TypeScriptSettings settings,
         Model model,
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
-        final boolean addSigv4aSignerToConfig = ServiceIndex.of(model)
-            .getEffectiveAuthSchemes(settings.getService(), ServiceIndex.AuthSchemeMode.NO_AUTH_AWARE)
-            .containsKey(SigV4ATrait.ID);
+        final boolean addSigv4aSignerToConfig = AwsTraitsUtils.isSigV4AsymmetricService(model, settings);
 
         // the sigv4a trait also appears on operations, but we will not check
         // them individually because it must appear on the service as well in that case.

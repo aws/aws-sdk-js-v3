@@ -59,6 +59,14 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  *                <p>A Direct Connect gateway and a transit gateway</p>
  *                <p>The response contains the association between the Direct Connect gateway and transit gateway.</p>
  *             </li>
+ *             <li>
+ *                <p>A Direct Connect gateway and a virtual private gateway</p>
+ *                <p>The response contains the association between the Direct Connect gateway and virtual private gateway.</p>
+ *             </li>
+ *             <li>
+ *                <p>A Direct Connect gateway association to a Cloud WAN core network</p>
+ *                <p>The response contains the Cloud WAN core network ID that the Direct Connect gateway is associated to.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +103,11 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * //           cidr: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       associatedCoreNetwork: { // AssociatedCoreNetwork
+ * //         id: "STRING_VALUE",
+ * //         ownerAccount: "STRING_VALUE",
+ * //         attachmentId: "STRING_VALUE",
+ * //       },
  * //       virtualGatewayId: "STRING_VALUE",
  * //       virtualGatewayRegion: "STRING_VALUE",
  * //       virtualGatewayOwnerAccount: "STRING_VALUE",
@@ -120,6 +133,7 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command
@@ -130,9 +144,7 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +156,16 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDirectConnectGatewayAssociationsCommand)
   .de(de_DescribeDirectConnectGatewayAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectConnectGatewayAssociationsRequest;
+      output: DescribeDirectConnectGatewayAssociationsResult;
+    };
+    sdk: {
+      input: DescribeDirectConnectGatewayAssociationsCommandInput;
+      output: DescribeDirectConnectGatewayAssociationsCommandOutput;
+    };
+  };
+}

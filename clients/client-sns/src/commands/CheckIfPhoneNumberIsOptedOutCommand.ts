@@ -78,6 +78,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
@@ -88,9 +89,7 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
   .f(CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog, void 0)
   .ser(se_CheckIfPhoneNumberIsOptedOutCommand)
   .de(de_CheckIfPhoneNumberIsOptedOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckIfPhoneNumberIsOptedOutInput;
+      output: CheckIfPhoneNumberIsOptedOutResponse;
+    };
+    sdk: {
+      input: CheckIfPhoneNumberIsOptedOutCommandInput;
+      output: CheckIfPhoneNumberIsOptedOutCommandOutput;
+    };
+  };
+}

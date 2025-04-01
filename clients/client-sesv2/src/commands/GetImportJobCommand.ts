@@ -86,6 +86,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class GetImportJobCommand extends $Command
@@ -96,9 +97,7 @@ export class GetImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImportJobCommand)
   .de(de_GetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportJobRequest;
+      output: GetImportJobResponse;
+    };
+    sdk: {
+      input: GetImportJobCommandInput;
+      output: GetImportJobCommandOutput;
+    };
+  };
+}

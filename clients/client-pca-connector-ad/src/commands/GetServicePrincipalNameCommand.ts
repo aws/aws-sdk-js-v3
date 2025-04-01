@@ -47,7 +47,7 @@ export interface GetServicePrincipalNameCommandOutput extends GetServicePrincipa
  * //     DirectoryRegistrationArn: "STRING_VALUE",
  * //     ConnectorArn: "STRING_VALUE",
  * //     Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- * //     StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "INTERNAL_FAILURE",
+ * //     StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "SPN_LIMIT_EXCEEDED" || "INTERNAL_FAILURE",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     UpdatedAt: new Date("TIMESTAMP"),
  * //   },
@@ -86,6 +86,7 @@ export interface GetServicePrincipalNameCommandOutput extends GetServicePrincipa
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class GetServicePrincipalNameCommand extends $Command
@@ -96,9 +97,7 @@ export class GetServicePrincipalNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetServicePrincipalNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServicePrincipalNameCommand)
   .de(de_GetServicePrincipalNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServicePrincipalNameRequest;
+      output: GetServicePrincipalNameResponse;
+    };
+    sdk: {
+      input: GetServicePrincipalNameCommandInput;
+      output: GetServicePrincipalNameCommandOutput;
+    };
+  };
+}

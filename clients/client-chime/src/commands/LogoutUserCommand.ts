@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LogoutUserRequest, LogoutUserResponse } from "../models/models_1";
+import { LogoutUserRequest, LogoutUserResponse } from "../models/models_0";
 import { de_LogoutUserCommand, se_LogoutUserCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class LogoutUserCommand extends $Command
@@ -85,9 +86,7 @@ export class LogoutUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class LogoutUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LogoutUserCommand)
   .de(de_LogoutUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LogoutUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: LogoutUserCommandInput;
+      output: LogoutUserCommandOutput;
+    };
+  };
+}

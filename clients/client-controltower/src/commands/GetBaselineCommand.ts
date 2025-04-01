@@ -74,6 +74,7 @@ export interface GetBaselineCommandOutput extends GetBaselineOutput, __MetadataB
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetBaselineCommand extends $Command
@@ -84,9 +85,7 @@ export class GetBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class GetBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBaselineCommand)
   .de(de_GetBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBaselineInput;
+      output: GetBaselineOutput;
+    };
+    sdk: {
+      input: GetBaselineCommandInput;
+      output: GetBaselineCommandOutput;
+    };
+  };
+}

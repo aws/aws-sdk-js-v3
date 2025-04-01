@@ -192,6 +192,7 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaInsightsPipelineCommand extends $Command
@@ -202,9 +203,7 @@ export class CreateMediaInsightsPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +215,16 @@ export class CreateMediaInsightsPipelineCommand extends $Command
   .f(CreateMediaInsightsPipelineRequestFilterSensitiveLog, CreateMediaInsightsPipelineResponseFilterSensitiveLog)
   .ser(se_CreateMediaInsightsPipelineCommand)
   .de(de_CreateMediaInsightsPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaInsightsPipelineRequest;
+      output: CreateMediaInsightsPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaInsightsPipelineCommandInput;
+      output: CreateMediaInsightsPipelineCommandOutput;
+    };
+  };
+}

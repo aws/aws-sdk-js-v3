@@ -70,7 +70,7 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  *   KeyIdentifier: "STRING_VALUE", // required
  *   TransactionData: "STRING_VALUE", // required
  *   AuthRequestCryptogram: "STRING_VALUE", // required
- *   MajorKeyDerivationMode: "STRING_VALUE", // required
+ *   MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *   SessionKeyDerivationAttributes: { // SessionKeyDerivation Union: only one key present
  *     EmvCommon: { // SessionKeyEmvCommon
  *       PrimaryAccountNumber: "STRING_VALUE", // required
@@ -144,6 +144,7 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class VerifyAuthRequestCryptogramCommand extends $Command
@@ -154,9 +155,7 @@ export class VerifyAuthRequestCryptogramCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +167,16 @@ export class VerifyAuthRequestCryptogramCommand extends $Command
   .f(VerifyAuthRequestCryptogramInputFilterSensitiveLog, VerifyAuthRequestCryptogramOutputFilterSensitiveLog)
   .ser(se_VerifyAuthRequestCryptogramCommand)
   .de(de_VerifyAuthRequestCryptogramCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyAuthRequestCryptogramInput;
+      output: VerifyAuthRequestCryptogramOutput;
+    };
+    sdk: {
+      input: VerifyAuthRequestCryptogramCommandInput;
+      output: VerifyAuthRequestCryptogramCommandOutput;
+    };
+  };
+}

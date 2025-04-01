@@ -34,8 +34,10 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a
- *             scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p>
+ *          <p>You can view the scheduled actions for an Auto Scaling group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScheduledActions.html">DescribeScheduledActions</a>
+ *             API call. If you are no longer using a scheduled action, you can delete it by calling the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteScheduledAction.html">DeleteScheduledAction</a> API.</p>
  *          <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error
  *             message.</p>
  * @example
@@ -84,24 +86,27 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To add a scheduled action to an Auto Scaling group
  * ```javascript
  * // This example adds the specified scheduled action to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DesiredCapacity": 4,
- *   "EndTime": "2014-05-12T08:00:00Z",
- *   "MaxSize": 6,
- *   "MinSize": 2,
- *   "ScheduledActionName": "my-scheduled-action",
- *   "StartTime": "2014-05-12T08:00:00Z"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DesiredCapacity: 4,
+ *   EndTime: "2014-05-12T08:00:00Z",
+ *   MaxSize: 6,
+ *   MinSize: 2,
+ *   ScheduledActionName: "my-scheduled-action",
+ *   StartTime: "2014-05-12T08:00:00Z"
  * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-put-scheduled-update-group-action-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutScheduledUpdateGroupActionCommand extends $Command
   .classBuilder<
@@ -111,9 +116,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +128,16 @@ export class PutScheduledUpdateGroupActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutScheduledUpdateGroupActionCommand)
   .de(de_PutScheduledUpdateGroupActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutScheduledUpdateGroupActionType;
+      output: {};
+    };
+    sdk: {
+      input: PutScheduledUpdateGroupActionCommandInput;
+      output: PutScheduledUpdateGroupActionCommandOutput;
+    };
+  };
+}

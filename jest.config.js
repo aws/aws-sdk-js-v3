@@ -4,9 +4,5 @@
  * For tests that involve network requests to live services, see jest.config.e2e.js.
  */
 module.exports = {
-  projects: [
-    "<rootDir>/lib/*/jest.config.js",
-    "<rootDir>/private/*/jest.config.js",
-    "<rootDir>/packages/*/jest.config.js",
-  ],
+  projects: ["<rootDir>/packages/*/jest.config.js"],
 };

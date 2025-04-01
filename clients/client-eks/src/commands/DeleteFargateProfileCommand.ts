@@ -29,16 +29,14 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
 
 /**
  * <p>Deletes an Fargate profile.</p>
- *          <p>When you delete a Fargate profile, any <code>Pod</code> running on
- *                 Fargate that was created with the profile is deleted. If the
- *                 <code>Pod</code> matches another Fargate profile, then it is
- *             scheduled on Fargate with that profile. If it no longer matches any
- *                 Fargate profiles, then it's not scheduled on Fargate
- *             and may remain in a pending state.</p>
- *          <p>Only one Fargate profile in a cluster can be in the
- *                 <code>DELETING</code> status at a time. You must wait for a Fargate
- *             profile to finish deleting before you can delete any other profiles in that
- *             cluster.</p>
+ *          <p>When you delete a Fargate profile, any <code>Pod</code> running on Fargate that
+ *             was created with the profile is deleted. If the <code>Pod</code> matches another
+ *             Fargate profile, then it is scheduled on Fargate with that profile. If it no longer
+ *             matches any Fargate profiles, then it's not scheduled on Fargate and may remain in a
+ *             pending state.</p>
+ *          <p>Only one Fargate profile in a cluster can be in the <code>DELETING</code> status at
+ *             a time. You must wait for a Fargate profile to finish deleting before you can delete
+ *             any other profiles in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,13 +105,15 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -125,9 +125,7 @@ export class DeleteFargateProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class DeleteFargateProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFargateProfileCommand)
   .de(de_DeleteFargateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFargateProfileRequest;
+      output: DeleteFargateProfileResponse;
+    };
+    sdk: {
+      input: DeleteFargateProfileCommandInput;
+      output: DeleteFargateProfileCommandOutput;
+    };
+  };
+}

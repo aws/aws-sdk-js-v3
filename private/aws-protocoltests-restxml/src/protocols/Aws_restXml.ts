@@ -18,14 +18,17 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
+  isSerializableHeaderValue,
   map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
   splitEvery as __splitEvery,
+  splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
@@ -141,6 +144,10 @@ import {
   InputAndOutputWithHeadersCommandOutput,
 } from "../commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "../commands/NestedXmlMapsCommand";
+import {
+  NestedXmlMapWithXmlNameCommandInput,
+  NestedXmlMapWithXmlNameCommandOutput,
+} from "../commands/NestedXmlMapWithXmlNameCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
 import {
@@ -235,8 +242,8 @@ export const se_AllQueryStringTypesCommand = async (
   const query: any = map({
     ...convertMap(input.queryParamsMapOfStrings),
     [_S]: [, input[_qS]!],
-    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
-    [_SS]: [() => input.queryStringSet !== void 0, () => (input[_qSS]! || []).map((_entry) => _entry as any)],
+    [_SL]: [() => input.queryStringList !== void 0, () => input[_qSL]! || []],
+    [_SS]: [() => input.queryStringSet !== void 0, () => input[_qSS]! || []],
     [_B]: [() => input.queryByte !== void 0, () => input[_qB]!.toString()],
     [_Sh]: [() => input.queryShort !== void 0, () => input[_qSu]!.toString()],
     [_I]: [() => input.queryInteger !== void 0, () => input[_qI]!.toString()],
@@ -272,7 +279,7 @@ export const se_AllQueryStringTypesCommand = async (
       () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
     [_E]: [, input[_qE]!],
-    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_EL]: [() => input.queryEnumList !== void 0, () => input[_qEL]! || []],
     [_IE]: [() => input.queryIntegerEnum !== void 0, () => input[_qIE]!.toString()],
     [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
@@ -972,14 +979,8 @@ export const se_InputAndOutputWithHeadersCommand = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).map(__quoteHeader).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).map(__quoteHeader).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -993,10 +994,7 @@ export const se_InputAndOutputWithHeadersCommand = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/InputAndOutputWithHeaders");
   let body: any;
@@ -1021,6 +1019,29 @@ export const se_NestedXmlMapsCommand = async (
   const bn = new __XmlNode(_NXMR);
   bn.l(input, "flatNestedMap", "flatNestedMap", () => se_NestedMap(input[_fNM]!, context));
   bn.lc(input, "nestedMap", "nestedMap", () => se_NestedMap(input[_nM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameCommand
+ */
+export const se_NestedXmlMapWithXmlNameCommand = async (
+  input: NestedXmlMapWithXmlNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/NestedXmlMapWithXmlName");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_NXMWXNIO);
+  bn.lc(input, "nestedXmlMapWithXmlNameMap", "nestedXmlMapWithXmlNameMap", () =>
+    se_NestedXmlMapWithXmlNameMap(input[_nXMWXNM]!, context)
+  );
   body += bn.toString();
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -1067,10 +1088,7 @@ export const se_NullAndEmptyHeadersClientCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersClient");
   let body: any;
@@ -1089,10 +1107,7 @@ export const se_NullAndEmptyHeadersServerCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersServer");
   let body: any;
@@ -2116,8 +2131,10 @@ export const de_HttpPayloadWithUnionCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
-  contents.nested = de_UnionPayload(data, context);
+  const data: Record<string, any> | undefined = await parseBody(output.body, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.nested = __expectUnion(de_UnionPayload(data, context));
+  }
   return contents;
 };
 
@@ -2351,19 +2368,19 @@ export const de_InputAndOutputWithHeadersCommand = async (
     [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
     [_hSL]: [
       () => void 0 !== output.headers[_xs__],
-      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs__] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hSS]: [
       () => void 0 !== output.headers[_xs___],
-      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs___] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIL]: [
       () => void 0 !== output.headers[_xi_],
-      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi_] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
     [_hBL]: [
       () => void 0 !== output.headers[_xb___],
-      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xb___] || "").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
     [_hTL]: [
       () => void 0 !== output.headers[_xt],
@@ -2375,7 +2392,7 @@ export const de_InputAndOutputWithHeadersCommand = async (
     [_hE]: [, output.headers[_xe]],
     [_hEL]: [
       () => void 0 !== output.headers[_xe_],
-      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xe_] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2405,6 +2422,28 @@ export const de_NestedXmlMapsCommand = async (
     contents[_nM] = {};
   } else if (data[_nM] != null && data[_nM][_en] != null) {
     contents[_nM] = de_NestedMap(__getArrayIfSingleItem(data[_nM][_en]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameCommand
+ */
+export const de_NestedXmlMapWithXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NestedXmlMapWithXmlNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nestedXmlMapWithXmlNameMap === "") {
+    contents[_nXMWXNM] = {};
+  } else if (data[_nXMWXNM] != null && data[_nXMWXNM][_en] != null) {
+    contents[_nXMWXNM] = de_NestedXmlMapWithXmlNameMap(__getArrayIfSingleItem(data[_nXMWXNM][_en]), context);
   }
   return contents;
 };
@@ -2459,7 +2498,7 @@ export const de_NullAndEmptyHeadersClientCommand = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2482,7 +2521,7 @@ export const de_NullAndEmptyHeadersServerCommand = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3352,6 +3391,44 @@ const se_NestedPayload = (input: NestedPayload, context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameInnerMap
+ */
+const se_NestedXmlMapWithXmlNameInnerMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of(_S, key).n("InnerKey");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_S, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_IV));
+      return entryNode;
+    });
+};
+
+/**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameMap
+ */
+const se_NestedXmlMapWithXmlNameMap = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of(_S, key).n("OuterKey");
+      entryNode.c(keyNode);
+      let n;
+      n = se_NestedXmlMapWithXmlNameInnerMap(input[key as keyof typeof input]!, context);
+      entryNode.c(
+        n.reduce((acc: __XmlNode, workingNode: any) => {
+          return acc.c(workingNode);
+        }, new __XmlNode(_v))
+      );
+      return entryNode;
+    });
+};
+
+/**
  * serializeAws_restXmlPayloadWithXmlName
  */
 const se_PayloadWithXmlName = (input: PayloadWithXmlName, context: __SerdeContext): any => {
@@ -3929,6 +4006,35 @@ const de_NestedPayload = (output: any, context: __SerdeContext): NestedPayload =
 };
 
 /**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameInnerMap
+ */
+const de_NestedXmlMapWithXmlNameInnerMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["InnerValue"] === null) {
+      return acc;
+    }
+    acc[pair["InnerKey"]] = __expectString(pair["InnerValue"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameMap
+ */
+const de_NestedXmlMapWithXmlNameMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Record<string, string>> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
+      return acc;
+    }
+    acc[pair["OuterKey"]] = de_NestedXmlMapWithXmlNameInnerMap(__getArrayIfSingleItem(pair["value"]["entry"]), context);
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_restXmlPayloadWithXmlName
  */
 const de_PayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWithXmlName => {
@@ -4376,13 +4482,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _A = "Ahoy";
 const _B = "Byte";
 const _BL = "BooleanList";
@@ -4412,12 +4511,14 @@ const _IE = "IntegerEnum";
 const _IEL = "IntegerEnumList";
 const _IL = "IntegerList";
 const _IS = "IntegerSet";
+const _IV = "InnerValue";
 const _KVP = "KVP";
 const _L = "Long";
 const _M = "Message";
 const _N = "Null";
 const _NP = "NestedPayload";
 const _NXMR = "NestedXmlMapsRequest";
+const _NXMWXNIO = "NestedXmlMapWithXmlNameInputOutput";
 const _Ne = "Nested";
 const _PWCEI = "PutWithContentEncodingInput";
 const _PWXN = "PayloadWithXmlNamespace";
@@ -4539,6 +4640,7 @@ const _n = "nested";
 const _nM = "nestedMap";
 const _nSL = "nestedStringList";
 const _nV = "nullValue";
+const _nXMWXNM = "nestedXmlMapWithXmlNameMap";
 const _na = "name";
 const _no = "normal";
 const _o = "other";

@@ -76,6 +76,7 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountOverviewCommand extends $Command
@@ -86,9 +87,7 @@ export class DescribeAccountOverviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DescribeAccountOverviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountOverviewCommand)
   .de(de_DescribeAccountOverviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountOverviewRequest;
+      output: DescribeAccountOverviewResponse;
+    };
+    sdk: {
+      input: DescribeAccountOverviewCommandInput;
+      output: DescribeAccountOverviewCommandOutput;
+    };
+  };
+}

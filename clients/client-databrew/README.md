@@ -13,7 +13,7 @@ data and perform one-click data transformations, with no coding required.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-databrew
+To install this package, simply type add or install @aws-sdk/client-databrew
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-databrew`

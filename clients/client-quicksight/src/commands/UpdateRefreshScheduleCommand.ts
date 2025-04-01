@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRefreshScheduleRequest, UpdateRefreshScheduleResponse } from "../models/models_4";
+import { UpdateRefreshScheduleRequest, UpdateRefreshScheduleResponse } from "../models/models_5";
 import { de_UpdateRefreshScheduleCommand, se_UpdateRefreshScheduleCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -98,6 +98,7 @@ export interface UpdateRefreshScheduleCommandOutput extends UpdateRefreshSchedul
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateRefreshScheduleCommand extends $Command
@@ -108,9 +109,7 @@ export class UpdateRefreshScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class UpdateRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRefreshScheduleCommand)
   .de(de_UpdateRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRefreshScheduleRequest;
+      output: UpdateRefreshScheduleResponse;
+    };
+    sdk: {
+      input: UpdateRefreshScheduleCommandInput;
+      output: UpdateRefreshScheduleCommandOutput;
+    };
+  };
+}

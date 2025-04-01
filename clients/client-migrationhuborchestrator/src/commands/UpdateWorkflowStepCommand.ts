@@ -116,6 +116,7 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkflowStepCommand extends $Command
@@ -126,9 +127,7 @@ export class UpdateWorkflowStepCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class UpdateWorkflowStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkflowStepCommand)
   .de(de_UpdateWorkflowStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkflowStepRequest;
+      output: UpdateWorkflowStepResponse;
+    };
+    sdk: {
+      input: UpdateWorkflowStepCommandInput;
+      output: UpdateWorkflowStepCommandOutput;
+    };
+  };
+}

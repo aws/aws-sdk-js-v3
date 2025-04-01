@@ -33,7 +33,7 @@ For general information about IAM Access Analyzer, see <a href="https://docs.aws
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-accessanalyzer
+To install this package, simply type add or install @aws-sdk/client-accessanalyzer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-accessanalyzer`
@@ -364,6 +364,14 @@ GetFindingRecommendation
 </details>
 <details>
 <summary>
+GetFindingsStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetFindingsStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingsStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingsStatisticsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFindingV2
 </summary>
 
@@ -480,6 +488,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UpdateAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateAnalyzerCommandOutput/)
 
 </details>
 <details>

@@ -34,8 +34,8 @@ export interface PutReplicationConfigurationCommandOutput
  *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
  *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
  *             your account for the replication process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
- *                 service-linked roles for Amazon ECR</a> in the
- *             <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ *                 service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+ *             For more information on the custom role for replication, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console">Creating an IAM role for replication</a>.</p>
  *          <note>
  *             <p>When configuring cross-account replication, the destination account must grant the
  *                 source account permission to replicate. This permission is controlled using a
@@ -111,6 +111,7 @@ export interface PutReplicationConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class PutReplicationConfigurationCommand extends $Command
@@ -121,9 +122,7 @@ export class PutReplicationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class PutReplicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutReplicationConfigurationCommand)
   .de(de_PutReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutReplicationConfigurationRequest;
+      output: PutReplicationConfigurationResponse;
+    };
+    sdk: {
+      input: PutReplicationConfigurationCommandInput;
+      output: PutReplicationConfigurationCommandOutput;
+    };
+  };
+}

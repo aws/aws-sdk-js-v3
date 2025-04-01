@@ -60,6 +60,7 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class EnableUserCommand extends $Command
@@ -70,9 +71,7 @@ export class EnableUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +83,16 @@ export class EnableUserCommand extends $Command
   .f(EnableUserRequestFilterSensitiveLog, void 0)
   .ser(se_EnableUserCommand)
   .de(de_EnableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableUserCommandInput;
+      output: EnableUserCommandOutput;
+    };
+  };
+}

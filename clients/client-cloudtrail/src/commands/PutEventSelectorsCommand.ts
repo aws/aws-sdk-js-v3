@@ -28,12 +28,35 @@ export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest 
 export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Configures an event selector or advanced event selectors for your trail. Use event
- *          selectors or advanced event selectors to specify management and data event settings for
- *          your trail. If you want your trail to log Insights events, be sure the event selector
- *          enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging Insights events</a> in the <i>CloudTrail User Guide</i>.
+ * <p>Configures event selectors (also referred to as <i>basic event selectors</i>) or advanced event selectors for your trail. You can use
+ *          either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If
+ *          you apply <code>AdvancedEventSelectors</code> to a trail, any existing
+ *          <code>EventSelectors</code> are overwritten.</p>
+ *          <p>You can use <code>AdvancedEventSelectors</code> to
+ *          log management events, data events for all resource types, and network activity events.</p>
+ *          <p>You can use <code>EventSelectors</code> to log management events and data events for the following resource types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::DynamoDB::Table</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::Lambda::Function</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::S3::Object</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>You can't use <code>EventSelectors</code> to log network activity events.</p>
+ *          <p>If you want your trail to log Insights events, be sure the event selector or advanced event selector enables
+ *          logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.
  *          By default, trails created without specific event selectors are configured to
- *          log all read and write management events, and no data events.</p>
+ *          log all read and write management events, and no data events or network activity events.</p>
  *          <p>When an event occurs in your account, CloudTrail evaluates the event selectors or
  *          advanced event selectors in all trails. For each trail, if the event matches any event
  *          selector, the trail processes and logs the event. If the event doesn't match any event
@@ -41,7 +64,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <p>Example</p>
  *          <ol>
  *             <li>
- *                <p>You create an event selector for a trail and specify that you want write-only
+ *                <p>You create an event selector for a trail and specify that you want to log write-only
  *                events.</p>
  *             </li>
  *             <li>
@@ -63,16 +86,13 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <p>The <code>PutEventSelectors</code> operation must be called from the Region in which the
  *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
  *          thrown.</p>
- *          <p>You can configure up to five event selectors for each trail. For more information, see
- *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
- *             data events</a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
- *          Guide</i>.</p>
+ *          <p>You can configure up to five event selectors for each trail.</p>
  *          <p>You can add advanced event selectors, and conditions for your advanced event selectors,
- *          up to a maximum of 500 values for all conditions and selectors on a trail. You can use
- *          either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If
- *          you apply <code>AdvancedEventSelectors</code> to a trail, any existing
- *             <code>EventSelectors</code> are overwritten. For more information about advanced event
- *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+ *                data events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging
+ *                   network activity events</a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
+ *                            Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -189,6 +209,8 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
@@ -287,6 +309,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class PutEventSelectorsCommand extends $Command
@@ -297,9 +320,7 @@ export class PutEventSelectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -311,4 +332,16 @@ export class PutEventSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEventSelectorsCommand)
   .de(de_PutEventSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventSelectorsRequest;
+      output: PutEventSelectorsResponse;
+    };
+    sdk: {
+      input: PutEventSelectorsCommandInput;
+      output: PutEventSelectorsCommandOutput;
+    };
+  };
+}

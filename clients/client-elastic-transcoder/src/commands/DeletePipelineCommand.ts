@@ -79,6 +79,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class DeletePipelineCommand extends $Command
@@ -89,9 +90,7 @@ export class DeletePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticTranscoderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeletePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePipelineCommand)
   .de(de_DeletePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePipelineRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePipelineCommandInput;
+      output: DeletePipelineCommandOutput;
+    };
+  };
+}

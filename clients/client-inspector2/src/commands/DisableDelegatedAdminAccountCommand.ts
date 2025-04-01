@@ -79,6 +79,7 @@ export interface DisableDelegatedAdminAccountCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class DisableDelegatedAdminAccountCommand extends $Command
@@ -89,9 +90,7 @@ export class DisableDelegatedAdminAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DisableDelegatedAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableDelegatedAdminAccountCommand)
   .de(de_DisableDelegatedAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableDelegatedAdminAccountRequest;
+      output: DisableDelegatedAdminAccountResponse;
+    };
+    sdk: {
+      input: DisableDelegatedAdminAccountCommandInput;
+      output: DisableDelegatedAdminAccountCommandOutput;
+    };
+  };
+}

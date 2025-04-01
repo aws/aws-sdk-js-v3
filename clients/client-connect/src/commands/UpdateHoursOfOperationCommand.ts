@@ -89,6 +89,7 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateHoursOfOperationCommand extends $Command
@@ -99,9 +100,7 @@ export class UpdateHoursOfOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class UpdateHoursOfOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHoursOfOperationCommand)
   .de(de_UpdateHoursOfOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHoursOfOperationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateHoursOfOperationCommandInput;
+      output: UpdateHoursOfOperationCommandOutput;
+    };
+  };
+}

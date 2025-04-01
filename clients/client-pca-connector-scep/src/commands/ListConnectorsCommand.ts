@@ -96,6 +96,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class ListConnectorsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListConnectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListConnectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConnectorsCommand)
   .de(de_ListConnectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectorsRequest;
+      output: ListConnectorsResponse;
+    };
+    sdk: {
+      input: ListConnectorsCommandInput;
+      output: ListConnectorsCommandOutput;
+    };
+  };
+}

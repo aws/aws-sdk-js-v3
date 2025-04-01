@@ -81,6 +81,7 @@ export interface ListMeteredProductsCommandOutput extends ListMeteredProductsRes
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListMeteredProductsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListMeteredProductsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListMeteredProductsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMeteredProductsCommand)
   .de(de_ListMeteredProductsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMeteredProductsRequest;
+      output: ListMeteredProductsResponse;
+    };
+    sdk: {
+      input: ListMeteredProductsCommandInput;
+      output: ListMeteredProductsCommandOutput;
+    };
+  };
+}

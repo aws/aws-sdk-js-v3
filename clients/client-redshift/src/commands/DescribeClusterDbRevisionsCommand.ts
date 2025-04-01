@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterDbRevisionsMessage, DescribeClusterDbRevisionsMessage } from "../models/models_0";
+import { ClusterDbRevisionsMessage } from "../models/models_0";
+import { DescribeClusterDbRevisionsMessage } from "../models/models_1";
 import { de_DescribeClusterDbRevisionsCommand, se_DescribeClusterDbRevisionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -78,6 +79,7 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterDbRevisionsCommand extends $Command
@@ -88,9 +90,7 @@ export class DescribeClusterDbRevisionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class DescribeClusterDbRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterDbRevisionsCommand)
   .de(de_DescribeClusterDbRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterDbRevisionsMessage;
+      output: ClusterDbRevisionsMessage;
+    };
+    sdk: {
+      input: DescribeClusterDbRevisionsCommandInput;
+      output: DescribeClusterDbRevisionsCommandOutput;
+    };
+  };
+}

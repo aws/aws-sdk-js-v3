@@ -95,6 +95,7 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class CreateMicrosoftADCommand extends $Command
@@ -105,9 +106,7 @@ export class CreateMicrosoftADCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CreateMicrosoftADCommand extends $Command
   .f(CreateMicrosoftADRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMicrosoftADCommand)
   .de(de_CreateMicrosoftADCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMicrosoftADRequest;
+      output: CreateMicrosoftADResult;
+    };
+    sdk: {
+      input: CreateMicrosoftADCommandInput;
+      output: CreateMicrosoftADCommandOutput;
+    };
+  };
+}

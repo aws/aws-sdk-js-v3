@@ -73,6 +73,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListConfigsCommand extends $Command
@@ -83,9 +84,7 @@ export class ListConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class ListConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigsCommand)
   .de(de_ListConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigsRequest;
+      output: ListConfigsResponse;
+    };
+    sdk: {
+      input: ListConfigsCommandInput;
+      output: ListConfigsCommandOutput;
+    };
+  };
+}

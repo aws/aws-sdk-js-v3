@@ -76,18 +76,21 @@ export interface DisableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To end a Security Hub integration
  * ```javascript
  * // The following example ends an integration between Security Hub and the specified product that sends findings to Security Hub. After the integration ends, the product no longer sends findings to Security  Hub.
  * const input = {
- *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ *   ProductSubscriptionArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
  * };
  * const command = new DisableImportFindingsForProductCommand(input);
- * await client.send(command);
- * // example id: to-end-a-security-hub-integration-1676480035650
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableImportFindingsForProductCommand extends $Command
   .classBuilder<
@@ -97,9 +100,7 @@ export class DisableImportFindingsForProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class DisableImportFindingsForProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImportFindingsForProductCommand)
   .de(de_DisableImportFindingsForProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImportFindingsForProductRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableImportFindingsForProductCommandInput;
+      output: DisableImportFindingsForProductCommandOutput;
+    };
+  };
+}

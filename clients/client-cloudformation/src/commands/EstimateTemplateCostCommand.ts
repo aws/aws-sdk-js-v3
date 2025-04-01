@@ -28,8 +28,9 @@ export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostIn
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly
- *    Calculator URL with a query string that describes the resources required to run the template.</p>
+ * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple
+ *       Monthly Calculator URL with a query string that describes the resources required to run the
+ *       template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,7 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class EstimateTemplateCostCommand extends $Command
@@ -75,9 +77,7 @@ export class EstimateTemplateCostCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class EstimateTemplateCostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EstimateTemplateCostCommand)
   .de(de_EstimateTemplateCostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EstimateTemplateCostInput;
+      output: EstimateTemplateCostOutput;
+    };
+    sdk: {
+      input: EstimateTemplateCostCommandInput;
+      output: EstimateTemplateCostCommandOutput;
+    };
+  };
+}

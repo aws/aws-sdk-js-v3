@@ -63,6 +63,7 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DisableRadiusCommand extends $Command
@@ -73,9 +74,7 @@ export class DisableRadiusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class DisableRadiusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableRadiusCommand)
   .de(de_DisableRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableRadiusCommandInput;
+      output: DisableRadiusCommandOutput;
+    };
+  };
+}

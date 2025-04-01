@@ -62,6 +62,11 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * //   groupAdmins: [ // GroupAdmins
  * //     "STRING_VALUE",
  * //   ],
+ * //   roles: { // Roles
+ * //     "<keys>": [ // RoleList
+ * //       "EXPERT" || "MODERATOR" || "ADMINISTRATOR" || "SUPPORTREQUESTOR",
+ * //     ],
+ * //   },
  * //   userKMSKey: "STRING_VALUE",
  * //   userCount: Number("int"),
  * //   contentSize: Number("long"),
@@ -93,6 +98,7 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class GetSpaceCommand extends $Command
@@ -103,9 +109,7 @@ export class GetSpaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +121,16 @@ export class GetSpaceCommand extends $Command
   .f(void 0, GetSpaceOutputFilterSensitiveLog)
   .ser(se_GetSpaceCommand)
   .de(de_GetSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpaceInput;
+      output: GetSpaceOutput;
+    };
+    sdk: {
+      input: GetSpaceCommandInput;
+      output: GetSpaceCommandOutput;
+    };
+  };
+}

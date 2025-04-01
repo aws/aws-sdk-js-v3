@@ -56,7 +56,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>
@@ -73,6 +73,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteConditionalForwarderCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteConditionalForwarderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteConditionalForwarderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConditionalForwarderCommand)
   .de(de_DeleteConditionalForwarderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConditionalForwarderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConditionalForwarderCommandInput;
+      output: DeleteConditionalForwarderCommandOutput;
+    };
+  };
+}

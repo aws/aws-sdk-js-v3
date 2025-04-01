@@ -90,30 +90,33 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To add tags to a load balancer
  * ```javascript
  * // This example adds the specified tags to the specified load balancer.
  * const input = {
- *   "ResourceArns": [
+ *   ResourceArns: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "project",
- *       "Value": "lima"
+ *       Key: "project",
+ *       Value: "lima"
  *     },
  *     {
- *       "Key": "department",
- *       "Value": "digital-media"
+ *       Key: "department",
+ *       Value: "digital-media"
  *     }
  *   ]
  * };
  * const command = new AddTagsCommand(input);
- * await client.send(command);
- * // example id: elbv2-add-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<
@@ -123,9 +126,7 @@ export class AddTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +138,16 @@ export class AddTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsCommand)
   .de(de_AddTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsInput;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsCommandInput;
+      output: AddTagsCommandOutput;
+    };
+  };
+}

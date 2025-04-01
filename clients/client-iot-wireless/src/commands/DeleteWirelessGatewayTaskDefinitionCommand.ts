@@ -77,6 +77,7 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWirelessGatewayTaskDefinitionCommand)
   .de(de_DeleteWirelessGatewayTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWirelessGatewayTaskDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWirelessGatewayTaskDefinitionCommandInput;
+      output: DeleteWirelessGatewayTaskDefinitionCommandOutput;
+    };
+  };
+}

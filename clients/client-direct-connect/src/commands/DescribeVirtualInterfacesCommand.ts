@@ -117,6 +117,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeVirtualInterfacesCommand extends $Command
@@ -127,9 +128,7 @@ export class DescribeVirtualInterfacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class DescribeVirtualInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualInterfacesCommand)
   .de(de_DescribeVirtualInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualInterfacesRequest;
+      output: VirtualInterfaces;
+    };
+    sdk: {
+      input: DescribeVirtualInterfacesCommandInput;
+      output: DescribeVirtualInterfacesCommandOutput;
+    };
+  };
+}

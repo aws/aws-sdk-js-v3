@@ -46,7 +46,7 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * //       Name: "STRING_VALUE",
  * //       Attributes: { // LexiconAttributes
  * //         Alphabet: "STRING_VALUE",
- * //         LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE",
+ * //         LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE" || "cs-CZ" || "de-CH" || "en-SG",
  * //         LastModified: new Date("TIMESTAMP"),
  * //         LexiconArn: "STRING_VALUE",
  * //         LexemesCount: Number("int"),
@@ -75,33 +75,33 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To list all lexicons in a region
  * ```javascript
  * // Returns a list of pronunciation lexicons stored in an AWS Region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListLexiconsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Lexicons": [
+ *   Lexicons: [
  *     {
- *       "Attributes": {
- *         "Alphabet": "ipa",
- *         "LanguageCode": "en-US",
- *         "LastModified": 1478542980.117,
- *         "LexemesCount": 1,
- *         "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
- *         "Size": 503
+ *       Attributes: {
+ *         Alphabet: "ipa",
+ *         LanguageCode: "en-US",
+ *         LastModified: 1.478542980117E9,
+ *         LexemesCount: 1,
+ *         LexiconArn: "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+ *         Size: 503
  *       },
- *       "Name": "example"
+ *       Name: "example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-lexicons-in-a-region-1481842106487
  * ```
  *
+ * @public
  */
 export class ListLexiconsCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class ListLexiconsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class ListLexiconsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLexiconsCommand)
   .de(de_ListLexiconsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLexiconsInput;
+      output: ListLexiconsOutput;
+    };
+    sdk: {
+      input: ListLexiconsCommandInput;
+      output: ListLexiconsCommandOutput;
+    };
+  };
+}

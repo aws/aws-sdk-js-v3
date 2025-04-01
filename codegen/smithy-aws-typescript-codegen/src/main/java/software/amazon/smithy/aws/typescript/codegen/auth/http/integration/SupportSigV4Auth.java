@@ -24,8 +24,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Support for generic @aws.auth#sigv4.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
@@ -70,11 +68,11 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
         .build();
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth();
+        return !settings.useLegacyAuth();
     }
 
     @Override
@@ -132,6 +130,7 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
                              */
                             signingProperties: {
                               context,
+                              sha256: (config as any).sha256,
                             },
                           };
                         },"""))

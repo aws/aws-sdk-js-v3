@@ -2,6 +2,11 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  CancelTagSyncTaskCommand,
+  CancelTagSyncTaskCommandInput,
+  CancelTagSyncTaskCommandOutput,
+} from "./commands/CancelTagSyncTaskCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
@@ -22,16 +27,31 @@ import {
 } from "./commands/GetGroupQueryCommand";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import {
+  GetTagSyncTaskCommand,
+  GetTagSyncTaskCommandInput,
+  GetTagSyncTaskCommandOutput,
+} from "./commands/GetTagSyncTaskCommand";
+import {
   GroupResourcesCommand,
   GroupResourcesCommandInput,
   GroupResourcesCommandOutput,
 } from "./commands/GroupResourcesCommand";
+import {
+  ListGroupingStatusesCommand,
+  ListGroupingStatusesCommandInput,
+  ListGroupingStatusesCommandOutput,
+} from "./commands/ListGroupingStatusesCommand";
 import {
   ListGroupResourcesCommand,
   ListGroupResourcesCommandInput,
   ListGroupResourcesCommandOutput,
 } from "./commands/ListGroupResourcesCommand";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import {
+  ListTagSyncTasksCommand,
+  ListTagSyncTasksCommandInput,
+  ListTagSyncTasksCommandOutput,
+} from "./commands/ListTagSyncTasksCommand";
 import {
   PutGroupConfigurationCommand,
   PutGroupConfigurationCommandInput,
@@ -42,6 +62,11 @@ import {
   SearchResourcesCommandInput,
   SearchResourcesCommandOutput,
 } from "./commands/SearchResourcesCommand";
+import {
+  StartTagSyncTaskCommand,
+  StartTagSyncTaskCommandInput,
+  StartTagSyncTaskCommandOutput,
+} from "./commands/StartTagSyncTaskCommand";
 import { TagCommand, TagCommandInput, TagCommandOutput } from "./commands/TagCommand";
 import {
   UngroupResourcesCommand,
@@ -63,6 +88,7 @@ import {
 import { ResourceGroupsClient, ResourceGroupsClientConfig } from "./ResourceGroupsClient";
 
 const commands = {
+  CancelTagSyncTaskCommand,
   CreateGroupCommand,
   DeleteGroupCommand,
   GetAccountSettingsCommand,
@@ -70,11 +96,15 @@ const commands = {
   GetGroupConfigurationCommand,
   GetGroupQueryCommand,
   GetTagsCommand,
+  GetTagSyncTaskCommand,
   GroupResourcesCommand,
+  ListGroupingStatusesCommand,
   ListGroupResourcesCommand,
   ListGroupsCommand,
+  ListTagSyncTasksCommand,
   PutGroupConfigurationCommand,
   SearchResourcesCommand,
+  StartTagSyncTaskCommand,
   TagCommand,
   UngroupResourcesCommand,
   UntagCommand,
@@ -84,6 +114,23 @@ const commands = {
 };
 
 export interface ResourceGroups {
+  /**
+   * @see {@link CancelTagSyncTaskCommand}
+   */
+  cancelTagSyncTask(
+    args: CancelTagSyncTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelTagSyncTaskCommandOutput>;
+  cancelTagSyncTask(
+    args: CancelTagSyncTaskCommandInput,
+    cb: (err: any, data?: CancelTagSyncTaskCommandOutput) => void
+  ): void;
+  cancelTagSyncTask(
+    args: CancelTagSyncTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelTagSyncTaskCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateGroupCommand}
    */
@@ -179,6 +226,20 @@ export interface ResourceGroups {
   ): void;
 
   /**
+   * @see {@link GetTagSyncTaskCommand}
+   */
+  getTagSyncTask(
+    args: GetTagSyncTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTagSyncTaskCommandOutput>;
+  getTagSyncTask(args: GetTagSyncTaskCommandInput, cb: (err: any, data?: GetTagSyncTaskCommandOutput) => void): void;
+  getTagSyncTask(
+    args: GetTagSyncTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTagSyncTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GroupResourcesCommand}
    */
   groupResources(
@@ -190,6 +251,23 @@ export interface ResourceGroups {
     args: GroupResourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GroupResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupingStatusesCommand}
+   */
+  listGroupingStatuses(
+    args: ListGroupingStatusesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupingStatusesCommandOutput>;
+  listGroupingStatuses(
+    args: ListGroupingStatusesCommandInput,
+    cb: (err: any, data?: ListGroupingStatusesCommandOutput) => void
+  ): void;
+  listGroupingStatuses(
+    args: ListGroupingStatusesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupingStatusesCommandOutput) => void
   ): void;
 
   /**
@@ -223,6 +301,24 @@ export interface ResourceGroups {
   ): void;
 
   /**
+   * @see {@link ListTagSyncTasksCommand}
+   */
+  listTagSyncTasks(): Promise<ListTagSyncTasksCommandOutput>;
+  listTagSyncTasks(
+    args: ListTagSyncTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagSyncTasksCommandOutput>;
+  listTagSyncTasks(
+    args: ListTagSyncTasksCommandInput,
+    cb: (err: any, data?: ListTagSyncTasksCommandOutput) => void
+  ): void;
+  listTagSyncTasks(
+    args: ListTagSyncTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagSyncTasksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutGroupConfigurationCommand}
    */
   putGroupConfiguration(): Promise<PutGroupConfigurationCommandOutput>;
@@ -252,6 +348,23 @@ export interface ResourceGroups {
     args: SearchResourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTagSyncTaskCommand}
+   */
+  startTagSyncTask(
+    args: StartTagSyncTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTagSyncTaskCommandOutput>;
+  startTagSyncTask(
+    args: StartTagSyncTaskCommandInput,
+    cb: (err: any, data?: StartTagSyncTaskCommandOutput) => void
+  ): void;
+  startTagSyncTask(
+    args: StartTagSyncTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTagSyncTaskCommandOutput) => void
   ): void;
 
   /**
@@ -362,7 +475,7 @@ export interface ResourceGroups {
  *                <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                <p>Resolving resource group member ARNs so they can be returned as search
+ *                <p>Resolving resource group member Amazon resource names (ARN)s so they can be returned as search
  *                     results</p>
  *             </li>
  *             <li>

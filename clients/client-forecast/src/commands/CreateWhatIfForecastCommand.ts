@@ -117,6 +117,7 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateWhatIfForecastCommand extends $Command
@@ -127,9 +128,7 @@ export class CreateWhatIfForecastCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class CreateWhatIfForecastCommand extends $Command
   .f(CreateWhatIfForecastRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWhatIfForecastCommand)
   .de(de_CreateWhatIfForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWhatIfForecastRequest;
+      output: CreateWhatIfForecastResponse;
+    };
+    sdk: {
+      input: CreateWhatIfForecastCommandInput;
+      output: CreateWhatIfForecastCommandOutput;
+    };
+  };
+}

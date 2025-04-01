@@ -40,6 +40,9 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *         Language</a> in the Step Functions User Guide.</p>
  *          <p>If you set the <code>publish</code> parameter of this API action to <code>true</code>, it
  *       publishes version <code>1</code> as the first revision of the state machine.</p>
+ *          <p>
+ *         For additional control over security, you can encrypt your data using a <b>customer-managed key</b> for Step Functions state machines. You can configure a symmetric KMS key and data key reuse period when creating or updating a <b>State Machine</b>. The execution history and state machine definition will be encrypted with the key applied to the State Machine.
+ *     </p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
@@ -48,8 +51,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *                <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a
  *         duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency
  *         check is based on the state machine <code>name</code>, <code>definition</code>,
- *           <code>type</code>, <code>LoggingConfiguration</code>, and
- *         <code>TracingConfiguration</code>. The check is also based on the <code>publish</code> and <code>versionDescription</code> parameters. If a following request has a different
+ *           <code>type</code>, <code>LoggingConfiguration</code>,
+ *         <code>TracingConfiguration</code>, and <code>EncryptionConfiguration</code> The check is also based on the <code>publish</code> and <code>versionDescription</code> parameters. If a following request has a different
  *           <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and treat
  *         it as an idempotent request of the previous. In this case, <code>roleArn</code> and
  *           <code>tags</code> will not be updated, even if they are different.</p>
@@ -87,6 +90,11 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *   },
  *   publish: true || false,
  *   versionDescription: "STRING_VALUE",
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE",
+ *     kmsDataKeyReusePeriodSeconds: Number("int"),
+ *     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ *   },
  * };
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);
@@ -114,8 +122,11 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @throws {@link InvalidDefinition} (client fault)
  *  <p>The provided Amazon States Language definition is not valid.</p>
  *
+ * @throws {@link InvalidEncryptionConfiguration} (client fault)
+ *  <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ *
  * @throws {@link InvalidLoggingConfiguration} (client fault)
- *  <p></p>
+ *  <p>Configuration is not valid.</p>
  *
  * @throws {@link InvalidName} (client fault)
  *  <p>The provided name is not valid.</p>
@@ -123,6 +134,12 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @throws {@link InvalidTracingConfiguration} (client fault)
  *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
  *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
  *
  * @throws {@link StateMachineAlreadyExists} (client fault)
  *  <p>A state machine with the same name but a different definition or role ARN already
@@ -136,7 +153,7 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *       deleted before a new state machine can be created.</p>
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p></p>
+ *  <p>State machine type is not supported.</p>
  *
  * @throws {@link TooManyTags} (client fault)
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
@@ -148,6 +165,7 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class CreateStateMachineCommand extends $Command
@@ -158,9 +176,7 @@ export class CreateStateMachineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +188,16 @@ export class CreateStateMachineCommand extends $Command
   .f(CreateStateMachineInputFilterSensitiveLog, void 0)
   .ser(se_CreateStateMachineCommand)
   .de(de_CreateStateMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStateMachineInput;
+      output: CreateStateMachineOutput;
+    };
+    sdk: {
+      input: CreateStateMachineCommandInput;
+      output: CreateStateMachineCommandOutput;
+    };
+  };
+}

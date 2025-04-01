@@ -100,6 +100,7 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteMultiRegionAccessPointCommand extends $Command
@@ -128,4 +129,16 @@ export class DeleteMultiRegionAccessPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMultiRegionAccessPointCommand)
   .de(de_DeleteMultiRegionAccessPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMultiRegionAccessPointRequest;
+      output: DeleteMultiRegionAccessPointResult;
+    };
+    sdk: {
+      input: DeleteMultiRegionAccessPointCommandInput;
+      output: DeleteMultiRegionAccessPointCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,7 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class SendBonusCommand extends $Command
@@ -86,9 +87,7 @@ export class SendBonusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class SendBonusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendBonusCommand)
   .de(de_SendBonusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendBonusRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendBonusCommandInput;
+      output: SendBonusCommandOutput;
+    };
+  };
+}

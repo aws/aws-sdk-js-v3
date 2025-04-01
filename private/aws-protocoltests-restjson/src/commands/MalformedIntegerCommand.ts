@@ -55,6 +55,7 @@ export interface MalformedIntegerCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedIntegerCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedIntegerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedIntegerCommand)
   .de(de_MalformedIntegerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedIntegerInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedIntegerCommandInput;
+      output: MalformedIntegerCommandOutput;
+    };
+  };
+}

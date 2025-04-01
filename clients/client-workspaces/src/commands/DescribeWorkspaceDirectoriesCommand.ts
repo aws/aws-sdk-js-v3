@@ -49,6 +49,14 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  *   ],
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Filters: [ // DescribeWorkspaceDirectoriesFilterList
+ *     { // DescribeWorkspaceDirectoriesFilter
+ *       Name: "USER_IDENTITY_TYPE" || "WORKSPACE_TYPE", // required
+ *       Values: [ // DescribeWorkspaceDirectoriesFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeWorkspaceDirectoriesCommand(input);
  * const response = await client.send(command);
@@ -67,7 +75,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //       ],
  * //       CustomerUserName: "STRING_VALUE",
  * //       IamRoleId: "STRING_VALUE",
- * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR" || "CUSTOMER_MANAGED",
+ * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR" || "CUSTOMER_MANAGED" || "AWS_IAM_IDENTITY_CENTER",
  * //       WorkspaceSecurityGroupId: "STRING_VALUE",
  * //       State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
  * //       WorkspaceCreationProperties: { // DefaultWorkspaceCreationProperties
@@ -91,6 +99,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         DeviceTypeChromeOs: "ALLOW" || "DENY",
  * //         DeviceTypeZeroClient: "ALLOW" || "DENY",
  * //         DeviceTypeLinux: "ALLOW" || "DENY",
+ * //         DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
  * //       },
  * //       Tenancy: "DEDICATED" || "SHARED",
  * //       SelfservicePermissions: { // SelfservicePermissions
@@ -109,10 +118,19 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         Status: "DISABLED" || "ENABLED",
  * //         CertificateAuthorityArn: "STRING_VALUE",
  * //       },
+ * //       EndpointEncryptionMode: "STANDARD_TLS" || "FIPS_VALIDATED",
+ * //       MicrosoftEntraConfig: { // MicrosoftEntraConfig
+ * //         TenantId: "STRING_VALUE",
+ * //         ApplicationConfigSecretArn: "STRING_VALUE",
+ * //       },
  * //       WorkspaceDirectoryName: "STRING_VALUE",
  * //       WorkspaceDirectoryDescription: "STRING_VALUE",
- * //       UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE",
+ * //       UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE" || "AWS_IAM_IDENTITY_CENTER",
  * //       WorkspaceType: "PERSONAL" || "POOLS",
+ * //       IDCConfig: { // IDCConfig
+ * //         InstanceArn: "STRING_VALUE",
+ * //         ApplicationArn: "STRING_VALUE",
+ * //       },
  * //       ActiveDirectoryConfig: { // ActiveDirectoryConfig
  * //         DomainName: "STRING_VALUE", // required
  * //         ServiceAccountSecretArn: "STRING_VALUE", // required
@@ -132,6 +150,10 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //             Status: "ENABLED" || "DISABLED", // required
  * //           },
  * //         ],
+ * //         GlobalAccelerator: { // GlobalAcceleratorForDirectory
+ * //           Mode: "ENABLED_AUTO" || "DISABLED", // required
+ * //           PreferredProtocol: "TCP" || "NONE",
+ * //         },
  * //       },
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
@@ -153,6 +175,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceDirectoriesCommand extends $Command
@@ -163,9 +186,7 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +198,16 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceDirectoriesCommand)
   .de(de_DescribeWorkspaceDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceDirectoriesRequest;
+      output: DescribeWorkspaceDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceDirectoriesCommandInput;
+      output: DescribeWorkspaceDirectoriesCommandOutput;
+    };
+  };
+}

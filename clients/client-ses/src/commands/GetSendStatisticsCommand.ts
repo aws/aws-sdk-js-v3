@@ -64,43 +64,43 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetSendStatistics
  * ```javascript
  * // The following example returns Amazon SES sending statistics:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SendDataPoints": [
+ *   SendDataPoints: [
  *     {
- *       "Bounces": 0,
- *       "Complaints": 0,
- *       "DeliveryAttempts": 5,
- *       "Rejects": 0,
- *       "Timestamp": "2016-07-13T22:43:00Z"
+ *       Bounces: 0,
+ *       Complaints: 0,
+ *       DeliveryAttempts: 5,
+ *       Rejects: 0,
+ *       Timestamp: "2016-07-13T22:43:00Z"
  *     },
  *     {
- *       "Bounces": 0,
- *       "Complaints": 0,
- *       "DeliveryAttempts": 3,
- *       "Rejects": 0,
- *       "Timestamp": "2016-07-13T23:13:00Z"
+ *       Bounces: 0,
+ *       Complaints: 0,
+ *       DeliveryAttempts: 3,
+ *       Rejects: 0,
+ *       Timestamp: "2016-07-13T23:13:00Z"
  *     },
  *     {
- *       "Bounces": 0,
- *       "Complaints": 0,
- *       "DeliveryAttempts": 1,
- *       "Rejects": 0,
- *       "Timestamp": "2016-07-13T21:13:00Z"
+ *       Bounces: 0,
+ *       Complaints: 0,
+ *       DeliveryAttempts: 1,
+ *       Rejects: 0,
+ *       Timestamp: "2016-07-13T21:13:00Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: getsendstatistics-1469047741329
  * ```
  *
+ * @public
  */
 export class GetSendStatisticsCommand extends $Command
   .classBuilder<
@@ -110,9 +110,7 @@ export class GetSendStatisticsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +122,16 @@ export class GetSendStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSendStatisticsCommand)
   .de(de_GetSendStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSendStatisticsResponse;
+    };
+    sdk: {
+      input: GetSendStatisticsCommandInput;
+      output: GetSendStatisticsCommandOutput;
+    };
+  };
+}

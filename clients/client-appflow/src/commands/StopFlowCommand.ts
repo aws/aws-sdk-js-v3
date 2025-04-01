@@ -73,6 +73,7 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class StopFlowCommand extends $Command
@@ -83,9 +84,7 @@ export class StopFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class StopFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopFlowCommand)
   .de(de_StopFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopFlowRequest;
+      output: StopFlowResponse;
+    };
+    sdk: {
+      input: StopFlowCommandInput;
+      output: StopFlowCommandOutput;
+    };
+  };
+}

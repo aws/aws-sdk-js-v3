@@ -63,6 +63,7 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class ConfirmCustomerAgreementCommand extends $Command
@@ -73,9 +74,7 @@ export class ConfirmCustomerAgreementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class ConfirmCustomerAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmCustomerAgreementCommand)
   .de(de_ConfirmCustomerAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmCustomerAgreementRequest;
+      output: ConfirmCustomerAgreementResponse;
+    };
+    sdk: {
+      input: ConfirmCustomerAgreementCommandInput;
+      output: ConfirmCustomerAgreementCommandOutput;
+    };
+  };
+}

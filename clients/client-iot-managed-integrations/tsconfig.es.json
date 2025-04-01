@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "lib": ["dom"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "dist-es"
+  }
+}

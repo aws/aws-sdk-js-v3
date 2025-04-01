@@ -92,6 +92,7 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class StartOrganizationServiceAccessUpdateCommand extends $Command
@@ -102,9 +103,7 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartOrganizationServiceAccessUpdateCommand)
   .de(de_StartOrganizationServiceAccessUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOrganizationServiceAccessUpdateRequest;
+      output: StartOrganizationServiceAccessUpdateResponse;
+    };
+    sdk: {
+      input: StartOrganizationServiceAccessUpdateCommandInput;
+      output: StartOrganizationServiceAccessUpdateCommandOutput;
+    };
+  };
+}

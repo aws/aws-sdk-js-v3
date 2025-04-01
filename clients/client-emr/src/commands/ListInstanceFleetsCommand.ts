@@ -124,12 +124,20 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * //       },
  * //       ResizeSpecifications: { // InstanceFleetResizingSpecifications
  * //         SpotResizeSpecification: { // SpotResizingSpecification
- * //           TimeoutDurationMinutes: Number("int"), // required
+ * //           TimeoutDurationMinutes: Number("int"),
+ * //           AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  * //         },
  * //         OnDemandResizeSpecification: { // OnDemandResizingSpecification
- * //           TimeoutDurationMinutes: Number("int"), // required
+ * //           TimeoutDurationMinutes: Number("int"),
+ * //           AllocationStrategy: "lowest-price" || "prioritized",
+ * //           CapacityReservationOptions: {
+ * //             UsageStrategy: "use-capacity-reservations-first",
+ * //             CapacityReservationPreference: "open" || "none",
+ * //             CapacityReservationResourceGroupArn: "STRING_VALUE",
+ * //           },
  * //         },
  * //       },
+ * //       Context: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",
@@ -153,6 +161,7 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceFleetsCommand extends $Command
@@ -163,9 +172,7 @@ export class ListInstanceFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +184,16 @@ export class ListInstanceFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceFleetsCommand)
   .de(de_ListInstanceFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceFleetsInput;
+      output: ListInstanceFleetsOutput;
+    };
+    sdk: {
+      input: ListInstanceFleetsCommandInput;
+      output: ListInstanceFleetsCommandOutput;
+    };
+  };
+}

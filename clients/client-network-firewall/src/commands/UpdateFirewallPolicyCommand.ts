@@ -81,6 +81,9 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  *     StatefulEngineOptions: { // StatefulEngineOptions
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  *       StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT",
+ *       FlowTimeouts: { // FlowTimeouts
+ *         TcpIdleTimeoutSeconds: Number("int"),
+ *       },
  *     },
  *     TLSInspectionConfigurationArn: "STRING_VALUE",
  *     PolicyVariables: { // PolicyVariables
@@ -167,6 +170,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class UpdateFirewallPolicyCommand extends $Command
@@ -177,9 +181,7 @@ export class UpdateFirewallPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +193,16 @@ export class UpdateFirewallPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallPolicyCommand)
   .de(de_UpdateFirewallPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallPolicyRequest;
+      output: UpdateFirewallPolicyResponse;
+    };
+    sdk: {
+      input: UpdateFirewallPolicyCommandInput;
+      output: UpdateFirewallPolicyCommandOutput;
+    };
+  };
+}

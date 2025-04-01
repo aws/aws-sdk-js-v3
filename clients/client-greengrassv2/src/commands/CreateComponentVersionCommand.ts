@@ -192,6 +192,7 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateComponentVersionCommand extends $Command
@@ -202,9 +203,7 @@ export class CreateComponentVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +215,16 @@ export class CreateComponentVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateComponentVersionCommand)
   .de(de_CreateComponentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComponentVersionRequest;
+      output: CreateComponentVersionResponse;
+    };
+    sdk: {
+      input: CreateComponentVersionCommandInput;
+      output: CreateComponentVersionCommandOutput;
+    };
+  };
+}

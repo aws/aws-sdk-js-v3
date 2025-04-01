@@ -56,6 +56,7 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppImageConfigCommand extends $Command
@@ -66,9 +67,7 @@ export class DeleteAppImageConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +79,16 @@ export class DeleteAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppImageConfigCommand)
   .de(de_DeleteAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppImageConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppImageConfigCommandInput;
+      output: DeleteAppImageConfigCommandOutput;
+    };
+  };
+}

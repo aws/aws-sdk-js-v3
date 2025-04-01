@@ -88,6 +88,7 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
@@ -98,9 +99,7 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPermissionsBoundaryForPermissionSetCommand)
   .de(de_GetPermissionsBoundaryForPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPermissionsBoundaryForPermissionSetRequest;
+      output: GetPermissionsBoundaryForPermissionSetResponse;
+    };
+    sdk: {
+      input: GetPermissionsBoundaryForPermissionSetCommandInput;
+      output: GetPermissionsBoundaryForPermissionSetCommandOutput;
+    };
+  };
+}

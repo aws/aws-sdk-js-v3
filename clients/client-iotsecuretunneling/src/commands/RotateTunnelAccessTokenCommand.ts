@@ -83,6 +83,7 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class RotateTunnelAccessTokenCommand extends $Command
@@ -93,9 +94,7 @@ export class RotateTunnelAccessTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class RotateTunnelAccessTokenCommand extends $Command
   .f(void 0, RotateTunnelAccessTokenResponseFilterSensitiveLog)
   .ser(se_RotateTunnelAccessTokenCommand)
   .de(de_RotateTunnelAccessTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateTunnelAccessTokenRequest;
+      output: RotateTunnelAccessTokenResponse;
+    };
+    sdk: {
+      input: RotateTunnelAccessTokenCommandInput;
+      output: RotateTunnelAccessTokenCommandOutput;
+    };
+  };
+}

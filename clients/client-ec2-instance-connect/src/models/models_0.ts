@@ -10,7 +10,7 @@ import { EC2InstanceConnectServiceException as __BaseException } from "./EC2Inst
 export class AuthException extends __BaseException {
   readonly name: "AuthException" = "AuthException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -32,7 +32,7 @@ export class AuthException extends __BaseException {
 export class EC2InstanceNotFoundException extends __BaseException {
   readonly name: "EC2InstanceNotFoundException" = "EC2InstanceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -56,7 +56,7 @@ export class EC2InstanceNotFoundException extends __BaseException {
 export class EC2InstanceStateInvalidException extends __BaseException {
   readonly name: "EC2InstanceStateInvalidException" = "EC2InstanceStateInvalidException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -79,7 +79,7 @@ export class EC2InstanceStateInvalidException extends __BaseException {
 export class EC2InstanceTypeInvalidException extends __BaseException {
   readonly name: "EC2InstanceTypeInvalidException" = "EC2InstanceTypeInvalidException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -101,7 +101,7 @@ export class EC2InstanceTypeInvalidException extends __BaseException {
 export class EC2InstanceUnavailableException extends __BaseException {
   readonly name: "EC2InstanceUnavailableException" = "EC2InstanceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -123,7 +123,7 @@ export class EC2InstanceUnavailableException extends __BaseException {
 export class InvalidArgsException extends __BaseException {
   readonly name: "InvalidArgsException" = "InvalidArgsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -153,7 +153,7 @@ export interface SendSerialConsoleSSHPublicKeyRequest {
    *         <p>Default: 0</p>
    * @public
    */
-  SerialPort?: number;
+  SerialPort?: number | undefined;
 
   /**
    * <p>The public key material. To use the public key, you must have the matching private
@@ -172,13 +172,13 @@ export interface SendSerialConsoleSSHPublicKeyResponse {
    * <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Is true if the request succeeds and an error otherwise.</p>
    * @public
    */
-  Success?: boolean;
+  Success?: boolean | undefined;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface SendSerialConsoleSSHPublicKeyResponse {
 export class SerialConsoleAccessDisabledException extends __BaseException {
   readonly name: "SerialConsoleAccessDisabledException" = "SerialConsoleAccessDisabledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -212,7 +212,7 @@ export class SerialConsoleAccessDisabledException extends __BaseException {
 export class SerialConsoleSessionLimitExceededException extends __BaseException {
   readonly name: "SerialConsoleSessionLimitExceededException" = "SerialConsoleSessionLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -234,7 +234,7 @@ export class SerialConsoleSessionLimitExceededException extends __BaseException 
 export class SerialConsoleSessionUnavailableException extends __BaseException {
   readonly name: "SerialConsoleSessionUnavailableException" = "SerialConsoleSessionUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -256,7 +256,7 @@ export class SerialConsoleSessionUnavailableException extends __BaseException {
 export class SerialConsoleSessionUnsupportedException extends __BaseException {
   readonly name: "SerialConsoleSessionUnsupportedException" = "SerialConsoleSessionUnsupportedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -278,7 +278,7 @@ export class SerialConsoleSessionUnsupportedException extends __BaseException {
 export class ServiceException extends __BaseException {
   readonly name: "ServiceException" = "ServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -301,7 +301,7 @@ export class ServiceException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -342,7 +342,7 @@ export interface SendSSHPublicKeyRequest {
    * <p>The Availability Zone in which the EC2 instance was launched.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 }
 
 /**
@@ -353,11 +353,11 @@ export interface SendSSHPublicKeyResponse {
    * <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Is true if the request succeeds and an error otherwise.</p>
    * @public
    */
-  Success?: boolean;
+  Success?: boolean | undefined;
 }

@@ -87,9 +87,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </li>
  *                <li>
- *                   <p>Using <code>CreateAccount</code> to create multiple temporary accounts
- *                         isn't recommended. You can only close an account from the Billing and Cost Management console, and
- *                         you must be signed in as the root user. For information on the requirements
+ *                   <p>It isn't recommended to use <code>CreateAccount</code> to create multiple temporary accounts, and using
+ *                         the <code>CreateAccount</code> API to close accounts is subject to a 30-day usage quota. For information on the requirements
  *                         and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> in the
  *                             <i>Organizations User Guide</i>.</p>
@@ -208,6 +207,11 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -351,9 +355,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -417,6 +420,9 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -457,6 +463,9 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -482,29 +491,29 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new account that is automatically part of the organization
  * ```javascript
  * // The owner of an organization creates a member account in the organization. The following example shows that when the organization owner creates the member account, the account is preconfigured with the name "Production Account" and an owner email address of susan@example.com.  An IAM role is automatically created using the default name because the roleName parameter is not used. AWS Organizations sends Susan a "Welcome to AWS" email:
- * //
- * //
+ *
+ *
  * const input = {
- *   "AccountName": "Production Account",
- *   "Email": "susan@example.com"
+ *   AccountName: "Production Account",
+ *   Email: "susan@example.com"
  * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatus": {
- *     "Id": "car-examplecreateaccountrequestid111",
- *     "State": "IN_PROGRESS"
+ *   CreateAccountStatus: {
+ *     Id: "car-examplecreateaccountrequestid111",
+ *     State: "IN_PROGRESS"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-account-that-is-automatically-part-of-the-organization-1472501463507
  * ```
  *
+ * @public
  */
 export class CreateAccountCommand extends $Command
   .classBuilder<
@@ -514,9 +523,7 @@ export class CreateAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -528,4 +535,16 @@ export class CreateAccountCommand extends $Command
   .f(CreateAccountRequestFilterSensitiveLog, CreateAccountResponseFilterSensitiveLog)
   .ser(se_CreateAccountCommand)
   .de(de_CreateAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountRequest;
+      output: CreateAccountResponse;
+    };
+    sdk: {
+      input: CreateAccountCommandInput;
+      output: CreateAccountCommandOutput;
+    };
+  };
+}

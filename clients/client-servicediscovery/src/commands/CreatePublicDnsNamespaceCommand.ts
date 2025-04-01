@@ -97,25 +97,25 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example CreatePublicDnsNamespace example
  * ```javascript
  * // This example creates a public namespace based on DNS.
  * const input = {
- *   "CreatorRequestId": "example-creator-request-id-0003",
- *   "Description": "Example.com AWS Cloud Map Public DNS Namespace",
- *   "Name": "example-public-dns.com"
+ *   CreatorRequestId: "example-creator-request-id-0003",
+ *   Description: "Example.com AWS Cloud Map Public DNS Namespace",
+ *   Name: "example-public-dns.com"
  * };
  * const command = new CreatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "dns2voqozuhfet5kzxoxg-a-response-example"
+ *   OperationId: "dns2voqozuhfet5kzxoxg-a-response-example"
  * }
  * *\/
- * // example id: createpublicdnsnamespace-example-1590114940910
  * ```
  *
+ * @public
  */
 export class CreatePublicDnsNamespaceCommand extends $Command
   .classBuilder<
@@ -125,9 +125,7 @@ export class CreatePublicDnsNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class CreatePublicDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicDnsNamespaceCommand)
   .de(de_CreatePublicDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicDnsNamespaceRequest;
+      output: CreatePublicDnsNamespaceResponse;
+    };
+    sdk: {
+      input: CreatePublicDnsNamespaceCommandInput;
+      output: CreatePublicDnsNamespaceCommandOutput;
+    };
+  };
+}

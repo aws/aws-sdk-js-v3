@@ -138,6 +138,45 @@ export interface ListCisScanConfigurationsCommandOutput extends ListCisScanConfi
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScanConfigurations Call
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListCisScanConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanConfigurations: [
+ *     {
+ *       ownerId: "123412341234",
+ *       scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       scanName: "sample",
+ *       schedule: {
+ *         daily: {
+ *           startTime: {
+ *             timeOfDay: "12:34",
+ *             timezone: "UTC"
+ *           }
+ *         }
+ *       },
+ *       securityLevel: "LEVEL_1",
+ *       targets: {
+ *         accountIds: [
+ *           "123412341234"
+ *         ],
+ *         targetResourceTags: {
+ *           key: [
+ *             "value"
+ *           ]
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScanConfigurationsCommand extends $Command
@@ -148,9 +187,7 @@ export class ListCisScanConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +199,16 @@ export class ListCisScanConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCisScanConfigurationsCommand)
   .de(de_ListCisScanConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCisScanConfigurationsRequest;
+      output: ListCisScanConfigurationsResponse;
+    };
+    sdk: {
+      input: ListCisScanConfigurationsCommandInput;
+      output: ListCisScanConfigurationsCommandOutput;
+    };
+  };
+}

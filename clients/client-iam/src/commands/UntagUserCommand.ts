@@ -69,21 +69,24 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a tag from an IAM user
  * ```javascript
  * // The following example shows how to remove tags that are attached to a user named 'anika'.
  * const input = {
- *   "TagKeys": [
+ *   TagKeys: [
  *     "Dept"
  *   ],
- *   "UserName": "anika"
+ *   UserName: "anika"
  * };
  * const command = new UntagUserCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-tag-from-an-iam-user-1506719725554
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagUserCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class UntagUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class UntagUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagUserCommand)
   .de(de_UntagUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagUserCommandInput;
+      output: UntagUserCommandOutput;
+    };
+  };
+}

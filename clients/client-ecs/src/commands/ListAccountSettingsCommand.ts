@@ -69,10 +69,21 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -80,72 +91,71 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To view your effective account settings
- * ```javascript
- * // This example displays the effective account settings for your account.
- * const input = {
- *   "effectiveSettings": true
- * };
- * const command = new ListAccountSettingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "settings": [
- *     {
- *       "name": "containerInstanceLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     },
- *     {
- *       "name": "serviceLongArnFormat",
- *       "value": "enabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     },
- *     {
- *       "name": "taskLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-view-your-account-settings-1549524118170
- * ```
  *
  * @example To view the effective account settings for a specific IAM user or IAM role
  * ```javascript
  * // This example displays the effective account settings for the specified user or role.
  * const input = {
- *   "effectiveSettings": true,
- *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   effectiveSettings: true,
+ *   principalArn: "arn:aws:iam::<aws_account_id>:user/principalName"
  * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "settings": [
+ *   settings: [
  *     {
- *       "name": "containerInstanceLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "containerInstanceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
  *     },
  *     {
- *       "name": "serviceLongArnFormat",
- *       "value": "enabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "serviceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "enabled"
  *     },
  *     {
- *       "name": "taskLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "taskLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-the-account-settings-for-a-specific-iam-user-or-iam-role-1549524237932
  * ```
  *
+ * @example To view your effective account settings
+ * ```javascript
+ * // This example displays the effective account settings for your account.
+ * const input = {
+ *   effectiveSettings: true
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   settings: [
+ *     {
+ *       name: "containerInstanceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
+ *     },
+ *     {
+ *       name: "serviceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "enabled"
+ *     },
+ *     {
+ *       name: "taskLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ListAccountSettingsCommand extends $Command
   .classBuilder<
@@ -155,9 +165,7 @@ export class ListAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +177,16 @@ export class ListAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountSettingsCommand)
   .de(de_ListAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountSettingsRequest;
+      output: ListAccountSettingsResponse;
+    };
+    sdk: {
+      input: ListAccountSettingsCommandInput;
+      output: ListAccountSettingsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,7 @@ export class AccessDeniedException extends __BaseException {
    */
   ErrorCode: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -58,7 +58,7 @@ export interface AssociateGatewayToServerOutput {
    * <p>The Amazon Resource Name (ARN) of a gateway.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -74,7 +74,7 @@ export class ConflictException extends __BaseException {
    */
   ErrorCode: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -101,9 +101,9 @@ export class InternalServerException extends __BaseException {
    * <p>A description of which internal error occured.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -134,7 +134,7 @@ export class ThrottlingException extends __BaseException {
    */
   ErrorCode: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -161,9 +161,9 @@ export class ValidationException extends __BaseException {
    * <p>A description of what caused the validation error.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -212,7 +212,7 @@ export interface BandwidthRateLimitInterval {
    *          </note>
    * @public
    */
-  AverageUploadRateLimitInBitsPerSec?: number;
+  AverageUploadRateLimitInBitsPerSec?: number | undefined;
 
   /**
    * <p>The hour of the day to start the bandwidth rate limit interval.</p>
@@ -265,14 +265,14 @@ export interface GetBandwidthRateLimitScheduleOutput {
    *       for your account and Amazon Web Services Region.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 
   /**
    * <p>An array containing bandwidth rate limit schedule intervals for a gateway.
    *       When no bandwidth rate limit intervals have been scheduled, the array is empty.</p>
    * @public
    */
-  BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[];
+  BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[] | undefined;
 }
 
 /**
@@ -286,9 +286,9 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>A description of which resource wasn't found.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -338,7 +338,7 @@ export interface PutBandwidthRateLimitScheduleOutput {
    *       for your account and Amazon Web Services Region.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -400,7 +400,7 @@ export interface CreateGatewayInput {
    * <p>A list of up to 50 tags to assign to the gateway. Each tag is a key-value pair.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -411,7 +411,7 @@ export interface CreateGatewayOutput {
    * <p>The Amazon Resource Name (ARN) of the gateway you create.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -433,7 +433,7 @@ export interface DeleteGatewayOutput {
    * <p>The Amazon Resource Name (ARN) of the gateway you deleted.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -455,7 +455,7 @@ export interface DisassociateGatewayFromServerOutput {
    * <p>The Amazon Resource Name (ARN) of the gateway you disassociated.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -480,14 +480,14 @@ export interface MaintenanceStartTime {
    *       1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.</p>
    * @public
    */
-  DayOfMonth?: number;
+  DayOfMonth?: number | undefined;
 
   /**
    * <p>An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday
    *       and 6 represents Saturday. The day of week is in the time zone of the gateway.</p>
    * @public
    */
-  DayOfWeek?: number;
+  DayOfWeek?: number | undefined;
 
   /**
    * <p>The hour component of the maintenance start time represented as <i>hh</i>,
@@ -516,53 +516,53 @@ export interface GatewayDetails {
    *       Amazon Web Services Region.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 
   /**
    * <p>The display name of the gateway.</p>
    * @public
    */
-  GatewayDisplayName?: string;
+  GatewayDisplayName?: string | undefined;
 
   /**
    * <p>The type of the gateway type.</p>
    * @public
    */
-  GatewayType?: GatewayType;
+  GatewayType?: GatewayType | undefined;
 
   /**
    * <p>The hypervisor ID of the gateway.</p>
    * @public
    */
-  HypervisorId?: string;
+  HypervisorId?: string | undefined;
 
   /**
    * <p>Details showing the last time Backup gateway communicated
    *       with the cloud, in Unix format and UTC time.</p>
    * @public
    */
-  LastSeenTime?: Date;
+  LastSeenTime?: Date | undefined;
 
   /**
    * <p>Returns your gateway's weekly maintenance start time including the day and time of the week.
    *       Note that values are in terms of the gateway's time zone. Can be weekly or monthly.</p>
    * @public
    */
-  MaintenanceStartTime?: MaintenanceStartTime;
+  MaintenanceStartTime?: MaintenanceStartTime | undefined;
 
   /**
    * <p>Details showing the next update availability time of the
    *       gateway.</p>
    * @public
    */
-  NextUpdateAvailabilityTime?: Date;
+  NextUpdateAvailabilityTime?: Date | undefined;
 
   /**
    * <p>The DNS name for the virtual private cloud (VPC) endpoint the gateway
    *       uses to connect to the cloud for backup gateway.</p>
    * @public
    */
-  VpcEndpoint?: string;
+  VpcEndpoint?: string | undefined;
 }
 
 /**
@@ -574,7 +574,7 @@ export interface GetGatewayOutput {
    *       API returns the gateway.</p>
    * @public
    */
-  Gateway?: GatewayDetails;
+  Gateway?: GatewayDetails | undefined;
 }
 
 /**
@@ -585,7 +585,7 @@ export interface ListGatewaysInput {
    * <p>The maximum number of gateways to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -594,7 +594,7 @@ export interface ListGatewaysInput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -608,32 +608,32 @@ export interface Gateway {
    *       to return a list of gateways for your account and Amazon Web Services Region.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 
   /**
    * <p>The display name of the gateway.</p>
    * @public
    */
-  GatewayDisplayName?: string;
+  GatewayDisplayName?: string | undefined;
 
   /**
    * <p>The type of the gateway.</p>
    * @public
    */
-  GatewayType?: GatewayType;
+  GatewayType?: GatewayType | undefined;
 
   /**
    * <p>The hypervisor ID of the gateway.</p>
    * @public
    */
-  HypervisorId?: string;
+  HypervisorId?: string | undefined;
 
   /**
    * <p>The last time Backup gateway communicated with the gateway, in Unix format and
    *       UTC time.</p>
    * @public
    */
-  LastSeenTime?: Date;
+  LastSeenTime?: Date | undefined;
 }
 
 /**
@@ -644,7 +644,7 @@ export interface ListGatewaysOutput {
    * <p>A list of your gateways.</p>
    * @public
    */
-  Gateways?: Gateway[];
+  Gateways?: Gateway[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -653,7 +653,7 @@ export interface ListGatewaysOutput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -683,14 +683,14 @@ export interface PutMaintenanceStartTimeInput {
    * <p>The day of the week to start maintenance on a gateway.</p>
    * @public
    */
-  DayOfWeek?: number;
+  DayOfWeek?: number | undefined;
 
   /**
    * <p>The day of the month start maintenance on a gateway.</p>
    *          <p>Valid values range from <code>Sunday</code> to <code>Saturday</code>.</p>
    * @public
    */
-  DayOfMonth?: number;
+  DayOfMonth?: number | undefined;
 }
 
 /**
@@ -702,7 +702,7 @@ export interface PutMaintenanceStartTimeOutput {
    *       time.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -726,13 +726,13 @@ export interface TestHypervisorConfigurationInput {
    * <p>The username for the hypervisor.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The password for the hypervisor.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -754,7 +754,7 @@ export interface UpdateGatewayInformationInput {
    * <p>The updated display name of the gateway.</p>
    * @public
    */
-  GatewayDisplayName?: string;
+  GatewayDisplayName?: string | undefined;
 }
 
 /**
@@ -765,7 +765,7 @@ export interface UpdateGatewayInformationOutput {
    * <p>The Amazon Resource Name (ARN) of the gateway you updated.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -789,7 +789,7 @@ export interface UpdateGatewaySoftwareNowOutput {
    *       you updated.</p>
    * @public
    */
-  GatewayArn?: string;
+  GatewayArn?: string | undefined;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface DeleteHypervisorOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor you deleted.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 }
 
 /**
@@ -870,33 +870,33 @@ export interface HypervisorDetails {
    *       a fully-qualified domain name (FQDN).</p>
    * @public
    */
-  Host?: string;
+  Host?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS
    *       used to encrypt the hypervisor.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>This is the name of the specified hypervisor.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the group of gateways within
    *       the requested log.</p>
    * @public
    */
-  LogGroupArn?: string;
+  LogGroupArn?: string | undefined;
 
   /**
    * <p>This is the current state of the specified hypervisor.</p>
@@ -904,26 +904,26 @@ export interface HypervisorDetails {
    *       <code>OFFLINE</code>, or <code>ERROR</code>.</p>
    * @public
    */
-  State?: HypervisorState;
+  State?: HypervisorState | undefined;
 
   /**
    * <p>This is the time when the most recent successful sync
    *       of metadata occurred.</p>
    * @public
    */
-  LastSuccessfulMetadataSyncTime?: Date;
+  LastSuccessfulMetadataSyncTime?: Date | undefined;
 
   /**
    * <p>This is the most recent status for the indicated metadata sync.</p>
    * @public
    */
-  LatestMetadataSyncStatusMessage?: string;
+  LatestMetadataSyncStatusMessage?: string | undefined;
 
   /**
    * <p>This is the most recent status for the indicated metadata sync.</p>
    * @public
    */
-  LatestMetadataSyncStatus?: SyncMetadataStatus;
+  LatestMetadataSyncStatus?: SyncMetadataStatus | undefined;
 }
 
 /**
@@ -934,7 +934,7 @@ export interface GetHypervisorOutput {
    * <p>Details about the requested hypervisor.</p>
    * @public
    */
-  Hypervisor?: HypervisorDetails;
+  Hypervisor?: HypervisorDetails | undefined;
 }
 
 /**
@@ -987,20 +987,20 @@ export interface GetHypervisorPropertyMappingsOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 
   /**
    * <p>This is a display of the mappings of on-premises VMware tags to the
    *       Amazon Web Services tags.</p>
    * @public
    */
-  VmwareToAwsTagMappings?: VmwareToAwsTagMapping[];
+  VmwareToAwsTagMappings?: VmwareToAwsTagMapping[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface PutHypervisorPropertyMappingsOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 }
 
 /**
@@ -1059,25 +1059,25 @@ export interface ImportHypervisorConfigurationInput {
    * <p>The username for the hypervisor.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The password for the hypervisor.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The Key Management Service for the hypervisor.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The tags of the hypervisor configuration to import.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1088,7 +1088,7 @@ export interface ImportHypervisorConfigurationOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor you disassociated.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 }
 
 /**
@@ -1099,7 +1099,7 @@ export interface ListHypervisorsInput {
    * <p>The maximum number of hypervisors to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -1108,7 +1108,7 @@ export interface ListHypervisorsInput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1123,32 +1123,32 @@ export interface Hypervisor {
    *       domain name (FQDN).</p>
    * @public
    */
-  Host?: string;
+  Host?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service used to encrypt the
    *       hypervisor.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The name of the hypervisor.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The state of the hypervisor.</p>
    * @public
    */
-  State?: HypervisorState;
+  State?: HypervisorState | undefined;
 }
 
 /**
@@ -1160,7 +1160,7 @@ export interface ListHypervisorsOutput {
    *       (ARNs).</p>
    * @public
    */
-  Hypervisors?: Hypervisor[];
+  Hypervisors?: Hypervisor[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -1169,7 +1169,7 @@ export interface ListHypervisorsOutput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1191,7 +1191,7 @@ export interface StartVirtualMachinesMetadataSyncOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 }
 
 /**
@@ -1209,31 +1209,31 @@ export interface UpdateHypervisorInput {
    *       domain name (FQDN).</p>
    * @public
    */
-  Host?: string;
+  Host?: string | undefined;
 
   /**
    * <p>The updated username for the hypervisor.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The updated password for the hypervisor.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The updated name for the hypervisor</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the group of gateways within the requested log.</p>
    * @public
    */
-  LogGroupArn?: string;
+  LogGroupArn?: string | undefined;
 }
 
 /**
@@ -1244,7 +1244,7 @@ export interface UpdateHypervisorOutput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor you updated.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 }
 
 /**
@@ -1266,13 +1266,13 @@ export interface ListTagsForResourceOutput {
    * <p>The Amazon Resource Name (ARN) of the resource's tags that you listed.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>A list of the resource's tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1300,7 +1300,7 @@ export interface TagResourceOutput {
    * <p>The Amazon Resource Name (ARN) of the resource you tagged.</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 }
 
 /**
@@ -1328,7 +1328,7 @@ export interface UntagResourceOutput {
    * <p>The Amazon Resource Name (ARN) of the resource from which you removed tags.</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 }
 
 /**
@@ -1354,19 +1354,19 @@ export interface VmwareTag {
    * <p>The is the category of VMware.</p>
    * @public
    */
-  VmwareCategory?: string;
+  VmwareCategory?: string | undefined;
 
   /**
    * <p>This is the user-defined name of a VMware tag.</p>
    * @public
    */
-  VmwareTagName?: string;
+  VmwareTagName?: string | undefined;
 
   /**
    * <p>This is a user-defined description of a VMware tag.</p>
    * @public
    */
-  VmwareTagDescription?: string;
+  VmwareTagDescription?: string | undefined;
 }
 
 /**
@@ -1378,45 +1378,45 @@ export interface VirtualMachineDetails {
    * <p>The host name of the virtual machine.</p>
    * @public
    */
-  HostName?: string;
+  HostName?: string | undefined;
 
   /**
    * <p>The ID of the virtual machine's hypervisor.</p>
    * @public
    */
-  HypervisorId?: string;
+  HypervisorId?: string | undefined;
 
   /**
    * <p>The name of the virtual machine.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The path of the virtual machine.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual machine. For example,
    *       <code>arn:aws:backup-gateway:us-west-1:0000000000000:vm/vm-0000ABCDEFGIJKL</code>.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The most recent date a virtual machine was backed up, in Unix format and UTC time.</p>
    * @public
    */
-  LastBackupDate?: Date;
+  LastBackupDate?: Date | undefined;
 
   /**
    * <p>These are the details of the VMware tags associated with the specified
    *       virtual machine.</p>
    * @public
    */
-  VmwareTags?: VmwareTag[];
+  VmwareTags?: VmwareTag[] | undefined;
 }
 
 /**
@@ -1429,7 +1429,7 @@ export interface GetVirtualMachineOutput {
    *          </p>
    * @public
    */
-  VirtualMachine?: VirtualMachineDetails;
+  VirtualMachine?: VirtualMachineDetails | undefined;
 }
 
 /**
@@ -1440,13 +1440,13 @@ export interface ListVirtualMachinesInput {
    * <p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>
    * @public
    */
-  HypervisorArn?: string;
+  HypervisorArn?: string | undefined;
 
   /**
    * <p>The maximum number of virtual machines to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -1455,7 +1455,7 @@ export interface ListVirtualMachinesInput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1467,38 +1467,38 @@ export interface VirtualMachine {
    * <p>The host name of the virtual machine.</p>
    * @public
    */
-  HostName?: string;
+  HostName?: string | undefined;
 
   /**
    * <p>The ID of the virtual machine's hypervisor.</p>
    * @public
    */
-  HypervisorId?: string;
+  HypervisorId?: string | undefined;
 
   /**
    * <p>The name of the virtual machine.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The path of the virtual machine.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual machine. For example,
    *         <code>arn:aws:backup-gateway:us-west-1:0000000000000:vm/vm-0000ABCDEFGIJKL</code>.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The most recent date a virtual machine was backed up, in Unix format and UTC time.</p>
    * @public
    */
-  LastBackupDate?: Date;
+  LastBackupDate?: Date | undefined;
 }
 
 /**
@@ -1510,7 +1510,7 @@ export interface ListVirtualMachinesOutput {
    *       (ARNs).</p>
    * @public
    */
-  VirtualMachines?: VirtualMachine[];
+  VirtualMachines?: VirtualMachine[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request is
@@ -1519,7 +1519,7 @@ export interface ListVirtualMachinesOutput {
    *       token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

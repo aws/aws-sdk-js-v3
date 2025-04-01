@@ -69,6 +69,7 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class DeleteFeatureCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteFeatureCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteFeatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFeatureCommand)
   .de(de_DeleteFeatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFeatureRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFeatureCommandInput;
+      output: DeleteFeatureCommandOutput;
+    };
+  };
+}

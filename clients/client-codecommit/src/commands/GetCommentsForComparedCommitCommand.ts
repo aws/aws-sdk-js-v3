@@ -144,6 +144,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class GetCommentsForComparedCommitCommand extends $Command
@@ -154,9 +155,7 @@ export class GetCommentsForComparedCommitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +167,16 @@ export class GetCommentsForComparedCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommentsForComparedCommitCommand)
   .de(de_GetCommentsForComparedCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommentsForComparedCommitInput;
+      output: GetCommentsForComparedCommitOutput;
+    };
+    sdk: {
+      input: GetCommentsForComparedCommitCommandInput;
+      output: GetCommentsForComparedCommitCommandOutput;
+    };
+  };
+}

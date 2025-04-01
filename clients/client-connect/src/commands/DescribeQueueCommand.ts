@@ -53,6 +53,9 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * //       OutboundCallerIdNumberId: "STRING_VALUE",
  * //       OutboundFlowId: "STRING_VALUE",
  * //     },
+ * //     OutboundEmailConfig: { // OutboundEmailConfig
+ * //       OutboundEmailAddressId: "STRING_VALUE",
+ * //     },
  * //     HoursOfOperationId: "STRING_VALUE",
  * //     MaxContacts: Number("int"),
  * //     Status: "ENABLED" || "DISABLED",
@@ -90,6 +93,7 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeQueueCommand extends $Command
@@ -100,9 +104,7 @@ export class DescribeQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +116,16 @@ export class DescribeQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQueueCommand)
   .de(de_DescribeQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQueueRequest;
+      output: DescribeQueueResponse;
+    };
+    sdk: {
+      input: DescribeQueueCommandInput;
+      output: DescribeQueueCommandOutput;
+    };
+  };
+}

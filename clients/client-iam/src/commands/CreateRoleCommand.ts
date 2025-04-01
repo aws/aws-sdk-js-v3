@@ -117,32 +117,32 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an IAM role
  * ```javascript
  * // The following command creates a role named Test-Role and attaches a trust policy that you must convert from JSON to a string. Upon success, the response includes the same policy as a URL-encoded JSON string.
  * const input = {
- *   "AssumeRolePolicyDocument": "<Stringified-JSON>",
- *   "Path": "/",
- *   "RoleName": "Test-Role"
+ *   AssumeRolePolicyDocument: "<Stringified-JSON>",
+ *   Path: "/",
+ *   RoleName: "Test-Role"
  * };
  * const command = new CreateRoleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Role": {
- *     "Arn": "arn:aws:iam::123456789012:role/Test-Role",
- *     "AssumeRolePolicyDocument": "<URL-encoded-JSON>",
- *     "CreateDate": "2013-06-07T20:43:32.821Z",
- *     "Path": "/",
- *     "RoleId": "AKIAIOSFODNN7EXAMPLE",
- *     "RoleName": "Test-Role"
+ *   Role: {
+ *     Arn: "arn:aws:iam::123456789012:role/Test-Role",
+ *     AssumeRolePolicyDocument: "<URL-encoded-JSON>",
+ *     CreateDate: "2013-06-07T20:43:32.821Z",
+ *     Path: "/",
+ *     RoleId: "AKIAIOSFODNN7EXAMPLE",
+ *     RoleName: "Test-Role"
  *   }
  * }
  * *\/
- * // example id: eaaa4b5f-51f1-4f73-b0d3-30127040eff8
  * ```
  *
+ * @public
  */
 export class CreateRoleCommand extends $Command
   .classBuilder<
@@ -152,9 +152,7 @@ export class CreateRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +164,16 @@ export class CreateRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRoleCommand)
   .de(de_CreateRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRoleRequest;
+      output: CreateRoleResponse;
+    };
+    sdk: {
+      input: CreateRoleCommandInput;
+      output: CreateRoleCommandOutput;
+    };
+  };
+}

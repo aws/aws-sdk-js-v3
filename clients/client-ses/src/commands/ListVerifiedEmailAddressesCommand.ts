@@ -56,24 +56,24 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ListVerifiedEmailAddresses
  * ```javascript
  * // The following example lists all email addresses that have been submitted for verification with Amazon SES:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VerifiedEmailAddresses": [
+ *   VerifiedEmailAddresses: [
  *     "user1@example.com",
  *     "user2@example.com"
  *   ]
  * }
  * *\/
- * // example id: listverifiedemailaddresses-1469051402570
  * ```
  *
+ * @public
  */
 export class ListVerifiedEmailAddressesCommand extends $Command
   .classBuilder<
@@ -83,9 +83,7 @@ export class ListVerifiedEmailAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +95,16 @@ export class ListVerifiedEmailAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVerifiedEmailAddressesCommand)
   .de(de_ListVerifiedEmailAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListVerifiedEmailAddressesResponse;
+    };
+    sdk: {
+      input: ListVerifiedEmailAddressesCommandInput;
+      output: ListVerifiedEmailAddressesCommandOutput;
+    };
+  };
+}

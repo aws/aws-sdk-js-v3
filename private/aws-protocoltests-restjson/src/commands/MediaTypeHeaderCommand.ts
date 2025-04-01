@@ -53,6 +53,7 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class MediaTypeHeaderCommand extends $Command
@@ -71,4 +72,16 @@ export class MediaTypeHeaderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MediaTypeHeaderCommand)
   .de(de_MediaTypeHeaderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MediaTypeHeaderInput;
+      output: MediaTypeHeaderOutput;
+    };
+    sdk: {
+      input: MediaTypeHeaderCommandInput;
+      output: MediaTypeHeaderCommandOutput;
+    };
+  };
+}

@@ -87,6 +87,26 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To detach a policy from an object
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWQoovm1s3Ts2v0NKrzdVnPw"
+ *   },
+ *   PolicyReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWgcBsTVmcQEWs6jlygfhuew"
+ *   }
+ * };
+ * const command = new DetachPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DetachPolicyCommand extends $Command
@@ -97,9 +117,7 @@ export class DetachPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +129,16 @@ export class DetachPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachPolicyCommand)
   .de(de_DetachPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachPolicyCommandInput;
+      output: DetachPolicyCommandOutput;
+    };
+  };
+}

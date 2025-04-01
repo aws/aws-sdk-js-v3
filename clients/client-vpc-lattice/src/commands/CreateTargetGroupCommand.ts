@@ -134,6 +134,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateTargetGroupCommand extends $Command
@@ -144,9 +145,7 @@ export class CreateTargetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class CreateTargetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTargetGroupCommand)
   .de(de_CreateTargetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTargetGroupRequest;
+      output: CreateTargetGroupResponse;
+    };
+    sdk: {
+      input: CreateTargetGroupCommandInput;
+      output: CreateTargetGroupCommandOutput;
+    };
+  };
+}

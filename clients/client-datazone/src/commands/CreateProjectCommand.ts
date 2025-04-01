@@ -47,6 +47,20 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   domainUnitId: "STRING_VALUE",
+ *   projectProfileId: "STRING_VALUE",
+ *   userParameters: [ // EnvironmentConfigurationUserParametersList
+ *     { // EnvironmentConfigurationUserParameter
+ *       environmentId: "STRING_VALUE",
+ *       environmentConfigurationName: "STRING_VALUE",
+ *       environmentParameters: [ // EnvironmentParametersList
+ *         { // EnvironmentParameter
+ *           name: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
@@ -55,7 +69,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED" || "UPDATING" || "UPDATE_FAILED",
  * //   failureReasons: [ // FailureReasons
  * //     { // ProjectDeletionError
  * //       code: "STRING_VALUE",
@@ -68,6 +82,31 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   domainUnitId: "STRING_VALUE",
+ * //   projectProfileId: "STRING_VALUE",
+ * //   userParameters: [ // EnvironmentConfigurationUserParametersList
+ * //     { // EnvironmentConfigurationUserParameter
+ * //       environmentId: "STRING_VALUE",
+ * //       environmentConfigurationName: "STRING_VALUE",
+ * //       environmentParameters: [ // EnvironmentParametersList
+ * //         { // EnvironmentParameter
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ * //     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ * //     environmentFailureReasons: { // EnvironmentFailureReasons
+ * //       "<keys>": [ // EnvironmentFailureReasonsList
+ * //         { // EnvironmentError
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -105,6 +144,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateProjectCommand extends $Command
@@ -115,9 +155,7 @@ export class CreateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +167,16 @@ export class CreateProjectCommand extends $Command
   .f(CreateProjectInputFilterSensitiveLog, CreateProjectOutputFilterSensitiveLog)
   .ser(se_CreateProjectCommand)
   .de(de_CreateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProjectInput;
+      output: CreateProjectOutput;
+    };
+    sdk: {
+      input: CreateProjectCommandInput;
+      output: CreateProjectCommandOutput;
+    };
+  };
+}

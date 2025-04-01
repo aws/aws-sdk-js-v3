@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListTrafficDistributionGroupUsersRequest,
   ListTrafficDistributionGroupUsersResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_ListTrafficDistributionGroupUsersCommand,
   se_ListTrafficDistributionGroupUsersCommand,
@@ -85,6 +85,7 @@ export interface ListTrafficDistributionGroupUsersCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListTrafficDistributionGroupUsersCommand extends $Command
@@ -95,9 +96,7 @@ export class ListTrafficDistributionGroupUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListTrafficDistributionGroupUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficDistributionGroupUsersCommand)
   .de(de_ListTrafficDistributionGroupUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficDistributionGroupUsersRequest;
+      output: ListTrafficDistributionGroupUsersResponse;
+    };
+    sdk: {
+      input: ListTrafficDistributionGroupUsersCommandInput;
+      output: ListTrafficDistributionGroupUsersCommandOutput;
+    };
+  };
+}

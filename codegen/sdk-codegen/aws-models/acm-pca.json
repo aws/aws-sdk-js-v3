@@ -1,37 +1,8 @@
 {
   "smithy": "2.0",
-  "metadata": {
-    "suppressions": [
-      {
-        "id": "HttpMethodSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpResponseCodeSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "PaginatedTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpHeaderTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpUriConflict",
-        "namespace": "*"
-      },
-      {
-        "id": "Service",
-        "namespace": "*"
-      }
-    ]
-  },
   "shapes": {
     "com.amazonaws.acmpca#ACMPrivateCA": {
       "type": "service",
-      "version": "2017-08-22",
       "operations": [
         {
           "target": "com.amazonaws.acmpca#CreateCertificateAuthority"
@@ -109,6 +80,7 @@
           "arnNamespace": "acm-pca",
           "cloudFormationName": "ACMPCA",
           "cloudTrailEventSource": "acm-pca.amazonaws.com",
+          "docId": "acm-pca-2017-08-22",
           "endpointPrefix": "acm-pca"
         },
         "aws.auth#sigv4": {
@@ -1223,7 +1195,7 @@
         "CustomAttributes": {
           "target": "com.amazonaws.acmpca#CustomAttributeList",
           "traits": {
-            "smithy.api#documentation": "<p></p>\n         <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of\n\t\t\twhich consists of an object identifier (OID) and a value. For more information, see\n\t\t\tNIST’s definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p>\n         <note>\n            <p>Custom attributes cannot be used in combination with standard attributes.</p>\n         </note>"
+            "smithy.api#documentation": "<p/>\n         <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of\n\t\t\twhich consists of an object identifier (OID) and a value. For more information, see\n\t\t\tNIST’s definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p>\n         <note>\n            <p>Custom attributes cannot be used in combination with standard attributes.</p>\n         </note>"
           }
         }
       },
@@ -1236,7 +1208,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 20480
+          "max": 81920
         },
         "smithy.api#pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$"
       }
@@ -1806,7 +1778,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an audit report that lists every time that your CA private key is used. The\n\t\t\treport is saved in the Amazon S3 bucket that you specify on input. The <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html\">IssueCertificate</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html\">RevokeCertificate</a> actions use\n\t\t\tthe private key. </p>\n         <note>\n            <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to\n                        the S3 bucket that you specify. If the IAM principal making the call\n                        does not have permission to write to the bucket, then an exception is\n                        thrown. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies\">Access \n\t\t\t\t\t\tpolicies for CRLs in Amazon S3</a>.</p>\n         </note>\n         <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. \n  For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption\">Encrypting Your Audit\n\t\t\t\tReports</a>.</p>\n         <note>\n            <p>You can generate a maximum of one report every 30 minutes.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html\">IssueCertificate</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html\">RevokeCertificate</a> actions use\n\t\t\tthe private key.</p>\n         <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access\">Prepare an Amazon S3 bucket for audit reports</a>.</p>\n         <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. \n  For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption\">Encrypting Your Audit\n\t\t\t\tReports</a>.</p>\n         <note>\n            <p>You can generate a maximum of one report every 30 minutes.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1872,7 +1844,7 @@
         "RevocationConfiguration": {
           "target": "com.amazonaws.acmpca#RevocationConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to\n\t\t\tenable a certificate revocation list (CRL), to enable both, or to enable neither. The\n\t\t\tdefault is for both certificate validation mechanisms to be disabled. </p>\n         <note>\n            <p>The following requirements apply to revocation configurations.</p>\n            <ul>\n               <li>\n                  <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code> \n\t\t\t\t\tparameter, and will fail if other parameters such as <code>CustomCname</code> or \n\t\t\t\t\t<code>ExpirationInDays</code> are included.</p>\n               </li>\n               <li>\n                  <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to \n\t\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Amazon S3 \n\t\t\t\t\tbucket naming rules</a>.</p>\n               </li>\n               <li>\n                  <p>A configuration containing a custom Canonical\n\t\t\t\t\t\tName (CNAME) parameter for CRLs or OCSP must conform to <a href=\"https://www.ietf.org/rfc/rfc2396.txt\">RFC2396</a> restrictions\n\t\t\t\t\t\ton the use of special characters in a CNAME. </p>\n               </li>\n               <li>\n                  <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a\n\t\t\t\t\t\tprotocol prefix such as \"http://\" or \"https://\".</p>\n               </li>\n            </ul>\n         </note>\n         <p> For more information, see the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html\">OcspConfiguration</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a>\n\t\t\ttypes.</p>"
+            "smithy.api#documentation": "<p>Contains information to enable support for Online Certificate Status Protocol (OCSP), certificate revocation list (CRL), both protocols, or neither. By default, both certificate validation mechanisms are disabled.</p>\n         <p>The following requirements apply to revocation configurations.</p>\n         <ul>\n            <li>\n               <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code> \n\t\t\t\t\tparameter, and will fail if other parameters such as <code>CustomCname</code> or \n\t\t\t\t\t<code>ExpirationInDays</code> are included.</p>\n            </li>\n            <li>\n               <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to \n\t\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Amazon S3 \n\t\t\t\t\tbucket naming rules</a>.</p>\n            </li>\n            <li>\n               <p>A configuration containing a custom Canonical\n\t\t\t\t\t\tName (CNAME) parameter for CRLs or OCSP must conform to <a href=\"https://www.ietf.org/rfc/rfc2396.txt\">RFC2396</a> restrictions\n\t\t\t\t\t\ton the use of special characters in a CNAME. </p>\n            </li>\n            <li>\n               <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a\n\t\t\t\t\t\tprotocol prefix such as \"http://\" or \"https://\".</p>\n            </li>\n         </ul>\n         <p> For more information, see the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html\">OcspConfiguration</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a>\n\t\t\ttypes.</p>"
           }
         },
         "CertificateAuthorityType": {
@@ -2032,6 +2004,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Configures the behavior of the CRL Distribution Point extension for certificates issued by your certificate authority. If this field is not provided, then the CRl Distribution Point Extension will be present and contain the default CRL URL.</p>"
           }
+        },
+        "CrlType": {
+          "target": "com.amazonaws.acmpca#CrlType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to create a complete or partitioned CRL. This setting determines the maximum \n\t\tnumber of certificates that the certificate authority can issue and revoke. For more information, see\n\t\t<a href=\"privateca/latest/userguide/pca.html#limits_pca\">Amazon Web Services Private CA quotas</a>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>COMPLETE</code> - The default setting. Amazon Web Services Private CA maintains a single CRL ﬁle for all unexpired \n\t\t\t\tcertiﬁcates issued by a CA that have been revoked for any reason. Each certiﬁcate that Amazon Web Services Private CA\n\t\t\tissues is bound to a speciﬁc CRL through its CRL distribution point (CDP) extension, deﬁned in <a href=\"https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9\">\n\t\t\t\tRFC 5280</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PARTITIONED</code> - Compared to complete CRLs, partitioned CRLs\n\t\t\tdramatically increase the number of certiﬁcates your private CA can issue. </p>\n               <important>\n                  <p> When using partitioned CRLs, you must validate that the CRL's associated\n\t\t\t\t\t\tissuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure\n\t\t\t\t\t\tthe right CRL has been fetched. Amazon Web Services Private CA marks the IDP extension as critical, \n\t\t\t\t\t\twhich your client must be able to process.\n\t\t\t\t\t</p>\n               </important>\n            </li>\n         </ul>"
+          }
+        },
+        "CustomPath": {
+          "target": "com.amazonaws.acmpca#CrlPathString",
+          "traits": {
+            "smithy.api#documentation": "<p>Designates a custom ﬁle path in S3 for CRL(s). For example, <code>http://&lt;CustomName&gt;/\n\t\t\t&lt;CustomPath&gt;/&lt;CrlPartition_GUID&gt;.crl</code>. \n\t\t</p>"
+          }
         }
       },
       "traits": {
@@ -2052,6 +2036,33 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension \n\t\t\tcontains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension\n\t\t\tomitted or not in certificates issued by your CA, you can set the <b>OmitExtension</b> parameter.</p>"
+      }
+    },
+    "com.amazonaws.acmpca#CrlPathString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 253
+        },
+        "smithy.api#pattern": "^[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*$"
+      }
+    },
+    "com.amazonaws.acmpca#CrlType": {
+      "type": "enum",
+      "members": {
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        },
+        "PARTITIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTITIONED"
+          }
+        }
       }
     },
     "com.amazonaws.acmpca#CsrBlob": {
@@ -2099,7 +2110,7 @@
         "Value": {
           "target": "com.amazonaws.acmpca#String1To256",
           "traits": {
-            "smithy.api#documentation": "<p></p>\n         <p>Specifies the attribute value of relative distinguished name (RDN).</p>",
+            "smithy.api#documentation": "<p/>\n         <p>Specifies the attribute value of relative distinguished name (RDN).</p>",
             "smithy.api#required": {}
           }
         }
@@ -2126,14 +2137,14 @@
         "ObjectIdentifier": {
           "target": "com.amazonaws.acmpca#CustomObjectIdentifier",
           "traits": {
-            "smithy.api#documentation": "<p></p>\n         <p>Specifies the object identifier (OID) of the X.509 extension. For more information,\n\t\t\tsee the <a href=\"https://oidref.com/2.5.29\">Global OID reference database.</a>\n         </p>",
+            "smithy.api#documentation": "<p/>\n         <p>Specifies the object identifier (OID) of the X.509 extension. For more information,\n\t\t\tsee the <a href=\"https://oidref.com/2.5.29\">Global OID reference database.</a>\n         </p>",
             "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.acmpca#Base64String1To4096",
           "traits": {
-            "smithy.api#documentation": "<p></p>\n         <p>Specifies the base64-encoded value of the X.509 extension.</p>",
+            "smithy.api#documentation": "<p/>\n         <p>Specifies the base64-encoded value of the X.509 extension.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2141,12 +2152,12 @@
           "target": "com.amazonaws.acmpca#Boolean",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p></p>\n         <p>Specifies the critical flag of the X.509 extension.</p>"
+            "smithy.api#documentation": "<p/>\n         <p>Specifies the critical flag of the X.509 extension.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p></p>\n         <p>Specifies the X.509 extension information for a certificate.</p>\n         <p>Extensions present in <code>CustomExtensions</code> follow the\n\t\t\t\t<code>ApiPassthrough</code>\n            <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations\">template\n\t\t\t\trules</a>. </p>"
+        "smithy.api#documentation": "<p/>\n         <p>Specifies the X.509 extension information for a certificate.</p>\n         <p>Extensions present in <code>CustomExtensions</code> follow the\n\t\t\t\t<code>ApiPassthrough</code>\n            <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations\">template\n\t\t\t\trules</a>. </p>"
       }
     },
     "com.amazonaws.acmpca#CustomExtensionList": {
@@ -2392,7 +2403,8 @@
                 }
               }
             ],
-            "minDelay": 3
+            "minDelay": 3,
+            "maxDelay": 180
           }
         }
       }
@@ -2619,7 +2631,7 @@
         "CustomExtensions": {
           "target": "com.amazonaws.acmpca#CustomExtensionList",
           "traits": {
-            "smithy.api#documentation": "<p></p>\n         <p>Contains a sequence of one or more X.509 extensions, each of which consists of an\n\t\t\tobject identifier (OID), a base64-encoded value, and the critical flag. For more\n\t\t\tinformation, see the <a href=\"https://oidref.com/2.5.29\">Global OID reference\n\t\t\t\tdatabase.</a>\n         </p>"
+            "smithy.api#documentation": "<p/>\n         <p>Contains a sequence of one or more X.509 extensions, each of which consists of an\n\t\t\tobject identifier (OID), a base64-encoded value, and the critical flag. For more\n\t\t\tinformation, see the <a href=\"https://oidref.com/2.5.29\">Global OID reference\n\t\t\t\tdatabase.</a>\n         </p>"
           }
         }
       },
@@ -2766,7 +2778,8 @@
                 }
               }
             ],
-            "minDelay": 1
+            "minDelay": 1,
+            "maxDelay": 60
           }
         }
       }
@@ -2880,7 +2893,8 @@
                 }
               }
             ],
-            "minDelay": 3
+            "minDelay": 3,
+            "maxDelay": 180
           }
         }
       }
@@ -3299,6 +3313,12 @@
             "smithy.api#enumValue": "RSA_2048"
           }
         },
+        "RSA_3072": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RSA_3072"
+          }
+        },
         "RSA_4096": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -3315,6 +3335,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "EC_secp384r1"
+          }
+        },
+        "EC_secp521r1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC_secp521r1"
           }
         },
         "SM2": {
@@ -3457,16 +3483,16 @@
     "com.amazonaws.acmpca#ListCertificateAuthoritiesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.acmpca#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this parameter when paginating results in a subsequent request after you receive a\n\t\t\tresponse with truncated results. Set it to the value of the <code>NextToken</code>\n\t\t\tparameter from the response you just received.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.acmpca#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response on each page. If additional items exist beyond the number you\n\t\t\tspecify, the <code>NextToken</code> element is sent in the response. Use this\n\t\t\t\t<code>NextToken</code> value in a subsequent request to retrieve additional\n\t\t\titems.</p>\n         <p>Although the maximum value is 1000, the action only returns a maximum of 100 items.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.acmpca#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this parameter when paginating results in a subsequent request after you receive a\n\t\t\tresponse with truncated results. Set it to the value of the <code>NextToken</code>\n\t\t\tparameter from the response you just received.</p>"
           }
         },
         "ResourceOwner": {
@@ -3483,16 +3509,16 @@
     "com.amazonaws.acmpca#ListCertificateAuthoritiesResponse": {
       "type": "structure",
       "members": {
-        "CertificateAuthorities": {
-          "target": "com.amazonaws.acmpca#CertificateAuthorities",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary information about each certificate authority you have created.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.acmpca#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When the list is truncated, this value is present and should be used for the\n\t\t\t\t<code>NextToken</code> parameter in a subsequent pagination request.</p>"
+          }
+        },
+        "CertificateAuthorities": {
+          "target": "com.amazonaws.acmpca#CertificateAuthorities",
+          "traits": {
+            "smithy.api#documentation": "<p>Summary information about each certificate authority you have created.</p>"
           }
         }
       },
@@ -3538,11 +3564,10 @@
     "com.amazonaws.acmpca#ListPermissionsRequest": {
       "type": "structure",
       "members": {
-        "CertificateAuthorityArn": {
-          "target": "com.amazonaws.acmpca#Arn",
+        "MaxResults": {
+          "target": "com.amazonaws.acmpca#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by\n\t\t\tcalling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must be of the form:\n\t\t\t\t<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>\n\t\t\tYou can get a private CA's ARN by running the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>When paginating results, use this parameter to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
           }
         },
         "NextToken": {
@@ -3551,10 +3576,11 @@
             "smithy.api#documentation": "<p>When paginating results, use this parameter in a subsequent request after you receive\n\t\t\ta response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.acmpca#MaxResults",
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.acmpca#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>When paginating results, use this parameter to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by\n\t\t\tcalling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must be of the form:\n\t\t\t\t<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>\n\t\t\tYou can get a private CA's ARN by running the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3565,16 +3591,16 @@
     "com.amazonaws.acmpca#ListPermissionsResponse": {
       "type": "structure",
       "members": {
-        "Permissions": {
-          "target": "com.amazonaws.acmpca#PermissionList",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary information about each permission assigned by the specified private CA,\n\t\t\tincluding the action enabled, the policy provided, and the time of creation.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.acmpca#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.\n\t\t</p>"
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.acmpca#PermissionList",
+          "traits": {
+            "smithy.api#documentation": "<p>Summary information about each permission assigned by the specified private CA,\n\t\t\tincluding the action enabled, the policy provided, and the time of creation.</p>"
           }
         }
       },
@@ -3598,6 +3624,9 @@
           "target": "com.amazonaws.acmpca#InvalidStateException"
         },
         {
+          "target": "com.amazonaws.acmpca#RequestFailedException"
+        },
+        {
           "target": "com.amazonaws.acmpca#ResourceNotFoundException"
         }
       ],
@@ -3614,11 +3643,10 @@
     "com.amazonaws.acmpca#ListTagsRequest": {
       "type": "structure",
       "members": {
-        "CertificateAuthorityArn": {
-          "target": "com.amazonaws.acmpca#Arn",
+        "MaxResults": {
+          "target": "com.amazonaws.acmpca#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a> action. This must be of the form: </p>\n         <p>\n            <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n         </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
           }
         },
         "NextToken": {
@@ -3627,10 +3655,11 @@
             "smithy.api#documentation": "<p>Use this parameter when paginating results in a subsequent request after you receive a\n\t\t\tresponse with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.acmpca#MaxResults",
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.acmpca#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a> action. This must be of the form: </p>\n         <p>\n            <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n         </p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3641,16 +3670,16 @@
     "com.amazonaws.acmpca#ListTagsResponse": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.acmpca#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with your private CA.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.acmpca#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.\n\t\t</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.acmpca#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with your private CA.</p>"
           }
         }
       },
@@ -3957,7 +3986,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The\n\t\t\tARN of the CA can be found by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p>\n         <p></p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The\n\t\t\tARN of the CA can be found by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p>\n         <p/>",
             "smithy.api#required": {}
           }
         },
@@ -4631,7 +4660,7 @@
         "RevocationConfiguration": {
           "target": "com.amazonaws.acmpca#RevocationConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to\n\t\t\tenable a certificate revocation list (CRL), to enable both, or to enable neither. If\n\t\t\tthis parameter is not supplied, existing capibilites remain unchanged. For more\n\t\t\tinformation, see the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html\">OcspConfiguration</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a> types.</p>\n         <note>\n            <p>The following requirements apply to revocation configurations.</p>\n            <ul>\n               <li>\n                  <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code> \n\t\t\t\t\tparameter, and will fail if other parameters such as <code>CustomCname</code> or \n\t\t\t\t\t<code>ExpirationInDays</code> are included.</p>\n               </li>\n               <li>\n                  <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to \n\t\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Amazon S3 \n\t\t\t\t\tbucket naming rules</a>.</p>\n               </li>\n               <li>\n                  <p>A configuration containing a custom Canonical\n\t\t\t\t\t\tName (CNAME) parameter for CRLs or OCSP must conform to <a href=\"https://www.ietf.org/rfc/rfc2396.txt\">RFC2396</a> restrictions\n\t\t\t\t\t\ton the use of special characters in a CNAME. </p>\n               </li>\n               <li>\n                  <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a\n\t\t\t\t\t\tprotocol prefix such as \"http://\" or \"https://\".</p>\n               </li>\n            </ul>\n         </note>"
+            "smithy.api#documentation": "<p>Contains information to enable support for Online Certificate Status Protocol (OCSP), certificate revocation list (CRL), both protocols, or neither. If you don't supply this parameter, existing capibilites remain unchanged. For more\n\t\t\tinformation, see the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html\">OcspConfiguration</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a> types.</p>\n         <p>The following requirements apply to revocation configurations.</p>\n         <ul>\n            <li>\n               <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code> \n\t\t\t\t\tparameter, and will fail if other parameters such as <code>CustomCname</code> or \n\t\t\t\t\t<code>ExpirationInDays</code> are included.</p>\n            </li>\n            <li>\n               <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to \n\t\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Amazon S3 \n\t\t\t\t\tbucket naming rules</a>.</p>\n            </li>\n            <li>\n               <p>A configuration containing a custom Canonical\n\t\t\t\t\t\tName (CNAME) parameter for CRLs or OCSP must conform to <a href=\"https://www.ietf.org/rfc/rfc2396.txt\">RFC2396</a> restrictions\n\t\t\t\t\t\ton the use of special characters in a CNAME. </p>\n            </li>\n            <li>\n               <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a\n\t\t\t\t\t\tprotocol prefix such as \"http://\" or \"https://\".</p>\n            </li>\n         </ul>\n         <important>\n            <p> If you update the <code>S3BucketName</code> of <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a>, you can break revocation for existing certificates. In other words, if you call <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html\">UpdateCertificateAuthority</a> to update the CRL configuration's S3 bucket name, Amazon Web Services Private CA only writes CRLs to the new S3 bucket. Certificates issued prior to this point will have the old S3 bucket name in your CRL Distribution Point (CDP) extension, essentially breaking revocation. If you must update the S3 bucket, you'll need to reissue old certificates to keep the revocation working. Alternatively, you can use a <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html#privateca-Type-CrlConfiguration-CustomCname\">CustomCname</a> in your CRL configuration if you might need to change the S3 bucket name in the future.</p>\n         </important>"
           }
         },
         "Status": {

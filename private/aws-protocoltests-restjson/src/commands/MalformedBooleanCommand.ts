@@ -55,6 +55,7 @@ export interface MalformedBooleanCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedBooleanCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedBooleanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedBooleanCommand)
   .de(de_MalformedBooleanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedBooleanInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedBooleanCommandInput;
+      output: MalformedBooleanCommandOutput;
+    };
+  };
+}

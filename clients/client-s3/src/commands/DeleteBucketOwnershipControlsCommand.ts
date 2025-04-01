@@ -32,7 +32,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:PutBucketOwnershipControls</code> permission. For more information
@@ -78,6 +78,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketOwnershipControlsCommand extends $Command
@@ -104,4 +105,16 @@ export class DeleteBucketOwnershipControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketOwnershipControlsCommand)
   .de(de_DeleteBucketOwnershipControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketOwnershipControlsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketOwnershipControlsCommandInput;
+      output: DeleteBucketOwnershipControlsCommandOutput;
+    };
+  };
+}

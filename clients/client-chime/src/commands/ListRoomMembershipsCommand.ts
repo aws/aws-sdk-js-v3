@@ -10,7 +10,7 @@ import {
   ListRoomMembershipsRequest,
   ListRoomMembershipsResponse,
   ListRoomMembershipsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -99,6 +99,7 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListRoomMembershipsCommand extends $Command
@@ -109,9 +110,7 @@ export class ListRoomMembershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListRoomMembershipsCommand extends $Command
   .f(void 0, ListRoomMembershipsResponseFilterSensitiveLog)
   .ser(se_ListRoomMembershipsCommand)
   .de(de_ListRoomMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoomMembershipsRequest;
+      output: ListRoomMembershipsResponse;
+    };
+    sdk: {
+      input: ListRoomMembershipsCommandInput;
+      output: ListRoomMembershipsCommandOutput;
+    };
+  };
+}

@@ -58,7 +58,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * //       KBId: "STRING_VALUE", // required
  * //       Classification: "STRING_VALUE", // required
  * //       Severity: "STRING_VALUE", // required
- * //       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED", // required
+ * //       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED" || "AVAILABLE_SECURITY_UPDATE", // required
  * //       InstalledTime: new Date("TIMESTAMP"), // required
  * //       CVEIds: "STRING_VALUE",
  * //     },
@@ -78,7 +78,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  *
  * @throws {@link InvalidInstanceId} (client fault)
  *  <p>The following problems can cause this exception:</p>
@@ -106,6 +106,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstancePatchesCommand extends $Command
@@ -116,9 +117,7 @@ export class DescribeInstancePatchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class DescribeInstancePatchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstancePatchesCommand)
   .de(de_DescribeInstancePatchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancePatchesRequest;
+      output: DescribeInstancePatchesResult;
+    };
+    sdk: {
+      input: DescribeInstancePatchesCommandInput;
+      output: DescribeInstancePatchesCommandOutput;
+    };
+  };
+}

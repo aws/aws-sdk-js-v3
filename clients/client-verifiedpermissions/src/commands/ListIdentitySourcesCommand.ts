@@ -216,6 +216,38 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesOut
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example ListIdentitySources
+ * ```javascript
+ * // The following example request creates lists the identity sources currently defined in the specified policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListIdentitySourcesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   identitySources: [
+ *     {
+ *       createdDate: "2023-05-19T20:29:23.66812Z",
+ *       details: {
+ *         clientIds: [
+ *           "a1b2c3d4e5f6g7h8i9j0kalbmc"
+ *         ],
+ *         discoveryUrl: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5",
+ *         openIdIssuer: "COGNITO",
+ *         userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
+ *       },
+ *       identitySourceId: "ISEXAMPLEabcdefg111111",
+ *       lastUpdatedDate: "2023-05-19T20:29:23.66812Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       principalEntityType: "User"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIdentitySourcesCommand extends $Command
@@ -226,9 +258,7 @@ export class ListIdentitySourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -240,4 +270,16 @@ export class ListIdentitySourcesCommand extends $Command
   .f(ListIdentitySourcesInputFilterSensitiveLog, ListIdentitySourcesOutputFilterSensitiveLog)
   .ser(se_ListIdentitySourcesCommand)
   .de(de_ListIdentitySourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentitySourcesInput;
+      output: ListIdentitySourcesOutput;
+    };
+    sdk: {
+      input: ListIdentitySourcesCommandInput;
+      output: ListIdentitySourcesCommandOutput;
+    };
+  };
+}

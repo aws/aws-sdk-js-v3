@@ -141,18 +141,21 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To disable automatic rotation of key material
  * ```javascript
  * // The following example disables automatic annual rotation of the key material for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DisableKeyRotationCommand(input);
- * await client.send(command);
- * // example id: to-disable-automatic-rotation-of-key-material-1478624396092
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableKeyRotationCommand extends $Command
   .classBuilder<
@@ -162,9 +165,7 @@ export class DisableKeyRotationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +177,16 @@ export class DisableKeyRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableKeyRotationCommand)
   .de(de_DisableKeyRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableKeyRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableKeyRotationCommandInput;
+      output: DisableKeyRotationCommandOutput;
+    };
+  };
+}

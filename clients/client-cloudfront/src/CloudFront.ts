@@ -14,6 +14,11 @@ import {
   CopyDistributionCommandOutput,
 } from "./commands/CopyDistributionCommand";
 import {
+  CreateAnycastIpListCommand,
+  CreateAnycastIpListCommandInput,
+  CreateAnycastIpListCommandOutput,
+} from "./commands/CreateAnycastIpListCommand";
+import {
   CreateCachePolicyCommand,
   CreateCachePolicyCommandInput,
   CreateCachePolicyCommandOutput,
@@ -109,6 +114,16 @@ import {
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
 import {
+  CreateVpcOriginCommand,
+  CreateVpcOriginCommandInput,
+  CreateVpcOriginCommandOutput,
+} from "./commands/CreateVpcOriginCommand";
+import {
+  DeleteAnycastIpListCommand,
+  DeleteAnycastIpListCommandInput,
+  DeleteAnycastIpListCommandOutput,
+} from "./commands/DeleteAnycastIpListCommand";
+import {
   DeleteCachePolicyCommand,
   DeleteCachePolicyCommandInput,
   DeleteCachePolicyCommandOutput,
@@ -189,6 +204,11 @@ import {
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
 import {
+  DeleteVpcOriginCommand,
+  DeleteVpcOriginCommandInput,
+  DeleteVpcOriginCommandOutput,
+} from "./commands/DeleteVpcOriginCommand";
+import {
   DescribeFunctionCommand,
   DescribeFunctionCommandInput,
   DescribeFunctionCommandOutput,
@@ -198,6 +218,11 @@ import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
+import {
+  GetAnycastIpListCommand,
+  GetAnycastIpListCommandInput,
+  GetAnycastIpListCommandOutput,
+} from "./commands/GetAnycastIpListCommand";
 import {
   GetCachePolicyCommand,
   GetCachePolicyCommandInput,
@@ -331,6 +356,16 @@ import {
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
 import {
+  GetVpcOriginCommand,
+  GetVpcOriginCommandInput,
+  GetVpcOriginCommandOutput,
+} from "./commands/GetVpcOriginCommand";
+import {
+  ListAnycastIpListsCommand,
+  ListAnycastIpListsCommandInput,
+  ListAnycastIpListsCommandOutput,
+} from "./commands/ListAnycastIpListsCommand";
+import {
   ListCachePoliciesCommand,
   ListCachePoliciesCommandInput,
   ListCachePoliciesCommandOutput,
@@ -350,6 +385,11 @@ import {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
+import {
+  ListDistributionsByAnycastIpListIdCommand,
+  ListDistributionsByAnycastIpListIdCommandInput,
+  ListDistributionsByAnycastIpListIdCommandOutput,
+} from "./commands/ListDistributionsByAnycastIpListIdCommand";
 import {
   ListDistributionsByCachePolicyIdCommand,
   ListDistributionsByCachePolicyIdCommandInput,
@@ -375,6 +415,11 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
+  ListDistributionsByVpcOriginIdCommand,
+  ListDistributionsByVpcOriginIdCommandInput,
+  ListDistributionsByVpcOriginIdCommandOutput,
+} from "./commands/ListDistributionsByVpcOriginIdCommand";
 import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
@@ -450,6 +495,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVpcOriginsCommand,
+  ListVpcOriginsCommandInput,
+  ListVpcOriginsCommandOutput,
+} from "./commands/ListVpcOriginsCommand";
 import {
   PublishFunctionCommand,
   PublishFunctionCommandInput,
@@ -546,10 +596,16 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
+import {
+  UpdateVpcOriginCommand,
+  UpdateVpcOriginCommandInput,
+  UpdateVpcOriginCommandOutput,
+} from "./commands/UpdateVpcOriginCommand";
 
 const commands = {
   AssociateAliasCommand,
   CopyDistributionCommand,
+  CreateAnycastIpListCommand,
   CreateCachePolicyCommand,
   CreateCloudFrontOriginAccessIdentityCommand,
   CreateContinuousDeploymentPolicyCommand,
@@ -569,6 +625,8 @@ const commands = {
   CreateResponseHeadersPolicyCommand,
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionWithTagsCommand,
+  CreateVpcOriginCommand,
+  DeleteAnycastIpListCommand,
   DeleteCachePolicyCommand,
   DeleteCloudFrontOriginAccessIdentityCommand,
   DeleteContinuousDeploymentPolicyCommand,
@@ -585,8 +643,10 @@ const commands = {
   DeleteRealtimeLogConfigCommand,
   DeleteResponseHeadersPolicyCommand,
   DeleteStreamingDistributionCommand,
+  DeleteVpcOriginCommand,
   DescribeFunctionCommand,
   DescribeKeyValueStoreCommand,
+  GetAnycastIpListCommand,
   GetCachePolicyCommand,
   GetCachePolicyConfigCommand,
   GetCloudFrontOriginAccessIdentityCommand,
@@ -615,16 +675,20 @@ const commands = {
   GetResponseHeadersPolicyConfigCommand,
   GetStreamingDistributionCommand,
   GetStreamingDistributionConfigCommand,
+  GetVpcOriginCommand,
+  ListAnycastIpListsCommand,
   ListCachePoliciesCommand,
   ListCloudFrontOriginAccessIdentitiesCommand,
   ListConflictingAliasesCommand,
   ListContinuousDeploymentPoliciesCommand,
   ListDistributionsCommand,
+  ListDistributionsByAnycastIpListIdCommand,
   ListDistributionsByCachePolicyIdCommand,
   ListDistributionsByKeyGroupCommand,
   ListDistributionsByOriginRequestPolicyIdCommand,
   ListDistributionsByRealtimeLogConfigCommand,
   ListDistributionsByResponseHeadersPolicyIdCommand,
+  ListDistributionsByVpcOriginIdCommand,
   ListDistributionsByWebACLIdCommand,
   ListFieldLevelEncryptionConfigsCommand,
   ListFieldLevelEncryptionProfilesCommand,
@@ -639,6 +703,7 @@ const commands = {
   ListResponseHeadersPoliciesCommand,
   ListStreamingDistributionsCommand,
   ListTagsForResourceCommand,
+  ListVpcOriginsCommand,
   PublishFunctionCommand,
   TagResourceCommand,
   TestFunctionCommand,
@@ -659,6 +724,7 @@ const commands = {
   UpdateRealtimeLogConfigCommand,
   UpdateResponseHeadersPolicyCommand,
   UpdateStreamingDistributionCommand,
+  UpdateVpcOriginCommand,
 };
 
 export interface CloudFront {
@@ -691,6 +757,23 @@ export interface CloudFront {
     args: CopyDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnycastIpListCommand}
+   */
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnycastIpListCommandOutput>;
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    cb: (err: any, data?: CreateAnycastIpListCommandOutput) => void
+  ): void;
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnycastIpListCommandOutput) => void
   ): void;
 
   /**
@@ -1008,6 +1091,37 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link CreateVpcOriginCommand}
+   */
+  createVpcOrigin(
+    args: CreateVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcOriginCommandOutput>;
+  createVpcOrigin(args: CreateVpcOriginCommandInput, cb: (err: any, data?: CreateVpcOriginCommandOutput) => void): void;
+  createVpcOrigin(
+    args: CreateVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnycastIpListCommand}
+   */
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnycastIpListCommandOutput>;
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    cb: (err: any, data?: DeleteAnycastIpListCommandOutput) => void
+  ): void;
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnycastIpListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCachePolicyCommand}
    */
   deleteCachePolicy(
@@ -1272,6 +1386,20 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteVpcOriginCommand}
+   */
+  deleteVpcOrigin(
+    args: DeleteVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcOriginCommandOutput>;
+  deleteVpcOrigin(args: DeleteVpcOriginCommandInput, cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void): void;
+  deleteVpcOrigin(
+    args: DeleteVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFunctionCommand}
    */
   describeFunction(
@@ -1303,6 +1431,23 @@ export interface CloudFront {
     args: DescribeKeyValueStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnycastIpListCommand}
+   */
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnycastIpListCommandOutput>;
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    cb: (err: any, data?: GetAnycastIpListCommandOutput) => void
+  ): void;
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnycastIpListCommandOutput) => void
   ): void;
 
   /**
@@ -1756,6 +1901,35 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetVpcOriginCommand}
+   */
+  getVpcOrigin(args: GetVpcOriginCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcOriginCommandOutput>;
+  getVpcOrigin(args: GetVpcOriginCommandInput, cb: (err: any, data?: GetVpcOriginCommandOutput) => void): void;
+  getVpcOrigin(
+    args: GetVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnycastIpListsCommand}
+   */
+  listAnycastIpLists(): Promise<ListAnycastIpListsCommandOutput>;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnycastIpListsCommandOutput>;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    cb: (err: any, data?: ListAnycastIpListsCommandOutput) => void
+  ): void;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnycastIpListsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCachePoliciesCommand}
    */
   listCachePolicies(): Promise<ListCachePoliciesCommandOutput>;
@@ -1845,6 +2019,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListDistributionsByAnycastIpListIdCommand}
+   */
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByAnycastIpListIdCommandOutput>;
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByAnycastIpListIdCommandOutput) => void
+  ): void;
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByAnycastIpListIdCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDistributionsByCachePolicyIdCommand}
    */
   listDistributionsByCachePolicyId(
@@ -1928,6 +2119,23 @@ export interface CloudFront {
     args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionsByVpcOriginIdCommand}
+   */
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByVpcOriginIdCommandOutput>;
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByVpcOriginIdCommandOutput) => void
+  ): void;
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByVpcOriginIdCommandOutput) => void
   ): void;
 
   /**
@@ -2162,6 +2370,21 @@ export interface CloudFront {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVpcOriginsCommand}
+   */
+  listVpcOrigins(): Promise<ListVpcOriginsCommandOutput>;
+  listVpcOrigins(
+    args: ListVpcOriginsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcOriginsCommandOutput>;
+  listVpcOrigins(args: ListVpcOriginsCommandInput, cb: (err: any, data?: ListVpcOriginsCommandOutput) => void): void;
+  listVpcOrigins(
+    args: ListVpcOriginsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcOriginsCommandOutput) => void
   ): void;
 
   /**
@@ -2473,6 +2696,20 @@ export interface CloudFront {
     args: UpdateStreamingDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVpcOriginCommand}
+   */
+  updateVpcOrigin(
+    args: UpdateVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcOriginCommandOutput>;
+  updateVpcOrigin(args: UpdateVpcOriginCommandInput, cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void): void;
+  updateVpcOrigin(
+    args: UpdateVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void
   ): void;
 }
 

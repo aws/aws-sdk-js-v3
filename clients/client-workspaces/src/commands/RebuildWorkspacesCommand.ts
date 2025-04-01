@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/models_0";
+import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/models_1";
 import { de_RebuildWorkspacesCommand, se_RebuildWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -76,6 +76,7 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class RebuildWorkspacesCommand extends $Command
@@ -86,9 +87,7 @@ export class RebuildWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class RebuildWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebuildWorkspacesCommand)
   .de(de_RebuildWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebuildWorkspacesRequest;
+      output: RebuildWorkspacesResult;
+    };
+    sdk: {
+      input: RebuildWorkspacesCommandInput;
+      output: RebuildWorkspacesCommandOutput;
+    };
+  };
+}

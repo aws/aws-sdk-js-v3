@@ -57,7 +57,7 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * //   CreatedDate: "STRING_VALUE",
  * //   Version: Number("long"),
  * //   CompatibleRuntimes: [ // CompatibleRuntimes
- * //     "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //     "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //   ],
  * //   LicenseInfo: "STRING_VALUE",
  * //   CompatibleArchitectures: [ // CompatibleArchitectures
@@ -88,6 +88,37 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get information about a Lambda layer version
+ * ```javascript
+ * // The following example returns information for version 1 of a layer named my-layer.
+ * const input = {
+ *   LayerName: "my-layer",
+ *   VersionNumber: 1
+ * };
+ * const command = new GetLayerVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CompatibleRuntimes: [
+ *     "python3.6",
+ *     "python3.7"
+ *   ],
+ *   Content: {
+ *     CodeSha256: "tv9jJO+rPbXUUXuRKi7CwHzKtLDkDRJLB3cC3Z/ouXo=",
+ *     CodeSize: 169,
+ *     Location: "https://awslambda-us-east-2-layers.s3.us-east-2.amazonaws.com/snapshots/123456789012/my-layer-4aaa2fbb-ff77-4b0a-ad92-5b78a716a96a?versionId=27iWyA73cCAYqyH..."
+ *   },
+ *   CreatedDate: "2018-11-14T23:03:52.894+0000",
+ *   Description: "My Python layer",
+ *   LayerArn: "arn:aws:lambda:us-east-2:123456789012:layer:my-layer",
+ *   LayerVersionArn: "arn:aws:lambda:us-east-2:123456789012:layer:my-layer:1",
+ *   LicenseInfo: "MIT",
+ *   Version: 1
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetLayerVersionCommand extends $Command
@@ -98,9 +129,7 @@ export class GetLayerVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +141,16 @@ export class GetLayerVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLayerVersionCommand)
   .de(de_GetLayerVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLayerVersionRequest;
+      output: GetLayerVersionResponse;
+    };
+    sdk: {
+      input: GetLayerVersionCommandInput;
+      output: GetLayerVersionCommandOutput;
+    };
+  };
+}

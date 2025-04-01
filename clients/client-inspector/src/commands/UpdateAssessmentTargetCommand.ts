@@ -75,20 +75,23 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Update assessment target
  * ```javascript
  * // Updates the assessment target that is specified by the ARN of the assessment target.
  * const input = {
- *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
- *   "assessmentTargetName": "Example",
- *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-yNbgL5Pt"
+ *   assessmentTargetArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+ *   assessmentTargetName: "Example",
+ *   resourceGroupArn: "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-yNbgL5Pt"
  * };
  * const command = new UpdateAssessmentTargetCommand(input);
- * await client.send(command);
- * // example id: update-assessment-target-1481067866692
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAssessmentTargetCommand extends $Command
   .classBuilder<
@@ -98,9 +101,7 @@ export class UpdateAssessmentTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +113,16 @@ export class UpdateAssessmentTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssessmentTargetCommand)
   .de(de_UpdateAssessmentTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAssessmentTargetCommandInput;
+      output: UpdateAssessmentTargetCommandOutput;
+    };
+  };
+}

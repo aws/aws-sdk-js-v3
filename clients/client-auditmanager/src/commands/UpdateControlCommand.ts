@@ -127,6 +127,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateControlCommand extends $Command
@@ -137,9 +138,7 @@ export class UpdateControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class UpdateControlCommand extends $Command
   .f(UpdateControlRequestFilterSensitiveLog, UpdateControlResponseFilterSensitiveLog)
   .ser(se_UpdateControlCommand)
   .de(de_UpdateControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateControlRequest;
+      output: UpdateControlResponse;
+    };
+    sdk: {
+      input: UpdateControlCommandInput;
+      output: UpdateControlCommandOutput;
+    };
+  };
+}

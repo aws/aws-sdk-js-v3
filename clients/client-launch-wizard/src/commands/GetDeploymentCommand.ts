@@ -81,6 +81,45 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Get details about a given deployment.
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentId: "1111111-1111-1111-1111-111111111111"
+ * };
+ * const command = new GetDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   deployment: {
+ *     createdAt: "2023-04-24T13:10:09.857Z",
+ *     deploymentArn: "arn:aws:launchwizard:us-east-1:123456789012:deployment/1111111-1111-1111-1111-111111111111",
+ *     id: "1111111-1111-1111-1111-111111111111",
+ *     name: "SapHanaSingleForTest",
+ *     specifications: {
+ *       DisableDeploymentRollback: "true",
+ *       Encryption: "Yes",
+ *       KeyName: "testLinuxInstance",
+ *       SAPTZ: "America/Vancouver",
+ *       VPCID: "vpc-1234567",
+ *       applicationName: "SapHanaSingleForTest",
+ *       deploymentScenario: "SapHanaSingle",
+ *       environmentType: "production",
+ *       saveArtifactsS3Uri: "s3://testbucket",
+ *       saveDeploymentArtifacts: "Yes"
+ *     },
+ *     status: "FAILED",
+ *     tags: {
+ *       key1: "val1",
+ *       key2: "val2"
+ *     },
+ *     workloadName: "SapHanaSingle"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetDeploymentCommand extends $Command
@@ -91,9 +130,7 @@ export class GetDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +142,16 @@ export class GetDeploymentCommand extends $Command
   .f(void 0, GetDeploymentOutputFilterSensitiveLog)
   .ser(se_GetDeploymentCommand)
   .de(de_GetDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentInput;
+      output: GetDeploymentOutput;
+    };
+    sdk: {
+      input: GetDeploymentCommandInput;
+      output: GetDeploymentCommandOutput;
+    };
+  };
+}

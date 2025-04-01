@@ -103,6 +103,7 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectoryConfigCommand extends $Command
@@ -113,9 +114,7 @@ export class CreateDirectoryConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class CreateDirectoryConfigCommand extends $Command
   .f(CreateDirectoryConfigRequestFilterSensitiveLog, CreateDirectoryConfigResultFilterSensitiveLog)
   .ser(se_CreateDirectoryConfigCommand)
   .de(de_CreateDirectoryConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectoryConfigRequest;
+      output: CreateDirectoryConfigResult;
+    };
+    sdk: {
+      input: CreateDirectoryConfigCommandInput;
+      output: CreateDirectoryConfigCommandOutput;
+    };
+  };
+}

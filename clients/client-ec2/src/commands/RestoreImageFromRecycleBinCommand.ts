@@ -28,7 +28,8 @@ export interface RestoreImageFromRecycleBinCommandInput extends RestoreImageFrom
 export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFromRecycleBinResult, __MetadataBearer {}
 
 /**
- * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
+ *       the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,7 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class RestoreImageFromRecycleBinCommand extends $Command
@@ -66,9 +68,7 @@ export class RestoreImageFromRecycleBinCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +80,16 @@ export class RestoreImageFromRecycleBinCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreImageFromRecycleBinCommand)
   .de(de_RestoreImageFromRecycleBinCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreImageFromRecycleBinRequest;
+      output: RestoreImageFromRecycleBinResult;
+    };
+    sdk: {
+      input: RestoreImageFromRecycleBinCommandInput;
+      output: RestoreImageFromRecycleBinCommandOutput;
+    };
+  };
+}

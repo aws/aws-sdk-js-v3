@@ -136,45 +136,45 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To Create a Slot Type
  * ```javascript
  * // This example shows how to create a slot type that describes pizza sauces.
  * const input = {
- *   "name": "PizzaSauceType",
- *   "description": "Available pizza sauces",
- *   "enumerationValues": [
+ *   description: "Available pizza sauces",
+ *   enumerationValues: [
  *     {
- *       "value": "red"
+ *       value: "red"
  *     },
  *     {
- *       "value": "white"
+ *       value: "white"
  *     }
- *   ]
+ *   ],
+ *   name: "PizzaSauceType"
  * };
  * const command = new PutSlotTypeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "version": "$LATEST",
- *   "name": "DocPizzaSauceType",
- *   "checksum": "cfd00ed1-775d-4357-947c-aca7e73b44ba",
- *   "createdDate": 1494356442.23,
- *   "description": "Available pizza sauces",
- *   "enumerationValues": [
+ *   checksum: "cfd00ed1-775d-4357-947c-aca7e73b44ba",
+ *   createdDate: 1.49435644223E9,
+ *   description: "Available pizza sauces",
+ *   enumerationValues: [
  *     {
- *       "value": "red"
+ *       value: "red"
  *     },
  *     {
- *       "value": "white"
+ *       value: "white"
  *     }
  *   ],
- *   "lastUpdatedDate": 1494356442.23
+ *   lastUpdatedDate: 1.49435644223E9,
+ *   name: "DocPizzaSauceType",
+ *   version: "$LATEST"
  * }
  * *\/
- * // example id: to-create-a-slot-type-1494357262258
  * ```
  *
+ * @public
  */
 export class PutSlotTypeCommand extends $Command
   .classBuilder<
@@ -184,9 +184,7 @@ export class PutSlotTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +196,16 @@ export class PutSlotTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSlotTypeCommand)
   .de(de_PutSlotTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSlotTypeRequest;
+      output: PutSlotTypeResponse;
+    };
+    sdk: {
+      input: PutSlotTypeCommandInput;
+      output: PutSlotTypeCommandOutput;
+    };
+  };
+}

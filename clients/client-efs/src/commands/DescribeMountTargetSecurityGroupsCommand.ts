@@ -95,25 +95,25 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To describe the security groups for a mount target
  * ```javascript
  * // This operation describes all of the security groups for a file system's mount target.
  * const input = {
- *   "MountTargetId": "fsmt-12340abc"
+ *   MountTargetId: "fsmt-12340abc"
  * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroups": [
+ *   SecurityGroups: [
  *     "sg-4567abcd"
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-security-groups-for-a-mount-target-1481849317823
  * ```
  *
+ * @public
  */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command
   .classBuilder<
@@ -123,9 +123,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +135,16 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMountTargetSecurityGroupsCommand)
   .de(de_DescribeMountTargetSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMountTargetSecurityGroupsRequest;
+      output: DescribeMountTargetSecurityGroupsResponse;
+    };
+    sdk: {
+      input: DescribeMountTargetSecurityGroupsCommandInput;
+      output: DescribeMountTargetSecurityGroupsCommandOutput;
+    };
+  };
+}

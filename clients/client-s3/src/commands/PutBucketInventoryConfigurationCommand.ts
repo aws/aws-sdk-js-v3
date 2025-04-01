@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutBucketInventoryConfigurationRequest,
   PutBucketInventoryConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutBucketInventoryConfigurationCommand,
   se_PutBucketInventoryConfigurationCommand,
@@ -35,7 +35,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This implementation of the <code>PUT</code> action adds an inventory configuration
  *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
@@ -175,6 +175,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class PutBucketInventoryConfigurationCommand extends $Command
@@ -201,4 +202,16 @@ export class PutBucketInventoryConfigurationCommand extends $Command
   .f(PutBucketInventoryConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_PutBucketInventoryConfigurationCommand)
   .de(de_PutBucketInventoryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketInventoryConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketInventoryConfigurationCommandInput;
+      output: PutBucketInventoryConfigurationCommandOutput;
+    };
+  };
+}

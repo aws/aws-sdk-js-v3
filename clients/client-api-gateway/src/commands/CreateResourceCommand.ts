@@ -137,6 +137,7 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceCommand extends $Command
@@ -147,9 +148,7 @@ export class CreateResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class CreateResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceCommand)
   .de(de_CreateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceRequest;
+      output: Resource;
+    };
+    sdk: {
+      input: CreateResourceCommandInput;
+      output: CreateResourceCommandOutput;
+    };
+  };
+}

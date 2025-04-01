@@ -37,7 +37,7 @@ export interface ApplicationPolicyStatement {
    * <p>An array of PrinciplalOrgIDs, which corresponds to AWS IAM <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id">aws:PrincipalOrgID</a> global condition key.</p>
    * @public
    */
-  PrincipalOrgIDs?: string[];
+  PrincipalOrgIDs?: string[] | undefined;
 
   /**
    * <p>An array of AWS account IDs, or * to make the application public.</p>
@@ -49,7 +49,7 @@ export interface ApplicationPolicyStatement {
    * <p>A unique ID for the statement.</p>
    * @public
    */
-  StatementId?: string;
+  StatementId?: string | undefined;
 }
 
 /**
@@ -73,7 +73,7 @@ export interface ApplicationSummary {
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
@@ -85,13 +85,13 @@ export interface ApplicationSummary {
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
@@ -103,7 +103,7 @@ export interface ApplicationSummary {
    * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
    * @public
    */
-  SpdxLicenseId?: string;
+  SpdxLicenseId?: string | undefined;
 }
 
 /**
@@ -131,13 +131,13 @@ export interface ParameterDefinition {
    * <p>A regular expression that represents the patterns to allow for String types.</p>
    * @public
    */
-  AllowedPattern?: string;
+  AllowedPattern?: string | undefined;
 
   /**
    * <p>An array containing the list of values allowed for the parameter.</p>
    * @public
    */
-  AllowedValues?: string[];
+  AllowedValues?: string[] | undefined;
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,
@@ -150,44 +150,44 @@ export interface ParameterDefinition {
    *  </p>
    * @public
    */
-  ConstraintDescription?: string;
+  ConstraintDescription?: string | undefined;
 
   /**
    * <p>A value of the appropriate type for the template to use if no value is specified when a stack is created.
    *  If you define constraints for the parameter, you must specify a value that adheres to those constraints.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A string of up to 4,000 characters that describes the parameter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>An integer value that determines the largest number of characters that you want to allow for String types.</p>
    * @public
    */
-  MaxLength?: number;
+  MaxLength?: number | undefined;
 
   /**
    * <p>A numeric value that determines the largest numeric value that you want to allow for Number types.</p>
    * @public
    */
-  MaxValue?: number;
+  MaxValue?: number | undefined;
 
   /**
    * <p>An integer value that determines the smallest number of characters that you want to allow for String types.</p>
    * @public
    */
-  MinLength?: number;
+  MinLength?: number | undefined;
 
   /**
    * <p>A numeric value that determines the smallest numeric value that you want to allow for Number types.</p>
    * @public
    */
-  MinValue?: number;
+  MinValue?: number | undefined;
 
   /**
    * <p>The name of the parameter.</p>
@@ -200,7 +200,7 @@ export interface ParameterDefinition {
    *  value to true, the parameter value is masked with asterisks (*****).</p>
    * @public
    */
-  NoEcho?: boolean;
+  NoEcho?: boolean | undefined;
 
   /**
    * <p>A list of AWS SAM resources that use this parameter.</p>
@@ -220,7 +220,7 @@ export interface ParameterDefinition {
    *  Also, each member string is space-trimmed.</p><p>For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -315,7 +315,7 @@ export interface VersionSummary {
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    * @public
    */
-  SourceCodeUrl?: string;
+  SourceCodeUrl?: string | undefined;
 }
 
 /**
@@ -329,13 +329,13 @@ export class BadRequestException extends __BaseException {
    * <p>400</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>One of the parameters in the request is invalid.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -362,13 +362,13 @@ export class ConflictException extends __BaseException {
    * <p>409</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The resource already exists.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -404,26 +404,26 @@ export interface CreateApplicationRequest {
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
    *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
    * @public
    */
-  LicenseBody?: string;
+  LicenseBody?: string | undefined;
 
   /**
    * <p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
    * @public
    */
-  LicenseUrl?: string;
+  LicenseUrl?: string | undefined;
 
   /**
    * <p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
@@ -436,13 +436,13 @@ export interface CreateApplicationRequest {
    *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
    * @public
    */
-  ReadmeBody?: string;
+  ReadmeBody?: string | undefined;
 
   /**
    * <p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
    * @public
    */
-  ReadmeUrl?: string;
+  ReadmeUrl?: string | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -450,38 +450,38 @@ export interface CreateApplicationRequest {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    * @public
    */
-  SourceCodeArchiveUrl?: string;
+  SourceCodeArchiveUrl?: string | undefined;
 
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    * @public
    */
-  SourceCodeUrl?: string;
+  SourceCodeUrl?: string | undefined;
 
   /**
    * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
    * @public
    */
-  SpdxLicenseId?: string;
+  SpdxLicenseId?: string | undefined;
 
   /**
    * <p>The local raw packaged AWS SAM template file of your application.
    *  The file has the format file://&lt;path>/&lt;filename>.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
    * @public
    */
-  TemplateUrl?: string;
+  TemplateUrl?: string | undefined;
 }
 
 /**
@@ -554,13 +554,13 @@ export interface Version {
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    * @public
    */
-  SourceCodeArchiveUrl?: string;
+  SourceCodeArchiveUrl?: string | undefined;
 
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    * @public
    */
-  SourceCodeUrl?: string;
+  SourceCodeUrl?: string | undefined;
 
   /**
    * <p>A link to the packaged AWS SAM template of your application.</p>
@@ -577,79 +577,79 @@ export interface CreateApplicationResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
    * @public
    */
-  Author?: string;
+  Author?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
    * @public
    */
-  IsVerifiedAuthor?: boolean;
+  IsVerifiedAuthor?: boolean | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  LicenseUrl?: string;
+  LicenseUrl?: string | undefined;
 
   /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  ReadmeUrl?: string;
+  ReadmeUrl?: string | undefined;
 
   /**
    * <p>A valid identifier from https://spdx.org/licenses/.</p>
    * @public
    */
-  SpdxLicenseId?: string;
+  SpdxLicenseId?: string | undefined;
 
   /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    * @public
    */
-  VerifiedAuthorUrl?: string;
+  VerifiedAuthorUrl?: string | undefined;
 
   /**
    * <p>Version information about the application.</p>
    * @public
    */
-  Version?: Version;
+  Version?: Version | undefined;
 }
 
 /**
@@ -663,13 +663,13 @@ export class ForbiddenException extends __BaseException {
    * <p>403</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The client is not authenticated.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -696,13 +696,13 @@ export class InternalServerErrorException extends __BaseException {
    * <p>500</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -729,13 +729,13 @@ export class TooManyRequestsException extends __BaseException {
    * <p>429</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The client is sending more than the allowed number of requests per unit of time.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -771,25 +771,25 @@ export interface CreateApplicationVersionRequest {
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    * @public
    */
-  SourceCodeArchiveUrl?: string;
+  SourceCodeArchiveUrl?: string | undefined;
 
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    * @public
    */
-  SourceCodeUrl?: string;
+  SourceCodeUrl?: string | undefined;
 
   /**
    * <p>The raw packaged AWS SAM template of your application.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>A link to the packaged AWS SAM template of your application.</p>
    * @public
    */
-  TemplateUrl?: string;
+  TemplateUrl?: string | undefined;
 }
 
 /**
@@ -800,19 +800,19 @@ export interface CreateApplicationVersionResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>An array of parameter types supported by the application.</p>
    * @public
    */
-  ParameterDefinitions?: ParameterDefinition[];
+  ParameterDefinitions?: ParameterDefinition[] | undefined;
 
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
@@ -840,14 +840,14 @@ export interface CreateApplicationVersionResponse {
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    * @public
    */
-  RequiredCapabilities?: Capability[];
+  RequiredCapabilities?: Capability[] | undefined;
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region
    *  in which it is being retrieved.</p>
    * @public
    */
-  ResourcesSupported?: boolean;
+  ResourcesSupported?: boolean | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -855,25 +855,25 @@ export interface CreateApplicationVersionResponse {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    * @public
    */
-  SourceCodeArchiveUrl?: string;
+  SourceCodeArchiveUrl?: string | undefined;
 
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    * @public
    */
-  SourceCodeUrl?: string;
+  SourceCodeUrl?: string | undefined;
 
   /**
    * <p>A link to the packaged AWS SAM template of your application.</p>
    * @public
    */
-  TemplateUrl?: string;
+  TemplateUrl?: string | undefined;
 }
 
 /**
@@ -887,14 +887,14 @@ export interface RollbackConfiguration {
    *  </i> Data Type.</p>
    * @public
    */
-  MonitoringTimeInMinutes?: number;
+  MonitoringTimeInMinutes?: number | undefined;
 
   /**
    * <p>This property corresponds to the content of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
    *  </i> Data Type.</p>
    * @public
    */
-  RollbackTriggers?: RollbackTrigger[];
+  RollbackTriggers?: RollbackTrigger[] | undefined;
 }
 
 /**
@@ -933,55 +933,55 @@ export interface CreateCloudFormationChangeSetRequest {
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    * @public
    */
-  Capabilities?: string[];
+  Capabilities?: string[] | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  NotificationArns?: string[];
+  NotificationArns?: string[] | undefined;
 
   /**
    * <p>A list of parameter values for the parameters of the application.</p>
    * @public
    */
-  ParameterOverrides?: ParameterValue[];
+  ParameterOverrides?: ParameterValue[] | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -989,7 +989,7 @@ export interface CreateCloudFormationChangeSetRequest {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
@@ -1003,13 +1003,13 @@ export interface CreateCloudFormationChangeSetRequest {
    *  </i> API.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 }
 
 /**
@@ -1020,13 +1020,13 @@ export interface CreateCloudFormationChangeSetResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the change set.</p><p>Length constraints: Minimum length of 1.</p><p>Pattern: ARN:[-a-zA-Z0-9:/]*</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -1034,13 +1034,13 @@ export interface CreateCloudFormationChangeSetResponse {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>The unique ID of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -1059,7 +1059,7 @@ export interface CreateCloudFormationTemplateRequest {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 }
 
 /**
@@ -1085,20 +1085,20 @@ export interface CreateCloudFormationTemplateResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time this template expires. Templates
    *  expire 1 hour after creation.</p>
    * @public
    */
-  ExpirationTime?: string;
+  ExpirationTime?: string | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -1106,27 +1106,27 @@ export interface CreateCloudFormationTemplateResponse {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>A link to the template that can be used to deploy the application using
    *  AWS CloudFormation.</p>
    * @public
    */
-  TemplateUrl?: string;
+  TemplateUrl?: string | undefined;
 }
 
 /**
@@ -1140,13 +1140,13 @@ export class NotFoundException extends __BaseException {
    * <p>404</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1187,7 +1187,7 @@ export interface GetApplicationRequest {
    * <p>The semantic version of the application to get.</p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 }
 
 /**
@@ -1198,79 +1198,79 @@ export interface GetApplicationResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
    * @public
    */
-  Author?: string;
+  Author?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
    * @public
    */
-  IsVerifiedAuthor?: boolean;
+  IsVerifiedAuthor?: boolean | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  LicenseUrl?: string;
+  LicenseUrl?: string | undefined;
 
   /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  ReadmeUrl?: string;
+  ReadmeUrl?: string | undefined;
 
   /**
    * <p>A valid identifier from https://spdx.org/licenses/.</p>
    * @public
    */
-  SpdxLicenseId?: string;
+  SpdxLicenseId?: string | undefined;
 
   /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    * @public
    */
-  VerifiedAuthorUrl?: string;
+  VerifiedAuthorUrl?: string | undefined;
 
   /**
    * <p>Version information about the application.</p>
    * @public
    */
-  Version?: Version;
+  Version?: Version | undefined;
 }
 
 /**
@@ -1292,7 +1292,7 @@ export interface GetApplicationPolicyResponse {
    * <p>An array of policy statements applied to the application.</p>
    * @public
    */
-  Statements?: ApplicationPolicyStatement[];
+  Statements?: ApplicationPolicyStatement[] | undefined;
 }
 
 /**
@@ -1320,20 +1320,20 @@ export interface GetCloudFormationTemplateResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The date and time this template expires. Templates
    *  expire 1 hour after creation.</p>
    * @public
    */
-  ExpirationTime?: string;
+  ExpirationTime?: string | undefined;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -1341,27 +1341,27 @@ export interface GetCloudFormationTemplateResponse {
    *  </p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 
   /**
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>A link to the template that can be used to deploy the application using
    *  AWS CloudFormation.</p>
    * @public
    */
-  TemplateUrl?: string;
+  TemplateUrl?: string | undefined;
 }
 
 /**
@@ -1378,19 +1378,19 @@ export interface ListApplicationDependenciesRequest {
    * <p>The total number of items to return.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The semantic version of the application to get.</p>
    * @public
    */
-  SemanticVersion?: string;
+  SemanticVersion?: string | undefined;
 }
 
 /**
@@ -1401,13 +1401,13 @@ export interface ListApplicationDependenciesResponse {
    * <p>An array of application summaries nested in the application.</p>
    * @public
    */
-  Dependencies?: ApplicationDependencySummary[];
+  Dependencies?: ApplicationDependencySummary[] | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1418,13 +1418,13 @@ export interface ListApplicationsRequest {
    * <p>The total number of items to return.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1435,13 +1435,13 @@ export interface ListApplicationsResponse {
    * <p>An array of application summaries.</p>
    * @public
    */
-  Applications?: ApplicationSummary[];
+  Applications?: ApplicationSummary[] | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1458,13 +1458,13 @@ export interface ListApplicationVersionsRequest {
    * <p>The total number of items to return.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1475,13 +1475,13 @@ export interface ListApplicationVersionsResponse {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of version summaries for the application.</p>
    * @public
    */
-  Versions?: VersionSummary[];
+  Versions?: VersionSummary[] | undefined;
 }
 
 /**
@@ -1509,7 +1509,7 @@ export interface PutApplicationPolicyResponse {
    * <p>An array of policy statements applied to the application.</p>
    * @public
    */
-  Statements?: ApplicationPolicyStatement[];
+  Statements?: ApplicationPolicyStatement[] | undefined;
 }
 
 /**
@@ -1543,37 +1543,37 @@ export interface UpdateApplicationRequest {
    * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
    * @public
    */
-  Author?: string;
+  Author?: string | undefined;
 
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  ReadmeBody?: string;
+  ReadmeBody?: string | undefined;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  ReadmeUrl?: string;
+  ReadmeUrl?: string | undefined;
 }
 
 /**
@@ -1584,77 +1584,77 @@ export interface UpdateApplicationResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
    * @public
    */
-  Author?: string;
+  Author?: string | undefined;
 
   /**
    * <p>The date and time this resource was created.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    * @public
    */
-  HomePageUrl?: string;
+  HomePageUrl?: string | undefined;
 
   /**
    * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
    * @public
    */
-  IsVerifiedAuthor?: boolean;
+  IsVerifiedAuthor?: boolean | undefined;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  LicenseUrl?: string;
+  LicenseUrl?: string | undefined;
 
   /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    * @public
    */
-  ReadmeUrl?: string;
+  ReadmeUrl?: string | undefined;
 
   /**
    * <p>A valid identifier from https://spdx.org/licenses/.</p>
    * @public
    */
-  SpdxLicenseId?: string;
+  SpdxLicenseId?: string | undefined;
 
   /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    * @public
    */
-  VerifiedAuthorUrl?: string;
+  VerifiedAuthorUrl?: string | undefined;
 
   /**
    * <p>Version information about the application.</p>
    * @public
    */
-  Version?: Version;
+  Version?: Version | undefined;
 }

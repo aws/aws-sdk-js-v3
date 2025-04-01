@@ -29,7 +29,7 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
 
 /**
  * <p>Returns details about the specified delivery channel. If a
- * 			delivery channel is not specified, this action returns the details
+ * 			delivery channel is not specified, this operation returns the details
  * 			of all delivery channels associated with the account.</p>
  *          <note>
  *             <p>Currently, you can specify only one delivery channel per
@@ -78,6 +78,7 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliveryChannelsCommand extends $Command
@@ -88,9 +89,7 @@ export class DescribeDeliveryChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DescribeDeliveryChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliveryChannelsCommand)
   .de(de_DescribeDeliveryChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliveryChannelsRequest;
+      output: DescribeDeliveryChannelsResponse;
+    };
+    sdk: {
+      input: DescribeDeliveryChannelsCommandInput;
+      output: DescribeDeliveryChannelsCommandOutput;
+    };
+  };
+}

@@ -143,7 +143,7 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  *           { // LteNmrObj
  *             Pci: Number("int"), // required
  *             Earfcn: Number("int"), // required
- *             EutranCid: Number("int"), // required
+ *             EutranCid: Number("int"),
  *             Rsrp: Number("int"),
  *             Rsrq: Number("float"),
  *           },
@@ -221,6 +221,7 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPositionEstimateCommand extends $Command
@@ -231,9 +232,7 @@ export class GetPositionEstimateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -245,4 +244,16 @@ export class GetPositionEstimateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPositionEstimateCommand)
   .de(de_GetPositionEstimateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPositionEstimateRequest;
+      output: GetPositionEstimateResponse;
+    };
+    sdk: {
+      input: GetPositionEstimateCommandInput;
+      output: GetPositionEstimateCommandOutput;
+    };
+  };
+}

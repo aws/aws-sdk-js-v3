@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_1";
+import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_2";
 import {
   de_ListSecurityProfilePermissionsCommand,
   se_ListSecurityProfilePermissionsCommand,
@@ -34,6 +34,10 @@ export interface ListSecurityProfilePermissionsCommandOutput
 
 /**
  * <p>Lists the permissions granted to a security profile.</p>
+ *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
+ *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
+ *     permissions</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +87,7 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListSecurityProfilePermissionsCommand extends $Command
@@ -93,9 +98,7 @@ export class ListSecurityProfilePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +110,16 @@ export class ListSecurityProfilePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityProfilePermissionsCommand)
   .de(de_ListSecurityProfilePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityProfilePermissionsRequest;
+      output: ListSecurityProfilePermissionsResponse;
+    };
+    sdk: {
+      input: ListSecurityProfilePermissionsCommandInput;
+      output: ListSecurityProfilePermissionsCommandOutput;
+    };
+  };
+}

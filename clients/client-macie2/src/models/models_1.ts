@@ -44,13 +44,13 @@ export interface ListJobsFilterCriteria {
    * <p>An array of objects, one for each condition that determines which jobs to exclude from the results.</p>
    * @public
    */
-  excludes?: ListJobsFilterTerm[];
+  excludes?: ListJobsFilterTerm[] | undefined;
 
   /**
    * <p>An array of objects, one for each condition that determines which jobs to include in the results.</p>
    * @public
    */
-  includes?: ListJobsFilterTerm[];
+  includes?: ListJobsFilterTerm[] | undefined;
 }
 
 /**
@@ -78,13 +78,13 @@ export interface ListJobsSortCriteria {
    * <p>The property to sort the results by.</p>
    * @public
    */
-  attributeName?: ListJobsSortAttributeName;
+  attributeName?: ListJobsSortAttributeName | undefined;
 
   /**
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    * @public
    */
-  orderBy?: OrderBy;
+  orderBy?: OrderBy | undefined;
 }
 
 /**
@@ -95,25 +95,25 @@ export interface ListClassificationJobsRequest {
    * <p>The criteria to use to filter the results.</p>
    * @public
    */
-  filterCriteria?: ListJobsFilterCriteria;
+  filterCriteria?: ListJobsFilterCriteria | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The criteria to use to sort the results.</p>
    * @public
    */
-  sortCriteria?: ListJobsSortCriteria;
+  sortCriteria?: ListJobsSortCriteria | undefined;
 }
 
 /**
@@ -124,13 +124,13 @@ export interface ListClassificationJobsResponse {
    * <p>An array of objects, one for each job that matches the filter criteria specified in the request.</p>
    * @public
    */
-  items?: JobSummary[];
+  items?: JobSummary[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface ListClassificationScopesRequest {
    * <p>The name of the classification scope to retrieve the unique identifier for.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -158,13 +158,13 @@ export interface ListClassificationScopesResponse {
    * <p>An array that specifies the unique identifier and name of the classification scope for the account.</p>
    * @public
    */
-  classificationScopes?: ClassificationScopeSummary[];
+  classificationScopes?: ClassificationScopeSummary[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -175,13 +175,13 @@ export interface ListCustomDataIdentifiersRequest {
    * <p>The maximum number of items to include in each page of the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -192,13 +192,13 @@ export interface ListCustomDataIdentifiersResponse {
    * <p>An array of objects, one for each custom data identifier.</p>
    * @public
    */
-  items?: CustomDataIdentifierSummary[];
+  items?: CustomDataIdentifierSummary[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -209,25 +209,25 @@ export interface ListFindingsRequest {
    * <p>The criteria to use to filter the results.</p>
    * @public
    */
-  findingCriteria?: FindingCriteria;
+  findingCriteria?: FindingCriteria | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The criteria to use to sort the results.</p>
    * @public
    */
-  sortCriteria?: SortCriteria;
+  sortCriteria?: SortCriteria | undefined;
 }
 
 /**
@@ -238,13 +238,13 @@ export interface ListFindingsResponse {
    * <p>An array of strings, where each string is the unique identifier for a finding that matches the filter criteria specified in the request.</p>
    * @public
    */
-  findingIds?: string[];
+  findingIds?: string[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -255,13 +255,13 @@ export interface ListFindingsFiltersRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -272,13 +272,13 @@ export interface ListFindingsFiltersResponse {
    * <p>An array of objects, one for each filter that's associated with the account.</p>
    * @public
    */
-  findingsFilterListItems?: FindingsFilterListItem[];
+  findingsFilterListItems?: FindingsFilterListItem[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -289,13 +289,13 @@ export interface ListInvitationsRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -306,13 +306,13 @@ export interface ListInvitationsResponse {
    * <p>An array of objects, one for each invitation that was received by the account.</p>
    * @public
    */
-  invitations?: Invitation[];
+  invitations?: Invitation[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -323,7 +323,7 @@ export interface ListManagedDataIdentifiersRequest {
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -334,13 +334,13 @@ export interface ListManagedDataIdentifiersResponse {
    * <p>An array of objects, one for each managed data identifier.</p>
    * @public
    */
-  items?: ManagedDataIdentifierSummary[];
+  items?: ManagedDataIdentifierSummary[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -351,19 +351,19 @@ export interface ListMembersRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies which accounts to include in the response, based on the status of an account's relationship with the administrator account. By default, the response includes only current member accounts. To include all accounts, set this value to false.</p>
    * @public
    */
-  onlyAssociated?: string;
+  onlyAssociated?: string | undefined;
 }
 
 /**
@@ -374,13 +374,13 @@ export interface ListMembersResponse {
    * <p>An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.</p>
    * @public
    */
-  members?: Member[];
+  members?: Member[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -391,13 +391,13 @@ export interface ListOrganizationAdminAccountsRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -408,13 +408,13 @@ export interface ListOrganizationAdminAccountsResponse {
    * <p>An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.</p>
    * @public
    */
-  adminAccounts?: AdminAccount[];
+  adminAccounts?: AdminAccount[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -425,7 +425,7 @@ export interface ListResourceProfileArtifactsRequest {
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
@@ -442,13 +442,13 @@ export interface ListResourceProfileArtifactsResponse {
    * <p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>
    * @public
    */
-  artifacts?: ResourceProfileArtifact[];
+  artifacts?: ResourceProfileArtifact[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -459,13 +459,13 @@ export interface ListResourceProfileDetectionsRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
@@ -482,13 +482,13 @@ export interface ListResourceProfileDetectionsResponse {
    * <p>An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.</p>
    * @public
    */
-  detections?: Detection[];
+  detections?: Detection[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -499,13 +499,13 @@ export interface ListSensitivityInspectionTemplatesRequest {
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -516,13 +516,13 @@ export interface ListSensitivityInspectionTemplatesResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array that specifies the unique identifier and name of the sensitivity inspection template for the account.</p>
    * @public
    */
-  sensitivityInspectionTemplates?: SensitivityInspectionTemplatesEntry[];
+  sensitivityInspectionTemplates?: SensitivityInspectionTemplatesEntry[] | undefined;
 }
 
 /**
@@ -544,7 +544,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -566,7 +566,7 @@ export interface PutClassificationExportConfigurationResponse {
    * <p>The location where the data classification results are stored, and the encryption settings that are used when storing results in that location.</p>
    * @public
    */
-  configuration?: ClassificationExportConfiguration;
+  configuration?: ClassificationExportConfiguration | undefined;
 }
 
 /**
@@ -577,13 +577,13 @@ export interface PutFindingsPublicationConfigurationRequest {
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The configuration settings that determine which findings to publish to Security Hub.</p>
    * @public
    */
-  securityHubConfiguration?: SecurityHubConfiguration;
+  securityHubConfiguration?: SecurityHubConfiguration | undefined;
 }
 
 /**
@@ -600,7 +600,7 @@ export interface SearchResourcesCriteriaBlock {
    * <p>An array of objects, one for each property- or tag-based condition that includes or excludes resources from the query results. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
    * @public
    */
-  and?: SearchResourcesCriteria[];
+  and?: SearchResourcesCriteria[] | undefined;
 }
 
 /**
@@ -612,13 +612,13 @@ export interface SearchResourcesBucketCriteria {
    * <p>The property- and tag-based conditions that determine which buckets to exclude from the results.</p>
    * @public
    */
-  excludes?: SearchResourcesCriteriaBlock;
+  excludes?: SearchResourcesCriteriaBlock | undefined;
 
   /**
    * <p>The property- and tag-based conditions that determine which buckets to include in the results.</p>
    * @public
    */
-  includes?: SearchResourcesCriteriaBlock;
+  includes?: SearchResourcesCriteriaBlock | undefined;
 }
 
 /**
@@ -647,13 +647,13 @@ export interface SearchResourcesSortCriteria {
    * <p>The property to sort the results by.</p>
    * @public
    */
-  attributeName?: SearchResourcesSortAttributeName;
+  attributeName?: SearchResourcesSortAttributeName | undefined;
 
   /**
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    * @public
    */
-  orderBy?: OrderBy;
+  orderBy?: OrderBy | undefined;
 }
 
 /**
@@ -664,25 +664,25 @@ export interface SearchResourcesRequest {
    * <p>The filter conditions that determine which S3 buckets to include or exclude from the query results.</p>
    * @public
    */
-  bucketCriteria?: SearchResourcesBucketCriteria;
+  bucketCriteria?: SearchResourcesBucketCriteria | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The criteria to use to sort the results.</p>
    * @public
    */
-  sortCriteria?: SearchResourcesSortCriteria;
+  sortCriteria?: SearchResourcesSortCriteria | undefined;
 }
 
 /**
@@ -693,13 +693,13 @@ export interface SearchResourcesResponse {
    * <p>An array of objects, one for each resource that matches the filter criteria specified in the request.</p>
    * @public
    */
-  matchingResources?: MatchingResource[];
+  matchingResources?: MatchingResource[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -732,19 +732,19 @@ export interface TestCustomDataIdentifierRequest {
    * <p>An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>
    * @public
    */
-  ignoreWords?: string[];
+  ignoreWords?: string[] | undefined;
 
   /**
    * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
    * @public
    */
-  keywords?: string[];
+  keywords?: string[] | undefined;
 
   /**
    * <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>
    * @public
    */
-  maximumMatchDistance?: number;
+  maximumMatchDistance?: number | undefined;
 
   /**
    * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
@@ -767,7 +767,7 @@ export interface TestCustomDataIdentifierResponse {
    * <p>The number of occurrences of sample text that matched the criteria specified by the custom data identifier.</p>
    * @public
    */
-  matchCount?: number;
+  matchCount?: number | undefined;
 }
 
 /**
@@ -806,7 +806,7 @@ export interface UpdateAllowListRequest {
    * <p>A custom description of the allow list. The description can contain as many as 512 characters.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
@@ -829,13 +829,13 @@ export interface UpdateAllowListResponse {
    * <p>The Amazon Resource Name (ARN) of the allow list.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The unique identifier for the allow list.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -846,7 +846,7 @@ export interface UpdateAutomatedDiscoveryConfigurationRequest {
    * <p>Specifies whether to automatically enable automated sensitive data discovery for accounts in the organization. Valid values are: ALL (default), enable it for all existing accounts and new member accounts; NEW, enable it only for new member accounts; and, NONE, don't enable it for any accounts.</p> <p>If you specify NEW or NONE, automated sensitive data discovery continues to be enabled for any existing accounts that it's currently enabled for. To enable or disable it for individual member accounts, specify NEW or NONE, and then enable or disable it for each account by using the BatchUpdateAutomatedDiscoveryAccounts operation.</p>
    * @public
    */
-  autoEnableOrganizationMembers?: AutoEnableMode;
+  autoEnableOrganizationMembers?: AutoEnableMode | undefined;
 
   /**
    * <p>The new status of automated sensitive data discovery for the organization or account. Valid values are: ENABLED, start or resume all automated sensitive data discovery activities; and, DISABLED, stop performing all automated sensitive data discovery activities.</p> <p>If you specify DISABLED for an administrator account, you also disable automated sensitive data discovery for all member accounts in the organization.</p>
@@ -888,7 +888,7 @@ export interface UpdateClassificationJobResponse {}
  */
 export interface S3ClassificationScopeExclusionUpdate {
   /**
-   * <p>Depending on the value specified for the update operation (ClassificationScopeUpdateOperation), an array of strings that: lists the names of buckets to add or remove from the list, or specifies a new set of bucket names that overwrites all existing names in the list. Each string must be the full name of an S3 bucket. Values are case sensitive.</p>
+   * <p>Depending on the value specified for the update operation (ClassificationScopeUpdateOperation), an array of strings that: lists the names of buckets to add or remove from the list, or specifies a new set of bucket names that overwrites all existing names in the list. Each string must be the full name of an existing S3 bucket. Values are case sensitive.</p>
    * @public
    */
   bucketNames: string[] | undefined;
@@ -926,7 +926,7 @@ export interface UpdateClassificationScopeRequest {
    * <p>The S3 buckets to add or remove from the exclusion list defined by the classification scope.</p>
    * @public
    */
-  s3?: S3ClassificationScopeUpdate;
+  s3?: S3ClassificationScopeUpdate | undefined;
 }
 
 /**
@@ -942,25 +942,25 @@ export interface UpdateFindingsFilterRequest {
    * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    * @public
    */
-  action?: FindingsFilterAction;
+  action?: FindingsFilterAction | undefined;
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The criteria to use to filter findings.</p>
    * @public
    */
-  findingCriteria?: FindingCriteria;
+  findingCriteria?: FindingCriteria | undefined;
 
   /**
    * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
@@ -972,13 +972,13 @@ export interface UpdateFindingsFilterRequest {
    * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
    * @public
    */
-  position?: number;
+  position?: number | undefined;
 }
 
 /**
@@ -989,13 +989,13 @@ export interface UpdateFindingsFilterResponse {
    * <p>The Amazon Resource Name (ARN) of the filter that was updated.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The unique identifier for the filter that was updated.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -1006,13 +1006,13 @@ export interface UpdateMacieSessionRequest {
    * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    * @public
    */
-  findingPublishingFrequency?: FindingPublishingFrequency;
+  findingPublishingFrequency?: FindingPublishingFrequency | undefined;
 
   /**
    * <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
    * @public
    */
-  status?: MacieStatus;
+  status?: MacieStatus | undefined;
 }
 
 /**
@@ -1072,7 +1072,7 @@ export interface UpdateResourceProfileRequest {
    * <p>The new sensitivity score for the bucket. Valid values are: 100, assign the maximum score and apply the <i>Sensitive</i> label to the bucket; and, null (empty), assign a score that Amazon Macie calculates automatically after you submit the request.</p>
    * @public
    */
-  sensitivityScoreOverride?: number;
+  sensitivityScoreOverride?: number | undefined;
 }
 
 /**
@@ -1091,10 +1091,10 @@ export interface UpdateResourceProfileDetectionsRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>An array of objects, one for each custom data identifier or managed data identifier that detected the type of sensitive data to start excluding or including in the bucket's score. To start including all sensitive data types in the score, don't specify any values for this array.</p>
+   * <p>An array of objects, one for each custom data identifier or managed data identifier that detected a type of sensitive data to exclude from the bucket's score. To include all sensitive data types in the score, don't specify any values for this array.</p>
    * @public
    */
-  suppressDataIdentifiers?: SuppressDataIdentifier[];
+  suppressDataIdentifiers?: SuppressDataIdentifier[] | undefined;
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface UpdateResourceProfileDetectionsRequest {
 export interface UpdateResourceProfileDetectionsResponse {}
 
 /**
- * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd-options.html">Configuration options and requirements for retrieving sensitive data samples</a> in the <i>Amazon Macie User Guide</i>.</p>
+ * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd-options.html">Configuration options for retrieving sensitive data samples</a> in the <i>Amazon Macie User Guide</i>.</p>
  * @public
  */
 export interface UpdateRetrievalConfiguration {
@@ -1117,7 +1117,7 @@ export interface UpdateRetrievalConfiguration {
    * <p>The name of the IAM role that is in the affected Amazon Web Services account and Amazon Macie is allowed to assume when retrieving sensitive data from affected S3 objects for the account. The trust and permissions policies for the role must meet all requirements for Macie to assume the role.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 }
 
 /**
@@ -1134,7 +1134,7 @@ export interface UpdateRevealConfigurationRequest {
    * <p>The access method and settings to use when retrieving the sensitive data.</p>
    * @public
    */
-  retrievalConfiguration?: UpdateRetrievalConfiguration;
+  retrievalConfiguration?: UpdateRetrievalConfiguration | undefined;
 }
 
 /**
@@ -1145,13 +1145,13 @@ export interface UpdateRevealConfigurationResponse {
    * <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    * @public
    */
-  configuration?: RevealConfiguration;
+  configuration?: RevealConfiguration | undefined;
 
   /**
    * <p>The access method and settings to use when retrieving the sensitive data.</p>
    * @public
    */
-  retrievalConfiguration?: RetrievalConfiguration;
+  retrievalConfiguration?: RetrievalConfiguration | undefined;
 }
 
 /**
@@ -1162,13 +1162,13 @@ export interface UpdateSensitivityInspectionTemplateRequest {
    * <p>A custom description of the template. The description can contain as many as 200 characters.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The managed data identifiers to explicitly exclude (not use) when performing automated sensitive data discovery.</p> <p>To exclude an allow list or custom data identifier that's currently included by the template, update the values for the SensitivityInspectionTemplateIncludes.allowListIds and SensitivityInspectionTemplateIncludes.customDataIdentifierIds properties, respectively.</p>
    * @public
    */
-  excludes?: SensitivityInspectionTemplateExcludes;
+  excludes?: SensitivityInspectionTemplateExcludes | undefined;
 
   /**
    * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
@@ -1180,7 +1180,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
    * <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when performing automated sensitive data discovery.</p>
    * @public
    */
-  includes?: SensitivityInspectionTemplateIncludes;
+  includes?: SensitivityInspectionTemplateIncludes | undefined;
 }
 
 /**

@@ -106,13 +106,23 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *         },
  *       ],
  *     },
+ *     ConnectivityParameters: { // ConnectivityResourceParameters
+ *       ResourceParameters: { // ConnectivityResourceConfigurationArn
+ *         ResourceConfigurationArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   InvocationConnectivityParameters: {
+ *     ResourceParameters: {
+ *       ResourceConfigurationArn: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * // { // UpdateConnectionResponse
  * //   ConnectionArn: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   LastAuthorizedTime: new Date("TIMESTAMP"),
@@ -125,6 +135,9 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have the necessary permissons for this action.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
@@ -139,8 +152,12 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This request cannot be completed due to throttling issues.</p>
+ *
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
+ *
  *
  * @public
  */
@@ -152,9 +169,7 @@ export class UpdateConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +181,16 @@ export class UpdateConnectionCommand extends $Command
   .f(UpdateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateConnectionCommand)
   .de(de_UpdateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectionRequest;
+      output: UpdateConnectionResponse;
+    };
+    sdk: {
+      input: UpdateConnectionCommandInput;
+      output: UpdateConnectionCommandOutput;
+    };
+  };
+}

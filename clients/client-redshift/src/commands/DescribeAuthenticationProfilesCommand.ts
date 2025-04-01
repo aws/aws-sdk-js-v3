@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAuthenticationProfilesMessage, DescribeAuthenticationProfilesResult } from "../models/models_0";
+import { DescribeAuthenticationProfilesMessage, DescribeAuthenticationProfilesResult } from "../models/models_1";
 import {
   de_DescribeAuthenticationProfilesCommand,
   se_DescribeAuthenticationProfilesCommand,
@@ -72,6 +72,7 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeAuthenticationProfilesCommand extends $Command
@@ -82,9 +83,7 @@ export class DescribeAuthenticationProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DescribeAuthenticationProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuthenticationProfilesCommand)
   .de(de_DescribeAuthenticationProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuthenticationProfilesMessage;
+      output: DescribeAuthenticationProfilesResult;
+    };
+    sdk: {
+      input: DescribeAuthenticationProfilesCommandInput;
+      output: DescribeAuthenticationProfilesCommandOutput;
+    };
+  };
+}

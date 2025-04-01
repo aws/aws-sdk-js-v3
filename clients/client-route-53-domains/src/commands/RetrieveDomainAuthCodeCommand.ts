@@ -69,6 +69,7 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class RetrieveDomainAuthCodeCommand extends $Command
@@ -79,9 +80,7 @@ export class RetrieveDomainAuthCodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class RetrieveDomainAuthCodeCommand extends $Command
   .f(void 0, RetrieveDomainAuthCodeResponseFilterSensitiveLog)
   .ser(se_RetrieveDomainAuthCodeCommand)
   .de(de_RetrieveDomainAuthCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveDomainAuthCodeRequest;
+      output: RetrieveDomainAuthCodeResponse;
+    };
+    sdk: {
+      input: RetrieveDomainAuthCodeCommandInput;
+      output: RetrieveDomainAuthCodeCommandOutput;
+    };
+  };
+}

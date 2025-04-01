@@ -55,6 +55,7 @@ export interface MalformedFloatCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedFloatCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedFloatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedFloatCommand)
   .de(de_MalformedFloatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedFloatInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedFloatCommandInput;
+      output: MalformedFloatCommandOutput;
+    };
+  };
+}

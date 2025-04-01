@@ -87,6 +87,7 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListWavesCommand extends $Command
@@ -97,9 +98,7 @@ export class ListWavesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListWavesCommand extends $Command
   .f(void 0, ListWavesResponseFilterSensitiveLog)
   .ser(se_ListWavesCommand)
   .de(de_ListWavesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWavesRequest;
+      output: ListWavesResponse;
+    };
+    sdk: {
+      input: ListWavesCommandInput;
+      output: ListWavesCommandOutput;
+    };
+  };
+}

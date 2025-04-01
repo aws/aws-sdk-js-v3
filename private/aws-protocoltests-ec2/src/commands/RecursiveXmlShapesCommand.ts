@@ -63,6 +63,7 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class RecursiveXmlShapesCommand extends $Command
@@ -81,4 +82,16 @@ export class RecursiveXmlShapesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RecursiveXmlShapesCommand)
   .de(de_RecursiveXmlShapesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: RecursiveXmlShapesOutput;
+    };
+    sdk: {
+      input: RecursiveXmlShapesCommandInput;
+      output: RecursiveXmlShapesCommandOutput;
+    };
+  };
+}

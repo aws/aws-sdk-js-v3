@@ -149,6 +149,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class DetectModerationLabelsCommand extends $Command
@@ -159,9 +160,7 @@ export class DetectModerationLabelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +172,16 @@ export class DetectModerationLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectModerationLabelsCommand)
   .de(de_DetectModerationLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectModerationLabelsRequest;
+      output: DetectModerationLabelsResponse;
+    };
+    sdk: {
+      input: DetectModerationLabelsCommandInput;
+      output: DetectModerationLabelsCommandOutput;
+    };
+  };
+}

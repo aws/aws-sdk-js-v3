@@ -28,7 +28,9 @@ export interface CreateBillingGroupCommandInput extends CreateBillingGroupReques
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a billing group.</p>
+ * <p>Creates a billing group. If this call is made multiple times using
+ * 			the same billing group name and configuration, the call will succeed. If this call is made with
+ * 			the same billing group name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +81,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateBillingGroupCommand extends $Command
@@ -89,9 +92,7 @@ export class CreateBillingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class CreateBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBillingGroupCommand)
   .de(de_CreateBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBillingGroupRequest;
+      output: CreateBillingGroupResponse;
+    };
+    sdk: {
+      input: CreateBillingGroupCommandInput;
+      output: CreateBillingGroupCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class UpdateListCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateListCommand extends $Command
   .f(UpdateListRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateListCommand)
   .de(de_UpdateListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateListRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateListCommandInput;
+      output: UpdateListCommandOutput;
+    };
+  };
+}

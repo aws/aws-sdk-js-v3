@@ -93,6 +93,7 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
@@ -103,9 +104,7 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPricingRulesAssociatedToPricingPlanCommand)
   .de(de_ListPricingRulesAssociatedToPricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPricingRulesAssociatedToPricingPlanInput;
+      output: ListPricingRulesAssociatedToPricingPlanOutput;
+    };
+    sdk: {
+      input: ListPricingRulesAssociatedToPricingPlanCommandInput;
+      output: ListPricingRulesAssociatedToPricingPlanCommandOutput;
+    };
+  };
+}

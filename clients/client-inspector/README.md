@@ -14,7 +14,7 @@ Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-inspector
+To install this package, simply type add or install @aws-sdk/client-inspector
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-inspector`

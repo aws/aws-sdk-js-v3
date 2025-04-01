@@ -86,6 +86,7 @@ export interface ListEnvironmentProvisionedResourcesCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentProvisionedResourcesCommand extends $Command
@@ -96,9 +97,7 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentProvisionedResourcesCommand)
   .de(de_ListEnvironmentProvisionedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentProvisionedResourcesInput;
+      output: ListEnvironmentProvisionedResourcesOutput;
+    };
+    sdk: {
+      input: ListEnvironmentProvisionedResourcesCommandInput;
+      output: ListEnvironmentProvisionedResourcesCommandOutput;
+    };
+  };
+}

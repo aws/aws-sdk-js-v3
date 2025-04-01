@@ -170,6 +170,7 @@ export interface UpdateCostCategoryDefinitionCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class UpdateCostCategoryDefinitionCommand extends $Command
@@ -180,9 +181,7 @@ export class UpdateCostCategoryDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +193,16 @@ export class UpdateCostCategoryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCostCategoryDefinitionCommand)
   .de(de_UpdateCostCategoryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCostCategoryDefinitionRequest;
+      output: UpdateCostCategoryDefinitionResponse;
+    };
+    sdk: {
+      input: UpdateCostCategoryDefinitionCommandInput;
+      output: UpdateCostCategoryDefinitionCommandOutput;
+    };
+  };
+}

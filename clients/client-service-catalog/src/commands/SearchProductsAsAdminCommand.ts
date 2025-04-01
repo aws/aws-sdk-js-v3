@@ -110,6 +110,7 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class SearchProductsAsAdminCommand extends $Command
@@ -120,9 +121,7 @@ export class SearchProductsAsAdminCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class SearchProductsAsAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchProductsAsAdminCommand)
   .de(de_SearchProductsAsAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchProductsAsAdminInput;
+      output: SearchProductsAsAdminOutput;
+    };
+    sdk: {
+      input: SearchProductsAsAdminCommandInput;
+      output: SearchProductsAsAdminCommandOutput;
+    };
+  };
+}

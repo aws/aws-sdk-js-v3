@@ -106,6 +106,7 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribePackageImportJobCommand extends $Command
@@ -116,9 +117,7 @@ export class DescribePackageImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class DescribePackageImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePackageImportJobCommand)
   .de(de_DescribePackageImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePackageImportJobRequest;
+      output: DescribePackageImportJobResponse;
+    };
+    sdk: {
+      input: DescribePackageImportJobCommandInput;
+      output: DescribePackageImportJobCommandOutput;
+    };
+  };
+}

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateInferenceComponentRuntimeConfigInput,
   UpdateInferenceComponentRuntimeConfigOutput,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_UpdateInferenceComponentRuntimeConfigCommand,
   se_UpdateInferenceComponentRuntimeConfigCommand,
@@ -70,6 +70,7 @@ export interface UpdateInferenceComponentRuntimeConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
@@ -80,9 +81,7 @@ export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInferenceComponentRuntimeConfigCommand)
   .de(de_UpdateInferenceComponentRuntimeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInferenceComponentRuntimeConfigInput;
+      output: UpdateInferenceComponentRuntimeConfigOutput;
+    };
+    sdk: {
+      input: UpdateInferenceComponentRuntimeConfigCommandInput;
+      output: UpdateInferenceComponentRuntimeConfigCommandOutput;
+    };
+  };
+}

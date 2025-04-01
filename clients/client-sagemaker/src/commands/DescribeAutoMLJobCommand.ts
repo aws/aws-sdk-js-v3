@@ -211,6 +211,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeAutoMLJobCommand extends $Command
@@ -221,9 +222,7 @@ export class DescribeAutoMLJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -235,4 +234,16 @@ export class DescribeAutoMLJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoMLJobCommand)
   .de(de_DescribeAutoMLJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoMLJobRequest;
+      output: DescribeAutoMLJobResponse;
+    };
+    sdk: {
+      input: DescribeAutoMLJobCommandInput;
+      output: DescribeAutoMLJobCommandOutput;
+    };
+  };
+}

@@ -29,9 +29,9 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
 
 /**
  * <p>An auto-complete API for the search functionality in the SageMaker console. It returns
- *       suggestions of possible matches for the property name to use in <code>Search</code>
- *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
- *       <code>Metrics</code>.</p>
+ *       suggestions of possible matches for the property name to use in <code>Search</code> queries.
+ *       Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
+ *         <code>Metrics</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,7 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class GetSearchSuggestionsCommand extends $Command
@@ -77,9 +78,7 @@ export class GetSearchSuggestionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class GetSearchSuggestionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSearchSuggestionsCommand)
   .de(de_GetSearchSuggestionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSearchSuggestionsRequest;
+      output: GetSearchSuggestionsResponse;
+    };
+    sdk: {
+      input: GetSearchSuggestionsCommandInput;
+      output: GetSearchSuggestionsCommandOutput;
+    };
+  };
+}

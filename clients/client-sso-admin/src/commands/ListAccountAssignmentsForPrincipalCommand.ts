@@ -96,6 +96,7 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListAccountAssignmentsForPrincipalCommand extends $Command
@@ -106,9 +107,7 @@ export class ListAccountAssignmentsForPrincipalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListAccountAssignmentsForPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountAssignmentsForPrincipalCommand)
   .de(de_ListAccountAssignmentsForPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountAssignmentsForPrincipalRequest;
+      output: ListAccountAssignmentsForPrincipalResponse;
+    };
+    sdk: {
+      input: ListAccountAssignmentsForPrincipalCommandInput;
+      output: ListAccountAssignmentsForPrincipalCommandOutput;
+    };
+  };
+}

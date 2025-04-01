@@ -1,4 +1,5 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import { setCredentialFeature } from "@aws-sdk/core/client";
+import type { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
@@ -24,6 +25,10 @@ export const ENV_EXPIRATION = "AWS_CREDENTIAL_EXPIRATION";
  * @internal
  */
 export const ENV_CREDENTIAL_SCOPE = "AWS_CREDENTIAL_SCOPE";
+/**
+ * @internal
+ */
+export const ENV_ACCOUNT_ID = "AWS_ACCOUNT_ID";
 
 /**
  * @internal
@@ -41,15 +46,19 @@ export const fromEnv =
     const sessionToken: string | undefined = process.env[ENV_SESSION];
     const expiry: string | undefined = process.env[ENV_EXPIRATION];
     const credentialScope: string | undefined = process.env[ENV_CREDENTIAL_SCOPE];
+    const accountId: string | undefined = process.env[ENV_ACCOUNT_ID];
 
     if (accessKeyId && secretAccessKey) {
-      return {
+      const credentials = {
         accessKeyId,
         secretAccessKey,
         ...(sessionToken && { sessionToken }),
         ...(expiry && { expiration: new Date(expiry) }),
         ...(credentialScope && { credentialScope }),
-      };
+        ...(accountId && { accountId }),
+      } as AttributedAwsCredentialIdentity;
+      setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS", "g");
+      return credentials;
     }
 
     throw new CredentialsProviderError("Unable to find environment variable credentials.", { logger: init?.logger });

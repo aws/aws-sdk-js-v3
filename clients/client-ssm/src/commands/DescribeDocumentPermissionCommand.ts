@@ -86,6 +86,7 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeDocumentPermissionCommand extends $Command
@@ -96,9 +97,7 @@ export class DescribeDocumentPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class DescribeDocumentPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDocumentPermissionCommand)
   .de(de_DescribeDocumentPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDocumentPermissionRequest;
+      output: DescribeDocumentPermissionResponse;
+    };
+    sdk: {
+      input: DescribeDocumentPermissionCommandInput;
+      output: DescribeDocumentPermissionCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,7 @@ identity APIs, refer to <a href="https://docs.aws.amazon.com/chime/latest/APIRef
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-identity
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-identity
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-identity`

@@ -20,7 +20,7 @@ WAF Classic</a> in the developer guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-waf-regional
+To install this package, simply type add or install @aws-sdk/client-waf-regional
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-waf-regional`

@@ -72,6 +72,7 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class RegisterEcsClusterCommand extends $Command
@@ -82,9 +83,7 @@ export class RegisterEcsClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class RegisterEcsClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterEcsClusterCommand)
   .de(de_RegisterEcsClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterEcsClusterRequest;
+      output: RegisterEcsClusterResult;
+    };
+    sdk: {
+      input: RegisterEcsClusterCommandInput;
+      output: RegisterEcsClusterCommandOutput;
+    };
+  };
+}

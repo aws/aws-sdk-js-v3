@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAgentKnowledgeBaseRequest, UpdateAgentKnowledgeBaseResponse } from "../models/models_0";
+import { UpdateAgentKnowledgeBaseRequest, UpdateAgentKnowledgeBaseResponse } from "../models/models_1";
 import { de_UpdateAgentKnowledgeBaseCommand, se_UpdateAgentKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -85,6 +85,7 @@ export interface UpdateAgentKnowledgeBaseCommandOutput extends UpdateAgentKnowle
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentKnowledgeBaseCommand extends $Command
@@ -95,9 +96,7 @@ export class UpdateAgentKnowledgeBaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class UpdateAgentKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentKnowledgeBaseCommand)
   .de(de_UpdateAgentKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentKnowledgeBaseRequest;
+      output: UpdateAgentKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: UpdateAgentKnowledgeBaseCommandInput;
+      output: UpdateAgentKnowledgeBaseCommandOutput;
+    };
+  };
+}

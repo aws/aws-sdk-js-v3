@@ -148,6 +148,7 @@ import {
   CloudWatchLogsConfig,
   CodeCoverage,
   CodeCoverageReportSummary,
+  ComputeConfiguration,
   CreateFleetInput,
   CreateFleetOutput,
   CreateProjectInput,
@@ -170,6 +171,7 @@ import {
   DescribeTestCasesOutput,
   EnvironmentVariable,
   Fleet,
+  FleetProxyRule,
   GetReportGroupTrendInput,
   GetResourcePolicyInput,
   GitSubmodulesConfig,
@@ -200,6 +202,7 @@ import {
   ProjectFleet,
   ProjectSource,
   ProjectSourceVersion,
+  ProxyConfiguration,
   PutResourcePolicyInput,
   RegistryCredential,
   Report,
@@ -2035,6 +2038,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_CloudWatchLogsConfig omitted.
 
+// se_ComputeConfiguration omitted.
+
 // se_ComputeTypesAllowed omitted.
 
 /**
@@ -2043,11 +2048,14 @@ const de_ResourceNotFoundExceptionRes = async (
 const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): any => {
   return take(input, {
     baseCapacity: [],
+    computeConfiguration: _json,
     computeType: [],
     environmentType: [],
     fleetServiceRole: [],
+    imageId: [],
     name: [],
     overflowBehavior: [],
+    proxyConfiguration: _json,
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
     vpcConfig: _json,
@@ -2102,6 +2110,14 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_FilterGroups omitted.
 
 // se_FleetNames omitted.
+
+// se_FleetProxyRule omitted.
+
+// se_FleetProxyRuleEntities omitted.
+
+// se_FleetProxyRules omitted.
+
+// se_FleetsAllowed omitted.
 
 // se_GetReportGroupTrendInput omitted.
 
@@ -2168,6 +2184,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_ProjectSources omitted.
 
 // se_ProjectSourceVersion omitted.
+
+// se_ProxyConfiguration omitted.
 
 // se_PutResourcePolicyInput omitted.
 
@@ -2256,10 +2274,13 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
   return take(input, {
     arn: [],
     baseCapacity: [],
+    computeConfiguration: _json,
     computeType: [],
     environmentType: [],
     fleetServiceRole: [],
+    imageId: [],
     overflowBehavior: [],
+    proxyConfiguration: _json,
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
     vpcConfig: _json,
@@ -2279,6 +2300,8 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
 // se_WebhookFilter omitted.
 
 // de_AccountLimitExceededException omitted.
+
+// de_AutoRetryConfig omitted.
 
 // de_BatchDeleteBuildsOutput omitted.
 
@@ -2351,6 +2374,7 @@ const de_Build = (output: any, context: __SerdeContext): Build => {
   return take(output, {
     arn: __expectString,
     artifacts: _json,
+    autoRetryConfig: _json,
     buildBatchArn: __expectString,
     buildComplete: __expectBoolean,
     buildNumber: __expectLong,
@@ -2414,6 +2438,7 @@ const de_BuildBatch = (output: any, context: __SerdeContext): BuildBatch => {
     phases: (_: any) => de_BuildBatchPhases(_, context),
     projectName: __expectString,
     queuedTimeoutInMinutes: __expectInt32,
+    reportArns: _json,
     resolvedSourceVersion: __expectString,
     secondaryArtifacts: _json,
     secondarySourceVersions: _json,
@@ -2610,6 +2635,8 @@ const de_CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] 
   return retVal;
 };
 
+// de_ComputeConfiguration omitted.
+
 // de_ComputeTypesAllowed omitted.
 
 /**
@@ -2717,14 +2744,17 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
   return take(output, {
     arn: __expectString,
     baseCapacity: __expectInt32,
+    computeConfiguration: _json,
     computeType: __expectString,
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     environmentType: __expectString,
     fleetServiceRole: __expectString,
     id: __expectString,
+    imageId: __expectString,
     lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     overflowBehavior: __expectString,
+    proxyConfiguration: _json,
     scalingConfiguration: (_: any) => de_ScalingConfigurationOutput(_, context),
     status: _json,
     tags: _json,
@@ -2735,6 +2765,12 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
 // de_FleetArns omitted.
 
 // de_FleetNames omitted.
+
+// de_FleetProxyRule omitted.
+
+// de_FleetProxyRuleEntities omitted.
+
+// de_FleetProxyRules omitted.
 
 /**
  * deserializeAws_json1_1Fleets
@@ -2747,6 +2783,8 @@ const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
     });
   return retVal;
 };
+
+// de_FleetsAllowed omitted.
 
 // de_FleetStatus omitted.
 
@@ -2811,6 +2849,7 @@ const de_Project = (output: any, context: __SerdeContext): Project => {
   return take(output, {
     arn: __expectString,
     artifacts: _json,
+    autoRetryLimit: __expectInt32,
     badge: _json,
     buildBatchConfig: _json,
     cache: _json,
@@ -2883,6 +2922,8 @@ const de_Projects = (output: any, context: __SerdeContext): Project[] => {
 // de_ProjectSources omitted.
 
 // de_ProjectSourceVersion omitted.
+
+// de_ProxyConfiguration omitted.
 
 // de_PutResourcePolicyOutput omitted.
 
@@ -3097,6 +3138,7 @@ const de_TestCase = (output: any, context: __SerdeContext): TestCase => {
     reportArn: __expectString,
     status: __expectString,
     testRawDataPath: __expectString,
+    testSuiteName: __expectString,
   }) as any;
 };
 
@@ -3167,6 +3209,8 @@ const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
     payloadUrl: __expectString,
     scopeConfiguration: _json,
     secret: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
     url: __expectString,
   }) as any;
 };

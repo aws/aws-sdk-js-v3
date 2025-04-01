@@ -33,7 +33,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
+ * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated.</p>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
@@ -101,6 +101,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateTrafficDistributionGroupCommand extends $Command
@@ -111,9 +112,7 @@ export class CreateTrafficDistributionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class CreateTrafficDistributionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrafficDistributionGroupCommand)
   .de(de_CreateTrafficDistributionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrafficDistributionGroupRequest;
+      output: CreateTrafficDistributionGroupResponse;
+    };
+    sdk: {
+      input: CreateTrafficDistributionGroupCommandInput;
+      output: CreateTrafficDistributionGroupCommandOutput;
+    };
+  };
+}

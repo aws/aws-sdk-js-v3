@@ -109,6 +109,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>FileSystemTypeVersion</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>LogConfiguration</code>
  *                </p>
  *             </li>
@@ -232,6 +237,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ReadCacheConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>RemoveRouteTableIds</code>
  *                </p>
  *             </li>
@@ -325,6 +335,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       "STRING_VALUE",
  *     ],
  *     ThroughputCapacityPerHAPair: Number("int"),
+ *     HAPairs: Number("int"),
  *   },
  *   OpenZFSConfiguration: { // UpdateFileSystemOpenZFSConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
@@ -343,8 +354,13 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *     RemoveRouteTableIds: [
  *       "STRING_VALUE",
  *     ],
+ *     ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ *       SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ *       SizeGiB: Number("int"),
+ *     },
  *   },
- *   StorageType: "SSD" || "HDD",
+ *   StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
+ *   FileSystemTypeVersion: "STRING_VALUE",
  * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
@@ -359,7 +375,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       Message: "STRING_VALUE",
  * //     },
  * //     StorageCapacity: Number("int"),
- * //     StorageType: "SSD" || "HDD",
+ * //     StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //     VpcId: "STRING_VALUE",
  * //     SubnetIds: [ // SubnetIds
  * //       "STRING_VALUE",
@@ -449,13 +465,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         Iops: Number("int"),
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //       },
+ * //       EfaEnabled: true || false,
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
- * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //         TargetFileSystemValues: {
  * //           OwnerId: "STRING_VALUE",
  * //           CreationTime: new Date("TIMESTAMP"),
@@ -466,7 +483,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             Message: "STRING_VALUE",
  * //           },
  * //           StorageCapacity: Number("int"),
- * //           StorageType: "SSD" || "HDD",
+ * //           StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //           VpcId: "STRING_VALUE",
  * //           SubnetIds: [
  * //             "STRING_VALUE",
@@ -556,13 +573,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               Iops: Number("int"),
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
+ * //             EfaEnabled: true || false,
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
- * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //               TargetFileSystemValues: "<FileSystem>",
  * //               FailureDetails: { // AdministrativeActionFailureDetails
  * //                 Message: "STRING_VALUE",
@@ -690,7 +708,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //           OntapConfiguration: { // OntapFileSystemConfiguration
  * //             AutomaticBackupRetentionDays: Number("int"),
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //             EndpointIpAddressRange: "STRING_VALUE",
  * //             Endpoints: { // FileSystemEndpoints
  * //               Intercluster: { // FileSystemEndpoint
@@ -726,7 +744,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             DiskIopsConfiguration: {
@@ -740,6 +758,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //             EndpointIpAddress: "STRING_VALUE",
+ * //             ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //         },
  * //         FailureDetails: {
@@ -865,7 +887,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //     OntapConfiguration: {
  * //       AutomaticBackupRetentionDays: Number("int"),
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //       EndpointIpAddressRange: "STRING_VALUE",
  * //       Endpoints: {
  * //         Intercluster: {
@@ -901,7 +923,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       CopyTagsToBackups: true || false,
  * //       CopyTagsToVolumes: true || false,
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //       DiskIopsConfiguration: "<DiskIopsConfiguration>",
@@ -912,6 +934,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         "STRING_VALUE",
  * //       ],
  * //       EndpointIpAddress: "STRING_VALUE",
+ * //       ReadCacheConfiguration: {
+ * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //         SizeGiB: Number("int"),
+ * //       },
  * //     },
  * //   },
  * // };
@@ -954,53 +980,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
- * @example To update an existing file system
- * ```javascript
- * // This operation updates an existing file system.
- * const input = {
- *   "FileSystemId": "fs-0498eed5fe91001ec",
- *   "WindowsConfiguration": {
- *     "AutomaticBackupRetentionDays": 10,
- *     "DailyAutomaticBackupStartTime": "06:00",
- *     "WeeklyMaintenanceStartTime": "3:06:00"
- *   }
- * };
- * const command = new UpdateFileSystemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FileSystem": {
- *     "CreationTime": "1481841524.0",
- *     "DNSName": "fs-0498eed5fe91001ec.fsx.com",
- *     "FileSystemId": "fs-0498eed5fe91001ec",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/0ff3ea8d-130e-4133-877f-93908b6fdbd6",
- *     "Lifecycle": "AVAILABLE",
- *     "OwnerId": "012345678912",
- *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
- *     "StorageCapacity": 300,
- *     "SubnetIds": [
- *       "subnet-1234abcd"
- *     ],
- *     "Tags": [
- *       {
- *         "Key": "Name",
- *         "Value": "MyFileSystem"
- *       }
- *     ],
- *     "VpcId": "vpc-ab1234cd",
- *     "WindowsConfiguration": {
- *       "AutomaticBackupRetentionDays": 10,
- *       "DailyAutomaticBackupStartTime": "06:00",
- *       "ThroughputCapacity": 8,
- *       "WeeklyMaintenanceStartTime": "3:06:00"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-update-a-file-system-1481840798595
- * ```
  *
+ * @public
  */
 export class UpdateFileSystemCommand extends $Command
   .classBuilder<
@@ -1010,9 +991,7 @@ export class UpdateFileSystemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1024,4 +1003,16 @@ export class UpdateFileSystemCommand extends $Command
   .f(UpdateFileSystemRequestFilterSensitiveLog, UpdateFileSystemResponseFilterSensitiveLog)
   .ser(se_UpdateFileSystemCommand)
   .de(de_UpdateFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileSystemRequest;
+      output: UpdateFileSystemResponse;
+    };
+    sdk: {
+      input: UpdateFileSystemCommandInput;
+      output: UpdateFileSystemCommandOutput;
+    };
+  };
+}

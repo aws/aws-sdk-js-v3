@@ -53,6 +53,7 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class IgnoresWrappingXmlNameCommand extends $Command
@@ -71,4 +72,16 @@ export class IgnoresWrappingXmlNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IgnoresWrappingXmlNameCommand)
   .de(de_IgnoresWrappingXmlNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: IgnoresWrappingXmlNameOutput;
+    };
+    sdk: {
+      input: IgnoresWrappingXmlNameCommandInput;
+      output: IgnoresWrappingXmlNameCommandOutput;
+    };
+  };
+}

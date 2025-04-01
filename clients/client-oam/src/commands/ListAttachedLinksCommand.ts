@@ -80,6 +80,7 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class ListAttachedLinksCommand extends $Command
@@ -90,9 +91,7 @@ export class ListAttachedLinksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListAttachedLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedLinksCommand)
   .de(de_ListAttachedLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedLinksInput;
+      output: ListAttachedLinksOutput;
+    };
+    sdk: {
+      input: ListAttachedLinksCommandInput;
+      output: ListAttachedLinksCommandOutput;
+    };
+  };
+}

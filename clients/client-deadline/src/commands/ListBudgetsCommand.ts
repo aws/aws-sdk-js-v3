@@ -93,6 +93,7 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListBudgetsCommand extends $Command
@@ -103,9 +104,7 @@ export class ListBudgetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class ListBudgetsCommand extends $Command
   .f(void 0, ListBudgetsResponseFilterSensitiveLog)
   .ser(se_ListBudgetsCommand)
   .de(de_ListBudgetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBudgetsRequest;
+      output: ListBudgetsResponse;
+    };
+    sdk: {
+      input: ListBudgetsCommandInput;
+      output: ListBudgetsCommandOutput;
+    };
+  };
+}

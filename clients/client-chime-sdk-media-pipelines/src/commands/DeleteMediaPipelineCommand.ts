@@ -82,6 +82,7 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class DeleteMediaPipelineCommand extends $Command
@@ -92,9 +93,7 @@ export class DeleteMediaPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DeleteMediaPipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaPipelineCommand)
   .de(de_DeleteMediaPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaPipelineRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaPipelineCommandInput;
+      output: DeleteMediaPipelineCommandOutput;
+    };
+  };
+}

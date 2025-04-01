@@ -139,6 +139,7 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command
@@ -149,9 +150,7 @@ export class ListResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class ListResourcesCommand extends $Command
   .f(ListResourcesInputFilterSensitiveLog, ListResourcesOutputFilterSensitiveLog)
   .ser(se_ListResourcesCommand)
   .de(de_ListResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesInput;
+      output: ListResourcesOutput;
+    };
+    sdk: {
+      input: ListResourcesCommandInput;
+      output: ListResourcesCommandOutput;
+    };
+  };
+}

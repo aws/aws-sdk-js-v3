@@ -193,6 +193,8 @@ import {
   CustomRequestHandling,
   CustomResponse,
   CustomResponseBody,
+  DataProtection,
+  DataProtectionConfig,
   DefaultAction,
   DeleteAPIKeyRequest,
   DeleteFirewallManagerRuleGroupsRequest,
@@ -209,6 +211,7 @@ import {
   EmailField,
   ExcludedRule,
   FieldToMatch,
+  FieldToProtect,
   Filter,
   FirewallManagerRuleGroup,
   FirewallManagerStatement,
@@ -241,6 +244,7 @@ import {
   IPSetForwardedIPConfig,
   IPSetReferenceStatement,
   JA3Fingerprint,
+  JA4Fingerprint,
   JsonBody,
   JsonMatchPattern,
   Label,
@@ -287,6 +291,8 @@ import {
   RateLimitHeader,
   RateLimitHTTPMethod,
   RateLimitIP,
+  RateLimitJA3Fingerprint,
+  RateLimitJA4Fingerprint,
   RateLimitLabelNamespace,
   RateLimitQueryArgument,
   RateLimitQueryString,
@@ -325,6 +331,7 @@ import {
   UpdateRegexPatternSetRequest,
   UpdateRuleGroupRequest,
   UpdateWebACLRequest,
+  UriFragment,
   UriPath,
   UsernameField,
   VersionToPublish,
@@ -2628,6 +2635,7 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: [],
     Name: [],
@@ -2650,6 +2658,12 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 // se_CustomResponseBodies omitted.
 
 // se_CustomResponseBody omitted.
+
+// se_DataProtection omitted.
+
+// se_DataProtectionConfig omitted.
+
+// se_DataProtections omitted.
 
 // se_DefaultAction omitted.
 
@@ -2684,6 +2698,10 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 // se_ExcludedRules omitted.
 
 // se_FieldToMatch omitted.
+
+// se_FieldToProtect omitted.
+
+// se_FieldToProtectKeys omitted.
 
 // se_Filter omitted.
 
@@ -2747,6 +2765,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
 // se_IPSetReferenceStatement omitted.
 
 // se_JA3Fingerprint omitted.
+
+// se_JA4Fingerprint omitted.
 
 // se_JsonBody omitted.
 
@@ -2876,6 +2896,10 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
 // se_RateLimitHTTPMethod omitted.
 
 // se_RateLimitIP omitted.
+
+// se_RateLimitJA3Fingerprint omitted.
+
+// se_RateLimitJA4Fingerprint omitted.
 
 // se_RateLimitLabelNamespace omitted.
 
@@ -3079,6 +3103,7 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: [],
     Id: [],
@@ -3090,6 +3115,8 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
     VisibilityConfig: _json,
   });
 };
+
+// se_UriFragment omitted.
 
 // se_UriPath omitted.
 
@@ -3224,6 +3251,12 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 
 // de_CustomResponseBody omitted.
 
+// de_DataProtection omitted.
+
+// de_DataProtectionConfig omitted.
+
+// de_DataProtections omitted.
+
 // de_DefaultAction omitted.
 
 // de_DeleteAPIKeyResponse omitted.
@@ -3257,6 +3290,10 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_ExcludedRules omitted.
 
 // de_FieldToMatch omitted.
+
+// de_FieldToProtect omitted.
+
+// de_FieldToProtectKeys omitted.
 
 // de_Filter omitted.
 
@@ -3412,6 +3449,8 @@ const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLRe
 // de_IPSetSummary omitted.
 
 // de_JA3Fingerprint omitted.
+
+// de_JA4Fingerprint omitted.
 
 // de_JsonBody omitted.
 
@@ -3666,6 +3705,10 @@ const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedS
 // de_RateLimitHTTPMethod omitted.
 
 // de_RateLimitIP omitted.
+
+// de_RateLimitJA3Fingerprint omitted.
+
+// de_RateLimitJA4Fingerprint omitted.
 
 // de_RateLimitLabelNamespace omitted.
 
@@ -3935,6 +3978,8 @@ const de_UpdateManagedRuleSetVersionExpiryDateResponse = (
 
 // de_UpdateWebACLResponse omitted.
 
+// de_UriFragment omitted.
+
 // de_UriPath omitted.
 
 // de_UsernameField omitted.
@@ -3990,6 +4035,7 @@ const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: __expectString,
     Id: __expectString,
@@ -3998,6 +4044,7 @@ const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
     Name: __expectString,
     PostProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
     PreProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
+    RetrofittedByFirewallManager: __expectBoolean,
     Rules: (_: any) => de_Rules(_, context),
     TokenDomains: _json,
     VisibilityConfig: _json,

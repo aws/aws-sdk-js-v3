@@ -57,7 +57,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentDocument: "STRING_VALUE", // required
  * //   SageMakerPublicHubContentArn: "STRING_VALUE",
  * //   ReferenceMinVersion: "STRING_VALUE",
- * //   SupportStatus: "Supported" || "Deprecated",
+ * //   SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //     "STRING_VALUE",
  * //   ],
@@ -70,6 +70,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
  * //   FailureReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
@@ -86,6 +87,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeHubContentCommand extends $Command
@@ -96,9 +98,7 @@ export class DescribeHubContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DescribeHubContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHubContentCommand)
   .de(de_DescribeHubContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHubContentRequest;
+      output: DescribeHubContentResponse;
+    };
+    sdk: {
+      input: DescribeHubContentCommandInput;
+      output: DescribeHubContentCommandOutput;
+    };
+  };
+}

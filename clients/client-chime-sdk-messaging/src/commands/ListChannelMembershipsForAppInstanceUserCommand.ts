@@ -114,6 +114,7 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListChannelMembershipsForAppInstanceUserCommand extends $Command
@@ -124,9 +125,7 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command
   )
   .ser(se_ListChannelMembershipsForAppInstanceUserCommand)
   .de(de_ListChannelMembershipsForAppInstanceUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelMembershipsForAppInstanceUserRequest;
+      output: ListChannelMembershipsForAppInstanceUserResponse;
+    };
+    sdk: {
+      input: ListChannelMembershipsForAppInstanceUserCommandInput;
+      output: ListChannelMembershipsForAppInstanceUserCommandOutput;
+    };
+  };
+}

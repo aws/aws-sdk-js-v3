@@ -82,35 +82,35 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To deregister instances from a load balancer
  * ```javascript
  * // This example deregisters the specified instance from the specified load balancer.
  * const input = {
- *   "Instances": [
+ *   Instances: [
  *     {
- *       "InstanceId": "i-d6f6fae3"
+ *       InstanceId: "i-d6f6fae3"
  *     }
  *   ],
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Instances": [
+ *   Instances: [
  *     {
- *       "InstanceId": "i-207d9717"
+ *       InstanceId: "i-207d9717"
  *     },
  *     {
- *       "InstanceId": "i-afefb49b"
+ *       InstanceId: "i-afefb49b"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-deregister-instances-from-load-balancer-1
  * ```
  *
+ * @public
  */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command
   .classBuilder<
@@ -120,9 +120,7 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +132,16 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterInstancesFromLoadBalancerCommand)
   .de(de_DeregisterInstancesFromLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterEndPointsInput;
+      output: DeregisterEndPointsOutput;
+    };
+    sdk: {
+      input: DeregisterInstancesFromLoadBalancerCommandInput;
+      output: DeregisterInstancesFromLoadBalancerCommandOutput;
+    };
+  };
+}

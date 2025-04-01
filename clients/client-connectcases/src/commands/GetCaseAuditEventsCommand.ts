@@ -108,6 +108,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetCaseAuditEventsCommand extends $Command
@@ -118,9 +119,7 @@ export class GetCaseAuditEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class GetCaseAuditEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCaseAuditEventsCommand)
   .de(de_GetCaseAuditEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCaseAuditEventsRequest;
+      output: GetCaseAuditEventsResponse;
+    };
+    sdk: {
+      input: GetCaseAuditEventsCommandInput;
+      output: GetCaseAuditEventsCommandOutput;
+    };
+  };
+}

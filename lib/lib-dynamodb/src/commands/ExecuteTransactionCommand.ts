@@ -18,7 +18,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInput, "TransactStatements"> & {
   TransactStatements:
     | (Omit<ParameterizedStatement, "Parameters"> & {
-        Parameters?: NativeAttributeValue[];
+        Parameters?: NativeAttributeValue[] | undefined;
       })[]
     | undefined;
 };
@@ -27,9 +27,11 @@ export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInp
  * @public
  */
 export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, "Responses"> & {
-  Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: Record<string, NativeAttributeValue>;
-  })[];
+  Responses?:
+    | (Omit<ItemResponse, "Item"> & {
+        Item?: Record<string, NativeAttributeValue> | undefined;
+      })[]
+    | undefined;
 };
 
 /**

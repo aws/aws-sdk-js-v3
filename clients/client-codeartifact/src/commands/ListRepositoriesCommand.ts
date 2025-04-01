@@ -91,6 +91,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListRepositoriesCommand extends $Command
@@ -101,9 +102,7 @@ export class ListRepositoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListRepositoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRepositoriesCommand)
   .de(de_ListRepositoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRepositoriesRequest;
+      output: ListRepositoriesResult;
+    };
+    sdk: {
+      input: ListRepositoriesCommandInput;
+      output: ListRepositoriesCommandOutput;
+    };
+  };
+}

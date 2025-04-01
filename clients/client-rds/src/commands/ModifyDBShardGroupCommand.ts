@@ -40,6 +40,8 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * const input = { // ModifyDBShardGroupMessage
  *   DBShardGroupIdentifier: "STRING_VALUE", // required
  *   MaxACU: Number("double"),
+ *   MinACU: Number("double"),
+ *   ComputeRedundancy: Number("int"),
  * };
  * const command = new ModifyDBShardGroupCommand(input);
  * const response = await client.send(command);
@@ -48,10 +50,18 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   DBShardGroupIdentifier: "STRING_VALUE",
  * //   DBClusterIdentifier: "STRING_VALUE",
  * //   MaxACU: Number("double"),
+ * //   MinACU: Number("double"),
  * //   ComputeRedundancy: Number("int"),
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,
  * //   Endpoint: "STRING_VALUE",
+ * //   DBShardGroupArn: "STRING_VALUE",
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -71,11 +81,9 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
- * @throws {@link InvalidMaxAcuFault} (client fault)
- *  <p>The maximum capacity of the DB shard group must be 48-7168 Aurora capacity units (ACUs).</p>
- *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +95,7 @@ export class ModifyDBShardGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +107,16 @@ export class ModifyDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBShardGroupCommand)
   .de(de_ModifyDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: ModifyDBShardGroupCommandInput;
+      output: ModifyDBShardGroupCommandOutput;
+    };
+  };
+}

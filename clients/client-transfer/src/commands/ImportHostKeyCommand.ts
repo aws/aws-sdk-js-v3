@@ -88,6 +88,7 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ImportHostKeyCommand extends $Command
@@ -98,9 +99,7 @@ export class ImportHostKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ImportHostKeyCommand extends $Command
   .f(ImportHostKeyRequestFilterSensitiveLog, void 0)
   .ser(se_ImportHostKeyCommand)
   .de(de_ImportHostKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportHostKeyRequest;
+      output: ImportHostKeyResponse;
+    };
+    sdk: {
+      input: ImportHostKeyCommandInput;
+      output: ImportHostKeyCommandOutput;
+    };
+  };
+}

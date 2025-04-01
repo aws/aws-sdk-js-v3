@@ -53,6 +53,11 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelTrainedModelCommandInput, CancelTrainedModelCommandOutput } from "./commands/CancelTrainedModelCommand";
+import {
+  CancelTrainedModelInferenceJobCommandInput,
+  CancelTrainedModelInferenceJobCommandOutput,
+} from "./commands/CancelTrainedModelInferenceJobCommand";
 import {
   CreateAudienceModelCommandInput,
   CreateAudienceModelCommandOutput,
@@ -61,6 +66,19 @@ import {
   CreateConfiguredAudienceModelCommandInput,
   CreateConfiguredAudienceModelCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelCommand";
+import {
+  CreateConfiguredModelAlgorithmAssociationCommandInput,
+  CreateConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/CreateConfiguredModelAlgorithmAssociationCommand";
+import {
+  CreateConfiguredModelAlgorithmCommandInput,
+  CreateConfiguredModelAlgorithmCommandOutput,
+} from "./commands/CreateConfiguredModelAlgorithmCommand";
+import {
+  CreateMLInputChannelCommandInput,
+  CreateMLInputChannelCommandOutput,
+} from "./commands/CreateMLInputChannelCommand";
+import { CreateTrainedModelCommandInput, CreateTrainedModelCommandOutput } from "./commands/CreateTrainedModelCommand";
 import {
   CreateTrainingDatasetCommandInput,
   CreateTrainingDatasetCommandOutput,
@@ -82,6 +100,26 @@ import {
   DeleteConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelPolicyCommand";
 import {
+  DeleteConfiguredModelAlgorithmAssociationCommandInput,
+  DeleteConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/DeleteConfiguredModelAlgorithmAssociationCommand";
+import {
+  DeleteConfiguredModelAlgorithmCommandInput,
+  DeleteConfiguredModelAlgorithmCommandOutput,
+} from "./commands/DeleteConfiguredModelAlgorithmCommand";
+import {
+  DeleteMLConfigurationCommandInput,
+  DeleteMLConfigurationCommandOutput,
+} from "./commands/DeleteMLConfigurationCommand";
+import {
+  DeleteMLInputChannelDataCommandInput,
+  DeleteMLInputChannelDataCommandOutput,
+} from "./commands/DeleteMLInputChannelDataCommand";
+import {
+  DeleteTrainedModelOutputCommandInput,
+  DeleteTrainedModelOutputCommandOutput,
+} from "./commands/DeleteTrainedModelOutputCommand";
+import {
   DeleteTrainingDatasetCommandInput,
   DeleteTrainingDatasetCommandOutput,
 } from "./commands/DeleteTrainingDatasetCommand";
@@ -91,6 +129,18 @@ import {
 } from "./commands/GetAudienceGenerationJobCommand";
 import { GetAudienceModelCommandInput, GetAudienceModelCommandOutput } from "./commands/GetAudienceModelCommand";
 import {
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/GetCollaborationConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetCollaborationMLInputChannelCommandInput,
+  GetCollaborationMLInputChannelCommandOutput,
+} from "./commands/GetCollaborationMLInputChannelCommand";
+import {
+  GetCollaborationTrainedModelCommandInput,
+  GetCollaborationTrainedModelCommandOutput,
+} from "./commands/GetCollaborationTrainedModelCommand";
+import {
   GetConfiguredAudienceModelCommandInput,
   GetConfiguredAudienceModelCommandOutput,
 } from "./commands/GetConfiguredAudienceModelCommand";
@@ -98,6 +148,21 @@ import {
   GetConfiguredAudienceModelPolicyCommandInput,
   GetConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/GetConfiguredAudienceModelPolicyCommand";
+import {
+  GetConfiguredModelAlgorithmAssociationCommandInput,
+  GetConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/GetConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetConfiguredModelAlgorithmCommandInput,
+  GetConfiguredModelAlgorithmCommandOutput,
+} from "./commands/GetConfiguredModelAlgorithmCommand";
+import { GetMLConfigurationCommandInput, GetMLConfigurationCommandOutput } from "./commands/GetMLConfigurationCommand";
+import { GetMLInputChannelCommandInput, GetMLInputChannelCommandOutput } from "./commands/GetMLInputChannelCommand";
+import { GetTrainedModelCommandInput, GetTrainedModelCommandOutput } from "./commands/GetTrainedModelCommand";
+import {
+  GetTrainedModelInferenceJobCommandInput,
+  GetTrainedModelInferenceJobCommandOutput,
+} from "./commands/GetTrainedModelInferenceJobCommand";
 import { GetTrainingDatasetCommandInput, GetTrainingDatasetCommandOutput } from "./commands/GetTrainingDatasetCommand";
 import {
   ListAudienceExportJobsCommandInput,
@@ -109,13 +174,50 @@ import {
 } from "./commands/ListAudienceGenerationJobsCommand";
 import { ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput } from "./commands/ListAudienceModelsCommand";
 import {
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "./commands/ListCollaborationConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListCollaborationMLInputChannelsCommandInput,
+  ListCollaborationMLInputChannelsCommandOutput,
+} from "./commands/ListCollaborationMLInputChannelsCommand";
+import {
+  ListCollaborationTrainedModelExportJobsCommandInput,
+  ListCollaborationTrainedModelExportJobsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelExportJobsCommand";
+import {
+  ListCollaborationTrainedModelInferenceJobsCommandInput,
+  ListCollaborationTrainedModelInferenceJobsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelInferenceJobsCommand";
+import {
+  ListCollaborationTrainedModelsCommandInput,
+  ListCollaborationTrainedModelsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelsCommand";
+import {
   ListConfiguredAudienceModelsCommandInput,
   ListConfiguredAudienceModelsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelsCommand";
 import {
+  ListConfiguredModelAlgorithmAssociationsCommandInput,
+  ListConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "./commands/ListConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListConfiguredModelAlgorithmsCommandInput,
+  ListConfiguredModelAlgorithmsCommandOutput,
+} from "./commands/ListConfiguredModelAlgorithmsCommand";
+import {
+  ListMLInputChannelsCommandInput,
+  ListMLInputChannelsCommandOutput,
+} from "./commands/ListMLInputChannelsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTrainedModelInferenceJobsCommandInput,
+  ListTrainedModelInferenceJobsCommandOutput,
+} from "./commands/ListTrainedModelInferenceJobsCommand";
+import { ListTrainedModelsCommandInput, ListTrainedModelsCommandOutput } from "./commands/ListTrainedModelsCommand";
 import {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
@@ -124,6 +226,7 @@ import {
   PutConfiguredAudienceModelPolicyCommandInput,
   PutConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/PutConfiguredAudienceModelPolicyCommand";
+import { PutMLConfigurationCommandInput, PutMLConfigurationCommandOutput } from "./commands/PutMLConfigurationCommand";
 import {
   StartAudienceExportJobCommandInput,
   StartAudienceExportJobCommandOutput,
@@ -132,6 +235,14 @@ import {
   StartAudienceGenerationJobCommandInput,
   StartAudienceGenerationJobCommandOutput,
 } from "./commands/StartAudienceGenerationJobCommand";
+import {
+  StartTrainedModelExportJobCommandInput,
+  StartTrainedModelExportJobCommandOutput,
+} from "./commands/StartTrainedModelExportJobCommand";
+import {
+  StartTrainedModelInferenceJobCommandInput,
+  StartTrainedModelInferenceJobCommandOutput,
+} from "./commands/StartTrainedModelInferenceJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -153,28 +264,61 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelTrainedModelCommandInput
+  | CancelTrainedModelInferenceJobCommandInput
   | CreateAudienceModelCommandInput
   | CreateConfiguredAudienceModelCommandInput
+  | CreateConfiguredModelAlgorithmAssociationCommandInput
+  | CreateConfiguredModelAlgorithmCommandInput
+  | CreateMLInputChannelCommandInput
+  | CreateTrainedModelCommandInput
   | CreateTrainingDatasetCommandInput
   | DeleteAudienceGenerationJobCommandInput
   | DeleteAudienceModelCommandInput
   | DeleteConfiguredAudienceModelCommandInput
   | DeleteConfiguredAudienceModelPolicyCommandInput
+  | DeleteConfiguredModelAlgorithmAssociationCommandInput
+  | DeleteConfiguredModelAlgorithmCommandInput
+  | DeleteMLConfigurationCommandInput
+  | DeleteMLInputChannelDataCommandInput
+  | DeleteTrainedModelOutputCommandInput
   | DeleteTrainingDatasetCommandInput
   | GetAudienceGenerationJobCommandInput
   | GetAudienceModelCommandInput
+  | GetCollaborationConfiguredModelAlgorithmAssociationCommandInput
+  | GetCollaborationMLInputChannelCommandInput
+  | GetCollaborationTrainedModelCommandInput
   | GetConfiguredAudienceModelCommandInput
   | GetConfiguredAudienceModelPolicyCommandInput
+  | GetConfiguredModelAlgorithmAssociationCommandInput
+  | GetConfiguredModelAlgorithmCommandInput
+  | GetMLConfigurationCommandInput
+  | GetMLInputChannelCommandInput
+  | GetTrainedModelCommandInput
+  | GetTrainedModelInferenceJobCommandInput
   | GetTrainingDatasetCommandInput
   | ListAudienceExportJobsCommandInput
   | ListAudienceGenerationJobsCommandInput
   | ListAudienceModelsCommandInput
+  | ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput
+  | ListCollaborationMLInputChannelsCommandInput
+  | ListCollaborationTrainedModelExportJobsCommandInput
+  | ListCollaborationTrainedModelInferenceJobsCommandInput
+  | ListCollaborationTrainedModelsCommandInput
   | ListConfiguredAudienceModelsCommandInput
+  | ListConfiguredModelAlgorithmAssociationsCommandInput
+  | ListConfiguredModelAlgorithmsCommandInput
+  | ListMLInputChannelsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTrainedModelInferenceJobsCommandInput
+  | ListTrainedModelsCommandInput
   | ListTrainingDatasetsCommandInput
   | PutConfiguredAudienceModelPolicyCommandInput
+  | PutMLConfigurationCommandInput
   | StartAudienceExportJobCommandInput
   | StartAudienceGenerationJobCommandInput
+  | StartTrainedModelExportJobCommandInput
+  | StartTrainedModelInferenceJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfiguredAudienceModelCommandInput;
@@ -183,28 +327,61 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelTrainedModelCommandOutput
+  | CancelTrainedModelInferenceJobCommandOutput
   | CreateAudienceModelCommandOutput
   | CreateConfiguredAudienceModelCommandOutput
+  | CreateConfiguredModelAlgorithmAssociationCommandOutput
+  | CreateConfiguredModelAlgorithmCommandOutput
+  | CreateMLInputChannelCommandOutput
+  | CreateTrainedModelCommandOutput
   | CreateTrainingDatasetCommandOutput
   | DeleteAudienceGenerationJobCommandOutput
   | DeleteAudienceModelCommandOutput
   | DeleteConfiguredAudienceModelCommandOutput
   | DeleteConfiguredAudienceModelPolicyCommandOutput
+  | DeleteConfiguredModelAlgorithmAssociationCommandOutput
+  | DeleteConfiguredModelAlgorithmCommandOutput
+  | DeleteMLConfigurationCommandOutput
+  | DeleteMLInputChannelDataCommandOutput
+  | DeleteTrainedModelOutputCommandOutput
   | DeleteTrainingDatasetCommandOutput
   | GetAudienceGenerationJobCommandOutput
   | GetAudienceModelCommandOutput
+  | GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput
+  | GetCollaborationMLInputChannelCommandOutput
+  | GetCollaborationTrainedModelCommandOutput
   | GetConfiguredAudienceModelCommandOutput
   | GetConfiguredAudienceModelPolicyCommandOutput
+  | GetConfiguredModelAlgorithmAssociationCommandOutput
+  | GetConfiguredModelAlgorithmCommandOutput
+  | GetMLConfigurationCommandOutput
+  | GetMLInputChannelCommandOutput
+  | GetTrainedModelCommandOutput
+  | GetTrainedModelInferenceJobCommandOutput
   | GetTrainingDatasetCommandOutput
   | ListAudienceExportJobsCommandOutput
   | ListAudienceGenerationJobsCommandOutput
   | ListAudienceModelsCommandOutput
+  | ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput
+  | ListCollaborationMLInputChannelsCommandOutput
+  | ListCollaborationTrainedModelExportJobsCommandOutput
+  | ListCollaborationTrainedModelInferenceJobsCommandOutput
+  | ListCollaborationTrainedModelsCommandOutput
   | ListConfiguredAudienceModelsCommandOutput
+  | ListConfiguredModelAlgorithmAssociationsCommandOutput
+  | ListConfiguredModelAlgorithmsCommandOutput
+  | ListMLInputChannelsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTrainedModelInferenceJobsCommandOutput
+  | ListTrainedModelsCommandOutput
   | ListTrainingDatasetsCommandOutput
   | PutConfiguredAudienceModelPolicyCommandOutput
+  | PutMLConfigurationCommandOutput
   | StartAudienceExportJobCommandOutput
   | StartAudienceGenerationJobCommandOutput
+  | StartTrainedModelExportJobCommandOutput
+  | StartTrainedModelInferenceJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfiguredAudienceModelCommandOutput;
@@ -301,6 +478,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -346,11 +542,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CleanRoomsMLClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -366,11 +562,11 @@ export interface CleanRoomsMLClientConfig extends CleanRoomsMLClientConfigType {
 export type CleanRoomsMLClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -402,26 +598,30 @@ export class CleanRoomsMLClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CleanRoomsMLClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCleanRoomsMLHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CleanRoomsMLClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -434,14 +634,5 @@ export class CleanRoomsMLClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCleanRoomsMLHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CleanRoomsMLClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

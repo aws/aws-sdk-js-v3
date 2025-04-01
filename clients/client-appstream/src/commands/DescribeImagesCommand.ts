@@ -59,7 +59,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       Visibility: "PUBLIC" || "PRIVATE" || "SHARED",
  * //       ImageBuilderSupported: true || false,
  * //       ImageBuilderName: "STRING_VALUE",
- * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //       Description: "STRING_VALUE",
  * //       StateChangeReason: { // ImageStateChangeReason
  * //         Code: "INTERNAL_ERROR" || "IMAGE_BUILDER_NOT_AVAILABLE" || "IMAGE_COPY_FAILURE",
@@ -85,7 +85,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //             S3Key: "STRING_VALUE",
  * //           },
  * //           Platforms: [ // Platforms
- * //             "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //             "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //           ],
  * //           InstanceFamilies: [ // StringList
  * //             "STRING_VALUE",
@@ -107,6 +107,12 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //           ErrorTimestamp: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       LatestAppstreamAgentVersion: "TRUE" || "FALSE",
+ * //       SupportedInstanceFamilies: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
+ * //       ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -129,6 +135,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeImagesCommand extends $Command
@@ -139,9 +146,7 @@ export class DescribeImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +158,16 @@ export class DescribeImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImagesCommand)
   .de(de_DescribeImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImagesRequest;
+      output: DescribeImagesResult;
+    };
+    sdk: {
+      input: DescribeImagesCommandInput;
+      output: DescribeImagesCommandOutput;
+    };
+  };
+}

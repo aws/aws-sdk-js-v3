@@ -72,6 +72,7 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class CheckDomainTransferabilityCommand extends $Command
@@ -82,9 +83,7 @@ export class CheckDomainTransferabilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class CheckDomainTransferabilityCommand extends $Command
   .f(CheckDomainTransferabilityRequestFilterSensitiveLog, void 0)
   .ser(se_CheckDomainTransferabilityCommand)
   .de(de_CheckDomainTransferabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckDomainTransferabilityRequest;
+      output: CheckDomainTransferabilityResponse;
+    };
+    sdk: {
+      input: CheckDomainTransferabilityCommandInput;
+      output: CheckDomainTransferabilityCommandOutput;
+    };
+  };
+}

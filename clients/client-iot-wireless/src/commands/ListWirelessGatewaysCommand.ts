@@ -99,6 +99,7 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListWirelessGatewaysCommand extends $Command
@@ -109,9 +110,7 @@ export class ListWirelessGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListWirelessGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWirelessGatewaysCommand)
   .de(de_ListWirelessGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWirelessGatewaysRequest;
+      output: ListWirelessGatewaysResponse;
+    };
+    sdk: {
+      input: ListWirelessGatewaysCommandInput;
+      output: ListWirelessGatewaysCommandOutput;
+    };
+  };
+}

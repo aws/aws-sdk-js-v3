@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse } from "../models/models_2";
+import { CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse } from "../models/models_3";
 import { de_CreateIAMPolicyAssignmentCommand, se_CreateIAMPolicyAssignmentCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -103,6 +103,7 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateIAMPolicyAssignmentCommand extends $Command
@@ -113,9 +114,7 @@ export class CreateIAMPolicyAssignmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class CreateIAMPolicyAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIAMPolicyAssignmentCommand)
   .de(de_CreateIAMPolicyAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIAMPolicyAssignmentRequest;
+      output: CreateIAMPolicyAssignmentResponse;
+    };
+    sdk: {
+      input: CreateIAMPolicyAssignmentCommandInput;
+      output: CreateIAMPolicyAssignmentCommandOutput;
+    };
+  };
+}

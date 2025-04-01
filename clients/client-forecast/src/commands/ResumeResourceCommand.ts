@@ -67,6 +67,7 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ResumeResourceCommand extends $Command
@@ -77,9 +78,7 @@ export class ResumeResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class ResumeResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeResourceCommand)
   .de(de_ResumeResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeResourceCommandInput;
+      output: ResumeResourceCommandOutput;
+    };
+  };
+}

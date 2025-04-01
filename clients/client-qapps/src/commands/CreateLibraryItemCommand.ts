@@ -28,8 +28,8 @@ export interface CreateLibraryItemCommandInput extends CreateLibraryItemInput {}
 export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new library item for an Amazon Q App, allowing it to be discovered and
- *       used by other allowed users. </p>
+ * <p>Creates a new library item for an Amazon Q App, allowing it to be discovered and used by
+ *       other allowed users. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,7 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
  * //   ratingCount: Number("int"), // required
+ * //   isVerified: true || false,
  * // };
  *
  * ```
@@ -74,12 +75,12 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -89,6 +90,34 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Create a Library Item
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   appVersion: 6,
+ *   categories: [
+ *     "9c871ed4-1c41-4065-aefe-321cd4b61cf8"
+ *   ],
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ * };
+ * const command = new CreateLibraryItemCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdAt: "2024-05-21T23:17:27.350Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isVerified: false,
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   ratingCount: 0,
+ *   status: "PUBLISHED",
+ *   updatedAt: "2024-05-21T23:17:27.350Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -100,9 +129,7 @@ export class CreateLibraryItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +141,16 @@ export class CreateLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLibraryItemCommand)
   .de(de_CreateLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLibraryItemInput;
+      output: CreateLibraryItemOutput;
+    };
+    sdk: {
+      input: CreateLibraryItemCommandInput;
+      output: CreateLibraryItemCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,9 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @see {@link CreateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>There was an internal error for Global Accelerator.</p>
  *
@@ -108,8 +111,12 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link TransactionInProgressException} (client fault)
+ *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
+ *
  *
  * @public
  */
@@ -121,9 +128,7 @@ export class CreateAcceleratorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +140,16 @@ export class CreateAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAcceleratorCommand)
   .de(de_CreateAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAcceleratorRequest;
+      output: CreateAcceleratorResponse;
+    };
+    sdk: {
+      input: CreateAcceleratorCommandInput;
+      output: CreateAcceleratorCommandOutput;
+    };
+  };
+}

@@ -101,6 +101,7 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ImportFirewallDomainsCommand extends $Command
@@ -111,9 +112,7 @@ export class ImportFirewallDomainsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class ImportFirewallDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportFirewallDomainsCommand)
   .de(de_ImportFirewallDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportFirewallDomainsRequest;
+      output: ImportFirewallDomainsResponse;
+    };
+    sdk: {
+      input: ImportFirewallDomainsCommandInput;
+      output: ImportFirewallDomainsCommandOutput;
+    };
+  };
+}

@@ -97,6 +97,7 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupQueryCommand extends $Command
@@ -107,9 +108,7 @@ export class UpdateGroupQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateGroupQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGroupQueryCommand)
   .de(de_UpdateGroupQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupQueryInput;
+      output: UpdateGroupQueryOutput;
+    };
+    sdk: {
+      input: UpdateGroupQueryCommandInput;
+      output: UpdateGroupQueryCommandOutput;
+    };
+  };
+}

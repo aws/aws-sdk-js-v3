@@ -7,7 +7,7 @@ import { RestXmlProtocolServiceException as __BaseException } from "./RestXmlPro
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -36,48 +36,48 @@ export enum IntegerEnum {
  * @public
  */
 export interface AllQueryStringTypesInput {
-  queryString?: string;
-  queryStringList?: string[];
-  queryStringSet?: string[];
-  queryByte?: number;
-  queryShort?: number;
-  queryInteger?: number;
-  queryIntegerList?: number[];
-  queryIntegerSet?: number[];
-  queryLong?: number;
-  queryFloat?: number;
-  queryDouble?: number;
-  queryDoubleList?: number[];
-  queryBoolean?: boolean;
-  queryBooleanList?: boolean[];
-  queryTimestamp?: Date;
-  queryTimestampList?: Date[];
-  queryEnum?: FooEnum;
-  queryEnumList?: FooEnum[];
-  queryIntegerEnum?: IntegerEnum;
-  queryIntegerEnumList?: IntegerEnum[];
-  queryParamsMapOfStrings?: Record<string, string>;
+  queryString?: string | undefined;
+  queryStringList?: string[] | undefined;
+  queryStringSet?: string[] | undefined;
+  queryByte?: number | undefined;
+  queryShort?: number | undefined;
+  queryInteger?: number | undefined;
+  queryIntegerList?: number[] | undefined;
+  queryIntegerSet?: number[] | undefined;
+  queryLong?: number | undefined;
+  queryFloat?: number | undefined;
+  queryDouble?: number | undefined;
+  queryDoubleList?: number[] | undefined;
+  queryBoolean?: boolean | undefined;
+  queryBooleanList?: boolean[] | undefined;
+  queryTimestamp?: Date | undefined;
+  queryTimestampList?: Date[] | undefined;
+  queryEnum?: FooEnum | undefined;
+  queryEnumList?: FooEnum[] | undefined;
+  queryIntegerEnum?: IntegerEnum | undefined;
+  queryIntegerEnumList?: IntegerEnum[] | undefined;
+  queryParamsMapOfStrings?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface PayloadWithXmlName {
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface BodyWithXmlNameInputOutput {
-  nested?: PayloadWithXmlName;
+  nested?: PayloadWithXmlName | undefined;
 }
 
 /**
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -87,9 +87,9 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  Header?: string;
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  Header?: string | undefined;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -110,8 +110,8 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export interface ConstantAndVariableQueryStringInput {
-  baz?: string;
-  maybeSet?: string;
+  baz?: string | undefined;
+  maybeSet?: string | undefined;
 }
 
 /**
@@ -125,7 +125,7 @@ export interface ConstantQueryStringInput {
  * @public
  */
 export interface ContentTypeParametersInput {
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface ContentTypeParametersOutput {}
  * @public
  */
 export interface DatetimeOffsetsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
@@ -180,56 +180,56 @@ export type StringEnum = (typeof StringEnum)[keyof typeof StringEnum];
  * @public
  */
 export interface EnumPayloadInput {
-  payload?: StringEnum;
+  payload?: StringEnum | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapRequest {
-  myMap?: Record<string, FooEnum>;
+  myMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapResponse {
-  myMap?: Record<string, FooEnum>;
+  myMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapWithXmlNameRequest {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapWithXmlNameResponse {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapWithXmlNamespaceOutput {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface FractionalSecondsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -258,38 +258,38 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface HttpPayloadTraitsInputOutput {
-  foo?: string;
-  blob?: Uint8Array;
+  foo?: string | undefined;
+  blob?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
-  foo?: string;
-  blob?: Uint8Array;
+  foo?: string | undefined;
+  blob?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithMemberXmlNameInputOutput {
-  nested?: PayloadWithXmlName;
+  nested?: PayloadWithXmlName | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedPayload {
-  greeting?: string;
-  name?: string;
+  greeting?: string | undefined;
+  name?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithStructureInputOutput {
-  nested?: NestedPayload;
+  nested?: NestedPayload | undefined;
 }
 
 /**
@@ -329,50 +329,50 @@ export namespace UnionPayload {
  * @public
  */
 export interface HttpPayloadWithUnionInputOutput {
-  nested?: UnionPayload;
+  nested?: UnionPayload | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithXmlNameInputOutput {
-  nested?: PayloadWithXmlName;
+  nested?: PayloadWithXmlName | undefined;
 }
 
 /**
  * @public
  */
 export interface PayloadWithXmlNamespace {
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithXmlNamespaceInputOutput {
-  nested?: PayloadWithXmlNamespace;
+  nested?: PayloadWithXmlNamespace | undefined;
 }
 
 /**
  * @public
  */
 export interface PayloadWithXmlNamespaceAndPrefix {
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
-  nested?: PayloadWithXmlNamespaceAndPrefix;
+  nested?: PayloadWithXmlNamespaceAndPrefix | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPrefixHeadersInputOutput {
-  foo?: string;
-  fooMap?: Record<string, string>;
+  foo?: string | undefined;
+  fooMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -431,59 +431,66 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
  * @public
  */
 export interface HttpResponseCodeOutput {
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface StringPayloadInput {
-  payload?: string;
+  payload?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface IgnoreQueryParamsInResponseOutput {
-  baz?: string;
+  baz?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface InputAndOutputWithHeadersIO {
-  headerString?: string;
-  headerByte?: number;
-  headerShort?: number;
-  headerInteger?: number;
-  headerLong?: number;
-  headerFloat?: number;
-  headerDouble?: number;
-  headerTrueBool?: boolean;
-  headerFalseBool?: boolean;
-  headerStringList?: string[];
-  headerStringSet?: string[];
-  headerIntegerList?: number[];
-  headerBooleanList?: boolean[];
-  headerTimestampList?: Date[];
-  headerEnum?: FooEnum;
-  headerEnumList?: FooEnum[];
+  headerString?: string | undefined;
+  headerByte?: number | undefined;
+  headerShort?: number | undefined;
+  headerInteger?: number | undefined;
+  headerLong?: number | undefined;
+  headerFloat?: number | undefined;
+  headerDouble?: number | undefined;
+  headerTrueBool?: boolean | undefined;
+  headerFalseBool?: boolean | undefined;
+  headerStringList?: string[] | undefined;
+  headerStringSet?: string[] | undefined;
+  headerIntegerList?: number[] | undefined;
+  headerBooleanList?: boolean[] | undefined;
+  headerTimestampList?: Date[] | undefined;
+  headerEnum?: FooEnum | undefined;
+  headerEnumList?: FooEnum[] | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedXmlMapsRequest {
-  nestedMap?: Record<string, Record<string, FooEnum>>;
-  flatNestedMap?: Record<string, Record<string, FooEnum>>;
+  nestedMap?: Record<string, Record<string, FooEnum>> | undefined;
+  flatNestedMap?: Record<string, Record<string, FooEnum>> | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedXmlMapsResponse {
-  nestedMap?: Record<string, Record<string, FooEnum>>;
-  flatNestedMap?: Record<string, Record<string, FooEnum>>;
+  nestedMap?: Record<string, Record<string, FooEnum>> | undefined;
+  flatNestedMap?: Record<string, Record<string, FooEnum>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface NestedXmlMapWithXmlNameInputOutput {
+  nestedXmlMapWithXmlNameMap?: Record<string, Record<string, string>> | undefined;
 }
 
 /**
@@ -495,459 +502,459 @@ export interface NoInputAndOutputOutput {}
  * @public
  */
 export interface NullAndEmptyHeadersIO {
-  a?: string;
-  b?: string;
-  c?: string[];
+  a?: string | undefined;
+  b?: string | undefined;
+  c?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface OmitsNullSerializesEmptyStringInput {
-  nullValue?: string;
-  emptyString?: string;
+  nullValue?: string | undefined;
+  emptyString?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface PutWithContentEncodingInput {
-  encoding?: string;
-  data?: string;
+  encoding?: string | undefined;
+  data?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryIdempotencyTokenAutoFillInput {
-  token?: string;
+  token?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryParamsAsStringListMapInput {
-  qux?: string;
-  foo?: Record<string, string[]>;
+  qux?: string | undefined;
+  foo?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryPrecedenceInput {
-  foo?: string;
-  baz?: Record<string, string>;
+  foo?: string | undefined;
+  baz?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesRequest {
-  foo?: string;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
-  byteValue?: number;
-  shortValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  foo?: string | undefined;
+  stringValue?: string | undefined;
+  trueBooleanValue?: boolean | undefined;
+  falseBooleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  shortValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesResponse {
-  foo?: string;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
-  byteValue?: number;
-  shortValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  foo?: string | undefined;
+  stringValue?: string | undefined;
+  trueBooleanValue?: boolean | undefined;
+  falseBooleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  shortValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface TimestampFormatHeadersIO {
-  memberEpochSeconds?: Date;
-  memberHttpDate?: Date;
-  memberDateTime?: Date;
-  defaultFormat?: Date;
-  targetEpochSeconds?: Date;
-  targetHttpDate?: Date;
-  targetDateTime?: Date;
+  memberEpochSeconds?: Date | undefined;
+  memberHttpDate?: Date | undefined;
+  memberDateTime?: Date | undefined;
+  defaultFormat?: Date | undefined;
+  targetEpochSeconds?: Date | undefined;
+  targetHttpDate?: Date | undefined;
+  targetDateTime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesRequest {
-  foo?: string;
-  attr?: string;
+  foo?: string | undefined;
+  attr?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesResponse {
-  foo?: string;
-  attr?: string;
+  foo?: string | undefined;
+  attr?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesPayloadRequest {
-  foo?: string;
-  attr?: string;
+  foo?: string | undefined;
+  attr?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesOnPayloadRequest {
-  payload?: XmlAttributesPayloadRequest;
+  payload?: XmlAttributesPayloadRequest | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesPayloadResponse {
-  foo?: string;
-  attr?: string;
+  foo?: string | undefined;
+  attr?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlAttributesOnPayloadResponse {
-  payload?: XmlAttributesPayloadResponse;
+  payload?: XmlAttributesPayloadResponse | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlBlobsRequest {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlBlobsResponse {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyBlobsRequest {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyBlobsResponse {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface StructureListMember {
-  a?: string;
-  b?: string;
+  a?: string | undefined;
+  b?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyListsRequest {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
-  structureList?: StructureListMember[];
-  flattenedStructureList?: StructureListMember[];
+  renamedListMembers?: string[] | undefined;
+  flattenedList?: string[] | undefined;
+  flattenedList2?: string[] | undefined;
+  flattenedListWithMemberNamespace?: string[] | undefined;
+  flattenedListWithNamespace?: string[] | undefined;
+  structureList?: StructureListMember[] | undefined;
+  flattenedStructureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyListsResponse {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
-  structureList?: StructureListMember[];
-  flattenedStructureList?: StructureListMember[];
+  renamedListMembers?: string[] | undefined;
+  flattenedList?: string[] | undefined;
+  flattenedList2?: string[] | undefined;
+  flattenedListWithMemberNamespace?: string[] | undefined;
+  flattenedListWithNamespace?: string[] | undefined;
+  structureList?: StructureListMember[] | undefined;
+  flattenedStructureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyMapsRequest {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyMapsResponse {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyStringsRequest {
-  emptyString?: string;
+  emptyString?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEmptyStringsResponse {
-  emptyString?: string;
+  emptyString?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEnumsRequest {
-  fooEnum1?: FooEnum;
-  fooEnum2?: FooEnum;
-  fooEnum3?: FooEnum;
-  fooEnumList?: FooEnum[];
-  fooEnumSet?: FooEnum[];
-  fooEnumMap?: Record<string, FooEnum>;
+  fooEnum1?: FooEnum | undefined;
+  fooEnum2?: FooEnum | undefined;
+  fooEnum3?: FooEnum | undefined;
+  fooEnumList?: FooEnum[] | undefined;
+  fooEnumSet?: FooEnum[] | undefined;
+  fooEnumMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEnumsResponse {
-  fooEnum1?: FooEnum;
-  fooEnum2?: FooEnum;
-  fooEnum3?: FooEnum;
-  fooEnumList?: FooEnum[];
-  fooEnumSet?: FooEnum[];
-  fooEnumMap?: Record<string, FooEnum>;
+  fooEnum1?: FooEnum | undefined;
+  fooEnum2?: FooEnum | undefined;
+  fooEnum3?: FooEnum | undefined;
+  fooEnumList?: FooEnum[] | undefined;
+  fooEnumSet?: FooEnum[] | undefined;
+  fooEnumMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlIntEnumsRequest {
-  intEnum1?: IntegerEnum;
-  intEnum2?: IntegerEnum;
-  intEnum3?: IntegerEnum;
-  intEnumList?: IntegerEnum[];
-  intEnumSet?: IntegerEnum[];
-  intEnumMap?: Record<string, IntegerEnum>;
+  intEnum1?: IntegerEnum | undefined;
+  intEnum2?: IntegerEnum | undefined;
+  intEnum3?: IntegerEnum | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
+  intEnumSet?: IntegerEnum[] | undefined;
+  intEnumMap?: Record<string, IntegerEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlIntEnumsResponse {
-  intEnum1?: IntegerEnum;
-  intEnum2?: IntegerEnum;
-  intEnum3?: IntegerEnum;
-  intEnumList?: IntegerEnum[];
-  intEnumSet?: IntegerEnum[];
-  intEnumMap?: Record<string, IntegerEnum>;
+  intEnum1?: IntegerEnum | undefined;
+  intEnum2?: IntegerEnum | undefined;
+  intEnum3?: IntegerEnum | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
+  intEnumSet?: IntegerEnum[] | undefined;
+  intEnumMap?: Record<string, IntegerEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlListsRequest {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
-  structureList?: StructureListMember[];
-  flattenedStructureList?: StructureListMember[];
+  renamedListMembers?: string[] | undefined;
+  flattenedList?: string[] | undefined;
+  flattenedList2?: string[] | undefined;
+  flattenedListWithMemberNamespace?: string[] | undefined;
+  flattenedListWithNamespace?: string[] | undefined;
+  structureList?: StructureListMember[] | undefined;
+  flattenedStructureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlListsResponse {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
-  structureList?: StructureListMember[];
-  flattenedStructureList?: StructureListMember[];
+  renamedListMembers?: string[] | undefined;
+  flattenedList?: string[] | undefined;
+  flattenedList2?: string[] | undefined;
+  flattenedListWithMemberNamespace?: string[] | undefined;
+  flattenedListWithNamespace?: string[] | undefined;
+  structureList?: StructureListMember[] | undefined;
+  flattenedStructureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsRequest {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsResponse {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsXmlNameRequest {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsXmlNameResponse {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapWithXmlNamespaceRequest {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapWithXmlNamespaceResponse {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNamespaceNested {
-  foo?: string;
-  values?: string[];
+  foo?: string | undefined;
+  values?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNamespacesRequest {
-  nested?: XmlNamespaceNested;
+  nested?: XmlNamespaceNested | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNamespacesResponse {
-  nested?: XmlNamespaceNested;
+  nested?: XmlNamespaceNested | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlTimestampsRequest {
-  normal?: Date;
-  dateTime?: Date;
-  dateTimeOnTarget?: Date;
-  epochSeconds?: Date;
-  epochSecondsOnTarget?: Date;
-  httpDate?: Date;
-  httpDateOnTarget?: Date;
+  normal?: Date | undefined;
+  dateTime?: Date | undefined;
+  dateTimeOnTarget?: Date | undefined;
+  epochSeconds?: Date | undefined;
+  epochSecondsOnTarget?: Date | undefined;
+  httpDate?: Date | undefined;
+  httpDateOnTarget?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlTimestampsResponse {
-  normal?: Date;
-  dateTime?: Date;
-  dateTimeOnTarget?: Date;
-  epochSeconds?: Date;
-  epochSecondsOnTarget?: Date;
-  httpDate?: Date;
-  httpDateOnTarget?: Date;
+  normal?: Date | undefined;
+  dateTime?: Date | undefined;
+  dateTimeOnTarget?: Date | undefined;
+  epochSeconds?: Date | undefined;
+  epochSecondsOnTarget?: Date | undefined;
+  httpDate?: Date | undefined;
+  httpDateOnTarget?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNestedUnionStruct {
-  stringValue?: string;
-  booleanValue?: boolean;
-  byteValue?: number;
-  shortValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  stringValue?: string | undefined;
+  booleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  shortValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
@@ -1160,42 +1167,42 @@ export namespace XmlUnionShape {
  * @public
  */
 export interface RecursiveShapesInputOutputNested1 {
-  foo?: string;
-  nested?: RecursiveShapesInputOutputNested2;
+  foo?: string | undefined;
+  nested?: RecursiveShapesInputOutputNested2 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutputNested2 {
-  bar?: string;
-  recursiveMember?: RecursiveShapesInputOutputNested1;
+  bar?: string | undefined;
+  recursiveMember?: RecursiveShapesInputOutputNested1 | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlUnionsRequest {
-  unionValue?: XmlUnionShape;
+  unionValue?: XmlUnionShape | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlUnionsResponse {
-  unionValue?: XmlUnionShape;
+  unionValue?: XmlUnionShape | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesRequest {
-  nested?: RecursiveShapesInputOutputNested1;
+  nested?: RecursiveShapesInputOutputNested1 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesResponse {
-  nested?: RecursiveShapesInputOutputNested1;
+  nested?: RecursiveShapesInputOutputNested1 | undefined;
 }

@@ -96,6 +96,36 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To update an asynchronous invocation configuration
+ * ```javascript
+ * // The following example adds an on-failure destination to the existing asynchronous invocation configuration for a function named my-function.
+ * const input = {
+ *   DestinationConfig: {
+ *     OnFailure: {
+ *       Destination: "arn:aws:sqs:us-east-2:123456789012:destination"
+ *     }
+ *   },
+ *   FunctionName: "my-function"
+ * };
+ * const command = new UpdateFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DestinationConfig: {
+ *     OnFailure: {
+ *       Destination: "arn:aws:sqs:us-east-2:123456789012:destination"
+ *     },
+ *     OnSuccess:     { /* empty *\/ }
+ *   },
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
+ *   LastModified: 1.573687896493E9,
+ *   MaximumEventAgeInSeconds: 3600,
+ *   MaximumRetryAttempts: 0
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateFunctionEventInvokeConfigCommand extends $Command
@@ -106,9 +136,7 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +148,16 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFunctionEventInvokeConfigCommand)
   .de(de_UpdateFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionEventInvokeConfigRequest;
+      output: FunctionEventInvokeConfig;
+    };
+    sdk: {
+      input: UpdateFunctionEventInvokeConfigCommandInput;
+      output: UpdateFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

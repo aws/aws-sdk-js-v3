@@ -80,6 +80,7 @@ export interface AcceptAccountLinkInvitationCommandOutput extends AcceptAccountL
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class AcceptAccountLinkInvitationCommand extends $Command
@@ -90,9 +91,7 @@ export class AcceptAccountLinkInvitationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class AcceptAccountLinkInvitationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptAccountLinkInvitationCommand)
   .de(de_AcceptAccountLinkInvitationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptAccountLinkInvitationRequest;
+      output: AcceptAccountLinkInvitationResult;
+    };
+    sdk: {
+      input: AcceptAccountLinkInvitationCommandInput;
+      output: AcceptAccountLinkInvitationCommandOutput;
+    };
+  };
+}

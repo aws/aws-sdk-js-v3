@@ -67,16 +67,16 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe termination policy types
  * ```javascript
  * // This example describes the available termination policy types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeTerminationPolicyTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TerminationPolicyTypes": [
+ *   TerminationPolicyTypes: [
  *     "ClosestToNextInstanceHour",
  *     "Default",
  *     "NewestInstance",
@@ -85,9 +85,9 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-termination-policy-types-1
  * ```
  *
+ * @public
  */
 export class DescribeTerminationPolicyTypesCommand extends $Command
   .classBuilder<
@@ -97,9 +97,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +109,16 @@ export class DescribeTerminationPolicyTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTerminationPolicyTypesCommand)
   .de(de_DescribeTerminationPolicyTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeTerminationPolicyTypesAnswer;
+    };
+    sdk: {
+      input: DescribeTerminationPolicyTypesCommandInput;
+      output: DescribeTerminationPolicyTypesCommandOutput;
+    };
+  };
+}

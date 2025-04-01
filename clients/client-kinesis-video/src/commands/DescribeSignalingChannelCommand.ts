@@ -81,6 +81,7 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DescribeSignalingChannelCommand extends $Command
@@ -91,9 +92,7 @@ export class DescribeSignalingChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DescribeSignalingChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSignalingChannelCommand)
   .de(de_DescribeSignalingChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSignalingChannelInput;
+      output: DescribeSignalingChannelOutput;
+    };
+    sdk: {
+      input: DescribeSignalingChannelCommandInput;
+      output: DescribeSignalingChannelCommandOutput;
+    };
+  };
+}

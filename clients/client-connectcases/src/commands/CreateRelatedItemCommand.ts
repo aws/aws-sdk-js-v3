@@ -43,8 +43,10 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *                   <p>If you provide a value for <code>performedBy.userArn</code> you must also have
  *               <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a> permission on the ARN of the user that you provide.</p>
  *                </li>
+ *                <li>
+ *                   <p>The <code>type</code> field is reserved for internal use only.</p>
+ *                </li>
  *             </ul>
- *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +113,7 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateRelatedItemCommand extends $Command
@@ -121,9 +124,7 @@ export class CreateRelatedItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +136,16 @@ export class CreateRelatedItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRelatedItemCommand)
   .de(de_CreateRelatedItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelatedItemRequest;
+      output: CreateRelatedItemResponse;
+    };
+    sdk: {
+      input: CreateRelatedItemCommandInput;
+      output: CreateRelatedItemCommandOutput;
+    };
+  };
+}

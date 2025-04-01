@@ -14,7 +14,7 @@ you can discover and manage them more efficiently. For more information, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-vpc-lattice
+To install this package, simply type add or install @aws-sdk/client-vpc-lattice
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-vpc-lattice`
@@ -233,6 +233,22 @@ CreateListener
 </details>
 <details>
 <summary>
+CreateResourceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateResourceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateResourceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateResourceConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateResourceGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateResourceGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateResourceGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateResourceGatewayCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRule
 </summary>
 
@@ -253,6 +269,14 @@ CreateServiceNetwork
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateServiceNetworkResourceAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceNetworkResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkResourceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -305,6 +329,30 @@ DeleteListener
 </details>
 <details>
 <summary>
+DeleteResourceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteResourceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteResourceEndpointAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteResourceEndpointAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceEndpointAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceEndpointAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteResourceGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteResourceGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourceGatewayCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteResourcePolicy
 </summary>
 
@@ -333,6 +381,14 @@ DeleteServiceNetwork
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteServiceNetworkResourceAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceNetworkResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkResourceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -393,6 +449,22 @@ GetListener
 </details>
 <details>
 <summary>
+GetResourceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetResourceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourceConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetResourceGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetResourceGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourceGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourceGatewayCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetResourcePolicy
 </summary>
 
@@ -421,6 +493,14 @@ GetServiceNetwork
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetServiceNetworkResourceAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceNetworkResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkResourceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -465,10 +545,42 @@ ListListeners
 </details>
 <details>
 <summary>
+ListResourceConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListResourceConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceEndpointAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListResourceEndpointAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceEndpointAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceEndpointAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceGateways
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListResourceGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListResourceGatewaysCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListServiceNetworkResourceAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworkResourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkResourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkResourceAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -493,6 +605,14 @@ ListServiceNetworkVpcAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworkVpcAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListServiceNetworkVpcEndpointAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworkVpcEndpointAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcEndpointAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcEndpointAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -581,6 +701,22 @@ UpdateListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateListenerCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateResourceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateResourceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateResourceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateResourceConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateResourceGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateResourceGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateResourceGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateResourceGatewayCommandOutput/)
 
 </details>
 <details>

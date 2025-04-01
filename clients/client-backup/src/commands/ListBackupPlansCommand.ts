@@ -28,9 +28,7 @@ export interface ListBackupPlansCommandInput extends ListBackupPlansInput {}
 export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all active backup plans for an authenticated account. The list
- *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
- *          dates, version IDs, plan names, and creator request IDs.</p>
+ * <p>Lists the active backup plans for the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +90,7 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListBackupPlansCommand extends $Command
@@ -102,9 +101,7 @@ export class ListBackupPlansCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +113,16 @@ export class ListBackupPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupPlansCommand)
   .de(de_ListBackupPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupPlansInput;
+      output: ListBackupPlansOutput;
+    };
+    sdk: {
+      input: ListBackupPlansCommandInput;
+      output: ListBackupPlansCommandOutput;
+    };
+  };
+}

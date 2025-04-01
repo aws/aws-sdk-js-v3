@@ -104,6 +104,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectionAliasPermissionCommand extends $Command
@@ -114,9 +115,7 @@ export class UpdateConnectionAliasPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class UpdateConnectionAliasPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectionAliasPermissionCommand)
   .de(de_UpdateConnectionAliasPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectionAliasPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConnectionAliasPermissionCommandInput;
+      output: UpdateConnectionAliasPermissionCommandOutput;
+    };
+  };
+}

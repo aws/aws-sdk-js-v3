@@ -1,4 +1,5 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import { setCredentialFeature } from "@aws-sdk/core/client";
+import type { AwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { chain, CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider, Logger } from "@smithy/types";
 
@@ -21,17 +22,17 @@ export const resolveCredentialSource = (
       const { fromHttp } = await import("@aws-sdk/credential-provider-http");
       const { fromContainerMetadata } = await import("@smithy/credential-provider-imds");
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
-      return chain(fromHttp(options ?? {}), fromContainerMetadata(options));
+      return async () => chain(fromHttp(options ?? {}), fromContainerMetadata(options))().then(setNamedProvider);
     },
     Ec2InstanceMetadata: async (options?: CredentialProviderOptions) => {
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Ec2InstanceMetadata");
       const { fromInstanceMetadata } = await import("@smithy/credential-provider-imds");
-      return fromInstanceMetadata(options);
+      return async () => fromInstanceMetadata(options)().then(setNamedProvider);
     },
     Environment: async (options?: CredentialProviderOptions) => {
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
       const { fromEnv } = await import("@aws-sdk/credential-provider-env");
-      return fromEnv(options);
+      return async () => fromEnv(options)().then(setNamedProvider);
     },
   };
   if (credentialSource in sourceProvidersMap) {
@@ -44,3 +45,6 @@ export const resolveCredentialSource = (
     );
   }
 };
+
+const setNamedProvider = (creds: AwsCredentialIdentity) =>
+  setCredentialFeature(creds, "CREDENTIALS_PROFILE_NAMED_PROVIDER", "p");

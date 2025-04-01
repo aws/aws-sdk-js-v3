@@ -90,6 +90,7 @@ export interface GetMultiRegionAccessPointPolicyStatusCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command
@@ -118,4 +119,16 @@ export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMultiRegionAccessPointPolicyStatusCommand)
   .de(de_GetMultiRegionAccessPointPolicyStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMultiRegionAccessPointPolicyStatusRequest;
+      output: GetMultiRegionAccessPointPolicyStatusResult;
+    };
+    sdk: {
+      input: GetMultiRegionAccessPointPolicyStatusCommandInput;
+      output: GetMultiRegionAccessPointPolicyStatusCommandOutput;
+    };
+  };
+}

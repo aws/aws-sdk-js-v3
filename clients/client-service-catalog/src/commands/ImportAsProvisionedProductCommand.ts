@@ -131,6 +131,7 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ImportAsProvisionedProductCommand extends $Command
@@ -141,9 +142,7 @@ export class ImportAsProvisionedProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +154,16 @@ export class ImportAsProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportAsProvisionedProductCommand)
   .de(de_ImportAsProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportAsProvisionedProductInput;
+      output: ImportAsProvisionedProductOutput;
+    };
+    sdk: {
+      input: ImportAsProvisionedProductCommandInput;
+      output: ImportAsProvisionedProductCommandOutput;
+    };
+  };
+}

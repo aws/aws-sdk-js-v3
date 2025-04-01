@@ -78,6 +78,7 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class DisableRegionCommand extends $Command
@@ -88,9 +89,7 @@ export class DisableRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DisableRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableRegionCommand)
   .de(de_DisableRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableRegionCommandInput;
+      output: DisableRegionCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelCustomizationJobRequest, CreateModelCustomizationJobResponse } from "../models/models_0";
+import {
+  CreateModelCustomizationJobRequest,
+  CreateModelCustomizationJobRequestFilterSensitiveLog,
+  CreateModelCustomizationJobResponse,
+} from "../models/models_0";
 import {
   de_CreateModelCustomizationJobCommand,
   se_CreateModelCustomizationJobCommand,
@@ -39,9 +43,9 @@ export interface CreateModelCustomizationJobCommandOutput
  *       </p>
  *          <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p>
  *          <p>
- *          Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *          To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ *        Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
+ *        To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +58,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   roleArn: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   baseModelIdentifier: "STRING_VALUE", // required
- *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  *   customModelKmsKeyId: "STRING_VALUE",
  *   jobTags: [ // TagList
  *     { // Tag
@@ -69,7 +73,39 @@ export interface CreateModelCustomizationJobCommandOutput
  *     },
  *   ],
  *   trainingDataConfig: { // TrainingDataConfig
- *     s3Uri: "STRING_VALUE", // required
+ *     s3Uri: "STRING_VALUE",
+ *     invocationLogsConfig: { // InvocationLogsConfig
+ *       usePromptResponse: true || false,
+ *       invocationLogSource: { // InvocationLogSource Union: only one key present
+ *         s3Uri: "STRING_VALUE",
+ *       },
+ *       requestMetadataFilters: { // RequestMetadataFilters Union: only one key present
+ *         equals: { // RequestMetadataMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         notEquals: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         andAll: [ // RequestMetadataFiltersList
+ *           { // RequestMetadataBaseFilters
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         orAll: [
+ *           {
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: "<RequestMetadataMap>",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   validationDataConfig: { // ValidationDataConfig
  *     validators: [ // Validators // required
@@ -81,7 +117,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   outputDataConfig: { // OutputDataConfig
  *     s3Uri: "STRING_VALUE", // required
  *   },
- *   hyperParameters: { // ModelCustomizationHyperParameters // required
+ *   hyperParameters: { // ModelCustomizationHyperParameters
  *     "<keys>": "STRING_VALUE",
  *   },
  *   vpcConfig: { // VpcConfig
@@ -91,6 +127,14 @@ export interface CreateModelCustomizationJobCommandOutput
  *     securityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   customizationConfig: { // CustomizationConfig Union: only one key present
+ *     distillationConfig: { // DistillationConfig
+ *       teacherModelConfig: { // TeacherModelConfig
+ *         teacherModelIdentifier: "STRING_VALUE", // required
+ *         maxResponseLengthForInference: Number("int"),
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateModelCustomizationJobCommand(input);
@@ -135,6 +179,7 @@ export interface CreateModelCustomizationJobCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateModelCustomizationJobCommand extends $Command
@@ -145,9 +190,7 @@ export class CreateModelCustomizationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,7 +199,19 @@ export class CreateModelCustomizationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateModelCustomizationJob", {})
   .n("BedrockClient", "CreateModelCustomizationJobCommand")
-  .f(void 0, void 0)
+  .f(CreateModelCustomizationJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateModelCustomizationJobCommand)
   .de(de_CreateModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCustomizationJobRequest;
+      output: CreateModelCustomizationJobResponse;
+    };
+    sdk: {
+      input: CreateModelCustomizationJobCommandInput;
+      output: CreateModelCustomizationJobCommandOutput;
+    };
+  };
+}

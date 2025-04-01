@@ -160,6 +160,21 @@ export interface DeletePolicyCommandOutput extends DeletePolicyOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To delete a policy
+ * ```javascript
+ * // The following example deletes the specified policy from its policy store.
+ * const input = {
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new DeletePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeletePolicyCommand extends $Command
@@ -170,9 +185,7 @@ export class DeletePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +197,16 @@ export class DeletePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyCommand)
   .de(de_DeletePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyCommandInput;
+      output: DeletePolicyCommandOutput;
+    };
+  };
+}

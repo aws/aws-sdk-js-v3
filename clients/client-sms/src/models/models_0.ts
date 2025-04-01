@@ -97,19 +97,19 @@ export interface LaunchDetails {
    * <p>The latest time that this application was launched successfully.</p>
    * @public
    */
-  latestLaunchTime?: Date;
+  latestLaunchTime?: Date | undefined;
 
   /**
    * <p>The name of the latest stack launched for this application.</p>
    * @public
    */
-  stackName?: string;
+  stackName?: string | undefined;
 
   /**
    * <p>The ID of the latest stack launched for this application.</p>
    * @public
    */
-  stackId?: string;
+  stackId?: string | undefined;
 }
 
 /**
@@ -139,115 +139,115 @@ export interface AppSummary {
    * <p>The unique ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The ID of the application.</p>
    * @public
    */
-  importedAppId?: string;
+  importedAppId?: string | undefined;
 
   /**
    * <p>The name of the application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the application.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Status of the application.</p>
    * @public
    */
-  status?: AppStatus;
+  status?: AppStatus | undefined;
 
   /**
    * <p>A message related to the status of the application</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>Status of the replication configuration.</p>
    * @public
    */
-  replicationConfigurationStatus?: AppReplicationConfigurationStatus;
+  replicationConfigurationStatus?: AppReplicationConfigurationStatus | undefined;
 
   /**
    * <p>The replication status of the application.</p>
    * @public
    */
-  replicationStatus?: AppReplicationStatus;
+  replicationStatus?: AppReplicationStatus | undefined;
 
   /**
    * <p>A message related to the replication status of the application.</p>
    * @public
    */
-  replicationStatusMessage?: string;
+  replicationStatusMessage?: string | undefined;
 
   /**
    * <p>The timestamp of the application's most recent successful replication.</p>
    * @public
    */
-  latestReplicationTime?: Date;
+  latestReplicationTime?: Date | undefined;
 
   /**
    * <p>Status of the launch configuration.</p>
    * @public
    */
-  launchConfigurationStatus?: AppLaunchConfigurationStatus;
+  launchConfigurationStatus?: AppLaunchConfigurationStatus | undefined;
 
   /**
    * <p>The launch status of the application.</p>
    * @public
    */
-  launchStatus?: AppLaunchStatus;
+  launchStatus?: AppLaunchStatus | undefined;
 
   /**
    * <p>A message related to the launch status of the application.</p>
    * @public
    */
-  launchStatusMessage?: string;
+  launchStatusMessage?: string | undefined;
 
   /**
    * <p>Details about the latest launch of the application.</p>
    * @public
    */
-  launchDetails?: LaunchDetails;
+  launchDetails?: LaunchDetails | undefined;
 
   /**
    * <p>The creation time of the application.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last modified time of the application.</p>
    * @public
    */
-  lastModified?: Date;
+  lastModified?: Date | undefined;
 
   /**
    * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The number of server groups present in the application.</p>
    * @public
    */
-  totalServerGroups?: number;
+  totalServerGroups?: number | undefined;
 
   /**
    * <p>The number of servers present in the application.</p>
    * @public
    */
-  totalServers?: number;
+  totalServers?: number | undefined;
 }
 
 /**
@@ -286,13 +286,13 @@ export interface S3Location {
    * <p>The Amazon S3 bucket name.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket key.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 }
 
 /**
@@ -304,7 +304,7 @@ export interface Source {
    * <p>Location of an Amazon S3 object.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -316,37 +316,37 @@ export interface SSMValidationParameters {
    * <p>The location of the validation script.</p>
    * @public
    */
-  source?: Source;
+  source?: Source | undefined;
 
   /**
    * <p>The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.</p>
    * @public
    */
-  instanceId?: string;
+  instanceId?: string | undefined;
 
   /**
    * <p>The type of validation script.</p>
    * @public
    */
-  scriptType?: ScriptType;
+  scriptType?: ScriptType | undefined;
 
   /**
    * <p>The command to run the validation script.</p>
    * @public
    */
-  command?: string;
+  command?: string | undefined;
 
   /**
    * <p>The timeout interval, in seconds.</p>
    * @public
    */
-  executionTimeoutSeconds?: number;
+  executionTimeoutSeconds?: number | undefined;
 
   /**
    * <p>The name of the S3 bucket for output.</p>
    * @public
    */
-  outputS3BucketName?: string;
+  outputS3BucketName?: string | undefined;
 }
 
 /**
@@ -358,25 +358,25 @@ export interface AppValidationConfiguration {
    * <p>The ID of the validation.</p>
    * @public
    */
-  validationId?: string;
+  validationId?: string | undefined;
 
   /**
    * <p>The name of the configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The validation strategy.</p>
    * @public
    */
-  appValidationStrategy?: AppValidationStrategy;
+  appValidationStrategy?: AppValidationStrategy | undefined;
 
   /**
    * <p>The validation parameters.</p>
    * @public
    */
-  ssmValidationParameters?: SSMValidationParameters;
+  ssmValidationParameters?: SSMValidationParameters | undefined;
 }
 
 /**
@@ -388,7 +388,7 @@ export interface SSMOutput {
    * <p>Location of an Amazon S3 object.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -400,7 +400,7 @@ export interface AppValidationOutput {
    * <p>Output from using SSM to validate the application.</p>
    * @public
    */
-  ssmOutput?: SSMOutput;
+  ssmOutput?: SSMOutput | undefined;
 }
 
 /**
@@ -440,13 +440,13 @@ export interface VmServerAddress {
    * <p>The ID of the VM manager.</p>
    * @public
    */
-  vmManagerId?: string;
+  vmManagerId?: string | undefined;
 
   /**
    * <p>The ID of the VM.</p>
    * @public
    */
-  vmId?: string;
+  vmId?: string | undefined;
 }
 
 /**
@@ -458,31 +458,31 @@ export interface VmServer {
    * <p>The VM server location.</p>
    * @public
    */
-  vmServerAddress?: VmServerAddress;
+  vmServerAddress?: VmServerAddress | undefined;
 
   /**
    * <p>The name of the VM.</p>
    * @public
    */
-  vmName?: string;
+  vmName?: string | undefined;
 
   /**
    * <p>The name of the VM manager.</p>
    * @public
    */
-  vmManagerName?: string;
+  vmManagerName?: string | undefined;
 
   /**
    * <p>The type of VM management product.</p>
    * @public
    */
-  vmManagerType?: VmManagerType;
+  vmManagerType?: VmManagerType | undefined;
 
   /**
    * <p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>
    * @public
    */
-  vmPath?: string;
+  vmPath?: string | undefined;
 }
 
 /**
@@ -494,31 +494,31 @@ export interface Server {
    * <p>The ID of the server.</p>
    * @public
    */
-  serverId?: string;
+  serverId?: string | undefined;
 
   /**
    * <p>The type of server.</p>
    * @public
    */
-  serverType?: ServerType;
+  serverType?: ServerType | undefined;
 
   /**
    * <p>Information about the VM server.</p>
    * @public
    */
-  vmServer?: VmServer;
+  vmServer?: VmServer | undefined;
 
   /**
    * <p>The ID of the replication job.</p>
    * @public
    */
-  replicationJobId?: string;
+  replicationJobId?: string | undefined;
 
   /**
    * <p>Indicates whether the replication job is deleted or failed.</p>
    * @public
    */
-  replicationJobTerminated?: boolean;
+  replicationJobTerminated?: boolean | undefined;
 }
 
 /**
@@ -530,19 +530,19 @@ export interface ServerGroup {
    * <p>The ID of a server group.</p>
    * @public
    */
-  serverGroupId?: string;
+  serverGroupId?: string | undefined;
 
   /**
    * <p>The name of a server group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The servers that belong to a server group.</p>
    * @public
    */
-  serverList?: Server[];
+  serverList?: Server[] | undefined;
 }
 
 /**
@@ -554,13 +554,13 @@ export interface Tag {
    * <p>The tag key.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The tag value.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -571,38 +571,38 @@ export interface CreateAppRequest {
    * <p>The name of the new application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the new application</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the service role in the customer's account to be used by Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
    *             application creation.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The server groups to include in the application.</p>
    * @public
    */
-  serverGroups?: ServerGroup[];
+  serverGroups?: ServerGroup[] | undefined;
 
   /**
    * <p>The tags to be associated with the application.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -613,19 +613,19 @@ export interface CreateAppResponse {
    * <p>A summary description of the application.</p>
    * @public
    */
-  appSummary?: AppSummary;
+  appSummary?: AppSummary | undefined;
 
   /**
    * <p>The server groups included in the application.</p>
    * @public
    */
-  serverGroups?: ServerGroup[];
+  serverGroups?: ServerGroup[] | undefined;
 
   /**
    * <p>The tags associated with the application.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -763,45 +763,45 @@ export interface CreateReplicationJobRequest {
    * <p>The time between consecutive replication runs, in hours.</p>
    * @public
    */
-  frequency?: number;
+  frequency?: number | undefined;
 
   /**
    * <p>Indicates whether to run the replication job one time.</p>
    * @public
    */
-  runOnce?: boolean;
+  runOnce?: boolean | undefined;
 
   /**
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>The name of the IAM role to be used by the Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The description of the replication job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
    *             maximum number is reached and a new AMI is created.</p>
    * @public
    */
-  numberOfRecentAmisToKeep?: number;
+  numberOfRecentAmisToKeep?: number | undefined;
 
   /**
    * <p>Indicates whether the replication job produces encrypted AMIs.</p>
    * @public
    */
-  encrypted?: boolean;
+  encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -824,7 +824,7 @@ export interface CreateReplicationJobRequest {
    *             customer's default KMS key for Amazon EBS is used. </p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -835,7 +835,7 @@ export interface CreateReplicationJobResponse {
    * <p>The unique identifier of the replication job.</p>
    * @public
    */
-  replicationJobId?: string;
+  replicationJobId?: string | undefined;
 }
 
 /**
@@ -926,21 +926,21 @@ export interface DeleteAppRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>Indicates whether to stop all replication jobs corresponding to the servers
    *             in the application while deleting the application.</p>
    * @public
    */
-  forceStopAppReplication?: boolean;
+  forceStopAppReplication?: boolean | undefined;
 
   /**
    * <p>Indicates whether to terminate the stack corresponding to the
    *             application while deleting the application.</p>
    * @public
    */
-  forceTerminateApp?: boolean;
+  forceTerminateApp?: boolean | undefined;
 }
 
 /**
@@ -956,7 +956,7 @@ export interface DeleteAppLaunchConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -972,7 +972,7 @@ export interface DeleteAppReplicationConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -1080,13 +1080,13 @@ export interface GenerateChangeSetRequest {
    * <p>The ID of the application associated with the change set.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The format for the change set.</p>
    * @public
    */
-  changesetFormat?: OutputFormat;
+  changesetFormat?: OutputFormat | undefined;
 }
 
 /**
@@ -1097,7 +1097,7 @@ export interface GenerateChangeSetResponse {
    * <p>The location of the Amazon S3 object.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -1108,13 +1108,13 @@ export interface GenerateTemplateRequest {
    * <p>The ID of the application associated with the CloudFormation template.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The format for generating the CloudFormation template.</p>
    * @public
    */
-  templateFormat?: OutputFormat;
+  templateFormat?: OutputFormat | undefined;
 }
 
 /**
@@ -1125,7 +1125,7 @@ export interface GenerateTemplateResponse {
    * <p>The location of the Amazon S3 object.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -1136,7 +1136,7 @@ export interface GetAppRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -1147,19 +1147,19 @@ export interface GetAppResponse {
    * <p>Information about the application.</p>
    * @public
    */
-  appSummary?: AppSummary;
+  appSummary?: AppSummary | undefined;
 
   /**
    * <p>The server groups that belong to the application.</p>
    * @public
    */
-  serverGroups?: ServerGroup[];
+  serverGroups?: ServerGroup[] | undefined;
 
   /**
    * <p>The tags associated with the application.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1170,7 +1170,7 @@ export interface GetAppLaunchConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -1183,7 +1183,7 @@ export interface UserData {
    * <p>Amazon S3 location of the user-data script.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -1195,73 +1195,73 @@ export interface ServerLaunchConfiguration {
    * <p>The ID of the server with which the launch configuration is associated.</p>
    * @public
    */
-  server?: Server;
+  server?: Server | undefined;
 
   /**
    * <p>The logical ID of the server in the CloudFormation template.</p>
    * @public
    */
-  logicalId?: string;
+  logicalId?: string | undefined;
 
   /**
    * <p>The ID of the VPC into which the server should be launched.</p>
    * @public
    */
-  vpc?: string;
+  vpc?: string | undefined;
 
   /**
    * <p>The ID of the subnet the server should be launched into.</p>
    * @public
    */
-  subnet?: string;
+  subnet?: string | undefined;
 
   /**
    * <p>The ID of the security group that applies to the launched server.</p>
    * @public
    */
-  securityGroup?: string;
+  securityGroup?: string | undefined;
 
   /**
    * <p>The name of the Amazon EC2 SSH key to be used for connecting to the launched server.</p>
    * @public
    */
-  ec2KeyName?: string;
+  ec2KeyName?: string | undefined;
 
   /**
    * <p>Location of the user-data script to be executed when launching the server.</p>
    * @public
    */
-  userData?: UserData;
+  userData?: UserData | undefined;
 
   /**
    * <p>The instance type to use when launching the server.</p>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>Indicates whether a publicly accessible IP address is created when launching the server.</p>
    * @public
    */
-  associatePublicIpAddress?: boolean;
+  associatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>The name of the IAM instance profile.</p>
    * @public
    */
-  iamInstanceProfileName?: string;
+  iamInstanceProfileName?: string | undefined;
 
   /**
    * <p>Location of an Amazon S3 object.</p>
    * @public
    */
-  configureScript?: S3Location;
+  configureScript?: S3Location | undefined;
 
   /**
    * <p>The type of configuration script.</p>
    * @public
    */
-  configureScriptType?: ScriptType;
+  configureScriptType?: ScriptType | undefined;
 }
 
 /**
@@ -1274,19 +1274,19 @@ export interface ServerGroupLaunchConfiguration {
    *             associated.</p>
    * @public
    */
-  serverGroupId?: string;
+  serverGroupId?: string | undefined;
 
   /**
    * <p>The launch order of servers in the server group.</p>
    * @public
    */
-  launchOrder?: number;
+  launchOrder?: number | undefined;
 
   /**
    * <p>The launch configuration for servers in the server group.</p>
    * @public
    */
-  serverLaunchConfigurations?: ServerLaunchConfiguration[];
+  serverLaunchConfigurations?: ServerLaunchConfiguration[] | undefined;
 }
 
 /**
@@ -1297,26 +1297,26 @@ export interface GetAppLaunchConfigurationResponse {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The name of the service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
    * @public
    */
-  autoLaunch?: boolean;
+  autoLaunch?: boolean | undefined;
 
   /**
    * <p>The launch configurations for server groups in this application.</p>
    * @public
    */
-  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
+  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[] | undefined;
 }
 
 /**
@@ -1327,7 +1327,7 @@ export interface GetAppReplicationConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -1339,37 +1339,37 @@ export interface ServerReplicationParameters {
    * <p>The seed time for creating a replication job for the server.</p>
    * @public
    */
-  seedTime?: Date;
+  seedTime?: Date | undefined;
 
   /**
    * <p>The frequency of creating replication jobs for the server.</p>
    * @public
    */
-  frequency?: number;
+  frequency?: number | undefined;
 
   /**
    * <p>Indicates whether to run the replication job one time.</p>
    * @public
    */
-  runOnce?: boolean;
+  runOnce?: boolean | undefined;
 
   /**
    * <p>The license type for creating a replication job for the server.</p>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>The number of recent AMIs to keep when creating a replication job for this server.</p>
    * @public
    */
-  numberOfRecentAmisToKeep?: number;
+  numberOfRecentAmisToKeep?: number | undefined;
 
   /**
    * <p>Indicates whether the replication job produces encrypted AMIs.</p>
    * @public
    */
-  encrypted?: boolean;
+  encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -1392,7 +1392,7 @@ export interface ServerReplicationParameters {
    *             customer's default KMS key for Amazon EBS is used.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1405,13 +1405,13 @@ export interface ServerReplicationConfiguration {
    *             associated.</p>
    * @public
    */
-  server?: Server;
+  server?: Server | undefined;
 
   /**
    * <p>The parameters for replicating the server.</p>
    * @public
    */
-  serverReplicationParameters?: ServerReplicationParameters;
+  serverReplicationParameters?: ServerReplicationParameters | undefined;
 }
 
 /**
@@ -1424,13 +1424,13 @@ export interface ServerGroupReplicationConfiguration {
    *             associated.</p>
    * @public
    */
-  serverGroupId?: string;
+  serverGroupId?: string | undefined;
 
   /**
    * <p>The replication configuration for servers in the server group.</p>
    * @public
    */
-  serverReplicationConfigurations?: ServerReplicationConfiguration[];
+  serverReplicationConfigurations?: ServerReplicationConfiguration[] | undefined;
 }
 
 /**
@@ -1441,7 +1441,7 @@ export interface GetAppReplicationConfigurationResponse {
    * <p>The replication configurations associated with server groups in this application.</p>
    * @public
    */
-  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
+  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[] | undefined;
 }
 
 /**
@@ -1477,13 +1477,13 @@ export interface UserDataValidationParameters {
    * <p>The location of the validation script.</p>
    * @public
    */
-  source?: Source;
+  source?: Source | undefined;
 
   /**
    * <p>The type of validation script.</p>
    * @public
    */
-  scriptType?: ScriptType;
+  scriptType?: ScriptType | undefined;
 }
 
 /**
@@ -1495,31 +1495,31 @@ export interface ServerValidationConfiguration {
    * <p>Represents a server.</p>
    * @public
    */
-  server?: Server;
+  server?: Server | undefined;
 
   /**
    * <p>The ID of the validation.</p>
    * @public
    */
-  validationId?: string;
+  validationId?: string | undefined;
 
   /**
    * <p>The name of the configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The validation strategy.</p>
    * @public
    */
-  serverValidationStrategy?: ServerValidationStrategy;
+  serverValidationStrategy?: ServerValidationStrategy | undefined;
 
   /**
    * <p>The validation parameters.</p>
    * @public
    */
-  userDataValidationParameters?: UserDataValidationParameters;
+  userDataValidationParameters?: UserDataValidationParameters | undefined;
 }
 
 /**
@@ -1531,13 +1531,13 @@ export interface ServerGroupValidationConfiguration {
    * <p>The ID of the server group.</p>
    * @public
    */
-  serverGroupId?: string;
+  serverGroupId?: string | undefined;
 
   /**
    * <p>The validation configuration.</p>
    * @public
    */
-  serverValidationConfigurations?: ServerValidationConfiguration[];
+  serverValidationConfigurations?: ServerValidationConfiguration[] | undefined;
 }
 
 /**
@@ -1548,13 +1548,13 @@ export interface GetAppValidationConfigurationResponse {
    * <p>The configuration for application validation.</p>
    * @public
    */
-  appValidationConfigurations?: AppValidationConfiguration[];
+  appValidationConfigurations?: AppValidationConfiguration[] | undefined;
 
   /**
    * <p>The configuration for instance validation.</p>
    * @public
    */
-  serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
+  serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[] | undefined;
 }
 
 /**
@@ -1577,7 +1577,7 @@ export interface ServerValidationOutput {
    * <p>Represents a server.</p>
    * @public
    */
-  server?: Server;
+  server?: Server | undefined;
 }
 
 /**
@@ -1606,43 +1606,43 @@ export interface ValidationOutput {
    * <p>The ID of the validation.</p>
    * @public
    */
-  validationId?: string;
+  validationId?: string | undefined;
 
   /**
    * <p>The name of the validation.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The status of the validation.</p>
    * @public
    */
-  status?: ValidationStatus;
+  status?: ValidationStatus | undefined;
 
   /**
    * <p>The status message.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The latest time that the validation was performed.</p>
    * @public
    */
-  latestValidationTime?: Date;
+  latestValidationTime?: Date | undefined;
 
   /**
    * <p>The output from validating an application.</p>
    * @public
    */
-  appValidationOutput?: AppValidationOutput;
+  appValidationOutput?: AppValidationOutput | undefined;
 
   /**
    * <p>The output from validation an instance.</p>
    * @public
    */
-  serverValidationOutput?: ServerValidationOutput;
+  serverValidationOutput?: ServerValidationOutput | undefined;
 }
 
 /**
@@ -1653,7 +1653,7 @@ export interface GetAppValidationOutputResponse {
    * <p>The validation output.</p>
    * @public
    */
-  validationOutputList?: ValidationOutput[];
+  validationOutputList?: ValidationOutput[] | undefined;
 }
 
 /**
@@ -1664,7 +1664,7 @@ export interface GetConnectorsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
@@ -1672,7 +1672,7 @@ export interface GetConnectorsRequest {
    *                 <code>NextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1715,61 +1715,61 @@ export interface Connector {
    * <p>The ID of the connector.</p>
    * @public
    */
-  connectorId?: string;
+  connectorId?: string | undefined;
 
   /**
    * <p>The connector version.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The status of the connector.</p>
    * @public
    */
-  status?: ConnectorStatus;
+  status?: ConnectorStatus | undefined;
 
   /**
    * <p>The capabilities of the connector.</p>
    * @public
    */
-  capabilityList?: ConnectorCapability[];
+  capabilityList?: ConnectorCapability[] | undefined;
 
   /**
    * <p>The name of the VM manager.</p>
    * @public
    */
-  vmManagerName?: string;
+  vmManagerName?: string | undefined;
 
   /**
    * <p>The VM management product.</p>
    * @public
    */
-  vmManagerType?: VmManagerType;
+  vmManagerType?: VmManagerType | undefined;
 
   /**
    * <p>The ID of the VM manager.</p>
    * @public
    */
-  vmManagerId?: string;
+  vmManagerId?: string | undefined;
 
   /**
    * <p>The IP address of the connector.</p>
    * @public
    */
-  ipAddress?: string;
+  ipAddress?: string | undefined;
 
   /**
    * <p>The MAC address of the connector.</p>
    * @public
    */
-  macAddress?: string;
+  macAddress?: string | undefined;
 
   /**
    * <p>The time the connector was associated.</p>
    * @public
    */
-  associatedOn?: Date;
+  associatedOn?: Date | undefined;
 }
 
 /**
@@ -1780,14 +1780,14 @@ export interface GetConnectorsResponse {
    * <p>Information about the registered connectors.</p>
    * @public
    */
-  connectorList?: Connector[];
+  connectorList?: Connector[] | undefined;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1798,13 +1798,13 @@ export interface GetReplicationJobsRequest {
    * <p>The ID of the replication job.</p>
    * @public
    */
-  replicationJobId?: string;
+  replicationJobId?: string | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
@@ -1812,7 +1812,7 @@ export interface GetReplicationJobsRequest {
    *                 <code>NextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1824,13 +1824,13 @@ export interface ReplicationRunStageDetails {
    * <p>The current stage of a replication run.</p>
    * @public
    */
-  stage?: string;
+  stage?: string | undefined;
 
   /**
    * <p>The progress of the current stage of a replication run.</p>
    * @public
    */
-  stageProgress?: string;
+  stageProgress?: string | undefined;
 }
 
 /**
@@ -1875,62 +1875,62 @@ export interface ReplicationRun {
    * <p>The ID of the replication run.</p>
    * @public
    */
-  replicationRunId?: string;
+  replicationRunId?: string | undefined;
 
   /**
    * <p>The state of the replication run.</p>
    * @public
    */
-  state?: ReplicationRunState;
+  state?: ReplicationRunState | undefined;
 
   /**
    * <p>The type of replication run.</p>
    * @public
    */
-  type?: ReplicationRunType;
+  type?: ReplicationRunType | undefined;
 
   /**
    * <p>Details about the current stage of the replication run.</p>
    * @public
    */
-  stageDetails?: ReplicationRunStageDetails;
+  stageDetails?: ReplicationRunStageDetails | undefined;
 
   /**
    * <p>The description of the current status of the replication job.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) from the replication
    *             run.</p>
    * @public
    */
-  amiId?: string;
+  amiId?: string | undefined;
 
   /**
    * <p>The start time of the next replication run.</p>
    * @public
    */
-  scheduledStartTime?: Date;
+  scheduledStartTime?: Date | undefined;
 
   /**
    * <p>The completion time of the last replication run.</p>
    * @public
    */
-  completedTime?: Date;
+  completedTime?: Date | undefined;
 
   /**
    * <p>The description of the replication run.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Indicates whether the replication run should produce an encrypted AMI.</p>
    * @public
    */
-  encrypted?: boolean;
+  encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -1953,7 +1953,7 @@ export interface ReplicationRun {
    *             customer's default KMS key for Amazon EBS is used. </p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1985,99 +1985,99 @@ export interface ReplicationJob {
    * <p>The ID of the replication job.</p>
    * @public
    */
-  replicationJobId?: string;
+  replicationJobId?: string | undefined;
 
   /**
    * <p>The ID of the server.</p>
    * @public
    */
-  serverId?: string;
+  serverId?: string | undefined;
 
   /**
    * <p>The type of server.</p>
    * @public
    */
-  serverType?: ServerType;
+  serverType?: ServerType | undefined;
 
   /**
    * <p>Information about the VM server.</p>
    * @public
    */
-  vmServer?: VmServer;
+  vmServer?: VmServer | undefined;
 
   /**
    * <p>The seed replication time.</p>
    * @public
    */
-  seedReplicationTime?: Date;
+  seedReplicationTime?: Date | undefined;
 
   /**
    * <p>The time between consecutive replication runs, in hours.</p>
    * @public
    */
-  frequency?: number;
+  frequency?: number | undefined;
 
   /**
    * <p>Indicates whether to run the replication job one time.</p>
    * @public
    */
-  runOnce?: boolean;
+  runOnce?: boolean | undefined;
 
   /**
    * <p>The start time of the next replication run.</p>
    * @public
    */
-  nextReplicationRunStartTime?: Date;
+  nextReplicationRunStartTime?: Date | undefined;
 
   /**
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>The name of the IAM role to be used by Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The ID of the latest Amazon Machine Image (AMI).</p>
    * @public
    */
-  latestAmiId?: string;
+  latestAmiId?: string | undefined;
 
   /**
    * <p>The state of the replication job.</p>
    * @public
    */
-  state?: ReplicationJobState;
+  state?: ReplicationJobState | undefined;
 
   /**
    * <p>The description of the current status of the replication job.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The description of the replication job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of recent AMIs to keep in the customer's account for a replication job. By
    *             default, the value is set to zero, meaning that all AMIs are kept.</p>
    * @public
    */
-  numberOfRecentAmisToKeep?: number;
+  numberOfRecentAmisToKeep?: number | undefined;
 
   /**
    * <p>Indicates whether the replication job should produce encrypted AMIs.</p>
    * @public
    */
-  encrypted?: boolean;
+  encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -2100,13 +2100,13 @@ export interface ReplicationJob {
    *             customer's default KMS key for Amazon EBS is used.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>Information about the replication runs.</p>
    * @public
    */
-  replicationRunList?: ReplicationRun[];
+  replicationRunList?: ReplicationRun[] | undefined;
 }
 
 /**
@@ -2117,14 +2117,14 @@ export interface GetReplicationJobsResponse {
    * <p>Information about the replication jobs.</p>
    * @public
    */
-  replicationJobList?: ReplicationJob[];
+  replicationJobList?: ReplicationJob[] | undefined;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2141,7 +2141,7 @@ export interface GetReplicationRunsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
@@ -2149,7 +2149,7 @@ export interface GetReplicationRunsRequest {
    *                 <code>NextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2160,20 +2160,20 @@ export interface GetReplicationRunsResponse {
    * <p>Information about the replication job.</p>
    * @public
    */
-  replicationJob?: ReplicationJob;
+  replicationJob?: ReplicationJob | undefined;
 
   /**
    * <p>Information about the replication runs.</p>
    * @public
    */
-  replicationRunList?: ReplicationRun[];
+  replicationRunList?: ReplicationRun[] | undefined;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2184,7 +2184,7 @@ export interface GetServersRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
@@ -2192,13 +2192,13 @@ export interface GetServersRequest {
    *                 <code>NextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The server addresses.</p>
    * @public
    */
-  vmServerAddressList?: VmServerAddress[];
+  vmServerAddressList?: VmServerAddress[] | undefined;
 }
 
 /**
@@ -2226,26 +2226,26 @@ export interface GetServersResponse {
    * <p>The time when the server was last modified.</p>
    * @public
    */
-  lastModifiedOn?: Date;
+  lastModifiedOn?: Date | undefined;
 
   /**
    * <p>The status of the server catalog.</p>
    * @public
    */
-  serverCatalogStatus?: ServerCatalogStatus;
+  serverCatalogStatus?: ServerCatalogStatus | undefined;
 
   /**
    * <p>Information about the servers.</p>
    * @public
    */
-  serverList?: Server[];
+  serverList?: Server[] | undefined;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2258,7 +2258,7 @@ export interface ImportAppCatalogRequest {
    *                 and trust policy</a> described in the <i>Migration Hub User Guide</i>.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 }
 
 /**
@@ -2284,7 +2284,7 @@ export interface LaunchAppRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -2300,13 +2300,13 @@ export interface ListAppsRequest {
    * <p>The unique application IDs.</p>
    * @public
    */
-  appIds?: string[];
+  appIds?: string[] | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is 100. To
@@ -2314,7 +2314,7 @@ export interface ListAppsRequest {
    *                 <code>NextToken</code> value. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2325,14 +2325,14 @@ export interface ListAppsResponse {
    * <p>The application summaries.</p>
    * @public
    */
-  apps?: AppSummary[];
+  apps?: AppSummary[] | undefined;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when there
    *             are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2344,19 +2344,19 @@ export interface NotificationContext {
    * <p>The ID of the validation.</p>
    * @public
    */
-  validationId?: string;
+  validationId?: string | undefined;
 
   /**
    * <p>The status of the validation.</p>
    * @public
    */
-  status?: ValidationStatus;
+  status?: ValidationStatus | undefined;
 
   /**
    * <p>The status message.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -2373,7 +2373,7 @@ export interface NotifyAppValidationOutputRequest {
    * <p>The notification information.</p>
    * @public
    */
-  notificationContext?: NotificationContext;
+  notificationContext?: NotificationContext | undefined;
 }
 
 /**
@@ -2389,26 +2389,26 @@ export interface PutAppLaunchConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The name of service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
    * @public
    */
-  autoLaunch?: boolean;
+  autoLaunch?: boolean | undefined;
 
   /**
    * <p>Information about the launch configurations for server groups in the application.</p>
    * @public
    */
-  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
+  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[] | undefined;
 }
 
 /**
@@ -2424,13 +2424,13 @@ export interface PutAppReplicationConfigurationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>Information about the replication configurations for server groups in the application.</p>
    * @public
    */
-  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
+  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[] | undefined;
 }
 
 /**
@@ -2452,13 +2452,13 @@ export interface PutAppValidationConfigurationRequest {
    * <p>The configuration for application validation.</p>
    * @public
    */
-  appValidationConfigurations?: AppValidationConfiguration[];
+  appValidationConfigurations?: AppValidationConfiguration[] | undefined;
 
   /**
    * <p>The configuration for instance validation.</p>
    * @public
    */
-  serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
+  serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[] | undefined;
 }
 
 /**
@@ -2474,7 +2474,7 @@ export interface StartAppReplicationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -2496,7 +2496,7 @@ export interface StartOnDemandAppReplicationRequest {
    * <p>The description of the replication run.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2560,7 +2560,7 @@ export interface StartOnDemandReplicationRunRequest {
    * <p>The description of the replication run.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2571,7 +2571,7 @@ export interface StartOnDemandReplicationRunResponse {
    * <p>The ID of the replication run.</p>
    * @public
    */
-  replicationRunId?: string;
+  replicationRunId?: string | undefined;
 }
 
 /**
@@ -2582,7 +2582,7 @@ export interface StopAppReplicationRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -2598,7 +2598,7 @@ export interface TerminateAppRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -2614,37 +2614,37 @@ export interface UpdateAppRequest {
    * <p>The ID of the application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>The new name of the application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The new description of the application.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The server groups in the application to update.</p>
    * @public
    */
-  serverGroups?: ServerGroup[];
+  serverGroups?: ServerGroup[] | undefined;
 
   /**
    * <p>The tags to associate with the application.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2655,19 +2655,19 @@ export interface UpdateAppResponse {
    * <p>A summary description of the application.</p>
    * @public
    */
-  appSummary?: AppSummary;
+  appSummary?: AppSummary | undefined;
 
   /**
    * <p>The updated server groups in the application.</p>
    * @public
    */
-  serverGroups?: ServerGroup[];
+  serverGroups?: ServerGroup[] | undefined;
 
   /**
    * <p>The tags associated with the application.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2684,46 +2684,46 @@ export interface UpdateReplicationJobRequest {
    * <p>The time between consecutive replication runs, in hours.</p>
    * @public
    */
-  frequency?: number;
+  frequency?: number | undefined;
 
   /**
    * <p>The start time of the next replication run.</p>
    * @public
    */
-  nextReplicationRunStartTime?: Date;
+  nextReplicationRunStartTime?: Date | undefined;
 
   /**
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>The name of the IAM role to be used by Server Migration Service.</p>
    * @public
    */
-  roleName?: string;
+  roleName?: string | undefined;
 
   /**
    * <p>The description of the replication job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
    *             maximum number is reached and a new AMI is created.</p>
    * @public
    */
-  numberOfRecentAmisToKeep?: number;
+  numberOfRecentAmisToKeep?: number | undefined;
 
   /**
    * <p>When true, the replication job produces encrypted AMIs. For more information,
    *                 <code>KmsKeyId</code>.</p>
    * @public
    */
-  encrypted?: boolean;
+  encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -2746,7 +2746,7 @@ export interface UpdateReplicationJobRequest {
    *             customer's default KMS key for Amazon EBS is used.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**

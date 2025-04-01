@@ -162,41 +162,41 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To create a cluster
  * ```javascript
  * // Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.
  * const input = {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *   "Description": "MyCluster",
- *   "JobType": "LOCAL_USE",
- *   "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
- *   "Notification": {
- *     "JobStatesToNotify": [],
- *     "NotifyAll": false
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *   Description: "MyCluster",
+ *   JobType: "LOCAL_USE",
+ *   KmsKeyARN: "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
+ *   Notification: {
+ *     JobStatesToNotify:     [],
+ *     NotifyAll: false
  *   },
- *   "Resources": {
- *     "S3Resources": [
+ *   Resources: {
+ *     S3Resources: [
  *       {
- *         "BucketArn": "arn:aws:s3:::MyBucket",
- *         "KeyRange": {}
+ *         BucketArn: "arn:aws:s3:::MyBucket",
+ *         KeyRange:         { /* empty *\/ }
  *       }
  *     ]
  *   },
- *   "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
- *   "ShippingOption": "SECOND_DAY",
- *   "SnowballType": "EDGE"
+ *   RoleARN: "arn:aws:iam::123456789012:role/snowball-import-S3-role",
+ *   ShippingOption: "SECOND_DAY",
+ *   SnowballType: "EDGE"
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
+ *   ClusterId: "CID123e4567-e89b-12d3-a456-426655440000"
  * }
  * *\/
- * // example id: to-create-a-cluster-1482864724077
  * ```
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<
@@ -206,9 +206,7 @@ export class CreateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -220,4 +218,16 @@ export class CreateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterRequest;
+      output: CreateClusterResult;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

@@ -30,9 +30,6 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
 
 /**
  * <p>Modifies a zero-ETL integration with Amazon Redshift.</p>
- *          <note>
- *             <p>Currently, you can only modify integrations that have Aurora MySQL source DB clusters. Integrations with Aurora PostgreSQL and RDS sources currently don't support modifying the integration.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,32 +93,32 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a zero-ETL integration
  * ```javascript
  * // The following example modifies the name of an existing zero-ETL integration.
  * const input = {
- *   "IntegrationIdentifier": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "IntegrationName": "my-renamed-integration"
+ *   IntegrationIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   IntegrationName: "my-renamed-integration"
  * };
  * const command = new ModifyIntegrationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateTime": "2023-12-28T17:20:20.629Z",
- *   "DataFilter": "include: *.*",
- *   "IntegrationArn": "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
- *   "IntegrationName": "my-renamed-integration",
- *   "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "Status": "active",
- *   "Tags": [],
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
+ *   CreateTime: "2023-12-28T17:20:20.629Z",
+ *   DataFilter: "include: *.*",
+ *   IntegrationArn: "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
+ *   IntegrationName: "my-renamed-integration",
+ *   KMSKeyId: "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+ *   Status: "active",
+ *   Tags:   [],
+ *   TargetArn: "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
  * }
  * *\/
- * // example id: to-modify-a-zero-etl-integration-1680407173998
  * ```
  *
+ * @public
  */
 export class ModifyIntegrationCommand extends $Command
   .classBuilder<
@@ -131,9 +128,7 @@ export class ModifyIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +140,16 @@ export class ModifyIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIntegrationCommand)
   .de(de_ModifyIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIntegrationMessage;
+      output: Integration;
+    };
+    sdk: {
+      input: ModifyIntegrationCommandInput;
+      output: ModifyIntegrationCommandOutput;
+    };
+  };
+}

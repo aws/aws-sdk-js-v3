@@ -53,7 +53,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *   },
  *   name: "STRING_VALUE",
  *   test: { // ScheduleRunTest
- *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
+ *     type: "BUILTIN_FUZZ" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "INSTRUMENTATION" || "XCTEST" || "XCTEST_UI", // required
  *     testPackageArn: "STRING_VALUE",
  *     testSpecArn: "STRING_VALUE",
  *     filter: "STRING_VALUE",
@@ -72,6 +72,10 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *     customerArtifactPaths: { // CustomerArtifactPaths
  *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",
@@ -108,7 +112,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * //   run: { // Run
  * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
- * //     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ * //     type: "BUILTIN_FUZZ" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "INSTRUMENTATION" || "XCTEST" || "XCTEST_UI",
  * //     platform: "ANDROID" || "IOS",
  * //     created: new Date("TIMESTAMP"),
  * //     status: "PENDING" || "PENDING_CONCURRENCY" || "PENDING_DEVICE" || "PROCESSING" || "SCHEDULING" || "PREPARING" || "RUNNING" || "COMPLETED" || "STOPPING",
@@ -146,6 +150,10 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * //       downlinkJitterMs: Number("long"),
  * //       uplinkLossPercent: Number("int"),
  * //       downlinkLossPercent: Number("int"),
+ * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
  * //     },
  * //     parsingResultUrl: "STRING_VALUE",
  * //     resultCode: "PARSING_FAILED" || "VPC_ENDPOINT_SETUP_FAILED",
@@ -230,29 +238,29 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To schedule a test run
  * ```javascript
  * // The following example schedules a test run named MyRun.
  * const input = {
- *   "name": "MyRun",
- *   "devicePoolArn": "arn:aws:devicefarm:us-west-2:123456789101:pool:EXAMPLE-GUID-123-456",
- *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "test": {
- *     "type": "APPIUM_JAVA_JUNIT",
- *     "testPackageArn": "arn:aws:devicefarm:us-west-2:123456789101:test:EXAMPLE-GUID-123-456"
+ *   devicePoolArn: "arn:aws:devicefarm:us-west-2:123456789101:pool:EXAMPLE-GUID-123-456",
+ *   name: "MyRun",
+ *   projectArn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   test: {
+ *     testPackageArn: "arn:aws:devicefarm:us-west-2:123456789101:test:EXAMPLE-GUID-123-456",
+ *     type: "APPIUM_JAVA_JUNIT"
  *   }
  * };
  * const command = new ScheduleRunCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "run": {}
+ *   run:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-schedule-a-test-run-1472652429636
  * ```
  *
+ * @public
  */
 export class ScheduleRunCommand extends $Command
   .classBuilder<
@@ -262,9 +270,7 @@ export class ScheduleRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -276,4 +282,16 @@ export class ScheduleRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScheduleRunCommand)
   .de(de_ScheduleRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScheduleRunRequest;
+      output: ScheduleRunResult;
+    };
+    sdk: {
+      input: ScheduleRunCommandInput;
+      output: ScheduleRunCommandOutput;
+    };
+  };
+}

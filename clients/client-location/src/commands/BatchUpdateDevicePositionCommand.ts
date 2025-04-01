@@ -73,7 +73,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *       Accuracy: { // PositionalAccuracy
  *         Horizontal: Number("double"), // required
  *       },
- *       PositionProperties: { // PropertyMap
+ *       PositionProperties: { // PositionPropertyMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
@@ -121,6 +121,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateDevicePositionCommand extends $Command
@@ -131,9 +132,7 @@ export class BatchUpdateDevicePositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class BatchUpdateDevicePositionCommand extends $Command
   .f(BatchUpdateDevicePositionRequestFilterSensitiveLog, void 0)
   .ser(se_BatchUpdateDevicePositionCommand)
   .de(de_BatchUpdateDevicePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateDevicePositionRequest;
+      output: BatchUpdateDevicePositionResponse;
+    };
+    sdk: {
+      input: BatchUpdateDevicePositionCommandInput;
+      output: BatchUpdateDevicePositionCommandOutput;
+    };
+  };
+}

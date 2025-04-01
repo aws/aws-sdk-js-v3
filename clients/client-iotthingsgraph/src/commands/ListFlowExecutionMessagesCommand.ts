@@ -79,6 +79,7 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class ListFlowExecutionMessagesCommand extends $Command
@@ -89,9 +90,7 @@ export class ListFlowExecutionMessagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListFlowExecutionMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFlowExecutionMessagesCommand)
   .de(de_ListFlowExecutionMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFlowExecutionMessagesRequest;
+      output: ListFlowExecutionMessagesResponse;
+    };
+    sdk: {
+      input: ListFlowExecutionMessagesCommandInput;
+      output: ListFlowExecutionMessagesCommandOutput;
+    };
+  };
+}

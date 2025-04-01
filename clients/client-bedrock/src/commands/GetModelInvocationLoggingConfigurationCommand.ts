@@ -64,6 +64,7 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
  * //     textDataDeliveryEnabled: true || false,
  * //     imageDataDeliveryEnabled: true || false,
  * //     embeddingDataDeliveryEnabled: true || false,
+ * //     videoDataDeliveryEnabled: true || false,
  * //   },
  * // };
  *
@@ -87,6 +88,7 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetModelInvocationLoggingConfigurationCommand extends $Command
@@ -97,9 +99,7 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelInvocationLoggingConfigurationCommand)
   .de(de_GetModelInvocationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetModelInvocationLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetModelInvocationLoggingConfigurationCommandInput;
+      output: GetModelInvocationLoggingConfigurationCommandOutput;
+    };
+  };
+}

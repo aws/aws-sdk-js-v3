@@ -70,7 +70,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * //     "<keys>": [ // ObjectTypeKeyList
  * //       { // ObjectTypeKey
  * //         StandardIdentifiers: [ // StandardIdentifierList
- * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //         ],
  * //         FieldNames: [ // FieldNameList
  * //           "STRING_VALUE",
@@ -106,6 +106,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetProfileObjectTypeTemplateCommand extends $Command
@@ -116,9 +117,7 @@ export class GetProfileObjectTypeTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class GetProfileObjectTypeTemplateCommand extends $Command
   .f(void 0, GetProfileObjectTypeTemplateResponseFilterSensitiveLog)
   .ser(se_GetProfileObjectTypeTemplateCommand)
   .de(de_GetProfileObjectTypeTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileObjectTypeTemplateRequest;
+      output: GetProfileObjectTypeTemplateResponse;
+    };
+    sdk: {
+      input: GetProfileObjectTypeTemplateCommandInput;
+      output: GetProfileObjectTypeTemplateCommandOutput;
+    };
+  };
+}

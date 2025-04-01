@@ -37,7 +37,7 @@ Client and server errors that all operations can return.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-controlcatalog
+To install this package, simply type add or install @aws-sdk/client-controlcatalog
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-controlcatalog`
@@ -232,10 +232,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+GetControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controlcatalog/command/GetControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/GetControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/GetControlCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCommonControls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controlcatalog/command/ListCommonControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/ListCommonControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/ListCommonControlsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListControls
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controlcatalog/command/ListControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/ListControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controlcatalog/Interface/ListControlsCommandOutput/)
 
 </details>
 <details>

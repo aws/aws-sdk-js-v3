@@ -74,8 +74,17 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>
@@ -92,6 +101,38 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To update a function alias
+ * ```javascript
+ * // The following example updates the alias named BLUE to send 30% of traffic to version 2 and 70% to version 1.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   FunctionVersion: "2",
+ *   Name: "BLUE",
+ *   RoutingConfig: {
+ *     AdditionalVersionWeights: {
+ *       1: 0.7
+ *     }
+ *   }
+ * };
+ * const command = new UpdateAliasCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AliasArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function:BLUE",
+ *   Description: "Production environment BLUE.",
+ *   FunctionVersion: "2",
+ *   Name: "BLUE",
+ *   RevisionId: "594f41fb-xmpl-4c20-95c7-6ca5f2a92c93",
+ *   RoutingConfig: {
+ *     AdditionalVersionWeights: {
+ *       1: 0.7
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateAliasCommand extends $Command
@@ -102,9 +143,7 @@ export class UpdateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +155,16 @@ export class UpdateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAliasCommand)
   .de(de_UpdateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAliasRequest;
+      output: AliasConfiguration;
+    };
+    sdk: {
+      input: UpdateAliasCommandInput;
+      output: UpdateAliasCommandOutput;
+    };
+  };
+}

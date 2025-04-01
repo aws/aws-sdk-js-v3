@@ -41,6 +41,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  *   subscriptionTargetId: "STRING_VALUE",
  *   subscribedListingId: "STRING_VALUE",
  *   subscriptionId: "STRING_VALUE",
+ *   owningProjectId: "STRING_VALUE",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",
  *   sortOrder: "ASCENDING" || "DESCENDING",
  *   maxResults: Number("int"),
@@ -76,6 +77,14 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * //           },
  * //           grantedTimestamp: new Date("TIMESTAMP"),
  * //           failureTimestamp: new Date("TIMESTAMP"),
+ * //           assetScope: { // AssetScope
+ * //             assetId: "STRING_VALUE", // required
+ * //             filterIds: [ // FilterIds // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             status: "STRING_VALUE", // required
+ * //             errorMessage: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       subscriptionId: "STRING_VALUE",
@@ -113,6 +122,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListSubscriptionGrantsCommand extends $Command
@@ -123,9 +133,7 @@ export class ListSubscriptionGrantsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +145,16 @@ export class ListSubscriptionGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSubscriptionGrantsCommand)
   .de(de_ListSubscriptionGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionGrantsInput;
+      output: ListSubscriptionGrantsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionGrantsCommandInput;
+      output: ListSubscriptionGrantsCommandOutput;
+    };
+  };
+}

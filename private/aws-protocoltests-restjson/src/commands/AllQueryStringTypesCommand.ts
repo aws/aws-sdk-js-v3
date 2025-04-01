@@ -93,6 +93,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class AllQueryStringTypesCommand extends $Command
@@ -111,4 +112,16 @@ export class AllQueryStringTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllQueryStringTypesCommand)
   .de(de_AllQueryStringTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllQueryStringTypesInput;
+      output: {};
+    };
+    sdk: {
+      input: AllQueryStringTypesCommandInput;
+      output: AllQueryStringTypesCommandOutput;
+    };
+  };
+}

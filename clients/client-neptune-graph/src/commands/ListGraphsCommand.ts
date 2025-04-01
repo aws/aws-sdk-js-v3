@@ -79,6 +79,7 @@ export interface ListGraphsCommandOutput extends ListGraphsOutput, __MetadataBea
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ListGraphsCommand extends $Command
@@ -104,4 +105,16 @@ export class ListGraphsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGraphsCommand)
   .de(de_ListGraphsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGraphsInput;
+      output: ListGraphsOutput;
+    };
+    sdk: {
+      input: ListGraphsCommandInput;
+      output: ListGraphsCommandOutput;
+    };
+  };
+}

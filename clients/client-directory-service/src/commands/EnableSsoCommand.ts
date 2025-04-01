@@ -72,6 +72,7 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class EnableSsoCommand extends $Command
@@ -82,9 +83,7 @@ export class EnableSsoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class EnableSsoCommand extends $Command
   .f(EnableSsoRequestFilterSensitiveLog, void 0)
   .ser(se_EnableSsoCommand)
   .de(de_EnableSsoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableSsoRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableSsoCommandInput;
+      output: EnableSsoCommandOutput;
+    };
+  };
+}

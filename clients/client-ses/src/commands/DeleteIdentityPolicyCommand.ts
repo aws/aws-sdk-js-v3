@@ -65,19 +65,22 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteIdentityPolicy
  * ```javascript
  * // The following example deletes a sending authorization policy for an identity:
  * const input = {
- *   "Identity": "user@example.com",
- *   "PolicyName": "MyPolicy"
+ *   Identity: "user@example.com",
+ *   PolicyName: "MyPolicy"
  * };
  * const command = new DeleteIdentityPolicyCommand(input);
- * await client.send(command);
- * // example id: deleteidentitypolicy-1469055282499
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteIdentityPolicyCommand extends $Command
   .classBuilder<
@@ -87,9 +90,7 @@ export class DeleteIdentityPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DeleteIdentityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityPolicyCommand)
   .de(de_DeleteIdentityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentityPolicyCommandInput;
+      output: DeleteIdentityPolicyCommandOutput;
+    };
+  };
+}

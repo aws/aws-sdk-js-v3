@@ -34,8 +34,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
 /**
  * <p> Lists events for a given source identifier and source type. You can also specify a
  *          start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
- *             Notifications</a> in the <i>Database Migration Service User
- *          Guide.</i>
+ *             Notifications</a> in the <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventsCommand extends $Command
@@ -101,9 +101,7 @@ export class DescribeEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +113,16 @@ export class DescribeEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventsCommand)
   .de(de_DescribeEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventsMessage;
+      output: DescribeEventsResponse;
+    };
+    sdk: {
+      input: DescribeEventsCommandInput;
+      output: DescribeEventsCommandOutput;
+    };
+  };
+}

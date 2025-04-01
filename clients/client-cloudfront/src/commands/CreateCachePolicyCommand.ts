@@ -191,6 +191,7 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class CreateCachePolicyCommand extends $Command
@@ -201,9 +202,7 @@ export class CreateCachePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -215,4 +214,16 @@ export class CreateCachePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCachePolicyCommand)
   .de(de_CreateCachePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCachePolicyRequest;
+      output: CreateCachePolicyResult;
+    };
+    sdk: {
+      input: CreateCachePolicyCommandInput;
+      output: CreateCachePolicyCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class CreateLedgerCommand extends $Command
@@ -89,9 +90,7 @@ export class CreateLedgerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class CreateLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLedgerCommand)
   .de(de_CreateLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLedgerRequest;
+      output: CreateLedgerResponse;
+    };
+    sdk: {
+      input: CreateLedgerCommandInput;
+      output: CreateLedgerCommandOutput;
+    };
+  };
+}

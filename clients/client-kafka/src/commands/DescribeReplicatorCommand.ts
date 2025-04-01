@@ -82,6 +82,9 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //         StartingPosition: { // ReplicationStartingPosition
  * //           Type: "LATEST" || "EARLIEST",
  * //         },
+ * //         TopicNameConfiguration: { // ReplicationTopicNameConfiguration
+ * //           Type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS" || "IDENTICAL",
+ * //         },
  * //         TopicsToExclude: [ // __listOf__stringMax249
  * //           "STRING_VALUE",
  * //         ],
@@ -138,6 +141,7 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicatorCommand extends $Command
@@ -148,9 +152,7 @@ export class DescribeReplicatorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +164,16 @@ export class DescribeReplicatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicatorCommand)
   .de(de_DescribeReplicatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicatorRequest;
+      output: DescribeReplicatorResponse;
+    };
+    sdk: {
+      input: DescribeReplicatorCommandInput;
+      output: DescribeReplicatorCommandOutput;
+    };
+  };
+}

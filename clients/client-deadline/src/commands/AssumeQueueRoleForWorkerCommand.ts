@@ -87,6 +87,7 @@ export interface AssumeQueueRoleForWorkerCommandOutput extends AssumeQueueRoleFo
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class AssumeQueueRoleForWorkerCommand extends $Command
@@ -97,9 +98,7 @@ export class AssumeQueueRoleForWorkerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class AssumeQueueRoleForWorkerCommand extends $Command
   .f(void 0, AssumeQueueRoleForWorkerResponseFilterSensitiveLog)
   .ser(se_AssumeQueueRoleForWorkerCommand)
   .de(de_AssumeQueueRoleForWorkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeQueueRoleForWorkerRequest;
+      output: AssumeQueueRoleForWorkerResponse;
+    };
+    sdk: {
+      input: AssumeQueueRoleForWorkerCommandInput;
+      output: AssumeQueueRoleForWorkerCommandOutput;
+    };
+  };
+}

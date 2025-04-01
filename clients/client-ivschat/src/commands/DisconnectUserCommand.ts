@@ -76,6 +76,7 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class DisconnectUserCommand extends $Command
@@ -86,9 +87,7 @@ export class DisconnectUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DisconnectUserCommand extends $Command
   .f(DisconnectUserRequestFilterSensitiveLog, void 0)
   .ser(se_DisconnectUserCommand)
   .de(de_DisconnectUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectUserCommandInput;
+      output: DisconnectUserCommandOutput;
+    };
+  };
+}

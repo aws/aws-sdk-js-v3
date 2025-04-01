@@ -96,6 +96,7 @@ export interface GetTemplateGroupAccessControlEntryCommandOutput
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateGroupAccessControlEntryCommand extends $Command
@@ -106,9 +107,7 @@ export class GetTemplateGroupAccessControlEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class GetTemplateGroupAccessControlEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateGroupAccessControlEntryCommand)
   .de(de_GetTemplateGroupAccessControlEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateGroupAccessControlEntryRequest;
+      output: GetTemplateGroupAccessControlEntryResponse;
+    };
+    sdk: {
+      input: GetTemplateGroupAccessControlEntryCommandInput;
+      output: GetTemplateGroupAccessControlEntryCommandOutput;
+    };
+  };
+}

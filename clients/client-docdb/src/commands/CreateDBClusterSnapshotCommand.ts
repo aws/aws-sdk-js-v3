@@ -99,6 +99,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDBClusterSnapshotCommand extends $Command
@@ -109,9 +110,7 @@ export class CreateDBClusterSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateDBClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBClusterSnapshotCommand)
   .de(de_CreateDBClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBClusterSnapshotMessage;
+      output: CreateDBClusterSnapshotResult;
+    };
+    sdk: {
+      input: CreateDBClusterSnapshotCommandInput;
+      output: CreateDBClusterSnapshotCommandOutput;
+    };
+  };
+}

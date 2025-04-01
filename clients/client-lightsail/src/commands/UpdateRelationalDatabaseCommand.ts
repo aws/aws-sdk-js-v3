@@ -37,7 +37,7 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  *       are applied during the database's predefined maintenance window.</p>
  *          <p>The <code>update relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,6 +122,7 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateRelationalDatabaseCommand extends $Command
@@ -132,9 +133,7 @@ export class UpdateRelationalDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class UpdateRelationalDatabaseCommand extends $Command
   .f(UpdateRelationalDatabaseRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRelationalDatabaseCommand)
   .de(de_UpdateRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRelationalDatabaseRequest;
+      output: UpdateRelationalDatabaseResult;
+    };
+    sdk: {
+      input: UpdateRelationalDatabaseCommandInput;
+      output: UpdateRelationalDatabaseCommandOutput;
+    };
+  };
+}

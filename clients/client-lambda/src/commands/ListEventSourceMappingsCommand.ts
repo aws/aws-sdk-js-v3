@@ -115,6 +115,21 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //         CollectionName: "STRING_VALUE",
  * //         FullDocument: "UpdateLookup" || "Default",
  * //       },
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //       FilterCriteriaError: { // FilterCriteriaError
+ * //         ErrorCode: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       EventSourceMappingArn: "STRING_VALUE",
+ * //       MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //         Metrics: [ // EventSourceMappingMetricList
+ * //           "EventCount",
+ * //         ],
+ * //       },
+ * //       ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //         MinimumPollers: Number("int"),
+ * //         MaximumPollers: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -142,6 +157,32 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To list the event source mappings for a function
+ * ```javascript
+ * // The following example returns a list of the event source mappings for a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function"
+ * };
+ * const command = new ListEventSourceMappingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   EventSourceMappings: [
+ *     {
+ *       BatchSize: 5,
+ *       EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:mySQSqueue",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       LastModified: 1.569284520333E9,
+ *       State: "Enabled",
+ *       StateTransitionReason: "USER_INITIATED",
+ *       UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListEventSourceMappingsCommand extends $Command
@@ -152,9 +193,7 @@ export class ListEventSourceMappingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +205,16 @@ export class ListEventSourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventSourceMappingsCommand)
   .de(de_ListEventSourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventSourceMappingsRequest;
+      output: ListEventSourceMappingsResponse;
+    };
+    sdk: {
+      input: ListEventSourceMappingsCommandInput;
+      output: ListEventSourceMappingsCommandOutput;
+    };
+  };
+}

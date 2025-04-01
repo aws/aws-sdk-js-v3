@@ -80,23 +80,23 @@ export interface EnableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To activate an integration
  * ```javascript
  * // The following example activates an integration between Security Hub and a third party partner product that sends findings to Security Hub.
  * const input = {
- *   "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ *   ProductArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
  * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
+ *   ProductSubscriptionArn: "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
  * }
  * *\/
- * // example id: to-activate-an-integration-1676918918114
  * ```
  *
+ * @public
  */
 export class EnableImportFindingsForProductCommand extends $Command
   .classBuilder<
@@ -106,9 +106,7 @@ export class EnableImportFindingsForProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +118,16 @@ export class EnableImportFindingsForProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableImportFindingsForProductCommand)
   .de(de_EnableImportFindingsForProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableImportFindingsForProductRequest;
+      output: EnableImportFindingsForProductResponse;
+    };
+    sdk: {
+      input: EnableImportFindingsForProductCommandInput;
+      output: EnableImportFindingsForProductCommandOutput;
+    };
+  };
+}

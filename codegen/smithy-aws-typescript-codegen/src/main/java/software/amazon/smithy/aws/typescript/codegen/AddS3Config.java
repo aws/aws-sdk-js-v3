@@ -44,10 +44,13 @@ import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.traits.DeprecatedTrait;
 import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpPayloadTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpSigningPlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -72,15 +75,18 @@ public final class AddS3Config implements TypeScriptIntegration {
         "ListBuckets"
     );
 
-    private static final Set<String> EXCEPTIONS_OF_200_OPERATIONS = SetUtils.of(
-        "CopyObject",
-        "UploadPartCopy",
-        "CompleteMultipartUpload"
-    );
-
     private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point (MRAP) to Bucket,"
         + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
         + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            new AddHttpSigningPlugin().name(),
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
 
     @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
@@ -233,16 +239,14 @@ public final class AddS3Config implements TypeScriptIntegration {
         }
         switch (target) {
             case SHARED:
-                return MapUtils.of("signingEscapePath", writer -> {
-                    writer.write("false");
-                }, "useArnRegion", writer -> {
-                    writer.write("false");
-                }, "signerConstructor", writer -> {
-                    writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
-                        .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION)
-                        .write("SignatureV4MultiRegion");
-                });
+                return MapUtils.of(
+                    "signingEscapePath", writer -> {
+                        writer.write("false");
+                    },
+                    "useArnRegion", writer -> {
+                        writer.write("false");
+                    }
+                );
             case NODE:
                 return MapUtils.of(
                     "useArnRegion", writer -> {
@@ -252,7 +256,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
                             AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
+                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, profileConfig)");
                     },
                     "disableS3ExpressSessionAuth", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
@@ -264,7 +268,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                             "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
                             AwsDependency.S3_MIDDLEWARE
                         )
-                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS)");
+                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, profileConfig)");
                     }
                 );
             default:
@@ -288,9 +292,33 @@ public final class AddS3Config implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
                     HAS_MIDDLEWARE)
-                .operationPredicate(
-                    (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName(s))
-                        && isS3(s))
+                .operationPredicate((m, s, o) -> {
+                    if (!isS3(s)) {
+                        return false;
+                    }
+                    Optional<ShapeId> output = o.getOutput();
+                    if (output.isPresent()) {
+                        Shape outputShape = m.expectShape(output.get());
+                        boolean hasStreamingBlobOutputPayload = outputShape.getAllMembers().values().stream().anyMatch(
+                            memberShape -> {
+                                boolean isPayload = memberShape.hasTrait(HttpPayloadTrait.class);
+                                if (!isPayload) {
+                                    return false;
+                                }
+                                Shape shape = m.expectShape(memberShape.getTarget());
+                                boolean isBlob = shape.isBlobShape();
+                                if (!isBlob) {
+                                    return false;
+                                }
+                                return shape.hasTrait(StreamingTrait.class);
+                            }
+                        );
+                        if (hasStreamingBlobOutputPayload) {
+                            return false;
+                        }
+                    }
+                    return output.isPresent();
+                })
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
@@ -370,6 +398,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpressHttpSigning",
                     HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build()

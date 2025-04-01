@@ -75,6 +75,11 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * //       ],
  * //       LastUpdatedTime: "STRING_VALUE",
  * //       SubscriptionName: "STRING_VALUE",
+ * //       OsVersion: "STRING_VALUE",
+ * //       SubscriptionProviderCreateTime: "STRING_VALUE",
+ * //       SubscriptionProviderUpdateTime: "STRING_VALUE",
+ * //       DualSubscription: "STRING_VALUE",
+ * //       RegisteredWithSubscriptionProvider: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -100,6 +105,7 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListLinuxSubscriptionInstancesCommand extends $Command
@@ -110,9 +116,7 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +128,16 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLinuxSubscriptionInstancesCommand)
   .de(de_ListLinuxSubscriptionInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLinuxSubscriptionInstancesRequest;
+      output: ListLinuxSubscriptionInstancesResponse;
+    };
+    sdk: {
+      input: ListLinuxSubscriptionInstancesCommandInput;
+      output: ListLinuxSubscriptionInstancesCommandOutput;
+    };
+  };
+}

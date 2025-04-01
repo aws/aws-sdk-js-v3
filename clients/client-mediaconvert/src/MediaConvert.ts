@@ -68,6 +68,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVersionsCommand,
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
+} from "./commands/ListVersionsCommand";
+import { ProbeCommand, ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -112,6 +118,8 @@ const commands = {
   ListPresetsCommand,
   ListQueuesCommand,
   ListTagsForResourceCommand,
+  ListVersionsCommand,
+  ProbeCommand,
   PutPolicyCommand,
   SearchJobsCommand,
   TagResourceCommand,
@@ -414,6 +422,30 @@ export interface MediaConvert {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   */
+  listVersions(): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProbeCommand}
+   */
+  probe(): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, options?: __HttpHandlerOptions): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, cb: (err: any, data?: ProbeCommandOutput) => void): void;
+  probe(
+    args: ProbeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProbeCommandOutput) => void
   ): void;
 
   /**

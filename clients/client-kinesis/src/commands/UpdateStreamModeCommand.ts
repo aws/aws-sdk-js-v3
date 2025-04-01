@@ -75,6 +75,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamModeCommand extends $Command
@@ -101,4 +102,16 @@ export class UpdateStreamModeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStreamModeCommand)
   .de(de_UpdateStreamModeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamModeInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStreamModeCommandInput;
+      output: UpdateStreamModeCommandOutput;
+    };
+  };
+}

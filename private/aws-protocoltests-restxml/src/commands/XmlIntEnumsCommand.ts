@@ -75,6 +75,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __Metadat
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlIntEnumsCommand extends $Command
@@ -93,4 +94,16 @@ export class XmlIntEnumsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlIntEnumsCommand)
   .de(de_XmlIntEnumsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlIntEnumsRequest;
+      output: XmlIntEnumsResponse;
+    };
+    sdk: {
+      input: XmlIntEnumsCommandInput;
+      output: XmlIntEnumsCommandOutput;
+    };
+  };
+}

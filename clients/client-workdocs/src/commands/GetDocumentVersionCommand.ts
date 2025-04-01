@@ -108,6 +108,7 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentVersionCommand extends $Command
@@ -118,9 +119,7 @@ export class GetDocumentVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class GetDocumentVersionCommand extends $Command
   .f(GetDocumentVersionRequestFilterSensitiveLog, GetDocumentVersionResponseFilterSensitiveLog)
   .ser(se_GetDocumentVersionCommand)
   .de(de_GetDocumentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentVersionRequest;
+      output: GetDocumentVersionResponse;
+    };
+    sdk: {
+      input: GetDocumentVersionCommandInput;
+      output: GetDocumentVersionCommandOutput;
+    };
+  };
+}

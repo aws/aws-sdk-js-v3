@@ -12,6 +12,6 @@ module.exports = {
     // "<rootDir>/clients/*/jest.config.integ.js",
     // "<rootDir>/lib/*/jest.config.integ.js",
     "<rootDir>/packages/*/jest.config.integ.js",
-    "<rootDir>/private/*/jest.config.integ.js",
+    // "<rootDir>/private/*/jest.config.integ.js",
   ],
 };

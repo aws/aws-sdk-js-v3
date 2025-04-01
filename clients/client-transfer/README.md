@@ -13,13 +13,13 @@ Additionally, you can use Applicability Statement 2 (AS2) to transfer files into
 Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
 with existing authentication systems, and providing DNS routing with Amazon Route 53 so
 nothing changes for your customers and partners, or their applications. With your data in
-Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
 archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
 set up.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-transfer
+To install this package, simply type add or install @aws-sdk/client-transfer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-transfer`
@@ -262,6 +262,14 @@ CreateUser
 </details>
 <details>
 <summary>
+CreateWebApp
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/CreateWebAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/CreateWebAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/CreateWebAppCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateWorkflow
 </summary>
 
@@ -338,6 +346,22 @@ DeleteUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/DeleteUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWebApp
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/DeleteWebAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteWebAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteWebAppCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWebAppCustomization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/DeleteWebAppCustomizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteWebAppCustomizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DeleteWebAppCustomizationCommandOutput/)
 
 </details>
 <details>
@@ -430,6 +454,22 @@ DescribeUser
 </details>
 <details>
 <summary>
+DescribeWebApp
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/DescribeWebAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DescribeWebAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DescribeWebAppCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeWebAppCustomization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/DescribeWebAppCustomizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DescribeWebAppCustomizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/DescribeWebAppCustomizationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeWorkflow
 </summary>
 
@@ -502,6 +542,14 @@ ListExecutions
 </details>
 <details>
 <summary>
+ListFileTransferResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/ListFileTransferResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListFileTransferResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListFileTransferResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListHostKeys
 </summary>
 
@@ -546,6 +594,14 @@ ListUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/ListUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListUsersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWebApps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/ListWebAppsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListWebAppsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListWebAppsCommandOutput/)
 
 </details>
 <details>
@@ -690,5 +746,21 @@ UpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateWebApp
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/UpdateWebAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateWebAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateWebAppCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateWebAppCustomization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/UpdateWebAppCustomizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateWebAppCustomizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/UpdateWebAppCustomizationCommandOutput/)
 
 </details>

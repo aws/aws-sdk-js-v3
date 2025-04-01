@@ -56,6 +56,7 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  * @throws {@link EchoServiceServiceException}
  * <p>Base exception class for all service exceptions from EchoService service.</p>
  *
+ *
  */
 export class EchoCommand extends $Command
   .classBuilder<
@@ -73,4 +74,16 @@ export class EchoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EchoCommand)
   .de(de_EchoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EchoInput;
+      output: EchoOutput;
+    };
+    sdk: {
+      input: EchoCommandInput;
+      output: EchoCommandOutput;
+    };
+  };
+}

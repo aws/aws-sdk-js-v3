@@ -33,7 +33,22 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a
+ * 			specific instance type for a period of time.</p>
+ *          <p>To search for an available Capacity Block offering, you specify a reservation duration
+ *                 and instance count. You must select one of the following options.</p>
+ *          <ul>
+ *             <li>
+ *                <p>For reservation durations<b> 1-day increments
+ *                             up 14 days and 7-day increments up to 182 days total</b>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>For instance count<b> 1, 2, 4, 8, 16, 32, or
+ *                             64 instances</b>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,8 +57,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * const client = new EC2Client(config);
  * const input = { // DescribeCapacityBlockOfferingsRequest
  *   DryRun: true || false,
- *   InstanceType: "STRING_VALUE", // required
- *   InstanceCount: Number("int"), // required
+ *   InstanceType: "STRING_VALUE",
+ *   InstanceCount: Number("int"),
  *   StartDateRange: new Date("TIMESTAMP"),
  *   EndDateRange: new Date("TIMESTAMP"),
  *   CapacityDurationHours: Number("int"), // required
@@ -65,6 +80,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
  * //       Tenancy: "default" || "dedicated",
+ * //       CapacityBlockDurationMinutes: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -81,6 +97,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeCapacityBlockOfferingsCommand extends $Command
@@ -91,9 +108,7 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +120,16 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCapacityBlockOfferingsCommand)
   .de(de_DescribeCapacityBlockOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCapacityBlockOfferingsRequest;
+      output: DescribeCapacityBlockOfferingsResult;
+    };
+    sdk: {
+      input: DescribeCapacityBlockOfferingsCommandInput;
+      output: DescribeCapacityBlockOfferingsCommandOutput;
+    };
+  };
+}

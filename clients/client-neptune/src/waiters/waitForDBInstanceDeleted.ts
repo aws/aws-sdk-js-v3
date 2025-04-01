@@ -83,7 +83,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBInstanceNotFound") {
+    if (exception.name && exception.name == "DBInstanceNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }

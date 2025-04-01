@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRequest } from "../models/models_1";
-import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/models_2";
+import { GetJobRequest } from "../models/models_2";
+import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/models_3";
 import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -45,6 +45,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //   Job: { // Job
  * //     Name: "STRING_VALUE",
  * //     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //     JobRunQueuingEnabled: true || false,
  * //     Description: "STRING_VALUE",
  * //     LogUri: "STRING_VALUE",
  * //     Role: "STRING_VALUE",
@@ -306,6 +307,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           Inputs: [ // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           PartitionKeys: [ // GlueStudioPathList
+ * //             "<EnclosedInStringProperties>",
+ * //           ],
  * //           Database: "STRING_VALUE", // required
  * //           Table: "STRING_VALUE", // required
  * //         },
@@ -331,7 +335,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           Inputs: [ // required
  * //             "STRING_VALUE",
  * //           ],
- * //           PartitionKeys: [ // GlueStudioPathList
+ * //           PartitionKeys: [
  * //             "<EnclosedInStringProperties>",
  * //           ],
  * //           Table: "STRING_VALUE", // required
@@ -405,9 +409,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //         DropFields: { // DropFields
  * //           Name: "STRING_VALUE", // required
  * //           Inputs: "<OneInput>", // required
- * //           Paths: [ // required
- * //             "<EnclosedInStringProperties>",
- * //           ],
+ * //           Paths: "<GlueStudioPathList>", // required
  * //         },
  * //         RenameField: { // RenameField
  * //           Name: "STRING_VALUE", // required
@@ -1030,6 +1032,23 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //             RecipeArn: "STRING_VALUE", // required
  * //             RecipeVersion: "STRING_VALUE", // required
  * //           },
+ * //           RecipeSteps: [ // RecipeSteps
+ * //             { // RecipeStep
+ * //               Action: { // RecipeAction
+ * //                 Operation: "STRING_VALUE", // required
+ * //                 Parameters: { // ParameterMap
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               ConditionExpressions: [ // ConditionExpressionList
+ * //                 { // ConditionExpression
+ * //                   Condition: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE",
+ * //                   TargetColumn: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //         SnowflakeSource: { // SnowflakeSource
  * //           Name: "STRING_VALUE", // required
@@ -1144,6 +1163,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobCommand extends $Command
@@ -1154,9 +1174,7 @@ export class GetJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1168,4 +1186,16 @@ export class GetJobCommand extends $Command
   .f(void 0, GetJobResponseFilterSensitiveLog)
   .ser(se_GetJobCommand)
   .de(de_GetJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRequest;
+      output: GetJobResponse;
+    };
+    sdk: {
+      input: GetJobCommandInput;
+      output: GetJobCommandOutput;
+    };
+  };
+}

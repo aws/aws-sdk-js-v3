@@ -91,6 +91,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetRecordCommand extends $Command
@@ -101,9 +102,7 @@ export class GetRecordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class GetRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecordCommand)
   .de(de_GetRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecordRequest;
+      output: GetRecordResponse;
+    };
+    sdk: {
+      input: GetRecordCommandInput;
+      output: GetRecordCommandOutput;
+    };
+  };
+}

@@ -115,6 +115,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateNodeCommand extends $Command
@@ -125,9 +126,7 @@ export class CreateNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class CreateNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNodeCommand)
   .de(de_CreateNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNodeInput;
+      output: CreateNodeOutput;
+    };
+    sdk: {
+      input: CreateNodeCommandInput;
+      output: CreateNodeCommandOutput;
+    };
+  };
+}

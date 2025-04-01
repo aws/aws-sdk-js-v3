@@ -84,11 +84,31 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           ],
  * //         },
  * //       ],
+ * //       idleSummaries: [ // IdleSummaries
+ * //         { // IdleSummary
+ * //           name: "Idle" || "Unattached",
+ * //           value: Number("double"),
+ * //         },
+ * //       ],
  * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),
  * //         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       idleSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       aggregatedSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
  * //           currency: "USD" || "CNY",
  * //           value: Number("double"),
  * //         },
@@ -147,6 +167,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationSummariesCommand extends $Command
@@ -157,9 +178,7 @@ export class GetRecommendationSummariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +190,16 @@ export class GetRecommendationSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationSummariesCommand)
   .de(de_GetRecommendationSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationSummariesRequest;
+      output: GetRecommendationSummariesResponse;
+    };
+    sdk: {
+      input: GetRecommendationSummariesCommandInput;
+      output: GetRecommendationSummariesCommandOutput;
+    };
+  };
+}

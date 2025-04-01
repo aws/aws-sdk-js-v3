@@ -34,7 +34,17 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
  *                </p>
  *             </li>
  *             <li>
@@ -44,12 +54,17 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -138,6 +153,11 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -281,9 +301,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -345,6 +364,9 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -383,6 +405,9 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *             <li>
  *                <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between
  *                     entities in the same root.</p>
+ *             </li>
+ *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
@@ -427,33 +452,38 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To attach a policy to an OU
- * ```javascript
- * // The following example shows how to attach a service control policy (SCP) to an OU:
- * //
- * const input = {
- *   "PolicyId": "p-examplepolicyid111",
- *   "TargetId": "ou-examplerootid111-exampleouid111"
- * };
- * const command = new AttachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-policy-to-an-ou
- * ```
  *
  * @example To attach a policy to an account
  * ```javascript
  * // The following example shows how to attach a service control policy (SCP) to an account:
- * //
+ *
  * const input = {
- *   "PolicyId": "p-examplepolicyid111",
- *   "TargetId": "333333333333"
+ *   PolicyId: "p-examplepolicyid111",
+ *   TargetId: "333333333333"
  * };
  * const command = new AttachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-policy-to-an-account
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @example To attach a policy to an OU
+ * ```javascript
+ * // The following example shows how to attach a service control policy (SCP) to an OU:
+ *
+ * const input = {
+ *   PolicyId: "p-examplepolicyid111",
+ *   TargetId: "ou-examplerootid111-exampleouid111"
+ * };
+ * const command = new AttachPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class AttachPolicyCommand extends $Command
   .classBuilder<
@@ -463,9 +493,7 @@ export class AttachPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -477,4 +505,16 @@ export class AttachPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachPolicyCommand)
   .de(de_AttachPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachPolicyCommandInput;
+      output: AttachPolicyCommandOutput;
+    };
+  };
+}

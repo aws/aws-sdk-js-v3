@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateTrafficPolicyRequest,
-  CreateTrafficPolicyRequestFilterSensitiveLog,
-  CreateTrafficPolicyResponse,
-} from "../models/models_0";
+import { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/models_0";
 import { de_CreateTrafficPolicyCommand, se_CreateTrafficPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -49,6 +45,10 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  *           StringExpression: { // IngressStringExpression
  *             Evaluate: { // IngressStringToEvaluate Union: only one key present
  *               Attribute: "RECIPIENT",
+ *               Analysis: { // IngressAnalysis
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // StringList // required
@@ -73,9 +73,15 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  *           },
  *           BooleanExpression: { // IngressBooleanExpression
  *             Evaluate: { // IngressBooleanToEvaluate Union: only one key present
- *               Analysis: { // IngressAnalysis
+ *               Analysis: {
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: { // IngressIsInAddressList
+ *                 Attribute: "RECIPIENT", // required
+ *                 AddressLists: [ // IngressAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
@@ -120,6 +126,41 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Create TrafficPolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   DefaultAction: "DENY",
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           IpExpression: {
+ *             Evaluate: {
+ *               Attribute: "SENDER_IP"
+ *             },
+ *             Operator: "CIDR_MATCHES",
+ *             Values: [
+ *               "0.0.0.0/12"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyName: "trafficPolicyName"
+ * };
+ * const command = new CreateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrafficPolicyId: "tp-13245"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateTrafficPolicyCommand extends $Command
@@ -130,9 +171,7 @@ export class CreateTrafficPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,7 +180,19 @@ export class CreateTrafficPolicyCommand extends $Command
   })
   .s("MailManagerSvc", "CreateTrafficPolicy", {})
   .n("MailManagerClient", "CreateTrafficPolicyCommand")
-  .f(CreateTrafficPolicyRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateTrafficPolicyCommand)
   .de(de_CreateTrafficPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrafficPolicyRequest;
+      output: CreateTrafficPolicyResponse;
+    };
+    sdk: {
+      input: CreateTrafficPolicyCommandInput;
+      output: CreateTrafficPolicyCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class UpdateMapCommand extends $Command
@@ -91,9 +92,7 @@ export class UpdateMapCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class UpdateMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMapCommand)
   .de(de_UpdateMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMapRequest;
+      output: UpdateMapResponse;
+    };
+    sdk: {
+      input: UpdateMapCommandInput;
+      output: UpdateMapCommandOutput;
+    };
+  };
+}

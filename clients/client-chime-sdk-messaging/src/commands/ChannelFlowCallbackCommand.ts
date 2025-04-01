@@ -119,6 +119,7 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ChannelFlowCallbackCommand extends $Command
@@ -129,9 +130,7 @@ export class ChannelFlowCallbackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class ChannelFlowCallbackCommand extends $Command
   .f(ChannelFlowCallbackRequestFilterSensitiveLog, void 0)
   .ser(se_ChannelFlowCallbackCommand)
   .de(de_ChannelFlowCallbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChannelFlowCallbackRequest;
+      output: ChannelFlowCallbackResponse;
+    };
+    sdk: {
+      input: ChannelFlowCallbackCommandInput;
+      output: ChannelFlowCallbackCommandOutput;
+    };
+  };
+}

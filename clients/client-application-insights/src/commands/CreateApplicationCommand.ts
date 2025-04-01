@@ -44,6 +44,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   OpsCenterEnabled: true || false,
  *   CWEMonitorEnabled: true || false,
  *   OpsItemSNSTopicArn: "STRING_VALUE",
+ *   SNSNotificationArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -63,6 +64,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     SNSNotificationArn: "STRING_VALUE",
  * //     OpsCenterEnabled: true || false,
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",
@@ -101,6 +103,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command
@@ -111,9 +114,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +126,16 @@ export class CreateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: CreateApplicationResponse;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

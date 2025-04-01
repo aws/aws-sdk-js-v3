@@ -115,6 +115,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchPutGeofenceCommand extends $Command
@@ -125,9 +126,7 @@ export class BatchPutGeofenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class BatchPutGeofenceCommand extends $Command
   .f(BatchPutGeofenceRequestFilterSensitiveLog, void 0)
   .ser(se_BatchPutGeofenceCommand)
   .de(de_BatchPutGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutGeofenceRequest;
+      output: BatchPutGeofenceResponse;
+    };
+    sdk: {
+      input: BatchPutGeofenceCommandInput;
+      output: BatchPutGeofenceCommandOutput;
+    };
+  };
+}

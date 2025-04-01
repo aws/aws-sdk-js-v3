@@ -75,6 +75,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class ListStreamSessionsCommand extends $Command
@@ -85,9 +86,7 @@ export class ListStreamSessionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListStreamSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamSessionsCommand)
   .de(de_ListStreamSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamSessionsRequest;
+      output: ListStreamSessionsResponse;
+    };
+    sdk: {
+      input: ListStreamSessionsCommandInput;
+      output: ListStreamSessionsCommandOutput;
+    };
+  };
+}

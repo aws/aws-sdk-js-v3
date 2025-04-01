@@ -121,6 +121,7 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonListsCommand extends $Command
@@ -139,4 +140,16 @@ export class JsonListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonListsCommand)
   .de(de_JsonListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonListsInputOutput;
+      output: JsonListsInputOutput;
+    };
+    sdk: {
+      input: JsonListsCommandInput;
+      output: JsonListsCommandOutput;
+    };
+  };
+}

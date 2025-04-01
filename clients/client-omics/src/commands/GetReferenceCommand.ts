@@ -46,6 +46,11 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
  * };
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.payload.transformToByteArray();
+ * // const str = await response.payload.transformToString();
+ * // response.payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetReferenceResponse
  * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -82,6 +87,7 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReferenceCommand extends $Command
@@ -92,9 +98,7 @@ export class GetReferenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +110,16 @@ export class GetReferenceCommand extends $Command
   .f(void 0, GetReferenceResponseFilterSensitiveLog)
   .ser(se_GetReferenceCommand)
   .de(de_GetReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReferenceRequest;
+      output: GetReferenceResponse;
+    };
+    sdk: {
+      input: GetReferenceCommandInput;
+      output: GetReferenceCommandOutput;
+    };
+  };
+}

@@ -77,6 +77,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DeleteInferenceSchedulerCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteInferenceSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteInferenceSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInferenceSchedulerCommand)
   .de(de_DeleteInferenceSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInferenceSchedulerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInferenceSchedulerCommandInput;
+      output: DeleteInferenceSchedulerCommandOutput;
+    };
+  };
+}

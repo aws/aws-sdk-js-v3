@@ -380,6 +380,7 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new UpdatePipeCommand(input);
  * const response = await client.send(command);
@@ -418,6 +419,7 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipeCommand extends $Command
@@ -428,9 +430,7 @@ export class UpdatePipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -442,4 +442,16 @@ export class UpdatePipeCommand extends $Command
   .f(UpdatePipeRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePipeCommand)
   .de(de_UpdatePipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipeRequest;
+      output: UpdatePipeResponse;
+    };
+    sdk: {
+      input: UpdatePipeCommandInput;
+      output: UpdatePipeCommandOutput;
+    };
+  };
+}

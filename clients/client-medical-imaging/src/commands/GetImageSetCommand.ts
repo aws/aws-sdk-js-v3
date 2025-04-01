@@ -53,6 +53,9 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * //   deletedAt: new Date("TIMESTAMP"),
  * //   message: "STRING_VALUE",
  * //   imageSetArn: "STRING_VALUE",
+ * //   overrides: { // Overrides
+ * //     forced: true || false,
+ * //   },
  * // };
  *
  * ```
@@ -84,6 +87,7 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class GetImageSetCommand extends $Command
@@ -94,9 +98,7 @@ export class GetImageSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class GetImageSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImageSetCommand)
   .de(de_GetImageSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageSetRequest;
+      output: GetImageSetResponse;
+    };
+    sdk: {
+      input: GetImageSetCommandInput;
+      output: GetImageSetCommandOutput;
+    };
+  };
+}

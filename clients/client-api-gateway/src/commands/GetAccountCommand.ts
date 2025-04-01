@@ -73,6 +73,7 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetAccountCommand extends $Command
@@ -83,9 +84,7 @@ export class GetAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountCommand)
   .de(de_GetAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: Account;
+    };
+    sdk: {
+      input: GetAccountCommandInput;
+      output: GetAccountCommandOutput;
+    };
+  };
+}

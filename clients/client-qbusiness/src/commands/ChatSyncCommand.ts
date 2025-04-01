@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ChatSyncInput, ChatSyncOutput } from "../models/models_0";
+import { ChatSyncOutput } from "../models/models_0";
+import { ChatSyncInput } from "../models/models_1";
 import { de_ChatSyncCommand, se_ChatSyncCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -44,8 +45,14 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *   userMessage: "STRING_VALUE",
  *   attachments: [ // AttachmentsInput
  *     { // AttachmentInput
- *       name: "STRING_VALUE", // required
- *       data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
+ *       data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       name: "STRING_VALUE",
+ *       copyFrom: { // CopyFromSource Union: only one key present
+ *         conversation: { // ConversationSource
+ *           conversationId: "STRING_VALUE", // required
+ *           attachmentId: "STRING_VALUE", // required
+ *         },
+ *       },
  *     },
  *   ],
  *   actionExecution: { // ActionExecution
@@ -162,7 +169,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //   userMessageId: "STRING_VALUE",
  * //   actionReview: { // ActionReview
  * //     pluginId: "STRING_VALUE",
- * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //     payload: { // ActionReviewPayload
  * //       "<keys>": { // ActionReviewPayloadField
  * //         displayName: "STRING_VALUE",
@@ -177,6 +184,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //           },
  * //         ],
  * //         allowedFormat: "STRING_VALUE",
+ * //         arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //         required: true || false,
  * //       },
  * //     },
@@ -199,6 +207,28 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //           snippetExcerpt: { // SnippetExcerpt
  * //             text: "STRING_VALUE",
  * //           },
+ * //           mediaId: "STRING_VALUE",
+ * //           mediaMimeType: "STRING_VALUE",
+ * //           sourceDetails: { // SourceDetails Union: only one key present
+ * //             imageSourceDetails: { // ImageSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //             },
+ * //             audioSourceDetails: { // AudioSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               startTimeMilliseconds: Number("long"),
+ * //               endTimeMilliseconds: Number("long"),
+ * //               audioExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //             },
+ * //             videoSourceDetails: { // VideoSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               startTimeMilliseconds: Number("long"),
+ * //               endTimeMilliseconds: Number("long"),
+ * //               videoExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //     },
@@ -206,11 +236,13 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //   failedAttachments: [ // AttachmentsOutput
  * //     { // AttachmentOutput
  * //       name: "STRING_VALUE",
- * //       status: "FAILED" || "SUCCEEDED",
+ * //       status: "FAILED" || "SUCCESS",
  * //       error: { // ErrorDetail
  * //         errorMessage: "STRING_VALUE",
  * //         errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //       },
+ * //       attachmentId: "STRING_VALUE",
+ * //       conversationId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -229,7 +261,12 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
+ *
+ * @throws {@link ExternalResourceException} (client fault)
+ *  <p>An external resource that you configured with your application is returning errors and
+ *             preventing this operation from succeeding. Fix those errors and try again.
+ *         </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
@@ -240,8 +277,8 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -254,6 +291,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ChatSyncCommand extends $Command
@@ -264,9 +302,7 @@ export class ChatSyncCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -278,4 +314,16 @@ export class ChatSyncCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ChatSyncCommand)
   .de(de_ChatSyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChatSyncInput;
+      output: ChatSyncOutput;
+    };
+    sdk: {
+      input: ChatSyncCommandInput;
+      output: ChatSyncCommandOutput;
+    };
+  };
+}

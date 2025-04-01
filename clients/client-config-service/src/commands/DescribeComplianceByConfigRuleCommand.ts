@@ -34,7 +34,7 @@ export interface DescribeComplianceByConfigRuleCommandOutput
 
 /**
  * <p>Indicates whether the specified Config rules are compliant.
- * 			If a rule is noncompliant, this action returns the number of Amazon Web Services
+ * 			If a rule is noncompliant, this operation returns the number of Amazon Web Services
  * 			resources that do not comply with the rule.</p>
  *          <p>A rule is compliant if all of the evaluated resources comply
  * 			with it. It is noncompliant if any of these resources do not
@@ -122,6 +122,7 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeComplianceByConfigRuleCommand extends $Command
@@ -132,9 +133,7 @@ export class DescribeComplianceByConfigRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class DescribeComplianceByConfigRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeComplianceByConfigRuleCommand)
   .de(de_DescribeComplianceByConfigRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComplianceByConfigRuleRequest;
+      output: DescribeComplianceByConfigRuleResponse;
+    };
+    sdk: {
+      input: DescribeComplianceByConfigRuleCommandInput;
+      output: DescribeComplianceByConfigRuleCommandOutput;
+    };
+  };
+}

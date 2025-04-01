@@ -100,6 +100,7 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class ListRasterDataCollectionsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListRasterDataCollectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListRasterDataCollectionsCommand extends $Command
   .f(ListRasterDataCollectionsInputFilterSensitiveLog, ListRasterDataCollectionsOutputFilterSensitiveLog)
   .ser(se_ListRasterDataCollectionsCommand)
   .de(de_ListRasterDataCollectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRasterDataCollectionsInput;
+      output: ListRasterDataCollectionsOutput;
+    };
+    sdk: {
+      input: ListRasterDataCollectionsCommandInput;
+      output: ListRasterDataCollectionsCommandOutput;
+    };
+  };
+}

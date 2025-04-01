@@ -91,6 +91,7 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetBatchPredictionJobsCommand extends $Command
@@ -101,9 +102,7 @@ export class GetBatchPredictionJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class GetBatchPredictionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBatchPredictionJobsCommand)
   .de(de_GetBatchPredictionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBatchPredictionJobsRequest;
+      output: GetBatchPredictionJobsResult;
+    };
+    sdk: {
+      input: GetBatchPredictionJobsCommandInput;
+      output: GetBatchPredictionJobsCommandOutput;
+    };
+  };
+}

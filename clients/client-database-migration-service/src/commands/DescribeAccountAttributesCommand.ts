@@ -70,37 +70,37 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe acount attributes
  * ```javascript
  * // Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value. This operation does not take any parameters.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountQuotas": [
+ *   AccountQuotas: [
  *     {
- *       "AccountQuotaName": "ReplicationInstances",
- *       "Max": 20,
- *       "Used": 0
+ *       AccountQuotaName: "ReplicationInstances",
+ *       Max: 20,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "AllocatedStorage",
- *       "Max": 20,
- *       "Used": 0
+ *       AccountQuotaName: "AllocatedStorage",
+ *       Max: 20,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "Endpoints",
- *       "Max": 20,
- *       "Used": 0
+ *       AccountQuotaName: "Endpoints",
+ *       Max: 20,
+ *       Used: 0
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-acount-attributes-1481753085663
  * ```
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<
@@ -110,9 +110,7 @@ export class DescribeAccountAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +122,16 @@ export class DescribeAccountAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAttributesCommand)
   .de(de_DescribeAccountAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAccountAttributesResponse;
+    };
+    sdk: {
+      input: DescribeAccountAttributesCommandInput;
+      output: DescribeAccountAttributesCommandOutput;
+    };
+  };
+}

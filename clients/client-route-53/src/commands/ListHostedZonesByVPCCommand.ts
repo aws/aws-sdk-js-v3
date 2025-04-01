@@ -45,6 +45,9 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * 						<code>Owner</code> is <code>efs.amazonaws.com</code>. </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <code>ListHostedZonesByVPC</code> returns the hosted zones associated with the specified VPC and does not reflect the hosted zone
+ * 			associations to VPCs via Route 53 Profiles. To get the associations to a Profile, call the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileResourceAssociations.html">ListProfileResourceAssociations</a> API.</p>
  *          <note>
  *             <p>When listing private hosted zones, the hosted zone and the Amazon VPC must
  * 				belong to the same partition where the hosted zones were created. A partition is a
@@ -76,7 +79,7 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * const client = new Route53Client(config);
  * const input = { // ListHostedZonesByVPCRequest
  *   VPCId: "STRING_VALUE", // required
- *   VPCRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-east-1" || "me-south-1" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "me-central-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-south-1" || "ap-south-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "ca-central-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4" || "il-central-1" || "ca-west-1", // required
+ *   VPCRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-east-1" || "me-south-1" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "me-central-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-south-1" || "ap-south-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4" || "il-central-1" || "ca-west-1" || "ap-southeast-5" || "mx-central-1" || "us-isof-south-1" || "us-isof-east-1" || "ap-southeast-7", // required
  *   MaxItems: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -115,6 +118,7 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListHostedZonesByVPCCommand extends $Command
@@ -125,9 +129,7 @@ export class ListHostedZonesByVPCCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +141,16 @@ export class ListHostedZonesByVPCCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostedZonesByVPCCommand)
   .de(de_ListHostedZonesByVPCCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostedZonesByVPCRequest;
+      output: ListHostedZonesByVPCResponse;
+    };
+    sdk: {
+      input: ListHostedZonesByVPCCommandInput;
+      output: ListHostedZonesByVPCCommandOutput;
+    };
+  };
+}

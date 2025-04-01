@@ -36,7 +36,7 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * // const { ImagebuilderClient, ListImageRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -56,7 +56,7 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * //     { // ImageRecipeSummary
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       parentImage: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
@@ -103,6 +103,7 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImageRecipesCommand extends $Command
@@ -113,9 +114,7 @@ export class ListImageRecipesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListImageRecipesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageRecipesCommand)
   .de(de_ListImageRecipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageRecipesRequest;
+      output: ListImageRecipesResponse;
+    };
+    sdk: {
+      input: ListImageRecipesCommandInput;
+      output: ListImageRecipesCommandOutput;
+    };
+  };
+}

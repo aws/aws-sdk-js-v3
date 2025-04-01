@@ -113,6 +113,7 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class ListSigningJobsCommand extends $Command
@@ -123,9 +124,7 @@ export class ListSigningJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class ListSigningJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSigningJobsCommand)
   .de(de_ListSigningJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSigningJobsRequest;
+      output: ListSigningJobsResponse;
+    };
+    sdk: {
+      input: ListSigningJobsCommandInput;
+      output: ListSigningJobsCommandOutput;
+    };
+  };
+}

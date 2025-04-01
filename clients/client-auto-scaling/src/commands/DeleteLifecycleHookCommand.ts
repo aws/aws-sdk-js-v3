@@ -61,19 +61,22 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a lifecycle hook
  * ```javascript
  * // This example deletes the specified lifecycle hook.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LifecycleHookName": "my-lifecycle-hook"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LifecycleHookName: "my-lifecycle-hook"
  * };
  * const command = new DeleteLifecycleHookCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-lifecycle-hook-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLifecycleHookCommand extends $Command
   .classBuilder<
@@ -83,9 +86,7 @@ export class DeleteLifecycleHookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +98,16 @@ export class DeleteLifecycleHookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLifecycleHookCommand)
   .de(de_DeleteLifecycleHookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLifecycleHookType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLifecycleHookCommandInput;
+      output: DeleteLifecycleHookCommandOutput;
+    };
+  };
+}

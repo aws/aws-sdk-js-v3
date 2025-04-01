@@ -65,6 +65,7 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DisassociateTrialComponentCommand extends $Command
@@ -75,9 +76,7 @@ export class DisassociateTrialComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DisassociateTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTrialComponentCommand)
   .de(de_DisassociateTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTrialComponentRequest;
+      output: DisassociateTrialComponentResponse;
+    };
+    sdk: {
+      input: DisassociateTrialComponentCommandInput;
+      output: DisassociateTrialComponentCommandOutput;
+    };
+  };
+}

@@ -77,36 +77,36 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To specify the health check settings for your backend EC2 instances
  * ```javascript
  * // This example specifies the health check settings used to evaluate the health of your backend EC2 instances.
  * const input = {
- *   "HealthCheck": {
- *     "HealthyThreshold": 2,
- *     "Interval": 30,
- *     "Target": "HTTP:80/png",
- *     "Timeout": 3,
- *     "UnhealthyThreshold": 2
+ *   HealthCheck: {
+ *     HealthyThreshold: 2,
+ *     Interval: 30,
+ *     Target: "HTTP:80/png",
+ *     Timeout: 3,
+ *     UnhealthyThreshold: 2
  *   },
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new ConfigureHealthCheckCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "HealthCheck": {
- *     "HealthyThreshold": 2,
- *     "Interval": 30,
- *     "Target": "HTTP:80/png",
- *     "Timeout": 3,
- *     "UnhealthyThreshold": 2
+ *   HealthCheck: {
+ *     HealthyThreshold: 2,
+ *     Interval: 30,
+ *     Target: "HTTP:80/png",
+ *     Timeout: 3,
+ *     UnhealthyThreshold: 2
  *   }
  * }
  * *\/
- * // example id: elb-configure-health-check-1
  * ```
  *
+ * @public
  */
 export class ConfigureHealthCheckCommand extends $Command
   .classBuilder<
@@ -116,9 +116,7 @@ export class ConfigureHealthCheckCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +128,16 @@ export class ConfigureHealthCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfigureHealthCheckCommand)
   .de(de_ConfigureHealthCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureHealthCheckInput;
+      output: ConfigureHealthCheckOutput;
+    };
+    sdk: {
+      input: ConfigureHealthCheckCommandInput;
+      output: ConfigureHealthCheckCommandOutput;
+    };
+  };
+}

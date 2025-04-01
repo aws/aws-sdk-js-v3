@@ -109,6 +109,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecordCommand extends $Command
@@ -119,9 +120,7 @@ export class DeleteRecordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class DeleteRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecordCommand)
   .de(de_DeleteRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecordRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRecordCommandInput;
+      output: DeleteRecordCommandOutput;
+    };
+  };
+}

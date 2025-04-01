@@ -136,6 +136,10 @@ import {
   AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand";
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import {
+  CompleteWebAuthnRegistrationCommandInput,
+  CompleteWebAuthnRegistrationCommandOutput,
+} from "./commands/CompleteWebAuthnRegistrationCommand";
 import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand";
 import {
   ConfirmForgotPasswordCommandInput,
@@ -147,6 +151,10 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
+import {
+  CreateManagedLoginBrandingCommandInput,
+  CreateManagedLoginBrandingCommandOutput,
+} from "./commands/CreateManagedLoginBrandingCommand";
 import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
@@ -170,6 +178,10 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteManagedLoginBrandingCommandInput,
+  DeleteManagedLoginBrandingCommandOutput,
+} from "./commands/DeleteManagedLoginBrandingCommand";
+import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand";
@@ -188,9 +200,21 @@ import {
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
 import {
+  DeleteWebAuthnCredentialCommandInput,
+  DeleteWebAuthnCredentialCommandOutput,
+} from "./commands/DeleteWebAuthnCredentialCommand";
+import {
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand";
+import {
+  DescribeManagedLoginBrandingByClientCommandInput,
+  DescribeManagedLoginBrandingByClientCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingByClientCommand";
+import {
+  DescribeManagedLoginBrandingCommandInput,
+  DescribeManagedLoginBrandingCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingCommand";
 import {
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
@@ -234,6 +258,7 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand";
+import { GetUserAuthFactorsCommandInput, GetUserAuthFactorsCommandOutput } from "./commands/GetUserAuthFactorsCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
@@ -264,6 +289,10 @@ import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./command
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
 import {
+  ListWebAuthnCredentialsCommandInput,
+  ListWebAuthnCredentialsCommandOutput,
+} from "./commands/ListWebAuthnCredentialsCommand";
+import {
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
 } from "./commands/ResendConfirmationCodeCommand";
@@ -292,6 +321,10 @@ import {
 import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
 import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
 import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "./commands/StartUserImportJobCommand";
+import {
+  StartWebAuthnRegistrationCommandInput,
+  StartWebAuthnRegistrationCommandOutput,
+} from "./commands/StartWebAuthnRegistrationCommand";
 import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "./commands/StopUserImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -305,6 +338,10 @@ import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
+import {
+  UpdateManagedLoginBrandingCommandInput,
+  UpdateManagedLoginBrandingCommandOutput,
+} from "./commands/UpdateManagedLoginBrandingCommand";
 import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
@@ -374,11 +411,13 @@ export type ServiceInputTypes =
   | AdminUserGlobalSignOutCommandInput
   | AssociateSoftwareTokenCommandInput
   | ChangePasswordCommandInput
+  | CompleteWebAuthnRegistrationCommandInput
   | ConfirmDeviceCommandInput
   | ConfirmForgotPasswordCommandInput
   | ConfirmSignUpCommandInput
   | CreateGroupCommandInput
   | CreateIdentityProviderCommandInput
+  | CreateManagedLoginBrandingCommandInput
   | CreateResourceServerCommandInput
   | CreateUserImportJobCommandInput
   | CreateUserPoolClientCommandInput
@@ -386,13 +425,17 @@ export type ServiceInputTypes =
   | CreateUserPoolDomainCommandInput
   | DeleteGroupCommandInput
   | DeleteIdentityProviderCommandInput
+  | DeleteManagedLoginBrandingCommandInput
   | DeleteResourceServerCommandInput
   | DeleteUserAttributesCommandInput
   | DeleteUserCommandInput
   | DeleteUserPoolClientCommandInput
   | DeleteUserPoolCommandInput
   | DeleteUserPoolDomainCommandInput
+  | DeleteWebAuthnCredentialCommandInput
   | DescribeIdentityProviderCommandInput
+  | DescribeManagedLoginBrandingByClientCommandInput
+  | DescribeManagedLoginBrandingCommandInput
   | DescribeResourceServerCommandInput
   | DescribeRiskConfigurationCommandInput
   | DescribeUserImportJobCommandInput
@@ -409,6 +452,7 @@ export type ServiceInputTypes =
   | GetSigningCertificateCommandInput
   | GetUICustomizationCommandInput
   | GetUserAttributeVerificationCodeCommandInput
+  | GetUserAuthFactorsCommandInput
   | GetUserCommandInput
   | GetUserPoolMfaConfigCommandInput
   | GlobalSignOutCommandInput
@@ -423,6 +467,7 @@ export type ServiceInputTypes =
   | ListUserPoolsCommandInput
   | ListUsersCommandInput
   | ListUsersInGroupCommandInput
+  | ListWebAuthnCredentialsCommandInput
   | ResendConfirmationCodeCommandInput
   | RespondToAuthChallengeCommandInput
   | RevokeTokenCommandInput
@@ -434,6 +479,7 @@ export type ServiceInputTypes =
   | SetUserSettingsCommandInput
   | SignUpCommandInput
   | StartUserImportJobCommandInput
+  | StartWebAuthnRegistrationCommandInput
   | StopUserImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -441,6 +487,7 @@ export type ServiceInputTypes =
   | UpdateDeviceStatusCommandInput
   | UpdateGroupCommandInput
   | UpdateIdentityProviderCommandInput
+  | UpdateManagedLoginBrandingCommandInput
   | UpdateResourceServerCommandInput
   | UpdateUserAttributesCommandInput
   | UpdateUserPoolClientCommandInput
@@ -482,11 +529,13 @@ export type ServiceOutputTypes =
   | AdminUserGlobalSignOutCommandOutput
   | AssociateSoftwareTokenCommandOutput
   | ChangePasswordCommandOutput
+  | CompleteWebAuthnRegistrationCommandOutput
   | ConfirmDeviceCommandOutput
   | ConfirmForgotPasswordCommandOutput
   | ConfirmSignUpCommandOutput
   | CreateGroupCommandOutput
   | CreateIdentityProviderCommandOutput
+  | CreateManagedLoginBrandingCommandOutput
   | CreateResourceServerCommandOutput
   | CreateUserImportJobCommandOutput
   | CreateUserPoolClientCommandOutput
@@ -494,13 +543,17 @@ export type ServiceOutputTypes =
   | CreateUserPoolDomainCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIdentityProviderCommandOutput
+  | DeleteManagedLoginBrandingCommandOutput
   | DeleteResourceServerCommandOutput
   | DeleteUserAttributesCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserPoolClientCommandOutput
   | DeleteUserPoolCommandOutput
   | DeleteUserPoolDomainCommandOutput
+  | DeleteWebAuthnCredentialCommandOutput
   | DescribeIdentityProviderCommandOutput
+  | DescribeManagedLoginBrandingByClientCommandOutput
+  | DescribeManagedLoginBrandingCommandOutput
   | DescribeResourceServerCommandOutput
   | DescribeRiskConfigurationCommandOutput
   | DescribeUserImportJobCommandOutput
@@ -517,6 +570,7 @@ export type ServiceOutputTypes =
   | GetSigningCertificateCommandOutput
   | GetUICustomizationCommandOutput
   | GetUserAttributeVerificationCodeCommandOutput
+  | GetUserAuthFactorsCommandOutput
   | GetUserCommandOutput
   | GetUserPoolMfaConfigCommandOutput
   | GlobalSignOutCommandOutput
@@ -531,6 +585,7 @@ export type ServiceOutputTypes =
   | ListUserPoolsCommandOutput
   | ListUsersCommandOutput
   | ListUsersInGroupCommandOutput
+  | ListWebAuthnCredentialsCommandOutput
   | ResendConfirmationCodeCommandOutput
   | RespondToAuthChallengeCommandOutput
   | RevokeTokenCommandOutput
@@ -542,6 +597,7 @@ export type ServiceOutputTypes =
   | SetUserSettingsCommandOutput
   | SignUpCommandOutput
   | StartUserImportJobCommandOutput
+  | StartWebAuthnRegistrationCommandOutput
   | StopUserImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -549,6 +605,7 @@ export type ServiceOutputTypes =
   | UpdateDeviceStatusCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIdentityProviderCommandOutput
+  | UpdateManagedLoginBrandingCommandOutput
   | UpdateResourceServerCommandOutput
   | UpdateUserAttributesCommandOutput
   | UpdateUserPoolClientCommandOutput
@@ -649,6 +706,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -694,11 +770,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CognitoIdentityProviderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -714,11 +790,11 @@ export interface CognitoIdentityProviderClientConfig extends CognitoIdentityProv
 export type CognitoIdentityProviderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -732,7 +808,7 @@ export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIden
  * <p>With the Amazon Cognito user pools API, you can configure user pools and authenticate users. To
  *             authenticate users from third-party identity providers (IdPs) in this API, you can
  *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more
- *             about the authentication and authorization of federated users at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Adding user pool sign-in through a third party</a> and in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">User pool federation endpoints and hosted UI reference</a>.</p>
+ *             about the authentication and authorization of federated users at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Adding user pool sign-in through a third party</a> and in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">User pool federation endpoints and managed login reference</a>.</p>
  *          <p>This API reference provides detailed information about API operations and object types
  *             in Amazon Cognito.</p>
  *          <p>Along with resource management operations, the Amazon Cognito user pools API includes classes
@@ -753,63 +829,11 @@ export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIden
  *                     requests to manage, authenticate, or authorize a user.</p>
  *             </li>
  *          </ol>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html#user-pools-API-operations">Understanding API, OIDC, and managed login pages
+ *                 authentication</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
  *          <p>With your Amazon Web Services SDK, you can build the logic to support operational flows in every use
  *             case for this API. You can also make direct REST API requests to <a href="https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html#cognito_identity_your_user_pools_region">Amazon Cognito user pools service endpoints</a>. The following links can get you started
- *             with the <code>CognitoIdentityProvider</code> client in other supported Amazon Web Services
- *             SDKs.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/index.html#cli-aws-cognito-idp">Amazon Web Services
- *                         Command Line Interface</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CognitoIdentityProvider/TCognitoIdentityProviderClient.html">Amazon Web Services SDK for .NET</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-cognito-idp/html/class_aws_1_1_cognito_identity_provider_1_1_cognito_identity_provider_client.html">Amazon Web Services SDK for C++</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/cognitoidentityprovider/#CognitoIdentityProvider">Amazon Web Services SDK for Go</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html">Amazon Web Services SDK for Java V2</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.html">Amazon Web Services
- *                         SDK for JavaScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-cognito-idp-2016-04-18.html">Amazon Web Services SDK for PHP
- *                         V3</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html">Amazon Web Services SDK for Python</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.html">Amazon Web Services SDK
- *                         for Ruby V3</a>
- *                </p>
- *             </li>
- *          </ul>
+ *             with the <code>CognitoIdentityProvider</code> client in supported Amazon Web Services SDKs.</p>
  *          <p>To get started with an Amazon Web Services SDK, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>. For example actions and scenarios, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html">Code examples for Amazon Cognito Identity Provider using Amazon Web Services
  *                 SDKs</a>.</p>
  * @public
@@ -827,26 +851,30 @@ export class CognitoIdentityProviderClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CognitoIdentityProviderClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCognitoIdentityProviderHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CognitoIdentityProviderClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -859,14 +887,5 @@ export class CognitoIdentityProviderClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCognitoIdentityProviderHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CognitoIdentityProviderClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

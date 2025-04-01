@@ -28,6 +28,8 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *   });
  * });
  * ```
+ *
+ * @public
  */
 export const fromTokenFile = (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
   _fromTokenFile({

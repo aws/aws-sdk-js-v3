@@ -28,11 +28,12 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
- *      	that is either running or stopped.</p>
- *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
- *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
- *      	the instance automatically launches with those additional volumes.</p>
+ * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or
+ *       stopped.</p>
+ *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition
+ *       to the root device volume, the new AMI contains block device mapping information for those
+ *       volumes. When you launch an instance from this new AMI, the instance automatically launches
+ *       with those additional volumes.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux
  *         AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -42,10 +43,24 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * // const { EC2Client, CreateImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateImageRequest
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   NoReboot: true || false,
  *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
  *     { // BlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
  *       Ebs: { // EbsBlockDevice
  *         DeleteOnTermination: true || false,
  *         Iops: Number("int"),
@@ -58,22 +73,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *         Encrypted: true || false,
  *       },
  *       NoDevice: "STRING_VALUE",
- *     },
- *   ],
- *   Description: "STRING_VALUE",
- *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   NoReboot: true || false,
- *   TagSpecifications: [ // TagSpecificationList
- *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "vpc-encryption-control" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
+ *       DeviceName: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -94,38 +95,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To create an AMI from an Amazon EBS-backed instance
- * ```javascript
- * // This example creates an AMI from the specified instance and adds an EBS volume with the device name /dev/sdh and an instance store volume with the device name /dev/sdc.
- * const input = {
- *   "BlockDeviceMappings": [
- *     {
- *       "DeviceName": "/dev/sdh",
- *       "Ebs": {
- *         "VolumeSize": "100"
- *       }
- *     },
- *     {
- *       "DeviceName": "/dev/sdc",
- *       "VirtualName": "ephemeral1"
- *     }
- *   ],
- *   "Description": "An AMI for my server",
- *   "InstanceId": "i-1234567890abcdef0",
- *   "Name": "My server",
- *   "NoReboot": true
- * };
- * const command = new CreateImageCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ImageId": "ami-1a2b3c4d"
- * }
- * *\/
- * // example id: to-create-an-ami-from-an-amazon-ebs-backed-instance-1529023150636
- * ```
  *
+ * @public
  */
 export class CreateImageCommand extends $Command
   .classBuilder<
@@ -135,9 +106,7 @@ export class CreateImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +118,16 @@ export class CreateImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageCommand)
   .de(de_CreateImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageRequest;
+      output: CreateImageResult;
+    };
+    sdk: {
+      input: CreateImageCommandInput;
+      output: CreateImageCommandOutput;
+    };
+  };
+}

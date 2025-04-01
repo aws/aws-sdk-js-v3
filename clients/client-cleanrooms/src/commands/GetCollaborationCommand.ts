@@ -59,7 +59,9 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
  * //       preserveNulls: true || false, // required
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
+ * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };
  *
@@ -86,6 +88,7 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetCollaborationCommand extends $Command
@@ -96,9 +99,7 @@ export class GetCollaborationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class GetCollaborationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCollaborationCommand)
   .de(de_GetCollaborationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCollaborationInput;
+      output: GetCollaborationOutput;
+    };
+    sdk: {
+      input: GetCollaborationCommandInput;
+      output: GetCollaborationCommandOutput;
+    };
+  };
+}

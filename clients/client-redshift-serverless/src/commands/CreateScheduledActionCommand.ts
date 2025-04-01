@@ -124,6 +124,7 @@ export interface CreateScheduledActionCommandOutput extends CreateScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateScheduledActionCommand extends $Command
@@ -134,9 +135,7 @@ export class CreateScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class CreateScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduledActionCommand)
   .de(de_CreateScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduledActionRequest;
+      output: CreateScheduledActionResponse;
+    };
+    sdk: {
+      input: CreateScheduledActionCommandInput;
+      output: CreateScheduledActionCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class SetVoiceMessageSpendLimitOverrideCommand extends $Command
@@ -91,9 +92,7 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetVoiceMessageSpendLimitOverrideCommand)
   .de(de_SetVoiceMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetVoiceMessageSpendLimitOverrideRequest;
+      output: SetVoiceMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: SetVoiceMessageSpendLimitOverrideCommandInput;
+      output: SetVoiceMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

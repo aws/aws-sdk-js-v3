@@ -151,24 +151,24 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about unique problems
  * ```javascript
  * // The following example returns information about unique problems, given a specific Device Farm project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
  * };
  * const command = new ListUniqueProblemsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "uniqueProblems": {}
+ *   uniqueProblems:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-get-information-about-unique-problems-1472617781008
  * ```
  *
+ * @public
  */
 export class ListUniqueProblemsCommand extends $Command
   .classBuilder<
@@ -178,9 +178,7 @@ export class ListUniqueProblemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +190,16 @@ export class ListUniqueProblemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUniqueProblemsCommand)
   .de(de_ListUniqueProblemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUniqueProblemsRequest;
+      output: ListUniqueProblemsResult;
+    };
+    sdk: {
+      input: ListUniqueProblemsCommandInput;
+      output: ListUniqueProblemsCommandOutput;
+    };
+  };
+}

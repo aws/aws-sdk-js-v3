@@ -78,6 +78,7 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class UpdateBackendJobCommand extends $Command
@@ -88,9 +89,7 @@ export class UpdateBackendJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class UpdateBackendJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBackendJobCommand)
   .de(de_UpdateBackendJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackendJobRequest;
+      output: UpdateBackendJobResponse;
+    };
+    sdk: {
+      input: UpdateBackendJobCommandInput;
+      output: UpdateBackendJobCommandOutput;
+    };
+  };
+}

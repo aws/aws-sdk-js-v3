@@ -108,6 +108,42 @@ export interface UpdateCisScanConfigurationCommandOutput extends UpdateCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample UpdateCisScanConfiguration Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38",
+ *   scanName: "sample_new",
+ *   schedule: {
+ *     daily: {
+ *       startTime: {
+ *         timeOfDay: "12:56",
+ *         timezone: "UTC"
+ *       }
+ *     }
+ *   },
+ *   securityLevel: "LEVEL_2",
+ *   targets: {
+ *     accountIds: [
+ *       "SELF"
+ *     ],
+ *     targetResourceTags: {
+ *       key2: [
+ *         "value2"
+ *       ]
+ *     }
+ *   }
+ * };
+ * const command = new UpdateCisScanConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateCisScanConfigurationCommand extends $Command
@@ -118,9 +154,7 @@ export class UpdateCisScanConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +166,16 @@ export class UpdateCisScanConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCisScanConfigurationCommand)
   .de(de_UpdateCisScanConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCisScanConfigurationRequest;
+      output: UpdateCisScanConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateCisScanConfigurationCommandInput;
+      output: UpdateCisScanConfigurationCommandOutput;
+    };
+  };
+}

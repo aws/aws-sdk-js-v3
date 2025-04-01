@@ -89,56 +89,56 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeCacheSubnetGroups
  * ```javascript
  * // Describes up to 25 cache subnet groups.
  * const input = {
- *   "MaxRecords": 25
+ *   MaxRecords: 25
  * };
  * const command = new DescribeCacheSubnetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheSubnetGroups": [
+ *   CacheSubnetGroups: [
  *     {
- *       "CacheSubnetGroupDescription": "Default CacheSubnetGroup",
- *       "CacheSubnetGroupName": "default",
- *       "Subnets": [
+ *       CacheSubnetGroupDescription: "Default CacheSubnetGroup",
+ *       CacheSubnetGroupName: "default",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1a"
  *           },
- *           "SubnetIdentifier": "subnet-1a2b3c4d"
+ *           SubnetIdentifier: "subnet-1a2b3c4d"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1c"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1c"
  *           },
- *           "SubnetIdentifier": "subnet-a1b2c3d4"
+ *           SubnetIdentifier: "subnet-a1b2c3d4"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1e"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1e"
  *           },
- *           "SubnetIdentifier": "subnet-abcd1234"
+ *           SubnetIdentifier: "subnet-abcd1234"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1b"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1b"
  *           },
- *           "SubnetIdentifier": "subnet-1234abcd"
+ *           SubnetIdentifier: "subnet-1234abcd"
  *         }
  *       ],
- *       "VpcId": "vpc-91280df6"
+ *       VpcId: "vpc-91280df6"
  *     }
  *   ],
- *   "Marker": ""
+ *   Marker: ""
  * }
  * *\/
- * // example id: describecachesubnetgroups-1482439214064
  * ```
  *
+ * @public
  */
 export class DescribeCacheSubnetGroupsCommand extends $Command
   .classBuilder<
@@ -148,9 +148,7 @@ export class DescribeCacheSubnetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +160,16 @@ export class DescribeCacheSubnetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCacheSubnetGroupsCommand)
   .de(de_DescribeCacheSubnetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCacheSubnetGroupsMessage;
+      output: CacheSubnetGroupMessage;
+    };
+    sdk: {
+      input: DescribeCacheSubnetGroupsCommandInput;
+      output: DescribeCacheSubnetGroupsCommandOutput;
+    };
+  };
+}

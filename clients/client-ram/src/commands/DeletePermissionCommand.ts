@@ -85,6 +85,7 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionCommand extends $Command
@@ -95,9 +96,7 @@ export class DeletePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DeletePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePermissionCommand)
   .de(de_DeletePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePermissionRequest;
+      output: DeletePermissionResponse;
+    };
+    sdk: {
+      input: DeletePermissionCommandInput;
+      output: DeletePermissionCommandOutput;
+    };
+  };
+}

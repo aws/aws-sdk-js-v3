@@ -75,8 +75,8 @@ export interface ListConversationsCommandOutput extends ListConversationsRespons
  *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -89,6 +89,7 @@ export interface ListConversationsCommandOutput extends ListConversationsRespons
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListConversationsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListConversationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListConversationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConversationsCommand)
   .de(de_ListConversationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConversationsRequest;
+      output: ListConversationsResponse;
+    };
+    sdk: {
+      input: ListConversationsCommandInput;
+      output: ListConversationsCommandOutput;
+    };
+  };
+}

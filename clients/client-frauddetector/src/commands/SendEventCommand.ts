@@ -84,6 +84,7 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class SendEventCommand extends $Command
@@ -94,9 +95,7 @@ export class SendEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class SendEventCommand extends $Command
   .f(SendEventRequestFilterSensitiveLog, void 0)
   .ser(se_SendEventCommand)
   .de(de_SendEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendEventCommandInput;
+      output: SendEventCommandOutput;
+    };
+  };
+}

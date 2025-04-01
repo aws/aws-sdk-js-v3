@@ -52,6 +52,10 @@ export interface ModifyStreamingPropertiesCommandOutput extends ModifyStreamingP
  *         Status: "ENABLED" || "DISABLED", // required
  *       },
  *     ],
+ *     GlobalAccelerator: { // GlobalAcceleratorForDirectory
+ *       Mode: "ENABLED_AUTO" || "DISABLED", // required
+ *       PreferredProtocol: "TCP" || "NONE",
+ *     },
  *   },
  * };
  * const command = new ModifyStreamingPropertiesCommand(input);
@@ -81,6 +85,7 @@ export interface ModifyStreamingPropertiesCommandOutput extends ModifyStreamingP
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyStreamingPropertiesCommand extends $Command
@@ -91,9 +96,7 @@ export class ModifyStreamingPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +108,16 @@ export class ModifyStreamingPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyStreamingPropertiesCommand)
   .de(de_ModifyStreamingPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyStreamingPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyStreamingPropertiesCommandInput;
+      output: ModifyStreamingPropertiesCommandOutput;
+    };
+  };
+}

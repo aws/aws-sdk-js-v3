@@ -93,6 +93,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class DeleteProfileCommand extends $Command
@@ -103,9 +104,7 @@ export class DeleteProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DeleteProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProfileCommand)
   .de(de_DeleteProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProfileRequest;
+      output: DeleteProfileResponse;
+    };
+    sdk: {
+      input: DeleteProfileCommandInput;
+      output: DeleteProfileCommandOutput;
+    };
+  };
+}

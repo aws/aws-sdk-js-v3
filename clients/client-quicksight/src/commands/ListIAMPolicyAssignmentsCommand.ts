@@ -90,6 +90,7 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListIAMPolicyAssignmentsCommand extends $Command
@@ -100,9 +101,7 @@ export class ListIAMPolicyAssignmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListIAMPolicyAssignmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIAMPolicyAssignmentsCommand)
   .de(de_ListIAMPolicyAssignmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIAMPolicyAssignmentsRequest;
+      output: ListIAMPolicyAssignmentsResponse;
+    };
+    sdk: {
+      input: ListIAMPolicyAssignmentsCommandInput;
+      output: ListIAMPolicyAssignmentsCommandOutput;
+    };
+  };
+}

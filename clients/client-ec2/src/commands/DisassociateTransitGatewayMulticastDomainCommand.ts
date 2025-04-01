@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_DisassociateTransitGatewayMulticastDomainCommand,
   se_DisassociateTransitGatewayMulticastDomainCommand,
@@ -81,6 +81,7 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
@@ -91,9 +92,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTransitGatewayMulticastDomainCommand)
   .de(de_DisassociateTransitGatewayMulticastDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTransitGatewayMulticastDomainRequest;
+      output: DisassociateTransitGatewayMulticastDomainResult;
+    };
+    sdk: {
+      input: DisassociateTransitGatewayMulticastDomainCommandInput;
+      output: DisassociateTransitGatewayMulticastDomainCommandOutput;
+    };
+  };
+}

@@ -40,6 +40,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * const input = { // AttachThingPrincipalRequest
  *   thingName: "STRING_VALUE", // required
  *   principal: "STRING_VALUE", // required
+ *   thingPrincipalType: "EXCLUSIVE_THING" || "NON_EXCLUSIVE_THING",
  * };
  * const command = new AttachThingPrincipalCommand(input);
  * const response = await client.send(command);
@@ -74,6 +75,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class AttachThingPrincipalCommand extends $Command
@@ -84,9 +86,7 @@ export class AttachThingPrincipalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class AttachThingPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachThingPrincipalCommand)
   .de(de_AttachThingPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachThingPrincipalRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachThingPrincipalCommandInput;
+      output: AttachThingPrincipalCommandOutput;
+    };
+  };
+}

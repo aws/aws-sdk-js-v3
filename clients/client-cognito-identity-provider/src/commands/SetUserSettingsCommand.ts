@@ -39,7 +39,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
- *             token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a> instead.</p>
+ *             token or email MFA.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -104,6 +104,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class SetUserSettingsCommand extends $Command
@@ -114,9 +115,7 @@ export class SetUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class SetUserSettingsCommand extends $Command
   .f(SetUserSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_SetUserSettingsCommand)
   .de(de_SetUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetUserSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetUserSettingsCommandInput;
+      output: SetUserSettingsCommandOutput;
+    };
+  };
+}

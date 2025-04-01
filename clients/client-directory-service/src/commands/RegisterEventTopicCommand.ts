@@ -70,6 +70,7 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class RegisterEventTopicCommand extends $Command
@@ -80,9 +81,7 @@ export class RegisterEventTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class RegisterEventTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterEventTopicCommand)
   .de(de_RegisterEventTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterEventTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterEventTopicCommandInput;
+      output: RegisterEventTopicCommandOutput;
+    };
+  };
+}

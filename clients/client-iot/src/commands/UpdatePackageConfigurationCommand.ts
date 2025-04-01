@@ -56,7 +56,7 @@ export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageCo
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
@@ -71,6 +71,7 @@ export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageCo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageConfigurationCommand extends $Command
@@ -81,9 +82,7 @@ export class UpdatePackageConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class UpdatePackageConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageConfigurationCommand)
   .de(de_UpdatePackageConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePackageConfigurationCommandInput;
+      output: UpdatePackageConfigurationCommandOutput;
+    };
+  };
+}

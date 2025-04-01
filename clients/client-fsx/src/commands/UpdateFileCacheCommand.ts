@@ -121,6 +121,7 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class UpdateFileCacheCommand extends $Command
@@ -131,9 +132,7 @@ export class UpdateFileCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class UpdateFileCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFileCacheCommand)
   .de(de_UpdateFileCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileCacheRequest;
+      output: UpdateFileCacheResponse;
+    };
+    sdk: {
+      input: UpdateFileCacheCommandInput;
+      output: UpdateFileCacheCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to remove tags on a resource</p>
+ * <p>Use this operation to remove tags on a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +72,15 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
+ *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
  *  <p></p>
  *
@@ -93,6 +102,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -103,9 +113,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +125,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: UntagResourceResponse;
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

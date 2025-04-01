@@ -30,9 +30,9 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
 /**
  * <p>Creates a launch configuration.</p>
  *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
- *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
- *             updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *             this limit, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> API.
+ *             For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
+ *             Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch
  *                 configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <note>
@@ -121,24 +121,27 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a launch configuration
  * ```javascript
  * // This example creates a launch configuration.
  * const input = {
- *   "IamInstanceProfile": "my-iam-role",
- *   "ImageId": "ami-12345678",
- *   "InstanceType": "m3.medium",
- *   "LaunchConfigurationName": "my-launch-config",
- *   "SecurityGroups": [
+ *   IamInstanceProfile: "my-iam-role",
+ *   ImageId: "ami-12345678",
+ *   InstanceType: "m3.medium",
+ *   LaunchConfigurationName: "my-launch-config",
+ *   SecurityGroups: [
  *     "sg-eb2af88e"
  *   ]
  * };
  * const command = new CreateLaunchConfigurationCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-launch-configuration-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateLaunchConfigurationCommand extends $Command
   .classBuilder<
@@ -148,9 +151,7 @@ export class CreateLaunchConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +163,16 @@ export class CreateLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLaunchConfigurationCommand)
   .de(de_CreateLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchConfigurationType;
+      output: {};
+    };
+    sdk: {
+      input: CreateLaunchConfigurationCommandInput;
+      output: CreateLaunchConfigurationCommandOutput;
+    };
+  };
+}

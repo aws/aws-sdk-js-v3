@@ -10,7 +10,7 @@ import {
   RequestUploadCredentialsInput,
   RequestUploadCredentialsOutput,
   RequestUploadCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -89,13 +89,14 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -107,9 +108,7 @@ export class RequestUploadCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class RequestUploadCredentialsCommand extends $Command
   .f(void 0, RequestUploadCredentialsOutputFilterSensitiveLog)
   .ser(se_RequestUploadCredentialsCommand)
   .de(de_RequestUploadCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestUploadCredentialsInput;
+      output: RequestUploadCredentialsOutput;
+    };
+    sdk: {
+      input: RequestUploadCredentialsCommandInput;
+      output: RequestUploadCredentialsCommandOutput;
+    };
+  };
+}

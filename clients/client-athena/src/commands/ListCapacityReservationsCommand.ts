@@ -80,6 +80,7 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListCapacityReservationsCommand extends $Command
@@ -90,9 +91,7 @@ export class ListCapacityReservationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListCapacityReservationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCapacityReservationsCommand)
   .de(de_ListCapacityReservationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCapacityReservationsInput;
+      output: ListCapacityReservationsOutput;
+    };
+    sdk: {
+      input: ListCapacityReservationsCommandInput;
+      output: ListCapacityReservationsCommandOutput;
+    };
+  };
+}

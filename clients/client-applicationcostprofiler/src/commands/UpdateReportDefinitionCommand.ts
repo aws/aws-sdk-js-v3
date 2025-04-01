@@ -78,6 +78,7 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class UpdateReportDefinitionCommand extends $Command
@@ -88,9 +89,7 @@ export class UpdateReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class UpdateReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReportDefinitionCommand)
   .de(de_UpdateReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReportDefinitionRequest;
+      output: UpdateReportDefinitionResult;
+    };
+    sdk: {
+      input: UpdateReportDefinitionCommandInput;
+      output: UpdateReportDefinitionCommandOutput;
+    };
+  };
+}

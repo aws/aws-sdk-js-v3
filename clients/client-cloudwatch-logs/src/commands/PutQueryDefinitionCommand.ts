@@ -46,6 +46,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutQueryDefinitionRequest
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  *   name: "STRING_VALUE", // required
  *   queryDefinitionId: "STRING_VALUE",
  *   logGroupNames: [ // LogGroupNames
@@ -83,6 +84,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutQueryDefinitionCommand extends $Command
@@ -93,9 +95,7 @@ export class PutQueryDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class PutQueryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutQueryDefinitionCommand)
   .de(de_PutQueryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutQueryDefinitionRequest;
+      output: PutQueryDefinitionResponse;
+    };
+    sdk: {
+      input: PutQueryDefinitionCommandInput;
+      output: PutQueryDefinitionCommandOutput;
+    };
+  };
+}

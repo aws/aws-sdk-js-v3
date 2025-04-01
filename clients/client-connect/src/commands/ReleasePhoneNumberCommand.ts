@@ -35,7 +35,7 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  *     Amazon Connect admin website.</p>
  *             <p>After releasing a phone number, the phone number enters into a cooldown period for up to
  *     180 days. It cannot be searched for or claimed again until the period has ended. If you
- *     accidentally release a phone number, contact Amazon Web Services Support.</p>
+ *     accidentally release a phone number, contact Amazon Web ServicesSupport.</p>
  *          </important>
  *          <p>If you plan to claim and release numbers frequently,
  *                 contact us for a service quota exception. Otherwise, it is possible you will be blocked from
@@ -96,6 +96,7 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ReleasePhoneNumberCommand extends $Command
@@ -106,9 +107,7 @@ export class ReleasePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ReleasePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleasePhoneNumberCommand)
   .de(de_ReleasePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleasePhoneNumberRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReleasePhoneNumberCommandInput;
+      output: ReleasePhoneNumberCommandOutput;
+    };
+  };
+}

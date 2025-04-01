@@ -84,6 +84,7 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ArchiveApplicationCommand extends $Command
@@ -94,9 +95,7 @@ export class ArchiveApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ArchiveApplicationCommand extends $Command
   .f(void 0, ApplicationFilterSensitiveLog)
   .ser(se_ArchiveApplicationCommand)
   .de(de_ArchiveApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ArchiveApplicationRequest;
+      output: Application;
+    };
+    sdk: {
+      input: ArchiveApplicationCommandInput;
+      output: ArchiveApplicationCommandOutput;
+    };
+  };
+}

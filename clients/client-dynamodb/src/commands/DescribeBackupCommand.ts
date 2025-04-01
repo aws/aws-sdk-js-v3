@@ -156,6 +156,7 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeBackupCommand extends $Command
@@ -168,6 +169,7 @@ export class DescribeBackupCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "BackupArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -180,4 +182,16 @@ export class DescribeBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBackupCommand)
   .de(de_DescribeBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBackupInput;
+      output: DescribeBackupOutput;
+    };
+    sdk: {
+      input: DescribeBackupCommandInput;
+      output: DescribeBackupCommandOutput;
+    };
+  };
+}

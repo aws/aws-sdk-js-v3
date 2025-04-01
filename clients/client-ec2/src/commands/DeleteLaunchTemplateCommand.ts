@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/models_2";
+import { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/models_3";
 import { de_DeleteLaunchTemplateCommand, se_DeleteLaunchTemplateCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -57,6 +57,10 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -71,30 +75,30 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a launch template
  * ```javascript
  * // This example deletes the specified launch template.
  * const input = {
- *   "LaunchTemplateId": "lt-0abcd290751193123"
+ *   LaunchTemplateId: "lt-0abcd290751193123"
  * };
  * const command = new DeleteLaunchTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplate": {
- *     "CreateTime": "2017-11-23T16:46:25.000Z",
- *     "CreatedBy": "arn:aws:iam::123456789012:root",
- *     "DefaultVersionNumber": 2,
- *     "LatestVersionNumber": 2,
- *     "LaunchTemplateId": "lt-0abcd290751193123",
- *     "LaunchTemplateName": "my-template"
+ *   LaunchTemplate: {
+ *     CreateTime: "2017-11-23T16:46:25.000Z",
+ *     CreatedBy: "arn:aws:iam::123456789012:root",
+ *     DefaultVersionNumber: 2,
+ *     LatestVersionNumber: 2,
+ *     LaunchTemplateId: "lt-0abcd290751193123",
+ *     LaunchTemplateName: "my-template"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-launch-template-1529024658216
  * ```
  *
+ * @public
  */
 export class DeleteLaunchTemplateCommand extends $Command
   .classBuilder<
@@ -104,9 +108,7 @@ export class DeleteLaunchTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class DeleteLaunchTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLaunchTemplateCommand)
   .de(de_DeleteLaunchTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchTemplateRequest;
+      output: DeleteLaunchTemplateResult;
+    };
+    sdk: {
+      input: DeleteLaunchTemplateCommandInput;
+      output: DeleteLaunchTemplateCommandOutput;
+    };
+  };
+}

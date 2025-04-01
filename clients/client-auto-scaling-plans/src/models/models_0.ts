@@ -11,7 +11,7 @@ import { AutoScalingPlansServiceException as __BaseException } from "./AutoScali
 export class ConcurrentUpdateException extends __BaseException {
   readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -35,13 +35,13 @@ export interface TagFilter {
    * <p>The tag key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag values (0 to 20).</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -53,13 +53,13 @@ export interface ApplicationSource {
    * <p>The Amazon Resource Name (ARN) of a AWS CloudFormation stack.</p>
    * @public
    */
-  CloudFormationStackARN?: string;
+  CloudFormationStackARN?: string | undefined;
 
   /**
    * <p>A set of tags (up to 50).</p>
    * @public
    */
-  TagFilters?: TagFilter[];
+  TagFilters?: TagFilter[] | undefined;
 }
 
 /**
@@ -143,7 +143,7 @@ export interface CustomizedLoadMetricSpecification {
    *          dimensions in your customized load metric specification.</p>
    * @public
    */
-  Dimensions?: MetricDimension[];
+  Dimensions?: MetricDimension[] | undefined;
 
   /**
    * <p>The statistic of the metric. The only valid value is <code>Sum</code>.</p>
@@ -155,7 +155,7 @@ export interface CustomizedLoadMetricSpecification {
    * <p>The unit of the metric.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface PredefinedLoadMetricSpecification {
    *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    * @public
    */
-  ResourceLabel?: string;
+  ResourceLabel?: string | undefined;
 }
 
 /**
@@ -340,7 +340,7 @@ export interface CustomizedScalingMetricSpecification {
    *          dimensions in your customized scaling metric specification.</p>
    * @public
    */
-  Dimensions?: MetricDimension[];
+  Dimensions?: MetricDimension[] | undefined;
 
   /**
    * <p>The statistic of the metric.</p>
@@ -352,7 +352,7 @@ export interface CustomizedScalingMetricSpecification {
    * <p>The unit of the metric. </p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -419,7 +419,7 @@ export interface PredefinedScalingMetricSpecification {
    *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    * @public
    */
-  ResourceLabel?: string;
+  ResourceLabel?: string | undefined;
 }
 
 /**
@@ -432,14 +432,14 @@ export interface TargetTrackingConfiguration {
    *          metric.</p>
    * @public
    */
-  PredefinedScalingMetricSpecification?: PredefinedScalingMetricSpecification;
+  PredefinedScalingMetricSpecification?: PredefinedScalingMetricSpecification | undefined;
 
   /**
    * <p>A customized metric. You can specify either a predefined metric or a customized metric.
    *       </p>
    * @public
    */
-  CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification;
+  CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification | undefined;
 
   /**
    * <p>The target value for the metric. Although this property accepts numbers of type Double,
@@ -457,7 +457,7 @@ export interface TargetTrackingConfiguration {
    *          <p>The default value is <code>false</code>.</p>
    * @public
    */
-  DisableScaleIn?: boolean;
+  DisableScaleIn?: boolean | undefined;
 
   /**
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take
@@ -470,7 +470,7 @@ export interface TargetTrackingConfiguration {
    *          cooldown period ends.</p>
    * @public
    */
-  ScaleOutCooldown?: number;
+  ScaleOutCooldown?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale-in activity completes before another
@@ -483,14 +483,14 @@ export interface TargetTrackingConfiguration {
    *          the scale-in cooldown period stops and doesn't complete.</p>
    * @public
    */
-  ScaleInCooldown?: number;
+  ScaleInCooldown?: number | undefined;
 
   /**
    * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
    *          CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.</p>
    * @public
    */
-  EstimatedInstanceWarmup?: number;
+  EstimatedInstanceWarmup?: number | undefined;
 }
 
 /**
@@ -619,14 +619,14 @@ export interface ScalingInstruction {
    *          predictive scaling, and cannot be used otherwise. </p>
    * @public
    */
-  PredefinedLoadMetricSpecification?: PredefinedLoadMetricSpecification;
+  PredefinedLoadMetricSpecification?: PredefinedLoadMetricSpecification | undefined;
 
   /**
    * <p>The customized load metric to use for predictive scaling. This parameter or a <b>PredefinedLoadMetricSpecification</b> is required when configuring
    *          predictive scaling, and cannot be used otherwise. </p>
    * @public
    */
-  CustomizedLoadMetricSpecification?: CustomizedLoadMetricSpecification;
+  CustomizedLoadMetricSpecification?: CustomizedLoadMetricSpecification | undefined;
 
   /**
    * <p>The amount of time, in seconds, to buffer the run time of scheduled scaling actions when
@@ -641,7 +641,7 @@ export interface ScalingInstruction {
    *          <p>Only valid when configuring predictive scaling. </p>
    * @public
    */
-  ScheduledActionBufferTime?: number;
+  ScheduledActionBufferTime?: number | undefined;
 
   /**
    * <p>Defines the behavior that should be applied if the forecast capacity approaches or
@@ -672,7 +672,7 @@ export interface ScalingInstruction {
    *          <p>Only valid when configuring predictive scaling.</p>
    * @public
    */
-  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior;
+  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | undefined;
 
   /**
    * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
@@ -685,7 +685,7 @@ export interface ScalingInstruction {
    *          <p>The range is 1-100.</p>
    * @public
    */
-  PredictiveScalingMaxCapacityBuffer?: number;
+  PredictiveScalingMaxCapacityBuffer?: number | undefined;
 
   /**
    * <p>The predictive scaling mode. The default value is <code>ForecastAndScale</code>.
@@ -693,7 +693,7 @@ export interface ScalingInstruction {
    *          based on the capacity forecast. </p>
    * @public
    */
-  PredictiveScalingMode?: PredictiveScalingMode;
+  PredictiveScalingMode?: PredictiveScalingMode | undefined;
 
   /**
    * <p>Controls whether a resource's externally created scaling policies are kept or replaced. </p>
@@ -706,7 +706,7 @@ export interface ScalingInstruction {
    *          and does not create new ones.</p>
    * @public
    */
-  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior;
+  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | undefined;
 
   /**
    * <p>Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling is
@@ -715,7 +715,7 @@ export interface ScalingInstruction {
    *          <p>The default is enabled (<code>false</code>). </p>
    * @public
    */
-  DisableDynamicScaling?: boolean;
+  DisableDynamicScaling?: boolean | undefined;
 }
 
 /**
@@ -764,7 +764,7 @@ export interface CreateScalingPlanResponse {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -787,7 +787,7 @@ export class InternalServiceException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -809,7 +809,7 @@ export class LimitExceededException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -854,7 +854,7 @@ export interface DeleteScalingPlanResponse {}
 export class ObjectNotFoundException extends __BaseException {
   readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -891,13 +891,13 @@ export interface DescribeScalingPlanResourcesRequest {
    *          1 and 50. The default value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -935,7 +935,7 @@ export interface ScalingPolicy {
    *          metrics.</p>
    * @public
    */
-  TargetTrackingConfiguration?: TargetTrackingConfiguration;
+  TargetTrackingConfiguration?: TargetTrackingConfiguration | undefined;
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface ScalingPlanResource {
    * <p>The scaling policies.</p>
    * @public
    */
-  ScalingPolicies?: ScalingPolicy[];
+  ScalingPolicies?: ScalingPolicy[] | undefined;
 
   /**
    * <p>The scaling status of the resource.</p>
@@ -1083,7 +1083,7 @@ export interface ScalingPlanResource {
    * <p>A simple message about the current scaling status of the resource.</p>
    * @public
    */
-  ScalingStatusMessage?: string;
+  ScalingStatusMessage?: string | undefined;
 }
 
 /**
@@ -1094,14 +1094,14 @@ export interface DescribeScalingPlanResourcesResponse {
    * <p>Information about the scalable resources.</p>
    * @public
    */
-  ScalingPlanResources?: ScalingPlanResource[];
+  ScalingPlanResources?: ScalingPlanResource[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1111,7 +1111,7 @@ export interface DescribeScalingPlanResourcesResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1135,7 +1135,7 @@ export interface DescribeScalingPlansRequest {
    *          cannot specify scaling plan names.</p>
    * @public
    */
-  ScalingPlanNames?: string[];
+  ScalingPlanNames?: string[] | undefined;
 
   /**
    * <p>The version number of the scaling plan. Currently, the only valid value is
@@ -1146,27 +1146,27 @@ export interface DescribeScalingPlansRequest {
    *          </note>
    * @public
    */
-  ScalingPlanVersion?: number;
+  ScalingPlanVersion?: number | undefined;
 
   /**
    * <p>The sources for the applications (up to 10). If you specify scaling plan names, you
    *          cannot specify application sources.</p>
    * @public
    */
-  ApplicationSources?: ApplicationSource[];
+  ApplicationSources?: ApplicationSource[] | undefined;
 
   /**
    * <p>The maximum number of scalable resources to return. This value can be between
    *          1 and 50. The default value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1264,19 +1264,19 @@ export interface ScalingPlan {
    * <p>A simple message about the current status of the scaling plan.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The Unix time stamp when the scaling plan entered the current status.</p>
    * @public
    */
-  StatusStartTime?: Date;
+  StatusStartTime?: Date | undefined;
 
   /**
    * <p>The Unix time stamp when the scaling plan was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -1287,14 +1287,14 @@ export interface DescribeScalingPlansResponse {
    * <p>Information about the scaling plans.</p>
    * @public
    */
-  ScalingPlans?: ScalingPlan[];
+  ScalingPlans?: ScalingPlan[] | undefined;
 
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1407,13 +1407,13 @@ export interface Datapoint {
    * <p>The time stamp for the data point in UTC format.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The value of the data point.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -1449,14 +1449,14 @@ export interface UpdateScalingPlanRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    * @public
    */
-  ApplicationSource?: ApplicationSource;
+  ApplicationSource?: ApplicationSource | undefined;
 
   /**
    * <p>The scaling instructions.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    * @public
    */
-  ScalingInstructions?: ScalingInstruction[];
+  ScalingInstructions?: ScalingInstruction[] | undefined;
 }
 
 /**

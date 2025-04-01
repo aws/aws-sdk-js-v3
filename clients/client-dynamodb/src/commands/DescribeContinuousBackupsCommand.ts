@@ -37,7 +37,7 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *                 <code>LatestRestorableDateTime</code>. </p>
  *          <p>
  *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
- *             You can restore your table to any point in time during the last 35 days. </p>
+ *             You can restore your table to any point in time in the last 35 days. You can set the recovery period to any value between 1 and 35 days. </p>
  *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per
  *             second.</p>
  * @example
@@ -56,6 +56,7 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * //     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
  * //     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
  * //       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
+ * //       RecoveryPeriodInDays: Number("int"),
  * //       EarliestRestorableDateTime: new Date("TIMESTAMP"),
  * //       LatestRestorableDateTime: new Date("TIMESTAMP"),
  * //     },
@@ -82,6 +83,7 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeContinuousBackupsCommand extends $Command
@@ -94,6 +96,7 @@ export class DescribeContinuousBackupsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -106,4 +109,16 @@ export class DescribeContinuousBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContinuousBackupsCommand)
   .de(de_DescribeContinuousBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContinuousBackupsInput;
+      output: DescribeContinuousBackupsOutput;
+    };
+    sdk: {
+      input: DescribeContinuousBackupsCommandInput;
+      output: DescribeContinuousBackupsCommandOutput;
+    };
+  };
+}

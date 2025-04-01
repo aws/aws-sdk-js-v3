@@ -61,7 +61,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to wait before retrying the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -106,7 +106,7 @@ export interface ScanSbomRequest {
    * <p>The output format for the vulnerability report.</p>
    * @public
    */
-  outputFormat?: OutputFormat;
+  outputFormat?: OutputFormat | undefined;
 }
 
 /**
@@ -117,7 +117,7 @@ export interface ScanSbomResponse {
    * <p>The vulnerability report for the scanned SBOM.</p>
    * @public
    */
-  sbom?: __DocumentType;
+  sbom?: __DocumentType | undefined;
 }
 
 /**
@@ -136,7 +136,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds to wait before retrying the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -208,7 +208,7 @@ export class ValidationException extends __BaseException {
    * <p>The fields that failed validation.</p>
    * @public
    */
-  fields?: ValidationExceptionField[];
+  fields?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal

@@ -79,13 +79,13 @@ export interface ReviewDetails {
    *          </ul>
    * @public
    */
-  Status?: ReviewStatus;
+  Status?: ReviewStatus | undefined;
 
   /**
    * <p>The associated support center case ID (if any).</p>
    * @public
    */
-  CaseId?: string;
+  CaseId?: string | undefined;
 }
 
 /**
@@ -110,40 +110,42 @@ export interface AccountDetails {
    *          </ul>
    * @public
    */
-  MailType?: MailType;
+  MailType?: MailType | undefined;
 
   /**
    * <p>The URL of your website. This information helps us better understand the type of
    *             content that you plan to send.</p>
    * @public
    */
-  WebsiteURL?: string;
+  WebsiteURL?: string | undefined;
 
   /**
    * <p>The language you would prefer for the case. The contact language can be one of
    *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
    * @public
    */
-  ContactLanguage?: ContactLanguage;
+  ContactLanguage?: ContactLanguage | undefined;
 
   /**
    * <p>A description of the types of email that you plan to send.</p>
+   *
+   * @deprecated
    * @public
    */
-  UseCaseDescription?: string;
+  UseCaseDescription?: string | undefined;
 
   /**
    * <p>Additional email addresses where updates are sent about your account review
    *             process.</p>
    * @public
    */
-  AdditionalContactEmailAddresses?: string[];
+  AdditionalContactEmailAddresses?: string[] | undefined;
 
   /**
    * <p>Information about the review of the latest details you submitted.</p>
    * @public
    */
-  ReviewDetails?: ReviewDetails;
+  ReviewDetails?: ReviewDetails | undefined;
 }
 
 /**
@@ -185,6 +187,19 @@ export class AlreadyExistsException extends __BaseException {
     });
     Object.setPrototypeOf(this, AlreadyExistsException.prototype);
   }
+}
+
+/**
+ * <p>Used to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface ArchivingOptions {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive where the Amazon SES API v2 will archive sent
+   *         emails.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
 }
 
 /**
@@ -349,7 +364,7 @@ export interface BatchGetMetricDataQuery {
    *             and <code>MetricDimensionValue</code> to filter metrics by.</p>
    * @public
    */
-  Dimensions?: Partial<Record<MetricDimensionName, string>>;
+  Dimensions?: Partial<Record<MetricDimensionName, string>> | undefined;
 
   /**
    * <p>Represents the start date for the query interval.</p>
@@ -399,7 +414,7 @@ export interface MetricDataError {
    * <p>The query identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The query error code. Can be one of:</p>
@@ -416,13 +431,13 @@ export interface MetricDataError {
    *          </ul>
    * @public
    */
-  Code?: QueryErrorCode;
+  Code?: QueryErrorCode | undefined;
 
   /**
    * <p>The error message associated with the current query error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -434,19 +449,19 @@ export interface MetricDataResult {
    * <p>The query identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A list of timestamps for the metric data results.</p>
    * @public
    */
-  Timestamps?: Date[];
+  Timestamps?: Date[] | undefined;
 
   /**
    * <p>A list of values (cumulative / sum) for the metric data results.</p>
    * @public
    */
-  Values?: number[];
+  Values?: number[] | undefined;
 }
 
 /**
@@ -458,13 +473,13 @@ export interface BatchGetMetricDataResponse {
    * <p>A list of successfully retrieved <code>MetricDataResult</code>.</p>
    * @public
    */
-  Results?: MetricDataResult[];
+  Results?: MetricDataResult[] | undefined;
 
   /**
    * <p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>
    * @public
    */
-  Errors?: MetricDataError[];
+  Errors?: MetricDataError[] | undefined;
 }
 
 /**
@@ -551,20 +566,20 @@ export interface BlacklistEntry {
    * <p>The name of the blacklist that the IP address appears on.</p>
    * @public
    */
-  RblName?: string;
+  RblName?: string | undefined;
 
   /**
    * <p>The time when the blacklisting event occurred.</p>
    * @public
    */
-  ListingTime?: Date;
+  ListingTime?: Date | undefined;
 
   /**
    * <p>Additional information about the blacklisting event, as provided by the blacklist
    *             maintainer.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -586,7 +601,7 @@ export interface Content {
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    * @public
    */
-  Charset?: string;
+  Charset?: string | undefined;
 }
 
 /**
@@ -600,7 +615,7 @@ export interface Body {
    *             rendering.</p>
    * @public
    */
-  Text?: Content;
+  Text?: Content | undefined;
 
   /**
    * <p>An object that represents the version of the message that is displayed in email
@@ -608,7 +623,7 @@ export interface Body {
    *             and more. </p>
    * @public
    */
-  Html?: Content;
+  Html?: Content | undefined;
 }
 
 /**
@@ -637,13 +652,13 @@ export interface Bounce {
    *          </p>
    * @public
    */
-  BounceType?: BounceType;
+  BounceType?: BounceType | undefined;
 
   /**
    * <p>The subtype of the bounce, as determined by SES.</p>
    * @public
    */
-  BounceSubType?: string;
+  BounceSubType?: string | undefined;
 
   /**
    * <p>The status code issued by the reporting Message Transfer Authority (MTA).
@@ -652,7 +667,7 @@ export interface Bounce {
    *         </p>
    * @public
    */
-  DiagnosticCode?: string;
+  DiagnosticCode?: string | undefined;
 }
 
 /**
@@ -692,10 +707,38 @@ export interface MessageHeader {
 }
 
 /**
+ * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
+ *             part.</p>
+ * @public
+ */
+export interface EmailTemplateContent {
+  /**
+   * <p>The subject line of the email.</p>
+   * @public
+   */
+  Subject?: string | undefined;
+
+  /**
+   * <p>The email body that will be visible to recipients whose email clients do not display
+   *             HTML.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The HTML body of the email.</p>
+   * @public
+   */
+  Html?: string | undefined;
+}
+
+/**
  * <p>An object that defines the email template to use for an email message, and the values
  *             to use for any message variables in that template. An <i>email
  *                 template</i> is a type of message template that contains content that you
- *             want to define, save, and reuse in email messages that you send.</p>
+ *             want to reuse in email messages that you send. You can specifiy the email template by providing
+ *             the name or ARN of an <i>email template</i>
+ *             previously saved in your Amazon SES account or by providing the full template content.</p>
  * @public
  */
 export interface Template {
@@ -705,13 +748,24 @@ export interface Template {
    *         </p>
    * @public
    */
-  TemplateName?: string;
+  TemplateName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    * @public
    */
-  TemplateArn?: string;
+  TemplateArn?: string | undefined;
+
+  /**
+   * <p>The content of the template.</p>
+   *          <note>
+   *             <p>Amazon SES supports only simple substitions when you send email using the
+   *                 <code>SendEmail</code> or <code>SendBulkEmail</code> operations and
+   *                 you provide the full template content in the request.</p>
+   *          </note>
+   * @public
+   */
+  TemplateContent?: EmailTemplateContent | undefined;
 
   /**
    * <p>An object that defines the values to use for message variables in the template. This
@@ -719,13 +773,13 @@ export interface Template {
    *             The corresponding value defines the value to use for that variable.</p>
    * @public
    */
-  TemplateData?: string;
+  TemplateData?: string | undefined;
 
   /**
    * <p>The list of message headers that will be added to the email message.</p>
    * @public
    */
-  Headers?: MessageHeader[];
+  Headers?: MessageHeader[] | undefined;
 }
 
 /**
@@ -738,7 +792,7 @@ export interface BulkEmailContent {
    * <p>The template to use for the bulk email message.</p>
    * @public
    */
-  Template?: Template;
+  Template?: Template | undefined;
 }
 
 /**
@@ -759,21 +813,21 @@ export interface Destination {
    *             email.</p>
    * @public
    */
-  ToAddresses?: string[];
+  ToAddresses?: string[] | undefined;
 
   /**
    * <p>An array that contains the email addresses of the "CC" (carbon copy) recipients for
    *             the email.</p>
    * @public
    */
-  CcAddresses?: string[];
+  CcAddresses?: string[] | undefined;
 
   /**
    * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
    *             for the email.</p>
    * @public
    */
-  BccAddresses?: string[];
+  BccAddresses?: string[] | undefined;
 }
 
 /**
@@ -788,7 +842,7 @@ export interface ReplacementTemplate {
    *             replacement tags in the email template.</p>
    * @public
    */
-  ReplacementTemplateData?: string;
+  ReplacementTemplateData?: string | undefined;
 }
 
 /**
@@ -803,7 +857,7 @@ export interface ReplacementEmailContent {
    *                 <code>ReplacementEmailContent</code>.</p>
    * @public
    */
-  ReplacementTemplate?: ReplacementTemplate;
+  ReplacementTemplate?: ReplacementTemplate | undefined;
 }
 
 /**
@@ -872,14 +926,14 @@ export interface BulkEmailEntry {
    *             events.</p>
    * @public
    */
-  ReplacementTags?: MessageTag[];
+  ReplacementTags?: MessageTag[] | undefined;
 
   /**
    * <p>The <code>ReplacementEmailContent</code> associated with a
    *             <code>BulkEmailEntry</code>.</p>
    * @public
    */
-  ReplacementEmailContent?: ReplacementEmailContent;
+  ReplacementEmailContent?: ReplacementEmailContent | undefined;
 
   /**
    * <p>The list of message headers associated with the <code>BulkEmailEntry</code> data type.</p>
@@ -913,7 +967,7 @@ export interface BulkEmailEntry {
    *          </ul>
    * @public
    */
-  ReplacementHeaders?: MessageHeader[];
+  ReplacementHeaders?: MessageHeader[] | undefined;
 }
 
 /**
@@ -1012,21 +1066,21 @@ export interface BulkEmailEntryResult {
    *          </ul>
    * @public
    */
-  Status?: BulkEmailStatus;
+  Status?: BulkEmailStatus | undefined;
 
   /**
    * <p>A description of an error that prevented a message being sent using the
    *                 <code>SendBulkTemplatedEmail</code> operation.</p>
    * @public
    */
-  Error?: string;
+  Error?: string | undefined;
 
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -1140,7 +1194,7 @@ export interface Complaint {
    *         </p>
    * @public
    */
-  ComplaintSubType?: string;
+  ComplaintSubType?: string | undefined;
 
   /**
    * <p>
@@ -1148,7 +1202,7 @@ export interface Complaint {
    *         </p>
    * @public
    */
-  ComplaintFeedbackType?: string;
+  ComplaintFeedbackType?: string | undefined;
 }
 
 /**
@@ -1233,32 +1287,32 @@ export interface Contact {
    * <p>The contact's email address.</p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
    * @public
    */
-  TopicPreferences?: TopicPreference[];
+  TopicPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>The default topic preferences applied to the contact.</p>
    * @public
    */
-  TopicDefaultPreferences?: TopicPreference[];
+  TopicDefaultPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    * @public
    */
-  UnsubscribeAll?: boolean;
+  UnsubscribeAll?: boolean | undefined;
 
   /**
    * <p>A timestamp noting the last time the contact's information was updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1271,13 +1325,13 @@ export interface ContactList {
    * <p>The name of the contact list.</p>
    * @public
    */
-  ContactListName?: string;
+  ContactListName?: string | undefined;
 
   /**
    * <p>A timestamp noting the last time the contact list was updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1348,13 +1402,22 @@ export interface DeliveryOptions {
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    * @public
    */
-  TlsPolicy?: TlsPolicy;
+  TlsPolicy?: TlsPolicy | undefined;
 
   /**
    * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
    * @public
    */
-  SendingPoolName?: string;
+  SendingPoolName?: string | undefined;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number | undefined;
 }
 
 /**
@@ -1369,7 +1432,7 @@ export interface ReputationOptions {
    *             configuration set.</p>
    * @public
    */
-  ReputationMetricsEnabled?: boolean;
+  ReputationMetricsEnabled?: boolean | undefined;
 
   /**
    * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
@@ -1377,7 +1440,7 @@ export interface ReputationOptions {
    *             starting from the date of the fresh start.</p>
    * @public
    */
-  LastFreshStart?: Date;
+  LastFreshStart?: Date | undefined;
 }
 
 /**
@@ -1391,7 +1454,7 @@ export interface SendingOptions {
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    * @public
    */
-  SendingEnabled?: boolean;
+  SendingEnabled?: boolean | undefined;
 }
 
 /**
@@ -1434,7 +1497,7 @@ export interface SuppressionOptions {
    *          </ul>
    * @public
    */
-  SuppressedReasons?: SuppressionListReason[];
+  SuppressedReasons?: SuppressionListReason[] | undefined;
 }
 
 /**
@@ -1492,6 +1555,21 @@ export interface Tag {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const HttpsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+  REQUIRE_OPEN_ONLY: "REQUIRE_OPEN_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpsPolicy = (typeof HttpsPolicy)[keyof typeof HttpsPolicy];
+
+/**
  * <p>An object that defines the tracking options for a configuration set. When you use the
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
@@ -1507,6 +1585,12 @@ export interface TrackingOptions {
    * @public
    */
   CustomRedirectDomain: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events.</p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy | undefined;
 }
 
 /**
@@ -1546,7 +1630,7 @@ export interface DashboardOptions {
    *          </ul>
    * @public
    */
-  EngagementMetrics?: FeatureStatus;
+  EngagementMetrics?: FeatureStatus | undefined;
 }
 
 /**
@@ -1572,7 +1656,7 @@ export interface GuardianOptions {
    *          </ul>
    * @public
    */
-  OptimizedSharedDelivery?: FeatureStatus;
+  OptimizedSharedDelivery?: FeatureStatus | undefined;
 }
 
 /**
@@ -1586,14 +1670,14 @@ export interface VdmOptions {
    *             Dashboard.</p>
    * @public
    */
-  DashboardOptions?: DashboardOptions;
+  DashboardOptions?: DashboardOptions | undefined;
 
   /**
    * <p>Specifies additional settings for your VDM configuration as applicable to the
    *             Guardian.</p>
    * @public
    */
-  GuardianOptions?: GuardianOptions;
+  GuardianOptions?: GuardianOptions | undefined;
 }
 
 /**
@@ -1613,49 +1697,56 @@ export interface CreateConfigurationSetRequest {
    *             using the configuration set.</p>
    * @public
    */
-  TrackingOptions?: TrackingOptions;
+  TrackingOptions?: TrackingOptions | undefined;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    * @public
    */
-  DeliveryOptions?: DeliveryOptions;
+  DeliveryOptions?: DeliveryOptions | undefined;
 
   /**
    * <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    * @public
    */
-  ReputationOptions?: ReputationOptions;
+  ReputationOptions?: ReputationOptions | undefined;
 
   /**
    * <p>An object that defines whether or not Amazon SES can send email that you send using the
    *             configuration set.</p>
    * @public
    */
-  SendingOptions?: SendingOptions;
+  SendingOptions?: SendingOptions | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) to associate with the
    *             configuration set.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>An object that contains information about the suppression list preferences for your
    *             account.</p>
    * @public
    */
-  SuppressionOptions?: SuppressionOptions;
+  SuppressionOptions?: SuppressionOptions | undefined;
 
   /**
    * <p>An object that defines the VDM options for emails that you send using the
    *             configuration set.</p>
    * @public
    */
-  VdmOptions?: VdmOptions;
+  VdmOptions?: VdmOptions | undefined;
+
+  /**
+   * <p>An object that defines the MailManager archiving options for emails that you send
+   *             using the configuration set.</p>
+   * @public
+   */
+  ArchivingOptions?: ArchivingOptions | undefined;
 }
 
 /**
@@ -1753,7 +1844,7 @@ export interface PinpointDestination {
    * <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send email events to.</p>
    * @public
    */
-  ApplicationArn?: string;
+  ApplicationArn?: string | undefined;
 }
 
 /**
@@ -1786,42 +1877,42 @@ export interface EventDestinationDefinition {
    *             is disabled, events aren't sent to the specified destinations.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
    *             this <code>EventDestinationDefinition</code>.</p>
    * @public
    */
-  MatchingEventTypes?: EventType[];
+  MatchingEventTypes?: EventType[] | undefined;
 
   /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    * @public
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    * @public
    */
-  CloudWatchDestination?: CloudWatchDestination;
+  CloudWatchDestination?: CloudWatchDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
    *             send notifications when certain email events occur.</p>
    * @public
    */
-  SnsDestination?: SnsDestination;
+  SnsDestination?: SnsDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
    *             send notifications when certain email events occur.</p>
    * @public
    */
-  EventBridgeDestination?: EventBridgeDestination;
+  EventBridgeDestination?: EventBridgeDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -1830,7 +1921,7 @@ export interface EventDestinationDefinition {
    *                 Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
    * @public
    */
-  PinpointDestination?: PinpointDestination;
+  PinpointDestination?: PinpointDestination | undefined;
 }
 
 /**
@@ -1884,20 +1975,20 @@ export interface CreateContactRequest {
    * <p>The contact's preferences for being opted-in to or opted-out of topics.</p>
    * @public
    */
-  TopicPreferences?: TopicPreference[];
+  TopicPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    * @public
    */
-  UnsubscribeAll?: boolean;
+  UnsubscribeAll?: boolean | undefined;
 
   /**
    * <p>The attribute data attached to a contact.</p>
    * @public
    */
-  AttributesData?: string;
+  AttributesData?: string | undefined;
 }
 
 /**
@@ -1927,7 +2018,7 @@ export interface Topic {
    * <p>A description of what the topic is about, which the contact will see.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The default subscription status to be applied to a contact if the contact has not
@@ -1952,19 +2043,19 @@ export interface CreateContactListRequest {
    *             topics.</p>
    * @public
    */
-  Topics?: Topic[];
+  Topics?: Topic[] | undefined;
 
   /**
    * <p>A description of what the contact list is about.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags associated with a contact list.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2056,13 +2147,13 @@ export interface CreateDedicatedIpPoolRequest {
    *             pool.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The type of scaling mode.</p>
    * @public
    */
-  ScalingMode?: ScalingMode;
+  ScalingMode?: ScalingMode | undefined;
 }
 
 /**
@@ -2138,7 +2229,7 @@ export interface Message {
    * <p>The list of message headers that will be added to the email message.</p>
    * @public
    */
-  Headers?: MessageHeader[];
+  Headers?: MessageHeader[] | undefined;
 }
 
 /**
@@ -2154,7 +2245,7 @@ export interface EmailContent {
    * <p>The simple email message. The message consists of a subject and a message body.</p>
    * @public
    */
-  Simple?: Message;
+  Simple?: Message | undefined;
 
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
@@ -2191,13 +2282,13 @@ export interface EmailContent {
    *          </ul>
    * @public
    */
-  Raw?: RawMessage;
+  Raw?: RawMessage | undefined;
 
   /**
    * <p>The template to use for the email message.</p>
    * @public
    */
-  Template?: Template;
+  Template?: Template | undefined;
 }
 
 /**
@@ -2216,7 +2307,7 @@ export interface CreateDeliverabilityTestReportRequest {
    *             results.</p>
    * @public
    */
-  ReportName?: string;
+  ReportName?: string | undefined;
 
   /**
    * <p>The email address that the predictive inbox placement test email was sent from.</p>
@@ -2235,7 +2326,7 @@ export interface CreateDeliverabilityTestReportRequest {
    *             with the predictive inbox placement test.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2338,6 +2429,43 @@ export class SendingPausedException extends __BaseException {
  * @public
  * @enum
  */
+export const DkimSigningAttributesOrigin = {
+  AWS_SES: "AWS_SES",
+  AWS_SES_AF_SOUTH_1: "AWS_SES_AF_SOUTH_1",
+  AWS_SES_AP_NORTHEAST_1: "AWS_SES_AP_NORTHEAST_1",
+  AWS_SES_AP_NORTHEAST_2: "AWS_SES_AP_NORTHEAST_2",
+  AWS_SES_AP_NORTHEAST_3: "AWS_SES_AP_NORTHEAST_3",
+  AWS_SES_AP_SOUTHEAST_1: "AWS_SES_AP_SOUTHEAST_1",
+  AWS_SES_AP_SOUTHEAST_2: "AWS_SES_AP_SOUTHEAST_2",
+  AWS_SES_AP_SOUTHEAST_3: "AWS_SES_AP_SOUTHEAST_3",
+  AWS_SES_AP_SOUTH_1: "AWS_SES_AP_SOUTH_1",
+  AWS_SES_CA_CENTRAL_1: "AWS_SES_CA_CENTRAL_1",
+  AWS_SES_EU_CENTRAL_1: "AWS_SES_EU_CENTRAL_1",
+  AWS_SES_EU_NORTH_1: "AWS_SES_EU_NORTH_1",
+  AWS_SES_EU_SOUTH_1: "AWS_SES_EU_SOUTH_1",
+  AWS_SES_EU_WEST_1: "AWS_SES_EU_WEST_1",
+  AWS_SES_EU_WEST_2: "AWS_SES_EU_WEST_2",
+  AWS_SES_EU_WEST_3: "AWS_SES_EU_WEST_3",
+  AWS_SES_IL_CENTRAL_1: "AWS_SES_IL_CENTRAL_1",
+  AWS_SES_ME_SOUTH_1: "AWS_SES_ME_SOUTH_1",
+  AWS_SES_SA_EAST_1: "AWS_SES_SA_EAST_1",
+  AWS_SES_US_EAST_1: "AWS_SES_US_EAST_1",
+  AWS_SES_US_EAST_2: "AWS_SES_US_EAST_2",
+  AWS_SES_US_WEST_1: "AWS_SES_US_WEST_1",
+  AWS_SES_US_WEST_2: "AWS_SES_US_WEST_2",
+  EXTERNAL: "EXTERNAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DkimSigningAttributesOrigin =
+  (typeof DkimSigningAttributesOrigin)[keyof typeof DkimSigningAttributesOrigin];
+
+/**
+ * @public
+ * @enum
+ */
 export const DkimSigningKeyLength = {
   RSA_1024_BIT: "RSA_1024_BIT",
   RSA_2048_BIT: "RSA_2048_BIT",
@@ -2359,7 +2487,7 @@ export interface DkimSigningAttributes {
    *             configuration for a domain.</p>
    * @public
    */
-  DomainSigningSelector?: string;
+  DomainSigningSelector?: string | undefined;
 
   /**
    * <p>[Bring Your Own DKIM] A private key that's used to generate a DKIM signature.</p>
@@ -2367,14 +2495,195 @@ export interface DkimSigningAttributes {
    *             base64 encoding.</p>
    * @public
    */
-  DomainSigningPrivateKey?: string;
+  DomainSigningPrivateKey?: string | undefined;
 
   /**
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be
    *             changed at most once per day.</p>
    * @public
    */
-  NextSigningKeyLength?: DkimSigningKeyLength;
+  NextSigningKeyLength?: DkimSigningKeyLength | undefined;
+
+  /**
+   * <p>The attribute to use for configuring DKIM for the identity depends on the
+   *             operation:
+   *         </p>
+   *          <ol>
+   *             <li>
+   *                <p>For <code>PutEmailIdentityDkimSigningAttributes</code>:
+   *                 </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>None of the values are allowed - use the
+   *                             <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutEmailIdentityDkimSigningAttributes.html#SES-PutEmailIdentityDkimSigningAttributes-request-SigningAttributesOrigin">
+   *                            <code>SigningAttributesOrigin</code>
+   *                         </a>
+   *                             parameter instead
+   *                         </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For <code>CreateEmailIdentity</code> when replicating a parent identity's DKIM
+   *                     configuration:
+   *                 </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Allowed values: All values except <code>AWS_SES</code> and
+   *                             <code>EXTERNAL</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ol>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using Easy DKIM.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM
+   *                     (BYODKIM).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AF_SOUTH_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Africa (Cape Town) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_NORTH_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (Stockholm) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTH_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Asia Pacific (Mumbai) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_3</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_2</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (London) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_SOUTH_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (Milan) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (Ireland) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_3</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Osaka) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_2</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_ME_SOUTH_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Middle East (Bahrain) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_1</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Tokyo) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_IL_CENTRAL_1</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Israel (Tel Aviv) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_SA_EAST_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in South America (São Paulo) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_CA_CENTRAL_1</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Canada (Central) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_1</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Singapore) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_2</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Sydney) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_3</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Asia Pacific (Jakarta) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_CENTRAL_1</code> – Configure DKIM for the identity by replicating from a
+   *                     parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_EAST_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in US East (N. Virginia) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_EAST_2</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in US East (Ohio) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_WEST_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_WEST_2</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DomainSigningAttributesOrigin?: DkimSigningAttributesOrigin | undefined;
 }
 
 /**
@@ -2394,7 +2703,7 @@ export interface CreateEmailIdentityRequest {
    *             identity.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
@@ -2405,30 +2714,15 @@ export interface CreateEmailIdentityRequest {
    *             address.</p>
    * @public
    */
-  DkimSigningAttributes?: DkimSigningAttributes;
+  DkimSigningAttributes?: DkimSigningAttributes | undefined;
 
   /**
    * <p>The configuration set to use by default when sending from this identity. Note that any
    *             configuration set defined in the email sending request takes precedence. </p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DkimSigningAttributesOrigin = {
-  AWS_SES: "AWS_SES",
-  EXTERNAL: "EXTERNAL",
-} as const;
-
-/**
- * @public
- */
-export type DkimSigningAttributesOrigin =
-  (typeof DkimSigningAttributesOrigin)[keyof typeof DkimSigningAttributesOrigin];
 
 /**
  * @public
@@ -2466,7 +2760,7 @@ export interface DkimAttributes {
    *             send from the identity aren't DKIM-signed.</p>
    * @public
    */
-  SigningEnabled?: boolean;
+  SigningEnabled?: boolean | undefined;
 
   /**
    * <p>Describes whether or not Amazon SES has successfully located the DKIM records in the DNS
@@ -2502,7 +2796,7 @@ export interface DkimAttributes {
    *          </ul>
    * @public
    */
-  Status?: DkimStatus;
+  Status?: DkimStatus | undefined;
 
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
@@ -2516,7 +2810,7 @@ export interface DkimAttributes {
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    * @public
    */
-  Tokens?: string[];
+  Tokens?: string[] | undefined;
 
   /**
    * <p>A string that indicates how DKIM was configured for the identity. These are the
@@ -2532,29 +2826,175 @@ export interface DkimAttributes {
    *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
    *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AF_SOUTH_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Africa (Cape Town) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_NORTH_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Stockholm) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTH_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Mumbai) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_3</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (London) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_SOUTH_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Milan) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_WEST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Ireland) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_3</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Osaka) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_ME_SOUTH_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Middle East (Bahrain) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_NORTHEAST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Tokyo) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_IL_CENTRAL_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Israel (Tel Aviv) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_SA_EAST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in South America (São Paulo) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_CA_CENTRAL_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Canada (Central) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Singapore) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Sydney) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_AP_SOUTHEAST_3</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Jakarta) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_CENTRAL_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_EAST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in US East (N. Virginia) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_EAST_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in US East (Ohio) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_WEST_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in US West (N. California) region using Deterministic Easy-DKIM
+   *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_US_WEST_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
    *          </ul>
    * @public
    */
-  SigningAttributesOrigin?: DkimSigningAttributesOrigin;
+  SigningAttributesOrigin?: DkimSigningAttributesOrigin | undefined;
 
   /**
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be
    *             changed at most once per day.</p>
    * @public
    */
-  NextSigningKeyLength?: DkimSigningKeyLength;
+  NextSigningKeyLength?: DkimSigningKeyLength | undefined;
 
   /**
    * <p>[Easy DKIM] The key length of the DKIM key pair in use.</p>
    * @public
    */
-  CurrentSigningKeyLength?: DkimSigningKeyLength;
+  CurrentSigningKeyLength?: DkimSigningKeyLength | undefined;
 
   /**
    * <p>[Easy DKIM] The last time a key pair was generated for this identity.</p>
    * @public
    */
-  LastKeyGenerationTimestamp?: Date;
+  LastKeyGenerationTimestamp?: Date | undefined;
 }
 
 /**
@@ -2584,7 +3024,7 @@ export interface CreateEmailIdentityResponse {
    *             supported.</p>
    * @public
    */
-  IdentityType?: IdentityType;
+  IdentityType?: IdentityType | undefined;
 
   /**
    * <p>Specifies whether or not the identity is verified. You can only send email from
@@ -2592,13 +3032,13 @@ export interface CreateEmailIdentityResponse {
    *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
    * @public
    */
-  VerifiedForSendingStatus?: boolean;
+  VerifiedForSendingStatus?: boolean | undefined;
 
   /**
    * <p>An object that contains information about the DKIM attributes for the identity.</p>
    * @public
    */
-  DkimAttributes?: DkimAttributes;
+  DkimAttributes?: DkimAttributes | undefined;
 }
 
 /**
@@ -2637,32 +3077,6 @@ export interface CreateEmailIdentityPolicyRequest {
  * @public
  */
 export interface CreateEmailIdentityPolicyResponse {}
-
-/**
- * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
- *             part.</p>
- * @public
- */
-export interface EmailTemplateContent {
-  /**
-   * <p>The subject line of the email.</p>
-   * @public
-   */
-  Subject?: string;
-
-  /**
-   * <p>The email body that will be visible to recipients whose email clients do not display
-   *             HTML.</p>
-   * @public
-   */
-  Text?: string;
-
-  /**
-   * <p>The HTML body of the email.</p>
-   * @public
-   */
-  Html?: string;
-}
 
 /**
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
@@ -2741,26 +3155,26 @@ export interface MessageInsightsFilters {
    * <p>The from address used to send the message.</p>
    * @public
    */
-  FromEmailAddress?: string[];
+  FromEmailAddress?: string[] | undefined;
 
   /**
    * <p>The recipient's email address.</p>
    * @public
    */
-  Destination?: string[];
+  Destination?: string[] | undefined;
 
   /**
    * <p>The subject line of the message.</p>
    * @public
    */
-  Subject?: string[];
+  Subject?: string[] | undefined;
 
   /**
    * <p>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>,
    *             etc.).</p>
    * @public
    */
-  Isp?: string[];
+  Isp?: string[] | undefined;
 
   /**
    * <p>
@@ -2769,7 +3183,7 @@ export interface MessageInsightsFilters {
    *         </p>
    * @public
    */
-  LastDeliveryEvent?: DeliveryEventType[];
+  LastDeliveryEvent?: DeliveryEventType[] | undefined;
 
   /**
    * <p>
@@ -2782,7 +3196,7 @@ export interface MessageInsightsFilters {
    *         </p>
    * @public
    */
-  LastEngagementEvent?: EngagementEventType[];
+  LastEngagementEvent?: EngagementEventType[] | undefined;
 }
 
 /**
@@ -2806,19 +3220,19 @@ export interface MessageInsightsDataSource {
    * <p>Filters for results to be included in the export file.</p>
    * @public
    */
-  Include?: MessageInsightsFilters;
+  Include?: MessageInsightsFilters | undefined;
 
   /**
    * <p>Filters for results to be excluded from the export file.</p>
    * @public
    */
-  Exclude?: MessageInsightsFilters;
+  Exclude?: MessageInsightsFilters | undefined;
 
   /**
    * <p>The maximum number of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2909,7 +3323,7 @@ export interface ExportMetric {
    *          </ul>
    * @public
    */
-  Name?: Metric;
+  Name?: Metric | undefined;
 
   /**
    * <p>The aggregation to apply to a metric, can be one of the following:</p>
@@ -2926,7 +3340,7 @@ export interface ExportMetric {
    *          </ul>
    * @public
    */
-  Aggregation?: MetricAggregation;
+  Aggregation?: MetricAggregation | undefined;
 }
 
 /**
@@ -2977,13 +3391,13 @@ export interface ExportDataSource {
    * <p>An object that contains details about the data source for the metrics export.</p>
    * @public
    */
-  MetricsDataSource?: MetricsDataSource;
+  MetricsDataSource?: MetricsDataSource | undefined;
 
   /**
    * <p>An object that contains filters applied when performing the Message Insights export.</p>
    * @public
    */
-  MessageInsightsDataSource?: MessageInsightsDataSource;
+  MessageInsightsDataSource?: MessageInsightsDataSource | undefined;
 }
 
 /**
@@ -3025,7 +3439,7 @@ export interface ExportDestination {
    * <p>An Amazon S3 pre-signed URL that points to the generated export file.</p>
    * @public
    */
-  S3Url?: string;
+  S3Url?: string | undefined;
 }
 
 /**
@@ -3057,7 +3471,7 @@ export interface CreateExportJobResponse {
    * <p>A string that represents the export job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -3125,13 +3539,13 @@ export interface ImportDestination {
    * <p>An object that contains the action of the import job towards suppression list.</p>
    * @public
    */
-  SuppressionListDestination?: SuppressionListDestination;
+  SuppressionListDestination?: SuppressionListDestination | undefined;
 
   /**
    * <p>An object that contains the action of the import job towards a contact list.</p>
    * @public
    */
-  ContactListDestination?: ContactListDestination;
+  ContactListDestination?: ContactListDestination | undefined;
 }
 
 /**
@@ -3163,7 +3577,108 @@ export interface CreateImportJobResponse {
    * <p>A string that represents the import job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
+}
+
+/**
+ * <p>An object that contains route configuration. Includes secondary region name.</p>
+ * @public
+ */
+export interface RouteDetails {
+  /**
+   * <p>The name of an AWS-Region to be a secondary region for the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  Region: string | undefined;
+}
+
+/**
+ * <p>An object that contains configuration details of multi-region endpoint (global-endpoint).</p>
+ * @public
+ */
+export interface Details {
+  /**
+   * <p>A list of route configuration details. Must contain exactly one route configuration.</p>
+   * @public
+   */
+  RoutesDetails: RouteDetails[] | undefined;
+}
+
+/**
+ * <p>Represents a request to create a multi-region endpoint (global-endpoint).</p>
+ * @public
+ */
+export interface CreateMultiRegionEndpointRequest {
+  /**
+   * <p>The name of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>Contains details of a multi-region endpoint (global-endpoint) being created.</p>
+   * @public
+   */
+  Details: Details | undefined;
+
+  /**
+   * <p>An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface CreateMultiRegionEndpointResponse {
+  /**
+   * <p>A status of the multi-region endpoint (global-endpoint) right after the create request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The resource is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> – The resource is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The resource failed to be provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – The resource is being deleted as requested.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
 }
 
 /**
@@ -3175,33 +3690,33 @@ export interface CustomVerificationEmailTemplateMetadata {
    * <p>The name of the custom verification email template.</p>
    * @public
    */
-  TemplateName?: string;
+  TemplateName?: string | undefined;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>The subject line of the custom verification email.</p>
    * @public
    */
-  TemplateSubject?: string;
+  TemplateSubject?: string | undefined;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    * @public
    */
-  SuccessRedirectionURL?: string;
+  SuccessRedirectionURL?: string | undefined;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    * @public
    */
-  FailureRedirectionURL?: string;
+  FailureRedirectionURL?: string | undefined;
 }
 
 /**
@@ -3214,35 +3729,35 @@ export interface DomainIspPlacement {
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    * @public
    */
-  IspName?: string;
+  IspName?: string | undefined;
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    * @public
    */
-  InboxRawCount?: number;
+  InboxRawCount?: number | undefined;
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    * @public
    */
-  SpamRawCount?: number;
+  SpamRawCount?: number | undefined;
 
   /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    * @public
    */
-  InboxPercentage?: number;
+  InboxPercentage?: number | undefined;
 
   /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    * @public
    */
-  SpamPercentage?: number;
+  SpamPercentage?: number | undefined;
 }
 
 /**
@@ -3255,28 +3770,28 @@ export interface VolumeStatistics {
    * <p>The total number of emails that arrived in recipients' inboxes.</p>
    * @public
    */
-  InboxRawCount?: number;
+  InboxRawCount?: number | undefined;
 
   /**
    * <p>The total number of emails that arrived in recipients' spam or junk mail
    *             folders.</p>
    * @public
    */
-  SpamRawCount?: number;
+  SpamRawCount?: number | undefined;
 
   /**
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' inboxes.</p>
    * @public
    */
-  ProjectedInbox?: number;
+  ProjectedInbox?: number | undefined;
 
   /**
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' spam or junk mail folders.</p>
    * @public
    */
-  ProjectedSpam?: number;
+  ProjectedSpam?: number | undefined;
 }
 
 /**
@@ -3289,21 +3804,21 @@ export interface DailyVolume {
    * <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>An object that contains inbox placement metrics for a specific day in the analysis
    *             period.</p>
    * @public
    */
-  VolumeStatistics?: VolumeStatistics;
+  VolumeStatistics?: VolumeStatistics | undefined;
 
   /**
    * <p>An object that contains inbox placement metrics for a specified day in the analysis
    *             period, broken out by the recipient's email provider.</p>
    * @public
    */
-  DomainIspPlacements?: DomainIspPlacement[];
+  DomainIspPlacements?: DomainIspPlacement[] | undefined;
 }
 
 /**
@@ -3329,7 +3844,7 @@ export interface DashboardAttributes {
    *          </ul>
    * @public
    */
-  EngagementMetrics?: FeatureStatus;
+  EngagementMetrics?: FeatureStatus | undefined;
 }
 
 /**
@@ -3391,7 +3906,7 @@ export interface DedicatedIp {
    * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
    * @public
    */
-  PoolName?: string;
+  PoolName?: string | undefined;
 }
 
 /**
@@ -3616,6 +4131,49 @@ export interface DeleteEmailTemplateRequest {
 export interface DeleteEmailTemplateResponse {}
 
 /**
+ * <p>Represents a request to delete a multi-region endpoint (global-endpoint).</p>
+ * @public
+ */
+export interface DeleteMultiRegionEndpointRequest {
+  /**
+   * <p>The name of the multi-region endpoint (global-endpoint) to be deleted.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface DeleteMultiRegionEndpointResponse {
+  /**
+   * <p>A status of the multi-region endpoint (global-endpoint) right after the delete request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The resource is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> – The resource is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The resource failed to be provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – The resource is being deleted as requested.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: Status | undefined;
+}
+
+/**
  * <p>A request to remove an email address from the suppression list for your
  *             account.</p>
  * @public
@@ -3660,31 +4218,31 @@ export interface DeliverabilityTestReport {
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    * @public
    */
-  ReportId?: string;
+  ReportId?: string | undefined;
 
   /**
    * <p>A name that helps you identify a predictive inbox placement test report.</p>
    * @public
    */
-  ReportName?: string;
+  ReportName?: string | undefined;
 
   /**
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>The sender address that you specified for the predictive inbox placement test.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>The date and time when the predictive inbox placement test was created.</p>
    * @public
    */
-  CreateDate?: Date;
+  CreateDate?: Date | undefined;
 
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
@@ -3693,7 +4251,7 @@ export interface DeliverabilityTestReport {
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    * @public
    */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus;
+  DeliverabilityTestStatus?: DeliverabilityTestStatus | undefined;
 }
 
 /**
@@ -3709,32 +4267,32 @@ export interface DomainDeliverabilityCampaign {
    *             and assigns this identifier to a campaign.</p>
    * @public
    */
-  CampaignId?: string;
+  CampaignId?: string | undefined;
 
   /**
    * <p>The URL of an image that contains a snapshot of the email message that was
    *             sent.</p>
    * @public
    */
-  ImageUrl?: string;
+  ImageUrl?: string | undefined;
 
   /**
    * <p>The subject line, or title, of the email message.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>The verified email address that the email message was sent from.</p>
    * @public
    */
-  FromAddress?: string;
+  FromAddress?: string | undefined;
 
   /**
    * <p>The IP addresses that were used to send the email message.</p>
    * @public
    */
-  SendingIps?: string[];
+  SendingIps?: string[] | undefined;
 
   /**
    * <p>The first time when the email message was delivered to any
@@ -3742,7 +4300,7 @@ export interface DomainDeliverabilityCampaign {
    *             deliver an email message.</p>
    * @public
    */
-  FirstSeenDateTime?: Date;
+  FirstSeenDateTime?: Date | undefined;
 
   /**
    * <p>The last time when the email message was delivered to any
@@ -3750,20 +4308,20 @@ export interface DomainDeliverabilityCampaign {
    *             deliver an email message.</p>
    * @public
    */
-  LastSeenDateTime?: Date;
+  LastSeenDateTime?: Date | undefined;
 
   /**
    * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    * @public
    */
-  InboxCount?: number;
+  InboxCount?: number | undefined;
 
   /**
    * <p>The number of email messages that were delivered to recipients' spam or junk mail
    *             folders.</p>
    * @public
    */
-  SpamCount?: number;
+  SpamCount?: number | undefined;
 
   /**
    * <p>The percentage of email messages that were opened by recipients. Due to technical
@@ -3771,7 +4329,7 @@ export interface DomainDeliverabilityCampaign {
    *             email client that supports images.</p>
    * @public
    */
-  ReadRate?: number;
+  ReadRate?: number | undefined;
 
   /**
    * <p>The percentage of email messages that were deleted by recipients, without being opened
@@ -3779,7 +4337,7 @@ export interface DomainDeliverabilityCampaign {
    *             message by using an email client that supports images.</p>
    * @public
    */
-  DeleteRate?: number;
+  DeleteRate?: number | undefined;
 
   /**
    * <p>The percentage of email messages that were opened and then deleted by recipients. Due
@@ -3787,19 +4345,19 @@ export interface DomainDeliverabilityCampaign {
    *             using an email client that supports images.</p>
    * @public
    */
-  ReadDeleteRate?: number;
+  ReadDeleteRate?: number | undefined;
 
   /**
    * <p>The projected number of recipients that the email message was sent to.</p>
    * @public
    */
-  ProjectedVolume?: number;
+  ProjectedVolume?: number | undefined;
 
   /**
    * <p>The major email providers who handled the email message.</p>
    * @public
    */
-  Esps?: string[];
+  Esps?: string[] | undefined;
 }
 
 /**
@@ -3813,14 +4371,14 @@ export interface InboxPlacementTrackingOption {
    * <p>Specifies whether inbox placement data is being tracked for the domain.</p>
    * @public
    */
-  Global?: boolean;
+  Global?: boolean | undefined;
 
   /**
    * <p>An array of strings, one for each major email provider that the inbox placement data
    *             applies to.</p>
    * @public
    */
-  TrackedIsps?: string[];
+  TrackedIsps?: string[] | undefined;
 }
 
 /**
@@ -3836,21 +4394,21 @@ export interface DomainDeliverabilityTrackingOption {
    *             active Deliverability dashboard subscription.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The date when you enabled the Deliverability dashboard for the
    *             domain.</p>
    * @public
    */
-  SubscriptionStartDate?: Date;
+  SubscriptionStartDate?: Date | undefined;
 
   /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    * @public
    */
-  InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
+  InboxPlacementTrackingOption?: InboxPlacementTrackingOption | undefined;
 }
 
 /**
@@ -3865,13 +4423,13 @@ export interface EventDetails {
    * <p>Information about a <code>Bounce</code> event.</p>
    * @public
    */
-  Bounce?: Bounce;
+  Bounce?: Bounce | undefined;
 
   /**
    * <p>Information about a <code>Complaint</code> event.</p>
    * @public
    */
-  Complaint?: Complaint;
+  Complaint?: Complaint | undefined;
 }
 
 /**
@@ -3883,7 +4441,7 @@ export interface InsightsEvent {
    * <p>The timestamp of the event.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The type of event:</p>
@@ -3930,13 +4488,13 @@ export interface InsightsEvent {
    *          </ul>
    * @public
    */
-  Type?: EventType;
+  Type?: EventType | undefined;
 
   /**
    * <p>Details about bounce or complaint events.</p>
    * @public
    */
-  Details?: EventDetails;
+  Details?: EventDetails | undefined;
 }
 
 /**
@@ -3948,20 +4506,20 @@ export interface EmailInsights {
    * <p>The recipient of the email.</p>
    * @public
    */
-  Destination?: string;
+  Destination?: string | undefined;
 
   /**
    * <p>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>,
    *         etc.).</p>
    * @public
    */
-  Isp?: string;
+  Isp?: string | undefined;
 
   /**
    * <p>A list of events associated with the sent email.</p>
    * @public
    */
-  Events?: InsightsEvent[];
+  Events?: InsightsEvent[] | undefined;
 }
 
 /**
@@ -3973,13 +4531,13 @@ export interface EmailTemplateMetadata {
    * <p>The name of the template.</p>
    * @public
    */
-  TemplateName?: string;
+  TemplateName?: string | undefined;
 
   /**
    * <p>The time and date the template was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4005,7 +4563,7 @@ export interface EventDestination {
    *             is disabled, events aren't sent to the specified destinations.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
@@ -4085,28 +4643,28 @@ export interface EventDestination {
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    * @public
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    * @public
    */
-  CloudWatchDestination?: CloudWatchDestination;
+  CloudWatchDestination?: CloudWatchDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
    *             send notifications when certain email events occur.</p>
    * @public
    */
-  SnsDestination?: SnsDestination;
+  SnsDestination?: SnsDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
    *             send notifications when certain email events occur.</p>
    * @public
    */
-  EventBridgeDestination?: EventBridgeDestination;
+  EventBridgeDestination?: EventBridgeDestination | undefined;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -4115,7 +4673,7 @@ export interface EventDestination {
    *                 Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
    * @public
    */
-  PinpointDestination?: PinpointDestination;
+  PinpointDestination?: PinpointDestination | undefined;
 }
 
 /**
@@ -4158,31 +4716,31 @@ export interface ExportJobSummary {
    * <p>The export job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The source type of the export job.</p>
    * @public
    */
-  ExportSourceType?: ExportSourceType;
+  ExportSourceType?: ExportSourceType | undefined;
 
   /**
    * <p>The status of the export job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>The timestamp of when the export job was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export job was completed.</p>
    * @public
    */
-  CompletedTimestamp?: Date;
+  CompletedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4194,14 +4752,14 @@ export interface ExportStatistics {
    * <p>The number of records that were processed to generate the final export file.</p>
    * @public
    */
-  ProcessedRecordsCount?: number;
+  ProcessedRecordsCount?: number | undefined;
 
   /**
    * <p>The number of records that were exported to the final export file.</p>
    *          <p>This value might not be available for all export source types</p>
    * @public
    */
-  ExportedRecordsCount?: number;
+  ExportedRecordsCount?: number | undefined;
 }
 
 /**
@@ -4213,13 +4771,13 @@ export interface FailureInfo {
    * <p>An Amazon S3 pre-signed URL that contains all the failed records and related information.</p>
    * @public
    */
-  FailedRecordsS3Url?: string;
+  FailedRecordsS3Url?: string | undefined;
 
   /**
    * <p>A message about why the job failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -4241,7 +4799,7 @@ export interface SendQuota {
    *             to as your <i>sending quota</i>.)</p>
    * @public
    */
-  Max24HourSend?: number;
+  Max24HourSend?: number | undefined;
 
   /**
    * <p>The maximum number of emails that you can send per second in the current Amazon Web Services Region.
@@ -4249,14 +4807,14 @@ export interface SendQuota {
    *                 <i>maximum TPS (transactions per second) rate</i>.</p>
    * @public
    */
-  MaxSendRate?: number;
+  MaxSendRate?: number | undefined;
 
   /**
    * <p>The number of emails sent from your Amazon SES account in the current Amazon Web Services Region over the
    *             past 24 hours.</p>
    * @public
    */
-  SentLast24Hours?: number;
+  SentLast24Hours?: number | undefined;
 }
 
 /**
@@ -4285,7 +4843,7 @@ export interface SuppressionAttributes {
    *          </ul>
    * @public
    */
-  SuppressedReasons?: SuppressionListReason[];
+  SuppressedReasons?: SuppressionListReason[] | undefined;
 }
 
 /**
@@ -4311,7 +4869,7 @@ export interface GuardianAttributes {
    *          </ul>
    * @public
    */
-  OptimizedSharedDelivery?: FeatureStatus;
+  OptimizedSharedDelivery?: FeatureStatus | undefined;
 }
 
 /**
@@ -4340,14 +4898,14 @@ export interface VdmAttributes {
    *             Dashboard.</p>
    * @public
    */
-  DashboardAttributes?: DashboardAttributes;
+  DashboardAttributes?: DashboardAttributes | undefined;
 
   /**
    * <p>Specifies additional settings for your VDM configuration as applicable to the
    *             Guardian.</p>
    * @public
    */
-  GuardianAttributes?: GuardianAttributes;
+  GuardianAttributes?: GuardianAttributes | undefined;
 }
 
 /**
@@ -4361,7 +4919,7 @@ export interface GetAccountResponse {
    *             addresses that are associated with your account.</p>
    * @public
    */
-  DedicatedIpAutoWarmupEnabled?: boolean;
+  DedicatedIpAutoWarmupEnabled?: boolean | undefined;
 
   /**
    * <p>The reputation status of your Amazon SES account. The status can be one of the
@@ -4388,7 +4946,7 @@ export interface GetAccountResponse {
    *          </ul>
    * @public
    */
-  EnforcementStatus?: string;
+  EnforcementStatus?: string | undefined;
 
   /**
    * <p>Indicates whether or not your account has production access in the current Amazon Web Services
@@ -4402,40 +4960,40 @@ export interface GetAccountResponse {
    *             maximum sending rate for your account vary based on your specific use case.</p>
    * @public
    */
-  ProductionAccessEnabled?: boolean;
+  ProductionAccessEnabled?: boolean | undefined;
 
   /**
    * <p>An object that contains information about the per-day and per-second sending limits
    *             for your Amazon SES account in the current Amazon Web Services Region.</p>
    * @public
    */
-  SendQuota?: SendQuota;
+  SendQuota?: SendQuota | undefined;
 
   /**
    * <p>Indicates whether or not email sending is enabled for your Amazon SES account in the
    *             current Amazon Web Services Region.</p>
    * @public
    */
-  SendingEnabled?: boolean;
+  SendingEnabled?: boolean | undefined;
 
   /**
    * <p>An object that contains information about the email address suppression preferences
    *             for your account in the current Amazon Web Services Region.</p>
    * @public
    */
-  SuppressionAttributes?: SuppressionAttributes;
+  SuppressionAttributes?: SuppressionAttributes | undefined;
 
   /**
    * <p>An object that defines your account details.</p>
    * @public
    */
-  Details?: AccountDetails;
+  Details?: AccountDetails | undefined;
 
   /**
    * <p>The VDM attributes that apply to your Amazon SES account.</p>
    * @public
    */
-  VdmAttributes?: VdmAttributes;
+  VdmAttributes?: VdmAttributes | undefined;
 }
 
 /**
@@ -4487,56 +5045,63 @@ export interface GetConfigurationSetResponse {
    * <p>The name of the configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>An object that defines the open and click tracking options for emails that you send
    *             using the configuration set.</p>
    * @public
    */
-  TrackingOptions?: TrackingOptions;
+  TrackingOptions?: TrackingOptions | undefined;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    * @public
    */
-  DeliveryOptions?: DeliveryOptions;
+  DeliveryOptions?: DeliveryOptions | undefined;
 
   /**
    * <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    * @public
    */
-  ReputationOptions?: ReputationOptions;
+  ReputationOptions?: ReputationOptions | undefined;
 
   /**
    * <p>An object that defines whether or not Amazon SES can send email that you send using the
    *             configuration set.</p>
    * @public
    */
-  SendingOptions?: SendingOptions;
+  SendingOptions?: SendingOptions | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the configuration set.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>An object that contains information about the suppression list preferences for your
    *             account.</p>
    * @public
    */
-  SuppressionOptions?: SuppressionOptions;
+  SuppressionOptions?: SuppressionOptions | undefined;
 
   /**
    * <p>An object that contains information about the VDM preferences for your configuration
    *             set.</p>
    * @public
    */
-  VdmOptions?: VdmOptions;
+  VdmOptions?: VdmOptions | undefined;
+
+  /**
+   * <p>An object that defines the MailManager archive where sent emails are archived that you send
+   *             using the configuration set.</p>
+   * @public
+   */
+  ArchivingOptions?: ArchivingOptions | undefined;
 }
 
 /**
@@ -4562,7 +5127,7 @@ export interface GetConfigurationSetEventDestinationsResponse {
    *             the configuration set.</p>
    * @public
    */
-  EventDestinations?: EventDestination[];
+  EventDestinations?: EventDestination[] | undefined;
 }
 
 /**
@@ -4590,50 +5155,50 @@ export interface GetContactResponse {
    * <p>The name of the contact list to which the contact belongs.</p>
    * @public
    */
-  ContactListName?: string;
+  ContactListName?: string | undefined;
 
   /**
    * <p>The contact's email address.</p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p>The contact's preference for being opted-in to or opted-out of a topic.></p>
    * @public
    */
-  TopicPreferences?: TopicPreference[];
+  TopicPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>The default topic preferences applied to the contact.</p>
    * @public
    */
-  TopicDefaultPreferences?: TopicPreference[];
+  TopicDefaultPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    * @public
    */
-  UnsubscribeAll?: boolean;
+  UnsubscribeAll?: boolean | undefined;
 
   /**
    * <p>The attribute data attached to a contact.</p>
    * @public
    */
-  AttributesData?: string;
+  AttributesData?: string | undefined;
 
   /**
    * <p>A timestamp noting when the contact was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>A timestamp noting the last time the contact's information was updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4655,38 +5220,38 @@ export interface GetContactListResponse {
    * <p>The name of the contact list.</p>
    * @public
    */
-  ContactListName?: string;
+  ContactListName?: string | undefined;
 
   /**
    * <p>An interest group, theme, or label within a list. A contact list can have multiple
    *             topics.</p>
    * @public
    */
-  Topics?: Topic[];
+  Topics?: Topic[] | undefined;
 
   /**
    * <p>A description of what the contact list is about.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A timestamp noting when the contact list was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>A timestamp noting the last time the contact list was updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The tags associated with a contact list.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4711,39 +5276,39 @@ export interface GetCustomVerificationEmailTemplateResponse {
    * <p>The name of the custom verification email template.</p>
    * @public
    */
-  TemplateName?: string;
+  TemplateName?: string | undefined;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>The subject line of the custom verification email.</p>
    * @public
    */
-  TemplateSubject?: string;
+  TemplateSubject?: string | undefined;
 
   /**
    * <p>The content of the custom verification email.</p>
    * @public
    */
-  TemplateContent?: string;
+  TemplateContent?: string | undefined;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    * @public
    */
-  SuccessRedirectionURL?: string;
+  SuccessRedirectionURL?: string | undefined;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    * @public
    */
-  FailureRedirectionURL?: string;
+  FailureRedirectionURL?: string | undefined;
 }
 
 /**
@@ -4768,7 +5333,7 @@ export interface GetDedicatedIpResponse {
    * <p>An object that contains information about a dedicated IP address.</p>
    * @public
    */
-  DedicatedIp?: DedicatedIp;
+  DedicatedIp?: DedicatedIp | undefined;
 }
 
 /**
@@ -4792,7 +5357,7 @@ export interface GetDedicatedIpPoolResponse {
    * <p>An object that contains information about a dedicated IP pool.</p>
    * @public
    */
-  DedicatedIpPool?: DedicatedIpPool;
+  DedicatedIpPool?: DedicatedIpPool | undefined;
 }
 
 /**
@@ -4804,14 +5369,14 @@ export interface GetDedicatedIpsRequest {
    * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
    * @public
    */
-  PoolName?: string;
+  PoolName?: string | undefined;
 
   /**
    * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
    *             position of the dedicated IP pool in the list of IP pools.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
@@ -4820,7 +5385,7 @@ export interface GetDedicatedIpsRequest {
    *             additional results.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -4833,7 +5398,7 @@ export interface GetDedicatedIpsResponse {
    * <p>A list of dedicated IP addresses that are associated with your Amazon Web Services account.</p>
    * @public
    */
-  DedicatedIps?: DedicatedIp[];
+  DedicatedIps?: DedicatedIp[] | undefined;
 
   /**
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
@@ -4841,7 +5406,7 @@ export interface GetDedicatedIpsResponse {
    *             passing this token in the <code>NextToken</code> parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4874,7 +5439,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *             due to expire at the end of the month.</p>
    * @public
    */
-  SubscriptionExpiryDate?: Date;
+  SubscriptionExpiryDate?: Date | undefined;
 
   /**
    * <p>The current status of your Deliverability dashboard subscription. If this value is
@@ -4882,7 +5447,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *             of the current calendar month.</p>
    * @public
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus;
+  AccountStatus?: DeliverabilityDashboardAccountStatus | undefined;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -4890,7 +5455,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *             the end of the current calendar month.</p>
    * @public
    */
-  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -4898,7 +5463,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *             end of the current calendar month.</p>
    * @public
    */
-  PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+  PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
 }
 
 /**
@@ -4922,35 +5487,35 @@ export interface PlacementStatistics {
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    * @public
    */
-  InboxPercentage?: number;
+  InboxPercentage?: number | undefined;
 
   /**
    * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
    *             the predictive inbox placement test.</p>
    * @public
    */
-  SpamPercentage?: number;
+  SpamPercentage?: number | undefined;
 
   /**
    * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
    *             predictive inbox placement test.</p>
    * @public
    */
-  MissingPercentage?: number;
+  MissingPercentage?: number | undefined;
 
   /**
    * <p>The percentage of emails that were authenticated by using Sender Policy Framework
    *             (SPF) during the predictive inbox placement test.</p>
    * @public
    */
-  SpfPercentage?: number;
+  SpfPercentage?: number | undefined;
 
   /**
    * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
    *             (DKIM) during the predictive inbox placement test.</p>
    * @public
    */
-  DkimPercentage?: number;
+  DkimPercentage?: number | undefined;
 }
 
 /**
@@ -4963,13 +5528,13 @@ export interface IspPlacement {
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    * @public
    */
-  IspName?: string;
+  IspName?: string | undefined;
 
   /**
    * <p>An object that contains inbox placement metrics for a specific email provider.</p>
    * @public
    */
-  PlacementStatistics?: PlacementStatistics;
+  PlacementStatistics?: PlacementStatistics | undefined;
 }
 
 /**
@@ -5003,14 +5568,14 @@ export interface GetDeliverabilityTestReportResponse {
    *             predictive inbox placement test.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the predictive inbox placement test.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5081,21 +5646,21 @@ export interface OverallVolume {
    *             recipients' inboxes and junk mail folders.</p>
    * @public
    */
-  VolumeStatistics?: VolumeStatistics;
+  VolumeStatistics?: VolumeStatistics | undefined;
 
   /**
    * <p>The percentage of emails that were sent from the domain that were read by their
    *             recipients.</p>
    * @public
    */
-  ReadRatePercent?: number;
+  ReadRatePercent?: number | undefined;
 
   /**
    * <p>An object that contains inbox and junk mail placement metrics for individual email
    *             providers.</p>
    * @public
    */
-  DomainIspPlacements?: DomainIspPlacement[];
+  DomainIspPlacements?: DomainIspPlacement[] | undefined;
 }
 
 /**
@@ -5211,6 +5776,11 @@ export const VerificationError = {
   DNS_SERVER_ERROR: "DNS_SERVER_ERROR",
   HOST_NOT_FOUND: "HOST_NOT_FOUND",
   INVALID_VALUE: "INVALID_VALUE",
+  REPLICATION_ACCESS_DENIED: "REPLICATION_ACCESS_DENIED",
+  REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED: "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED",
+  REPLICATION_PRIMARY_INVALID_REGION: "REPLICATION_PRIMARY_INVALID_REGION",
+  REPLICATION_PRIMARY_NOT_FOUND: "REPLICATION_PRIMARY_NOT_FOUND",
+  REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED: "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED",
   SERVICE_ERROR: "SERVICE_ERROR",
   TYPE_NOT_FOUND: "TYPE_NOT_FOUND",
 } as const;
@@ -5230,19 +5800,19 @@ export interface SOARecord {
    * <p>Primary name server specified in the SOA record.</p>
    * @public
    */
-  PrimaryNameServer?: string;
+  PrimaryNameServer?: string | undefined;
 
   /**
    * <p>Administrative contact email from the SOA record.</p>
    * @public
    */
-  AdminEmail?: string;
+  AdminEmail?: string | undefined;
 
   /**
    * <p>Serial number from the SOA record.</p>
    * @public
    */
-  SerialNumber?: number;
+  SerialNumber?: number | undefined;
 }
 
 /**
@@ -5255,13 +5825,13 @@ export interface VerificationInfo {
    * <p>The last time a verification attempt was made for this identity.</p>
    * @public
    */
-  LastCheckedTimestamp?: Date;
+  LastCheckedTimestamp?: Date | undefined;
 
   /**
    * <p>The last time a successful verification was made for this identity.</p>
    * @public
    */
-  LastSuccessTimestamp?: Date;
+  LastSuccessTimestamp?: Date | undefined;
 
   /**
    * <p>Provides the reason for the failure describing why Amazon SES was not able to successfully
@@ -5295,17 +5865,52 @@ export interface VerificationInfo {
    *                   <code>DNS_SERVER_ERROR</code> – The DNS server encountered an issue and
    *                     was unable to complete the request.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATION_ACCESS_DENIED</code> – The verification failed because the user does not
+   *                     have the required permissions to replicate the DKIM key from the primary region. Ensure you have the
+   *                     necessary permissions in both primary and replica regions.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATION_PRIMARY_NOT_FOUND</code> – The verification failed because no corresponding
+   *                     identity was found in the specified primary region. Ensure the identity exists in the primary region
+   *                     before attempting replication.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED</code> – The verification failed because the
+   *                     identity in the primary region is configured with Bring Your Own DKIM (BYODKIM). DKIM key
+   *                     replication is only supported for identities using Easy DKIM.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED</code> – The verification failed because
+   *                     the specified primary identity is a replica of another identity, and multi-level replication is not
+   *                     supported; the primary identity must be a non-replica identity.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid
+   *                     primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different
+   *                     from the replica region.
+   *                 </p>
+   *             </li>
    *          </ul>
    * @public
    */
-  ErrorType?: VerificationError;
+  ErrorType?: VerificationError | undefined;
 
   /**
    * <p>An object that contains information about the start of authority (SOA) record
    *             associated with the identity.</p>
    * @public
    */
-  SOARecord?: SOARecord;
+  SOARecord?: SOARecord | undefined;
 }
 
 /**
@@ -5335,7 +5940,7 @@ export interface GetEmailIdentityResponse {
    *             supported.</p>
    * @public
    */
-  IdentityType?: IdentityType;
+  IdentityType?: IdentityType | undefined;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -5348,7 +5953,7 @@ export interface GetEmailIdentityResponse {
    *             occur (even if this setting is disabled).</p>
    * @public
    */
-  FeedbackForwardingStatus?: boolean;
+  FeedbackForwardingStatus?: boolean | undefined;
 
   /**
    * <p>Specifies whether or not the identity is verified. You can only send email from
@@ -5356,39 +5961,39 @@ export interface GetEmailIdentityResponse {
    *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
    * @public
    */
-  VerifiedForSendingStatus?: boolean;
+  VerifiedForSendingStatus?: boolean | undefined;
 
   /**
    * <p>An object that contains information about the DKIM attributes for the identity.</p>
    * @public
    */
-  DkimAttributes?: DkimAttributes;
+  DkimAttributes?: DkimAttributes | undefined;
 
   /**
    * <p>An object that contains information about the Mail-From attributes for the email
    *             identity.</p>
    * @public
    */
-  MailFromAttributes?: MailFromAttributes;
+  MailFromAttributes?: MailFromAttributes | undefined;
 
   /**
    * <p>A map of policy names to policies.</p>
    * @public
    */
-  Policies?: Record<string, string>;
+  Policies?: Record<string, string> | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the email identity.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The configuration set used by default when sending from this identity.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The verification status of the identity. The status can be one of the following:</p>
@@ -5420,14 +6025,14 @@ export interface GetEmailIdentityResponse {
    *          </ul>
    * @public
    */
-  VerificationStatus?: VerificationStatus;
+  VerificationStatus?: VerificationStatus | undefined;
 
   /**
    * <p>An object that contains additional information about the verification status for the
    *             identity.</p>
    * @public
    */
-  VerificationInfo?: VerificationInfo;
+  VerificationInfo?: VerificationInfo | undefined;
 }
 
 /**
@@ -5451,7 +6056,7 @@ export interface GetEmailIdentityPoliciesResponse {
    * <p>A map of policy names to policies.</p>
    * @public
    */
-  Policies?: Record<string, string>;
+  Policies?: Record<string, string> | undefined;
 }
 
 /**
@@ -5509,55 +6114,55 @@ export interface GetExportJobResponse {
    * <p>The export job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The type of source of the export job.</p>
    * @public
    */
-  ExportSourceType?: ExportSourceType;
+  ExportSourceType?: ExportSourceType | undefined;
 
   /**
    * <p>The status of the export job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>The destination of the export job.</p>
    * @public
    */
-  ExportDestination?: ExportDestination;
+  ExportDestination?: ExportDestination | undefined;
 
   /**
    * <p>The data source of the export job.</p>
    * @public
    */
-  ExportDataSource?: ExportDataSource;
+  ExportDataSource?: ExportDataSource | undefined;
 
   /**
    * <p>The timestamp of when the export job was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export job was completed.</p>
    * @public
    */
-  CompletedTimestamp?: Date;
+  CompletedTimestamp?: Date | undefined;
 
   /**
    * <p>The failure details about an export job.</p>
    * @public
    */
-  FailureInfo?: FailureInfo;
+  FailureInfo?: FailureInfo | undefined;
 
   /**
    * <p>The statistics about the export job.</p>
    * @public
    */
-  Statistics?: ExportStatistics;
+  Statistics?: ExportStatistics | undefined;
 }
 
 /**
@@ -5583,56 +6188,56 @@ export interface GetImportJobResponse {
    * <p>A string that represents the import job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The destination of the import job.</p>
    * @public
    */
-  ImportDestination?: ImportDestination;
+  ImportDestination?: ImportDestination | undefined;
 
   /**
    * <p>The data source of the import job.</p>
    * @public
    */
-  ImportDataSource?: ImportDataSource;
+  ImportDataSource?: ImportDataSource | undefined;
 
   /**
    * <p>The failure details about an import job.</p>
    * @public
    */
-  FailureInfo?: FailureInfo;
+  FailureInfo?: FailureInfo | undefined;
 
   /**
    * <p>The status of the import job.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>The time stamp of when the import job was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The time stamp of when the import job was completed.</p>
    * @public
    */
-  CompletedTimestamp?: Date;
+  CompletedTimestamp?: Date | undefined;
 
   /**
    * <p>The current number of records processed.</p>
    * @public
    */
-  ProcessedRecordsCount?: number;
+  ProcessedRecordsCount?: number | undefined;
 
   /**
    * <p>The number of records that failed processing because of invalid input or other
    *             reasons.</p>
    * @public
    */
-  FailedRecordsCount?: number;
+  FailedRecordsCount?: number | undefined;
 }
 
 /**
@@ -5659,19 +6264,19 @@ export interface GetMessageInsightsResponse {
    * <p>A unique identifier for the message.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>The from address used to send the message.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>The subject line of the message.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>
@@ -5680,13 +6285,98 @@ export interface GetMessageInsightsResponse {
    *         </p>
    * @public
    */
-  EmailTags?: MessageTag[];
+  EmailTags?: MessageTag[] | undefined;
 
   /**
    * <p>A set of insights associated with the message.</p>
    * @public
    */
-  Insights?: EmailInsights[];
+  Insights?: EmailInsights[] | undefined;
+}
+
+/**
+ * <p>Represents a request to display the multi-region endpoint (global-endpoint).</p>
+ * @public
+ */
+export interface GetMultiRegionEndpointRequest {
+  /**
+   * <p>The name of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
+
+/**
+ * <p>An object which contains an AWS-Region and routing status.</p>
+ * @public
+ */
+export interface Route {
+  /**
+   * <p>The name of an AWS-Region.</p>
+   * @public
+   */
+  Region: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface GetMultiRegionEndpointResponse {
+  /**
+   * <p>The name of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  Routes?: Route[] | undefined;
+
+  /**
+   * <p>The status of the multi-region endpoint (global-endpoint).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The resource is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> – The resource is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The resource failed to be provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – The resource is being deleted as requested.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5713,14 +6403,14 @@ export interface SuppressedDestinationAttributes {
    *             to the suppression list for your account.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>A unique identifier that's generated when an email address is added to the suppression
    *             list for your account.</p>
    * @public
    */
-  FeedbackId?: string;
+  FeedbackId?: string | undefined;
 }
 
 /**
@@ -5753,7 +6443,7 @@ export interface SuppressedDestination {
    *             address was added to the suppression list for your account.</p>
    * @public
    */
-  Attributes?: SuppressedDestinationAttributes;
+  Attributes?: SuppressedDestinationAttributes | undefined;
 }
 
 /**
@@ -5778,13 +6468,13 @@ export interface IdentityInfo {
    *             for email identity types.</p>
    * @public
    */
-  IdentityType?: IdentityType;
+  IdentityType?: IdentityType | undefined;
 
   /**
    * <p>The address or domain of the identity.</p>
    * @public
    */
-  IdentityName?: string;
+  IdentityName?: string | undefined;
 
   /**
    * <p>Indicates whether or not you can send email from the identity.</p>
@@ -5793,7 +6483,7 @@ export interface IdentityInfo {
    *             the identity, and that you authorize Amazon SES to send email from that identity.</p>
    * @public
    */
-  SendingEnabled?: boolean;
+  SendingEnabled?: boolean | undefined;
 
   /**
    * <p>The verification status of the identity. The status can be one of the
@@ -5826,7 +6516,7 @@ export interface IdentityInfo {
    *          </ul>
    * @public
    */
-  VerificationStatus?: VerificationStatus;
+  VerificationStatus?: VerificationStatus | undefined;
 }
 
 /**
@@ -5852,14 +6542,14 @@ export interface ImportJobSummary {
    * <p>A string that represents a job ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>An object that contains details about the resource destination the import job is going
    *             to target.</p>
    * @public
    */
-  ImportDestination?: ImportDestination;
+  ImportDestination?: ImportDestination | undefined;
 
   /**
    * <p>The status of a job.</p>
@@ -5883,26 +6573,26 @@ export interface ImportJobSummary {
    *          </ul>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>The date and time when the import job was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The current number of records processed.</p>
    * @public
    */
-  ProcessedRecordsCount?: number;
+  ProcessedRecordsCount?: number | undefined;
 
   /**
    * <p>The number of records that failed processing because of invalid input or other
    *             reasons.</p>
    * @public
    */
-  FailedRecordsCount?: number;
+  FailedRecordsCount?: number | undefined;
 }
 
 /**
@@ -5936,7 +6626,7 @@ export interface ListConfigurationSetsRequest {
    *             indicate the position in the list of configuration sets.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to <code>ListConfigurationSets</code>.
@@ -5945,7 +6635,7 @@ export interface ListConfigurationSetsRequest {
    *             additional results.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -5958,7 +6648,7 @@ export interface ListConfigurationSetsResponse {
    *             current Amazon Web Services Region.</p>
    * @public
    */
-  ConfigurationSets?: string[];
+  ConfigurationSets?: string[] | undefined;
 
   /**
    * <p>A token that indicates that there are additional configuration sets to list. To view
@@ -5967,7 +6657,7 @@ export interface ListConfigurationSetsResponse {
    *                 <code>NextToken</code> parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5982,7 +6672,7 @@ export interface ListContactListsRequest {
    *             lists.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>A string token indicating that there might be additional contact lists available to be
@@ -5991,7 +6681,7 @@ export interface ListContactListsRequest {
    *             lists.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6002,7 +6692,7 @@ export interface ListContactListsResponse {
    * <p>The available contact lists.</p>
    * @public
    */
-  ContactLists?: ContactList[];
+  ContactLists?: ContactList[] | undefined;
 
   /**
    * <p>A string token indicating that there might be additional contact lists available to be
@@ -6010,7 +6700,7 @@ export interface ListContactListsResponse {
    *             same parameters to retrieve the next page of contact lists.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6022,14 +6712,14 @@ export interface TopicFilter {
    * <p>The name of a topic on which you wish to apply the filter.</p>
    * @public
    */
-  TopicName?: string;
+  TopicName?: string | undefined;
 
   /**
    * <p>Notes that the default subscription status should be applied to a contact because the
    *             contact has not noted their preference for subscribing to a topic.</p>
    * @public
    */
-  UseDefaultIfPreferenceUnavailable?: boolean;
+  UseDefaultIfPreferenceUnavailable?: boolean | undefined;
 }
 
 /**
@@ -6042,13 +6732,13 @@ export interface ListContactsFilter {
    *             <code>OPT_OUT</code>.</p>
    * @public
    */
-  FilteredStatus?: SubscriptionStatus;
+  FilteredStatus?: SubscriptionStatus | undefined;
 
   /**
    * <p>Used for filtering by a specific topic preference.</p>
    * @public
    */
-  TopicFilter?: TopicFilter;
+  TopicFilter?: TopicFilter | undefined;
 }
 
 /**
@@ -6065,7 +6755,7 @@ export interface ListContactsRequest {
    * <p>A filter that can be applied to a list of contacts.</p>
    * @public
    */
-  Filter?: ListContactsFilter;
+  Filter?: ListContactsFilter | undefined;
 
   /**
    * <p>The number of contacts that may be returned at once, which is dependent on if there
@@ -6076,7 +6766,7 @@ export interface ListContactsRequest {
    *             contacts.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>A string token indicating that there might be additional contacts available to be
@@ -6084,7 +6774,7 @@ export interface ListContactsRequest {
    *             ListContacts with the same parameters to retrieve the next page of contacts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6095,7 +6785,7 @@ export interface ListContactsResponse {
    * <p>The contacts present in a specific contact list.</p>
    * @public
    */
-  Contacts?: Contact[];
+  Contacts?: Contact[] | undefined;
 
   /**
    * <p>A string token indicating that there might be additional contacts available to be
@@ -6103,7 +6793,7 @@ export interface ListContactsResponse {
    *             parameters to retrieve the next page of contacts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6118,7 +6808,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
    *             list of custom verification email templates.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to
@@ -6129,7 +6819,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
    *          <p>The value you specify has to be at least 1, and can be no more than 50.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6141,7 +6831,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
    * <p>A list of the custom verification email templates that exist in your account.</p>
    * @public
    */
-  CustomVerificationEmailTemplates?: CustomVerificationEmailTemplateMetadata[];
+  CustomVerificationEmailTemplates?: CustomVerificationEmailTemplateMetadata[] | undefined;
 
   /**
    * <p>A token indicating that there are additional custom verification email templates
@@ -6150,7 +6840,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
    *             verification email templates.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6163,7 +6853,7 @@ export interface ListDedicatedIpPoolsRequest {
    *             the position in the list of dedicated IP pools.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
@@ -6172,7 +6862,7 @@ export interface ListDedicatedIpPoolsRequest {
    *             additional results.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6185,7 +6875,7 @@ export interface ListDedicatedIpPoolsResponse {
    *             the current Region.</p>
    * @public
    */
-  DedicatedIpPools?: string[];
+  DedicatedIpPools?: string[] | undefined;
 
   /**
    * <p>A token that indicates that there are additional IP pools to list. To view additional
@@ -6193,7 +6883,7 @@ export interface ListDedicatedIpPoolsResponse {
    *             in the <code>NextToken</code> parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6206,7 +6896,7 @@ export interface ListDeliverabilityTestReportsRequest {
    *             indicate the position in the list of predictive inbox placement tests.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to
@@ -6217,7 +6907,7 @@ export interface ListDeliverabilityTestReportsRequest {
    *          <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6238,7 +6928,7 @@ export interface ListDeliverabilityTestReportsResponse {
    *             this token in the <code>NextToken</code> parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6275,7 +6965,7 @@ export interface ListDomainDeliverabilityCampaignsRequest {
    *             position of a campaign in the list of campaigns.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to include in response to a single call to the
@@ -6285,7 +6975,7 @@ export interface ListDomainDeliverabilityCampaignsRequest {
    *             results.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6308,7 +6998,7 @@ export interface ListDomainDeliverabilityCampaignsResponse {
    *             position of the campaign in the list of campaigns.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6323,7 +7013,7 @@ export interface ListEmailIdentitiesRequest {
    *             the position in the list of identities.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If
@@ -6333,7 +7023,7 @@ export interface ListEmailIdentitiesRequest {
    *          <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6347,7 +7037,7 @@ export interface ListEmailIdentitiesResponse {
    *             account.</p>
    * @public
    */
-  EmailIdentities?: IdentityInfo[];
+  EmailIdentities?: IdentityInfo[] | undefined;
 
   /**
    * <p>A token that indicates that there are additional configuration sets to list. To view
@@ -6356,7 +7046,7 @@ export interface ListEmailIdentitiesResponse {
    *             parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6371,7 +7061,7 @@ export interface ListEmailTemplatesRequest {
    *             the position in the list of email templates.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
@@ -6380,7 +7070,7 @@ export interface ListEmailTemplatesRequest {
    *          <p>The value you specify has to be at least 1, and can be no more than 100.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6393,7 +7083,7 @@ export interface ListEmailTemplatesResponse {
    *             account.</p>
    * @public
    */
-  TemplatesMetadata?: EmailTemplateMetadata[];
+  TemplatesMetadata?: EmailTemplateMetadata[] | undefined;
 
   /**
    * <p>A token indicating that there are additional email templates available to be listed.
@@ -6401,7 +7091,7 @@ export interface ListEmailTemplatesResponse {
    *             next 10 email templates.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6414,7 +7104,7 @@ export interface ListExportJobsRequest {
    *             indicate the position in the list of export jobs.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of export jobs to return at once. Use this parameter to paginate
@@ -6424,20 +7114,20 @@ export interface ListExportJobsRequest {
    *             retrieve additional export jobs.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>A value used to list export jobs that have a certain
    *             <code>ExportSourceType</code>.</p>
    * @public
    */
-  ExportSourceType?: ExportSourceType;
+  ExportSourceType?: ExportSourceType | undefined;
 
   /**
    * <p>A value used to list export jobs that have a certain <code>JobStatus</code>.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 }
 
 /**
@@ -6450,7 +7140,7 @@ export interface ListExportJobsResponse {
    * <p>A list of the export job summaries.</p>
    * @public
    */
-  ExportJobs?: ExportJobSummary[];
+  ExportJobs?: ExportJobSummary[] | undefined;
 
   /**
    * <p>A string token indicating that there might be additional export jobs available to be
@@ -6458,7 +7148,7 @@ export interface ListExportJobsResponse {
    *             parameters to retrieve the next page of export jobs.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6472,7 +7162,7 @@ export interface ListImportJobsRequest {
    *             certain <code>ImportDestinationType</code>.</p>
    * @public
    */
-  ImportDestinationType?: ImportDestinationType;
+  ImportDestinationType?: ImportDestinationType | undefined;
 
   /**
    * <p>A string token indicating that there might be additional import jobs available to be
@@ -6480,7 +7170,7 @@ export interface ListImportJobsRequest {
    *             same parameters to retrieve the next page of import jobs.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of import jobs to return at once. Use this parameter to paginate
@@ -6490,7 +7180,7 @@ export interface ListImportJobsRequest {
    *             addresses.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6503,7 +7193,7 @@ export interface ListImportJobsResponse {
    * <p>A list of the import job summaries.</p>
    * @public
    */
-  ImportJobs?: ImportJobSummary[];
+  ImportJobs?: ImportJobSummary[] | undefined;
 
   /**
    * <p>A string token indicating that there might be additional import jobs available to be
@@ -6511,7 +7201,7 @@ export interface ListImportJobsResponse {
    *             same parameters to retrieve the next page of import jobs.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6530,7 +7220,112 @@ export interface ListManagementOptions {
    * <p>The name of the topic.</p>
    * @public
    */
-  TopicName?: string;
+  TopicName?: string | undefined;
+}
+
+/**
+ * <p>Represents a request to list all the multi-region endpoints (global-endpoints)
+ *             whose primary region is the AWS-Region where operation is executed.
+ *         </p>
+ * @public
+ */
+export interface ListMultiRegionEndpointsRequest {
+  /**
+   * <p>A token returned from a previous call to <code>ListMultiRegionEndpoints</code> to indicate
+   *             the position in the list of multi-region endpoints (global-endpoints).</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListMultiRegionEndpoints</code>.
+   *             If the number of results is larger than the number you specified in this parameter,
+   *             the response includes a <code>NextToken</code> element
+   *             that you can use to retrieve the next page of results.
+   *         </p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>An object that contains multi-region endpoint (global-endpoint) properties.</p>
+ * @public
+ */
+export interface MultiRegionEndpoint {
+  /**
+   * <p>The name of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The status of the multi-region endpoint (global-endpoint).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The resource is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> – The resource is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The resource failed to be provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – The resource is being deleted as requested.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>Primary and secondary regions between which multi-region endpoint splits sending traffic.</p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>The following elements are returned by the service.</p>
+ * @public
+ */
+export interface ListMultiRegionEndpointsResponse {
+  /**
+   * <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
+   * @public
+   */
+  MultiRegionEndpoints?: MultiRegionEndpoint[] | undefined;
+
+  /**
+   * <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed.
+   *             Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the
+   *             next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6562,14 +7357,14 @@ export interface ListRecommendationsRequest {
    *          </p>
    * @public
    */
-  Filter?: Partial<Record<ListRecommendationsFilterKey, string>>;
+  Filter?: Partial<Record<ListRecommendationsFilterKey, string>> | undefined;
 
   /**
    * <p>A token returned from a previous call to <code>ListRecommendations</code> to
    *             indicate the position in the list of recommendations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to
@@ -6580,7 +7375,7 @@ export interface ListRecommendationsRequest {
    *          <p>The value you specify has to be at least 1, and can be no more than 100.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6617,6 +7412,7 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  */
 export const RecommendationType = {
   BIMI: "BIMI",
+  COMPLAINT: "COMPLAINT",
   DKIM: "DKIM",
   DMARC: "DMARC",
   SPF: "SPF",
@@ -6637,47 +7433,47 @@ export interface Recommendation {
    *             with values like <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The recommendation type, with values like <code>DKIM</code>,
-   *             <code>SPF</code>, <code>DMARC</code> or <code>BIMI</code>.</p>
+   *             <code>SPF</code>, <code>DMARC</code>, <code>BIMI</code>, or <code>COMPLAINT</code>.</p>
    * @public
    */
-  Type?: RecommendationType;
+  Type?: RecommendationType | undefined;
 
   /**
    * <p>The recommendation description / disambiguator - e.g. <code>DKIM1</code> and <code>DKIM2</code>
    *               are different recommendations about your DKIM setup.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The recommendation status, with values like
    *             <code>OPEN</code> or <code>FIXED</code>.</p>
    * @public
    */
-  Status?: RecommendationStatus;
+  Status?: RecommendationStatus | undefined;
 
   /**
    * <p>The first time this issue was encountered and the recommendation was generated.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The last time the recommendation was updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The recommendation impact, with values like
    *             <code>HIGH</code> or <code>LOW</code>.</p>
    * @public
    */
-  Impact?: RecommendationImpact;
+  Impact?: RecommendationImpact | undefined;
 }
 
 /**
@@ -6689,7 +7485,7 @@ export interface ListRecommendationsResponse {
    * <p>The recommendations applicable to your account.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 
   /**
    * <p>A string token indicating that there might be additional recommendations available to be
@@ -6698,7 +7494,7 @@ export interface ListRecommendationsResponse {
    *             next page of recommendations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6711,28 +7507,28 @@ export interface ListSuppressedDestinationsRequest {
    * <p>The factors that caused the email address to be added to .</p>
    * @public
    */
-  Reasons?: SuppressionListReason[];
+  Reasons?: SuppressionListReason[] | undefined;
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
    *             addresses that were added to the list after a specific date.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
    *             addresses that were added to the list before a specific date.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to
    *             indicate the position in the list of suppressed email addresses.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of results to show in a single call to
@@ -6742,7 +7538,7 @@ export interface ListSuppressedDestinationsRequest {
    *             results.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6780,7 +7576,7 @@ export interface ListSuppressedDestinationsResponse {
    *             destination.</p>
    * @public
    */
-  SuppressedDestinationSummaries?: SuppressedDestinationSummary[];
+  SuppressedDestinationSummaries?: SuppressedDestinationSummary[] | undefined;
 
   /**
    * <p>A token that indicates that there are additional email addresses on the suppression
@@ -6789,7 +7585,7 @@ export interface ListSuppressedDestinationsResponse {
    *                 <code>NextToken</code> parameter.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6829,7 +7625,7 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
    *             it.</p>
    * @public
    */
-  AutoWarmupEnabled?: boolean;
+  AutoWarmupEnabled?: boolean | undefined;
 }
 
 /**
@@ -6861,20 +7657,22 @@ export interface PutAccountDetailsRequest {
    * <p>The language you would prefer to be contacted with.</p>
    * @public
    */
-  ContactLanguage?: ContactLanguage;
+  ContactLanguage?: ContactLanguage | undefined;
 
   /**
    * <p>A description of the types of email that you plan to send.</p>
+   *
+   * @deprecated
    * @public
    */
-  UseCaseDescription: string | undefined;
+  UseCaseDescription?: string | undefined;
 
   /**
    * <p>Additional email addresses that you would like to be notified regarding Amazon SES
    *             matters.</p>
    * @public
    */
-  AdditionalContactEmailAddresses?: string[];
+  AdditionalContactEmailAddresses?: string[] | undefined;
 
   /**
    * <p>Indicates whether or not your account should have production access in the current
@@ -6888,7 +7686,7 @@ export interface PutAccountDetailsRequest {
    *             maximum sending rate for your account vary based on your specific use case.</p>
    * @public
    */
-  ProductionAccessEnabled?: boolean;
+  ProductionAccessEnabled?: boolean | undefined;
 }
 
 /**
@@ -6912,7 +7710,7 @@ export interface PutAccountSendingAttributesRequest {
    *          </note>
    * @public
    */
-  SendingEnabled?: boolean;
+  SendingEnabled?: boolean | undefined;
 }
 
 /**
@@ -6947,7 +7745,7 @@ export interface PutAccountSuppressionAttributesRequest {
    *          </ul>
    * @public
    */
-  SuppressedReasons?: SuppressionListReason[];
+  SuppressedReasons?: SuppressionListReason[] | undefined;
 }
 
 /**
@@ -6975,6 +7773,32 @@ export interface PutAccountVdmAttributesRequest {
 export interface PutAccountVdmAttributesResponse {}
 
 /**
+ * <p>A request to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a MailManager archive.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email
+   *             to.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsResponse {}
+
+/**
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  * @public
  */
@@ -6992,13 +7816,22 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    * @public
    */
-  TlsPolicy?: TlsPolicy;
+  TlsPolicy?: TlsPolicy | undefined;
 
   /**
    * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
    * @public
    */
-  SendingPoolName?: string;
+  SendingPoolName?: string | undefined;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number | undefined;
 }
 
 /**
@@ -7026,7 +7859,7 @@ export interface PutConfigurationSetReputationOptionsRequest {
    *             configuration set.</p>
    * @public
    */
-  ReputationMetricsEnabled?: boolean;
+  ReputationMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -7053,7 +7886,7 @@ export interface PutConfigurationSetSendingOptionsRequest {
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    * @public
    */
-  SendingEnabled?: boolean;
+  SendingEnabled?: boolean | undefined;
 }
 
 /**
@@ -7096,7 +7929,7 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    *          </ul>
    * @public
    */
-  SuppressedReasons?: SuppressionListReason[];
+  SuppressedReasons?: SuppressionListReason[] | undefined;
 }
 
 /**
@@ -7122,310 +7955,17 @@ export interface PutConfigurationSetTrackingOptionsRequest {
    * <p>The domain to use to track open and click events.</p>
    * @public
    */
-  CustomRedirectDomain?: string;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetTrackingOptionsResponse {}
-
-/**
- * <p>A request to add specific VDM settings to a configuration set.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsRequest {
-  /**
-   * <p>The name of the configuration set.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
+  CustomRedirectDomain?: string | undefined;
 
   /**
-   * <p>The VDM options to apply to the configuration set.</p>
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
    * @public
    */
-  VdmOptions?: VdmOptions;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsResponse {}
-
-/**
- * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
- * @public
- */
-export interface PutDedicatedIpInPoolRequest {
-  /**
-   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
-   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
-   * @public
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
-   *             specify an IP pool that already exists.</p>
-   * @public
-   */
-  DestinationPoolName: string | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpInPoolResponse {}
-
-/**
- * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
- * @public
- */
-export interface PutDedicatedIpPoolScalingAttributesRequest {
-  /**
-   * <p>The name of the dedicated IP pool.</p>
-   * @public
-   */
-  PoolName: string | undefined;
-
-  /**
-   * <p>The scaling mode to apply to the dedicated IP pool.</p>
-   *          <note>
-   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
-   *          </note>
-   * @public
-   */
-  ScalingMode: ScalingMode | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpPoolScalingAttributesResponse {}
-
-/**
- * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
- *             is useful when you want to resume the warm-up process for an existing IP address.</p>
- * @public
- */
-export interface PutDedicatedIpWarmupAttributesRequest {
-  /**
-   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
-   * @public
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The warm-up percentage that you want to associate with the dedicated IP
-   *             address.</p>
-   * @public
-   */
-  WarmupPercentage: number | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpWarmupAttributesResponse {}
-
-/**
- * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
- *             access to reputation, deliverability, and other metrics for the domains that you use to
- *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
- *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
- *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
- *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
- * @public
- */
-export interface PutDeliverabilityDashboardOptionRequest {
-  /**
-   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
-   *             value to <code>true</code>.</p>
-   * @public
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
-   * <p>An array of objects, one for each verified domain that you use to send email and
-   *             enabled the Deliverability dashboard for.</p>
-   * @public
-   */
-  SubscribedDomains?: DomainDeliverabilityTrackingOption[];
-}
-
-/**
- * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
- * @public
- */
-export interface PutDeliverabilityDashboardOptionResponse {}
-
-/**
- * <p>A request to associate a configuration set with an email identity.</p>
- * @public
- */
-export interface PutEmailIdentityConfigurationSetAttributesRequest {
-  /**
-   * <p>The email address or domain to associate with a configuration set.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>The configuration set to associate with an email identity.</p>
-   * @public
-   */
-  ConfigurationSetName?: string;
-}
-
-/**
- * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
- *             HTTP body.</p>
- * @public
- */
-export interface PutEmailIdentityConfigurationSetAttributesResponse {}
-
-/**
- * <p>A request to enable or disable DKIM signing of email that you send from an email
- *             identity.</p>
- * @public
- */
-export interface PutEmailIdentityDkimAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>Sets the DKIM signing configuration for the identity.</p>
-   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
-   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
-   *             messages are sent without DKIM signing.</p>
-   * @public
-   */
-  SigningEnabled?: boolean;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutEmailIdentityDkimAttributesResponse {}
-
-/**
- * <p>A request to change the DKIM attributes for an email identity.</p>
- * @public
- */
-export interface PutEmailIdentityDkimSigningAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>The method to use to configure DKIM for the identity. There are the following possible
-   *             values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                         DKIM</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
-   *                     Your Own DKIM (BYODKIM).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
-
-  /**
-   * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
-   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-   * @public
-   */
-  SigningAttributes?: DkimSigningAttributes;
-}
-
-/**
- * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
- *          <p>The following data is returned in JSON format by the service.</p>
- * @public
- */
-export interface PutEmailIdentityDkimSigningAttributesResponse {
-  /**
-   * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
-   *             status by searching for specific records in the DNS configuration for your domain. If
-   *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
-   *             records in the DNS configuration for your domain.</p>
-   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
-   *             record that uses the selector that you specified. The value of the TXT record must be a
-   *             public key that's paired with the private key that you specified in the process of
-   *             creating the identity.</p>
-   *          <p>The status can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
-   *                     hasn't yet detected the DKIM records in the DNS configuration for the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCESS</code> – The verification process completed
-   *                     successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> – The verification process failed. This typically
-   *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
-   *                     from determining the DKIM authentication status of the domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
-   *                     initiated for the domain.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DkimStatus?: DkimStatus;
-
-  /**
-   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
-   *             contains a set of unique strings that you use to create a set of CNAME records that you
-   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
-   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *          <p>If you configured DKIM authentication for the domain by providing your own
-   *             public-private key pair, then this object contains the selector that's associated with
-   *             your public key.</p>
-   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
-   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-   * @public
-   */
-  DkimTokens?: string[];
+  HttpsPolicy?: HttpsPolicy | undefined;
 }
 
 /**
@@ -7535,14 +8075,4 @@ export const PutAccountDetailsRequestFilterSensitiveLog = (obj: PutAccountDetail
   ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
   ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
   ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog = (
-  obj: PutEmailIdentityDkimSigningAttributesRequest
-): any => ({
-  ...obj,
-  ...(obj.SigningAttributes && { SigningAttributes: DkimSigningAttributesFilterSensitiveLog(obj.SigningAttributes) }),
 });

@@ -116,6 +116,10 @@ import {
   DeleteAccessPointPolicyForObjectLambdaCommandInput,
   DeleteAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
+import {
+  DeleteAccessPointScopeCommandInput,
+  DeleteAccessPointScopeCommandOutput,
+} from "./commands/DeleteAccessPointScopeCommand";
 import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
 import {
   DeleteBucketLifecycleConfigurationCommandInput,
@@ -202,6 +206,10 @@ import {
   GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
+import {
+  GetAccessPointScopeCommandInput,
+  GetAccessPointScopeCommandOutput,
+} from "./commands/GetAccessPointScopeCommand";
 import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
 import {
   GetBucketLifecycleConfigurationCommandInput,
@@ -262,9 +270,17 @@ import {
 } from "./commands/ListAccessGrantsLocationsCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import {
+  ListAccessPointsForDirectoryBucketsCommandInput,
+  ListAccessPointsForDirectoryBucketsCommandOutput,
+} from "./commands/ListAccessPointsForDirectoryBucketsCommand";
+import {
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
+import {
+  ListCallerAccessGrantsCommandInput,
+  ListCallerAccessGrantsCommandOutput,
+} from "./commands/ListCallerAccessGrantsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultiRegionAccessPointsCommandInput,
@@ -302,6 +318,10 @@ import {
   PutAccessPointPolicyForObjectLambdaCommandInput,
   PutAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
+import {
+  PutAccessPointScopeCommandInput,
+  PutAccessPointScopeCommandOutput,
+} from "./commands/PutAccessPointScopeCommand";
 import {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
@@ -382,6 +402,7 @@ export type ServiceInputTypes =
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
   | DeleteAccessPointPolicyForObjectLambdaCommandInput
+  | DeleteAccessPointScopeCommandInput
   | DeleteBucketCommandInput
   | DeleteBucketLifecycleConfigurationCommandInput
   | DeleteBucketPolicyCommandInput
@@ -408,6 +429,7 @@ export type ServiceInputTypes =
   | GetAccessPointPolicyForObjectLambdaCommandInput
   | GetAccessPointPolicyStatusCommandInput
   | GetAccessPointPolicyStatusForObjectLambdaCommandInput
+  | GetAccessPointScopeCommandInput
   | GetBucketCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
@@ -428,7 +450,9 @@ export type ServiceInputTypes =
   | ListAccessGrantsInstancesCommandInput
   | ListAccessGrantsLocationsCommandInput
   | ListAccessPointsCommandInput
+  | ListAccessPointsForDirectoryBucketsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
+  | ListCallerAccessGrantsCommandInput
   | ListJobsCommandInput
   | ListMultiRegionAccessPointsCommandInput
   | ListRegionalBucketsCommandInput
@@ -439,6 +463,7 @@ export type ServiceInputTypes =
   | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
   | PutAccessPointPolicyForObjectLambdaCommandInput
+  | PutAccessPointScopeCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketReplicationCommandInput
@@ -479,6 +504,7 @@ export type ServiceOutputTypes =
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
   | DeleteAccessPointPolicyForObjectLambdaCommandOutput
+  | DeleteAccessPointScopeCommandOutput
   | DeleteBucketCommandOutput
   | DeleteBucketLifecycleConfigurationCommandOutput
   | DeleteBucketPolicyCommandOutput
@@ -505,6 +531,7 @@ export type ServiceOutputTypes =
   | GetAccessPointPolicyForObjectLambdaCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
   | GetAccessPointPolicyStatusForObjectLambdaCommandOutput
+  | GetAccessPointScopeCommandOutput
   | GetBucketCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
@@ -525,7 +552,9 @@ export type ServiceOutputTypes =
   | ListAccessGrantsInstancesCommandOutput
   | ListAccessGrantsLocationsCommandOutput
   | ListAccessPointsCommandOutput
+  | ListAccessPointsForDirectoryBucketsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
+  | ListCallerAccessGrantsCommandOutput
   | ListJobsCommandOutput
   | ListMultiRegionAccessPointsCommandOutput
   | ListRegionalBucketsCommandOutput
@@ -536,6 +565,7 @@ export type ServiceOutputTypes =
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutAccessPointPolicyForObjectLambdaCommandOutput
+  | PutAccessPointScopeCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketReplicationCommandOutput
@@ -646,6 +676,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -705,12 +754,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
-  S3ControlInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
+  S3ControlInputConfig &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -726,12 +775,12 @@ export interface S3ControlClientConfig extends S3ControlClientConfigType {}
 export type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
-  S3ControlResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  S3ControlResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -758,28 +807,32 @@ export class S3ControlClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<S3ControlClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveS3ControlConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveS3ControlConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
     this.config = _config_9;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getHostPrefixDeduplicationPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultS3ControlHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: S3ControlClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -792,14 +845,5 @@ export class S3ControlClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultS3ControlHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: S3ControlClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

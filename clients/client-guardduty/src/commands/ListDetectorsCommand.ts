@@ -65,6 +65,7 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ListDetectorsCommand extends $Command
@@ -75,9 +76,7 @@ export class ListDetectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class ListDetectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDetectorsCommand)
   .de(de_ListDetectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDetectorsRequest;
+      output: ListDetectorsResponse;
+    };
+    sdk: {
+      input: ListDetectorsCommandInput;
+      output: ListDetectorsCommandOutput;
+    };
+  };
+}

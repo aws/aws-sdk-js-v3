@@ -25,9 +25,9 @@ export type CloudfrontSignInputWithParameters = CloudfrontSignerCredentials & {
   /** The URL string to sign. */
   url: string;
   /** The date string for when the signed URL or cookie can no longer be accessed */
-  dateLessThan: string;
+  dateLessThan: string | number | Date;
   /** The date string for when the signed URL or cookie can start to be accessed. */
-  dateGreaterThan?: string;
+  dateGreaterThan?: string | number | Date;
   /** The IP address string to restrict signed URL access to. */
   ipAddress?: string;
   /**
@@ -240,6 +240,8 @@ function getResource(url: URL): string {
   switch (url.protocol) {
     case "http:":
     case "https:":
+    case "ws:":
+    case "wss:":
       return url.toString();
     case "rtmp:":
       return url.pathname.replace(/^\//, "") + url.search + url.hash;
@@ -357,18 +359,18 @@ class CloudfrontSignBuilder {
     return Math.round(date.getTime() / 1000);
   }
 
-  private parseDate(date?: string): number | undefined {
+  private parseDate(date?: string | number | Date): number | undefined {
     if (!date) {
       return undefined;
     }
-    const parsedDate = Date.parse(date);
-    return isNaN(parsedDate) ? undefined : this.epochTime(new Date(parsedDate));
+    const parsedDate = new Date(date);
+    return isNaN(parsedDate.getTime()) ? undefined : this.epochTime(parsedDate);
   }
 
-  private parseDateWindow(expiration: string, start?: string): PolicyDates {
+  private parseDateWindow(expiration: string | number | Date, start?: string | number | Date): PolicyDates {
     const dateLessThan = this.parseDate(expiration);
     if (!dateLessThan) {
-      throw new Error("dateLessThan is invalid. Ensure the date string is compatible with the Date constructor.");
+      throw new Error("dateLessThan is invalid. Ensure the date value is compatible with the Date constructor.");
     }
     return {
       dateLessThan,
@@ -398,8 +400,8 @@ class CloudfrontSignBuilder {
     ipAddress,
   }: {
     url?: string;
-    dateLessThan?: string;
-    dateGreaterThan?: string;
+    dateLessThan?: string | number | Date;
+    dateGreaterThan?: string | number | Date;
     ipAddress?: string;
   }) {
     if (!url || !dateLessThan) {

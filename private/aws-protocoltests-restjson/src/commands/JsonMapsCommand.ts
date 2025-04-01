@@ -89,6 +89,7 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonMapsCommand extends $Command
@@ -107,4 +108,16 @@ export class JsonMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonMapsCommand)
   .de(de_JsonMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonMapsInputOutput;
+      output: JsonMapsInputOutput;
+    };
+    sdk: {
+      input: JsonMapsCommandInput;
+      output: JsonMapsCommandOutput;
+    };
+  };
+}

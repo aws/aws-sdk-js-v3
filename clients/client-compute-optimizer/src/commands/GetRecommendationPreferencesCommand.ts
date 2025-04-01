@@ -48,7 +48,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * // const { ComputeOptimizerClient, GetRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance", // required
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance" || "Idle", // required
  *   scope: { // Scope
  *     name: "Organization" || "AccountId" || "ResourceArn",
  *     value: "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * //         name: "Organization" || "AccountId" || "ResourceArn",
  * //         value: "STRING_VALUE",
  * //       },
- * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance",
+ * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance" || "Idle",
  * //       enhancedInfrastructureMetrics: "Active" || "Inactive",
  * //       inferredWorkloadTypes: "Active" || "Inactive",
  * //       externalMetricsPreference: { // ExternalMetricsPreference
@@ -137,6 +137,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationPreferencesCommand extends $Command
@@ -147,9 +148,7 @@ export class GetRecommendationPreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class GetRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationPreferencesCommand)
   .de(de_GetRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationPreferencesRequest;
+      output: GetRecommendationPreferencesResponse;
+    };
+    sdk: {
+      input: GetRecommendationPreferencesCommandInput;
+      output: GetRecommendationPreferencesCommandOutput;
+    };
+  };
+}

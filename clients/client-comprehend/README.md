@@ -13,7 +13,7 @@ more.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-comprehend
+To install this package, simply type add or install @aws-sdk/client-comprehend
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-comprehend`

@@ -50,14 +50,30 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       status: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE", // required
  * //       abilities: [ // MemberAbilities // required
- * //         "STRING_VALUE",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //       ],
+ * //       mlAbilities: { // MLMemberAbilities
+ * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //         ],
+ * //       },
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       membershipId: "STRING_VALUE",
  * //       membershipArn: "STRING_VALUE",
  * //       paymentConfiguration: { // PaymentConfiguration
  * //         queryCompute: { // QueryComputePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         machineLearning: { // MLPaymentConfig
+ * //           modelTraining: { // ModelTrainingPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //           modelInference: { // ModelInferencePaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //         },
+ * //         jobCompute: { // JobComputePaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
  * //       },
@@ -91,6 +107,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListMembersCommand extends $Command
@@ -101,9 +118,7 @@ export class ListMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +130,16 @@ export class ListMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMembersCommand)
   .de(de_ListMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMembersInput;
+      output: ListMembersOutput;
+    };
+    sdk: {
+      input: ListMembersCommandInput;
+      output: ListMembersCommandOutput;
+    };
+  };
+}

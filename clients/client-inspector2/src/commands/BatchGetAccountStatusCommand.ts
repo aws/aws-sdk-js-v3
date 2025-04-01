@@ -118,6 +118,7 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class BatchGetAccountStatusCommand extends $Command
@@ -128,9 +129,7 @@ export class BatchGetAccountStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class BatchGetAccountStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAccountStatusCommand)
   .de(de_BatchGetAccountStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAccountStatusRequest;
+      output: BatchGetAccountStatusResponse;
+    };
+    sdk: {
+      input: BatchGetAccountStatusCommandInput;
+      output: BatchGetAccountStatusCommandOutput;
+    };
+  };
+}

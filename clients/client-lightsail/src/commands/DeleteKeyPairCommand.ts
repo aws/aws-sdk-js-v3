@@ -35,7 +35,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *       pair, or you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a> API. </p>
  *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>key pair name</code>. For more information,
- *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +109,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyPairCommand extends $Command
@@ -119,9 +120,7 @@ export class DeleteKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class DeleteKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKeyPairCommand)
   .de(de_DeleteKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKeyPairRequest;
+      output: DeleteKeyPairResult;
+    };
+    sdk: {
+      input: DeleteKeyPairCommandInput;
+      output: DeleteKeyPairCommandOutput;
+    };
+  };
+}

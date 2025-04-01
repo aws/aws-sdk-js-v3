@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-crt",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "description": "A revision of AWS Signature V4 request signer based on AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -14,7 +14,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,32 +22,31 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/crt-loader": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-user-agent-node": "*",
-    "@smithy/querystring-parser": "^3.0.3",
-    "@smithy/signature-v4": "^3.1.2",
-    "@smithy/types": "^3.3.0",
-    "@smithy/util-middleware": "^3.0.3",
-    "aws-crt": "^1.18.3",
+    "@smithy/querystring-parser": "^4.0.2",
+    "@smithy/signature-v4": "^5.0.2",
+    "@smithy/types": "^4.2.0",
+    "@smithy/util-middleware": "^4.0.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "5.2.0",
-    "@smithy/protocol-http": "^4.0.3",
+    "@smithy/protocol-http": "^5.1.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/signature-v4-crt",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4-crt",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

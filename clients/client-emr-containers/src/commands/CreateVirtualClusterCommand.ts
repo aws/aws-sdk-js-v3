@@ -86,6 +86,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class CreateVirtualClusterCommand extends $Command
@@ -96,9 +97,7 @@ export class CreateVirtualClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class CreateVirtualClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVirtualClusterCommand)
   .de(de_CreateVirtualClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVirtualClusterRequest;
+      output: CreateVirtualClusterResponse;
+    };
+    sdk: {
+      input: CreateVirtualClusterCommandInput;
+      output: CreateVirtualClusterCommandOutput;
+    };
+  };
+}

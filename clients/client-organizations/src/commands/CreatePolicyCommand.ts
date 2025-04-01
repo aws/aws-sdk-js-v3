@@ -46,7 +46,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *   Content: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2", // required
  *   Tags: [ // Tags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -63,7 +63,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //       AwsManaged: true || false,
  * //     },
  * //     Content: "STRING_VALUE",
@@ -139,6 +139,11 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -282,9 +287,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -346,6 +350,9 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -386,6 +393,9 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -423,36 +433,36 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a service control policy
  * ```javascript
  * // The following example shows how to create a service control policy (SCP) that is named AllowAllS3Actions. The JSON string in the content parameter specifies the content in the policy. The parameter string is escaped with backslashes to ensure that the embedded double quotes in the JSON policy are treated as literals in the parameter, which itself is surrounded by double quotes:
- * //
- * //
+ *
+ *
  * const input = {
- *   "Content": "{\\\"Version\\\":\\\"2012-10-17\\\",\\\"Statement\\\":{\\\"Effect\\\":\\\"Allow\\\",\\\"Action\\\":\\\"s3:*\\\"}}",
- *   "Description": "Enables admins of attached accounts to delegate all S3 permissions",
- *   "Name": "AllowAllS3Actions",
- *   "Type": "SERVICE_CONTROL_POLICY"
+ *   Content: `{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"s3:*\"}}`,
+ *   Description: "Enables admins of attached accounts to delegate all S3 permissions",
+ *   Name: "AllowAllS3Actions",
+ *   Type: "SERVICE_CONTROL_POLICY"
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": {
- *     "Content": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"s3:*\"}}",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "Description": "Allows delegation of all S3 actions",
- *       "Name": "AllowAllS3Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *   Policy: {
+ *     Content: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"s3:*"}}`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       Description: "Allows delegation of all S3 actions",
+ *       Name: "AllowAllS3Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-create-a-service-control-policy
  * ```
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<
@@ -462,9 +472,7 @@ export class CreatePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -476,4 +484,16 @@ export class CreatePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePolicyCommand)
   .de(de_CreatePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePolicyRequest;
+      output: CreatePolicyResponse;
+    };
+    sdk: {
+      input: CreatePolicyCommandInput;
+      output: CreatePolicyCommandOutput;
+    };
+  };
+}

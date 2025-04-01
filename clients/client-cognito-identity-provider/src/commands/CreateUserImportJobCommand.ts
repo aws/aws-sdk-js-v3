@@ -32,7 +32,8 @@ export interface CreateUserImportJobCommandInput extends CreateUserImportJobRequ
 export interface CreateUserImportJobCommandOutput extends CreateUserImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user import job.</p>
+ * <p>Creates a user import job. You can import users into user pools from a comma-separated
+ *             values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services bill.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -120,6 +121,7 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class CreateUserImportJobCommand extends $Command
@@ -130,9 +132,7 @@ export class CreateUserImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class CreateUserImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserImportJobCommand)
   .de(de_CreateUserImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserImportJobRequest;
+      output: CreateUserImportJobResponse;
+    };
+    sdk: {
+      input: CreateUserImportJobCommandInput;
+      output: CreateUserImportJobCommandOutput;
+    };
+  };
+}

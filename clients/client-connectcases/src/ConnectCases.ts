@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchGetCaseRuleCommand,
+  BatchGetCaseRuleCommandInput,
+  BatchGetCaseRuleCommandOutput,
+} from "./commands/BatchGetCaseRuleCommand";
+import {
   BatchGetFieldCommand,
   BatchGetFieldCommandInput,
   BatchGetFieldCommandOutput,
@@ -13,6 +18,11 @@ import {
   BatchPutFieldOptionsCommandOutput,
 } from "./commands/BatchPutFieldOptionsCommand";
 import { CreateCaseCommand, CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import {
+  CreateCaseRuleCommand,
+  CreateCaseRuleCommandInput,
+  CreateCaseRuleCommandOutput,
+} from "./commands/CreateCaseRuleCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
@@ -34,6 +44,11 @@ import {
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
+import {
+  DeleteCaseRuleCommand,
+  DeleteCaseRuleCommandInput,
+  DeleteCaseRuleCommandOutput,
+} from "./commands/DeleteCaseRuleCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -64,6 +79,11 @@ import {
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import { GetLayoutCommand, GetLayoutCommandInput, GetLayoutCommandOutput } from "./commands/GetLayoutCommand";
 import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import {
+  ListCaseRulesCommand,
+  ListCaseRulesCommandInput,
+  ListCaseRulesCommandOutput,
+} from "./commands/ListCaseRulesCommand";
 import {
   ListCasesForContactCommand,
   ListCasesForContactCommandInput,
@@ -105,6 +125,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateCaseCommand, UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
+import {
+  UpdateCaseRuleCommand,
+  UpdateCaseRuleCommandInput,
+  UpdateCaseRuleCommandOutput,
+} from "./commands/UpdateCaseRuleCommand";
 import { UpdateFieldCommand, UpdateFieldCommandInput, UpdateFieldCommandOutput } from "./commands/UpdateFieldCommand";
 import {
   UpdateLayoutCommand,
@@ -119,14 +144,17 @@ import {
 import { ConnectCasesClient, ConnectCasesClientConfig } from "./ConnectCasesClient";
 
 const commands = {
+  BatchGetCaseRuleCommand,
   BatchGetFieldCommand,
   BatchPutFieldOptionsCommand,
   CreateCaseCommand,
+  CreateCaseRuleCommand,
   CreateDomainCommand,
   CreateFieldCommand,
   CreateLayoutCommand,
   CreateRelatedItemCommand,
   CreateTemplateCommand,
+  DeleteCaseRuleCommand,
   DeleteDomainCommand,
   DeleteFieldCommand,
   DeleteLayoutCommand,
@@ -137,6 +165,7 @@ const commands = {
   GetDomainCommand,
   GetLayoutCommand,
   GetTemplateCommand,
+  ListCaseRulesCommand,
   ListCasesForContactCommand,
   ListDomainsCommand,
   ListFieldOptionsCommand,
@@ -150,12 +179,30 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCaseCommand,
+  UpdateCaseRuleCommand,
   UpdateFieldCommand,
   UpdateLayoutCommand,
   UpdateTemplateCommand,
 };
 
 export interface ConnectCases {
+  /**
+   * @see {@link BatchGetCaseRuleCommand}
+   */
+  batchGetCaseRule(
+    args: BatchGetCaseRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCaseRuleCommandOutput>;
+  batchGetCaseRule(
+    args: BatchGetCaseRuleCommandInput,
+    cb: (err: any, data?: BatchGetCaseRuleCommandOutput) => void
+  ): void;
+  batchGetCaseRule(
+    args: BatchGetCaseRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCaseRuleCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetFieldCommand}
    */
@@ -193,6 +240,20 @@ export interface ConnectCases {
     args: CreateCaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCaseRuleCommand}
+   */
+  createCaseRule(
+    args: CreateCaseRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCaseRuleCommandOutput>;
+  createCaseRule(args: CreateCaseRuleCommandInput, cb: (err: any, data?: CreateCaseRuleCommandOutput) => void): void;
+  createCaseRule(
+    args: CreateCaseRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCaseRuleCommandOutput) => void
   ): void;
 
   /**
@@ -257,6 +318,20 @@ export interface ConnectCases {
     args: CreateTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCaseRuleCommand}
+   */
+  deleteCaseRule(
+    args: DeleteCaseRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCaseRuleCommandOutput>;
+  deleteCaseRule(args: DeleteCaseRuleCommandInput, cb: (err: any, data?: DeleteCaseRuleCommandOutput) => void): void;
+  deleteCaseRule(
+    args: DeleteCaseRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCaseRuleCommandOutput) => void
   ): void;
 
   /**
@@ -382,6 +457,17 @@ export interface ConnectCases {
     args: GetTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCaseRulesCommand}
+   */
+  listCaseRules(args: ListCaseRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListCaseRulesCommandOutput>;
+  listCaseRules(args: ListCaseRulesCommandInput, cb: (err: any, data?: ListCaseRulesCommandOutput) => void): void;
+  listCaseRules(
+    args: ListCaseRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCaseRulesCommandOutput) => void
   ): void;
 
   /**
@@ -559,6 +645,20 @@ export interface ConnectCases {
   ): void;
 
   /**
+   * @see {@link UpdateCaseRuleCommand}
+   */
+  updateCaseRule(
+    args: UpdateCaseRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCaseRuleCommandOutput>;
+  updateCaseRule(args: UpdateCaseRuleCommandInput, cb: (err: any, data?: UpdateCaseRuleCommandOutput) => void): void;
+  updateCaseRule(
+    args: UpdateCaseRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCaseRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFieldCommand}
    */
   updateField(args: UpdateFieldCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFieldCommandOutput>;
@@ -596,7 +696,21 @@ export interface ConnectCases {
 }
 
 /**
- * <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data
+ *             types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
  *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
  *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,
  *       and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the

@@ -105,38 +105,38 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scaling activities for a scalable target
  * ```javascript
  * // This example describes the scaling activities for an Amazon ECS service called web-app that is running in the default cluster.
  * const input = {
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs"
+ *   ResourceId: "service/default/web-app",
+ *   ScalableDimension: "ecs:service:DesiredCount",
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new DescribeScalingActivitiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScalingActivities": [
+ *   ScalingActivities: [
  *     {
- *       "ActivityId": "e6c5f7d1-dbbb-4a3f-89b2-51f33e766399",
- *       "Cause": "monitor alarm web-app-cpu-lt-25 in state ALARM triggered policy web-app-cpu-lt-25",
- *       "Description": "Setting desired count to 1.",
- *       "EndTime": "2019-05-06T16:04:32.111Z",
- *       "ResourceId": "service/default/web-app",
- *       "ScalableDimension": "ecs:service:DesiredCount",
- *       "ServiceNamespace": "ecs",
- *       "StartTime": "2019-05-06T16:03:58.171Z",
- *       "StatusCode": "Successful",
- *       "StatusMessage": "Successfully set desired count to 1. Change successfully fulfilled by ecs."
+ *       ActivityId: "e6c5f7d1-dbbb-4a3f-89b2-51f33e766399",
+ *       Cause: "monitor alarm web-app-cpu-lt-25 in state ALARM triggered policy web-app-cpu-lt-25",
+ *       Description: "Setting desired count to 1.",
+ *       EndTime: "2019-05-06T16:04:32.111Z",
+ *       ResourceId: "service/default/web-app",
+ *       ScalableDimension: "ecs:service:DesiredCount",
+ *       ServiceNamespace: "ecs",
+ *       StartTime: "2019-05-06T16:03:58.171Z",
+ *       StatusCode: "Successful",
+ *       StatusMessage: "Successfully set desired count to 1. Change successfully fulfilled by ecs."
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-scaling-activities-for-a-scalable-target-1470864398629
  * ```
  *
+ * @public
  */
 export class DescribeScalingActivitiesCommand extends $Command
   .classBuilder<
@@ -146,9 +146,7 @@ export class DescribeScalingActivitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +158,16 @@ export class DescribeScalingActivitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingActivitiesCommand)
   .de(de_DescribeScalingActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingActivitiesRequest;
+      output: DescribeScalingActivitiesResponse;
+    };
+    sdk: {
+      input: DescribeScalingActivitiesCommandInput;
+      output: DescribeScalingActivitiesCommandOutput;
+    };
+  };
+}

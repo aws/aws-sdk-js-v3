@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_3";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_4";
 import { de_ListExperimentsCommand, se_ListExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -75,6 +75,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListExperimentsCommand extends $Command
@@ -85,9 +86,7 @@ export class ListExperimentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListExperimentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExperimentsCommand)
   .de(de_ListExperimentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperimentsRequest;
+      output: ListExperimentsResponse;
+    };
+    sdk: {
+      input: ListExperimentsCommandInput;
+      output: ListExperimentsCommandOutput;
+    };
+  };
+}

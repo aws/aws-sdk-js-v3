@@ -68,6 +68,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class GetLifecyclePolicyCommand extends $Command
@@ -78,9 +79,7 @@ export class GetLifecyclePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class GetLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLifecyclePolicyCommand)
   .de(de_GetLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLifecyclePolicyInput;
+      output: GetLifecyclePolicyOutput;
+    };
+    sdk: {
+      input: GetLifecyclePolicyCommandInput;
+      output: GetLifecyclePolicyCommandOutput;
+    };
+  };
+}

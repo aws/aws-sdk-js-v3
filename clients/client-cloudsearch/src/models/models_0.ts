@@ -14,13 +14,13 @@ export class BaseException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -57,7 +57,7 @@ export interface BuildSuggestersResponse {
    * <p>A list of field names.</p>
    * @public
    */
-  FieldNames?: string[];
+  FieldNames?: string[] | undefined;
 }
 
 /**
@@ -72,13 +72,13 @@ export class InternalException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -105,13 +105,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -138,13 +138,13 @@ export class ValidationException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -181,7 +181,7 @@ export interface ServiceEndpoint {
    * <p>The endpoint to which service requests can be submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code>.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 }
 
 /**
@@ -213,31 +213,31 @@ export interface DomainStatus {
    * <p>The Amazon Resource Name (ARN) of the search domain.  See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>True if the search domain is created. It can take several minutes to initialize a domain when <a>CreateDomain</a> is called. Newly created search domains are returned from <a>DescribeDomains</a> with a false value for Created until domain creation is complete.</p>
    * @public
    */
-  Created?: boolean;
+  Created?: boolean | undefined;
 
   /**
    * <p>True if the search domain has been deleted.  The system must clean up resources dedicated to the search domain when <a>DeleteDomain</a> is called.  Newly deleted search domains are returned from <a>DescribeDomains</a> with a true value for IsDeleted for several minutes until resource cleanup is complete.</p>
    * @public
    */
-  Deleted?: boolean;
+  Deleted?: boolean | undefined;
 
   /**
    * <p>The service endpoint for updating documents in a search domain.</p>
    * @public
    */
-  DocService?: ServiceEndpoint;
+  DocService?: ServiceEndpoint | undefined;
 
   /**
    * <p>The service endpoint for requesting search results from a search domain.</p>
    * @public
    */
-  SearchService?: ServiceEndpoint;
+  SearchService?: ServiceEndpoint | undefined;
 
   /**
    * <p>True if <a>IndexDocuments</a> needs to be called to activate the current domain configuration.</p>
@@ -249,27 +249,27 @@ export interface DomainStatus {
    * <p>True if processing is being done to activate the current domain configuration.</p>
    * @public
    */
-  Processing?: boolean;
+  Processing?: boolean | undefined;
 
   /**
    * <p>The instance type that is being used to process search requests.</p>
    * @public
    */
-  SearchInstanceType?: string;
+  SearchInstanceType?: string | undefined;
 
   /**
    * <p>The number of partitions across which the search index is spread.</p>
    * @public
    */
-  SearchPartitionCount?: number;
+  SearchPartitionCount?: number | undefined;
 
   /**
    * <p>The number of search instances that are available to process search requests.</p>
    * @public
    */
-  SearchInstanceCount?: number;
+  SearchInstanceCount?: number | undefined;
 
-  Limits?: Limits;
+  Limits?: Limits | undefined;
 }
 
 /**
@@ -281,7 +281,7 @@ export interface CreateDomainResponse {
    * <p>The current status of the search domain.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 }
 
 /**
@@ -295,13 +295,13 @@ export class LimitExceededException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -328,13 +328,13 @@ export class ResourceAlreadyExistsException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -375,31 +375,31 @@ export interface AnalysisOptions {
    * <p>A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  Synonyms?: string;
+  Synonyms?: string | undefined;
 
   /**
    * <p>A  JSON array of terms to ignore during indexing and searching. For example, <code>["a", "an", "the", "of"]</code>. The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. </p>
    * @public
    */
-  Stopwords?: string;
+  Stopwords?: string | undefined;
 
   /**
    * <p>A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>\{"term1": "stem1", "term2": "stem2", "term3": "stem3"\}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.</p>
    * @public
    */
-  StemmingDictionary?: string;
+  StemmingDictionary?: string | undefined;
 
   /**
    * <p>A JSON array that contains a collection of terms, tokens, readings and part of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables you to override the default tokenization for selected terms. This is only valid for Japanese language fields.</p>
    * @public
    */
-  JapaneseTokenizationDictionary?: string;
+  JapaneseTokenizationDictionary?: string | undefined;
 
   /**
    * <p>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> </p>
    * @public
    */
-  AlgorithmicStemming?: AlgorithmicStemming;
+  AlgorithmicStemming?: AlgorithmicStemming | undefined;
 }
 
 /**
@@ -471,7 +471,7 @@ export interface AnalysisScheme {
    * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
    * @public
    */
-  AnalysisOptions?: AnalysisOptions;
+  AnalysisOptions?: AnalysisOptions | undefined;
 }
 
 /**
@@ -529,7 +529,7 @@ export interface OptionStatus {
    * <p>A unique integer that indicates when this option was last updated.</p>
    * @public
    */
-  UpdateVersion?: number;
+  UpdateVersion?: number | undefined;
 
   /**
    * <p>The state of processing a change to an option.  Possible values:</p><ul>
@@ -546,7 +546,7 @@ export interface OptionStatus {
    * <p>Indicates that the option will be deleted once processing is complete.</p>
    * @public
    */
-  PendingDeletion?: boolean;
+  PendingDeletion?: boolean | undefined;
 }
 
 /**
@@ -590,13 +590,13 @@ export class InvalidTypeException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -688,31 +688,31 @@ export interface DateArrayOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    * @public
    */
-  SourceFields?: string;
+  SourceFields?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 }
 
 /**
@@ -724,7 +724,7 @@ export interface DateOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -743,31 +743,31 @@ export interface DateOptions {
    *     </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 }
 
 /**
@@ -779,31 +779,31 @@ export interface DoubleArrayOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    * @public
    */
-  SourceFields?: string;
+  SourceFields?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 }
 
 /**
@@ -815,37 +815,37 @@ export interface DoubleOptions {
    * <p>A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.</p>
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>The name of the source field to map to the field. </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 }
 
 /**
@@ -880,31 +880,31 @@ export interface IntArrayOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    * @public
    */
-  SourceFields?: string;
+  SourceFields?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 }
 
 /**
@@ -916,37 +916,37 @@ export interface IntOptions {
    * A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>The name of the source field to map to the field. </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 }
 
 /**
@@ -958,7 +958,7 @@ export interface LatLonOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -977,31 +977,31 @@ export interface LatLonOptions {
    *     </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 }
 
 /**
@@ -1013,31 +1013,31 @@ export interface LiteralArrayOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    * @public
    */
-  SourceFields?: string;
+  SourceFields?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 }
 
 /**
@@ -1049,7 +1049,7 @@ export interface LiteralOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -1068,31 +1068,31 @@ export interface LiteralOptions {
    *     </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
    * @public
    */
-  FacetEnabled?: boolean;
+  FacetEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
    * @public
    */
-  SearchEnabled?: boolean;
+  SearchEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 }
 
 /**
@@ -1104,31 +1104,31 @@ export interface TextArrayOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    * @public
    */
-  SourceFields?: string;
+  SourceFields?: string | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether highlights can be returned for the field.</p>
    * @public
    */
-  HighlightEnabled?: boolean;
+  HighlightEnabled?: boolean | undefined;
 
   /**
    * <p>The name of an analysis scheme for a  <code>text-array</code> field.</p>
    * @public
    */
-  AnalysisScheme?: string;
+  AnalysisScheme?: string | undefined;
 }
 
 /**
@@ -1140,7 +1140,7 @@ export interface TextOptions {
    * A value to use for the field if the field isn't specified for a document.
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -1159,31 +1159,31 @@ export interface TextOptions {
    *     </p>
    * @public
    */
-  SourceField?: string;
+  SourceField?: string | undefined;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    * @public
    */
-  ReturnEnabled?: boolean;
+  ReturnEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the field can be used to sort the search results.</p>
    * @public
    */
-  SortEnabled?: boolean;
+  SortEnabled?: boolean | undefined;
 
   /**
    * <p>Whether highlights can be returned for the field.</p>
    * @public
    */
-  HighlightEnabled?: boolean;
+  HighlightEnabled?: boolean | undefined;
 
   /**
    * <p>The name of an analysis scheme for a  <code>text</code> field.</p>
    * @public
    */
-  AnalysisScheme?: string;
+  AnalysisScheme?: string | undefined;
 }
 
 /**
@@ -1220,67 +1220,67 @@ export interface IndexField {
    * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
    * @public
    */
-  IntOptions?: IntOptions;
+  IntOptions?: IntOptions | undefined;
 
   /**
    * <p>Options for a double-precision 64-bit floating point field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.</p>
    * @public
    */
-  DoubleOptions?: DoubleOptions;
+  DoubleOptions?: DoubleOptions | undefined;
 
   /**
    * <p>Options for literal field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.</p>
    * @public
    */
-  LiteralOptions?: LiteralOptions;
+  LiteralOptions?: LiteralOptions | undefined;
 
   /**
    * <p>Options for text field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.</p>
    * @public
    */
-  TextOptions?: TextOptions;
+  TextOptions?: TextOptions | undefined;
 
   /**
    * <p>Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.</p>
    * @public
    */
-  DateOptions?: DateOptions;
+  DateOptions?: DateOptions | undefined;
 
   /**
    * <p>Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.</p>
    * @public
    */
-  LatLonOptions?: LatLonOptions;
+  LatLonOptions?: LatLonOptions | undefined;
 
   /**
    * <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
    * @public
    */
-  IntArrayOptions?: IntArrayOptions;
+  IntArrayOptions?: IntArrayOptions | undefined;
 
   /**
    * <p>Options for a field that contains an array of double-precision 64-bit floating point values.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>.  All options are enabled by default.</p>
    * @public
    */
-  DoubleArrayOptions?: DoubleArrayOptions;
+  DoubleArrayOptions?: DoubleArrayOptions | undefined;
 
   /**
    * <p>Options for a field that contains an array of literal strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.</p>
    * @public
    */
-  LiteralArrayOptions?: LiteralArrayOptions;
+  LiteralArrayOptions?: LiteralArrayOptions | undefined;
 
   /**
    * <p>Options for a field that contains an array of text strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.</p>
    * @public
    */
-  TextArrayOptions?: TextArrayOptions;
+  TextArrayOptions?: TextArrayOptions | undefined;
 
   /**
    * <p>Options for a field that contains an array of dates.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.</p>
    * @public
    */
-  DateArrayOptions?: DateArrayOptions;
+  DateArrayOptions?: DateArrayOptions | undefined;
 }
 
 /**
@@ -1362,7 +1362,7 @@ export interface DocumentSuggesterOptions {
    * <p>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. </p>
    * @public
    */
-  FuzzyMatching?: SuggesterFuzzyMatching;
+  FuzzyMatching?: SuggesterFuzzyMatching | undefined;
 
   /**
    * <p>An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest
@@ -1373,7 +1373,7 @@ export interface DocumentSuggesterOptions {
    *         suggestions are sorted with the closest matches listed first.</p>
    * @public
    */
-  SortExpression?: string;
+  SortExpression?: string | undefined;
 }
 
 /**
@@ -1494,7 +1494,7 @@ export interface DeleteDomainResponse {
    * <p>The current status of the search domain.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 }
 
 /**
@@ -1602,13 +1602,13 @@ export interface DescribeAnalysisSchemesRequest {
    * <p>The analysis schemes you want to describe.</p>
    * @public
    */
-  AnalysisSchemeNames?: string[];
+  AnalysisSchemeNames?: string[] | undefined;
 
   /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -1638,7 +1638,7 @@ export interface DescribeAvailabilityOptionsRequest {
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -1668,7 +1668,7 @@ export interface DescribeAvailabilityOptionsResponse {
    * <p>The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. </p>
    * @public
    */
-  AvailabilityOptions?: AvailabilityOptionsStatus;
+  AvailabilityOptions?: AvailabilityOptionsStatus | undefined;
 }
 
 /**
@@ -1682,13 +1682,13 @@ export class DisabledOperationException extends __BaseException {
    * <p>A machine-parsable string error or warning code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A human-readable string error or warning message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1719,7 +1719,7 @@ export interface DescribeDomainEndpointOptionsRequest {
    * <p>Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -1745,13 +1745,13 @@ export interface DomainEndpointOptions {
    * <p>Whether the domain is HTTPS only enabled.</p>
    * @public
    */
-  EnforceHTTPS?: boolean;
+  EnforceHTTPS?: boolean | undefined;
 
   /**
    * <p>The minimum required TLS version</p>
    * @public
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy;
+  TLSSecurityPolicy?: TLSSecurityPolicy | undefined;
 }
 
 /**
@@ -1781,7 +1781,7 @@ export interface DescribeDomainEndpointOptionsResponse {
    * <p>The status and configuration of a search domain's endpoint options.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptionsStatus;
+  DomainEndpointOptions?: DomainEndpointOptionsStatus | undefined;
 }
 
 /**
@@ -1793,7 +1793,7 @@ export interface DescribeDomainsRequest {
    * <p>The names of the domains you want to include in the response.</p>
    * @public
    */
-  DomainNames?: string[];
+  DomainNames?: string[] | undefined;
 }
 
 /**
@@ -1824,13 +1824,13 @@ export interface DescribeExpressionsRequest {
    * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown.</p>
    * @public
    */
-  ExpressionNames?: string[];
+  ExpressionNames?: string[] | undefined;
 
   /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -1860,13 +1860,13 @@ export interface DescribeIndexFieldsRequest {
    * <p>A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.</p>
    * @public
    */
-  FieldNames?: string[];
+  FieldNames?: string[] | undefined;
 
   /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -1931,20 +1931,20 @@ export interface ScalingParameters {
    * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
    * @public
    */
-  DesiredInstanceType?: PartitionInstanceType;
+  DesiredInstanceType?: PartitionInstanceType | undefined;
 
   /**
    * <p>The number of replicas you want to preconfigure for each index partition.</p>
    * @public
    */
-  DesiredReplicationCount?: number;
+  DesiredReplicationCount?: number | undefined;
 
   /**
    * <p>The number of partitions you want to preconfigure for your domain. Only valid when
    *     you select <code>m2.2xlarge</code> as the desired instance type.</p>
    * @public
    */
-  DesiredPartitionCount?: number;
+  DesiredPartitionCount?: number | undefined;
 }
 
 /**
@@ -1992,7 +1992,7 @@ export interface DescribeServiceAccessPoliciesRequest {
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -2040,13 +2040,13 @@ export interface DescribeSuggestersRequest {
    * <p>The suggesters you want to describe.</p>
    * @public
    */
-  SuggesterNames?: string[];
+  SuggesterNames?: string[] | undefined;
 
   /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    * @public
    */
-  Deployed?: boolean;
+  Deployed?: boolean | undefined;
 }
 
 /**
@@ -2082,7 +2082,7 @@ export interface IndexDocumentsResponse {
    * <p>The names of the fields that are currently being indexed.</p>
    * @public
    */
-  FieldNames?: string[];
+  FieldNames?: string[] | undefined;
 }
 
 /**
@@ -2094,7 +2094,7 @@ export interface ListDomainNamesResponse {
    * <p>The names of the search domains owned by an account.</p>
    * @public
    */
-  DomainNames?: Record<string, string>;
+  DomainNames?: Record<string, string> | undefined;
 }
 
 /**
@@ -2124,7 +2124,7 @@ export interface UpdateAvailabilityOptionsResponse {
    * <p>The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. </p>
    * @public
    */
-  AvailabilityOptions?: AvailabilityOptionsStatus;
+  AvailabilityOptions?: AvailabilityOptionsStatus | undefined;
 }
 
 /**
@@ -2154,7 +2154,7 @@ export interface UpdateDomainEndpointOptionsResponse {
    * <p>The newly-configured domain endpoint options.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptionsStatus;
+  DomainEndpointOptions?: DomainEndpointOptionsStatus | undefined;
 }
 
 /**

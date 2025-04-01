@@ -105,6 +105,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetLifecyclePolicyPreviewCommand extends $Command
@@ -115,9 +116,7 @@ export class GetLifecyclePolicyPreviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class GetLifecyclePolicyPreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLifecyclePolicyPreviewCommand)
   .de(de_GetLifecyclePolicyPreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLifecyclePolicyPreviewRequest;
+      output: GetLifecyclePolicyPreviewResponse;
+    };
+    sdk: {
+      input: GetLifecyclePolicyPreviewCommandInput;
+      output: GetLifecyclePolicyPreviewCommandOutput;
+    };
+  };
+}

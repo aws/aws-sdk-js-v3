@@ -67,6 +67,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlTimestampsCommand extends $Command
@@ -85,4 +86,16 @@ export class XmlTimestampsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlTimestampsCommand)
   .de(de_XmlTimestampsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlTimestampsRequest;
+      output: XmlTimestampsResponse;
+    };
+    sdk: {
+      input: XmlTimestampsCommandInput;
+      output: XmlTimestampsCommandOutput;
+    };
+  };
+}

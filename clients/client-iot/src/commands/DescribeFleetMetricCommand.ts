@@ -91,6 +91,7 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetMetricCommand extends $Command
@@ -101,9 +102,7 @@ export class DescribeFleetMetricCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeFleetMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetMetricCommand)
   .de(de_DescribeFleetMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetMetricRequest;
+      output: DescribeFleetMetricResponse;
+    };
+    sdk: {
+      input: DescribeFleetMetricCommandInput;
+      output: DescribeFleetMetricCommandOutput;
+    };
+  };
+}

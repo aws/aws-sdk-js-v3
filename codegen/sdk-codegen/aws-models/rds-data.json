@@ -114,6 +114,9 @@
           "target": "com.amazonaws.rdsdata#DatabaseNotFoundException"
         },
         {
+          "target": "com.amazonaws.rdsdata#DatabaseResumingException"
+        },
+        {
           "target": "com.amazonaws.rdsdata#DatabaseUnavailableException"
         },
         {
@@ -124,6 +127,9 @@
         },
         {
           "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InvalidResourceStateException"
         },
         {
           "target": "com.amazonaws.rdsdata#InvalidSecretException"
@@ -239,6 +245,9 @@
           "target": "com.amazonaws.rdsdata#DatabaseNotFoundException"
         },
         {
+          "target": "com.amazonaws.rdsdata#DatabaseResumingException"
+        },
+        {
           "target": "com.amazonaws.rdsdata#DatabaseUnavailableException"
         },
         {
@@ -249,6 +258,9 @@
         },
         {
           "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InvalidResourceStateException"
         },
         {
           "target": "com.amazonaws.rdsdata#InvalidSecretException"
@@ -267,7 +279,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a SQL transaction.</p>\n         <note>\n            <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24\n                hours.</p>\n            <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's\n                committed, it's rolled back automatically.</p>\n            <p>DDL statements inside a transaction cause an implicit commit. We recommend that you run each DDL statement in a separate\n                    <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Starts a SQL transaction.</p>\n         <note>\n            <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24\n                hours.</p>\n            <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's\n                committed, it's rolled back automatically.</p>\n            <p>For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate\n                    <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p>\n         </note>",
         "smithy.api#http": {
           "code": 200,
           "method": "POST",
@@ -491,6 +503,9 @@
           "target": "com.amazonaws.rdsdata#InternalServerErrorException"
         },
         {
+          "target": "com.amazonaws.rdsdata#InvalidResourceStateException"
+        },
+        {
           "target": "com.amazonaws.rdsdata#InvalidSecretException"
         },
         {
@@ -587,6 +602,19 @@
         "smithy.api#httpError": 404
       }
     },
+    "com.amazonaws.rdsdata#DatabaseResumingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.\n         The Data API request automatically resumes the DB instance. Wait a few seconds and\n         try again.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.rdsdata#DatabaseUnavailableException": {
       "type": "structure",
       "members": {},
@@ -661,7 +689,7 @@
           "message": "The ExecuteSql API is deprecated, please use the ExecuteStatement API.",
           "since": "2019-03-21"
         },
-        "smithy.api#documentation": "<p>Runs one or more SQL statements.</p>\n         <note>\n            <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters, \n            the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Runs one or more SQL statements.</p>\n         <note>\n            <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters.\n            For Aurora Serverless v1 DB clusters, the operation is deprecated.\n            Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>\n         </note>",
         "smithy.api#http": {
           "code": 200,
           "method": "POST",
@@ -746,6 +774,9 @@
           "target": "com.amazonaws.rdsdata#DatabaseNotFoundException"
         },
         {
+          "target": "com.amazonaws.rdsdata#DatabaseResumingException"
+        },
+        {
           "target": "com.amazonaws.rdsdata#DatabaseUnavailableException"
         },
         {
@@ -756,6 +787,9 @@
         },
         {
           "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InvalidResourceStateException"
         },
         {
           "target": "com.amazonaws.rdsdata#InvalidSecretException"
@@ -1014,6 +1048,19 @@
         "smithy.api#httpError": 500
       }
     },
+    "com.amazonaws.rdsdata#InvalidResourceStateException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource is in an invalid state.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.rdsdata#InvalidSecretException": {
       "type": "structure",
       "members": {
@@ -1115,7 +1162,7 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {},
-        "smithy.api#documentation": "<fullname>RDS Data API</fullname>\n         <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these\n            statements, you use the RDS Data API (Data API).</p>\n         <p>Data API is available with the following types of Aurora databases:</p>\n         <ul>\n            <li>\n               <p>Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned</p>\n            </li>\n            <li>\n               <p>Aurora MySQL - Serverless v1 only</p>\n            </li>\n         </ul>\n         <p>For more information about the Data API, see\n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using RDS Data API</a>\n          in the <i>Amazon Aurora User Guide</i>.</p>",
+        "smithy.api#documentation": "<fullname>RDS Data API</fullname>\n         <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these\n            statements, you use the RDS Data API (Data API).</p>\n         <p>Data API is available with the following types of Aurora databases:</p>\n         <ul>\n            <li>\n               <p>Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1</p>\n            </li>\n            <li>\n               <p>Aurora MySQL - Serverless v2, provisioned, and Serverless v1</p>\n            </li>\n         </ul>\n         <p>For more information about the Data API, see\n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using RDS Data API</a>\n          in the <i>Amazon Aurora User Guide</i>.</p>",
         "smithy.api#title": "AWS RDS DataService",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -1881,6 +1928,9 @@
         },
         {
           "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InvalidResourceStateException"
         },
         {
           "target": "com.amazonaws.rdsdata#InvalidSecretException"

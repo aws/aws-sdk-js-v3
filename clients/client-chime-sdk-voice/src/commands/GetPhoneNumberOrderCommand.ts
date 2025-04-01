@@ -95,6 +95,7 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetPhoneNumberOrderCommand extends $Command
@@ -105,9 +106,7 @@ export class GetPhoneNumberOrderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetPhoneNumberOrderCommand extends $Command
   .f(void 0, GetPhoneNumberOrderResponseFilterSensitiveLog)
   .ser(se_GetPhoneNumberOrderCommand)
   .de(de_GetPhoneNumberOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPhoneNumberOrderRequest;
+      output: GetPhoneNumberOrderResponse;
+    };
+    sdk: {
+      input: GetPhoneNumberOrderCommandInput;
+      output: GetPhoneNumberOrderCommandOutput;
+    };
+  };
+}

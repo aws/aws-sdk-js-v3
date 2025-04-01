@@ -104,6 +104,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class RestoreFromSnapshotCommand extends $Command
@@ -114,9 +115,7 @@ export class RestoreFromSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class RestoreFromSnapshotCommand extends $Command
   .f(void 0, RestoreFromSnapshotResponseFilterSensitiveLog)
   .ser(se_RestoreFromSnapshotCommand)
   .de(de_RestoreFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreFromSnapshotRequest;
+      output: RestoreFromSnapshotResponse;
+    };
+    sdk: {
+      input: RestoreFromSnapshotCommandInput;
+      output: RestoreFromSnapshotCommandOutput;
+    };
+  };
+}

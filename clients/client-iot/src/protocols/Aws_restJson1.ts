@@ -14,6 +14,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -42,6 +43,10 @@ import {
   AddThingToThingGroupCommandInput,
   AddThingToThingGroupCommandOutput,
 } from "../commands/AddThingToThingGroupCommand";
+import {
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "../commands/AssociateSbomWithPackageVersionCommand";
 import {
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
@@ -96,6 +101,7 @@ import {
   CreateCertificateProviderCommandInput,
   CreateCertificateProviderCommandOutput,
 } from "../commands/CreateCertificateProviderCommand";
+import { CreateCommandCommandInput, CreateCommandCommandOutput } from "../commands/CreateCommandCommand";
 import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "../commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "../commands/CreateDimensionCommand";
 import {
@@ -177,6 +183,11 @@ import {
   DeleteCertificateProviderCommandInput,
   DeleteCertificateProviderCommandOutput,
 } from "../commands/DeleteCertificateProviderCommand";
+import { DeleteCommandCommandInput, DeleteCommandCommandOutput } from "../commands/DeleteCommandCommand";
+import {
+  DeleteCommandExecutionCommandInput,
+  DeleteCommandExecutionCommandOutput,
+} from "../commands/DeleteCommandExecutionCommand";
 import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "../commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "../commands/DeleteDimensionCommand";
 import {
@@ -358,6 +369,10 @@ import {
   DetachThingPrincipalCommandOutput,
 } from "../commands/DetachThingPrincipalCommand";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "../commands/DisableTopicRuleCommand";
+import {
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "../commands/DisassociateSbomFromPackageVersionCommand";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "../commands/EnableTopicRuleCommand";
 import {
   GetBehaviorModelTrainingSummariesCommandInput,
@@ -368,6 +383,11 @@ import {
   GetBucketsAggregationCommandOutput,
 } from "../commands/GetBucketsAggregationCommand";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "../commands/GetCardinalityCommand";
+import { GetCommandCommandInput, GetCommandCommandOutput } from "../commands/GetCommandCommand";
+import {
+  GetCommandExecutionCommandInput,
+  GetCommandExecutionCommandOutput,
+} from "../commands/GetCommandExecutionCommand";
 import {
   GetEffectivePoliciesCommandInput,
   GetEffectivePoliciesCommandOutput,
@@ -393,6 +413,10 @@ import {
   GetRegistrationCodeCommandOutput,
 } from "../commands/GetRegistrationCodeCommand";
 import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "../commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "../commands/GetThingConnectivityDataCommand";
 import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "../commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
@@ -436,6 +460,11 @@ import {
   ListCertificatesByCACommandOutput,
 } from "../commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
+import {
+  ListCommandExecutionsCommandInput,
+  ListCommandExecutionsCommandOutput,
+} from "../commands/ListCommandExecutionsCommand";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "../commands/ListCommandsCommand";
 import { ListCustomMetricsCommandInput, ListCustomMetricsCommandOutput } from "../commands/ListCustomMetricsCommand";
 import {
   ListDetectMitigationActionsExecutionsCommandInput,
@@ -496,6 +525,10 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "../commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "../commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
 } from "../commands/ListProvisioningTemplatesCommand";
@@ -508,6 +541,10 @@ import {
   ListRelatedResourcesForAuditFindingCommandOutput,
 } from "../commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "../commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "../commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommandInput,
   ListScheduledAuditsCommandOutput,
@@ -542,6 +579,10 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "../commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "../commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
@@ -668,6 +709,7 @@ import {
   UpdateCertificateProviderCommandInput,
   UpdateCertificateProviderCommandOutput,
 } from "../commands/UpdateCertificateProviderCommand";
+import { UpdateCommandCommandInput, UpdateCommandCommandOutput } from "../commands/UpdateCommandCommand";
 import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "../commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "../commands/UpdateDimensionCommand";
 import {
@@ -721,6 +763,7 @@ import {
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput,
 } from "../commands/UpdateThingGroupsForThingCommand";
+import { UpdateThingTypeCommandInput, UpdateThingTypeCommandOutput } from "../commands/UpdateThingTypeCommand";
 import {
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -766,18 +809,21 @@ import {
   BehaviorCriteria,
   BillingGroupProperties,
   CertificateProviderOperation,
-  CertificateStateException,
   CertificateValidationException,
+  ClientCertificateConfig,
   CloudwatchAlarmAction,
   CloudwatchLogsAction,
   CloudwatchMetricAction,
   CodeSigning,
   CodeSigningCertificateChain,
   CodeSigningSignature,
+  CommandParameter,
+  CommandParameterValue,
+  CommandPayload,
+  ConfigName,
   ConflictException,
   ConflictingResourceUpdateException,
   CustomCodeSigning,
-  DeleteConflictException,
   Destination,
   DynamoDBAction,
   DynamoDBv2Action,
@@ -819,11 +865,14 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  Mqtt5Configuration,
   MqttHeaders,
   OpenSearchAction,
   OTAUpdateFile,
+  PackageVersionArtifact,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
+  PropagatingAttribute,
   Protocol,
   ProvisioningHook,
   PublishFindingToSnsParams,
@@ -840,6 +889,7 @@ import {
   S3Destination,
   S3Location,
   SalesforceAction,
+  Sbom,
   SchedulingConfig,
   ServerCertificateConfig,
   ServiceQuotaExceededException,
@@ -862,7 +912,6 @@ import {
   TimestreamDimension,
   TimestreamTimestamp,
   TlsConfig,
-  TopicRuleDestination,
   TopicRuleDestinationConfiguration,
   TopicRulePayload,
   TransferAlreadyCompletedException,
@@ -883,9 +932,13 @@ import {
   CACertificateDescription,
   Certificate,
   CertificateDescription,
+  CertificateStateException,
   CertificateValidity,
+  CommandExecutionResult,
+  CommandExecutionSummary,
+  CommandSummary,
   Configuration,
-  DetectMitigationActionExecution,
+  DeleteConflictException,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
   EventType,
@@ -894,16 +947,8 @@ import {
   IndexingFilter,
   Job,
   JobExecution,
-  JobExecutionSummary,
-  JobExecutionSummaryForJob,
-  JobExecutionSummaryForThing,
-  JobSummary,
-  JobTemplateSummary,
-  MetricDatum,
-  MitigationActionIdentifier,
   NotConfiguredException,
   OTAUpdateInfo,
-  OTAUpdateSummary,
   PercentPair,
   RegistrationConfig,
   RoleAliasDescription,
@@ -914,18 +959,29 @@ import {
   ThingGroupMetadata,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
+  TimeFilter,
   TopicRule,
+  TopicRuleDestination,
   TransferData,
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "../models/models_1";
 import {
   CertificateConflictException,
+  DetectMitigationActionExecution,
   HttpContext,
   InvalidResponseException,
+  JobExecutionSummary,
+  JobExecutionSummaryForJob,
+  JobExecutionSummaryForThing,
+  JobSummary,
+  JobTemplateSummary,
   LoggingOptionsPayload,
   LogTarget,
+  MetricDatum,
+  MitigationActionIdentifier,
   MqttContext,
+  OTAUpdateSummary,
   OutgoingCertificate,
   PackageSummary,
   PackageVersionSummary,
@@ -1010,6 +1066,33 @@ export const se_AddThingToThingGroupCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateSbomWithPackageVersionCommand
+ */
+export const se_AssociateSbomWithPackageVersionCommand = async (
+  input: AssociateSbomWithPackageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sbom: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1113,8 +1196,11 @@ export const se_AttachThingPrincipalCommand = async (
   });
   b.bp("/things/{thingName}/principals");
   b.p("thingName", () => input.thingName!, "{thingName}", false);
+  const query: any = map({
+    [_tPT]: [, input[_tPT]!],
+  });
   let body: any;
-  b.m("PUT").h(headers).b(body);
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1400,6 +1486,35 @@ export const se_CreateCertificateProviderCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateCommandCommand
+ */
+export const se_CreateCommandCommand = async (
+  input: CreateCommandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/commands/{commandId}");
+  b.p("commandId", () => input.commandId!, "{commandId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      displayName: [],
+      mandatoryParameters: (_) => se_CommandParameterList(_, context),
+      namespace: [],
+      payload: (_) => se_CommandPayload(_, context),
+      roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateCustomMetricCommand
  */
 export const se_CreateCustomMetricCommand = async (
@@ -1467,7 +1582,10 @@ export const se_CreateDomainConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applicationProtocol: [],
+      authenticationType: [],
       authorizerConfig: (_) => _json(_),
+      clientCertificateConfig: (_) => _json(_),
       domainName: [],
       serverCertificateArns: (_) => _json(_),
       serverCertificateConfig: (_) => _json(_),
@@ -1735,8 +1853,10 @@ export const se_CreatePackageVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      artifact: (_) => _json(_),
       attributes: (_) => _json(_),
       description: [],
+      recipe: [],
       tags: (_) => _json(_),
     })
   );
@@ -2218,6 +2338,41 @@ export const se_DeleteCertificateProviderCommand = async (
   b.p("certificateProviderName", () => input.certificateProviderName!, "{certificateProviderName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCommandCommand
+ */
+export const se_DeleteCommandCommand = async (
+  input: DeleteCommandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/commands/{commandId}");
+  b.p("commandId", () => input.commandId!, "{commandId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCommandExecutionCommand
+ */
+export const se_DeleteCommandExecutionCommand = async (
+  input: DeleteCommandExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/command-executions/{executionId}");
+  b.p("executionId", () => input.executionId!, "{executionId}", false);
+  const query: any = map({
+    [_tA]: [, __expectNonNull(input[_tA]!, `targetArn`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3037,8 +3192,11 @@ export const se_DescribeJobCommand = async (
   const headers: any = {};
   b.bp("/jobs/{jobId}");
   b.p("jobId", () => input.jobId!, "{jobId}", false);
+  const query: any = map({
+    [_bS]: [() => input.beforeSubstitution !== void 0, () => input[_bS]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3369,6 +3527,26 @@ export const se_DisableTopicRuleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateSbomFromPackageVersionCommand
+ */
+export const se_DisassociateSbomFromPackageVersionCommand = async (
+  input: DisassociateSbomFromPackageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1EnableTopicRuleCommand
  */
 export const se_EnableTopicRuleCommand = async (
@@ -3456,6 +3634,42 @@ export const se_GetCardinalityCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetCommandCommand
+ */
+export const se_GetCommandCommand = async (
+  input: GetCommandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/commands/{commandId}");
+  b.p("commandId", () => input.commandId!, "{commandId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCommandExecutionCommand
+ */
+export const se_GetCommandExecutionCommand = async (
+  input: GetCommandExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/command-executions/{executionId}");
+  b.p("executionId", () => input.executionId!, "{executionId}", false);
+  const query: any = map({
+    [_tA]: [, __expectNonNull(input[_tA]!, `targetArn`)],
+    [_iR]: [() => input.includeResult !== void 0, () => input[_iR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetEffectivePoliciesCommand
  */
 export const se_GetEffectivePoliciesCommand = async (
@@ -3507,8 +3721,11 @@ export const se_GetJobDocumentCommand = async (
   const headers: any = {};
   b.bp("/jobs/{jobId}/job-document");
   b.p("jobId", () => input.jobId!, "{jobId}", false);
+  const query: any = map({
+    [_bS]: [() => input.beforeSubstitution !== void 0, () => input[_bS]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3686,6 +3903,22 @@ export const se_GetStatisticsCommand = async (
       queryVersion: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetThingConnectivityDataCommand
+ */
+export const se_GetThingConnectivityDataCommand = async (
+  input: GetThingConnectivityDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/things/{thingName}/connectivity-data");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -4022,6 +4255,60 @@ export const se_ListCertificatesByCACommand = async (
     [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
     [_m]: [, input[_m]!],
     [_iAO]: [() => input.ascendingOrder !== void 0, () => input[_aO]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCommandExecutionsCommand
+ */
+export const se_ListCommandExecutionsCommand = async (
+  input: ListCommandExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/command-executions");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      commandArn: [],
+      completedTimeFilter: (_) => _json(_),
+      namespace: [],
+      sortOrder: [],
+      startedTimeFilter: (_) => _json(_),
+      status: [],
+      targetArn: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCommandsCommand
+ */
+export const se_ListCommandsCommand = async (
+  input: ListCommandsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/commands");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_n]: [, input[_n]!],
+    [_cPN]: [, input[_cPN]!],
+    [_sO]: [, input[_sO]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4503,6 +4790,28 @@ export const se_ListPrincipalThingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPrincipalThingsV2Command
+ */
+export const se_ListPrincipalThingsV2Command = async (
+  input: ListPrincipalThingsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xap]: input[_p]!,
+  });
+  b.bp("/principals/things-v2");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tPT]: [, input[_tPT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListProvisioningTemplatesCommand
  */
 export const se_ListProvisioningTemplatesCommand = async (
@@ -4575,6 +4884,28 @@ export const se_ListRoleAliasesCommand = async (
     [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
     [_m]: [, input[_m]!],
     [_iAO]: [() => input.ascendingOrder !== void 0, () => input[_aO]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSbomValidationResultsCommand
+ */
+export const se_ListSbomValidationResultsCommand = async (
+  input: ListSbomValidationResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom-validation-results");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_vR]: [, input[_vR]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4777,6 +5108,27 @@ export const se_ListThingPrincipalsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListThingPrincipalsV2Command
+ */
+export const se_ListThingPrincipalsV2Command = async (
+  input: ListThingPrincipalsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/things/{thingName}/principals-v2");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tPT]: [, input[_tPT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -5772,6 +6124,31 @@ export const se_UpdateCertificateProviderCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateCommandCommand
+ */
+export const se_UpdateCommandCommand = async (
+  input: UpdateCommandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/commands/{commandId}");
+  b.p("commandId", () => input.commandId!, "{commandId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      deprecated: [],
+      description: [],
+      displayName: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateCustomMetricCommand
  */
 export const se_UpdateCustomMetricCommand = async (
@@ -5833,7 +6210,10 @@ export const se_UpdateDomainConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applicationProtocol: [],
+      authenticationType: [],
       authorizerConfig: (_) => _json(_),
+      clientCertificateConfig: (_) => _json(_),
       domainConfigurationStatus: [],
       removeAuthorizerConfig: [],
       serverCertificateConfig: (_) => _json(_),
@@ -6076,8 +6456,10 @@ export const se_UpdatePackageVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       action: [],
+      artifact: (_) => _json(_),
       attributes: (_) => _json(_),
       description: [],
+      recipe: [],
     })
   );
   b.m("PATCH").h(headers).q(query).b(body);
@@ -6298,6 +6680,29 @@ export const se_UpdateThingGroupsForThingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateThingTypeCommand
+ */
+export const se_UpdateThingTypeCommand = async (
+  input: UpdateThingTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/thing-types/{thingTypeName}");
+  b.p("thingTypeName", () => input.thingTypeName!, "{thingTypeName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      thingTypeProperties: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateTopicRuleDestinationCommand
  */
 export const se_UpdateTopicRuleDestinationCommand = async (
@@ -6390,6 +6795,30 @@ export const de_AddThingToThingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateSbomWithPackageVersionCommand
+ */
+export const de_AssociateSbomWithPackageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSbomWithPackageVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageName: __expectString,
+    sbom: _json,
+    sbomValidationStatus: __expectString,
+    versionName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6728,6 +7157,28 @@ export const de_CreateCertificateProviderCommand = async (
   const doc = take(data, {
     certificateProviderArn: __expectString,
     certificateProviderName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCommandCommand
+ */
+export const de_CreateCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCommandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commandArn: __expectString,
+    commandId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7437,6 +7888,43 @@ export const de_DeleteCertificateProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCommandCommand
+ */
+export const de_DeleteCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCommandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  map(contents, {
+    statusCode: [, output.statusCode],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCommandExecutionCommand
+ */
+export const de_DeleteCommandExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCommandExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -8270,7 +8758,10 @@ export const de_DescribeDomainConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationProtocol: __expectString,
+    authenticationType: __expectString,
     authorizerConfig: _json,
+    clientCertificateConfig: _json,
     domainConfigurationArn: __expectString,
     domainConfigurationName: __expectString,
     domainConfigurationStatus: __expectString,
@@ -8872,6 +9363,23 @@ export const de_DisableTopicRuleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateSbomFromPackageVersionCommand
+ */
+export const de_DisassociateSbomFromPackageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSbomFromPackageVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1EnableTopicRuleCommand
  */
 export const de_EnableTopicRuleCommand = async (
@@ -8948,6 +9456,71 @@ export const de_GetCardinalityCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     cardinality: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCommandCommand
+ */
+export const de_GetCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commandArn: __expectString,
+    commandId: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deprecated: __expectBoolean,
+    description: __expectString,
+    displayName: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    mandatoryParameters: (_) => de_CommandParameterList(_, context),
+    namespace: __expectString,
+    payload: (_) => de_CommandPayload(_, context),
+    pendingDeletion: __expectBoolean,
+    roleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCommandExecutionCommand
+ */
+export const de_GetCommandExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommandExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commandArn: __expectString,
+    completedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionId: __expectString,
+    executionTimeoutSeconds: __expectLong,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    parameters: (_) => de_CommandExecutionParameterMap(_, context),
+    result: (_) => de_CommandExecutionResultMap(_, context),
+    startedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: _json,
+    targetArn: __expectString,
+    timeToLive: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -9122,6 +9695,7 @@ export const de_GetPackageVersionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    artifact: _json,
     attributes: _json,
     creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
@@ -9129,6 +9703,9 @@ export const de_GetPackageVersionCommand = async (
     lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     packageName: __expectString,
     packageVersionArn: __expectString,
+    recipe: __expectString,
+    sbom: _json,
+    sbomValidationStatus: __expectString,
     status: __expectString,
     versionName: __expectString,
   });
@@ -9249,6 +9826,30 @@ export const de_GetStatisticsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     statistics: (_) => de_Statistics(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetThingConnectivityDataCommand
+ */
+export const de_GetThingConnectivityDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThingConnectivityDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connected: __expectBoolean,
+    disconnectReason: __expectString,
+    thingName: __expectString,
+    timestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -9601,6 +10202,50 @@ export const de_ListCertificatesByCACommand = async (
   const doc = take(data, {
     certificates: (_) => de_Certificates(_, context),
     nextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCommandExecutionsCommand
+ */
+export const de_ListCommandExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommandExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commandExecutions: (_) => de_CommandExecutionSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCommandsCommand
+ */
+export const de_ListCommandsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommandsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commands: (_) => de_CommandSummaryList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -10112,6 +10757,28 @@ export const de_ListPrincipalThingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPrincipalThingsV2Command
+ */
+export const de_ListPrincipalThingsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrincipalThingsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    principalThingObjects: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListProvisioningTemplatesCommand
  */
 export const de_ListProvisioningTemplatesCommand = async (
@@ -10194,6 +10861,28 @@ export const de_ListRoleAliasesCommand = async (
   const doc = take(data, {
     nextMarker: __expectString,
     roleAliases: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSbomValidationResultsCommand
+ */
+export const de_ListSbomValidationResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSbomValidationResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    validationResultSummaries: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -10414,6 +11103,28 @@ export const de_ListThingPrincipalsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     principals: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListThingPrincipalsV2Command
+ */
+export const de_ListThingPrincipalsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListThingPrincipalsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    thingPrincipalObjects: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -11262,6 +11973,31 @@ export const de_UpdateCertificateProviderCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateCommandCommand
+ */
+export const de_UpdateCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCommandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commandId: __expectString,
+    deprecated: __expectBoolean,
+    description: __expectString,
+    displayName: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateCustomMetricCommand
  */
 export const de_UpdateCustomMetricCommand = async (
@@ -11668,6 +12404,23 @@ export const de_UpdateThingGroupsForThingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateThingTypeCommand
+ */
+export const de_UpdateThingTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThingTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateTopicRuleDestinationCommand
  */
 export const de_UpdateTopicRuleDestinationCommand = async (
@@ -11737,6 +12490,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnauthorizedException":
     case "com.amazonaws.iot#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iot#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iot#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iot#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iot#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -11767,18 +12532,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidAggregationException":
     case "com.amazonaws.iot#InvalidAggregationException":
       throw await de_InvalidAggregationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iot#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iot#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.iot#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iot#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "MalformedPolicyException":
     case "com.amazonaws.iot#MalformedPolicyException":
       throw await de_MalformedPolicyExceptionRes(parsedOutput, context);
@@ -12665,7 +13418,11 @@ const se_Behaviors = (input: Behavior[], context: __SerdeContext): any => {
 
 // se_CertificateProviderAccountDefaultForOperations omitted.
 
+// se_CheckCustomConfiguration omitted.
+
 // se_Cidrs omitted.
+
+// se_ClientCertificateConfig omitted.
 
 // se_ClientProperties omitted.
 
@@ -12694,6 +13451,54 @@ const se_CodeSigning = (input: CodeSigning, context: __SerdeContext): any => {
 const se_CodeSigningSignature = (input: CodeSigningSignature, context: __SerdeContext): any => {
   return take(input, {
     inlineDocument: context.base64Encoder,
+  });
+};
+
+/**
+ * serializeAws_restJson1CommandParameter
+ */
+const se_CommandParameter = (input: CommandParameter, context: __SerdeContext): any => {
+  return take(input, {
+    defaultValue: (_) => se_CommandParameterValue(_, context),
+    description: [],
+    name: [],
+    value: (_) => se_CommandParameterValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1CommandParameterList
+ */
+const se_CommandParameterList = (input: CommandParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CommandParameter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1CommandParameterValue
+ */
+const se_CommandParameterValue = (input: CommandParameterValue, context: __SerdeContext): any => {
+  return take(input, {
+    B: [],
+    BIN: context.base64Encoder,
+    D: __serializeFloat,
+    I: [],
+    L: [],
+    S: [],
+    UL: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1CommandPayload
+ */
+const se_CommandPayload = (input: CommandPayload, context: __SerdeContext): any => {
+  return take(input, {
+    content: context.base64Encoder,
+    contentType: [],
   });
 };
 
@@ -12844,6 +13649,8 @@ const se_MetricValue = (input: MetricValue, context: __SerdeContext): any => {
 
 // se_MitigationActionParams omitted.
 
+// se_Mqtt5Configuration omitted.
+
 /**
  * serializeAws_restJson1MqttContext
  */
@@ -12897,6 +13704,8 @@ const se_OTAUpdateFiles = (input: OTAUpdateFile[], context: __SerdeContext): any
     });
 };
 
+// se_PackageVersionArtifact omitted.
+
 // se_ParameterMap omitted.
 
 // se_Parameters omitted.
@@ -12919,6 +13728,10 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 // se_Ports omitted.
 
 // se_PresignedUrlConfig omitted.
+
+// se_PropagatingAttribute omitted.
+
+// se_PropagatingAttributeList omitted.
 
 // se_Protocols omitted.
 
@@ -12961,6 +13774,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 // se_S3Location omitted.
 
 // se_SalesforceAction omitted.
+
+// se_Sbom omitted.
 
 // se_SchedulingConfig omitted.
 
@@ -13023,6 +13838,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 // se_ThingIndexingConfiguration omitted.
 
 // se_ThingTypeProperties omitted.
+
+// se_TimeFilter omitted.
 
 // se_TimeoutConfig omitted.
 
@@ -13553,7 +14370,11 @@ const de_CertificateValidity = (output: any, context: __SerdeContext): Certifica
   }) as any;
 };
 
+// de_CheckCustomConfiguration omitted.
+
 // de_Cidrs omitted.
+
+// de_ClientCertificateConfig omitted.
 
 // de_ClientProperties omitted.
 
@@ -13583,6 +14404,149 @@ const de_CodeSigningSignature = (output: any, context: __SerdeContext): CodeSign
   return take(output, {
     inlineDocument: context.base64Decoder,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandExecutionParameterMap
+ */
+const de_CommandExecutionParameterMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, CommandParameterValue> => {
+  return Object.entries(output).reduce((acc: Record<string, CommandParameterValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_CommandParameterValue(value, context);
+    return acc;
+  }, {} as Record<string, CommandParameterValue>);
+};
+
+/**
+ * deserializeAws_restJson1CommandExecutionResult
+ */
+const de_CommandExecutionResult = (output: any, context: __SerdeContext): CommandExecutionResult => {
+  return take(output, {
+    B: __expectBoolean,
+    BIN: context.base64Decoder,
+    S: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandExecutionResultMap
+ */
+const de_CommandExecutionResultMap = (output: any, context: __SerdeContext): Record<string, CommandExecutionResult> => {
+  return Object.entries(output).reduce((acc: Record<string, CommandExecutionResult>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_CommandExecutionResult(value, context);
+    return acc;
+  }, {} as Record<string, CommandExecutionResult>);
+};
+
+/**
+ * deserializeAws_restJson1CommandExecutionSummary
+ */
+const de_CommandExecutionSummary = (output: any, context: __SerdeContext): CommandExecutionSummary => {
+  return take(output, {
+    commandArn: __expectString,
+    completedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionId: __expectString,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    targetArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandExecutionSummaryList
+ */
+const de_CommandExecutionSummaryList = (output: any, context: __SerdeContext): CommandExecutionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CommandExecutionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CommandParameter
+ */
+const de_CommandParameter = (output: any, context: __SerdeContext): CommandParameter => {
+  return take(output, {
+    defaultValue: (_: any) => de_CommandParameterValue(_, context),
+    description: __expectString,
+    name: __expectString,
+    value: (_: any) => de_CommandParameterValue(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandParameterList
+ */
+const de_CommandParameterList = (output: any, context: __SerdeContext): CommandParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CommandParameter(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CommandParameterValue
+ */
+const de_CommandParameterValue = (output: any, context: __SerdeContext): CommandParameterValue => {
+  return take(output, {
+    B: __expectBoolean,
+    BIN: context.base64Decoder,
+    D: __limitedParseDouble,
+    I: __expectInt32,
+    L: __expectLong,
+    S: __expectString,
+    UL: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandPayload
+ */
+const de_CommandPayload = (output: any, context: __SerdeContext): CommandPayload => {
+  return take(output, {
+    content: context.base64Decoder,
+    contentType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandSummary
+ */
+const de_CommandSummary = (output: any, context: __SerdeContext): CommandSummary => {
+  return take(output, {
+    commandArn: __expectString,
+    commandId: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deprecated: __expectBoolean,
+    displayName: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pendingDeletion: __expectBoolean,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CommandSummaryList
+ */
+const de_CommandSummaryList = (output: any, context: __SerdeContext): CommandSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CommandSummary(entry, context);
+    });
+  return retVal;
 };
 
 // de_Configuration omitted.
@@ -14058,6 +15022,8 @@ const de_MitigationActionIdentifierList = (output: any, context: __SerdeContext)
 
 // de_MitigationActionParams omitted.
 
+// de_Mqtt5Configuration omitted.
+
 // de_MqttHeaders omitted.
 
 // de_NamedShadowNamesFilter omitted.
@@ -14201,6 +15167,8 @@ const de_PackageSummaryList = (output: any, context: __SerdeContext): PackageSum
   return retVal;
 };
 
+// de_PackageVersionArtifact omitted.
+
 /**
  * deserializeAws_restJson1PackageVersionSummary
  */
@@ -14289,7 +15257,15 @@ const de_PolicyVersions = (output: any, context: __SerdeContext): PolicyVersion[
 
 // de_Principals omitted.
 
+// de_PrincipalThingObject omitted.
+
+// de_PrincipalThingObjects omitted.
+
 // de_ProcessingTargetNameList omitted.
+
+// de_PropagatingAttribute omitted.
+
+// de_PropagatingAttributeList omitted.
 
 // de_Protocols omitted.
 
@@ -14414,6 +15390,12 @@ const de_RoleAliasDescription = (output: any, context: __SerdeContext): RoleAlia
 
 // de_SalesforceAction omitted.
 
+// de_Sbom omitted.
+
+// de_SbomValidationResultSummary omitted.
+
+// de_SbomValidationResultSummaryList omitted.
+
 // de_ScheduledAuditMetadata omitted.
 
 // de_ScheduledAuditMetadataList omitted.
@@ -14473,6 +15455,8 @@ const de_Statistics = (output: any, context: __SerdeContext): Statistics => {
     variance: __limitedParseDouble,
   }) as any;
 };
+
+// de_StatusReason omitted.
 
 // de_StepFunctionsAction omitted.
 
@@ -14562,6 +15546,10 @@ const de_ThingGroupMetadata = (output: any, context: __SerdeContext): ThingGroup
 // de_ThingIndexingConfiguration omitted.
 
 // de_ThingNameList omitted.
+
+// de_ThingPrincipalObject omitted.
+
+// de_ThingPrincipalObjects omitted.
 
 /**
  * deserializeAws_restJson1ThingTypeDefinition
@@ -14780,13 +15768,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _aAR = "allowAutoRegistration";
 const _aN = "attributeName";
 const _aO = "ascendingOrder";
@@ -14795,7 +15776,9 @@ const _aT = "actionType";
 const _aTI = "auditTaskId";
 const _aV = "attributeValue";
 const _bCT = "behaviorCriteriaType";
+const _bS = "beforeSubstitution";
 const _cI = "clientId";
+const _cPN = "commandParameterName";
 const _cT = "clientToken";
 const _dN = "dimensionName";
 const _dS = "deleteStream";
@@ -14810,11 +15793,13 @@ const _fD = "forceDelete";
 const _fDAWSJ = "forceDeleteAWSJob";
 const _fI = "findingId";
 const _iAO = "isAscendingOrder";
+const _iR = "includeResult";
 const _jI = "jobId";
 const _lSA = "listSuppressedAlerts";
 const _m = "marker";
 const _mN = "metricName";
 const _mR = "maxResults";
+const _n = "namespace";
 const _nARS = "newAutoRegistrationStatus";
 const _nI = "namespaceId";
 const _nPF = "namePrefixFilter";
@@ -14832,11 +15817,13 @@ const _rT = "reportType";
 const _s = "status";
 const _sAA = "setAsActive";
 const _sAD = "setAsDefault";
+const _sO = "sortOrder";
 const _sPN = "securityProfileName";
 const _sPTA = "securityProfileTargetArn";
 const _sT = "startTime";
 const _sTe = "serviceType";
 const _t = "tags";
+const _tA = "targetArn";
 const _tAA = "targetAwsAccount";
 const _tGI = "thingGroupId";
 const _tGN = "thingGroupName";
@@ -14844,6 +15831,7 @@ const _tI = "taskId";
 const _tN = "targetName";
 const _tNe = "templateName";
 const _tNh = "thingName";
+const _tPT = "thingPrincipalType";
 const _tS = "taskStatus";
 const _tSa = "targetSelection";
 const _tT = "targetType";
@@ -14853,6 +15841,7 @@ const _tV = "templateVersion";
 const _to = "topic";
 const _uPAV = "usePrefixAttributeValue";
 const _vI = "violationId";
+const _vR = "validationResult";
 const _vS = "verificationState";
 const _xaip = "x-amzn-iot-principal";
 const _xaip_ = "x-amzn-iot-policy";

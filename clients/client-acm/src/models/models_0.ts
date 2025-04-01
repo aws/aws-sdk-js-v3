@@ -10,7 +10,7 @@ import { ACMServiceException as __BaseException } from "./ACMServiceException";
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -40,7 +40,7 @@ export interface Tag {
    * <p>The value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -291,13 +291,13 @@ export interface DomainValidation {
    * <p>A list of email addresses that ACM used to send domain validation emails.</p>
    * @public
    */
-  ValidationEmails?: string[];
+  ValidationEmails?: string[] | undefined;
 
   /**
    * <p>The domain name that ACM used to send domain validation emails.</p>
    * @public
    */
-  ValidationDomain?: string;
+  ValidationDomain?: string | undefined;
 
   /**
    * <p>The validation status of the domain name. This can be one of the following values:</p>
@@ -320,7 +320,7 @@ export interface DomainValidation {
    *          </ul>
    * @public
    */
-  ValidationStatus?: DomainStatus;
+  ValidationStatus?: DomainStatus | undefined;
 
   /**
    * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
@@ -331,13 +331,13 @@ export interface DomainValidation {
    *       "_a79865eb4cd1a6ab990a45779b4e0b96" must be used.</p>
    * @public
    */
-  ResourceRecord?: ResourceRecord;
+  ResourceRecord?: ResourceRecord | undefined;
 
   /**
    * <p>Specifies the domain validation method.</p>
    * @public
    */
-  ValidationMethod?: ValidationMethod;
+  ValidationMethod?: ValidationMethod | undefined;
 }
 
 /**
@@ -375,7 +375,7 @@ export interface ExtendedKeyUsage {
    * <p>The name of an Extended Key Usage value.</p>
    * @public
    */
-  Name?: ExtendedKeyUsageName;
+  Name?: ExtendedKeyUsageName | undefined;
 
   /**
    * <p>An object identifier (OID) for the extension value. OIDs are strings of numbers separated
@@ -429,7 +429,7 @@ export interface ExtendedKeyUsage {
    *          </ul>
    * @public
    */
-  OID?: string;
+  OID?: string | undefined;
 }
 
 /**
@@ -513,7 +513,7 @@ export interface KeyUsage {
    * <p>A string value that contains a Key Usage extension name.</p>
    * @public
    */
-  Name?: KeyUsageName;
+  Name?: KeyUsageName | undefined;
 }
 
 /**
@@ -547,7 +547,7 @@ export interface CertificateOptions {
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    * @public
    */
-  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference;
+  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | undefined;
 }
 
 /**
@@ -606,7 +606,7 @@ export interface RenewalSummary {
    * <p>The reason that a renewal request was unsuccessful.</p>
    * @public
    */
-  RenewalStatusReason?: FailureReason;
+  RenewalStatusReason?: FailureReason | undefined;
 
   /**
    * <p>The time at which the renewal summary was last updated.</p>
@@ -683,14 +683,14 @@ export interface CertificateDetail {
    *       the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The fully qualified domain name for the certificate, such as www.example.com or
    *       example.com.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>One or more domain names (subject alternative names)
@@ -700,7 +700,7 @@ export interface CertificateDetail {
    *       certificate and additional domain names that can be used to connect to the website. </p>
    * @public
    */
-  SubjectAlternativeNames?: string[];
+  SubjectAlternativeNames?: string[] | undefined;
 
   /**
    * <p>Contains information about the initial validation of each domain name that occurs as a
@@ -708,46 +708,46 @@ export interface CertificateDetail {
    *       certificate type is <code>AMAZON_ISSUED</code>. </p>
    * @public
    */
-  DomainValidationOptions?: DomainValidation[];
+  DomainValidationOptions?: DomainValidation[] | undefined;
 
   /**
    * <p>The serial number of the certificate.</p>
    * @public
    */
-  Serial?: string;
+  Serial?: string | undefined;
 
   /**
    * <p>The name of the entity that is associated with the public key contained in the
    *       certificate.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>The name of the certificate authority that issued and signed the certificate.</p>
    * @public
    */
-  Issuer?: string;
+  Issuer?: string | undefined;
 
   /**
    * <p>The time at which the certificate was requested.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time at which the certificate was issued. This value exists only when the certificate
    *       type is <code>AMAZON_ISSUED</code>. </p>
    * @public
    */
-  IssuedAt?: Date;
+  IssuedAt?: Date | undefined;
 
   /**
    * <p>The date and time when the certificate was imported. This value exists only when the
    *       certificate type is <code>IMPORTED</code>. </p>
    * @public
    */
-  ImportedAt?: Date;
+  ImportedAt?: Date | undefined;
 
   /**
    * <p>The status of the certificate.</p>
@@ -758,52 +758,52 @@ export interface CertificateDetail {
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    * @public
    */
-  Status?: CertificateStatus;
+  Status?: CertificateStatus | undefined;
 
   /**
    * <p>The time at which the certificate was revoked. This value exists only when the certificate
    *       status is <code>REVOKED</code>. </p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 
   /**
    * <p>The reason the certificate was revoked. This value exists only when the certificate status
    *       is <code>REVOKED</code>. </p>
    * @public
    */
-  RevocationReason?: RevocationReason;
+  RevocationReason?: RevocationReason | undefined;
 
   /**
    * <p>The time before which the certificate is not valid.</p>
    * @public
    */
-  NotBefore?: Date;
+  NotBefore?: Date | undefined;
 
   /**
    * <p>The time after which the certificate is not valid.</p>
    * @public
    */
-  NotAfter?: Date;
+  NotAfter?: Date | undefined;
 
   /**
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    * @public
    */
-  KeyAlgorithm?: KeyAlgorithm;
+  KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
    * <p>The algorithm that was used to sign the certificate.</p>
    * @public
    */
-  SignatureAlgorithm?: string;
+  SignatureAlgorithm?: string | undefined;
 
   /**
    * <p>A list of ARNs for the Amazon Web Services resources that are using the certificate. A certificate can
    *       be used by multiple Amazon Web Services resources. </p>
    * @public
    */
-  InUseBy?: string[];
+  InUseBy?: string[] | undefined;
 
   /**
    * <p>The reason the certificate request failed. This value exists only when the certificate
@@ -811,7 +811,7 @@ export interface CertificateDetail {
    *         Failed</a> in the <i>Certificate Manager User Guide</i>. </p>
    * @public
    */
-  FailureReason?: FailureReason;
+  FailureReason?: FailureReason | undefined;
 
   /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
@@ -822,14 +822,14 @@ export interface CertificateDetail {
    *         <i>Certificate Manager User Guide</i>. </p>
    * @public
    */
-  Type?: CertificateType;
+  Type?: CertificateType | undefined;
 
   /**
    * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This field
    *       exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
    * @public
    */
-  RenewalSummary?: RenewalSummary;
+  RenewalSummary?: RenewalSummary | undefined;
 
   /**
    * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that
@@ -837,7 +837,7 @@ export interface CertificateDetail {
    *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
    * @public
    */
-  KeyUsages?: KeyUsage[];
+  KeyUsages?: KeyUsage[] | undefined;
 
   /**
    * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
@@ -845,7 +845,7 @@ export interface CertificateDetail {
    *       identifier (OID). </p>
    * @public
    */
-  ExtendedKeyUsages?: ExtendedKeyUsage[];
+  ExtendedKeyUsages?: ExtendedKeyUsage[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that issued the
@@ -855,7 +855,7 @@ export interface CertificateDetail {
    *          </p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported
@@ -863,7 +863,7 @@ export interface CertificateDetail {
    *       command.</p>
    * @public
    */
-  RenewalEligibility?: RenewalEligibility;
+  RenewalEligibility?: RenewalEligibility | undefined;
 
   /**
    * <p>Value that specifies whether to add the certificate to a transparency log. Certificate
@@ -872,7 +872,7 @@ export interface CertificateDetail {
    *       an error message. The logs are cryptographically secure. </p>
    * @public
    */
-  Options?: CertificateOptions;
+  Options?: CertificateOptions | undefined;
 }
 
 /**
@@ -957,7 +957,7 @@ export interface DescribeCertificateResponse {
    * <p>Metadata about an ACM certificate.</p>
    * @public
    */
-  Certificate?: CertificateDetail;
+  Certificate?: CertificateDetail | undefined;
 }
 
 /**
@@ -997,21 +997,21 @@ export interface ExportCertificateResponse {
    * <p>The base64 PEM-encoded certificate.</p>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * <p>The base64 PEM-encoded certificate chain. This does not include the certificate that you
    *       are exporting.</p>
    * @public
    */
-  CertificateChain?: string;
+  CertificateChain?: string | undefined;
 
   /**
    * <p>The encrypted private key associated with the public key in the certificate. The key is
    *       output in PKCS #8 format and is base64 PEM-encoded. </p>
    * @public
    */
-  PrivateKey?: string;
+  PrivateKey?: string | undefined;
 }
 
 /**
@@ -1047,7 +1047,7 @@ export interface ExpiryEventsConfiguration {
    *       expiration.</p>
    * @public
    */
-  DaysBeforeExpiry?: number;
+  DaysBeforeExpiry?: number | undefined;
 }
 
 /**
@@ -1058,7 +1058,7 @@ export interface GetAccountConfigurationResponse {
    * <p>Expiration events configuration options associated with the Amazon Web Services account.</p>
    * @public
    */
-  ExpiryEvents?: ExpiryEventsConfiguration;
+  ExpiryEvents?: ExpiryEventsConfiguration | undefined;
 }
 
 /**
@@ -1084,7 +1084,7 @@ export interface GetCertificateResponse {
    * <p>The ACM-issued certificate corresponding to the ARN specified as input.</p>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * <p>Certificates forming the requested certificate's chain of trust. The chain consists of the
@@ -1092,7 +1092,7 @@ export interface GetCertificateResponse {
    *     </p>
    * @public
    */
-  CertificateChain?: string;
+  CertificateChain?: string | undefined;
 }
 
 /**
@@ -1105,7 +1105,7 @@ export interface ImportCertificateRequest {
    *       field. </p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The certificate to import.</p>
@@ -1123,14 +1123,14 @@ export interface ImportCertificateRequest {
    * <p>The PEM encoded certificate chain.</p>
    * @public
    */
-  CertificateChain?: Uint8Array;
+  CertificateChain?: Uint8Array | undefined;
 
   /**
    * <p>One or more resource tags to associate with the imported certificate. </p>
    *          <p>Note: You cannot apply tags when reimporting a certificate.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1142,7 +1142,7 @@ export interface ImportCertificateResponse {
    *         (ARN)</a> of the imported certificate.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1195,13 +1195,13 @@ export interface Filters {
    * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    * @public
    */
-  extendedKeyUsage?: ExtendedKeyUsageName[];
+  extendedKeyUsage?: ExtendedKeyUsageName[] | undefined;
 
   /**
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    * @public
    */
-  keyUsage?: KeyUsageName[];
+  keyUsage?: KeyUsageName[] | undefined;
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
@@ -1212,7 +1212,7 @@ export interface Filters {
    *       certificates.</p>
    * @public
    */
-  keyTypes?: KeyAlgorithm[];
+  keyTypes?: KeyAlgorithm[] | undefined;
 }
 
 /**
@@ -1250,14 +1250,14 @@ export interface ListCertificatesRequest {
    * <p>Filter the certificate list by status value.</p>
    * @public
    */
-  CertificateStatuses?: CertificateStatus[];
+  CertificateStatuses?: CertificateStatus[] | undefined;
 
   /**
    * <p>Filter the certificate list. For more information, see the <a>Filters</a>
    *       structure.</p>
    * @public
    */
-  Includes?: Filters;
+  Includes?: Filters | undefined;
 
   /**
    * <p>Use this parameter only when paginating results and only in a subsequent request after you
@@ -1265,7 +1265,7 @@ export interface ListCertificatesRequest {
    *       the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Use this parameter when paginating results to specify the maximum number of items to
@@ -1274,21 +1274,21 @@ export interface ListCertificatesRequest {
    *       value in a subsequent request to retrieve additional items.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must also
    *       specify <code>SortOrder</code>.</p>
    * @public
    */
-  SortBy?: SortBy;
+  SortBy?: SortBy | undefined;
 
   /**
    * <p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must
    *       also specify <code>SortBy</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -1305,14 +1305,14 @@ export interface CertificateSummary {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>Fully qualified domain name (FQDN), such as www.example.com or example.com, for the
    *       certificate.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>One or more domain names (subject alternative names)
@@ -1325,7 +1325,7 @@ export interface CertificateSummary {
    *       <a>DescribeCertificate</a>.</p>
    * @public
    */
-  SubjectAlternativeNameSummaries?: string[];
+  SubjectAlternativeNameSummaries?: string[] | undefined;
 
   /**
    * <p>When called by <a>ListCertificates</a>, indicates whether the full list of subject alternative names has
@@ -1335,7 +1335,7 @@ export interface CertificateSummary {
    *       names, use <a>DescribeCertificate</a>.</p>
    * @public
    */
-  HasAdditionalSubjectAlternativeNames?: boolean;
+  HasAdditionalSubjectAlternativeNames?: boolean | undefined;
 
   /**
    * <p>The status of the certificate.</p>
@@ -1346,7 +1346,7 @@ export interface CertificateSummary {
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    * @public
    */
-  Status?: CertificateStatus;
+  Status?: CertificateStatus | undefined;
 
   /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
@@ -1357,13 +1357,13 @@ export interface CertificateSummary {
    *         <i>Certificate Manager User Guide</i>. </p>
    * @public
    */
-  Type?: CertificateType;
+  Type?: CertificateType | undefined;
 
   /**
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    * @public
    */
-  KeyAlgorithm?: KeyAlgorithm;
+  KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
    * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that
@@ -1371,7 +1371,7 @@ export interface CertificateSummary {
    *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
    * @public
    */
-  KeyUsages?: KeyUsageName[];
+  KeyUsages?: KeyUsageName[] | undefined;
 
   /**
    * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
@@ -1379,20 +1379,20 @@ export interface CertificateSummary {
    *       identifier (OID). </p>
    * @public
    */
-  ExtendedKeyUsages?: ExtendedKeyUsageName[];
+  ExtendedKeyUsages?: ExtendedKeyUsageName[] | undefined;
 
   /**
    * <p>Indicates whether the certificate is currently in use by any Amazon Web Services resources.</p>
    * @public
    */
-  InUse?: boolean;
+  InUse?: boolean | undefined;
 
   /**
    * <p>Indicates whether the certificate has been exported. This value exists only when the
    *       certificate type is <code>PRIVATE</code>.</p>
    * @public
    */
-  Exported?: boolean;
+  Exported?: boolean | undefined;
 
   /**
    * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported
@@ -1400,46 +1400,46 @@ export interface CertificateSummary {
    *       command.</p>
    * @public
    */
-  RenewalEligibility?: RenewalEligibility;
+  RenewalEligibility?: RenewalEligibility | undefined;
 
   /**
    * <p>The time before which the certificate is not valid.</p>
    * @public
    */
-  NotBefore?: Date;
+  NotBefore?: Date | undefined;
 
   /**
    * <p>The time after which the certificate is not valid.</p>
    * @public
    */
-  NotAfter?: Date;
+  NotAfter?: Date | undefined;
 
   /**
    * <p>The time at which the certificate was requested.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time at which the certificate was issued. This value exists only when the certificate
    *       type is <code>AMAZON_ISSUED</code>. </p>
    * @public
    */
-  IssuedAt?: Date;
+  IssuedAt?: Date | undefined;
 
   /**
    * <p>The date and time when the certificate was imported. This value exists only when the
    *       certificate type is <code>IMPORTED</code>. </p>
    * @public
    */
-  ImportedAt?: Date;
+  ImportedAt?: Date | undefined;
 
   /**
    * <p>The time at which the certificate was revoked. This value exists only when the certificate
    *       status is <code>REVOKED</code>. </p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }
 
 /**
@@ -1451,13 +1451,13 @@ export interface ListCertificatesResponse {
    *         <code>NextToken</code> parameter in a subsequent pagination request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of ACM certificates.</p>
    * @public
    */
-  CertificateSummaryList?: CertificateSummary[];
+  CertificateSummaryList?: CertificateSummary[] | undefined;
 }
 
 /**
@@ -1504,7 +1504,7 @@ export interface ListTagsForCertificateResponse {
    * <p>The key-value pairs that define the applied tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1515,7 +1515,7 @@ export interface PutAccountConfigurationRequest {
    * <p>Specifies expiration events associated with an account.</p>
    * @public
    */
-  ExpiryEvents?: ExpiryEventsConfiguration;
+  ExpiryEvents?: ExpiryEventsConfiguration | undefined;
 
   /**
    * <p>Customer-chosen string used to distinguish between calls to
@@ -1651,7 +1651,7 @@ export interface RequestCertificateRequest {
    *         email</a>. We recommend that you use DNS validation. </p>
    * @public
    */
-  ValidationMethod?: ValidationMethod;
+  ValidationMethod?: ValidationMethod | undefined;
 
   /**
    * <p>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
@@ -1683,7 +1683,7 @@ export interface RequestCertificateRequest {
    *          </ul>
    * @public
    */
-  SubjectAlternativeNames?: string[];
+  SubjectAlternativeNames?: string[] | undefined;
 
   /**
    * <p>Customer chosen string that can be used to distinguish between calls to
@@ -1694,14 +1694,14 @@ export interface RequestCertificateRequest {
    *       requesting multiple certificates.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>The domain name that you want ACM to use to send you emails so that you can validate
    *       domain ownership.</p>
    * @public
    */
-  DomainValidationOptions?: DomainValidationOption[];
+  DomainValidationOptions?: DomainValidationOption[] | undefined;
 
   /**
    * <p>Currently, you can use this parameter to specify whether to add the certificate to a
@@ -1710,7 +1710,7 @@ export interface RequestCertificateRequest {
    *       logged typically produce an error message in a browser. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">Opting Out of Certificate Transparency Logging</a>.</p>
    * @public
    */
-  Options?: CertificateOptions;
+  Options?: CertificateOptions | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used
@@ -1722,13 +1722,13 @@ export interface RequestCertificateRequest {
    *          </p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>One or more resource tags to associate with the certificate.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Specifies the algorithm of the public and private key pair that your certificate uses to
@@ -1769,7 +1769,7 @@ export interface RequestCertificateRequest {
    *          <p>Default: RSA_2048</p>
    * @public
    */
-  KeyAlgorithm?: KeyAlgorithm;
+  KeyAlgorithm?: KeyAlgorithm | undefined;
 }
 
 /**
@@ -1783,7 +1783,7 @@ export interface RequestCertificateResponse {
    *          </p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**

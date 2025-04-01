@@ -11,7 +11,7 @@ import {
   ImportVolumeRequestFilterSensitiveLog,
   ImportVolumeResult,
   ImportVolumeResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_ImportVolumeCommand, se_ImportVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -33,13 +33,14 @@ export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
 export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
- * <p>Creates an import volume task using metadata from the specified disk image.</p>
- *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
+ * <note>
+ *             <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
  *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
  *    <a>ImportSnapshot</a> instead.</p>
- *          <p>This API action is not supported by the Command Line Interface (CLI). For
- *    information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing Disks to Amazon EBS</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
+ *          </note>
+ *          <p>Creates an import volume task using metadata from the specified disk image.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ *          <p>This API action is not supported by the Command Line Interface (CLI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,14 +48,14 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * // const { EC2Client, ImportVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ImportVolumeRequest
- *   AvailabilityZone: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
  *   DryRun: true || false,
+ *   AvailabilityZone: "STRING_VALUE", // required
  *   Image: { // DiskImageDetail
- *     Bytes: Number("long"), // required
  *     Format: "VMDK" || "RAW" || "VHD", // required
+ *     Bytes: Number("long"), // required
  *     ImportManifestUrl: "STRING_VALUE", // required
  *   },
+ *   Description: "STRING_VALUE",
  *   Volume: { // VolumeDetail
  *     Size: Number("long"), // required
  *   },
@@ -126,6 +127,7 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ImportVolumeCommand extends $Command
@@ -136,9 +138,7 @@ export class ImportVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +150,16 @@ export class ImportVolumeCommand extends $Command
   .f(ImportVolumeRequestFilterSensitiveLog, ImportVolumeResultFilterSensitiveLog)
   .ser(se_ImportVolumeCommand)
   .de(de_ImportVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportVolumeRequest;
+      output: ImportVolumeResult;
+    };
+    sdk: {
+      input: ImportVolumeCommandInput;
+      output: ImportVolumeCommandOutput;
+    };
+  };
+}

@@ -96,6 +96,7 @@ export interface ListMLModelTransformJobsCommandOutput extends ListMLModelTransf
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ListMLModelTransformJobsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListMLModelTransformJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListMLModelTransformJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLModelTransformJobsCommand)
   .de(de_ListMLModelTransformJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLModelTransformJobsInput;
+      output: ListMLModelTransformJobsOutput;
+    };
+    sdk: {
+      input: ListMLModelTransformJobsCommandInput;
+      output: ListMLModelTransformJobsCommandOutput;
+    };
+  };
+}

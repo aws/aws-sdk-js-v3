@@ -69,6 +69,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
  *  <p>The request was rejected because it is not a valid request.</p>
  *
+ * @throws {@link CloudHsmResourceLimitExceededException} (client fault)
+ *  <p>The request was rejected because it exceeds an CloudHSM limit.</p>
+ *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it refers to a resource that cannot be
  *       found.</p>
@@ -82,6 +85,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -92,9 +96,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +108,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

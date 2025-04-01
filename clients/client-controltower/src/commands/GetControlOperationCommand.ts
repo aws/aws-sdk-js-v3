@@ -46,7 +46,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * const response = await client.send(command);
  * // { // GetControlOperationOutput
  * //   controlOperation: { // ControlOperation
- * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
@@ -84,6 +84,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetControlOperationCommand extends $Command
@@ -94,9 +95,7 @@ export class GetControlOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class GetControlOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetControlOperationCommand)
   .de(de_GetControlOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetControlOperationInput;
+      output: GetControlOperationOutput;
+    };
+    sdk: {
+      input: GetControlOperationCommandInput;
+      output: GetControlOperationCommandOutput;
+    };
+  };
+}

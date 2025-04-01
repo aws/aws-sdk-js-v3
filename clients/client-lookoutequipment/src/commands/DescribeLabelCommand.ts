@@ -84,6 +84,7 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeLabelCommand extends $Command
@@ -94,9 +95,7 @@ export class DescribeLabelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DescribeLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLabelCommand)
   .de(de_DescribeLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLabelRequest;
+      output: DescribeLabelResponse;
+    };
+    sdk: {
+      input: DescribeLabelCommandInput;
+      output: DescribeLabelCommandOutput;
+    };
+  };
+}

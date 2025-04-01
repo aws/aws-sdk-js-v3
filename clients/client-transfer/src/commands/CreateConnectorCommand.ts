@@ -52,6 +52,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  *     MdnResponse: "SYNC" || "NONE",
  *     BasicAuthSecretId: "STRING_VALUE",
+ *     PreserveContentType: "ENABLED" || "DISABLED",
  *   },
  *   AccessRole: "STRING_VALUE", // required
  *   LoggingRole: "STRING_VALUE",
@@ -105,6 +106,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command
@@ -115,9 +117,7 @@ export class CreateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class CreateConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectorCommand)
   .de(de_CreateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorRequest;
+      output: CreateConnectorResponse;
+    };
+    sdk: {
+      input: CreateConnectorCommandInput;
+      output: CreateConnectorCommandOutput;
+    };
+  };
+}

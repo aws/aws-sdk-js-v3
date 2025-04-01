@@ -80,6 +80,7 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class StartExportCommand extends $Command
@@ -90,9 +91,7 @@ export class StartExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class StartExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExportCommand)
   .de(de_StartExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExportRequest;
+      output: StartExportResponse;
+    };
+    sdk: {
+      input: StartExportCommandInput;
+      output: StartExportCommandOutput;
+    };
+  };
+}

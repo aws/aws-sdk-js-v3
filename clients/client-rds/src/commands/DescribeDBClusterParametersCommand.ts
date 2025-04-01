@@ -94,51 +94,51 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the parameters in a DB cluster parameter group
  * ```javascript
  * // The following example retrieves details about the parameters in a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterpg"
+ *   DBClusterParameterGroupName: "mydbclusterpg"
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Parameters": [
+ *   Parameters: [
  *     {
- *       "AllowedValues": "0,1",
- *       "ApplyMethod": "pending-reboot",
- *       "ApplyType": "static",
- *       "DataType": "boolean",
- *       "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
- *       "IsModifiable": false,
- *       "ParameterName": "allow-suspicious-udfs",
- *       "Source": "engine-default",
- *       "SupportedEngineModes": [
+ *       AllowedValues: "0,1",
+ *       ApplyMethod: "pending-reboot",
+ *       ApplyType: "static",
+ *       DataType: "boolean",
+ *       Description: "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *       IsModifiable: false,
+ *       ParameterName: "allow-suspicious-udfs",
+ *       Source: "engine-default",
+ *       SupportedEngineModes: [
  *         "provisioned"
  *       ]
  *     },
  *     {
- *       "AllowedValues": "0,1",
- *       "ApplyMethod": "pending-reboot",
- *       "ApplyType": "static",
- *       "DataType": "boolean",
- *       "Description": "Enables new features in the Aurora engine.",
- *       "IsModifiable": true,
- *       "ParameterName": "aurora_lab_mode",
- *       "ParameterValue": "0",
- *       "Source": "engine-default",
- *       "SupportedEngineModes": [
+ *       AllowedValues: "0,1",
+ *       ApplyMethod: "pending-reboot",
+ *       ApplyType: "static",
+ *       DataType: "boolean",
+ *       Description: "Enables new features in the Aurora engine.",
+ *       IsModifiable: true,
+ *       ParameterName: "aurora_lab_mode",
+ *       ParameterValue: "0",
+ *       Source: "engine-default",
+ *       SupportedEngineModes: [
  *         "provisioned"
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-parameters-in-a-db-cluster-parameter-group-1680213275624
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterParametersCommand extends $Command
   .classBuilder<
@@ -148,9 +148,7 @@ export class DescribeDBClusterParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +160,16 @@ export class DescribeDBClusterParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterParametersCommand)
   .de(de_DescribeDBClusterParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterParametersMessage;
+      output: DBClusterParameterGroupDetails;
+    };
+    sdk: {
+      input: DescribeDBClusterParametersCommandInput;
+      output: DescribeDBClusterParametersCommandOutput;
+    };
+  };
+}

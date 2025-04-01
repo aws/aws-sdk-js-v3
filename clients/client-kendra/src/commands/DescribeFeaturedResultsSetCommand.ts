@@ -98,6 +98,7 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DescribeFeaturedResultsSetCommand extends $Command
@@ -108,9 +109,7 @@ export class DescribeFeaturedResultsSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DescribeFeaturedResultsSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFeaturedResultsSetCommand)
   .de(de_DescribeFeaturedResultsSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFeaturedResultsSetRequest;
+      output: DescribeFeaturedResultsSetResponse;
+    };
+    sdk: {
+      input: DescribeFeaturedResultsSetCommandInput;
+      output: DescribeFeaturedResultsSetCommandOutput;
+    };
+  };
+}

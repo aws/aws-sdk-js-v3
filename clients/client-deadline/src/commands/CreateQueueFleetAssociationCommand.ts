@@ -76,6 +76,7 @@ export interface CreateQueueFleetAssociationCommandOutput
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CreateQueueFleetAssociationCommand extends $Command
@@ -86,9 +87,7 @@ export class CreateQueueFleetAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class CreateQueueFleetAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQueueFleetAssociationCommand)
   .de(de_CreateQueueFleetAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueFleetAssociationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateQueueFleetAssociationCommandInput;
+      output: CreateQueueFleetAssociationCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface GetChallengePasswordCommandOutput extends GetChallengePasswordR
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetChallengePasswordCommand extends $Command
@@ -89,9 +90,7 @@ export class GetChallengePasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetChallengePasswordCommand extends $Command
   .f(void 0, GetChallengePasswordResponseFilterSensitiveLog)
   .ser(se_GetChallengePasswordCommand)
   .de(de_GetChallengePasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChallengePasswordRequest;
+      output: GetChallengePasswordResponse;
+    };
+    sdk: {
+      input: GetChallengePasswordCommandInput;
+      output: GetChallengePasswordCommandOutput;
+    };
+  };
+}

@@ -87,6 +87,7 @@ export interface CreateCustomDomainAssociationCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomDomainAssociationCommand extends $Command
@@ -97,9 +98,7 @@ export class CreateCustomDomainAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class CreateCustomDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomDomainAssociationCommand)
   .de(de_CreateCustomDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomDomainAssociationRequest;
+      output: CreateCustomDomainAssociationResponse;
+    };
+    sdk: {
+      input: CreateCustomDomainAssociationCommandInput;
+      output: CreateCustomDomainAssociationCommandOutput;
+    };
+  };
+}

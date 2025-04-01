@@ -28,7 +28,7 @@ export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePa
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts a data source packages for the behavior graph.</p>
+ * <p>Starts a data source package for the Detective behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +82,7 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class UpdateDatasourcePackagesCommand extends $Command
@@ -92,9 +93,7 @@ export class UpdateDatasourcePackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class UpdateDatasourcePackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDatasourcePackagesCommand)
   .de(de_UpdateDatasourcePackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDatasourcePackagesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDatasourcePackagesCommandInput;
+      output: UpdateDatasourcePackagesCommandOutput;
+    };
+  };
+}

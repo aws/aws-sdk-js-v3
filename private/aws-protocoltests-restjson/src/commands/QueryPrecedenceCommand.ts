@@ -55,6 +55,7 @@ export interface QueryPrecedenceCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class QueryPrecedenceCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class QueryPrecedenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryPrecedenceCommand)
   .de(de_QueryPrecedenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryPrecedenceInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryPrecedenceCommandInput;
+      output: QueryPrecedenceCommandOutput;
+    };
+  };
+}

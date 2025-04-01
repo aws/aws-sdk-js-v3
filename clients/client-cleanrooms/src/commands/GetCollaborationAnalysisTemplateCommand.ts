@@ -66,14 +66,43 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     format: "STRING_VALUE", // required
+ * //     format: "SQL" || "PYSPARK_1_0", // required
  * //     source: { // AnalysisSource Union: only one key present
  * //       text: "STRING_VALUE",
+ * //       artifacts: { // AnalysisTemplateArtifacts
+ * //         entryPoint: { // AnalysisTemplateArtifact
+ * //           location: { // S3Location
+ * //             bucket: "STRING_VALUE", // required
+ * //             key: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         additionalArtifacts: [ // AnalysisTemplateArtifactList
+ * //           {
+ * //             location: {
+ * //               bucket: "STRING_VALUE", // required
+ * //               key: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     sourceMetadata: { // AnalysisSourceMetadata Union: only one key present
+ * //       artifacts: { // AnalysisTemplateArtifactMetadata
+ * //         entryPointHash: { // Hash
+ * //           sha256: "STRING_VALUE",
+ * //         },
+ * //         additionalArtifactHashes: [ // HashList
+ * //           {
+ * //             sha256: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     analysisParameters: [ // AnalysisParameterList
  * //       { // AnalysisParameter
  * //         name: "STRING_VALUE", // required
- * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE" || "BINARY" || "BYTE" || "CHARACTER" || "DOUBLE" || "FLOAT" || "INT" || "LONG" || "NUMERIC" || "SHORT" || "STRING" || "TIMESTAMP_LTZ" || "TIMESTAMP_NTZ" || "TINYINT", // required
  * //         defaultValue: "STRING_VALUE",
  * //       },
  * //     ],
@@ -117,6 +146,7 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetCollaborationAnalysisTemplateCommand extends $Command
@@ -127,9 +157,7 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +169,16 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command
   .f(void 0, GetCollaborationAnalysisTemplateOutputFilterSensitiveLog)
   .ser(se_GetCollaborationAnalysisTemplateCommand)
   .de(de_GetCollaborationAnalysisTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCollaborationAnalysisTemplateInput;
+      output: GetCollaborationAnalysisTemplateOutput;
+    };
+    sdk: {
+      input: GetCollaborationAnalysisTemplateCommandInput;
+      output: GetCollaborationAnalysisTemplateCommandOutput;
+    };
+  };
+}

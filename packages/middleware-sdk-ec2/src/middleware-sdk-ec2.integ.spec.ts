@@ -1,4 +1,5 @@
 import { EC2 } from "@aws-sdk/client-ec2";
+import { describe, expect, test as it } from "vitest";
 
 import { TestHttpHandler } from "../../../private/aws-util-test/src";
 
@@ -78,7 +79,7 @@ describe("EC2", () => {
   });
 
   // skipped due to ISOB failing DNS lookup
-  xit("in us-isob-east-1, serializes PSU and DestinationRegion when Encrypted=true and KmsKeyId present", async () => {
+  it.skip("in us-isob-east-1, serializes PSU and DestinationRegion when Encrypted=true and KmsKeyId present", async () => {
     const client = new EC2({
       region: "us-isob-east-1",
     });

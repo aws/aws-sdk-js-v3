@@ -86,20 +86,23 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To delete an application version
  * ```javascript
  * // The following operation deletes an application version named 22a0-stage-150819_182129 for an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "DeleteSourceBundle": true,
- *   "VersionLabel": "22a0-stage-150819_182129"
+ *   ApplicationName: "my-app",
+ *   DeleteSourceBundle: true,
+ *   VersionLabel: "22a0-stage-150819_182129"
  * };
  * const command = new DeleteApplicationVersionCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-application-version-1456269792956
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteApplicationVersionCommand extends $Command
   .classBuilder<
@@ -109,9 +112,7 @@ export class DeleteApplicationVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +124,16 @@ export class DeleteApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationVersionCommand)
   .de(de_DeleteApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationVersionMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationVersionCommandInput;
+      output: DeleteApplicationVersionCommandOutput;
+    };
+  };
+}

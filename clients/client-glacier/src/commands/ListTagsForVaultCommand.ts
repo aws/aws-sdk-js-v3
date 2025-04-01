@@ -73,27 +73,27 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To list the tags for a vault
  * ```javascript
  * // The example lists all the tags attached to the vault examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new ListTagsForVaultCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": {
- *     "date": "july2015",
- *     "id": "1234"
+ *   Tags: {
+ *     date: "july2015",
+ *     id: "1234"
  *   }
  * }
  * *\/
- * // example id: list-tags-for-vault-1481755839720
  * ```
  *
+ * @public
  */
 export class ListTagsForVaultCommand extends $Command
   .classBuilder<
@@ -103,9 +103,7 @@ export class ListTagsForVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +115,16 @@ export class ListTagsForVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForVaultCommand)
   .de(de_ListTagsForVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForVaultInput;
+      output: ListTagsForVaultOutput;
+    };
+    sdk: {
+      input: ListTagsForVaultCommandInput;
+      output: ListTagsForVaultCommandOutput;
+    };
+  };
+}

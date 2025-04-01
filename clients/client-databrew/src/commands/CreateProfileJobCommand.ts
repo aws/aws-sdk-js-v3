@@ -152,6 +152,7 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class CreateProfileJobCommand extends $Command
@@ -162,9 +163,7 @@ export class CreateProfileJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +175,16 @@ export class CreateProfileJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProfileJobCommand)
   .de(de_CreateProfileJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProfileJobRequest;
+      output: CreateProfileJobResponse;
+    };
+    sdk: {
+      input: CreateProfileJobCommandInput;
+      output: CreateProfileJobCommandOutput;
+    };
+  };
+}

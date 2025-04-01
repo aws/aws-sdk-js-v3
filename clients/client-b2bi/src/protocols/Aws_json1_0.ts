@@ -12,6 +12,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   take,
   withBaseException,
@@ -27,11 +28,16 @@ import { v4 as generateIdempotencyToken } from "uuid";
 import { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "../commands/CreateCapabilityCommand";
 import { CreatePartnershipCommandInput, CreatePartnershipCommandOutput } from "../commands/CreatePartnershipCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
+import {
+  CreateStarterMappingTemplateCommandInput,
+  CreateStarterMappingTemplateCommandOutput,
+} from "../commands/CreateStarterMappingTemplateCommand";
 import { CreateTransformerCommandInput, CreateTransformerCommandOutput } from "../commands/CreateTransformerCommand";
 import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "../commands/DeleteCapabilityCommand";
 import { DeletePartnershipCommandInput, DeletePartnershipCommandOutput } from "../commands/DeletePartnershipCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteTransformerCommandInput, DeleteTransformerCommandOutput } from "../commands/DeleteTransformerCommand";
+import { GenerateMappingCommandInput, GenerateMappingCommandOutput } from "../commands/GenerateMappingCommand";
 import { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "../commands/GetCapabilityCommand";
 import { GetPartnershipCommandInput, GetPartnershipCommandOutput } from "../commands/GetPartnershipCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
@@ -50,6 +56,7 @@ import {
   StartTransformerJobCommandOutput,
 } from "../commands/StartTransformerJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestConversionCommandInput, TestConversionCommandOutput } from "../commands/TestConversionCommand";
 import { TestMappingCommandInput, TestMappingCommandOutput } from "../commands/TestMappingCommand";
 import { TestParsingCommandInput, TestParsingCommandOutput } from "../commands/TestParsingCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -61,14 +68,19 @@ import { B2biServiceException as __BaseException } from "../models/B2biServiceEx
 import {
   AccessDeniedException,
   CapabilityConfiguration,
+  CapabilityOptions,
   CapabilitySummary,
   ConflictException,
+  ConversionSource,
+  ConversionTarget,
+  ConversionTargetFormatDetails,
   CreateCapabilityRequest,
   CreateCapabilityResponse,
   CreatePartnershipRequest,
   CreatePartnershipResponse,
   CreateProfileRequest,
   CreateProfileResponse,
+  CreateStarterMappingTemplateRequest,
   CreateTransformerRequest,
   CreateTransformerResponse,
   DeleteCapabilityRequest,
@@ -77,6 +89,9 @@ import {
   DeleteTransformerRequest,
   EdiConfiguration,
   EdiType,
+  FormatOptions,
+  GenerateMappingRequest,
+  GenerateMappingResponse,
   GetCapabilityRequest,
   GetCapabilityResponse,
   GetPartnershipRequest,
@@ -86,6 +101,8 @@ import {
   GetTransformerJobRequest,
   GetTransformerRequest,
   GetTransformerResponse,
+  InputConversion,
+  InputFileSource,
   InternalServerException,
   ListCapabilitiesRequest,
   ListCapabilitiesResponse,
@@ -96,14 +113,22 @@ import {
   ListTagsForResourceRequest,
   ListTransformersRequest,
   ListTransformersResponse,
+  Mapping,
+  OutboundEdiOptions,
+  OutputConversion,
+  OutputSampleFileSource,
   PartnershipSummary,
   ProfileSummary,
   ResourceNotFoundException,
   S3Location,
+  SampleDocumentKeys,
+  SampleDocuments,
   ServiceQuotaExceededException,
   StartTransformerJobRequest,
   Tag,
   TagResourceRequest,
+  TemplateDetails,
+  TestConversionRequest,
   TestMappingRequest,
   TestParsingRequest,
   ThrottlingException,
@@ -118,7 +143,12 @@ import {
   UpdateTransformerRequest,
   UpdateTransformerResponse,
   ValidationException,
+  X12Delimiters,
   X12Details,
+  X12Envelope,
+  X12FunctionalGroupHeaders,
+  X12InterchangeControlHeaders,
+  X12OutboundEdiHeaders,
 } from "../models/models_0";
 
 /**
@@ -157,6 +187,19 @@ export const se_CreateProfileCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateProfile");
   let body: any;
   body = JSON.stringify(se_CreateProfileRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateStarterMappingTemplateCommand
+ */
+export const se_CreateStarterMappingTemplateCommand = async (
+  input: CreateStarterMappingTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateStarterMappingTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -220,6 +263,19 @@ export const se_DeleteTransformerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTransformer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GenerateMappingCommand
+ */
+export const se_GenerateMappingCommand = async (
+  input: GenerateMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GenerateMapping");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,6 +438,19 @@ export const se_TagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_0TestConversionCommand
+ */
+export const se_TestConversionCommand = async (
+  input: TestConversionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TestConversion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0TestMappingCommand
  */
 export const se_TestMappingCommand = async (
@@ -533,6 +602,26 @@ export const de_CreateProfileCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateStarterMappingTemplateCommand
+ */
+export const de_CreateStarterMappingTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStarterMappingTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateStarterMappingTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0CreateTransformerCommand
  */
 export const de_CreateTransformerCommand = async (
@@ -616,6 +705,26 @@ export const de_DeleteTransformerCommand = async (
   await collectBody(output.body, context);
   const response: DeleteTransformerCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GenerateMappingCommand
+ */
+export const de_GenerateMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GenerateMappingResponse(data, context);
+  const response: GenerateMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -853,6 +962,26 @@ export const de_TagResourceCommand = async (
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TestConversionCommand
+ */
+export const de_TestConversionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestConversionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestConversionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -1140,6 +1269,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CapabilityConfiguration omitted.
 
+// se_CapabilityOptions omitted.
+
+// se_ConversionSource omitted.
+
+// se_ConversionTarget omitted.
+
+// se_ConversionTargetFormatDetails omitted.
+
 /**
  * serializeAws_json1_0CreateCapabilityRequest
  */
@@ -1160,6 +1297,7 @@ const se_CreateCapabilityRequest = (input: CreateCapabilityRequest, context: __S
 const se_CreatePartnershipRequest = (input: CreatePartnershipRequest, context: __SerdeContext): any => {
   return take(input, {
     capabilities: _json,
+    capabilityOptions: _json,
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     email: [],
     name: [],
@@ -1184,6 +1322,8 @@ const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeCo
   });
 };
 
+// se_CreateStarterMappingTemplateRequest omitted.
+
 /**
  * serializeAws_json1_0CreateTransformerRequest
  */
@@ -1192,9 +1332,13 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ediType: _json,
     fileFormat: [],
+    inputConversion: _json,
+    mapping: _json,
     mappingTemplate: [],
     name: [],
+    outputConversion: _json,
     sampleDocument: [],
+    sampleDocuments: _json,
     tags: _json,
   });
 };
@@ -1211,6 +1355,10 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
 
 // se_EdiType omitted.
 
+// se_FormatOptions omitted.
+
+// se_GenerateMappingRequest omitted.
+
 // se_GetCapabilityRequest omitted.
 
 // se_GetPartnershipRequest omitted.
@@ -1221,7 +1369,13 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
 
 // se_GetTransformerRequest omitted.
 
+// se_InputConversion omitted.
+
+// se_InputFileSource omitted.
+
 // se_InstructionsDocuments omitted.
+
+// se_KeyList omitted.
 
 // se_ListCapabilitiesRequest omitted.
 
@@ -1233,9 +1387,21 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
 
 // se_ListTransformersRequest omitted.
 
+// se_Mapping omitted.
+
+// se_OutboundEdiOptions omitted.
+
+// se_OutputConversion omitted.
+
+// se_OutputSampleFileSource omitted.
+
 // se_PartnershipCapabilities omitted.
 
 // se_S3Location omitted.
+
+// se_SampleDocumentKeys omitted.
+
+// se_SampleDocuments omitted.
 
 /**
  * serializeAws_json1_0StartTransformerJobRequest
@@ -1257,6 +1423,10 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 
 // se_TagResourceRequest omitted.
 
+// se_TemplateDetails omitted.
+
+// se_TestConversionRequest omitted.
+
 // se_TestMappingRequest omitted.
 
 // se_TestParsingRequest omitted.
@@ -1271,7 +1441,17 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 
 // se_UpdateTransformerRequest omitted.
 
+// se_X12Delimiters omitted.
+
 // se_X12Details omitted.
+
+// se_X12Envelope omitted.
+
+// se_X12FunctionalGroupHeaders omitted.
+
+// se_X12InterchangeControlHeaders omitted.
+
+// se_X12OutboundEdiHeaders omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -1288,6 +1468,8 @@ const de_CapabilityList = (output: any, context: __SerdeContext): CapabilitySumm
     });
   return retVal;
 };
+
+// de_CapabilityOptions omitted.
 
 /**
  * deserializeAws_json1_0CapabilitySummary
@@ -1325,6 +1507,7 @@ const de_CreateCapabilityResponse = (output: any, context: __SerdeContext): Crea
 const de_CreatePartnershipResponse = (output: any, context: __SerdeContext): CreatePartnershipResponse => {
   return take(output, {
     capabilities: _json,
+    capabilityOptions: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     email: __expectString,
     name: __expectString,
@@ -1353,6 +1536,8 @@ const de_CreateProfileResponse = (output: any, context: __SerdeContext): CreateP
   }) as any;
 };
 
+// de_CreateStarterMappingTemplateResponse omitted.
+
 /**
  * deserializeAws_json1_0CreateTransformerResponse
  */
@@ -1361,9 +1546,13 @@ const de_CreateTransformerResponse = (output: any, context: __SerdeContext): Cre
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ediType: (_: any) => _json(__expectUnion(_)),
     fileFormat: __expectString,
+    inputConversion: _json,
+    mapping: _json,
     mappingTemplate: __expectString,
     name: __expectString,
+    outputConversion: _json,
     sampleDocument: __expectString,
+    sampleDocuments: _json,
     status: __expectString,
     transformerArn: __expectString,
     transformerId: __expectString,
@@ -1373,6 +1562,18 @@ const de_CreateTransformerResponse = (output: any, context: __SerdeContext): Cre
 // de_EdiConfiguration omitted.
 
 // de_EdiType omitted.
+
+// de_FormatOptions omitted.
+
+/**
+ * deserializeAws_json1_0GenerateMappingResponse
+ */
+const de_GenerateMappingResponse = (output: any, context: __SerdeContext): GenerateMappingResponse => {
+  return take(output, {
+    mappingAccuracy: __limitedParseFloat32,
+    mappingTemplate: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0GetCapabilityResponse
@@ -1396,6 +1597,7 @@ const de_GetCapabilityResponse = (output: any, context: __SerdeContext): GetCapa
 const de_GetPartnershipResponse = (output: any, context: __SerdeContext): GetPartnershipResponse => {
   return take(output, {
     capabilities: _json,
+    capabilityOptions: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     email: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -1436,19 +1638,27 @@ const de_GetTransformerResponse = (output: any, context: __SerdeContext): GetTra
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ediType: (_: any) => _json(__expectUnion(_)),
     fileFormat: __expectString,
+    inputConversion: _json,
+    mapping: _json,
     mappingTemplate: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    outputConversion: _json,
     sampleDocument: __expectString,
+    sampleDocuments: _json,
     status: __expectString,
     transformerArn: __expectString,
     transformerId: __expectString,
   }) as any;
 };
 
+// de_InputConversion omitted.
+
 // de_InstructionsDocuments omitted.
 
 // de_InternalServerException omitted.
+
+// de_KeyList omitted.
 
 /**
  * deserializeAws_json1_0ListCapabilitiesResponse
@@ -1492,6 +1702,12 @@ const de_ListTransformersResponse = (output: any, context: __SerdeContext): List
   }) as any;
 };
 
+// de_Mapping omitted.
+
+// de_OutboundEdiOptions omitted.
+
+// de_OutputConversion omitted.
+
 // de_PartnershipCapabilities omitted.
 
 /**
@@ -1512,6 +1728,7 @@ const de_PartnershipList = (output: any, context: __SerdeContext): PartnershipSu
 const de_PartnershipSummary = (output: any, context: __SerdeContext): PartnershipSummary => {
   return take(output, {
     capabilities: _json,
+    capabilityOptions: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
@@ -1554,6 +1771,10 @@ const de_ProfileSummary = (output: any, context: __SerdeContext): ProfileSummary
 
 // de_S3LocationList omitted.
 
+// de_SampleDocumentKeys omitted.
+
+// de_SampleDocuments omitted.
+
 // de_ServiceQuotaExceededException omitted.
 
 // de_StartTransformerJobResponse omitted.
@@ -1561,6 +1782,8 @@ const de_ProfileSummary = (output: any, context: __SerdeContext): ProfileSummary
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_TestConversionResponse omitted.
 
 // de_TestMappingResponse omitted.
 
@@ -1588,10 +1811,14 @@ const de_TransformerSummary = (output: any, context: __SerdeContext): Transforme
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ediType: (_: any) => _json(__expectUnion(_)),
     fileFormat: __expectString,
+    inputConversion: _json,
+    mapping: _json,
     mappingTemplate: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    outputConversion: _json,
     sampleDocument: __expectString,
+    sampleDocuments: _json,
     status: __expectString,
     transformerId: __expectString,
   }) as any;
@@ -1619,6 +1846,7 @@ const de_UpdateCapabilityResponse = (output: any, context: __SerdeContext): Upda
 const de_UpdatePartnershipResponse = (output: any, context: __SerdeContext): UpdatePartnershipResponse => {
   return take(output, {
     capabilities: _json,
+    capabilityOptions: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     email: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -1657,10 +1885,14 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ediType: (_: any) => _json(__expectUnion(_)),
     fileFormat: __expectString,
+    inputConversion: _json,
+    mapping: _json,
     mappingTemplate: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    outputConversion: _json,
     sampleDocument: __expectString,
+    sampleDocuments: _json,
     status: __expectString,
     transformerArn: __expectString,
     transformerId: __expectString,
@@ -1669,7 +1901,19 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
 
 // de_ValidationException omitted.
 
+// de_ValidationMessages omitted.
+
+// de_X12Delimiters omitted.
+
 // de_X12Details omitted.
+
+// de_X12Envelope omitted.
+
+// de_X12FunctionalGroupHeaders omitted.
+
+// de_X12InterchangeControlHeaders omitted.
+
+// de_X12OutboundEdiHeaders omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

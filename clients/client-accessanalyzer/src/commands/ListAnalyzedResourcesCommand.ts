@@ -29,8 +29,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
 
 /**
  * <p>Retrieves a list of resources of the specified type that have been analyzed by the
- *          specified external access analyzer. This action is not supported for unused access
- *          analyzers.</p>
+ *          specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +81,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyzedResourcesCommand extends $Command
@@ -92,9 +92,7 @@ export class ListAnalyzedResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +104,16 @@ export class ListAnalyzedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzedResourcesCommand)
   .de(de_ListAnalyzedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzedResourcesRequest;
+      output: ListAnalyzedResourcesResponse;
+    };
+    sdk: {
+      input: ListAnalyzedResourcesCommandInput;
+      output: ListAnalyzedResourcesCommandOutput;
+    };
+  };
+}

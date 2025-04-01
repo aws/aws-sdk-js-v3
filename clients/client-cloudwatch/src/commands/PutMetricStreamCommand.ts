@@ -29,39 +29,39 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
 
 /**
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
- * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
- * 			solutions.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
- * 		Using Metric Streams</a>.</p>
+ *             metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
+ *             solutions.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html"> Using
+ *             Metric Streams</a>.</p>
  *          <p>To create a metric stream, you must be signed in to an account that has the
- * 				<code>iam:PassRole</code> permission and either the
- * 				<code>CloudWatchFullAccess</code> policy or the
- * 				<code>cloudwatch:PutMetricStream</code> permission.</p>
+ *             <code>iam:PassRole</code> permission and either the
+ *             <code>CloudWatchFullAccess</code> policy or the
+ *             <code>cloudwatch:PutMetricStream</code> permission.</p>
  *          <p>When you create or update a metric stream, you choose one of the following:</p>
  *          <ul>
  *             <li>
  *                <p>Stream metrics from all metric namespaces in the account.</p>
  *             </li>
  *             <li>
- *                <p>Stream metrics from all metric namespaces in the account, except
- * 				for the namespaces that you list in <code>ExcludeFilters</code>.</p>
+ *                <p>Stream metrics from all metric namespaces in the account, except for the
+ *                     namespaces that you list in <code>ExcludeFilters</code>.</p>
  *             </li>
  *             <li>
  *                <p>Stream metrics from only the metric namespaces that you list in
- * 				<code>IncludeFilters</code>.</p>
+ *                     <code>IncludeFilters</code>.</p>
  *             </li>
  *          </ul>
  *          <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>,
- * 				<code>SUM</code>, and <code>SAMPLECOUNT</code> statistics for each metric that is
- * 			streamed. You can use the <code>StatisticsConfigurations</code> parameter to have the
- * 			metric stream send additional statistics in the stream. Streaming additional statistics
- * 			incurs additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
- *          <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
- * 		is created in the <code>running</code> state. If you use it to update an existing stream,
- * 		the state of the stream is not changed.</p>
- *          <p>If you are using CloudWatch cross-account observability and you create a metric stream in a monitoring account,
- * 			you can choose whether to include metrics from source accounts in the stream. For more information, see
- * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+ *             <code>SUM</code>, and <code>SAMPLECOUNT</code> statistics for each metric that is
+ *             streamed. You can use the <code>StatisticsConfigurations</code> parameter to have the
+ *             metric stream send additional statistics in the stream. Streaming additional statistics
+ *             incurs additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
+ *          <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream is
+ *             created in the <code>running</code> state. If you use it to update an existing stream,
+ *             the state of the stream is not changed.</p>
+ *          <p>If you are using CloudWatch cross-account observability and you create a metric
+ *             stream in a monitoring account, you can choose whether to include metrics from source
+ *             accounts in the stream. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,7 +128,8 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  *  <p>More than one process tried to modify a resource at the same time.</p>
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Parameters were used together that cannot be used together.</p>
@@ -142,6 +143,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutMetricStreamCommand extends $Command
@@ -152,9 +154,7 @@ export class PutMetricStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +166,16 @@ export class PutMetricStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricStreamCommand)
   .de(de_PutMetricStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricStreamInput;
+      output: PutMetricStreamOutput;
+    };
+    sdk: {
+      input: PutMetricStreamCommandInput;
+      output: PutMetricStreamCommandOutput;
+    };
+  };
+}

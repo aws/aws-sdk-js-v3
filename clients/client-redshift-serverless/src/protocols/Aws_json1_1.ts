@@ -92,6 +92,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "../commands/GetTableRestoreStatusCommand";
+import { GetTrackCommandInput, GetTrackCommandOutput } from "../commands/GetTrackCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "../commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "../commands/GetWorkgroupCommand";
 import {
@@ -99,6 +100,10 @@ import {
   ListCustomDomainAssociationsCommandOutput,
 } from "../commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "../commands/ListEndpointAccessCommand";
+import {
+  ListManagedWorkgroupsCommandInput,
+  ListManagedWorkgroupsCommandOutput,
+} from "../commands/ListManagedWorkgroupsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
 import {
@@ -118,6 +123,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTracksCommandInput, ListTracksCommandOutput } from "../commands/ListTracksCommand";
 import { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "../commands/ListUsageLimitsCommand";
 import { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "../commands/ListWorkgroupsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
@@ -213,16 +219,20 @@ import {
   GetSnapshotResponse,
   GetTableRestoreStatusRequest,
   GetTableRestoreStatusResponse,
+  GetTrackRequest,
   GetUsageLimitRequest,
   GetWorkgroupRequest,
   GetWorkgroupResponse,
   InsufficientCapacityException,
   InternalServerException,
   InvalidPaginationException,
+  Ipv6CidrBlockNotFoundException,
   ListCustomDomainAssociationsRequest,
   ListCustomDomainAssociationsResponse,
   ListEndpointAccessRequest,
   ListEndpointAccessResponse,
+  ListManagedWorkgroupsRequest,
+  ListManagedWorkgroupsResponse,
   ListNamespacesRequest,
   ListNamespacesResponse,
   ListRecoveryPointsRequest,
@@ -234,11 +244,14 @@ import {
   ListTableRestoreStatusRequest,
   ListTableRestoreStatusResponse,
   ListTagsForResourceRequest,
+  ListTracksRequest,
   ListUsageLimitsRequest,
   ListWorkgroupsRequest,
   ListWorkgroupsResponse,
   LogExport,
+  ManagedWorkgroupListItem,
   Namespace,
+  PerformanceTarget,
   PutResourcePolicyRequest,
   RecoveryPoint,
   ResourceNotFoundException,
@@ -632,6 +645,19 @@ export const se_GetTableRestoreStatusCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetTrackCommand
+ */
+export const se_GetTrackCommand = async (
+  input: GetTrackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetTrack");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetUsageLimitCommand
  */
 export const se_GetUsageLimitCommand = async (
@@ -678,6 +704,19 @@ export const se_ListEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEndpointAccess");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListManagedWorkgroupsCommand
+ */
+export const se_ListManagedWorkgroupsCommand = async (
+  input: ListManagedWorkgroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListManagedWorkgroups");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -769,6 +808,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTracksCommand
+ */
+export const se_ListTracksCommand = async (
+  input: ListTracksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTracks");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1536,6 +1588,26 @@ export const de_GetTableRestoreStatusCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetTrackCommand
+ */
+export const de_GetTrackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetTrackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetUsageLimitCommand
  */
 export const de_GetUsageLimitCommand = async (
@@ -1609,6 +1681,26 @@ export const de_ListEndpointAccessCommand = async (
   let contents: any = {};
   contents = de_ListEndpointAccessResponse(data, context);
   const response: ListEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListManagedWorkgroupsCommand
+ */
+export const de_ListManagedWorkgroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedWorkgroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListManagedWorkgroupsResponse(data, context);
+  const response: ListManagedWorkgroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1749,6 +1841,26 @@ export const de_ListTagsForResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTracksCommand
+ */
+export const de_ListTracksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTracksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTracksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2132,6 +2244,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InsufficientCapacityException":
     case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
       throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "Ipv6CidrBlockNotFoundException":
+    case "com.amazonaws.redshiftserverless#Ipv6CidrBlockNotFoundException":
+      throw await de_Ipv6CidrBlockNotFoundExceptionRes(parsedOutput, context);
     case "InvalidPaginationException":
     case "com.amazonaws.redshiftserverless#InvalidPaginationException":
       throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
@@ -2216,6 +2331,22 @@ const de_InvalidPaginationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidPaginationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1Ipv6CidrBlockNotFoundExceptionRes
+ */
+const de_Ipv6CidrBlockNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<Ipv6CidrBlockNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new Ipv6CidrBlockNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2371,6 +2502,8 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
 
 // se_GetTableRestoreStatusRequest omitted.
 
+// se_GetTrackRequest omitted.
+
 // se_GetUsageLimitRequest omitted.
 
 // se_GetWorkgroupRequest omitted.
@@ -2380,6 +2513,8 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
 // se_ListCustomDomainAssociationsRequest omitted.
 
 // se_ListEndpointAccessRequest omitted.
+
+// se_ListManagedWorkgroupsRequest omitted.
 
 // se_ListNamespacesRequest omitted.
 
@@ -2420,11 +2555,15 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // se_ListTagsForResourceRequest omitted.
 
+// se_ListTracksRequest omitted.
+
 // se_ListUsageLimitsRequest omitted.
 
 // se_ListWorkgroupsRequest omitted.
 
 // se_LogExportList omitted.
+
+// se_PerformanceTarget omitted.
 
 // se_PutResourcePolicyRequest omitted.
 
@@ -2443,7 +2582,7 @@ const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
   return Schedule.visit(input, {
     at: (value) => ({ at: value.getTime() / 1_000 }),
     cron: (value) => ({ cron: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2775,6 +2914,8 @@ const de_GetTableRestoreStatusResponse = (output: any, context: __SerdeContext):
   }) as any;
 };
 
+// de_GetTrackResponse omitted.
+
 // de_GetUsageLimitResponse omitted.
 
 /**
@@ -2793,6 +2934,8 @@ const de_GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkg
 // de_InternalServerException omitted.
 
 // de_InvalidPaginationException omitted.
+
+// de_Ipv6CidrBlockNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ListCustomDomainAssociationsResponse
@@ -2813,6 +2956,16 @@ const de_ListCustomDomainAssociationsResponse = (
 const de_ListEndpointAccessResponse = (output: any, context: __SerdeContext): ListEndpointAccessResponse => {
   return take(output, {
     endpoints: (_: any) => de_EndpointAccessList(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListManagedWorkgroupsResponse
+ */
+const de_ListManagedWorkgroupsResponse = (output: any, context: __SerdeContext): ListManagedWorkgroupsResponse => {
+  return take(output, {
+    managedWorkgroups: (_: any) => de_ManagedWorkgroups(_, context),
     nextToken: __expectString,
   }) as any;
 };
@@ -2863,6 +3016,8 @@ const de_ListTableRestoreStatusResponse = (output: any, context: __SerdeContext)
 
 // de_ListTagsForResourceResponse omitted.
 
+// de_ListTracksResponse omitted.
+
 // de_ListUsageLimitsResponse omitted.
 
 /**
@@ -2876,6 +3031,31 @@ const de_ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWo
 };
 
 // de_LogExportList omitted.
+
+/**
+ * deserializeAws_json1_1ManagedWorkgroupListItem
+ */
+const de_ManagedWorkgroupListItem = (output: any, context: __SerdeContext): ManagedWorkgroupListItem => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedWorkgroupId: __expectString,
+    managedWorkgroupName: __expectString,
+    sourceArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ManagedWorkgroups
+ */
+const de_ManagedWorkgroups = (output: any, context: __SerdeContext): ManagedWorkgroupListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ManagedWorkgroupListItem(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1Namespace
@@ -2925,6 +3105,8 @@ const de_NextInvocationsList = (output: any, context: __SerdeContext): Date[] =>
     });
   return retVal;
 };
+
+// de_PerformanceTarget omitted.
 
 // de_PutResourcePolicyResponse omitted.
 
@@ -3046,6 +3228,8 @@ const de_ScheduledActionResponse = (output: any, context: __SerdeContext): Sched
 
 // de_SecurityGroupIdList omitted.
 
+// de_ServerlessTrack omitted.
+
 // de_ServiceQuotaExceededException omitted.
 
 /**
@@ -3144,6 +3328,8 @@ const de_TableRestoreStatusList = (output: any, context: __SerdeContext): TableR
 
 // de_TooManyTagsException omitted.
 
+// de_TrackList omitted.
+
 // de_UntagResourceResponse omitted.
 
 /**
@@ -3199,6 +3385,10 @@ const de_UpdateSnapshotResponse = (output: any, context: __SerdeContext): Update
   }) as any;
 };
 
+// de_UpdateTarget omitted.
+
+// de_UpdateTargetsList omitted.
+
 // de_UpdateUsageLimitResponse omitted.
 
 /**
@@ -3240,14 +3430,18 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     customDomainName: __expectString,
     endpoint: _json,
     enhancedVpcRouting: __expectBoolean,
+    ipAddressType: __expectString,
     maxCapacity: __expectInt32,
     namespaceName: __expectString,
     patchVersion: __expectString,
+    pendingTrackName: __expectString,
     port: __expectInt32,
+    pricePerformanceTarget: _json,
     publiclyAccessible: __expectBoolean,
     securityGroupIds: _json,
     status: __expectString,
     subnetIds: _json,
+    trackName: __expectString,
     workgroupArn: __expectString,
     workgroupId: __expectString,
     workgroupName: __expectString,

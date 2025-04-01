@@ -69,20 +69,23 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetIdentityHeadersInNotificationsEnabled
  * ```javascript
  * // The following example configures Amazon SES to include the original email headers in the Amazon SNS bounce notifications for an identity:
  * const input = {
- *   "Enabled": true,
- *   "Identity": "user@example.com",
- *   "NotificationType": "Bounce"
+ *   Enabled: true,
+ *   Identity: "user@example.com",
+ *   NotificationType: "Bounce"
  * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
- * await client.send(command);
- * // example id: setidentityheadersinnotificationsenabled-1469057295001
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
   .classBuilder<
@@ -92,9 +95,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityHeadersInNotificationsEnabledCommand)
   .de(de_SetIdentityHeadersInNotificationsEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityHeadersInNotificationsEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetIdentityHeadersInNotificationsEnabledCommandInput;
+      output: SetIdentityHeadersInNotificationsEnabledCommandOutput;
+    };
+  };
+}

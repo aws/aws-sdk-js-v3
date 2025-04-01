@@ -161,6 +161,51 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example GetSchema
+ * ```javascript
+ * // The following example retrieves the current schema stored in the specified policy store.
+ *
+ * Note
+ * The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
+ *
+ * Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new GetSchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   schema: `{
+ * "My::Application": {
+ * "actions": {
+ * "remoteAccess": {
+ * "appliesTo": {
+ * "principalTypes":   ["Employee"]
+ * }
+ * }
+ * },
+ * "entityTypes":   {
+ * "Employee": {
+ * "shape": {
+ * "attributes": {
+ * "jobLevel": { "type": "Long" },
+ * "name": { "type":"String" }
+ * },
+ * "type": "Record"
+ * }
+ * }
+ * }
+ * }
+ *   }`
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSchemaCommand extends $Command
@@ -171,9 +216,7 @@ export class GetSchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +228,16 @@ export class GetSchemaCommand extends $Command
   .f(void 0, GetSchemaOutputFilterSensitiveLog)
   .ser(se_GetSchemaCommand)
   .de(de_GetSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaInput;
+      output: GetSchemaOutput;
+    };
+    sdk: {
+      input: GetSchemaCommandInput;
+      output: GetSchemaCommandOutput;
+    };
+  };
+}

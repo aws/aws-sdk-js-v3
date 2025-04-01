@@ -76,6 +76,7 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListRoleAliasesCommand extends $Command
@@ -86,9 +87,7 @@ export class ListRoleAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListRoleAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoleAliasesCommand)
   .de(de_ListRoleAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoleAliasesRequest;
+      output: ListRoleAliasesResponse;
+    };
+    sdk: {
+      input: ListRoleAliasesCommandInput;
+      output: ListRoleAliasesCommandOutput;
+    };
+  };
+}

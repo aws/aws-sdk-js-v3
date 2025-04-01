@@ -97,6 +97,7 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class StartDetectMitigationActionsTaskCommand extends $Command
@@ -107,9 +108,7 @@ export class StartDetectMitigationActionsTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class StartDetectMitigationActionsTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDetectMitigationActionsTaskCommand)
   .de(de_StartDetectMitigationActionsTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDetectMitigationActionsTaskRequest;
+      output: StartDetectMitigationActionsTaskResponse;
+    };
+    sdk: {
+      input: StartDetectMitigationActionsTaskCommandInput;
+      output: StartDetectMitigationActionsTaskCommandOutput;
+    };
+  };
+}

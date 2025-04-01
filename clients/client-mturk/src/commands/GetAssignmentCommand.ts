@@ -115,6 +115,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetAssignmentCommand extends $Command
@@ -125,9 +126,7 @@ export class GetAssignmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class GetAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssignmentCommand)
   .de(de_GetAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssignmentRequest;
+      output: GetAssignmentResponse;
+    };
+    sdk: {
+      input: GetAssignmentCommandInput;
+      output: GetAssignmentCommandOutput;
+    };
+  };
+}

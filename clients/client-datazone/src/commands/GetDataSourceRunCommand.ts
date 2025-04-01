@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataSourceRunInput, GetDataSourceRunOutput } from "../models/models_0";
+import { GetDataSourceRunInput, GetDataSourceRunOutput } from "../models/models_1";
 import { de_GetDataSourceRunCommand, se_GetDataSourceRunCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -56,6 +56,9 @@ export interface GetDataSourceRunCommandOutput extends GetDataSourceRunOutput, _
  * //     skipped: Number("int"),
  * //     failed: Number("int"),
  * //   },
+ * //   lineageSummary: { // DataSourceRunLineageSummary
+ * //     importStatus: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //   },
  * //   errorMessage: { // DataSourceErrorMessage
  * //     errorType: "ACCESS_DENIED_EXCEPTION" || "CONFLICT_EXCEPTION" || "INTERNAL_SERVER_EXCEPTION" || "RESOURCE_NOT_FOUND_EXCEPTION" || "SERVICE_QUOTA_EXCEEDED_EXCEPTION" || "THROTTLING_EXCEPTION" || "VALIDATION_EXCEPTION", // required
  * //     errorDetail: "STRING_VALUE",
@@ -101,6 +104,7 @@ export interface GetDataSourceRunCommandOutput extends GetDataSourceRunOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetDataSourceRunCommand extends $Command
@@ -111,9 +115,7 @@ export class GetDataSourceRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +127,16 @@ export class GetDataSourceRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSourceRunCommand)
   .de(de_GetDataSourceRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSourceRunInput;
+      output: GetDataSourceRunOutput;
+    };
+    sdk: {
+      input: GetDataSourceRunCommandInput;
+      output: GetDataSourceRunCommandOutput;
+    };
+  };
+}

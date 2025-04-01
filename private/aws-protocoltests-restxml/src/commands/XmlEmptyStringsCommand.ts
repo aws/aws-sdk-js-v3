@@ -54,6 +54,7 @@ export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsResponse, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyStringsCommand extends $Command
   .classBuilder<
@@ -71,4 +72,16 @@ export class XmlEmptyStringsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyStringsCommand)
   .de(de_XmlEmptyStringsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyStringsRequest;
+      output: XmlEmptyStringsResponse;
+    };
+    sdk: {
+      input: XmlEmptyStringsCommandInput;
+      output: XmlEmptyStringsCommandOutput;
+    };
+  };
+}

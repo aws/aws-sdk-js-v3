@@ -15,7 +15,7 @@ import {
   ListDevicesRequestFilterSensitiveLog,
   ListDevicesResponse,
   ListDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -37,7 +37,7 @@ export interface ListDevicesCommandInput extends ListDevicesRequest {}
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the sign-in devices that Amazon Cognito has registered to the current user. For more
+ * <p>Lists the devices that Amazon Cognito has registered to the currently signed-in user. For more
  *             information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
@@ -122,6 +122,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListDevicesCommand extends $Command
@@ -132,9 +133,7 @@ export class ListDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class ListDevicesCommand extends $Command
   .f(ListDevicesRequestFilterSensitiveLog, ListDevicesResponseFilterSensitiveLog)
   .ser(se_ListDevicesCommand)
   .de(de_ListDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesRequest;
+      output: ListDevicesResponse;
+    };
+    sdk: {
+      input: ListDevicesCommandInput;
+      output: ListDevicesCommandOutput;
+    };
+  };
+}

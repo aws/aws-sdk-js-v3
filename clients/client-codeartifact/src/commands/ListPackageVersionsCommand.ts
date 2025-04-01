@@ -110,6 +110,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackageVersionsCommand extends $Command
@@ -120,9 +121,7 @@ export class ListPackageVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class ListPackageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackageVersionsCommand)
   .de(de_ListPackageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackageVersionsRequest;
+      output: ListPackageVersionsResult;
+    };
+    sdk: {
+      input: ListPackageVersionsCommandInput;
+      output: ListPackageVersionsCommandOutput;
+    };
+  };
+}

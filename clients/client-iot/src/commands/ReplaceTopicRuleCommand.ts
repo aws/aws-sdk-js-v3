@@ -495,6 +495,7 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ReplaceTopicRuleCommand extends $Command
@@ -505,9 +506,7 @@ export class ReplaceTopicRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -519,4 +518,16 @@ export class ReplaceTopicRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceTopicRuleCommand)
   .de(de_ReplaceTopicRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceTopicRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReplaceTopicRuleCommandInput;
+      output: ReplaceTopicRuleCommandOutput;
+    };
+  };
+}

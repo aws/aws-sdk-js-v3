@@ -196,6 +196,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeStorageSystemResourcesCommand extends $Command
@@ -206,9 +207,7 @@ export class DescribeStorageSystemResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -220,4 +219,16 @@ export class DescribeStorageSystemResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStorageSystemResourcesCommand)
   .de(de_DescribeStorageSystemResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStorageSystemResourcesRequest;
+      output: DescribeStorageSystemResourcesResponse;
+    };
+    sdk: {
+      input: DescribeStorageSystemResourcesCommandInput;
+      output: DescribeStorageSystemResourcesCommandOutput;
+    };
+  };
+}

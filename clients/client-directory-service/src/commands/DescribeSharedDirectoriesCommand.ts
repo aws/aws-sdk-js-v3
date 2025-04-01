@@ -95,6 +95,7 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeSharedDirectoriesCommand extends $Command
@@ -105,9 +106,7 @@ export class DescribeSharedDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class DescribeSharedDirectoriesCommand extends $Command
   .f(void 0, DescribeSharedDirectoriesResultFilterSensitiveLog)
   .ser(se_DescribeSharedDirectoriesCommand)
   .de(de_DescribeSharedDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSharedDirectoriesRequest;
+      output: DescribeSharedDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeSharedDirectoriesCommandInput;
+      output: DescribeSharedDirectoriesCommandOutput;
+    };
+  };
+}

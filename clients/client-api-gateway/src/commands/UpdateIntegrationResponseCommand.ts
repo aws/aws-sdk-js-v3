@@ -92,6 +92,7 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateIntegrationResponseCommand extends $Command
@@ -102,9 +103,7 @@ export class UpdateIntegrationResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class UpdateIntegrationResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIntegrationResponseCommand)
   .de(de_UpdateIntegrationResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIntegrationResponseRequest;
+      output: IntegrationResponse;
+    };
+    sdk: {
+      input: UpdateIntegrationResponseCommandInput;
+      output: UpdateIntegrationResponseCommandOutput;
+    };
+  };
+}

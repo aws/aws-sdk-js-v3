@@ -89,6 +89,7 @@ import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
 } from "./commands/CreateReferenceStoreCommand";
+import { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "./commands/CreateRunCacheCommand";
 import { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "./commands/CreateRunGroupCommand";
 import {
   CreateSequenceStoreCommandInput,
@@ -110,8 +111,13 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./commands/DeleteRunCacheCommand";
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
+import {
+  DeleteS3AccessPolicyCommandInput,
+  DeleteS3AccessPolicyCommandOutput,
+} from "./commands/DeleteS3AccessPolicyCommand";
 import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
@@ -152,9 +158,11 @@ import {
   GetReferenceMetadataCommandOutput,
 } from "./commands/GetReferenceMetadataCommand";
 import { GetReferenceStoreCommandInput, GetReferenceStoreCommandOutput } from "./commands/GetReferenceStoreCommand";
+import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
 import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
+import { GetS3AccessPolicyCommandInput, GetS3AccessPolicyCommandOutput } from "./commands/GetS3AccessPolicyCommand";
 import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "./commands/GetSequenceStoreCommand";
 import { GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
 import {
@@ -205,6 +213,7 @@ import {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "./commands/ListReferenceStoresCommand";
+import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "./commands/ListRunCachesCommand";
 import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./commands/ListRunGroupsCommand";
 import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
@@ -220,6 +229,7 @@ import {
 } from "./commands/ListVariantImportJobsCommand";
 import { ListVariantStoresCommandInput, ListVariantStoresCommandOutput } from "./commands/ListVariantStoresCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import { PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput } from "./commands/PutS3AccessPolicyCommand";
 import {
   StartAnnotationImportJobCommandInput,
   StartAnnotationImportJobCommandOutput,
@@ -255,7 +265,12 @@ import {
   UpdateAnnotationStoreVersionCommandInput,
   UpdateAnnotationStoreVersionCommandOutput,
 } from "./commands/UpdateAnnotationStoreVersionCommand";
+import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "./commands/UpdateRunCacheCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
+import {
+  UpdateSequenceStoreCommandInput,
+  UpdateSequenceStoreCommandOutput,
+} from "./commands/UpdateSequenceStoreCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
 import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "./commands/UploadReadSetPartCommand";
@@ -285,6 +300,7 @@ export type ServiceInputTypes =
   | CreateAnnotationStoreVersionCommandInput
   | CreateMultipartReadSetUploadCommandInput
   | CreateReferenceStoreCommandInput
+  | CreateRunCacheCommandInput
   | CreateRunGroupCommandInput
   | CreateSequenceStoreCommandInput
   | CreateShareCommandInput
@@ -294,8 +310,10 @@ export type ServiceInputTypes =
   | DeleteAnnotationStoreVersionsCommandInput
   | DeleteReferenceCommandInput
   | DeleteReferenceStoreCommandInput
+  | DeleteRunCacheCommandInput
   | DeleteRunCommandInput
   | DeleteRunGroupCommandInput
+  | DeleteS3AccessPolicyCommandInput
   | DeleteSequenceStoreCommandInput
   | DeleteShareCommandInput
   | DeleteVariantStoreCommandInput
@@ -312,9 +330,11 @@ export type ServiceInputTypes =
   | GetReferenceImportJobCommandInput
   | GetReferenceMetadataCommandInput
   | GetReferenceStoreCommandInput
+  | GetRunCacheCommandInput
   | GetRunCommandInput
   | GetRunGroupCommandInput
   | GetRunTaskCommandInput
+  | GetS3AccessPolicyCommandInput
   | GetSequenceStoreCommandInput
   | GetShareCommandInput
   | GetVariantImportJobCommandInput
@@ -332,6 +352,7 @@ export type ServiceInputTypes =
   | ListReferenceImportJobsCommandInput
   | ListReferenceStoresCommandInput
   | ListReferencesCommandInput
+  | ListRunCachesCommandInput
   | ListRunGroupsCommandInput
   | ListRunTasksCommandInput
   | ListRunsCommandInput
@@ -341,6 +362,7 @@ export type ServiceInputTypes =
   | ListVariantImportJobsCommandInput
   | ListVariantStoresCommandInput
   | ListWorkflowsCommandInput
+  | PutS3AccessPolicyCommandInput
   | StartAnnotationImportJobCommandInput
   | StartReadSetActivationJobCommandInput
   | StartReadSetExportJobCommandInput
@@ -352,7 +374,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAnnotationStoreCommandInput
   | UpdateAnnotationStoreVersionCommandInput
+  | UpdateRunCacheCommandInput
   | UpdateRunGroupCommandInput
+  | UpdateSequenceStoreCommandInput
   | UpdateVariantStoreCommandInput
   | UpdateWorkflowCommandInput
   | UploadReadSetPartCommandInput;
@@ -372,6 +396,7 @@ export type ServiceOutputTypes =
   | CreateAnnotationStoreVersionCommandOutput
   | CreateMultipartReadSetUploadCommandOutput
   | CreateReferenceStoreCommandOutput
+  | CreateRunCacheCommandOutput
   | CreateRunGroupCommandOutput
   | CreateSequenceStoreCommandOutput
   | CreateShareCommandOutput
@@ -381,8 +406,10 @@ export type ServiceOutputTypes =
   | DeleteAnnotationStoreVersionsCommandOutput
   | DeleteReferenceCommandOutput
   | DeleteReferenceStoreCommandOutput
+  | DeleteRunCacheCommandOutput
   | DeleteRunCommandOutput
   | DeleteRunGroupCommandOutput
+  | DeleteS3AccessPolicyCommandOutput
   | DeleteSequenceStoreCommandOutput
   | DeleteShareCommandOutput
   | DeleteVariantStoreCommandOutput
@@ -399,9 +426,11 @@ export type ServiceOutputTypes =
   | GetReferenceImportJobCommandOutput
   | GetReferenceMetadataCommandOutput
   | GetReferenceStoreCommandOutput
+  | GetRunCacheCommandOutput
   | GetRunCommandOutput
   | GetRunGroupCommandOutput
   | GetRunTaskCommandOutput
+  | GetS3AccessPolicyCommandOutput
   | GetSequenceStoreCommandOutput
   | GetShareCommandOutput
   | GetVariantImportJobCommandOutput
@@ -419,6 +448,7 @@ export type ServiceOutputTypes =
   | ListReferenceImportJobsCommandOutput
   | ListReferenceStoresCommandOutput
   | ListReferencesCommandOutput
+  | ListRunCachesCommandOutput
   | ListRunGroupsCommandOutput
   | ListRunTasksCommandOutput
   | ListRunsCommandOutput
@@ -428,6 +458,7 @@ export type ServiceOutputTypes =
   | ListVariantImportJobsCommandOutput
   | ListVariantStoresCommandOutput
   | ListWorkflowsCommandOutput
+  | PutS3AccessPolicyCommandOutput
   | StartAnnotationImportJobCommandOutput
   | StartReadSetActivationJobCommandOutput
   | StartReadSetExportJobCommandOutput
@@ -439,7 +470,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAnnotationStoreCommandOutput
   | UpdateAnnotationStoreVersionCommandOutput
+  | UpdateRunCacheCommandOutput
   | UpdateRunGroupCommandOutput
+  | UpdateSequenceStoreCommandOutput
   | UpdateVariantStoreCommandOutput
   | UpdateWorkflowCommandOutput
   | UploadReadSetPartCommandOutput;
@@ -536,6 +569,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -587,11 +639,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type OmicsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -607,11 +659,11 @@ export interface OmicsClientConfig extends OmicsClientConfigType {}
 export type OmicsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -639,26 +691,30 @@ export class OmicsClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<OmicsClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultOmicsHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: OmicsClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -671,14 +727,5 @@ export class OmicsClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultOmicsHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: OmicsClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRetentionSettingsRequest } from "../models/models_0";
-import { GetRetentionSettingsResponse } from "../models/models_1";
+import { GetRetentionSettingsRequest, GetRetentionSettingsResponse } from "../models/models_0";
 import { de_GetRetentionSettingsCommand, se_GetRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -88,6 +87,7 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetRetentionSettingsCommand extends $Command
@@ -98,9 +98,7 @@ export class GetRetentionSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +110,16 @@ export class GetRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRetentionSettingsCommand)
   .de(de_GetRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRetentionSettingsRequest;
+      output: GetRetentionSettingsResponse;
+    };
+    sdk: {
+      input: GetRetentionSettingsCommandInput;
+      output: GetRetentionSettingsCommandOutput;
+    };
+  };
+}

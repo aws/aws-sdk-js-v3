@@ -59,18 +59,21 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To rebuild an environment
  * ```javascript
  * // The following operation terminates and recreates the resources in an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new RebuildEnvironmentCommand(input);
- * await client.send(command);
- * // example id: to-rebuild-an-environment-1456277600918
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RebuildEnvironmentCommand extends $Command
   .classBuilder<
@@ -80,9 +83,7 @@ export class RebuildEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +95,16 @@ export class RebuildEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebuildEnvironmentCommand)
   .de(de_RebuildEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebuildEnvironmentMessage;
+      output: {};
+    };
+    sdk: {
+      input: RebuildEnvironmentCommandInput;
+      output: RebuildEnvironmentCommandOutput;
+    };
+  };
+}

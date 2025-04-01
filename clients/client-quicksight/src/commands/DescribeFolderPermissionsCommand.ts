@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_3";
+import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_4";
 import { de_DescribeFolderPermissionsCommand, se_DescribeFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -98,6 +98,7 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeFolderPermissionsCommand extends $Command
@@ -108,9 +109,7 @@ export class DescribeFolderPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DescribeFolderPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFolderPermissionsCommand)
   .de(de_DescribeFolderPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFolderPermissionsRequest;
+      output: DescribeFolderPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeFolderPermissionsCommandInput;
+      output: DescribeFolderPermissionsCommandOutput;
+    };
+  };
+}

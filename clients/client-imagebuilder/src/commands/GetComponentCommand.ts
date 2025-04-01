@@ -49,12 +49,12 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //     description: "STRING_VALUE",
  * //     changeDescription: "STRING_VALUE",
  * //     type: "BUILD" || "TEST",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     supportedOsVersions: [ // OsVersionList
  * //       "STRING_VALUE",
  * //     ],
  * //     state: { // ComponentState
- * //       status: "DEPRECATED",
+ * //       status: "DEPRECATED" || "DISABLED" || "ACTIVE",
  * //       reason: "STRING_VALUE",
  * //     },
  * //     parameters: [ // ComponentParameterDetailList
@@ -77,6 +77,12 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //     },
  * //     publisher: "STRING_VALUE",
  * //     obfuscate: true || false,
+ * //     productCodes: [ // ProductCodeList
+ * //       { // ProductCodeListItem
+ * //         productCodeId: "STRING_VALUE", // required
+ * //         productCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -112,6 +118,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetComponentCommand extends $Command
@@ -122,9 +129,7 @@ export class GetComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +141,16 @@ export class GetComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentCommand)
   .de(de_GetComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentRequest;
+      output: GetComponentResponse;
+    };
+    sdk: {
+      input: GetComponentCommandInput;
+      output: GetComponentCommandOutput;
+    };
+  };
+}

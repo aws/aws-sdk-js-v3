@@ -20,7 +20,7 @@ Amazon Web Services account. You can use the Free Tier API to filter and show on
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-freetier
+To install this package, simply type add or install @aws-sdk/client-freetier
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-freetier`

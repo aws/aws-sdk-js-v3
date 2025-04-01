@@ -32,7 +32,9 @@ export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest 
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Forgets the device, as an administrator.</p>
+ * <p>Forgets, or deletes, a remembered device from a user's profile. After you forget
+ *             the device, the user can no longer complete device authentication with that device and
+ *             when applicable, must submit MFA codes again. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -103,6 +105,7 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminForgetDeviceCommand extends $Command
@@ -113,9 +116,7 @@ export class AdminForgetDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +128,16 @@ export class AdminForgetDeviceCommand extends $Command
   .f(AdminForgetDeviceRequestFilterSensitiveLog, void 0)
   .ser(se_AdminForgetDeviceCommand)
   .de(de_AdminForgetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminForgetDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminForgetDeviceCommandInput;
+      output: AdminForgetDeviceCommandOutput;
+    };
+  };
+}

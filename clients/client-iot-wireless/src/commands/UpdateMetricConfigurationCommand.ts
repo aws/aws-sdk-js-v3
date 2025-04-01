@@ -73,6 +73,7 @@ export interface UpdateMetricConfigurationCommandOutput extends UpdateMetricConf
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateMetricConfigurationCommand extends $Command
@@ -83,9 +84,7 @@ export class UpdateMetricConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class UpdateMetricConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMetricConfigurationCommand)
   .de(de_UpdateMetricConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMetricConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMetricConfigurationCommandInput;
+      output: UpdateMetricConfigurationCommandOutput;
+    };
+  };
+}

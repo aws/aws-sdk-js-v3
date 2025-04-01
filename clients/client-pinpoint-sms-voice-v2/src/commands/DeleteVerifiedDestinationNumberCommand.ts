@@ -91,6 +91,7 @@ export interface DeleteVerifiedDestinationNumberCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteVerifiedDestinationNumberCommand extends $Command
@@ -101,9 +102,7 @@ export class DeleteVerifiedDestinationNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DeleteVerifiedDestinationNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedDestinationNumberCommand)
   .de(de_DeleteVerifiedDestinationNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedDestinationNumberRequest;
+      output: DeleteVerifiedDestinationNumberResult;
+    };
+    sdk: {
+      input: DeleteVerifiedDestinationNumberCommandInput;
+      output: DeleteVerifiedDestinationNumberCommandOutput;
+    };
+  };
+}

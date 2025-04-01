@@ -134,6 +134,7 @@ export interface VerifyDevicePositionCommandOutput extends VerifyDevicePositionR
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class VerifyDevicePositionCommand extends $Command
@@ -144,9 +145,7 @@ export class VerifyDevicePositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class VerifyDevicePositionCommand extends $Command
   .f(VerifyDevicePositionRequestFilterSensitiveLog, VerifyDevicePositionResponseFilterSensitiveLog)
   .ser(se_VerifyDevicePositionCommand)
   .de(de_VerifyDevicePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyDevicePositionRequest;
+      output: VerifyDevicePositionResponse;
+    };
+    sdk: {
+      input: VerifyDevicePositionCommandInput;
+      output: VerifyDevicePositionCommandOutput;
+    };
+  };
+}

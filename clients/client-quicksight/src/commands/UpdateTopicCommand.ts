@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTopicRequest, UpdateTopicRequestFilterSensitiveLog, UpdateTopicResponse } from "../models/models_4";
+import { UpdateTopicRequest, UpdateTopicRequestFilterSensitiveLog, UpdateTopicResponse } from "../models/models_5";
 import { de_UpdateTopicCommand, se_UpdateTopicCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -166,7 +166,7 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: { // NegativeFormat
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",
@@ -208,7 +208,7 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: {
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",
@@ -285,6 +285,9 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *         ],
  *       },
  *     ],
+ *     ConfigOptions: { // TopicConfigOptions
+ *       QBusinessInsightsEnabled: true || false,
+ *     },
  *   },
  * };
  * const command = new UpdateTopicCommand(input);
@@ -335,6 +338,7 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateTopicCommand extends $Command
@@ -345,9 +349,7 @@ export class UpdateTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -359,4 +361,16 @@ export class UpdateTopicCommand extends $Command
   .f(UpdateTopicRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateTopicCommand)
   .de(de_UpdateTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTopicRequest;
+      output: UpdateTopicResponse;
+    };
+    sdk: {
+      input: UpdateTopicCommandInput;
+      output: UpdateTopicCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyNetworkInterfaceAttributeRequest } from "../models/models_6";
+import { ModifyNetworkInterfaceAttributeRequest } from "../models/models_7";
 import {
   de_ModifyNetworkInterfaceAttributeCommand,
   se_ModifyNetworkInterfaceAttributeCommand,
@@ -41,21 +41,6 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyNetworkInterfaceAttributeRequest
- *   Attachment: { // NetworkInterfaceAttachmentChanges
- *     AttachmentId: "STRING_VALUE",
- *     DeleteOnTermination: true || false,
- *   },
- *   Description: { // AttributeValue
- *     Value: "STRING_VALUE",
- *   },
- *   DryRun: true || false,
- *   Groups: [ // SecurityGroupIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NetworkInterfaceId: "STRING_VALUE", // required
- *   SourceDestCheck: { // AttributeBooleanValue
- *     Value: true || false,
- *   },
  *   EnaSrdSpecification: { // EnaSrdSpecification
  *     EnaSrdEnabled: true || false,
  *     EnaSrdUdpSpecification: { // EnaSrdUdpSpecification
@@ -69,6 +54,21 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *     UdpTimeout: Number("int"),
  *   },
  *   AssociatePublicIpAddress: true || false,
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Description: { // AttributeValue
+ *     Value: "STRING_VALUE",
+ *   },
+ *   SourceDestCheck: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ *   Groups: [ // SecurityGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Attachment: { // NetworkInterfaceAttachmentChanges
+ *     AttachmentId: "STRING_VALUE",
+ *     DeleteOnTermination: true || false,
+ *   },
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
@@ -85,65 +85,74 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To modify the attachment attribute of a network interface
  * ```javascript
  * // This example modifies the attachment attribute of the specified network interface.
  * const input = {
- *   "Attachment": {
- *     "AttachmentId": "eni-attach-43348162",
- *     "DeleteOnTermination": false
+ *   Attachment: {
+ *     AttachmentId: "eni-attach-43348162",
+ *     DeleteOnTermination: false
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the description attribute of a network interface
  * ```javascript
  * // This example modifies the description attribute of the specified network interface.
  * const input = {
- *   "Description": {
- *     "Value": "My description"
+ *   Description: {
+ *     Value: "My description"
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the groupSet attribute of a network interface
  * ```javascript
  * // This example command modifies the groupSet attribute of the specified network interface.
  * const input = {
- *   "Groups": [
+ *   Groups: [
  *     "sg-903004f8",
  *     "sg-1a2b3c4d"
  *   ],
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the sourceDestCheck attribute of a network interface
  * ```javascript
  * // This example command modifies the sourceDestCheck attribute of the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-686ea200",
- *   "SourceDestCheck": {
- *     "Value": false
+ *   NetworkInterfaceId: "eni-686ea200",
+ *   SourceDestCheck: {
+ *     Value: false
  *   }
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifyNetworkInterfaceAttributeCommand extends $Command
   .classBuilder<
@@ -153,9 +162,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +174,16 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyNetworkInterfaceAttributeCommand)
   .de(de_ModifyNetworkInterfaceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyNetworkInterfaceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyNetworkInterfaceAttributeCommandInput;
+      output: ModifyNetworkInterfaceAttributeCommandOutput;
+    };
+  };
+}

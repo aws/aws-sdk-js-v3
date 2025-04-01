@@ -68,6 +68,7 @@ export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer 
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class PromoteCommand extends $Command
@@ -78,9 +79,7 @@ export class PromoteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class PromoteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteCommand)
   .de(de_PromoteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteRequest;
+      output: PromoteResponse;
+    };
+    sdk: {
+      input: PromoteCommandInput;
+      output: PromoteCommandOutput;
+    };
+  };
+}

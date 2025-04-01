@@ -32,46 +32,38 @@ export interface CreateGuardrailCommandInput extends CreateGuardrailRequest {}
 export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a guardrail to block topics and to filter out harmful content.</p>
+ * <p>Creates a guardrail to block topics and to implement safeguards for your generative AI applications.</p>
+ *          <p>You can configure the following policies in a guardrail to avoid undesirable and harmful content, filter
+ *         out denied topics and words, and remove sensitive information for privacy protection.</p>
  *          <ul>
  *             <li>
- *                <p>Specify a <code>name</code> and optional <code>description</code>.</p>
+ *                <p>
+ *                   <b>Content filters</b> - Adjust filter strengths
+ *               to block input prompts or model responses containing harmful content.</p>
  *             </li>
  *             <li>
- *                <p>Specify messages for when the guardrail successfully blocks a prompt or a model response in the <code>blockedInputMessaging</code> and <code>blockedOutputsMessaging</code> fields.</p>
+ *                <p>
+ *                   <b>Denied topics</b> - Define a set of topics that
+ *               are undesirable in the context of your application. These topics will be blocked if
+ *               detected in user queries or model responses.</p>
  *             </li>
  *             <li>
- *                <p>Specify topics for the guardrail to deny in the <code>topicPolicyConfig</code> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html">GuardrailTopicConfig</a> object in the <code>topicsConfig</code> list pertains to one topic.</p>
- *                <ul>
- *                   <li>
- *                      <p>Give a <code>name</code> and <code>description</code> so that the guardrail can properly identify the topic.</p>
- *                   </li>
- *                   <li>
- *                      <p>Specify <code>DENY</code> in the <code>type</code> field.</p>
- *                   </li>
- *                   <li>
- *                      <p>(Optional) Provide up to five prompts that you would categorize as belonging to the topic in the <code>examples</code> list.</p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <b>Word filters</b> - Configure filters to block
+ *               undesirable words, phrases, and profanity. Such words can include offensive terms,
+ *               competitor names etc.</p>
  *             </li>
  *             <li>
- *                <p>Specify filter strengths for the harmful categories defined in Amazon Bedrock in the <code>contentPolicyConfig</code> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a> object in the <code>filtersConfig</code> list pertains to a harmful category. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters">Content filters</a>. For more information about the fields in a content filter, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.</p>
- *                <ul>
- *                   <li>
- *                      <p>Specify the category in the <code>type</code> field.</p>
- *                   </li>
- *                   <li>
- *                      <p>Specify the strength of the filter for prompts in the <code>inputStrength</code> field and for model responses in the <code>strength</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>(Optional) For security, include the ARN of a KMS key in the <code>kmsKeyId</code> field.</p>
- *             </li>
- *             <li>
- *                <p>(Optional) Attach any tags to the guardrail in the <code>tags</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging">Tag resources</a>.</p>
+ *                <p>
+ *                   <b>Sensitive information filters</b> - Block or
+ *               mask sensitive information such as personally identifiable information (PII) or custom
+ *               regex in user inputs and model responses.</p>
  *             </li>
  *          </ul>
+ *          <p>In addition to the above policies, you can also configure the messages to be returned to
+ *         the user if a user input or model response is in violation of the policies defined in the guardrail.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon Bedrock Guardrails</a> in
+ *          the <i>Amazon Bedrock User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +91,12 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *         type: "SEXUAL" || "VIOLENCE" || "HATE" || "INSULTS" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  *         inputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  *         outputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ *         inputModalities: [ // GuardrailModalities
+ *           "TEXT" || "IMAGE",
+ *         ],
+ *         outputModalities: [
+ *           "TEXT" || "IMAGE",
+ *         ],
  *       },
  *     ],
  *   },
@@ -127,6 +125,14 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *         description: "STRING_VALUE",
  *         pattern: "STRING_VALUE", // required
  *         action: "BLOCK" || "ANONYMIZE", // required
+ *       },
+ *     ],
+ *   },
+ *   contextualGroundingPolicyConfig: { // GuardrailContextualGroundingPolicyConfig
+ *     filtersConfig: [ // GuardrailContextualGroundingFiltersConfig // required
+ *       { // GuardrailContextualGroundingFilterConfig
+ *         type: "GROUNDING" || "RELEVANCE", // required
+ *         threshold: Number("double"), // required
  *       },
  *     ],
  *   },
@@ -186,6 +192,7 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateGuardrailCommand extends $Command
@@ -196,9 +203,7 @@ export class CreateGuardrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +215,16 @@ export class CreateGuardrailCommand extends $Command
   .f(CreateGuardrailRequestFilterSensitiveLog, void 0)
   .ser(se_CreateGuardrailCommand)
   .de(de_CreateGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGuardrailRequest;
+      output: CreateGuardrailResponse;
+    };
+    sdk: {
+      input: CreateGuardrailCommandInput;
+      output: CreateGuardrailCommandOutput;
+    };
+  };
+}

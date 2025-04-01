@@ -116,6 +116,20 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //               },
  * //             ],
  * //           },
+ * //           IncludeChildOrganizationUnits: true || false,
+ * //           ExcludeAccounts: [ // ExcludeAccounts
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Targets: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Values: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //           TargetsMaxConcurrency: "STRING_VALUE",
+ * //           TargetsMaxErrors: "STRING_VALUE",
  * //         },
  * //         TriggeredAlarms: [ // AlarmStateInformationList
  * //           { // AlarmStateInformation
@@ -142,14 +156,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     CurrentStepName: "STRING_VALUE",
  * //     CurrentAction: "STRING_VALUE",
  * //     TargetParameterName: "STRING_VALUE",
- * //     Targets: [
- * //       {
- * //         Key: "STRING_VALUE",
- * //         Values: [
- * //           "STRING_VALUE",
- * //         ],
- * //       },
- * //     ],
+ * //     Targets: "<Targets>",
  * //     TargetMaps: [ // TargetMaps
  * //       { // TargetMap
  * //         "<keys>": [ // TargetMapValueList
@@ -185,6 +192,13 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: "<Targets>",
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ProgressCounters: { // ProgressCounters
@@ -201,6 +215,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         State: "UNKNOWN" || "ALARM", // required
  * //       },
  * //     ],
+ * //     TargetLocationsURL: "STRING_VALUE",
  * //     AutomationSubtype: "ChangeRequest",
  * //     ScheduledTime: new Date("TIMESTAMP"),
  * //     Runbooks: [ // Runbooks
@@ -209,14 +224,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         DocumentVersion: "STRING_VALUE",
  * //         Parameters: "<AutomationParameterMap>",
  * //         TargetParameterName: "STRING_VALUE",
- * //         Targets: [
- * //           {
- * //             Key: "STRING_VALUE",
- * //             Values: [
- * //               "STRING_VALUE",
- * //             ],
- * //           },
- * //         ],
+ * //         Targets: "<Targets>",
  * //         TargetMaps: [
  * //           {
  * //             "<keys>": [
@@ -256,6 +264,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetAutomationExecutionCommand extends $Command
@@ -266,9 +275,7 @@ export class GetAutomationExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -280,4 +287,16 @@ export class GetAutomationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutomationExecutionCommand)
   .de(de_GetAutomationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutomationExecutionRequest;
+      output: GetAutomationExecutionResult;
+    };
+    sdk: {
+      input: GetAutomationExecutionCommandInput;
+      output: GetAutomationExecutionCommandOutput;
+    };
+  };
+}

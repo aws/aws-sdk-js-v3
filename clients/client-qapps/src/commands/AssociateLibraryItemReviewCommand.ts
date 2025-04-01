@@ -28,8 +28,8 @@ export interface AssociateLibraryItemReviewCommandInput extends AssociateLibrary
 export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a rating or review for a library item with the user submitting
- *       the request. This increments the rating count for the specified library item.</p>
+ * <p>Associates a rating or review for a library item with the user submitting the request.
+ *       This increments the rating count for the specified library item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,10 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
  *
@@ -62,12 +66,12 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -77,6 +81,21 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Increase the rating counter by 1 for the related app for this user
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316"
+ * };
+ * const command = new AssociateLibraryItemReviewCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -88,9 +107,7 @@ export class AssociateLibraryItemReviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +119,16 @@ export class AssociateLibraryItemReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLibraryItemReviewCommand)
   .de(de_AssociateLibraryItemReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLibraryItemReviewInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateLibraryItemReviewCommandInput;
+      output: AssociateLibraryItemReviewCommandOutput;
+    };
+  };
+}

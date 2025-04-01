@@ -82,24 +82,24 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ResetCacheParameterGroup
  * ```javascript
  * // Modifies the parameters of a cache parameter group to the engine or system default value.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4",
- *   "ResetAllParameters": true
+ *   CacheParameterGroupName: "custom-mem1-4",
+ *   ResetAllParameters: true
  * };
  * const command = new ResetCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * }
  * *\/
- * // example id: resetcacheparametergroup-1483038334014
  * ```
  *
+ * @public
  */
 export class ResetCacheParameterGroupCommand extends $Command
   .classBuilder<
@@ -109,9 +109,7 @@ export class ResetCacheParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +121,16 @@ export class ResetCacheParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetCacheParameterGroupCommand)
   .de(de_ResetCacheParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetCacheParameterGroupMessage;
+      output: CacheParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ResetCacheParameterGroupCommandInput;
+      output: ResetCacheParameterGroupCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,9 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  *     VocabularyName: "STRING_VALUE",
  *     VocabularyFilterName: "STRING_VALUE",
  *     VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *     ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
+ *       NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ *     },
  *   },
  *   ChannelDefinitions: [ // MedicalScribeChannelDefinitions
  *     { // MedicalScribeChannelDefinition
@@ -139,6 +142,9 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * //       VocabularyName: "STRING_VALUE",
  * //       VocabularyFilterName: "STRING_VALUE",
  * //       VocabularyFilterMethod: "remove" || "mask" || "tag",
+ * //       ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
+ * //         NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ * //       },
  * //     },
  * //     DataAccessRoleArn: "STRING_VALUE",
  * //     ChannelDefinitions: [ // MedicalScribeChannelDefinitions
@@ -185,6 +191,7 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class StartMedicalScribeJobCommand extends $Command
@@ -195,9 +202,7 @@ export class StartMedicalScribeJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +214,16 @@ export class StartMedicalScribeJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMedicalScribeJobCommand)
   .de(de_StartMedicalScribeJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMedicalScribeJobRequest;
+      output: StartMedicalScribeJobResponse;
+    };
+    sdk: {
+      input: StartMedicalScribeJobCommandInput;
+      output: StartMedicalScribeJobCommandOutput;
+    };
+  };
+}

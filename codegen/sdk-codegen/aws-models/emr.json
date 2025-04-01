@@ -1950,6 +1950,21 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Provides cluster-level details including status, hardware and software configuration,\n         VPC settings, and so on.</p>",
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeClusterFailure",
+            "params": {
+              "ClusterId": "fake_cluster"
+            },
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "failure": {}
+            }
+          }
+        ],
         "smithy.waiters#waitable": {
           "ClusterRunning": {
             "acceptors": [
@@ -2547,7 +2562,7 @@
         "EbsOptimized": {
           "target": "com.amazonaws.emr#BooleanObject",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an Amazon EBS volume is EBS-optimized.</p>"
+            "smithy.api#documentation": "<p>Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting \n         for an EC2 instance.</p>"
           }
         }
       },
@@ -4553,6 +4568,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The resize specification for the instance fleet.</p>"
           }
+        },
+        "Context": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved.</p>"
+          }
         }
       },
       "traits": {
@@ -4605,6 +4626,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The resize specification for the instance fleet.</p>"
           }
+        },
+        "Context": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved.</p>"
+          }
         }
       },
       "traits": {
@@ -4654,6 +4681,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The resize specification for the instance fleet.</p>"
           }
+        },
+        "InstanceTypeConfigs": {
+          "target": "com.amazonaws.emr#InstanceTypeConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of InstanceTypeConfig objects that specify how Amazon EMR provisions Amazon EC2 instances\n         when it fulfills On-Demand and Spot capacities. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html\">InstanceTypeConfig</a>.</p>"
+          }
+        },
+        "Context": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved.</p>"
+          }
         }
       },
       "traits": {
@@ -4666,18 +4705,18 @@
         "SpotSpecification": {
           "target": "com.amazonaws.emr#SpotProvisioningSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>The launch specification for Spot instances in the fleet, which determines the defined\n         duration, provisioning timeout behavior, and allocation strategy.</p>"
+            "smithy.api#documentation": "<p>The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined\n         duration, and provisioning timeout behavior.</p>"
           }
         },
         "OnDemandSpecification": {
           "target": "com.amazonaws.emr#OnDemandProvisioningSpecification",
           "traits": {
-            "smithy.api#documentation": "<p> The launch specification for On-Demand Instances in the instance fleet, which\n         determines the allocation strategy. </p>\n         <note>\n            <p>The instance fleet configuration is available only in Amazon EMR releases\n            4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is\n            available in Amazon EMR releases 5.12.1 and later.</p>\n         </note>"
+            "smithy.api#documentation": "<p> The launch specification for On-Demand Instances in the instance fleet, which\n         determines the allocation strategy and capacity reservation options.</p>\n         <note>\n            <p>The instance fleet configuration is available only in Amazon EMR releases\n            4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is\n            available in Amazon EMR releases 5.12.1 and later.</p>\n         </note>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The launch specification for Spot Instances in the fleet, which determines the defined\n         duration, provisioning timeout behavior, and allocation strategy.</p>\n         <note>\n            <p>The instance fleet configuration is available only in Amazon EMR releases\n            4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation\n            strategies are available in Amazon EMR releases 5.12.1 and later.</p>\n         </note>"
+        "smithy.api#documentation": "<p>The launch specification for On-Demand and Spot Instances in the fleet.</p>\n         <note>\n            <p>The instance fleet configuration is available only in Amazon EMR releases\n            4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation\n            strategies are available in Amazon EMR releases 5.12.1 and later.</p>\n         </note>"
       }
     },
     "com.amazonaws.emr#InstanceFleetResizingSpecifications": {
@@ -4686,13 +4725,13 @@
         "SpotResizeSpecification": {
           "target": "com.amazonaws.emr#SpotResizingSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>The resize specification for Spot Instances in the instance fleet, which contains the\n         resize timeout period. </p>"
+            "smithy.api#documentation": "<p>The resize specification for Spot Instances in the instance fleet, which contains the\n         allocation strategy and the resize timeout period. </p>"
           }
         },
         "OnDemandResizeSpecification": {
           "target": "com.amazonaws.emr#OnDemandResizingSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>The resize specification for On-Demand Instances in the instance fleet, which contains\n         the resize timeout period. </p>"
+            "smithy.api#documentation": "<p>The resize specification for On-Demand Instances in the instance fleet, which contains\n         the allocation strategy, capacity reservation options, and the resize timeout period. </p>"
           }
         }
       },
@@ -6448,7 +6487,20 @@
           "inputToken": "Marker",
           "outputToken": "Marker",
           "items": "Clusters"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListClustersSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.emr#ListClustersInput": {
@@ -7247,6 +7299,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EC2 unit limits for a managed scaling policy. The managed scaling\n         activity of a cluster is not allowed to go above or below these limits. The limit only\n         applies to the core and task nodes. The master node cannot be scaled after initial\n         configuration.</p>"
           }
+        },
+        "UtilizationPerformanceIndex": {
+          "target": "com.amazonaws.emr#UtilizationPerformanceIndexInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value \n         to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.</p>"
+          }
+        },
+        "ScalingStrategy": {
+          "target": "com.amazonaws.emr#ScalingStrategy",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines whether a custom scaling utilization performance index can be set. Possible values include <i>ADVANCED</i> or <i>DEFAULT</i>.</p>"
+          }
         }
       },
       "traits": {
@@ -7856,10 +7920,17 @@
         "TimeoutDurationMinutes": {
           "target": "com.amazonaws.emr#WholeNumber",
           "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within\n         this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value\n         is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance\n         Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the\n         customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or\n            Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within\n         this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value\n         is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance\n         Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the\n         customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or\n            Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>"
           }
+        },
+        "AllocationStrategy": {
+          "target": "com.amazonaws.emr#OnDemandProvisioningAllocationStrategy",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is <code>lowest-price</code>.</p>"
+          }
+        },
+        "CapacityReservationOptions": {
+          "target": "com.amazonaws.emr#OnDemandCapacityReservationOptions"
         }
       },
       "traits": {
@@ -8807,6 +8878,23 @@
         "target": "com.amazonaws.emr#ScalingRule"
       }
     },
+    "com.amazonaws.emr#ScalingStrategy": {
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
+          }
+        },
+        "ADVANCED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADVANCED"
+          }
+        }
+      }
+    },
     "com.amazonaws.emr#ScalingTrigger": {
       "type": "structure",
       "members": {
@@ -9311,9 +9399,13 @@
         "TimeoutDurationMinutes": {
           "target": "com.amazonaws.emr#WholeNumber",
           "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,\n         the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes\n         and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows\n         on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling\n         or by the customer (via Amazon EMR Console, Amazon EMR CLI\n         modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,\n         the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes\n         and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows\n         on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling\n         or by the customer (via Amazon EMR Console, Amazon EMR CLI\n         modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>"
+          }
+        },
+        "AllocationStrategy": {
+          "target": "com.amazonaws.emr#SpotProvisioningAllocationStrategy",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher,\n      the default is <code>price-capacity-optimized</code>. If you run Amazon EMR releases 6.8.0 or lower, the default is\n      <code>capacity-optimized</code>.</p>"
           }
         }
       },
@@ -10635,6 +10727,15 @@
       "traits": {
         "smithy.api#documentation": "<p>The username and password that you use to connect to cluster endpoints.</p>",
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.emr#UtilizationPerformanceIndexInteger": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
       }
     },
     "com.amazonaws.emr#VolumeSpecification": {

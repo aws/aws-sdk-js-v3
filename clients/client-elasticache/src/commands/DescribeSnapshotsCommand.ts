@@ -33,7 +33,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *             describe a single snapshot, or just the snapshots associated with a particular cache
  *             cluster.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey or Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -133,53 +133,53 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeSnapshots
  * ```javascript
  * // Returns information about the snapshot mysnapshot. By default.
  * const input = {
- *   "SnapshotName": "snapshot-20161212"
+ *   SnapshotName: "snapshot-20161212"
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "Snapshots": [
+ *   Marker: "",
+ *   Snapshots: [
  *     {
- *       "AutoMinorVersionUpgrade": true,
- *       "CacheClusterCreateTime": "2016-12-21T22:27:12.543Z",
- *       "CacheClusterId": "my-redis5",
- *       "CacheNodeType": "cache.m3.large",
- *       "CacheParameterGroupName": "default.redis3.2",
- *       "CacheSubnetGroupName": "default",
- *       "Engine": "redis",
- *       "EngineVersion": "3.2.4",
- *       "NodeSnapshots": [
+ *       AutoMinorVersionUpgrade: true,
+ *       CacheClusterCreateTime: "2016-12-21T22:27:12.543Z",
+ *       CacheClusterId: "my-redis5",
+ *       CacheNodeType: "cache.m3.large",
+ *       CacheParameterGroupName: "default.redis3.2",
+ *       CacheSubnetGroupName: "default",
+ *       Engine: "redis",
+ *       EngineVersion: "3.2.4",
+ *       NodeSnapshots: [
  *         {
- *           "CacheNodeCreateTime": "2016-12-21T22:27:12.543Z",
- *           "CacheNodeId": "0001",
- *           "CacheSize": "3 MB",
- *           "SnapshotCreateTime": "2016-12-21T22:30:26Z"
+ *           CacheNodeCreateTime: "2016-12-21T22:27:12.543Z",
+ *           CacheNodeId: "0001",
+ *           CacheSize: "3 MB",
+ *           SnapshotCreateTime: "2016-12-21T22:30:26Z"
  *         }
  *       ],
- *       "NumCacheNodes": 1,
- *       "Port": 6379,
- *       "PreferredAvailabilityZone": "us-east-1c",
- *       "PreferredMaintenanceWindow": "fri:05:30-fri:06:30",
- *       "SnapshotName": "snapshot-20161212",
- *       "SnapshotRetentionLimit": 7,
- *       "SnapshotSource": "manual",
- *       "SnapshotStatus": "available",
- *       "SnapshotWindow": "10:00-11:00",
- *       "VpcId": "vpc-91280df6"
+ *       NumCacheNodes: 1,
+ *       Port: 6379,
+ *       PreferredAvailabilityZone: "us-east-1c",
+ *       PreferredMaintenanceWindow: "fri:05:30-fri:06:30",
+ *       SnapshotName: "snapshot-20161212",
+ *       SnapshotRetentionLimit: 7,
+ *       SnapshotSource: "manual",
+ *       SnapshotStatus: "available",
+ *       SnapshotWindow: "10:00-11:00",
+ *       VpcId: "vpc-91280df6"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describesnapshots-1481743399584
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<
@@ -189,9 +189,7 @@ export class DescribeSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +201,16 @@ export class DescribeSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotsCommand)
   .de(de_DescribeSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotsMessage;
+      output: DescribeSnapshotsListMessage;
+    };
+    sdk: {
+      input: DescribeSnapshotsCommandInput;
+      output: DescribeSnapshotsCommandOutput;
+    };
+  };
+}

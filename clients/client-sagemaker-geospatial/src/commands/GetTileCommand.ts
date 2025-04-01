@@ -59,6 +59,11 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.BinaryFile.transformToByteArray();
+ * // const str = await response.BinaryFile.transformToString();
+ * // response.BinaryFile.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetTileOutput
  * //   BinaryFile: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -89,6 +94,7 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class GetTileCommand extends $Command
@@ -99,9 +105,7 @@ export class GetTileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +117,16 @@ export class GetTileCommand extends $Command
   .f(void 0, GetTileOutputFilterSensitiveLog)
   .ser(se_GetTileCommand)
   .de(de_GetTileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTileInput;
+      output: GetTileOutput;
+    };
+    sdk: {
+      input: GetTileCommandInput;
+      output: GetTileCommandOutput;
+    };
+  };
+}

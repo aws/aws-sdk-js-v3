@@ -336,6 +336,11 @@ import {
   UpdateRecommenderCommandInput,
   UpdateRecommenderCommandOutput,
 } from "./commands/UpdateRecommenderCommand";
+import {
+  UpdateSolutionCommand,
+  UpdateSolutionCommandInput,
+  UpdateSolutionCommandOutput,
+} from "./commands/UpdateSolutionCommand";
 import { PersonalizeClient, PersonalizeClientConfig } from "./PersonalizeClient";
 
 const commands = {
@@ -409,6 +414,7 @@ const commands = {
   UpdateDatasetCommand,
   UpdateMetricAttributionCommand,
   UpdateRecommenderCommand,
+  UpdateSolutionCommand,
 };
 
 export interface Personalize {
@@ -1498,6 +1504,20 @@ export interface Personalize {
     args: UpdateRecommenderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSolutionCommand}
+   */
+  updateSolution(
+    args: UpdateSolutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSolutionCommandOutput>;
+  updateSolution(args: UpdateSolutionCommandInput, cb: (err: any, data?: UpdateSolutionCommandOutput) => void): void;
+  updateSolution(
+    args: UpdateSolutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSolutionCommandOutput) => void
   ): void;
 }
 

@@ -108,6 +108,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListChangeSetsCommand extends $Command
@@ -118,9 +119,7 @@ export class ListChangeSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class ListChangeSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChangeSetsCommand)
   .de(de_ListChangeSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChangeSetsRequest;
+      output: ListChangeSetsResponse;
+    };
+    sdk: {
+      input: ListChangeSetsCommandInput;
+      output: ListChangeSetsCommandOutput;
+    };
+  };
+}

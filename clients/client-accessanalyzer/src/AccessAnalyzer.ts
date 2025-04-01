@@ -81,6 +81,11 @@ import {
   GetFindingRecommendationCommandOutput,
 } from "./commands/GetFindingRecommendationCommand";
 import {
+  GetFindingsStatisticsCommand,
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput,
+} from "./commands/GetFindingsStatisticsCommand";
+import {
   GetFindingV2Command,
   GetFindingV2CommandInput,
   GetFindingV2CommandOutput,
@@ -152,6 +157,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAnalyzerCommand,
+  UpdateAnalyzerCommandInput,
+  UpdateAnalyzerCommandOutput,
+} from "./commands/UpdateAnalyzerCommand";
+import {
   UpdateArchiveRuleCommand,
   UpdateArchiveRuleCommandInput,
   UpdateArchiveRuleCommandOutput,
@@ -185,6 +195,7 @@ const commands = {
   GetArchiveRuleCommand,
   GetFindingCommand,
   GetFindingRecommendationCommand,
+  GetFindingsStatisticsCommand,
   GetFindingV2Command,
   GetGeneratedPolicyCommand,
   ListAccessPreviewFindingsCommand,
@@ -200,6 +211,7 @@ const commands = {
   StartResourceScanCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAnalyzerCommand,
   UpdateArchiveRuleCommand,
   UpdateFindingsCommand,
   ValidatePolicyCommand,
@@ -475,6 +487,23 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
+   * @see {@link GetFindingsStatisticsCommand}
+   */
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsStatisticsCommandOutput>;
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    cb: (err: any, data?: GetFindingsStatisticsCommandOutput) => void
+  ): void;
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingsStatisticsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFindingV2Command}
    */
   getFindingV2(args: GetFindingV2CommandInput, options?: __HttpHandlerOptions): Promise<GetFindingV2CommandOutput>;
@@ -696,6 +725,20 @@ export interface AccessAnalyzer {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnalyzerCommand}
+   */
+  updateAnalyzer(
+    args: UpdateAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnalyzerCommandOutput>;
+  updateAnalyzer(args: UpdateAnalyzerCommandInput, cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void): void;
+  updateAnalyzer(
+    args: UpdateAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void
   ): void;
 
   /**

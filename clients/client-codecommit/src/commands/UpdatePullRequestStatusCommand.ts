@@ -130,6 +130,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class UpdatePullRequestStatusCommand extends $Command
@@ -140,9 +141,7 @@ export class UpdatePullRequestStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class UpdatePullRequestStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePullRequestStatusCommand)
   .de(de_UpdatePullRequestStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePullRequestStatusInput;
+      output: UpdatePullRequestStatusOutput;
+    };
+    sdk: {
+      input: UpdatePullRequestStatusCommandInput;
+      output: UpdatePullRequestStatusCommandOutput;
+    };
+  };
+}

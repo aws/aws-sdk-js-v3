@@ -81,6 +81,7 @@ export interface PutApplicationAccessScopeCommandOutput extends __MetadataBearer
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class PutApplicationAccessScopeCommand extends $Command
@@ -91,9 +92,7 @@ export class PutApplicationAccessScopeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class PutApplicationAccessScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutApplicationAccessScopeCommand)
   .de(de_PutApplicationAccessScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutApplicationAccessScopeRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutApplicationAccessScopeCommandInput;
+      output: PutApplicationAccessScopeCommandOutput;
+    };
+  };
+}

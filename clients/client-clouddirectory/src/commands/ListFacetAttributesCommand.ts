@@ -115,6 +115,195 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list facet attributes
+ * ```javascript
+ * //
+ * const input = {
+ *   Name: "Organization",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ * };
+ * const command = new ListFacetAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Attributes: [
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "account_id",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "account_name",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "description",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "email",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_city",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_country",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_postal_code",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_state",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_street1",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     },
+ *     {
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
+ *             },
+ *             Type: "STRING_LENGTH"
+ *           }
+ *         },
+ *         Type: "STRING"
+ *       },
+ *       Name: "mailing_address_street2",
+ *       RequiredBehavior: "NOT_REQUIRED"
+ *     }
+ *   ],
+ *   NextToken: "V0b3JnYW5pemF0aW9uX3N0YXR1cw=="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListFacetAttributesCommand extends $Command
@@ -125,9 +314,7 @@ export class ListFacetAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +326,16 @@ export class ListFacetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFacetAttributesCommand)
   .de(de_ListFacetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFacetAttributesRequest;
+      output: ListFacetAttributesResponse;
+    };
+    sdk: {
+      input: ListFacetAttributesCommandInput;
+      output: ListFacetAttributesCommandOutput;
+    };
+  };
+}

@@ -58,6 +58,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * //       LastModified: new Date("TIMESTAMP"),
  * //       WithFederation: true || false,
  * //       HybridAccessEnabled: true || false,
+ * //       WithPrivilegedAccess: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -83,6 +84,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command
@@ -93,9 +95,7 @@ export class ListResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcesCommand)
   .de(de_ListResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesRequest;
+      output: ListResourcesResponse;
+    };
+    sdk: {
+      input: ListResourcesCommandInput;
+      output: ListResourcesCommandOutput;
+    };
+  };
+}

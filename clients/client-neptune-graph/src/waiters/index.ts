@@ -1,4 +1,6 @@
+export * from "./waitForExportTaskCancelled";
 // smithy-typescript generated code
+export * from "./waitForExportTaskSuccessful";
 export * from "./waitForGraphAvailable";
 export * from "./waitForGraphDeleted";
 export * from "./waitForGraphSnapshotAvailable";

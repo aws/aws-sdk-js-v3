@@ -102,6 +102,7 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class PutDialRequestBatchCommand extends $Command
@@ -112,9 +113,7 @@ export class PutDialRequestBatchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class PutDialRequestBatchCommand extends $Command
   .f(PutDialRequestBatchRequestFilterSensitiveLog, void 0)
   .ser(se_PutDialRequestBatchCommand)
   .de(de_PutDialRequestBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDialRequestBatchRequest;
+      output: PutDialRequestBatchResponse;
+    };
+    sdk: {
+      input: PutDialRequestBatchCommandInput;
+      output: PutDialRequestBatchCommandOutput;
+    };
+  };
+}

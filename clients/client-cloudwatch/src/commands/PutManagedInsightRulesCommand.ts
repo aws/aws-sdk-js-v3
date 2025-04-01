@@ -28,23 +28,16 @@ export interface PutManagedInsightRulesCommandInput extends PutManagedInsightRul
 export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 			Creates a managed Contributor Insights rule
- * 			for a specified Amazon Web Services resource.
- * 			When you enable a managed rule,
- * 			you create a Contributor Insights rule
- * 			that collects data
- * 			from Amazon Web Services services.
- * 			You cannot edit these rules
- * 			with <code>PutInsightRule</code>.
- * 			The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>.
- * 			If a previously created managed rule is currently disabled,
- * 			a subsequent call
- * 			to this API will re-enable it.
- * 			Use <code>ListManagedInsightRules</code>
- * 			to describe all available rules.
+ * <p> Creates a managed Contributor Insights rule for a specified Amazon Web Services
+ *             resource. When you enable a managed rule, you create a Contributor Insights rule that
+ *             collects data from Amazon Web Services services. You cannot edit these rules with
+ *             <code>PutInsightRule</code>. The rules can be enabled, disabled, and deleted using
+ *             <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and
+ *             <code>DeleteInsightRules</code>. If a previously created managed rule is currently
+ *             disabled, a subsequent call to this API will re-enable it. Use
+ *             <code>ListManagedInsightRules</code> to describe all available rules.
  *
- * 		</p>
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +88,7 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutManagedInsightRulesCommand extends $Command
@@ -105,9 +99,7 @@ export class PutManagedInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +111,16 @@ export class PutManagedInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutManagedInsightRulesCommand)
   .de(de_PutManagedInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutManagedInsightRulesInput;
+      output: PutManagedInsightRulesOutput;
+    };
+    sdk: {
+      input: PutManagedInsightRulesCommandInput;
+      output: PutManagedInsightRulesCommandOutput;
+    };
+  };
+}

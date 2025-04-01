@@ -49,6 +49,7 @@ export interface EmptyOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class EmptyOperationCommand extends $Command
   .classBuilder<
@@ -66,4 +67,16 @@ export class EmptyOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EmptyOperationCommand)
   .de(de_EmptyOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: EmptyOperationCommandInput;
+      output: EmptyOperationCommandOutput;
+    };
+  };
+}

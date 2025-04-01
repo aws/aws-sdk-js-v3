@@ -70,6 +70,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class DeleteLoggingConfigurationCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoggingConfigurationCommand)
   .de(de_DeleteLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoggingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoggingConfigurationCommandInput;
+      output: DeleteLoggingConfigurationCommandOutput;
+    };
+  };
+}

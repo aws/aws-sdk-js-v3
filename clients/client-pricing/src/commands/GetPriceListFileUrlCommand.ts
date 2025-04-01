@@ -82,6 +82,7 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
  * @public
  */
 export class GetPriceListFileUrlCommand extends $Command
@@ -92,9 +93,7 @@ export class GetPriceListFileUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class GetPriceListFileUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPriceListFileUrlCommand)
   .de(de_GetPriceListFileUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPriceListFileUrlRequest;
+      output: GetPriceListFileUrlResponse;
+    };
+    sdk: {
+      input: GetPriceListFileUrlCommandInput;
+      output: GetPriceListFileUrlCommandOutput;
+    };
+  };
+}

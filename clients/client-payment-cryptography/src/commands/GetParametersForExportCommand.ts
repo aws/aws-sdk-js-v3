@@ -110,6 +110,7 @@ export interface GetParametersForExportCommandOutput extends GetParametersForExp
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetParametersForExportCommand extends $Command
@@ -120,9 +121,7 @@ export class GetParametersForExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class GetParametersForExportCommand extends $Command
   .f(void 0, GetParametersForExportOutputFilterSensitiveLog)
   .ser(se_GetParametersForExportCommand)
   .de(de_GetParametersForExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersForExportInput;
+      output: GetParametersForExportOutput;
+    };
+    sdk: {
+      input: GetParametersForExportCommandInput;
+      output: GetParametersForExportCommandOutput;
+    };
+  };
+}

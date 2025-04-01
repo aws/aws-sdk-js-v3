@@ -82,6 +82,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ *
  * @public
  */
 export class SendVoiceMessageCommand extends $Command
@@ -92,9 +93,7 @@ export class SendVoiceMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class SendVoiceMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendVoiceMessageCommand)
   .de(de_SendVoiceMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendVoiceMessageRequest;
+      output: SendVoiceMessageResponse;
+    };
+    sdk: {
+      input: SendVoiceMessageCommandInput;
+      output: SendVoiceMessageCommandOutput;
+    };
+  };
+}

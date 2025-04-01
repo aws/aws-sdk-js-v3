@@ -146,7 +146,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         ObjectLockMode: "COMPLIANCE" || "GOVERNANCE",
  * //         ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //         BucketKeyEnabled: true || false,
- * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       },
  * //       S3PutObjectAcl: { // S3SetObjectAclOperation
  * //         AccessControlPolicy: { // S3AccessControlPolicy
@@ -301,6 +301,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobCommand extends $Command
@@ -328,4 +329,16 @@ export class DescribeJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJobCommand)
   .de(de_DescribeJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobRequest;
+      output: DescribeJobResult;
+    };
+    sdk: {
+      input: DescribeJobCommandInput;
+      output: DescribeJobCommandOutput;
+    };
+  };
+}

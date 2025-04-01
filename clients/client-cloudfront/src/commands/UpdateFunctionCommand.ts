@@ -115,64 +115,64 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * 			<code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To update a function
  * ```javascript
  * // Use the following command to update a function.
  * const input = {
- *   "FunctionCode": "function-code-changed.js",
- *   "FunctionConfig": {
- *     "Comment": "my-changed-comment",
- *     "KeyValueStoreAssociations": {
- *       "Items": [
+ *   FunctionCode: "function-code-changed.js",
+ *   FunctionConfig: {
+ *     Comment: "my-changed-comment",
+ *     KeyValueStoreAssociations: {
+ *       Items: [
  *         {
- *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *         }
  *       ],
- *       "Quantity": 1
+ *       Quantity: 1
  *     },
- *     "Runtime": "cloudfront-js-2.0"
+ *     Runtime: "cloudfront-js-2.0"
  *   },
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-function-name"
+ *   IfMatch: "ETVPDKIKX0DER",
+ *   Name: "my-function-name"
  * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "E3UN6WX5RRO2AG",
- *   "FunctionSummary": {
- *     "FunctionConfig": {
- *       "Comment": "my-changed-comment",
- *       "KeyValueStoreAssociations": {
- *         "Items": [
+ *   ETag: "E3UN6WX5RRO2AG",
+ *   FunctionSummary: {
+ *     FunctionConfig: {
+ *       Comment: "my-changed-comment",
+ *       KeyValueStoreAssociations: {
+ *         Items: [
  *           {
- *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *             KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *           }
  *         ],
- *         "Quantity": 1
+ *         Quantity: 1
  *       },
- *       "Runtime": "cloudfront-js-2.0"
+ *       Runtime: "cloudfront-js-2.0"
  *     },
- *     "FunctionMetadata": {
- *       "CreatedTime": "2023-11-07T19:53:50.334Z",
- *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
- *       "LastModifiedTime": "2023-11-07T20:01:37.174Z",
- *       "Stage": "DEVELOPMENT"
+ *     FunctionMetadata: {
+ *       CreatedTime: "2023-11-07T19:53:50.334Z",
+ *       FunctionARN: "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       LastModifiedTime: "2023-11-07T20:01:37.174Z",
+ *       Stage: "DEVELOPMENT"
  *     },
- *     "Name": "my-function-name",
- *     "Status": "UNPUBLISHED"
+ *     Name: "my-function-name",
+ *     Status: "UNPUBLISHED"
  *   }
  * }
  * *\/
- * // example id: to-update-a-function-1699751865053
  * ```
  *
+ * @public
  */
 export class UpdateFunctionCommand extends $Command
   .classBuilder<
@@ -182,9 +182,7 @@ export class UpdateFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +194,16 @@ export class UpdateFunctionCommand extends $Command
   .f(UpdateFunctionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFunctionCommand)
   .de(de_UpdateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionRequest;
+      output: UpdateFunctionResult;
+    };
+    sdk: {
+      input: UpdateFunctionCommandInput;
+      output: UpdateFunctionCommandOutput;
+    };
+  };
+}

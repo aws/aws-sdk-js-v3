@@ -8,7 +8,7 @@ AWS SDK for JavaScript SFN Client for Node.js, Browser and React Native.
 
 <fullname>Step Functions</fullname>
 
-<p>Step Functions is a service that lets you coordinate the components of distributed applications
+<p>Step Functions coordinates the components of distributed applications
 and microservices using visual workflows.</p>
 <p>You can use Step Functions to build applications from individual components, each of which performs
 a discrete function, or <i>task</i>, allowing you to scale and change
@@ -29,7 +29,7 @@ For more information about Step Functions, see the <i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sfn
+To install this package, simply type add or install @aws-sdk/client-sfn
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sfn`

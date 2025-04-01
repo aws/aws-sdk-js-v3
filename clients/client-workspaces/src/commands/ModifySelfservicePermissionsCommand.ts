@@ -78,6 +78,7 @@ export interface ModifySelfservicePermissionsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifySelfservicePermissionsCommand extends $Command
@@ -88,9 +89,7 @@ export class ModifySelfservicePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ModifySelfservicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySelfservicePermissionsCommand)
   .de(de_ModifySelfservicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySelfservicePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySelfservicePermissionsCommandInput;
+      output: ModifySelfservicePermissionsCommandOutput;
+    };
+  };
+}

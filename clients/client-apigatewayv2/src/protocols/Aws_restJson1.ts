@@ -190,6 +190,7 @@ export const se_CreateApiCommand = async (
       description: [, , `Description`],
       disableExecuteApiEndpoint: [, , `DisableExecuteApiEndpoint`],
       disableSchemaValidation: [, , `DisableSchemaValidation`],
+      ipAddressType: [, , `IpAddressType`],
       name: [, , `Name`],
       protocolType: [, , `ProtocolType`],
       routeKey: [, , `RouteKey`],
@@ -1391,10 +1392,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v2/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1423,6 +1421,7 @@ export const se_UpdateApiCommand = async (
       description: [, , `Description`],
       disableExecuteApiEndpoint: [, , `DisableExecuteApiEndpoint`],
       disableSchemaValidation: [, , `DisableSchemaValidation`],
+      ipAddressType: [, , `IpAddressType`],
       name: [, , `Name`],
       routeKey: [, , `RouteKey`],
       routeSelectionExpression: [, , `RouteSelectionExpression`],
@@ -1778,6 +1777,7 @@ export const de_CreateApiCommand = async (
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -2422,6 +2422,7 @@ export const de_GetApiCommand = async (
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -3082,6 +3083,7 @@ export const de_ImportApiCommand = async (
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -3118,6 +3120,7 @@ export const de_ReimportApiCommand = async (
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -3205,6 +3208,7 @@ export const de_UpdateApiCommand = async (
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -3710,6 +3714,7 @@ const se_DomainNameConfiguration = (input: DomainNameConfiguration, context: __S
     domainNameStatusMessage: [, , `DomainNameStatusMessage`],
     endpointType: [, , `EndpointType`],
     hostedZoneId: [, , `HostedZoneId`],
+    ipAddressType: [, , `IpAddressType`],
     ownershipVerificationCertificateArn: [, , `OwnershipVerificationCertificateArn`],
     securityPolicy: [, , `SecurityPolicy`],
   });
@@ -3992,6 +3997,7 @@ const de_Api = (output: any, context: __SerdeContext): Api => {
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
     ImportInfo: [, _json, `importInfo`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     Name: [, __expectString, `name`],
     ProtocolType: [, __expectString, `protocolType`],
     RouteSelectionExpression: [, __expectString, `routeSelectionExpression`],
@@ -4098,6 +4104,7 @@ const de_DomainNameConfiguration = (output: any, context: __SerdeContext): Domai
     DomainNameStatusMessage: [, __expectString, `domainNameStatusMessage`],
     EndpointType: [, __expectString, `endpointType`],
     HostedZoneId: [, __expectString, `hostedZoneId`],
+    IpAddressType: [, __expectString, `ipAddressType`],
     OwnershipVerificationCertificateArn: [, __expectString, `ownershipVerificationCertificateArn`],
     SecurityPolicy: [, __expectString, `securityPolicy`],
   }) as any;
@@ -4350,13 +4357,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _B = "Basepath";
 const _EV = "ExportVersion";

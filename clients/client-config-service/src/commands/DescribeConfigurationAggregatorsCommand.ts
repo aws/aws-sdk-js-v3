@@ -34,7 +34,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
 
 /**
  * <p>Returns the details of one or more configuration aggregators.
- * 			If the configuration aggregator is not specified, this action
+ * 			If the configuration aggregator is not specified, this operation
  * 			returns the details for all the configuration aggregators associated
  * 			with the account. </p>
  * @example
@@ -78,6 +78,20 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       CreatedBy: "STRING_VALUE",
+ * //       AggregatorFilters: { // AggregatorFilters
+ * //         ResourceType: { // AggregatorFilterResourceType
+ * //           Type: "INCLUDE",
+ * //           Value: [ // ResourceTypeValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ServicePrincipal: { // AggregatorFilterServicePrincipal
+ * //           Type: "INCLUDE",
+ * //           Value: [ // ServicePrincipalValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -109,6 +123,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeConfigurationAggregatorsCommand extends $Command
@@ -119,9 +134,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +146,16 @@ export class DescribeConfigurationAggregatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationAggregatorsCommand)
   .de(de_DescribeConfigurationAggregatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationAggregatorsRequest;
+      output: DescribeConfigurationAggregatorsResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationAggregatorsCommandInput;
+      output: DescribeConfigurationAggregatorsCommandOutput;
+    };
+  };
+}

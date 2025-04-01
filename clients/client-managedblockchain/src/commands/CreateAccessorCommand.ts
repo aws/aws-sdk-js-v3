@@ -92,6 +92,7 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessorCommand extends $Command
@@ -102,9 +103,7 @@ export class CreateAccessorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class CreateAccessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessorCommand)
   .de(de_CreateAccessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessorInput;
+      output: CreateAccessorOutput;
+    };
+    sdk: {
+      input: CreateAccessorCommandInput;
+      output: CreateAccessorCommandOutput;
+    };
+  };
+}

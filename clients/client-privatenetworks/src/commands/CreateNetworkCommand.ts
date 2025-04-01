@@ -84,6 +84,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkCommand extends $Command
@@ -94,9 +95,7 @@ export class CreateNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateNetworkCommand extends $Command
   .f(CreateNetworkRequestFilterSensitiveLog, CreateNetworkResponseFilterSensitiveLog)
   .ser(se_CreateNetworkCommand)
   .de(de_CreateNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkRequest;
+      output: CreateNetworkResponse;
+    };
+    sdk: {
+      input: CreateNetworkCommandInput;
+      output: CreateNetworkCommandOutput;
+    };
+  };
+}

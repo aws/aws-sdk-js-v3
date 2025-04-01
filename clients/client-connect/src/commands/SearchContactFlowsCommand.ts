@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContactFlowsRequest, SearchContactFlowsResponse } from "../models/models_2";
+import { SearchContactFlowsResponse } from "../models/models_2";
+import { SearchContactFlowsRequest } from "../models/models_3";
 import { de_SearchContactFlowsCommand, se_SearchContactFlowsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,8 +29,7 @@ export interface SearchContactFlowsCommandInput extends SearchContactFlowsReques
 export interface SearchContactFlowsCommandOutput extends SearchContactFlowsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches the contact flows in an Amazon Connect instance, with optional
- *    filtering.</p>
+ * <p>Searches the flows in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,7 +73,7 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
- *         TypeCondition: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ *         TypeCondition: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  *         StateCondition: "ACTIVE" || "ARCHIVED",
  *         StatusCondition: "PUBLISHED" || "SAVED",
  *       },
@@ -86,7 +86,7 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  *       Value: "STRING_VALUE",
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
- *     TypeCondition: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ *     TypeCondition: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  *     StateCondition: "ACTIVE" || "ARCHIVED",
  *     StatusCondition: "PUBLISHED" || "SAVED",
  *   },
@@ -99,7 +99,7 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  * //       Arn: "STRING_VALUE",
  * //       Id: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //       Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  * //       State: "ACTIVE" || "ARCHIVED",
  * //       Status: "PUBLISHED" || "SAVED",
  * //       Description: "STRING_VALUE",
@@ -107,6 +107,11 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       FlowContentSha256: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       VersionDescription: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -139,6 +144,7 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchContactFlowsCommand extends $Command
@@ -149,9 +155,7 @@ export class SearchContactFlowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +167,16 @@ export class SearchContactFlowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchContactFlowsCommand)
   .de(de_SearchContactFlowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchContactFlowsRequest;
+      output: SearchContactFlowsResponse;
+    };
+    sdk: {
+      input: SearchContactFlowsCommandInput;
+      output: SearchContactFlowsCommandOutput;
+    };
+  };
+}

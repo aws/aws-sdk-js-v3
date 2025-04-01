@@ -163,6 +163,21 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To delete a policy template
+ * ```javascript
+ * // The following example deletes a policy template. Before you can perform this operation, you must first delete any template-linked policies that were instantiated from this policy template. To delete them, use DeletePolicy.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111"
+ * };
+ * const command = new DeletePolicyTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeletePolicyTemplateCommand extends $Command
@@ -173,9 +188,7 @@ export class DeletePolicyTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -187,4 +200,16 @@ export class DeletePolicyTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyTemplateCommand)
   .de(de_DeletePolicyTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyTemplateCommandInput;
+      output: DeletePolicyTemplateCommandOutput;
+    };
+  };
+}

@@ -81,6 +81,7 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchEnableAlarmCommand extends $Command
@@ -91,9 +92,7 @@ export class BatchEnableAlarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class BatchEnableAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchEnableAlarmCommand)
   .de(de_BatchEnableAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchEnableAlarmRequest;
+      output: BatchEnableAlarmResponse;
+    };
+    sdk: {
+      input: BatchEnableAlarmCommandInput;
+      output: BatchEnableAlarmCommandOutput;
+    };
+  };
+}

@@ -59,6 +59,7 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class ListAssociatedFleetsCommand extends $Command
@@ -69,9 +70,7 @@ export class ListAssociatedFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class ListAssociatedFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedFleetsCommand)
   .de(de_ListAssociatedFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedFleetsRequest;
+      output: ListAssociatedFleetsResult;
+    };
+    sdk: {
+      input: ListAssociatedFleetsCommandInput;
+      output: ListAssociatedFleetsCommandOutput;
+    };
+  };
+}

@@ -32,8 +32,9 @@ export interface StopReplicationCommandInput extends StopReplicationMessage {}
 export interface StopReplicationCommandOutput extends StopReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>For a given DMS Serverless replication configuration, DMS stops any and all ongoing DMS Serverless replications.
- *          This command doesn't deprovision the stopped replications.</p>
+ * <p>For a given DMS Serverless replication configuration, DMS stops any and all ongoing
+ *          DMS Serverless replications. This command doesn't deprovision the stopped
+ *          replications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,31 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //       DateNewProvisioningDataAvailable: new Date("TIMESTAMP"),
  * //       ReasonForNewProvisioningData: "STRING_VALUE",
  * //     },
+ * //     PremigrationAssessmentStatuses: [ // PremigrationAssessmentStatusList
+ * //       { // PremigrationAssessmentStatus
+ * //         PremigrationAssessmentRunArn: "STRING_VALUE",
+ * //         FailOnAssessmentFailure: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         PremigrationAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //         AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //           IndividualAssessmentCount: Number("int"),
+ * //           IndividualAssessmentCompletedCount: Number("int"),
+ * //         },
+ * //         LastFailureMessage: "STRING_VALUE",
+ * //         ResultLocationBucket: "STRING_VALUE",
+ * //         ResultLocationFolder: "STRING_VALUE",
+ * //         ResultEncryptionMode: "STRING_VALUE",
+ * //         ResultKmsKeyArn: "STRING_VALUE",
+ * //         ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //           Passed: Number("int"),
+ * //           Failed: Number("int"),
+ * //           Error: Number("int"),
+ * //           Warning: Number("int"),
+ * //           Cancelled: Number("int"),
+ * //           Skipped: Number("int"),
+ * //         },
+ * //       },
+ * //     ],
  * //     StopReason: "STRING_VALUE",
  * //     FailureMessages: [ // StringList
  * //       "STRING_VALUE",
@@ -111,6 +137,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class StopReplicationCommand extends $Command
@@ -121,9 +148,7 @@ export class StopReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +160,16 @@ export class StopReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopReplicationCommand)
   .de(de_StopReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopReplicationMessage;
+      output: StopReplicationResponse;
+    };
+    sdk: {
+      input: StopReplicationCommandInput;
+      output: StopReplicationCommandOutput;
+    };
+  };
+}

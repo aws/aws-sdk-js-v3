@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_4";
+import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_5";
 import {
   de_DescribeReservedInstancesListingsCommand,
   se_DescribeReservedInstancesListingsCommand,
@@ -51,6 +51,8 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * // const { EC2Client, DescribeReservedInstancesListingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeReservedInstancesListingsRequest
+ *   ReservedInstancesId: "STRING_VALUE",
+ *   ReservedInstancesListingId: "STRING_VALUE",
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -59,8 +61,6 @@ export interface DescribeReservedInstancesListingsCommandOutput
  *       ],
  *     },
  *   ],
- *   ReservedInstancesId: "STRING_VALUE",
- *   ReservedInstancesListingId: "STRING_VALUE",
  * };
  * const command = new DescribeReservedInstancesListingsCommand(input);
  * const response = await client.send(command);
@@ -109,6 +109,7 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeReservedInstancesListingsCommand extends $Command
@@ -119,9 +120,7 @@ export class DescribeReservedInstancesListingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class DescribeReservedInstancesListingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedInstancesListingsCommand)
   .de(de_DescribeReservedInstancesListingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedInstancesListingsRequest;
+      output: DescribeReservedInstancesListingsResult;
+    };
+    sdk: {
+      input: DescribeReservedInstancesListingsCommandInput;
+      output: DescribeReservedInstancesListingsCommandOutput;
+    };
+  };
+}

@@ -92,6 +92,7 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetVoiceTemplateCommand extends $Command
@@ -102,9 +103,7 @@ export class GetVoiceTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetVoiceTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceTemplateCommand)
   .de(de_GetVoiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceTemplateRequest;
+      output: GetVoiceTemplateResponse;
+    };
+    sdk: {
+      input: GetVoiceTemplateCommandInput;
+      output: GetVoiceTemplateCommandOutput;
+    };
+  };
+}

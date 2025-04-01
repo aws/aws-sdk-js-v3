@@ -73,26 +73,26 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Getting a Channel Policy
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel"
  * };
  * const command = new GetChannelPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "Policy": "{...}"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   Policy: "{...}"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetChannelPolicyCommand extends $Command
   .classBuilder<
@@ -102,9 +102,7 @@ export class GetChannelPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +114,16 @@ export class GetChannelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChannelPolicyCommand)
   .de(de_GetChannelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelPolicyRequest;
+      output: GetChannelPolicyResponse;
+    };
+    sdk: {
+      input: GetChannelPolicyCommandInput;
+      output: GetChannelPolicyCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class ListProfileTimesCommand extends $Command
@@ -89,9 +90,7 @@ export class ListProfileTimesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListProfileTimesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfileTimesCommand)
   .de(de_ListProfileTimesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfileTimesRequest;
+      output: ListProfileTimesResponse;
+    };
+    sdk: {
+      input: ListProfileTimesCommandInput;
+      output: ListProfileTimesCommandOutput;
+    };
+  };
+}

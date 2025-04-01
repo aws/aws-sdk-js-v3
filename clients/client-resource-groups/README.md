@@ -30,7 +30,7 @@ resource query entities</p>
 <p>Applying, editing, and removing tags from resource groups</p>
 </li>
 <li>
-<p>Resolving resource group member ARNs so they can be returned as search
+<p>Resolving resource group member Amazon resource names (ARN)s so they can be returned as search
 results</p>
 </li>
 <li>
@@ -43,7 +43,7 @@ results</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resource-groups
+To install this package, simply type add or install @aws-sdk/client-resource-groups
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resource-groups`
@@ -238,6 +238,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CancelTagSyncTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/CancelTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CancelTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CancelTagSyncTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateGroup
 </summary>
 
@@ -294,10 +302,26 @@ GetTags
 </details>
 <details>
 <summary>
+GetTagSyncTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagSyncTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 GroupResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GroupResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GroupResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GroupResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListGroupingStatuses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListGroupingStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupingStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupingStatusesCommandOutput/)
 
 </details>
 <details>
@@ -318,6 +342,14 @@ ListGroups
 </details>
 <details>
 <summary>
+ListTagSyncTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListTagSyncTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListTagSyncTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListTagSyncTasksCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutGroupConfiguration
 </summary>
 
@@ -330,6 +362,14 @@ SearchResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/SearchResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/SearchResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/SearchResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartTagSyncTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/StartTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/StartTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/StartTagSyncTaskCommandOutput/)
 
 </details>
 <details>

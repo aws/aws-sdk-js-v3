@@ -52,6 +52,7 @@ export interface ContentTypeParametersCommandOutput extends ContentTypeParameter
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  * @public
  */
 export class ContentTypeParametersCommand extends $Command
@@ -70,4 +71,16 @@ export class ContentTypeParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContentTypeParametersCommand)
   .de(de_ContentTypeParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContentTypeParametersInput;
+      output: {};
+    };
+    sdk: {
+      input: ContentTypeParametersCommandInput;
+      output: ContentTypeParametersCommandOutput;
+    };
+  };
+}

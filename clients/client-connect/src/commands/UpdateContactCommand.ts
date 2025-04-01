@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateContactRequest,
-  UpdateContactRequestFilterSensitiveLog,
-  UpdateContactResponse,
-} from "../models/models_2";
+import { UpdateContactResponse } from "../models/models_2";
+import { UpdateContactRequest, UpdateContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -52,9 +49,41 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *   Description: "STRING_VALUE",
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
  *     },
+ *   },
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
+ *     },
+ *   },
+ *   QueueInfo: { // QueueInfoInput
+ *     Id: "STRING_VALUE",
+ *   },
+ *   UserInfo: { // UserInfo
+ *     UserId: "STRING_VALUE",
+ *   },
+ *   CustomerEndpoint: { // Endpoint
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ *     Address: "STRING_VALUE",
+ *   },
+ *   SystemEndpoint: {
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ *     Address: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateContactCommand(input);
@@ -68,6 +97,13 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
+ *    contact state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -87,6 +123,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactCommand extends $Command
@@ -97,9 +134,7 @@ export class UpdateContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +146,16 @@ export class UpdateContactCommand extends $Command
   .f(UpdateContactRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateContactCommand)
   .de(de_UpdateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactCommandInput;
+      output: UpdateContactCommandOutput;
+    };
+  };
+}

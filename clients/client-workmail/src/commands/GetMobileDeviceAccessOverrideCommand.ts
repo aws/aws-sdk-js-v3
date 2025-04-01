@@ -85,6 +85,7 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetMobileDeviceAccessOverrideCommand extends $Command
@@ -95,9 +96,7 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMobileDeviceAccessOverrideCommand)
   .de(de_GetMobileDeviceAccessOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMobileDeviceAccessOverrideRequest;
+      output: GetMobileDeviceAccessOverrideResponse;
+    };
+    sdk: {
+      input: GetMobileDeviceAccessOverrideCommandInput;
+      output: GetMobileDeviceAccessOverrideCommandOutput;
+    };
+  };
+}

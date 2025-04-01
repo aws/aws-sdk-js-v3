@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/models_4";
+import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/models_5";
 import { de_DescribeNetworkAclsCommand, se_DescribeNetworkAclsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -40,6 +40,12 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * // const { EC2Client, DescribeNetworkAclsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkAclsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NetworkAclIds: [ // NetworkAclIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -48,12 +54,6 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   NetworkAclIds: [ // NetworkAclIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeNetworkAclsCommand(input);
  * const response = await client.send(command);
@@ -111,55 +111,55 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a network ACL
  * ```javascript
  * // This example describes the specified network ACL.
  * const input = {
- *   "NetworkAclIds": [
+ *   NetworkAclIds: [
  *     "acl-5fb85d36"
  *   ]
  * };
  * const command = new DescribeNetworkAclsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NetworkAcls": [
+ *   NetworkAcls: [
  *     {
- *       "Associations": [
+ *       Associations: [
  *         {
- *           "NetworkAclAssociationId": "aclassoc-66ea5f0b",
- *           "NetworkAclId": "acl-9aeb5ef7",
- *           "SubnetId": "subnet-65ea5f08"
+ *           NetworkAclAssociationId: "aclassoc-66ea5f0b",
+ *           NetworkAclId: "acl-9aeb5ef7",
+ *           SubnetId: "subnet-65ea5f08"
  *         }
  *       ],
- *       "Entries": [
+ *       Entries: [
  *         {
- *           "CidrBlock": "0.0.0.0/0",
- *           "Egress": true,
- *           "Protocol": "-1",
- *           "RuleAction": "deny",
- *           "RuleNumber": 32767
+ *           CidrBlock: "0.0.0.0/0",
+ *           Egress: true,
+ *           Protocol: "-1",
+ *           RuleAction: "deny",
+ *           RuleNumber: 32767
  *         },
  *         {
- *           "CidrBlock": "0.0.0.0/0",
- *           "Egress": false,
- *           "Protocol": "-1",
- *           "RuleAction": "deny",
- *           "RuleNumber": 32767
+ *           CidrBlock: "0.0.0.0/0",
+ *           Egress: false,
+ *           Protocol: "-1",
+ *           RuleAction: "deny",
+ *           RuleNumber: 32767
  *         }
  *       ],
- *       "IsDefault": false,
- *       "NetworkAclId": "acl-5fb85d36",
- *       "Tags": [],
- *       "VpcId": "vpc-a01106c2"
+ *       IsDefault: false,
+ *       NetworkAclId: "acl-5fb85d36",
+ *       Tags:       [],
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-
  * ```
  *
+ * @public
  */
 export class DescribeNetworkAclsCommand extends $Command
   .classBuilder<
@@ -169,9 +169,7 @@ export class DescribeNetworkAclsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +181,16 @@ export class DescribeNetworkAclsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkAclsCommand)
   .de(de_DescribeNetworkAclsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkAclsRequest;
+      output: DescribeNetworkAclsResult;
+    };
+    sdk: {
+      input: DescribeNetworkAclsCommandInput;
+      output: DescribeNetworkAclsCommandOutput;
+    };
+  };
+}

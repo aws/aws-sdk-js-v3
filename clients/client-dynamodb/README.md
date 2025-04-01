@@ -27,7 +27,7 @@ durability.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dynamodb
+To install this package, simply type add or install @aws-sdk/client-dynamodb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dynamodb`

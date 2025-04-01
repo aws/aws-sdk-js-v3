@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import { GetArchiveMessageRequest, GetArchiveMessageResponse } from "../models/models_0";
+import {
+  GetArchiveMessageRequest,
+  GetArchiveMessageResponse,
+  GetArchiveMessageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetArchiveMessageCommand, se_GetArchiveMessageCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -44,6 +48,28 @@ export interface GetArchiveMessageCommandOutput extends GetArchiveMessageRespons
  * const response = await client.send(command);
  * // { // GetArchiveMessageResponse
  * //   MessageDownloadLink: "STRING_VALUE",
+ * //   Metadata: { // Metadata
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //     IngressPointId: "STRING_VALUE",
+ * //     TrafficPolicyId: "STRING_VALUE",
+ * //     RuleSetId: "STRING_VALUE",
+ * //     SenderHostname: "STRING_VALUE",
+ * //     SenderIpAddress: "STRING_VALUE",
+ * //     TlsCipherSuite: "STRING_VALUE",
+ * //     TlsProtocol: "STRING_VALUE",
+ * //     SendingMethod: "STRING_VALUE",
+ * //     SourceIdentity: "STRING_VALUE",
+ * //     SendingPool: "STRING_VALUE",
+ * //     ConfigurationSet: "STRING_VALUE",
+ * //     SourceArn: "STRING_VALUE",
+ * //   },
+ * //   Envelope: { // Envelope
+ * //     Helo: "STRING_VALUE",
+ * //     From: "STRING_VALUE",
+ * //     To: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
@@ -66,6 +92,7 @@ export interface GetArchiveMessageCommandOutput extends GetArchiveMessageRespons
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveMessageCommand extends $Command
@@ -76,9 +103,7 @@ export class GetArchiveMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,7 +112,19 @@ export class GetArchiveMessageCommand extends $Command
   })
   .s("MailManagerSvc", "GetArchiveMessage", {})
   .n("MailManagerClient", "GetArchiveMessageCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetArchiveMessageResponseFilterSensitiveLog)
   .ser(se_GetArchiveMessageCommand)
   .de(de_GetArchiveMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveMessageRequest;
+      output: GetArchiveMessageResponse;
+    };
+    sdk: {
+      input: GetArchiveMessageCommandInput;
+      output: GetArchiveMessageCommandOutput;
+    };
+  };
+}

@@ -87,6 +87,7 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomMetadataCommand extends $Command
@@ -97,9 +98,7 @@ export class CreateCustomMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class CreateCustomMetadataCommand extends $Command
   .f(CreateCustomMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_CreateCustomMetadataCommand)
   .de(de_CreateCustomMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateCustomMetadataCommandInput;
+      output: CreateCustomMetadataCommandOutput;
+    };
+  };
+}

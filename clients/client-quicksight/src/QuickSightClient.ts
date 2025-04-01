@@ -53,6 +53,14 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  BatchCreateTopicReviewedAnswerCommandInput,
+  BatchCreateTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchCreateTopicReviewedAnswerCommand";
+import {
+  BatchDeleteTopicReviewedAnswerCommandInput,
+  BatchDeleteTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchDeleteTopicReviewedAnswerCommand";
 import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
 import {
   CreateAccountCustomizationCommandInput,
@@ -63,6 +71,11 @@ import {
   CreateAccountSubscriptionCommandOutput,
 } from "./commands/CreateAccountSubscriptionCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
+import { CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
+import {
+  CreateCustomPermissionsCommandInput,
+  CreateCustomPermissionsCommandOutput,
+} from "./commands/CreateCustomPermissionsCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -115,6 +128,15 @@ import {
   DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
+import {
+  DeleteBrandAssignmentCommandInput,
+  DeleteBrandAssignmentCommandOutput,
+} from "./commands/DeleteBrandAssignmentCommand";
+import { DeleteBrandCommandInput, DeleteBrandCommandOutput } from "./commands/DeleteBrandCommand";
+import {
+  DeleteCustomPermissionsCommandInput,
+  DeleteCustomPermissionsCommandOutput,
+} from "./commands/DeleteCustomPermissionsCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import {
@@ -122,6 +144,10 @@ import {
   DeleteDataSetRefreshPropertiesCommandOutput,
 } from "./commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDefaultQBusinessApplicationCommandInput,
+  DeleteDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DeleteDefaultQBusinessApplicationCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
   DeleteFolderMembershipCommandInput,
@@ -171,6 +197,10 @@ import {
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  DeleteUserCustomPermissionCommandInput,
+  DeleteUserCustomPermissionCommandOutput,
+} from "./commands/DeleteUserCustomPermissionCommand";
+import {
   DeleteVPCConnectionCommandInput,
   DeleteVPCConnectionCommandOutput,
 } from "./commands/DeleteVPCConnectionCommand";
@@ -203,6 +233,19 @@ import {
   DescribeAssetBundleImportJobCommandInput,
   DescribeAssetBundleImportJobCommandOutput,
 } from "./commands/DescribeAssetBundleImportJobCommand";
+import {
+  DescribeBrandAssignmentCommandInput,
+  DescribeBrandAssignmentCommandOutput,
+} from "./commands/DescribeBrandAssignmentCommand";
+import { DescribeBrandCommandInput, DescribeBrandCommandOutput } from "./commands/DescribeBrandCommand";
+import {
+  DescribeBrandPublishedVersionCommandInput,
+  DescribeBrandPublishedVersionCommandOutput,
+} from "./commands/DescribeBrandPublishedVersionCommand";
+import {
+  DescribeCustomPermissionsCommandInput,
+  DescribeCustomPermissionsCommandOutput,
+} from "./commands/DescribeCustomPermissionsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardDefinitionCommandInput,
@@ -220,6 +263,10 @@ import {
   DescribeDashboardSnapshotJobResultCommandInput,
   DescribeDashboardSnapshotJobResultCommandOutput,
 } from "./commands/DescribeDashboardSnapshotJobResultCommand";
+import {
+  DescribeDashboardsQAConfigurationCommandInput,
+  DescribeDashboardsQAConfigurationCommandOutput,
+} from "./commands/DescribeDashboardsQAConfigurationCommand";
 import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "./commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
@@ -234,6 +281,10 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
+import {
+  DescribeDefaultQBusinessApplicationCommandInput,
+  DescribeDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DescribeDefaultQBusinessApplicationCommand";
 import { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "./commands/DescribeFolderCommand";
 import {
   DescribeFolderPermissionsCommandInput,
@@ -262,6 +313,14 @@ import {
   DescribeKeyRegistrationCommandOutput,
 } from "./commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
+import {
+  DescribeQPersonalizationConfigurationCommandInput,
+  DescribeQPersonalizationConfigurationCommandOutput,
+} from "./commands/DescribeQPersonalizationConfigurationCommand";
+import {
+  DescribeQuickSightQSearchConfigurationCommandInput,
+  DescribeQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/DescribeQuickSightQSearchConfigurationCommand";
 import {
   DescribeRefreshScheduleCommandInput,
   DescribeRefreshScheduleCommandOutput,
@@ -316,6 +375,10 @@ import {
   GenerateEmbedUrlForRegisteredUserCommandOutput,
 } from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
 import {
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
+} from "./commands/GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
+import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
@@ -329,6 +392,11 @@ import {
   ListAssetBundleImportJobsCommandInput,
   ListAssetBundleImportJobsCommandOutput,
 } from "./commands/ListAssetBundleImportJobsCommand";
+import { ListBrandsCommandInput, ListBrandsCommandOutput } from "./commands/ListBrandsCommand";
+import {
+  ListCustomPermissionsCommandInput,
+  ListCustomPermissionsCommandOutput,
+} from "./commands/ListCustomPermissionsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import {
   ListDashboardVersionsCommandInput,
@@ -338,6 +406,10 @@ import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "./commands/ListFolderMembersCommand";
 import { ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
+import {
+  ListFoldersForResourceCommandInput,
+  ListFoldersForResourceCommandOutput,
+} from "./commands/ListFoldersForResourceCommand";
 import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
@@ -385,10 +457,15 @@ import {
   ListTopicRefreshSchedulesCommandInput,
   ListTopicRefreshSchedulesCommandOutput,
 } from "./commands/ListTopicRefreshSchedulesCommand";
+import {
+  ListTopicReviewedAnswersCommandInput,
+  ListTopicReviewedAnswersCommandOutput,
+} from "./commands/ListTopicReviewedAnswersCommand";
 import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListVPCConnectionsCommandInput, ListVPCConnectionsCommandOutput } from "./commands/ListVPCConnectionsCommand";
+import { PredictQAResultsCommandInput, PredictQAResultsCommandOutput } from "./commands/PredictQAResultsCommand";
 import {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -401,6 +478,7 @@ import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./comma
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "./commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
+import { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
 import {
   StartAssetBundleExportJobCommandInput,
   StartAssetBundleExportJobCommandOutput,
@@ -413,6 +491,10 @@ import {
   StartDashboardSnapshotJobCommandInput,
   StartDashboardSnapshotJobCommandOutput,
 } from "./commands/StartDashboardSnapshotJobCommand";
+import {
+  StartDashboardSnapshotJobScheduleCommandInput,
+  StartDashboardSnapshotJobScheduleCommandOutput,
+} from "./commands/StartDashboardSnapshotJobScheduleCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -428,6 +510,23 @@ import {
   UpdateAnalysisPermissionsCommandInput,
   UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
+import {
+  UpdateApplicationWithTokenExchangeGrantCommandInput,
+  UpdateApplicationWithTokenExchangeGrantCommandOutput,
+} from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import {
+  UpdateBrandAssignmentCommandInput,
+  UpdateBrandAssignmentCommandOutput,
+} from "./commands/UpdateBrandAssignmentCommand";
+import { UpdateBrandCommandInput, UpdateBrandCommandOutput } from "./commands/UpdateBrandCommand";
+import {
+  UpdateBrandPublishedVersionCommandInput,
+  UpdateBrandPublishedVersionCommandOutput,
+} from "./commands/UpdateBrandPublishedVersionCommand";
+import {
+  UpdateCustomPermissionsCommandInput,
+  UpdateCustomPermissionsCommandOutput,
+} from "./commands/UpdateCustomPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
   UpdateDashboardLinksCommandInput,
@@ -441,6 +540,10 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput,
 } from "./commands/UpdateDashboardPublishedVersionCommand";
+import {
+  UpdateDashboardsQAConfigurationCommandInput,
+  UpdateDashboardsQAConfigurationCommandOutput,
+} from "./commands/UpdateDashboardsQAConfigurationCommand";
 import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommandInput,
@@ -451,6 +554,10 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
+import {
+  UpdateDefaultQBusinessApplicationCommandInput,
+  UpdateDefaultQBusinessApplicationCommandOutput,
+} from "./commands/UpdateDefaultQBusinessApplicationCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
 import {
   UpdateFolderPermissionsCommandInput,
@@ -477,6 +584,14 @@ import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
+import {
+  UpdateQPersonalizationConfigurationCommandInput,
+  UpdateQPersonalizationConfigurationCommandOutput,
+} from "./commands/UpdateQPersonalizationConfigurationCommand";
+import {
+  UpdateQuickSightQSearchConfigurationCommandInput,
+  UpdateQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/UpdateQuickSightQSearchConfigurationCommand";
 import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
@@ -515,6 +630,10 @@ import {
 } from "./commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  UpdateUserCustomPermissionCommandInput,
+  UpdateUserCustomPermissionCommandOutput,
+} from "./commands/UpdateUserCustomPermissionCommand";
+import {
   UpdateVPCConnectionCommandInput,
   UpdateVPCConnectionCommandOutput,
 } from "./commands/UpdateVPCConnectionCommand";
@@ -533,10 +652,14 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchCreateTopicReviewedAnswerCommandInput
+  | BatchDeleteTopicReviewedAnswerCommandInput
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
   | CreateAnalysisCommandInput
+  | CreateBrandCommandInput
+  | CreateCustomPermissionsCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
@@ -559,10 +682,14 @@ export type ServiceInputTypes =
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
   | DeleteAnalysisCommandInput
+  | DeleteBrandAssignmentCommandInput
+  | DeleteBrandCommandInput
+  | DeleteCustomPermissionsCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
   | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteDefaultQBusinessApplicationCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
   | DeleteGroupCommandInput
@@ -581,6 +708,7 @@ export type ServiceInputTypes =
   | DeleteTopicRefreshScheduleCommandInput
   | DeleteUserByPrincipalIdCommandInput
   | DeleteUserCommandInput
+  | DeleteUserCustomPermissionCommandInput
   | DeleteVPCConnectionCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
@@ -590,16 +718,22 @@ export type ServiceInputTypes =
   | DescribeAnalysisPermissionsCommandInput
   | DescribeAssetBundleExportJobCommandInput
   | DescribeAssetBundleImportJobCommandInput
+  | DescribeBrandAssignmentCommandInput
+  | DescribeBrandCommandInput
+  | DescribeBrandPublishedVersionCommandInput
+  | DescribeCustomPermissionsCommandInput
   | DescribeDashboardCommandInput
   | DescribeDashboardDefinitionCommandInput
   | DescribeDashboardPermissionsCommandInput
   | DescribeDashboardSnapshotJobCommandInput
   | DescribeDashboardSnapshotJobResultCommandInput
+  | DescribeDashboardsQAConfigurationCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
   | DescribeDataSetRefreshPropertiesCommandInput
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
+  | DescribeDefaultQBusinessApplicationCommandInput
   | DescribeFolderCommandInput
   | DescribeFolderPermissionsCommandInput
   | DescribeFolderResolvedPermissionsCommandInput
@@ -610,6 +744,8 @@ export type ServiceInputTypes =
   | DescribeIpRestrictionCommandInput
   | DescribeKeyRegistrationCommandInput
   | DescribeNamespaceCommandInput
+  | DescribeQPersonalizationConfigurationCommandInput
+  | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
   | DescribeTemplateAliasCommandInput
@@ -627,17 +763,21 @@ export type ServiceInputTypes =
   | DescribeVPCConnectionCommandInput
   | GenerateEmbedUrlForAnonymousUserCommandInput
   | GenerateEmbedUrlForRegisteredUserCommandInput
+  | GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput
   | GetDashboardEmbedUrlCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListAnalysesCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
+  | ListBrandsCommandInput
+  | ListCustomPermissionsCommandInput
   | ListDashboardVersionsCommandInput
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
   | ListDataSourcesCommandInput
   | ListFolderMembersCommandInput
   | ListFoldersCommandInput
+  | ListFoldersForResourceCommandInput
   | ListGroupMembershipsCommandInput
   | ListGroupsCommandInput
   | ListIAMPolicyAssignmentsCommandInput
@@ -655,10 +795,12 @@ export type ServiceInputTypes =
   | ListThemeVersionsCommandInput
   | ListThemesCommandInput
   | ListTopicRefreshSchedulesCommandInput
+  | ListTopicReviewedAnswersCommandInput
   | ListTopicsCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
   | ListVPCConnectionsCommandInput
+  | PredictQAResultsCommandInput
   | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
@@ -668,23 +810,32 @@ export type ServiceInputTypes =
   | SearchDataSourcesCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
+  | SearchTopicsCommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
   | StartDashboardSnapshotJobCommandInput
+  | StartDashboardSnapshotJobScheduleCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
+  | UpdateApplicationWithTokenExchangeGrantCommandInput
+  | UpdateBrandAssignmentCommandInput
+  | UpdateBrandCommandInput
+  | UpdateBrandPublishedVersionCommandInput
+  | UpdateCustomPermissionsCommandInput
   | UpdateDashboardCommandInput
   | UpdateDashboardLinksCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
+  | UpdateDashboardsQAConfigurationCommandInput
   | UpdateDataSetCommandInput
   | UpdateDataSetPermissionsCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
+  | UpdateDefaultQBusinessApplicationCommandInput
   | UpdateFolderCommandInput
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
@@ -693,6 +844,8 @@ export type ServiceInputTypes =
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
   | UpdatePublicSharingSettingsCommandInput
+  | UpdateQPersonalizationConfigurationCommandInput
+  | UpdateQuickSightQSearchConfigurationCommandInput
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
@@ -706,16 +859,21 @@ export type ServiceInputTypes =
   | UpdateTopicPermissionsCommandInput
   | UpdateTopicRefreshScheduleCommandInput
   | UpdateUserCommandInput
+  | UpdateUserCustomPermissionCommandInput
   | UpdateVPCConnectionCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchCreateTopicReviewedAnswerCommandOutput
+  | BatchDeleteTopicReviewedAnswerCommandOutput
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
   | CreateAnalysisCommandOutput
+  | CreateBrandCommandOutput
+  | CreateCustomPermissionsCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
@@ -738,10 +896,14 @@ export type ServiceOutputTypes =
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
   | DeleteAnalysisCommandOutput
+  | DeleteBrandAssignmentCommandOutput
+  | DeleteBrandCommandOutput
+  | DeleteCustomPermissionsCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteDefaultQBusinessApplicationCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
   | DeleteGroupCommandOutput
@@ -760,6 +922,7 @@ export type ServiceOutputTypes =
   | DeleteTopicRefreshScheduleCommandOutput
   | DeleteUserByPrincipalIdCommandOutput
   | DeleteUserCommandOutput
+  | DeleteUserCustomPermissionCommandOutput
   | DeleteVPCConnectionCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
@@ -769,16 +932,22 @@ export type ServiceOutputTypes =
   | DescribeAnalysisPermissionsCommandOutput
   | DescribeAssetBundleExportJobCommandOutput
   | DescribeAssetBundleImportJobCommandOutput
+  | DescribeBrandAssignmentCommandOutput
+  | DescribeBrandCommandOutput
+  | DescribeBrandPublishedVersionCommandOutput
+  | DescribeCustomPermissionsCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDashboardDefinitionCommandOutput
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDashboardSnapshotJobCommandOutput
   | DescribeDashboardSnapshotJobResultCommandOutput
+  | DescribeDashboardsQAConfigurationCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
   | DescribeDataSetRefreshPropertiesCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
+  | DescribeDefaultQBusinessApplicationCommandOutput
   | DescribeFolderCommandOutput
   | DescribeFolderPermissionsCommandOutput
   | DescribeFolderResolvedPermissionsCommandOutput
@@ -789,6 +958,8 @@ export type ServiceOutputTypes =
   | DescribeIpRestrictionCommandOutput
   | DescribeKeyRegistrationCommandOutput
   | DescribeNamespaceCommandOutput
+  | DescribeQPersonalizationConfigurationCommandOutput
+  | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
   | DescribeTemplateAliasCommandOutput
@@ -806,17 +977,21 @@ export type ServiceOutputTypes =
   | DescribeVPCConnectionCommandOutput
   | GenerateEmbedUrlForAnonymousUserCommandOutput
   | GenerateEmbedUrlForRegisteredUserCommandOutput
+  | GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
   | GetDashboardEmbedUrlCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListAnalysesCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
+  | ListBrandsCommandOutput
+  | ListCustomPermissionsCommandOutput
   | ListDashboardVersionsCommandOutput
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFolderMembersCommandOutput
   | ListFoldersCommandOutput
+  | ListFoldersForResourceCommandOutput
   | ListGroupMembershipsCommandOutput
   | ListGroupsCommandOutput
   | ListIAMPolicyAssignmentsCommandOutput
@@ -834,10 +1009,12 @@ export type ServiceOutputTypes =
   | ListThemeVersionsCommandOutput
   | ListThemesCommandOutput
   | ListTopicRefreshSchedulesCommandOutput
+  | ListTopicReviewedAnswersCommandOutput
   | ListTopicsCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
   | ListVPCConnectionsCommandOutput
+  | PredictQAResultsCommandOutput
   | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
@@ -847,23 +1024,32 @@ export type ServiceOutputTypes =
   | SearchDataSourcesCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
+  | SearchTopicsCommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
   | StartDashboardSnapshotJobCommandOutput
+  | StartDashboardSnapshotJobScheduleCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
+  | UpdateApplicationWithTokenExchangeGrantCommandOutput
+  | UpdateBrandAssignmentCommandOutput
+  | UpdateBrandCommandOutput
+  | UpdateBrandPublishedVersionCommandOutput
+  | UpdateCustomPermissionsCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateDashboardLinksCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
+  | UpdateDashboardsQAConfigurationCommandOutput
   | UpdateDataSetCommandOutput
   | UpdateDataSetPermissionsCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
+  | UpdateDefaultQBusinessApplicationCommandOutput
   | UpdateFolderCommandOutput
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
@@ -872,6 +1058,8 @@ export type ServiceOutputTypes =
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
+  | UpdateQPersonalizationConfigurationCommandOutput
+  | UpdateQuickSightQSearchConfigurationCommandOutput
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput
@@ -885,6 +1073,7 @@ export type ServiceOutputTypes =
   | UpdateTopicPermissionsCommandOutput
   | UpdateTopicRefreshScheduleCommandOutput
   | UpdateUserCommandOutput
+  | UpdateUserCustomPermissionCommandOutput
   | UpdateVPCConnectionCommandOutput;
 
 /**
@@ -979,6 +1168,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -1024,11 +1232,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type QuickSightClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -1044,11 +1252,11 @@ export interface QuickSightClientConfig extends QuickSightClientConfigType {}
 export type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -1079,26 +1287,30 @@ export class QuickSightClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<QuickSightClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultQuickSightHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: QuickSightClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -1111,14 +1323,5 @@ export class QuickSightClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultQuickSightHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: QuickSightClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

@@ -50,7 +50,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       },
  *       buildspec: "STRING_VALUE",
  *       auth: { // SourceAuth
- *         type: "OAUTH" || "CODECONNECTIONS", // required
+ *         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
@@ -105,7 +105,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   sourceTypeOverride: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE",
  *   sourceLocationOverride: "STRING_VALUE",
  *   sourceAuthOverride: {
- *     type: "OAUTH" || "CODECONNECTIONS", // required
+ *     type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *     resource: "STRING_VALUE",
  *   },
  *   gitCloneDepthOverride: Number("int"),
@@ -119,9 +119,9 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *     context: "STRING_VALUE",
  *     targetUrl: "STRING_VALUE",
  *   },
- *   environmentTypeOverride: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER",
+ *   environmentTypeOverride: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM",
  *   imageOverride: "STRING_VALUE",
- *   computeTypeOverride: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB",
+ *   computeTypeOverride: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE",
  *   certificateOverride: "STRING_VALUE",
  *   cacheOverride: { // ProjectCache
  *     type: "NO_CACHE" || "S3" || "LOCAL", // required
@@ -129,6 +129,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *     modes: [ // ProjectCacheModes
  *       "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  *     ],
+ *     cacheNamespace: "STRING_VALUE",
  *   },
  *   serviceRoleOverride: "STRING_VALUE",
  *   privilegedModeOverride: true || false,
@@ -158,6 +159,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   fleetOverride: { // ProjectFleet
  *     fleetArn: "STRING_VALUE",
  *   },
+ *   autoRetryLimitOverride: Number("int"),
  * };
  * const command = new StartBuildCommand(input);
  * const response = await client.send(command);
@@ -197,7 +199,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH" || "CODECONNECTIONS", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -218,7 +220,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH" || "CODECONNECTIONS", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -262,11 +264,18 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       modes: [ // ProjectCacheModes
  * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
+ * //       cacheNamespace: "STRING_VALUE",
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE", // required
+ * //       computeConfiguration: { // ComputeConfiguration
+ * //         vCpu: Number("long"),
+ * //         memory: Number("long"),
+ * //         disk: Number("long"),
+ * //         machineType: "GENERAL" || "NVME",
+ * //       },
  * //       fleet: { // ProjectFleet
  * //         fleetArn: "STRING_VALUE",
  * //       },
@@ -346,6 +355,12 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       sessionTarget: "STRING_VALUE",
  * //     },
  * //     buildBatchArn: "STRING_VALUE",
+ * //     autoRetryConfig: { // AutoRetryConfig
+ * //       autoRetryLimit: Number("int"),
+ * //       autoRetryNumber: Number("int"),
+ * //       nextAutoRetry: "STRING_VALUE",
+ * //       previousAutoRetry: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -369,6 +384,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class StartBuildCommand extends $Command
@@ -379,9 +395,7 @@ export class StartBuildCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -393,4 +407,16 @@ export class StartBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBuildCommand)
   .de(de_StartBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBuildInput;
+      output: StartBuildOutput;
+    };
+    sdk: {
+      input: StartBuildCommandInput;
+      output: StartBuildCommandOutput;
+    };
+  };
+}

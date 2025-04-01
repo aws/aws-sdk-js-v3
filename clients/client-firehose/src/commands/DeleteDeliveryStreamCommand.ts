@@ -28,17 +28,17 @@ export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamIn
 export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a delivery stream and its data.</p>
- *          <p>You can delete a delivery stream only if it is in one of the following states:
+ * <p>Deletes a Firehose stream and its data.</p>
+ *          <p>You can delete a Firehose stream only if it is in one of the following states:
  *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
- *             <code>DELETING_FAILED</code>. You can't delete a delivery stream that is in the
- *          <code>CREATING</code> state. To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
- *          <p>DeleteDeliveryStream is an asynchronous API. When an API request to DeleteDeliveryStream succeeds, the delivery stream is marked for deletion, and it goes into the
- *          <code>DELETING</code> state.While the delivery stream is in the <code>DELETING</code> state, the service might
+ *             <code>DELETING_FAILED</code>. You can't delete a Firehose stream that is in the
+ *          <code>CREATING</code> state. To check the state of a Firehose stream, use <a>DescribeDeliveryStream</a>. </p>
+ *          <p>DeleteDeliveryStream is an asynchronous API. When an API request to DeleteDeliveryStream succeeds, the Firehose stream is marked for deletion, and it goes into the
+ *          <code>DELETING</code> state.While the Firehose stream is in the <code>DELETING</code> state, the service might
  *          continue to accept records, but it doesn't make any guarantees with respect to delivering
  *          the data. Therefore, as a best practice, first stop any applications that are sending
- *          records before you delete a delivery stream.</p>
- *          <p>Removal of a delivery stream that is in the <code>DELETING</code> state is a low priority operation for the service. A stream may remain in the
+ *          records before you delete a Firehose stream.</p>
+ *          <p>Removal of a Firehose stream that is in the <code>DELETING</code> state is a low priority operation for the service. A stream may remain in the
  *          <code>DELETING</code> state for several minutes. Therefore, as a best practice, applications should not wait for streams in the <code>DELETING</code> state
  *          to be removed. </p>
  * @example
@@ -72,6 +72,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeliveryStreamCommand extends $Command
@@ -82,9 +83,7 @@ export class DeleteDeliveryStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeleteDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryStreamCommand)
   .de(de_DeleteDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryStreamCommandInput;
+      output: DeleteDeliveryStreamCommandOutput;
+    };
+  };
+}

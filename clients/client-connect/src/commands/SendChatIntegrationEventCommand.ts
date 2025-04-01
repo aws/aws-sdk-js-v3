@@ -42,8 +42,8 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  *          </ul>
  *          <p>When a chat integration event is sent with chat identifiers that do not map to an active
  *    chat contact, a new chat contact is also created before handling chat action. </p>
- *          <p>Access to this API is currently restricted to Amazon Pinpoint for supporting SMS
- *    integration. </p>
+ *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for
+ *    supporting SMS integration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +107,7 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SendChatIntegrationEventCommand extends $Command
@@ -117,9 +118,7 @@ export class SendChatIntegrationEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class SendChatIntegrationEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendChatIntegrationEventCommand)
   .de(de_SendChatIntegrationEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendChatIntegrationEventRequest;
+      output: SendChatIntegrationEventResponse;
+    };
+    sdk: {
+      input: SendChatIntegrationEventCommandInput;
+      output: SendChatIntegrationEventCommandOutput;
+    };
+  };
+}

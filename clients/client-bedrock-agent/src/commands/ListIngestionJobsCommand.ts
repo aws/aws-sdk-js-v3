@@ -28,7 +28,7 @@ export interface ListIngestionJobsCommandInput extends ListIngestionJobsRequest 
 export interface ListIngestionJobsCommandOutput extends ListIngestionJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the ingestion jobs for a data source and information about each of them.</p>
+ * <p>Lists the data ingestion jobs for a data source. The list also includes information about each job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * //       dataSourceId: "STRING_VALUE", // required
  * //       ingestionJobId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED", // required
+ * //       status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "STOPPING" || "STOPPED", // required
  * //       startedAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       statistics: { // IngestionJobStatistics
@@ -106,6 +106,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class ListIngestionJobsCommand extends $Command
@@ -116,9 +117,7 @@ export class ListIngestionJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class ListIngestionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIngestionJobsCommand)
   .de(de_ListIngestionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIngestionJobsRequest;
+      output: ListIngestionJobsResponse;
+    };
+    sdk: {
+      input: ListIngestionJobsCommandInput;
+      output: ListIngestionJobsCommandOutput;
+    };
+  };
+}

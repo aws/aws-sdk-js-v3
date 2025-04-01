@@ -55,6 +55,10 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * //   },
  * //   WorkflowId: "STRING_VALUE",
  * //   IsUnstructured: true || false,
+ * //   RoleArn: "STRING_VALUE",
+ * //   EventTriggerNames: [ // EventTriggerNames
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
@@ -83,6 +87,7 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetIntegrationCommand extends $Command
@@ -93,9 +98,7 @@ export class GetIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +110,16 @@ export class GetIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntegrationCommand)
   .de(de_GetIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntegrationRequest;
+      output: GetIntegrationResponse;
+    };
+    sdk: {
+      input: GetIntegrationCommandInput;
+      output: GetIntegrationCommandOutput;
+    };
+  };
+}

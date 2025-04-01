@@ -82,6 +82,8 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
@@ -122,6 +124,7 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrailsCommand extends $Command
@@ -132,9 +135,7 @@ export class DescribeTrailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +147,16 @@ export class DescribeTrailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrailsCommand)
   .de(de_DescribeTrailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrailsRequest;
+      output: DescribeTrailsResponse;
+    };
+    sdk: {
+      input: DescribeTrailsCommandInput;
+      output: DescribeTrailsCommandOutput;
+    };
+  };
+}

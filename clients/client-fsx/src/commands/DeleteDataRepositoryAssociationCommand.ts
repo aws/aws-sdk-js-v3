@@ -88,6 +88,7 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataRepositoryAssociationCommand extends $Command
@@ -98,9 +99,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DeleteDataRepositoryAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataRepositoryAssociationCommand)
   .de(de_DeleteDataRepositoryAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataRepositoryAssociationRequest;
+      output: DeleteDataRepositoryAssociationResponse;
+    };
+    sdk: {
+      input: DeleteDataRepositoryAssociationCommandInput;
+      output: DeleteDataRepositoryAssociationCommandOutput;
+    };
+  };
+}

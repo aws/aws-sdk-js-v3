@@ -101,6 +101,11 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -126,6 +131,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class StopDBClusterCommand extends $Command
@@ -136,9 +142,7 @@ export class StopDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +154,16 @@ export class StopDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDBClusterCommand)
   .de(de_StopDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDBClusterMessage;
+      output: StopDBClusterResult;
+    };
+    sdk: {
+      input: StopDBClusterCommandInput;
+      output: StopDBClusterCommandOutput;
+    };
+  };
+}

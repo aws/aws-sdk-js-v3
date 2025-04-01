@@ -63,6 +63,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteContactCommand extends $Command
@@ -73,9 +74,7 @@ export class DeleteContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class DeleteContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContactCommand)
   .de(de_DeleteContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContactCommandInput;
+      output: DeleteContactCommandOutput;
+    };
+  };
+}

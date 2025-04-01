@@ -105,6 +105,7 @@ export interface PutDeliveryDestinationPolicyCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutDeliveryDestinationPolicyCommand extends $Command
@@ -115,9 +116,7 @@ export class PutDeliveryDestinationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class PutDeliveryDestinationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliveryDestinationPolicyCommand)
   .de(de_PutDeliveryDestinationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliveryDestinationPolicyRequest;
+      output: PutDeliveryDestinationPolicyResponse;
+    };
+    sdk: {
+      input: PutDeliveryDestinationPolicyCommandInput;
+      output: PutDeliveryDestinationPolicyCommandOutput;
+    };
+  };
+}

@@ -93,6 +93,7 @@ export interface RedriveExecutionCommandOutput extends RedriveExecutionOutput, _
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class RedriveExecutionCommand extends $Command
@@ -103,9 +104,7 @@ export class RedriveExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class RedriveExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RedriveExecutionCommand)
   .de(de_RedriveExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RedriveExecutionInput;
+      output: RedriveExecutionOutput;
+    };
+    sdk: {
+      input: RedriveExecutionCommandInput;
+      output: RedriveExecutionCommandOutput;
+    };
+  };
+}

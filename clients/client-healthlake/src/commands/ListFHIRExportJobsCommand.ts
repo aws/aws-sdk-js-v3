@@ -42,7 +42,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   JobName: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
+ *   JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
  *   SubmittedBefore: new Date("TIMESTAMP"),
  *   SubmittedAfter: new Date("TIMESTAMP"),
  * };
@@ -53,7 +53,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * //     { // ExportJobProperties
  * //       JobId: "STRING_VALUE", // required
  * //       JobName: "STRING_VALUE",
- * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //       JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //       SubmitTime: new Date("TIMESTAMP"), // required
  * //       EndTime: new Date("TIMESTAMP"),
  * //       DatastoreId: "STRING_VALUE", // required
@@ -96,6 +96,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class ListFHIRExportJobsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListFHIRExportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListFHIRExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFHIRExportJobsCommand)
   .de(de_ListFHIRExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFHIRExportJobsRequest;
+      output: ListFHIRExportJobsResponse;
+    };
+    sdk: {
+      input: ListFHIRExportJobsCommandInput;
+      output: ListFHIRExportJobsCommandOutput;
+    };
+  };
+}

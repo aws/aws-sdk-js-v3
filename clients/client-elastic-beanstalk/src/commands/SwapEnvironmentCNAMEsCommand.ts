@@ -56,19 +56,22 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To swap environment CNAMES
  * ```javascript
  * // The following operation swaps the assigned subdomains of two environments:
  * const input = {
- *   "DestinationEnvironmentName": "my-env-green",
- *   "SourceEnvironmentName": "my-env-blue"
+ *   DestinationEnvironmentName: "my-env-green",
+ *   SourceEnvironmentName: "my-env-blue"
  * };
  * const command = new SwapEnvironmentCNAMEsCommand(input);
- * await client.send(command);
- * // example id: to-swap-environment-cnames-1456277839438
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SwapEnvironmentCNAMEsCommand extends $Command
   .classBuilder<
@@ -78,9 +81,7 @@ export class SwapEnvironmentCNAMEsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +93,16 @@ export class SwapEnvironmentCNAMEsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwapEnvironmentCNAMEsCommand)
   .de(de_SwapEnvironmentCNAMEsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwapEnvironmentCNAMEsMessage;
+      output: {};
+    };
+    sdk: {
+      input: SwapEnvironmentCNAMEsCommandInput;
+      output: SwapEnvironmentCNAMEsCommandOutput;
+    };
+  };
+}

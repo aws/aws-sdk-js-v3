@@ -50,7 +50,7 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  *       "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  *     ],
  *     controlOperationTypes: [ // ControlOperationTypes
- *       "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ *       "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  *     ],
  *   },
  *   nextToken: "STRING_VALUE",
@@ -61,7 +61,7 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  * // { // ListControlOperationsOutput
  * //   controlOperations: [ // ControlOperations // required
  * //     { // ControlOperationSummary
- * //       operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ * //       operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
  * //       status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
@@ -98,6 +98,7 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListControlOperationsCommand extends $Command
@@ -108,9 +109,7 @@ export class ListControlOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ListControlOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlOperationsCommand)
   .de(de_ListControlOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlOperationsInput;
+      output: ListControlOperationsOutput;
+    };
+    sdk: {
+      input: ListControlOperationsCommandInput;
+      output: ListControlOperationsCommandOutput;
+    };
+  };
+}

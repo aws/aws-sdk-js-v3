@@ -90,6 +90,7 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class UpdateNetworkSettingsCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateNetworkSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNetworkSettingsCommand)
   .de(de_UpdateNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNetworkSettingsRequest;
+      output: UpdateNetworkSettingsResponse;
+    };
+    sdk: {
+      input: UpdateNetworkSettingsCommandInput;
+      output: UpdateNetworkSettingsCommandOutput;
+    };
+  };
+}

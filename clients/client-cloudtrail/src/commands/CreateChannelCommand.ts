@@ -119,7 +119,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
  * @throws {@link TagsLimitExceededException} (client fault)
- *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ *  <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
@@ -127,6 +127,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
+ *
  *
  * @public
  */
@@ -138,9 +139,7 @@ export class CreateChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class CreateChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChannelCommand)
   .de(de_CreateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelRequest;
+      output: CreateChannelResponse;
+    };
+    sdk: {
+      input: CreateChannelCommandInput;
+      output: CreateChannelCommandOutput;
+    };
+  };
+}

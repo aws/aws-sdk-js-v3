@@ -69,6 +69,7 @@ export interface UpdateLogAnomalyDetectorCommandOutput extends __MetadataBearer 
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class UpdateLogAnomalyDetectorCommand extends $Command
@@ -79,9 +80,7 @@ export class UpdateLogAnomalyDetectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class UpdateLogAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLogAnomalyDetectorCommand)
   .de(de_UpdateLogAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLogAnomalyDetectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLogAnomalyDetectorCommandInput;
+      output: UpdateLogAnomalyDetectorCommandOutput;
+    };
+  };
+}

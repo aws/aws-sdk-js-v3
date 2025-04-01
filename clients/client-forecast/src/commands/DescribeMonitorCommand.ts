@@ -119,6 +119,7 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribeMonitorCommand extends $Command
@@ -129,9 +130,7 @@ export class DescribeMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class DescribeMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMonitorCommand)
   .de(de_DescribeMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMonitorRequest;
+      output: DescribeMonitorResponse;
+    };
+    sdk: {
+      input: DescribeMonitorCommandInput;
+      output: DescribeMonitorCommandOutput;
+    };
+  };
+}

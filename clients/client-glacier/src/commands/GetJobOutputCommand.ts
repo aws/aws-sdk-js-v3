@@ -81,6 +81,11 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.body.transformToByteArray();
+ * // const str = await response.body.transformToString();
+ * // response.body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetJobOutputOutput
  * //   body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   checksum: "STRING_VALUE",
@@ -115,29 +120,34 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To get the output of a previously initiated job
  * ```javascript
  * // The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.
  * const input = {
- *   "accountId": "-",
- *   "jobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
- *   "range": "",
- *   "vaultName": "my-vaul"
+ *   accountId: "-",
+ *   jobId: "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
+ *   range: "",
+ *   vaultName: "my-vaul"
  * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.body.transformToByteArray();
+ * // const str = await response.body.transformToString();
+ * // response.body.destroy(); // only applicable to Node.js Readable streams.
+ *
+ * /* response is
  * {
- *   "acceptRanges": "bytes",
- *   "body": "inventory-data",
- *   "contentType": "application/json",
- *   "status": 200
+ *   acceptRanges: "bytes",
+ *   body: "inventory-data",
+ *   contentType: "application/json",
+ *   status: 200
  * }
  * *\/
- * // example id: to-get-the-output-of-a-previously-initiated-job-1481848550859
  * ```
  *
+ * @public
  */
 export class GetJobOutputCommand extends $Command
   .classBuilder<
@@ -147,9 +157,7 @@ export class GetJobOutputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +169,16 @@ export class GetJobOutputCommand extends $Command
   .f(void 0, GetJobOutputOutputFilterSensitiveLog)
   .ser(se_GetJobOutputCommand)
   .de(de_GetJobOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobOutputInput;
+      output: GetJobOutputOutput;
+    };
+    sdk: {
+      input: GetJobOutputCommandInput;
+      output: GetJobOutputCommandOutput;
+    };
+  };
+}

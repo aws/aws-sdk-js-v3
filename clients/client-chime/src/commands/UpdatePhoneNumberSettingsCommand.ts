@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdatePhoneNumberSettingsRequest,
   UpdatePhoneNumberSettingsRequestFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdatePhoneNumberSettingsCommand, se_UpdatePhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,6 +76,7 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command
@@ -86,9 +87,7 @@ export class UpdatePhoneNumberSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command
   .f(UpdatePhoneNumberSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePhoneNumberSettingsCommand)
   .de(de_UpdatePhoneNumberSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePhoneNumberSettingsCommandInput;
+      output: UpdatePhoneNumberSettingsCommandOutput;
+    };
+  };
+}

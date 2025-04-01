@@ -100,6 +100,7 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetModelVersionCommand extends $Command
@@ -110,9 +111,7 @@ export class GetModelVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class GetModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelVersionCommand)
   .de(de_GetModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelVersionRequest;
+      output: GetModelVersionResult;
+    };
+    sdk: {
+      input: GetModelVersionCommandInput;
+      output: GetModelVersionCommandOutput;
+    };
+  };
+}

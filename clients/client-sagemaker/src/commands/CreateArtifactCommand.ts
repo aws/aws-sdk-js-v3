@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateArtifactRequest, CreateArtifactResponse } from "../models/models_0";
+import { CreateArtifactRequest, CreateArtifactResponse } from "../models/models_1";
 import { de_CreateArtifactCommand, se_CreateArtifactCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -88,6 +88,7 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateArtifactCommand extends $Command
@@ -98,9 +99,7 @@ export class CreateArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class CreateArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateArtifactCommand)
   .de(de_CreateArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateArtifactRequest;
+      output: CreateArtifactResponse;
+    };
+    sdk: {
+      input: CreateArtifactCommandInput;
+      output: CreateArtifactCommandOutput;
+    };
+  };
+}

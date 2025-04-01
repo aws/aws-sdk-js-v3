@@ -46,13 +46,13 @@ export interface Container {
    *          container is created. Once the value has been assigned, it does not change.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>Unix timestamp.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container. The ARN has the following
@@ -62,13 +62,13 @@ export interface Container {
    *          <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the container.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of container creation or deletion. The status is one of the following:
@@ -77,13 +77,13 @@ export interface Container {
    *          available, the status changes to <code>ACTIVE</code>.</p>
    * @public
    */
-  Status?: ContainerStatus;
+  Status?: ContainerStatus | undefined;
 
   /**
    * <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>
    * @public
    */
-  AccessLoggingEnabled?: boolean;
+  AccessLoggingEnabled?: boolean | undefined;
 }
 
 /**
@@ -94,7 +94,7 @@ export interface Container {
 export class ContainerInUseException extends __BaseException {
   readonly name: "ContainerInUseException" = "ContainerInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -130,7 +130,7 @@ export type ContainerLevelMetrics = (typeof ContainerLevelMetrics)[keyof typeof 
 export class ContainerNotFoundException extends __BaseException {
   readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -169,7 +169,7 @@ export interface CorsRule {
    *             <code>AllowedOrigins</code> element.</p>
    * @public
    */
-  AllowedMethods?: MethodName[];
+  AllowedMethods?: MethodName[] | undefined;
 
   /**
    * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
@@ -187,7 +187,7 @@ export interface CorsRule {
    *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
    * @public
    */
-  MaxAgeSeconds?: number;
+  MaxAgeSeconds?: number | undefined;
 
   /**
    * <p>One or more headers in the response that you want users to be able to access from
@@ -196,7 +196,7 @@ export interface CorsRule {
    *          <p>This element is optional for each rule.</p>
    * @public
    */
-  ExposeHeaders?: string[];
+  ExposeHeaders?: string[] | undefined;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface CorsRule {
 export class CorsPolicyNotFoundException extends __BaseException {
   readonly name: "CorsPolicyNotFoundException" = "CorsPolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -241,7 +241,7 @@ export interface Tag {
    *             "companyB." Tag values are case-sensitive.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -263,7 +263,7 @@ export interface CreateContainerInput {
    *            tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -295,7 +295,7 @@ export interface CreateContainerOutput {
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -317,7 +317,7 @@ export class InternalServerError extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -371,7 +371,7 @@ export interface DeleteContainerPolicyOutput {}
 export class PolicyNotFoundException extends __BaseException {
   readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -442,7 +442,7 @@ export interface DescribeContainerInput {
    * <p>The name of the container to query.</p>
    * @public
    */
-  ContainerName?: string;
+  ContainerName?: string | undefined;
 }
 
 /**
@@ -453,7 +453,7 @@ export interface DescribeContainerOutput {
    * <p>The name of the queried container.</p>
    * @public
    */
-  Container?: Container;
+  Container?: Container | undefined;
 }
 
 /**
@@ -567,7 +567,7 @@ export interface MetricPolicy {
    * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
    * @public
    */
-  MetricPolicyRules?: MetricPolicyRule[];
+  MetricPolicyRules?: MetricPolicyRule[] | undefined;
 }
 
 /**
@@ -591,14 +591,14 @@ export interface ListContainersInput {
    *          included in a response only if there actually are more containers to list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -618,7 +618,7 @@ export interface ListContainersOutput {
    *          command, and only if there are still containers to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -640,7 +640,7 @@ export interface ListTagsForResourceOutput {
    * <p>An array of key:value pairs that are assigned to the container.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**

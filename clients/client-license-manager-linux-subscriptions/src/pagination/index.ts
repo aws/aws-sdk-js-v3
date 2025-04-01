@@ -2,3 +2,4 @@
 export * from "./Interfaces";
 export * from "./ListLinuxSubscriptionInstancesPaginator";
 export * from "./ListLinuxSubscriptionsPaginator";
+export * from "./ListRegisteredSubscriptionProvidersPaginator";

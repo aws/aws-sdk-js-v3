@@ -66,6 +66,7 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduledAuditCommand extends $Command
@@ -76,9 +77,7 @@ export class DeleteScheduledAuditCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +89,16 @@ export class DeleteScheduledAuditCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScheduledAuditCommand)
   .de(de_DeleteScheduledAuditCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScheduledAuditRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScheduledAuditCommandInput;
+      output: DeleteScheduledAuditCommandOutput;
+    };
+  };
+}

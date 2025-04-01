@@ -76,6 +76,10 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link KMSAccessDeniedFault} (client fault)
  *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  *
@@ -106,6 +110,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class ModifyEventSubscriptionCommand extends $Command
@@ -116,9 +121,7 @@ export class ModifyEventSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +133,16 @@ export class ModifyEventSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyEventSubscriptionCommand)
   .de(de_ModifyEventSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyEventSubscriptionMessage;
+      output: ModifyEventSubscriptionResponse;
+    };
+    sdk: {
+      input: ModifyEventSubscriptionCommandInput;
+      output: ModifyEventSubscriptionCommandOutput;
+    };
+  };
+}

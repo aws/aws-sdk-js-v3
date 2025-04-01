@@ -75,6 +75,7 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetRegistryCommand extends $Command
@@ -85,9 +86,7 @@ export class GetRegistryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class GetRegistryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegistryCommand)
   .de(de_GetRegistryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRegistryInput;
+      output: GetRegistryResponse;
+    };
+    sdk: {
+      input: GetRegistryCommandInput;
+      output: GetRegistryCommandOutput;
+    };
+  };
+}

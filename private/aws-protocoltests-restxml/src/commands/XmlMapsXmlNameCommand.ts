@@ -62,6 +62,7 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameResponse, __M
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlMapsXmlNameCommand extends $Command
   .classBuilder<
@@ -79,4 +80,16 @@ export class XmlMapsXmlNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlMapsXmlNameCommand)
   .de(de_XmlMapsXmlNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlMapsXmlNameRequest;
+      output: XmlMapsXmlNameResponse;
+    };
+    sdk: {
+      input: XmlMapsXmlNameCommandInput;
+      output: XmlMapsXmlNameCommandOutput;
+    };
+  };
+}

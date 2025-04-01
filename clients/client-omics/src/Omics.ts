@@ -50,6 +50,11 @@ import {
   CreateReferenceStoreCommandOutput,
 } from "./commands/CreateReferenceStoreCommand";
 import {
+  CreateRunCacheCommand,
+  CreateRunCacheCommandInput,
+  CreateRunCacheCommandOutput,
+} from "./commands/CreateRunCacheCommand";
+import {
   CreateRunGroupCommand,
   CreateRunGroupCommandInput,
   CreateRunGroupCommandOutput,
@@ -90,12 +95,22 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import {
+  DeleteRunCacheCommand,
+  DeleteRunCacheCommandInput,
+  DeleteRunCacheCommandOutput,
+} from "./commands/DeleteRunCacheCommand";
 import { DeleteRunCommand, DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import {
   DeleteRunGroupCommand,
   DeleteRunGroupCommandInput,
   DeleteRunGroupCommandOutput,
 } from "./commands/DeleteRunGroupCommand";
+import {
+  DeleteS3AccessPolicyCommand,
+  DeleteS3AccessPolicyCommandInput,
+  DeleteS3AccessPolicyCommandOutput,
+} from "./commands/DeleteS3AccessPolicyCommand";
 import {
   DeleteSequenceStoreCommand,
   DeleteSequenceStoreCommandInput,
@@ -168,9 +183,15 @@ import {
   GetReferenceStoreCommandInput,
   GetReferenceStoreCommandOutput,
 } from "./commands/GetReferenceStoreCommand";
+import { GetRunCacheCommand, GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
 import { GetRunCommand, GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommand, GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommand, GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
+import {
+  GetS3AccessPolicyCommand,
+  GetS3AccessPolicyCommandInput,
+  GetS3AccessPolicyCommandOutput,
+} from "./commands/GetS3AccessPolicyCommand";
 import {
   GetSequenceStoreCommand,
   GetSequenceStoreCommandInput,
@@ -249,6 +270,11 @@ import {
   ListReferenceStoresCommandOutput,
 } from "./commands/ListReferenceStoresCommand";
 import {
+  ListRunCachesCommand,
+  ListRunCachesCommandInput,
+  ListRunCachesCommandOutput,
+} from "./commands/ListRunCachesCommand";
+import {
   ListRunGroupsCommand,
   ListRunGroupsCommandInput,
   ListRunGroupsCommandOutput,
@@ -285,6 +311,11 @@ import {
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
+import {
+  PutS3AccessPolicyCommand,
+  PutS3AccessPolicyCommandInput,
+  PutS3AccessPolicyCommandOutput,
+} from "./commands/PutS3AccessPolicyCommand";
 import {
   StartAnnotationImportJobCommand,
   StartAnnotationImportJobCommandInput,
@@ -333,10 +364,20 @@ import {
   UpdateAnnotationStoreVersionCommandOutput,
 } from "./commands/UpdateAnnotationStoreVersionCommand";
 import {
+  UpdateRunCacheCommand,
+  UpdateRunCacheCommandInput,
+  UpdateRunCacheCommandOutput,
+} from "./commands/UpdateRunCacheCommand";
+import {
   UpdateRunGroupCommand,
   UpdateRunGroupCommandInput,
   UpdateRunGroupCommandOutput,
 } from "./commands/UpdateRunGroupCommand";
+import {
+  UpdateSequenceStoreCommand,
+  UpdateSequenceStoreCommandInput,
+  UpdateSequenceStoreCommandOutput,
+} from "./commands/UpdateSequenceStoreCommand";
 import {
   UpdateVariantStoreCommand,
   UpdateVariantStoreCommandInput,
@@ -366,6 +407,7 @@ const commands = {
   CreateAnnotationStoreVersionCommand,
   CreateMultipartReadSetUploadCommand,
   CreateReferenceStoreCommand,
+  CreateRunCacheCommand,
   CreateRunGroupCommand,
   CreateSequenceStoreCommand,
   CreateShareCommand,
@@ -376,7 +418,9 @@ const commands = {
   DeleteReferenceCommand,
   DeleteReferenceStoreCommand,
   DeleteRunCommand,
+  DeleteRunCacheCommand,
   DeleteRunGroupCommand,
+  DeleteS3AccessPolicyCommand,
   DeleteSequenceStoreCommand,
   DeleteShareCommand,
   DeleteVariantStoreCommand,
@@ -394,8 +438,10 @@ const commands = {
   GetReferenceMetadataCommand,
   GetReferenceStoreCommand,
   GetRunCommand,
+  GetRunCacheCommand,
   GetRunGroupCommand,
   GetRunTaskCommand,
+  GetS3AccessPolicyCommand,
   GetSequenceStoreCommand,
   GetShareCommand,
   GetVariantImportJobCommand,
@@ -413,6 +459,7 @@ const commands = {
   ListReferenceImportJobsCommand,
   ListReferencesCommand,
   ListReferenceStoresCommand,
+  ListRunCachesCommand,
   ListRunGroupsCommand,
   ListRunsCommand,
   ListRunTasksCommand,
@@ -422,6 +469,7 @@ const commands = {
   ListVariantImportJobsCommand,
   ListVariantStoresCommand,
   ListWorkflowsCommand,
+  PutS3AccessPolicyCommand,
   StartAnnotationImportJobCommand,
   StartReadSetActivationJobCommand,
   StartReadSetExportJobCommand,
@@ -433,7 +481,9 @@ const commands = {
   UntagResourceCommand,
   UpdateAnnotationStoreCommand,
   UpdateAnnotationStoreVersionCommand,
+  UpdateRunCacheCommand,
   UpdateRunGroupCommand,
+  UpdateSequenceStoreCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
   UploadReadSetPartCommand,
@@ -616,6 +666,20 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateRunCacheCommand}
+   */
+  createRunCache(
+    args: CreateRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRunCacheCommandOutput>;
+  createRunCache(args: CreateRunCacheCommandInput, cb: (err: any, data?: CreateRunCacheCommandOutput) => void): void;
+  createRunCache(
+    args: CreateRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRunCacheCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRunGroupCommand}
    */
   createRunGroup(
@@ -765,6 +829,20 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link DeleteRunCacheCommand}
+   */
+  deleteRunCache(
+    args: DeleteRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRunCacheCommandOutput>;
+  deleteRunCache(args: DeleteRunCacheCommandInput, cb: (err: any, data?: DeleteRunCacheCommandOutput) => void): void;
+  deleteRunCache(
+    args: DeleteRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRunCacheCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRunGroupCommand}
    */
   deleteRunGroup(
@@ -776,6 +854,23 @@ export interface Omics {
     args: DeleteRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRunGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteS3AccessPolicyCommand}
+   */
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteS3AccessPolicyCommandOutput>;
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    cb: (err: any, data?: DeleteS3AccessPolicyCommandOutput) => void
+  ): void;
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteS3AccessPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1041,6 +1136,17 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link GetRunCacheCommand}
+   */
+  getRunCache(args: GetRunCacheCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCacheCommandOutput>;
+  getRunCache(args: GetRunCacheCommandInput, cb: (err: any, data?: GetRunCacheCommandOutput) => void): void;
+  getRunCache(
+    args: GetRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRunCacheCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRunGroupCommand}
    */
   getRunGroup(args: GetRunGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRunGroupCommandOutput>;
@@ -1060,6 +1166,23 @@ export interface Omics {
     args: GetRunTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetS3AccessPolicyCommand}
+   */
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetS3AccessPolicyCommandOutput>;
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    cb: (err: any, data?: GetS3AccessPolicyCommandOutput) => void
+  ): void;
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetS3AccessPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1331,6 +1454,18 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link ListRunCachesCommand}
+   */
+  listRunCaches(): Promise<ListRunCachesCommandOutput>;
+  listRunCaches(args: ListRunCachesCommandInput, options?: __HttpHandlerOptions): Promise<ListRunCachesCommandOutput>;
+  listRunCaches(args: ListRunCachesCommandInput, cb: (err: any, data?: ListRunCachesCommandOutput) => void): void;
+  listRunCaches(
+    args: ListRunCachesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRunCachesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRunGroupsCommand}
    */
   listRunGroups(): Promise<ListRunGroupsCommandOutput>;
@@ -1457,6 +1592,23 @@ export interface Omics {
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutS3AccessPolicyCommand}
+   */
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutS3AccessPolicyCommandOutput>;
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    cb: (err: any, data?: PutS3AccessPolicyCommandOutput) => void
+  ): void;
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutS3AccessPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1629,6 +1781,20 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link UpdateRunCacheCommand}
+   */
+  updateRunCache(
+    args: UpdateRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRunCacheCommandOutput>;
+  updateRunCache(args: UpdateRunCacheCommandInput, cb: (err: any, data?: UpdateRunCacheCommandOutput) => void): void;
+  updateRunCache(
+    args: UpdateRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRunCacheCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateRunGroupCommand}
    */
   updateRunGroup(
@@ -1640,6 +1806,23 @@ export interface Omics {
     args: UpdateRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRunGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSequenceStoreCommand}
+   */
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSequenceStoreCommandOutput>;
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    cb: (err: any, data?: UpdateSequenceStoreCommandOutput) => void
+  ): void;
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSequenceStoreCommandOutput) => void
   ): void;
 
   /**

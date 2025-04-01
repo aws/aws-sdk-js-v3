@@ -53,7 +53,19 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  * //   subtitle: "STRING_VALUE",
  * //   welcomeMessage: "STRING_VALUE",
  * //   samplePromptsControlMode: "ENABLED" || "DISABLED",
+ * //   origins: [ // WebExperienceOrigins
+ * //     "STRING_VALUE",
+ * //   ],
  * //   roleArn: "STRING_VALUE",
+ * //   identityProviderConfiguration: { // IdentityProviderConfiguration Union: only one key present
+ * //     samlConfiguration: { // SamlProviderConfiguration
+ * //       authenticationUrl: "STRING_VALUE", // required
+ * //     },
+ * //     openIDConnectConfiguration: { // OpenIDConnectProviderConfiguration
+ * //       secretsArn: "STRING_VALUE", // required
+ * //       secretsRole: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * //   authenticationConfiguration: { // WebExperienceAuthConfiguration Union: only one key present
  * //     samlConfiguration: { // SamlConfiguration
  * //       metadataXML: "STRING_VALUE", // required
@@ -65,6 +77,17 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  * //   error: { // ErrorDetail
  * //     errorMessage: "STRING_VALUE",
  * //     errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
+ * //   },
+ * //   browserExtensionConfiguration: { // BrowserExtensionConfiguration
+ * //     enabledBrowserExtensions: [ // BrowserExtensionList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   customizationConfiguration: { // CustomizationConfiguration
+ * //     customCSSUrl: "STRING_VALUE",
+ * //     logoUrl: "STRING_VALUE",
+ * //     fontUrl: "STRING_VALUE",
+ * //     faviconUrl: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -85,8 +108,8 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -99,6 +122,7 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class GetWebExperienceCommand extends $Command
@@ -109,9 +133,7 @@ export class GetWebExperienceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +145,16 @@ export class GetWebExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebExperienceCommand)
   .de(de_GetWebExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebExperienceRequest;
+      output: GetWebExperienceResponse;
+    };
+    sdk: {
+      input: GetWebExperienceCommandInput;
+      output: GetWebExperienceCommandOutput;
+    };
+  };
+}

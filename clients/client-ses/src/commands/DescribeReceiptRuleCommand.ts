@@ -59,6 +59,7 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * //           BucketName: "STRING_VALUE", // required
  * //           ObjectKeyPrefix: "STRING_VALUE",
  * //           KmsKeyArn: "STRING_VALUE",
+ * //           IamRoleArn: "STRING_VALUE",
  * //         },
  * //         BounceAction: { // BounceAction
  * //           TopicArn: "STRING_VALUE",
@@ -88,6 +89,10 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * //           TopicArn: "STRING_VALUE", // required
  * //           Encoding: "UTF-8" || "Base64",
  * //         },
+ * //         ConnectAction: { // ConnectAction
+ * //           InstanceARN: "STRING_VALUE", // required
+ * //           IAMRoleARN: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     ScanEnabled: true || false,
@@ -111,37 +116,37 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DescribeReceiptRule
  * ```javascript
  * // The following example returns the details of a receipt rule:
  * const input = {
- *   "RuleName": "MyRule",
- *   "RuleSetName": "MyRuleSet"
+ *   RuleName: "MyRule",
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new DescribeReceiptRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rule": {
- *     "Actions": [
+ *   Rule: {
+ *     Actions: [
  *       {
- *         "S3Action": {
- *           "BucketName": "MyBucket",
- *           "ObjectKeyPrefix": "email"
+ *         S3Action: {
+ *           BucketName: "MyBucket",
+ *           ObjectKeyPrefix: "email"
  *         }
  *       }
  *     ],
- *     "Enabled": true,
- *     "Name": "MyRule",
- *     "ScanEnabled": true,
- *     "TlsPolicy": "Optional"
+ *     Enabled: true,
+ *     Name: "MyRule",
+ *     ScanEnabled: true,
+ *     TlsPolicy: "Optional"
  *   }
  * }
  * *\/
- * // example id: describereceiptrule-1469055813118
  * ```
  *
+ * @public
  */
 export class DescribeReceiptRuleCommand extends $Command
   .classBuilder<
@@ -151,9 +156,7 @@ export class DescribeReceiptRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +168,16 @@ export class DescribeReceiptRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReceiptRuleCommand)
   .de(de_DescribeReceiptRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReceiptRuleRequest;
+      output: DescribeReceiptRuleResponse;
+    };
+    sdk: {
+      input: DescribeReceiptRuleCommandInput;
+      output: DescribeReceiptRuleCommandOutput;
+    };
+  };
+}

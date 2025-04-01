@@ -130,6 +130,7 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class GetResourceCommand extends $Command
@@ -140,9 +141,7 @@ export class GetResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class GetResourceCommand extends $Command
   .f(void 0, GetResourceOutputFilterSensitiveLog)
   .ser(se_GetResourceCommand)
   .de(de_GetResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceInput;
+      output: GetResourceOutput;
+    };
+    sdk: {
+      input: GetResourceCommandInput;
+      output: GetResourceCommandOutput;
+    };
+  };
+}

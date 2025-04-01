@@ -105,6 +105,18 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *           iops: Number("int"),
  *           throughputMiB: Number("int"),
  *         },
+ *         acceleratorCapabilities: { // AcceleratorCapabilities
+ *           selections: [ // AcceleratorSelections // required
+ *             { // AcceleratorSelection
+ *               name: "t4" || "a10g" || "l4" || "l40s", // required
+ *               runtime: "STRING_VALUE",
+ *             },
+ *           ],
+ *           count: {
+ *             min: Number("int"), // required
+ *             max: Number("int"),
+ *           },
+ *         },
  *         allowedInstanceTypes: [ // InstanceTypes
  *           "STRING_VALUE",
  *         ],
@@ -173,6 +185,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CreateFleetCommand extends $Command
@@ -183,9 +196,7 @@ export class CreateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -197,4 +208,16 @@ export class CreateFleetCommand extends $Command
   .f(CreateFleetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateFleetCommand)
   .de(de_CreateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetRequest;
+      output: CreateFleetResponse;
+    };
+    sdk: {
+      input: CreateFleetCommandInput;
+      output: CreateFleetCommandOutput;
+    };
+  };
+}

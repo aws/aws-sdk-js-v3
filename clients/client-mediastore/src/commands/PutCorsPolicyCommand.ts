@@ -90,6 +90,7 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class PutCorsPolicyCommand extends $Command
@@ -100,9 +101,7 @@ export class PutCorsPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class PutCorsPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutCorsPolicyCommand)
   .de(de_PutCorsPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutCorsPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutCorsPolicyCommandInput;
+      output: PutCorsPolicyCommandOutput;
+    };
+  };
+}

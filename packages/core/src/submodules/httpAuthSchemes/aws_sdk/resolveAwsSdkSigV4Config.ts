@@ -1,3 +1,5 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
+import type { AttributedAwsCredentialIdentity, MergeFunctions } from "@aws-sdk/types";
 import {
   doesIdentityRequireRefresh,
   isIdentityExpired,
@@ -19,7 +21,7 @@ import {
 } from "@smithy/types";
 
 /**
- * @internal
+ * @public
  */
 export interface AwsSdkSigV4AuthInputConfig {
   /**
@@ -58,6 +60,25 @@ export interface AwsSdkSigV4AuthInputConfig {
 }
 
 /**
+ * Used to indicate whether a credential provider function was memoized by this resolver.
+ * @public
+ */
+export type AwsSdkSigV4Memoized = {
+  /**
+   * The credential provider has been memoized by the AWS SDK SigV4 config resolver.
+   */
+  memoized?: boolean;
+  /**
+   * The credential provider has the caller client config object bound to its arguments.
+   */
+  configBound?: boolean;
+  /**
+   * Function is wrapped with attribution transform.
+   */
+  attributed?: boolean;
+};
+
+/**
  * @internal
  */
 export interface AwsSdkSigV4PreviouslyResolved {
@@ -79,9 +100,9 @@ export interface AwsSdkSigV4AuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
-   * See {@link MemoizedProvider} for more information.
    */
-  credentials: AwsCredentialIdentityProvider;
+  credentials: MergeFunctions<AwsCredentialIdentityProvider, MemoizedProvider<AwsCredentialIdentity>> &
+    AwsSdkSigV4Memoized;
   /**
    * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.signer}
    */
@@ -102,28 +123,42 @@ export interface AwsSdkSigV4AuthResolvedConfig {
 export const resolveAwsSdkSigV4Config = <T>(
   config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & AwsSdkSigV4AuthResolvedConfig => {
-  // Normalize credentials
-  let normalizedCreds: AwsCredentialIdentityProvider | undefined;
-  if (config.credentials) {
-    normalizedCreds = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
-  }
-  if (!normalizedCreds) {
-    // credentialDefaultProvider should always be populated, but in case
-    // it isn't, set a default identity provider that throws an error
-    if (config.credentialDefaultProvider) {
-      normalizedCreds = normalizeProvider(
-        config.credentialDefaultProvider(
-          Object.assign({}, config as any, {
-            parentClientConfig: config,
-          })
-        )
-      );
-    } else {
-      normalizedCreds = async () => {
-        throw new Error("`credentials` is missing");
-      };
-    }
-  }
+  let inputCredentials = config.credentials;
+  let isUserSupplied = !!config.credentials;
+  let resolvedCredentials: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined = undefined;
+
+  Object.defineProperty(config, "credentials", {
+    set(credentials: AwsSdkSigV4AuthInputConfig["credentials"]) {
+      if (credentials && credentials !== inputCredentials && credentials !== resolvedCredentials) {
+        isUserSupplied = true;
+      }
+      inputCredentials = credentials;
+      const memoizedProvider = normalizeCredentialProvider(config, {
+        credentials: inputCredentials,
+        credentialDefaultProvider: config.credentialDefaultProvider,
+      });
+      const boundProvider = bindCallerConfig(config, memoizedProvider);
+      if (isUserSupplied && !boundProvider.attributed) {
+        resolvedCredentials = async (options: Record<string, any> | undefined) =>
+          boundProvider(options).then((creds: AttributedAwsCredentialIdentity) =>
+            setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
+          );
+        resolvedCredentials.memoized = boundProvider.memoized;
+        resolvedCredentials.configBound = boundProvider.configBound;
+        resolvedCredentials.attributed = true;
+      } else {
+        resolvedCredentials = boundProvider;
+      }
+    },
+    get(): AwsSdkSigV4AuthResolvedConfig["credentials"] {
+      return resolvedCredentials!;
+    },
+    enumerable: true,
+    configurable: true,
+  });
+
+  // invoke setter so that resolvedCredentials is set.
+  config.credentials = inputCredentials;
 
   // Populate sigv4 arguments
   const {
@@ -166,7 +201,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
             ...config,
-            credentials: normalizedCreds!,
+            credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
             region: config.signingRegion,
             service: config.signingName,
             sha256,
@@ -202,7 +237,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...config,
-        credentials: normalizedCreds!,
+        credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
         region: config.signingRegion,
         service: config.signingName,
         sha256,
@@ -214,31 +249,98 @@ export const resolveAwsSdkSigV4Config = <T>(
     };
   }
 
-  return {
-    ...config,
+  const resolvedConfig = Object.assign(config, {
     systemClockOffset,
     signingEscapePath,
-    credentials: normalizedCreds!,
     signer,
+  });
+
+  return resolvedConfig as typeof resolvedConfig & {
+    // this was set earlier with Object.defineProperty.
+    credentials: AwsSdkSigV4AuthResolvedConfig["credentials"];
   };
 };
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4AuthInputConfig}
  */
 export interface AWSSDKSigV4AuthInputConfig extends AwsSdkSigV4AuthInputConfig {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4PreviouslyResolved}
  */
 export interface AWSSDKSigV4PreviouslyResolved extends AwsSdkSigV4PreviouslyResolved {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4AuthResolvedConfig}
  */
 export interface AWSSDKSigV4AuthResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
  */
 export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;
+
+/**
+ * Normalizes the credentials to a memoized provider and sets memoized=true on the function
+ * object. This prevents multiple layering of the memoization process.
+ */
+function normalizeCredentialProvider(
+  config: Parameters<typeof resolveAwsSdkSigV4Config>[0],
+  {
+    credentials,
+    credentialDefaultProvider,
+  }: Pick<Parameters<typeof resolveAwsSdkSigV4Config>[0], "credentials" | "credentialDefaultProvider">
+): AwsSdkSigV4AuthResolvedConfig["credentials"] {
+  let credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined;
+
+  if (credentials) {
+    if (!(credentials as typeof credentials & AwsSdkSigV4Memoized)?.memoized) {
+      credentialsProvider = memoizeIdentityProvider(credentials, isIdentityExpired, doesIdentityRequireRefresh)!;
+    } else {
+      credentialsProvider = credentials as AwsSdkSigV4AuthResolvedConfig["credentials"];
+    }
+  } else {
+    // credentialDefaultProvider should always be populated, but in case
+    // it isn't, set a default identity provider that throws an error
+    if (credentialDefaultProvider) {
+      credentialsProvider = normalizeProvider(
+        credentialDefaultProvider(
+          Object.assign({}, config as any, {
+            parentClientConfig: config,
+          })
+        )
+      );
+    } else {
+      credentialsProvider = async () => {
+        throw new Error(
+          "@aws-sdk/core::resolveAwsSdkSigV4Config - `credentials` not provided and no credentialDefaultProvider was configured."
+        );
+      };
+    }
+  }
+  credentialsProvider.memoized = true;
+  return credentialsProvider;
+}
+
+/**
+ * Binds the caller client config as an argument to the credentialsProvider function.
+ * Uses a state marker on the function to avoid doing this more than once.
+ */
+function bindCallerConfig(
+  config: Parameters<typeof resolveAwsSdkSigV4Config>[0],
+  credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"]
+): AwsSdkSigV4AuthResolvedConfig["credentials"] {
+  if (credentialsProvider.configBound) {
+    return credentialsProvider;
+  }
+  const fn: typeof credentialsProvider = async (options: Parameters<typeof credentialsProvider>[0]) =>
+    credentialsProvider({ ...options, callerClientConfig: config });
+  fn.memoized = credentialsProvider.memoized;
+  fn.configBound = true;
+  return fn;
+}

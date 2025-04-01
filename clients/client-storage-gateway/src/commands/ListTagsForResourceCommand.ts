@@ -73,32 +73,32 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To list tags that have been added to a resource
  * ```javascript
  * // Lists the tags that have been added to the specified resource.
  * const input = {
- *   "Limit": 1,
- *   "Marker": "1",
- *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ *   Limit: 1,
+ *   Marker: "1",
+ *   ResourceARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "1",
- *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
- *   "Tags": [
+ *   Marker: "1",
+ *   ResourceARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+ *   Tags: [
  *     {
- *       "Key": "Dev Gatgeway Region",
- *       "Value": "East Coast"
+ *       Key: "Dev Gatgeway Region",
+ *       Value: "East Coast"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-tags-that-have-been-added-to-a-resource-1472080268972
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -108,9 +108,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +120,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceInput;
+      output: ListTagsForResourceOutput;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

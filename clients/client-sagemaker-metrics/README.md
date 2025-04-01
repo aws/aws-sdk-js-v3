@@ -18,7 +18,7 @@ Use these APIs to put and retrieve (get) features related to your training run.<
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker-metrics
+To install this package, simply type add or install @aws-sdk/client-sagemaker-metrics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker-metrics`
@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerMetricsClient` and
-the commands you need, for example `BatchPutMetricsCommand`:
+the commands you need, for example `BatchGetMetricsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerMetricsClient, BatchPutMetricsCommand } = require("@aws-sdk/client-sagemaker-metrics");
+const { SageMakerMetricsClient, BatchGetMetricsCommand } = require("@aws-sdk/client-sagemaker-metrics");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerMetricsClient, BatchPutMetricsCommand } from "@aws-sdk/client-sagemaker-metrics";
+import { SageMakerMetricsClient, BatchGetMetricsCommand } from "@aws-sdk/client-sagemaker-metrics";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new SageMakerMetricsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchPutMetricsCommand(params);
+const command = new BatchGetMetricsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.SageMakerMetrics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchPutMetrics(params);
+  const data = await client.batchGetMetrics(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .batchPutMetrics(params)
+  .batchGetMetrics(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.batchPutMetrics(params, (err, data) => {
+client.batchGetMetrics(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -211,6 +211,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+BatchGetMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-metrics/command/BatchGetMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchGetMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchGetMetricsCommandOutput/)
+
+</details>
 <details>
 <summary>
 BatchPutMetrics

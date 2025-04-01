@@ -37,7 +37,8 @@ export interface DescribeMetadataModelAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model assessments for your account in the current region.</p>
+ * <p>Returns a paginated list of metadata model assessments for your account in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,40 +94,40 @@ export interface DescribeMetadataModelAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Metadata Model Assessments
  * ```javascript
  * // Returns a paginated list of metadata model assessments for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "my-migration-project",
- *       "Values": [
+ *       Name: "my-migration-project",
+ *       Values: [
  *         "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  *       ]
  *     }
  *   ],
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "MaxRecords": 20,
- *   "MigrationProjectIdentifier": ""
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   MaxRecords: 20,
+ *   MigrationProjectIdentifier: ""
  * };
  * const command = new DescribeMetadataModelAssessmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "ASDLKJASDJKHDFHGDNBGDASKJHGFK",
- *   "Requests": [
+ *   Marker: "ASDLKJASDJKHDFHGDNBGDASKJHGFK",
+ *   Requests: [
  *     {
- *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
- *       "Status": "SUCCESS"
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       Status: "SUCCESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-metadata-model-assessments-1689718702303
  * ```
  *
+ * @public
  */
 export class DescribeMetadataModelAssessmentsCommand extends $Command
   .classBuilder<
@@ -136,9 +137,7 @@ export class DescribeMetadataModelAssessmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +149,16 @@ export class DescribeMetadataModelAssessmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetadataModelAssessmentsCommand)
   .de(de_DescribeMetadataModelAssessmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetadataModelAssessmentsMessage;
+      output: DescribeMetadataModelAssessmentsResponse;
+    };
+    sdk: {
+      input: DescribeMetadataModelAssessmentsCommandInput;
+      output: DescribeMetadataModelAssessmentsCommandOutput;
+    };
+  };
+}

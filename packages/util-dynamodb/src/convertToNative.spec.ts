@@ -1,4 +1,5 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import { describe, expect, test as it } from "vitest";
 
 import { convertToNative } from "./convertToNative";
 import { NativeAttributeValue } from "./models";
@@ -90,6 +91,17 @@ describe("convertToNative", () => {
           convertToNative({ N: numString });
         }).toThrowError(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
       });
+    });
+
+    it("handles custom wrapNumbers function", () => {
+      expect(
+        convertToNative(
+          { N: "124" },
+          {
+            wrapNumbers: (str: string) => Number(str) / 2,
+          }
+        )
+      ).toEqual(62);
     });
   });
 

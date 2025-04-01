@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMembershipsInput, ListMembershipsOutput } from "../models/models_0";
+import { ListMembershipsInput, ListMembershipsOutput } from "../models/models_1";
 import { de_ListMembershipsCommand, se_ListMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -57,10 +57,26 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
  * //       memberAbilities: [ // MemberAbilities // required
- * //         "STRING_VALUE",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //       ],
+ * //       mlMemberAbilities: { // MLMemberAbilities
+ * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //         ],
+ * //       },
  * //       paymentConfiguration: { // MembershipPaymentConfiguration
  * //         queryCompute: { // MembershipQueryComputePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         machineLearning: { // MembershipMLPaymentConfig
+ * //           modelTraining: { // MembershipModelTrainingPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //           modelInference: { // MembershipModelInferencePaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //         },
+ * //         jobCompute: { // MembershipJobComputePaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
  * //       },
@@ -91,6 +107,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListMembershipsCommand extends $Command
@@ -101,9 +118,7 @@ export class ListMembershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +130,16 @@ export class ListMembershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMembershipsCommand)
   .de(de_ListMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMembershipsInput;
+      output: ListMembershipsOutput;
+    };
+    sdk: {
+      input: ListMembershipsCommandInput;
+      output: ListMembershipsCommandOutput;
+    };
+  };
+}

@@ -33,8 +33,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Lists the association status of requested dataset ID for a given Amazon Connect
+ * <p>Lists the association status of requested dataset ID for a given Amazon Connect
  *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
  * //       TargetAccountId: "STRING_VALUE",
  * //       ResourceShareId: "STRING_VALUE",
  * //       ResourceShareArn: "STRING_VALUE",
+ * //       ResourceShareStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -88,6 +88,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyticsDataAssociationsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListAnalyticsDataAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListAnalyticsDataAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyticsDataAssociationsCommand)
   .de(de_ListAnalyticsDataAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyticsDataAssociationsRequest;
+      output: ListAnalyticsDataAssociationsResponse;
+    };
+    sdk: {
+      input: ListAnalyticsDataAssociationsCommandInput;
+      output: ListAnalyticsDataAssociationsCommandOutput;
+    };
+  };
+}

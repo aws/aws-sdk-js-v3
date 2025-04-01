@@ -6,12 +6,12 @@
 
 AWS SDK for JavaScript AppSync Client for Node.js, Browser and React Native.
 
-<p>AppSync provides API actions for creating and interacting with data sources using GraphQL
-from your application.</p>
+<p>AppSync provides API actions for creating and interacting with data
+sources using GraphQL from your application.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appsync
+To install this package, simply type add or install @aws-sdk/client-appsync
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appsync`
@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppSyncClient` and
-the commands you need, for example `ListApiKeysCommand`:
+the commands you need, for example `ListApisCommand`:
 
 ```js
 // ES5 example
-const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync");
+const { AppSyncClient, ListApisCommand } = require("@aws-sdk/client-appsync");
 ```
 
 ```ts
 // ES6+ example
-import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync";
+import { AppSyncClient, ListApisCommand } from "@aws-sdk/client-appsync";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new AppSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListApiKeysCommand(params);
+const command = new ListApisCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.AppSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listApiKeys(params);
+  const data = await client.listApis(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .listApiKeys(params)
+  .listApis(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.listApiKeys(params, (err, data) => {
+client.listApis(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -230,6 +230,14 @@ AssociateSourceGraphqlApi
 </details>
 <details>
 <summary>
+CreateApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/CreateApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateApiCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateApiCache
 </summary>
 
@@ -242,6 +250,14 @@ CreateApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/CreateApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateApiKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateChannelNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/CreateChannelNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateChannelNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/CreateChannelNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -294,6 +310,14 @@ CreateType
 </details>
 <details>
 <summary>
+DeleteApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/DeleteApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteApiCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteApiCache
 </summary>
 
@@ -306,6 +330,14 @@ DeleteApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/DeleteApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteApiKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteChannelNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/DeleteChannelNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteChannelNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/DeleteChannelNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -406,6 +438,14 @@ FlushApiCache
 </details>
 <details>
 <summary>
+GetApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/GetApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetApiCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetApiAssociation
 </summary>
 
@@ -418,6 +458,14 @@ GetApiCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/GetApiCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetApiCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetApiCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetChannelNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/GetChannelNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetChannelNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetChannelNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -514,6 +562,22 @@ ListApiKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/ListApiKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListApiKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListApiKeysCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListApis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/ListApisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListApisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListApisCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListChannelNamespaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/ListChannelNamespacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListChannelNamespacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListChannelNamespacesCommandOutput/)
 
 </details>
 <details>
@@ -646,6 +710,14 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/UpdateApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateApiCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateApiCache
 </summary>
 
@@ -658,6 +730,14 @@ UpdateApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/UpdateApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateApiKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateChannelNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/UpdateChannelNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateChannelNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/UpdateChannelNamespaceCommandOutput/)
 
 </details>
 <details>

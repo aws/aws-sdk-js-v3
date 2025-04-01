@@ -10,7 +10,7 @@ import {
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
   DescribeImportImageTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeImportImageTasksCommand, se_DescribeImportImageTasksCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -118,6 +118,7 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportImageTasksCommand extends $Command
@@ -128,9 +129,7 @@ export class DescribeImportImageTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class DescribeImportImageTasksCommand extends $Command
   .f(void 0, DescribeImportImageTasksResultFilterSensitiveLog)
   .ser(se_DescribeImportImageTasksCommand)
   .de(de_DescribeImportImageTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportImageTasksRequest;
+      output: DescribeImportImageTasksResult;
+    };
+    sdk: {
+      input: DescribeImportImageTasksCommandInput;
+      output: DescribeImportImageTasksCommandOutput;
+    };
+  };
+}

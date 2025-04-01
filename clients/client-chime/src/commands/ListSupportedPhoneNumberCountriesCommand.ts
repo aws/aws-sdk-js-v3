@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   de_ListSupportedPhoneNumberCountriesCommand,
   se_ListSupportedPhoneNumberCountriesCommand,
@@ -91,6 +91,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListSupportedPhoneNumberCountriesCommand extends $Command
@@ -101,9 +102,7 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSupportedPhoneNumberCountriesCommand)
   .de(de_ListSupportedPhoneNumberCountriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSupportedPhoneNumberCountriesRequest;
+      output: ListSupportedPhoneNumberCountriesResponse;
+    };
+    sdk: {
+      input: ListSupportedPhoneNumberCountriesCommandInput;
+      output: ListSupportedPhoneNumberCountriesCommandOutput;
+    };
+  };
+}

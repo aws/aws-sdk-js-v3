@@ -86,6 +86,7 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class AssociateDefaultViewCommand extends $Command
@@ -96,9 +97,7 @@ export class AssociateDefaultViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class AssociateDefaultViewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDefaultViewCommand)
   .de(de_AssociateDefaultViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDefaultViewInput;
+      output: AssociateDefaultViewOutput;
+    };
+    sdk: {
+      input: AssociateDefaultViewCommandInput;
+      output: AssociateDefaultViewCommandOutput;
+    };
+  };
+}

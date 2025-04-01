@@ -38,7 +38,7 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * const input = { // TestMappingRequest
  *   inputFileContent: "STRING_VALUE", // required
  *   mappingTemplate: "STRING_VALUE", // required
- *   fileFormat: "XML" || "JSON", // required
+ *   fileFormat: "XML" || "JSON" || "NOT_USED", // required
  * };
  * const command = new TestMappingCommand(input);
  * const response = await client.send(command);
@@ -72,25 +72,25 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample TestMapping call
  * ```javascript
  * //
  * const input = {
- *   "fileFormat": "JSON",
- *   "inputFileContent": "Sample file content",
- *   "mappingTemplate": "$"
+ *   fileFormat: "JSON",
+ *   inputFileContent: "Sample file content",
+ *   mappingTemplate: "$"
  * };
  * const command = new TestMappingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "mappedFileContent": "Sample file content"
+ *   mappedFileContent: "Sample file content"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class TestMappingCommand extends $Command
   .classBuilder<
@@ -100,9 +100,7 @@ export class TestMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +112,16 @@ export class TestMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestMappingCommand)
   .de(de_TestMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestMappingRequest;
+      output: TestMappingResponse;
+    };
+    sdk: {
+      input: TestMappingCommandInput;
+      output: TestMappingCommandOutput;
+    };
+  };
+}

@@ -84,6 +84,7 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DisassociatePrincipalFromPortfolioCommand extends $Command
@@ -94,9 +95,7 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociatePrincipalFromPortfolioCommand)
   .de(de_DisassociatePrincipalFromPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePrincipalFromPortfolioInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociatePrincipalFromPortfolioCommandInput;
+      output: DisassociatePrincipalFromPortfolioCommandOutput;
+    };
+  };
+}

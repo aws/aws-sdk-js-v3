@@ -115,6 +115,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * //           State: "UNKNOWN" || "ALARM", // required
  * //         },
  * //       ],
+ * //       TargetLocationsURL: "STRING_VALUE",
  * //       AutomationSubtype: "ChangeRequest",
  * //       ScheduledTime: new Date("TIMESTAMP"),
  * //       Runbooks: [ // Runbooks
@@ -163,6 +164,13 @@ export interface DescribeAutomationExecutionsCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               IncludeChildOrganizationUnits: true || false,
+ * //               ExcludeAccounts: [ // ExcludeAccounts
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Targets: "<Targets>",
+ * //               TargetsMaxConcurrency: "STRING_VALUE",
+ * //               TargetsMaxErrors: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -198,6 +206,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeAutomationExecutionsCommand extends $Command
@@ -208,9 +217,7 @@ export class DescribeAutomationExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -222,4 +229,16 @@ export class DescribeAutomationExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutomationExecutionsCommand)
   .de(de_DescribeAutomationExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutomationExecutionsRequest;
+      output: DescribeAutomationExecutionsResult;
+    };
+    sdk: {
+      input: DescribeAutomationExecutionsCommandInput;
+      output: DescribeAutomationExecutionsCommandOutput;
+    };
+  };
+}

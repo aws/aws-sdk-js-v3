@@ -77,6 +77,7 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class ContainsPiiEntitiesCommand extends $Command
@@ -87,9 +88,7 @@ export class ContainsPiiEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class ContainsPiiEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContainsPiiEntitiesCommand)
   .de(de_ContainsPiiEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContainsPiiEntitiesRequest;
+      output: ContainsPiiEntitiesResponse;
+    };
+    sdk: {
+      input: ContainsPiiEntitiesCommandInput;
+      output: ContainsPiiEntitiesCommandOutput;
+    };
+  };
+}

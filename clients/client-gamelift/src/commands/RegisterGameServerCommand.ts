@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_0";
+import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_1";
 import { de_RegisterGameServerCommand, se_RegisterGameServerCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -114,6 +114,7 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class RegisterGameServerCommand extends $Command
@@ -124,9 +125,7 @@ export class RegisterGameServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class RegisterGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterGameServerCommand)
   .de(de_RegisterGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterGameServerInput;
+      output: RegisterGameServerOutput;
+    };
+    sdk: {
+      input: RegisterGameServerCommandInput;
+      output: RegisterGameServerCommandOutput;
+    };
+  };
+}

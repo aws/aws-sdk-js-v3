@@ -198,6 +198,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -286,6 +287,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class SwitchoverReadReplicaCommand extends $Command
@@ -296,9 +298,7 @@ export class SwitchoverReadReplicaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -310,4 +310,16 @@ export class SwitchoverReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwitchoverReadReplicaCommand)
   .de(de_SwitchoverReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwitchoverReadReplicaMessage;
+      output: SwitchoverReadReplicaResult;
+    };
+    sdk: {
+      input: SwitchoverReadReplicaCommandInput;
+      output: SwitchoverReadReplicaCommandOutput;
+    };
+  };
+}

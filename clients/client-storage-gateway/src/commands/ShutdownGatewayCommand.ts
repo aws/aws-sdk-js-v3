@@ -85,23 +85,23 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To shut down a gateway service
  * ```javascript
  * // This operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * };
  * const command = new ShutdownGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-shut-down-a-gateway-service-1472150508835
  * ```
  *
+ * @public
  */
 export class ShutdownGatewayCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class ShutdownGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class ShutdownGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ShutdownGatewayCommand)
   .de(de_ShutdownGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ShutdownGatewayInput;
+      output: ShutdownGatewayOutput;
+    };
+    sdk: {
+      input: ShutdownGatewayCommandInput;
+      output: ShutdownGatewayCommandOutput;
+    };
+  };
+}

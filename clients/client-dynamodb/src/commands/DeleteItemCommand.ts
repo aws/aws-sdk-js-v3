@@ -224,6 +224,9 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
  *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
+ * @throws {@link ReplicatedWriteConflictException} (client fault)
+ *  <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
+ *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
@@ -240,34 +243,34 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To delete an item
  * ```javascript
  * // This example deletes an item from the Music table.
  * const input = {
- *   "Key": {
- *     "Artist": {
- *       "S": "No One You Know"
+ *   Key: {
+ *     Artist: {
+ *       S: "No One You Know"
  *     },
- *     "SongTitle": {
- *       "S": "Scared of My Shadow"
+ *     SongTitle: {
+ *       S: "Scared of My Shadow"
  *     }
  *   },
- *   "TableName": "Music"
+ *   TableName: "Music"
  * };
  * const command = new DeleteItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConsumedCapacity": {
- *     "CapacityUnits": 1,
- *     "TableName": "Music"
+ *   ConsumedCapacity: {
+ *     CapacityUnits: 1,
+ *     TableName: "Music"
  *   }
  * }
  * *\/
- * // example id: to-delete-an-item-1475884573758
  * ```
  *
+ * @public
  */
 export class DeleteItemCommand extends $Command
   .classBuilder<
@@ -279,6 +282,7 @@ export class DeleteItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -291,4 +295,16 @@ export class DeleteItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteItemCommand)
   .de(de_DeleteItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteItemInput;
+      output: DeleteItemOutput;
+    };
+    sdk: {
+      input: DeleteItemCommandInput;
+      output: DeleteItemCommandOutput;
+    };
+  };
+}

@@ -73,6 +73,7 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommand
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPayloadTraitsCommand extends $Command
@@ -91,4 +92,16 @@ export class HttpPayloadTraitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPayloadTraitsCommand)
   .de(de_HttpPayloadTraitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPayloadTraitsInputOutput;
+      output: HttpPayloadTraitsInputOutput;
+    };
+    sdk: {
+      input: HttpPayloadTraitsCommandInput;
+      output: HttpPayloadTraitsCommandOutput;
+    };
+  };
+}

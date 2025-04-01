@@ -99,6 +99,7 @@ export interface GetProfileResourceAssociationCommandOutput
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class GetProfileResourceAssociationCommand extends $Command
@@ -109,9 +110,7 @@ export class GetProfileResourceAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class GetProfileResourceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProfileResourceAssociationCommand)
   .de(de_GetProfileResourceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileResourceAssociationRequest;
+      output: GetProfileResourceAssociationResponse;
+    };
+    sdk: {
+      input: GetProfileResourceAssociationCommandInput;
+      output: GetProfileResourceAssociationCommandOutput;
+    };
+  };
+}

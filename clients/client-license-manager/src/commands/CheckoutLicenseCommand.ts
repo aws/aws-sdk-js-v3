@@ -115,6 +115,7 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CheckoutLicenseCommand extends $Command
@@ -125,9 +126,7 @@ export class CheckoutLicenseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class CheckoutLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckoutLicenseCommand)
   .de(de_CheckoutLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckoutLicenseRequest;
+      output: CheckoutLicenseResponse;
+    };
+    sdk: {
+      input: CheckoutLicenseCommandInput;
+      output: CheckoutLicenseCommandOutput;
+    };
+  };
+}

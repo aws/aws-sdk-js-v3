@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_1";
+import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_2";
 import { de_GetConnectionsCommand, se_GetConnectionsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -41,7 +41,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA" || "GOOGLEADS" || "GOOGLESHEETS" || "GOOGLEANALYTICS4" || "SERVICENOW" || "MARKETO" || "SAPODATA" || "ZENDESK" || "JIRACLOUD" || "NETSUITEERP" || "HUBSPOT" || "FACEBOOKADS" || "INSTAGRAMADS" || "ZOHOCRM" || "SALESFORCEPARDOT" || "SALESFORCEMARKETINGCLOUD" || "SLACK" || "STRIPE" || "INTERCOM" || "SNAPCHATADS",
+ *     ConnectionSchemaVersion: Number("int"),
  *   },
  *   HidePassword: true || false,
  *   NextToken: "STRING_VALUE",
@@ -54,11 +55,20 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * //     { // Connection
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
+ * //       ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA" || "GOOGLEADS" || "GOOGLESHEETS" || "GOOGLEANALYTICS4" || "SERVICENOW" || "MARKETO" || "SAPODATA" || "ZENDESK" || "JIRACLOUD" || "NETSUITEERP" || "HUBSPOT" || "FACEBOOKADS" || "INSTAGRAMADS" || "ZOHOCRM" || "SALESFORCEPARDOT" || "SALESFORCEMARKETINGCLOUD" || "SLACK" || "STRIPE" || "INTERCOM" || "SNAPCHATADS",
  * //       MatchCriteria: [ // MatchCriteria
  * //         "STRING_VALUE",
  * //       ],
  * //       ConnectionProperties: { // ConnectionProperties
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       SparkProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       AthenaProperties: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       PythonProperties: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
@@ -75,7 +85,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * //       StatusReason: "STRING_VALUE",
  * //       LastConnectionValidationTime: new Date("TIMESTAMP"),
  * //       AuthenticationConfiguration: { // AuthenticationConfiguration
- * //         AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ * //         AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM" || "IAM",
  * //         SecretArn: "STRING_VALUE",
  * //         OAuth2Properties: { // OAuth2Properties
  * //           OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
@@ -89,6 +99,10 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * //           },
  * //         },
  * //       },
+ * //       ConnectionSchemaVersion: Number("int"),
+ * //       CompatibleComputeEnvironments: [ // ComputeEnvironmentList
+ * //         "SPARK" || "ATHENA" || "PYTHON",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -117,6 +131,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionsCommand extends $Command
@@ -127,9 +142,7 @@ export class GetConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +154,16 @@ export class GetConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectionsCommand)
   .de(de_GetConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectionsRequest;
+      output: GetConnectionsResponse;
+    };
+    sdk: {
+      input: GetConnectionsCommandInput;
+      output: GetConnectionsCommandOutput;
+    };
+  };
+}

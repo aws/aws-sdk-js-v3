@@ -6,8 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStorageLensGroupsRequest } from "../models/models_0";
-import { ListStorageLensGroupsResult } from "../models/models_1";
+import { ListStorageLensGroupsRequest, ListStorageLensGroupsResult } from "../models/models_1";
 import { de_ListStorageLensGroupsCommand, se_ListStorageLensGroupsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -72,6 +71,7 @@ export interface ListStorageLensGroupsCommandOutput extends ListStorageLensGroup
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class ListStorageLensGroupsCommand extends $Command
@@ -99,4 +99,16 @@ export class ListStorageLensGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageLensGroupsCommand)
   .de(de_ListStorageLensGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageLensGroupsRequest;
+      output: ListStorageLensGroupsResult;
+    };
+    sdk: {
+      input: ListStorageLensGroupsCommandInput;
+      output: ListStorageLensGroupsCommandOutput;
+    };
+  };
+}

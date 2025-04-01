@@ -28,8 +28,10 @@ export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurat
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
- *          configuration from a host.</p>
+ * <p>Deletes a configuration profile.</p>
+ *          <p>To prevent users from unintentionally deleting actively-used configuration profiles,
+ *          enable <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html">deletion
+ *          protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +41,7 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * const input = { // DeleteConfigurationProfileRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   DeletionProtectionCheck: "ACCOUNT_DEFAULT" || "APPLY" || "BYPASS",
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);
@@ -68,19 +71,22 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To delete a configuration profile
  * ```javascript
  * // The following delete-configuration-profile example deletes the specified configuration profile.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f"
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f"
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-configuration-profile-1632265401308
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteConfigurationProfileCommand extends $Command
   .classBuilder<
@@ -90,9 +96,7 @@ export class DeleteConfigurationProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +108,16 @@ export class DeleteConfigurationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationProfileCommand)
   .de(de_DeleteConfigurationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationProfileCommandInput;
+      output: DeleteConfigurationProfileCommandOutput;
+    };
+  };
+}

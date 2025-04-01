@@ -109,6 +109,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extends $Command
@@ -119,9 +120,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   .f(void 0, void 0)
   .ser(se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand)
   .de(de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput;
+      output: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput;
+    };
+    sdk: {
+      input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput;
+      output: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput;
+    };
+  };
+}

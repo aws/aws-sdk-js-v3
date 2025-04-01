@@ -76,28 +76,28 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To list rules
  * ```javascript
  * // The following example returns an array of up to 100 rules.
  * const input = {
- *   "Limit": 100
+ *   Limit: 100
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Name": "WAFByteHeaderRule",
- *       "RuleId": "WAFRule-1-Example"
+ *       Name: "WAFByteHeaderRule",
+ *       RuleId: "WAFRule-1-Example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listrules-1475258406433
  * ```
  *
+ * @public
  */
 export class ListRulesCommand extends $Command
   .classBuilder<
@@ -107,9 +107,7 @@ export class ListRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +119,16 @@ export class ListRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRulesCommand)
   .de(de_ListRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRulesRequest;
+      output: ListRulesResponse;
+    };
+    sdk: {
+      input: ListRulesCommandInput;
+      output: ListRulesCommandOutput;
+    };
+  };
+}

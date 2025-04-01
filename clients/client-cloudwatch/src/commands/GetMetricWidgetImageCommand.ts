@@ -28,14 +28,15 @@ export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageIn
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
- * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
- * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
- * 			image into your services and products, such as wiki pages, reports, and documents.
- * 			You could also retrieve images regularly, such as every minute, and create your own
- * 			custom live dashboard.</p>
- *          <p>The graph you retrieve can include all CloudWatch metric graph features, including metric math
- * 		and horizontal and vertical annotations.</p>
- *          <p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
+ * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph
+ *             of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
+ *             image into your services and products, such as wiki pages, reports, and documents. You
+ *             could also retrieve images regularly, such as every minute, and create your own custom
+ *             live dashboard.</p>
+ *          <p>The graph you retrieve can include all CloudWatch metric graph features, including
+ *             metric math and horizontal and vertical annotations.</p>
+ *          <p>There is a limit of 20 transactions per second for this API. Each
+ *             <code>GetMetricWidgetImage</code> action has the following limits:</p>
  *          <ul>
  *             <li>
  *                <p>As many as 100 metrics in the graph.</p>
@@ -71,6 +72,7 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class GetMetricWidgetImageCommand extends $Command
@@ -81,9 +83,7 @@ export class GetMetricWidgetImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class GetMetricWidgetImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricWidgetImageCommand)
   .de(de_GetMetricWidgetImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricWidgetImageInput;
+      output: GetMetricWidgetImageOutput;
+    };
+    sdk: {
+      input: GetMetricWidgetImageCommandInput;
+      output: GetMetricWidgetImageCommandOutput;
+    };
+  };
+}

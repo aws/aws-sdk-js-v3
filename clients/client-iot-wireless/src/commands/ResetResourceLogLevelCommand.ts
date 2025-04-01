@@ -28,8 +28,8 @@ export interface ResetResourceLogLevelCommandInput extends ResetResourceLogLevel
 export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the log-level override, if any, for a specific resource-ID and resource-type.
- *             It can be used for a wireless device or a wireless gateway.</p>
+ * <p>Removes the log-level override, if any, for a specific resource ID and resource type.
+ *             It can be used for a wireless device, a wireless gateway, or a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +70,7 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ResetResourceLogLevelCommand extends $Command
@@ -80,9 +81,7 @@ export class ResetResourceLogLevelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class ResetResourceLogLevelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetResourceLogLevelCommand)
   .de(de_ResetResourceLogLevelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetResourceLogLevelRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetResourceLogLevelCommandInput;
+      output: ResetResourceLogLevelCommandOutput;
+    };
+  };
+}

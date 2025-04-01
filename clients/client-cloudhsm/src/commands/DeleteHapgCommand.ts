@@ -76,6 +76,7 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteHapgCommand extends $Command
@@ -86,9 +87,7 @@ export class DeleteHapgCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeleteHapgCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHapgCommand)
   .de(de_DeleteHapgCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHapgRequest;
+      output: DeleteHapgResponse;
+    };
+    sdk: {
+      input: DeleteHapgCommandInput;
+      output: DeleteHapgCommandOutput;
+    };
+  };
+}

@@ -75,6 +75,7 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PutThirdPartyJobFailureResultCommand extends $Command
@@ -85,9 +86,7 @@ export class PutThirdPartyJobFailureResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class PutThirdPartyJobFailureResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutThirdPartyJobFailureResultCommand)
   .de(de_PutThirdPartyJobFailureResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutThirdPartyJobFailureResultInput;
+      output: {};
+    };
+    sdk: {
+      input: PutThirdPartyJobFailureResultCommandInput;
+      output: PutThirdPartyJobFailureResultCommandOutput;
+    };
+  };
+}

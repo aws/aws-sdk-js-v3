@@ -65,6 +65,7 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * //       FailedCount: Number("int"),
  * //       UnreportedNotApplicableCount: Number("int"),
  * //       NotApplicableCount: Number("int"),
+ * //       AvailableSecurityUpdateCount: Number("int"),
  * //       OperationStartTime: new Date("TIMESTAMP"), // required
  * //       OperationEndTime: new Date("TIMESTAMP"), // required
  * //       Operation: "Scan" || "Install", // required
@@ -95,6 +96,7 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstancePatchStatesCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeInstancePatchStatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeInstancePatchStatesCommand extends $Command
   .f(void 0, DescribeInstancePatchStatesResultFilterSensitiveLog)
   .ser(se_DescribeInstancePatchStatesCommand)
   .de(de_DescribeInstancePatchStatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancePatchStatesRequest;
+      output: DescribeInstancePatchStatesResult;
+    };
+    sdk: {
+      input: DescribeInstancePatchStatesCommandInput;
+      output: DescribeInstancePatchStatesCommandOutput;
+    };
+  };
+}

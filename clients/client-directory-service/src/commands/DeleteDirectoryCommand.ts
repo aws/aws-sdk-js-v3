@@ -68,6 +68,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectoryCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class DeleteDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectoryCommand)
   .de(de_DeleteDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectoryRequest;
+      output: DeleteDirectoryResult;
+    };
+    sdk: {
+      input: DeleteDirectoryCommandInput;
+      output: DeleteDirectoryCommandOutput;
+    };
+  };
+}

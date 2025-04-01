@@ -73,6 +73,7 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class GetWorkingLocationCommand extends $Command
@@ -83,9 +84,7 @@ export class GetWorkingLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetWorkingLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkingLocationCommand)
   .de(de_GetWorkingLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkingLocationRequest;
+      output: GetWorkingLocationResponse;
+    };
+    sdk: {
+      input: GetWorkingLocationCommandInput;
+      output: GetWorkingLocationCommandOutput;
+    };
+  };
+}

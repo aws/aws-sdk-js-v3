@@ -1,15 +1,16 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity } from "@smithy/types";
 import { promisify } from "util";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
-jest.mock("util");
-jest.mock("./getValidatedProcessCredentials");
+vi.mock("util");
+vi.mock("./getValidatedProcessCredentials");
 
 describe(resolveProcessCredentials.name, () => {
-  const mockExecPromise = jest.fn();
+  const mockExecPromise = vi.fn();
   const mockExecPromiseOutput = `{"mockCreds":true}`;
   const mockProfileName = "mockProfileName";
   const mockCredentialProcess = "/mock_cred_proc";
@@ -22,11 +23,11 @@ describe(resolveProcessCredentials.name, () => {
 
   beforeEach(() => {
     mockExecPromise.mockResolvedValue({ stdout: mockExecPromiseOutput });
-    (promisify as unknown as jest.Mock).mockReturnValue(mockExecPromise);
+    (promisify as unknown as any).mockReturnValue(mockExecPromise);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws Error if profileName is not available", async () => {
@@ -90,7 +91,7 @@ describe(resolveProcessCredentials.name, () => {
 
   it("throws Error if getValidatedProcessCredentials throws", async () => {
     const expectedError = new Error("error from getValidatedProcessCredentials");
-    (getValidatedProcessCredentials as jest.Mock).mockRejectedValue(expectedError);
+    vi.mocked(getValidatedProcessCredentials).mockRejectedValue(expectedError);
 
     try {
       await resolveProcessCredentials(mockProfileName, getMockProfiles());
@@ -99,7 +100,11 @@ describe(resolveProcessCredentials.name, () => {
       expect(error).toEqual(expectedError);
     }
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
+    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(
+      mockProfileName,
+      JSON.parse(mockExecPromiseOutput),
+      getMockProfiles()
+    );
   });
 
   it("returns data from getValidatedProcessCredentials", async () => {
@@ -107,10 +112,14 @@ describe(resolveProcessCredentials.name, () => {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };
-    (getValidatedProcessCredentials as jest.Mock).mockResolvedValue(expectedCreds);
+    vi.mocked(getValidatedProcessCredentials).mockResolvedValue(expectedCreds);
     const receivedCreds = await resolveProcessCredentials(mockProfileName, getMockProfiles());
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
+    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(
+      mockProfileName,
+      JSON.parse(mockExecPromiseOutput),
+      getMockProfiles()
+    );
   });
 });

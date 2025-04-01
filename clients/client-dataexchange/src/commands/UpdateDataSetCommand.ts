@@ -52,6 +52,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * //   Origin: "STRING_VALUE",
  * //   OriginDetails: { // OriginDetails
  * //     ProductId: "STRING_VALUE",
+ * //     DataGrantId: "STRING_VALUE",
  * //   },
  * //   SourceId: "STRING_VALUE",
  * //   UpdatedAt: new Date("TIMESTAMP"),
@@ -83,6 +84,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSetCommand extends $Command
@@ -93,9 +95,7 @@ export class UpdateDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class UpdateDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataSetCommand)
   .de(de_UpdateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSetRequest;
+      output: UpdateDataSetResponse;
+    };
+    sdk: {
+      input: UpdateDataSetCommandInput;
+      output: UpdateDataSetCommandOutput;
+    };
+  };
+}

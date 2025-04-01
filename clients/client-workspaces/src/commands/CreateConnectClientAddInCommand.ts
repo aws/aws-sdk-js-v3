@@ -74,6 +74,7 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectClientAddInCommand extends $Command
@@ -84,9 +85,7 @@ export class CreateConnectClientAddInCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class CreateConnectClientAddInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectClientAddInCommand)
   .de(de_CreateConnectClientAddInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectClientAddInRequest;
+      output: CreateConnectClientAddInResult;
+    };
+    sdk: {
+      input: CreateConnectClientAddInCommandInput;
+      output: CreateConnectClientAddInCommandOutput;
+    };
+  };
+}

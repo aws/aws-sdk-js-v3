@@ -68,6 +68,7 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class PutRegistryPolicyCommand extends $Command
@@ -78,9 +79,7 @@ export class PutRegistryPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class PutRegistryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRegistryPolicyCommand)
   .de(de_PutRegistryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRegistryPolicyRequest;
+      output: PutRegistryPolicyResponse;
+    };
+    sdk: {
+      input: PutRegistryPolicyCommandInput;
+      output: PutRegistryPolicyCommandOutput;
+    };
+  };
+}

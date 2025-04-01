@@ -85,6 +85,7 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListPagesByContactCommand extends $Command
@@ -95,9 +96,7 @@ export class ListPagesByContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class ListPagesByContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPagesByContactCommand)
   .de(de_ListPagesByContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPagesByContactRequest;
+      output: ListPagesByContactResult;
+    };
+    sdk: {
+      input: ListPagesByContactCommandInput;
+      output: ListPagesByContactCommandOutput;
+    };
+  };
+}

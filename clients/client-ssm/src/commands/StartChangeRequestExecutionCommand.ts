@@ -95,6 +95,20 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *               },
  *             ],
  *           },
+ *           IncludeChildOrganizationUnits: true || false,
+ *           ExcludeAccounts: [ // ExcludeAccounts
+ *             "STRING_VALUE",
+ *           ],
+ *           Targets: [
+ *             {
+ *               Key: "STRING_VALUE",
+ *               Values: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *           TargetsMaxConcurrency: "STRING_VALUE",
+ *           TargetsMaxErrors: "STRING_VALUE",
  *         },
  *       ],
  *     },
@@ -151,6 +165,7 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class StartChangeRequestExecutionCommand extends $Command
@@ -161,9 +176,7 @@ export class StartChangeRequestExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +188,16 @@ export class StartChangeRequestExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartChangeRequestExecutionCommand)
   .de(de_StartChangeRequestExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartChangeRequestExecutionRequest;
+      output: StartChangeRequestExecutionResult;
+    };
+    sdk: {
+      input: StartChangeRequestExecutionCommandInput;
+      output: StartChangeRequestExecutionCommandOutput;
+    };
+  };
+}

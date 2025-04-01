@@ -100,45 +100,45 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe reserved DB instances
  * ```javascript
  * // The following example retrieves details about any reserved DB instances in the current AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeReservedDBInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReservedDBInstances": [
+ *   ReservedDBInstances: [
  *     {
- *       "CurrencyCode": "USD",
- *       "DBInstanceClass": "db.t3.micro",
- *       "DBInstanceCount": 1,
- *       "Duration": 31536000,
- *       "FixedPrice": 0,
- *       "LeaseId": "a1b2c3d4-6b69-4a59-be89-5e11aa446666",
- *       "MultiAZ": false,
- *       "OfferingType": "No Upfront",
- *       "ProductDescription": "sqlserver-ex(li)",
- *       "RecurringCharges": [
+ *       CurrencyCode: "USD",
+ *       DBInstanceClass: "db.t3.micro",
+ *       DBInstanceCount: 1,
+ *       Duration: 31536000,
+ *       FixedPrice: 0,
+ *       LeaseId: "a1b2c3d4-6b69-4a59-be89-5e11aa446666",
+ *       MultiAZ: false,
+ *       OfferingType: "No Upfront",
+ *       ProductDescription: "sqlserver-ex(li)",
+ *       RecurringCharges: [
  *         {
- *           "RecurringChargeAmount": 0.014,
- *           "RecurringChargeFrequency": "Hourly"
+ *           RecurringChargeAmount: 0.014,
+ *           RecurringChargeFrequency: "Hourly"
  *         }
  *       ],
- *       "ReservedDBInstanceArn": "arn:aws:rds:us-west-2:123456789012:ri:myreservedinstance",
- *       "ReservedDBInstanceId": "myreservedinstance",
- *       "ReservedDBInstancesOfferingId": "12ab34cd-59af-4b2c-a660-1abcdef23456",
- *       "StartTime": "2020-06-01T13:44:21.436Z",
- *       "State": "payment-pending",
- *       "UsagePrice": 0
+ *       ReservedDBInstanceArn: "arn:aws:rds:us-west-2:123456789012:ri:myreservedinstance",
+ *       ReservedDBInstanceId: "myreservedinstance",
+ *       ReservedDBInstancesOfferingId: "12ab34cd-59af-4b2c-a660-1abcdef23456",
+ *       StartTime: "2020-06-01T13:44:21.436Z",
+ *       State: "payment-pending",
+ *       UsagePrice: 0
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-reserved-db-instances-1680283668105
  * ```
  *
+ * @public
  */
 export class DescribeReservedDBInstancesCommand extends $Command
   .classBuilder<
@@ -148,9 +148,7 @@ export class DescribeReservedDBInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +160,16 @@ export class DescribeReservedDBInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedDBInstancesCommand)
   .de(de_DescribeReservedDBInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedDBInstancesMessage;
+      output: ReservedDBInstanceMessage;
+    };
+    sdk: {
+      input: DescribeReservedDBInstancesCommandInput;
+      output: DescribeReservedDBInstancesCommandOutput;
+    };
+  };
+}

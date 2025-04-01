@@ -82,6 +82,7 @@ export interface AssumeFleetRoleForReadCommandOutput extends AssumeFleetRoleForR
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class AssumeFleetRoleForReadCommand extends $Command
@@ -92,9 +93,7 @@ export class AssumeFleetRoleForReadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class AssumeFleetRoleForReadCommand extends $Command
   .f(void 0, AssumeFleetRoleForReadResponseFilterSensitiveLog)
   .ser(se_AssumeFleetRoleForReadCommand)
   .de(de_AssumeFleetRoleForReadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeFleetRoleForReadRequest;
+      output: AssumeFleetRoleForReadResponse;
+    };
+    sdk: {
+      input: AssumeFleetRoleForReadCommandInput;
+      output: AssumeFleetRoleForReadCommandOutput;
+    };
+  };
+}

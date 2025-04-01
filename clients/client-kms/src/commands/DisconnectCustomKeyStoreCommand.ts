@@ -151,18 +151,21 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript
  * // This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-234abcdefABC
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisconnectCustomKeyStoreCommand extends $Command
   .classBuilder<
@@ -172,9 +175,7 @@ export class DisconnectCustomKeyStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +187,16 @@ export class DisconnectCustomKeyStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisconnectCustomKeyStoreCommand)
   .de(de_DisconnectCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectCustomKeyStoreCommandInput;
+      output: DisconnectCustomKeyStoreCommandOutput;
+    };
+  };
+}

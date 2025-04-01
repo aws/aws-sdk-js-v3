@@ -64,6 +64,16 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *       launchTemplateId: "STRING_VALUE",
  *       launchTemplateName: "STRING_VALUE",
  *       version: "STRING_VALUE",
+ *       overrides: [ // LaunchTemplateSpecificationOverrideList
+ *         { // LaunchTemplateSpecificationOverride
+ *           launchTemplateId: "STRING_VALUE",
+ *           launchTemplateName: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *           targetInstanceTypes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
  *     },
  *     ec2Configuration: [ // Ec2ConfigurationList
  *       { // Ec2Configuration
@@ -81,6 +91,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     terminateJobsOnUpdate: true || false,
  *     jobExecutionTimeoutMinutes: Number("long"),
  *   },
+ *   context: "STRING_VALUE",
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -108,25 +119,25 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To update a compute environment
  * ```javascript
  * // This example disables the P2OnDemand compute environment so it can be deleted.
  * const input = {
- *   "computeEnvironment": "P2OnDemand",
- *   "state": "DISABLED"
+ *   computeEnvironment: "P2OnDemand",
+ *   state: "DISABLED"
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
- *   "computeEnvironmentName": "P2OnDemand"
+ *   computeEnvironmentArn: "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
+ *   computeEnvironmentName: "P2OnDemand"
  * }
  * *\/
- * // example id: to-update-a-compute-environment-1481154702731
  * ```
  *
+ * @public
  */
 export class UpdateComputeEnvironmentCommand extends $Command
   .classBuilder<
@@ -136,9 +147,7 @@ export class UpdateComputeEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +159,16 @@ export class UpdateComputeEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateComputeEnvironmentCommand)
   .de(de_UpdateComputeEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateComputeEnvironmentRequest;
+      output: UpdateComputeEnvironmentResponse;
+    };
+    sdk: {
+      input: UpdateComputeEnvironmentCommandInput;
+      output: UpdateComputeEnvironmentCommandOutput;
+    };
+  };
+}

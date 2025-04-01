@@ -63,7 +63,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *     "<keys>": [ // ObjectTypeKeyList
  *       { // ObjectTypeKey
  *         StandardIdentifiers: [ // StandardIdentifierList
- *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ *           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  *         ],
  *         FieldNames: [ // FieldNameList
  *           "STRING_VALUE",
@@ -98,7 +98,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * //     "<keys>": [ // ObjectTypeKeyList
  * //       { // ObjectTypeKey
  * //         StandardIdentifiers: [ // StandardIdentifierList
- * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //         ],
  * //         FieldNames: [ // FieldNameList
  * //           "STRING_VALUE",
@@ -139,6 +139,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class PutProfileObjectTypeCommand extends $Command
@@ -149,9 +150,7 @@ export class PutProfileObjectTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class PutProfileObjectTypeCommand extends $Command
   .f(PutProfileObjectTypeRequestFilterSensitiveLog, PutProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_PutProfileObjectTypeCommand)
   .de(de_PutProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutProfileObjectTypeRequest;
+      output: PutProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: PutProfileObjectTypeCommandInput;
+      output: PutProfileObjectTypeCommandOutput;
+    };
+  };
+}

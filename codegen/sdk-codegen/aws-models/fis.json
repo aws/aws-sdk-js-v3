@@ -423,6 +423,38 @@
         "smithy.api#documentation": "<p>Specifies the configuration for experiment logging.</p>"
       }
     },
+    "com.amazonaws.fis#CreateExperimentTemplateReportConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "outputs": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationOutputsInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The output destinations of the experiment report. </p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSourcesInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the experiment report.</p>"
+          }
+        },
+        "preExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration before the experiment start time for the data sources to include in the report. </p>"
+          }
+        },
+        "postExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration after the experiment end time for the data sources to include in the report. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration for experiment reports.</p>"
+      }
+    },
     "com.amazonaws.fis#CreateExperimentTemplateRequest": {
       "type": "structure",
       "members": {
@@ -484,6 +516,12 @@
           "target": "com.amazonaws.fis#CreateExperimentTemplateExperimentOptionsInput",
           "traits": {
             "smithy.api#documentation": "<p>The experiment options for the experiment template.</p>"
+          }
+        },
+        "experimentReportConfiguration": {
+          "target": "com.amazonaws.fis#CreateExperimentTemplateReportConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiment report configuration for the experiment template.</p>"
           }
         }
       },
@@ -916,6 +954,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The count of target account configurations for the experiment.</p>"
           }
+        },
+        "experimentReportConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentReportConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiment report configuration for the experiment.</p>"
+          }
+        },
+        "experimentReport": {
+          "target": "com.amazonaws.fis#ExperimentReport",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiment report for the experiment.</p>"
+          }
         }
       },
       "traits": {
@@ -1183,6 +1233,48 @@
     "com.amazonaws.fis#ExperimentEndTime": {
       "type": "timestamp"
     },
+    "com.amazonaws.fis#ExperimentError": {
+      "type": "structure",
+      "members": {
+        "accountId": {
+          "target": "com.amazonaws.fis#ExperimentErrorAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Account ID where the experiment failure occurred.</p>"
+          }
+        },
+        "code": {
+          "target": "com.amazonaws.fis#ExperimentErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code for the failed experiment.</p>"
+          }
+        },
+        "location": {
+          "target": "com.amazonaws.fis#ExperimentErrorLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>Context for the section of the experiment template that failed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the error when an experiment has <code>failed</code>.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentErrorAccountId": {
+      "type": "string"
+    },
+    "com.amazonaws.fis#ExperimentErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentErrorLocation": {
+      "type": "string"
+    },
     "com.amazonaws.fis#ExperimentId": {
       "type": "string",
       "traits": {
@@ -1245,6 +1337,259 @@
         "smithy.api#documentation": "<p>Describes the options for an experiment.</p>"
       }
     },
+    "com.amazonaws.fis#ExperimentReport": {
+      "type": "structure",
+      "members": {
+        "state": {
+          "target": "com.amazonaws.fis#ExperimentReportState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the experiment report.</p>"
+          }
+        },
+        "s3Reports": {
+          "target": "com.amazonaws.fis#ExperimentReportS3ReportList",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 destination of the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfiguration": {
+      "type": "structure",
+      "members": {
+        "outputs": {
+          "target": "com.amazonaws.fis#ExperimentReportConfigurationOutputs",
+          "traits": {
+            "smithy.api#documentation": "<p>The output destinations of the experiment report.</p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.fis#ExperimentReportConfigurationDataSources",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the experiment report.</p>"
+          }
+        },
+        "preExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration before the experiment start time for the data sources to include in the report.</p>"
+          }
+        },
+        "postExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration after the experiment end time for the data sources to include in the report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the report configuration for the experiment. For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration\">Experiment report configurations for AWS FIS</a>.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfigurationCloudWatchDashboard": {
+      "type": "structure",
+      "members": {
+        "dashboardIdentifier": {
+          "target": "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the CloudWatch dashboard to include in the experiment report. The dashboard widgets will be captured as  snapshot graphs within the report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfigurationCloudWatchDashboardList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentReportConfigurationCloudWatchDashboard"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfigurationDataSources": {
+      "type": "structure",
+      "members": {
+        "cloudWatchDashboards": {
+          "target": "com.amazonaws.fis#ExperimentReportConfigurationCloudWatchDashboardList",
+          "traits": {
+            "smithy.api#documentation": "<p>The CloudWatch dashboards to include as data sources in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the data sources for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfigurationOutputs": {
+      "type": "structure",
+      "members": {
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ExperimentReportConfigurationOutputsS3Configuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 destination for the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the output destinations of the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportConfigurationOutputsS3Configuration": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#ReportConfigurationS3OutputPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The prefix of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the S3 destination for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportError": {
+      "type": "structure",
+      "members": {
+        "code": {
+          "target": "com.amazonaws.fis#ExperimentReportErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code for the failed experiment report generation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the error when experiment report generation has failed.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportS3Report": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.fis#ExperimentReportS3ReportArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the generated report.</p>"
+          }
+        },
+        "reportType": {
+          "target": "com.amazonaws.fis#ExperimentReportS3ReportType",
+          "traits": {
+            "smithy.api#documentation": "<p>The report type for the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the S3 destination for the report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportS3ReportArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportS3ReportList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentReportS3Report"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportS3ReportType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportState": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.fis#ExperimentReportStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the experiment report generation.</p>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.fis#ExperimentReportReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the state of the experiment report generation.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.fis#ExperimentReportError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error information of the experiment when the experiment report generation has failed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the state of the experiment report generation.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentReportStatus": {
+      "type": "enum",
+      "members": {
+        "pending": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending"
+          }
+        },
+        "running": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "running"
+          }
+        },
+        "completed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "completed"
+          }
+        },
+        "cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cancelled"
+          }
+        },
+        "failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failed"
+          }
+        }
+      }
+    },
     "com.amazonaws.fis#ExperimentS3LogConfiguration": {
       "type": "structure",
       "members": {
@@ -1281,6 +1626,12 @@
           "target": "com.amazonaws.fis#ExperimentStatusReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the state.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.fis#ExperimentError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error information of the experiment when the action has <code>failed</code>.</p>"
           }
         }
       },
@@ -1331,6 +1682,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "failed"
+          }
+        },
+        "cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cancelled"
           }
         }
       }
@@ -1718,6 +2075,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The count of target account configurations for the experiment template.</p>"
           }
+        },
+        "experimentReportConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the report configuration for the experiment template.</p>"
+          }
         }
       },
       "traits": {
@@ -1948,6 +2311,114 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the configuration for experiment logging.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfiguration": {
+      "type": "structure",
+      "members": {
+        "outputs": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationOutputs",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the output destinations of the experiment report.</p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSources",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the experiment report.</p>"
+          }
+        },
+        "preExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration before the experiment start time for the data sources to include in the report.</p>"
+          }
+        },
+        "postExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration after the experiment end time for the data sources to include in the report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the experiment report configuration. For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration\">Experiment report configurations for AWS FIS</a>.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationCloudWatchDashboard": {
+      "type": "structure",
+      "members": {
+        "dashboardIdentifier": {
+          "target": "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The CloudWatch dashboards to include as data sources in the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationCloudWatchDashboardList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationCloudWatchDashboard"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSources": {
+      "type": "structure",
+      "members": {
+        "cloudWatchDashboards": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationCloudWatchDashboardList",
+          "traits": {
+            "smithy.api#documentation": "<p>The CloudWatch dashboards to include as data sources in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the data sources for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSourcesInput": {
+      "type": "structure",
+      "members": {
+        "cloudWatchDashboards": {
+          "target": "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardInputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The CloudWatch dashboards to include as data sources in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the data sources for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationOutputs": {
+      "type": "structure",
+      "members": {
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationS3Output",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 destination for the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output destinations of the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateReportConfigurationOutputsInput": {
+      "type": "structure",
+      "members": {
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationS3OutputInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 destination for the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the outputs for the experiment templates.</p>"
       }
     },
     "com.amazonaws.fis#ExperimentTemplateS3LogConfiguration": {
@@ -2278,6 +2749,9 @@
           "target": "com.amazonaws.fis#GetExperimentTemplate"
         },
         {
+          "target": "com.amazonaws.fis#GetSafetyLever"
+        },
+        {
           "target": "com.amazonaws.fis#GetTargetAccountConfiguration"
         },
         {
@@ -2323,6 +2797,9 @@
           "target": "com.amazonaws.fis#UpdateExperimentTemplate"
         },
         {
+          "target": "com.amazonaws.fis#UpdateSafetyLeverState"
+        },
+        {
           "target": "com.amazonaws.fis#UpdateTargetAccountConfiguration"
         }
       ],
@@ -2338,7 +2815,7 @@
           "name": "fis"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Fault Injection Service is a managed service that enables you to perform fault injection \n           experiments on your Amazon Web Services workloads. For more information, see the <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/\">Fault Injection Service User Guide</a>.</p>",
+        "smithy.api#documentation": "<p>Amazon Web Services Fault Injection Service is a managed service that enables you to perform fault injection \n           experiments on your Amazon Web Services workloads. For more information, see the <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/\">Fault Injection Service User Guide</a>.</p>",
         "smithy.api#title": "AWS Fault Injection Simulator",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -3249,6 +3726,58 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.fis#GetSafetyLever": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#GetSafetyLeverRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#GetSafetyLeverResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n         Gets information about the specified safety lever.\n      </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/safetyLevers/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#GetSafetyLeverRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#SafetyLeverId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The ID of the safety lever.\n      </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#GetSafetyLeverResponse": {
+      "type": "structure",
+      "members": {
+        "safetyLever": {
+          "target": "com.amazonaws.fis#SafetyLever",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the safety lever.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.fis#GetTargetAccountConfiguration": {
       "type": "operation",
       "input": {
@@ -3393,6 +3922,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "actions",
           "pageSize": "maxResults"
         }
       }
@@ -3474,6 +4004,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "resolvedTargets",
           "pageSize": "maxResults"
         }
       }
@@ -3635,6 +4166,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "experimentTemplates",
           "pageSize": "maxResults"
         }
       }
@@ -3713,6 +4245,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "experiments",
           "pageSize": "maxResults"
         }
       }
@@ -3848,6 +4381,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "targetAccountConfigurations",
           "pageSize": "maxResults"
         }
       }
@@ -3934,6 +4468,7 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
+          "items": "targetResourceTypes",
           "pageSize": "maxResults"
         }
       }
@@ -3998,6 +4533,96 @@
         "smithy.api#length": {
           "min": 1,
           "max": 1024
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardInput": {
+      "type": "structure",
+      "members": {
+        "dashboardIdentifier": {
+          "target": "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the CloudWatch dashboard for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardInputList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ReportConfigurationCloudWatchDashboardInput"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationDuration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 32
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationS3Output": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#ReportConfigurationS3OutputPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The prefix of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the S3 destination for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationS3OutputInput": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#ReportConfigurationS3OutputPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The prefix of the S3 bucket where the experiment report will be stored.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the S3 destination for the experiment report.</p>"
+      }
+    },
+    "com.amazonaws.fis#ReportConfigurationS3OutputPrefix": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
         },
         "smithy.api#pattern": "^[\\S]+$"
       }
@@ -4098,10 +4723,109 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 1024
+          "max": 700
         },
         "smithy.api#pattern": "^[\\s\\S]+$"
       }
+    },
+    "com.amazonaws.fis#SafetyLever": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#SafetyLeverId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the safety lever.\n      </p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.fis#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n     The Amazon Resource Name (ARN) of the safety lever.\n      </p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.fis#SafetyLeverState",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The state of the safety lever.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n        Describes a safety lever.\n      </p>"
+      }
+    },
+    "com.amazonaws.fis#SafetyLeverId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#SafetyLeverState": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.fis#SafetyLeverStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The state of the safety lever.\n      </p>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.fis#SafetyLeverStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>\n       The reason for the state of the safety lever.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n        Describes the state of the safety lever.\n      </p>"
+      }
+    },
+    "com.amazonaws.fis#SafetyLeverStatus": {
+      "type": "enum",
+      "members": {
+        "DISENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "disengaged"
+          }
+        },
+        "ENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "engaged"
+          }
+        },
+        "ENGAGING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "engaging"
+          }
+        }
+      }
+    },
+    "com.amazonaws.fis#SafetyLeverStatusInput": {
+      "type": "enum",
+      "members": {
+        "DISENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "disengaged"
+          }
+        },
+        "ENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "engaged"
+          }
+        }
+      }
+    },
+    "com.amazonaws.fis#SafetyLeverStatusReason": {
+      "type": "string"
     },
     "com.amazonaws.fis#ServiceQuotaExceededException": {
       "type": "structure",
@@ -4792,6 +5516,38 @@
         "smithy.api#documentation": "<p>Specifies the configuration for experiment logging.</p>"
       }
     },
+    "com.amazonaws.fis#UpdateExperimentTemplateReportConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "outputs": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationOutputsInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the output destinations of the experiment report. </p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSourcesInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the experiment report.</p>"
+          }
+        },
+        "preExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration before the experiment start time for the data sources to include in the report. </p>"
+          }
+        },
+        "postExperimentDuration": {
+          "target": "com.amazonaws.fis#ReportConfigurationDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration after the experiment end time for the data sources to include in the report. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n         Specifies the input for the experiment report configuration.</p>"
+      }
+    },
     "com.amazonaws.fis#UpdateExperimentTemplateRequest": {
       "type": "structure",
       "members": {
@@ -4843,6 +5599,12 @@
           "target": "com.amazonaws.fis#UpdateExperimentTemplateExperimentOptionsInput",
           "traits": {
             "smithy.api#documentation": "<p>The experiment options for the experiment template.</p>"
+          }
+        },
+        "experimentReportConfiguration": {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplateReportConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiment report configuration for the experiment template.</p>"
           }
         }
       },
@@ -4944,6 +5706,93 @@
       },
       "value": {
         "target": "com.amazonaws.fis#UpdateExperimentTemplateTargetInput"
+      }
+    },
+    "com.amazonaws.fis#UpdateSafetyLeverState": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#UpdateSafetyLeverStateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#UpdateSafetyLeverStateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n        Updates the specified safety lever state.\n      </p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/safetyLevers/{id}/state",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#UpdateSafetyLeverStateInput": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.fis#SafetyLeverStatusInput",
+          "traits": {
+            "smithy.api#documentation": "<p>\n       The updated state of the safety lever.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.fis#SafetyLeverStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>\n       The reason for updating the state of the safety lever.\n      </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n        Specifies a state for a safety lever.\n      </p>"
+      }
+    },
+    "com.amazonaws.fis#UpdateSafetyLeverStateRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#SafetyLeverId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The ID of the safety lever.\n      </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.fis#UpdateSafetyLeverStateInput",
+          "traits": {
+            "smithy.api#documentation": "<p>\n       The state of the safety lever.\n      </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#UpdateSafetyLeverStateResponse": {
+      "type": "structure",
+      "members": {
+        "safetyLever": {
+          "target": "com.amazonaws.fis#SafetyLever",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Information about the safety lever.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.fis#UpdateTargetAccountConfiguration": {

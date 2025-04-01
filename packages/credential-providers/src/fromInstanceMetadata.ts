@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import {
   fromInstanceMetadata as _fromInstanceMetadata,
@@ -23,10 +24,13 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromInstanceMetadata = (
   init?: _RemoteProviderInit & CredentialProviderOptions
 ): AwsCredentialIdentityProvider => {
   init?.logger?.debug("@smithy/credential-provider-imds", "fromInstanceMetadata");
-  return _fromInstanceMetadata(init);
+  return async () =>
+    _fromInstanceMetadata(init)().then((creds) => setCredentialFeature(creds, "CREDENTIALS_IMDS", "0"));
 };

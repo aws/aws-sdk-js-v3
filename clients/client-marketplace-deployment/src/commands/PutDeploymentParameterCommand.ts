@@ -100,6 +100,65 @@ export interface PutDeploymentParameterCommandOutput extends PutDeploymentParame
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ *
+ * @example Creating or updating a deployment parameter
+ * ```javascript
+ * // The following example demonstrates creating or updating a deployment parameter named "ExampleDeploymentParameterName". The secret will be saved in the Buyer account associated with the passed `agreementId`, with the value set to the provided `secretString`. Note that the deployment parameter `secretString` can be passed in JSON string format, allowing [json-key specific CloudFormation dynamic references](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) from a single deployment parameter.
+ * const input = {
+ *   agreementId: "agmt-1234",
+ *   catalog: "AWSMarketplace",
+ *   clientToken: "some-unique-uuid-between-32-and-64-characters",
+ *   deploymentParameter: {
+ *     name: "ExampleDeploymentParameterName",
+ *     secretString: `{"apiKey": "helloWorldApiKey", "entityId": "fooBarEntityId"}`
+ *   },
+ *   productId: "product-1234"
+ * };
+ * const command = new PutDeploymentParameterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   agreementId: "agmt-1234",
+ *   deploymentParameterId: "dp-uniqueidentifier",
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier",
+ *   tags:   { /* empty *\/ }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Creating a simple deployment parameter, with tags and expiration.
+ * ```javascript
+ * // The following example demonstrates creating a simple deployment parameter named "ExampleSimpleDeploymentParameterName". If multiple secrets are not required, the `secretString` may be provided in String format. The provided tags are only applied on resource creation and will be ignored if the operation results in an update. The API response includes the tags present on the resource after completion of the operation.
+ * const input = {
+ *   agreementId: "agmt-1234",
+ *   catalog: "AWSMarketplace",
+ *   clientToken: "some-unique-uuid-between-32-and-64-characters",
+ *   deploymentParameter: {
+ *     name: "ExampleSimpleDeploymentParameterName",
+ *     secretString: "MySimpleValue"
+ *   },
+ *   expirationDate: "2099-11-18T08:52:46.397Z",
+ *   productId: "product-1234",
+ *   tags: {
+ *     FooKey: "BarValue",
+ *     HelloKey: "WorldValue"
+ *   }
+ * };
+ * const command = new PutDeploymentParameterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   agreementId: "agmt-1234",
+ *   deploymentParameterId: "dp-uniqueidentifier",
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier",
+ *   tags: {
+ *     FooKey: "BarValue",
+ *     HelloKey: "WorldValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutDeploymentParameterCommand extends $Command
@@ -110,9 +169,7 @@ export class PutDeploymentParameterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceDeploymentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +181,16 @@ export class PutDeploymentParameterCommand extends $Command
   .f(PutDeploymentParameterRequestFilterSensitiveLog, void 0)
   .ser(se_PutDeploymentParameterCommand)
   .de(de_PutDeploymentParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeploymentParameterRequest;
+      output: PutDeploymentParameterResponse;
+    };
+    sdk: {
+      input: PutDeploymentParameterCommandInput;
+      output: PutDeploymentParameterCommandOutput;
+    };
+  };
+}

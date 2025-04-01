@@ -556,6 +556,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -601,11 +620,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type SecurityHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -621,11 +640,11 @@ export interface SecurityHubClientConfig extends SecurityHubClientConfigType {}
 export type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -638,7 +657,7 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
 /**
  * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
  *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
- *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+ *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services services, and
  *             supported third-party products and helps you analyze your security trends and identify the highest priority security
  *             issues.</p>
  *          <p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
@@ -647,10 +666,10 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
  *             several security controls, each of which represents a security best practice. Security Hub runs checks against
  *             security controls and generates control findings to help you assess your compliance against security best practices.</p>
- *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+ *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services services,
  *             such as Amazon GuardDuty and Amazon Inspector, and
  *             supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
- *             can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+ *             can also send Security Hub findings to other Amazon Web Services services and supported third-party products.</p>
  *          <p>Security Hub offers automation features that help you triage and remediate security issues. For example,
  *            you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
  *            Amazon EventBridge  to trigger automatic responses to specific findings.</p>
@@ -661,12 +680,12 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             </a>. The
  *            user guide explains key concepts and provides procedures
  *            that demonstrate how to use Security Hub features. It also provides information about topics such as
- *            integrating Security Hub with other Amazon Web Services.</p>
+ *            integrating Security Hub with other Amazon Web Services services.</p>
  *          <p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
  *            use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
  *             and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
  *            Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
- *            Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+ *            Security Hub  and other Amazon Web Services services . They also handle tasks such as signing requests,
  *            managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
  *            and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
  *          <p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in
@@ -723,26 +742,30 @@ export class SecurityHubClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<SecurityHubClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultSecurityHubHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: SecurityHubClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -755,14 +778,5 @@ export class SecurityHubClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSecurityHubHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: SecurityHubClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

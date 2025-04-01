@@ -221,36 +221,24 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To import key material into a KMS key
  * ```javascript
  * // The following example imports key material into the specified KMS key.
  * const input = {
- *   "EncryptedKeyMaterial": "<binary data>",
- *   "ExpirationModel": "KEY_MATERIAL_DOES_NOT_EXPIRE",
- *   "ImportToken": "<binary data>",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   EncryptedKeyMaterial: "<binary data>",
+ *   ExpirationModel: "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ *   ImportToken: "<binary data>",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new ImportKeyMaterialCommand(input);
- * await client.send(command);
- * // example id: to-import-key-material-into-a-kms-key-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
- * @example To import key material into a KMS key
- * ```javascript
- * // The following example imports key material that expires in 3 days. It might be part of an application that frequently reimports the same key material to comply with business rules or regulations.
- * const input = {
- *   "EncryptedKeyMaterial": "<binary data>",
- *   "ExpirationModel": "KEY_MATERIAL_EXPIRES",
- *   "ImportToken": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "ValidTo": "2023-09-30T00:00:00-00:00"
- * };
- * const command = new ImportKeyMaterialCommand(input);
- * await client.send(command);
- * // example id: to-import-key-material-into-a-kms-key-2
- * ```
- *
+ * @public
  */
 export class ImportKeyMaterialCommand extends $Command
   .classBuilder<
@@ -260,9 +248,7 @@ export class ImportKeyMaterialCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -274,4 +260,16 @@ export class ImportKeyMaterialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportKeyMaterialCommand)
   .de(de_ImportKeyMaterialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportKeyMaterialRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportKeyMaterialCommandInput;
+      output: ImportKeyMaterialCommandOutput;
+    };
+  };
+}

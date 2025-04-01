@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/models_3";
+import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/models_4";
 import { de_DescribeFleetHistoryCommand, se_DescribeFleetHistoryCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -79,6 +79,7 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetHistoryCommand extends $Command
@@ -89,9 +90,7 @@ export class DescribeFleetHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DescribeFleetHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetHistoryCommand)
   .de(de_DescribeFleetHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetHistoryRequest;
+      output: DescribeFleetHistoryResult;
+    };
+    sdk: {
+      input: DescribeFleetHistoryCommandInput;
+      output: DescribeFleetHistoryCommandOutput;
+    };
+  };
+}

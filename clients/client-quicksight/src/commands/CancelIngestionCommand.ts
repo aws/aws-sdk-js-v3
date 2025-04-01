@@ -81,6 +81,7 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CancelIngestionCommand extends $Command
@@ -91,9 +92,7 @@ export class CancelIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class CancelIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelIngestionCommand)
   .de(de_CancelIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelIngestionRequest;
+      output: CancelIngestionResponse;
+    };
+    sdk: {
+      input: CancelIngestionCommandInput;
+      output: CancelIngestionCommandOutput;
+    };
+  };
+}

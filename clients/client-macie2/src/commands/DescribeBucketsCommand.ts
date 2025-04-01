@@ -71,7 +71,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * //       bucketName: "STRING_VALUE",
  * //       classifiableObjectCount: Number("long"),
  * //       classifiableSizeInBytes: Number("long"),
- * //       errorCode: "ACCESS_DENIED",
+ * //       errorCode: "ACCESS_DENIED" || "BUCKET_COUNT_EXCEEDS_QUOTA",
  * //       errorMessage: "STRING_VALUE",
  * //       jobDetails: { // JobDetails
  * //         isDefinedInJob: "TRUE" || "FALSE" || "UNKNOWN",
@@ -188,6 +188,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBucketsCommand extends $Command
@@ -198,9 +199,7 @@ export class DescribeBucketsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -212,4 +211,16 @@ export class DescribeBucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBucketsCommand)
   .de(de_DescribeBucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBucketsRequest;
+      output: DescribeBucketsResponse;
+    };
+    sdk: {
+      input: DescribeBucketsCommandInput;
+      output: DescribeBucketsCommandOutput;
+    };
+  };
+}

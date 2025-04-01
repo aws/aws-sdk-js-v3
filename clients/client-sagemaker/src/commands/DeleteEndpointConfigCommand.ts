@@ -61,6 +61,7 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteEndpointConfigCommand extends $Command
@@ -71,9 +72,7 @@ export class DeleteEndpointConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DeleteEndpointConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEndpointConfigCommand)
   .de(de_DeleteEndpointConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEndpointConfigInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEndpointConfigCommandInput;
+      output: DeleteEndpointConfigCommandOutput;
+    };
+  };
+}

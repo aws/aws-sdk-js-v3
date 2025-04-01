@@ -32,7 +32,8 @@ export interface DescribeIdentityProviderCommandInput extends DescribeIdentityPr
 export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specific IdP.</p>
+ * <p>Given a user pool ID and identity provider (IdP) name, returns details about the
+ *             IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +94,7 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityProviderCommand extends $Command
@@ -103,9 +105,7 @@ export class DescribeIdentityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DescribeIdentityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityProviderCommand)
   .de(de_DescribeIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityProviderRequest;
+      output: DescribeIdentityProviderResponse;
+    };
+    sdk: {
+      input: DescribeIdentityProviderCommandInput;
+      output: DescribeIdentityProviderCommandOutput;
+    };
+  };
+}

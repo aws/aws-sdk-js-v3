@@ -30,7 +30,7 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
 /**
  * <p>Describes the specified flow module.</p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
  * @example
@@ -89,6 +89,7 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactFlowModuleCommand extends $Command
@@ -99,9 +100,7 @@ export class DescribeContactFlowModuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeContactFlowModuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContactFlowModuleCommand)
   .de(de_DescribeContactFlowModuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactFlowModuleRequest;
+      output: DescribeContactFlowModuleResponse;
+    };
+    sdk: {
+      input: DescribeContactFlowModuleCommandInput;
+      output: DescribeContactFlowModuleCommandOutput;
+    };
+  };
+}

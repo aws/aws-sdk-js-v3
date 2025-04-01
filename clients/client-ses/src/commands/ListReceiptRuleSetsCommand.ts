@@ -67,29 +67,29 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ListReceiptRuleSets
  * ```javascript
  * // The following example lists the receipt rule sets that exist under an AWS account:
  * const input = {
- *   "NextToken": ""
+ *   NextToken: ""
  * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "RuleSets": [
+ *   NextToken: "",
+ *   RuleSets: [
  *     {
- *       "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
- *       "Name": "MyRuleSet"
+ *       CreatedTimestamp: "2016-07-15T16:25:59.607Z",
+ *       Name: "MyRuleSet"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listreceiptrulesets-1469121037235
  * ```
  *
+ * @public
  */
 export class ListReceiptRuleSetsCommand extends $Command
   .classBuilder<
@@ -99,9 +99,7 @@ export class ListReceiptRuleSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +111,16 @@ export class ListReceiptRuleSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReceiptRuleSetsCommand)
   .de(de_ListReceiptRuleSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReceiptRuleSetsRequest;
+      output: ListReceiptRuleSetsResponse;
+    };
+    sdk: {
+      input: ListReceiptRuleSetsCommandInput;
+      output: ListReceiptRuleSetsCommandOutput;
+    };
+  };
+}

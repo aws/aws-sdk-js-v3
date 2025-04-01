@@ -86,6 +86,7 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class GetTimelineEventCommand extends $Command
@@ -96,9 +97,7 @@ export class GetTimelineEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class GetTimelineEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTimelineEventCommand)
   .de(de_GetTimelineEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTimelineEventInput;
+      output: GetTimelineEventOutput;
+    };
+    sdk: {
+      input: GetTimelineEventCommandInput;
+      output: GetTimelineEventCommandOutput;
+    };
+  };
+}

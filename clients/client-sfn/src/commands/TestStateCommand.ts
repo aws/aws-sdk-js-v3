@@ -91,10 +91,11 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * const client = new SFNClient(config);
  * const input = { // TestStateInput
  *   definition: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
  *   input: "STRING_VALUE",
  *   inspectionLevel: "INFO" || "DEBUG" || "TRACE",
  *   revealSecrets: true || false,
+ *   variables: "STRING_VALUE",
  * };
  * const command = new TestStateCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * //   cause: "STRING_VALUE",
  * //   inspectionData: { // InspectionData
  * //     input: "STRING_VALUE",
+ * //     afterArguments: "STRING_VALUE",
  * //     afterInputPath: "STRING_VALUE",
  * //     afterParameters: "STRING_VALUE",
  * //     result: "STRING_VALUE",
@@ -123,6 +125,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * //       headers: "STRING_VALUE",
  * //       body: "STRING_VALUE",
  * //     },
+ * //     variables: "STRING_VALUE",
  * //   },
  * //   nextState: "STRING_VALUE",
  * //   status: "SUCCEEDED" || "FAILED" || "RETRIABLE" || "CAUGHT_ERROR",
@@ -151,6 +154,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class TestStateCommand extends $Command
@@ -161,9 +165,7 @@ export class TestStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +177,16 @@ export class TestStateCommand extends $Command
   .f(TestStateInputFilterSensitiveLog, TestStateOutputFilterSensitiveLog)
   .ser(se_TestStateCommand)
   .de(de_TestStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestStateInput;
+      output: TestStateOutput;
+    };
+    sdk: {
+      input: TestStateCommandInput;
+      output: TestStateCommandOutput;
+    };
+  };
+}

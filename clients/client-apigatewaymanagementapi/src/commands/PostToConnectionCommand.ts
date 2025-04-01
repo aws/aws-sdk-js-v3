@@ -77,6 +77,7 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ *
  * @public
  */
 export class PostToConnectionCommand extends $Command
@@ -87,9 +88,7 @@ export class PostToConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayManagementApiClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class PostToConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostToConnectionCommand)
   .de(de_PostToConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostToConnectionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PostToConnectionCommandInput;
+      output: PostToConnectionCommandOutput;
+    };
+  };
+}

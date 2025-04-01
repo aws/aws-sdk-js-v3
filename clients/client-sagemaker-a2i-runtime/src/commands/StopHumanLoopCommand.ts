@@ -74,6 +74,7 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ *
  * @public
  */
 export class StopHumanLoopCommand extends $Command
@@ -84,9 +85,7 @@ export class StopHumanLoopCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class StopHumanLoopCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopHumanLoopCommand)
   .de(de_StopHumanLoopCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopHumanLoopRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopHumanLoopCommandInput;
+      output: StopHumanLoopCommandOutput;
+    };
+  };
+}

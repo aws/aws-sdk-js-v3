@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.609.0",
+  "version": "3.775.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline body-checksum-browser",
@@ -9,7 +9,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,11 +23,11 @@
   "dependencies": {
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
-    "@smithy/chunked-blob-reader": "^3.0.0",
-    "@smithy/protocol-http": "^4.0.3",
-    "@smithy/types": "^3.3.0",
-    "@smithy/util-hex-encoding": "^3.0.0",
-    "@smithy/util-utf8": "^3.0.0",
+    "@smithy/chunked-blob-reader": "^5.0.0",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/types": "^4.2.0",
+    "@smithy/util-hex-encoding": "^4.0.0",
+    "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -34,8 +35,9 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "happy-dom": "^15.7.4",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "typesVersions": {
     "<4.0": {

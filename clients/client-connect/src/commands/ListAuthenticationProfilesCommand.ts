@@ -29,7 +29,7 @@ export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticat
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>Provides summary information about the authentication profiles in a specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +84,7 @@ export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListAuthenticationProfilesCommand extends $Command
@@ -94,9 +95,7 @@ export class ListAuthenticationProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListAuthenticationProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuthenticationProfilesCommand)
   .de(de_ListAuthenticationProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuthenticationProfilesRequest;
+      output: ListAuthenticationProfilesResponse;
+    };
+    sdk: {
+      input: ListAuthenticationProfilesCommandInput;
+      output: ListAuthenticationProfilesCommandOutput;
+    };
+  };
+}

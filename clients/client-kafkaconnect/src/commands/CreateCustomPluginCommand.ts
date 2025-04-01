@@ -101,6 +101,7 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomPluginCommand extends $Command
@@ -111,9 +112,7 @@ export class CreateCustomPluginCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class CreateCustomPluginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomPluginCommand)
   .de(de_CreateCustomPluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomPluginRequest;
+      output: CreateCustomPluginResponse;
+    };
+    sdk: {
+      input: CreateCustomPluginCommandInput;
+      output: CreateCustomPluginCommandOutput;
+    };
+  };
+}

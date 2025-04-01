@@ -68,6 +68,7 @@ export interface DeleteQueueEnvironmentCommandOutput extends DeleteQueueEnvironm
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueueEnvironmentCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteQueueEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class DeleteQueueEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueueEnvironmentCommand)
   .de(de_DeleteQueueEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueueEnvironmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQueueEnvironmentCommandInput;
+      output: DeleteQueueEnvironmentCommandOutput;
+    };
+  };
+}

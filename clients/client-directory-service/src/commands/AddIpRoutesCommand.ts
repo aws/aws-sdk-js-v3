@@ -68,7 +68,7 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The specified entity already exists.</p>
@@ -89,6 +89,7 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class AddIpRoutesCommand extends $Command
@@ -99,9 +100,7 @@ export class AddIpRoutesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class AddIpRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddIpRoutesCommand)
   .de(de_AddIpRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddIpRoutesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddIpRoutesCommandInput;
+      output: AddIpRoutesCommandOutput;
+    };
+  };
+}

@@ -94,6 +94,7 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeFlowDefinitionCommand extends $Command
@@ -104,9 +105,7 @@ export class DescribeFlowDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class DescribeFlowDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFlowDefinitionCommand)
   .de(de_DescribeFlowDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFlowDefinitionRequest;
+      output: DescribeFlowDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeFlowDefinitionCommandInput;
+      output: DescribeFlowDefinitionCommandOutput;
+    };
+  };
+}

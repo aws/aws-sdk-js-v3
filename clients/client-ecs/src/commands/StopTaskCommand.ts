@@ -29,14 +29,14 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
 
 /**
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
- *          <p>When <a>StopTask</a> is called on a task, the equivalent of <code>docker
+ *          <p>When you call <code>StopTask</code> on a task, the equivalent of <code>docker
  * 				stop</code> is issued to the containers running in the task. This results in a
  * 				<code>SIGTERM</code> value and a default 30-second timeout, after which the
  * 				<code>SIGKILL</code> value is sent and the containers are forcibly stopped. If the
  * 			container handles the <code>SIGTERM</code> value gracefully and exits within 30 seconds
  * 			from receiving it, no <code>SIGKILL</code> value is sent.</p>
- *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by sending
- * 			a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
+ *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by
+ * 			sending a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
  * 				of (Windows) container #25982</a> on GitHub.</p>
  *          <note>
  *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
@@ -232,19 +232,93 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To stop a task
+ * ```javascript
+ * // This example stops a task with ID "1dc5c17a-422b-4dc4-b493-371970c6c4d6" in cluster "MyCluster".
+ * const input = {
+ *   cluster: "MyCluster",
+ *   reason: "testing stop task.",
+ *   task: "1dc5c17a-422b-4dc4-b493-371970c6c4d6"
+ * };
+ * const command = new StopTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   task: {
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/MyCluster",
+ *     containerInstanceArn: "arn:aws:ecs:us-east-1:012345678910:container-instance/MyCluster/5991d8da-1d59-49d2-a31f-4230f9e73140",
+ *     containers: [
+ *       {
+ *         containerArn: "arn:aws:ecs:us-east-1:012345678910:container/4df26bb4-f057-467b-a079-961675296e64",
+ *         lastStatus: "RUNNING",
+ *         name: "simple-app",
+ *         networkBindings: [
+ *           {
+ *             bindIP: "0.0.0.0",
+ *             containerPort: 80,
+ *             hostPort: 32774,
+ *             protocol: "tcp"
+ *           }
+ *         ],
+ *         taskArn: "arn:aws:ecs:us-east-1:012345678910:task/MyCluster/1dc5c17a-422b-4dc4-b493-371970c6c4d6"
+ *       },
+ *       {
+ *         containerArn: "arn:aws:ecs:us-east-1:012345678910:container/e09064f7-7361-4c87-8ab9-8d073bbdbcb9",
+ *         lastStatus: "RUNNING",
+ *         name: "busybox",
+ *         networkBindings:         [],
+ *         taskArn: "arn:aws:ecs:us-east-1:012345678910:task/MyCluster/1dc5c17a-422b-4dc4-b493-371970c6c4d6"
+ *       }
+ *     ],
+ *     createdAt: 1.476822811295E9,
+ *     desiredStatus: "STOPPED",
+ *     lastStatus: "RUNNING",
+ *     overrides: {
+ *       containerOverrides: [
+ *         {
+ *           name: "simple-app"
+ *         },
+ *         {
+ *           name: "busybox"
+ *         }
+ *       ]
+ *     },
+ *     startedAt: 1.476822833998E9,
+ *     startedBy: "ecs-svc/9223370560032507596",
+ *     stoppedReason: "testing stop task.",
+ *     taskArn: "arn:aws:ecs:us-east-1:012345678910:task/1dc5c17a-422b-4dc4-b493-371970c6c4d6",
+ *     taskDefinitionArn: "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-dynamic-ports:1",
+ *     version: 0
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -256,9 +330,7 @@ export class StopTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -270,4 +342,16 @@ export class StopTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTaskCommand)
   .de(de_StopTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTaskRequest;
+      output: StopTaskResponse;
+    };
+    sdk: {
+      input: StopTaskCommandInput;
+      output: StopTaskCommandOutput;
+    };
+  };
+}

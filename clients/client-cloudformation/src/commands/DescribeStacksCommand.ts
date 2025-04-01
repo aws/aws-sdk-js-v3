@@ -28,9 +28,10 @@ export interface DescribeStacksCommandInput extends DescribeStacksInput {}
 export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the description for the specified stack; if no stack name was specified, then it returns the description
- *    for all the stacks created. For more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">CloudFormation stack creation
- *    events</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Returns the description for the specified stack; if no stack name was specified, then it
+ *       returns the description for all the stacks created. For more information about a stack's event
+ *       history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand CloudFormation stack creation events</a> in the
+ *         <i>CloudFormation User Guide</i>.</p>
  *          <note>
  *             <p>If the stack doesn't exist, a <code>ValidationError</code> is returned.</p>
  *          </note>
@@ -124,6 +125,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStacksCommand extends $Command
@@ -134,9 +136,7 @@ export class DescribeStacksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class DescribeStacksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStacksCommand)
   .de(de_DescribeStacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStacksInput;
+      output: DescribeStacksOutput;
+    };
+    sdk: {
+      input: DescribeStacksCommandInput;
+      output: DescribeStacksCommandOutput;
+    };
+  };
+}

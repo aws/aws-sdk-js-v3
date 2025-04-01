@@ -44,6 +44,9 @@
           "target": "com.amazonaws.applicationsignals#BatchGetServiceLevelObjectiveBudgetReport"
         },
         {
+          "target": "com.amazonaws.applicationsignals#BatchUpdateExclusionWindows"
+        },
+        {
           "target": "com.amazonaws.applicationsignals#GetService"
         },
         {
@@ -51,6 +54,9 @@
         },
         {
           "target": "com.amazonaws.applicationsignals#ListServiceDependents"
+        },
+        {
+          "target": "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindows"
         },
         {
           "target": "com.amazonaws.applicationsignals#ListServiceOperations"
@@ -88,7 +94,7 @@
         "aws.endpoints#dualStackOnlyEndpoints": {},
         "aws.endpoints#standardRegionalEndpoints": {},
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<important>\n            <p>This is a Preview release of the Application Signals API Reference. Operations and parameters are subject to change before the general availability\n     release.</p>\n         </important>\n         <p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications. \n        It enables real-time service health dashboards and helps you track long-term performance trends against your business goals. \n        The application-centric view provides you with unified visibility across your applications, services, and \n        dependencies, so you can proactively monitor and efficiently triage any issues that may arise, \n        ensuring optimal customer experience.</p>\n         <p>Application Signals provides the following benefits:</p>\n         <ul>\n            <li>\n               <p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p>\n            </li>\n            <li>\n               <p>Create and monitor service level objectives (SLOs). </p>\n            </li>\n            <li>\n               <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications. \n        It enables real-time service health dashboards and helps you track long-term performance trends against your business goals. \n        The application-centric view provides you with unified visibility across your applications, services, and \n        dependencies, so you can proactively monitor and efficiently triage any issues that may arise, \n        ensuring optimal customer experience.</p>\n         <p>Application Signals provides the following benefits:</p>\n         <ul>\n            <li>\n               <p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p>\n            </li>\n            <li>\n               <p>Create and monitor service level objectives (SLOs). </p>\n            </li>\n            <li>\n               <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p>\n            </li>\n         </ul>\n         <p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries, \n        and application names within dashboards and maps.</p>",
         "smithy.api#title": "Amazon CloudWatch Application Signals",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -462,8 +468,14 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 3
+          "max": 4
         }
+      }
+    },
+    "com.amazonaws.applicationsignals#AwsAccountId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[0-9]{12}$"
       }
     },
     "com.amazonaws.applicationsignals#BatchGetServiceLevelObjectiveBudgetReport": {
@@ -483,7 +495,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p>\n         <p>An <i>error budget</i> is the amount of time in unhealthy periods that your service can \n         accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be\n         unmet. For example, an SLO with a threshold of 99.95% and a monthly interval\n         translates to an error budget of 21.9 minutes of \n         downtime in a 30-day month.</p>\n         <p>Budget reports include a health indicator, the attainment value, and \n         remaining budget.</p>\n         <p>For more information about SLO error budgets, see \n         <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts\">\n            SLO concepts</a>.</p>",
+        "smithy.api#documentation": "<p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p>\n         <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can \n         accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be\n         unmet. For example, an SLO with a threshold of 99.95% and a monthly interval\n         translates to an error budget of 21.9 minutes of \n         downtime in a 30-day month.</p>\n         <p>Budget reports include a health indicator, the attainment value, and \n         remaining budget.</p>\n         <p>For more information about SLO error budgets, see \n         <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts\">\n            SLO concepts</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/budget-report",
@@ -542,8 +554,163 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.applicationsignals#BatchUpdateExclusionWindows": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.applicationsignals#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.applicationsignals#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.applicationsignals#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Add or remove time window exclusions for one or more Service Level Objectives (SLOs).</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/exclusion-windows",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsError": {
+      "type": "structure",
+      "members": {
+        "SloId": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelObjectiveId",
+          "traits": {
+            "smithy.api#documentation": "<p>The SLO ID in the error.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.applicationsignals#ExclusionWindowErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.applicationsignals#ExclusionWindowErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of structures, where each structure includes an error indicating that one of the requests in the array was not valid.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsError"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsInput": {
+      "type": "structure",
+      "members": {
+        "SloIds": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelObjectiveIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of SLO IDs to add or remove exclusion windows from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AddExclusionWindows": {
+          "target": "com.amazonaws.applicationsignals#ExclusionWindows",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion windows per SLO.</p>"
+          }
+        },
+        "RemoveExclusionWindows": {
+          "target": "com.amazonaws.applicationsignals#ExclusionWindows",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of exclusion windows to remove from the specified SLOs. The window configuration must match an existing exclusion window.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsOutput": {
+      "type": "structure",
+      "members": {
+        "SloIds": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelObjectiveIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of SLO IDs that were successfully processed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Errors": {
+          "target": "com.amazonaws.applicationsignals#BatchUpdateExclusionWindowsErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors that occurred while processing the request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.applicationsignals#BudgetRequestsRemaining": {
+      "type": "integer"
+    },
     "com.amazonaws.applicationsignals#BudgetSecondsRemaining": {
       "type": "integer"
+    },
+    "com.amazonaws.applicationsignals#BurnRateConfiguration": {
+      "type": "structure",
+      "members": {
+        "LookBackWindowMinutes": {
+          "target": "com.amazonaws.applicationsignals#BurnRateLookBackWindowMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of minutes to use as the look-back window.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This object defines the length of the look-back window used to calculate one burn rate metric\n         for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of\n      exactly 1 indicates that the SLO goal will be met exactly.</p>\n         <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p>\n         <p>\n            <i>burn rate = error rate over the look-back window / (100% - attainment goal percentage)</i>\n         </p>\n         <p>For more information about burn rates, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn\">Calculate burn rates</a>.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#BurnRateConfigurations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.applicationsignals#BurnRateConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#BurnRateLookBackWindowMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10080
+        }
+      }
     },
     "com.amazonaws.applicationsignals#CalendarInterval": {
       "type": "structure",
@@ -624,7 +791,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are \n      meeting customer expectations. Use SLOs to set and track specific target levels for the\n      reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to \n      calculate whether the application is performing at the level that you want.</p>\n         <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch\n      measures this target frequently you can find whether it has been breached. </p>\n         <p>When you create an SLO, you set an <i>attainment goal</i> for it.  An \n      <i>attainment goal</i> is the \n      ratio of good periods that meet the threshold requirements to the total periods within the interval. \n      For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the \n      periods to be in healthy state.</p>\n         <p>After you have created an SLO, you can retrieve error budget reports for it. \n      An <i>error budget</i> is the number of periods or amount of time that your service can \n      accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be\n      unmet. for example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month \n      translates to an error budget of 21.9 minutes of downtime per month.</p>\n         <p>When you call this operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, \n        if it doesn't already exist in your account. This service-\n        linked role has the following permissions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>xray:GetServiceGraph</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>logs:StartQuery</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>logs:GetQueryResults</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cloudwatch:GetMetricData</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cloudwatch:ListMetrics</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:GetResources</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>autoscaling:DescribeAutoScalingGroups</code>\n               </p>\n            </li>\n         </ul>\n         <p>You can easily set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. \n      You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p>\n         <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\">\n      Service level objectives (SLOs)</a>.\n    </p>",
+        "smithy.api#documentation": "<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are \n      meeting customer expectations. Use SLOs to set and track specific target levels for the\n      reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to \n      calculate whether the application is performing at the level that you want.</p>\n         <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch\n      measures this target frequently you can find whether it has been breached. </p>\n         <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p>\n         <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. \n        You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p>\n         <note>\n            <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard\n     metrics to Application Signals.</p>\n         </note>\n         <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i>\n       or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating \n    your application's performance against its attainment goal.</p>\n         <ul>\n            <li>\n               <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within \n        a specified total time interval. For each period of time, Application Signals determines whether the \n        application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p>\n               <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its\n              performance goal during at least 99.9% of the \n              time periods.</p>\n            </li>\n            <li>\n               <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, \n           the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of \n           good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p>\n            </li>\n         </ul>\n         <p>After you have created an SLO, you can retrieve error budget reports for it. \n      An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant\n       with the SLO's goal, and still have your application meet the goal.</p>\n         <ul>\n            <li>\n               <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, \n           while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period\n        that is recorded. The error budget within one interval can never increase.</p>\n               <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month \n              translates to an error budget of 21.9 minutes of downtime per month.</p>\n            </li>\n            <li>\n               <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on \n           the ratio of good requests to total requests.</p>\n            </li>\n         </ul>\n         <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\">\n      Service level objectives (SLOs)</a>.\n    </p>\n         <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, \n        if it doesn't already exist in your account. This service-\n        linked role has the following permissions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>xray:GetServiceGraph</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>logs:StartQuery</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>logs:GetQueryResults</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cloudwatch:GetMetricData</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cloudwatch:ListMetrics</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:GetResources</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>autoscaling:DescribeAutoScalingGroups</code>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/slo",
@@ -651,20 +818,31 @@
         "SliConfig": {
           "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A structure that contains information about what service and what performance metric that this SLO will monitor.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>\n         <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>"
+          }
+        },
+        "RequestBasedSliConfig": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>\n         <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>"
           }
         },
         "Goal": {
           "target": "com.amazonaws.applicationsignals#Goal",
           "traits": {
-            "smithy.api#documentation": "<p>A structure that contains the attributes that determine the goal of the SLO. This includes\n      the time period for evaluation and the attainment threshold.</p>"
+            "smithy.api#documentation": "<p>This structure contains the attributes that determine the goal of the SLO.</p>"
           }
         },
         "Tags": {
           "target": "com.amazonaws.applicationsignals#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO.\n      To be able to associate tags with the SLO when you create the SLO, you must\n      have the <code>cloudwatch:TagResource</code> permission.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions by granting a user\n      permission to access or change only resources with certain tag values.</p>"
+          }
+        },
+        "BurnRateConfigurations": {
+          "target": "com.amazonaws.applicationsignals#BurnRateConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this array to create <i>burn rates</i> for this SLO. Each \n         burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>"
           }
         }
       },
@@ -793,6 +971,18 @@
     "com.amazonaws.applicationsignals#DurationUnit": {
       "type": "enum",
       "members": {
+        "MINUTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MINUTE"
+          }
+        },
+        "HOUR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOUR"
+          }
+        },
         "DAY": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -804,6 +994,99 @@
           "traits": {
             "smithy.api#enumValue": "MONTH"
           }
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#EvaluationType": {
+      "type": "enum",
+      "members": {
+        "PERIOD_BASED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PeriodBased"
+          }
+        },
+        "REQUEST_BASED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestBased"
+          }
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#ExclusionDuration": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#ExclusionReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#ExclusionWindow": {
+      "type": "structure",
+      "members": {
+        "Window": {
+          "target": "com.amazonaws.applicationsignals#Window",
+          "traits": {
+            "smithy.api#documentation": "<p>The SLO time window exclusion .</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start of the SLO time window exclusion. Defaults to current time if not specified.</p>"
+          }
+        },
+        "RecurrenceRule": {
+          "target": "com.amazonaws.applicationsignals#RecurrenceRule",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurrence rule for the SLO time window exclusion. Supports both cron and rate expressions.</p>"
+          }
+        },
+        "Reason": {
+          "target": "com.amazonaws.applicationsignals#ExclusionReason",
+          "traits": {
+            "smithy.api#documentation": "<p>A description explaining why this time period should be excluded from SLO calculations.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The core SLO time window exclusion object that includes Window, StartTime, RecurrenceRule, and Reason.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#ExclusionWindowErrorCode": {
+      "type": "string"
+    },
+    "com.amazonaws.applicationsignals#ExclusionWindowErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.applicationsignals#ExclusionWindows": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.applicationsignals#ExclusionWindow"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#Expression": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
         }
       }
     },
@@ -842,7 +1125,7 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "StartTime",
             "smithy.api#required": {}
           }
@@ -850,7 +1133,7 @@
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "EndTime",
             "smithy.api#required": {}
           }
@@ -940,15 +1223,21 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>.</p>",
+            "smithy.api#documentation": "<p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>.</p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>.</p>",
+            "smithy.api#documentation": "<p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>.</p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LogGroupReferences": {
+          "target": "com.amazonaws.applicationsignals#LogGroupReferences",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of string-to-string maps that each contain information about one log group associated with this service. Each \n         string-to-string map includes the following fields:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>\"Type\": \"AWS::Resource\"</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>\"ResourceType\": \"AWS::Logs::LogGroup\"</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>\"Identifier\": \"<i>name-of-log-group</i>\"</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -968,7 +1257,7 @@
         "AttainmentGoal": {
           "target": "com.amazonaws.applicationsignals#AttainmentGoal",
           "traits": {
-            "smithy.api#documentation": "<p>The threshold that determines if the goal is being met. An <i>attainment goal</i> is the \n         ratio of good periods that meet the threshold requirements to the total periods within the interval. \n         For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the \n         periods to be in healthy state.</p>\n         <p>If you omit this parameter, 99 is used\n         to represent 99% as the attainment goal.</p>"
+            "smithy.api#documentation": "<p>The threshold that determines if the goal is being met.</p>\n         <p>If this is a period-based SLO, the attainment goal is the \n         percentage of good periods that meet the threshold requirements to the total periods within the interval. \n         For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the \n         periods to be in healthy state.</p>\n         <p>If this is a request-based SLO, the attainment goal is the percentage of requests that must be \n      successful to meet the attainment goal.</p>\n         <p>If you omit this parameter, 99 is used\n         to represent 99% as the attainment goal.</p>"
           }
         },
         "WarningThreshold": {
@@ -1056,7 +1345,7 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "StartTime",
             "smithy.api#required": {}
           }
@@ -1064,7 +1353,7 @@
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested end time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "EndTime",
             "smithy.api#required": {}
           }
@@ -1111,14 +1400,14 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1178,7 +1467,7 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "StartTime",
             "smithy.api#required": {}
           }
@@ -1186,7 +1475,7 @@
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "EndTime",
             "smithy.api#required": {}
           }
@@ -1233,14 +1522,14 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1255,6 +1544,107 @@
           "target": "com.amazonaws.applicationsignals#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Include this value in your next use of this API to get next set \n         of service dependents.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindows": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.applicationsignals#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.applicationsignals#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.applicationsignals#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves all exclusion windows configured for a specific SLO.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/slo/{Id}/exclusion-windows",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "outputToken": "NextToken",
+          "items": "ExclusionWindows"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsInput": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelObjectiveId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SLO to list exclusion windows for.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsMaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.\n         \n      </p>",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.applicationsignals#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.\n         \n      </p>",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {},
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.applicationsignals#ServiceLevelObjectiveResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsOutput": {
+      "type": "structure",
+      "members": {
+        "ExclusionWindows": {
+          "target": "com.amazonaws.applicationsignals#ExclusionWindows",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of exclusion windows configured for the SLO.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.applicationsignals#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.\n         \n      </p>"
           }
         }
       },
@@ -1323,6 +1713,21 @@
           "traits": {
             "smithy.api#documentation": "<p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.</p>",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "IncludeLinkedAccounts": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data.\n         \n      </p>\n         <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account.\n         \n      </p>",
+            "smithy.api#httpQuery": "IncludeLinkedAccounts"
+          }
+        },
+        "SloOwnerAwsAccountId": {
+          "target": "com.amazonaws.applicationsignals#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>SLO's Amazon Web Services account ID.</p>",
+            "smithy.api#httpQuery": "SloOwnerAwsAccountId"
           }
         }
       },
@@ -1406,7 +1811,7 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "StartTime",
             "smithy.api#required": {}
           }
@@ -1414,7 +1819,7 @@
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested end time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "EndTime",
             "smithy.api#required": {}
           }
@@ -1452,14 +1857,14 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1519,7 +1924,7 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "StartTime",
             "smithy.api#required": {}
           }
@@ -1527,7 +1932,7 @@
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>Your requested start time will be rounded to the nearest hour.</p>",
             "smithy.api#httpQuery": "EndTime",
             "smithy.api#required": {}
           }
@@ -1545,6 +1950,21 @@
           "traits": {
             "smithy.api#documentation": "<p>Include this value, if it was returned by the previous operation, to get the next set of services.</p>",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "IncludeLinkedAccounts": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data.\n         \n      </p>",
+            "smithy.api#httpQuery": "IncludeLinkedAccounts"
+          }
+        },
+        "AwsAccountId": {
+          "target": "com.amazonaws.applicationsignals#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Web Services Account ID.</p>",
+            "smithy.api#httpQuery": "AwsAccountId"
           }
         }
       },
@@ -1567,14 +1987,14 @@
         "StartTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>",
+            "smithy.api#documentation": "<p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as \n         be epoch time in seconds. For example: <code>1698778057</code>\n         </p>\n         <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because \n         it was rounded to the nearest hour.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1650,6 +2070,12 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.applicationsignals#LogGroupReferences": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.applicationsignals#Attributes"
       }
     },
     "com.amazonaws.applicationsignals#Metric": {
@@ -1729,7 +2155,7 @@
         "AccountId": {
           "target": "com.amazonaws.applicationsignals#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the account where this metric is located.  If you are performing this operatiion in a monitoring account, \n         use this to specify which source account to retrieve this metric from.</p>"
+            "smithy.api#documentation": "<p>The ID of the account where this metric is located.  If you are performing this operation in a monitoring account, \n         use this to specify which source account to retrieve this metric from.</p>"
           }
         }
       },
@@ -1796,6 +2222,12 @@
             "smithy.api#documentation": "<p>The name of the metric.</p>",
             "smithy.api#required": {}
           }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.applicationsignals#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Web Services account ID.</p>"
+          }
         }
       },
       "traits": {
@@ -1849,6 +2281,26 @@
         "smithy.api#pattern": "^[A-Za-z0-9 -]+$"
       }
     },
+    "com.amazonaws.applicationsignals#MonitoredRequestCountMetricDataQueries": {
+      "type": "union",
+      "members": {
+        "GoodCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>If you want to count \"good requests\" to determine the percentage of successful requests for this\n      request-based SLO, specify the metric to use as \"good requests\" in this structure.</p>"
+          }
+        },
+        "BadCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>If you want to count \"bad requests\" to determine the percentage of successful requests for this\n         request-based SLO, specify the metric to use as \"bad requests\" in this structure.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure defines the metric that is used as the \"good request\" or \"bad request\"\n         value for a request-based SLO. \n         This value observed for the metric defined in  \n         <code>TotalRequestCountMetric</code> is divided by the number found for \n         <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that \n         this SLO tracks.</p>"
+      }
+    },
     "com.amazonaws.applicationsignals#Namespace": {
       "type": "string",
       "traits": {
@@ -1879,6 +2331,153 @@
         }
       }
     },
+    "com.amazonaws.applicationsignals#RecurrenceRule": {
+      "type": "structure",
+      "members": {
+        "Expression": {
+          "target": "com.amazonaws.applicationsignals#Expression",
+          "traits": {
+            "smithy.api#documentation": "<p>A cron or rate expression that specifies the schedule for the exclusion window.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The recurrence rule for the SLO time window exclusion .</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicator": {
+      "type": "structure",
+      "members": {
+        "RequestBasedSliMetric": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorMetric",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure that contains information about the metric that the SLO monitors. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricThreshold": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricThreshold",
+          "traits": {
+            "smithy.api#documentation": "<p>This value is the threshold that \n         the observed metric values of the SLI metric are compared to.</p>"
+          }
+        },
+        "ComparisonOperator": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorComparisonOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The arithmetic operation used when comparing the specified metric to the\n         threshold.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure contains information about the performance metric that a request-based SLO monitors.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorConfig": {
+      "type": "structure",
+      "members": {
+        "RequestBasedSliMetricConfig": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorMetricConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this structure to specify the metric to be used for the SLO.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricThreshold": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricThreshold",
+          "traits": {
+            "smithy.api#documentation": "<p>The value that the SLI metric is compared to. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>"
+          }
+        },
+        "ComparisonOperator": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorComparisonOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The arithmetic operation to use when comparing the specified metric to the\n         threshold. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure specifies the information about the service and the performance metric that a request-based SLO is to monitor.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorMetric": {
+      "type": "structure",
+      "members": {
+        "KeyAttributes": {
+          "target": "com.amazonaws.applicationsignals#Attributes",
+          "traits": {
+            "smithy.api#documentation": "<p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can \n         include the following fields.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Type</code> designates the type of object that this SLO is related to.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ResourceType</code> specifies the type of the resource. This field is used only\n            when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field\n            is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Identifier</code> identifies the resource objects of this resource. \n            This is used only if the value of the <code>Type</code> field\n            is <code>Resource</code> or <code>AWS::Resource</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "OperationName": {
+          "target": "com.amazonaws.applicationsignals#OperationName",
+          "traits": {
+            "smithy.api#documentation": "<p>If the SLO monitors a specific operation of the service, this field displays that operation name.</p>"
+          }
+        },
+        "MetricType": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricType",
+          "traits": {
+            "smithy.api#documentation": "<p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals \n         collects, this field displays which of those metrics is used.</p>"
+          }
+        },
+        "TotalRequestCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>This structure defines the metric that is used as the \"total requests\" number for a request-based SLO. \n         The number observed for this metric is divided by the number of \"good requests\" or \"bad requests\" that is \n         observed for the metric defined in \n         <code>MonitoredRequestCountMetric</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MonitoredRequestCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MonitoredRequestCountMetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>This structure defines the metric that is used as the \"good request\" or \"bad request\"\n         value for a request-based SLO. \n         This value observed for the metric defined in  \n         <code>TotalRequestCountMetric</code> is divided by the number found for \n         <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that \n         this SLO tracks.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure contains the information about the metric that is used for a request-based SLO.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorMetricConfig": {
+      "type": "structure",
+      "members": {
+        "KeyAttributes": {
+          "target": "com.amazonaws.applicationsignals#Attributes",
+          "traits": {
+            "smithy.api#documentation": "<p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service \n         the SLO metric is related to. To do so, you must specify at least the <code>Type</code>, \n         <code>Name</code>, and <code>Environment</code> attributes.</p>\n         <p>This is a string-to-string map. It can \n         include the following fields.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Type</code> designates the type of object this is.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ResourceType</code> specifies the type of the resource. This field is used only\n            when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field\n            is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Identifier</code> identifies the resource objects of this resource. \n            This is used only if the value of the <code>Type</code> field\n            is <code>Resource</code> or <code>AWS::Resource</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "OperationName": {
+          "target": "com.amazonaws.applicationsignals#OperationName",
+          "traits": {
+            "smithy.api#documentation": "<p>If the SLO is to monitor a specific operation of the service, use this field to specify the name of that operation.</p>"
+          }
+        },
+        "MetricType": {
+          "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricType",
+          "traits": {
+            "smithy.api#documentation": "<p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals \n         collects, use this field to specify which of those metrics is used.</p>"
+          }
+        },
+        "TotalRequestCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this structure to define the metric that you want to use as the \"total requests\" number for a request-based SLO. \n      This result will be divided by the \"good request\" or \"bad request\" value defined in  \n      <code>MonitoredRequestCountMetric</code>.</p>"
+          }
+        },
+        "MonitoredRequestCountMetric": {
+          "target": "com.amazonaws.applicationsignals#MonitoredRequestCountMetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this structure to define the metric that you want to use as the \"good request\" or \"bad request\"\n         value for a request-based SLO. \n         This value observed for the metric defined in  \n         <code>TotalRequestCountMetric</code> will be divided by the number found for \n         <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that \n         this SLO tracks.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>"
+      }
+    },
     "com.amazonaws.applicationsignals#ResourceId": {
       "type": "string"
     },
@@ -1895,7 +2494,7 @@
         "ResourceId": {
           "target": "com.amazonaws.applicationsignals#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>Cannot find the resource id.</p>",
+            "smithy.api#documentation": "<p>Can't find the resource id.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1970,7 +2569,7 @@
         "AttributeMaps": {
           "target": "com.amazonaws.applicationsignals#AttributeMaps",
           "traits": {
-            "smithy.api#documentation": "<p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>\n         <p>Platform attributes contain information the service's platform.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PlatformType</code> defines the hosted-in platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Host</code> is the name of the host, for all platform types.</p>\n            </li>\n         </ul>\n         <p>Applciation attributes contain information about the application.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n         </ul>\n         <p>Telemetry attributes contain telemetry information.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>\n         <p>Platform attributes contain information the service's platform.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PlatformType</code> defines the hosted-in platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Host</code> is the name of the host, for all platform types.</p>\n            </li>\n         </ul>\n         <p>Application attributes contain information about the application.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n         </ul>\n         <p>Telemetry attributes contain telemetry information.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>\n            </li>\n         </ul>"
           }
         },
         "MetricReferences": {
@@ -1978,6 +2577,12 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of structures that each contain information about one metric associated with this service.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LogGroupReferences": {
+          "target": "com.amazonaws.applicationsignals#LogGroupReferences",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of string-to-string maps that each contain information about one log group associated with this service. Each \n         string-to-string map includes the following fields:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>\"Type\": \"AWS::Resource\"</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>\"ResourceType\": \"AWS::Logs::LogGroup\"</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>\"Identifier\": \"<i>name-of-log-group</i>\"</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2108,7 +2713,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This structure contains information about the performance metric that an SLO monitors.</p>"
+        "smithy.api#documentation": "<p>This structure contains information about the performance metric that a period-based SLO monitors.</p>"
       }
     },
     "com.amazonaws.applicationsignals#ServiceLevelIndicatorComparisonOperator": {
@@ -2153,7 +2758,7 @@
         "MetricThreshold": {
           "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricThreshold",
           "traits": {
-            "smithy.api#documentation": "<p>The value that the SLI metric is compared to.</p>",
+            "smithy.api#documentation": "<p>This parameter is used only when a request-based SLO tracks the <code>Latency</code> metric. Specify the threshold value that the \n         observed <code>Latency</code> metric values are to be compared to.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2166,7 +2771,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This structure specifies the information about the service and the performance metric that an SLO is to monitor.</p>"
+        "smithy.api#documentation": "<p>This structure specifies the information about the service and the performance metric that a period-based SLO is to monitor.</p>"
       }
     },
     "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetric": {
@@ -2199,7 +2804,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This structure contains the information about the metric that is used for the SLO.</p>"
+        "smithy.api#documentation": "<p>This structure contains the information about the metric that is used for a period-based SLO.</p>"
       }
     },
     "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricConfig": {
@@ -2243,7 +2848,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Use this structure to specify the information for the metric that the SLO will monitor.</p>"
+        "smithy.api#documentation": "<p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>"
       }
     },
     "com.amazonaws.applicationsignals#ServiceLevelIndicatorMetricThreshold": {
@@ -2316,14 +2921,31 @@
         "Sli": {
           "target": "com.amazonaws.applicationsignals#ServiceLevelIndicator",
           "traits": {
-            "smithy.api#documentation": "<p>A structure containing information about the performance metric that this SLO monitors.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.</p>"
+          }
+        },
+        "RequestBasedSli": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicator",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.</p>"
+          }
+        },
+        "EvaluationType": {
+          "target": "com.amazonaws.applicationsignals#EvaluationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays whether this is a period-based SLO or a request-based SLO.</p>"
           }
         },
         "Goal": {
           "target": "com.amazonaws.applicationsignals#Goal",
           "traits": {
             "smithy.api#required": {}
+          }
+        },
+        "BurnRateConfigurations": {
+          "target": "com.amazonaws.applicationsignals#BurnRateConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>Each object in this array defines the length of the look-back window used to calculate one burn rate metric\n         for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>"
           }
         }
       },
@@ -2358,29 +2980,47 @@
             "smithy.api#required": {}
           }
         },
+        "EvaluationType": {
+          "target": "com.amazonaws.applicationsignals#EvaluationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays whether this budget report is for a period-based SLO or a request-based SLO.</p>"
+          }
+        },
         "BudgetStatus": {
           "target": "com.amazonaws.applicationsignals#ServiceLevelObjectiveBudgetStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The status of this SLO, as it relates to the error budget for the entire time interval.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>OK</code> means that the SLO had remaining budget above the warning threshold,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>WARNING</code> means that the SLO's remaining budget was below the warning threshold,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BREACHED</code> means that the SLO's budget was exhausted,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSUFFICIENT_DATA</code> means that the specifed start and end times were before the\n            SLO was created, or that attainment data is missing.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The status of this SLO, as it relates to the error budget for the entire time interval.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>OK</code> means that the SLO had remaining budget above the warning threshold,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>WARNING</code> means that the SLO's remaining budget was below the warning threshold,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BREACHED</code> means that the SLO's budget was exhausted,\n            as of the time that you specified in <code>TimeStamp</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSUFFICIENT_DATA</code> means that the specified start and end times were before the\n            SLO was created, or that attainment data is missing.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
         "Attainment": {
           "target": "com.amazonaws.applicationsignals#Attainment",
           "traits": {
-            "smithy.api#documentation": "<p>A number between 0 and 100 that represents the percentage of time periods that the service has \n         attained the SLO's attainment goal, as of the time of the request.</p>"
+            "smithy.api#documentation": "<p>A number between 0 and 100 that represents the success percentage of your application compared\n         to the goal set by the SLO.</p>\n         <p>If this is a period-based SLO, the number is the percentage of time periods that the service has \n         attained the SLO's attainment goal, as of the time of the request.</p>\n         <p>If this is a request-based SLO, the number is the number of successful requests divided\n         by the number of total requests, multiplied by 100, during the time range that you specified in your request.</p>"
           }
         },
         "TotalBudgetSeconds": {
           "target": "com.amazonaws.applicationsignals#TotalBudgetSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of seconds in the error budget for the interval.</p>"
+            "smithy.api#documentation": "<p>The total number of seconds in the error budget for the interval. This field is included only \n      if the SLO is a period-based SLO.</p>"
           }
         },
         "BudgetSecondsRemaining": {
           "target": "com.amazonaws.applicationsignals#BudgetSecondsRemaining",
           "traits": {
-            "smithy.api#documentation": "<p>The budget amount remaining before the SLO status becomes <code>BREACHING</code>, at the time specified in\n         the \n         <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code>\n         status.</p>"
+            "smithy.api#documentation": "<p>The budget amount remaining before the SLO status becomes <code>BREACHING</code>, at the time specified in\n         the \n         <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code>\n         status.</p>\n         <p> This field is included only \n         if the SLO is a period-based SLO.</p>"
+          }
+        },
+        "TotalBudgetRequests": {
+          "target": "com.amazonaws.applicationsignals#TotalBudgetRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is displayed only for request-based SLOs. It displays the total number of failed requests that can be tolerated during the time range between the start of the \n         interval and the time stamp supplied in the budget report request. It is based on the total number of requests that occurred,\n      and the percentage specified in the attainment goal. If the number of failed requests matches this number or is higher, then \n      this SLO is currently breaching.</p>\n         <p>This number can go up and down between reports with different time stamps, based on both how many total requests occur.</p>"
+          }
+        },
+        "BudgetRequestsRemaining": {
+          "target": "com.amazonaws.applicationsignals#BudgetRequestsRemaining",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is displayed only for request-based SLOs. It displays the number of failed requests that can be tolerated before any more successful requests occur,\n         and still have the application meet its SLO goal.</p>\n         <p>This number can go up and down between different reports, based on both how many successful requests and how many failed \n         requests occur in that time.</p>"
           }
         },
         "Sli": {
@@ -2388,6 +3028,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains information about the performance metric that this SLO monitors.</p>"
           }
+        },
+        "RequestBasedSli": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicator"
         },
         "Goal": {
           "target": "com.amazonaws.applicationsignals#Goal"
@@ -2667,7 +3310,7 @@
         "AttributeMaps": {
           "target": "com.amazonaws.applicationsignals#AttributeMaps",
           "traits": {
-            "smithy.api#documentation": "<p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>\n         <p>Platform attributes contain information the service's platform.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PlatformType</code> defines the hosted-in platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Host</code> is the name of the host, for all platform types.</p>\n            </li>\n         </ul>\n         <p>Applciation attributes contain information about the application.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n         </ul>\n         <p>Telemetry attributes contain telemetry information.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>\n         <p>Platform attributes contain information the service's platform.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PlatformType</code> defines the hosted-in platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Host</code> is the name of the host, for all platform types.</p>\n            </li>\n         </ul>\n         <p>Application attributes contain information about the application.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>\n            </li>\n         </ul>\n         <p>Telemetry attributes contain telemetry information.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>\n            </li>\n         </ul>"
           }
         },
         "MetricReferences": {
@@ -2679,7 +3322,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This structure contains information about one of your services that\n      was discoverd by Application Signals</p>"
+        "smithy.api#documentation": "<p>This structure contains information about one of your services that\n      was discovered by Application Signals</p>"
       }
     },
     "com.amazonaws.applicationsignals#StandardUnit": {
@@ -3031,6 +3674,9 @@
         "smithy.api#httpError": 429
       }
     },
+    "com.amazonaws.applicationsignals#TotalBudgetRequests": {
+      "type": "integer"
+    },
     "com.amazonaws.applicationsignals#TotalBudgetSeconds": {
       "type": "integer"
     },
@@ -3108,7 +3754,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing service level objective (SLO). If you omit parameters, the previous values\n         of those parameters are retained. </p>",
+        "smithy.api#documentation": "<p>Updates an existing service level objective (SLO). If you omit parameters, the previous values\n         of those parameters are retained. </p>\n         <p>You cannot change from a period-based SLO to a request-based SLO, \n         or change from a request-based SLO to a period-based SLO.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/slo/{Id}",
@@ -3136,13 +3782,25 @@
         "SliConfig": {
           "target": "com.amazonaws.applicationsignals#ServiceLevelIndicatorConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A structure that contains information about what performance metric this SLO will monitor.</p>"
+            "smithy.api#documentation": "<p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>"
+          }
+        },
+        "RequestBasedSliConfig": {
+          "target": "com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>\n         <p>You can't specify both <code>SliConfig</code> and <code>RequestBasedSliConfig</code> in the same operation.</p>"
           }
         },
         "Goal": {
           "target": "com.amazonaws.applicationsignals#Goal",
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains the attributes that determine the goal of the SLO. This includes\n         the time period for evaluation and the attainment threshold.</p>"
+          }
+        },
+        "BurnRateConfigurations": {
+          "target": "com.amazonaws.applicationsignals#BurnRateConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this array to create <i>burn rates</i> for this SLO. Each \n         burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>"
           }
         }
       },
@@ -3187,6 +3845,28 @@
     },
     "com.amazonaws.applicationsignals#WarningThreshold": {
       "type": "double"
+    },
+    "com.amazonaws.applicationsignals#Window": {
+      "type": "structure",
+      "members": {
+        "DurationUnit": {
+          "target": "com.amazonaws.applicationsignals#DurationUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of time for the exclusion window duration. Valid values: MINUTE, HOUR, DAY, MONTH.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Duration": {
+          "target": "com.amazonaws.applicationsignals#ExclusionDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of time units for the exclusion window length.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The object that defines the time length of an exclusion window.</p>"
+      }
     }
   }
 }

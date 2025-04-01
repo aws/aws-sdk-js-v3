@@ -79,46 +79,46 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe your DB parameter groups
  * ```javascript
  * // The following example retrieves details about your DB parameter groups.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBParameterGroups": [
+ *   DBParameterGroups: [
  *     {
- *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-mysql5.7",
- *       "DBParameterGroupFamily": "aurora-mysql5.7",
- *       "DBParameterGroupName": "default.aurora-mysql5.7",
- *       "Description": "Default parameter group for aurora-mysql5.7"
+ *       DBParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-mysql5.7",
+ *       DBParameterGroupFamily: "aurora-mysql5.7",
+ *       DBParameterGroupName: "default.aurora-mysql5.7",
+ *       Description: "Default parameter group for aurora-mysql5.7"
  *     },
  *     {
- *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-postgresql9.6",
- *       "DBParameterGroupFamily": "aurora-postgresql9.6",
- *       "DBParameterGroupName": "default.aurora-postgresql9.6",
- *       "Description": "Default parameter group for aurora-postgresql9.6"
+ *       DBParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-postgresql9.6",
+ *       DBParameterGroupFamily: "aurora-postgresql9.6",
+ *       DBParameterGroupName: "default.aurora-postgresql9.6",
+ *       Description: "Default parameter group for aurora-postgresql9.6"
  *     },
  *     {
- *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora5.6",
- *       "DBParameterGroupFamily": "aurora5.6",
- *       "DBParameterGroupName": "default.aurora5.6",
- *       "Description": "Default parameter group for aurora5.6"
+ *       DBParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:pg:default.aurora5.6",
+ *       DBParameterGroupFamily: "aurora5.6",
+ *       DBParameterGroupName: "default.aurora5.6",
+ *       Description: "Default parameter group for aurora5.6"
  *     },
  *     {
- *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.mariadb10.1",
- *       "DBParameterGroupFamily": "mariadb10.1",
- *       "DBParameterGroupName": "default.mariadb10.1",
- *       "Description": "Default parameter group for mariadb10.1"
+ *       DBParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:pg:default.mariadb10.1",
+ *       DBParameterGroupFamily: "mariadb10.1",
+ *       DBParameterGroupName: "default.mariadb10.1",
+ *       Description: "Default parameter group for mariadb10.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-your-db-parameter-groups-1680279250598
  * ```
  *
+ * @public
  */
 export class DescribeDBParameterGroupsCommand extends $Command
   .classBuilder<
@@ -128,9 +128,7 @@ export class DescribeDBParameterGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +140,16 @@ export class DescribeDBParameterGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBParameterGroupsCommand)
   .de(de_DescribeDBParameterGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBParameterGroupsMessage;
+      output: DBParameterGroupsMessage;
+    };
+    sdk: {
+      input: DescribeDBParameterGroupsCommandInput;
+      output: DescribeDBParameterGroupsCommandOutput;
+    };
+  };
+}

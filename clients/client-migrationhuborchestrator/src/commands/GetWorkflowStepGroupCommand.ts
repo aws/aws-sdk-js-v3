@@ -95,6 +95,7 @@ export interface GetWorkflowStepGroupCommandOutput extends GetWorkflowStepGroupR
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowStepGroupCommand extends $Command
@@ -105,9 +106,7 @@ export class GetWorkflowStepGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetWorkflowStepGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowStepGroupCommand)
   .de(de_GetWorkflowStepGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowStepGroupRequest;
+      output: GetWorkflowStepGroupResponse;
+    };
+    sdk: {
+      input: GetWorkflowStepGroupCommandInput;
+      output: GetWorkflowStepGroupCommandOutput;
+    };
+  };
+}

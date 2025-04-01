@@ -21,6 +21,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AssociateResourceTypesCommandInput,
+  AssociateResourceTypesCommandOutput,
+} from "../commands/AssociateResourceTypesCommand";
+import {
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
 } from "../commands/BatchGetAggregateResourceConfigCommand";
@@ -81,6 +85,10 @@ import {
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
 } from "../commands/DeleteRetentionConfigurationCommand";
+import {
+  DeleteServiceLinkedConfigurationRecorderCommandInput,
+  DeleteServiceLinkedConfigurationRecorderCommandOutput,
+} from "../commands/DeleteServiceLinkedConfigurationRecorderCommand";
 import { DeleteStoredQueryCommandInput, DeleteStoredQueryCommandOutput } from "../commands/DeleteStoredQueryCommand";
 import {
   DeliverConfigSnapshotCommandInput,
@@ -187,6 +195,10 @@ import {
   DescribeRetentionConfigurationsCommandOutput,
 } from "../commands/DescribeRetentionConfigurationsCommand";
 import {
+  DisassociateResourceTypesCommandInput,
+  DisassociateResourceTypesCommandOutput,
+} from "../commands/DisassociateResourceTypesCommand";
+import {
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "../commands/GetAggregateComplianceDetailsByConfigRuleCommand";
@@ -264,6 +276,10 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "../commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConfigurationRecordersCommandInput,
+  ListConfigurationRecordersCommandOutput,
+} from "../commands/ListConfigurationRecordersCommand";
+import {
   ListConformancePackComplianceScoresCommandInput,
   ListConformancePackComplianceScoresCommandOutput,
 } from "../commands/ListConformancePackComplianceScoresCommand";
@@ -321,6 +337,10 @@ import {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput,
 } from "../commands/PutRetentionConfigurationCommand";
+import {
+  PutServiceLinkedConfigurationRecorderCommandInput,
+  PutServiceLinkedConfigurationRecorderCommandOutput,
+} from "../commands/PutServiceLinkedConfigurationRecorderCommand";
 import { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "../commands/PutStoredQueryCommand";
 import {
   SelectAggregateResourceConfigCommandInput,
@@ -363,6 +383,10 @@ import {
   AggregateEvaluationResult,
   AggregateResourceIdentifier,
   AggregationAuthorization,
+  AggregatorFilterResourceType,
+  AggregatorFilters,
+  AggregatorFilterServicePrincipal,
+  AssociateResourceTypesRequest,
   BaseConfigurationItem,
   BatchGetAggregateResourceConfigRequest,
   BatchGetAggregateResourceConfigResponse,
@@ -381,7 +405,9 @@ import {
   ConfigurationAggregator,
   ConfigurationItem,
   ConfigurationRecorder,
+  ConfigurationRecorderFilter,
   ConfigurationRecorderStatus,
+  ConflictException,
   ConformancePackComplianceFilters,
   ConformancePackComplianceScore,
   ConformancePackComplianceScoresFilters,
@@ -406,6 +432,7 @@ import {
   DeleteRemediationExceptionsRequest,
   DeleteResourceConfigRequest,
   DeleteRetentionConfigurationRequest,
+  DeleteServiceLinkedConfigurationRecorderRequest,
   DeleteStoredQueryRequest,
   DeliverConfigSnapshotRequest,
   DeliveryChannel,
@@ -450,6 +477,7 @@ import {
   DescribeRemediationExecutionStatusRequest,
   DescribeRemediationExecutionStatusResponse,
   DescribeRetentionConfigurationsRequest,
+  DisassociateResourceTypesRequest,
   Evaluation,
   EvaluationContext,
   EvaluationModeConfiguration,
@@ -508,14 +536,6 @@ import {
   LastDeliveryChannelDeleteFailedException,
   LimitExceededException,
   ListAggregateDiscoveredResourcesRequest,
-  ListConformancePackComplianceScoresRequest,
-  ListConformancePackComplianceScoresResponse,
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResponse,
-  ListResourceEvaluationsRequest,
-  ListResourceEvaluationsResponse,
-  ListStoredQueriesRequest,
-  ListTagsForResourceRequest,
   MemberAccountStatus,
   NoAvailableConfigurationRecorderException,
   NoRunningConfigurationRecorderException,
@@ -556,10 +576,7 @@ import {
   RemediationParameterValue,
   ResourceCountFilters,
   ResourceDetails,
-  ResourceEvaluation,
-  ResourceEvaluationFilters,
   ResourceFilters,
-  ResourceIdentifier,
   ResourceInUseException,
   ResourceKey,
   ResourceNotDiscoveredException,
@@ -574,10 +591,19 @@ import {
   StatusDetailFilters,
   StoredQuery,
   TemplateSSMDocumentDetails,
-  TimeWindow,
+  UnmodifiableEntityException,
   ValidationException,
 } from "../models/models_0";
 import {
+  ListConfigurationRecordersRequest,
+  ListConformancePackComplianceScoresRequest,
+  ListConformancePackComplianceScoresResponse,
+  ListDiscoveredResourcesRequest,
+  ListDiscoveredResourcesResponse,
+  ListResourceEvaluationsRequest,
+  ListResourceEvaluationsResponse,
+  ListStoredQueriesRequest,
+  ListTagsForResourceRequest,
   MaxActiveResourcesExceededException,
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
@@ -610,8 +636,12 @@ import {
   PutRemediationExceptionsResponse,
   PutResourceConfigRequest,
   PutRetentionConfigurationRequest,
+  PutServiceLinkedConfigurationRecorderRequest,
   PutStoredQueryRequest,
   ResourceConcurrentModificationException,
+  ResourceEvaluation,
+  ResourceEvaluationFilters,
+  ResourceIdentifier,
   SelectAggregateResourceConfigRequest,
   SelectResourceConfigRequest,
   StartConfigRulesEvaluationRequest,
@@ -621,9 +651,23 @@ import {
   StopConfigurationRecorderRequest,
   Tag,
   TagResourceRequest,
+  TimeWindow,
   TooManyTagsException,
   UntagResourceRequest,
 } from "../models/models_1";
+
+/**
+ * serializeAws_json1_1AssociateResourceTypesCommand
+ */
+export const se_AssociateResourceTypesCommand = async (
+  input: AssociateResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateResourceTypes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1BatchGetAggregateResourceConfigCommand
@@ -828,6 +872,19 @@ export const se_DeleteRetentionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRetentionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteServiceLinkedConfigurationRecorderCommand
+ */
+export const se_DeleteServiceLinkedConfigurationRecorderCommand = async (
+  input: DeleteServiceLinkedConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceLinkedConfigurationRecorder");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1185,6 +1242,19 @@ export const se_DescribeRetentionConfigurationsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisassociateResourceTypesCommand
+ */
+export const se_DisassociateResourceTypesCommand = async (
+  input: DisassociateResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateResourceTypes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand
  */
 export const se_GetAggregateComplianceDetailsByConfigRuleCommand = async (
@@ -1444,6 +1514,19 @@ export const se_ListAggregateDiscoveredResourcesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListConfigurationRecordersCommand
+ */
+export const se_ListConfigurationRecordersCommand = async (
+  input: ListConfigurationRecordersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListConfigurationRecorders");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListConformancePackComplianceScoresCommand
  */
 export const se_ListConformancePackComplianceScoresCommand = async (
@@ -1691,6 +1774,19 @@ export const se_PutRetentionConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1PutServiceLinkedConfigurationRecorderCommand
+ */
+export const se_PutServiceLinkedConfigurationRecorderCommand = async (
+  input: PutServiceLinkedConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutServiceLinkedConfigurationRecorder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1PutStoredQueryCommand
  */
 export const se_PutStoredQueryCommand = async (
@@ -1818,6 +1914,26 @@ export const se_UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1AssociateResourceTypesCommand
+ */
+export const de_AssociateResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateResourceTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -2103,6 +2219,26 @@ export const de_DeleteRetentionConfigurationCommand = async (
   await collectBody(output.body, context);
   const response: DeleteRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteServiceLinkedConfigurationRecorderCommand
+ */
+export const de_DeleteServiceLinkedConfigurationRecorderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceLinkedConfigurationRecorderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteServiceLinkedConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -2648,6 +2784,26 @@ export const de_DescribeRetentionConfigurationsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DisassociateResourceTypesCommand
+ */
+export const de_DisassociateResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateResourceTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand
  */
 export const de_GetAggregateComplianceDetailsByConfigRuleCommand = async (
@@ -3048,6 +3204,26 @@ export const de_ListAggregateDiscoveredResourcesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListConfigurationRecordersCommand
+ */
+export const de_ListConfigurationRecordersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationRecordersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListConfigurationRecordersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListConformancePackComplianceScoresCommand
  */
 export const de_ListConformancePackComplianceScoresCommand = async (
@@ -3416,6 +3592,26 @@ export const de_PutRetentionConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1PutServiceLinkedConfigurationRecorderCommand
+ */
+export const de_PutServiceLinkedConfigurationRecorderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutServiceLinkedConfigurationRecorderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutServiceLinkedConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1PutStoredQueryCommand
  */
 export const de_PutStoredQueryCommand = async (
@@ -3613,12 +3809,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.configservice#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
+      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.configservice#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
+      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
     case "NoAvailableConfigurationRecorderException":
     case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
@@ -3631,9 +3833,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceInUseException":
     case "com.amazonaws.configservice#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
+    case "UnmodifiableEntityException":
+    case "com.amazonaws.configservice#UnmodifiableEntityException":
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     case "NoSuchConformancePackException":
     case "com.amazonaws.configservice#NoSuchConformancePackException":
       throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
@@ -3783,6 +3985,19 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -4634,6 +4849,22 @@ const de_TooManyTagsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1UnmodifiableEntityExceptionRes
+ */
+const de_UnmodifiableEntityExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnmodifiableEntityException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnmodifiableEntityException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
@@ -4660,7 +4891,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AggregateResourceIdentifier omitted.
 
+// se_AggregatorFilterResourceType omitted.
+
+// se_AggregatorFilters omitted.
+
+// se_AggregatorFilterServicePrincipal omitted.
+
 // se_AggregatorRegionList omitted.
+
+// se_AssociateResourceTypesRequest omitted.
 
 // se_BatchGetAggregateResourceConfigRequest omitted.
 
@@ -4683,6 +4922,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ConfigurationAggregatorNameList omitted.
 
 // se_ConfigurationRecorder omitted.
+
+// se_ConfigurationRecorderFilter omitted.
+
+// se_ConfigurationRecorderFilterList omitted.
+
+// se_ConfigurationRecorderFilterValues omitted.
 
 // se_ConfigurationRecorderNameList omitted.
 
@@ -4737,6 +4982,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteResourceConfigRequest omitted.
 
 // se_DeleteRetentionConfigurationRequest omitted.
+
+// se_DeleteServiceLinkedConfigurationRecorderRequest omitted.
 
 // se_DeleteStoredQueryRequest omitted.
 
@@ -4797,6 +5044,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DescribeRemediationExecutionStatusRequest omitted.
 
 // se_DescribeRetentionConfigurationsRequest omitted.
+
+// se_DisassociateResourceTypesRequest omitted.
 
 /**
  * serializeAws_json1_1Evaluation
@@ -4898,6 +5147,8 @@ const se_GetResourceConfigHistoryRequest = (input: GetResourceConfigHistoryReque
 
 // se_ListAggregateDiscoveredResourcesRequest omitted.
 
+// se_ListConfigurationRecordersRequest omitted.
+
 // se_ListConformancePackComplianceScoresRequest omitted.
 
 // se_ListDiscoveredResourcesRequest omitted.
@@ -4990,6 +5241,8 @@ const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsReque
 
 // se_PutRetentionConfigurationRequest omitted.
 
+// se_PutServiceLinkedConfigurationRecorderRequest omitted.
+
 // se_PutStoredQueryRequest omitted.
 
 // se_RecordingGroup omitted.
@@ -5049,6 +5302,8 @@ const se_ResourceEvaluationFilters = (input: ResourceEvaluationFilters, context:
 
 // se_ResourceTypesScope omitted.
 
+// se_ResourceTypeValueList omitted.
+
 // se_ResourceValue omitted.
 
 // se_RetentionConfigurationNameList omitted.
@@ -5058,6 +5313,8 @@ const se_ResourceEvaluationFilters = (input: ResourceEvaluationFilters, context:
 // se_SelectAggregateResourceConfigRequest omitted.
 
 // se_SelectResourceConfigRequest omitted.
+
+// se_ServicePrincipalValueList omitted.
 
 // se_Source omitted.
 
@@ -5235,7 +5492,15 @@ const de_AggregationAuthorizationList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+// de_AggregatorFilterResourceType omitted.
+
+// de_AggregatorFilters omitted.
+
+// de_AggregatorFilterServicePrincipal omitted.
+
 // de_AggregatorRegionList omitted.
+
+// de_AssociateResourceTypesResponse omitted.
 
 /**
  * deserializeAws_json1_1BaseConfigurationItem
@@ -5419,6 +5684,7 @@ const de_ConfigStreamDeliveryInfo = (output: any, context: __SerdeContext): Conf
 const de_ConfigurationAggregator = (output: any, context: __SerdeContext): ConfigurationAggregator => {
   return take(output, {
     AccountAggregationSources: _json,
+    AggregatorFilters: _json,
     ConfigurationAggregatorArn: __expectString,
     ConfigurationAggregatorName: __expectString,
     CreatedBy: __expectString,
@@ -5489,6 +5755,7 @@ const de_ConfigurationItemList = (output: any, context: __SerdeContext): Configu
  */
 const de_ConfigurationRecorderStatus = (output: any, context: __SerdeContext): ConfigurationRecorderStatus => {
   return take(output, {
+    arn: __expectString,
     lastErrorCode: __expectString,
     lastErrorMessage: __expectString,
     lastStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5497,6 +5764,7 @@ const de_ConfigurationRecorderStatus = (output: any, context: __SerdeContext): C
     lastStopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     recording: __expectBoolean,
+    servicePrincipal: __expectString,
   }) as any;
 };
 
@@ -5511,6 +5779,12 @@ const de_ConfigurationRecorderStatusList = (output: any, context: __SerdeContext
     });
   return retVal;
 };
+
+// de_ConfigurationRecorderSummaries omitted.
+
+// de_ConfigurationRecorderSummary omitted.
+
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1ConformancePackComplianceScore
@@ -5645,6 +5919,8 @@ const de_ConformancePackStatusDetailsList = (output: any, context: __SerdeContex
 // de_DeleteRemediationConfigurationResponse omitted.
 
 // de_DeleteRemediationExceptionsResponse omitted.
+
+// de_DeleteServiceLinkedConfigurationRecorderResponse omitted.
 
 // de_DeleteStoredQueryResponse omitted.
 
@@ -5879,6 +6155,8 @@ const de_DescribeRemediationExecutionStatusResponse = (
 };
 
 // de_DescribeRetentionConfigurationsResponse omitted.
+
+// de_DisassociateResourceTypesResponse omitted.
 
 // de_DiscoveredResourceIdentifierList omitted.
 
@@ -6212,6 +6490,8 @@ const de_GetResourceEvaluationSummaryResponse = (
 // de_LimitExceededException omitted.
 
 // de_ListAggregateDiscoveredResourcesResponse omitted.
+
+// de_ListConfigurationRecordersResponse omitted.
 
 /**
  * deserializeAws_json1_1ListConformancePackComplianceScoresResponse
@@ -6547,6 +6827,8 @@ const de_PutRemediationExceptionsResponse = (
 
 // de_PutRetentionConfigurationResponse omitted.
 
+// de_PutServiceLinkedConfigurationRecorderResponse omitted.
+
 // de_PutStoredQueryResponse omitted.
 
 // de_QueryInfo omitted.
@@ -6727,6 +7009,8 @@ const de_ResourceIdentifierList = (output: any, context: __SerdeContext): Resour
 
 // de_ResourceTypesScope omitted.
 
+// de_ResourceTypeValueList omitted.
+
 // de_ResourceValue omitted.
 
 // de_Results omitted.
@@ -6740,6 +7024,8 @@ const de_ResourceIdentifierList = (output: any, context: __SerdeContext): Resour
 // de_SelectAggregateResourceConfigResponse omitted.
 
 // de_SelectResourceConfigResponse omitted.
+
+// de_ServicePrincipalValueList omitted.
 
 // de_Source omitted.
 
@@ -6776,6 +7062,8 @@ const de_ResourceIdentifierList = (output: any, context: __SerdeContext): Resour
 // de_TemplateSSMDocumentDetails omitted.
 
 // de_TooManyTagsException omitted.
+
+// de_UnmodifiableEntityException omitted.
 
 // de_UnprocessedResourceIdentifierList omitted.
 

@@ -43,9 +43,7 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * // const { EC2Client, AssociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateVpcCidrBlockRequest
- *   AmazonProvidedIpv6CidrBlock: true || false,
  *   CidrBlock: "STRING_VALUE",
- *   VpcId: "STRING_VALUE", // required
  *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
  *   Ipv6Pool: "STRING_VALUE",
  *   Ipv6CidrBlock: "STRING_VALUE",
@@ -53,6 +51,8 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  *   Ipv4NetmaskLength: Number("int"),
  *   Ipv6IpamPoolId: "STRING_VALUE",
  *   Ipv6NetmaskLength: Number("int"),
+ *   VpcId: "STRING_VALUE", // required
+ *   AmazonProvidedIpv6CidrBlock: true || false,
  * };
  * const command = new AssociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
@@ -66,6 +66,8 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * //     },
  * //     NetworkBorderGroup: "STRING_VALUE",
  * //     Ipv6Pool: "STRING_VALUE",
+ * //     Ipv6AddressAttribute: "public" || "private",
+ * //     IpSource: "amazon" || "byoip" || "none",
  * //   },
  * //   CidrBlockAssociation: { // VpcCidrBlockAssociation
  * //     AssociationId: "STRING_VALUE",
@@ -89,6 +91,7 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssociateVpcCidrBlockCommand extends $Command
@@ -99,9 +102,7 @@ export class AssociateVpcCidrBlockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class AssociateVpcCidrBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateVpcCidrBlockCommand)
   .de(de_AssociateVpcCidrBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateVpcCidrBlockRequest;
+      output: AssociateVpcCidrBlockResult;
+    };
+    sdk: {
+      input: AssociateVpcCidrBlockCommandInput;
+      output: AssociateVpcCidrBlockCommandOutput;
+    };
+  };
+}

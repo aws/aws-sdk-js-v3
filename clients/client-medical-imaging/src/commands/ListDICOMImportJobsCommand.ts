@@ -88,6 +88,7 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class ListDICOMImportJobsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListDICOMImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListDICOMImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDICOMImportJobsCommand)
   .de(de_ListDICOMImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDICOMImportJobsRequest;
+      output: ListDICOMImportJobsResponse;
+    };
+    sdk: {
+      input: ListDICOMImportJobsCommandInput;
+      output: ListDICOMImportJobsCommandOutput;
+    };
+  };
+}

@@ -92,104 +92,104 @@ export interface GetFindingRecommendationCommandOutput extends GetFindingRecomme
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
- * @public
+ *
  * @example Successfully fetched finding recommendation
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "finding-id",
- *   "maxResults": 3,
- *   "nextToken": "token"
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "finding-id",
+ *   maxResults: 3,
+ *   nextToken: "token"
  * };
  * const command = new GetFindingRecommendationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "completedAt": "2000-01-01T00:00:01Z",
- *   "recommendationType": "UnusedPermissionRecommendation",
- *   "recommendedSteps": [
+ *   completedAt: "2000-01-01T00:00:01Z",
+ *   recommendationType: "UnusedPermissionRecommendation",
+ *   recommendedSteps: [
  *     {
- *       "unusedPermissionsRecommendedStep": {
- *         "existingPolicyId": "policy-id",
- *         "recommendedAction": "DETACH_POLICY"
+ *       unusedPermissionsRecommendedStep: {
+ *         existingPolicyId: "policy-id",
+ *         recommendedAction: "DETACH_POLICY"
  *       }
  *     },
  *     {
- *       "unusedPermissionsRecommendedStep": {
- *         "existingPolicyId": "policy-id",
- *         "recommendedAction": "CREATE_POLICY",
- *         "recommendedPolicy": "policy-content"
+ *       unusedPermissionsRecommendedStep: {
+ *         existingPolicyId: "policy-id",
+ *         recommendedAction: "CREATE_POLICY",
+ *         recommendedPolicy: "policy-content"
  *       }
  *     }
  *   ],
- *   "resourceArn": "arn:aws:iam::111122223333:role/test",
- *   "startedAt": "2000-01-01T00:00:00Z",
- *   "status": "SUCCEEDED"
+ *   resourceArn: "arn:aws:iam::111122223333:role/test",
+ *   startedAt: "2000-01-01T00:00:00Z",
+ *   status: "SUCCEEDED"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example In progress finding recommendation
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "finding-id",
- *   "maxResults": 3
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "finding-id",
+ *   maxResults: 3
  * };
  * const command = new GetFindingRecommendationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "recommendationType": "UnusedPermissionRecommendation",
- *   "resourceArn": "arn:aws:iam::111122223333:role/test",
- *   "startedAt": "2000-01-01T00:00:00Z",
- *   "status": "IN_PROGRESS"
+ *   recommendationType: "UnusedPermissionRecommendation",
+ *   resourceArn: "arn:aws:iam::111122223333:role/test",
+ *   startedAt: "2000-01-01T00:00:00Z",
+ *   status: "IN_PROGRESS"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
  * @example Failed finding recommendation
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "finding-id",
- *   "maxResults": 3
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "finding-id",
+ *   maxResults: 3
  * };
  * const command = new GetFindingRecommendationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "completedAt": "2000-01-01T00:00:01Z",
- *   "error": {
- *     "code": "SERVICE_ERROR",
- *     "message": "Service error. Please try again."
+ *   completedAt: "2000-01-01T00:00:01Z",
+ *   error: {
+ *     code: "SERVICE_ERROR",
+ *     message: "Service error. Please try again."
  *   },
- *   "recommendationType": "UnusedPermissionRecommendation",
- *   "resourceArn": "arn:aws:iam::111122223333:role/test",
- *   "startedAt": "2000-01-01T00:00:00Z",
- *   "status": "FAILED"
+ *   recommendationType: "UnusedPermissionRecommendation",
+ *   resourceArn: "arn:aws:iam::111122223333:role/test",
+ *   startedAt: "2000-01-01T00:00:00Z",
+ *   status: "FAILED"
  * }
  * *\/
- * // example id: example-3
  * ```
  *
  * @example Failed field validation for id value
  * ```javascript
  * //
  * const input = {
- *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
- *   "id": "!"
+ *   analyzerArn: "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   id: "!"
  * };
  * const command = new GetFindingRecommendationCommand(input);
- * await client.send(command);
- * // example id: example-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class GetFindingRecommendationCommand extends $Command
   .classBuilder<
@@ -199,9 +199,7 @@ export class GetFindingRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +211,16 @@ export class GetFindingRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingRecommendationCommand)
   .de(de_GetFindingRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingRecommendationRequest;
+      output: GetFindingRecommendationResponse;
+    };
+    sdk: {
+      input: GetFindingRecommendationCommandInput;
+      output: GetFindingRecommendationCommandOutput;
+    };
+  };
+}

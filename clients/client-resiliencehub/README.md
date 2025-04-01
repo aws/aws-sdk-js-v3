@@ -14,7 +14,7 @@ applications are met, and resolve issues before they are released into productio
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resiliencehub
+To install this package, simply type add or install @aws-sdk/client-resiliencehub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resiliencehub`
@@ -209,6 +209,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/AcceptResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AcceptResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AcceptResourceGroupingRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 AddDraftAppVersionResourceMappings
 </summary>
 
@@ -385,10 +393,26 @@ DescribeDraftAppVersionResourcesImportStatus
 </details>
 <details>
 <summary>
+DescribeMetricsExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeMetricsExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeMetricsExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeMetricsExportCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeResiliencyPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeResiliencyPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResiliencyPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResiliencyPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeResourceGroupingRecommendationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeResourceGroupingRecommendationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResourceGroupingRecommendationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResourceGroupingRecommendationTaskCommandOutput/)
 
 </details>
 <details>
@@ -497,6 +521,14 @@ ListAppVersions
 </details>
 <details>
 <summary>
+ListMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRecommendationTemplates
 </summary>
 
@@ -509,6 +541,14 @@ ListResiliencyPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListResiliencyPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResiliencyPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResiliencyPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResourceGroupingRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -569,6 +609,14 @@ PutDraftAppVersionTemplate
 </details>
 <details>
 <summary>
+RejectResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/RejectResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RejectResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RejectResourceGroupingRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 RemoveDraftAppVersionResourceMappings
 </summary>
 
@@ -589,6 +637,22 @@ StartAppAssessment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartMetricsExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartMetricsExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartMetricsExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartMetricsExportCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartResourceGroupingRecommendationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartResourceGroupingRecommendationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartResourceGroupingRecommendationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartResourceGroupingRecommendationTaskCommandOutput/)
 
 </details>
 <details>

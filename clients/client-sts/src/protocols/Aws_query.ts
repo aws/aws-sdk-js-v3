@@ -24,6 +24,7 @@ import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "../commands/AssumeRoleWithWebIdentityCommand";
+import { AssumeRootCommandInput, AssumeRootCommandOutput } from "../commands/AssumeRootCommand";
 import {
   DecodeAuthorizationMessageCommandInput,
   DecodeAuthorizationMessageCommandOutput,
@@ -40,6 +41,8 @@ import {
   AssumeRoleWithSAMLResponse,
   AssumeRoleWithWebIdentityRequest,
   AssumeRoleWithWebIdentityResponse,
+  AssumeRootRequest,
+  AssumeRootResponse,
   Credentials,
   DecodeAuthorizationMessageRequest,
   DecodeAuthorizationMessageResponse,
@@ -112,6 +115,23 @@ export const se_AssumeRoleWithWebIdentityCommand = async (
   body = buildFormUrlencodedString({
     ...se_AssumeRoleWithWebIdentityRequest(input, context),
     [_A]: _ARWWI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryAssumeRootCommand
+ */
+export const se_AssumeRootCommand = async (
+  input: AssumeRootCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AssumeRootRequest(input, context),
+    [_A]: _ARs,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -256,6 +276,26 @@ export const de_AssumeRoleWithWebIdentityCommand = async (
   let contents: any = {};
   contents = de_AssumeRoleWithWebIdentityResponse(data.AssumeRoleWithWebIdentityResult, context);
   const response: AssumeRoleWithWebIdentityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAssumeRootCommand
+ */
+export const de_AssumeRootCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssumeRootCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssumeRootResponse(data.AssumeRootResult, context);
+  const response: AssumeRootCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -676,6 +716,27 @@ const se_AssumeRoleWithWebIdentityRequest = (input: AssumeRoleWithWebIdentityReq
 };
 
 /**
+ * serializeAws_queryAssumeRootRequest
+ */
+const se_AssumeRootRequest = (input: AssumeRootRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_TP] != null) {
+    entries[_TP] = input[_TP];
+  }
+  if (input[_TPA] != null) {
+    const memberEntries = se_PolicyDescriptorType(input[_TPA], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TaskPolicyArn.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDecodeAuthorizationMessageRequest
  */
 const se_DecodeAuthorizationMessageRequest = (
@@ -976,6 +1037,20 @@ const de_AssumeRoleWithWebIdentityResponse = (
 };
 
 /**
+ * deserializeAws_queryAssumeRootResponse
+ */
+const de_AssumeRootResponse = (output: any, context: __SerdeContext): AssumeRootResponse => {
+  const contents: any = {};
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
+  }
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCredentials
  */
 const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
@@ -1222,6 +1297,7 @@ const _ARI = "AssumedRoleId";
 const _ARU = "AssumedRoleUser";
 const _ARWSAML = "AssumeRoleWithSAML";
 const _ARWWI = "AssumeRoleWithWebIdentity";
+const _ARs = "AssumeRoot";
 const _Ac = "Account";
 const _Ar = "Arn";
 const _Au = "Audience";
@@ -1263,6 +1339,8 @@ const _ST = "SubjectType";
 const _STe = "SessionToken";
 const _T = "Tags";
 const _TC = "TokenCode";
+const _TP = "TargetPrincipal";
+const _TPA = "TaskPolicyArn";
 const _TTK = "TransitiveTagKeys";
 const _UI = "UserId";
 const _V = "Version";

@@ -29,6 +29,12 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
 
 /**
  * <p>Deletes an environment member from a development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,19 +81,22 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example DeleteEnvironmentMembership
  * ```javascript
  * //
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *   userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser"
  * };
  * const command = new DeleteEnvironmentMembershipCommand(input);
- * await client.send(command);
- * // example id: deleteenvironmentmembership-1516822975655
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteEnvironmentMembershipCommand extends $Command
   .classBuilder<
@@ -97,9 +106,7 @@ export class DeleteEnvironmentMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +118,16 @@ export class DeleteEnvironmentMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentMembershipCommand)
   .de(de_DeleteEnvironmentMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentMembershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentMembershipCommandInput;
+      output: DeleteEnvironmentMembershipCommandOutput;
+    };
+  };
+}

@@ -37,6 +37,7 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteDomainNameRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,7 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainNameCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteDomainNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainNameCommand)
   .de(de_DeleteDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDomainNameCommandInput;
+      output: DeleteDomainNameCommandOutput;
+    };
+  };
+}

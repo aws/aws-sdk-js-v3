@@ -94,6 +94,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnalysisCommand extends $Command
@@ -104,9 +105,7 @@ export class DeleteAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class DeleteAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnalysisCommand)
   .de(de_DeleteAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnalysisRequest;
+      output: DeleteAnalysisResponse;
+    };
+    sdk: {
+      input: DeleteAnalysisCommandInput;
+      output: DeleteAnalysisCommandOutput;
+    };
+  };
+}

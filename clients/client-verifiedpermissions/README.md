@@ -74,7 +74,7 @@ naming convention is used for the structures:</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-verifiedpermissions
+To install this package, simply type add or install @aws-sdk/client-verifiedpermissions
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-verifiedpermissions`
@@ -267,6 +267,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+BatchGetPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/BatchGetPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/BatchGetPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/BatchGetPolicyCommandOutput/)
+
+</details>
 <details>
 <summary>
 BatchIsAuthorized

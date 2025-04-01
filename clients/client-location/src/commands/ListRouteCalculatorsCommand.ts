@@ -79,6 +79,7 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ListRouteCalculatorsCommand extends $Command
@@ -89,9 +90,7 @@ export class ListRouteCalculatorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListRouteCalculatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRouteCalculatorsCommand)
   .de(de_ListRouteCalculatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRouteCalculatorsRequest;
+      output: ListRouteCalculatorsResponse;
+    };
+    sdk: {
+      input: ListRouteCalculatorsCommandInput;
+      output: ListRouteCalculatorsCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,7 @@ export interface ListLogSourcesCommandInput extends ListLogSourcesRequest {}
 export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the log sources in the current Amazon Web Services Region.</p>
+ * <p>Retrieves the log sources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,6 +135,7 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class ListLogSourcesCommand extends $Command
@@ -145,9 +146,7 @@ export class ListLogSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class ListLogSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLogSourcesCommand)
   .de(de_ListLogSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLogSourcesRequest;
+      output: ListLogSourcesResponse;
+    };
+    sdk: {
+      input: ListLogSourcesCommandInput;
+      output: ListLogSourcesCommandOutput;
+    };
+  };
+}

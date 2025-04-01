@@ -110,6 +110,7 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  *       MatchOptions: "<MatchOptions>",
  *     },
  *   },
+ *   BillingViewArn: "STRING_VALUE",
  *   PredictionIntervalLevel: Number("int"),
  * };
  * const command = new GetCostForecastCommand(input);
@@ -146,8 +147,12 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
+ *
  *
  * @public
  */
@@ -159,9 +164,7 @@ export class GetCostForecastCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +176,16 @@ export class GetCostForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostForecastCommand)
   .de(de_GetCostForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostForecastRequest;
+      output: GetCostForecastResponse;
+    };
+    sdk: {
+      input: GetCostForecastCommandInput;
+      output: GetCostForecastCommandOutput;
+    };
+  };
+}

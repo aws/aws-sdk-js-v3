@@ -113,6 +113,7 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateKeyGroupCommand extends $Command
@@ -123,9 +124,7 @@ export class UpdateKeyGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class UpdateKeyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKeyGroupCommand)
   .de(de_UpdateKeyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeyGroupRequest;
+      output: UpdateKeyGroupResult;
+    };
+    sdk: {
+      input: UpdateKeyGroupCommandInput;
+      output: UpdateKeyGroupCommandOutput;
+    };
+  };
+}

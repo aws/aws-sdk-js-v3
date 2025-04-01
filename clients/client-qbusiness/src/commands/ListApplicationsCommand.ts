@@ -29,6 +29,12 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 
 /**
  * <p>Lists Amazon Q Business applications.</p>
+ *          <note>
+ *             <p>Amazon Q Business applications may securely transmit data for processing across
+ *                     Amazon Web Services Regions within your geography. For more information, see
+ *                     <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html">Cross region
+ *                     inference in Amazon Q Business</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +56,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
+ * //       identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
+ * //       quickSightConfiguration: { // QuickSightConfiguration
+ * //         clientNamespace: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -81,6 +91,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command
@@ -91,9 +102,7 @@ export class ListApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +114,16 @@ export class ListApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationsCommand)
   .de(de_ListApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationsRequest;
+      output: ListApplicationsResponse;
+    };
+    sdk: {
+      input: ListApplicationsCommandInput;
+      output: ListApplicationsCommandOutput;
+    };
+  };
+}

@@ -29,7 +29,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
 
 /**
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +128,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             JA3Fingerprint: { // JA3Fingerprint
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: { // JA4Fingerprint
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: { // UriFragment
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -195,6 +201,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -258,6 +270,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -315,6 +333,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             },
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
  *             },
  *           },
  *           ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -451,6 +475,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -567,6 +597,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                   },
  *                   UriPath: { // RateLimitUriPath
  *                     TextTransformations: "<TextTransformations>", // required
+ *                   },
+ *                   JA3Fingerprint: { // RateLimitJA3Fingerprint
+ *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *                   },
+ *                   JA4Fingerprint: { // RateLimitJA4Fingerprint
+ *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *                   },
  *                 },
  *               ],
@@ -781,6 +817,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               UriPath: {
  *                 TextTransformations: "<TextTransformations>", // required
  *               },
+ *               JA3Fingerprint: {
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *               },
+ *               JA4Fingerprint: {
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *               },
  *             },
  *           ],
  *         },
@@ -984,6 +1026,21 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *     CloudWatchMetricsEnabled: true || false, // required
  *     MetricName: "STRING_VALUE", // required
  *   },
+ *   DataProtectionConfig: { // DataProtectionConfig
+ *     DataProtections: [ // DataProtections // required
+ *       { // DataProtection
+ *         Field: { // FieldToProtect
+ *           FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ *           FieldKeys: [ // FieldToProtectKeys
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Action: "SUBSTITUTION" || "HASH", // required
+ *         ExcludeRuleMatchDetails: true || false,
+ *         ExcludeRateBasedDetails: true || false,
+ *       },
+ *     ],
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -1123,11 +1180,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *  <p>WAF couldn’t retrieve a resource that you specified for this operation.
  *        If you've just created a resource that you're using in this operation, you might
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resources that you are specifying in your request
+ *        for changes to propagate. Verify the resource specifications in your request
  *        parameters and then retry the operation.</p>
  *
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
+ *
  *
  * @public
  */
@@ -1139,9 +1197,7 @@ export class CreateWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1153,4 +1209,16 @@ export class CreateWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebACLCommand)
   .de(de_CreateWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebACLRequest;
+      output: CreateWebACLResponse;
+    };
+    sdk: {
+      input: CreateWebACLCommandInput;
+      output: CreateWebACLCommandOutput;
+    };
+  };
+}

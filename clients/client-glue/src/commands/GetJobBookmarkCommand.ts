@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/models_1";
+import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/models_2";
 import { de_GetJobBookmarkCommand, se_GetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -97,6 +97,7 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobBookmarkCommand extends $Command
@@ -107,9 +108,7 @@ export class GetJobBookmarkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class GetJobBookmarkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobBookmarkCommand)
   .de(de_GetJobBookmarkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobBookmarkRequest;
+      output: GetJobBookmarkResponse;
+    };
+    sdk: {
+      input: GetJobBookmarkCommandInput;
+      output: GetJobBookmarkCommandOutput;
+    };
+  };
+}

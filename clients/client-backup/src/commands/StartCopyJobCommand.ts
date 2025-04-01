@@ -88,6 +88,7 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class StartCopyJobCommand extends $Command
@@ -98,9 +99,7 @@ export class StartCopyJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class StartCopyJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCopyJobCommand)
   .de(de_StartCopyJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCopyJobInput;
+      output: StartCopyJobOutput;
+    };
+    sdk: {
+      input: StartCopyJobCommandInput;
+      output: StartCopyJobCommandOutput;
+    };
+  };
+}

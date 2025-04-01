@@ -100,6 +100,7 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class SearchProvisionedProductsCommand extends $Command
@@ -110,9 +111,7 @@ export class SearchProvisionedProductsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class SearchProvisionedProductsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchProvisionedProductsCommand)
   .de(de_SearchProvisionedProductsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchProvisionedProductsInput;
+      output: SearchProvisionedProductsOutput;
+    };
+    sdk: {
+      input: SearchProvisionedProductsCommandInput;
+      output: SearchProvisionedProductsCommandOutput;
+    };
+  };
+}

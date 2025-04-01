@@ -59,6 +59,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnomalyMonitorCommand extends $Command
@@ -69,9 +70,7 @@ export class DeleteAnomalyMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class DeleteAnomalyMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnomalyMonitorCommand)
   .de(de_DeleteAnomalyMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnomalyMonitorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAnomalyMonitorCommandInput;
+      output: DeleteAnomalyMonitorCommandOutput;
+    };
+  };
+}

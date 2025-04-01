@@ -56,7 +56,9 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
  * //       },
  * //       Resource: { // Resource
- * //         Catalog: {},
+ * //         Catalog: { // CatalogResource
+ * //           Id: "STRING_VALUE",
+ * //         },
  * //         Database: { // DatabaseResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
@@ -100,7 +102,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * //         LFTagPolicy: { // LFTagPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           ResourceType: "DATABASE" || "TABLE", // required
- * //           Expression: [ // Expression // required
+ * //           Expression: [ // Expression
  * //             { // LFTag
  * //               TagKey: "STRING_VALUE", // required
  * //               TagValues: [ // required
@@ -108,13 +110,21 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * //               ],
  * //             },
  * //           ],
+ * //           ExpressionName: "STRING_VALUE",
+ * //         },
+ * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       Condition: { // Condition
+ * //         Expression: "STRING_VALUE",
+ * //       },
  * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //       ],
  * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //       ],
  * //       AdditionalDetails: { // DetailsMap
  * //         ResourceShare: [ // ResourceShareList
@@ -151,6 +161,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetEffectivePermissionsForPathCommand extends $Command
@@ -161,9 +172,7 @@ export class GetEffectivePermissionsForPathCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +184,16 @@ export class GetEffectivePermissionsForPathCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEffectivePermissionsForPathCommand)
   .de(de_GetEffectivePermissionsForPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEffectivePermissionsForPathRequest;
+      output: GetEffectivePermissionsForPathResponse;
+    };
+    sdk: {
+      input: GetEffectivePermissionsForPathCommandInput;
+      output: GetEffectivePermissionsForPathCommandOutput;
+    };
+  };
+}

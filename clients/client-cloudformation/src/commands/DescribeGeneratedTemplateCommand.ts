@@ -28,9 +28,10 @@ export interface DescribeGeneratedTemplateCommandInput extends DescribeGenerated
 export interface DescribeGeneratedTemplateCommandOutput extends DescribeGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Describes a generated template. The output includes details about the progress of the creation of a generated
- *    template started by a <code>CreateGeneratedTemplate</code> API action or the update of a generated template started
- *    with an <code>UpdateGeneratedTemplate</code> API action.</p>
+ * <p>Describes a generated template. The output includes details about the progress of the
+ *       creation of a generated template started by a <code>CreateGeneratedTemplate</code> API action
+ *       or the update of a generated template started with an <code>UpdateGeneratedTemplate</code> API
+ *       action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,39 +101,8 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
- * @example To describe a generated template
- * ```javascript
- * // This example describes a generated template
- * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate"
- * };
- * const command = new DescribeGeneratedTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreationTime": "2023-12-28T17:55:20.086000+00:00",
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:*:generatedtemplate/*",
- *   "GeneratedTemplateName": "DeletedResourceTest",
- *   "LastUpdatedTime": "2023-12-28T17:57:16.610000+00:00",
- *   "Progress": {
- *     "ResourcesFailed": 0,
- *     "ResourcesPending": 0,
- *     "ResourcesProcessing": 0,
- *     "ResourcesSucceeded": 0
- *   },
- *   "Status": "COMPLETE",
- *   "StatusReason": "All resources complete",
- *   "TemplateConfiguration": {
- *     "DeletionPolicy": "RETAIN",
- *     "UpdateReplacePolicy": "RETAIN"
- *   },
- *   "TotalWarnings": 0
- * }
- * *\/
- * // example id: to-describe-a-generated-template
- * ```
  *
+ * @public
  */
 export class DescribeGeneratedTemplateCommand extends $Command
   .classBuilder<
@@ -142,9 +112,7 @@ export class DescribeGeneratedTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +124,16 @@ export class DescribeGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGeneratedTemplateCommand)
   .de(de_DescribeGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGeneratedTemplateInput;
+      output: DescribeGeneratedTemplateOutput;
+    };
+    sdk: {
+      input: DescribeGeneratedTemplateCommandInput;
+      output: DescribeGeneratedTemplateCommandOutput;
+    };
+  };
+}

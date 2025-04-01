@@ -34,7 +34,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
 
 /**
  * <p>Set default log level, or log levels by resource types. This can be for wireless
- *             device log options or wireless gateways log options and is used to control the log
+ *             device, wireless gateway, or FUOTA task log options, and is used to control the log
  *             messages that'll be displayed in CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +44,18 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateLogLevelsByResourceTypesRequest
  *   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",
+ *   FuotaTaskLogOptions: [ // FuotaTaskLogOptionList
+ *     { // FuotaTaskLogOption
+ *       Type: "LoRaWAN", // required
+ *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *       Events: [ // FuotaTaskEventLogOptionList
+ *         { // FuotaTaskEventLogOption
+ *           Event: "Fuota", // required
+ *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   WirelessDeviceLogOptions: [ // WirelessDeviceLogOptionList
  *     { // WirelessDeviceLogOption
  *       Type: "Sidewalk" || "LoRaWAN", // required
@@ -102,6 +114,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateLogLevelsByResourceTypesCommand extends $Command
@@ -112,9 +125,7 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +137,16 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLogLevelsByResourceTypesCommand)
   .de(de_UpdateLogLevelsByResourceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLogLevelsByResourceTypesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLogLevelsByResourceTypesCommandInput;
+      output: UpdateLogLevelsByResourceTypesCommandOutput;
+    };
+  };
+}

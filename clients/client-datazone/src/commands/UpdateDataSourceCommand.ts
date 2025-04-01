@@ -11,7 +11,7 @@ import {
   UpdateDataSourceInputFilterSensitiveLog,
   UpdateDataSourceOutput,
   UpdateDataSourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  *         },
  *       ],
  *       autoImportDataQualityResult: true || false,
+ *       catalogName: "STRING_VALUE",
  *     },
  *     redshiftRunConfiguration: { // RedshiftRunConfigurationInput
  *       dataAccessRole: "STRING_VALUE",
@@ -102,6 +103,13 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  *         },
  *       },
  *     },
+ *     sageMakerRunConfiguration: { // SageMakerRunConfigurationInput
+ *       trackingAssets: { // TrackingAssets // required
+ *         "<keys>": [ // TrackingAssetArns
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
  *   },
  *   recommendation: { // RecommendationConfiguration
  *     enableBusinessNameGeneration: true || false,
@@ -118,7 +126,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -137,6 +146,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -164,6 +174,15 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },
@@ -256,6 +275,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSourceCommand extends $Command
@@ -266,9 +286,7 @@ export class UpdateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -280,4 +298,16 @@ export class UpdateDataSourceCommand extends $Command
   .f(UpdateDataSourceInputFilterSensitiveLog, UpdateDataSourceOutputFilterSensitiveLog)
   .ser(se_UpdateDataSourceCommand)
   .de(de_UpdateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSourceInput;
+      output: UpdateDataSourceOutput;
+    };
+    sdk: {
+      input: UpdateDataSourceCommandInput;
+      output: UpdateDataSourceCommandOutput;
+    };
+  };
+}

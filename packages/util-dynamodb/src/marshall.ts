@@ -13,7 +13,11 @@ export interface marshallOptions {
    */
   convertEmptyValues?: boolean;
   /**
-   * Whether to remove undefined values while marshalling.
+   * Whether to remove undefined values from JS arrays/Sets/objects
+   * when marshalling to DynamoDB lists/sets/maps respectively.
+   *
+   * A DynamoDB item is not itself considered a map. Only
+   * attributes of an item are examined.
    */
   removeUndefinedValues?: boolean;
   /**
@@ -28,6 +32,14 @@ export interface marshallOptions {
    * but false if directly using the marshall function (backwards compatibility).
    */
   convertTopLevelContainer?: boolean;
+  /**
+   * Whether to allow numbers beyond Number.MAX_SAFE_INTEGER during marshalling.
+   * When set to true, allows numbers that may lose precision when converted to JavaScript numbers.
+   * When false (default), throws an error if a number exceeds Number.MAX_SAFE_INTEGER to prevent
+   * unintended loss of precision. Consider using the NumberValue type from @aws-sdk/lib-dynamodb
+   * for precise handling of large numbers.
+   */
+  allowImpreciseNumbers?: boolean;
 }
 
 /**

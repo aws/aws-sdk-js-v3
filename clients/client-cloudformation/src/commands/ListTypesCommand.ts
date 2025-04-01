@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTypesInput, ListTypesOutput } from "../models/models_0";
+import { ListTypesInput, ListTypesOutput } from "../models/models_1";
 import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_query";
 
 /**
@@ -28,7 +28,8 @@ export interface ListTypesCommandInput extends ListTypesInput {}
 export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
+ * <p>Returns summary information about extension that have been registered with
+ *       CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +86,7 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListTypesCommand extends $Command
@@ -95,9 +97,7 @@ export class ListTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class ListTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTypesCommand)
   .de(de_ListTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTypesInput;
+      output: ListTypesOutput;
+    };
+    sdk: {
+      input: ListTypesCommandInput;
+      output: ListTypesCommandOutput;
+    };
+  };
+}

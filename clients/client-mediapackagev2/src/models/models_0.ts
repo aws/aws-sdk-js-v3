@@ -10,7 +10,7 @@ import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackag
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -53,6 +53,278 @@ export const AdMarkerHls = {
 export type AdMarkerHls = (typeof AdMarkerHls)[keyof typeof AdMarkerHls];
 
 /**
+ * @public
+ */
+export interface CancelHarvestJobRequest {
+  /**
+   * <p>The name of the channel group containing the channel from which the harvest job is running.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel from which the harvest job is running.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint that the harvest job is harvesting from. This cannot be changed after the harvest job is submitted.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The name of the harvest job to cancel. This name must be unique within the channel and cannot be changed after the harvest job is submitted.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>The current Entity Tag (ETag) associated with the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelHarvestJobResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionType = {
+  CONFLICTING_OPERATION: "CONFLICTING_OPERATION",
+  IDEMPOTENT_PARAMETER_MISMATCH: "IDEMPOTENT_PARAMETER_MISMATCH",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_IN_USE: "RESOURCE_IN_USE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionType = (typeof ConflictExceptionType)[keyof typeof ConflictExceptionType];
+
+/**
+ * <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The type of ConflictException.</p>
+   * @public
+   */
+  ConflictExceptionType?: ConflictExceptionType | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.ConflictExceptionType = opts.ConflictExceptionType;
+  }
+}
+
+/**
+ * <p>Indicates that an error from the service occurred while trying to process a request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeNotFound = {
+  CHANNEL: "CHANNEL",
+  CHANNEL_GROUP: "CHANNEL_GROUP",
+  HARVEST_JOB: "HARVEST_JOB",
+  ORIGIN_ENDPOINT: "ORIGIN_ENDPOINT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTypeNotFound = (typeof ResourceTypeNotFound)[keyof typeof ResourceTypeNotFound];
+
+/**
+ * <p>The specified resource doesn't exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The specified resource type wasn't found.</p>
+   * @public
+   */
+  ResourceTypeNotFound?: ResourceTypeNotFound | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceTypeNotFound = opts.ResourceTypeNotFound;
+  }
+}
+
+/**
+ * <p>The request throughput limit was exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionType = {
+  CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
+  CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
+  CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
+  DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
+  DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
+  DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
+  ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
+  ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
+  ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
+  ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
+  END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
+  HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION: "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION",
+  HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT: "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT",
+  HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED: "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED",
+  HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION: "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION",
+  HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE: "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE",
+  HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION: "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION",
+  INVALID_HARVEST_JOB_DURATION: "INVALID_HARVEST_JOB_DURATION",
+  INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
+  INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
+  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
+  INVALID_POLICY: "INVALID_POLICY",
+  INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
+  INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
+  MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
+  MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
+  MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
+  MEMBER_INVALID: "MEMBER_INVALID",
+  MEMBER_INVALID_ENUM_VALUE: "MEMBER_INVALID_ENUM_VALUE",
+  MEMBER_MAX_LENGTH: "MEMBER_MAX_LENGTH",
+  MEMBER_MAX_VALUE: "MEMBER_MAX_VALUE",
+  MEMBER_MIN_LENGTH: "MEMBER_MIN_LENGTH",
+  MEMBER_MIN_VALUE: "MEMBER_MIN_VALUE",
+  MEMBER_MISSING: "MEMBER_MISSING",
+  NONE_MODE_WITH_TIMING_SOURCE: "NONE_MODE_WITH_TIMING_SOURCE",
+  NUM_MANIFESTS_HIGH: "NUM_MANIFESTS_HIGH",
+  NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION:
+    "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
+  PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
+  ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
+  ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
+  ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
+  SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
+  START_TAG_TIME_OFFSET_INVALID: "START_TAG_TIME_OFFSET_INVALID",
+  TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
+  TOO_MANY_IN_PROGRESS_HARVEST_JOBS: "TOO_MANY_IN_PROGRESS_HARVEST_JOBS",
+  TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
+  UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
+  URL_INVALID: "URL_INVALID",
+  URL_LINK_LOCAL_ADDRESS: "URL_LINK_LOCAL_ADDRESS",
+  URL_LOCAL_ADDRESS: "URL_LOCAL_ADDRESS",
+  URL_LOOPBACK_ADDRESS: "URL_LOOPBACK_ADDRESS",
+  URL_MULTICAST_ADDRESS: "URL_MULTICAST_ADDRESS",
+  URL_PORT: "URL_PORT",
+  URL_SCHEME: "URL_SCHEME",
+  URL_UNKNOWN_HOST: "URL_UNKNOWN_HOST",
+  URL_USER_INFO: "URL_USER_INFO",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionType = (typeof ValidationExceptionType)[keyof typeof ValidationExceptionType];
+
+/**
+ * <p>The input failed to meet the constraints specified by the AWS service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The type of ValidationException.</p>
+   * @public
+   */
+  ValidationExceptionType?: ValidationExceptionType | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.ValidationExceptionType = opts.ValidationExceptionType;
+  }
+}
+
+/**
  * <p>The configuration of the channel group.</p>
  * @public
  */
@@ -85,51 +357,7 @@ export interface ChannelGroupListConfiguration {
    * <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
    * @public
    */
-  Description?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionType = {
-  CONFLICTING_OPERATION: "CONFLICTING_OPERATION",
-  IDEMPOTENT_PARAMETER_MISMATCH: "IDEMPOTENT_PARAMETER_MISMATCH",
-  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_IN_USE: "RESOURCE_IN_USE",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionType = (typeof ConflictExceptionType)[keyof typeof ConflictExceptionType];
-
-/**
- * <p>Updating or deleting this resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The type of ConflictException.</p>
-   * @public
-   */
-  ConflictExceptionType?: ConflictExceptionType;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ConflictExceptionType = opts.ConflictExceptionType;
-  }
+  Description?: string | undefined;
 }
 
 /**
@@ -153,138 +381,6 @@ export interface DeleteChannelPolicyRequest {
  * @public
  */
 export interface DeleteChannelPolicyResponse {}
-
-/**
- * <p>Indicates that an error from the service occurred while trying to process a request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request throughput limit was exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionType = {
-  CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
-  CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
-  DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
-  DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
-  DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
-  ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
-  ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
-  ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
-  ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
-  END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
-  INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
-  INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
-  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
-  INVALID_POLICY: "INVALID_POLICY",
-  INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
-  INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
-  MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
-  MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
-  MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
-  MEMBER_INVALID: "MEMBER_INVALID",
-  MEMBER_INVALID_ENUM_VALUE: "MEMBER_INVALID_ENUM_VALUE",
-  MEMBER_MAX_LENGTH: "MEMBER_MAX_LENGTH",
-  MEMBER_MAX_VALUE: "MEMBER_MAX_VALUE",
-  MEMBER_MIN_LENGTH: "MEMBER_MIN_LENGTH",
-  MEMBER_MIN_VALUE: "MEMBER_MIN_VALUE",
-  MEMBER_MISSING: "MEMBER_MISSING",
-  NONE_MODE_WITH_TIMING_SOURCE: "NONE_MODE_WITH_TIMING_SOURCE",
-  NUM_MANIFESTS_HIGH: "NUM_MANIFESTS_HIGH",
-  NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
-  ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION:
-    "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
-  PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
-  ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
-  ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
-  ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
-  SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
-  TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
-  TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
-  UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
-  URL_INVALID: "URL_INVALID",
-  URL_LINK_LOCAL_ADDRESS: "URL_LINK_LOCAL_ADDRESS",
-  URL_LOCAL_ADDRESS: "URL_LOCAL_ADDRESS",
-  URL_LOOPBACK_ADDRESS: "URL_LOOPBACK_ADDRESS",
-  URL_MULTICAST_ADDRESS: "URL_MULTICAST_ADDRESS",
-  URL_PORT: "URL_PORT",
-  URL_SCHEME: "URL_SCHEME",
-  URL_UNKNOWN_HOST: "URL_UNKNOWN_HOST",
-  URL_USER_INFO: "URL_USER_INFO",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionType = (typeof ValidationExceptionType)[keyof typeof ValidationExceptionType];
-
-/**
- * <p>The input failed to meet the constraints specified by the AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The type of ValidationException.</p>
-   * @public
-   */
-  ValidationExceptionType?: ValidationExceptionType;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.ValidationExceptionType = opts.ValidationExceptionType;
-  }
-}
 
 /**
  * @public
@@ -328,49 +424,6 @@ export interface GetChannelPolicyResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceTypeNotFound = {
-  CHANNEL: "CHANNEL",
-  CHANNEL_GROUP: "CHANNEL_GROUP",
-  ORIGIN_ENDPOINT: "ORIGIN_ENDPOINT",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeNotFound = (typeof ResourceTypeNotFound)[keyof typeof ResourceTypeNotFound];
-
-/**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The specified resource type wasn't found.</p>
-   * @public
-   */
-  ResourceTypeNotFound?: ResourceTypeNotFound;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceTypeNotFound = opts.ResourceTypeNotFound;
-  }
-}
-
-/**
- * @public
  */
 export interface PutChannelPolicyRequest {
   /**
@@ -398,6 +451,18 @@ export interface PutChannelPolicyRequest {
 export interface PutChannelPolicyResponse {}
 
 /**
+ * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+ * @public
+ */
+export interface InputSwitchConfiguration {
+  /**
+   * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  MQCSInputSwitching?: boolean | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -410,6 +475,18 @@ export const InputType = {
  * @public
  */
 export type InputType = (typeof InputType)[keyof typeof InputType];
+
+/**
+ * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+ * @public
+ */
+export interface OutputHeaderConfiguration {
+  /**
+   * <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  PublishMQCS?: boolean | undefined;
+}
 
 /**
  * @public
@@ -431,7 +508,7 @@ export interface CreateChannelRequest {
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
@@ -448,13 +525,25 @@ export interface CreateChannelRequest {
    *          </ul>
    * @public
    */
-  InputType?: InputType;
+  InputType?: InputType | undefined;
 
   /**
    * <p>Enter any descriptive text that helps you to identify the channel.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 
   /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
@@ -466,7 +555,7 @@ export interface CreateChannelRequest {
    *          </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -478,13 +567,13 @@ export interface IngestEndpoint {
    * <p>The system-generated unique identifier for the IngestEndpoint.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ingest domain URL where the source stream should be sent.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -525,13 +614,13 @@ export interface CreateChannelResponse {
    * <p>The description for your channel.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The list of ingest endpoints.</p>
    * @public
    */
-  IngestEndpoints?: IngestEndpoint[];
+  IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
    * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
@@ -548,19 +637,31 @@ export interface CreateChannelResponse {
    *          </ul>
    * @public
    */
-  InputType?: InputType;
+  InputType?: InputType | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -570,7 +671,7 @@ export interface CreateChannelResponse {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -659,16 +760,22 @@ export interface GetChannelResponse {
   ModifiedAt: Date | undefined;
 
   /**
+   * <p>The time that the channel was last reset.</p>
+   * @public
+   */
+  ResetAt?: Date | undefined;
+
+  /**
    * <p>The description for your channel.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The list of ingest endpoints.</p>
    * @public
    */
-  IngestEndpoints?: IngestEndpoint[];
+  IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
    * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
@@ -685,19 +792,31 @@ export interface GetChannelResponse {
    *          </ul>
    * @public
    */
-  InputType?: InputType;
+  InputType?: InputType | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -714,13 +833,13 @@ export interface ListChannelsRequest {
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -762,7 +881,7 @@ export interface ChannelListConfiguration {
    * <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
@@ -779,7 +898,7 @@ export interface ChannelListConfiguration {
    *          </ul>
    * @public
    */
-  InputType?: InputType;
+  InputType?: InputType | undefined;
 }
 
 /**
@@ -790,13 +909,13 @@ export interface ListChannelsResponse {
    * <p>The objects being returned.</p>
    * @public
    */
-  Items?: ChannelListConfiguration[];
+  Items?: ChannelListConfiguration[] | undefined;
 
   /**
    * <p>The pagination token from the GET list request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -836,25 +955,31 @@ export interface FilterConfiguration {
    * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
    * @public
    */
-  ManifestFilter?: string;
+  ManifestFilter?: string | undefined;
 
   /**
    * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
    * @public
    */
-  Start?: Date;
+  Start?: Date | undefined;
 
   /**
    * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
    * @public
    */
-  End?: Date;
+  End?: Date | undefined;
 
   /**
    * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
    * @public
    */
-  TimeDelaySeconds?: number;
+  TimeDelaySeconds?: number | undefined;
+
+  /**
+   * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+   * @public
+   */
+  ClipStartTime?: Date | undefined;
 }
 
 /**
@@ -894,7 +1019,7 @@ export interface ScteDash {
    *          </ul>
    * @public
    */
-  AdMarkerDash?: AdMarkerDash;
+  AdMarkerDash?: AdMarkerDash | undefined;
 }
 
 /**
@@ -935,13 +1060,13 @@ export interface DashUtcTiming {
    * <p>The UTC timing mode.</p>
    * @public
    */
-  TimingMode?: DashUtcTimingMode;
+  TimingMode?: DashUtcTimingMode | undefined;
 
   /**
    * <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
    * @public
    */
-  TimingSource?: string;
+  TimingSource?: string | undefined;
 }
 
 /**
@@ -959,31 +1084,31 @@ export interface CreateDashManifestConfiguration {
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
 
   /**
    * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
    * @public
    */
-  MinUpdatePeriodSeconds?: number;
+  MinUpdatePeriodSeconds?: number | undefined;
 
   /**
    * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
    * @public
    */
-  MinBufferTimeSeconds?: number;
+  MinBufferTimeSeconds?: number | undefined;
 
   /**
    * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
    * @public
    */
-  SuggestedPresentationDelaySeconds?: number;
+  SuggestedPresentationDelaySeconds?: number | undefined;
 
   /**
    * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
@@ -996,32 +1121,32 @@ export interface CreateDashManifestConfiguration {
    *          </ul>
    * @public
    */
-  SegmentTemplateFormat?: DashSegmentTemplateFormat;
+  SegmentTemplateFormat?: DashSegmentTemplateFormat | undefined;
 
   /**
    * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Type <code>ADS</code> to indicate that AWS Elemental MediaPackage must create periods in the output manifest that correspond to SCTE-35 ad markers in the input source. Leave this value empty to indicate that the manifest is contained all in one period.
    *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
    * @public
    */
-  PeriodTriggers?: DashPeriodTrigger[];
+  PeriodTriggers?: DashPeriodTrigger[] | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteDash?: ScteDash;
+  ScteDash?: ScteDash | undefined;
 
   /**
    * <p>Determines how the DASH manifest signals the DRM content.</p>
    * @public
    */
-  DrmSignaling?: DashDrmSignaling;
+  DrmSignaling?: DashDrmSignaling | undefined;
 
   /**
    * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
    * @public
    */
-  UtcTiming?: DashUtcTiming;
+  UtcTiming?: DashUtcTiming | undefined;
 }
 
 /**
@@ -1067,7 +1192,7 @@ export interface ForceEndpointErrorConfiguration {
    *          </ul>
    * @public
    */
-  EndpointErrorConditions?: EndpointErrorCondition[];
+  EndpointErrorConditions?: EndpointErrorCondition[] | undefined;
 }
 
 /**
@@ -1085,7 +1210,25 @@ export interface ScteHls {
    *          </ul>
    * @public
    */
-  AdMarkerHls?: AdMarkerHls;
+  AdMarkerHls?: AdMarkerHls | undefined;
+}
+
+/**
+ * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+ * @public
+ */
+export interface StartTag {
+  /**
+   * <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+   * @public
+   */
+  TimeOffset: number | undefined;
+
+  /**
+   * <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+   * @public
+   */
+  Precise?: boolean | undefined;
 }
 
 /**
@@ -1103,35 +1246,47 @@ export interface CreateHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index, with an added suffix to distinguish it from the manifest name. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteHls?: ScteHls;
+  ScteHls?: ScteHls | undefined;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag | undefined;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
-  ProgramDateTimeIntervalSeconds?: number;
+  ProgramDateTimeIntervalSeconds?: number | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1149,35 +1304,47 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index, with an added suffix to distinguish it from the manifest name. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteHls?: ScteHls;
+  ScteHls?: ScteHls | undefined;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag | undefined;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
-  ProgramDateTimeIntervalSeconds?: number;
+  ProgramDateTimeIntervalSeconds?: number | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1217,13 +1384,13 @@ export interface EncryptionMethod {
    * <p>The encryption method to use.</p>
    * @public
    */
-  TsEncryptionMethod?: TsEncryptionMethod;
+  TsEncryptionMethod?: TsEncryptionMethod | undefined;
 
   /**
    * <p>The encryption method to use.</p>
    * @public
    */
-  CmafEncryptionMethod?: CmafEncryptionMethod;
+  CmafEncryptionMethod?: CmafEncryptionMethod | undefined;
 }
 
 /**
@@ -1233,6 +1400,7 @@ export interface EncryptionMethod {
 export const DrmSystem = {
   CLEAR_KEY_AES_128: "CLEAR_KEY_AES_128",
   FAIRPLAY: "FAIRPLAY",
+  IRDETO: "IRDETO",
   PLAYREADY: "PLAYREADY",
   WIDEVINE: "WIDEVINE",
 } as const;
@@ -1426,7 +1594,7 @@ export interface Encryption {
    * <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
    * @public
    */
-  ConstantInitializationVector?: string;
+  ConstantInitializationVector?: string | undefined;
 
   /**
    * <p>The encryption method to use.</p>
@@ -1440,7 +1608,7 @@ export interface Encryption {
    *          </p>
    * @public
    */
-  KeyRotationIntervalSeconds?: number;
+  KeyRotationIntervalSeconds?: number | undefined;
 
   /**
    * <p>The parameters for the SPEKE key provider.</p>
@@ -1479,7 +1647,7 @@ export interface Scte {
    * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
    * @public
    */
-  ScteFilter?: ScteFilter[];
+  ScteFilter?: ScteFilter[] | undefined;
 }
 
 /**
@@ -1491,43 +1659,43 @@ export interface Segment {
    * <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
    * @public
    */
-  SegmentDurationSeconds?: number;
+  SegmentDurationSeconds?: number | undefined;
 
   /**
    * <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
 
   /**
    * <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
    * @public
    */
-  TsUseAudioRenditionGroup?: boolean;
+  TsUseAudioRenditionGroup?: boolean | undefined;
 
   /**
    * <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
    * @public
    */
-  IncludeIframeOnlyStreams?: boolean;
+  IncludeIframeOnlyStreams?: boolean | undefined;
 
   /**
    * <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
    * @public
    */
-  TsIncludeDvbSubtitles?: boolean;
+  TsIncludeDvbSubtitles?: boolean | undefined;
 
   /**
    * <p>The SCTE configuration options in the segment settings.</p>
    * @public
    */
-  Scte?: Scte;
+  Scte?: Scte | undefined;
 
   /**
    * <p>The parameters for encrypting content.</p>
    * @public
    */
-  Encryption?: Encryption;
+  Encryption?: Encryption | undefined;
 }
 
 /**
@@ -1562,49 +1730,49 @@ export interface CreateOriginEndpointRequest {
    * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
    * @public
    */
-  Segment?: Segment;
+  Segment?: Segment | undefined;
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
    * @public
    */
-  StartoverWindowSeconds?: number;
+  StartoverWindowSeconds?: number | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: CreateHlsManifestConfiguration[];
+  HlsManifests?: CreateHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: CreateDashManifestConfiguration[];
+  DashManifests?: CreateDashManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
@@ -1616,7 +1784,7 @@ export interface CreateOriginEndpointRequest {
    *          </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1640,31 +1808,31 @@ export interface GetDashManifestConfiguration {
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
 
   /**
    * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
    * @public
    */
-  MinUpdatePeriodSeconds?: number;
+  MinUpdatePeriodSeconds?: number | undefined;
 
   /**
    * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
    * @public
    */
-  MinBufferTimeSeconds?: number;
+  MinBufferTimeSeconds?: number | undefined;
 
   /**
    * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
    * @public
    */
-  SuggestedPresentationDelaySeconds?: number;
+  SuggestedPresentationDelaySeconds?: number | undefined;
 
   /**
    * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
@@ -1677,32 +1845,32 @@ export interface GetDashManifestConfiguration {
    *          </ul>
    * @public
    */
-  SegmentTemplateFormat?: DashSegmentTemplateFormat;
+  SegmentTemplateFormat?: DashSegmentTemplateFormat | undefined;
 
   /**
    * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
    *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
    * @public
    */
-  PeriodTriggers?: DashPeriodTrigger[];
+  PeriodTriggers?: DashPeriodTrigger[] | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteDash?: ScteDash;
+  ScteDash?: ScteDash | undefined;
 
   /**
    * <p>Determines how the DASH manifest signals the DRM content.</p>
    * @public
    */
-  DrmSignaling?: DashDrmSignaling;
+  DrmSignaling?: DashDrmSignaling | undefined;
 
   /**
    * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
    * @public
    */
-  UtcTiming?: DashUtcTiming;
+  UtcTiming?: DashUtcTiming | undefined;
 }
 
 /**
@@ -1726,35 +1894,47 @@ export interface GetHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
-  ProgramDateTimeIntervalSeconds?: number;
+  ProgramDateTimeIntervalSeconds?: number | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteHls?: ScteHls;
+  ScteHls?: ScteHls | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1778,35 +1958,47 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
    * @public
    */
-  ManifestWindowSeconds?: number;
+  ManifestWindowSeconds?: number | undefined;
 
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
-  ProgramDateTimeIntervalSeconds?: number;
+  ProgramDateTimeIntervalSeconds?: number | undefined;
 
   /**
    * <p>The SCTE configuration.</p>
    * @public
    */
-  ScteHls?: ScteHls;
+  ScteHls?: ScteHls | undefined;
 
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    * @public
    */
-  FilterConfiguration?: FilterConfiguration;
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1865,49 +2057,49 @@ export interface CreateOriginEndpointResponse {
    * <p>The description for your origin endpoint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window.</p>
    * @public
    */
-  StartoverWindowSeconds?: number;
+  StartoverWindowSeconds?: number | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: GetHlsManifestConfiguration[];
+  HlsManifests?: GetHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: GetDashManifestConfiguration[];
+  DashManifests?: GetDashManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the origin endpoint.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2014,52 +2206,58 @@ export interface GetOriginEndpointResponse {
   ModifiedAt: Date | undefined;
 
   /**
+   * <p>The time that the origin endpoint was last reset.</p>
+   * @public
+   */
+  ResetAt?: Date | undefined;
+
+  /**
    * <p>The description for your origin endpoint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window.</p>
    * @public
    */
-  StartoverWindowSeconds?: number;
+  StartoverWindowSeconds?: number | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: GetHlsManifestConfiguration[];
+  HlsManifests?: GetHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: GetDashManifestConfiguration[];
+  DashManifests?: GetDashManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the origin endpoint.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2082,13 +2280,13 @@ export interface ListOriginEndpointsRequest {
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2106,7 +2304,7 @@ export interface ListDashManifestConfiguration {
    * <p>The egress domain URL for stream delivery from MediaPackage.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -2124,13 +2322,13 @@ export interface ListHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The egress domain URL for stream delivery from MediaPackage.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -2148,13 +2346,13 @@ export interface ListLowLatencyHlsManifestConfiguration {
    * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
    * @public
    */
-  ChildManifestName?: string;
+  ChildManifestName?: string | undefined;
 
   /**
    * <p>The egress domain URL for stream delivery from MediaPackage.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -2196,43 +2394,43 @@ export interface OriginEndpointListConfiguration {
    * <p>Any descriptive information that you want to add to the origin endpoint for future identification purposes.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time the origin endpoint was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time the origin endpoint was modified.</p>
    * @public
    */
-  ModifiedAt?: Date;
+  ModifiedAt?: Date | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: ListHlsManifestConfiguration[];
+  HlsManifests?: ListHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: ListLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: ListLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: ListDashManifestConfiguration[];
+  DashManifests?: ListDashManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 }
 
 /**
@@ -2243,13 +2441,13 @@ export interface ListOriginEndpointsResponse {
    * <p>The objects being returned.</p>
    * @public
    */
-  Items?: OriginEndpointListConfiguration[];
+  Items?: OriginEndpointListConfiguration[] | undefined;
 
   /**
    * <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2369,6 +2567,64 @@ export interface PutOriginEndpointPolicyResponse {}
 /**
  * @public
  */
+export interface ResetOriginEndpointStateRequest {
+  /**
+   * <p>The name of the channel group that contains the channel with the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel with the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetOriginEndpointStateResponse {
+  /**
+   * <p>The name of the channel group that contains the channel with the origin endpoint that you just reset.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel with the origin endpoint that you just reset.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint that you just reset.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the endpoint that you just reset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The time that the origin endpoint was last reset.</p>
+   * @public
+   */
+  ResetAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateOriginEndpointRequest {
   /**
    * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
@@ -2398,49 +2654,49 @@ export interface UpdateOriginEndpointRequest {
    * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
    * @public
    */
-  Segment?: Segment;
+  Segment?: Segment | undefined;
 
   /**
    * <p>Any descriptive information that you want to add to the origin endpoint for future identification purposes.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
    * @public
    */
-  StartoverWindowSeconds?: number;
+  StartoverWindowSeconds?: number | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: CreateHlsManifestConfiguration[];
+  HlsManifests?: CreateHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: CreateDashManifestConfiguration[];
+  DashManifests?: CreateDashManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -2499,49 +2755,95 @@ export interface UpdateOriginEndpointResponse {
    * <p>The description of the origin endpoint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window.</p>
    * @public
    */
-  StartoverWindowSeconds?: number;
+  StartoverWindowSeconds?: number | undefined;
 
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    * @public
    */
-  HlsManifests?: GetHlsManifestConfiguration[];
+  HlsManifests?: GetHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    * @public
    */
-  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
+  LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
-  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the origin endpoint.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A DASH manifest configuration.</p>
    * @public
    */
-  DashManifests?: GetDashManifestConfiguration[];
+  DashManifests?: GetDashManifestConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetChannelStateRequest {
+  /**
+   * <p>The name of the channel group that contains the channel that you are resetting.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel that you are resetting.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetChannelStateResponse {
+  /**
+   * <p>The name of the channel group that contains the channel that you just reset.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel that you just reset.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the channel that you just reset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The time that the channel was last reset.</p>
+   * @public
+   */
+  ResetAt: Date | undefined;
 }
 
 /**
@@ -2564,13 +2866,25 @@ export interface UpdateChannelRequest {
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -2611,13 +2925,13 @@ export interface UpdateChannelResponse {
    * <p>The description for your channel.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The list of ingest endpoints.</p>
    * @public
    */
-  IngestEndpoints?: IngestEndpoint[];
+  IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
    * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
@@ -2634,19 +2948,31 @@ export interface UpdateChannelResponse {
    *          </ul>
    * @public
    */
-  InputType?: InputType;
+  InputType?: InputType | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -2663,13 +2989,13 @@ export interface CreateChannelGroupRequest {
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Enter any descriptive text that helps you to identify the channel group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
@@ -2681,7 +3007,7 @@ export interface CreateChannelGroupRequest {
    *          </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2722,19 +3048,19 @@ export interface CreateChannelGroupResponse {
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The description for your channel group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2802,19 +3128,582 @@ export interface GetChannelGroupResponse {
    * <p>The description for your channel group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration parameters for where in an S3 bucket to place the harvested content.</p>
+ * @public
+ */
+export interface S3DestinationConfig {
+  /**
+   * <p>The name of an S3 bucket within which harvested content will be exported.</p>
+   * @public
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The path within the specified S3 bucket where the harvested content will be placed.</p>
+   * @public
+   */
+  DestinationPath: string | undefined;
+}
+
+/**
+ * <p>The configuration for the destination where the harvested content will be exported.</p>
+ * @public
+ */
+export interface Destination {
+  /**
+   * <p>The configuration for exporting harvested content to an S3 bucket. This includes details such as the bucket name and destination path within the bucket.</p>
+   * @public
+   */
+  S3Destination: S3DestinationConfig | undefined;
+}
+
+/**
+ * <p>Information about a harvested DASH manifest.</p>
+ * @public
+ */
+export interface HarvestedDashManifest {
+  /**
+   * <p>The name of the harvested DASH manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>Information about a harvested HLS manifest.</p>
+ * @public
+ */
+export interface HarvestedHlsManifest {
+  /**
+   * <p>The name of the harvested HLS manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>Information about a harvested Low-Latency HLS manifest.</p>
+ * @public
+ */
+export interface HarvestedLowLatencyHlsManifest {
+  /**
+   * <p>The name of the harvested Low-Latency HLS manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>A collection of harvested manifests of different types.</p>
+ * @public
+ */
+export interface HarvestedManifests {
+  /**
+   * <p>A list of harvested HLS manifests.</p>
+   * @public
+   */
+  HlsManifests?: HarvestedHlsManifest[] | undefined;
+
+  /**
+   * <p>A list of harvested DASH manifests.</p>
+   * @public
+   */
+  DashManifests?: HarvestedDashManifest[] | undefined;
+
+  /**
+   * <p>A list of harvested Low-Latency HLS manifests.</p>
+   * @public
+   */
+  LowLatencyHlsManifests?: HarvestedLowLatencyHlsManifest[] | undefined;
+}
+
+/**
+ * <p>Defines the schedule configuration for a harvest job.</p>
+ * @public
+ */
+export interface HarvesterScheduleConfiguration {
+  /**
+   * <p>The start time for the harvest job.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end time for the harvest job.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * <p>The request object for creating a new harvest job.</p>
+ * @public
+ */
+export interface CreateHarvestJobRequest {
+  /**
+   * <p>The name of the channel group containing the channel from which to harvest content.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel from which to harvest content.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint from which to harvest content.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>An optional description for the harvest job.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of manifests to be harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The configuration for when the harvest job should run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A name for the harvest job. This name must be unique within the channel.</p>
+   * @public
+   */
+  HarvestJobName?: string | undefined;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HarvestJobStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
+
+/**
+ * @public
+ */
+export type HarvestJobStatus = (typeof HarvestJobStatus)[keyof typeof HarvestJobStatus];
+
+/**
+ * <p>The response object returned after creating a harvest job.</p>
+ * @public
+ */
+export interface CreateHarvestJobResponse {
+  /**
+   * <p>The name of the channel group containing the channel from which content is being harvested.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel from which content is being harvested.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint from which content is being harvested.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the created harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that will be harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The description of the harvest job, if provided.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for when the harvest job will run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., CREATED, IN_PROGRESS, ABORTED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job creation failed.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request object for retrieving a specific harvest job.</p>
+ * @public
+ */
+export interface GetHarvestJobRequest {
+  /**
+   * <p>The name of the channel group containing the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with the harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The name of the harvest job to retrieve.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+}
+
+/**
+ * <p>The response object containing the details of the requested harvest job.</p>
+ * @public
+ */
+export interface GetHarvestJobResponse {
+  /**
+   * <p>The name of the channel group containing the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with the harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content is being placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that are being or have been harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The description of the harvest job, if provided.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for when the harvest job is scheduled to run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., QUEUED, IN_PROGRESS, CANCELLED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job encountered any issues.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request object for listing harvest jobs.</p>
+ * @public
+ */
+export interface ListHarvestJobsRequest {
+  /**
+   * <p>The name of the channel group to filter the harvest jobs by. If specified, only harvest jobs associated with channels in this group will be returned.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel to filter the harvest jobs by. If specified, only harvest jobs associated with this channel will be returned.</p>
+   * @public
+   */
+  ChannelName?: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint to filter the harvest jobs by. If specified, only harvest jobs associated with this origin endpoint will be returned.</p>
+   * @public
+   */
+  OriginEndpointName?: string | undefined;
+
+  /**
+   * <p>The status to filter the harvest jobs by. If specified, only harvest jobs with this status will be returned.</p>
+   * @public
+   */
+  Status?: HarvestJobStatus | undefined;
+
+  /**
+   * <p>The maximum number of harvest jobs to return in a single request. If not specified, a default value will be used.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used for pagination. Provide this value in subsequent requests to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a harvest job resource in MediaPackage v2, which is used to export content from an origin endpoint to an S3 bucket.</p>
+ * @public
+ */
+export interface HarvestJob {
+  /**
+   * <p>The name of the channel group containing the channel associated with this harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with this harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with this harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that are being or have been harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>An optional description of the harvest job.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for when the harvest job is scheduled to run.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., QUEUED, IN_PROGRESS, CANCELLED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job encountered any issues.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>The response object containing the list of harvest jobs that match the specified criteria.</p>
+ * @public
+ */
+export interface ListHarvestJobsResponse {
+  /**
+   * <p>An array of harvest job objects that match the specified criteria.</p>
+   * @public
+   */
+  Items?: HarvestJob[] | undefined;
+
+  /**
+   * <p>A token used for pagination. Include this value in subsequent requests to retrieve the next set of results. If null, there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2825,13 +3714,13 @@ export interface ListChannelGroupsRequest {
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2842,13 +3731,13 @@ export interface ListChannelGroupsResponse {
    * <p>The objects being returned.</p>
    * @public
    */
-  Items?: ChannelGroupListConfiguration[];
+  Items?: ChannelGroupListConfiguration[] | undefined;
 
   /**
    * <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2865,13 +3754,13 @@ export interface UpdateChannelGroupRequest {
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -2912,19 +3801,19 @@ export interface UpdateChannelGroupResponse {
    * <p>The description for your channel group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The comma-separated list of tag key:value pairs assigned to the channel group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2946,7 +3835,7 @@ export interface ListTagsForResourceResponse {
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**

@@ -36,9 +36,10 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * // const { WAFV2Client, GetWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetWebACLRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Scope: "CLOUDFRONT" || "REGIONAL",
+ *   Id: "STRING_VALUE",
+ *   ARN: "STRING_VALUE",
  * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: { // JA3Fingerprint
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: { // JA4Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: { // UriFragment
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -203,6 +210,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -266,6 +279,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -323,6 +342,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               },
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -459,6 +484,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -575,6 +606,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                     },
  * //                     UriPath: { // RateLimitUriPath
  * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     JA3Fingerprint: { // RateLimitJA3Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                     },
  * //                   },
  * //                 ],
@@ -789,6 +826,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 UriPath: {
  * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
+ * //                 JA3Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 JA4Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
  * //               },
  * //             ],
  * //           },
@@ -991,6 +1034,21 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //       SampledRequestsEnabled: true || false, // required
  * //       CloudWatchMetricsEnabled: true || false, // required
  * //       MetricName: "STRING_VALUE", // required
+ * //     },
+ * //     DataProtectionConfig: { // DataProtectionConfig
+ * //       DataProtections: [ // DataProtections // required
+ * //         { // DataProtection
+ * //           Field: { // FieldToProtect
+ * //             FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ * //             FieldKeys: [ // FieldToProtectKeys
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Action: "SUBSTITUTION" || "HASH", // required
+ * //           ExcludeRuleMatchDetails: true || false,
+ * //           ExcludeRateBasedDetails: true || false,
+ * //         },
+ * //       ],
  * //     },
  * //     Capacity: Number("long"),
  * //     PreProcessFirewallManagerRuleGroups: [ // FirewallManagerRuleGroups
@@ -1217,6 +1275,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //         },
  * //       },
  * //     },
+ * //     RetrofittedByFirewallManager: true || false,
  * //   },
  * //   LockToken: "STRING_VALUE",
  * //   ApplicationIntegrationURL: "STRING_VALUE",
@@ -1267,6 +1326,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetWebACLCommand extends $Command
@@ -1277,9 +1337,7 @@ export class GetWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1291,4 +1349,16 @@ export class GetWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLCommand)
   .de(de_GetWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLRequest;
+      output: GetWebACLResponse;
+    };
+    sdk: {
+      input: GetWebACLCommandInput;
+      output: GetWebACLCommandOutput;
+    };
+  };
+}

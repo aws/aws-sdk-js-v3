@@ -98,6 +98,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteSnapshotCommand extends $Command
@@ -108,9 +109,7 @@ export class DeleteSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DeleteSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSnapshotCommand)
   .de(de_DeleteSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSnapshotRequest;
+      output: DeleteSnapshotResponse;
+    };
+    sdk: {
+      input: DeleteSnapshotCommandInput;
+      output: DeleteSnapshotCommandOutput;
+    };
+  };
+}

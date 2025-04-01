@@ -105,6 +105,7 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListMonitorEvaluationsCommand extends $Command
@@ -115,9 +116,7 @@ export class ListMonitorEvaluationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class ListMonitorEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMonitorEvaluationsCommand)
   .de(de_ListMonitorEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMonitorEvaluationsRequest;
+      output: ListMonitorEvaluationsResponse;
+    };
+    sdk: {
+      input: ListMonitorEvaluationsCommandInput;
+      output: ListMonitorEvaluationsCommandOutput;
+    };
+  };
+}

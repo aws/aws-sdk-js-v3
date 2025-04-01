@@ -142,7 +142,8 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link InvalidRequestContentException} (client fault)
- *  <p>The request body could not be parsed as JSON.</p>
+ *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
+ *       header is not a valid UUID string.</p>
  *
  * @throws {@link InvalidRuntimeException} (server fault)
  *  <p>The runtime or runtime version specified is not supported.</p>
@@ -214,6 +215,44 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To invoke a Lambda function
+ * ```javascript
+ * // The following example invokes version 1 of a function named my-function with an empty event payload.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Payload: "{}",
+ *   Qualifier: "1"
+ * };
+ * const command = new InvokeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Payload: "200 SUCCESS",
+ *   StatusCode: 200
+ * }
+ * *\/
+ * ```
+ *
+ * @example To invoke a Lambda function asynchronously
+ * ```javascript
+ * // The following example invokes version 1 of a function named my-function asynchronously.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   InvocationType: "Event",
+ *   Payload: "{}",
+ *   Qualifier: "1"
+ * };
+ * const command = new InvokeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Payload: "",
+ *   StatusCode: 202
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class InvokeCommand extends $Command
@@ -224,9 +263,7 @@ export class InvokeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -238,4 +275,16 @@ export class InvokeCommand extends $Command
   .f(InvocationRequestFilterSensitiveLog, InvocationResponseFilterSensitiveLog)
   .ser(se_InvokeCommand)
   .de(de_InvokeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvocationRequest;
+      output: InvocationResponse;
+    };
+    sdk: {
+      input: InvokeCommandInput;
+      output: InvokeCommandOutput;
+    };
+  };
+}

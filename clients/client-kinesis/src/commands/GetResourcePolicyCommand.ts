@@ -74,12 +74,17 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
+ *
  *
  * @public
  */
@@ -107,4 +112,16 @@ export class GetResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcePolicyCommand)
   .de(de_GetResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcePolicyInput;
+      output: GetResourcePolicyOutput;
+    };
+    sdk: {
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
+    };
+  };
+}

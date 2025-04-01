@@ -47,6 +47,11 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * //   activityArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   creationDate: new Date("TIMESTAMP"), // required
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     kmsDataKeyReusePeriodSeconds: Number("int"),
+ * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //   },
  * // };
  *
  * ```
@@ -66,6 +71,7 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DescribeActivityCommand extends $Command
@@ -76,9 +82,7 @@ export class DescribeActivityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +94,16 @@ export class DescribeActivityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeActivityCommand)
   .de(de_DescribeActivityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActivityInput;
+      output: DescribeActivityOutput;
+    };
+    sdk: {
+      input: DescribeActivityCommandInput;
+      output: DescribeActivityCommandOutput;
+    };
+  };
+}

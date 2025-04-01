@@ -14,10 +14,11 @@ import { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
-import { isStreaming } from "./isStreaming";
-import { createReadStreamOnBuffer } from "./streams/create-read-stream-on-buffer";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsResponseMiddlewareConfig {
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation
@@ -66,7 +67,6 @@ export const flexibleChecksumsResponseMiddleware =
     const result = await next(args);
 
     const response = result.response as HttpResponse;
-    let collectedStream: Uint8Array | undefined = undefined;
 
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
@@ -84,21 +84,11 @@ export const flexibleChecksumsResponseMiddleware =
         return result;
       }
 
-      const isStreamingBody = isStreaming(response.body);
-
-      if (isStreamingBody) {
-        collectedStream = await config.streamCollector(response.body);
-        response.body = createReadStreamOnBuffer(collectedStream);
-      }
-
-      await validateChecksumFromResponse(result.response as HttpResponse, {
+      await validateChecksumFromResponse(response as HttpResponse, {
         config,
         responseAlgorithms,
+        logger: context.logger,
       });
-
-      if (isStreamingBody && collectedStream) {
-        response.body = createReadStreamOnBuffer(collectedStream);
-      }
     }
 
     return result;

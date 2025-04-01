@@ -5,6 +5,7 @@ import {
   loadSsoSessionData,
   parseKnownFiles,
 } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { fromSso } from "./fromSso";
@@ -13,11 +14,11 @@ import { validateTokenExpiry } from "./validateTokenExpiry";
 import { validateTokenKey } from "./validateTokenKey";
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("./getNewSsoOidcToken");
-jest.mock("./validateTokenExpiry");
-jest.mock("./validateTokenKey");
-jest.mock("./writeSSOTokenToFile");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("./getNewSsoOidcToken");
+vi.mock("./validateTokenExpiry");
+vi.mock("./validateTokenKey");
+vi.mock("./writeSSOTokenToFile");
 
 describe(fromSso.name, () => {
   const mockDateNow = Date.now();
@@ -33,6 +34,7 @@ describe(fromSso.name, () => {
 
   const mockProfileName = "mockProfileName";
   const mockInit = { profile: mockProfileName };
+  const mockInitWithParentClientConfig = { profile: mockProfileName, parentClientConfig: {} };
   const mockProfiles = { [mockProfileName]: mockSsoProfile };
 
   const mockSsoToken = {
@@ -47,6 +49,7 @@ describe(fromSso.name, () => {
     accessToken: "mockNewAccessToken",
     expiresIn: 3600,
     refreshToken: "mockNewRefreshToken",
+    $metadata: {},
   };
   const mockNewToken = {
     token: mockNewTokenFromService.accessToken,
@@ -54,25 +57,26 @@ describe(fromSso.name, () => {
   };
 
   beforeEach(() => {
-    (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-    (loadSsoSessionData as jest.Mock).mockResolvedValue({ [mockSsoSessionName]: mockSsoSession });
-    (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
-    (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockSsoToken);
-    (getNewSsoOidcToken as jest.Mock).mockResolvedValue(mockNewTokenFromService);
-    (validateTokenKey as jest.Mock).mockImplementation(() => {});
-    (validateTokenExpiry as jest.Mock).mockImplementation(() => {});
-    jest.spyOn(Date, "now").mockReturnValue(mockDateNow);
+    vi.resetModules();
+    vi.mocked(parseKnownFiles).mockResolvedValue(mockProfiles);
+    vi.mocked(loadSsoSessionData).mockResolvedValue({ [mockSsoSessionName]: mockSsoSession });
+    vi.mocked(getProfileName).mockReturnValue(mockProfileName);
+    vi.mocked(getSSOTokenFromFile).mockResolvedValue(mockSsoToken);
+    vi.mocked(getNewSsoOidcToken).mockResolvedValue(mockNewTokenFromService);
+    vi.mocked(validateTokenKey).mockImplementation(() => {});
+    vi.mocked(validateTokenExpiry).mockImplementation(() => {});
+    vi.spyOn(Date, "now").mockReturnValue(mockDateNow);
   });
 
   afterEach(() => {
-    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("throws validation error", () => {
     it("when profile is not found", async () => {
-      (parseKnownFiles as jest.Mock).mockReturnValue({});
+      vi.mocked(parseKnownFiles as any).mockReturnValue({});
       const expectedError = new TokenProviderError(
         `Profile '${mockProfileName}' could not be found in shared credentials file.`,
         false
@@ -82,7 +86,7 @@ describe(fromSso.name, () => {
 
     it("when sso_session is not defined for profile", async () => {
       const { sso_session, ...mockSsoProfileWithoutSsoSession } = mockSsoProfile;
-      (parseKnownFiles as jest.Mock).mockReturnValue({ [mockProfileName]: mockSsoProfileWithoutSsoSession });
+      vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: mockSsoProfileWithoutSsoSession });
       const expectedError = new TokenProviderError(
         `Profile '${mockProfileName}' is missing required property 'sso_session'.`
       );
@@ -90,7 +94,7 @@ describe(fromSso.name, () => {
     });
 
     it("when sso_session is not defined in configuration file", async () => {
-      (loadSsoSessionData as jest.Mock).mockResolvedValue({});
+      vi.mocked(loadSsoSessionData).mockResolvedValue({});
       const expectedError = new TokenProviderError(
         `Sso session '${mockSsoSessionName}' could not be found in shared credentials file.`,
         false
@@ -100,7 +104,7 @@ describe(fromSso.name, () => {
 
     it("when sso-session does not contain sso_start_url", async () => {
       const { sso_start_url, ...mockSsoSessionWithoutSsoStartUrl } = mockSsoSession;
-      (loadSsoSessionData as jest.Mock).mockResolvedValue({ [mockSsoSessionName]: mockSsoSessionWithoutSsoStartUrl });
+      vi.mocked(loadSsoSessionData).mockResolvedValue({ [mockSsoSessionName]: mockSsoSessionWithoutSsoStartUrl });
       const expectedError = new TokenProviderError(
         `Sso session '${mockSsoSessionName}' is missing required property 'sso_start_url'.`,
         false
@@ -110,7 +114,7 @@ describe(fromSso.name, () => {
 
     it("when profile contains sso_start_url, but no sso_region", async () => {
       const { sso_region, ...mockSsoSessionWithoutSsoStartUrl } = mockSsoSession;
-      (loadSsoSessionData as jest.Mock).mockResolvedValue({ [mockSsoSessionName]: mockSsoSessionWithoutSsoStartUrl });
+      vi.mocked(loadSsoSessionData).mockResolvedValue({ [mockSsoSessionName]: mockSsoSessionWithoutSsoStartUrl });
       const expectedError = new TokenProviderError(
         `Sso session '${mockSsoSessionName}' is missing required property 'sso_region'.`,
         false
@@ -121,7 +125,7 @@ describe(fromSso.name, () => {
 
   it("throws error if reading SSO Token from file fails", async () => {
     const mockError = new Error("mockError");
-    (getSSOTokenFromFile as jest.Mock).mockRejectedValue(mockError);
+    vi.mocked(getSSOTokenFromFile).mockRejectedValue(mockError);
     const expectedError = new TokenProviderError(
       `The SSO session token associated with profile=mockProfileName was not found or is invalid. ` +
         `${REFRESH_MESSAGE}`,
@@ -132,14 +136,14 @@ describe(fromSso.name, () => {
 
   it.each(["accessToken", "expiresAt"])("throws error if %s is missing in SSO Token from file", async (key) => {
     const mockError = new Error("mockError");
-    (validateTokenKey as jest.Mock).mockImplementation((validationKey) => {
+    vi.mocked(validateTokenKey).mockImplementation((validationKey) => {
       if (validationKey === key) {
         throw mockError;
       }
     });
     await expect(fromSso(mockInit)()).rejects.toStrictEqual(mockError);
     expect(validateTokenKey).toHaveBeenNthCalledWith(
-      (validateTokenKey as jest.Mock).mock.calls.length,
+      vi.mocked(validateTokenKey).mock.calls.length,
       key,
       // @ts-ignore Element implicitly has an 'any' type
       mockSsoToken[key]
@@ -151,7 +155,7 @@ describe(fromSso.name, () => {
       ...mockSsoToken,
       expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString(),
     };
-    (getSSOTokenFromFile as jest.Mock).mockResolvedValueOnce(mockValidSsoToken);
+    vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce(mockValidSsoToken);
 
     await expect(fromSso(mockInit)()).resolves.toStrictEqual({
       token: mockValidSsoToken.accessToken,
@@ -160,46 +164,48 @@ describe(fromSso.name, () => {
   });
 
   describe("skips refresh attempt if last refresh was done within 30 seconds", () => {
-    it("throw if existing token is expired", (done) => {
-      jest.isolateModules(async () => {
-        const { fromSso } = require("./fromSso");
-        await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
-        expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-        expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+    it("throw if existing token is expired", async () => {
+      const { fromSso } = await import("./fromSso");
+      await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
 
-        // Simulate token expiration.
-        const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
-        (validateTokenExpiry as jest.Mock).mockImplementation(() => {
-          throw ssoTokenExpiryError;
-        });
-        await expect(fromSso(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
-        // Verify that getNewSsoOidcToken is not called again.
-        expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-        done();
+      // Simulate token expiration.
+      const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
+      vi.mocked(validateTokenExpiry).mockImplementation(() => {
+        throw ssoTokenExpiryError;
       });
+      await expect(fromSso(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
+      // Verify that getNewSsoOidcToken is not called again.
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
     });
 
-    it("returns existing token if it's not expired", (done) => {
-      jest.isolateModules(async () => {
-        const { fromSso } = require("./fromSso");
-        await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
-        expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-        expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+    it("returns existing token if it's not expired", async () => {
+      const { fromSso } = await import("./fromSso");
+      await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
 
-        // Return a valid token for second call.
-        const mockValidSsoToken = {
-          ...mockSsoToken,
-          expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString(),
-        };
-        (getSSOTokenFromFile as jest.Mock).mockResolvedValueOnce(mockValidSsoToken);
-        await expect(fromSso(mockInit)()).resolves.toStrictEqual({
-          token: mockValidSsoToken.accessToken,
-          expiration: new Date(mockValidSsoToken.expiresAt),
-        });
-        // Verify that getNewSsoOidcToken is not called again.
-        expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-        done();
+      // Return a valid token for second call.
+      const mockValidSsoToken = {
+        ...mockSsoToken,
+        expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS + 1000).toISOString(),
+      };
+      vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce(mockValidSsoToken);
+      await expect(fromSso(mockInit)()).resolves.toStrictEqual({
+        token: mockValidSsoToken.accessToken,
+        expiration: new Date(mockValidSsoToken.expiresAt),
       });
+      // Verify that getNewSsoOidcToken is not called again.
+      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -207,14 +213,14 @@ describe(fromSso.name, () => {
     "throws error if %s is missing in SSO Token from file",
     async (key) => {
       const mockError = new Error("mockError");
-      (validateTokenKey as jest.Mock).mockImplementation((validationKey) => {
+      vi.mocked(validateTokenKey).mockImplementation((validationKey) => {
         if (validationKey === key) {
           throw mockError;
         }
       });
       await expect(fromSso(mockInit)()).rejects.toStrictEqual(mockError);
       expect(validateTokenKey).toHaveBeenNthCalledWith(
-        (validateTokenKey as jest.Mock).mock.calls.length,
+        vi.mocked(validateTokenKey).mock.calls.length,
         key,
         // @ts-ignore Element implicitly has an 'any' type
         mockSsoToken[key],
@@ -229,21 +235,29 @@ describe(fromSso.name, () => {
         ...mockSsoToken,
         expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS - 1000).toISOString(),
       };
-      (getSSOTokenFromFile as jest.Mock).mockResolvedValueOnce(mockValidSsoTokenInExpiryWindow);
+      vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce(mockValidSsoTokenInExpiryWindow);
       await expect(fromSsoImpl(mockInit)()).resolves.toStrictEqual({
         token: mockValidSsoTokenInExpiryWindow.accessToken,
         expiration: new Date(mockValidSsoTokenInExpiryWindow.expiresAt),
       });
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockValidSsoTokenInExpiryWindow, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockValidSsoTokenInExpiryWindow,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
     };
 
     const throwErrorExpiredTokenTest = async (fromSsoImpl: typeof fromSso) => {
       const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
-      (validateTokenExpiry as jest.Mock).mockImplementation(() => {
+      vi.mocked(validateTokenExpiry).mockImplementation(() => {
         throw ssoTokenExpiryError;
       });
       await expect(fromSsoImpl(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
     };
 
     afterEach(() => {
@@ -251,25 +265,25 @@ describe(fromSso.name, () => {
     });
 
     describe("when getNewSsoOidcToken throws error", () => {
-      it.each([returnExistingValidTokenInExpiryWindowTest, throwErrorExpiredTokenTest])("%p:", (testFn) => {
-        jest.isolateModules(async () => {
-          const { fromSso } = require("./fromSso");
+      for (const testFn of [returnExistingValidTokenInExpiryWindowTest, throwErrorExpiredTokenTest]) {
+        it(testFn.name, async () => {
+          const { fromSso } = await import("./fromSso");
           const mockError = new Error("mockError");
-          (getNewSsoOidcToken as jest.Mock).mockImplementation(() => {
+          vi.mocked(getNewSsoOidcToken).mockImplementation(() => {
             throw mockError;
           });
           testFn(fromSso);
         });
-      });
+      }
     });
 
     describe.each(["accessToken", "expiresIn"])("when newSsoOidcToken does not contain key '%s'", (key) => {
-      it.each([returnExistingValidTokenInExpiryWindowTest, throwErrorExpiredTokenTest])("%p:", (testFn) => {
-        jest.isolateModules(async () => {
+      for (const testFn of [returnExistingValidTokenInExpiryWindowTest, throwErrorExpiredTokenTest]) {
+        it(testFn.name, async () => {
           let accessTokenFirstCallSuccess = false;
-          const { fromSso } = require("./fromSso");
+          const { fromSso } = await import("./fromSso");
           const mockError = new Error("mockError");
-          (validateTokenKey as jest.Mock).mockImplementation((validationKey) => {
+          vi.mocked(validateTokenKey).mockImplementation((validationKey) => {
             if (validationKey === key) {
               // Skip first call of "accessToken" verification from ssoToken
               if (key === "accessToken" && !accessTokenFirstCallSuccess) {
@@ -281,41 +295,41 @@ describe(fromSso.name, () => {
           });
           testFn(fromSso);
         });
-      });
+      }
     });
   });
 
   it("returns valid access token from ssoOidc.createToken()", async () => {
-    jest.isolateModules(async () => {
-      const { fromSso } = require("./fromSso");
-      await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
-      expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+    const { fromSso } = await import("./fromSso");
+    await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+    expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+    expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+      mockSsoToken,
+      mockSsoSession.sso_region,
+      mockInitWithParentClientConfig
+    );
 
-      expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
-        ...mockSsoToken,
-        accessToken: mockNewTokenFromService.accessToken,
-        expiresAt: mockNewToken.expiration.toISOString(),
-        refreshToken: mockNewTokenFromService.refreshToken,
-      });
+    expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
+      ...mockSsoToken,
+      accessToken: mockNewTokenFromService.accessToken,
+      expiresAt: mockNewToken.expiration.toISOString(),
+      refreshToken: mockNewTokenFromService.refreshToken,
     });
   });
 
   it("swallows error if writeSSOTokenToFile fails", async () => {
-    jest.isolateModules(async () => {
-      const mockError = new Error("mockError");
-      (writeSSOTokenToFile as jest.Mock).mockImplementation(() => {
-        throw mockError;
-      });
-      const { fromSso } = require("./fromSso");
-      await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+    const mockError = new Error("mockError");
+    vi.mocked(writeSSOTokenToFile).mockImplementation(() => {
+      throw mockError;
+    });
+    const { fromSso } = await import("./fromSso");
+    await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
 
-      expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
-        ...mockSsoToken,
-        accessToken: mockNewTokenFromService.accessToken,
-        expiresAt: mockNewToken.expiration.toISOString(),
-        refreshToken: mockNewTokenFromService.refreshToken,
-      });
+    expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
+      ...mockSsoToken,
+      accessToken: mockNewTokenFromService.accessToken,
+      expiresAt: mockNewToken.expiration.toISOString(),
+      refreshToken: mockNewTokenFromService.refreshToken,
     });
   });
 });

@@ -91,6 +91,7 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UntagCommand extends $Command
@@ -101,9 +102,7 @@ export class UntagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UntagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagCommand)
   .de(de_UntagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagInput;
+      output: UntagOutput;
+    };
+    sdk: {
+      input: UntagCommandInput;
+      output: UntagCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse } from "../models/models_4";
+import { UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse } from "../models/models_5";
 import {
   de_UpdateIdentityPropagationConfigCommand,
   se_UpdateIdentityPropagationConfigCommand,
@@ -43,7 +43,7 @@ export interface UpdateIdentityPropagationConfigCommandOutput
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Service: "REDSHIFT", // required
+ *   Service: "REDSHIFT" || "QBUSINESS", // required
  *   AuthorizedTargets: [ // AuthorizedTargetsList
  *     "STRING_VALUE",
  *   ],
@@ -84,6 +84,7 @@ export interface UpdateIdentityPropagationConfigCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateIdentityPropagationConfigCommand extends $Command
@@ -94,9 +95,7 @@ export class UpdateIdentityPropagationConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class UpdateIdentityPropagationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdentityPropagationConfigCommand)
   .de(de_UpdateIdentityPropagationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentityPropagationConfigRequest;
+      output: UpdateIdentityPropagationConfigResponse;
+    };
+    sdk: {
+      input: UpdateIdentityPropagationConfigCommandInput;
+      output: UpdateIdentityPropagationConfigCommandOutput;
+    };
+  };
+}

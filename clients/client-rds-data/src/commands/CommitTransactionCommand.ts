@@ -79,6 +79,9 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
+ *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
  *
@@ -112,6 +115,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class CommitTransactionCommand extends $Command
@@ -122,9 +126,7 @@ export class CommitTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +138,16 @@ export class CommitTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CommitTransactionCommand)
   .de(de_CommitTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CommitTransactionRequest;
+      output: CommitTransactionResponse;
+    };
+    sdk: {
+      input: CommitTransactionCommandInput;
+      output: CommitTransactionCommandOutput;
+    };
+  };
+}

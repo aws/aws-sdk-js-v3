@@ -77,18 +77,21 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a virtual MFA device
  * ```javascript
  * // The following delete-virtual-mfa-device command removes the specified MFA device from the current AWS account.
  * const input = {
- *   "SerialNumber": "arn:aws:iam::123456789012:mfa/ExampleName"
+ *   SerialNumber: "arn:aws:iam::123456789012:mfa/ExampleName"
  * };
  * const command = new DeleteVirtualMFADeviceCommand(input);
- * await client.send(command);
- * // example id: 2933b08b-dbe7-4b89-b8c1-fdf75feea1ee
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVirtualMFADeviceCommand extends $Command
   .classBuilder<
@@ -98,9 +101,7 @@ export class DeleteVirtualMFADeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +113,16 @@ export class DeleteVirtualMFADeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVirtualMFADeviceCommand)
   .de(de_DeleteVirtualMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVirtualMFADeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVirtualMFADeviceCommandInput;
+      output: DeleteVirtualMFADeviceCommandOutput;
+    };
+  };
+}

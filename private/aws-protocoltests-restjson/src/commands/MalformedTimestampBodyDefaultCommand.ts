@@ -55,6 +55,7 @@ export interface MalformedTimestampBodyDefaultCommandOutput extends __MetadataBe
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampBodyDefaultCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedTimestampBodyDefaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampBodyDefaultCommand)
   .de(de_MalformedTimestampBodyDefaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampBodyDefaultInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampBodyDefaultCommandInput;
+      output: MalformedTimestampBodyDefaultCommandOutput;
+    };
+  };
+}

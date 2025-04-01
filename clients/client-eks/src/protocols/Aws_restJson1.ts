@@ -86,6 +86,10 @@ import {
 } from "../commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import {
+  DescribeClusterVersionsCommandInput,
+  DescribeClusterVersionsCommandOutput,
+} from "../commands/DescribeClusterVersionsCommand";
+import {
   DescribeEksAnywhereSubscriptionCommandInput,
   DescribeEksAnywhereSubscriptionCommandOutput,
 } from "../commands/DescribeEksAnywhereSubscriptionCommand";
@@ -181,10 +185,13 @@ import {
   AddonPodIdentityAssociations,
   AssociatedAccessPolicy,
   BadRequestException,
+  BlockStorage,
   Category,
   ClientException,
   ClientStat,
   Cluster,
+  ClusterVersionInformation,
+  ComputeConfigRequest,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
@@ -192,6 +199,7 @@ import {
   DeprecationDetail,
   EksAnywhereSubscription,
   EksAnywhereSubscriptionTerm,
+  ElasticLoadBalancing,
   EncryptionConfig,
   FargateProfile,
   FargateProfileSelector,
@@ -203,6 +211,7 @@ import {
   InsightSummary,
   InvalidParameterException,
   InvalidRequestException,
+  InvalidStateException,
   KubernetesNetworkConfigRequest,
   LaunchTemplateSpecification,
   Logging,
@@ -211,25 +220,33 @@ import {
   Nodegroup,
   NodegroupScalingConfig,
   NodegroupUpdateConfig,
+  NodeRepairConfig,
   NotFoundException,
   OidcIdentityProviderConfigRequest,
   OutpostConfigRequest,
   PodIdentityAssociation,
   Provider,
   RemoteAccessConfig,
+  RemoteNetworkConfigRequest,
+  RemoteNodeNetwork,
+  RemotePodNetwork,
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
   ResourcePropagationDelayException,
   ServerException,
   ServiceUnavailableException,
+  StorageConfigRequest,
   Taint,
+  ThrottlingException,
   UnsupportedAvailabilityZoneException,
   Update,
   UpdateAccessConfigRequest,
   UpdateLabelsPayload,
   UpdateTaintsPayload,
+  UpgradePolicyRequest,
   VpcConfigRequest,
+  ZonalShiftConfigRequest,
 } from "../models/models_0";
 
 /**
@@ -382,15 +399,20 @@ export const se_CreateClusterCommand = async (
       accessConfig: (_) => _json(_),
       bootstrapSelfManagedAddons: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      computeConfig: (_) => _json(_),
       encryptionConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
       name: [],
       outpostConfig: (_) => _json(_),
+      remoteNetworkConfig: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
       roleArn: [],
+      storageConfig: (_) => _json(_),
       tags: (_) => _json(_),
+      upgradePolicy: (_) => _json(_),
       version: [],
+      zonalShiftConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -476,6 +498,7 @@ export const se_CreateNodegroupCommand = async (
       instanceTypes: (_) => _json(_),
       labels: (_) => _json(_),
       launchTemplate: (_) => _json(_),
+      nodeRepairConfig: (_) => _json(_),
       nodeRole: [],
       nodegroupName: [],
       releaseVersion: [],
@@ -723,9 +746,9 @@ export const se_DescribeAddonVersionsCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
     [_aN]: [, input[_aN]!],
-    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
-    [_pu]: [() => input.publishers !== void 0, () => (input[_pu]! || []).map((_entry) => _entry as any)],
-    [_o]: [() => input.owners !== void 0, () => (input[_o]! || []).map((_entry) => _entry as any)],
+    [_t]: [() => input.types !== void 0, () => input[_t]! || []],
+    [_pu]: [() => input.publishers !== void 0, () => input[_pu]! || []],
+    [_o]: [() => input.owners !== void 0, () => input[_o]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -745,6 +768,31 @@ export const se_DescribeClusterCommand = async (
   b.p("name", () => input.name!, "{name}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeClusterVersionsCommand
+ */
+export const se_DescribeClusterVersionsCommand = async (
+  input: DescribeClusterVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cluster-versions");
+  const query: any = map({
+    [_cT]: [, input[_cT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_dO]: [() => input.defaultOnly !== void 0, () => input[_dO]!.toString()],
+    [_iA]: [() => input.includeAll !== void 0, () => input[_iA]!.toString()],
+    [_cV]: [() => input.clusterVersions !== void 0, () => input[_cV]! || []],
+    [_s]: [, input[_s]!],
+    [_vS]: [, input[_vS]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1012,7 +1060,7 @@ export const se_ListClustersCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
-    [_i]: [() => input.include !== void 0, () => (input[_i]! || []).map((_entry) => _entry as any)],
+    [_i]: [() => input.include !== void 0, () => input[_i]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1032,7 +1080,7 @@ export const se_ListEksAnywhereSubscriptionsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
-    [_iS]: [() => input.includeStatus !== void 0, () => (input[_iS]! || []).map((_entry) => _entry as any)],
+    [_iS]: [() => input.includeStatus !== void 0, () => input[_iS]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1244,10 +1292,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1327,8 +1372,14 @@ export const se_UpdateClusterConfigCommand = async (
     take(input, {
       accessConfig: (_) => _json(_),
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      computeConfig: (_) => _json(_),
+      kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
+      remoteNetworkConfig: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
+      storageConfig: (_) => _json(_),
+      upgradePolicy: (_) => _json(_),
+      zonalShiftConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1352,6 +1403,7 @@ export const se_UpdateClusterVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      force: [],
       version: [],
     })
   );
@@ -1402,6 +1454,7 @@ export const se_UpdateNodegroupConfigCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       labels: (_) => _json(_),
+      nodeRepairConfig: (_) => _json(_),
       scalingConfig: (_) => _json(_),
       taints: (_) => _json(_),
       updateConfig: (_) => _json(_),
@@ -1945,6 +1998,28 @@ export const de_DescribeClusterCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeClusterVersionsCommand
+ */
+export const de_DescribeClusterVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clusterVersions: (_) => de_ClusterVersionList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2673,6 +2748,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceInUseException":
     case "com.amazonaws.eks#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.eks#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.eks#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
@@ -2694,6 +2772,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourcePropagationDelayException":
     case "com.amazonaws.eks#ResourcePropagationDelayException":
       throw await de_ResourcePropagationDelayExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.eks#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2806,6 +2887,27 @@ const de_InvalidRequestExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2962,6 +3064,24 @@ const de_ServiceUnavailableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1UnsupportedAvailabilityZoneExceptionRes
  */
 const de_UnsupportedAvailabilityZoneExceptionRes = async (
@@ -2990,7 +3110,11 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_AddonPodIdentityAssociationsList omitted.
 
+// se_BlockStorage omitted.
+
 // se_CategoryList omitted.
+
+// se_ComputeConfigRequest omitted.
 
 // se_ConnectorConfigRequest omitted.
 
@@ -2999,6 +3123,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 // se_CreateAccessConfigRequest omitted.
 
 // se_EksAnywhereSubscriptionTerm omitted.
+
+// se_ElasticLoadBalancing omitted.
 
 // se_EncryptionConfig omitted.
 
@@ -3036,6 +3162,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_NodegroupUpdateConfig omitted.
 
+// se_NodeRepairConfig omitted.
+
 // se_OidcIdentityProviderConfigRequest omitted.
 
 // se_OutpostConfigRequest omitted.
@@ -3044,7 +3172,19 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_RemoteAccessConfig omitted.
 
+// se_RemoteNetworkConfigRequest omitted.
+
+// se_RemoteNodeNetwork omitted.
+
+// se_RemoteNodeNetworkList omitted.
+
+// se_RemotePodNetwork omitted.
+
+// se_RemotePodNetworkList omitted.
+
 // se_requiredClaimsMap omitted.
+
+// se_StorageConfigRequest omitted.
 
 // se_StringList omitted.
 
@@ -3060,7 +3200,11 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_UpdateTaintsPayload omitted.
 
+// se_UpgradePolicyRequest omitted.
+
 // se_VpcConfigRequest omitted.
+
+// se_ZonalShiftConfigRequest omitted.
 
 // de_AccessConfigResponse omitted.
 
@@ -3112,6 +3256,10 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
   }) as any;
 };
 
+// de_AddonCompatibilityDetail omitted.
+
+// de_AddonCompatibilityDetails omitted.
+
 // de_AddonHealth omitted.
 
 // de_AddonInfo omitted.
@@ -3158,6 +3306,8 @@ const de_AssociatedAccessPolicy = (output: any, context: __SerdeContext): Associ
 
 // de_AutoScalingGroupList omitted.
 
+// de_BlockStorage omitted.
+
 // de_Certificate omitted.
 
 /**
@@ -3192,6 +3342,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     arn: __expectString,
     certificateAuthority: _json,
     clientRequestToken: __expectString,
+    computeConfig: _json,
     connectorConfig: (_: any) => de_ConnectorConfigResponse(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     encryptionConfig: _json,
@@ -3204,11 +3355,15 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     name: __expectString,
     outpostConfig: _json,
     platformVersion: __expectString,
+    remoteNetworkConfig: _json,
     resourcesVpcConfig: _json,
     roleArn: __expectString,
     status: __expectString,
+    storageConfig: _json,
     tags: _json,
+    upgradePolicy: _json,
     version: __expectString,
+    zonalShiftConfig: _json,
   }) as any;
 };
 
@@ -3218,9 +3373,41 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
 
 // de_ClusterIssueList omitted.
 
+/**
+ * deserializeAws_restJson1ClusterVersionInformation
+ */
+const de_ClusterVersionInformation = (output: any, context: __SerdeContext): ClusterVersionInformation => {
+  return take(output, {
+    clusterType: __expectString,
+    clusterVersion: __expectString,
+    defaultPlatformVersion: __expectString,
+    defaultVersion: __expectBoolean,
+    endOfExtendedSupportDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endOfStandardSupportDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kubernetesPatchVersion: __expectString,
+    releaseDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    versionStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterVersionList
+ */
+const de_ClusterVersionList = (output: any, context: __SerdeContext): ClusterVersionInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterVersionInformation(entry, context);
+    });
+  return retVal;
+};
+
 // de_Compatibilities omitted.
 
 // de_Compatibility omitted.
+
+// de_ComputeConfigResponse omitted.
 
 /**
  * deserializeAws_restJson1ConnectorConfigResponse
@@ -3276,6 +3463,7 @@ const de_EksAnywhereSubscription = (output: any, context: __SerdeContext): EksAn
     licenseArns: _json,
     licenseQuantity: __expectInt32,
     licenseType: __expectString,
+    licenses: _json,
     status: __expectString,
     tags: _json,
     term: _json,
@@ -3295,6 +3483,8 @@ const de_EksAnywhereSubscriptionList = (output: any, context: __SerdeContext): E
 };
 
 // de_EksAnywhereSubscriptionTerm omitted.
+
+// de_ElasticLoadBalancing omitted.
 
 // de_EncryptionConfig omitted.
 
@@ -3367,6 +3557,7 @@ const de_Insight = (output: any, context: __SerdeContext): Insight => {
  */
 const de_InsightCategorySpecificSummary = (output: any, context: __SerdeContext): InsightCategorySpecificSummary => {
   return take(output, {
+    addonCompatibilityDetails: _json,
     deprecationDetails: (_: any) => de_DeprecationDetails(_, context),
   }) as any;
 };
@@ -3415,6 +3606,10 @@ const de_InsightSummary = (output: any, context: __SerdeContext): InsightSummary
 
 // de_LaunchTemplateSpecification omitted.
 
+// de_License omitted.
+
+// de_LicenseList omitted.
+
 // de_Logging omitted.
 
 // de_LogSetup omitted.
@@ -3440,6 +3635,7 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
     labels: _json,
     launchTemplate: _json,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nodeRepairConfig: _json,
     nodeRole: __expectString,
     nodegroupArn: __expectString,
     nodegroupName: __expectString,
@@ -3463,6 +3659,8 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
 // de_NodegroupScalingConfig omitted.
 
 // de_NodegroupUpdateConfig omitted.
+
+// de_NodeRepairConfig omitted.
 
 // de_OIDC omitted.
 
@@ -3496,7 +3694,19 @@ const de_PodIdentityAssociation = (output: any, context: __SerdeContext): PodIde
 
 // de_RemoteAccessConfig omitted.
 
+// de_RemoteNetworkConfigResponse omitted.
+
+// de_RemoteNodeNetwork omitted.
+
+// de_RemoteNodeNetworkList omitted.
+
+// de_RemotePodNetwork omitted.
+
+// de_RemotePodNetworkList omitted.
+
 // de_requiredClaimsMap omitted.
+
+// de_StorageConfigResponse omitted.
 
 // de_StringList omitted.
 
@@ -3524,7 +3734,11 @@ const de_Update = (output: any, context: __SerdeContext): Update => {
 
 // de_UpdateParams omitted.
 
+// de_UpgradePolicyResponse omitted.
+
 // de_VpcConfigResponse omitted.
+
+// de_ZonalShiftConfigResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3538,17 +3752,14 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _aN = "addonName";
 const _aPA = "associatedPolicyArn";
 const _aV = "addonVersion";
+const _cT = "clusterType";
+const _cV = "clusterVersions";
+const _dO = "defaultOnly";
 const _i = "include";
+const _iA = "includeAll";
 const _iS = "includeStatus";
 const _kV = "kubernetesVersion";
 const _mR = "maxResults";
@@ -3558,6 +3769,8 @@ const _nT = "nextToken";
 const _o = "owners";
 const _p = "preserve";
 const _pu = "publishers";
+const _s = "status";
 const _sA = "serviceAccount";
 const _t = "types";
 const _tK = "tagKeys";
+const _vS = "versionStatus";

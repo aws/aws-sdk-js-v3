@@ -55,6 +55,7 @@ export interface MalformedTimestampPathEpochCommandOutput extends __MetadataBear
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampPathEpochCommand extends $Command
   .classBuilder<
@@ -72,4 +73,16 @@ export class MalformedTimestampPathEpochCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampPathEpochCommand)
   .de(de_MalformedTimestampPathEpochCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampPathEpochInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampPathEpochCommandInput;
+      output: MalformedTimestampPathEpochCommandOutput;
+    };
+  };
+}

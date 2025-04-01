@@ -107,6 +107,7 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetPhoneNumberCommand extends $Command
@@ -117,9 +118,7 @@ export class GetPhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class GetPhoneNumberCommand extends $Command
   .f(void 0, GetPhoneNumberResponseFilterSensitiveLog)
   .ser(se_GetPhoneNumberCommand)
   .de(de_GetPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPhoneNumberRequest;
+      output: GetPhoneNumberResponse;
+    };
+    sdk: {
+      input: GetPhoneNumberCommandInput;
+      output: GetPhoneNumberCommandOutput;
+    };
+  };
+}

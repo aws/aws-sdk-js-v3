@@ -45,7 +45,7 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
  * //   ExportJobProperties: { // ExportJobProperties
  * //     JobId: "STRING_VALUE", // required
  * //     JobName: "STRING_VALUE",
- * //     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //     JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //     SubmitTime: new Date("TIMESTAMP"), // required
  * //     EndTime: new Date("TIMESTAMP"),
  * //     DatastoreId: "STRING_VALUE", // required
@@ -83,6 +83,7 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class DescribeFHIRExportJobCommand extends $Command
@@ -93,9 +94,7 @@ export class DescribeFHIRExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DescribeFHIRExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFHIRExportJobCommand)
   .de(de_DescribeFHIRExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFHIRExportJobRequest;
+      output: DescribeFHIRExportJobResponse;
+    };
+    sdk: {
+      input: DescribeFHIRExportJobCommandInput;
+      output: DescribeFHIRExportJobCommandOutput;
+    };
+  };
+}

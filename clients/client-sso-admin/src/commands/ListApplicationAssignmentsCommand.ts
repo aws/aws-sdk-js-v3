@@ -81,6 +81,7 @@ export interface ListApplicationAssignmentsCommandOutput extends ListApplication
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationAssignmentsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListApplicationAssignmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListApplicationAssignmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAssignmentsCommand)
   .de(de_ListApplicationAssignmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAssignmentsRequest;
+      output: ListApplicationAssignmentsResponse;
+    };
+    sdk: {
+      input: ListApplicationAssignmentsCommandInput;
+      output: ListApplicationAssignmentsCommandOutput;
+    };
+  };
+}

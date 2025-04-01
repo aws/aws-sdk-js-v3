@@ -87,6 +87,7 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class ListControlPanelsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListControlPanelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListControlPanelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlPanelsCommand)
   .de(de_ListControlPanelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlPanelsRequest;
+      output: ListControlPanelsResponse;
+    };
+    sdk: {
+      input: ListControlPanelsCommandInput;
+      output: ListControlPanelsCommandOutput;
+    };
+  };
+}

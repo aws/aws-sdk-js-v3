@@ -67,6 +67,7 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssessmentCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssessmentCommand)
   .de(de_DeleteAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssessmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssessmentCommandInput;
+      output: DeleteAssessmentCommandOutput;
+    };
+  };
+}

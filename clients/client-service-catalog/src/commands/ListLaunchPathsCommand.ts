@@ -107,6 +107,7 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListLaunchPathsCommand extends $Command
@@ -117,9 +118,7 @@ export class ListLaunchPathsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class ListLaunchPathsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLaunchPathsCommand)
   .de(de_ListLaunchPathsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLaunchPathsInput;
+      output: ListLaunchPathsOutput;
+    };
+    sdk: {
+      input: ListLaunchPathsCommandInput;
+      output: ListLaunchPathsCommandOutput;
+    };
+  };
+}

@@ -67,18 +67,21 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To release an Elastic IP address
  * ```javascript
  * // This example releases the specified Elastic IP address.
  * const input = {
- *   "AllocationId": "eipalloc-64d5890a"
+ *   AllocationId: "eipalloc-64d5890a"
  * };
  * const command = new ReleaseAddressCommand(input);
- * await client.send(command);
- * // example id: ec2-release-address-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ReleaseAddressCommand extends $Command
   .classBuilder<
@@ -88,9 +91,7 @@ export class ReleaseAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +103,16 @@ export class ReleaseAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseAddressCommand)
   .de(de_ReleaseAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseAddressRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReleaseAddressCommandInput;
+      output: ReleaseAddressCommandOutput;
+    };
+  };
+}

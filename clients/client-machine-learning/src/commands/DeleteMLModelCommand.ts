@@ -69,6 +69,7 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DeleteMLModelCommand extends $Command
@@ -79,9 +80,7 @@ export class DeleteMLModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteMLModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMLModelCommand)
   .de(de_DeleteMLModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMLModelInput;
+      output: DeleteMLModelOutput;
+    };
+    sdk: {
+      input: DeleteMLModelCommandInput;
+      output: DeleteMLModelCommandOutput;
+    };
+  };
+}

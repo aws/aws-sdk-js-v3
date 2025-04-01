@@ -73,6 +73,11 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -96,6 +101,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetSessionCommand extends $Command
@@ -106,9 +112,7 @@ export class GetSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +124,16 @@ export class GetSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSessionCommand)
   .de(de_GetSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionRequest;
+      output: GetSessionResponse;
+    };
+    sdk: {
+      input: GetSessionCommandInput;
+      output: GetSessionCommandOutput;
+    };
+  };
+}

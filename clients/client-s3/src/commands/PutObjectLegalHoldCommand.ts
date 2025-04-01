@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -30,7 +31,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -51,7 +52,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *   RequestPayer: "requester",
  *   VersionId: "STRING_VALUE",
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new PutObjectLegalHoldCommand(input);
@@ -70,6 +71,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
  *
  * @public
  */
@@ -90,10 +92,10 @@ export class PutObjectLegalHoldCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "PutObjectLegalHold", {})
@@ -101,4 +103,16 @@ export class PutObjectLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutObjectLegalHoldCommand)
   .de(de_PutObjectLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutObjectLegalHoldRequest;
+      output: PutObjectLegalHoldOutput;
+    };
+    sdk: {
+      input: PutObjectLegalHoldCommandInput;
+      output: PutObjectLegalHoldCommandOutput;
+    };
+  };
+}

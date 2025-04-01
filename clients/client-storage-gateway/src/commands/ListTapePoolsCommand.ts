@@ -84,6 +84,7 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListTapePoolsCommand extends $Command
@@ -94,9 +95,7 @@ export class ListTapePoolsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListTapePoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTapePoolsCommand)
   .de(de_ListTapePoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTapePoolsInput;
+      output: ListTapePoolsOutput;
+    };
+    sdk: {
+      input: ListTapePoolsCommandInput;
+      output: ListTapePoolsCommandOutput;
+    };
+  };
+}

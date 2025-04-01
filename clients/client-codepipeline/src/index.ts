@@ -109,6 +109,9 @@
  *             <li>
  *                <p>Invoke</p>
  *             </li>
+ *             <li>
+ *                <p>Compute</p>
+ *             </li>
  *          </ul>
  *          <p>Pipelines also include <i>transitions</i>, which allow the transition
  *             of artifacts from one stage to the next in a pipeline after the actions in one stage

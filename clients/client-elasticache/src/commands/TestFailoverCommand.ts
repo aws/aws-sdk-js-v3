@@ -50,8 +50,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                <p> </p>
  *             </li>
  *             <li>
- *                <p>If calling this operation multiple times on different shards in the same Redis
- *                     (cluster mode enabled) replication group, the first node replacement must
+ *                <p>If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must
  *                     complete before a subsequent call can be made.</p>
  *             </li>
  *             <li>
@@ -92,7 +91,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html">Viewing
+ *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html">Viewing
  *                                 ElastiCache Events</a> in the <i>ElastiCache User
  *                                 Guide</i>
  *                      </p>
@@ -104,7 +103,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                </ul>
  *             </li>
  *          </ul>
- *          <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing
+ *          <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test">Testing
  *                 Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -238,6 +237,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -281,6 +281,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class TestFailoverCommand extends $Command
@@ -291,9 +292,7 @@ export class TestFailoverCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -305,4 +304,16 @@ export class TestFailoverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestFailoverCommand)
   .de(de_TestFailoverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestFailoverMessage;
+      output: TestFailoverResult;
+    };
+    sdk: {
+      input: TestFailoverCommandInput;
+      output: TestFailoverCommandOutput;
+    };
+  };
+}

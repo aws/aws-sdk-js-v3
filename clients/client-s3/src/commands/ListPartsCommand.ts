@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -30,21 +31,24 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
 
 /**
  * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
- *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You obtain this uploadID by sending the initiate multipart upload
- *          request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
- *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit of 1,000 parts is also the default value. You can restrict the number of parts in a response by specifying the
- *             <code>max-parts</code> request parameter. If your multipart upload consists of more than
- *          1,000 parts, the response returns an <code>IsTruncated</code> field with the value of <code>true</code>,
- *          and a <code>NextPartNumberMarker</code> element. To list remaining uploaded parts, in subsequent <code>ListParts</code>
- *          requests, include the <code>part-number-marker</code> query string parameter and set its value to
- *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
+ *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You
+ *          obtain this uploadID by sending the initiate multipart upload request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
+ *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit
+ *          of 1,000 parts is also the default value. You can restrict the number of parts in a
+ *          response by specifying the <code>max-parts</code> request parameter. If your multipart
+ *          upload consists of more than 1,000 parts, the response returns an <code>IsTruncated</code>
+ *          field with the value of <code>true</code>, and a <code>NextPartNumberMarker</code> element.
+ *          To list remaining uploaded parts, in subsequent <code>ListParts</code> requests, include
+ *          the <code>part-number-marker</code> query string parameter and set its value to the
+ *             <code>NextPartNumberMarker</code> field value from the previous response.</p>
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *          Upload</a> in the <i>Amazon S3
- *             User Guide</i>.</p>
+ *             Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *                <b>Directory buckets</b> -
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <dl>
@@ -53,12 +57,15 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
- *                      <p>If the upload was created using server-side encryption with Key Management Service (KMS) keys
- *                         (SSE-KMS) or dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), you must have permission
- *                         to the <code>kms:Decrypt</code> action for the <code>ListParts</code> request to succeed.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload API, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If the upload was created using server-side encryption with Key Management Service
+ *                         (KMS) keys (SSE-KMS) or dual-layer server-side encryption with
+ *                         Amazon Web Services KMS keys (DSSE-KMS), you must have permission to the
+ *                            <code>kms:Decrypt</code> action for the <code>ListParts</code> request to
+ *                         succeed.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -75,7 +82,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>ListParts</code>:</p>
@@ -149,6 +156,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //       Size: Number("long"),
  * //       ChecksumCRC32: "STRING_VALUE",
  * //       ChecksumCRC32C: "STRING_VALUE",
+ * //       ChecksumCRC64NVME: "STRING_VALUE",
  * //       ChecksumSHA1: "STRING_VALUE",
  * //       ChecksumSHA256: "STRING_VALUE",
  * //     },
@@ -163,7 +171,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //   },
  * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //   RequestCharged: "requester",
- * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * // };
  *
  * ```
@@ -177,47 +186,47 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list parts of a multipart upload.
  * ```javascript
  * // The following example lists parts uploaded for a specific multipart upload.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "UploadId": "example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ *   Bucket: "examplebucket",
+ *   Key: "bigobject",
+ *   UploadId: "example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Initiator": {
- *     "DisplayName": "owner-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *   Initiator: {
+ *     DisplayName: "owner-display-name",
+ *     ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *   },
- *   "Owner": {
- *     "DisplayName": "owner-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *   Owner: {
+ *     DisplayName: "owner-display-name",
+ *     ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *   },
- *   "Parts": [
+ *   Parts: [
  *     {
- *       "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *       "LastModified": "2016-12-16T00:11:42.000Z",
- *       "PartNumber": "1",
- *       "Size": 26246026
+ *       ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *       LastModified: "2016-12-16T00:11:42.000Z",
+ *       PartNumber: 1,
+ *       Size: 26246026
  *     },
  *     {
- *       "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *       "LastModified": "2016-12-16T00:15:01.000Z",
- *       "PartNumber": "2",
- *       "Size": 26246026
+ *       ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *       LastModified: "2016-12-16T00:15:01.000Z",
+ *       PartNumber: 2,
+ *       Size: 26246026
  *     }
  *   ],
- *   "StorageClass": "STANDARD"
+ *   StorageClass: "STANDARD"
  * }
  * *\/
- * // example id: to-list-parts-of-a-multipart-upload-1481852006923
  * ```
  *
+ * @public
  */
 export class ListPartsCommand extends $Command
   .classBuilder<
@@ -236,6 +245,7 @@ export class ListPartsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
       getSsecPlugin(config),
     ];
   })
@@ -244,4 +254,16 @@ export class ListPartsCommand extends $Command
   .f(ListPartsRequestFilterSensitiveLog, void 0)
   .ser(se_ListPartsCommand)
   .de(de_ListPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartsRequest;
+      output: ListPartsOutput;
+    };
+    sdk: {
+      input: ListPartsCommandInput;
+      output: ListPartsCommandOutput;
+    };
+  };
+}

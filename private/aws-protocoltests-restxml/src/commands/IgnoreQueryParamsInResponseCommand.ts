@@ -53,6 +53,7 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class IgnoreQueryParamsInResponseCommand extends $Command
@@ -71,4 +72,16 @@ export class IgnoreQueryParamsInResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IgnoreQueryParamsInResponseCommand)
   .de(de_IgnoreQueryParamsInResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: IgnoreQueryParamsInResponseOutput;
+    };
+    sdk: {
+      input: IgnoreQueryParamsInResponseCommandInput;
+      output: IgnoreQueryParamsInResponseCommandOutput;
+    };
+  };
+}

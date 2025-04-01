@@ -37,10 +37,23 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * const client = new AthenaClient(config);
  * const input = { // DeleteDataCatalogInput
  *   Name: "STRING_VALUE", // required
+ *   DeleteCatalogOnly: true || false,
  * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteDataCatalogOutput
+ * //   DataCatalog: { // DataCatalog
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED", // required
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "CREATE_FAILED_CLEANUP_IN_PROGRESS" || "CREATE_FAILED_CLEANUP_COMPLETE" || "CREATE_FAILED_CLEANUP_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
+ * //     ConnectionType: "DYNAMODB" || "MYSQL" || "POSTGRESQL" || "REDSHIFT" || "ORACLE" || "SYNAPSE" || "SQLSERVER" || "DB2" || "OPENSEARCH" || "BIGQUERY" || "GOOGLECLOUDSTORAGE" || "HBASE" || "DOCUMENTDB" || "CMDB" || "TPCDS" || "TIMESTREAM" || "SAPHANA" || "SNOWFLAKE" || "DATALAKEGEN2" || "DB2AS400",
+ * //     Error: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
@@ -61,6 +74,7 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataCatalogCommand extends $Command
@@ -71,9 +85,7 @@ export class DeleteDataCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +97,16 @@ export class DeleteDataCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataCatalogCommand)
   .de(de_DeleteDataCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataCatalogInput;
+      output: DeleteDataCatalogOutput;
+    };
+    sdk: {
+      input: DeleteDataCatalogCommandInput;
+      output: DeleteDataCatalogCommandOutput;
+    };
+  };
+}

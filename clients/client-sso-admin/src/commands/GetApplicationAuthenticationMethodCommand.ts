@@ -85,6 +85,7 @@ export interface GetApplicationAuthenticationMethodCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationAuthenticationMethodCommand extends $Command
@@ -95,9 +96,7 @@ export class GetApplicationAuthenticationMethodCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetApplicationAuthenticationMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationAuthenticationMethodCommand)
   .de(de_GetApplicationAuthenticationMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationAuthenticationMethodRequest;
+      output: GetApplicationAuthenticationMethodResponse;
+    };
+    sdk: {
+      input: GetApplicationAuthenticationMethodCommandInput;
+      output: GetApplicationAuthenticationMethodCommandOutput;
+    };
+  };
+}

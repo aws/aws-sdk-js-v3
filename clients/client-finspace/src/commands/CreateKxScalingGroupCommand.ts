@@ -90,6 +90,7 @@ export interface CreateKxScalingGroupCommandOutput extends CreateKxScalingGroupR
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxScalingGroupCommand extends $Command
@@ -100,9 +101,7 @@ export class CreateKxScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class CreateKxScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxScalingGroupCommand)
   .de(de_CreateKxScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxScalingGroupRequest;
+      output: CreateKxScalingGroupResponse;
+    };
+    sdk: {
+      input: CreateKxScalingGroupCommandInput;
+      output: CreateKxScalingGroupCommandOutput;
+    };
+  };
+}

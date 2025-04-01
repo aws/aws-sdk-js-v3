@@ -28,7 +28,8 @@ export interface UpdateQAppCommandInput extends UpdateQAppInput {}
 export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Amazon Q App, allowing modifications to its title, description, and definition.</p>
+ * <p>Updates an existing Amazon Q App, allowing modifications to its title, description, and
+ *       definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,14 +47,14 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  *         textInput: { // TextInputCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           placeholder: "STRING_VALUE",
  *           defaultValue: "STRING_VALUE",
  *         },
  *         qQuery: { // QQueryCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           prompt: "STRING_VALUE", // required
  *           outputSource: "approved-sources" || "llm",
  *           attributeFilter: { // AttributeFilter
@@ -141,17 +142,27 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  *         qPlugin: { // QPluginCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           prompt: "STRING_VALUE", // required
  *           pluginId: "STRING_VALUE", // required
+ *           actionIdentifier: "STRING_VALUE",
  *         },
  *         fileUpload: { // FileUploadCardInput
  *           title: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
- *           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           filename: "STRING_VALUE",
  *           fileId: "STRING_VALUE",
  *           allowOverride: true || false,
+ *         },
+ *         formInput: { // FormInputCardInput
+ *           title: "STRING_VALUE", // required
+ *           id: "STRING_VALUE", // required
+ *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
+ *           metadata: { // FormInputCardMetadata
+ *             schema: "DOCUMENT_VALUE", // required
+ *           },
+ *           computeMode: "append" || "replace",
  *         },
  *       },
  *     ],
@@ -189,8 +200,8 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ContentTooLargeException} (client fault)
- *  <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ *  <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -199,8 +210,8 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -210,6 +221,74 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Updating the title of an app
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   title: "This is the new title"
+ * };
+ * const command = new UpdateQAppCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 2,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   requiredCapabilities: [
+ *     "CreatorMode"
+ *   ],
+ *   status: "DRAFT",
+ *   title: "This is the new title",
+ *   updatedAt: "2024-05-17T23:15:08.571Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Updating the app so it has a single q-query card
+ * ```javascript
+ * //
+ * const input = {
+ *   appDefinition: {
+ *     cards: [
+ *       {
+ *         qQuery: {
+ *           id: "18870b94-1e63-40e0-8c12-669c90ac5acc",
+ *           prompt: "Recommend me an itinerary for a trip",
+ *           title: "Trip Ideas",
+ *           type: "q-query"
+ *         }
+ *       }
+ *     ]
+ *   },
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ * };
+ * const command = new UpdateQAppCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 99,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   requiredCapabilities: [
+ *     "CreatorMode"
+ *   ],
+ *   status: "DRAFT",
+ *   title: "Previous Title Stays the Same",
+ *   updatedAt: "2024-05-17T23:15:08.571Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -221,9 +300,7 @@ export class UpdateQAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -235,4 +312,16 @@ export class UpdateQAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQAppCommand)
   .de(de_UpdateQAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQAppInput;
+      output: UpdateQAppOutput;
+    };
+    sdk: {
+      input: UpdateQAppCommandInput;
+      output: UpdateQAppCommandOutput;
+    };
+  };
+}

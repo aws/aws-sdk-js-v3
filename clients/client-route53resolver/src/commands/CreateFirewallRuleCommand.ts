@@ -38,7 +38,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * const input = { // CreateFirewallRuleRequest
  *   CreatorRequestId: "STRING_VALUE", // required
  *   FirewallRuleGroupId: "STRING_VALUE", // required
- *   FirewallDomainListId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE",
  *   Priority: Number("int"), // required
  *   Action: "ALLOW" || "BLOCK" || "ALERT", // required
  *   BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
@@ -48,6 +48,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *   Name: "STRING_VALUE", // required
  *   FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  *   Qtype: "STRING_VALUE",
+ *   DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ *   ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * };
  * const command = new CreateFirewallRuleCommand(input);
  * const response = await client.send(command);
@@ -55,6 +57,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //   FirewallRule: { // FirewallRule
  * //     FirewallRuleGroupId: "STRING_VALUE",
  * //     FirewallDomainListId: "STRING_VALUE",
+ * //     FirewallThreatProtectionId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Priority: Number("int"),
  * //     Action: "ALLOW" || "BLOCK" || "ALERT",
@@ -67,6 +70,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //     ModificationTime: "STRING_VALUE",
  * //     FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //     Qtype: "STRING_VALUE",
+ * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //   },
  * // };
  *
@@ -102,6 +107,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class CreateFirewallRuleCommand extends $Command
@@ -112,9 +118,7 @@ export class CreateFirewallRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +130,16 @@ export class CreateFirewallRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallRuleCommand)
   .de(de_CreateFirewallRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallRuleRequest;
+      output: CreateFirewallRuleResponse;
+    };
+    sdk: {
+      input: CreateFirewallRuleCommandInput;
+      output: CreateFirewallRuleCommandOutput;
+    };
+  };
+}

@@ -36,10 +36,14 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>You can update the zonal autoshift status for a resource, to enable or disable zonal
- * 			autoshift. When zonal autoshift is <code>ENABLED</code>, Amazon Web Services shifts away
- * 			resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
- * 			determines that there's an issue in the Availability Zone that could potentially affect customers.</p>
+ * <p>The zonal autoshift configuration for a resource includes the practice run configuration and the status for
+ * 			running autoshifts, zonal autoshift status. When a resource has a practice run configuation, Route 53 ARC
+ * 			starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice
+ * 			runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.</p>
+ *          <p>You can update the zonal autoshift autoshift status to enable or disable zonal autoshift. When zonal
+ * 			autoshift is <code>ENABLED</code>, you authorize Amazon Web Services to shift away resource traffic for
+ * 			an application from an Availability Zone during events, on your behalf, to help reduce time to recovery.
+ * 			Traffic is also shifted away for the required weekly practice runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +90,7 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class UpdateZonalAutoshiftConfigurationCommand extends $Command
@@ -96,9 +101,7 @@ export class UpdateZonalAutoshiftConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +113,16 @@ export class UpdateZonalAutoshiftConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateZonalAutoshiftConfigurationCommand)
   .de(de_UpdateZonalAutoshiftConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateZonalAutoshiftConfigurationRequest;
+      output: UpdateZonalAutoshiftConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateZonalAutoshiftConfigurationCommandInput;
+      output: UpdateZonalAutoshiftConfigurationCommandOutput;
+    };
+  };
+}

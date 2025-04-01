@@ -89,6 +89,7 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class StartSNOMEDCTInferenceJobCommand extends $Command
@@ -99,9 +100,7 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSNOMEDCTInferenceJobCommand)
   .de(de_StartSNOMEDCTInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSNOMEDCTInferenceJobRequest;
+      output: StartSNOMEDCTInferenceJobResponse;
+    };
+    sdk: {
+      input: StartSNOMEDCTInferenceJobCommandInput;
+      output: StartSNOMEDCTInferenceJobCommandOutput;
+    };
+  };
+}

@@ -65,6 +65,7 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class DeleteRegistryCommand extends $Command
@@ -75,9 +76,7 @@ export class DeleteRegistryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DeleteRegistryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegistryCommand)
   .de(de_DeleteRegistryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRegistryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRegistryCommandInput;
+      output: DeleteRegistryCommandOutput;
+    };
+  };
+}

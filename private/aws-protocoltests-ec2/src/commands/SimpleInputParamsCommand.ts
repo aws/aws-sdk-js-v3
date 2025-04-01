@@ -61,6 +61,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class SimpleInputParamsCommand extends $Command
@@ -79,4 +80,16 @@ export class SimpleInputParamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SimpleInputParamsCommand)
   .de(de_SimpleInputParamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SimpleInputParamsInput;
+      output: {};
+    };
+    sdk: {
+      input: SimpleInputParamsCommandInput;
+      output: SimpleInputParamsCommandOutput;
+    };
+  };
+}

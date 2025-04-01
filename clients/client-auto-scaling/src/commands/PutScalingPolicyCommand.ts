@@ -36,8 +36,9 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>For more information about using predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
  *                 scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a> API call. If you are no longer using a scaling policy,
- *             you can delete it by calling the <a>DeletePolicy</a> API.</p>
+ *          <p>You can view the scaling policies for an Auto Scaling group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a> API call. If you are no longer using a scaling policy,
+ *             you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeletePolicy.html">DeletePolicy</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +79,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *       ],
  *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  *       Unit: "STRING_VALUE",
+ *       Period: Number("int"),
  *       Metrics: [ // TargetTrackingMetricDataQueries
  *         { // TargetTrackingMetricDataQuery
  *           Id: "STRING_VALUE", // required
@@ -95,8 +97,10 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *             },
  *             Stat: "STRING_VALUE", // required
  *             Unit: "STRING_VALUE",
+ *             Period: Number("int"),
  *           },
  *           Label: "STRING_VALUE",
+ *           Period: Number("int"),
  *           ReturnData: true || false,
  *         },
  *       ],
@@ -222,42 +226,42 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To add a scaling policy to an Auto Scaling group
  * ```javascript
  * // This example adds the specified policy to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "PolicyName": "alb1000-target-tracking-scaling-policy",
- *   "PolicyType": "TargetTrackingScaling",
- *   "TargetTrackingConfiguration": {
- *     "PredefinedMetricSpecification": {
- *       "PredefinedMetricType": "ALBRequestCountPerTarget",
- *       "ResourceLabel": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   PolicyName: "alb1000-target-tracking-scaling-policy",
+ *   PolicyType: "TargetTrackingScaling",
+ *   TargetTrackingConfiguration: {
+ *     PredefinedMetricSpecification: {
+ *       PredefinedMetricType: "ALBRequestCountPerTarget",
+ *       ResourceLabel: "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"
  *     },
- *     "TargetValue": 1000
+ *     TargetValue: 1000.0
  *   }
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Alarms": [
+ *   Alarms: [
  *     {
- *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e",
- *       "AlarmName": "TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e"
+ *       AlarmARN: "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e",
+ *       AlarmName: "TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e"
  *     },
  *     {
- *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2",
- *       "AlarmName": "TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2"
+ *       AlarmARN: "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2",
+ *       AlarmName: "TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2"
  *     }
  *   ],
- *   "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:228f02c2-c665-4bfd-aaac-8b04080bea3c:autoScalingGroupName/my-auto-scaling-group:policyName/alb1000-target-tracking-scaling-policy"
+ *   PolicyARN: "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:228f02c2-c665-4bfd-aaac-8b04080bea3c:autoScalingGroupName/my-auto-scaling-group:policyName/alb1000-target-tracking-scaling-policy"
  * }
  * *\/
- * // example id: autoscaling-put-scaling-policy-1
  * ```
  *
+ * @public
  */
 export class PutScalingPolicyCommand extends $Command
   .classBuilder<
@@ -267,9 +271,7 @@ export class PutScalingPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -281,4 +283,16 @@ export class PutScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutScalingPolicyCommand)
   .de(de_PutScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutScalingPolicyType;
+      output: PolicyARNType;
+    };
+    sdk: {
+      input: PutScalingPolicyCommandInput;
+      output: PutScalingPolicyCommandOutput;
+    };
+  };
+}

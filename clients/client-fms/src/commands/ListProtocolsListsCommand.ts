@@ -81,6 +81,7 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListProtocolsListsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListProtocolsListsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListProtocolsListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProtocolsListsCommand)
   .de(de_ListProtocolsListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProtocolsListsRequest;
+      output: ListProtocolsListsResponse;
+    };
+    sdk: {
+      input: ListProtocolsListsCommandInput;
+      output: ListProtocolsListsCommandOutput;
+    };
+  };
+}

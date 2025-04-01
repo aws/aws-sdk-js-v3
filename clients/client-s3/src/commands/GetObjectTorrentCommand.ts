@@ -35,7 +35,7 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
  *          distributing large files.</p>
@@ -68,6 +68,11 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * };
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetObjectTorrentOutput
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   RequestCharged: "requester",
@@ -84,19 +89,27 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To retrieve torrent files for an object
  * ```javascript
  * // The following example retrieves torrent files of an object.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
+ *   Bucket: "examplebucket",
+ *   Key: "HappyFace.jpg"
  * };
  * const command = new GetObjectTorrentCommand(input);
- * await client.send(command);
- * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
+ * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class GetObjectTorrentCommand extends $Command
   .classBuilder<
@@ -121,4 +134,16 @@ export class GetObjectTorrentCommand extends $Command
   .f(void 0, GetObjectTorrentOutputFilterSensitiveLog)
   .ser(se_GetObjectTorrentCommand)
   .de(de_GetObjectTorrentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectTorrentRequest;
+      output: GetObjectTorrentOutput;
+    };
+    sdk: {
+      input: GetObjectTorrentCommandInput;
+      output: GetObjectTorrentCommandOutput;
+    };
+  };
+}

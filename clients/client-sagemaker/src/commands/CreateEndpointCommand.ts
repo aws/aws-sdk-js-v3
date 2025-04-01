@@ -177,6 +177,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateEndpointCommand extends $Command
@@ -187,9 +188,7 @@ export class CreateEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +200,16 @@ export class CreateEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEndpointCommand)
   .de(de_CreateEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEndpointInput;
+      output: CreateEndpointOutput;
+    };
+    sdk: {
+      input: CreateEndpointCommandInput;
+      output: CreateEndpointCommandOutput;
+    };
+  };
+}

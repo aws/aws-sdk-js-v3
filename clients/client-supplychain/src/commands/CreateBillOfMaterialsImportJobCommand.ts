@@ -84,25 +84,25 @@ export interface CreateBillOfMaterialsImportJobCommandOutput
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Invoke CreateBillOfMaterialsImportJob
  * ```javascript
  * //
  * const input = {
- *   "clientToken": "550e8400-e29b-41d4-a716-446655440000",
- *   "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
- *   "s3uri": "s3://mybucketname/pathelemene/file.csv"
+ *   clientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   instanceId: "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *   s3uri: "s3://mybucketname/pathelemene/file.csv"
  * };
  * const command = new CreateBillOfMaterialsImportJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4"
+ *   jobId: "f79b359b-1515-4436-a3bf-bae7b33e47b4"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateBillOfMaterialsImportJobCommand extends $Command
   .classBuilder<
@@ -112,9 +112,7 @@ export class CreateBillOfMaterialsImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +124,16 @@ export class CreateBillOfMaterialsImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBillOfMaterialsImportJobCommand)
   .de(de_CreateBillOfMaterialsImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBillOfMaterialsImportJobRequest;
+      output: CreateBillOfMaterialsImportJobResponse;
+    };
+    sdk: {
+      input: CreateBillOfMaterialsImportJobCommandInput;
+      output: CreateBillOfMaterialsImportJobCommandOutput;
+    };
+  };
+}

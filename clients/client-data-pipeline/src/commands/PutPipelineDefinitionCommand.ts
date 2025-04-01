@@ -272,6 +272,7 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class PutPipelineDefinitionCommand extends $Command
@@ -282,9 +283,7 @@ export class PutPipelineDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -296,4 +295,16 @@ export class PutPipelineDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPipelineDefinitionCommand)
   .de(de_PutPipelineDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPipelineDefinitionInput;
+      output: PutPipelineDefinitionOutput;
+    };
+    sdk: {
+      input: PutPipelineDefinitionCommandInput;
+      output: PutPipelineDefinitionCommandOutput;
+    };
+  };
+}

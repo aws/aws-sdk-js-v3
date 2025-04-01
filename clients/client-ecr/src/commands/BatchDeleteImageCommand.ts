@@ -93,34 +93,34 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To delete multiple images
  * ```javascript
  * // This example deletes images with the tags precise and trusty in a repository called ubuntu in the default registry for an account.
  * const input = {
- *   "imageIds": [
+ *   imageIds: [
  *     {
- *       "imageTag": "precise"
+ *       imageTag: "precise"
  *     }
  *   ],
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "imageIds": [
+ *   failures:   [],
+ *   imageIds: [
  *     {
- *       "imageDigest": "sha256:examplee6d1e504117a17000003d3753086354a38375961f2e665416ef4b1b2f",
- *       "imageTag": "precise"
+ *       imageDigest: "sha256:examplee6d1e504117a17000003d3753086354a38375961f2e665416ef4b1b2f",
+ *       imageTag: "precise"
  *     }
  *   ]
  * }
  * *\/
- * // example id: batchdeleteimages-example-1470860541707
  * ```
  *
+ * @public
  */
 export class BatchDeleteImageCommand extends $Command
   .classBuilder<
@@ -130,9 +130,7 @@ export class BatchDeleteImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +142,16 @@ export class BatchDeleteImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteImageCommand)
   .de(de_BatchDeleteImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteImageRequest;
+      output: BatchDeleteImageResponse;
+    };
+    sdk: {
+      input: BatchDeleteImageCommandInput;
+      output: BatchDeleteImageCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
+import { RollbackStackInput, RollbackStackOutput } from "../models/models_1";
 import { de_RollbackStackCommand, se_RollbackStackCommand } from "../protocols/Aws_query";
 
 /**
@@ -28,12 +28,14 @@ export interface RollbackStackCommandInput extends RollbackStackInput {}
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**
- * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned resources when an
- *    operation fails. You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
- *          <p>Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code> or
- *    <code>UPDATE_FAILED</code> stack statuses.</p>
- *          <p>This operation will delete a stack if it doesn't contain a last known stable state. A last known stable state
- *    includes any status in a <code>*_COMPLETE</code>. This includes the following stack statuses.</p>
+ * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
+ *       provisioned resources when an operation fails. You can check the status of the stack through
+ *       the <a>DescribeStacks</a> operation.</p>
+ *          <p>Rolls back the specified stack to the last known stable state from
+ *         <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p>
+ *          <p>This operation will delete a stack if it doesn't contain a last known stable state. A last
+ *       known stable state includes any status in a <code>*_COMPLETE</code>. This includes the
+ *       following stack statuses.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -93,6 +95,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class RollbackStackCommand extends $Command
@@ -103,9 +106,7 @@ export class RollbackStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +118,16 @@ export class RollbackStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackStackCommand)
   .de(de_RollbackStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackStackInput;
+      output: RollbackStackOutput;
+    };
+    sdk: {
+      input: RollbackStackCommandInput;
+      output: RollbackStackCommandOutput;
+    };
+  };
+}

@@ -152,6 +152,11 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
+ * //               OriginKeepaliveTimeout: Number("int"),
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -183,6 +188,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },
@@ -241,6 +247,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -324,6 +333,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -367,10 +379,10 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
  * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  * //       Enabled: true || false, // required
@@ -397,6 +409,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -421,6 +434,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *
  * @throws {@link CNAMEAlreadyExists} (client fault)
  *  <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ * @throws {@link EntityNotFound} (client fault)
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior} (client fault)
  *  <p>The specified configuration for field-level encryption can't be associated with the
@@ -639,6 +655,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionWithStagingConfigCommand extends $Command
@@ -649,9 +666,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -663,4 +678,16 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   .f(void 0, UpdateDistributionWithStagingConfigResultFilterSensitiveLog)
   .ser(se_UpdateDistributionWithStagingConfigCommand)
   .de(de_UpdateDistributionWithStagingConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionWithStagingConfigRequest;
+      output: UpdateDistributionWithStagingConfigResult;
+    };
+    sdk: {
+      input: UpdateDistributionWithStagingConfigCommandInput;
+      output: UpdateDistributionWithStagingConfigCommandOutput;
+    };
+  };
+}

@@ -98,6 +98,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ *
  * @public
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command
@@ -108,9 +109,7 @@ export class BatchCheckLayerAvailabilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class BatchCheckLayerAvailabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCheckLayerAvailabilityCommand)
   .de(de_BatchCheckLayerAvailabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCheckLayerAvailabilityRequest;
+      output: BatchCheckLayerAvailabilityResponse;
+    };
+    sdk: {
+      input: BatchCheckLayerAvailabilityCommandInput;
+      output: BatchCheckLayerAvailabilityCommandOutput;
+    };
+  };
+}

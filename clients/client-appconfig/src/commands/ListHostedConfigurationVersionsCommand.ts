@@ -32,7 +32,7 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
 
 /**
  * <p>Lists configurations stored in the AppConfig hosted configuration store by
- *          version.</p>
+ *          version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,31 +83,31 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To list the available hosted configuration versions
  * ```javascript
  * // The following list-hosted-configuration-versions example lists the configurations versions hosted in the AWS AppConfig hosted configuration store for the specified application and configuration profile.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f"
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f"
  * };
  * const command = new ListHostedConfigurationVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "ApplicationId": "339ohji",
- *       "ConfigurationProfileId": "ur8hx2f",
- *       "ContentType": "application/json",
- *       "VersionNumber": 1
+ *       ApplicationId: "339ohji",
+ *       ConfigurationProfileId: "ur8hx2f",
+ *       ContentType: "application/json",
+ *       VersionNumber: 1
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-available-hosted-configuration-versions-1632267647667
  * ```
  *
+ * @public
  */
 export class ListHostedConfigurationVersionsCommand extends $Command
   .classBuilder<
@@ -117,9 +117,7 @@ export class ListHostedConfigurationVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +129,16 @@ export class ListHostedConfigurationVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostedConfigurationVersionsCommand)
   .de(de_ListHostedConfigurationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostedConfigurationVersionsRequest;
+      output: HostedConfigurationVersions;
+    };
+    sdk: {
+      input: ListHostedConfigurationVersionsCommandInput;
+      output: ListHostedConfigurationVersionsCommandOutput;
+    };
+  };
+}

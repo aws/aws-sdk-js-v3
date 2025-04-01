@@ -101,9 +101,15 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
  *
  * @public
  */
@@ -115,9 +121,7 @@ export class GetParameterHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +133,16 @@ export class GetParameterHistoryCommand extends $Command
   .f(void 0, GetParameterHistoryResultFilterSensitiveLog)
   .ser(se_GetParameterHistoryCommand)
   .de(de_GetParameterHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParameterHistoryRequest;
+      output: GetParameterHistoryResult;
+    };
+    sdk: {
+      input: GetParameterHistoryCommandInput;
+      output: GetParameterHistoryCommandOutput;
+    };
+  };
+}

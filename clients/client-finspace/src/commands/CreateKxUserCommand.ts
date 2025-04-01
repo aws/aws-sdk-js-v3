@@ -89,6 +89,7 @@ export interface CreateKxUserCommandOutput extends CreateKxUserResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxUserCommand extends $Command
@@ -99,9 +100,7 @@ export class CreateKxUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class CreateKxUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxUserCommand)
   .de(de_CreateKxUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxUserRequest;
+      output: CreateKxUserResponse;
+    };
+    sdk: {
+      input: CreateKxUserCommandInput;
+      output: CreateKxUserCommandOutput;
+    };
+  };
+}

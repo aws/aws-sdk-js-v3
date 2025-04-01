@@ -73,6 +73,7 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class SendTestEventNotificationCommand extends $Command
@@ -83,9 +84,7 @@ export class SendTestEventNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class SendTestEventNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendTestEventNotificationCommand)
   .de(de_SendTestEventNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTestEventNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendTestEventNotificationCommandInput;
+      output: SendTestEventNotificationCommandOutput;
+    };
+  };
+}

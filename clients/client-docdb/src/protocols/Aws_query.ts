@@ -142,6 +142,10 @@ import {
 } from "../commands/DescribePendingMaintenanceActionsCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "../commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "../commands/FailoverGlobalClusterCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -212,6 +216,7 @@ import {
   CertificateMessage,
   CertificateNotFoundFault,
   CloudwatchLogsExportConfiguration,
+  ClusterMasterUserSecret,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -310,6 +315,8 @@ import {
   EventSubscriptionsMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
+  FailoverGlobalClusterMessage,
+  FailoverGlobalClusterResult,
   Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
@@ -1002,6 +1009,23 @@ export const se_FailoverDBClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_FailoverDBClusterMessage(input, context),
     [_A]: _FDBC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryFailoverGlobalClusterCommand
+ */
+export const se_FailoverGlobalClusterCommand = async (
+  input: FailoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_FailoverGlobalClusterMessage(input, context),
+    [_A]: _FGC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2021,6 +2045,26 @@ export const de_FailoverDBClusterCommand = async (
   let contents: any = {};
   contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
   const response: FailoverDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverGlobalClusterCommand
+ */
+export const de_FailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3758,6 +3802,12 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
   return entries;
 };
 
@@ -4597,6 +4647,26 @@ const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: _
 };
 
 /**
+ * serializeAws_queryFailoverGlobalClusterMessage
+ */
+const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
+  }
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
+  }
+  if (input[_ADL] != null) {
+    entries[_ADL] = input[_ADL];
+  }
+  if (input[_Sw] != null) {
+    entries[_Sw] = input[_Sw];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryFilter
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
@@ -4765,6 +4835,15 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   }
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
+  }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
+  if (input[_RMUP] != null) {
+    entries[_RMUP] = input[_RMUP];
   }
   return entries;
 };
@@ -5537,6 +5616,23 @@ const de_CertificateNotFoundFault = (output: any, context: __SerdeContext): Cert
 };
 
 /**
+ * deserializeAws_queryClusterMasterUserSecret
+ */
+const de_ClusterMasterUserSecret = (output: any, context: __SerdeContext): ClusterMasterUserSecret => {
+  const contents: any = {};
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
+  }
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
+  }
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCopyDBClusterParameterGroupResult
  */
 const de_CopyDBClusterParameterGroupResult = (
@@ -5756,6 +5852,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
+  }
+  if (output[_MUS] != null) {
+    contents[_MUS] = de_ClusterMasterUserSecret(output[_MUS], context);
   }
   return contents;
 };
@@ -6721,8 +6820,8 @@ const de_Event = (output: any, context: __SerdeContext): Event => {
   if (output[_Da] != null) {
     contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output[_SA] != null) {
-    contents[_SA] = __expectString(output[_SA]);
+  if (output[_SAo] != null) {
+    contents[_SAo] = __expectString(output[_SAo]);
   }
   return contents;
 };
@@ -6895,6 +6994,17 @@ const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): Failo
   const contents: any = {};
   if (output[_DBC] != null) {
     contents[_DBC] = de_DBCluster(output[_DBC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryFailoverGlobalClusterResult
+ */
+const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): FailoverGlobalClusterResult => {
+  const contents: any = {};
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -7824,8 +7934,8 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   if (output[_SAZ] != null) {
     contents[_SAZ] = de_AvailabilityZone(output[_SAZ], context);
   }
-  if (output[_SS] != null) {
-    contents[_SS] = __expectString(output[_SS]);
+  if (output[_SSu] != null) {
+    contents[_SSu] = __expectString(output[_SSu]);
   }
   return contents;
 };
@@ -8041,6 +8151,7 @@ const _ = "2014-10-31";
 const _A = "Action";
 const _AA = "ApplyAction";
 const _AAAD = "AutoAppliedAfterDate";
+const _ADL = "AllowDataLoss";
 const _AI = "ApplyImmediately";
 const _AM = "ApplyMethod";
 const _AMVU = "AutoMinorVersionUpgrade";
@@ -8183,6 +8294,7 @@ const _FAD = "ForcedApplyDate";
 const _FDBC = "FailoverDBCluster";
 const _FDBSI = "FinalDBSnapshotIdentifier";
 const _FF = "ForceFailover";
+const _FGC = "FailoverGlobalCluster";
 const _GC = "GlobalCluster";
 const _GCA = "GlobalClusterArn";
 const _GCI = "GlobalClusterIdentifier";
@@ -8218,9 +8330,12 @@ const _MDBSG = "ModifyDBSubnetGroup";
 const _MES = "ModifyEventSubscription";
 const _MEV = "MinimumEngineVersion";
 const _MGC = "ModifyGlobalCluster";
+const _MMUP = "ManageMasterUserPassword";
 const _MR = "MaxRecords";
 const _MU = "MasterUsername";
 const _MUP = "MasterUserPassword";
+const _MUS = "MasterUserSecret";
+const _MUSKKI = "MasterUserSecretKmsKeyId";
 const _Me = "Message";
 const _N = "Name";
 const _NDBCI = "NewDBClusterIdentifier";
@@ -8259,6 +8374,7 @@ const _RDBI = "RebootDBInstance";
 const _RE = "ReaderEndpoint";
 const _RFGC = "RemoveFromGlobalCluster";
 const _RI = "ResourceIdentifier";
+const _RMUP = "RotateMasterUserPassword";
 const _RN = "ResourceName";
 const _RPMA = "ResourcePendingMaintenanceActions";
 const _RRI = "ReadReplicaIdentifiers";
@@ -8269,8 +8385,9 @@ const _RT = "RestoreType";
 const _RTFR = "RemoveTagsFromResource";
 const _RTT = "RestoreToTime";
 const _S = "Source";
-const _SA = "SourceArn";
+const _SA = "SecretArn";
 const _SAZ = "SubnetAvailabilityZone";
+const _SAo = "SourceArn";
 const _SCACI = "SupportedCACertificateIdentifiers";
 const _SCRWR = "SupportsCertificateRotationWithoutRestart";
 const _SCT = "SnapshotCreateTime";
@@ -8295,7 +8412,8 @@ const _SIu = "SubnetIds";
 const _SIub = "SubnetIdentifier";
 const _SLETCL = "SupportsLogExportsToCloudwatchLogs";
 const _SN = "SubscriptionName";
-const _SS = "SubnetStatus";
+const _SS = "SecretStatus";
+const _SSu = "SubnetStatus";
 const _ST = "StorageType";
 const _STA = "SnsTopicArn";
 const _STn = "SnapshotType";
@@ -8305,6 +8423,7 @@ const _STta = "StatusType";
 const _St = "Status";
 const _Su = "Subnets";
 const _Sub = "Subnet";
+const _Sw = "Switchover";
 const _T = "Tags";
 const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
 const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";

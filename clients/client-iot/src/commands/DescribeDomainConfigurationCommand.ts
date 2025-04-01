@@ -70,6 +70,13 @@ export interface DescribeDomainConfigurationCommandOutput
  * //   },
  * //   serverCertificateConfig: { // ServerCertificateConfig
  * //     enableOCSPCheck: true || false,
+ * //     ocspLambdaArn: "STRING_VALUE",
+ * //     ocspAuthorizedResponderArn: "STRING_VALUE",
+ * //   },
+ * //   authenticationType: "CUSTOM_AUTH_X509" || "CUSTOM_AUTH" || "AWS_X509" || "AWS_SIGV4" || "DEFAULT",
+ * //   applicationProtocol: "SECURE_MQTT" || "MQTT_WSS" || "HTTPS" || "DEFAULT",
+ * //   clientCertificateConfig: { // ClientCertificateConfig
+ * //     clientCertificateCallbackArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -102,6 +109,7 @@ export interface DescribeDomainConfigurationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainConfigurationCommand extends $Command
@@ -112,9 +120,7 @@ export class DescribeDomainConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +132,16 @@ export class DescribeDomainConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainConfigurationCommand)
   .de(de_DescribeDomainConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainConfigurationRequest;
+      output: DescribeDomainConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeDomainConfigurationCommandInput;
+      output: DescribeDomainConfigurationCommandOutput;
+    };
+  };
+}

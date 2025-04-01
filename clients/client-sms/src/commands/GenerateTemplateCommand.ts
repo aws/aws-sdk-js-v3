@@ -76,6 +76,7 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class GenerateTemplateCommand extends $Command
@@ -86,9 +87,7 @@ export class GenerateTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GenerateTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateTemplateCommand)
   .de(de_GenerateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateTemplateRequest;
+      output: GenerateTemplateResponse;
+    };
+    sdk: {
+      input: GenerateTemplateCommandInput;
+      output: GenerateTemplateCommandOutput;
+    };
+  };
+}

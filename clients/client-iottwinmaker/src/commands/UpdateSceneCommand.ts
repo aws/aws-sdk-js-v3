@@ -79,6 +79,7 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateSceneCommand extends $Command
@@ -89,9 +90,7 @@ export class UpdateSceneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class UpdateSceneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSceneCommand)
   .de(de_UpdateSceneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSceneRequest;
+      output: UpdateSceneResponse;
+    };
+    sdk: {
+      input: UpdateSceneCommandInput;
+      output: UpdateSceneCommandOutput;
+    };
+  };
+}

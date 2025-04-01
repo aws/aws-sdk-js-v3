@@ -32,7 +32,8 @@ export interface DescribeInstancePropertiesCommandInput extends DescribeInstance
 export interface DescribeInstancePropertiesCommandOutput extends DescribeInstancePropertiesResult, __MetadataBearer {}
 
 /**
- * <p>An API operation used by the Systems Manager console to display information about Systems Manager managed nodes.</p>
+ * <p>An API operation used by the Systems Manager console to display information about Systems Manager managed
+ *    nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,7 +114,7 @@ export interface DescribeInstancePropertiesCommandOutput extends DescribeInstanc
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidActivationId} (client fault)
- *  <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ *  <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  *
  * @throws {@link InvalidDocument} (client fault)
@@ -151,6 +152,7 @@ export interface DescribeInstancePropertiesCommandOutput extends DescribeInstanc
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstancePropertiesCommand extends $Command
@@ -161,9 +163,7 @@ export class DescribeInstancePropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +175,16 @@ export class DescribeInstancePropertiesCommand extends $Command
   .f(void 0, DescribeInstancePropertiesResultFilterSensitiveLog)
   .ser(se_DescribeInstancePropertiesCommand)
   .de(de_DescribeInstancePropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancePropertiesRequest;
+      output: DescribeInstancePropertiesResult;
+    };
+    sdk: {
+      input: DescribeInstancePropertiesCommandInput;
+      output: DescribeInstancePropertiesCommandOutput;
+    };
+  };
+}

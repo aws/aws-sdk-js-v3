@@ -148,6 +148,87 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list incoming typed links
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new ListIncomingTypedLinksCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   LinkSpecifiers: [
+ *     {
+ *       IdentityAttributeValues: [
+ *         {
+ *           AttributeName: "22",
+ *           Value: {
+ *             BinaryValue: ""
+ *           }
+ *         }
+ *       ],
+ *       SourceObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       TargetObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       TypedLinkFacet: {
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         TypedLinkName: "exampletypedlink8"
+ *       }
+ *     },
+ *     {
+ *       IdentityAttributeValues: [
+ *         {
+ *           AttributeName: "22",
+ *           Value: {
+ *             BinaryValue: "MA=="
+ *           }
+ *         }
+ *       ],
+ *       SourceObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       TargetObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       TypedLinkFacet: {
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         TypedLinkName: "exampletypedlink8"
+ *       }
+ *     },
+ *     {
+ *       IdentityAttributeValues: [
+ *         {
+ *           AttributeName: "22",
+ *           Value: {
+ *             BinaryValue: "c3Ry"
+ *           }
+ *         }
+ *       ],
+ *       SourceObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       TargetObjectReference: {
+ *         Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       TypedLinkFacet: {
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         TypedLinkName: "exampletypedlink8"
+ *       }
+ *     }
+ *   ],
+ *   NextToken: ""
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIncomingTypedLinksCommand extends $Command
@@ -158,9 +239,7 @@ export class ListIncomingTypedLinksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +251,16 @@ export class ListIncomingTypedLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIncomingTypedLinksCommand)
   .de(de_ListIncomingTypedLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIncomingTypedLinksRequest;
+      output: ListIncomingTypedLinksResponse;
+    };
+    sdk: {
+      input: ListIncomingTypedLinksCommandInput;
+      output: ListIncomingTypedLinksCommandOutput;
+    };
+  };
+}

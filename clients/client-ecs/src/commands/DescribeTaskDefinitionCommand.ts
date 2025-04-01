@@ -77,6 +77,13 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //           },
  * //         ],
  * //         essential: true || false,
+ * //         restartPolicy: { // ContainerRestartPolicy
+ * //           enabled: true || false, // required
+ * //           ignoredExitCodes: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           restartAttemptPeriod: Number("int"),
+ * //         },
  * //         entryPoint: [
  * //           "STRING_VALUE",
  * //         ],
@@ -152,6 +159,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //         ],
  * //         startTimeout: Number("int"),
  * //         stopTimeout: Number("int"),
+ * //         versionConsistency: "enabled" || "disabled",
  * //         hostname: "STRING_VALUE",
  * //         user: "STRING_VALUE",
  * //         workingDirectory: "STRING_VALUE",
@@ -313,6 +321,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * //   tags: [ // Tags
  * //     { // Tag
@@ -334,10 +343,21 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -345,65 +365,65 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a task definition
  * ```javascript
  * // This example provides a description of the specified task definition.
  * const input = {
- *   "taskDefinition": "hello_world:8"
+ *   taskDefinition: "hello_world:8"
  * };
  * const command = new DescribeTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskDefinition": {
- *     "containerDefinitions": [
+ *   taskDefinition: {
+ *     containerDefinitions: [
  *       {
- *         "name": "wordpress",
- *         "cpu": 10,
- *         "environment": [],
- *         "essential": true,
- *         "image": "wordpress",
- *         "links": [
+ *         cpu: 10,
+ *         environment:         [],
+ *         essential: true,
+ *         image: "wordpress",
+ *         links: [
  *           "mysql"
  *         ],
- *         "memory": 500,
- *         "mountPoints": [],
- *         "portMappings": [
+ *         memory: 500,
+ *         mountPoints:         [],
+ *         name: "wordpress",
+ *         portMappings: [
  *           {
- *             "containerPort": 80,
- *             "hostPort": 80
+ *             containerPort: 80,
+ *             hostPort: 80
  *           }
  *         ],
- *         "volumesFrom": []
+ *         volumesFrom:         []
  *       },
  *       {
- *         "name": "mysql",
- *         "cpu": 10,
- *         "environment": [
+ *         cpu: 10,
+ *         environment: [
  *           {
- *             "name": "MYSQL_ROOT_PASSWORD",
- *             "value": "password"
+ *             name: "MYSQL_ROOT_PASSWORD",
+ *             value: "password"
  *           }
  *         ],
- *         "essential": true,
- *         "image": "mysql",
- *         "memory": 500,
- *         "mountPoints": [],
- *         "portMappings": [],
- *         "volumesFrom": []
+ *         essential: true,
+ *         image: "mysql",
+ *         memory: 500,
+ *         mountPoints:         [],
+ *         name: "mysql",
+ *         portMappings:         [],
+ *         volumesFrom:         []
  *       }
  *     ],
- *     "family": "hello_world",
- *     "revision": 8,
- *     "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/hello_world:8",
- *     "volumes": []
+ *     family: "hello_world",
+ *     revision: 8,
+ *     taskDefinitionArn: "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/hello_world:8",
+ *     volumes:     []
  *   }
  * }
  * *\/
- * // example id: 4c21eeb1-f1da-4a08-8c44-297fc8d0ea88
  * ```
  *
+ * @public
  */
 export class DescribeTaskDefinitionCommand extends $Command
   .classBuilder<
@@ -413,9 +433,7 @@ export class DescribeTaskDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -427,4 +445,16 @@ export class DescribeTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTaskDefinitionCommand)
   .de(de_DescribeTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTaskDefinitionRequest;
+      output: DescribeTaskDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeTaskDefinitionCommandInput;
+      output: DescribeTaskDefinitionCommandOutput;
+    };
+  };
+}

@@ -102,6 +102,7 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class PutDomainPermissionsPolicyCommand extends $Command
@@ -112,9 +113,7 @@ export class PutDomainPermissionsPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class PutDomainPermissionsPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDomainPermissionsPolicyCommand)
   .de(de_PutDomainPermissionsPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDomainPermissionsPolicyRequest;
+      output: PutDomainPermissionsPolicyResult;
+    };
+    sdk: {
+      input: PutDomainPermissionsPolicyCommandInput;
+      output: PutDomainPermissionsPolicyCommandOutput;
+    };
+  };
+}

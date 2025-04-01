@@ -156,19 +156,22 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To create an alias
  * ```javascript
  * // The following example creates an alias for the specified KMS key.
  * const input = {
- *   "AliasName": "alias/ExampleAlias",
- *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   AliasName: "alias/ExampleAlias",
+ *   TargetKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new CreateAliasCommand(input);
- * await client.send(command);
- * // example id: to-create-an-alias-1477505685119
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<
@@ -178,9 +181,7 @@ export class CreateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +193,16 @@ export class CreateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAliasCommand)
   .de(de_CreateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAliasCommandInput;
+      output: CreateAliasCommandOutput;
+    };
+  };
+}

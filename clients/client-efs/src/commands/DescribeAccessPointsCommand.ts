@@ -110,6 +110,7 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessPointsCommand extends $Command
@@ -120,9 +121,7 @@ export class DescribeAccessPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class DescribeAccessPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccessPointsCommand)
   .de(de_DescribeAccessPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccessPointsRequest;
+      output: DescribeAccessPointsResponse;
+    };
+    sdk: {
+      input: DescribeAccessPointsCommandInput;
+      output: DescribeAccessPointsCommandOutput;
+    };
+  };
+}

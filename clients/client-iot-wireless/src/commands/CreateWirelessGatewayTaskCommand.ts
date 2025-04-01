@@ -75,6 +75,7 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class CreateWirelessGatewayTaskCommand extends $Command
@@ -85,9 +86,7 @@ export class CreateWirelessGatewayTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class CreateWirelessGatewayTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWirelessGatewayTaskCommand)
   .de(de_CreateWirelessGatewayTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWirelessGatewayTaskRequest;
+      output: CreateWirelessGatewayTaskResponse;
+    };
+    sdk: {
+      input: CreateWirelessGatewayTaskCommandInput;
+      output: CreateWirelessGatewayTaskCommandOutput;
+    };
+  };
+}

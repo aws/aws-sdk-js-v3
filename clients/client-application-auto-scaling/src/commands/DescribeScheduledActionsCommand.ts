@@ -101,50 +101,50 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scheduled actions
  * ```javascript
  * // This example describes the scheduled actions for the dynamodb service namespace.
  * const input = {
- *   "ServiceNamespace": "dynamodb"
+ *   ServiceNamespace: "dynamodb"
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScheduledActions": [
+ *   ScheduledActions: [
  *     {
- *       "CreationTime": 1561571888.361,
- *       "ResourceId": "table/my-table",
- *       "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
- *       "ScalableTargetAction": {
- *         "MaxCapacity": 20,
- *         "MinCapacity": 15
+ *       CreationTime: 1.561571888361E9,
+ *       ResourceId: "table/my-table",
+ *       ScalableDimension: "dynamodb:table:WriteCapacityUnits",
+ *       ScalableTargetAction: {
+ *         MaxCapacity: 20,
+ *         MinCapacity: 15
  *       },
- *       "Schedule": "at(2019-05-20T18:35:00)",
- *       "ScheduledActionARN": "arn:aws:autoscaling:us-west-2:123456789012:scheduledAction:2d36aa3b-cdf9-4565-b290-81db519b227d:resource/dynamodb/table/my-table:scheduledActionName/my-first-scheduled-action",
- *       "ScheduledActionName": "my-first-scheduled-action",
- *       "ServiceNamespace": "dynamodb"
+ *       Schedule: "at(2019-05-20T18:35:00)",
+ *       ScheduledActionARN: "arn:aws:autoscaling:us-west-2:123456789012:scheduledAction:2d36aa3b-cdf9-4565-b290-81db519b227d:resource/dynamodb/table/my-table:scheduledActionName/my-first-scheduled-action",
+ *       ScheduledActionName: "my-first-scheduled-action",
+ *       ServiceNamespace: "dynamodb"
  *     },
  *     {
- *       "CreationTime": 1561571946.021,
- *       "ResourceId": "table/my-table",
- *       "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
- *       "ScalableTargetAction": {
- *         "MaxCapacity": 10,
- *         "MinCapacity": 5
+ *       CreationTime: 1.561571946021E9,
+ *       ResourceId: "table/my-table",
+ *       ScalableDimension: "dynamodb:table:WriteCapacityUnits",
+ *       ScalableTargetAction: {
+ *         MaxCapacity: 10,
+ *         MinCapacity: 5
  *       },
- *       "Schedule": "at(2019-05-20T18:40:00)",
- *       "ScheduledActionARN": "arn:aws:autoscaling:us-west-2:123456789012:scheduledAction:2d36aa3b-cdf9-4565-b290-81db519b227d:resource/dynamodb/table/my-table:scheduledActionName/my-second-scheduled-action",
- *       "ScheduledActionName": "my-second-scheduled-action",
- *       "ServiceNamespace": "dynamodb"
+ *       Schedule: "at(2019-05-20T18:40:00)",
+ *       ScheduledActionARN: "arn:aws:autoscaling:us-west-2:123456789012:scheduledAction:2d36aa3b-cdf9-4565-b290-81db519b227d:resource/dynamodb/table/my-table:scheduledActionName/my-second-scheduled-action",
+ *       ScheduledActionName: "my-second-scheduled-action",
+ *       ServiceNamespace: "dynamodb"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-scheduled-actions-1677965249349
  * ```
  *
+ * @public
  */
 export class DescribeScheduledActionsCommand extends $Command
   .classBuilder<
@@ -154,9 +154,7 @@ export class DescribeScheduledActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +166,16 @@ export class DescribeScheduledActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduledActionsCommand)
   .de(de_DescribeScheduledActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduledActionsRequest;
+      output: DescribeScheduledActionsResponse;
+    };
+    sdk: {
+      input: DescribeScheduledActionsCommandInput;
+      output: DescribeScheduledActionsCommandOutput;
+    };
+  };
+}

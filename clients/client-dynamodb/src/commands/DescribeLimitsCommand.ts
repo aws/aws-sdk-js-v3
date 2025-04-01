@@ -130,24 +130,24 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To determine capacity limits per table and account, in the current AWS region
  * ```javascript
  * // The following example returns the maximum read and write capacity units per table, and for the AWS account, in the current AWS region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountMaxReadCapacityUnits": 20000,
- *   "AccountMaxWriteCapacityUnits": 20000,
- *   "TableMaxReadCapacityUnits": 10000,
- *   "TableMaxWriteCapacityUnits": 10000
+ *   AccountMaxReadCapacityUnits: 20000,
+ *   AccountMaxWriteCapacityUnits: 20000,
+ *   TableMaxReadCapacityUnits: 10000,
+ *   TableMaxWriteCapacityUnits: 10000
  * }
  * *\/
- * // example id: to-determine-capacity-limits-per-table-and-account-in-the-current-aws-region-1475884162064
  * ```
  *
+ * @public
  */
 export class DescribeLimitsCommand extends $Command
   .classBuilder<
@@ -157,9 +157,7 @@ export class DescribeLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +169,16 @@ export class DescribeLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLimitsCommand)
   .de(de_DescribeLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeLimitsOutput;
+    };
+    sdk: {
+      input: DescribeLimitsCommandInput;
+      output: DescribeLimitsCommandOutput;
+    };
+  };
+}

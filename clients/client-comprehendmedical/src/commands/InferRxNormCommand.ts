@@ -127,6 +127,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class InferRxNormCommand extends $Command
@@ -137,9 +138,7 @@ export class InferRxNormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class InferRxNormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InferRxNormCommand)
   .de(de_InferRxNormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InferRxNormRequest;
+      output: InferRxNormResponse;
+    };
+    sdk: {
+      input: InferRxNormCommandInput;
+      output: InferRxNormCommandOutput;
+    };
+  };
+}

@@ -244,6 +244,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetEC2InstanceRecommendationsCommand extends $Command
@@ -254,9 +255,7 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -268,4 +267,16 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEC2InstanceRecommendationsCommand)
   .de(de_GetEC2InstanceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEC2InstanceRecommendationsRequest;
+      output: GetEC2InstanceRecommendationsResponse;
+    };
+    sdk: {
+      input: GetEC2InstanceRecommendationsCommandInput;
+      output: GetEC2InstanceRecommendationsCommandOutput;
+    };
+  };
+}

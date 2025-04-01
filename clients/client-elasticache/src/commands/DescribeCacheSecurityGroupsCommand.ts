@@ -84,18 +84,21 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
  * const input = {
- *   "CacheSecurityGroupName": "my-sec-group"
+ *   CacheSecurityGroupName: "my-sec-group"
  * };
  * const command = new DescribeCacheSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: describecachesecuritygroups-1483047200801
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeCacheSecurityGroupsCommand extends $Command
   .classBuilder<
@@ -105,9 +108,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class DescribeCacheSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCacheSecurityGroupsCommand)
   .de(de_DescribeCacheSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCacheSecurityGroupsMessage;
+      output: CacheSecurityGroupMessage;
+    };
+    sdk: {
+      input: DescribeCacheSecurityGroupsCommandInput;
+      output: DescribeCacheSecurityGroupsCommandOutput;
+    };
+  };
+}

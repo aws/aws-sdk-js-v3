@@ -37,11 +37,16 @@ import { DescribeStatementCommandInput, DescribeStatementCommandOutput } from ".
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
 import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "../commands/ExecuteStatementCommand";
 import { GetStatementResultCommandInput, GetStatementResultCommandOutput } from "../commands/GetStatementResultCommand";
+import {
+  GetStatementResultV2CommandInput,
+  GetStatementResultV2CommandOutput,
+} from "../commands/GetStatementResultV2Command";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
+  ActiveSessionsExceededException,
   ActiveStatementsExceededException,
   BatchExecuteStatementException,
   BatchExecuteStatementInput,
@@ -57,12 +62,14 @@ import {
   Field,
   GetStatementResultRequest,
   GetStatementResultResponse,
+  GetStatementResultV2Request,
   InternalServerException,
   ListDatabasesRequest,
   ListSchemasRequest,
   ListStatementsRequest,
   ListStatementsResponse,
   ListTablesRequest,
+  QueryTimeoutException,
   ResourceNotFoundException,
   SqlParameter,
   StatementData,
@@ -144,6 +151,19 @@ export const se_GetStatementResultCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetStatementResult");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetStatementResultV2Command
+ */
+export const se_GetStatementResultV2Command = async (
+  input: GetStatementResultV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetStatementResultV2");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -322,6 +342,26 @@ export const de_GetStatementResultCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetStatementResultV2Command
+ */
+export const de_GetStatementResultV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStatementResultV2CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetStatementResultV2CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListDatabasesCommand
  */
 export const de_ListDatabasesCommand = async (
@@ -411,24 +451,30 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ActiveSessionsExceededException":
+    case "com.amazonaws.redshiftdata#ActiveSessionsExceededException":
+      throw await de_ActiveSessionsExceededExceptionRes(parsedOutput, context);
     case "ActiveStatementsExceededException":
     case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
       throw await de_ActiveStatementsExceededExceptionRes(parsedOutput, context);
     case "BatchExecuteStatementException":
     case "com.amazonaws.redshiftdata#BatchExecuteStatementException":
       throw await de_BatchExecuteStatementExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftdata#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
       throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "QueryTimeoutException":
+    case "com.amazonaws.redshiftdata#QueryTimeoutException":
+      throw await de_QueryTimeoutExceptionRes(parsedOutput, context);
     case "ExecuteStatementException":
     case "com.amazonaws.redshiftdata#ExecuteStatementException":
       throw await de_ExecuteStatementExceptionRes(parsedOutput, context);
@@ -440,6 +486,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1ActiveSessionsExceededExceptionRes
+ */
+const de_ActiveSessionsExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActiveSessionsExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ActiveSessionsExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -523,6 +585,22 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1QueryTimeoutExceptionRes
+ */
+const de_QueryTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<QueryTimeoutException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new QueryTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -560,7 +638,10 @@ const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, contex
     ClusterIdentifier: [],
     Database: [],
     DbUser: [],
+    ResultFormat: [],
     SecretArn: [],
+    SessionId: [],
+    SessionKeepAliveSeconds: [],
     Sqls: _json,
     StatementName: [],
     WithEvent: [],
@@ -584,7 +665,10 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
     Database: [],
     DbUser: [],
     Parameters: _json,
+    ResultFormat: [],
     SecretArn: [],
+    SessionId: [],
+    SessionKeepAliveSeconds: [],
     Sql: [],
     StatementName: [],
     WithEvent: [],
@@ -593,6 +677,8 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
 };
 
 // se_GetStatementResultRequest omitted.
+
+// se_GetStatementResultV2Request omitted.
 
 // se_ListDatabasesRequest omitted.
 
@@ -608,6 +694,8 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
 
 // se_SqlParametersList omitted.
 
+// de_ActiveSessionsExceededException omitted.
+
 // de_ActiveStatementsExceededException omitted.
 
 // de_BatchExecuteStatementException omitted.
@@ -620,9 +708,11 @@ const de_BatchExecuteStatementOutput = (output: any, context: __SerdeContext): B
     ClusterIdentifier: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Database: __expectString,
+    DbGroups: _json,
     DbUser: __expectString,
     Id: __expectString,
     SecretArn: __expectString,
+    SessionId: __expectString,
     WorkgroupName: __expectString,
   }) as any;
 };
@@ -638,6 +728,8 @@ const de_BatchExecuteStatementOutput = (output: any, context: __SerdeContext): B
 // de_DatabaseConnectionException omitted.
 
 // de_DatabaseList omitted.
+
+// de_DbGroupList omitted.
 
 /**
  * deserializeAws_json1_1DescribeStatementResponse
@@ -656,9 +748,11 @@ const de_DescribeStatementResponse = (output: any, context: __SerdeContext): Des
     QueryString: __expectString,
     RedshiftPid: __expectLong,
     RedshiftQueryId: __expectLong,
+    ResultFormat: __expectString,
     ResultRows: __expectLong,
     ResultSize: __expectLong,
     SecretArn: __expectString,
+    SessionId: __expectString,
     Status: __expectString,
     SubStatements: (_: any) => de_SubStatementList(_, context),
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -678,9 +772,11 @@ const de_ExecuteStatementOutput = (output: any, context: __SerdeContext): Execut
     ClusterIdentifier: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Database: __expectString,
+    DbGroups: _json,
     DbUser: __expectString,
     Id: __expectString,
     SecretArn: __expectString,
+    SessionId: __expectString,
     WorkgroupName: __expectString,
   }) as any;
 };
@@ -724,6 +820,8 @@ const de_FieldList = (output: any, context: __SerdeContext): Field[] => {
   return retVal;
 };
 
+// de_FormattedSqlRecords omitted.
+
 /**
  * deserializeAws_json1_1GetStatementResultResponse
  */
@@ -735,6 +833,8 @@ const de_GetStatementResultResponse = (output: any, context: __SerdeContext): Ge
     TotalNumRows: __expectLong,
   }) as any;
 };
+
+// de_GetStatementResultV2Response omitted.
 
 // de_InternalServerException omitted.
 
@@ -753,6 +853,10 @@ const de_ListStatementsResponse = (output: any, context: __SerdeContext): ListSt
 };
 
 // de_ListTablesResponse omitted.
+
+// de_QueryRecords omitted.
+
+// de_QueryTimeoutException omitted.
 
 // de_ResourceNotFoundException omitted.
 
@@ -785,7 +889,9 @@ const de_StatementData = (output: any, context: __SerdeContext): StatementData =
     QueryParameters: _json,
     QueryString: __expectString,
     QueryStrings: _json,
+    ResultFormat: __expectString,
     SecretArn: __expectString,
+    SessionId: __expectString,
     StatementName: __expectString,
     Status: __expectString,
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

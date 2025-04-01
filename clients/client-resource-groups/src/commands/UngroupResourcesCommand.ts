@@ -105,6 +105,7 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UngroupResourcesCommand extends $Command
@@ -115,9 +116,7 @@ export class UngroupResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class UngroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UngroupResourcesCommand)
   .de(de_UngroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UngroupResourcesInput;
+      output: UngroupResourcesOutput;
+    };
+    sdk: {
+      input: UngroupResourcesCommandInput;
+      output: UngroupResourcesCommandOutput;
+    };
+  };
+}

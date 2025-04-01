@@ -101,6 +101,7 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetHITCommand extends $Command
@@ -111,9 +112,7 @@ export class GetHITCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class GetHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHITCommand)
   .de(de_GetHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHITRequest;
+      output: GetHITResponse;
+    };
+    sdk: {
+      input: GetHITCommandInput;
+      output: GetHITCommandOutput;
+    };
+  };
+}

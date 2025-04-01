@@ -42,9 +42,9 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
  *          <note>
  *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
- *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of
- *     Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or
- *     command. For example, run the command using the <code>AWS-RunShellScript</code> document or the
+ *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager,
+ *     with an SSM document that enables you to target a managed node with a script or command. For
+ *     example, run the command using the <code>AWS-RunShellScript</code> document or the
  *      <code>AWS-RunPowerShellScript</code> document.</p>
  *          </note>
  * @example
@@ -106,6 +106,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *         Configuration: "STRING_VALUE", // required
  *       },
  *     ],
+ *     AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   },
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
@@ -141,6 +142,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
@@ -151,9 +153,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +165,16 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
   .f(GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog, void 0)
   .ser(se_GetDeployablePatchSnapshotForInstanceCommand)
   .de(de_GetDeployablePatchSnapshotForInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeployablePatchSnapshotForInstanceRequest;
+      output: GetDeployablePatchSnapshotForInstanceResult;
+    };
+    sdk: {
+      input: GetDeployablePatchSnapshotForInstanceCommandInput;
+      output: GetDeployablePatchSnapshotForInstanceCommandOutput;
+    };
+  };
+}

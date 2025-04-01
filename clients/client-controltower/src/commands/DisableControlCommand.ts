@@ -81,6 +81,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class DisableControlCommand extends $Command
@@ -91,9 +92,7 @@ export class DisableControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DisableControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableControlCommand)
   .de(de_DisableControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableControlInput;
+      output: DisableControlOutput;
+    };
+    sdk: {
+      input: DisableControlCommandInput;
+      output: DisableControlCommandOutput;
+    };
+  };
+}

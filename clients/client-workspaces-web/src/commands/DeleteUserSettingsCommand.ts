@@ -68,6 +68,7 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserSettingsCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class DeleteUserSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserSettingsCommand)
   .de(de_DeleteUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserSettingsCommandInput;
+      output: DeleteUserSettingsCommandOutput;
+    };
+  };
+}

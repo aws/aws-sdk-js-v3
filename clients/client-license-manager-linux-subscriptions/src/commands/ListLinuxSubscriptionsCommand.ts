@@ -87,6 +87,7 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListLinuxSubscriptionsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListLinuxSubscriptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListLinuxSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLinuxSubscriptionsCommand)
   .de(de_ListLinuxSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLinuxSubscriptionsRequest;
+      output: ListLinuxSubscriptionsResponse;
+    };
+    sdk: {
+      input: ListLinuxSubscriptionsCommandInput;
+      output: ListLinuxSubscriptionsCommandOutput;
+    };
+  };
+}

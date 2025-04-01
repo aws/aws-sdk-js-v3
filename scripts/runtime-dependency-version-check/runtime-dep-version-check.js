@@ -50,6 +50,8 @@ const deps = {
   } */
 };
 
+const ignored = ["vitest"];
+
 readPackages(clientPackages);
 checkVersions();
 
@@ -132,6 +134,9 @@ function checkVersions() {
   const errors = [];
 
   for (const [pkg, versions] of Object.entries(deps)) {
+    if (ignored.includes(pkg)) {
+      continue;
+    }
     const versionCount = Object.keys(versions).length;
     if (versionCount > 1) {
       console.error("There is more than one version of a declared runtime dependency.");

@@ -233,6 +233,7 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class GetFaceSearchCommand extends $Command
@@ -243,9 +244,7 @@ export class GetFaceSearchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +256,16 @@ export class GetFaceSearchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFaceSearchCommand)
   .de(de_GetFaceSearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFaceSearchRequest;
+      output: GetFaceSearchResponse;
+    };
+    sdk: {
+      input: GetFaceSearchCommandInput;
+      output: GetFaceSearchCommandOutput;
+    };
+  };
+}

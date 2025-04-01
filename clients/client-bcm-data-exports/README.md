@@ -17,7 +17,7 @@ optimization recommendations.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-bcm-data-exports
+To install this package, simply type add or install @aws-sdk/client-bcm-data-exports
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-bcm-data-exports`

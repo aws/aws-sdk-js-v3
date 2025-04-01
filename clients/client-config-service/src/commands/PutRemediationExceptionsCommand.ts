@@ -57,6 +57,12 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *          </note>
  *          <note>
  *             <p>
+ *                <b>Exceptions cannot be placed on service-linked remediation actions</b>
+ *             </p>
+ *             <p>You cannot place an exception on service-linked remediation actions, such as remediation actions put by an organizational conformance pack.</p>
+ *          </note>
+ *          <note>
+ *             <p>
  *                <b>Auto remediation can be initiated even for compliant resources</b>
  *             </p>
  *             <p>If you enable auto remediation for a specific Config rule using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html">PutRemediationConfigurations</a> API or the Config console,
@@ -113,16 +119,16 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *  <p>Indicates one of the following errors:</p>
  *          <ul>
  *             <li>
- *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
  *             <li>
- *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
  *             </li>
  *             <li>
- *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *             </li>
  *             <li>
- *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p>
  *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
@@ -132,6 +138,9 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *                   </li>
  *                </ul>
  *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
@@ -140,6 +149,7 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
+ *
  *
  * @public
  */
@@ -151,9 +161,7 @@ export class PutRemediationExceptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +173,16 @@ export class PutRemediationExceptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRemediationExceptionsCommand)
   .de(de_PutRemediationExceptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRemediationExceptionsRequest;
+      output: PutRemediationExceptionsResponse;
+    };
+    sdk: {
+      input: PutRemediationExceptionsCommandInput;
+      output: PutRemediationExceptionsCommandOutput;
+    };
+  };
+}

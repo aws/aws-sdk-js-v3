@@ -103,6 +103,7 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrustedAdvisorChecksCommand extends $Command
@@ -113,9 +114,7 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustedAdvisorChecksCommand)
   .de(de_DescribeTrustedAdvisorChecksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustedAdvisorChecksRequest;
+      output: DescribeTrustedAdvisorChecksResponse;
+    };
+    sdk: {
+      input: DescribeTrustedAdvisorChecksCommandInput;
+      output: DescribeTrustedAdvisorChecksCommandOutput;
+    };
+  };
+}

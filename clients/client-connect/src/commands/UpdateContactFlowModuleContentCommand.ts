@@ -35,7 +35,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
 /**
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
  * @example
@@ -82,6 +82,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactFlowModuleContentCommand extends $Command
@@ -92,9 +93,7 @@ export class UpdateContactFlowModuleContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class UpdateContactFlowModuleContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactFlowModuleContentCommand)
   .de(de_UpdateContactFlowModuleContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactFlowModuleContentRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactFlowModuleContentCommandInput;
+      output: UpdateContactFlowModuleContentCommandOutput;
+    };
+  };
+}

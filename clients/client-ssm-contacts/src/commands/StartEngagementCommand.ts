@@ -82,6 +82,7 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class StartEngagementCommand extends $Command
@@ -92,9 +93,7 @@ export class StartEngagementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class StartEngagementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartEngagementCommand)
   .de(de_StartEngagementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEngagementRequest;
+      output: StartEngagementResult;
+    };
+    sdk: {
+      input: StartEngagementCommandInput;
+      output: StartEngagementCommandOutput;
+    };
+  };
+}

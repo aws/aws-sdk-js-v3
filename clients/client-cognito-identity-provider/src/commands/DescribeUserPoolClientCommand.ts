@@ -37,8 +37,9 @@ export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClie
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Client method for returning the configuration information and metadata of the
- *             specified user pool app client.</p>
+ * <p>Given an app client ID, returns configuration information. This operation is useful
+ *             when you want to inspect an existing app client and programmatically replicate the
+ *             configuration to another app client. For more information about app clients, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App clients</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -94,7 +95,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * //       "STRING_VALUE",
  * //     ],
  * //     ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH" || "ALLOW_USER_AUTH",
  * //     ],
  * //     SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  * //       "STRING_VALUE",
@@ -156,6 +157,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserPoolClientCommand extends $Command
@@ -166,9 +168,7 @@ export class DescribeUserPoolClientCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class DescribeUserPoolClientCommand extends $Command
   .f(DescribeUserPoolClientRequestFilterSensitiveLog, DescribeUserPoolClientResponseFilterSensitiveLog)
   .ser(se_DescribeUserPoolClientCommand)
   .de(de_DescribeUserPoolClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserPoolClientRequest;
+      output: DescribeUserPoolClientResponse;
+    };
+    sdk: {
+      input: DescribeUserPoolClientCommandInput;
+      output: DescribeUserPoolClientCommandOutput;
+    };
+  };
+}

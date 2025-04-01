@@ -98,6 +98,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetBucketTaggingCommand extends $Command
@@ -126,4 +127,16 @@ export class GetBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketTaggingCommand)
   .de(de_GetBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketTaggingRequest;
+      output: GetBucketTaggingResult;
+    };
+    sdk: {
+      input: GetBucketTaggingCommandInput;
+      output: GetBucketTaggingCommandOutput;
+    };
+  };
+}

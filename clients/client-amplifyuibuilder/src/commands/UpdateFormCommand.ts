@@ -374,6 +374,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateFormCommand extends $Command
@@ -384,9 +385,7 @@ export class UpdateFormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -398,4 +397,16 @@ export class UpdateFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFormCommand)
   .de(de_UpdateFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFormRequest;
+      output: UpdateFormResponse;
+    };
+    sdk: {
+      input: UpdateFormCommandInput;
+      output: UpdateFormCommandOutput;
+    };
+  };
+}

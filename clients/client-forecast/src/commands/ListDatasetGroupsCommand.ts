@@ -71,6 +71,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetGroupsCommand extends $Command
@@ -81,9 +82,7 @@ export class ListDatasetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class ListDatasetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasetGroupsCommand)
   .de(de_ListDatasetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasetGroupsRequest;
+      output: ListDatasetGroupsResponse;
+    };
+    sdk: {
+      input: ListDatasetGroupsCommandInput;
+      output: ListDatasetGroupsCommandOutput;
+    };
+  };
+}

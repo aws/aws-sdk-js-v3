@@ -32,9 +32,14 @@ export interface StopGameSessionPlacementCommandInput extends StopGameSessionPla
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
- *             placement, provide the placement ID values. If successful, the placement is moved to
- *                 <code>CANCELLED</code> status.</p>
+ * <p>Cancels a game session placement that's in <code>PENDING</code> status. To stop a
+ *             placement, provide the placement ID value. </p>
+ *          <p>Results</p>
+ *          <p>If successful, this operation removes the placement request from the queue and moves
+ *             the <code>GameSessionPlacement</code> to <code>CANCELLED</code> status.</p>
+ *          <p>This operation results in an <code>InvalidRequestExecption</code> (400) error if a
+ *             game session has already been created for this placement. You can clean up an unneeded
+ *             game session by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession">TerminateGameSession</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +87,12 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * //     ],
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
+ * //     PriorityConfigurationOverride: { // PriorityConfigurationOverride
+ * //       PlacementFallbackStrategy: "DEFAULT_AFTER_SINGLE_PASS" || "NONE",
+ * //       LocationOrder: [ // LocationOrderOverrideList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -102,13 +113,14 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -120,9 +132,7 @@ export class StopGameSessionPlacementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +144,16 @@ export class StopGameSessionPlacementCommand extends $Command
   .f(void 0, StopGameSessionPlacementOutputFilterSensitiveLog)
   .ser(se_StopGameSessionPlacementCommand)
   .de(de_StopGameSessionPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopGameSessionPlacementInput;
+      output: StopGameSessionPlacementOutput;
+    };
+    sdk: {
+      input: StopGameSessionPlacementCommandInput;
+      output: StopGameSessionPlacementCommandOutput;
+    };
+  };
+}

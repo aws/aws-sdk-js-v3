@@ -61,6 +61,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DeleteConstraintCommand extends $Command
@@ -71,9 +72,7 @@ export class DeleteConstraintCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DeleteConstraintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConstraintCommand)
   .de(de_DeleteConstraintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConstraintInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConstraintCommandInput;
+      output: DeleteConstraintCommandOutput;
+    };
+  };
+}

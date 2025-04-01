@@ -65,6 +65,7 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteTapePoolCommand extends $Command
@@ -75,9 +76,7 @@ export class DeleteTapePoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DeleteTapePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTapePoolCommand)
   .de(de_DeleteTapePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTapePoolInput;
+      output: DeleteTapePoolOutput;
+    };
+    sdk: {
+      input: DeleteTapePoolCommandInput;
+      output: DeleteTapePoolCommandOutput;
+    };
+  };
+}

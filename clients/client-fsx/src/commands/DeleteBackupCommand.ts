@@ -89,24 +89,24 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
+ *
  * @example To delete a backup
  * ```javascript
  * // This operation deletes an Amazon FSx file system backup.
  * const input = {
- *   "BackupId": "backup-03e3c82e0183b7b6b"
+ *   BackupId: "backup-03e3c82e0183b7b6b"
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "BackupId": "backup-03e3c82e0183b7b6b",
- *   "Lifecycle": "DELETED"
+ *   BackupId: "backup-03e3c82e0183b7b6b",
+ *   Lifecycle: "DELETED"
  * }
  * *\/
- * // example id: to-delete-a-file-system-1481847318399
  * ```
  *
+ * @public
  */
 export class DeleteBackupCommand extends $Command
   .classBuilder<
@@ -116,9 +116,7 @@ export class DeleteBackupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +128,16 @@ export class DeleteBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupCommand)
   .de(de_DeleteBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupRequest;
+      output: DeleteBackupResponse;
+    };
+    sdk: {
+      input: DeleteBackupCommandInput;
+      output: DeleteBackupCommandOutput;
+    };
+  };
+}

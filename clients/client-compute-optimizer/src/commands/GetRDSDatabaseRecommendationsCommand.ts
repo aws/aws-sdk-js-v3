@@ -80,6 +80,7 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //       accountId: "STRING_VALUE",
  * //       engine: "STRING_VALUE",
  * //       engineVersion: "STRING_VALUE",
+ * //       promotionTier: Number("int"),
  * //       currentDBInstanceClass: "STRING_VALUE",
  * //       currentStorageConfiguration: { // DBStorageConfiguration
  * //         storageType: "STRING_VALUE",
@@ -88,12 +89,14 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //         maxAllocatedStorage: Number("int"),
  * //         storageThroughput: Number("int"),
  * //       },
+ * //       dbClusterIdentifier: "STRING_VALUE",
  * //       idle: "True" || "False",
  * //       instanceFinding: "Optimized" || "Underprovisioned" || "Overprovisioned",
  * //       storageFinding: "Optimized" || "Underprovisioned" || "Overprovisioned",
  * //       instanceFindingReasonCodes: [ // RDSInstanceFindingReasonCodes
- * //         "CPUOverprovisioned" || "NetworkBandwidthOverprovisioned" || "EBSIOPSOverprovisioned" || "EBSThroughputOverprovisioned" || "CPUUnderprovisioned" || "NetworkBandwidthUnderprovisioned" || "EBSThroughputUnderprovisioned" || "NewGenerationDBInstanceClassAvailable" || "NewEngineVersionAvailable",
+ * //         "CPUOverprovisioned" || "NetworkBandwidthOverprovisioned" || "EBSIOPSOverprovisioned" || "EBSIOPSUnderprovisioned" || "EBSThroughputOverprovisioned" || "CPUUnderprovisioned" || "NetworkBandwidthUnderprovisioned" || "EBSThroughputUnderprovisioned" || "NewGenerationDBInstanceClassAvailable" || "NewEngineVersionAvailable" || "DBClusterWriterUnderprovisioned" || "MemoryUnderprovisioned" || "InstanceStorageReadIOPSUnderprovisioned" || "InstanceStorageWriteIOPSUnderprovisioned",
  * //       ],
+ * //       currentInstancePerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
  * //       storageFindingReasonCodes: [ // RDSStorageFindingReasonCodes
  * //         "EBSVolumeAllocatedStorageUnderprovisioned" || "EBSVolumeThroughputUnderprovisioned" || "EBSVolumeIOPSOverprovisioned" || "EBSVolumeThroughputOverprovisioned" || "NewGenerationStorageTypeAvailable",
  * //       ],
@@ -102,7 +105,7 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //           dbInstanceClass: "STRING_VALUE",
  * //           projectedUtilizationMetrics: [ // RDSDBProjectedUtilizationMetrics
  * //             { // RDSDBUtilizationMetric
- * //               name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections",
+ * //               name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
  * //               statistic: "Maximum" || "Minimum" || "Average",
  * //               value: Number("double"),
  * //             },
@@ -153,7 +156,7 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //       ],
  * //       utilizationMetrics: [ // RDSDBUtilizationMetrics
  * //         {
- * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections",
+ * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
  * //           statistic: "Maximum" || "Minimum" || "Average",
  * //           value: Number("double"),
  * //         },
@@ -223,6 +226,7 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRDSDatabaseRecommendationsCommand extends $Command
@@ -233,9 +237,7 @@ export class GetRDSDatabaseRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -247,4 +249,16 @@ export class GetRDSDatabaseRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRDSDatabaseRecommendationsCommand)
   .de(de_GetRDSDatabaseRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRDSDatabaseRecommendationsRequest;
+      output: GetRDSDatabaseRecommendationsResponse;
+    };
+    sdk: {
+      input: GetRDSDatabaseRecommendationsCommandInput;
+      output: GetRDSDatabaseRecommendationsCommandOutput;
+    };
+  };
+}

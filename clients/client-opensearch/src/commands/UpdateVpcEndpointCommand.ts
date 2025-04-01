@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_0";
+import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_UpdateVpcEndpointCommand, se_UpdateVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
@@ -99,6 +99,7 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateVpcEndpointCommand extends $Command
@@ -109,9 +110,7 @@ export class UpdateVpcEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class UpdateVpcEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVpcEndpointCommand)
   .de(de_UpdateVpcEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVpcEndpointRequest;
+      output: UpdateVpcEndpointResponse;
+    };
+    sdk: {
+      input: UpdateVpcEndpointCommandInput;
+      output: UpdateVpcEndpointCommandOutput;
+    };
+  };
+}

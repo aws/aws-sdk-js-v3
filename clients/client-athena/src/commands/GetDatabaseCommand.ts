@@ -79,6 +79,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetDatabaseCommand extends $Command
@@ -89,9 +90,7 @@ export class GetDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatabaseCommand)
   .de(de_GetDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatabaseInput;
+      output: GetDatabaseOutput;
+    };
+    sdk: {
+      input: GetDatabaseCommandInput;
+      output: GetDatabaseCommandOutput;
+    };
+  };
+}

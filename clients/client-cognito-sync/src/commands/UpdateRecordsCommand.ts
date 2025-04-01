@@ -114,6 +114,7 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecordsCommand extends $Command
@@ -124,9 +125,7 @@ export class UpdateRecordsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class UpdateRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRecordsCommand)
   .de(de_UpdateRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRecordsRequest;
+      output: UpdateRecordsResponse;
+    };
+    sdk: {
+      input: UpdateRecordsCommandInput;
+      output: UpdateRecordsCommandOutput;
+    };
+  };
+}

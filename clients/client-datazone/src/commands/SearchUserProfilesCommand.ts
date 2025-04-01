@@ -11,7 +11,7 @@ import {
   SearchUserProfilesInputFilterSensitiveLog,
   SearchUserProfilesOutput,
   SearchUserProfilesOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_SearchUserProfilesCommand, se_SearchUserProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -100,6 +100,7 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class SearchUserProfilesCommand extends $Command
@@ -110,9 +111,7 @@ export class SearchUserProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class SearchUserProfilesCommand extends $Command
   .f(SearchUserProfilesInputFilterSensitiveLog, SearchUserProfilesOutputFilterSensitiveLog)
   .ser(se_SearchUserProfilesCommand)
   .de(de_SearchUserProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchUserProfilesInput;
+      output: SearchUserProfilesOutput;
+    };
+    sdk: {
+      input: SearchUserProfilesCommandInput;
+      output: SearchUserProfilesCommandOutput;
+    };
+  };
+}

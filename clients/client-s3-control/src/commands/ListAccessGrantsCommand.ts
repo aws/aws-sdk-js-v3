@@ -88,6 +88,7 @@ export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class ListAccessGrantsCommand extends $Command
@@ -116,4 +117,16 @@ export class ListAccessGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessGrantsCommand)
   .de(de_ListAccessGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessGrantsRequest;
+      output: ListAccessGrantsResult;
+    };
+    sdk: {
+      input: ListAccessGrantsCommandInput;
+      output: ListAccessGrantsCommandOutput;
+    };
+  };
+}

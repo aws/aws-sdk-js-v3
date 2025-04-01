@@ -75,6 +75,13 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //         ],
  * //         EnableContinuousBackup: true || false,
  * //         ScheduleExpressionTimezone: "STRING_VALUE",
+ * //         IndexActions: [ // IndexActions
+ * //           { // IndexAction
+ * //             ResourceTypes: [ // ResourceTypes
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -112,6 +119,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetBackupPlanFromTemplateCommand extends $Command
@@ -122,9 +130,7 @@ export class GetBackupPlanFromTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +142,16 @@ export class GetBackupPlanFromTemplateCommand extends $Command
   .f(void 0, GetBackupPlanFromTemplateOutputFilterSensitiveLog)
   .ser(se_GetBackupPlanFromTemplateCommand)
   .de(de_GetBackupPlanFromTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupPlanFromTemplateInput;
+      output: GetBackupPlanFromTemplateOutput;
+    };
+    sdk: {
+      input: GetBackupPlanFromTemplateCommandInput;
+      output: GetBackupPlanFromTemplateCommandOutput;
+    };
+  };
+}

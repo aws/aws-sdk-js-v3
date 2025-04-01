@@ -33,15 +33,14 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
 
 /**
  * <p>Creates the replication instance using the specified parameters.</p>
- *          <p>DMS requires that your account have certain roles with appropriate permissions
- *          before you can create a replication instance. For information on the required roles, see
- *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the CLI and DMS API</a>. For
- *          information on the required permissions, see
- *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use DMS</a>.</p>
+ *          <p>DMS requires that your account have certain roles with appropriate permissions before
+ *          you can create a replication instance. For information on the required roles, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the CLI and DMS API</a>. For information on
+ *          the required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM
+ *             Permissions Needed to Use DMS</a>.</p>
  *          <note>
- *             <p>If you don't specify a version when creating a replication instance, DMS will create the instance using the
- *          default engine version. For information about the default engine version, see
- *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html">Release Notes</a>.</p>
+ *             <p>If you don't specify a version when creating a replication instance, DMS will
+ *             create the instance using the default engine version. For information about the default
+ *             engine version, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html">Release Notes</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *   DnsNameServers: "STRING_VALUE",
  *   ResourceIdentifier: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ *     KeyCacheSecretId: "STRING_VALUE",
+ *     KeyCacheSecretIamArn: "STRING_VALUE",
+ *     Krb5FileContents: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
@@ -138,6 +142,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * //     FreeUntil: new Date("TIMESTAMP"),
  * //     DnsNameServers: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
+ * //     KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //       KeyCacheSecretId: "STRING_VALUE",
+ * //       KeyCacheSecretIamArn: "STRING_VALUE",
+ * //       Krb5FileContents: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -183,88 +192,88 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create replication instance
  * ```javascript
  * // Creates the replication instance using the specified parameters.
  * const input = {
- *   "AllocatedStorage": 123,
- *   "AutoMinorVersionUpgrade": true,
- *   "AvailabilityZone": "",
- *   "EngineVersion": "",
- *   "KmsKeyId": "",
- *   "MultiAZ": true,
- *   "PreferredMaintenanceWindow": "",
- *   "PubliclyAccessible": true,
- *   "ReplicationInstanceClass": "",
- *   "ReplicationInstanceIdentifier": "",
- *   "ReplicationSubnetGroupIdentifier": "",
- *   "Tags": [
+ *   AllocatedStorage: 123,
+ *   AutoMinorVersionUpgrade: true,
+ *   AvailabilityZone: "",
+ *   EngineVersion: "",
+ *   KmsKeyId: "",
+ *   MultiAZ: true,
+ *   PreferredMaintenanceWindow: "",
+ *   PubliclyAccessible: true,
+ *   ReplicationInstanceClass: "",
+ *   ReplicationInstanceIdentifier: "",
+ *   ReplicationSubnetGroupIdentifier: "",
+ *   Tags: [
  *     {
- *       "Key": "string",
- *       "Value": "string"
+ *       Key: "string",
+ *       Value: "string"
  *     }
  *   ],
- *   "VpcSecurityGroupIds": []
+ *   VpcSecurityGroupIds:   []
  * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationInstance": {
- *     "AllocatedStorage": 5,
- *     "AutoMinorVersionUpgrade": true,
- *     "EngineVersion": "1.5.0",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *     "PendingModifiedValues": {},
- *     "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
- *     "PubliclyAccessible": true,
- *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *     "ReplicationInstanceClass": "dms.t2.micro",
- *     "ReplicationInstanceIdentifier": "test-rep-1",
- *     "ReplicationInstanceStatus": "creating",
- *     "ReplicationSubnetGroup": {
- *       "ReplicationSubnetGroupDescription": "default",
- *       "ReplicationSubnetGroupIdentifier": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
+ *   ReplicationInstance: {
+ *     AllocatedStorage: 5,
+ *     AutoMinorVersionUpgrade: true,
+ *     EngineVersion: "1.5.0",
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredMaintenanceWindow: "sun:06:00-sun:14:00",
+ *     PubliclyAccessible: true,
+ *     ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     ReplicationInstanceClass: "dms.t2.micro",
+ *     ReplicationInstanceIdentifier: "test-rep-1",
+ *     ReplicationInstanceStatus: "creating",
+ *     ReplicationSubnetGroup: {
+ *       ReplicationSubnetGroupDescription: "default",
+ *       ReplicationSubnetGroupIdentifier: "default",
+ *       SubnetGroupStatus: "Complete",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1d"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1d"
  *           },
- *           "SubnetIdentifier": "subnet-f6dd91af",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-f6dd91af",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1b"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1b"
  *           },
- *           "SubnetIdentifier": "subnet-3605751d",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-3605751d",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1c"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1c"
  *           },
- *           "SubnetIdentifier": "subnet-c2daefb5",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-c2daefb5",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1e"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1e"
  *           },
- *           "SubnetIdentifier": "subnet-85e90cb8",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-85e90cb8",
+ *           SubnetStatus: "Active"
  *         }
  *       ],
- *       "VpcId": "vpc-6741a603"
+ *       VpcId: "vpc-6741a603"
  *     }
  *   }
  * }
  * *\/
- * // example id: create-replication-instance-1481746705295
  * ```
  *
+ * @public
  */
 export class CreateReplicationInstanceCommand extends $Command
   .classBuilder<
@@ -274,9 +283,7 @@ export class CreateReplicationInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -288,4 +295,16 @@ export class CreateReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationInstanceCommand)
   .de(de_CreateReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationInstanceMessage;
+      output: CreateReplicationInstanceResponse;
+    };
+    sdk: {
+      input: CreateReplicationInstanceCommandInput;
+      output: CreateReplicationInstanceCommandOutput;
+    };
+  };
+}

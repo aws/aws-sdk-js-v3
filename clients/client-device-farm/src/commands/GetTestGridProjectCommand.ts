@@ -79,6 +79,7 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class GetTestGridProjectCommand extends $Command
@@ -89,9 +90,7 @@ export class GetTestGridProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetTestGridProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestGridProjectCommand)
   .de(de_GetTestGridProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestGridProjectRequest;
+      output: GetTestGridProjectResult;
+    };
+    sdk: {
+      input: GetTestGridProjectCommandInput;
+      output: GetTestGridProjectCommandOutput;
+    };
+  };
+}

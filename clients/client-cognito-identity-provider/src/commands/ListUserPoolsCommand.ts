@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_0";
+import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_1";
 import { de_ListUserPoolsCommand, se_ListUserPoolsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -32,7 +32,7 @@ export interface ListUserPoolsCommandInput extends ListUserPoolsRequest {}
 export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the user pools associated with an Amazon Web Services account.</p>
+ * <p>Lists user pools and their details in the current Amazon Web Services account.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -82,7 +82,7 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * //         PreTokenGeneration: "STRING_VALUE",
  * //         UserMigration: "STRING_VALUE",
  * //         PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
- * //           LambdaVersion: "V1_0" || "V2_0", // required
+ * //           LambdaVersion: "V1_0" || "V2_0" || "V3_0", // required
  * //           LambdaArn: "STRING_VALUE", // required
  * //         },
  * //         CustomSMSSender: { // CustomSMSLambdaVersionConfigType
@@ -128,6 +128,7 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListUserPoolsCommand extends $Command
@@ -138,9 +139,7 @@ export class ListUserPoolsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class ListUserPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserPoolsCommand)
   .de(de_ListUserPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserPoolsRequest;
+      output: ListUserPoolsResponse;
+    };
+    sdk: {
+      input: ListUserPoolsCommandInput;
+      output: ListUserPoolsCommandOutput;
+    };
+  };
+}

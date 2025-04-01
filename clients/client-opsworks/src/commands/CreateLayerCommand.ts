@@ -143,6 +143,7 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class CreateLayerCommand extends $Command
@@ -153,9 +154,7 @@ export class CreateLayerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class CreateLayerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLayerCommand)
   .de(de_CreateLayerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLayerRequest;
+      output: CreateLayerResult;
+    };
+    sdk: {
+      input: CreateLayerCommandInput;
+      output: CreateLayerCommandOutput;
+    };
+  };
+}

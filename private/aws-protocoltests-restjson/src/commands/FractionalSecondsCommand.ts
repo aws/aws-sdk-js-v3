@@ -52,6 +52,7 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class FractionalSecondsCommand extends $Command
   .classBuilder<
@@ -69,4 +70,16 @@ export class FractionalSecondsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FractionalSecondsCommand)
   .de(de_FractionalSecondsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: FractionalSecondsOutput;
+    };
+    sdk: {
+      input: FractionalSecondsCommandInput;
+      output: FractionalSecondsCommandOutput;
+    };
+  };
+}

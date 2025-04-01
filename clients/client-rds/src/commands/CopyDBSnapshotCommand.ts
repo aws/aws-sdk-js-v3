@@ -145,50 +145,50 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To copy a DB snapshot
  * ```javascript
  * // The following example creates a copy of a DB snapshot.
  * const input = {
- *   "SourceDBSnapshotIdentifier": "rds:database-mysql-2019-06-06-08-38",
- *   "TargetDBSnapshotIdentifier": "mydbsnapshotcopy"
+ *   SourceDBSnapshotIdentifier: "rds:database-mysql-2019-06-06-08-38",
+ *   TargetDBSnapshotIdentifier: "mydbsnapshotcopy"
  * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshot": {
- *     "AllocatedStorage": 100,
- *     "AvailabilityZone": "us-east-1f",
- *     "DBInstanceIdentifier": "database-mysql",
- *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshotcopy",
- *     "DBSnapshotIdentifier": "mydbsnapshotcopy",
- *     "DbiResourceId": "db-ZI7UJ5BLKMBYFGX7FDENCKADC4",
- *     "Encrypted": true,
- *     "Engine": "mysql",
- *     "EngineVersion": "5.6.40",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
- *     "Iops": 1000,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:mysql-5-6",
- *     "PercentProgress": 0,
- *     "Port": 3306,
- *     "ProcessorFeatures": [],
- *     "SnapshotType": "manual",
- *     "SourceDBSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:snapshot:rds:database-mysql-2019-06-06-08-38",
- *     "SourceRegion": "us-east-1",
- *     "Status": "creating",
- *     "StorageType": "io1",
- *     "VpcId": "vpc-6594f31c"
+ *   DBSnapshot: {
+ *     AllocatedStorage: 100,
+ *     AvailabilityZone: "us-east-1f",
+ *     DBInstanceIdentifier: "database-mysql",
+ *     DBSnapshotArn: "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshotcopy",
+ *     DBSnapshotIdentifier: "mydbsnapshotcopy",
+ *     DbiResourceId: "db-ZI7UJ5BLKMBYFGX7FDENCKADC4",
+ *     Encrypted: true,
+ *     Engine: "mysql",
+ *     EngineVersion: "5.6.40",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2019-04-30T15:45:53.663Z",
+ *     Iops: 1000,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "general-public-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:mysql-5-6",
+ *     PercentProgress: 0,
+ *     Port: 3306,
+ *     ProcessorFeatures:     [],
+ *     SnapshotType: "manual",
+ *     SourceDBSnapshotIdentifier: "arn:aws:rds:us-east-1:123456789012:snapshot:rds:database-mysql-2019-06-06-08-38",
+ *     SourceRegion: "us-east-1",
+ *     Status: "creating",
+ *     StorageType: "io1",
+ *     VpcId: "vpc-6594f31c"
  *   }
  * }
  * *\/
- * // example id: to-copy-a-db-snapshot-1679695661487
  * ```
  *
+ * @public
  */
 export class CopyDBSnapshotCommand extends $Command
   .classBuilder<
@@ -198,9 +198,7 @@ export class CopyDBSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +211,16 @@ export class CopyDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBSnapshotCommand)
   .de(de_CopyDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBSnapshotMessage;
+      output: CopyDBSnapshotResult;
+    };
+    sdk: {
+      input: CopyDBSnapshotCommandInput;
+      output: CopyDBSnapshotCommandOutput;
+    };
+  };
+}

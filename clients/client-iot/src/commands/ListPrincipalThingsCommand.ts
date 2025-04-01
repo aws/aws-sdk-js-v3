@@ -81,6 +81,7 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListPrincipalThingsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListPrincipalThingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListPrincipalThingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrincipalThingsCommand)
   .de(de_ListPrincipalThingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrincipalThingsRequest;
+      output: ListPrincipalThingsResponse;
+    };
+    sdk: {
+      input: ListPrincipalThingsCommandInput;
+      output: ListPrincipalThingsCommandOutput;
+    };
+  };
+}

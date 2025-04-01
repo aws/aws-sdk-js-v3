@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   UpdateColumnStatisticsForPartitionRequest,
   UpdateColumnStatisticsForPartitionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_UpdateColumnStatisticsForPartitionCommand,
   se_UpdateColumnStatisticsForPartitionCommand,
@@ -201,6 +201,7 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateColumnStatisticsForPartitionCommand extends $Command
@@ -211,9 +212,7 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -225,4 +224,16 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateColumnStatisticsForPartitionCommand)
   .de(de_UpdateColumnStatisticsForPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateColumnStatisticsForPartitionRequest;
+      output: UpdateColumnStatisticsForPartitionResponse;
+    };
+    sdk: {
+      input: UpdateColumnStatisticsForPartitionCommandInput;
+      output: UpdateColumnStatisticsForPartitionCommandOutput;
+    };
+  };
+}

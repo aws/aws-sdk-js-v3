@@ -80,6 +80,7 @@ export interface GetChallengeMetadataCommandOutput extends GetChallengeMetadataR
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetChallengeMetadataCommand extends $Command
@@ -90,9 +91,7 @@ export class GetChallengeMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class GetChallengeMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChallengeMetadataCommand)
   .de(de_GetChallengeMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChallengeMetadataRequest;
+      output: GetChallengeMetadataResponse;
+    };
+    sdk: {
+      input: GetChallengeMetadataCommandInput;
+      output: GetChallengeMetadataCommandOutput;
+    };
+  };
+}

@@ -59,6 +59,7 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataQualityJobDefinitionCommand extends $Command
@@ -69,9 +70,7 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataQualityJobDefinitionCommand)
   .de(de_DeleteDataQualityJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataQualityJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataQualityJobDefinitionCommandInput;
+      output: DeleteDataQualityJobDefinitionCommandOutput;
+    };
+  };
+}

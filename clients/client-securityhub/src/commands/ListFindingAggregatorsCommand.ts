@@ -28,7 +28,8 @@ export interface ListFindingAggregatorsCommandInput extends ListFindingAggregato
 export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregatorsResponse, __MetadataBearer {}
 
 /**
- * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
+ * <p>If cross-Region aggregation is enabled, then <code>ListFindingAggregators</code> returns the Amazon Resource Name (ARN)
+ * of the finding aggregator. You can run this operation from any Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,25 +79,25 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update the enablement status of a standard control
  * ```javascript
  * // The following example disables the specified control in the specified security standard.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListFindingAggregatorsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregators": [
+ *   FindingAggregators: [
  *     {
- *       "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *       FindingAggregatorArn: "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
  * ```
  *
+ * @public
  */
 export class ListFindingAggregatorsCommand extends $Command
   .classBuilder<
@@ -106,9 +107,7 @@ export class ListFindingAggregatorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListFindingAggregatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingAggregatorsCommand)
   .de(de_ListFindingAggregatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingAggregatorsRequest;
+      output: ListFindingAggregatorsResponse;
+    };
+    sdk: {
+      input: ListFindingAggregatorsCommandInput;
+      output: ListFindingAggregatorsCommandOutput;
+    };
+  };
+}

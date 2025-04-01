@@ -10,7 +10,7 @@ import {
   ListEnvironmentBlueprintsInput,
   ListEnvironmentBlueprintsOutput,
   ListEnvironmentBlueprintsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListEnvironmentBlueprintsCommand, se_ListEnvironmentBlueprintsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -96,6 +96,7 @@ export interface ListEnvironmentBlueprintsCommandOutput extends ListEnvironmentB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentBlueprintsCommand extends $Command
@@ -106,9 +107,7 @@ export class ListEnvironmentBlueprintsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListEnvironmentBlueprintsCommand extends $Command
   .f(void 0, ListEnvironmentBlueprintsOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentBlueprintsCommand)
   .de(de_ListEnvironmentBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentBlueprintsInput;
+      output: ListEnvironmentBlueprintsOutput;
+    };
+    sdk: {
+      input: ListEnvironmentBlueprintsCommandInput;
+      output: ListEnvironmentBlueprintsCommandOutput;
+    };
+  };
+}

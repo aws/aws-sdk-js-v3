@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobsRequest } from "../models/models_1";
-import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_2";
+import { GetJobsRequest } from "../models/models_2";
+import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_3";
 import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -47,6 +47,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //     { // Job
  * //       Name: "STRING_VALUE",
  * //       JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //       JobRunQueuingEnabled: true || false,
  * //       Description: "STRING_VALUE",
  * //       LogUri: "STRING_VALUE",
  * //       Role: "STRING_VALUE",
@@ -308,6 +309,9 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //             Inputs: [ // required
  * //               "STRING_VALUE",
  * //             ],
+ * //             PartitionKeys: [ // GlueStudioPathList
+ * //               "<EnclosedInStringProperties>",
+ * //             ],
  * //             Database: "STRING_VALUE", // required
  * //             Table: "STRING_VALUE", // required
  * //           },
@@ -333,7 +337,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //             Inputs: [ // required
  * //               "STRING_VALUE",
  * //             ],
- * //             PartitionKeys: [ // GlueStudioPathList
+ * //             PartitionKeys: [
  * //               "<EnclosedInStringProperties>",
  * //             ],
  * //             Table: "STRING_VALUE", // required
@@ -407,9 +411,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //           DropFields: { // DropFields
  * //             Name: "STRING_VALUE", // required
  * //             Inputs: "<OneInput>", // required
- * //             Paths: [ // required
- * //               "<EnclosedInStringProperties>",
- * //             ],
+ * //             Paths: "<GlueStudioPathList>", // required
  * //           },
  * //           RenameField: { // RenameField
  * //             Name: "STRING_VALUE", // required
@@ -1032,6 +1034,23 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //               RecipeArn: "STRING_VALUE", // required
  * //               RecipeVersion: "STRING_VALUE", // required
  * //             },
+ * //             RecipeSteps: [ // RecipeSteps
+ * //               { // RecipeStep
+ * //                 Action: { // RecipeAction
+ * //                   Operation: "STRING_VALUE", // required
+ * //                   Parameters: { // ParameterMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 ConditionExpressions: [ // ConditionExpressionList
+ * //                   { // ConditionExpression
+ * //                     Condition: "STRING_VALUE", // required
+ * //                     Value: "STRING_VALUE",
+ * //                     TargetColumn: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //           SnowflakeSource: { // SnowflakeSource
  * //             Name: "STRING_VALUE", // required
@@ -1148,6 +1167,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobsCommand extends $Command
@@ -1158,9 +1178,7 @@ export class GetJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1172,4 +1190,16 @@ export class GetJobsCommand extends $Command
   .f(void 0, GetJobsResponseFilterSensitiveLog)
   .ser(se_GetJobsCommand)
   .de(de_GetJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobsRequest;
+      output: GetJobsResponse;
+    };
+    sdk: {
+      input: GetJobsCommandInput;
+      output: GetJobsCommandOutput;
+    };
+  };
+}

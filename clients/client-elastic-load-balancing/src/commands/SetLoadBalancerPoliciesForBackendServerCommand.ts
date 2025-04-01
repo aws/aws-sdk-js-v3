@@ -89,22 +89,25 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified port.
  * const input = {
- *   "InstancePort": 80,
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyNames": [
+ *   InstancePort: 80,
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyNames: [
  *     "my-ProxyProtocol-policy"
  *   ]
  * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
- * await client.send(command);
- * // example id: elb-set-load-balancer-policies-for-backend-server-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
   .classBuilder<
@@ -114,9 +117,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +129,16 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetLoadBalancerPoliciesForBackendServerCommand)
   .de(de_SetLoadBalancerPoliciesForBackendServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLoadBalancerPoliciesForBackendServerInput;
+      output: {};
+    };
+    sdk: {
+      input: SetLoadBalancerPoliciesForBackendServerCommandInput;
+      output: SetLoadBalancerPoliciesForBackendServerCommandOutput;
+    };
+  };
+}

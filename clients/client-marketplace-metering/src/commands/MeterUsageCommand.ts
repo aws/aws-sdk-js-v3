@@ -32,17 +32,20 @@ export interface MeterUsageCommandInput extends MeterUsageRequest {}
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
- * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
- *             returns the metering record ID.</p>
+ * <p>API to emit metering records. For identical requests, the API is
+ *       idempotent and returns the metering record ID. This is used for metering
+ *       flexible consumption pricing (FCP) Amazon Machine Images (AMI) and
+ *       container products.</p>
  *          <p>
- *             <code>MeterUsage</code> is authenticated on the buyer's AWS account using credentials
- *             from the EC2 instance, ECS task, or EKS pod.</p>
+ *             <code>MeterUsage</code> is authenticated on the buyer's Amazon Web Services account using
+ *             credentials from the Amazon EC2 instance, Amazon ECS task, or Amazon EKS pod.</p>
  *          <p>
  *             <code>MeterUsage</code> can optionally include multiple usage allocations, to provide
  *             customers with usage data split into buckets by tags that you define (or allow the
  *             customer to define).</p>
  *          <p>Usage records are expected to be submitted as quickly as possible after the event that
  *             is being recorded, and are not accepted more than 6 hours after the event.</p>
+ *          <p>For Amazon Web Services Regions that support <code>MeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ec2">MeterUsage Region support for Amazon EC2</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ecs-eks">MeterUsage Region support for Amazon ECS and Amazon EKS</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,12 +95,12 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *             message with details on the AWS forums.</p>
+ *             message with details on the Amazon Web Services forums.</p>
  *
  * @throws {@link InvalidEndpointRegionException} (client fault)
- *  <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS
- *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
- *             resource must match.</p>
+ *  <p>The endpoint being called is in a Amazon Web Services Region different from your EC2 instance, ECS
+ *             task, or EKS pod. The Region of the Metering Service endpoint and the Amazon Web Services Region of
+ *             the resource must match.</p>
  *
  * @throws {@link InvalidProductCodeException} (client fault)
  *  <p>The product code passed does not match the product code used for publishing the
@@ -107,8 +110,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
  *
  * @throws {@link InvalidUsageAllocationsException} (client fault)
- *  <p>The usage allocation objects are invalid, or the number of allocations is greater than
- *             500 for a single usage record.</p>
+ *  <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
  *
  * @throws {@link InvalidUsageDimensionException} (client fault)
  *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
@@ -127,6 +129,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class MeterUsageCommand extends $Command
@@ -137,9 +140,7 @@ export class MeterUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +152,16 @@ export class MeterUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MeterUsageCommand)
   .de(de_MeterUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MeterUsageRequest;
+      output: MeterUsageResult;
+    };
+    sdk: {
+      input: MeterUsageCommandInput;
+      output: MeterUsageCommandOutput;
+    };
+  };
+}

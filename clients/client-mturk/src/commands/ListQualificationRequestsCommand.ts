@@ -81,6 +81,7 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class ListQualificationRequestsCommand extends $Command
@@ -91,9 +92,7 @@ export class ListQualificationRequestsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListQualificationRequestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQualificationRequestsCommand)
   .de(de_ListQualificationRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQualificationRequestsRequest;
+      output: ListQualificationRequestsResponse;
+    };
+    sdk: {
+      input: ListQualificationRequestsCommandInput;
+      output: ListQualificationRequestsCommandOutput;
+    };
+  };
+}

@@ -11,7 +11,7 @@ import {
   UpdateGlossaryInputFilterSensitiveLog,
   UpdateGlossaryOutput,
   UpdateGlossaryOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateGlossaryCommand, se_UpdateGlossaryCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -91,6 +91,7 @@ export interface UpdateGlossaryCommandOutput extends UpdateGlossaryOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateGlossaryCommand extends $Command
@@ -101,9 +102,7 @@ export class UpdateGlossaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UpdateGlossaryCommand extends $Command
   .f(UpdateGlossaryInputFilterSensitiveLog, UpdateGlossaryOutputFilterSensitiveLog)
   .ser(se_UpdateGlossaryCommand)
   .de(de_UpdateGlossaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGlossaryInput;
+      output: UpdateGlossaryOutput;
+    };
+    sdk: {
+      input: UpdateGlossaryCommandInput;
+      output: UpdateGlossaryCommandOutput;
+    };
+  };
+}

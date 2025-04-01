@@ -260,55 +260,57 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To replicate a multi-Region key in a different AWS Region
  * ```javascript
  * // This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *   "ReplicaRegion": "us-west-2"
+ *   KeyId: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   ReplicaRegion: "us-west-2"
  * };
  * const command = new ReplicateKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicaKeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *     "CreationDate": 1607472987.918,
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
+ *   ReplicaKeyMetadata: {
+ *     AWSAccountId: "111122223333",
+ *     Arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     CreationDate: 1.607472987918E9,
+ *     CustomerMasterKeySpec: "SYMMETRIC_DEFAULT",
+ *     Description: "",
+ *     Enabled: true,
+ *     EncryptionAlgorithms: [
  *       "SYMMETRIC_DEFAULT"
  *     ],
- *     "KeyId": "mrk-1234abcd12ab34cd56ef1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": true,
- *     "MultiRegionConfiguration": {
- *       "MultiRegionKeyType": "REPLICA",
- *       "PrimaryKey": {
- *         "Arn": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *         "Region": "us-east-1"
+ *     KeyId: "mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     KeyManager: "CUSTOMER",
+ *     KeyState: "Enabled",
+ *     KeyUsage: "ENCRYPT_DECRYPT",
+ *     MultiRegion: true,
+ *     MultiRegionConfiguration: {
+ *       MultiRegionKeyType: "REPLICA",
+ *       PrimaryKey: {
+ *         Arn: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *         Region: "us-east-1"
  *       },
- *       "ReplicaKeys": [
+ *       ReplicaKeys: [
  *         {
- *           "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *           "Region": "us-west-2"
+ *           Arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           Region: "us-west-2"
  *         }
  *       ]
  *     },
- *     "Origin": "AWS_KMS"
+ *     Origin: "AWS_KMS"
  *   },
- *   "ReplicaPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",...}",
- *   "ReplicaTags": []
+ *   ReplicaPolicy: `{
+ *   "Version" : "2012-10-17",
+ *   "Id" : "key-default-1",...}`,
+ *   ReplicaTags:   []
  * }
  * *\/
- * // example id: to-replicate-a-multi-region-key-in-a-different-aws-region-1628622402887
  * ```
  *
+ * @public
  */
 export class ReplicateKeyCommand extends $Command
   .classBuilder<
@@ -318,9 +320,7 @@ export class ReplicateKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -332,4 +332,16 @@ export class ReplicateKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplicateKeyCommand)
   .de(de_ReplicateKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplicateKeyRequest;
+      output: ReplicateKeyResponse;
+    };
+    sdk: {
+      input: ReplicateKeyCommandInput;
+      output: ReplicateKeyCommandOutput;
+    };
+  };
+}

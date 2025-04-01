@@ -89,6 +89,7 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class ListSpeakersCommand extends $Command
@@ -99,9 +100,7 @@ export class ListSpeakersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListSpeakersCommand extends $Command
   .f(void 0, ListSpeakersResponseFilterSensitiveLog)
   .ser(se_ListSpeakersCommand)
   .de(de_ListSpeakersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpeakersRequest;
+      output: ListSpeakersResponse;
+    };
+    sdk: {
+      input: ListSpeakersCommandInput;
+      output: ListSpeakersCommandOutput;
+    };
+  };
+}

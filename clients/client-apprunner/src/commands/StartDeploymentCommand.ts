@@ -69,6 +69,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class StartDeploymentCommand extends $Command
@@ -79,9 +80,7 @@ export class StartDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class StartDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDeploymentCommand)
   .de(de_StartDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDeploymentRequest;
+      output: StartDeploymentResponse;
+    };
+    sdk: {
+      input: StartDeploymentCommandInput;
+      output: StartDeploymentCommandOutput;
+    };
+  };
+}

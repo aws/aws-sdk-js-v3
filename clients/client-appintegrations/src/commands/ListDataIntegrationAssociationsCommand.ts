@@ -58,6 +58,23 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * //       DataIntegrationAssociationArn: "STRING_VALUE",
  * //       DataIntegrationArn: "STRING_VALUE",
  * //       ClientId: "STRING_VALUE",
+ * //       DestinationURI: "STRING_VALUE",
+ * //       LastExecutionStatus: { // LastExecutionStatus
+ * //         ExecutionStatus: "COMPLETED" || "IN_PROGRESS" || "FAILED",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //       ExecutionConfiguration: { // ExecutionConfiguration
+ * //         ExecutionMode: "ON_DEMAND" || "SCHEDULED", // required
+ * //         OnDemandConfiguration: { // OnDemandConfiguration
+ * //           StartTime: "STRING_VALUE", // required
+ * //           EndTime: "STRING_VALUE",
+ * //         },
+ * //         ScheduleConfiguration: { // ScheduleConfiguration
+ * //           FirstExecutionFrom: "STRING_VALUE",
+ * //           Object: "STRING_VALUE",
+ * //           ScheduleExpression: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -89,6 +106,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListDataIntegrationAssociationsCommand extends $Command
@@ -99,9 +117,7 @@ export class ListDataIntegrationAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +129,16 @@ export class ListDataIntegrationAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataIntegrationAssociationsCommand)
   .de(de_ListDataIntegrationAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataIntegrationAssociationsRequest;
+      output: ListDataIntegrationAssociationsResponse;
+    };
+    sdk: {
+      input: ListDataIntegrationAssociationsCommandInput;
+      output: ListDataIntegrationAssociationsCommandOutput;
+    };
+  };
+}

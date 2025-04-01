@@ -29,10 +29,11 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends a signal to the specified resource with a success or failure status. You can use the
- *    <code>SignalResource</code> operation in conjunction with a creation policy or update policy. CloudFormation doesn't
- *    proceed with a stack creation or update until resources receive the required number of signals or the timeout period
- *    is exceeded. The <code>SignalResource</code> operation is useful in cases where you want to send signals from
- *    anywhere other than an Amazon EC2 instance.</p>
+ *         <code>SignalResource</code> operation in conjunction with a creation policy or update
+ *       policy. CloudFormation doesn't proceed with a stack creation or update until resources receive the
+ *       required number of signals or the timeout period is exceeded. The <code>SignalResource</code>
+ *       operation is useful in cases where you want to send signals from anywhere other than an Amazon EC2
+ *       instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,7 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class SignalResourceCommand extends $Command
@@ -70,9 +72,7 @@ export class SignalResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +84,16 @@ export class SignalResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SignalResourceCommand)
   .de(de_SignalResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignalResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: SignalResourceCommandInput;
+      output: SignalResourceCommandOutput;
+    };
+  };
+}

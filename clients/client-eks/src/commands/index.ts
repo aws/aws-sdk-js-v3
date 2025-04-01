@@ -22,6 +22,7 @@ export * from "./DescribeAddonCommand";
 export * from "./DescribeAddonConfigurationCommand";
 export * from "./DescribeAddonVersionsCommand";
 export * from "./DescribeClusterCommand";
+export * from "./DescribeClusterVersionsCommand";
 export * from "./DescribeEksAnywhereSubscriptionCommand";
 export * from "./DescribeFargateProfileCommand";
 export * from "./DescribeIdentityProviderConfigCommand";

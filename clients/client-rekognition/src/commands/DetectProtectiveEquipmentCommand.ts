@@ -178,6 +178,7 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class DetectProtectiveEquipmentCommand extends $Command
@@ -188,9 +189,7 @@ export class DetectProtectiveEquipmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +201,16 @@ export class DetectProtectiveEquipmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectProtectiveEquipmentCommand)
   .de(de_DetectProtectiveEquipmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectProtectiveEquipmentRequest;
+      output: DetectProtectiveEquipmentResponse;
+    };
+    sdk: {
+      input: DetectProtectiveEquipmentCommandInput;
+      output: DetectProtectiveEquipmentCommandOutput;
+    };
+  };
+}

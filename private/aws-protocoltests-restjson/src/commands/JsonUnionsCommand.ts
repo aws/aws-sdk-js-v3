@@ -91,6 +91,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonUnionsCommand extends $Command
@@ -109,4 +110,16 @@ export class JsonUnionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonUnionsCommand)
   .de(de_JsonUnionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnionInputOutput;
+      output: UnionInputOutput;
+    };
+    sdk: {
+      input: JsonUnionsCommandInput;
+      output: JsonUnionsCommandOutput;
+    };
+  };
+}

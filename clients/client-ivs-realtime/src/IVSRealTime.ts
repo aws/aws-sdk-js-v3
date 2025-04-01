@@ -8,6 +8,11 @@ import {
   CreateEncoderConfigurationCommandOutput,
 } from "./commands/CreateEncoderConfigurationCommand";
 import {
+  CreateIngestConfigurationCommand,
+  CreateIngestConfigurationCommandInput,
+  CreateIngestConfigurationCommandOutput,
+} from "./commands/CreateIngestConfigurationCommand";
+import {
   CreateParticipantTokenCommand,
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
@@ -23,6 +28,11 @@ import {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
+import {
+  DeleteIngestConfigurationCommand,
+  DeleteIngestConfigurationCommandInput,
+  DeleteIngestConfigurationCommandOutput,
+} from "./commands/DeleteIngestConfigurationCommand";
 import {
   DeletePublicKeyCommand,
   DeletePublicKeyCommandInput,
@@ -49,6 +59,11 @@ import {
   GetEncoderConfigurationCommandInput,
   GetEncoderConfigurationCommandOutput,
 } from "./commands/GetEncoderConfigurationCommand";
+import {
+  GetIngestConfigurationCommand,
+  GetIngestConfigurationCommandInput,
+  GetIngestConfigurationCommandOutput,
+} from "./commands/GetIngestConfigurationCommand";
 import {
   GetParticipantCommand,
   GetParticipantCommandInput,
@@ -85,6 +100,11 @@ import {
   ListEncoderConfigurationsCommandInput,
   ListEncoderConfigurationsCommandOutput,
 } from "./commands/ListEncoderConfigurationsCommand";
+import {
+  ListIngestConfigurationsCommand,
+  ListIngestConfigurationsCommandInput,
+  ListIngestConfigurationsCommandOutput,
+} from "./commands/ListIngestConfigurationsCommand";
 import {
   ListParticipantEventsCommand,
   ListParticipantEventsCommandInput,
@@ -132,21 +152,29 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateIngestConfigurationCommand,
+  UpdateIngestConfigurationCommandInput,
+  UpdateIngestConfigurationCommandOutput,
+} from "./commands/UpdateIngestConfigurationCommand";
 import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import { IVSRealTimeClient, IVSRealTimeClientConfig } from "./IVSRealTimeClient";
 
 const commands = {
   CreateEncoderConfigurationCommand,
+  CreateIngestConfigurationCommand,
   CreateParticipantTokenCommand,
   CreateStageCommand,
   CreateStorageConfigurationCommand,
   DeleteEncoderConfigurationCommand,
+  DeleteIngestConfigurationCommand,
   DeletePublicKeyCommand,
   DeleteStageCommand,
   DeleteStorageConfigurationCommand,
   DisconnectParticipantCommand,
   GetCompositionCommand,
   GetEncoderConfigurationCommand,
+  GetIngestConfigurationCommand,
   GetParticipantCommand,
   GetPublicKeyCommand,
   GetStageCommand,
@@ -155,6 +183,7 @@ const commands = {
   ImportPublicKeyCommand,
   ListCompositionsCommand,
   ListEncoderConfigurationsCommand,
+  ListIngestConfigurationsCommand,
   ListParticipantEventsCommand,
   ListParticipantsCommand,
   ListPublicKeysCommand,
@@ -166,6 +195,7 @@ const commands = {
   StopCompositionCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateIngestConfigurationCommand,
   UpdateStageCommand,
 };
 
@@ -186,6 +216,23 @@ export interface IVSRealTime {
     args: CreateEncoderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEncoderConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIngestConfigurationCommand}
+   */
+  createIngestConfiguration(
+    args: CreateIngestConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIngestConfigurationCommandOutput>;
+  createIngestConfiguration(
+    args: CreateIngestConfigurationCommandInput,
+    cb: (err: any, data?: CreateIngestConfigurationCommandOutput) => void
+  ): void;
+  createIngestConfiguration(
+    args: CreateIngestConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIngestConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -249,6 +296,23 @@ export interface IVSRealTime {
     args: DeleteEncoderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEncoderConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIngestConfigurationCommand}
+   */
+  deleteIngestConfiguration(
+    args: DeleteIngestConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIngestConfigurationCommandOutput>;
+  deleteIngestConfiguration(
+    args: DeleteIngestConfigurationCommandInput,
+    cb: (err: any, data?: DeleteIngestConfigurationCommandOutput) => void
+  ): void;
+  deleteIngestConfiguration(
+    args: DeleteIngestConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIngestConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -339,6 +403,23 @@ export interface IVSRealTime {
     args: GetEncoderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEncoderConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIngestConfigurationCommand}
+   */
+  getIngestConfiguration(
+    args: GetIngestConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIngestConfigurationCommandOutput>;
+  getIngestConfiguration(
+    args: GetIngestConfigurationCommandInput,
+    cb: (err: any, data?: GetIngestConfigurationCommandOutput) => void
+  ): void;
+  getIngestConfiguration(
+    args: GetIngestConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIngestConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -456,6 +537,24 @@ export interface IVSRealTime {
     args: ListEncoderConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEncoderConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIngestConfigurationsCommand}
+   */
+  listIngestConfigurations(): Promise<ListIngestConfigurationsCommandOutput>;
+  listIngestConfigurations(
+    args: ListIngestConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIngestConfigurationsCommandOutput>;
+  listIngestConfigurations(
+    args: ListIngestConfigurationsCommandInput,
+    cb: (err: any, data?: ListIngestConfigurationsCommandOutput) => void
+  ): void;
+  listIngestConfigurations(
+    args: ListIngestConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIngestConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -625,6 +724,23 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link UpdateIngestConfigurationCommand}
+   */
+  updateIngestConfiguration(
+    args: UpdateIngestConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIngestConfigurationCommandOutput>;
+  updateIngestConfiguration(
+    args: UpdateIngestConfigurationCommandInput,
+    cb: (err: any, data?: UpdateIngestConfigurationCommandOutput) => void
+  ): void;
+  updateIngestConfiguration(
+    args: UpdateIngestConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIngestConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateStageCommand}
    */
   updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
@@ -668,7 +784,7 @@ export interface IVSRealTime {
  *                <p>
  *                   <b>Composition process</b> — Composites participants
  *             of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
- *             Composition endpoints support this process.</p>
+ *             Composition operations support this process.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -683,13 +799,13 @@ export interface IVSRealTime {
  *          <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
  *       comprises a <i>key</i> and a <i>value</i>, both set by you. For
  *       example, you might set a tag as <code>topic:nature</code> to label a particular video
- *       category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
- *       tags and "Tag naming limits and requirements"; Amazon IVS stages has no service-specific
- *       constraints beyond what is documented there.</p>
+ *       category. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+ *       in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+ *       limits and requirements"; Amazon IVS stages has no service-specific constraints beyond what is documented there.</p>
  *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
  *       same tag for different resources to indicate that they are related. You can also use tags to
  *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
- *          <p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *          <p>The Amazon IVS real-time API has these tag-related operations: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
  * @public

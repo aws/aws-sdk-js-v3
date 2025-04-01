@@ -86,6 +86,7 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListInputDeviceTransfersCommand extends $Command
@@ -96,9 +97,7 @@ export class ListInputDeviceTransfersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListInputDeviceTransfersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputDeviceTransfersCommand)
   .de(de_ListInputDeviceTransfersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputDeviceTransfersRequest;
+      output: ListInputDeviceTransfersResponse;
+    };
+    sdk: {
+      input: ListInputDeviceTransfersCommandInput;
+      output: ListInputDeviceTransfersCommandOutput;
+    };
+  };
+}

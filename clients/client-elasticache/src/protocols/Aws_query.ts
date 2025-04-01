@@ -6919,6 +6919,9 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
   if (input[_AI] != null) {
     entries[_AI] = input[_AI];
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
   }
@@ -7018,6 +7021,9 @@ const se_ModifyGlobalReplicationGroupMessage = (
   if (input[_CNT] != null) {
     entries[_CNT] = input[_CNT];
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
   }
@@ -7093,6 +7099,9 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
   }
   if (input[_AI] != null) {
     entries[_AI] = input[_AI];
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
@@ -7253,6 +7262,12 @@ const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, co
   if (input[_DST] != null) {
     entries[_DST] = input[_DST];
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
+  }
   return entries;
 };
 
@@ -7283,6 +7298,9 @@ const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __Ser
       const loc = `UserIdsToRemove.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7320,6 +7338,9 @@ const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext)
       const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -10730,6 +10751,9 @@ const de_ReplicationGroup = (output: any, context: __SerdeContext): ReplicationG
   }
   if (output[_CMl] != null) {
     contents[_CMl] = __expectString(output[_CMl]);
+  }
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
   return contents;
 };

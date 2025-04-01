@@ -29,7 +29,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>,
  *                 which can describe multiple traffic sources types. We recommend using
  *                     <code>DescribeTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>DescribeLoadBalancers</code>. You can use both
@@ -38,7 +38,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *          </note>
  *          <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
  *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
- *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a> API instead.</p>
  *          <p>To determine the attachment status of the load balancer, use the <code>State</code>
  *             element in the response. When you attach a load balancer to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to
@@ -50,9 +50,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *             pass the health checks, the load balancer doesn't enter the <code>InService</code>
  *             state. </p>
  *          <p>Load balancers also have an <code>InService</code> state if you attach them in the
- *                 <a>CreateAutoScalingGroup</a> API call. If your load balancer state is
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> API call. If your load balancer state is
  *                 <code>InService</code>, but it is not working properly, check the scaling activities
- *             by calling <a>DescribeScalingActivities</a> and take any corrective actions
+ *             by calling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> and take any corrective actions
  *             necessary.</p>
  *          <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
  *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
@@ -100,28 +100,28 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the load balancers for an Auto Scaling group
  * ```javascript
  * // This example describes the load balancers attached to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancers": [
+ *   LoadBalancers: [
  *     {
- *       "LoadBalancerName": "my-load-balancer",
- *       "State": "Added"
+ *       LoadBalancerName: "my-load-balancer",
+ *       State: "Added"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-load-balancers-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancersCommand extends $Command
   .classBuilder<
@@ -131,9 +131,7 @@ export class DescribeLoadBalancersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +143,16 @@ export class DescribeLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancersCommand)
   .de(de_DescribeLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoadBalancersRequest;
+      output: DescribeLoadBalancersResponse;
+    };
+    sdk: {
+      input: DescribeLoadBalancersCommandInput;
+      output: DescribeLoadBalancersCommandOutput;
+    };
+  };
+}

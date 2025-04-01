@@ -29,4 +29,5 @@ export * from "./DescribeSenderIdsPaginator";
 export * from "./DescribeSpendLimitsPaginator";
 export * from "./DescribeVerifiedDestinationNumbersPaginator";
 export * from "./ListPoolOriginationIdentitiesPaginator";
+export * from "./ListProtectConfigurationRuleSetNumberOverridesPaginator";
 export * from "./ListRegistrationAssociationsPaginator";

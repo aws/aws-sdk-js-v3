@@ -74,6 +74,11 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link ParameterVersionNotFound} (client fault)
  *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
@@ -81,6 +86,7 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
  *
  * @public
  */
@@ -92,9 +98,7 @@ export class GetParameterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +110,16 @@ export class GetParameterCommand extends $Command
   .f(void 0, GetParameterResultFilterSensitiveLog)
   .ser(se_GetParameterCommand)
   .de(de_GetParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParameterRequest;
+      output: GetParameterResult;
+    };
+    sdk: {
+      input: GetParameterCommandInput;
+      output: GetParameterCommandOutput;
+    };
+  };
+}

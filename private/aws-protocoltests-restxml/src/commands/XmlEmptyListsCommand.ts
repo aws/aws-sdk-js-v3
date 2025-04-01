@@ -158,6 +158,7 @@ export interface XmlEmptyListsCommandOutput extends XmlEmptyListsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyListsCommand extends $Command
   .classBuilder<
@@ -175,4 +176,16 @@ export class XmlEmptyListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyListsCommand)
   .de(de_XmlEmptyListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyListsRequest;
+      output: XmlEmptyListsResponse;
+    };
+    sdk: {
+      input: XmlEmptyListsCommandInput;
+      output: XmlEmptyListsCommandOutput;
+    };
+  };
+}

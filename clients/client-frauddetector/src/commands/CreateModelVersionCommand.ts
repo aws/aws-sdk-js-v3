@@ -105,6 +105,7 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class CreateModelVersionCommand extends $Command
@@ -115,9 +116,7 @@ export class CreateModelVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class CreateModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelVersionCommand)
   .de(de_CreateModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelVersionRequest;
+      output: CreateModelVersionResult;
+    };
+    sdk: {
+      input: CreateModelVersionCommandInput;
+      output: CreateModelVersionCommandOutput;
+    };
+  };
+}

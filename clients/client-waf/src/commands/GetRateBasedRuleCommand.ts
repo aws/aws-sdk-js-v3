@@ -87,6 +87,7 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class GetRateBasedRuleCommand extends $Command
@@ -97,9 +98,7 @@ export class GetRateBasedRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class GetRateBasedRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRateBasedRuleCommand)
   .de(de_GetRateBasedRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRateBasedRuleRequest;
+      output: GetRateBasedRuleResponse;
+    };
+    sdk: {
+      input: GetRateBasedRuleCommandInput;
+      output: GetRateBasedRuleCommandOutput;
+    };
+  };
+}

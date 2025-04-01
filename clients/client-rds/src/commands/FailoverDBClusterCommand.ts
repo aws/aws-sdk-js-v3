@@ -219,12 +219,14 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -241,6 +243,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -270,24 +273,24 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To perform a failover for a DB cluster
  * ```javascript
  * // This example performs a failover for the specified DB cluster to the specified DB instance.
  * const input = {
- *   "DBClusterIdentifier": "myaurorainstance-cluster",
- *   "TargetDBInstanceIdentifier": "myaurorareplica"
+ *   DBClusterIdentifier: "myaurorainstance-cluster",
+ *   TargetDBInstanceIdentifier: "myaurorareplica"
  * };
  * const command = new FailoverDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {}
+ *   DBCluster:   { /* empty *\/ }
  * }
  * *\/
- * // example id: failover-db-cluster-9e7f2f93-d98c-42c7-bb0e-d6c485c096d6
  * ```
  *
+ * @public
  */
 export class FailoverDBClusterCommand extends $Command
   .classBuilder<
@@ -297,9 +300,7 @@ export class FailoverDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -311,4 +312,16 @@ export class FailoverDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverDBClusterCommand)
   .de(de_FailoverDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverDBClusterMessage;
+      output: FailoverDBClusterResult;
+    };
+    sdk: {
+      input: FailoverDBClusterCommandInput;
+      output: FailoverDBClusterCommandOutput;
+    };
+  };
+}

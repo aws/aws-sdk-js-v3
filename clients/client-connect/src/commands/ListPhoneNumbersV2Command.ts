@@ -110,6 +110,7 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListPhoneNumbersV2Command extends $Command
@@ -120,9 +121,7 @@ export class ListPhoneNumbersV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class ListPhoneNumbersV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListPhoneNumbersV2Command)
   .de(de_ListPhoneNumbersV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersV2Request;
+      output: ListPhoneNumbersV2Response;
+    };
+    sdk: {
+      input: ListPhoneNumbersV2CommandInput;
+      output: ListPhoneNumbersV2CommandOutput;
+    };
+  };
+}

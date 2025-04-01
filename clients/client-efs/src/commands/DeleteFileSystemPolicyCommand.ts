@@ -70,6 +70,7 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DeleteFileSystemPolicyCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteFileSystemPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteFileSystemPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileSystemPolicyCommand)
   .de(de_DeleteFileSystemPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileSystemPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFileSystemPolicyCommandInput;
+      output: DeleteFileSystemPolicyCommandOutput;
+    };
+  };
+}

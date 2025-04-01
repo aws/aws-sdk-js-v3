@@ -118,6 +118,7 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetDataflowEndpointGroupCommand extends $Command
@@ -128,9 +129,7 @@ export class GetDataflowEndpointGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class GetDataflowEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataflowEndpointGroupCommand)
   .de(de_GetDataflowEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataflowEndpointGroupRequest;
+      output: GetDataflowEndpointGroupResponse;
+    };
+    sdk: {
+      input: GetDataflowEndpointGroupCommandInput;
+      output: GetDataflowEndpointGroupCommandOutput;
+    };
+  };
+}

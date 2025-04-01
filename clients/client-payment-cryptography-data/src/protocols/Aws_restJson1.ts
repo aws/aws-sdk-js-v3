@@ -32,6 +32,10 @@ import {
   GenerateCardValidationDataCommandOutput,
 } from "../commands/GenerateCardValidationDataCommand";
 import { GenerateMacCommandInput, GenerateMacCommandOutput } from "../commands/GenerateMacCommand";
+import {
+  GenerateMacEmvPinChangeCommandInput,
+  GenerateMacEmvPinChangeCommandOutput,
+} from "../commands/GenerateMacEmvPinChangeCommand";
 import { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "../commands/GeneratePinDataCommand";
 import { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "../commands/ReEncryptDataCommand";
 import { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "../commands/TranslatePinDataCommand";
@@ -47,6 +51,7 @@ import { VerifyMacCommandInput, VerifyMacCommandOutput } from "../commands/Verif
 import { VerifyPinDataCommandInput, VerifyPinDataCommandOutput } from "../commands/VerifyPinDataCommand";
 import {
   AccessDeniedException,
+  AmexAttributes,
   AmexCardSecurityCodeVersion1,
   AmexCardSecurityCodeVersion2,
   AsymmetricEncryptionAttributes,
@@ -58,12 +63,17 @@ import {
   CryptogramAuthResponse,
   CryptogramVerificationArpcMethod1,
   CryptogramVerificationArpcMethod2,
+  CurrentPinAttributes,
+  DerivationMethodAttributes,
   DiscoverDynamicCardVerificationCode,
   DukptAttributes,
   DukptDerivationAttributes,
   DukptEncryptionAttributes,
   DynamicCardVerificationCode,
   DynamicCardVerificationValue,
+  EcdhDerivationAttributes,
+  Emv2000Attributes,
+  EmvCommonAttributes,
   EmvEncryptionAttributes,
   EncryptionDecryptionAttributes,
   Ibm3624NaturalPin,
@@ -75,6 +85,7 @@ import {
   MacAlgorithmDukpt,
   MacAlgorithmEmv,
   MacAttributes,
+  MasterCardAttributes,
   PinGenerationAttributes,
   PinVerificationAttributes,
   ReEncryptionAttributes,
@@ -93,6 +104,7 @@ import {
   TranslationPinDataIsoFormat034,
   ValidationException,
   VerificationFailedException,
+  VisaAttributes,
   VisaPin,
   VisaPinVerification,
   VisaPinVerificationValue,
@@ -202,6 +214,34 @@ export const se_GenerateMacCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GenerateMacEmvPinChangeCommand
+ */
+export const se_GenerateMacEmvPinChangeCommand = async (
+  input: GenerateMacEmvPinChangeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/macemvpinchange/generate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DerivationMethodAttributes: (_) => _json(_),
+      MessageData: [],
+      NewEncryptedPinBlock: [],
+      NewPinPekIdentifier: [],
+      PinBlockFormat: [],
+      SecureMessagingConfidentialityKeyIdentifier: [],
+      SecureMessagingIntegrityKeyIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GeneratePinDataCommand
  */
 export const se_GeneratePinDataCommand = async (
@@ -217,6 +257,7 @@ export const se_GeneratePinDataCommand = async (
   body = JSON.stringify(
     take(input, {
       EncryptionKeyIdentifier: [],
+      EncryptionWrappedKey: (_) => _json(_),
       GenerationAttributes: (_) => _json(_),
       GenerationKeyIdentifier: [],
       PinBlockFormat: [],
@@ -382,6 +423,7 @@ export const se_VerifyPinDataCommand = async (
       DukptAttributes: (_) => _json(_),
       EncryptedPinBlock: [],
       EncryptionKeyIdentifier: [],
+      EncryptionWrappedKey: (_) => _json(_),
       PinBlockFormat: [],
       PinDataLength: [],
       PrimaryAccountNumber: [],
@@ -480,6 +522,35 @@ export const de_GenerateMacCommand = async (
     KeyArn: __expectString,
     KeyCheckValue: __expectString,
     Mac: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateMacEmvPinChangeCommand
+ */
+export const de_GenerateMacEmvPinChangeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMacEmvPinChangeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EncryptedPinBlock: __expectString,
+    Mac: __expectString,
+    NewPinPekArn: __expectString,
+    NewPinPekKeyCheckValue: __expectString,
+    SecureMessagingConfidentialityKeyArn: __expectString,
+    SecureMessagingConfidentialityKeyCheckValue: __expectString,
+    SecureMessagingIntegrityKeyArn: __expectString,
+    SecureMessagingIntegrityKeyCheckValue: __expectString,
+    VisaAmexDerivationOutputs: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -803,6 +874,8 @@ const de_VerificationFailedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AmexAttributes omitted.
+
 // se_AmexCardSecurityCodeVersion1 omitted.
 
 // se_AmexCardSecurityCodeVersion2 omitted.
@@ -825,6 +898,10 @@ const de_VerificationFailedExceptionRes = async (
 
 // se_CryptogramVerificationArpcMethod2 omitted.
 
+// se_CurrentPinAttributes omitted.
+
+// se_DerivationMethodAttributes omitted.
+
 // se_DiscoverDynamicCardVerificationCode omitted.
 
 // se_DukptAttributes omitted.
@@ -836,6 +913,12 @@ const de_VerificationFailedExceptionRes = async (
 // se_DynamicCardVerificationCode omitted.
 
 // se_DynamicCardVerificationValue omitted.
+
+// se_EcdhDerivationAttributes omitted.
+
+// se_Emv2000Attributes omitted.
+
+// se_EmvCommonAttributes omitted.
 
 // se_EmvEncryptionAttributes omitted.
 
@@ -856,6 +939,8 @@ const de_VerificationFailedExceptionRes = async (
 // se_MacAlgorithmEmv omitted.
 
 // se_MacAttributes omitted.
+
+// se_MasterCardAttributes omitted.
 
 // se_PinGenerationAttributes omitted.
 
@@ -885,6 +970,8 @@ const de_VerificationFailedExceptionRes = async (
 
 // se_TranslationPinDataIsoFormat1 omitted.
 
+// se_VisaAttributes omitted.
+
 // se_VisaPin omitted.
 
 // se_VisaPinVerification omitted.
@@ -901,6 +988,8 @@ const de_VerificationFailedExceptionRes = async (
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_VisaAmexDerivationOutputs omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -912,10 +1001,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

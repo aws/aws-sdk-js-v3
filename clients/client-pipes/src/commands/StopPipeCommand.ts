@@ -75,6 +75,7 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class StopPipeCommand extends $Command
@@ -85,9 +86,7 @@ export class StopPipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class StopPipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopPipeCommand)
   .de(de_StopPipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopPipeRequest;
+      output: StopPipeResponse;
+    };
+    sdk: {
+      input: StopPipeCommandInput;
+      output: StopPipeCommandOutput;
+    };
+  };
+}

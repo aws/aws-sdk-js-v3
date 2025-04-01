@@ -72,6 +72,7 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class GetRegionOptStatusCommand extends $Command
@@ -82,9 +83,7 @@ export class GetRegionOptStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class GetRegionOptStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegionOptStatusCommand)
   .de(de_GetRegionOptStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRegionOptStatusRequest;
+      output: GetRegionOptStatusResponse;
+    };
+    sdk: {
+      input: GetRegionOptStatusCommandInput;
+      output: GetRegionOptStatusCommandOutput;
+    };
+  };
+}

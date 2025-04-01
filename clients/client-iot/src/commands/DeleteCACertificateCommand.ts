@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/models_0";
+import { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/models_1";
 import { de_DeleteCACertificateCommand, se_DeleteCACertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -75,6 +75,7 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteCACertificateCommand extends $Command
@@ -85,9 +86,7 @@ export class DeleteCACertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class DeleteCACertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCACertificateCommand)
   .de(de_DeleteCACertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCACertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCACertificateCommandInput;
+      output: DeleteCACertificateCommandOutput;
+    };
+  };
+}

@@ -124,7 +124,45 @@
           "traits": {
             "smithy.api#enumValue": "CODECONNECTIONS"
           }
+        },
+        "SECRETS_MANAGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECRETS_MANAGER"
+          }
         }
+      }
+    },
+    "com.amazonaws.codebuild#AutoRetryConfig": {
+      "type": "structure",
+      "members": {
+        "autoRetryLimit": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of additional automatic retries after a failed build. For example, if the \n            auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically \n            retry your build for up to 2 additional times.</p>"
+          }
+        },
+        "autoRetryNumber": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of times that the build has been retried. The initial build will have an auto-retry number of 0.</p>"
+          }
+        },
+        "nextAutoRetry": {
+          "target": "com.amazonaws.codebuild#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The build ARN of the auto-retried build triggered by the current build. The next auto-retry \n            will be <code>null</code> for builds that don't trigger an auto-retry.</p>"
+          }
+        },
+        "previousAutoRetry": {
+          "target": "com.amazonaws.codebuild#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The build ARN of the build that triggered the current auto-retry build. The previous auto-retry will be \n            <code>null</code> for the initial build.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the auto-retry configuration for the build.</p>"
       }
     },
     "com.amazonaws.codebuild#BatchDeleteBuilds": {
@@ -522,6 +560,12 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of strings that specify the compute types that are allowed for the batch\n            build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment\n                compute types</a> in the <i>CodeBuild User Guide</i> for these values.\n        </p>"
           }
+        },
+        "fleetsAllowed": {
+          "target": "com.amazonaws.codebuild#FleetsAllowed",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of strings that specify the fleets that are allowed\n            for the batch build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html\">Run builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> \n                for more information. </p>"
+          }
         }
       },
       "traits": {
@@ -755,6 +799,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the batch build that this build is a member of, if applicable.</p>"
           }
+        },
+        "autoRetryConfig": {
+          "target": "com.amazonaws.codebuild#AutoRetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the auto-retry configuration for the build.</p>"
+          }
         }
       },
       "traits": {
@@ -984,6 +1034,12 @@
           "target": "com.amazonaws.codebuild#WrapperBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies if session debugging is enabled for this batch build. For more information, see\n  <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html\">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>"
+          }
+        },
+        "reportArns": {
+          "target": "com.amazonaws.codebuild#BuildReportArns",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that contains the ARNs of reports created by merging reports from builds associated with this batch build.</p>"
           }
         }
       },
@@ -2756,6 +2812,38 @@
         "target": "com.amazonaws.codebuild#CodeCoverage"
       }
     },
+    "com.amazonaws.codebuild#ComputeConfiguration": {
+      "type": "structure",
+      "members": {
+        "vCpu": {
+          "target": "com.amazonaws.codebuild#WrapperLong",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of vCPUs of the instance type included in your fleet.</p>"
+          }
+        },
+        "memory": {
+          "target": "com.amazonaws.codebuild#WrapperLong",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of memory of the instance type included in your fleet.</p>"
+          }
+        },
+        "disk": {
+          "target": "com.amazonaws.codebuild#WrapperLong",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of disk space of the instance type included in your fleet.</p>"
+          }
+        },
+        "machineType": {
+          "target": "com.amazonaws.codebuild#MachineType",
+          "traits": {
+            "smithy.api#documentation": "<p>The machine type of the instance type included in your fleet.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains compute attributes. These attributes only need be specified when your project's or fleet's <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>"
+      }
+    },
     "com.amazonaws.codebuild#ComputeType": {
       "type": "enum",
       "members": {
@@ -2818,6 +2906,12 @@
           "traits": {
             "smithy.api#enumValue": "BUILD_LAMBDA_10GB"
           }
+        },
+        "ATTRIBUTE_BASED_COMPUTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ATTRIBUTE_BASED_COMPUTE"
+          }
         }
       }
     },
@@ -2870,15 +2964,21 @@
         "environmentType": {
           "target": "com.amazonaws.codebuild#EnvironmentType",
           "traits": {
-            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>",
+            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>ARM_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Medium fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    and EU (Frankfurt)</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
         "computeType": {
           "target": "com.amazonaws.codebuild#ComputeType",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment\n            compute types</a> in the <i>CodeBuild User Guide.</i>\n         </p>",
+            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ATTRIBUTE_BASED_COMPUTE</code>: Specify the amount of vCPUs, memory, disk space, and the type of machine.</p>\n               <note>\n                  <p> If you use <code>ATTRIBUTE_BASED_COMPUTE</code>, you must define your attributes by using <code>computeConfiguration</code>. CodeBuild \n                        will select the cheapest instance that satisfies your specified attributes. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types\">Reserved capacity environment \n                        types</a> in the <i>CodeBuild User Guide</i>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 72 GiB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 144 GiB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types\">On-demand environment types</a> \n                in the <i>CodeBuild User Guide.</i>\n         </p>",
             "smithy.api#required": {}
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.codebuild#ComputeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>"
           }
         },
         "scalingConfiguration": {
@@ -2895,6 +2995,18 @@
         },
         "vpcConfig": {
           "target": "com.amazonaws.codebuild#VpcConfig"
+        },
+        "proxyConfiguration": {
+          "target": "com.amazonaws.codebuild#ProxyConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The proxy configuration of the compute fleet.</p>"
+          }
+        },
+        "imageId": {
+          "target": "com.amazonaws.codebuild#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Machine Image (AMI) of the compute fleet.</p>"
+          }
         },
         "fleetServiceRole": {
           "target": "com.amazonaws.codebuild#NonEmptyString",
@@ -3083,6 +3195,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent builds that are allowed for this project.</p>\n         <p>New builds are only started if the current number of builds is less than or equal to this limit. \n  If the current build count meets this limit, new builds are throttled and are not run.</p>"
           }
+        },
+        "autoRetryLimit": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of additional automatic retries after a failed build. For example, if the \n      auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically \n      retry your build for up to 2 additional times.</p>"
+          }
         }
       },
       "traits": {
@@ -3226,7 +3344,7 @@
         "buildType": {
           "target": "com.amazonaws.codebuild#WebhookBuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>"
+            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>\n         <note>\n            <p>\n               <code>RUNNER_BUILDKITE_BUILD</code> is only available for <code>NO_SOURCE</code> source type projects \n        configured for Buildkite runner builds. For more information about CodeBuild-hosted Buildkite runner builds, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runner-buildkite.html\">Tutorial: Configure a CodeBuild-hosted Buildkite runner</a> in the <i>CodeBuild\n        user guide</i>.</p>\n         </note>"
           }
         },
         "manualCreation": {
@@ -3946,6 +4064,30 @@
           "traits": {
             "smithy.api#enumValue": "ARM_LAMBDA_CONTAINER"
           }
+        },
+        "LINUX_EC2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINUX_EC2"
+          }
+        },
+        "ARM_EC2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ARM_EC2"
+          }
+        },
+        "WINDOWS_EC2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WINDOWS_EC2"
+          }
+        },
+        "MAC_ARM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAC_ARM"
+          }
         }
       }
     },
@@ -4103,13 +4245,19 @@
         "environmentType": {
           "target": "com.amazonaws.codebuild#EnvironmentType",
           "traits": {
-            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>"
+            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>ARM_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Medium fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    and EU (Frankfurt)</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>"
           }
         },
         "computeType": {
           "target": "com.amazonaws.codebuild#ComputeType",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment\n            compute types</a> in the <i>CodeBuild User Guide.</i>\n         </p>"
+            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ATTRIBUTE_BASED_COMPUTE</code>: Specify the amount of vCPUs, memory, disk space, and the type of machine.</p>\n               <note>\n                  <p> If you use <code>ATTRIBUTE_BASED_COMPUTE</code>, you must define your attributes by using <code>computeConfiguration</code>. CodeBuild \n                        will select the cheapest instance that satisfies your specified attributes. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types\">Reserved capacity environment \n                        types</a> in the <i>CodeBuild User Guide</i>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 72 GiB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 144 GiB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types\">On-demand environment types</a> \n                in the <i>CodeBuild User Guide.</i>\n         </p>"
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.codebuild#ComputeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>"
           }
         },
         "scalingConfiguration": {
@@ -4126,6 +4274,18 @@
         },
         "vpcConfig": {
           "target": "com.amazonaws.codebuild#VpcConfig"
+        },
+        "proxyConfiguration": {
+          "target": "com.amazonaws.codebuild#ProxyConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The proxy configuration of the compute fleet.</p>"
+          }
+        },
+        "imageId": {
+          "target": "com.amazonaws.codebuild#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Machine Image (AMI) of the compute fleet.</p>"
+          }
         },
         "fleetServiceRole": {
           "target": "com.amazonaws.codebuild#NonEmptyString",
@@ -4184,6 +4344,18 @@
           "traits": {
             "smithy.api#enumValue": "ACTION_REQUIRED"
           }
+        },
+        "PENDING_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETION"
+          }
+        },
+        "INSUFFICIENT_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSUFFICIENT_CAPACITY"
+          }
         }
       }
     },
@@ -4223,6 +4395,110 @@
           "traits": {
             "smithy.api#enumValue": "ON_DEMAND"
           }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRule": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.codebuild#FleetProxyRuleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of proxy rule.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "effect": {
+          "target": "com.amazonaws.codebuild#FleetProxyRuleEffectType",
+          "traits": {
+            "smithy.api#documentation": "<p>The behavior of the proxy rule.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "entities": {
+          "target": "com.amazonaws.codebuild#FleetProxyRuleEntities",
+          "traits": {
+            "smithy.api#documentation": "<p>The destination of the proxy rule.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the proxy rule for your reserved capacity instances.</p>"
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRuleBehavior": {
+      "type": "enum",
+      "members": {
+        "ALLOW_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALLOW_ALL"
+          }
+        },
+        "DENY_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENY_ALL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRuleEffectType": {
+      "type": "enum",
+      "members": {
+        "ALLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALLOW"
+          }
+        },
+        "DENY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRuleEntities": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.codebuild#String"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRuleType": {
+      "type": "enum",
+      "members": {
+        "DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN"
+          }
+        },
+        "IP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#FleetProxyRules": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.codebuild#FleetProxyRule"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
         }
       }
     },
@@ -4360,6 +4636,12 @@
           "min": 1,
           "max": 100
         }
+      }
+    },
+    "com.amazonaws.codebuild#FleetsAllowed": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.codebuild#NonEmptyString"
       }
     },
     "com.amazonaws.codebuild#GetReportGroupTrend": {
@@ -4551,7 +4833,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Imports the source repository credentials for an CodeBuild project that has its\n            source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>"
+        "smithy.api#documentation": "<p> Imports the source repository credentials for an CodeBuild project that has its\n            source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. </p>"
       }
     },
     "com.amazonaws.codebuild#ImportSourceCredentialsInput": {
@@ -4566,7 +4848,7 @@
         "token": {
           "target": "com.amazonaws.codebuild#SensitiveNonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,\n            this is either the access token or the app password. For the <code>authType</code> CODECONNECTIONS, \n            this is the <code>connectionArn</code>.</p>",
+            "smithy.api#documentation": "<p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,\n            this is either the access token or the app password. For the <code>authType</code> CODECONNECTIONS, \n            this is the <code>connectionArn</code>. For the <code>authType</code> SECRETS_MANAGER, this is the <code>secretArn</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4580,7 +4862,7 @@
         "authType": {
           "target": "com.amazonaws.codebuild#AuthType",
           "traits": {
-            "smithy.api#documentation": "<p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or\n            Bitbucket repository. An OAUTH connection is not supported by the API and must be\n            created using the CodeBuild console. Note that CODECONNECTIONS is only valid for \n            GitLab and GitLab Self Managed.</p>",
+            "smithy.api#documentation": "<p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or\n            Bitbucket repository. An OAUTH connection is not supported by the API and must be\n            created using the CodeBuild console.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4916,7 +5198,20 @@
           "inputToken": "nextToken",
           "outputToken": "nextToken",
           "items": "ids"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListBuildsSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.codebuild#ListBuildsForProject": {
@@ -5722,6 +6017,23 @@
         "smithy.api#documentation": "<p>Information about build logs in CloudWatch Logs.</p>"
       }
     },
+    "com.amazonaws.codebuild#MachineType": {
+      "type": "enum",
+      "members": {
+        "GENERAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GENERAL"
+          }
+        },
+        "NVME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NVME"
+          }
+        }
+      }
+    },
     "com.amazonaws.codebuild#NetworkInterface": {
       "type": "structure",
       "members": {
@@ -6010,6 +6322,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for\n      the project's builds.</p>"
           }
+        },
+        "autoRetryLimit": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of additional automatic retries after a failed build. For example, if the \n      auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically \n      retry your build for up to 2 additional times.</p>"
+          }
         }
       },
       "traits": {
@@ -6186,6 +6504,12 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of strings that specify the local cache modes. You can use one or more local\n            cache modes at the same time. This is only used for <code>LOCAL</code> cache\n            types.</p>\n         <p>Possible values are:</p>\n         <dl>\n            <dt>LOCAL_SOURCE_CACHE</dt>\n            <dd>\n               <p>Caches Git metadata for primary and secondary sources. After the cache is\n                        created, subsequent builds pull only the change between commits. This mode\n                        is a good choice for projects with a clean working directory and a source\n                        that is a large Git repository. If you choose this option and your project\n                        does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the\n                        option is ignored. </p>\n            </dd>\n            <dt>LOCAL_DOCKER_LAYER_CACHE</dt>\n            <dd>\n               <p>Caches existing Docker layers. This mode is a good choice for projects\n                        that build or pull large Docker images. It can prevent the performance\n                        issues caused by pulling large Docker images down from the network. </p>\n               <note>\n                  <ul>\n                     <li>\n                        <p>You can use a Docker layer cache in the Linux environment\n                                    only. </p>\n                     </li>\n                     <li>\n                        <p>The <code>privileged</code> flag must be set so that your\n                                    project has the required Docker permissions. </p>\n                     </li>\n                     <li>\n                        <p>You should consider the security implications before you use a\n                                    Docker layer cache. </p>\n                     </li>\n                  </ul>\n               </note>\n            </dd>\n            <dt>LOCAL_CUSTOM_CACHE</dt>\n            <dd>\n               <p>Caches directories you specify in the buildspec file. This mode is a good\n                        choice if your build scenario is not suited to one of the other three local\n                        cache modes. If you use a custom cache: </p>\n               <ul>\n                  <li>\n                     <p>Only directories can be specified for caching. You cannot specify\n                                individual files. </p>\n                  </li>\n                  <li>\n                     <p>Symlinks are used to reference cached directories. </p>\n                  </li>\n                  <li>\n                     <p>Cached directories are linked to your build before it downloads\n                                its project sources. Cached items are overridden if a source item\n                                has the same name. Directories are specified using cache paths in\n                                the buildspec file. </p>\n                  </li>\n               </ul>\n            </dd>\n         </dl>"
           }
+        },
+        "cacheNamespace": {
+          "target": "com.amazonaws.codebuild#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines the scope of the cache. You can use this namespace to share a cache across \n            multiple projects. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/caching-s3.html#caching-s3-sharing\">Cache sharing \n                between projects</a> in the <i>CodeBuild User Guide</i>.</p>"
+          }
         }
       },
       "traits": {
@@ -6213,7 +6537,7 @@
         "type": {
           "target": "com.amazonaws.codebuild#EnvironmentType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of build environment to use for related builds.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and\n                    EU (Frankfurt).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon),\n                    Canada (Central), EU (Ireland), EU (London),\n                    EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and\n                    China (Ningxia).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon),\n                    Canada (Central), EU (Ireland), EU (London),\n                    EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and\n                    China (Ningxia).</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>The environment types <code>ARM_LAMBDA_CONTAINER</code> and\n                    <code>LINUX_LAMBDA_CONTAINER</code> are available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Singapore), \n                    Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>The environment types <code>WINDOWS_CONTAINER</code> and\n                        <code>WINDOWS_SERVER_2019_CONTAINER</code> are available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), and\n                    EU (Ireland).</p>\n            </li>\n         </ul>\n         <note>\n            <p>If you're using compute fleets during project creation, <code>type</code> will be ignored.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>",
+            "smithy.api#documentation": "<p>The type of build environment to use for related builds.</p>\n         <note>\n            <p>If you're using compute fleets during project creation, <code>type</code> will be ignored.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6227,8 +6551,14 @@
         "computeType": {
           "target": "com.amazonaws.codebuild#ComputeType",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the compute resources the build project uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <note>\n            <p>If you're using compute fleets during project creation, <code>computeType</code> will be ignored.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build Environment\n                Compute Types</a> in the <i>CodeBuild User Guide.</i>\n         </p>",
+            "smithy.api#documentation": "<p>Information about the compute resources the build project uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ATTRIBUTE_BASED_COMPUTE</code>: Specify the amount of vCPUs, memory, disk space, and the type of machine.</p>\n               <note>\n                  <p> If you use <code>ATTRIBUTE_BASED_COMPUTE</code>, you must define your attributes by using <code>computeConfiguration</code>. CodeBuild \n                        will select the cheapest instance that satisfies your specified attributes. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types\">Reserved capacity environment \n                        types</a> in the <i>CodeBuild User Guide</i>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 72 GiB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 144 GiB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types\">On-demand environment types</a> \n                in the <i>CodeBuild User Guide.</i>\n         </p>",
             "smithy.api#required": {}
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.codebuild#ComputeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the build project. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>"
           }
         },
         "fleet": {
@@ -6424,13 +6754,13 @@
         "auth": {
           "target": "com.amazonaws.codebuild#SourceAuth",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the authorization settings for CodeBuild to access the source code to be\n            built.</p>\n         <p>This information is for the CodeBuild console's use only. Your code should not get or set\n            this information directly.</p>"
+            "smithy.api#documentation": "<p>Information about the authorization settings for CodeBuild to access the source code to be\n            built.</p>"
           }
         },
         "reportBuildStatus": {
           "target": "com.amazonaws.codebuild#WrapperBoolean",
           "traits": {
-            "smithy.api#documentation": "<p> Set to true to report the status of a build's start and finish to your source\n            provider. This option is valid only when your source provider is GitHub, GitHub\n            Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an\n            <code>invalidInputException</code> is thrown. </p>\n         <p>To be able to report the build status to the source provider, the user associated with the source provider must\nhave write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html\">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>\n         <p>The status of a build triggered by a webhook is always reported to your source\n                provider. </p>\n         <p>If your project's builds are triggered by a webhook, you must push a\n              new commit to the repo for a change to this property to take\n              effect.</p>"
+            "smithy.api#documentation": "<p> Set to true to report the status of a build's start and finish to your source\n            provider. This option is valid only when your source provider is GitHub, GitHub\n            Enterprise, GitLab, GitLab Self Managed, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an\n            <code>invalidInputException</code> is thrown. </p>\n         <p>To be able to report the build status to the source provider, the user associated with the source provider must\nhave write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html\">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>\n         <p>The status of a build triggered by a webhook is always reported to your source\n                provider. </p>\n         <p>If your project's builds are triggered by a webhook, you must push a\n              new commit to the repo for a change to this property to take\n              effect.</p>"
           }
         },
         "buildStatusConfig": {
@@ -6514,6 +6844,26 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.codebuild#Project"
+      }
+    },
+    "com.amazonaws.codebuild#ProxyConfiguration": {
+      "type": "structure",
+      "members": {
+        "defaultBehavior": {
+          "target": "com.amazonaws.codebuild#FleetProxyRuleBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The default behavior of outgoing traffic.</p>"
+          }
+        },
+        "orderedProxyRules": {
+          "target": "com.amazonaws.codebuild#FleetProxyRules",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>FleetProxyRule</code> objects that represent the specified destination domains or IPs to allow or deny network access control to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the proxy configurations that apply network access control to your reserved capacity instances.</p>"
       }
     },
     "com.amazonaws.codebuild#PutResourcePolicy": {
@@ -7406,20 +7756,20 @@
         "name": {
           "target": "com.amazonaws.codebuild#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.</p>",
+            "smithy.api#documentation": "<p>The name of either the group, enterprise, or organization that will send webhook events to CodeBuild, depending on the type of webhook.</p>",
             "smithy.api#required": {}
           }
         },
         "domain": {
           "target": "com.amazonaws.codebuild#String",
           "traits": {
-            "smithy.api#documentation": "<p>The domain of the GitHub Enterprise organization. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE</p>"
+            "smithy.api#documentation": "<p>The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.</p>"
           }
         },
         "scope": {
           "target": "com.amazonaws.codebuild#WebhookScopeType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of scope for a GitHub webhook.</p>",
+            "smithy.api#documentation": "<p>The type of scope for a GitHub or GitLab webhook.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7530,7 +7880,7 @@
         "type": {
           "target": "com.amazonaws.codebuild#SourceAuthType",
           "traits": {
-            "smithy.api#documentation": "<p>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</p>",
+            "smithy.api#documentation": "<p>The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7542,7 +7892,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the authorization settings for CodeBuild to access the source code to be\n            built.</p>\n         <p>This information is for the CodeBuild console's use only. Your code should not get or set\n            this information directly.</p>"
+        "smithy.api#documentation": "<p>Information about the authorization settings for CodeBuild to access the source code to be\n            built.</p>"
       }
     },
     "com.amazonaws.codebuild#SourceAuthType": {
@@ -7558,6 +7908,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "CODECONNECTIONS"
+          }
+        },
+        "SECRETS_MANAGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECRETS_MANAGER"
           }
         }
       }
@@ -7580,13 +7936,13 @@
         "authType": {
           "target": "com.amazonaws.codebuild#AuthType",
           "traits": {
-            "smithy.api#documentation": "<p> The type of authentication used by the credentials. Valid options are OAUTH,\n            BASIC_AUTH, PERSONAL_ACCESS_TOKEN, or CODECONNECTIONS. </p>"
+            "smithy.api#documentation": "<p> The type of authentication used by the credentials. Valid options are OAUTH,\n            BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. </p>"
           }
         },
         "resource": {
           "target": "com.amazonaws.codebuild#String",
           "traits": {
-            "smithy.api#documentation": "<p>The connection ARN if your serverType type is GITLAB or GITLAB_SELF_MANAGED and your authType is CODECONNECTIONS.</p>"
+            "smithy.api#documentation": "<p>The connection ARN if your authType is CODECONNECTIONS or SECRETS_MANAGER.</p>"
           }
         }
       },
@@ -8002,7 +8358,7 @@
         "reportBuildStatusOverride": {
           "target": "com.amazonaws.codebuild#WrapperBoolean",
           "traits": {
-            "smithy.api#documentation": "<p> Set to true to report to your source provider the status of a build's start and\n            completion. If you use this option with a source provider other than GitHub, GitHub\n            Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>\n         <p>To be able to report the build status to the source provider, the user associated with the source provider must\nhave write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html\">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>\n         <note>\n            <p> The status of a build triggered by a webhook is always reported to your source\n                provider. </p>\n         </note>"
+            "smithy.api#documentation": "<p> Set to true to report to your source provider the status of a build's start and\n            completion. If you use this option with a source provider other than GitHub, GitHub\n            Enterprise, GitLab, GitLab Self Managed, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>\n         <p>To be able to report the build status to the source provider, the user associated with the source provider must\nhave write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html\">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>\n         <note>\n            <p> The status of a build triggered by a webhook is always reported to your source\n                provider. </p>\n         </note>"
           }
         },
         "buildStatusConfigOverride": {
@@ -8105,6 +8461,12 @@
           "target": "com.amazonaws.codebuild#ProjectFleet",
           "traits": {
             "smithy.api#documentation": "<p>A ProjectFleet object specified for this build that overrides the one defined in the\n            build project.</p>"
+          }
+        },
+        "autoRetryLimitOverride": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of additional automatic retries after a failed build. For example, if the \n            auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically \n            retry your build for up to 2 additional times.</p>"
           }
         }
       },
@@ -8385,6 +8747,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The date and time a test case expires. A test case expires 30 days after it is\n            created. An expired test case is not available to view in CodeBuild. </p>"
           }
+        },
+        "testSuiteName": {
+          "target": "com.amazonaws.codebuild#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the test suite that the test case is a part of.</p>"
+          }
         }
       },
       "traits": {
@@ -8500,13 +8868,19 @@
         "environmentType": {
           "target": "com.amazonaws.codebuild#EnvironmentType",
           "traits": {
-            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>"
+            "smithy.api#documentation": "<p>The environment type of the compute fleet.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),\n                    Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), \n                    EU (Frankfurt), and South America (São Paulo).</p>\n            </li>\n            <li>\n               <p>The environment type <code>ARM_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Medium fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    and EU (Frankfurt)</p>\n            </li>\n            <li>\n               <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in\n                    regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_EC2</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), \n                    EU (Frankfurt), Asia Pacific (Tokyo),\n                    Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), \n                    Asia Pacific (Tokyo), Asia Pacific (Mumbai) and\n                    EU (Ireland).</p>\n            </li>\n            <li>\n               <p>The environment type <code>WINDOWS_SERVER_2022_CONTAINER</code> is available only in regions\n                    US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), \n                    Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and\n                    Asia Pacific (Mumbai).</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild\n                user guide</i>.</p>"
           }
         },
         "computeType": {
           "target": "com.amazonaws.codebuild#ComputeType",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment\n            compute types</a> in the <i>CodeBuild User Guide.</i>\n         </p>"
+            "smithy.api#documentation": "<p>Information about the compute resources the compute fleet uses. Available values\n            include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ATTRIBUTE_BASED_COMPUTE</code>: Specify the amount of vCPUs, memory, disk space, and the type of machine.</p>\n               <note>\n                  <p> If you use <code>ATTRIBUTE_BASED_COMPUTE</code>, you must define your attributes by using <code>computeConfiguration</code>. CodeBuild \n                        will select the cheapest instance that satisfies your specified attributes. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types\">Reserved capacity environment \n                        types</a> in the <i>CodeBuild User Guide</i>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for\n                    builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_XLARGE</code>: Use up to 72 GiB memory and 36 vCPUs for\n                    builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 144 GiB memory, 72 vCPUs, and\n                    824 GB of SSD storage for builds. This compute type supports Docker images up to\n                    100 GB uncompressed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GiB memory for\n                    builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16\n                    GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GiB\n                    memory and 2 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255\n                    GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GiB\n                    memory and 8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types\">On-demand environment types</a> \n                in the <i>CodeBuild User Guide.</i>\n         </p>"
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.codebuild#ComputeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>"
           }
         },
         "scalingConfiguration": {
@@ -8523,6 +8897,18 @@
         },
         "vpcConfig": {
           "target": "com.amazonaws.codebuild#VpcConfig"
+        },
+        "proxyConfiguration": {
+          "target": "com.amazonaws.codebuild#ProxyConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The proxy configuration of the compute fleet.</p>"
+          }
+        },
+        "imageId": {
+          "target": "com.amazonaws.codebuild#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Machine Image (AMI) of the compute fleet.</p>"
+          }
         },
         "fleetServiceRole": {
           "target": "com.amazonaws.codebuild#NonEmptyString",
@@ -8700,6 +9086,12 @@
           "target": "com.amazonaws.codebuild#WrapperInt",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent builds that are allowed for this project.</p>\n         <p>New builds are only started if the current number of builds is less than or equal to this limit. \n  If the current build count meets this limit, new builds are throttled and are not run.</p>\n         <p>To remove this limit, set this value to -1.</p>"
+          }
+        },
+        "autoRetryLimit": {
+          "target": "com.amazonaws.codebuild#WrapperInt",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of additional automatic retries after a failed build. For example, if the \n      auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically \n      retry your build for up to 2 additional times.</p>"
           }
         }
       },
@@ -8907,7 +9299,7 @@
         "buildType": {
           "target": "com.amazonaws.codebuild#WebhookBuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>"
+            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>\n         <note>\n            <p>\n               <code>RUNNER_BUILDKITE_BUILD</code> is only available for <code>NO_SOURCE</code> source type projects \n        configured for Buildkite runner builds. For more information about CodeBuild-hosted Buildkite runner builds, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runner-buildkite.html\">Tutorial: Configure a CodeBuild-hosted Buildkite runner</a> in the <i>CodeBuild\n        user guide</i>.</p>\n         </note>"
           }
         }
       },
@@ -9001,7 +9393,7 @@
         "buildType": {
           "target": "com.amazonaws.codebuild#WebhookBuildType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>"
+            "smithy.api#documentation": "<p>Specifies the type of build this webhook will trigger.</p>\n         <note>\n            <p>\n               <code>RUNNER_BUILDKITE_BUILD</code> is only available for <code>NO_SOURCE</code> source type projects \n        configured for Buildkite runner builds. For more information about CodeBuild-hosted Buildkite runner builds, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runner-buildkite.html\">Tutorial: Configure a CodeBuild-hosted Buildkite runner</a> in the <i>CodeBuild\n        user guide</i>.</p>\n         </note>"
           }
         },
         "manualCreation": {
@@ -9020,6 +9412,18 @@
           "target": "com.amazonaws.codebuild#ScopeConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The scope configuration for global or organization webhooks.</p>\n         <note>\n            <p>Global or organization webhooks are only available for GitHub and Github Enterprise webhooks.</p>\n         </note>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.codebuild#WebhookStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the webhook. Valid values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code>: The webhook is being created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code>: The webhook has failed to create.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVE</code>: The webhook has succeeded and is active.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code>: The webhook is being deleted.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "statusMessage": {
+          "target": "com.amazonaws.codebuild#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A message associated with the status of a webhook.</p>"
           }
         }
       },
@@ -9041,6 +9445,12 @@
           "traits": {
             "smithy.api#enumValue": "BUILD_BATCH"
           }
+        },
+        "RUNNER_BUILDKITE_BUILD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNER_BUILDKITE_BUILD"
+          }
         }
       }
     },
@@ -9050,7 +9460,7 @@
         "type": {
           "target": "com.amazonaws.codebuild#WebhookFilterType",
           "traits": {
-            "smithy.api#documentation": "<p> The type of webhook filter. There are nine webhook filter types: <code>EVENT</code>,\n                <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,\n            <code>FILE_PATH</code>, <code>COMMIT_MESSAGE</code>, <code>TAG_NAME</code>, <code>RELEASE_NAME</code>, \n            and <code>WORKFLOW_NAME</code>. </p>\n         <ul>\n            <li>\n               <p>\n                    EVENT\n                </p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the provided <code>pattern</code>\n                            matches one of nine event types: <code>PUSH</code>,\n                            <code>PULL_REQUEST_CREATED</code>, <code>PULL_REQUEST_UPDATED</code>, \n                            <code>PULL_REQUEST_CLOSED</code>, <code>PULL_REQUEST_REOPENED</code>, \n                            <code>PULL_REQUEST_MERGED</code>, <code>RELEASED</code>, <code>PRERELEASED</code>, \n                            and <code>WORKFLOW_JOB_QUEUED</code>. The <code>EVENT</code> patterns are\n                            specified as a comma-separated string. For example, <code>PUSH,\n                                PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull\n                            request created, and pull request updated events. </p>\n                     <note>\n                        <p> Types <code>PULL_REQUEST_REOPENED</code> and <code>WORKFLOW_JOB_QUEUED</code> \n                                work with GitHub and GitHub Enterprise only. Types <code>RELEASED</code> and \n                                <code>PRERELEASED</code> work with GitHub only.</p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>ACTOR_ACCOUNT_ID</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or\n                            Bitbucket account ID matches the regular expression <code>pattern</code>.\n                        </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>HEAD_REF</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the head reference matches the\n                            regular expression <code>pattern</code>. For example,\n                            <code>refs/heads/branch-name</code> and <code>refs/tags/tag-name</code>. </p>\n                     <note>\n                        <p> Works with GitHub and GitHub Enterprise push, GitHub and GitHub\n                            Enterprise pull request, Bitbucket push, and Bitbucket pull request events.</p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>BASE_REF</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the base reference matches the\n                            regular expression <code>pattern</code>. For example,\n                            <code>refs/heads/branch-name</code>. </p>\n                     <note>\n                        <p> Works with pull request events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>FILE_PATH</p>\n               <ul>\n                  <li>\n                     <p> A webhook triggers a build when the path of a changed file matches the\n                            regular expression <code>pattern</code>. </p>\n                     <note>\n                        <p> Works with GitHub and Bitbucket events push and pull requests events.\n                                Also works with GitHub Enterprise push events, but does not work with\n                                GitHub Enterprise pull request events. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>COMMIT_MESSAGE</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the head commit message matches the\n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with GitHub and Bitbucket events push and pull requests events.\n                                Also works with GitHub Enterprise push events, but does not work with\n                                GitHub Enterprise pull request events. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>TAG_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the tag name of the release matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>RELEASE_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the release name matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>REPOSITORY_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the repository name matches the \n                                regular expression pattern.</p>\n                     <note>\n                        <p> Works with GitHub global or organization webhooks only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>WORKFLOW_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the workflow name matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>WORKFLOW_JOB_QUEUED</code> events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p> The type of webhook filter. There are 11 webhook filter types: <code>EVENT</code>,\n                <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,\n            <code>FILE_PATH</code>, <code>COMMIT_MESSAGE</code>, <code>TAG_NAME</code>, <code>RELEASE_NAME</code>, \n            <code>REPOSITORY_NAME</code>, <code>ORGANIZATION_NAME</code>, \n            and <code>WORKFLOW_NAME</code>. </p>\n         <ul>\n            <li>\n               <p>\n                    EVENT\n                </p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the provided <code>pattern</code>\n                            matches one of nine event types: <code>PUSH</code>,\n                            <code>PULL_REQUEST_CREATED</code>, <code>PULL_REQUEST_UPDATED</code>, \n                            <code>PULL_REQUEST_CLOSED</code>, <code>PULL_REQUEST_REOPENED</code>, \n                            <code>PULL_REQUEST_MERGED</code>, <code>RELEASED</code>, <code>PRERELEASED</code>, \n                            and <code>WORKFLOW_JOB_QUEUED</code>. The <code>EVENT</code> patterns are\n                            specified as a comma-separated string. For example, <code>PUSH,\n                                PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull\n                            request created, and pull request updated events. </p>\n                     <note>\n                        <p> Types <code>PULL_REQUEST_REOPENED</code> and <code>WORKFLOW_JOB_QUEUED</code> \n                                work with GitHub and GitHub Enterprise only. Types <code>RELEASED</code> and \n                                <code>PRERELEASED</code> work with GitHub only.</p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>ACTOR_ACCOUNT_ID</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or\n                            Bitbucket account ID matches the regular expression <code>pattern</code>.\n                        </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>HEAD_REF</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the head reference matches the\n                            regular expression <code>pattern</code>. For example,\n                            <code>refs/heads/branch-name</code> and <code>refs/tags/tag-name</code>. </p>\n                     <note>\n                        <p> Works with GitHub and GitHub Enterprise push, GitHub and GitHub\n                            Enterprise pull request, Bitbucket push, and Bitbucket pull request events.</p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>BASE_REF</p>\n               <ul>\n                  <li>\n                     <p> A webhook event triggers a build when the base reference matches the\n                            regular expression <code>pattern</code>. For example,\n                            <code>refs/heads/branch-name</code>. </p>\n                     <note>\n                        <p> Works with pull request events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>FILE_PATH</p>\n               <ul>\n                  <li>\n                     <p> A webhook triggers a build when the path of a changed file matches the\n                            regular expression <code>pattern</code>. </p>\n                     <note>\n                        <p> Works with push and pull request events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>COMMIT_MESSAGE</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the head commit message matches the\n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with push and pull request events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>TAG_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the tag name of the release matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>RELEASE_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the release name matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>REPOSITORY_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the repository name matches the \n                                regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with GitHub global or organization webhooks only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>ORGANIZATION_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the organization name matches the \n                                regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with GitHub global webhooks only. </p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>WORKFLOW_NAME</p>\n               <ul>\n                  <li>\n                     <p>A webhook triggers a build when the workflow name matches the \n                            regular expression <code>pattern</code>.</p>\n                     <note>\n                        <p> Works with <code>WORKFLOW_JOB_QUEUED</code> events only. </p>\n                     </note>\n                     <note>\n                        <p>For CodeBuild-hosted Buildkite runner builds, WORKFLOW_NAME\n                                filters will filter by pipeline name.</p>\n                     </note>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -9069,7 +9479,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> A filter used to determine which webhooks trigger a build. </p>"
+        "smithy.api#documentation": "<p>A filter used to determine which webhooks trigger a build. </p>"
       }
     },
     "com.amazonaws.codebuild#WebhookFilterType": {
@@ -9128,6 +9538,18 @@
           "traits": {
             "smithy.api#enumValue": "RELEASE_NAME"
           }
+        },
+        "REPOSITORY_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPOSITORY_NAME"
+          }
+        },
+        "ORGANIZATION_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATION_NAME"
+          }
         }
       }
     },
@@ -9144,6 +9566,41 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "GITHUB_GLOBAL"
+          }
+        },
+        "GITLAB_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GITLAB_GROUP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#WebhookStatus": {
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
           }
         }
       }

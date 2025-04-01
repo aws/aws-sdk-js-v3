@@ -79,6 +79,7 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class StartBgpFailoverTestCommand extends $Command
@@ -89,9 +90,7 @@ export class StartBgpFailoverTestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class StartBgpFailoverTestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBgpFailoverTestCommand)
   .de(de_StartBgpFailoverTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBgpFailoverTestRequest;
+      output: StartBgpFailoverTestResponse;
+    };
+    sdk: {
+      input: StartBgpFailoverTestCommandInput;
+      output: StartBgpFailoverTestCommandOutput;
+    };
+  };
+}

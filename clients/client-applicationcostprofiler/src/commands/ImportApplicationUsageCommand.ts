@@ -78,6 +78,7 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class ImportApplicationUsageCommand extends $Command
@@ -88,9 +89,7 @@ export class ImportApplicationUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class ImportApplicationUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportApplicationUsageCommand)
   .de(de_ImportApplicationUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportApplicationUsageRequest;
+      output: ImportApplicationUsageResult;
+    };
+    sdk: {
+      input: ImportApplicationUsageCommandInput;
+      output: ImportApplicationUsageCommandOutput;
+    };
+  };
+}

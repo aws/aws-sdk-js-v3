@@ -13,13 +13,13 @@ export const sleep = (ms: number) =>
 
 export const validateRuntime = async () => {
   try {
-    await exec("yarn", ["--version"]);
+    await exec("npx", ["--version"]);
   } catch (e) {
-    console.error("yarn is not available, please install yarn globally");
+    console.error("npx is not available, please install npx globally");
     throw e;
   }
   try {
-    await exec("yarn", ["--silent", "lerna", "--version"], {
+    await exec("npx", ["lerna", "--version"], {
       cwd: PROJECT_ROOT,
     });
   } catch (e) {

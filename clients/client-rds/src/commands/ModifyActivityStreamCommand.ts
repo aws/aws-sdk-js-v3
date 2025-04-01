@@ -75,6 +75,7 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class ModifyActivityStreamCommand extends $Command
@@ -85,9 +86,7 @@ export class ModifyActivityStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ModifyActivityStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyActivityStreamCommand)
   .de(de_ModifyActivityStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyActivityStreamRequest;
+      output: ModifyActivityStreamResponse;
+    };
+    sdk: {
+      input: ModifyActivityStreamCommandInput;
+      output: ModifyActivityStreamCommandOutput;
+    };
+  };
+}

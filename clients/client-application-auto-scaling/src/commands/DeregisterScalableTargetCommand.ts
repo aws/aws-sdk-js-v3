@@ -82,20 +82,23 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To deregister a scalable target
  * ```javascript
  * // This example deregisters a scalable target for an Amazon ECS service called web-app that is running in the default cluster.
  * const input = {
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs"
+ *   ResourceId: "service/default/web-app",
+ *   ScalableDimension: "ecs:service:DesiredCount",
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new DeregisterScalableTargetCommand(input);
- * await client.send(command);
- * // example id: to-deregister-a-scalable-target-1470864164895
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeregisterScalableTargetCommand extends $Command
   .classBuilder<
@@ -105,9 +108,7 @@ export class DeregisterScalableTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class DeregisterScalableTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterScalableTargetCommand)
   .de(de_DeregisterScalableTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterScalableTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterScalableTargetCommandInput;
+      output: DeregisterScalableTargetCommandOutput;
+    };
+  };
+}

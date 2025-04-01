@@ -72,6 +72,10 @@ import {
   ResetEnabledBaselineCommandInput,
   ResetEnabledBaselineCommandOutput,
 } from "../commands/ResetEnabledBaselineCommand";
+import {
+  ResetEnabledControlCommandInput,
+  ResetEnabledControlCommandOutput,
+} from "../commands/ResetEnabledControlCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "../commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -475,6 +479,7 @@ export const se_ListEnabledBaselinesCommand = async (
   body = JSON.stringify(
     take(input, {
       filter: (_) => _json(_),
+      includeChildren: [],
       maxResults: [],
       nextToken: [],
     })
@@ -594,6 +599,28 @@ export const se_ResetEnabledBaselineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ResetEnabledControlCommand
+ */
+export const se_ResetEnabledControlCommand = async (
+  input: ResetEnabledControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reset-enabled-control");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledControlIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ResetLandingZoneCommand
  */
 export const se_ResetLandingZoneCommand = async (
@@ -650,10 +677,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1184,6 +1208,27 @@ export const de_ResetEnabledBaselineCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ResetEnabledControlCommand
+ */
+export const de_ResetEnabledControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetEnabledControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ResetLandingZoneCommand
  */
 export const de_ResetLandingZoneCommand = async (
@@ -1520,6 +1565,8 @@ const se_EnabledBaselineParameters = (input: EnabledBaselineParameter[], context
     });
 };
 
+// se_EnabledBaselineParentIdentifiers omitted.
+
 // se_EnabledBaselineTargetIdentifiers omitted.
 
 // se_EnabledControlFilter omitted.
@@ -1648,6 +1695,7 @@ const de_EnabledBaselineDetails = (output: any, context: __SerdeContext): Enable
     baselineIdentifier: __expectString,
     baselineVersion: __expectString,
     parameters: (_: any) => de_EnabledBaselineParameterSummaries(_, context),
+    parentIdentifier: __expectString,
     statusSummary: _json,
     targetIdentifier: __expectString,
   }) as any;
@@ -1804,13 +1852,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";

@@ -73,6 +73,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssessmentFrameworkShareCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssessmentFrameworkShareCommand)
   .de(de_DeleteAssessmentFrameworkShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssessmentFrameworkShareRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssessmentFrameworkShareCommandInput;
+      output: DeleteAssessmentFrameworkShareCommandOutput;
+    };
+  };
+}

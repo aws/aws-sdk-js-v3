@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateIngestionRequest, CreateIngestionResponse } from "../models/models_2";
+import { CreateIngestionRequest, CreateIngestionResponse } from "../models/models_3";
 import { de_CreateIngestionCommand, se_CreateIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -92,6 +92,7 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateIngestionCommand extends $Command
@@ -102,9 +103,7 @@ export class CreateIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class CreateIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIngestionCommand)
   .de(de_CreateIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIngestionRequest;
+      output: CreateIngestionResponse;
+    };
+    sdk: {
+      input: CreateIngestionCommandInput;
+      output: CreateIngestionCommandOutput;
+    };
+  };
+}

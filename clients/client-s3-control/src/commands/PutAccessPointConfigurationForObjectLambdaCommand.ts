@@ -91,6 +91,7 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command
@@ -118,4 +119,16 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccessPointConfigurationForObjectLambdaCommand)
   .de(de_PutAccessPointConfigurationForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccessPointConfigurationForObjectLambdaRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccessPointConfigurationForObjectLambdaCommandInput;
+      output: PutAccessPointConfigurationForObjectLambdaCommandOutput;
+    };
+  };
+}

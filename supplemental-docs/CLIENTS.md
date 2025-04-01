@@ -151,6 +151,87 @@ const client = new S3Client({
 });
 ```
 
+#### Enabling uncached/refreshed credentials in `fromIni` credential provider
+
+`fromIni` credential provider accepts a boolean `ignoreCache` option which when true, always reloads credentials from the file system instead of using cached values. This is useful when you need to detect changes to the credentials file.
+
+Note: For temporary credentials that need regular refreshing, consider using `fromTemporaryCredentials` instead.
+
+Using ignoreCache with an S3 client:
+
+```typescript
+import { S3Client } from "@aws-sdk/client-s3";
+import { fromIni } from "@aws-sdk/credential-providers";
+
+// Create client with credentials that will reload from file
+const client = new S3Client({
+  credentials: fromIni({ ignoreCache: true }),
+});
+```
+
+For temporary credentials:
+
+You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API. Depending on your use-case, this might be the preferred way to use temporary credentials, as compared to having a `.ini` file with `ignoreCache` (that will utilize filesystem operations) set to true.
+
+```typescript
+import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
+
+// Better approach for temporary credentials that need regular refreshing
+const client = new S3Client({
+  credentials: fromTemporaryCredentials({
+    // your temporary credentials config
+  }),
+});
+```
+
+- When using with AWS clients, the credential provider function is handled automatically.
+- For temporary credentials that need regular refreshing, `fromTemporaryCredentials` is recommended over manual refresh with `ignoreCache`.
+- Creating a new client instance ensures fresh credentials.
+
+### AWS Profile `profile`
+
+Available since [v3.714.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.714.0).
+
+You can set a `profile: string` value at the client initialization point in code.
+
+```js
+// Example: setting a non-default profile for a single client.
+new S3Client({
+  profile: "my-profile",
+});
+```
+
+```js
+import { fromIni } from "@aws-sdk/credential-providers";
+// Example: setting a non-default profile affects credential resolution.
+// the fromIni function will use the client's designated profile if no
+// profile is set on the `fromIni({ profile: "..." })` function.
+new S3Client({
+  profile: "my-profile",
+  credentials: fromIni(),
+});
+```
+
+```js
+import { fromIni } from "@aws-sdk/credential-providers";
+// Example: you can set different profiles for credentials and the client itself if needed.
+// We expect this to be rarely needed.
+new S3Client({
+  profile: "my-profile",
+  credentials: fromIni({ profile: "my-other-profile" }),
+});
+```
+
+- This profile applies only to the client on which it is set, and overrides the AWS_PROFILE environment variable in that case.
+- Setting a profile does nothing if running in an environment that does not have an AWS configuration file, such as browsers.
+- Values configured in the profile will be used _unless_ an overriding environment variable or code level configuration exists.
+  - This includes fields such as `region`, `retry_mode`, `max_attempts`, `use_fips_endpoint` etc.
+- Different client instances may have different profiles set.
+- If this profile is set, and the client's credentials are resolved through the AWS configuration file, the profile will be
+  used unless another profile is set in the credentials provider function.
+- Setting a profile only reads configuration from that one profile. If the profile points to another profile for e.g.
+  `source_profile` credentials, the source profile is only used for credentials, and not other configuration fields.
+
 ### Custom Endpoint `endpoint`
 
 Each SDK client, by default, resolves the target endpoint with rule-based system
@@ -262,15 +343,31 @@ new S3Client({
 });
 ```
 
-A note on **socket exhaustion**: if you encounter an error that indicates
+A note on **socket exhaustion**:
+
+The SDK may emit the following warning when detecting socket exhaustion:
+
+```
+@smithy/node-http-handler:WARN - socket usage at capacity=${socketsInUse} and ${requestsEnqueued} additional requests are enqueued.
+```
+
+Socket exhaustion detection is not an exact determination.
+We only warn on this when there is a high count of `requestsEnqueued`,
+because running at socket capacity may be intentional and normal in your application.
+
+If you encounter the above warning or an error that indicates
 you have run out of sockets due to a high volume of requests flowing through
 your SDK Client, there are two things to check:
 
 1. Ensure that the number value of `maxSockets` is high enough for your
    throughput needs.
 2. Because `keepAlive` is defaulted to `true`, if you acquire a streaming response,
-   such as `S3::getObject`'s `Body` field. You must read the stream to completion
-   in order for the socket to close naturally.
+   such as `S3::getObject`'s `Body` field, you must read the stream to completion
+   in order for the socket to close naturally. You can also destroy the stream in Node.js with
+   e.g. `(await s3.getObject(...)).Body.destroy()` if it is a Node.js Readable stream.
+   Specifically in the case of S3, if you don't need the object body,
+   consider whether the object metadata can be retrieved with another operation such as
+   `HeadObject` or `GetObjectMetadata`.
 
 ```ts
 // Example: reading a stream to allow socket closure.
@@ -533,6 +630,45 @@ client.middlewareStack.add(
 await client.listBuckets({});
 ```
 
+### Middleware Caching `cacheMiddleware`.
+
+> Available only in [v3.649.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.649.0) and later.
+
+By default (false), the middleware function stack is resolved every request,
+because the user may modify the middleware stack by adding middleware to the
+`client` or `command` instances at any time.
+
+By contrast, when `cacheMiddleware=true`, the creation of the middleware function stack
+is cached on a per-client, per-command-class basis.
+
+In the following example, the S3 HeadObject Command is called 10 times, but
+its middleware function stack is only created once, instead of once per request.
+
+```ts
+// example: middleware caching
+import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
+
+const client = new S3Client({ cacheMiddleware: true });
+
+for (let i = 0; i < 10; ++i) {
+  await client.send(
+    new HeadObjectCommand({
+      Bucket: "...",
+      Key: String(i),
+    })
+  );
+}
+```
+
+This caches the combination of `S3Client+HeadObjectCommand`'s resolved
+`middlewareStack` upon the first request. This has two key effects:
+
+- request creation time is reduced by (up to) a few milliseconds per request
+- modifying the middleware stack after requests have begun will have no effect.
+
+**Only enable this feature if you need the marginal increaese to
+request performance, and are aware of its side-effects.**
+
 ### Dual-stack `useDualstackEndpoint`
 
 This is a simple `boolean` setting that is present in most SDK Clients.
@@ -565,6 +701,17 @@ new S3Client({
 Refer to:
 
 - https://aws.amazon.com/compliance/fips/
+
+### User Agent Application ID `userAgentAppId`
+
+Application ID or AppId is an optional application specific identifier that can be set. When set it will be appended to the User-Agent header of every request in the form of App/{AppId}. This variable is sourced from environment variable AWS_SDK_UA_APP_ID or the shared config profile attribute sdk_ua_app_id. See https://docs.aws.amazon.com/sdkref/latest/guide/settings-reference.html for more information on environment variables and shared config settings.
+
+```ts
+// Example: setting userAgentAppId
+new S3Client({
+  userAgentAppId: "testApp",
+});
+```
 
 ### (Smithy) Runtime Extensions `extensions`
 
@@ -606,7 +753,8 @@ See also https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk
 
 ### S3
 
-`followRegionRedirects`:
+#### `followRegionRedirects`:
+
 This feature was previously called the S3 Global Client. Setting this option to true enables failed requests to be retried with a corrected region when receiving a permanent redirect error with status 301. Note that this can result in additional latency owing to the retried request. This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
 
 ```ts
@@ -616,6 +764,54 @@ new S3Client({
 });
 ```
 
+#### `requestChecksumCalculation` and `responseChecksumValidation`:
+
+These may be set to `WHEN_REQUIRED` or `WHEN_SUPPORTED`. See https://github.com/aws/aws-sdk-js-v3/issues/6810.
+
+#### `requestStreamBufferSize`:
+
+This only comes into play when request checksums are enabled.
+When you set a value greater than or equal to 8kb, or 8192 bytes,
+your input streams that emit chunks having size less than the value
+configured will be buffered until the buffer exceeds the desired size
+before continuing to flow.
+
+See https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html.
+
+```ts
+// example: configuring the S3 client to buffer your
+// input streams into chunks of 64kb or higher.
+new S3Client({
+  requestStreamBufferSize: 64 * 1024,
+});
+```
+
 ### SQS
 
-TODO e.g. `useQueueUrlAsEndpoint`
+#### Using Queue Names with SQS Client
+
+When using the SQS client, set the `useQueueUrlAsEndpoint` configuration to `false` to allow for providing the `QueueUrl` parameter as a queue name rather than a full queue URL.
+
+```js
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
+
+const sqs = new SQSClient({
+  region: "us-east-1",
+  useQueueUrlAsEndpoint: false,
+});
+
+const QueueName = "foo"; // directly use the queue name
+// const QueueUrl = "https://sqs.us-east-1.amazonaws.com/123456789012/foo"; // full URL for reference
+
+try {
+  await sqs.send(
+    new SendMessageCommand({
+      QueueUrl: QueueName,
+      MessageBody: "Sample message",
+    })
+  );
+  console.log("message sent successfully");
+} catch (error) {
+  console.log("SendMessage Failure", error);
+}
+```

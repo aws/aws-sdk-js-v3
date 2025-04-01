@@ -28,7 +28,7 @@ export interface UpdateAccountPreferencesCommandInput extends UpdateAccountPrefe
 export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPreferencesResult, __MetadataBearer {}
 
 /**
- * Update Chatbot account level preferences
+ * <p>Updates AWS Chatbot account preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,16 +57,17 @@ export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPref
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link UpdateAccountPreferencesException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -78,9 +79,7 @@ export class UpdateAccountPreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +91,16 @@ export class UpdateAccountPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountPreferencesCommand)
   .de(de_UpdateAccountPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountPreferencesRequest;
+      output: UpdateAccountPreferencesResult;
+    };
+    sdk: {
+      input: UpdateAccountPreferencesCommandInput;
+      output: UpdateAccountPreferencesCommandOutput;
+    };
+  };
+}

@@ -140,6 +140,7 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListHostedZonesByNameCommand extends $Command
@@ -150,9 +151,7 @@ export class ListHostedZonesByNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +164,16 @@ export class ListHostedZonesByNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostedZonesByNameCommand)
   .de(de_ListHostedZonesByNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostedZonesByNameRequest;
+      output: ListHostedZonesByNameResponse;
+    };
+    sdk: {
+      input: ListHostedZonesByNameCommandInput;
+      output: ListHostedZonesByNameCommandOutput;
+    };
+  };
+}

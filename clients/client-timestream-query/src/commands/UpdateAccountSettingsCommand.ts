@@ -42,12 +42,41 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * const input = { // UpdateAccountSettingsRequest
  *   MaxQueryTCU: Number("int"),
  *   QueryPricingModel: "BYTES_SCANNED" || "COMPUTE_UNITS",
+ *   QueryCompute: { // QueryComputeRequest
+ *     ComputeMode: "ON_DEMAND" || "PROVISIONED",
+ *     ProvisionedCapacity: { // ProvisionedCapacityRequest
+ *       TargetQueryTCU: Number("int"), // required
+ *       NotificationConfiguration: { // AccountSettingsNotificationConfiguration
+ *         SnsConfiguration: { // SnsConfiguration
+ *           TopicArn: "STRING_VALUE", // required
+ *         },
+ *         RoleArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * // { // UpdateAccountSettingsResponse
  * //   MaxQueryTCU: Number("int"),
  * //   QueryPricingModel: "BYTES_SCANNED" || "COMPUTE_UNITS",
+ * //   QueryCompute: { // QueryComputeResponse
+ * //     ComputeMode: "ON_DEMAND" || "PROVISIONED",
+ * //     ProvisionedCapacity: { // ProvisionedCapacityResponse
+ * //       ActiveQueryTCU: Number("int"),
+ * //       NotificationConfiguration: { // AccountSettingsNotificationConfiguration
+ * //         SnsConfiguration: { // SnsConfiguration
+ * //           TopicArn: "STRING_VALUE", // required
+ * //         },
+ * //         RoleArn: "STRING_VALUE", // required
+ * //       },
+ * //       LastUpdate: { // LastUpdate
+ * //         TargetQueryTCU: Number("int"),
+ * //         Status: "PENDING" || "FAILED" || "SUCCEEDED",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -59,24 +88,23 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *  <p>You do not have the necessary permissions to access the account settings.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
+ *
  *
  * @public
  */
@@ -88,14 +116,16 @@ export class UpdateAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "UpdateAccountSettings", {})
@@ -103,4 +133,16 @@ export class UpdateAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountSettingsCommand)
   .de(de_UpdateAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountSettingsRequest;
+      output: UpdateAccountSettingsResponse;
+    };
+    sdk: {
+      input: UpdateAccountSettingsCommandInput;
+      output: UpdateAccountSettingsCommandOutput;
+    };
+  };
+}

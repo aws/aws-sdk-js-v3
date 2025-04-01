@@ -108,6 +108,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class CreateFolderCommand extends $Command
@@ -118,9 +119,7 @@ export class CreateFolderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class CreateFolderCommand extends $Command
   .f(CreateFolderRequestFilterSensitiveLog, CreateFolderResponseFilterSensitiveLog)
   .ser(se_CreateFolderCommand)
   .de(de_CreateFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFolderRequest;
+      output: CreateFolderResponse;
+    };
+    sdk: {
+      input: CreateFolderCommandInput;
+      output: CreateFolderCommandOutput;
+    };
+  };
+}

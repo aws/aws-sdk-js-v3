@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
+import {
+  UpdateConnectorRequest,
+  UpdateConnectorRequestFilterSensitiveLog,
+  UpdateConnectorResponse,
+} from "../models/models_0";
 import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -53,6 +57,9 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *       workerCount: Number("int"), // required
  *     },
  *   },
+ *   connectorConfiguration: { // ConnectorConfigurationUpdate
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   connectorArn: "STRING_VALUE", // required
  *   currentVersion: "STRING_VALUE", // required
  * };
@@ -61,6 +68,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * // { // UpdateConnectorResponse
  * //   connectorArn: "STRING_VALUE",
  * //   connectorState: "STRING_VALUE",
+ * //   connectorOperationArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -101,6 +109,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectorCommand extends $Command
@@ -111,9 +120,7 @@ export class UpdateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,7 +129,19 @@ export class UpdateConnectorCommand extends $Command
   })
   .s("KafkaConnect", "UpdateConnector", {})
   .n("KafkaConnectClient", "UpdateConnectorCommand")
-  .f(void 0, void 0)
+  .f(UpdateConnectorRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateConnectorCommand)
   .de(de_UpdateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectorRequest;
+      output: UpdateConnectorResponse;
+    };
+    sdk: {
+      input: UpdateConnectorCommandInput;
+      output: UpdateConnectorCommandOutput;
+    };
+  };
+}

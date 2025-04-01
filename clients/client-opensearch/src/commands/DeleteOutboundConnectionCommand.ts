@@ -91,6 +91,7 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteOutboundConnectionCommand extends $Command
@@ -101,9 +102,7 @@ export class DeleteOutboundConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DeleteOutboundConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOutboundConnectionCommand)
   .de(de_DeleteOutboundConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOutboundConnectionRequest;
+      output: DeleteOutboundConnectionResponse;
+    };
+    sdk: {
+      input: DeleteOutboundConnectionCommandInput;
+      output: DeleteOutboundConnectionCommandOutput;
+    };
+  };
+}

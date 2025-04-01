@@ -28,7 +28,7 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
+ * <p>Revokes function-use permission from an Amazon Web Services service or another Amazon Web Services account. You
  *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,8 +58,17 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>
@@ -73,6 +82,22 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To remove a Lambda function's permissions
+ * ```javascript
+ * // The following example removes a permissions statement named xaccount from the PROD alias of a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "PROD",
+ *   StatementId: "xaccount"
+ * };
+ * const command = new RemovePermissionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemovePermissionCommand extends $Command
@@ -83,9 +108,7 @@ export class RemovePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +120,16 @@ export class RemovePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemovePermissionCommand)
   .de(de_RemovePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemovePermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemovePermissionCommandInput;
+      output: RemovePermissionCommandOutput;
+    };
+  };
+}

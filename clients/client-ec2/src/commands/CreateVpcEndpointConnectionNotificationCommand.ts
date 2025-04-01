@@ -71,6 +71,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     ConnectionNotificationState: "Enabled" || "Disabled",
+ * //     ServiceRegion: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };
@@ -86,6 +87,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcEndpointConnectionNotificationCommand)
   .de(de_CreateVpcEndpointConnectionNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcEndpointConnectionNotificationRequest;
+      output: CreateVpcEndpointConnectionNotificationResult;
+    };
+    sdk: {
+      input: CreateVpcEndpointConnectionNotificationCommandInput;
+      output: CreateVpcEndpointConnectionNotificationCommandOutput;
+    };
+  };
+}

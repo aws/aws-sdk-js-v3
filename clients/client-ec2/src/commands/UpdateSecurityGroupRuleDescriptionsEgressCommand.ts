@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_UpdateSecurityGroupRuleDescriptionsEgressCommand,
   se_UpdateSecurityGroupRuleDescriptionsEgressCommand,
@@ -53,36 +53,36 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  *   GroupName: "STRING_VALUE",
  *   IpPermissions: [ // IpPermissionList
  *     { // IpPermission
- *       FromPort: Number("int"),
  *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *         },
+ *       ],
  *       IpRanges: [ // IpRangeList
  *         { // IpRange
- *           CidrIp: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIp: "STRING_VALUE",
  *         },
  *       ],
  *       Ipv6Ranges: [ // Ipv6RangeList
  *         { // Ipv6Range
- *           CidrIpv6: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIpv6: "STRING_VALUE",
  *         },
  *       ],
  *       PrefixListIds: [ // PrefixListIdList
  *         { // PrefixListId
  *           Description: "STRING_VALUE",
  *           PrefixListId: "STRING_VALUE",
- *         },
- *       ],
- *       ToPort: Number("int"),
- *       UserIdGroupPairs: [ // UserIdGroupPairList
- *         { // UserIdGroupPair
- *           Description: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *           GroupName: "STRING_VALUE",
- *           PeeringStatus: "STRING_VALUE",
- *           UserId: "STRING_VALUE",
- *           VpcId: "STRING_VALUE",
- *           VpcPeeringConnectionId: "STRING_VALUE",
  *         },
  *       ],
  *     },
@@ -111,31 +111,34 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To update an outbound security group rule description
  * ```javascript
  * // This example updates the description for the specified security group rule.
  * const input = {
- *   "GroupId": "sg-123abc12",
- *   "IpPermissions": [
+ *   GroupId: "sg-123abc12",
+ *   IpPermissions: [
  *     {
- *       "FromPort": 80,
- *       "IpProtocol": "tcp",
- *       "IpRanges": [
+ *       FromPort: 80,
+ *       IpProtocol: "tcp",
+ *       IpRanges: [
  *         {
- *           "CidrIp": "203.0.113.0/24",
- *           "Description": "Outbound HTTP access to server 2"
+ *           CidrIp: "203.0.113.0/24",
+ *           Description: "Outbound HTTP access to server 2"
  *         }
  *       ],
- *       "ToPort": 80
+ *       ToPort: 80
  *     }
  *   ]
  * };
  * const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(input);
- * await client.send(command);
- * // example id: to-update-an-outbound-security-group-rule-description-1529360481544
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
   .classBuilder<
@@ -145,9 +148,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +160,16 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityGroupRuleDescriptionsEgressCommand)
   .de(de_UpdateSecurityGroupRuleDescriptionsEgressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityGroupRuleDescriptionsEgressRequest;
+      output: UpdateSecurityGroupRuleDescriptionsEgressResult;
+    };
+    sdk: {
+      input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput;
+      output: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput;
+    };
+  };
+}

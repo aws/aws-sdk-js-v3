@@ -29,8 +29,8 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
 
 /**
  * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
- *             engine software, either Memcached or Redis.</p>
- *          <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
+ *             engine software, either Memcached, Valkey or Redis OSS.</p>
+ *          <p>This operation is not supported for Valkey or Redis OSS (cluster mode enabled) clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -245,7 +245,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>
@@ -278,49 +278,94 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheCluster
  * ```javascript
  * // Creates a Memcached cluster with 2 nodes.
  * const input = {
- *   "AZMode": "cross-az",
- *   "CacheClusterId": "my-memcached-cluster",
- *   "CacheNodeType": "cache.r3.large",
- *   "CacheSubnetGroupName": "default",
- *   "Engine": "memcached",
- *   "EngineVersion": "1.4.24",
- *   "NumCacheNodes": 2,
- *   "Port": 11211
+ *   AZMode: "cross-az",
+ *   CacheClusterId: "my-memcached-cluster",
+ *   CacheNodeType: "cache.r3.large",
+ *   CacheSubnetGroupName: "default",
+ *   Engine: "memcached",
+ *   EngineVersion: "1.4.24",
+ *   NumCacheNodes: 2,
+ *   Port: 11211
  * };
  * const command = new CreateCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterId": "my-memcached-cluster",
- *     "CacheClusterStatus": "creating",
- *     "CacheNodeType": "cache.r3.large",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.memcached1.4",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterId: "my-memcached-cluster",
+ *     CacheClusterStatus: "creating",
+ *     CacheNodeType: "cache.r3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.memcached1.4",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "Engine": "memcached",
- *     "EngineVersion": "1.4.24",
- *     "NumCacheNodes": 2,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "Multiple",
- *     "PreferredMaintenanceWindow": "wed:09:00-wed:10:00"
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     Engine: "memcached",
+ *     EngineVersion: "1.4.24",
+ *     NumCacheNodes: 2,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "Multiple",
+ *     PreferredMaintenanceWindow: "wed:09:00-wed:10:00"
  *   }
  * }
  * *\/
- * // example id: createcachecluster-1474994727381
  * ```
  *
+ * @example CreateCacheCluster
+ * ```javascript
+ * // Creates a Redis cluster with 1 node.
+ * const input = {
+ *   AutoMinorVersionUpgrade: true,
+ *   CacheClusterId: "my-redis",
+ *   CacheNodeType: "cache.r3.larage",
+ *   CacheSubnetGroupName: "default",
+ *   Engine: "redis",
+ *   EngineVersion: "3.2.4",
+ *   NumCacheNodes: 1,
+ *   Port: 6379,
+ *   PreferredAvailabilityZone: "us-east-1c",
+ *   SnapshotRetentionLimit: 7
+ * };
+ * const command = new CreateCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterId: "my-redis",
+ *     CacheClusterStatus: "creating",
+ *     CacheNodeType: "cache.m3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.redis3.2",
+ *       ParameterApplyStatus: "in-sync"
+ *     },
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https: //console.aws.amazon.com/elasticache/home#client-download: ",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NumCacheNodes: 1,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "us-east-1c",
+ *     PreferredMaintenanceWindow: "fri: 05: 30-fri: 06: 30",
+ *     SnapshotRetentionLimit: 7,
+ *     SnapshotWindow: "10: 00-11: 00"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class CreateCacheClusterCommand extends $Command
   .classBuilder<
@@ -330,9 +375,7 @@ export class CreateCacheClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -344,4 +387,16 @@ export class CreateCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheClusterCommand)
   .de(de_CreateCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheClusterMessage;
+      output: CreateCacheClusterResult;
+    };
+    sdk: {
+      input: CreateCacheClusterCommandInput;
+      output: CreateCacheClusterCommandOutput;
+    };
+  };
+}

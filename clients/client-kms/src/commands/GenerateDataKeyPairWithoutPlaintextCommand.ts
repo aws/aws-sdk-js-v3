@@ -211,27 +211,27 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an asymmetric data key pair without a plaintext key
  * ```javascript
  * // This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "ECC_NIST_P521"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyPairSpec: "ECC_NIST_P521"
  * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "ECC_NIST_P521",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PublicKey": "<binary data>"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyPairSpec: "ECC_NIST_P521",
+ *   PrivateKeyCiphertextBlob: "<binary data>",
+ *   PublicKey: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-an-asymmetric-data-key-pair-without-a-plaintext-key-1628620971564
  * ```
  *
+ * @public
  */
 export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
   .classBuilder<
@@ -241,9 +241,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -255,4 +253,16 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateDataKeyPairWithoutPlaintextCommand)
   .de(de_GenerateDataKeyPairWithoutPlaintextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyPairWithoutPlaintextRequest;
+      output: GenerateDataKeyPairWithoutPlaintextResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyPairWithoutPlaintextCommandInput;
+      output: GenerateDataKeyPairWithoutPlaintextCommandOutput;
+    };
+  };
+}

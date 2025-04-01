@@ -71,8 +71,17 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *  <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>
@@ -89,6 +98,27 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To add permissions to a layer version
+ * ```javascript
+ * // The following example grants permission for the account 223456789012 to use version 1 of a layer named my-layer.
+ * const input = {
+ *   Action: "lambda:GetLayerVersion",
+ *   LayerName: "my-layer",
+ *   Principal: "223456789012",
+ *   StatementId: "xaccount",
+ *   VersionNumber: 1
+ * };
+ * const command = new AddLayerVersionPermissionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   RevisionId: "35d87451-f796-4a3f-a618-95a3671b0a0c",
+ *   Statement: `{"Sid":"xaccount","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::223456789012:root"},"Action":"lambda:GetLayerVersion","Resource":"arn:aws:lambda:us-east-2:123456789012:layer:my-layer:1"}`
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AddLayerVersionPermissionCommand extends $Command
@@ -99,9 +129,7 @@ export class AddLayerVersionPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +141,16 @@ export class AddLayerVersionPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddLayerVersionPermissionCommand)
   .de(de_AddLayerVersionPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddLayerVersionPermissionRequest;
+      output: AddLayerVersionPermissionResponse;
+    };
+    sdk: {
+      input: AddLayerVersionPermissionCommandInput;
+      output: AddLayerVersionPermissionCommandOutput;
+    };
+  };
+}

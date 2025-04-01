@@ -1,4 +1,5 @@
 import { SageMaker } from "@aws-sdk/client-sagemaker";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

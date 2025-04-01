@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_3";
+import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_4";
 import { de_DescribeAccountSettingsCommand, se_DescribeAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -86,6 +86,7 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountSettingsCommand extends $Command
@@ -96,9 +97,7 @@ export class DescribeAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class DescribeAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountSettingsCommand)
   .de(de_DescribeAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountSettingsRequest;
+      output: DescribeAccountSettingsResponse;
+    };
+    sdk: {
+      input: DescribeAccountSettingsCommandInput;
+      output: DescribeAccountSettingsCommandOutput;
+    };
+  };
+}

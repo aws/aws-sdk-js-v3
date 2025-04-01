@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateInputSecurityGroupRequest, CreateInputSecurityGroupResponse } from "../models/models_1";
+import { CreateInputSecurityGroupRequest, CreateInputSecurityGroupResponse } from "../models/models_2";
 import { de_CreateInputSecurityGroupCommand, se_CreateInputSecurityGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -95,6 +95,7 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class CreateInputSecurityGroupCommand extends $Command
@@ -105,9 +106,7 @@ export class CreateInputSecurityGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CreateInputSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInputSecurityGroupCommand)
   .de(de_CreateInputSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInputSecurityGroupRequest;
+      output: CreateInputSecurityGroupResponse;
+    };
+    sdk: {
+      input: CreateInputSecurityGroupCommandInput;
+      output: CreateInputSecurityGroupCommandOutput;
+    };
+  };
+}

@@ -71,6 +71,7 @@ export interface UpdateFarmCommandOutput extends UpdateFarmResponse, __MetadataB
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateFarmCommand extends $Command
@@ -81,9 +82,7 @@ export class UpdateFarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class UpdateFarmCommand extends $Command
   .f(UpdateFarmRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFarmCommand)
   .de(de_UpdateFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFarmRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFarmCommandInput;
+      output: UpdateFarmCommandOutput;
+    };
+  };
+}

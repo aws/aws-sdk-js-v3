@@ -32,7 +32,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
- *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *       see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,6 +103,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteContactMethodCommand extends $Command
@@ -113,9 +114,7 @@ export class DeleteContactMethodCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class DeleteContactMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContactMethodCommand)
   .de(de_DeleteContactMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContactMethodRequest;
+      output: DeleteContactMethodResult;
+    };
+    sdk: {
+      input: DeleteContactMethodCommandInput;
+      output: DeleteContactMethodCommandOutput;
+    };
+  };
+}

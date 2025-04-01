@@ -1,5 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { S3Control } from "@aws-sdk/client-s3-control";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 
@@ -11,6 +12,10 @@ describe("middleware-endpoint", () => {
     it("should resolve endpoints", async () => {
       const client = new S3({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
         useFipsEndpoint: true,
         useDualstackEndpoint: true,
         useArnRegion: true,
@@ -31,6 +36,10 @@ describe("middleware-endpoint", () => {
     it("should resolve endpoints", async () => {
       const client = new S3Control({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
         useFipsEndpoint: true,
         useDualstackEndpoint: true,
         useArnRegion: true,

@@ -55,6 +55,7 @@ export interface XmlAttributesCommandOutput extends XmlAttributesResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlAttributesCommand extends $Command
@@ -73,4 +74,16 @@ export class XmlAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlAttributesCommand)
   .de(de_XmlAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlAttributesRequest;
+      output: XmlAttributesResponse;
+    };
+    sdk: {
+      input: XmlAttributesCommandInput;
+      output: XmlAttributesCommandOutput;
+    };
+  };
+}

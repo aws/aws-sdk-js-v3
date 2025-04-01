@@ -62,9 +62,12 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * //       CoreNetworkArn: "STRING_VALUE",
  * //       AttachmentId: "STRING_VALUE",
  * //       OwnerAccountId: "STRING_VALUE",
- * //       AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "TRANSIT_GATEWAY_ROUTE_TABLE",
+ * //       AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "DIRECT_CONNECT_GATEWAY" || "TRANSIT_GATEWAY_ROUTE_TABLE",
  * //       State: "REJECTED" || "PENDING_ATTACHMENT_ACCEPTANCE" || "CREATING" || "FAILED" || "AVAILABLE" || "UPDATING" || "PENDING_NETWORK_UPDATE" || "PENDING_TAG_ACCEPTANCE" || "DELETING",
  * //       EdgeLocation: "STRING_VALUE",
+ * //       EdgeLocations: [ // ExternalRegionCodeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       ResourceArn: "STRING_VALUE",
  * //       AttachmentPolicyRuleNumber: Number("int"),
  * //       SegmentName: "STRING_VALUE",
@@ -99,7 +102,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       LastModificationErrors: [ // AttachmentErrorList
  * //         { // AttachmentError
- * //           Code: "VPC_NOT_FOUND" || "SUBNET_NOT_FOUND" || "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE" || "SUBNET_NO_FREE_ADDRESSES" || "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE" || "SUBNET_NO_IPV6_CIDRS" || "VPN_CONNECTION_NOT_FOUND" || "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+ * //           Code: "VPC_NOT_FOUND" || "SUBNET_NOT_FOUND" || "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE" || "SUBNET_NO_FREE_ADDRESSES" || "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE" || "SUBNET_NO_IPV6_CIDRS" || "VPN_CONNECTION_NOT_FOUND" || "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED" || "DIRECT_CONNECT_GATEWAY_NOT_FOUND" || "DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS" || "DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF",
  * //           Message: "STRING_VALUE",
  * //           ResourceArn: "STRING_VALUE",
  * //           RequestId: "STRING_VALUE",
@@ -143,6 +146,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectAttachmentCommand extends $Command
@@ -153,9 +157,7 @@ export class CreateConnectAttachmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +169,16 @@ export class CreateConnectAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectAttachmentCommand)
   .de(de_CreateConnectAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectAttachmentRequest;
+      output: CreateConnectAttachmentResponse;
+    };
+    sdk: {
+      input: CreateConnectAttachmentCommandInput;
+      output: CreateConnectAttachmentCommandOutput;
+    };
+  };
+}

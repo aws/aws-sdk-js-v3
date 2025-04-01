@@ -79,32 +79,32 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To cancel a snapshot export to Amazon S3
  * ```javascript
  * // The following example cancels an export task in progress that is exporting a snapshot to Amazon S3.
  * const input = {
- *   "ExportTaskIdentifier": "my-s3-export-1"
+ *   ExportTaskIdentifier: "my-s3-export-1"
  * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ExportTaskIdentifier": "my-s3-export-1",
- *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/export-snap-S3-role",
- *   "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/abcd0000-7bfd-4594-af38-aabbccddeeff",
- *   "PercentProgress": 0,
- *   "S3Bucket": "mybucket",
- *   "S3Prefix": "",
- *   "SnapshotTime": "2019-03-24T20:01:09.815Z",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:snapshot:publisher-final-snapshot",
- *   "Status": "CANCELING",
- *   "TotalExtractedDataInGB": 0
+ *   ExportTaskIdentifier: "my-s3-export-1",
+ *   IamRoleArn: "arn:aws:iam::123456789012:role/service-role/export-snap-S3-role",
+ *   KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/abcd0000-7bfd-4594-af38-aabbccddeeff",
+ *   PercentProgress: 0,
+ *   S3Bucket: "mybucket",
+ *   S3Prefix: "",
+ *   SnapshotTime: "2019-03-24T20:01:09.815Z",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:snapshot:publisher-final-snapshot",
+ *   Status: "CANCELING",
+ *   TotalExtractedDataInGB: 0
  * }
  * *\/
- * // example id: to-cancel-a-snapshot-export-to-amazon-s3-1679694286587
  * ```
  *
+ * @public
  */
 export class CancelExportTaskCommand extends $Command
   .classBuilder<
@@ -114,9 +114,7 @@ export class CancelExportTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +126,16 @@ export class CancelExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelExportTaskCommand)
   .de(de_CancelExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelExportTaskMessage;
+      output: ExportTask;
+    };
+    sdk: {
+      input: CancelExportTaskCommandInput;
+      output: CancelExportTaskCommandOutput;
+    };
+  };
+}

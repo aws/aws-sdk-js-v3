@@ -28,12 +28,11 @@ export interface DeleteNotebookInstanceCommandInput extends DeleteNotebookInstan
 export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes an SageMaker notebook instance. Before you can delete a notebook instance, you
- *          must call the <code>StopNotebookInstance</code> API. </p>
+ * <p> Deletes an SageMaker AI notebook instance. Before you can delete a notebook
+ *             instance, you must call the <code>StopNotebookInstance</code> API. </p>
  *          <important>
- *             <p>When you delete a notebook instance, you lose all of your data. SageMaker removes
- *             the ML compute instance, and deletes the ML storage volume and the network interface
- *             associated with the notebook instance. </p>
+ *             <p>When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the
+ *                 network interface associated with the notebook instance. </p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteNotebookInstanceCommand extends $Command
@@ -69,9 +69,7 @@ export class DeleteNotebookInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +81,16 @@ export class DeleteNotebookInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNotebookInstanceCommand)
   .de(de_DeleteNotebookInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNotebookInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNotebookInstanceCommandInput;
+      output: DeleteNotebookInstanceCommandOutput;
+    };
+  };
+}

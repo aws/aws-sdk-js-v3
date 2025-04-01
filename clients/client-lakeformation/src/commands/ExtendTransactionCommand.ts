@@ -75,6 +75,7 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ExtendTransactionCommand extends $Command
@@ -85,9 +86,7 @@ export class ExtendTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ExtendTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExtendTransactionCommand)
   .de(de_ExtendTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExtendTransactionRequest;
+      output: {};
+    };
+    sdk: {
+      input: ExtendTransactionCommandInput;
+      output: ExtendTransactionCommandOutput;
+    };
+  };
+}

@@ -60,6 +60,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       enableAutoBuild: true || false, // required
+ * //       enableSkewProtection: true || false,
  * //       customDomains: [ // CustomDomains // required
  * //         "STRING_VALUE",
  * //       ],
@@ -83,6 +84,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * //       backend: { // Backend
  * //         stackArn: "STRING_VALUE",
  * //       },
+ * //       computeRoleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -108,6 +110,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListBranchesCommand extends $Command
@@ -118,9 +121,7 @@ export class ListBranchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +133,16 @@ export class ListBranchesCommand extends $Command
   .f(void 0, ListBranchesResultFilterSensitiveLog)
   .ser(se_ListBranchesCommand)
   .de(de_ListBranchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBranchesRequest;
+      output: ListBranchesResult;
+    };
+    sdk: {
+      input: ListBranchesCommandInput;
+      output: ListBranchesCommandOutput;
+    };
+  };
+}

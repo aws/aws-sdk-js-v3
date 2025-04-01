@@ -63,6 +63,7 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     MultiRegionClusterName: "STRING_VALUE",
  * //     NumberOfShards: Number("int"),
  * //     Shards: [ // ShardList
  * //       { // Shard
@@ -90,6 +91,7 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",
@@ -150,6 +152,7 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class FailoverShardCommand extends $Command
@@ -160,9 +163,7 @@ export class FailoverShardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +175,16 @@ export class FailoverShardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverShardCommand)
   .de(de_FailoverShardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverShardRequest;
+      output: FailoverShardResponse;
+    };
+    sdk: {
+      input: FailoverShardCommandInput;
+      output: FailoverShardCommandOutput;
+    };
+  };
+}

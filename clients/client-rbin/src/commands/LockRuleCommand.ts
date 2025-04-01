@@ -28,7 +28,12 @@ export interface LockRuleCommandInput extends LockRuleRequest {}
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
+ * <p>Locks a Region-level retention rule. A locked retention rule can't be modified or
+ *       deleted.</p>
+ *          <note>
+ *             <p>You can't lock tag-level retention rules, or Region-level retention rules that
+ *         have exclusion tags.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +74,12 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -94,6 +105,7 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class LockRuleCommand extends $Command
@@ -104,9 +116,7 @@ export class LockRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +128,16 @@ export class LockRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LockRuleCommand)
   .de(de_LockRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LockRuleRequest;
+      output: LockRuleResponse;
+    };
+    sdk: {
+      input: LockRuleCommandInput;
+      output: LockRuleCommandOutput;
+    };
+  };
+}

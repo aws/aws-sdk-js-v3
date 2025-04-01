@@ -36,7 +36,7 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  *       to all the information needed to restore the disk.</p>
  *          <p>The <code>delete disk snapshot</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>disk snapshot name</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +111,7 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteDiskSnapshotCommand extends $Command
@@ -121,9 +122,7 @@ export class DeleteDiskSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DeleteDiskSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDiskSnapshotCommand)
   .de(de_DeleteDiskSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDiskSnapshotRequest;
+      output: DeleteDiskSnapshotResult;
+    };
+    sdk: {
+      input: DeleteDiskSnapshotCommandInput;
+      output: DeleteDiskSnapshotCommandOutput;
+    };
+  };
+}

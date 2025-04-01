@@ -73,6 +73,7 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkloadShareCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteWorkloadShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteWorkloadShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkloadShareCommand)
   .de(de_DeleteWorkloadShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkloadShareInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkloadShareCommandInput;
+      output: DeleteWorkloadShareCommandOutput;
+    };
+  };
+}

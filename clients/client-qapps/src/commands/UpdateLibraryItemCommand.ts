@@ -28,7 +28,7 @@ export interface UpdateLibraryItemCommandInput extends UpdateLibraryItemInput {}
 export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the metadata and status of a library item for an Amazon Q App.</p>
+ * <p>Updates the library item for an Amazon Q App.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +53,8 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  * //     { // Category
  * //       id: "STRING_VALUE", // required
  * //       title: "STRING_VALUE", // required
+ * //       color: "STRING_VALUE",
+ * //       appCount: Number("int"),
  * //     },
  * //   ],
  * //   status: "STRING_VALUE", // required
@@ -63,6 +65,7 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  * //   ratingCount: Number("int"), // required
  * //   isRatedByUser: true || false,
  * //   userCount: Number("int"),
+ * //   isVerified: true || false,
  * // };
  *
  * ```
@@ -76,6 +79,10 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
  *
@@ -83,8 +90,8 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -94,6 +101,47 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Sets the status of a library item to DISABLED
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   status: "DISABLED"
+ * };
+ * const command = new UpdateLibraryItemCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   appId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   appVersion: 6,
+ *   categories: [
+ *     {
+ *       id: "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
+ *       title: "HR"
+ *     },
+ *     {
+ *       id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *       title: "General"
+ *     },
+ *     {
+ *       id: "c1c4e374-118c-446f-81fb-cba6225d88da",
+ *       title: "IT"
+ *     }
+ *   ],
+ *   createdAt: "2024-05-21T23:17:27.350Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isVerified: false,
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   ratingCount: 24,
+ *   status: "DISABLED",
+ *   updatedAt: "2024-05-28T19:43:48.577Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -105,9 +153,7 @@ export class UpdateLibraryItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +165,16 @@ export class UpdateLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLibraryItemCommand)
   .de(de_UpdateLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLibraryItemInput;
+      output: UpdateLibraryItemOutput;
+    };
+    sdk: {
+      input: UpdateLibraryItemCommandInput;
+      output: UpdateLibraryItemCommandOutput;
+    };
+  };
+}

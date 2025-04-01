@@ -76,6 +76,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListCampaignsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListCampaignsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListCampaignsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCampaignsCommand)
   .de(de_ListCampaignsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCampaignsRequest;
+      output: ListCampaignsResponse;
+    };
+    sdk: {
+      input: ListCampaignsCommandInput;
+      output: ListCampaignsCommandOutput;
+    };
+  };
+}

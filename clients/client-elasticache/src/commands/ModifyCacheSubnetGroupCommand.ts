@@ -101,62 +101,62 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ModifyCacheSubnetGroup
  * ```javascript
  * // Modifies an existing ElastiCache subnet group.
  * const input = {
- *   "CacheSubnetGroupName": "my-sn-grp",
- *   "SubnetIds": [
+ *   CacheSubnetGroupName: "my-sn-grp",
+ *   SubnetIds: [
  *     "subnet-bcde2345"
  *   ]
  * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheSubnetGroup": {
- *     "CacheSubnetGroupDescription": "My subnet group.",
- *     "CacheSubnetGroupName": "my-sn-grp",
- *     "Subnets": [
+ *   CacheSubnetGroup: {
+ *     CacheSubnetGroupDescription: "My subnet group.",
+ *     CacheSubnetGroupName: "my-sn-grp",
+ *     Subnets: [
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1c"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1c"
  *         },
- *         "SubnetIdentifier": "subnet-a1b2c3d4"
+ *         SubnetIdentifier: "subnet-a1b2c3d4"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1e"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1e"
  *         },
- *         "SubnetIdentifier": "subnet-1a2b3c4d"
+ *         SubnetIdentifier: "subnet-1a2b3c4d"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1e"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1e"
  *         },
- *         "SubnetIdentifier": "subnet-bcde2345"
+ *         SubnetIdentifier: "subnet-bcde2345"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1c"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1c"
  *         },
- *         "SubnetIdentifier": "subnet-1234abcd"
+ *         SubnetIdentifier: "subnet-1234abcd"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1b"
  *         },
- *         "SubnetIdentifier": "subnet-abcd1234"
+ *         SubnetIdentifier: "subnet-abcd1234"
  *       }
  *     ],
- *     "VpcId": "vpc-91280df6"
+ *     VpcId: "vpc-91280df6"
  *   }
  * }
  * *\/
- * // example id: modifycachesubnetgroup-1483043446226
  * ```
  *
+ * @public
  */
 export class ModifyCacheSubnetGroupCommand extends $Command
   .classBuilder<
@@ -166,9 +166,7 @@ export class ModifyCacheSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +178,16 @@ export class ModifyCacheSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCacheSubnetGroupCommand)
   .de(de_ModifyCacheSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCacheSubnetGroupMessage;
+      output: ModifyCacheSubnetGroupResult;
+    };
+    sdk: {
+      input: ModifyCacheSubnetGroupCommandInput;
+      output: ModifyCacheSubnetGroupCommandOutput;
+    };
+  };
+}

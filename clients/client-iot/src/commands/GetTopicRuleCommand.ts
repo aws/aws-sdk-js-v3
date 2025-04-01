@@ -490,6 +490,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetTopicRuleCommand extends $Command
@@ -500,9 +501,7 @@ export class GetTopicRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -514,4 +513,16 @@ export class GetTopicRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTopicRuleCommand)
   .de(de_GetTopicRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTopicRuleRequest;
+      output: GetTopicRuleResponse;
+    };
+    sdk: {
+      input: GetTopicRuleCommandInput;
+      output: GetTopicRuleCommandOutput;
+    };
+  };
+}

@@ -49,7 +49,7 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //       AwsManaged: true || false,
  * //     },
  * //     Content: "STRING_VALUE",
@@ -129,6 +129,9 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -169,6 +172,9 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -197,33 +203,33 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about a policy
  * ```javascript
  * // The following example shows how to request information about a policy:/n/n
  * const input = {
- *   "PolicyId": "p-examplepolicyid111"
+ *   PolicyId: "p-examplepolicyid111"
  * };
  * const command = new DescribePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": {
- *     "Content": "{\\n  \\\"Version\\\": \\\"2012-10-17\\\",\\n  \\\"Statement\\\": [\\n    {\\n      \\\"Effect\\\": \\\"Allow\\\",\\n      \\\"Action\\\": \\\"*\\\",\\n      \\\"Resource\\\": \\\"*\\\"\\n    }\\n  ]\\n}",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "Enables admins to delegate S3 permissions",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "AllowAllS3Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *   Policy: {
+ *     Content: `{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "Enables admins to delegate S3 permissions",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "AllowAllS3Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-policy
  * ```
  *
+ * @public
  */
 export class DescribePolicyCommand extends $Command
   .classBuilder<
@@ -233,9 +239,7 @@ export class DescribePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -247,4 +251,16 @@ export class DescribePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePolicyCommand)
   .de(de_DescribePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePolicyRequest;
+      output: DescribePolicyResponse;
+    };
+    sdk: {
+      input: DescribePolicyCommandInput;
+      output: DescribePolicyCommandOutput;
+    };
+  };
+}

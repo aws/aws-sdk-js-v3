@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSecurityGroupRequest } from "../models/models_3";
+import { DeleteSecurityGroupRequest, DeleteSecurityGroupResult } from "../models/models_3";
 import { de_DeleteSecurityGroupCommand, se_DeleteSecurityGroupCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -25,12 +25,12 @@ export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequ
  *
  * The output of {@link DeleteSecurityGroupCommand}.
  */
-export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
+export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a security group.</p>
- *          <p>If you attempt to delete a security group that is associated with an instance or network interface or is
- * 			  referenced by another security group, the operation fails with
+ *          <p>If you attempt to delete a security group that is associated with an instance or network interface, is
+ * 			  referenced by another security group in the same VPC, or has a VPC association, the operation fails with
  * 				<code>DependencyViolation</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,7 +45,10 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSecurityGroupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteSecurityGroupResult
+ * //   Return: true || false,
+ * //   GroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -58,18 +61,21 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a security group
  * ```javascript
  * // This example deletes the specified security group.
  * const input = {
- *   "GroupId": "sg-903004f8"
+ *   GroupId: "sg-903004f8"
  * };
  * const command = new DeleteSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-security-group-1529024952972
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSecurityGroupCommand extends $Command
   .classBuilder<
@@ -79,9 +85,7 @@ export class DeleteSecurityGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +97,16 @@ export class DeleteSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecurityGroupCommand)
   .de(de_DeleteSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecurityGroupRequest;
+      output: DeleteSecurityGroupResult;
+    };
+    sdk: {
+      input: DeleteSecurityGroupCommandInput;
+      output: DeleteSecurityGroupCommandOutput;
+    };
+  };
+}

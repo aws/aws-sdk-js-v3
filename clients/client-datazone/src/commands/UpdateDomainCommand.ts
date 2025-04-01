@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainInput, UpdateDomainOutput } from "../models/models_0";
+import { UpdateDomainInput, UpdateDomainOutput } from "../models/models_1";
 import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -41,8 +41,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  *   singleSignOn: { // SingleSignOn
  *     type: "IAM_IDC" || "DISABLED",
  *     userAssignment: "AUTOMATIC" || "MANUAL",
+ *     idcInstanceArn: "STRING_VALUE",
  *   },
  *   domainExecutionRole: "STRING_VALUE",
+ *   serviceRole: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
@@ -50,12 +52,15 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * const response = await client.send(command);
  * // { // UpdateDomainOutput
  * //   id: "STRING_VALUE", // required
+ * //   rootDomainUnitId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE",
+ * //   serviceRole: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };
@@ -95,6 +100,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainCommand extends $Command
@@ -105,9 +111,7 @@ export class UpdateDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +123,16 @@ export class UpdateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainCommand)
   .de(de_UpdateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainInput;
+      output: UpdateDomainOutput;
+    };
+    sdk: {
+      input: UpdateDomainCommandInput;
+      output: UpdateDomainCommandOutput;
+    };
+  };
+}

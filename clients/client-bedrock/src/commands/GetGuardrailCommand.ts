@@ -66,6 +66,12 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         type: "SEXUAL" || "VIOLENCE" || "HATE" || "INSULTS" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //         inputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  * //         outputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //         inputModalities: [ // GuardrailModalities
+ * //           "TEXT" || "IMAGE",
+ * //         ],
+ * //         outputModalities: [
+ * //           "TEXT" || "IMAGE",
+ * //         ],
  * //       },
  * //     ],
  * //   },
@@ -94,6 +100,14 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         description: "STRING_VALUE",
  * //         pattern: "STRING_VALUE", // required
  * //         action: "BLOCK" || "ANONYMIZE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   contextualGroundingPolicy: { // GuardrailContextualGroundingPolicy
+ * //     filters: [ // GuardrailContextualGroundingFilters // required
+ * //       { // GuardrailContextualGroundingFilter
+ * //         type: "GROUNDING" || "RELEVANCE", // required
+ * //         threshold: Number("double"), // required
  * //       },
  * //     ],
  * //   },
@@ -136,6 +150,7 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetGuardrailCommand extends $Command
@@ -146,9 +161,7 @@ export class GetGuardrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +173,16 @@ export class GetGuardrailCommand extends $Command
   .f(void 0, GetGuardrailResponseFilterSensitiveLog)
   .ser(se_GetGuardrailCommand)
   .de(de_GetGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGuardrailRequest;
+      output: GetGuardrailResponse;
+    };
+    sdk: {
+      input: GetGuardrailCommandInput;
+      output: GetGuardrailCommandOutput;
+    };
+  };
+}

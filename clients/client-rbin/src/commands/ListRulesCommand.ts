@@ -46,6 +46,12 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *     },
  *   ],
  *   LockState: "locked" || "pending_unlock" || "unlocked",
+ *   ExcludeResourceTags: [ // ExcludeResourceTags
+ *     {
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
@@ -82,6 +88,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class ListRulesCommand extends $Command
@@ -92,9 +99,7 @@ export class ListRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +111,16 @@ export class ListRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRulesCommand)
   .de(de_ListRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRulesRequest;
+      output: ListRulesResponse;
+    };
+    sdk: {
+      input: ListRulesCommandInput;
+      output: ListRulesCommandOutput;
+    };
+  };
+}

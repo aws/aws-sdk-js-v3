@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDomainInput, GetDomainOutput } from "../models/models_0";
+import { GetDomainInput, GetDomainOutput } from "../models/models_1";
 import { de_GetDomainCommand, se_GetDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -42,11 +42,13 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * const response = await client.send(command);
  * // { // GetDomainOutput
  * //   id: "STRING_VALUE", // required
+ * //   rootDomainUnitId: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE",
@@ -58,6 +60,8 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   domainVersion: "V1" || "V2",
+ * //   serviceRole: "STRING_VALUE",
  * // };
  *
  * ```
@@ -92,6 +96,7 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetDomainCommand extends $Command
@@ -102,9 +107,7 @@ export class GetDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +119,16 @@ export class GetDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainCommand)
   .de(de_GetDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainInput;
+      output: GetDomainOutput;
+    };
+    sdk: {
+      input: GetDomainCommandInput;
+      output: GetDomainCommandOutput;
+    };
+  };
+}

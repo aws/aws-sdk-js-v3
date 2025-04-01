@@ -131,6 +131,12 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //         AutoMLJob: { // AutoMLJobStepMetadata
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         Endpoint: { // EndpointStepMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         EndpointConfig: { // EndpointConfigStepMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult
@@ -155,6 +161,7 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListPipelineExecutionStepsCommand extends $Command
@@ -165,9 +172,7 @@ export class ListPipelineExecutionStepsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +184,16 @@ export class ListPipelineExecutionStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelineExecutionStepsCommand)
   .de(de_ListPipelineExecutionStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipelineExecutionStepsRequest;
+      output: ListPipelineExecutionStepsResponse;
+    };
+    sdk: {
+      input: ListPipelineExecutionStepsCommandInput;
+      output: ListPipelineExecutionStepsCommandOutput;
+    };
+  };
+}

@@ -155,19 +155,22 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update an alias
  * ```javascript
  * // The following example updates the specified alias to refer to the specified KMS key.
  * const input = {
- *   "AliasName": "alias/ExampleAlias",
- *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   AliasName: "alias/ExampleAlias",
+ *   TargetKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new UpdateAliasCommand(input);
- * await client.send(command);
- * // example id: to-update-an-alias-1481572726920
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<
@@ -177,9 +180,7 @@ export class UpdateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +192,16 @@ export class UpdateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAliasCommand)
   .de(de_UpdateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAliasCommandInput;
+      output: UpdateAliasCommandOutput;
+    };
+  };
+}

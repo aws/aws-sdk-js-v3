@@ -25,7 +25,8 @@
     "com.amazonaws.workspacesthinclient#ActivationCode": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^[a-z]{2}[a-z0-9]{6}$"
+        "smithy.api#pattern": "^[a-z]{2}[a-z0-9]{6}$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesthinclient#ApplyTimeOf": {
@@ -144,7 +145,7 @@
         "desktopArn": {
           "target": "com.amazonaws.workspacesthinclient#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n                WorkSpaces Web, or AppStream 2.0.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n            WorkSpaces Secure Browser, or AppStream 2.0.</p>",
             "smithy.api#required": {}
           }
         },
@@ -663,6 +664,10 @@
         "tags": {
           "target": "com.amazonaws.workspacesthinclient#TagsMap",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "This field will be removed in future releases. Use ListTagsForResource API instead.",
+              "since": "2025-03-25"
+            },
             "smithy.api#documentation": "<p>The tag keys and optional values for the resource.</p>"
           }
         }
@@ -722,7 +727,10 @@
     "com.amazonaws.workspacesthinclient#DeviceName": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^[0-9\\p{IsAlphabetic}+:,.@'\" -]{1,64}$",
+        "smithy.api#length": {
+          "max": 64
+        },
+        "smithy.api#pattern": "^$|^[0-9\\p{IsAlphabetic}+:,.@'\" -]*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -894,7 +902,7 @@
         "desktopArn": {
           "target": "com.amazonaws.workspacesthinclient#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n                WorkSpaces Web, or AppStream 2.0.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n            WorkSpaces Secure Browser, or AppStream 2.0.</p>"
           }
         },
         "desktopEndpoint": {
@@ -990,13 +998,17 @@
         "tags": {
           "target": "com.amazonaws.workspacesthinclient#TagsMap",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "This field will be removed in future releases. Use ListTagsForResource API instead.",
+              "since": "2025-03-25"
+            },
             "smithy.api#documentation": "<p>The tag keys and optional values for the resource.</p>"
           }
         },
         "deviceCreationTags": {
           "target": "com.amazonaws.workspacesthinclient#DeviceCreationTagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>\"The tag keys and optional values for the newly created devices for this environment.\"</p>"
+            "smithy.api#documentation": "<p>The tag keys and optional values for the newly created devices for this environment.</p>"
           }
         }
       },
@@ -1019,7 +1031,10 @@
     "com.amazonaws.workspacesthinclient#EnvironmentName": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^[0-9\\p{IsAlphabetic}+:,.@'\" -][0-9\\p{IsAlphabetic}+=:,.@'\" -]{0,63}$",
+        "smithy.api#length": {
+          "max": 64
+        },
+        "smithy.api#pattern": "^$|^[0-9\\p{IsAlphabetic}+:,.@'\" -][0-9\\p{IsAlphabetic}+=:,.@'\" -]*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1064,7 +1079,7 @@
         "desktopArn": {
           "target": "com.amazonaws.workspacesthinclient#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n                WorkSpaces Web, or AppStream 2.0.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n            WorkSpaces Secure Browser, or AppStream 2.0.</p>"
           }
         },
         "desktopEndpoint": {
@@ -1710,7 +1725,8 @@
         "type": {
           "target": "com.amazonaws.workspacesthinclient#MaintenanceWindowType",
           "traits": {
-            "smithy.api#documentation": "<p>An option to select the default or custom maintenance window.</p>"
+            "smithy.api#documentation": "<p>An option to select the default or custom maintenance window.</p>",
+            "smithy.api#required": {}
           }
         },
         "startTimeHour": {
@@ -1950,6 +1966,10 @@
         "tags": {
           "target": "com.amazonaws.workspacesthinclient#TagsMap",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "This field will be removed in future releases. Use ListTagsForResource API instead.",
+              "since": "2025-03-25"
+            },
             "smithy.api#documentation": "<p>The tag keys and optional values for the resource.</p>"
           }
         }
@@ -3183,7 +3203,7 @@
         "desktopArn": {
           "target": "com.amazonaws.workspacesthinclient#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n                WorkSpaces Web, or AppStream 2.0.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,\n            WorkSpaces Secure Browser, or AppStream 2.0.</p>"
           }
         },
         "desktopEndpoint": {

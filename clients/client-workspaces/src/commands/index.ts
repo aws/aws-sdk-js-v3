@@ -61,6 +61,7 @@ export * from "./MigrateWorkspaceCommand";
 export * from "./ModifyAccountCommand";
 export * from "./ModifyCertificateBasedAuthPropertiesCommand";
 export * from "./ModifyClientPropertiesCommand";
+export * from "./ModifyEndpointEncryptionModeCommand";
 export * from "./ModifySamlPropertiesCommand";
 export * from "./ModifySelfservicePermissionsCommand";
 export * from "./ModifyStreamingPropertiesCommand";

@@ -36,6 +36,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * // const { MediaConvertClient, UpdateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // UpdateQueueRequest
+ *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   ReservationPlanSettings: { // ReservationPlanSettings
@@ -50,6 +51,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * // { // UpdateQueueResponse
  * //   Queue: { // Queue
  * //     Arn: "STRING_VALUE",
+ * //     ConcurrentJobs: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -64,6 +66,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * //       ReservedSlots: Number("int"),
  * //       Status: "ACTIVE" || "EXPIRED",
  * //     },
+ * //     ServiceOverrides: [ // __listOfServiceOverride
+ * //       { // ServiceOverride
+ * //         Message: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         OverrideValue: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Status: "ACTIVE" || "PAUSED",
  * //     SubmittedJobsCount: Number("int"),
  * //     Type: "SYSTEM" || "CUSTOM",
@@ -99,6 +109,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class UpdateQueueCommand extends $Command
@@ -109,9 +120,7 @@ export class UpdateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +132,16 @@ export class UpdateQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQueueCommand)
   .de(de_UpdateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQueueRequest;
+      output: UpdateQueueResponse;
+    };
+    sdk: {
+      input: UpdateQueueCommandInput;
+      output: UpdateQueueCommandOutput;
+    };
+  };
+}

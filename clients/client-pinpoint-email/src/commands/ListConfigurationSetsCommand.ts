@@ -71,6 +71,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class ListConfigurationSetsCommand extends $Command
@@ -81,9 +82,7 @@ export class ListConfigurationSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class ListConfigurationSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationSetsCommand)
   .de(de_ListConfigurationSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationSetsRequest;
+      output: ListConfigurationSetsResponse;
+    };
+    sdk: {
+      input: ListConfigurationSetsCommandInput;
+      output: ListConfigurationSetsCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
+import {
+  UpdateResourceRequest,
+  UpdateResourceRequestFilterSensitiveLog,
+  UpdateResourceResponse,
+} from "../models/models_0";
 import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -109,6 +113,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCommand extends $Command
@@ -119,9 +124,7 @@ export class UpdateResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,7 +133,19 @@ export class UpdateResourceCommand extends $Command
   })
   .s("WorkMailService", "UpdateResource", {})
   .n("WorkMailClient", "UpdateResourceCommand")
-  .f(void 0, void 0)
+  .f(UpdateResourceRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateResourceCommand)
   .de(de_UpdateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResourceCommandInput;
+      output: UpdateResourceCommandOutput;
+    };
+  };
+}

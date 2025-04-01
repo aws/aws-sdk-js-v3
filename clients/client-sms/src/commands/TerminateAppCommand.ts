@@ -69,6 +69,7 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class TerminateAppCommand extends $Command
@@ -79,9 +80,7 @@ export class TerminateAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class TerminateAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateAppCommand)
   .de(de_TerminateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateAppRequest;
+      output: {};
+    };
+    sdk: {
+      input: TerminateAppCommandInput;
+      output: TerminateAppCommandOutput;
+    };
+  };
+}

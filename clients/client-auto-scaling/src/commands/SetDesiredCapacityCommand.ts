@@ -68,20 +68,23 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To set the desired capacity for an Auto Scaling group
  * ```javascript
  * // This example sets the desired capacity for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DesiredCapacity": 2,
- *   "HonorCooldown": true
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DesiredCapacity: 2,
+ *   HonorCooldown: true
  * };
  * const command = new SetDesiredCapacityCommand(input);
- * await client.send(command);
- * // example id: autoscaling-set-desired-capacity-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetDesiredCapacityCommand extends $Command
   .classBuilder<
@@ -91,9 +94,7 @@ export class SetDesiredCapacityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class SetDesiredCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDesiredCapacityCommand)
   .de(de_SetDesiredCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDesiredCapacityType;
+      output: {};
+    };
+    sdk: {
+      input: SetDesiredCapacityCommandInput;
+      output: SetDesiredCapacityCommandOutput;
+    };
+  };
+}

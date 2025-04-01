@@ -162,6 +162,28 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example GetPolicyStore
+ * ```javascript
+ * // The following example retrieves details about the specified policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new GetPolicyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   validationSettings: {
+ *     mode: "STRICT"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetPolicyStoreCommand extends $Command
@@ -172,9 +194,7 @@ export class GetPolicyStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +206,16 @@ export class GetPolicyStoreCommand extends $Command
   .f(void 0, GetPolicyStoreOutputFilterSensitiveLog)
   .ser(se_GetPolicyStoreCommand)
   .de(de_GetPolicyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPolicyStoreInput;
+      output: GetPolicyStoreOutput;
+    };
+    sdk: {
+      input: GetPolicyStoreCommandInput;
+      output: GetPolicyStoreCommandOutput;
+    };
+  };
+}

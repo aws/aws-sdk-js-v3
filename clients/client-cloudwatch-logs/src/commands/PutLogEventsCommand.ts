@@ -93,6 +93,14 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *     },
  *   ],
  *   sequenceToken: "STRING_VALUE",
+ *   entity: { // Entity
+ *     keyAttributes: { // EntityKeyAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     attributes: { // EntityAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
@@ -102,6 +110,9 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * //     tooNewLogEventStartIndex: Number("int"),
  * //     tooOldLogEventEndIndex: Number("int"),
  * //     expiredLogEventEndIndex: Number("int"),
+ * //   },
+ * //   rejectedEntityInfo: { // RejectedEntityInfo
+ * //     errorType: "InvalidEntity" || "InvalidTypeValue" || "InvalidKeyAttributes" || "InvalidAttributes" || "EntitySizeTooLarge" || "UnsupportedLogGroupType" || "MissingRequiredFields", // required
  * //   },
  * // };
  *
@@ -150,6 +161,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutLogEventsCommand extends $Command
@@ -160,9 +172,7 @@ export class PutLogEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +184,16 @@ export class PutLogEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLogEventsCommand)
   .de(de_PutLogEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLogEventsRequest;
+      output: PutLogEventsResponse;
+    };
+    sdk: {
+      input: PutLogEventsCommandInput;
+      output: PutLogEventsCommandOutput;
+    };
+  };
+}

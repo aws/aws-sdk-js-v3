@@ -43,8 +43,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *          calls to API operations that require MFA authentication. An incorrect MFA code causes the
  *          API to return an access denied error. For a comparison of <code>GetSessionToken</code> with
  *          the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
- *             Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <note>
  *             <p>No permissions are required for users to perform this operation. The purpose of the
  *                <code>sts:GetSessionToken</code> operation is to authenticate the user using MFA. You
@@ -123,38 +123,38 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript
  * //
  * const input = {
- *   "DurationSeconds": 3600,
- *   "SerialNumber": "YourMFASerialNumber",
- *   "TokenCode": "123456"
+ *   DurationSeconds: 3600,
+ *   SerialNumber: "YourMFASerialNumber",
+ *   TokenCode: "123456"
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Credentials": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "Expiration": "2011-07-11T19:55:29.611Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "SessionToken": "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/LTo6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3zrkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtpZ3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE"
+ *   Credentials: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     Expiration: "2011-07-11T19:55:29.611Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     SessionToken: "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/LTo6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3zrkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtpZ3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE"
  *   }
  * }
  * *\/
- * // example id: to-get-temporary-credentials-for-an-iam-user-or-an-aws-account-1480540814038
  * ```
  *
+ * @public
  */
 export class GetSessionTokenCommand extends $Command
   .classBuilder<
@@ -164,9 +164,7 @@ export class GetSessionTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +176,16 @@ export class GetSessionTokenCommand extends $Command
   .f(void 0, GetSessionTokenResponseFilterSensitiveLog)
   .ser(se_GetSessionTokenCommand)
   .de(de_GetSessionTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionTokenRequest;
+      output: GetSessionTokenResponse;
+    };
+    sdk: {
+      input: GetSessionTokenCommandInput;
+      output: GetSessionTokenCommandOutput;
+    };
+  };
+}

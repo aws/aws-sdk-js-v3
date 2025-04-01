@@ -95,6 +95,7 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class ListFunctionUrlConfigsCommand extends $Command
@@ -105,9 +106,7 @@ export class ListFunctionUrlConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class ListFunctionUrlConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionUrlConfigsCommand)
   .de(de_ListFunctionUrlConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionUrlConfigsRequest;
+      output: ListFunctionUrlConfigsResponse;
+    };
+    sdk: {
+      input: ListFunctionUrlConfigsCommandInput;
+      output: ListFunctionUrlConfigsCommandOutput;
+    };
+  };
+}

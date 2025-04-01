@@ -160,6 +160,7 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class DescribeBatchLoadTaskCommand extends $Command
@@ -170,14 +171,16 @@ export class DescribeBatchLoadTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "DescribeBatchLoadTask", {})
@@ -185,4 +188,16 @@ export class DescribeBatchLoadTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBatchLoadTaskCommand)
   .de(de_DescribeBatchLoadTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBatchLoadTaskRequest;
+      output: DescribeBatchLoadTaskResponse;
+    };
+    sdk: {
+      input: DescribeBatchLoadTaskCommandInput;
+      output: DescribeBatchLoadTaskCommandOutput;
+    };
+  };
+}

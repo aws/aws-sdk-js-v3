@@ -132,6 +132,7 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class CountClosedWorkflowExecutionsCommand extends $Command
@@ -142,9 +143,7 @@ export class CountClosedWorkflowExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +155,16 @@ export class CountClosedWorkflowExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CountClosedWorkflowExecutionsCommand)
   .de(de_CountClosedWorkflowExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CountClosedWorkflowExecutionsInput;
+      output: WorkflowExecutionCount;
+    };
+    sdk: {
+      input: CountClosedWorkflowExecutionsCommandInput;
+      output: CountClosedWorkflowExecutionsCommandOutput;
+    };
+  };
+}

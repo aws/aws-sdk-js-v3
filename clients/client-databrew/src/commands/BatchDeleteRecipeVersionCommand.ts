@@ -112,6 +112,7 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteRecipeVersionCommand extends $Command
@@ -122,9 +123,7 @@ export class BatchDeleteRecipeVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class BatchDeleteRecipeVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteRecipeVersionCommand)
   .de(de_BatchDeleteRecipeVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteRecipeVersionRequest;
+      output: BatchDeleteRecipeVersionResponse;
+    };
+    sdk: {
+      input: BatchDeleteRecipeVersionCommandInput;
+      output: BatchDeleteRecipeVersionCommandOutput;
+    };
+  };
+}

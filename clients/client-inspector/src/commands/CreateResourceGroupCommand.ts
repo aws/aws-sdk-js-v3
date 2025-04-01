@@ -80,28 +80,28 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Create resource group
  * ```javascript
  * // Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target.
  * const input = {
- *   "resourceGroupTags": [
+ *   resourceGroupTags: [
  *     {
- *       "key": "Name",
- *       "value": "example"
+ *       key: "Name",
+ *       value: "example"
  *     }
  *   ]
  * };
  * const command = new CreateResourceGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
+ *   resourceGroupArn: "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
  * }
  * *\/
- * // example id: create-resource-group-1481064169037
  * ```
  *
+ * @public
  */
 export class CreateResourceGroupCommand extends $Command
   .classBuilder<
@@ -111,9 +111,7 @@ export class CreateResourceGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +123,16 @@ export class CreateResourceGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceGroupCommand)
   .de(de_CreateResourceGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceGroupRequest;
+      output: CreateResourceGroupResponse;
+    };
+    sdk: {
+      input: CreateResourceGroupCommandInput;
+      output: CreateResourceGroupCommandOutput;
+    };
+  };
+}

@@ -105,6 +105,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetAuthorizationTokenCommand extends $Command
@@ -115,9 +116,7 @@ export class GetAuthorizationTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class GetAuthorizationTokenCommand extends $Command
   .f(void 0, GetAuthorizationTokenResultFilterSensitiveLog)
   .ser(se_GetAuthorizationTokenCommand)
   .de(de_GetAuthorizationTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAuthorizationTokenRequest;
+      output: GetAuthorizationTokenResult;
+    };
+    sdk: {
+      input: GetAuthorizationTokenCommandInput;
+      output: GetAuthorizationTokenCommandOutput;
+    };
+  };
+}

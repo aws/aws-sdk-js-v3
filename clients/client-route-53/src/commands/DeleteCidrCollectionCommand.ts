@@ -68,6 +68,7 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class DeleteCidrCollectionCommand extends $Command
@@ -78,9 +79,7 @@ export class DeleteCidrCollectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteCidrCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCidrCollectionCommand)
   .de(de_DeleteCidrCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCidrCollectionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCidrCollectionCommandInput;
+      output: DeleteCidrCollectionCommandOutput;
+    };
+  };
+}

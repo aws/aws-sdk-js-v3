@@ -97,7 +97,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  * //         CurrentPlayerSessionCount: Number("int"),
  * //         MaximumPlayerSessionCount: Number("int"),
  * //         Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
- * //         StatusReason: "INTERRUPTED",
+ * //         StatusReason: "INTERRUPTED" || "TRIGGERED_ON_PROCESS_TERMINATE" || "FORCE_TERMINATED",
  * //         GameProperties: [ // GamePropertyList
  * //           { // GameProperty
  * //             Key: "STRING_VALUE", // required
@@ -136,7 +136,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
  *  <p>The service is unable to resolve the routing for a particular alias because it has a
@@ -153,6 +153,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeGameSessionDetailsCommand extends $Command
@@ -163,9 +164,7 @@ export class DescribeGameSessionDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +176,16 @@ export class DescribeGameSessionDetailsCommand extends $Command
   .f(void 0, DescribeGameSessionDetailsOutputFilterSensitiveLog)
   .ser(se_DescribeGameSessionDetailsCommand)
   .de(de_DescribeGameSessionDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionDetailsInput;
+      output: DescribeGameSessionDetailsOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionDetailsCommandInput;
+      output: DescribeGameSessionDetailsCommandOutput;
+    };
+  };
+}

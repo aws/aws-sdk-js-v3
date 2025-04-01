@@ -87,6 +87,7 @@ export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsRespo
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class ListJobRunAttemptsCommand extends $Command
@@ -97,9 +98,7 @@ export class ListJobRunAttemptsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class ListJobRunAttemptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobRunAttemptsCommand)
   .de(de_ListJobRunAttemptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobRunAttemptsRequest;
+      output: ListJobRunAttemptsResponse;
+    };
+    sdk: {
+      input: ListJobRunAttemptsCommandInput;
+      output: ListJobRunAttemptsCommandOutput;
+    };
+  };
+}

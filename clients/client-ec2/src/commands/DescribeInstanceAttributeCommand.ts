@@ -29,13 +29,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
 
 /**
  * <p>Describes the specified attribute of the specified instance. You can specify only one
- *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
- *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
- *                 <code>disableApiTermination</code> | <code>instanceInitiatedShutdownBehavior</code>
- *             | <code>rootDeviceName</code> | <code>blockDeviceMapping</code> |
- *                 <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
- *                 <code>ebsOptimized</code> | <code>sriovNetSupport</code>
- *          </p>
+ *             attribute at a time.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,19 +38,13 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * // const { EC2Client, DescribeInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceAttributeRequest
- *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop", // required
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
+ *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop", // required
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * // { // InstanceAttribute
- * //   Groups: [ // GroupIdentifierList
- * //     { // GroupIdentifier
- * //       GroupName: "STRING_VALUE",
- * //       GroupId: "STRING_VALUE",
- * //     },
- * //   ],
  * //   BlockDeviceMappings: [ // InstanceBlockDeviceMappingList
  * //     { // InstanceBlockDeviceMapping
  * //       DeviceName: "STRING_VALUE",
@@ -66,6 +55,10 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * //         VolumeId: "STRING_VALUE",
  * //         AssociatedResource: "STRING_VALUE",
  * //         VolumeOwnerId: "STRING_VALUE",
+ * //         Operator: { // OperatorResponse
+ * //           Managed: true || false,
+ * //           Principal: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -111,6 +104,12 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * //   DisableApiStop: {
  * //     Value: true || false,
  * //   },
+ * //   Groups: [ // GroupIdentifierList
+ * //     { // GroupIdentifier
+ * //       GroupId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -124,87 +123,65 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To describe the instance type
- * ```javascript
- * // This example describes the instance type of the specified instance.
- * //
- * const input = {
- *   "Attribute": "instanceType",
- *   "InstanceId": "i-1234567890abcdef0"
- * };
- * const command = new DescribeInstanceAttributeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "InstanceType": {
- *     "Value": "t1.micro"
- *   }
- * }
- * *\/
- * // example id: to-describe-the-instance-type-1472712432132
- * ```
- *
- * @example To describe the disableApiTermination attribute
- * ```javascript
- * // This example describes the ``disableApiTermination`` attribute of the specified instance.
- * //
- * const input = {
- *   "Attribute": "disableApiTermination",
- *   "InstanceId": "i-1234567890abcdef0"
- * };
- * const command = new DescribeInstanceAttributeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DisableApiTermination": {
- *     "Value": "false"
- *   },
- *   "InstanceId": "i-1234567890abcdef0"
- * }
- * *\/
- * // example id: to-describe-the-disableapitermination-attribute-1472712533466
- * ```
  *
  * @example To describe the block device mapping for an instance
  * ```javascript
  * // This example describes the ``blockDeviceMapping`` attribute of the specified instance.
- * //
+ *
  * const input = {
- *   "Attribute": "blockDeviceMapping",
- *   "InstanceId": "i-1234567890abcdef0"
+ *   Attribute: "blockDeviceMapping",
+ *   InstanceId: "i-1234567890abcdef0"
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "BlockDeviceMappings": [
+ *   BlockDeviceMappings: [
  *     {
- *       "DeviceName": "/dev/sda1",
- *       "Ebs": {
- *         "AttachTime": "2013-05-17T22:42:34.000Z",
- *         "DeleteOnTermination": true,
- *         "Status": "attached",
- *         "VolumeId": "vol-049df61146c4d7901"
+ *       DeviceName: "/dev/sda1",
+ *       Ebs: {
+ *         AttachTime: "2013-05-17T22:42:34.000Z",
+ *         DeleteOnTermination: true,
+ *         Status: "attached",
+ *         VolumeId: "vol-049df61146c4d7901"
  *       }
  *     },
  *     {
- *       "DeviceName": "/dev/sdf",
- *       "Ebs": {
- *         "AttachTime": "2013-09-10T23:07:00.000Z",
- *         "DeleteOnTermination": false,
- *         "Status": "attached",
- *         "VolumeId": "vol-049df61146c4d7901"
+ *       DeviceName: "/dev/sdf",
+ *       Ebs: {
+ *         AttachTime: "2013-09-10T23:07:00.000Z",
+ *         DeleteOnTermination: false,
+ *         Status: "attached",
+ *         VolumeId: "vol-049df61146c4d7901"
  *       }
  *     }
  *   ],
- *   "InstanceId": "i-1234567890abcdef0"
+ *   InstanceId: "i-1234567890abcdef0"
  * }
  * *\/
- * // example id: to-describe-the-block-device-mapping-for-an-instance-1472712645423
  * ```
  *
+ * @example To describe the instance type
+ * ```javascript
+ * // This example describes the instance type of the specified instance.
+ *
+ * const input = {
+ *   Attribute: "instanceType",
+ *   InstanceId: "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   InstanceId: "i-1234567890abcdef0",
+ *   InstanceType: {
+ *     Value: "t1.micro"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DescribeInstanceAttributeCommand extends $Command
   .classBuilder<
@@ -214,9 +191,7 @@ export class DescribeInstanceAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -228,4 +203,16 @@ export class DescribeInstanceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceAttributeCommand)
   .de(de_DescribeInstanceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceAttributeRequest;
+      output: InstanceAttribute;
+    };
+    sdk: {
+      input: DescribeInstanceAttributeCommandInput;
+      output: DescribeInstanceAttributeCommandOutput;
+    };
+  };
+}

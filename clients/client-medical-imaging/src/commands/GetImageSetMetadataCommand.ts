@@ -50,6 +50,11 @@ export interface GetImageSetMetadataCommandOutput
  * };
  * const command = new GetImageSetMetadataCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.imageSetMetadataBlob.transformToByteArray();
+ * // const str = await response.imageSetMetadataBlob.transformToString();
+ * // response.imageSetMetadataBlob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetImageSetMetadataResponse
  * //   imageSetMetadataBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   contentType: "STRING_VALUE",
@@ -85,6 +90,7 @@ export interface GetImageSetMetadataCommandOutput
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class GetImageSetMetadataCommand extends $Command
@@ -95,9 +101,7 @@ export class GetImageSetMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +113,16 @@ export class GetImageSetMetadataCommand extends $Command
   .f(void 0, GetImageSetMetadataResponseFilterSensitiveLog)
   .ser(se_GetImageSetMetadataCommand)
   .de(de_GetImageSetMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageSetMetadataRequest;
+      output: GetImageSetMetadataResponse;
+    };
+    sdk: {
+      input: GetImageSetMetadataCommandInput;
+      output: GetImageSetMetadataCommandOutput;
+    };
+  };
+}

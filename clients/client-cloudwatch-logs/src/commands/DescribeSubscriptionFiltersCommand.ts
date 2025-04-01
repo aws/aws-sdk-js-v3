@@ -55,6 +55,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * //       destinationArn: "STRING_VALUE",
  * //       roleArn: "STRING_VALUE",
  * //       distribution: "Random" || "ByLogStream",
+ * //       applyOnTransformedLogs: true || false,
  * //       creationTime: Number("long"),
  * //     },
  * //   ],
@@ -81,6 +82,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeSubscriptionFiltersCommand extends $Command
@@ -91,9 +93,7 @@ export class DescribeSubscriptionFiltersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DescribeSubscriptionFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSubscriptionFiltersCommand)
   .de(de_DescribeSubscriptionFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubscriptionFiltersRequest;
+      output: DescribeSubscriptionFiltersResponse;
+    };
+    sdk: {
+      input: DescribeSubscriptionFiltersCommandInput;
+      output: DescribeSubscriptionFiltersCommandOutput;
+    };
+  };
+}

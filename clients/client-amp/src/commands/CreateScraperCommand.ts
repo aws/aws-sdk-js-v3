@@ -30,20 +30,20 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
 /**
  * <p>The <code>CreateScraper</code> operation creates a scraper to collect metrics. A
  *             scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
- *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. You can configure the
- *             scraper to control what metrics are collected, and what transformations are applied
- *             prior to sending them to your workspace.</p>
- *          <p>If needed, an IAM role will be created for you that gives Amazon Managed Service for Prometheus access to the metrics in your cluster. For more information, see
- *             <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper">Using roles for scraping metrics from EKS</a> in the <i>Amazon Managed Service for Prometheus User
- *                     Guide</i>.</p>
- *          <p>You cannot update a scraper. If you want to change the configuration of the scraper,
- *             create a new scraper and delete the old one.</p>
- *          <p>The <code>scrapeConfiguration</code> parameter contains the base64-encoded version of
- *             the YAML configuration file.</p>
+ *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are
+ *             flexible, and can be configured to control what metrics are collected, the
+ *             frequency of collection, what transformations are applied to the metrics, and more.</p>
+ *          <p>An IAM role will be created for you that Amazon Managed Service for Prometheus uses
+ *             to access the metrics in your cluster. You must configure this role with a policy that
+ *             allows it to scrape metrics from your cluster. For more information, see
+ *             <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
+ *          <p>The <code>scrapeConfiguration</code> parameter contains the base-64 encoded YAML
+ *             configuration for the scraper.</p>
  *          <note>
  *             <p>For more information about collectors, including what metrics are collected, and
- *                 how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html">Amazon Web Services managed
- *                     collectors</a> in the <i>Amazon Managed Service for Prometheus User
+ *                 how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using an
+ *                     Amazon Web Services managed
+ *                     collector</a> in the <i>Amazon Managed Service for Prometheus User
  *                         Guide</i>.</p>
  *          </note>
  * @example
@@ -72,6 +72,10 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  *     ampConfiguration: { // AmpConfiguration
  *       workspaceArn: "STRING_VALUE", // required
  *     },
+ *   },
+ *   roleConfiguration: { // RoleConfiguration
+ *     sourceRoleArn: "STRING_VALUE",
+ *     targetRoleArn: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
@@ -124,6 +128,52 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example CreateScraper with optional alias input, optional clientToken input, and one set of tags
+ * ```javascript
+ * //
+ * const input = {
+ *   alias: "alias",
+ *   clientToken: "token",
+ *   destination: {
+ *     ampConfiguration: {
+ *       workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *     }
+ *   },
+ *   scrapeConfiguration: {
+ *     configurationBlob: "blob"
+ *   },
+ *   source: {
+ *     eksConfiguration: {
+ *       clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example",
+ *       securityGroupIds: [
+ *         "sg-abc123"
+ *       ],
+ *       subnetIds: [
+ *         "subnet-abc123"
+ *       ]
+ *     }
+ *   },
+ *   tags: {
+ *     exampleTag: "exampleValue"
+ *   }
+ * };
+ * const command = new CreateScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "CREATING"
+ *   },
+ *   tags: {
+ *     exampleTag: "exampleValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateScraperCommand extends $Command
@@ -134,9 +184,7 @@ export class CreateScraperCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +196,16 @@ export class CreateScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScraperCommand)
   .de(de_CreateScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScraperRequest;
+      output: CreateScraperResponse;
+    };
+    sdk: {
+      input: CreateScraperCommandInput;
+      output: CreateScraperCommandOutput;
+    };
+  };
+}

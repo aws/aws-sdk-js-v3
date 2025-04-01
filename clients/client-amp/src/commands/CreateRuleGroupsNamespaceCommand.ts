@@ -95,6 +95,7 @@ export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroups
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleGroupsNamespaceCommand extends $Command
@@ -105,9 +106,7 @@ export class CreateRuleGroupsNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CreateRuleGroupsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRuleGroupsNamespaceCommand)
   .de(de_CreateRuleGroupsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleGroupsNamespaceRequest;
+      output: CreateRuleGroupsNamespaceResponse;
+    };
+    sdk: {
+      input: CreateRuleGroupsNamespaceCommandInput;
+      output: CreateRuleGroupsNamespaceCommandOutput;
+    };
+  };
+}

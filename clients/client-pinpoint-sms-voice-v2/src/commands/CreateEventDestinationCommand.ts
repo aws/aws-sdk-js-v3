@@ -34,13 +34,13 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
 /**
  * <p>Creates a new event destination in a configuration set.</p>
  *          <p>An event destination is a location where you send message events. The event options
- *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
+ *             are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example,
  *             when a message is delivered successfully, you can send information about that event to
  *             an event destination, or send notifications to endpoints that are subscribed to an
  *                 Amazon SNS topic.</p>
  *          <p>Each configuration set can contain between 0 and 5 event destinations. Each event
  *             destination can contain a reference to a single destination, such as a CloudWatch
- *             or Kinesis Data Firehose destination.</p>
+ *             or Firehose destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,6 +129,7 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateEventDestinationCommand extends $Command
@@ -139,9 +140,7 @@ export class CreateEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class CreateEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventDestinationCommand)
   .de(de_CreateEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventDestinationRequest;
+      output: CreateEventDestinationResult;
+    };
+    sdk: {
+      input: CreateEventDestinationCommandInput;
+      output: CreateEventDestinationCommandOutput;
+    };
+  };
+}

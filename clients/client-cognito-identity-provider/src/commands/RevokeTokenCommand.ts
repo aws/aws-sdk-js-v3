@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog, RevokeTokenResponse } from "../models/models_0";
+import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog, RevokeTokenResponse } from "../models/models_1";
 import { de_RevokeTokenCommand, se_RevokeTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -93,6 +93,7 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class RevokeTokenCommand extends $Command
@@ -103,9 +104,7 @@ export class RevokeTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class RevokeTokenCommand extends $Command
   .f(RevokeTokenRequestFilterSensitiveLog, void 0)
   .ser(se_RevokeTokenCommand)
   .de(de_RevokeTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeTokenRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeTokenCommandInput;
+      output: RevokeTokenCommandOutput;
+    };
+  };
+}

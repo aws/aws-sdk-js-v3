@@ -81,6 +81,7 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessorCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteAccessorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteAccessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessorCommand)
   .de(de_DeleteAccessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessorInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessorCommandInput;
+      output: DeleteAccessorCommandOutput;
+    };
+  };
+}

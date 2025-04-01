@@ -221,6 +221,10 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "../commands/ModifyClientPropertiesCommand";
 import {
+  ModifyEndpointEncryptionModeCommandInput,
+  ModifyEndpointEncryptionModeCommandOutput,
+} from "../commands/ModifyEndpointEncryptionModeCommand";
+import {
   ModifySamlPropertiesCommandInput,
   ModifySamlPropertiesCommandOutput,
 } from "../commands/ModifySamlPropertiesCommand";
@@ -383,6 +387,7 @@ import {
   DescribeWorkspaceAssociationsResult,
   DescribeWorkspaceBundlesRequest,
   DescribeWorkspaceBundlesResult,
+  DescribeWorkspaceDirectoriesFilter,
   DescribeWorkspaceDirectoriesRequest,
   DescribeWorkspaceImagePermissionsRequest,
   DescribeWorkspaceImagesRequest,
@@ -403,6 +408,8 @@ import {
   DisassociateWorkspaceApplicationRequest,
   DisassociateWorkspaceApplicationResult,
   GetAccountLinkRequest,
+  GlobalAcceleratorForDirectory,
+  GlobalAcceleratorForWorkSpace,
   ImageAssociatedResourceType,
   ImageResourceAssociation,
   ImportClientBrandingRequest,
@@ -415,10 +422,12 @@ import {
   IpRuleItem,
   ListAccountLinksRequest,
   ListAvailableManagementCidrRangesRequest,
+  MicrosoftEntraConfig,
   MigrateWorkspaceRequest,
   ModifyAccountRequest,
   ModifyCertificateBasedAuthPropertiesRequest,
   ModifyClientPropertiesRequest,
+  ModifyEndpointEncryptionModeRequest,
   ModifySamlPropertiesRequest,
   ModifySelfservicePermissionsRequest,
   ModifyStreamingPropertiesRequest,
@@ -433,10 +442,6 @@ import {
   Protocol,
   RebootRequest,
   RebootWorkspacesRequest,
-  RebuildRequest,
-  RebuildWorkspacesRequest,
-  RegisterWorkspaceDirectoryRequest,
-  RejectAccountLinkInvitationRequest,
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
@@ -444,8 +449,6 @@ import {
   ResourceLimitExceededException,
   ResourceNotFoundException,
   ResourceUnavailableException,
-  RestoreWorkspaceRequest,
-  RevokeIpRulesRequest,
   RootStorage,
   SamlProperties,
   SelfservicePermissions,
@@ -456,7 +459,6 @@ import {
   StreamingProperties,
   Tag,
   TimeoutSettings,
-  UnsupportedNetworkConfigurationException,
   UnsupportedWorkspaceConfigurationException,
   UserSetting,
   UserStorage,
@@ -473,11 +475,16 @@ import {
   WorkspaceProperties,
   WorkspaceRequest,
   WorkspaceResourceAssociation,
-  WorkspacesDefaultRoleNotFoundException,
   WorkspacesPool,
   WorkspacesPoolSession,
 } from "../models/models_0";
 import {
+  RebuildRequest,
+  RebuildWorkspacesRequest,
+  RegisterWorkspaceDirectoryRequest,
+  RejectAccountLinkInvitationRequest,
+  RestoreWorkspaceRequest,
+  RevokeIpRulesRequest,
   StartRequest,
   StartWorkspacesPoolRequest,
   StartWorkspacesRequest,
@@ -488,6 +495,7 @@ import {
   TerminateWorkspacesPoolRequest,
   TerminateWorkspacesPoolSessionRequest,
   TerminateWorkspacesRequest,
+  UnsupportedNetworkConfigurationException,
   UpdateConnectClientAddInRequest,
   UpdateConnectionAliasPermissionRequest,
   UpdateRulesOfIpGroupRequest,
@@ -495,6 +503,7 @@ import {
   UpdateWorkspaceImagePermissionRequest,
   UpdateWorkspacesPoolRequest,
   UpdateWorkspacesPoolResult,
+  WorkspacesDefaultRoleNotFoundException,
 } from "../models/models_1";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
 
@@ -1299,6 +1308,19 @@ export const se_ModifyClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyClientProperties");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ModifyEndpointEncryptionModeCommand
+ */
+export const se_ModifyEndpointEncryptionModeCommand = async (
+  input: ModifyEndpointEncryptionModeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyEndpointEncryptionMode");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2883,6 +2905,26 @@ export const de_ModifyClientPropertiesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ModifyEndpointEncryptionModeCommand
+ */
+export const de_ModifyEndpointEncryptionModeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEndpointEncryptionModeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ModifyEndpointEncryptionModeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ModifySamlPropertiesCommand
  */
 export const de_ModifySamlPropertiesCommand = async (
@@ -3966,6 +4008,12 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DescribeWorkspaceBundlesRequest omitted.
 
+// se_DescribeWorkspaceDirectoriesFilter omitted.
+
+// se_DescribeWorkspaceDirectoriesFilterList omitted.
+
+// se_DescribeWorkspaceDirectoriesFilterValues omitted.
+
 // se_DescribeWorkspaceDirectoriesRequest omitted.
 
 // se_DescribeWorkspaceImagePermissionsRequest omitted.
@@ -3997,6 +4045,10 @@ const se_DefaultImportClientBrandingAttributes = (
 // se_DisassociateWorkspaceApplicationRequest omitted.
 
 // se_GetAccountLinkRequest omitted.
+
+// se_GlobalAcceleratorForDirectory omitted.
+
+// se_GlobalAcceleratorForWorkSpace omitted.
 
 // se_ImageAssociatedResourceTypeList omitted.
 
@@ -4051,6 +4103,8 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_LoginMessage omitted.
 
+// se_MicrosoftEntraConfig omitted.
+
 // se_MigrateWorkspaceRequest omitted.
 
 // se_ModifyAccountRequest omitted.
@@ -4058,6 +4112,8 @@ const se_IosImportClientBrandingAttributes = (
 // se_ModifyCertificateBasedAuthPropertiesRequest omitted.
 
 // se_ModifyClientPropertiesRequest omitted.
+
+// se_ModifyEndpointEncryptionModeRequest omitted.
 
 // se_ModifySamlPropertiesRequest omitted.
 
@@ -4674,6 +4730,12 @@ const de_DisassociateWorkspaceApplicationResult = (
 
 // de_GetAccountLinkResult omitted.
 
+// de_GlobalAcceleratorForDirectory omitted.
+
+// de_GlobalAcceleratorForWorkSpace omitted.
+
+// de_IDCConfig omitted.
+
 // de_ImagePermission omitted.
 
 // de_ImagePermissions omitted.
@@ -4731,6 +4793,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 
 // de_LoginMessage omitted.
 
+// de_MicrosoftEntraConfig omitted.
+
 // de_MigrateWorkspaceResult omitted.
 
 // de_ModificationState omitted.
@@ -4742,6 +4806,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_ModifyCertificateBasedAuthPropertiesResult omitted.
 
 // de_ModifyClientPropertiesResult omitted.
+
+// de_ModifyEndpointEncryptionModeResponse omitted.
 
 // de_ModifySamlPropertiesResult omitted.
 

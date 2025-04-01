@@ -38,6 +38,9 @@ export interface CreatePracticeRunConfigurationCommandOutput
  * 		and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an
  * 			<i>outcome alarm</i>, to monitor application health during practice runs and,
  * 			optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p>
+ *          <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource
+ * 			weekly, to shift traffic for practice runs. Practice runs help you to ensure that
+ * 			shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p>
  *          <p>For more information, see
  * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
  * 				Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
@@ -125,6 +128,7 @@ export interface CreatePracticeRunConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class CreatePracticeRunConfigurationCommand extends $Command
@@ -135,9 +139,7 @@ export class CreatePracticeRunConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +151,16 @@ export class CreatePracticeRunConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePracticeRunConfigurationCommand)
   .de(de_CreatePracticeRunConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePracticeRunConfigurationRequest;
+      output: CreatePracticeRunConfigurationResponse;
+    };
+    sdk: {
+      input: CreatePracticeRunConfigurationCommandInput;
+      output: CreatePracticeRunConfigurationCommandOutput;
+    };
+  };
+}

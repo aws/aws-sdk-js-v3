@@ -59,6 +59,7 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class InvalidateProjectCacheCommand extends $Command
@@ -69,9 +70,7 @@ export class InvalidateProjectCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class InvalidateProjectCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InvalidateProjectCacheCommand)
   .de(de_InvalidateProjectCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvalidateProjectCacheInput;
+      output: {};
+    };
+    sdk: {
+      input: InvalidateProjectCacheCommandInput;
+      output: InvalidateProjectCacheCommandOutput;
+    };
+  };
+}

@@ -85,6 +85,27 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list all development schema arns in your AWS account
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListDevelopmentSchemaArnsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SchemaArns: [
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/typedlinkschematest",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/testCDschema",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Customers",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/CourseCatalog",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Consumers",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorg"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListDevelopmentSchemaArnsCommand extends $Command
@@ -95,9 +116,7 @@ export class ListDevelopmentSchemaArnsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +128,16 @@ export class ListDevelopmentSchemaArnsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevelopmentSchemaArnsCommand)
   .de(de_ListDevelopmentSchemaArnsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevelopmentSchemaArnsRequest;
+      output: ListDevelopmentSchemaArnsResponse;
+    };
+    sdk: {
+      input: ListDevelopmentSchemaArnsCommandInput;
+      output: ListDevelopmentSchemaArnsCommandOutput;
+    };
+  };
+}

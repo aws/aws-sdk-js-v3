@@ -79,6 +79,7 @@ export interface PrepareAgentCommandOutput extends PrepareAgentResponse, __Metad
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class PrepareAgentCommand extends $Command
@@ -89,9 +90,7 @@ export class PrepareAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class PrepareAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PrepareAgentCommand)
   .de(de_PrepareAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PrepareAgentRequest;
+      output: PrepareAgentResponse;
+    };
+    sdk: {
+      input: PrepareAgentCommandInput;
+      output: PrepareAgentCommandOutput;
+    };
+  };
+}

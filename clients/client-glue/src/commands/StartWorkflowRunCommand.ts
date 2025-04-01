@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartWorkflowRunRequest, StartWorkflowRunResponse } from "../models/models_2";
+import { StartWorkflowRunRequest, StartWorkflowRunResponse } from "../models/models_3";
 import { de_StartWorkflowRunCommand, se_StartWorkflowRunCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -76,6 +76,7 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartWorkflowRunCommand extends $Command
@@ -86,9 +87,7 @@ export class StartWorkflowRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class StartWorkflowRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkflowRunCommand)
   .de(de_StartWorkflowRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWorkflowRunRequest;
+      output: StartWorkflowRunResponse;
+    };
+    sdk: {
+      input: StartWorkflowRunCommandInput;
+      output: StartWorkflowRunCommandOutput;
+    };
+  };
+}

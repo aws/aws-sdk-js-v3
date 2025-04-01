@@ -109,6 +109,7 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ExecuteFastResetCommand extends $Command
@@ -119,9 +120,7 @@ export class ExecuteFastResetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class ExecuteFastResetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteFastResetCommand)
   .de(de_ExecuteFastResetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteFastResetInput;
+      output: ExecuteFastResetOutput;
+    };
+    sdk: {
+      input: ExecuteFastResetCommandInput;
+      output: ExecuteFastResetCommandOutput;
+    };
+  };
+}

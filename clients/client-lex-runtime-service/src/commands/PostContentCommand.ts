@@ -142,6 +142,11 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * };
  * const command = new PostContentCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.audioStream.transformToByteArray();
+ * // const str = await response.audioStream.transformToString();
+ * // response.audioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // PostContentResponse
  * //   contentType: "STRING_VALUE",
  * //   intentName: "STRING_VALUE",
@@ -229,6 +234,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ *
  * @public
  */
 export class PostContentCommand extends $Command
@@ -239,9 +245,7 @@ export class PostContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -253,4 +257,16 @@ export class PostContentCommand extends $Command
   .f(PostContentRequestFilterSensitiveLog, PostContentResponseFilterSensitiveLog)
   .ser(se_PostContentCommand)
   .de(de_PostContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostContentRequest;
+      output: PostContentResponse;
+    };
+    sdk: {
+      input: PostContentCommandInput;
+      output: PostContentCommandOutput;
+    };
+  };
+}

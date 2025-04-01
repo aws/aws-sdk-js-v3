@@ -72,18 +72,21 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB cluster parameter group
  * ```javascript
  * // The following example deletes the specified DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
+ *   DBClusterParameterGroupName: "mydbclusterparametergroup"
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-cluster-parameter-group-1679962185718
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class DeleteDBClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterParameterGroupCommand)
   .de(de_DeleteDBClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterParameterGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDBClusterParameterGroupCommandInput;
+      output: DeleteDBClusterParameterGroupCommandOutput;
+    };
+  };
+}

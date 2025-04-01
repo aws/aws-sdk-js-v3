@@ -86,6 +86,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DisassociateConfigurationItemsFromApplicationCommand extends $Command
@@ -96,9 +97,7 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DisassociateConfigurationItemsFromApplicationCommand)
   .de(de_DisassociateConfigurationItemsFromApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateConfigurationItemsFromApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateConfigurationItemsFromApplicationCommandInput;
+      output: DisassociateConfigurationItemsFromApplicationCommandOutput;
+    };
+  };
+}

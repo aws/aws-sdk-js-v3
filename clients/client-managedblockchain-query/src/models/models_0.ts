@@ -134,7 +134,7 @@ export interface BlockchainInstant {
    *          </note>
    * @public
    */
-  time?: Date;
+  time?: Date | undefined;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface TokenIdentifier {
    * <p>This is the token's contract address.</p>
    * @public
    */
-  contractAddress?: string;
+  contractAddress?: string | undefined;
 
   /**
    * <p>The unique identifier of the token.</p>
@@ -179,7 +179,7 @@ export interface TokenIdentifier {
    *          </note>
    * @public
    */
-  tokenId?: string;
+  tokenId?: string | undefined;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface BatchGetTokenBalanceInputItem {
    * <p>The container for time.</p>
    * @public
    */
-  atBlockchainInstant?: BlockchainInstant;
+  atBlockchainInstant?: BlockchainInstant | undefined;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface BatchGetTokenBalanceInput {
    * <p>An array of <code>BatchGetTokenBalanceInputItem</code> objects whose balance is being requested.</p>
    * @public
    */
-  getTokenBalanceInputs?: BatchGetTokenBalanceInputItem[];
+  getTokenBalanceInputs?: BatchGetTokenBalanceInputItem[] | undefined;
 }
 
 /**
@@ -254,19 +254,19 @@ export interface BatchGetTokenBalanceErrorItem {
    *          </note>
    * @public
    */
-  tokenIdentifier?: TokenIdentifier;
+  tokenIdentifier?: TokenIdentifier | undefined;
 
   /**
    * <p>The container for the owner identifier.</p>
    * @public
    */
-  ownerIdentifier?: OwnerIdentifier;
+  ownerIdentifier?: OwnerIdentifier | undefined;
 
   /**
    * <p>The container for time.</p>
    * @public
    */
-  atBlockchainInstant?: BlockchainInstant;
+  atBlockchainInstant?: BlockchainInstant | undefined;
 
   /**
    * <p>The error code associated with the error.</p>
@@ -296,7 +296,7 @@ export interface BatchGetTokenBalanceOutputItem {
    * <p>The container for the owner identifier.</p>
    * @public
    */
-  ownerIdentifier?: OwnerIdentifier;
+  ownerIdentifier?: OwnerIdentifier | undefined;
 
   /**
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
@@ -306,7 +306,7 @@ export interface BatchGetTokenBalanceOutputItem {
    *          </note>
    * @public
    */
-  tokenIdentifier?: TokenIdentifier;
+  tokenIdentifier?: TokenIdentifier | undefined;
 
   /**
    * <p>The container for the token balance.</p>
@@ -324,7 +324,7 @@ export interface BatchGetTokenBalanceOutputItem {
    * <p>The container for time.</p>
    * @public
    */
-  lastUpdatedTime?: BlockchainInstant;
+  lastUpdatedTime?: BlockchainInstant | undefined;
 }
 
 /**
@@ -356,7 +356,7 @@ export class InternalServerException extends __BaseException {
    * <p>Specifies the <code>retryAfterSeconds</code> value.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -496,7 +496,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The container of the <code>retryAfterSeconds</code> value.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -565,7 +565,7 @@ export class ValidationException extends __BaseException {
    * <p>The container for the <code>fieldList</code> of the exception.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -646,19 +646,19 @@ export interface ContractMetadata {
    * <p>The name of the token contract.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The symbol of the token contract.</p>
    * @public
    */
-  symbol?: string;
+  symbol?: string | undefined;
 
   /**
    * <p>The decimals used by the token contract.</p>
    * @public
    */
-  decimals?: number;
+  decimals?: number | undefined;
 }
 
 /**
@@ -712,7 +712,7 @@ export interface GetAssetContractOutput {
    * <p>The metadata of the contract.</p>
    * @public
    */
-  metadata?: ContractMetadata;
+  metadata?: ContractMetadata | undefined;
 }
 
 /**
@@ -740,7 +740,7 @@ export interface GetTokenBalanceInput {
    *          </note>
    * @public
    */
-  atBlockchainInstant?: BlockchainInstant;
+  atBlockchainInstant?: BlockchainInstant | undefined;
 }
 
 /**
@@ -751,7 +751,7 @@ export interface GetTokenBalanceOutput {
    * <p>The container for the owner identifier.</p>
    * @public
    */
-  ownerIdentifier?: OwnerIdentifier;
+  ownerIdentifier?: OwnerIdentifier | undefined;
 
   /**
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
@@ -761,7 +761,7 @@ export interface GetTokenBalanceOutput {
    *          </note>
    * @public
    */
-  tokenIdentifier?: TokenIdentifier;
+  tokenIdentifier?: TokenIdentifier | undefined;
 
   /**
    * <p>The container for the token balance.</p>
@@ -779,7 +779,7 @@ export interface GetTokenBalanceOutput {
    * <p>The container for time.</p>
    * @public
    */
-  lastUpdatedTime?: BlockchainInstant;
+  lastUpdatedTime?: BlockchainInstant | undefined;
 }
 
 /**
@@ -790,7 +790,7 @@ export interface GetTransactionInput {
    * <p>The hash of a transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionHash?: string;
+  transactionHash?: string | undefined;
 
   /**
    * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
@@ -800,7 +800,7 @@ export interface GetTransactionInput {
    *          </note>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>The blockchain network where the transaction occurred.</p>
@@ -838,7 +838,7 @@ export interface Transaction {
    *          hash is used to verify the integrity of the data in the block.</p>
    * @public
    */
-  blockHash?: string;
+  blockHash?: string | undefined;
 
   /**
    * <p>The hash of a transaction. It is generated when a transaction is created.</p>
@@ -850,7 +850,7 @@ export interface Transaction {
    * <p>The block number in which the transaction is recorded.</p>
    * @public
    */
-  blockNumber?: string;
+  blockNumber?: string | undefined;
 
   /**
    * <p>The <code>Timestamp</code> of the transaction. </p>
@@ -881,73 +881,73 @@ export interface Transaction {
    *          contract address.</p>
    * @public
    */
-  from?: string;
+  from?: string | undefined;
 
   /**
    * <p>The blockchain address for the contract.</p>
    * @public
    */
-  contractAddress?: string;
+  contractAddress?: string | undefined;
 
   /**
    * <p>The amount of gas used for the transaction.</p>
    * @public
    */
-  gasUsed?: string;
+  gasUsed?: string | undefined;
 
   /**
    * <p>The amount of gas used up to the specified point in the block.</p>
    * @public
    */
-  cumulativeGasUsed?: string;
+  cumulativeGasUsed?: string | undefined;
 
   /**
    * <p>The effective gas price.</p>
    * @public
    */
-  effectiveGasPrice?: string;
+  effectiveGasPrice?: string | undefined;
 
   /**
    * <p>The signature of the transaction. The Z coordinate of a point V.</p>
    * @public
    */
-  signatureV?: number;
+  signatureV?: number | undefined;
 
   /**
    * <p>The signature of the transaction. The X coordinate of a point R.</p>
    * @public
    */
-  signatureR?: string;
+  signatureR?: string | undefined;
 
   /**
    * <p>The signature of the transaction. The Y coordinate of a point S.</p>
    * @public
    */
-  signatureS?: string;
+  signatureS?: string | undefined;
 
   /**
    * <p>The transaction fee.</p>
    * @public
    */
-  transactionFee?: string;
+  transactionFee?: string | undefined;
 
   /**
    * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>Specifies whether the transaction has reached Finality.</p>
    * @public
    */
-  confirmationStatus?: ConfirmationStatus;
+  confirmationStatus?: ConfirmationStatus | undefined;
 
   /**
    * <p>Identifies whether the transaction has succeeded or failed.</p>
    * @public
    */
-  executionStatus?: ExecutionStatus;
+  executionStatus?: ExecutionStatus | undefined;
 }
 
 /**
@@ -975,7 +975,7 @@ export interface ListAssetContractsInput {
    * <p> The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of contracts to list.</p>
@@ -990,7 +990,7 @@ export interface ListAssetContractsInput {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1007,7 +1007,7 @@ export interface ListAssetContractsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1059,7 +1059,7 @@ export interface ListFilteredTransactionEventsSort {
    * <p>Container on how the results will be sorted by?</p>
    * @public
    */
-  sortBy?: ListFilteredTransactionEventsSortBy;
+  sortBy?: ListFilteredTransactionEventsSortBy | undefined;
 
   /**
    * <p>The container for the <i>sort order</i> for <code>ListFilteredTransactionEvents</code>.
@@ -1068,7 +1068,7 @@ export interface ListFilteredTransactionEventsSort {
    *          to <code>ASCENDING</code>.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -1080,13 +1080,13 @@ export interface TimeFilter {
    * <p>The container for time.</p>
    * @public
    */
-  from?: BlockchainInstant;
+  from?: BlockchainInstant | undefined;
 
   /**
    * <p>The container for time.</p>
    * @public
    */
-  to?: BlockchainInstant;
+  to?: BlockchainInstant | undefined;
 }
 
 /**
@@ -1123,13 +1123,13 @@ export interface ListFilteredTransactionEventsInput {
    * <p>This container specifies the time frame for the transaction events returned in the response.</p>
    * @public
    */
-  timeFilter?: TimeFilter;
+  timeFilter?: TimeFilter | undefined;
 
   /**
    * <p>This container specifies filtering attributes related to BITCOIN_VOUT event types</p>
    * @public
    */
-  voutFilter?: VoutFilter;
+  voutFilter?: VoutFilter | undefined;
 
   /**
    * <p>The container for the <code>ConfirmationStatusFilter</code> that filters for the <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
@@ -1137,19 +1137,19 @@ export interface ListFilteredTransactionEventsInput {
    *             </a> of the results.</p>
    * @public
    */
-  confirmationStatusFilter?: ConfirmationStatusFilter;
+  confirmationStatusFilter?: ConfirmationStatusFilter | undefined;
 
   /**
    * <p>The order by which the results will be sorted.</p>
    * @public
    */
-  sort?: ListFilteredTransactionEventsSort;
+  sort?: ListFilteredTransactionEventsSort | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of transaction events to list.</p>
@@ -1164,7 +1164,7 @@ export interface ListFilteredTransactionEventsInput {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1250,43 +1250,43 @@ export interface TransactionEvent {
    * <p>The wallet address initiating the transaction. It can either be a public key or a contract.</p>
    * @public
    */
-  from?: string;
+  from?: string | undefined;
 
   /**
    * <p>The wallet address receiving the transaction.  It can either be a public key or a contract.</p>
    * @public
    */
-  to?: string;
+  to?: string | undefined;
 
   /**
    * <p>The value that was transacted.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The blockchain address for the contract</p>
    * @public
    */
-  contractAddress?: string;
+  contractAddress?: string | undefined;
 
   /**
    * <p>The unique identifier for the token involved in the transaction.</p>
    * @public
    */
-  tokenId?: string;
+  tokenId?: string | undefined;
 
   /**
    * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>The position of the transaction output in the transaction output list.</p>
    * @public
    */
-  voutIndex?: number;
+  voutIndex?: number | undefined;
 
   /**
    * <p>Specifies if the transaction output is spent or unspent. This is only returned for BITCOIN_VOUT event types.</p>
@@ -1295,7 +1295,7 @@ export interface TransactionEvent {
    *          </note>
    * @public
    */
-  voutSpent?: boolean;
+  voutSpent?: boolean | undefined;
 
   /**
    * <p>The transactionId that <i>created</i> the spent transaction output.</p>
@@ -1304,7 +1304,7 @@ export interface TransactionEvent {
    *          </note>
    * @public
    */
-  spentVoutTransactionId?: string;
+  spentVoutTransactionId?: string | undefined;
 
   /**
    * <p>The transactionHash that <i>created</i> the spent transaction output.</p>
@@ -1313,7 +1313,7 @@ export interface TransactionEvent {
    *          </note>
    * @public
    */
-  spentVoutTransactionHash?: string;
+  spentVoutTransactionHash?: string | undefined;
 
   /**
    * <p>The position of the spent transaction output in the output list of the <i>creating transaction</i>.</p>
@@ -1322,19 +1322,19 @@ export interface TransactionEvent {
    *          </note>
    * @public
    */
-  spentVoutIndex?: number;
+  spentVoutIndex?: number | undefined;
 
   /**
    * <p>The container for time.</p>
    * @public
    */
-  blockchainInstant?: BlockchainInstant;
+  blockchainInstant?: BlockchainInstant | undefined;
 
   /**
    * <p>This container specifies whether the transaction has reached Finality.</p>
    * @public
    */
-  confirmationStatus?: ConfirmationStatus;
+  confirmationStatus?: ConfirmationStatus | undefined;
 }
 
 /**
@@ -1351,7 +1351,7 @@ export interface ListFilteredTransactionEventsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1387,13 +1387,13 @@ export interface TokenFilter {
    * <p>This is the address of the contract.</p>
    * @public
    */
-  contractAddress?: string;
+  contractAddress?: string | undefined;
 
   /**
    * <p>The unique identifier of the token.</p>
    * @public
    */
-  tokenId?: string;
+  tokenId?: string | undefined;
 }
 
 /**
@@ -1406,7 +1406,7 @@ export interface ListTokenBalancesInput {
    *          when listing balances of tokens owned by the address.</p>
    * @public
    */
-  ownerFilter?: OwnerFilter;
+  ownerFilter?: OwnerFilter | undefined;
 
   /**
    * <p>The contract address or a token identifier on the
@@ -1424,7 +1424,7 @@ export interface ListTokenBalancesInput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of token balances to return.</p>
@@ -1439,7 +1439,7 @@ export interface ListTokenBalancesInput {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1451,13 +1451,13 @@ export interface TokenBalance {
    * <p>The container for the identifier of the owner.</p>
    * @public
    */
-  ownerIdentifier?: OwnerIdentifier;
+  ownerIdentifier?: OwnerIdentifier | undefined;
 
   /**
    * <p>The identifier for the token, including the unique token ID and its blockchain network.</p>
    * @public
    */
-  tokenIdentifier?: TokenIdentifier;
+  tokenIdentifier?: TokenIdentifier | undefined;
 
   /**
    * <p>The container of the token balance.</p>
@@ -1479,7 +1479,7 @@ export interface TokenBalance {
    * <p>The <code>Timestamp</code> of the last transaction at which the balance for the token in the wallet was updated.</p>
    * @public
    */
-  lastUpdatedTime?: BlockchainInstant;
+  lastUpdatedTime?: BlockchainInstant | undefined;
 }
 
 /**
@@ -1497,7 +1497,7 @@ export interface ListTokenBalancesOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1508,7 +1508,7 @@ export interface ListTransactionEventsInput {
    * <p>The hash of a transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionHash?: string;
+  transactionHash?: string | undefined;
 
   /**
    * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
@@ -1518,7 +1518,7 @@ export interface ListTransactionEventsInput {
    *          </note>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>The blockchain network where the transaction events occurred.</p>
@@ -1530,7 +1530,7 @@ export interface ListTransactionEventsInput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of transaction events to list.</p>
@@ -1545,7 +1545,7 @@ export interface ListTransactionEventsInput {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1563,7 +1563,7 @@ export interface ListTransactionEventsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1592,7 +1592,7 @@ export interface ListTransactionsSort {
    * <p>Defaults to the value <code>TRANSACTION_TIMESTAMP</code>.</p>
    * @public
    */
-  sortBy?: ListTransactionsSortBy;
+  sortBy?: ListTransactionsSortBy | undefined;
 
   /**
    * <p>The container for the <i>sort order</i> for <code>ListTransactions</code>.
@@ -1601,7 +1601,7 @@ export interface ListTransactionsSort {
    *              to <code>ASCENDING</code>.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -1624,25 +1624,25 @@ export interface ListTransactionsInput {
    * <p>The container for time.</p>
    * @public
    */
-  fromBlockchainInstant?: BlockchainInstant;
+  fromBlockchainInstant?: BlockchainInstant | undefined;
 
   /**
    * <p>The container for time.</p>
    * @public
    */
-  toBlockchainInstant?: BlockchainInstant;
+  toBlockchainInstant?: BlockchainInstant | undefined;
 
   /**
    * <p>The order by which the results will be sorted. </p>
    * @public
    */
-  sort?: ListTransactionsSort;
+  sort?: ListTransactionsSort | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of transactions to list.</p>
@@ -1657,7 +1657,7 @@ export interface ListTransactionsInput {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>This filter is used to include transactions in the response that haven't reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
@@ -1666,7 +1666,7 @@ export interface ListTransactionsInput {
    *          part of the response.</p>
    * @public
    */
-  confirmationStatusFilter?: ConfirmationStatusFilter;
+  confirmationStatusFilter?: ConfirmationStatusFilter | undefined;
 }
 
 /**
@@ -1684,7 +1684,7 @@ export interface TransactionOutputItem {
    * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>The blockchain network where the transaction occurred.</p>
@@ -1702,7 +1702,7 @@ export interface TransactionOutputItem {
    * <p>Specifies whether to list transactions that have not reached Finality.</p>
    * @public
    */
-  confirmationStatus?: ConfirmationStatus;
+  confirmationStatus?: ConfirmationStatus | undefined;
 }
 
 /**
@@ -1719,5 +1719,5 @@ export interface ListTransactionsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }

@@ -28,7 +28,7 @@ export interface ListFaqsCommandInput extends ListFaqsRequest {}
 export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of FAQ lists associated with an index.</p>
+ * <p>Gets a list of FAQs associated with an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,6 +88,7 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListFaqsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListFaqsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListFaqsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFaqsCommand)
   .de(de_ListFaqsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFaqsRequest;
+      output: ListFaqsResponse;
+    };
+    sdk: {
+      input: ListFaqsCommandInput;
+      output: ListFaqsCommandOutput;
+    };
+  };
+}

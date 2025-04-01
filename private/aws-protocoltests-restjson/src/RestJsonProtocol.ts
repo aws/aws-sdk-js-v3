@@ -218,6 +218,11 @@ import {
   MalformedContentTypeWithoutBodyCommandOutput,
 } from "./commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputCommand,
+  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
+} from "./commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
+import {
   MalformedContentTypeWithPayloadCommand,
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,
@@ -413,6 +418,16 @@ import {
   RecursiveShapesCommandOutput,
 } from "./commands/RecursiveShapesCommand";
 import {
+  ResponseCodeHttpFallbackCommand,
+  ResponseCodeHttpFallbackCommandInput,
+  ResponseCodeHttpFallbackCommandOutput,
+} from "./commands/ResponseCodeHttpFallbackCommand";
+import {
+  ResponseCodeRequiredCommand,
+  ResponseCodeRequiredCommandInput,
+  ResponseCodeRequiredCommandOutput,
+} from "./commands/ResponseCodeRequiredCommand";
+import {
   SimpleScalarPropertiesCommand,
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -448,15 +463,15 @@ import {
   TestBodyStructureCommandOutput,
 } from "./commands/TestBodyStructureCommand";
 import {
-  TestNoInputNoPayloadCommand,
-  TestNoInputNoPayloadCommandInput,
-  TestNoInputNoPayloadCommandOutput,
-} from "./commands/TestNoInputNoPayloadCommand";
+  TestGetNoInputNoPayloadCommand,
+  TestGetNoInputNoPayloadCommandInput,
+  TestGetNoInputNoPayloadCommandOutput,
+} from "./commands/TestGetNoInputNoPayloadCommand";
 import {
-  TestNoPayloadCommand,
-  TestNoPayloadCommandInput,
-  TestNoPayloadCommandOutput,
-} from "./commands/TestNoPayloadCommand";
+  TestGetNoPayloadCommand,
+  TestGetNoPayloadCommandInput,
+  TestGetNoPayloadCommandOutput,
+} from "./commands/TestGetNoPayloadCommand";
 import {
   TestPayloadBlobCommand,
   TestPayloadBlobCommandInput,
@@ -467,6 +482,16 @@ import {
   TestPayloadStructureCommandInput,
   TestPayloadStructureCommandOutput,
 } from "./commands/TestPayloadStructureCommand";
+import {
+  TestPostNoInputNoPayloadCommand,
+  TestPostNoInputNoPayloadCommandInput,
+  TestPostNoInputNoPayloadCommandOutput,
+} from "./commands/TestPostNoInputNoPayloadCommand";
+import {
+  TestPostNoPayloadCommand,
+  TestPostNoPayloadCommandInput,
+  TestPostNoPayloadCommandOutput,
+} from "./commands/TestPostNoPayloadCommand";
 import {
   TimestampFormatHeadersCommand,
   TimestampFormatHeadersCommandInput,
@@ -527,6 +552,7 @@ const commands = {
   MalformedContentTypeWithBodyCommand,
   MalformedContentTypeWithGenericStringCommand,
   MalformedContentTypeWithoutBodyCommand,
+  MalformedContentTypeWithoutBodyEmptyInputCommand,
   MalformedContentTypeWithPayloadCommand,
   MalformedDoubleCommand,
   MalformedFloatCommand,
@@ -566,6 +592,8 @@ const commands = {
   QueryParamsAsStringListMapCommand,
   QueryPrecedenceCommand,
   RecursiveShapesCommand,
+  ResponseCodeHttpFallbackCommand,
+  ResponseCodeRequiredCommand,
   SimpleScalarPropertiesCommand,
   SparseJsonListsCommand,
   SparseJsonMapsCommand,
@@ -573,10 +601,12 @@ const commands = {
   StreamingTraitsRequireLengthCommand,
   StreamingTraitsWithMediaTypeCommand,
   TestBodyStructureCommand,
-  TestNoInputNoPayloadCommand,
-  TestNoPayloadCommand,
+  TestGetNoInputNoPayloadCommand,
+  TestGetNoPayloadCommand,
   TestPayloadBlobCommand,
   TestPayloadStructureCommand,
+  TestPostNoInputNoPayloadCommand,
+  TestPostNoPayloadCommand,
   TimestampFormatHeadersCommand,
   UnitInputAndOutputCommand,
 };
@@ -1357,6 +1387,24 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link MalformedContentTypeWithoutBodyEmptyInputCommand}
+   */
+  malformedContentTypeWithoutBodyEmptyInput(): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyEmptyInputCommandOutput) => void
+  ): void;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyEmptyInputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link MalformedContentTypeWithPayloadCommand}
    */
   malformedContentTypeWithPayload(): Promise<MalformedContentTypeWithPayloadCommandOutput>;
@@ -1999,6 +2047,42 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link ResponseCodeHttpFallbackCommand}
+   */
+  responseCodeHttpFallback(): Promise<ResponseCodeHttpFallbackCommandOutput>;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResponseCodeHttpFallbackCommandOutput>;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    cb: (err: any, data?: ResponseCodeHttpFallbackCommandOutput) => void
+  ): void;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResponseCodeHttpFallbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResponseCodeRequiredCommand}
+   */
+  responseCodeRequired(): Promise<ResponseCodeRequiredCommandOutput>;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResponseCodeRequiredCommandOutput>;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    cb: (err: any, data?: ResponseCodeRequiredCommandOutput) => void
+  ): void;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResponseCodeRequiredCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SimpleScalarPropertiesCommand}
    */
   simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
@@ -2116,33 +2200,39 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
-   * @see {@link TestNoInputNoPayloadCommand}
+   * @see {@link TestGetNoInputNoPayloadCommand}
    */
-  testNoInputNoPayload(): Promise<TestNoInputNoPayloadCommandOutput>;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
+  testGetNoInputNoPayload(): Promise<TestGetNoInputNoPayloadCommandOutput>;
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<TestNoInputNoPayloadCommandOutput>;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
-    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
+  ): Promise<TestGetNoInputNoPayloadCommandOutput>;
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
+    cb: (err: any, data?: TestGetNoInputNoPayloadCommandOutput) => void
   ): void;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
+    cb: (err: any, data?: TestGetNoInputNoPayloadCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link TestNoPayloadCommand}
+   * @see {@link TestGetNoPayloadCommand}
    */
-  testNoPayload(): Promise<TestNoPayloadCommandOutput>;
-  testNoPayload(args: TestNoPayloadCommandInput, options?: __HttpHandlerOptions): Promise<TestNoPayloadCommandOutput>;
-  testNoPayload(args: TestNoPayloadCommandInput, cb: (err: any, data?: TestNoPayloadCommandOutput) => void): void;
-  testNoPayload(
-    args: TestNoPayloadCommandInput,
+  testGetNoPayload(): Promise<TestGetNoPayloadCommandOutput>;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestGetNoPayloadCommandOutput>;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
+    cb: (err: any, data?: TestGetNoPayloadCommandOutput) => void
+  ): void;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestNoPayloadCommandOutput) => void
+    cb: (err: any, data?: TestGetNoPayloadCommandOutput) => void
   ): void;
 
   /**
@@ -2176,6 +2266,42 @@ export interface RestJsonProtocol {
     args: TestPayloadStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TestPayloadStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestPostNoInputNoPayloadCommand}
+   */
+  testPostNoInputNoPayload(): Promise<TestPostNoInputNoPayloadCommandOutput>;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPostNoInputNoPayloadCommandOutput>;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    cb: (err: any, data?: TestPostNoInputNoPayloadCommandOutput) => void
+  ): void;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPostNoInputNoPayloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestPostNoPayloadCommand}
+   */
+  testPostNoPayload(): Promise<TestPostNoPayloadCommandOutput>;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPostNoPayloadCommandOutput>;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    cb: (err: any, data?: TestPostNoPayloadCommandOutput) => void
+  ): void;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPostNoPayloadCommandOutput) => void
   ): void;
 
   /**

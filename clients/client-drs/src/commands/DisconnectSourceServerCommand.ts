@@ -173,6 +173,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DisconnectSourceServerCommand extends $Command
@@ -183,9 +184,7 @@ export class DisconnectSourceServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -197,4 +196,16 @@ export class DisconnectSourceServerCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_DisconnectSourceServerCommand)
   .de(de_DisconnectSourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectSourceServerRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: DisconnectSourceServerCommandInput;
+      output: DisconnectSourceServerCommandOutput;
+    };
+  };
+}

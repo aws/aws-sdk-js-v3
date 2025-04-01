@@ -33,7 +33,7 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
     __MetadataBearer {}
 
 /**
- * Lists all authorized MS teams for AWS Account
+ * <p>Lists all authorized Microsoft Teams for an AWS Account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +52,8 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
  * //       TenantId: "STRING_VALUE", // required
  * //       TeamId: "STRING_VALUE", // required
  * //       TeamName: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -66,16 +68,17 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ListMicrosoftTeamsConfiguredTeamsException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +90,7 @@ export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMicrosoftTeamsConfiguredTeamsCommand)
   .de(de_ListMicrosoftTeamsConfiguredTeamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMicrosoftTeamsConfiguredTeamsRequest;
+      output: ListMicrosoftTeamsConfiguredTeamsResult;
+    };
+    sdk: {
+      input: ListMicrosoftTeamsConfiguredTeamsCommandInput;
+      output: ListMicrosoftTeamsConfiguredTeamsCommandOutput;
+    };
+  };
+}

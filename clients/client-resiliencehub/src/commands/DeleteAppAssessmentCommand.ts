@@ -28,8 +28,8 @@ export interface DeleteAppAssessmentCommandInput extends DeleteAppAssessmentRequ
 export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Resilience Hub application assessment. This is a destructive action that can't
- *       be undone.</p>
+ * <p>Deletes an Resilience Hub application assessment. This is a destructive action
+ *       that can't be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * const response = await client.send(command);
  * // { // DeleteAppAssessmentResponse
  * //   assessmentArn: "STRING_VALUE", // required
- * //   assessmentStatus: "STRING_VALUE", // required
+ * //   assessmentStatus: "Pending" || "InProgress" || "Failed" || "Success", // required
  * // };
  *
  * ```
@@ -82,6 +82,7 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppAssessmentCommand extends $Command
@@ -92,9 +93,7 @@ export class DeleteAppAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DeleteAppAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppAssessmentCommand)
   .de(de_DeleteAppAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppAssessmentRequest;
+      output: DeleteAppAssessmentResponse;
+    };
+    sdk: {
+      input: DeleteAppAssessmentCommandInput;
+      output: DeleteAppAssessmentCommandOutput;
+    };
+  };
+}

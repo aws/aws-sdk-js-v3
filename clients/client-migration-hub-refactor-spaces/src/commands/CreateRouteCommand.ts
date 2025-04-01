@@ -197,6 +197,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateRouteCommand extends $Command
@@ -207,9 +208,7 @@ export class CreateRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -221,4 +220,16 @@ export class CreateRouteCommand extends $Command
   .f(CreateRouteRequestFilterSensitiveLog, CreateRouteResponseFilterSensitiveLog)
   .ser(se_CreateRouteCommand)
   .de(de_CreateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteRequest;
+      output: CreateRouteResponse;
+    };
+    sdk: {
+      input: CreateRouteCommandInput;
+      output: CreateRouteCommandOutput;
+    };
+  };
+}

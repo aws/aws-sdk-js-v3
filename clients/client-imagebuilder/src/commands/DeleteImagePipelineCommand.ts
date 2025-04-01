@@ -81,6 +81,7 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteImagePipelineCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteImagePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteImagePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImagePipelineCommand)
   .de(de_DeleteImagePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImagePipelineRequest;
+      output: DeleteImagePipelineResponse;
+    };
+    sdk: {
+      input: DeleteImagePipelineCommandInput;
+      output: DeleteImagePipelineCommandOutput;
+    };
+  };
+}

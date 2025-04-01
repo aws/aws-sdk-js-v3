@@ -45,6 +45,7 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * //     webhookArn: "STRING_VALUE", // required
  * //     webhookId: "STRING_VALUE", // required
  * //     webhookUrl: "STRING_VALUE", // required
+ * //     appId: "STRING_VALUE",
  * //     branchName: "STRING_VALUE", // required
  * //     description: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
@@ -78,6 +79,7 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class GetWebhookCommand extends $Command
@@ -88,9 +90,7 @@ export class GetWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebhookCommand)
   .de(de_GetWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebhookRequest;
+      output: GetWebhookResult;
+    };
+    sdk: {
+      input: GetWebhookCommandInput;
+      output: GetWebhookCommandOutput;
+    };
+  };
+}

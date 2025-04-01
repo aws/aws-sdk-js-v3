@@ -69,20 +69,23 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example PutIdentityPolicy
  * ```javascript
  * // The following example adds a sending authorization policy to an identity:
  * const input = {
- *   "Identity": "example.com",
- *   "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}",
- *   "PolicyName": "MyPolicy"
+ *   Identity: "example.com",
+ *   Policy: `{"Version":"2008-10-17","Statement":[{"Sid":"stmt1469123904194","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":["ses:SendEmail","ses:SendRawEmail"],"Resource":"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com"}]}`,
+ *   PolicyName: "MyPolicy"
  * };
  * const command = new PutIdentityPolicyCommand(input);
- * await client.send(command);
- * // example id: putidentitypolicy-1469124560016
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutIdentityPolicyCommand extends $Command
   .classBuilder<
@@ -92,9 +95,7 @@ export class PutIdentityPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class PutIdentityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutIdentityPolicyCommand)
   .de(de_PutIdentityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIdentityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutIdentityPolicyCommandInput;
+      output: PutIdentityPolicyCommandOutput;
+    };
+  };
+}

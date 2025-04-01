@@ -73,6 +73,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class RegisterAccountCommand extends $Command
@@ -83,9 +84,7 @@ export class RegisterAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class RegisterAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterAccountCommand)
   .de(de_RegisterAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterAccountRequest;
+      output: RegisterAccountResponse;
+    };
+    sdk: {
+      input: RegisterAccountCommandInput;
+      output: RegisterAccountCommandOutput;
+    };
+  };
+}

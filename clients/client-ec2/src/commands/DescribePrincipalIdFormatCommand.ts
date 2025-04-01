@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribePrincipalIdFormatRequest, DescribePrincipalIdFormatResult } from "../models/models_4";
+import { DescribePrincipalIdFormatRequest, DescribePrincipalIdFormatResult } from "../models/models_5";
 import { de_DescribePrincipalIdFormatCommand, se_DescribePrincipalIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -89,6 +89,7 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribePrincipalIdFormatCommand extends $Command
@@ -99,9 +100,7 @@ export class DescribePrincipalIdFormatCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribePrincipalIdFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePrincipalIdFormatCommand)
   .de(de_DescribePrincipalIdFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePrincipalIdFormatRequest;
+      output: DescribePrincipalIdFormatResult;
+    };
+    sdk: {
+      input: DescribePrincipalIdFormatCommandInput;
+      output: DescribePrincipalIdFormatCommandOutput;
+    };
+  };
+}

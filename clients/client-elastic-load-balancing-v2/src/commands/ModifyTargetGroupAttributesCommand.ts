@@ -76,46 +76,46 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To modify the deregistration delay timeout
  * ```javascript
  * // This example sets the deregistration delay timeout to the specified value for the specified target group.
  * const input = {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "deregistration_delay.timeout_seconds",
- *       "Value": "600"
+ *       Key: "deregistration_delay.timeout_seconds",
+ *       Value: "600"
  *     }
  *   ],
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  * };
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "stickiness.enabled",
- *       "Value": "false"
+ *       Key: "stickiness.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "deregistration_delay.timeout_seconds",
- *       "Value": "600"
+ *       Key: "deregistration_delay.timeout_seconds",
+ *       Value: "600"
  *     },
  *     {
- *       "Key": "stickiness.type",
- *       "Value": "lb_cookie"
+ *       Key: "stickiness.type",
+ *       Value: "lb_cookie"
  *     },
  *     {
- *       "Key": "stickiness.lb_cookie.duration_seconds",
- *       "Value": "86400"
+ *       Key: "stickiness.lb_cookie.duration_seconds",
+ *       Value: "86400"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-target-group-attributes-1
  * ```
  *
+ * @public
  */
 export class ModifyTargetGroupAttributesCommand extends $Command
   .classBuilder<
@@ -125,9 +125,7 @@ export class ModifyTargetGroupAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +137,16 @@ export class ModifyTargetGroupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTargetGroupAttributesCommand)
   .de(de_ModifyTargetGroupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTargetGroupAttributesInput;
+      output: ModifyTargetGroupAttributesOutput;
+    };
+    sdk: {
+      input: ModifyTargetGroupAttributesCommandInput;
+      output: ModifyTargetGroupAttributesCommandOutput;
+    };
+  };
+}

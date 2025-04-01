@@ -105,6 +105,7 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command
@@ -115,9 +116,7 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUpdatedWorkspaceImageCommand)
   .de(de_CreateUpdatedWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUpdatedWorkspaceImageRequest;
+      output: CreateUpdatedWorkspaceImageResult;
+    };
+    sdk: {
+      input: CreateUpdatedWorkspaceImageCommandInput;
+      output: CreateUpdatedWorkspaceImageCommandOutput;
+    };
+  };
+}

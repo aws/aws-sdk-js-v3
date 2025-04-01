@@ -32,7 +32,7 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  *       a time.</p>
  *          <p>The <code>update load balancer attribute</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer
- *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *         name</code>. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +109,7 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateLoadBalancerAttributeCommand extends $Command
@@ -119,9 +120,7 @@ export class UpdateLoadBalancerAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class UpdateLoadBalancerAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLoadBalancerAttributeCommand)
   .de(de_UpdateLoadBalancerAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLoadBalancerAttributeRequest;
+      output: UpdateLoadBalancerAttributeResult;
+    };
+    sdk: {
+      input: UpdateLoadBalancerAttributeCommandInput;
+      output: UpdateLoadBalancerAttributeCommandOutput;
+    };
+  };
+}

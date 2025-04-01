@@ -24,7 +24,7 @@ devices in the cloud. For more information, see the <a href="https://docs.aws.am
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-device-farm
+To install this package, simply type add or install @aws-sdk/client-device-farm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-device-farm`

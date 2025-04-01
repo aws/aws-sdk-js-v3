@@ -73,6 +73,7 @@ export interface TerminateWorkspacesPoolSessionCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class TerminateWorkspacesPoolSessionCommand extends $Command
@@ -83,9 +84,7 @@ export class TerminateWorkspacesPoolSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class TerminateWorkspacesPoolSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateWorkspacesPoolSessionCommand)
   .de(de_TerminateWorkspacesPoolSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateWorkspacesPoolSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: TerminateWorkspacesPoolSessionCommandInput;
+      output: TerminateWorkspacesPoolSessionCommandOutput;
+    };
+  };
+}

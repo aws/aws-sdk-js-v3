@@ -94,8 +94,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //           alarmNames: [ // StringList // required
  * //             "STRING_VALUE",
  * //           ],
- * //           enable: true || false, // required
  * //           rollback: true || false, // required
+ * //           enable: true || false, // required
  * //         },
  * //       },
  * //       taskSets: [ // TaskSets
@@ -271,13 +271,20 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //                   },
  * //                 ],
  * //                 roleArn: "STRING_VALUE", // required
- * //                 filesystemType: "ext3" || "ext4" || "xfs",
+ * //                 filesystemType: "ext3" || "ext4" || "xfs" || "ntfs",
  * //               },
  * //             },
  * //           ],
  * //           fargateEphemeralStorage: {
  * //             kmsKeyId: "STRING_VALUE",
  * //           },
+ * //           vpcLatticeConfigurations: [ // VpcLatticeConfigurations
+ * //             { // VpcLatticeConfiguration
+ * //               roleArn: "STRING_VALUE", // required
+ * //               targetGroupArn: "STRING_VALUE", // required
+ * //               portName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       roleArn: "STRING_VALUE",
@@ -318,6 +325,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //       enableECSManagedTags: true || false,
  * //       propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //       enableExecuteCommand: true || false,
+ * //       availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -341,13 +349,24 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -355,62 +374,62 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a service
  * ```javascript
  * // This example provides descriptive information about the service named ``ecs-simple-service``.
  * const input = {
- *   "services": [
+ *   services: [
  *     "ecs-simple-service"
  *   ]
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "services": [
+ *   failures:   [],
+ *   services: [
  *     {
- *       "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
- *       "createdAt": "2016-08-29T16:25:52.130Z",
- *       "deploymentConfiguration": {
- *         "maximumPercent": 200,
- *         "minimumHealthyPercent": 100
+ *       clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       createdAt: "2016-08-29T16:25:52.130Z",
+ *       deploymentConfiguration: {
+ *         maximumPercent: 200,
+ *         minimumHealthyPercent: 100
  *       },
- *       "deployments": [
+ *       deployments: [
  *         {
- *           "createdAt": "2016-08-29T16:25:52.130Z",
- *           "desiredCount": 1,
- *           "id": "ecs-svc/9223370564341623665",
- *           "pendingCount": 0,
- *           "runningCount": 0,
- *           "status": "PRIMARY",
- *           "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
- *           "updatedAt": "2016-08-29T16:25:52.130Z"
+ *           createdAt: "2016-08-29T16:25:52.130Z",
+ *           desiredCount: 1,
+ *           id: "ecs-svc/9223370564341623665",
+ *           pendingCount: 0,
+ *           runningCount: 0,
+ *           status: "PRIMARY",
+ *           taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *           updatedAt: "2016-08-29T16:25:52.130Z"
  *         }
  *       ],
- *       "desiredCount": 1,
- *       "events": [
+ *       desiredCount: 1,
+ *       events: [
  *         {
- *           "createdAt": "2016-08-29T16:25:58.520Z",
- *           "id": "38c285e5-d335-4b68-8b15-e46dedc8e88d",
- *           "message": "(service ecs-simple-service) was unable to place a task because no container instance met all of its requirements. The closest matching (container-instance 3f4de1c5-ffdd-4954-af7e-75b4be0c8841) is already using a port required by your task. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide."
+ *           createdAt: "2016-08-29T16:25:58.520Z",
+ *           id: "38c285e5-d335-4b68-8b15-e46dedc8e88d",
+ *           message: "(service ecs-simple-service) was unable to place a task because no container instance met all of its requirements. The closest matching (container-instance 3f4de1c5-ffdd-4954-af7e-75b4be0c8841) is already using a port required by your task. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide."
  *         }
  *       ],
- *       "loadBalancers": [],
- *       "pendingCount": 0,
- *       "runningCount": 0,
- *       "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
- *       "serviceName": "ecs-simple-service",
- *       "status": "ACTIVE",
- *       "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
+ *       loadBalancers:       [],
+ *       pendingCount: 0,
+ *       runningCount: 0,
+ *       serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
+ *       serviceName: "ecs-simple-service",
+ *       status: "ACTIVE",
+ *       taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-service-1472513256350
  * ```
  *
+ * @public
  */
 export class DescribeServicesCommand extends $Command
   .classBuilder<
@@ -420,9 +439,7 @@ export class DescribeServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -434,4 +451,16 @@ export class DescribeServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServicesCommand)
   .de(de_DescribeServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServicesRequest;
+      output: DescribeServicesResponse;
+    };
+    sdk: {
+      input: DescribeServicesCommandInput;
+      output: DescribeServicesCommandOutput;
+    };
+  };
+}

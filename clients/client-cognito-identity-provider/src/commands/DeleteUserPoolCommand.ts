@@ -32,7 +32,15 @@ export interface DeleteUserPoolCommandInput extends DeleteUserPoolRequest {}
 export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Amazon Cognito user pool.</p>
+ * <p>Deletes a user pool. After you delete a user pool, users can no longer sign in to any
+ *             associated applications. </p>
+ *          <p>When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14
+ *             days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case
+ *             of accidental deletion, contact Amazon Web ServicesSupport within 14 days for restoration
+ *             assistance.</p>
+ *          <p>Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In
+ *             the case of large user pools, the cleanup process might take significant additional time
+ *             before all user data is permanently deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +87,7 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserPoolCommand extends $Command
@@ -89,9 +98,7 @@ export class DeleteUserPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +110,16 @@ export class DeleteUserPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserPoolCommand)
   .de(de_DeleteUserPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPoolCommandInput;
+      output: DeleteUserPoolCommandOutput;
+    };
+  };
+}

@@ -102,6 +102,7 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class CreateSubnetGroupCommand extends $Command
@@ -112,9 +113,7 @@ export class CreateSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class CreateSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSubnetGroupCommand)
   .de(de_CreateSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSubnetGroupRequest;
+      output: CreateSubnetGroupResponse;
+    };
+    sdk: {
+      input: CreateSubnetGroupCommandInput;
+      output: CreateSubnetGroupCommandOutput;
+    };
+  };
+}

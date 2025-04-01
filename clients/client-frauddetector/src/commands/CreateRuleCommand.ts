@@ -84,6 +84,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleCommand extends $Command
@@ -94,9 +95,7 @@ export class CreateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateRuleCommand extends $Command
   .f(CreateRuleRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRuleCommand)
   .de(de_CreateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleRequest;
+      output: CreateRuleResult;
+    };
+    sdk: {
+      input: CreateRuleCommandInput;
+      output: CreateRuleCommandOutput;
+    };
+  };
+}

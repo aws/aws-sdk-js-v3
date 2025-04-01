@@ -102,6 +102,7 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class AcknowledgeOrderReceiptCommand extends $Command
@@ -112,9 +113,7 @@ export class AcknowledgeOrderReceiptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class AcknowledgeOrderReceiptCommand extends $Command
   .f(void 0, AcknowledgeOrderReceiptResponseFilterSensitiveLog)
   .ser(se_AcknowledgeOrderReceiptCommand)
   .de(de_AcknowledgeOrderReceiptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcknowledgeOrderReceiptRequest;
+      output: AcknowledgeOrderReceiptResponse;
+    };
+    sdk: {
+      input: AcknowledgeOrderReceiptCommandInput;
+      output: AcknowledgeOrderReceiptCommandOutput;
+    };
+  };
+}

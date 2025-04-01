@@ -13,7 +13,7 @@ AWS SDK for JavaScript TimestreamQuery Client for Node.js, Browser and React Nat
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-timestream-query
+To install this package, simply type add or install @aws-sdk/client-timestream-query
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-timestream-query`

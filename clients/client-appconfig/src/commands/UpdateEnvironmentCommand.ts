@@ -54,7 +54,7 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * //   Id: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   Monitors: [ // MonitorList
  * //     { // Monitor
  * //       AlarmArn: "STRING_VALUE", // required
@@ -83,29 +83,29 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To update an environment
  * ```javascript
  * // The following update-environment example updates an environment's description.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "Description": "An environment for examples.",
- *   "EnvironmentId": "54j1r29"
+ *   ApplicationId: "339ohji",
+ *   Description: "An environment for examples.",
+ *   EnvironmentId: "54j1r29"
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Description": "An environment for examples.",
- *   "Id": "54j1r29",
- *   "Name": "Example-Environment",
- *   "State": "ROLLED_BACK"
+ *   ApplicationId: "339ohji",
+ *   Description: "An environment for examples.",
+ *   Id: "54j1r29",
+ *   Name: "Example-Environment",
+ *   State: "ROLLED_BACK"
  * }
  * *\/
- * // example id: to-update-an-environment-1632331382428
  * ```
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<
@@ -115,9 +115,7 @@ export class UpdateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +127,16 @@ export class UpdateEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentCommand)
   .de(de_UpdateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentRequest;
+      output: Environment;
+    };
+    sdk: {
+      input: UpdateEnvironmentCommandInput;
+      output: UpdateEnvironmentCommandOutput;
+    };
+  };
+}

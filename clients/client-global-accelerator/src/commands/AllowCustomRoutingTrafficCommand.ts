@@ -79,6 +79,7 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class AllowCustomRoutingTrafficCommand extends $Command
@@ -89,9 +90,7 @@ export class AllowCustomRoutingTrafficCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class AllowCustomRoutingTrafficCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllowCustomRoutingTrafficCommand)
   .de(de_AllowCustomRoutingTrafficCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllowCustomRoutingTrafficRequest;
+      output: {};
+    };
+    sdk: {
+      input: AllowCustomRoutingTrafficCommandInput;
+      output: AllowCustomRoutingTrafficCommandOutput;
+    };
+  };
+}

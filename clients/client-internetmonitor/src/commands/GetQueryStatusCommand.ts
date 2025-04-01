@@ -94,6 +94,7 @@ export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __Met
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetQueryStatusCommand extends $Command
@@ -104,9 +105,7 @@ export class GetQueryStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class GetQueryStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryStatusCommand)
   .de(de_GetQueryStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryStatusInput;
+      output: GetQueryStatusOutput;
+    };
+    sdk: {
+      input: GetQueryStatusCommandInput;
+      output: GetQueryStatusCommandOutput;
+    };
+  };
+}

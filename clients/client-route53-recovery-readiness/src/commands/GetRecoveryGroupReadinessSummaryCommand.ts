@@ -88,6 +88,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ *
  * @public
  */
 export class GetRecoveryGroupReadinessSummaryCommand extends $Command
@@ -98,9 +99,7 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecoveryGroupReadinessSummaryCommand)
   .de(de_GetRecoveryGroupReadinessSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecoveryGroupReadinessSummaryRequest;
+      output: GetRecoveryGroupReadinessSummaryResponse;
+    };
+    sdk: {
+      input: GetRecoveryGroupReadinessSummaryCommandInput;
+      output: GetRecoveryGroupReadinessSummaryCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFastLaunchImagesRequest, DescribeFastLaunchImagesResult } from "../models/models_3";
+import { DescribeFastLaunchImagesRequest, DescribeFastLaunchImagesResult } from "../models/models_4";
 import { de_DescribeFastLaunchImagesCommand, se_DescribeFastLaunchImagesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -87,6 +87,7 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeFastLaunchImagesCommand extends $Command
@@ -97,9 +98,7 @@ export class DescribeFastLaunchImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DescribeFastLaunchImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFastLaunchImagesCommand)
   .de(de_DescribeFastLaunchImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFastLaunchImagesRequest;
+      output: DescribeFastLaunchImagesResult;
+    };
+    sdk: {
+      input: DescribeFastLaunchImagesCommandInput;
+      output: DescribeFastLaunchImagesCommandOutput;
+    };
+  };
+}

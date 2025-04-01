@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_3";
+import { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_4";
 import { de_DescribeGroupMembershipCommand, se_DescribeGroupMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -89,6 +89,7 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeGroupMembershipCommand extends $Command
@@ -99,9 +100,7 @@ export class DescribeGroupMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeGroupMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGroupMembershipCommand)
   .de(de_DescribeGroupMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGroupMembershipRequest;
+      output: DescribeGroupMembershipResponse;
+    };
+    sdk: {
+      input: DescribeGroupMembershipCommandInput;
+      output: DescribeGroupMembershipCommandOutput;
+    };
+  };
+}

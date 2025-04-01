@@ -14,7 +14,7 @@ import {
   ListUserPoolClientsRequest,
   ListUserPoolClientsResponse,
   ListUserPoolClientsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListUserPoolClientsCommand, se_ListUserPoolClientsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -36,7 +36,8 @@ export interface ListUserPoolClientsCommandInput extends ListUserPoolClientsRequ
 export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the clients that have been created for the specified user pool.</p>
+ * <p>Given a user pool ID, lists app clients. App clients are sets of rules for the access
+ *             that you want a user pool to grant to one application. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App clients</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -110,6 +111,7 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListUserPoolClientsCommand extends $Command
@@ -120,9 +122,7 @@ export class ListUserPoolClientsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class ListUserPoolClientsCommand extends $Command
   .f(void 0, ListUserPoolClientsResponseFilterSensitiveLog)
   .ser(se_ListUserPoolClientsCommand)
   .de(de_ListUserPoolClientsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserPoolClientsRequest;
+      output: ListUserPoolClientsResponse;
+    };
+    sdk: {
+      input: ListUserPoolClientsCommandInput;
+      output: ListUserPoolClientsCommandOutput;
+    };
+  };
+}

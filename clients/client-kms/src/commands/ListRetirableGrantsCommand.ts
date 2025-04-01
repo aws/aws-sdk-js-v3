@@ -154,37 +154,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To list grants that the specified principal can retire
- * ```javascript
- * // The following example lists the grants that the specified principal (identity) can retire.
- * const input = {
- *   "RetiringPrincipal": "arn:aws:iam::111122223333:role/ExampleRole"
- * };
- * const command = new ListRetirableGrantsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Grants": [
- *     {
- *       "CreationDate": "2016-12-07T11:09:35-08:00",
- *       "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
- *       "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
- *       "IssuingAccount": "arn:aws:iam::444455556666:root",
- *       "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "Operations": [
- *         "Decrypt",
- *         "Encrypt"
- *       ],
- *       "RetiringPrincipal": "arn:aws:iam::111122223333:role/ExampleRole"
- *     }
- *   ],
- *   "Truncated": false
- * }
- * *\/
- * // example id: to-list-grants-that-the-specified-principal-can-retire-1481140499620
- * ```
  *
+ * @public
  */
 export class ListRetirableGrantsCommand extends $Command
   .classBuilder<
@@ -194,9 +165,7 @@ export class ListRetirableGrantsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +177,16 @@ export class ListRetirableGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRetirableGrantsCommand)
   .de(de_ListRetirableGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRetirableGrantsRequest;
+      output: ListGrantsResponse;
+    };
+    sdk: {
+      input: ListRetirableGrantsCommandInput;
+      output: ListRetirableGrantsCommandOutput;
+    };
+  };
+}

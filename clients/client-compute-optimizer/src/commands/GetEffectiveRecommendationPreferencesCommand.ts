@@ -121,6 +121,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetEffectiveRecommendationPreferencesCommand extends $Command
@@ -131,9 +132,7 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEffectiveRecommendationPreferencesCommand)
   .de(de_GetEffectiveRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEffectiveRecommendationPreferencesRequest;
+      output: GetEffectiveRecommendationPreferencesResponse;
+    };
+    sdk: {
+      input: GetEffectiveRecommendationPreferencesCommandInput;
+      output: GetEffectiveRecommendationPreferencesCommandOutput;
+    };
+  };
+}

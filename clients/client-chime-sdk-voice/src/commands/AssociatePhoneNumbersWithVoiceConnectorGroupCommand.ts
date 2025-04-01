@@ -100,6 +100,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command
@@ -110,9 +111,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
   )
   .ser(se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand)
   .de(de_AssociatePhoneNumbersWithVoiceConnectorGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePhoneNumbersWithVoiceConnectorGroupRequest;
+      output: AssociatePhoneNumbersWithVoiceConnectorGroupResponse;
+    };
+    sdk: {
+      input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput;
+      output: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput;
+    };
+  };
+}

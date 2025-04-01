@@ -205,41 +205,41 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To read an item from a table
  * ```javascript
  * // This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.
  * const input = {
- *   "Key": {
- *     "Artist": {
- *       "S": "Acme Band"
+ *   Key: {
+ *     Artist: {
+ *       S: "Acme Band"
  *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
+ *     SongTitle: {
+ *       S: "Happy Day"
  *     }
  *   },
- *   "TableName": "Music"
+ *   TableName: "Music"
  * };
  * const command = new GetItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Item": {
- *     "AlbumTitle": {
- *       "S": "Songs About Life"
+ *   Item: {
+ *     AlbumTitle: {
+ *       S: "Songs About Life"
  *     },
- *     "Artist": {
- *       "S": "Acme Band"
+ *     Artist: {
+ *       S: "Acme Band"
  *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
+ *     SongTitle: {
+ *       S: "Happy Day"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-read-an-item-from-a-table-1475884258350
  * ```
  *
+ * @public
  */
 export class GetItemCommand extends $Command
   .classBuilder<
@@ -251,6 +251,7 @@ export class GetItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -263,4 +264,16 @@ export class GetItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetItemCommand)
   .de(de_GetItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetItemInput;
+      output: GetItemOutput;
+    };
+    sdk: {
+      input: GetItemCommandInput;
+      output: GetItemCommandOutput;
+    };
+  };
+}

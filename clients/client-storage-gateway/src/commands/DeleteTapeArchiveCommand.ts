@@ -65,23 +65,23 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To delete a virtual tape from the shelf (VTS)
  * ```javascript
  * // Deletes the specified virtual tape from the virtual tape shelf (VTS).
  * const input = {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+ *   TapeARN: "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
  * };
  * const command = new DeleteTapeArchiveCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+ *   TapeARN: "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
  * }
  * *\/
- * // example id: to-delete-a-virtual-tape-from-the-shelf-vts-1471383964329
  * ```
  *
+ * @public
  */
 export class DeleteTapeArchiveCommand extends $Command
   .classBuilder<
@@ -91,9 +91,7 @@ export class DeleteTapeArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +103,16 @@ export class DeleteTapeArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTapeArchiveCommand)
   .de(de_DeleteTapeArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTapeArchiveInput;
+      output: DeleteTapeArchiveOutput;
+    };
+    sdk: {
+      input: DeleteTapeArchiveCommandInput;
+      output: DeleteTapeArchiveCommandOutput;
+    };
+  };
+}

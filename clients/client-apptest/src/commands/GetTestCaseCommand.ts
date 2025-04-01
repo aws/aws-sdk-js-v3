@@ -173,6 +173,7 @@ export interface GetTestCaseCommandOutput extends GetTestCaseResponse, __Metadat
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class GetTestCaseCommand extends $Command
@@ -183,9 +184,7 @@ export class GetTestCaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -197,4 +196,16 @@ export class GetTestCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestCaseCommand)
   .de(de_GetTestCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestCaseRequest;
+      output: GetTestCaseResponse;
+    };
+    sdk: {
+      input: GetTestCaseCommandInput;
+      output: GetTestCaseCommandOutput;
+    };
+  };
+}

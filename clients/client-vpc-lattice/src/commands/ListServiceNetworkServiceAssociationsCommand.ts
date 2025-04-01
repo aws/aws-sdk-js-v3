@@ -37,14 +37,13 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the associations between the service network and the service. You can filter the list
+ * <p>Lists the associations between a service network and a service. You can filter the list
  *    either by service or service network. You must provide either the service network identifier or
  *    the service identifier.</p>
- *          <p>Every association in Amazon VPC Lattice is given a unique Amazon Resource Name (ARN), such as when a
+ *          <p>Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN), such as when a
  *    service network is associated with a VPC or when a service is associated with a service network.
- *    If the association is for a resource that is shared with another account, the association
- *    includes the local account ID as the prefix in the ARN for each account the resource is shared
- *    with.</p>
+ *    If the association is for a resource is shared with another account, the association
+ *    includes the local account ID as the prefix in the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +106,7 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListServiceNetworkServiceAssociationsCommand extends $Command
@@ -117,9 +117,7 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +129,16 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceNetworkServiceAssociationsCommand)
   .de(de_ListServiceNetworkServiceAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceNetworkServiceAssociationsRequest;
+      output: ListServiceNetworkServiceAssociationsResponse;
+    };
+    sdk: {
+      input: ListServiceNetworkServiceAssociationsCommandInput;
+      output: ListServiceNetworkServiceAssociationsCommandOutput;
+    };
+  };
+}

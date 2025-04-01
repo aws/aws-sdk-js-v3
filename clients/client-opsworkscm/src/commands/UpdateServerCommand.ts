@@ -110,6 +110,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class UpdateServerCommand extends $Command
@@ -120,9 +121,7 @@ export class UpdateServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class UpdateServerCommand extends $Command
   .f(void 0, UpdateServerResponseFilterSensitiveLog)
   .ser(se_UpdateServerCommand)
   .de(de_UpdateServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServerRequest;
+      output: UpdateServerResponse;
+    };
+    sdk: {
+      input: UpdateServerCommandInput;
+      output: UpdateServerCommandOutput;
+    };
+  };
+}

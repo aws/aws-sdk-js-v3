@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_3";
+import { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_4";
 import {
   de_DescribeAnalysisPermissionsCommand,
   se_DescribeAnalysisPermissionsCommand,
@@ -49,7 +49,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * // { // DescribeAnalysisPermissionsResponse
  * //   AnalysisId: "STRING_VALUE",
  * //   AnalysisArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -90,6 +90,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnalysisPermissionsCommand extends $Command
@@ -100,9 +101,7 @@ export class DescribeAnalysisPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DescribeAnalysisPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAnalysisPermissionsCommand)
   .de(de_DescribeAnalysisPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnalysisPermissionsRequest;
+      output: DescribeAnalysisPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeAnalysisPermissionsCommandInput;
+      output: DescribeAnalysisPermissionsCommandOutput;
+    };
+  };
+}

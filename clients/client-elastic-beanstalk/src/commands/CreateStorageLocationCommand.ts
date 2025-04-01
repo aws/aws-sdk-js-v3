@@ -67,21 +67,21 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "S3Bucket": "elasticbeanstalk-us-west-2-0123456789012"
+ *   S3Bucket: "elasticbeanstalk-us-west-2-0123456789012"
  * }
  * *\/
- * // example id: to-create-a-new-environment-for-an-application-1456269380396
  * ```
  *
+ * @public
  */
 export class CreateStorageLocationCommand extends $Command
   .classBuilder<
@@ -91,9 +91,7 @@ export class CreateStorageLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +103,16 @@ export class CreateStorageLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStorageLocationCommand)
   .de(de_CreateStorageLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CreateStorageLocationResultMessage;
+    };
+    sdk: {
+      input: CreateStorageLocationCommandInput;
+      output: CreateStorageLocationCommandOutput;
+    };
+  };
+}

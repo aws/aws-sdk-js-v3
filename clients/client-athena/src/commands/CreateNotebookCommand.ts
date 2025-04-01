@@ -70,6 +70,7 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class CreateNotebookCommand extends $Command
@@ -80,9 +81,7 @@ export class CreateNotebookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class CreateNotebookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNotebookCommand)
   .de(de_CreateNotebookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNotebookInput;
+      output: CreateNotebookOutput;
+    };
+    sdk: {
+      input: CreateNotebookCommandInput;
+      output: CreateNotebookCommandOutput;
+    };
+  };
+}

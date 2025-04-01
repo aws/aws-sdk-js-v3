@@ -184,6 +184,13 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         Id3SegmentTaggingSettings: { // Id3SegmentTaggingScheduleActionSettings
+ * //           Id3: "STRING_VALUE",
+ * //           Tag: "STRING_VALUE",
+ * //         },
+ * //         TimedMetadataSettings: { // TimedMetadataScheduleActionSettings
+ * //           Id3: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //         FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -231,6 +238,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeScheduleCommand extends $Command
@@ -241,9 +249,7 @@ export class DescribeScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -255,4 +261,16 @@ export class DescribeScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduleCommand)
   .de(de_DescribeScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduleRequest;
+      output: DescribeScheduleResponse;
+    };
+    sdk: {
+      input: DescribeScheduleCommandInput;
+      output: DescribeScheduleCommandOutput;
+    };
+  };
+}

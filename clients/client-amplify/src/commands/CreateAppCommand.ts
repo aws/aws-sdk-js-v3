@@ -45,6 +45,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  *   description: "STRING_VALUE",
  *   repository: "STRING_VALUE",
  *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
+ *   computeRoleArn: "STRING_VALUE",
  *   iamServiceRoleArn: "STRING_VALUE",
  *   oauthToken: "STRING_VALUE",
  *   accessToken: "STRING_VALUE",
@@ -86,6 +87,9 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  *     enablePullRequestPreview: true || false,
  *     pullRequestEnvironmentName: "STRING_VALUE",
  *   },
+ *   cacheConfig: { // CacheConfig
+ *     type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ *   },
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
@@ -102,6 +106,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",
@@ -146,6 +151,15 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * //       pullRequestEnvironmentName: "STRING_VALUE",
  * //     },
  * //     repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //     cacheConfig: { // CacheConfig
+ * //       type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //     },
+ * //     webhookCreateTime: new Date("TIMESTAMP"),
+ * //     wafConfiguration: { // WafConfiguration
+ * //       webAclArn: "STRING_VALUE",
+ * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //       statusReason: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -175,6 +189,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateAppCommand extends $Command
@@ -185,9 +200,7 @@ export class CreateAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -199,4 +212,16 @@ export class CreateAppCommand extends $Command
   .f(CreateAppRequestFilterSensitiveLog, CreateAppResultFilterSensitiveLog)
   .ser(se_CreateAppCommand)
   .de(de_CreateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppRequest;
+      output: CreateAppResult;
+    };
+    sdk: {
+      input: CreateAppCommandInput;
+      output: CreateAppCommandOutput;
+    };
+  };
+}

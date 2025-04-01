@@ -88,6 +88,7 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListBuiltInIntentsCommand extends $Command
@@ -98,9 +99,7 @@ export class ListBuiltInIntentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListBuiltInIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBuiltInIntentsCommand)
   .de(de_ListBuiltInIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBuiltInIntentsRequest;
+      output: ListBuiltInIntentsResponse;
+    };
+    sdk: {
+      input: ListBuiltInIntentsCommandInput;
+      output: ListBuiltInIntentsCommandOutput;
+    };
+  };
+}

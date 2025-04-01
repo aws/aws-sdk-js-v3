@@ -48,7 +48,7 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * //   },
  * //   LexiconAttributes: { // LexiconAttributes
  * //     Alphabet: "STRING_VALUE",
- * //     LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE",
+ * //     LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE" || "cs-CZ" || "de-CH" || "en-SG",
  * //     LastModified: new Date("TIMESTAMP"),
  * //     LexiconArn: "STRING_VALUE",
  * //     LexemesCount: Number("int"),
@@ -77,34 +77,8 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
- * @example To retrieve a lexicon
- * ```javascript
- * // Returns the content of the specified pronunciation lexicon stored in an AWS Region.
- * const input = {
- *   "Name": ""
- * };
- * const command = new GetLexiconCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Lexicon": {
- *     "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<lexicon version=\"1.0\" \r\n      xmlns=\"http://www.w3.org/2005/01/pronunciation-lexicon\"\r\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n      xsi:schemaLocation=\"http://www.w3.org/2005/01/pronunciation-lexicon \r\n        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd\"\r\n      alphabet=\"ipa\" \r\n      xml:lang=\"en-US\">\r\n  <lexeme>\r\n    <grapheme>W3C</grapheme>\r\n    <alias>World Wide Web Consortium</alias>\r\n  </lexeme>\r\n</lexicon>",
- *     "Name": "example"
- *   },
- *   "LexiconAttributes": {
- *     "Alphabet": "ipa",
- *     "LanguageCode": "en-US",
- *     "LastModified": 1478542980.117,
- *     "LexemesCount": 1,
- *     "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
- *     "Size": 503
- *   }
- * }
- * *\/
- * // example id: to-retrieve-a-lexicon-1481912870836
- * ```
  *
+ * @public
  */
 export class GetLexiconCommand extends $Command
   .classBuilder<
@@ -114,9 +88,7 @@ export class GetLexiconCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +100,16 @@ export class GetLexiconCommand extends $Command
   .f(void 0, GetLexiconOutputFilterSensitiveLog)
   .ser(se_GetLexiconCommand)
   .de(de_GetLexiconCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLexiconInput;
+      output: GetLexiconOutput;
+    };
+    sdk: {
+      input: GetLexiconCommandInput;
+      output: GetLexiconCommandOutput;
+    };
+  };
+}

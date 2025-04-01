@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -29,7 +30,7 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>
@@ -75,6 +76,7 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class GetObjectRetentionCommand extends $Command
@@ -93,6 +95,7 @@ export class GetObjectRetentionCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetObjectRetention", {})
@@ -100,4 +103,16 @@ export class GetObjectRetentionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectRetentionCommand)
   .de(de_GetObjectRetentionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectRetentionRequest;
+      output: GetObjectRetentionOutput;
+    };
+    sdk: {
+      input: GetObjectRetentionCommandInput;
+      output: GetObjectRetentionCommandOutput;
+    };
+  };
+}

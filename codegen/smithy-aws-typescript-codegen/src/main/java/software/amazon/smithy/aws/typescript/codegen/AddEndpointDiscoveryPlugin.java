@@ -126,7 +126,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         writer.addImport("NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
                                 "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
                                 AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
-                        writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS)");
+                        writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, profileConfig)");
                     }
                 );
             default:

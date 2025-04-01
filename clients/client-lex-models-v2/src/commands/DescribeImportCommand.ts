@@ -64,7 +64,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //       nluIntentConfidenceThreshold: Number("double"),
  * //       voiceSettings: { // VoiceSettings
  * //         voiceId: "STRING_VALUE", // required
- * //         engine: "standard" || "neural",
+ * //         engine: "standard" || "neural" || "long-form" || "generative",
  * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
@@ -129,6 +129,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportCommand extends $Command
@@ -139,9 +140,7 @@ export class DescribeImportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class DescribeImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImportCommand)
   .de(de_DescribeImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportRequest;
+      output: DescribeImportResponse;
+    };
+    sdk: {
+      input: DescribeImportCommandInput;
+      output: DescribeImportCommandOutput;
+    };
+  };
+}

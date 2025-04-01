@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
+import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -208,7 +209,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  *  <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used not valid values. Check the specified parameters and try your request again.</p>
+ *       used unsupported values. Check the specified parameters and try your request again.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>A new stream started with the same session ID. The current stream has been terminated.</p>
@@ -227,6 +228,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * @throws {@link TranscribeStreamingServiceException}
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ *
  * @public
  */
 export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
@@ -237,15 +239,16 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
-      getWebSocketPlugin(config, { headerPrefix: "x-amzn-transcribe-" }),
+      getWebSocketPlugin(config, {
+        headerPrefix: "x-amzn-transcribe-",
+      }),
+      getTranscribeStreamingPlugin(config),
     ];
   })
   .s("Transcribe", "StartCallAnalyticsStreamTranscription", {
@@ -264,4 +267,16 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
   )
   .ser(se_StartCallAnalyticsStreamTranscriptionCommand)
   .de(de_StartCallAnalyticsStreamTranscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCallAnalyticsStreamTranscriptionRequest;
+      output: StartCallAnalyticsStreamTranscriptionResponse;
+    };
+    sdk: {
+      input: StartCallAnalyticsStreamTranscriptionCommandInput;
+      output: StartCallAnalyticsStreamTranscriptionCommandOutput;
+    };
+  };
+}

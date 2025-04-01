@@ -72,6 +72,7 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class DeleteMedicalTranscriptionJobCommand extends $Command
@@ -82,9 +83,7 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMedicalTranscriptionJobCommand)
   .de(de_DeleteMedicalTranscriptionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMedicalTranscriptionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMedicalTranscriptionJobCommandInput;
+      output: DeleteMedicalTranscriptionJobCommandOutput;
+    };
+  };
+}

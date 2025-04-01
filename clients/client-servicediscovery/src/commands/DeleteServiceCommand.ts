@@ -28,7 +28,7 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified service. If the service still contains one or more registered instances, the request
+ * <p>Deletes a specified service and all associated service attributes. If the service still contains one or more registered instances, the request
  *    fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,18 +65,21 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Delete service
  * ```javascript
  * // Example: Delete service
  * const input = {
- *   "Id": "srv-p5zdwlg5uvvzjita"
+ *   Id: "srv-p5zdwlg5uvvzjita"
  * };
  * const command = new DeleteServiceCommand(input);
- * await client.send(command);
- * // example id: example-delete-service-1587416462902
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<
@@ -86,9 +89,7 @@ export class DeleteServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class DeleteServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceCommand)
   .de(de_DeleteServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceCommandInput;
+      output: DeleteServiceCommandOutput;
+    };
+  };
+}

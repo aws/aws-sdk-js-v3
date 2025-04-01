@@ -30,7 +30,8 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
 /**
  * <p>Adds a resouce policy to control access to a model group. For information about
  *             resoure policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
- *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and Access Management User Guide.</i>.</p>
+ *                 policies and resource-based policies</a> in the <i>Amazon Web Services
+ *                 Identity and Access Management User Guide.</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,7 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class PutModelPackageGroupPolicyCommand extends $Command
@@ -72,9 +74,7 @@ export class PutModelPackageGroupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class PutModelPackageGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutModelPackageGroupPolicyCommand)
   .de(de_PutModelPackageGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutModelPackageGroupPolicyInput;
+      output: PutModelPackageGroupPolicyOutput;
+    };
+    sdk: {
+      input: PutModelPackageGroupPolicyCommandInput;
+      output: PutModelPackageGroupPolicyCommandOutput;
+    };
+  };
+}

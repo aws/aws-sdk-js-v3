@@ -99,25 +99,25 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To start an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Starts a version of an Amazon Rekognition Custom Labels model.
  * const input = {
- *   "MaxInferenceUnits": 1,
- *   "MinInferenceUnits": 1,
- *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
+ *   MaxInferenceUnits: 1,
+ *   MinInferenceUnits: 1,
+ *   ProjectVersionArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
  * };
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "STARTING"
+ *   Status: "STARTING"
  * }
  * *\/
- * // example id: to-start-an-amazon-rekognition-custom-labels-model-1690559168398
  * ```
  *
+ * @public
  */
 export class StartProjectVersionCommand extends $Command
   .classBuilder<
@@ -127,9 +127,7 @@ export class StartProjectVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +139,16 @@ export class StartProjectVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartProjectVersionCommand)
   .de(de_StartProjectVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartProjectVersionRequest;
+      output: StartProjectVersionResponse;
+    };
+    sdk: {
+      input: StartProjectVersionCommandInput;
+      output: StartProjectVersionCommandOutput;
+    };
+  };
+}

@@ -76,6 +76,24 @@ export interface GetCisScanReportCommandOutput extends GetCisScanReportResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample GetCisScanReport Call
+ * ```javascript
+ * //
+ * const input = {
+ *   reportFormat: "PDF",
+ *   scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new GetCisScanReportCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   status: "SUCCEEDED",
+ *   url: "www.s3.amazon.com/abcdef"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetCisScanReportCommand extends $Command
@@ -86,9 +104,7 @@ export class GetCisScanReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +116,16 @@ export class GetCisScanReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCisScanReportCommand)
   .de(de_GetCisScanReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCisScanReportRequest;
+      output: GetCisScanReportResponse;
+    };
+    sdk: {
+      input: GetCisScanReportCommandInput;
+      output: GetCisScanReportCommandOutput;
+    };
+  };
+}

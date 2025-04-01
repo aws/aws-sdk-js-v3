@@ -79,6 +79,7 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class DeactivateDeviceIdentifierCommand extends $Command
@@ -89,9 +90,7 @@ export class DeactivateDeviceIdentifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeactivateDeviceIdentifierCommand extends $Command
   .f(void 0, DeactivateDeviceIdentifierResponseFilterSensitiveLog)
   .ser(se_DeactivateDeviceIdentifierCommand)
   .de(de_DeactivateDeviceIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateDeviceIdentifierRequest;
+      output: DeactivateDeviceIdentifierResponse;
+    };
+    sdk: {
+      input: DeactivateDeviceIdentifierCommandInput;
+      output: DeactivateDeviceIdentifierCommandOutput;
+    };
+  };
+}

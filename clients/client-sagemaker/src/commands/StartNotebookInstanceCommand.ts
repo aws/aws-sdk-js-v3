@@ -29,9 +29,9 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Launches an ML compute instance with the latest version of the libraries and
- *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
- *             notebook instance status to <code>InService</code>. A notebook instance's status must be
- *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
+ *             attaches your ML storage volume. After configuring the notebook instance, SageMaker AI sets the notebook instance status to <code>InService</code>. A notebook
+ *             instance's status must be <code>InService</code> before you can connect to your Jupyter
+ *             notebook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +60,7 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StartNotebookInstanceCommand extends $Command
@@ -70,9 +71,7 @@ export class StartNotebookInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +83,16 @@ export class StartNotebookInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartNotebookInstanceCommand)
   .de(de_StartNotebookInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartNotebookInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: StartNotebookInstanceCommandInput;
+      output: StartNotebookInstanceCommandOutput;
+    };
+  };
+}

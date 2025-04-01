@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchHoursOfOperationsRequest, SearchHoursOfOperationsResponse } from "../models/models_2";
+import { SearchHoursOfOperationsResponse } from "../models/models_2";
+import { SearchHoursOfOperationsRequest } from "../models/models_3";
 import { de_SearchHoursOfOperationsCommand, se_SearchHoursOfOperationsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,6 +146,7 @@ export interface SearchHoursOfOperationsCommandOutput extends SearchHoursOfOpera
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchHoursOfOperationsCommand extends $Command
@@ -155,9 +157,7 @@ export class SearchHoursOfOperationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +169,16 @@ export class SearchHoursOfOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchHoursOfOperationsCommand)
   .de(de_SearchHoursOfOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchHoursOfOperationsRequest;
+      output: SearchHoursOfOperationsResponse;
+    };
+    sdk: {
+      input: SearchHoursOfOperationsCommandInput;
+      output: SearchHoursOfOperationsCommandOutput;
+    };
+  };
+}

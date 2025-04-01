@@ -36,7 +36,12 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources suported by Resilience Hub and how to add them in your application, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
+ * <p>Adds the source of resource-maps to the draft version of an application. During
+ *       assessment, Resilience Hub will use these resource-maps to resolve the latest physical
+ *       ID for each resource in the application template. For more information about different types
+ *       of resources supported by Resilience Hub and how to add them in your application, see
+ *         <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step
+ *         2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,10 +56,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *       logicalStackName: "STRING_VALUE",
  *       appRegistryAppName: "STRING_VALUE",
  *       resourceGroupName: "STRING_VALUE",
- *       mappingType: "STRING_VALUE", // required
+ *       mappingType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  *       physicalResourceId: { // PhysicalResourceId
  *         identifier: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
+ *         type: "Arn" || "Native", // required
  *         awsRegion: "STRING_VALUE",
  *         awsAccountId: "STRING_VALUE",
  *       },
@@ -74,10 +79,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * //       logicalStackName: "STRING_VALUE",
  * //       appRegistryAppName: "STRING_VALUE",
  * //       resourceGroupName: "STRING_VALUE",
- * //       mappingType: "STRING_VALUE", // required
+ * //       mappingType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  * //       physicalResourceId: { // PhysicalResourceId
  * //         identifier: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "Arn" || "Native", // required
  * //         awsRegion: "STRING_VALUE",
  * //         awsAccountId: "STRING_VALUE",
  * //       },
@@ -113,6 +118,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception occurs when the specified resource could not be found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
  *
@@ -121,6 +130,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
+ *
  *
  * @public
  */
@@ -132,9 +142,7 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +154,16 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddDraftAppVersionResourceMappingsCommand)
   .de(de_AddDraftAppVersionResourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddDraftAppVersionResourceMappingsRequest;
+      output: AddDraftAppVersionResourceMappingsResponse;
+    };
+    sdk: {
+      input: AddDraftAppVersionResourceMappingsCommandInput;
+      output: AddDraftAppVersionResourceMappingsCommandOutput;
+    };
+  };
+}

@@ -28,21 +28,13 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export interface CompleteAttachmentUploadRequest {
+export interface CancelParticipantAuthenticationRequest {
   /**
-   * <p>A list of unique identifiers for the attachments.</p>
+   * <p>The <code>sessionId</code> provided in the <code>authenticationInitiated</code>
+   *             event.</p>
    * @public
    */
-  AttachmentIds: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
+  SessionId: string | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -54,30 +46,7 @@ export interface CompleteAttachmentUploadRequest {
 /**
  * @public
  */
-export interface CompleteAttachmentUploadResponse {}
-
-/**
- * <p>The requested operation conflicts with the current state of a service
- *             resource associated with the request. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
+export interface CancelParticipantAuthenticationResponse {}
 
 /**
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
@@ -97,28 +66,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of attachments per contact exceeds the quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -169,6 +116,82 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ */
+export interface CompleteAttachmentUploadRequest {
+  /**
+   * <p>A list of unique identifiers for the attachments.</p>
+   * @public
+   */
+  AttachmentIds: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   * @public
+   */
+  ConnectionToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteAttachmentUploadResponse {}
+
+/**
+ * <p>The requested operation conflicts with the current state of a service resource
+ *             associated with the request. </p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of attachments per contact exceeds the quota.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ConnectionType = {
@@ -191,7 +214,7 @@ export interface CreateParticipantConnectionRequest {
    *             pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p>
    * @public
    */
-  Type?: ConnectionType[];
+  Type?: ConnectionType[] | undefined;
 
   /**
    * <p>This is a header parameter.</p>
@@ -207,7 +230,7 @@ export interface CreateParticipantConnectionRequest {
    *             non-streaming chats.</p>
    * @public
    */
-  ConnectParticipant?: boolean;
+  ConnectParticipant?: boolean | undefined;
 }
 
 /**
@@ -219,7 +242,7 @@ export interface ConnectionCredentials {
    * <p>The connection token.</p>
    * @public
    */
-  ConnectionToken?: string;
+  ConnectionToken?: string | undefined;
 
   /**
    * <p>The expiration of the token.</p>
@@ -227,7 +250,7 @@ export interface ConnectionCredentials {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  Expiry?: string;
+  Expiry?: string | undefined;
 }
 
 /**
@@ -239,7 +262,7 @@ export interface Websocket {
    * <p>The URL of the websocket.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The URL expiration timestamp in ISO date format.</p>
@@ -247,7 +270,7 @@ export interface Websocket {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  ConnectionExpiry?: string;
+  ConnectionExpiry?: string | undefined;
 }
 
 /**
@@ -258,14 +281,14 @@ export interface CreateParticipantConnectionResponse {
    * <p>Creates the participant's websocket connection.</p>
    * @public
    */
-  Websocket?: Websocket;
+  Websocket?: Websocket | undefined;
 
   /**
    * <p>Creates the participant's connection credentials. The authentication token associated
    *             with the participant's connection.</p>
    * @public
    */
-  ConnectionCredentials?: ConnectionCredentials;
+  ConnectionCredentials?: ConnectionCredentials | undefined;
 }
 
 /**
@@ -297,19 +320,19 @@ export interface ViewContent {
    *             render.</p>
    * @public
    */
-  InputSchema?: string;
+  InputSchema?: string | undefined;
 
   /**
    * <p>The view template representing the structure of the view.</p>
    * @public
    */
-  Template?: string;
+  Template?: string | undefined;
 
   /**
    * <p>A list of actions possible from the view</p>
    * @public
    */
-  Actions?: string[];
+  Actions?: string[] | undefined;
 }
 
 /**
@@ -322,32 +345,32 @@ export interface View {
    * <p>The identifier of the view.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the view.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the view.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current version of the view.</p>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 
   /**
    * <p>View content containing all content necessary to render a view except for runtime
    *             input data.</p>
    * @public
    */
-  Content?: ViewContent;
+  Content?: ViewContent | undefined;
 }
 
 /**
@@ -359,7 +382,7 @@ export interface DescribeViewResponse {
    *             view.</p>
    * @public
    */
-  View?: View;
+  View?: View | undefined;
 }
 
 /**
@@ -389,18 +412,18 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The identifier of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of Amazon Connect resource.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
   /**
    * @internal
    */
@@ -428,7 +451,7 @@ export interface DisconnectParticipantRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -457,6 +480,13 @@ export interface GetAttachmentRequest {
    * @public
    */
   ConnectionToken: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
+   *             yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number | undefined;
 }
 
 /**
@@ -468,13 +498,55 @@ export interface GetAttachmentResponse {
    * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  UrlExpiry?: string;
+  UrlExpiry?: string | undefined;
+
+  /**
+   * <p>The size of the attachment in bytes.</p>
+   * @public
+   */
+  AttachmentSizeInBytes: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAuthenticationUrlRequest {
+  /**
+   * <p>The sessionId provided in the authenticationInitiated event.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The URL where the customer will be redirected after Amazon Cognito authorizes the
+   *             user.</p>
+   * @public
+   */
+  RedirectUri: string | undefined;
+
+  /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   * @public
+   */
+  ConnectionToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAuthenticationUrlResponse {
+  /**
+   * <p>The URL where the customer will sign in to the identity provider. This URL contains
+   *             the authorize endpoint for the Cognito UserPool used in the authentication.</p>
+   * @public
+   */
+  AuthenticationUrl?: string | undefined;
 }
 
 /**
@@ -515,7 +587,7 @@ export interface StartPosition {
    * <p>The ID of the message or event where to start. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The time in ISO format where to start.</p>
@@ -523,13 +595,13 @@ export interface StartPosition {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  AbsoluteTime?: string;
+  AbsoluteTime?: string | undefined;
 
   /**
    * <p>The start position of the most recent message where you want to start. </p>
    * @public
    */
-  MostRecent?: number;
+  MostRecent?: number | undefined;
 }
 
 /**
@@ -540,39 +612,39 @@ export interface GetTranscriptRequest {
    * <p>The contactId from the current contact chain for which transcript is needed.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the page. Default: 10. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token. Use the value returned previously in the next subsequent request
    *             to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD
    *             when no StartPosition is provided, FORWARD with StartPosition. </p>
    * @public
    */
-  ScanDirection?: ScanDirection;
+  ScanDirection?: ScanDirection | undefined;
 
   /**
    * <p>The sort order for the records. Default: DESCENDING.</p>
    * @public
    */
-  SortOrder?: SortKey;
+  SortOrder?: SortKey | undefined;
 
   /**
    * <p>A filtering option for where to start.</p>
    * @public
    */
-  StartPosition?: StartPosition;
+  StartPosition?: StartPosition | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -606,25 +678,25 @@ export interface AttachmentItem {
    * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>A unique identifier for the attachment.</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>A case-sensitive name of the attachment being uploaded.</p>
    * @public
    */
-  AttachmentName?: string;
+  AttachmentName?: string | undefined;
 
   /**
    * <p>Status of the attachment.</p>
    * @public
    */
-  Status?: ArtifactStatus;
+  Status?: ArtifactStatus | undefined;
 }
 
 /**
@@ -636,19 +708,19 @@ export interface Receipt {
    * <p>The time when the message was delivered to the recipient.</p>
    * @public
    */
-  DeliveredTimestamp?: string;
+  DeliveredTimestamp?: string | undefined;
 
   /**
    * <p>The time when the message was read by the recipient.</p>
    * @public
    */
-  ReadTimestamp?: string;
+  ReadTimestamp?: string | undefined;
 
   /**
    * <p>The identifier of the recipient of the message. </p>
    * @public
    */
-  RecipientParticipantId?: string;
+  RecipientParticipantId?: string | undefined;
 }
 
 /**
@@ -660,13 +732,13 @@ export interface MessageMetadata {
    * <p>The identifier of the message that contains the metadata information. </p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>The list of receipt information for a message for different recipients.</p>
    * @public
    */
-  Receipts?: Receipt[];
+  Receipts?: Receipt[] | undefined;
 }
 
 /**
@@ -721,62 +793,62 @@ export interface Item {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  AbsoluteTime?: string;
+  AbsoluteTime?: string | undefined;
 
   /**
    * <p>The content of the message or event.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The type of content of the item.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The ID of the item.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Type of the item: message or event. </p>
    * @public
    */
-  Type?: ChatItemType;
+  Type?: ChatItemType | undefined;
 
   /**
    * <p>The ID of the sender in the session.</p>
    * @public
    */
-  ParticipantId?: string;
+  ParticipantId?: string | undefined;
 
   /**
    * <p>The chat display name of the sender.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
    * @public
    */
-  ParticipantRole?: ParticipantRole;
+  ParticipantRole?: ParticipantRole | undefined;
 
   /**
    * <p>Provides information about the attachments.</p>
    * @public
    */
-  Attachments?: AttachmentItem[];
+  Attachments?: AttachmentItem[] | undefined;
 
   /**
    * <p>The metadata related to the message. Currently this supports only information related
    *             to message receipts.</p>
    * @public
    */
-  MessageMetadata?: MessageMetadata;
+  MessageMetadata?: MessageMetadata | undefined;
 
   /**
    * <p>The contactId on which the transcript item was originally sent. This field is only
@@ -785,14 +857,14 @@ export interface Item {
    *             chat</a>.</p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>The contactId on which the transcript item was originally sent. This field is
    *             populated only when the transcript item is from the current chat session.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 }
 
 /**
@@ -803,20 +875,20 @@ export interface GetTranscriptResponse {
    * <p>The initial contact ID for the contact. </p>
    * @public
    */
-  InitialContactId?: string;
+  InitialContactId?: string | undefined;
 
   /**
    * <p>The list of messages in the session.</p>
    * @public
    */
-  Transcript?: Item[];
+  Transcript?: Item[] | undefined;
 
   /**
    * <p>The pagination token. Use the value returned previously in the next subsequent request
    *             to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -850,7 +922,7 @@ export interface SendEventRequest {
    *          <p>Sample Content: "\{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"\}"</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -859,7 +931,7 @@ export interface SendEventRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -876,7 +948,7 @@ export interface SendEventResponse {
    * <p>The ID of the response.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The time when the event was sent.</p>
@@ -884,7 +956,7 @@ export interface SendEventResponse {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  AbsoluteTime?: string;
+  AbsoluteTime?: string | undefined;
 }
 
 /**
@@ -927,7 +999,7 @@ export interface SendMessageRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The authentication token associated with the connection.</p>
@@ -944,7 +1016,7 @@ export interface SendMessageResponse {
    * <p>The ID of the message.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The time when the message was sent.</p>
@@ -952,7 +1024,7 @@ export interface SendMessageResponse {
    *             2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  AbsoluteTime?: string;
+  AbsoluteTime?: string | undefined;
 }
 
 /**
@@ -984,7 +1056,7 @@ export interface StartAttachmentUploadRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -1003,19 +1075,19 @@ export interface UploadMetadata {
    * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
    * @public
    */
-  UrlExpiry?: string;
+  UrlExpiry?: string | undefined;
 
   /**
    * <p>The headers to be provided while uploading the file to the URL.</p>
    * @public
    */
-  HeadersToInclude?: Record<string, string>;
+  HeadersToInclude?: Record<string, string> | undefined;
 }
 
 /**
@@ -1026,13 +1098,13 @@ export interface StartAttachmentUploadResponse {
    * <p>A unique identifier for the attachment.</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
-   * <p>Fields to be used while uploading the attachment.</p>
+   * <p>The headers to be provided while uploading the file to the URL.</p>
    * @public
    */
-  UploadMetadata?: UploadMetadata;
+  UploadMetadata?: UploadMetadata | undefined;
 }
 
 /**

@@ -80,6 +80,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command
@@ -90,9 +91,7 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackInstancesForProvisionedProductCommand)
   .de(de_ListStackInstancesForProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackInstancesForProvisionedProductInput;
+      output: ListStackInstancesForProvisionedProductOutput;
+    };
+    sdk: {
+      input: ListStackInstancesForProvisionedProductCommandInput;
+      output: ListStackInstancesForProvisionedProductCommandOutput;
+    };
+  };
+}

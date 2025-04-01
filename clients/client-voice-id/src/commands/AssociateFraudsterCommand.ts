@@ -96,6 +96,7 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class AssociateFraudsterCommand extends $Command
@@ -106,9 +107,7 @@ export class AssociateFraudsterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class AssociateFraudsterCommand extends $Command
   .f(AssociateFraudsterRequestFilterSensitiveLog, void 0)
   .ser(se_AssociateFraudsterCommand)
   .de(de_AssociateFraudsterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFraudsterRequest;
+      output: AssociateFraudsterResponse;
+    };
+    sdk: {
+      input: AssociateFraudsterCommandInput;
+      output: AssociateFraudsterCommandOutput;
+    };
+  };
+}

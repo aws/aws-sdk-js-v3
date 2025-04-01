@@ -81,6 +81,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class UpdateParameterGroupCommand extends $Command
@@ -91,9 +92,7 @@ export class UpdateParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class UpdateParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateParameterGroupCommand)
   .de(de_UpdateParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateParameterGroupRequest;
+      output: UpdateParameterGroupResponse;
+    };
+    sdk: {
+      input: UpdateParameterGroupCommandInput;
+      output: UpdateParameterGroupCommandOutput;
+    };
+  };
+}

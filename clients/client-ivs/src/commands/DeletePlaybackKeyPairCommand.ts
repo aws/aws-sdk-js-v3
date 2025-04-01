@@ -67,6 +67,7 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeletePlaybackKeyPairCommand extends $Command
@@ -77,9 +78,7 @@ export class DeletePlaybackKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeletePlaybackKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlaybackKeyPairCommand)
   .de(de_DeletePlaybackKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlaybackKeyPairRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlaybackKeyPairCommandInput;
+      output: DeletePlaybackKeyPairCommandOutput;
+    };
+  };
+}

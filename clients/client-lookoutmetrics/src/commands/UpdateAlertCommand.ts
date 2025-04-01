@@ -97,6 +97,7 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class UpdateAlertCommand extends $Command
@@ -107,9 +108,7 @@ export class UpdateAlertCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateAlertCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAlertCommand)
   .de(de_UpdateAlertCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAlertRequest;
+      output: UpdateAlertResponse;
+    };
+    sdk: {
+      input: UpdateAlertCommandInput;
+      output: UpdateAlertCommandOutput;
+    };
+  };
+}

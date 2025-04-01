@@ -80,6 +80,7 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class CreateDiscovererCommand extends $Command
@@ -90,9 +91,7 @@ export class CreateDiscovererCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class CreateDiscovererCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDiscovererCommand)
   .de(de_CreateDiscovererCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDiscovererRequest;
+      output: CreateDiscovererResponse;
+    };
+    sdk: {
+      input: CreateDiscovererCommandInput;
+      output: CreateDiscovererCommandOutput;
+    };
+  };
+}

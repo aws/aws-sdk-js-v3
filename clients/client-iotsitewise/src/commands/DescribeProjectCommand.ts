@@ -77,6 +77,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeProjectCommand extends $Command
@@ -87,9 +88,7 @@ export class DescribeProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DescribeProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectCommand)
   .de(de_DescribeProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectRequest;
+      output: DescribeProjectResponse;
+    };
+    sdk: {
+      input: DescribeProjectCommandInput;
+      output: DescribeProjectCommandOutput;
+    };
+  };
+}

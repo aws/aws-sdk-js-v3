@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { SchemasServiceException as __BaseException } from "./SchemasServiceException";
@@ -28,37 +28,37 @@ export interface DiscovererSummary {
    * <p>The ARN of the discoverer.</p>
    * @public
    */
-  DiscovererArn?: string;
+  DiscovererArn?: string | undefined;
 
   /**
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The ARN of the event bus.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -69,19 +69,19 @@ export interface RegistrySummary {
    * <p>The ARN of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>Tags associated with the registry.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -93,31 +93,31 @@ export interface SchemaSummary {
    * <p>The date and time that schema was modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The ARN of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>Tags associated with the schema.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The number of versions available for the schema.</p>
    * @public
    */
-  VersionCount?: number;
+  VersionCount?: number | undefined;
 }
 
 /**
@@ -142,25 +142,25 @@ export interface SchemaVersionSummary {
    * <p>The ARN of the schema version.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>The type of schema.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 }
 
 /**
@@ -171,19 +171,19 @@ export interface SearchSchemaVersionSummary {
    * <p>The date the schema version was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 
   /**
    * <p>The version number of the schema</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>The type of schema.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 }
 
 /**
@@ -194,25 +194,25 @@ export interface SearchSchemaSummary {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The ARN of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>An array of schema version summaries.</p>
    * @public
    */
-  SchemaVersions?: SearchSchemaVersionSummary[];
+  SchemaVersions?: SearchSchemaVersionSummary[] | undefined;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface CreateDiscovererRequest {
    * <p>A description for the discoverer.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the event bus.</p>
@@ -314,13 +314,13 @@ export interface CreateDiscovererRequest {
    * <p>Support discovery of schemas in events sent to the bus from another account. (default: true).</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -331,43 +331,43 @@ export interface CreateDiscovererResponse {
    * <p>The description of the discoverer.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the discoverer.</p>
    * @public
    */
-  DiscovererArn?: string;
+  DiscovererArn?: string | undefined;
 
   /**
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The ARN of the event bus.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -506,7 +506,7 @@ export interface CreateRegistryRequest {
    * <p>A description of the registry to be created.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -518,7 +518,7 @@ export interface CreateRegistryRequest {
    * <p>Tags to associate with the registry.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -529,25 +529,25 @@ export interface CreateRegistryResponse {
    * <p>The description of the registry.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>Tags associated with the registry.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -564,7 +564,7 @@ export interface CreateSchemaRequest {
    * <p>A description of the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -582,7 +582,7 @@ export interface CreateSchemaRequest {
    * <p>Tags associated with the schema.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of schema.</p>
@@ -599,49 +599,49 @@ export interface CreateSchemaResponse {
    * <p>The description of the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that schema was modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The ARN of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The version number of the schema</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>Key-value pairs associated with a resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of the schema.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The date the schema version was created.</p>
    * @public
    */
-  VersionCreatedDate?: Date;
+  VersionCreatedDate?: Date | undefined;
 }
 
 /**
@@ -706,7 +706,7 @@ export interface DeleteResourcePolicyRequest {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 }
 
 /**
@@ -775,7 +775,7 @@ export interface DescribeCodeBindingRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 }
 
 /**
@@ -786,25 +786,25 @@ export interface DescribeCodeBindingResponse {
    * <p>The time and date that the code binding was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that code bindings were modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>The current status of code binding generation.</p>
    * @public
    */
-  Status?: CodeGenerationStatus;
+  Status?: CodeGenerationStatus | undefined;
 }
 
 /**
@@ -858,43 +858,43 @@ export interface DescribeDiscovererResponse {
    * <p>The description of the discoverer.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the discoverer.</p>
    * @public
    */
-  DiscovererArn?: string;
+  DiscovererArn?: string | undefined;
 
   /**
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The ARN of the event bus.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -916,25 +916,25 @@ export interface DescribeRegistryResponse {
    * <p>The description of the registry.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>Tags associated with the registry.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -957,7 +957,7 @@ export interface DescribeSchemaRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 }
 
 /**
@@ -968,55 +968,55 @@ export interface DescribeSchemaResponse {
    * <p>The source of the schema definition.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The description of the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that schema was modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The ARN of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The version number of the schema</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of the schema.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The date the schema version was created.</p>
    * @public
    */
-  VersionCreatedDate?: Date;
+  VersionCreatedDate?: Date | undefined;
 }
 
 /**
@@ -1039,7 +1039,7 @@ export interface ExportSchemaRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   Type: string | undefined;
 }
@@ -1048,11 +1048,11 @@ export interface ExportSchemaRequest {
  * @public
  */
 export interface ExportSchemaResponse {
-  Content?: string;
-  SchemaArn?: string;
-  SchemaName?: string;
-  SchemaVersion?: string;
-  Type?: string;
+  Content?: string | undefined;
+  SchemaArn?: string | undefined;
+  SchemaName?: string | undefined;
+  SchemaVersion?: string | undefined;
+  Type?: string | undefined;
 }
 
 /**
@@ -1081,14 +1081,14 @@ export interface GetCodeBindingSourceRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface GetCodeBindingSourceResponse {
-  Body?: Uint8Array;
+  Body?: Uint8Array | undefined;
 }
 
 /**
@@ -1116,7 +1116,7 @@ export interface GetDiscoveredSchemaResponse {
    * <p>The source of the schema definition.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 }
 
 /**
@@ -1127,7 +1127,7 @@ export interface GetResourcePolicyRequest {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 }
 
 /**
@@ -1138,13 +1138,13 @@ export interface GetResourcePolicyResponse {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy?: __LazyJsonString | string;
+  Policy?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The revision ID.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -1187,20 +1187,20 @@ export interface ListDiscoverersRequest {
    * <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
    * @public
    */
-  DiscovererIdPrefix?: string;
+  DiscovererIdPrefix?: string | undefined;
 
-  Limit?: number;
+  Limit?: number | undefined;
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifying this limits the results to only those ARNs that start with the specified prefix.</p>
    * @public
    */
-  SourceArnPrefix?: string;
+  SourceArnPrefix?: string | undefined;
 }
 
 /**
@@ -1211,37 +1211,37 @@ export interface ListDiscoverersResponse {
    * <p>An array of DiscovererSummary information.</p>
    * @public
    */
-  Discoverers?: DiscovererSummary[];
+  Discoverers?: DiscovererSummary[] | undefined;
 
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface ListRegistriesRequest {
-  Limit?: number;
+  Limit?: number | undefined;
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>
    * @public
    */
-  RegistryNamePrefix?: string;
+  RegistryNamePrefix?: string | undefined;
 
   /**
    * <p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>
    * @public
    */
-  Scope?: string;
+  Scope?: string | undefined;
 }
 
 /**
@@ -1252,25 +1252,25 @@ export interface ListRegistriesResponse {
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of registry summaries.</p>
    * @public
    */
-  Registries?: RegistrySummary[];
+  Registries?: RegistrySummary[] | undefined;
 }
 
 /**
  * @public
  */
 export interface ListSchemasRequest {
-  Limit?: number;
+  Limit?: number | undefined;
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1282,7 +1282,7 @@ export interface ListSchemasRequest {
    * <p>Specifying this limits the results to only those schema names that start with the specified prefix.</p>
    * @public
    */
-  SchemaNamePrefix?: string;
+  SchemaNamePrefix?: string | undefined;
 }
 
 /**
@@ -1293,25 +1293,25 @@ export interface ListSchemasResponse {
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of schema summaries.</p>
    * @public
    */
-  Schemas?: SchemaSummary[];
+  Schemas?: SchemaSummary[] | undefined;
 }
 
 /**
  * @public
  */
 export interface ListSchemaVersionsRequest {
-  Limit?: number;
+  Limit?: number | undefined;
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1334,13 +1334,13 @@ export interface ListSchemaVersionsResponse {
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of schema version summaries.</p>
    * @public
    */
-  SchemaVersions?: SchemaVersionSummary[];
+  SchemaVersions?: SchemaVersionSummary[] | undefined;
 }
 
 /**
@@ -1362,7 +1362,7 @@ export interface ListTagsForResourceResponse {
    * <p>Key-value pairs associated with a resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1423,7 +1423,7 @@ export interface PutCodeBindingRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 }
 
 /**
@@ -1434,25 +1434,25 @@ export interface PutCodeBindingResponse {
    * <p>The time and date that the code binding was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that code bindings were modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>The current status of code binding generation.</p>
    * @public
    */
-  Status?: CodeGenerationStatus;
+  Status?: CodeGenerationStatus | undefined;
 }
 
 /**
@@ -1464,19 +1464,19 @@ export interface PutResourcePolicyRequest {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy: __LazyJsonString | string | undefined;
+  Policy: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The revision ID of the policy.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -1487,13 +1487,13 @@ export interface PutResourcePolicyResponse {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy?: __LazyJsonString | string;
+  Policy?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The revision ID of the policy.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -1506,12 +1506,12 @@ export interface SearchSchemasRequest {
    */
   Keywords: string | undefined;
 
-  Limit?: number;
+  Limit?: number | undefined;
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1528,13 +1528,13 @@ export interface SearchSchemasResponse {
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of SearchSchemaSummary information.</p>
    * @public
    */
-  Schemas?: SearchSchemaSummary[];
+  Schemas?: SearchSchemaSummary[] | undefined;
 }
 
 /**
@@ -1556,13 +1556,13 @@ export interface StartDiscovererResponse {
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 }
 
 /**
@@ -1584,13 +1584,13 @@ export interface StopDiscovererResponse {
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 }
 
 /**
@@ -1636,7 +1636,7 @@ export interface UpdateDiscovererRequest {
    * <p>The description of the discoverer to update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the discoverer.</p>
@@ -1648,7 +1648,7 @@ export interface UpdateDiscovererRequest {
    * <p>Support discovery of schemas in events sent to the bus from another account. (default: true)</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 }
 
 /**
@@ -1659,43 +1659,43 @@ export interface UpdateDiscovererResponse {
    * <p>The description of the discoverer.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the discoverer.</p>
    * @public
    */
-  DiscovererArn?: string;
+  DiscovererArn?: string | undefined;
 
   /**
    * <p>The ID of the discoverer.</p>
    * @public
    */
-  DiscovererId?: string;
+  DiscovererId?: string | undefined;
 
   /**
    * <p>The ARN of the event bus.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>The state of the discoverer.</p>
    * @public
    */
-  State?: DiscovererState;
+  State?: DiscovererState | undefined;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
    * @public
    */
-  CrossAccount?: boolean;
+  CrossAccount?: boolean | undefined;
 
   /**
    * <p>Tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1707,7 +1707,7 @@ export interface UpdateRegistryRequest {
    * <p>The description of the registry to update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1724,25 +1724,25 @@ export interface UpdateRegistryResponse {
    * <p>The description of the registry.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>Tags associated with the registry.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1753,19 +1753,19 @@ export interface UpdateSchemaRequest {
    * <p>The ID of the client token.</p>
    * @public
    */
-  ClientTokenId?: string;
+  ClientTokenId?: string | undefined;
 
   /**
    * <p>The source of the schema definition.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The description of the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1783,7 +1783,7 @@ export interface UpdateSchemaRequest {
    * <p>The schema type for the events schema.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 }
 
 /**
@@ -1794,47 +1794,47 @@ export interface UpdateSchemaResponse {
    * <p>The description of the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that schema was modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The ARN of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The version number of the schema</p>
    * @public
    */
-  SchemaVersion?: string;
+  SchemaVersion?: string | undefined;
 
   /**
    * <p>Key-value pairs associated with a resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of the schema.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The date the schema version was created.</p>
    * @public
    */
-  VersionCreatedDate?: Date;
+  VersionCreatedDate?: Date | undefined;
 }

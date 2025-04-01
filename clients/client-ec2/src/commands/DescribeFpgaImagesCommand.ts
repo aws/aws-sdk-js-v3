@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/models_3";
+import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/models_4";
 import { de_DescribeFpgaImagesCommand, se_DescribeFpgaImagesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -113,6 +113,7 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeFpgaImagesCommand extends $Command
@@ -123,9 +124,7 @@ export class DescribeFpgaImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class DescribeFpgaImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFpgaImagesCommand)
   .de(de_DescribeFpgaImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFpgaImagesRequest;
+      output: DescribeFpgaImagesResult;
+    };
+    sdk: {
+      input: DescribeFpgaImagesCommandInput;
+      output: DescribeFpgaImagesCommandOutput;
+    };
+  };
+}

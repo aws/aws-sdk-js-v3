@@ -219,10 +219,30 @@ import {
   DetachUserPolicyCommandOutput,
 } from "./commands/DetachUserPolicyCommand";
 import {
+  DisableOrganizationsRootCredentialsManagementCommand,
+  DisableOrganizationsRootCredentialsManagementCommandInput,
+  DisableOrganizationsRootCredentialsManagementCommandOutput,
+} from "./commands/DisableOrganizationsRootCredentialsManagementCommand";
+import {
+  DisableOrganizationsRootSessionsCommand,
+  DisableOrganizationsRootSessionsCommandInput,
+  DisableOrganizationsRootSessionsCommandOutput,
+} from "./commands/DisableOrganizationsRootSessionsCommand";
+import {
   EnableMFADeviceCommand,
   EnableMFADeviceCommandInput,
   EnableMFADeviceCommandOutput,
 } from "./commands/EnableMFADeviceCommand";
+import {
+  EnableOrganizationsRootCredentialsManagementCommand,
+  EnableOrganizationsRootCredentialsManagementCommandInput,
+  EnableOrganizationsRootCredentialsManagementCommandOutput,
+} from "./commands/EnableOrganizationsRootCredentialsManagementCommand";
+import {
+  EnableOrganizationsRootSessionsCommand,
+  EnableOrganizationsRootSessionsCommandInput,
+  EnableOrganizationsRootSessionsCommandOutput,
+} from "./commands/EnableOrganizationsRootSessionsCommand";
 import {
   GenerateCredentialReportCommand,
   GenerateCredentialReportCommandInput,
@@ -428,6 +448,11 @@ import {
   ListOpenIDConnectProviderTagsCommandInput,
   ListOpenIDConnectProviderTagsCommandOutput,
 } from "./commands/ListOpenIDConnectProviderTagsCommand";
+import {
+  ListOrganizationsFeaturesCommand,
+  ListOrganizationsFeaturesCommandInput,
+  ListOrganizationsFeaturesCommandOutput,
+} from "./commands/ListOrganizationsFeaturesCommand";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
@@ -760,7 +785,11 @@ const commands = {
   DetachGroupPolicyCommand,
   DetachRolePolicyCommand,
   DetachUserPolicyCommand,
+  DisableOrganizationsRootCredentialsManagementCommand,
+  DisableOrganizationsRootSessionsCommand,
   EnableMFADeviceCommand,
+  EnableOrganizationsRootCredentialsManagementCommand,
+  EnableOrganizationsRootSessionsCommand,
   GenerateCredentialReportCommand,
   GenerateOrganizationsAccessReportCommand,
   GenerateServiceLastAccessedDetailsCommand,
@@ -806,6 +835,7 @@ const commands = {
   ListMFADeviceTagsCommand,
   ListOpenIDConnectProvidersCommand,
   ListOpenIDConnectProviderTagsCommand,
+  ListOrganizationsFeaturesCommand,
   ListPoliciesCommand,
   ListPoliciesGrantingServiceAccessCommand,
   ListPolicyTagsCommand,
@@ -1050,6 +1080,7 @@ export interface IAM {
   /**
    * @see {@link CreateLoginProfileCommand}
    */
+  createLoginProfile(): Promise<CreateLoginProfileCommandOutput>;
   createLoginProfile(
     args: CreateLoginProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -1313,6 +1344,7 @@ export interface IAM {
   /**
    * @see {@link DeleteLoginProfileCommand}
    */
+  deleteLoginProfile(): Promise<DeleteLoginProfileCommandOutput>;
   deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -1633,6 +1665,42 @@ export interface IAM {
   ): void;
 
   /**
+   * @see {@link DisableOrganizationsRootCredentialsManagementCommand}
+   */
+  disableOrganizationsRootCredentialsManagement(): Promise<DisableOrganizationsRootCredentialsManagementCommandOutput>;
+  disableOrganizationsRootCredentialsManagement(
+    args: DisableOrganizationsRootCredentialsManagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableOrganizationsRootCredentialsManagementCommandOutput>;
+  disableOrganizationsRootCredentialsManagement(
+    args: DisableOrganizationsRootCredentialsManagementCommandInput,
+    cb: (err: any, data?: DisableOrganizationsRootCredentialsManagementCommandOutput) => void
+  ): void;
+  disableOrganizationsRootCredentialsManagement(
+    args: DisableOrganizationsRootCredentialsManagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableOrganizationsRootCredentialsManagementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableOrganizationsRootSessionsCommand}
+   */
+  disableOrganizationsRootSessions(): Promise<DisableOrganizationsRootSessionsCommandOutput>;
+  disableOrganizationsRootSessions(
+    args: DisableOrganizationsRootSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableOrganizationsRootSessionsCommandOutput>;
+  disableOrganizationsRootSessions(
+    args: DisableOrganizationsRootSessionsCommandInput,
+    cb: (err: any, data?: DisableOrganizationsRootSessionsCommandOutput) => void
+  ): void;
+  disableOrganizationsRootSessions(
+    args: DisableOrganizationsRootSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableOrganizationsRootSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableMFADeviceCommand}
    */
   enableMFADevice(
@@ -1644,6 +1712,42 @@ export interface IAM {
     args: EnableMFADeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableMFADeviceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableOrganizationsRootCredentialsManagementCommand}
+   */
+  enableOrganizationsRootCredentialsManagement(): Promise<EnableOrganizationsRootCredentialsManagementCommandOutput>;
+  enableOrganizationsRootCredentialsManagement(
+    args: EnableOrganizationsRootCredentialsManagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableOrganizationsRootCredentialsManagementCommandOutput>;
+  enableOrganizationsRootCredentialsManagement(
+    args: EnableOrganizationsRootCredentialsManagementCommandInput,
+    cb: (err: any, data?: EnableOrganizationsRootCredentialsManagementCommandOutput) => void
+  ): void;
+  enableOrganizationsRootCredentialsManagement(
+    args: EnableOrganizationsRootCredentialsManagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableOrganizationsRootCredentialsManagementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableOrganizationsRootSessionsCommand}
+   */
+  enableOrganizationsRootSessions(): Promise<EnableOrganizationsRootSessionsCommandOutput>;
+  enableOrganizationsRootSessions(
+    args: EnableOrganizationsRootSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableOrganizationsRootSessionsCommandOutput>;
+  enableOrganizationsRootSessions(
+    args: EnableOrganizationsRootSessionsCommandInput,
+    cb: (err: any, data?: EnableOrganizationsRootSessionsCommandOutput) => void
+  ): void;
+  enableOrganizationsRootSessions(
+    args: EnableOrganizationsRootSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableOrganizationsRootSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -1866,6 +1970,7 @@ export interface IAM {
   /**
    * @see {@link GetLoginProfileCommand}
    */
+  getLoginProfile(): Promise<GetLoginProfileCommandOutput>;
   getLoginProfile(
     args: GetLoginProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -2355,6 +2460,24 @@ export interface IAM {
     args: ListOpenIDConnectProviderTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOpenIDConnectProviderTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOrganizationsFeaturesCommand}
+   */
+  listOrganizationsFeatures(): Promise<ListOrganizationsFeaturesCommandOutput>;
+  listOrganizationsFeatures(
+    args: ListOrganizationsFeaturesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationsFeaturesCommandOutput>;
+  listOrganizationsFeatures(
+    args: ListOrganizationsFeaturesCommandInput,
+    cb: (err: any, data?: ListOrganizationsFeaturesCommandOutput) => void
+  ): void;
+  listOrganizationsFeatures(
+    args: ListOrganizationsFeaturesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationsFeaturesCommandOutput) => void
   ): void;
 
   /**

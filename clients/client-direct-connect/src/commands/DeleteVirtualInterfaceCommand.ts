@@ -61,6 +61,7 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteVirtualInterfaceCommand extends $Command
@@ -71,9 +72,7 @@ export class DeleteVirtualInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DeleteVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVirtualInterfaceCommand)
   .de(de_DeleteVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVirtualInterfaceRequest;
+      output: DeleteVirtualInterfaceResponse;
+    };
+    sdk: {
+      input: DeleteVirtualInterfaceCommandInput;
+      output: DeleteVirtualInterfaceCommandOutput;
+    };
+  };
+}

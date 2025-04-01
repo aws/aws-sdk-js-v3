@@ -70,6 +70,7 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class DeleteGraphCommand extends $Command
@@ -80,9 +81,7 @@ export class DeleteGraphCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class DeleteGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGraphCommand)
   .de(de_DeleteGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGraphRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGraphCommandInput;
+      output: DeleteGraphCommandOutput;
+    };
+  };
+}

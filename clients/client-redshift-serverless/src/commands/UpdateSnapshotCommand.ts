@@ -99,6 +99,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class UpdateSnapshotCommand extends $Command
@@ -109,9 +110,7 @@ export class UpdateSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class UpdateSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSnapshotCommand)
   .de(de_UpdateSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSnapshotRequest;
+      output: UpdateSnapshotResponse;
+    };
+    sdk: {
+      input: UpdateSnapshotCommandInput;
+      output: UpdateSnapshotCommandOutput;
+    };
+  };
+}

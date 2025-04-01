@@ -159,6 +159,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command
@@ -187,4 +188,16 @@ export class GetBucketLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketLifecycleConfigurationCommand)
   .de(de_GetBucketLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketLifecycleConfigurationRequest;
+      output: GetBucketLifecycleConfigurationResult;
+    };
+    sdk: {
+      input: GetBucketLifecycleConfigurationCommandInput;
+      output: GetBucketLifecycleConfigurationCommandOutput;
+    };
+  };
+}

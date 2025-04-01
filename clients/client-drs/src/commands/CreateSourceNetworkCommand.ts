@@ -85,6 +85,7 @@ export interface CreateSourceNetworkCommandOutput extends CreateSourceNetworkRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class CreateSourceNetworkCommand extends $Command
@@ -95,9 +96,7 @@ export class CreateSourceNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class CreateSourceNetworkCommand extends $Command
   .f(CreateSourceNetworkRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSourceNetworkCommand)
   .de(de_CreateSourceNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSourceNetworkRequest;
+      output: CreateSourceNetworkResponse;
+    };
+    sdk: {
+      input: CreateSourceNetworkCommandInput;
+      output: CreateSourceNetworkCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_4";
+import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_5";
 import { de_UpdateTemplateAliasCommand, se_UpdateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -82,6 +82,7 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateTemplateAliasCommand extends $Command
@@ -92,9 +93,7 @@ export class UpdateTemplateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class UpdateTemplateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTemplateAliasCommand)
   .de(de_UpdateTemplateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplateAliasRequest;
+      output: UpdateTemplateAliasResponse;
+    };
+    sdk: {
+      input: UpdateTemplateAliasCommandInput;
+      output: UpdateTemplateAliasCommandOutput;
+    };
+  };
+}

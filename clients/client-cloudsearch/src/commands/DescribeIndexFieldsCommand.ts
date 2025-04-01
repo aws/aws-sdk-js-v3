@@ -168,6 +168,7 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeIndexFieldsCommand extends $Command
@@ -178,9 +179,7 @@ export class DescribeIndexFieldsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +191,16 @@ export class DescribeIndexFieldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIndexFieldsCommand)
   .de(de_DescribeIndexFieldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIndexFieldsRequest;
+      output: DescribeIndexFieldsResponse;
+    };
+    sdk: {
+      input: DescribeIndexFieldsCommandInput;
+      output: DescribeIndexFieldsCommandOutput;
+    };
+  };
+}

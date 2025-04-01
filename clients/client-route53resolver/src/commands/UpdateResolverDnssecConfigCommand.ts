@@ -81,6 +81,7 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class UpdateResolverDnssecConfigCommand extends $Command
@@ -91,9 +92,7 @@ export class UpdateResolverDnssecConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class UpdateResolverDnssecConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResolverDnssecConfigCommand)
   .de(de_UpdateResolverDnssecConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResolverDnssecConfigRequest;
+      output: UpdateResolverDnssecConfigResponse;
+    };
+    sdk: {
+      input: UpdateResolverDnssecConfigCommandInput;
+      output: UpdateResolverDnssecConfigCommandOutput;
+    };
+  };
+}

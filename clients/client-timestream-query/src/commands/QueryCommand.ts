@@ -31,7 +31,13 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 /**
  * <p>
  *             <code>Query</code> is a synchronous operation that enables you to run a query against
- *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
+ *             your Amazon Timestream data.</p>
+ *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed. <code>QueryInsights</code> helps with performance tuning of your query. For more information about <code>QueryInsights</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html">Using query insights to optimize queries in Amazon Timestream</a>.</p>
+ *          <note>
+ *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
+ *          </note>
+ *          <p>
+ *             <code>Query</code> will time out after 60 seconds.
  *             You must update the default timeout in the SDK to support a timeout of 60 seconds. See
  *             the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html">code
  *                 sample</a> for details. </p>
@@ -71,6 +77,9 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  *   ClientToken: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxRows: Number("int"),
+ *   QueryInsights: { // QueryInsights
+ *     Mode: "ENABLED_WITH_RATE_CONTROL" || "DISABLED", // required
+ *   },
  * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
@@ -136,6 +145,29 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * //     CumulativeBytesScanned: Number("long"),
  * //     CumulativeBytesMetered: Number("long"),
  * //   },
+ * //   QueryInsightsResponse: { // QueryInsightsResponse
+ * //     QuerySpatialCoverage: { // QuerySpatialCoverage
+ * //       Max: { // QuerySpatialCoverageMax
+ * //         Value: Number("double"),
+ * //         TableArn: "STRING_VALUE",
+ * //         PartitionKey: [ // PartitionKeyList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     QueryTemporalRange: { // QueryTemporalRange
+ * //       Max: { // QueryTemporalRangeMax
+ * //         Value: Number("long"),
+ * //         TableArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     QueryTableCount: Number("long"),
+ * //     OutputRows: Number("long"),
+ * //     OutputBytes: Number("long"),
+ * //     UnloadPartitionCount: Number("long"),
+ * //     UnloadWrittenRows: Number("long"),
+ * //     UnloadWrittenBytes: Number("long"),
+ * //   },
  * // };
  *
  * ```
@@ -147,31 +179,30 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *  <p>You do not have the necessary permissions to access the account settings.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p> Unable to poll results for a cancelled query. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link QueryExecutionException} (client fault)
  *  <p>
  *             Timestream was unable to run the query successfully. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
+ *
  *
  * @public
  */
@@ -183,14 +214,16 @@ export class QueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "Query", {})
@@ -198,4 +231,16 @@ export class QueryCommand extends $Command
   .f(QueryRequestFilterSensitiveLog, void 0)
   .ser(se_QueryCommand)
   .de(de_QueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryRequest;
+      output: QueryResponse;
+    };
+    sdk: {
+      input: QueryCommandInput;
+      output: QueryCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { SupportServiceException as __BaseException } from "./SupportServiceExce
 
 /**
  * <p>An attachment to a case communication. The attachment consists of the file name and
- *             the content of the file.</p>
+ *             the content of the file. Each attachment file size should not exceed 5 MB. File types that are supported include the following: pdf, jpeg,.doc, .log, .text </p>
  * @public
  */
 export interface Attachment {
@@ -13,13 +13,13 @@ export interface Attachment {
    * <p>The name of the attachment file.</p>
    * @public
    */
-  fileName?: string;
+  fileName?: string | undefined;
 
   /**
    * <p>The content of the attachment file.</p>
    * @public
    */
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
@@ -33,7 +33,7 @@ export interface AddAttachmentsToSetRequest {
    *             specified set, if it exists.</p>
    * @public
    */
-  attachmentSetId?: string;
+  attachmentSetId?: string | undefined;
 
   /**
    * <p>One or more attachments to add to the set. You can add up to three attachments per
@@ -60,13 +60,13 @@ export interface AddAttachmentsToSetResponse {
    *             specified set, if it exists.</p>
    * @public
    */
-  attachmentSetId?: string;
+  attachmentSetId?: string | undefined;
 
   /**
    * <p>The time and date when the attachment set expires.</p>
    * @public
    */
-  expiryTime?: string;
+  expiryTime?: string | undefined;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface AddCommunicationToCaseRequest {
    *          </p>
    * @public
    */
-  caseId?: string;
+  caseId?: string | undefined;
 
   /**
    * <p>The body of an email communication to add to the support case.</p>
@@ -195,7 +195,7 @@ export interface AddCommunicationToCaseRequest {
    * <p>The email addresses in the CC line of an email to be added to the support case.</p>
    * @public
    */
-  ccEmailAddresses?: string[];
+  ccEmailAddresses?: string[] | undefined;
 
   /**
    * <p>The ID of a set of one or more attachments for the communication to add to the case.
@@ -203,7 +203,7 @@ export interface AddCommunicationToCaseRequest {
    *          </p>
    * @public
    */
-  attachmentSetId?: string;
+  attachmentSetId?: string | undefined;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface AddCommunicationToCaseResponse {
    *             error.</p>
    * @public
    */
-  result?: boolean;
+  result?: boolean | undefined;
 }
 
 /**
@@ -249,13 +249,13 @@ export interface AttachmentDetails {
    * <p>The ID of the attachment.</p>
    * @public
    */
-  attachmentId?: string;
+  attachmentId?: string | undefined;
 
   /**
    * <p>The file name of the attachment.</p>
    * @public
    */
-  fileName?: string;
+  fileName?: string | undefined;
 }
 
 /**
@@ -313,7 +313,7 @@ export interface CreateCaseRequest {
    *             operation to get the possible <code>serviceCode</code> values.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>A value that indicates the urgency of the case. This value determines the response
@@ -327,14 +327,14 @@ export interface CreateCaseRequest {
    *          </note>
    * @public
    */
-  severityCode?: string;
+  severityCode?: string | undefined;
 
   /**
    * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
    *             Amazon Web Services service defines its own set of category codes.</p>
    * @public
    */
-  categoryCode?: string;
+  categoryCode?: string | undefined;
 
   /**
    * <p>The communication body text that describes the issue. This text appears in the
@@ -350,7 +350,7 @@ export interface CreateCaseRequest {
    *         </p>
    * @public
    */
-  ccEmailAddresses?: string[];
+  ccEmailAddresses?: string[] | undefined;
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
@@ -358,7 +358,7 @@ export interface CreateCaseRequest {
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>The type of issue for the case. You can specify <code>customer-service</code> or
@@ -366,14 +366,14 @@ export interface CreateCaseRequest {
    *                 <code>technical</code>.</p>
    * @public
    */
-  issueType?: string;
+  issueType?: string | undefined;
 
   /**
    * <p>The ID of a set of one or more attachments for the case. Create the set by using the
    *                 <a>AddAttachmentsToSet</a> operation.</p>
    * @public
    */
-  attachmentSetId?: string;
+  attachmentSetId?: string | undefined;
 }
 
 /**
@@ -388,7 +388,7 @@ export interface CreateCaseResponse {
    *          </p>
    * @public
    */
-  caseId?: string;
+  caseId?: string | undefined;
 }
 
 /**
@@ -436,7 +436,7 @@ export interface DescribeAttachmentResponse {
    *                 <code>troubleshoot-screenshot.png</code>.</p>
    * @public
    */
-  attachment?: Attachment;
+  attachment?: Attachment | undefined;
 }
 
 /**
@@ -448,46 +448,46 @@ export interface DescribeCasesRequest {
    *             cases is 100.</p>
    * @public
    */
-  caseIdList?: string[];
+  caseIdList?: string[] | undefined;
 
   /**
    * <p>The ID displayed for a case in the Amazon Web Services Support Center user interface.</p>
    * @public
    */
-  displayId?: string;
+  displayId?: string | undefined;
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    * @public
    */
-  afterTime?: string;
+  afterTime?: string | undefined;
 
   /**
    * <p>The end date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    * @public
    */
-  beforeTime?: string;
+  beforeTime?: string | undefined;
 
   /**
    * <p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
    *             response. By default, resolved cases aren't included.</p>
    * @public
    */
-  includeResolvedCases?: boolean;
+  includeResolvedCases?: boolean | undefined;
 
   /**
    * <p>A resumption point for pagination.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return before paginating.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
@@ -495,14 +495,14 @@ export interface DescribeCasesRequest {
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>Specifies whether to include communications in the <code>DescribeCases</code>
    *             response. By default, communications are included.</p>
    * @public
    */
-  includeCommunications?: boolean;
+  includeCommunications?: boolean | undefined;
 }
 
 /**
@@ -519,13 +519,13 @@ export interface Communication {
    *          </p>
    * @public
    */
-  caseId?: string;
+  caseId?: string | undefined;
 
   /**
    * <p>The text of the communication between the customer and Amazon Web Services Support.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 
   /**
    * <p>The identity of the account that submitted, or responded to, the support case.
@@ -535,19 +535,19 @@ export interface Communication {
    *             </p>
    * @public
    */
-  submittedBy?: string;
+  submittedBy?: string | undefined;
 
   /**
    * <p>The time the communication was created.</p>
    * @public
    */
-  timeCreated?: string;
+  timeCreated?: string | undefined;
 
   /**
    * <p>Information about the attachments to the case communication.</p>
    * @public
    */
-  attachmentSet?: AttachmentDetails[];
+  attachmentSet?: AttachmentDetails[] | undefined;
 }
 
 /**
@@ -559,13 +559,13 @@ export interface RecentCaseCommunications {
    * <p>The five most recent communications associated with the case.</p>
    * @public
    */
-  communications?: Communication[];
+  communications?: Communication[] | undefined;
 
   /**
    * <p>A resumption point for pagination.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -626,6 +626,16 @@ export interface RecentCaseCommunications {
  *                <ul>
  *                   <li>
  *                      <p>
+ *                         <code>all-open</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>customer-action-completed</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>opened</code>
  *                      </p>
  *                   </li>
@@ -682,25 +692,35 @@ export interface CaseDetails {
    *          </p>
    * @public
    */
-  caseId?: string;
+  caseId?: string | undefined;
 
   /**
    * <p>The ID displayed for the case in the Amazon Web Services Support Center. This is a numeric
    *             string.</p>
    * @public
    */
-  displayId?: string;
+  displayId?: string | undefined;
 
   /**
    * <p>The subject line for the case in the Amazon Web Services Support Center.</p>
    * @public
    */
-  subject?: string;
+  subject?: string | undefined;
 
   /**
    * <p>The status of the case.</p>
    *          <p>Valid values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>all-open</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>customer-action-completed</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>opened</code>
@@ -734,38 +754,38 @@ export interface CaseDetails {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The code for the Amazon Web Services service. You can get a list of codes and the corresponding
    *             service names by calling <a>DescribeServices</a>.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The category of problem for the support case.</p>
    * @public
    */
-  categoryCode?: string;
+  categoryCode?: string | undefined;
 
   /**
    * <p>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</p>
    * @public
    */
-  severityCode?: string;
+  severityCode?: string | undefined;
 
   /**
    * <p>The email address of the account that submitted the case.</p>
    * @public
    */
-  submittedBy?: string;
+  submittedBy?: string | undefined;
 
   /**
    * <p>The time that the case was created in the Amazon Web Services Support Center.</p>
    * @public
    */
-  timeCreated?: string;
+  timeCreated?: string | undefined;
 
   /**
    * <p>The five most recent communications between you and Amazon Web Services Support Center, including the
@@ -773,13 +793,13 @@ export interface CaseDetails {
    *             that you can use to retrieve earlier communications.</p>
    * @public
    */
-  recentCommunications?: RecentCaseCommunications;
+  recentCommunications?: RecentCaseCommunications | undefined;
 
   /**
    * <p>The email addresses that receive copies of communication about the case.</p>
    * @public
    */
-  ccEmailAddresses?: string[];
+  ccEmailAddresses?: string[] | undefined;
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
@@ -787,7 +807,7 @@ export interface CaseDetails {
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 }
 
 /**
@@ -801,13 +821,13 @@ export interface DescribeCasesResponse {
    * <p>The details for the cases that match the request.</p>
    * @public
    */
-  cases?: CaseDetails[];
+  cases?: CaseDetails[] | undefined;
 
   /**
    * <p>A resumption point for pagination.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -828,26 +848,26 @@ export interface DescribeCommunicationsRequest {
    *             communications are available for 12 months after creation.</p>
    * @public
    */
-  beforeTime?: string;
+  beforeTime?: string | undefined;
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    * @public
    */
-  afterTime?: string;
+  afterTime?: string | undefined;
 
   /**
    * <p>A resumption point for pagination.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return before paginating.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -860,13 +880,13 @@ export interface DescribeCommunicationsResponse {
    * <p>The communications for the case.</p>
    * @public
    */
-  communications?: Communication[];
+  communications?: Communication[] | undefined;
 
   /**
    * <p>A resumption point for pagination.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -915,7 +935,7 @@ export interface DateInterval {
    *         </p>
    * @public
    */
-  startDateTime?: string;
+  startDateTime?: string | undefined;
 
   /**
    * <p>
@@ -923,7 +943,7 @@ export interface DateInterval {
    *         </p>
    * @public
    */
-  endDateTime?: string;
+  endDateTime?: string | undefined;
 }
 
 /**
@@ -937,7 +957,7 @@ export interface SupportedHour {
    *         </p>
    * @public
    */
-  startTime?: string;
+  startTime?: string | undefined;
 
   /**
    * <p>
@@ -945,7 +965,7 @@ export interface SupportedHour {
    *         </p>
    * @public
    */
-  endTime?: string;
+  endTime?: string | undefined;
 }
 
 /**
@@ -984,7 +1004,7 @@ export interface CommunicationTypeOptions {
    *         </p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>
@@ -992,7 +1012,7 @@ export interface CommunicationTypeOptions {
    *         </p>
    * @public
    */
-  supportedHours?: SupportedHour[];
+  supportedHours?: SupportedHour[] | undefined;
 
   /**
    * <p>
@@ -1000,7 +1020,7 @@ export interface CommunicationTypeOptions {
    *         </p>
    * @public
    */
-  datesWithoutSupport?: DateInterval[];
+  datesWithoutSupport?: DateInterval[] | undefined;
 }
 
 /**
@@ -1028,7 +1048,7 @@ export interface DescribeCreateCaseOptionsResponse {
    *          </ul>
    * @public
    */
-  languageAvailability?: string;
+  languageAvailability?: string | undefined;
 
   /**
    * <p>
@@ -1037,7 +1057,7 @@ export interface DescribeCreateCaseOptionsResponse {
    *         </p>
    * @public
    */
-  communicationTypes?: CommunicationTypeOptions[];
+  communicationTypes?: CommunicationTypeOptions[] | undefined;
 }
 
 /**
@@ -1070,7 +1090,7 @@ export interface DescribeServicesRequest {
    * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
    * @public
    */
-  serviceCodeList?: string[];
+  serviceCodeList?: string[] | undefined;
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
@@ -1078,7 +1098,7 @@ export interface DescribeServicesRequest {
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 }
 
 /**
@@ -1092,13 +1112,13 @@ export interface Category {
    * <p>The category code for the support case.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>The category name for the support case.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1112,14 +1132,14 @@ export interface Service {
    *             response. The <code>name</code> element contains the corresponding friendly name.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>The friendly name for an Amazon Web Services service. The <code>code</code> element contains the
    *             corresponding code.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A list of categories that describe the type of support issue a case describes.
@@ -1127,7 +1147,7 @@ export interface Service {
    *             passed to Amazon Web Services Support when you call <a>CreateCase</a>.</p>
    * @public
    */
-  categories?: Category[];
+  categories?: Category[] | undefined;
 }
 
 /**
@@ -1140,7 +1160,7 @@ export interface DescribeServicesResponse {
    * <p>A JSON-formatted list of Amazon Web Services services.</p>
    * @public
    */
-  services?: Service[];
+  services?: Service[] | undefined;
 }
 
 /**
@@ -1153,7 +1173,7 @@ export interface DescribeSeverityLevelsRequest {
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 }
 
 /**
@@ -1171,7 +1191,7 @@ export interface SeverityLevel {
    *          </p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>The name of the severity level that corresponds to the severity level code.</p>
@@ -1207,7 +1227,7 @@ export interface SeverityLevel {
    *                 severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1221,7 +1241,7 @@ export interface DescribeSeverityLevelsResponse {
    *             defined by your service level agreement with Amazon Web Services.</p>
    * @public
    */
-  severityLevels?: SeverityLevel[];
+  severityLevels?: SeverityLevel[] | undefined;
 }
 
 /**
@@ -1265,7 +1285,7 @@ export interface SupportedLanguage {
    *          </p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>
@@ -1273,7 +1293,7 @@ export interface SupportedLanguage {
    *          </p>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 
   /**
    * <p>
@@ -1281,7 +1301,7 @@ export interface SupportedLanguage {
    *          </p>
    * @public
    */
-  display?: string;
+  display?: string | undefined;
 }
 
 /**
@@ -1294,7 +1314,7 @@ export interface DescribeSupportedLanguagesResponse {
    *         </p>
    * @public
    */
-  supportedLanguages?: SupportedLanguage[];
+  supportedLanguages?: SupportedLanguage[] | undefined;
 }
 
 /**
@@ -1438,7 +1458,7 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
    *          </ul>
    * @public
    */
-  language?: string;
+  language?: string | undefined;
 }
 
 /**
@@ -1473,7 +1493,7 @@ export interface TrustedAdvisorCategorySpecificSummary {
    *             Optimizing category.</p>
    * @public
    */
-  costOptimizing?: TrustedAdvisorCostOptimizingSummary;
+  costOptimizing?: TrustedAdvisorCostOptimizingSummary | undefined;
 }
 
 /**
@@ -1491,7 +1511,7 @@ export interface TrustedAdvisorResourceDetail {
    * <p>The Amazon Web Services Region in which the identified resource is located.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The unique identifier for the identified resource.</p>
@@ -1504,7 +1524,7 @@ export interface TrustedAdvisorResourceDetail {
    *             suppressed by the user.</p>
    * @public
    */
-  isSuppressed?: boolean;
+  isSuppressed?: boolean | undefined;
 
   /**
    * <p>Additional information about the identified resource. The exact metadata and its order
@@ -1601,7 +1621,7 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
    * <p>The detailed results of the Trusted Advisor check.</p>
    * @public
    */
-  result?: TrustedAdvisorCheckResult;
+  result?: TrustedAdvisorCheckResult | undefined;
 }
 
 /**
@@ -1755,7 +1775,7 @@ export interface TrustedAdvisorCheckSummary {
    * <p>Specifies whether the Trusted Advisor check has flagged resources.</p>
    * @public
    */
-  hasFlaggedResources?: boolean;
+  hasFlaggedResources?: boolean | undefined;
 
   /**
    * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
@@ -1823,7 +1843,7 @@ export interface ResolveCaseRequest {
    *          </p>
    * @public
    */
-  caseId?: string;
+  caseId?: string | undefined;
 }
 
 /**
@@ -1835,12 +1855,12 @@ export interface ResolveCaseResponse {
    * <p>The status of the case when the <a>ResolveCase</a> request was sent.</p>
    * @public
    */
-  initialCaseStatus?: string;
+  initialCaseStatus?: string | undefined;
 
   /**
    * <p>The status of the case after the <a>ResolveCase</a> request was
    *             processed.</p>
    * @public
    */
-  finalCaseStatus?: string;
+  finalCaseStatus?: string | undefined;
 }

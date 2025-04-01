@@ -72,6 +72,7 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class QueryListsCommand extends $Command
@@ -90,4 +91,16 @@ export class QueryListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryListsCommand)
   .de(de_QueryListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryListsInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryListsCommandInput;
+      output: QueryListsCommandOutput;
+    };
+  };
+}

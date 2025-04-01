@@ -49,7 +49,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  * const response = await client.send(command);
  * // { // DeleteRecommendationTemplateResponse
  * //   recommendationTemplateArn: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * // };
  *
  * ```
@@ -81,6 +81,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecommendationTemplateCommand extends $Command
@@ -91,9 +92,7 @@ export class DeleteRecommendationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class DeleteRecommendationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecommendationTemplateCommand)
   .de(de_DeleteRecommendationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecommendationTemplateRequest;
+      output: DeleteRecommendationTemplateResponse;
+    };
+    sdk: {
+      input: DeleteRecommendationTemplateCommandInput;
+      output: DeleteRecommendationTemplateCommandOutput;
+    };
+  };
+}

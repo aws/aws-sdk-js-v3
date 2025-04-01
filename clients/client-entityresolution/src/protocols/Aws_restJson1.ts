@@ -18,8 +18,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -125,9 +127,11 @@ import {
   ConflictException,
   ExceedsLimitException,
   IdMappingJobOutputSource,
+  IdMappingRuleBasedProperties,
   IdMappingTechniques,
   IdMappingWorkflowInputSource,
   IdMappingWorkflowOutputSource,
+  IdMappingWorkflowRuleDefinitionType,
   IdMappingWorkflowSummary,
   IdNamespaceIdMappingWorkflowProperties,
   IdNamespaceInputSource,
@@ -139,10 +143,12 @@ import {
   JobSummary,
   MatchingWorkflowSummary,
   NamespaceProviderProperties,
+  NamespaceRuleBasedProperties,
   OutputAttribute,
   OutputSource,
   ProviderIdNameSpaceConfiguration,
   ProviderProperties,
+  RecordMatchingModel,
   ResolutionTechniques,
   ResourceNotFoundException,
   Rule,
@@ -190,10 +196,7 @@ export const se_BatchDeleteUniqueIdCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_i]: input[_iS]!,
-    [_u]: [
-      () => isSerializableHeaderValue(input[_uI]),
-      () => (input[_uI]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_u]: [() => isSerializableHeaderValue(input[_uI]), () => (input[_uI]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/matchingworkflows/{workflowName}/uniqueids");
   b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
@@ -798,10 +801,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1988,6 +1988,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_IdMappingJobOutputSourceConfig omitted.
 
+// se_IdMappingRuleBasedProperties omitted.
+
 /**
  * serializeAws_restJson1IdMappingTechniques
  */
@@ -1995,6 +1997,7 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
   return take(input, {
     idMappingType: [],
     providerProperties: (_) => se_ProviderProperties(_, context),
+    ruleBasedProperties: _json,
   });
 };
 
@@ -2006,6 +2009,8 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
 
 // se_IdMappingWorkflowOutputSourceConfig omitted.
 
+// se_IdMappingWorkflowRuleDefinitionTypeList omitted.
+
 /**
  * serializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
  */
@@ -2016,6 +2021,7 @@ const se_IdNamespaceIdMappingWorkflowProperties = (
   return take(input, {
     idMappingType: [],
     providerProperties: (_) => se_NamespaceProviderProperties(_, context),
+    ruleBasedProperties: _json,
   });
 };
 
@@ -2057,6 +2063,8 @@ const se_NamespaceProviderProperties = (input: NamespaceProviderProperties, cont
   });
 };
 
+// se_NamespaceRuleBasedProperties omitted.
+
 // se_OutputAttribute omitted.
 
 // se_OutputAttributes omitted.
@@ -2077,6 +2085,8 @@ const se_ProviderProperties = (input: ProviderProperties, context: __SerdeContex
 };
 
 // se_RecordAttributeMap omitted.
+
+// se_RecordMatchingModelList omitted.
 
 /**
  * serializeAws_restJson1ResolutionTechniques
@@ -2132,6 +2142,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_IdMappingJobOutputSourceConfig omitted.
 
+// de_IdMappingRuleBasedProperties omitted.
+
 /**
  * deserializeAws_restJson1IdMappingTechniques
  */
@@ -2139,6 +2151,7 @@ const de_IdMappingTechniques = (output: any, context: __SerdeContext): IdMapping
   return take(output, {
     idMappingType: __expectString,
     providerProperties: (_: any) => de_ProviderProperties(_, context),
+    ruleBasedProperties: _json,
   }) as any;
 };
 
@@ -2162,6 +2175,8 @@ const de_IdMappingWorkflowList = (output: any, context: __SerdeContext): IdMappi
 
 // de_IdMappingWorkflowOutputSourceConfig omitted.
 
+// de_IdMappingWorkflowRuleDefinitionTypeList omitted.
+
 /**
  * deserializeAws_restJson1IdMappingWorkflowSummary
  */
@@ -2174,6 +2189,10 @@ const de_IdMappingWorkflowSummary = (output: any, context: __SerdeContext): IdMa
   }) as any;
 };
 
+// de_IdNamespaceIdMappingWorkflowMetadata omitted.
+
+// de_IdNamespaceIdMappingWorkflowMetadataList omitted.
+
 /**
  * deserializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
  */
@@ -2184,6 +2203,7 @@ const de_IdNamespaceIdMappingWorkflowProperties = (
   return take(output, {
     idMappingType: __expectString,
     providerProperties: (_: any) => de_NamespaceProviderProperties(_, context),
+    ruleBasedProperties: _json,
   }) as any;
 };
 
@@ -2225,6 +2245,7 @@ const de_IdNamespaceSummary = (output: any, context: __SerdeContext): IdNamespac
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    idMappingWorkflowProperties: _json,
     idNamespaceArn: __expectString,
     idNamespaceName: __expectString,
     type: __expectString,
@@ -2307,6 +2328,8 @@ const de_NamespaceProviderProperties = (output: any, context: __SerdeContext): N
   }) as any;
 };
 
+// de_NamespaceRuleBasedProperties omitted.
+
 // de_OutputAttribute omitted.
 
 // de_OutputAttributes omitted.
@@ -2355,6 +2378,8 @@ const de_ProviderProperties = (output: any, context: __SerdeContext): ProviderPr
 // de_ProviderServiceList omitted.
 
 // de_ProviderServiceSummary omitted.
+
+// de_RecordMatchingModelList omitted.
 
 // de_RequiredBucketActionsList omitted.
 
@@ -2428,13 +2453,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _i = "inputsource";
 const _iS = "inputSource";

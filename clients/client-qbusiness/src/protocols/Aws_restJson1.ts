@@ -38,28 +38,37 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AssociatePermissionCommandInput,
+  AssociatePermissionCommandOutput,
+} from "../commands/AssociatePermissionCommand";
+import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../commands/BatchPutDocumentCommand";
+import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { ChatCommandInput, ChatCommandOutput } from "../commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "../commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
+import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "../commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
 import { CreatePluginCommandInput, CreatePluginCommandOutput } from "../commands/CreatePluginCommand";
 import { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "../commands/CreateRetrieverCommand";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "../commands/CreateSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import {
   CreateWebExperienceCommandInput,
   CreateWebExperienceCommandOutput,
 } from "../commands/CreateWebExperienceCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "../commands/DeleteAttachmentCommand";
 import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
 } from "../commands/DeleteChatControlsConfigurationCommand";
 import { DeleteConversationCommandInput, DeleteConversationCommandOutput } from "../commands/DeleteConversationCommand";
+import { DeleteDataAccessorCommandInput, DeleteDataAccessorCommandOutput } from "../commands/DeleteDataAccessorCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "../commands/DeleteIndexCommand";
@@ -70,20 +79,29 @@ import {
   DeleteWebExperienceCommandInput,
   DeleteWebExperienceCommandOutput,
 } from "../commands/DeleteWebExperienceCommand";
+import {
+  DisassociatePermissionCommandInput,
+  DisassociatePermissionCommandOutput,
+} from "../commands/DisassociatePermissionCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import {
   GetChatControlsConfigurationCommandInput,
   GetChatControlsConfigurationCommandOutput,
 } from "../commands/GetChatControlsConfigurationCommand";
+import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "../commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
 import { GetPluginCommandInput, GetPluginCommandOutput } from "../commands/GetPluginCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "../commands/GetPolicyCommand";
 import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "../commands/GetRetrieverCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand";
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "../commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "../commands/ListAttachmentsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "../commands/ListConversationsCommand";
+import { ListDataAccessorsCommandInput, ListDataAccessorsCommandOutput } from "../commands/ListDataAccessorsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
@@ -93,8 +111,18 @@ import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "../comman
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand";
 import { ListMessagesCommandInput, ListMessagesCommandOutput } from "../commands/ListMessagesCommand";
+import { ListPluginActionsCommandInput, ListPluginActionsCommandOutput } from "../commands/ListPluginActionsCommand";
 import { ListPluginsCommandInput, ListPluginsCommandOutput } from "../commands/ListPluginsCommand";
+import {
+  ListPluginTypeActionsCommandInput,
+  ListPluginTypeActionsCommandOutput,
+} from "../commands/ListPluginTypeActionsCommand";
+import {
+  ListPluginTypeMetadataCommandInput,
+  ListPluginTypeMetadataCommandOutput,
+} from "../commands/ListPluginTypeMetadataCommand";
 import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "../commands/ListRetrieversCommand";
+import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "../commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -102,6 +130,10 @@ import {
 import { ListWebExperiencesCommandInput, ListWebExperiencesCommandOutput } from "../commands/ListWebExperiencesCommand";
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "../commands/PutFeedbackCommand";
 import { PutGroupCommandInput, PutGroupCommandOutput } from "../commands/PutGroupCommand";
+import {
+  SearchRelevantContentCommandInput,
+  SearchRelevantContentCommandOutput,
+} from "../commands/SearchRelevantContentCommand";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -117,10 +149,12 @@ import {
   UpdateChatControlsConfigurationCommandInput,
   UpdateChatControlsConfigurationCommandOutput,
 } from "../commands/UpdateChatControlsConfigurationCommand";
+import { UpdateDataAccessorCommandInput, UpdateDataAccessorCommandOutput } from "../commands/UpdateDataAccessorCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
 import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "../commands/UpdatePluginCommand";
 import { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "../commands/UpdateRetrieverCommand";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "../commands/UpdateSubscriptionCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommandInput,
@@ -139,25 +173,32 @@ import {
   ActionReviewPayloadFieldAllowedValue,
   APISchema,
   Application,
+  Attachment,
   AttachmentInput,
   AttachmentInputEvent,
   AttachmentsConfiguration,
-  AttributeFilter,
+  AudioExtractionConfiguration,
   AuthChallengeRequestEvent,
   AuthChallengeResponse,
   AuthChallengeResponseEvent,
+  AutoSubscriptionConfiguration,
   BasicAuthConfiguration,
   BlockedPhrasesConfigurationUpdate,
-  ChatInputStream,
+  BrowserExtension,
+  BrowserExtensionConfiguration,
   ChatModeConfiguration,
   ChatOutputStream,
-  ConfigurationEvent,
   ConflictException,
   ContentBlockerRule,
   ContentRetrievalRule,
+  ContentSource,
   Conversation,
+  ConversationSource,
+  CopyFromSource,
   CreatorModeConfiguration,
+  CustomizationConfiguration,
   CustomPluginConfiguration,
+  DataAccessor,
   DataSource,
   DataSourceSyncJob,
   DataSourceVpcConfiguration,
@@ -176,25 +217,28 @@ import {
   EligibleDataSource,
   EncryptionConfiguration,
   EndOfInputEvent,
+  ExternalResourceException,
   FailedAttachmentEvent,
-  GroupMembers,
   GroupStatusDetail,
   HookConfiguration,
+  IdcAuthConfiguration,
+  IdentityProviderConfiguration,
+  ImageExtractionConfiguration,
   Index,
   IndexCapacityConfiguration,
   InlineDocumentEnrichmentConfiguration,
   InternalServerException,
   KendraIndexConfiguration,
   LicenseNotFoundException,
-  MemberGroup,
-  MemberUser,
+  MediaExtractionConfiguration,
+  MediaTooLargeException,
   Message,
-  MessageUsefulnessFeedback,
   MetadataEvent,
   NativeIndexConfiguration,
   NoAuthConfiguration,
   NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
+  OpenIDConnectProviderConfiguration,
   PersonalizationConfiguration,
   Plugin,
   PluginAuthConfiguration,
@@ -203,17 +247,21 @@ import {
   PrincipalGroup,
   PrincipalUser,
   QAppsConfiguration,
+  QuickSightConfiguration,
   ResourceNotFoundException,
   RetrieverConfiguration,
+  RetrieverContentSource,
   Rule,
   RuleConfiguration,
   S3,
   SamlConfiguration,
+  SamlProviderConfiguration,
   ServiceQuotaExceededException,
   SourceAttribution,
   StringAttributeBoostingConfiguration,
   StringAttributeValueBoostingLevel,
   StringListAttributeBoostingConfiguration,
+  SubscriptionPrincipal,
   Tag,
   TextInputEvent,
   TextOutputEvent,
@@ -222,10 +270,49 @@ import {
   UserAlias,
   UsersAndGroups,
   ValidationException,
+  VideoExtractionConfiguration,
   WebExperience,
   WebExperienceAuthConfiguration,
 } from "../models/models_0";
+import {
+  ActionConfiguration,
+  ActionFilterConfiguration,
+  AttributeFilter,
+  ChatInputStream,
+  ConfigurationEvent,
+  GroupMembers,
+  MemberGroup,
+  MemberUser,
+  MessageUsefulnessFeedback,
+  OrchestrationConfiguration,
+  RelevantContent,
+} from "../models/models_1";
 import { QBusinessServiceException as __BaseException } from "../models/QBusinessServiceException";
+
+/**
+ * serializeAws_restJson1AssociatePermissionCommand
+ */
+export const se_AssociatePermissionCommand = async (
+  input: AssociatePermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/policy");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: (_) => _json(_),
+      principal: [],
+      statementId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1BatchDeleteDocumentCommand
@@ -279,6 +366,23 @@ export const se_BatchPutDocumentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CancelSubscriptionCommand
+ */
+export const se_CancelSubscriptionCommand = async (
+  input: CancelSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/subscriptions/{subscriptionId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("subscriptionId", () => input.subscriptionId!, "{subscriptionId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ChatCommand
  */
 export const se_ChatCommand = async (
@@ -293,7 +397,7 @@ export const se_ChatCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
     [_uI]: [, input[_uI]!],
-    [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
+    [_uG]: [() => input.userGroups !== void 0, () => input[_uG]! || []],
     [_cI]: [, input[_cI]!],
     [_pMI]: [, input[_pMI]!],
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
@@ -322,7 +426,7 @@ export const se_ChatSyncCommand = async (
   const query: any = map({
     [_s]: [, ""],
     [_uI]: [, input[_uI]!],
-    [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
+    [_uG]: [() => input.userGroups !== void 0, () => input[_uG]! || []],
   });
   let body: any;
   body = JSON.stringify(
@@ -359,14 +463,45 @@ export const se_CreateApplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       attachmentsConfiguration: (_) => _json(_),
+      clientIdsForOIDC: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       displayName: [],
       encryptionConfiguration: (_) => _json(_),
+      iamIdentityProviderArn: [],
       identityCenterInstanceArn: [],
+      identityType: [],
       personalizationConfiguration: (_) => _json(_),
       qAppsConfiguration: (_) => _json(_),
+      quickSightConfiguration: (_) => _json(_),
       roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataAccessorCommand
+ */
+export const se_CreateDataAccessorCommand = async (
+  input: CreateDataAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/dataaccessors");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionConfigurations: (_) => se_ActionConfigurationList(_, context),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      displayName: [],
+      principal: [],
       tags: (_) => _json(_),
     })
   );
@@ -396,6 +531,7 @@ export const se_CreateDataSourceCommand = async (
       description: [],
       displayName: [],
       documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
+      mediaExtractionConfiguration: (_) => _json(_),
       roleArn: [],
       syncSchedule: [],
       tags: (_) => _json(_),
@@ -492,6 +628,31 @@ export const se_CreateRetrieverCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateSubscriptionCommand
+ */
+export const se_CreateSubscriptionCommand = async (
+  input: CreateSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/subscriptions");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      principal: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateUserCommand
  */
 export const se_CreateUserCommand = async (
@@ -532,7 +693,11 @@ export const se_CreateWebExperienceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      browserExtensionConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customizationConfiguration: (_) => _json(_),
+      identityProviderConfiguration: (_) => _json(_),
+      origins: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -558,6 +723,27 @@ export const se_DeleteApplicationCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAttachmentCommand
+ */
+export const se_DeleteAttachmentCommand = async (
+  input: DeleteAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/conversations/{conversationId}/attachments/{attachmentId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
+  b.p("attachmentId", () => input.attachmentId!, "{attachmentId}", false);
+  const query: any = map({
+    [_uI]: [, input[_uI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -594,6 +780,23 @@ export const se_DeleteConversationCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDataAccessorCommand
+ */
+export const se_DeleteDataAccessorCommand = async (
+  input: DeleteDataAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/dataaccessors/{dataAccessorId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("dataAccessorId", () => input.dataAccessorId!, "{dataAccessorId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -722,6 +925,23 @@ export const se_DeleteWebExperienceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociatePermissionCommand
+ */
+export const se_DisassociatePermissionCommand = async (
+  input: DisassociatePermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/policy/{statementId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("statementId", () => input.statementId!, "{statementId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetApplicationCommand
  */
 export const se_GetApplicationCommand = async (
@@ -754,6 +974,23 @@ export const se_GetChatControlsConfigurationCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDataAccessorCommand
+ */
+export const se_GetDataAccessorCommand = async (
+  input: GetDataAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/dataaccessors/{dataAccessorId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("dataAccessorId", () => input.dataAccessorId!, "{dataAccessorId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -814,6 +1051,25 @@ export const se_GetIndexCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMediaCommand
+ */
+export const se_GetMediaCommand = async (
+  input: GetMediaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/media/{mediaId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
+  b.p("messageId", () => input.messageId!, "{messageId}", false);
+  b.p("mediaId", () => input.mediaId!, "{mediaId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetPluginCommand
  */
 export const se_GetPluginCommand = async (
@@ -825,6 +1081,22 @@ export const se_GetPluginCommand = async (
   b.bp("/applications/{applicationId}/plugins/{pluginId}");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("pluginId", () => input.pluginId!, "{pluginId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPolicyCommand
+ */
+export const se_GetPolicyCommand = async (
+  input: GetPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/policy");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -901,6 +1173,28 @@ export const se_ListApplicationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAttachmentsCommand
+ */
+export const se_ListAttachmentsCommand = async (
+  input: ListAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/attachments");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_cI]: [, input[_cI]!],
+    [_uI]: [, input[_uI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListConversationsCommand
  */
 export const se_ListConversationsCommand = async (
@@ -913,6 +1207,26 @@ export const se_ListConversationsCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
     [_uI]: [, input[_uI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataAccessorsCommand
+ */
+export const se_ListDataAccessorsCommand = async (
+  input: ListDataAccessorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/dataaccessors");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -980,7 +1294,7 @@ export const se_ListDocumentsCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("indexId", () => input.indexId!, "{indexId}", false);
   const query: any = map({
-    [_dSIa]: [() => input.dataSourceIds !== void 0, () => (input[_dSIa]! || []).map((_entry) => _entry as any)],
+    [_dSIa]: [() => input.dataSourceIds !== void 0, () => input[_dSIa]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -1058,6 +1372,27 @@ export const se_ListMessagesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPluginActionsCommand
+ */
+export const se_ListPluginActionsCommand = async (
+  input: ListPluginActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/plugins/{pluginId}/actions");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("pluginId", () => input.pluginId!, "{pluginId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListPluginsCommand
  */
 export const se_ListPluginsCommand = async (
@@ -1078,6 +1413,45 @@ export const se_ListPluginsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPluginTypeActionsCommand
+ */
+export const se_ListPluginTypeActionsCommand = async (
+  input: ListPluginTypeActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/pluginTypes/{pluginType}/actions");
+  b.p("pluginType", () => input.pluginType!, "{pluginType}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPluginTypeMetadataCommand
+ */
+export const se_ListPluginTypeMetadataCommand = async (
+  input: ListPluginTypeMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/pluginTypeMetadata");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRetrieversCommand
  */
 export const se_ListRetrieversCommand = async (
@@ -1087,6 +1461,26 @@ export const se_ListRetrieversCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/applications/{applicationId}/retrievers");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSubscriptionsCommand
+ */
+export const se_ListSubscriptionsCommand = async (
+  input: ListSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/subscriptions");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
@@ -1182,10 +1576,38 @@ export const se_PutGroupCommand = async (
       dataSourceId: [],
       groupMembers: (_) => _json(_),
       groupName: [],
+      roleArn: [],
       type: [],
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchRelevantContentCommand
+ */
+export const se_SearchRelevantContentCommand = async (
+  input: SearchRelevantContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/relevant-content");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      attributeFilter: (_) => se_AttributeFilter(_, context),
+      contentSource: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      queryText: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1260,10 +1682,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v1/tags/{resourceARN}");
   b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1287,6 +1706,7 @@ export const se_UpdateApplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       attachmentsConfiguration: (_) => _json(_),
+      autoSubscriptionConfiguration: (_) => _json(_),
       description: [],
       displayName: [],
       identityCenterInstanceArn: [],
@@ -1318,12 +1738,38 @@ export const se_UpdateChatControlsConfigurationCommand = async (
       blockedPhrasesConfigurationUpdate: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       creatorModeConfiguration: (_) => _json(_),
+      orchestrationConfiguration: (_) => _json(_),
       responseScope: [],
       topicConfigurationsToCreateOrUpdate: (_) => _json(_),
       topicConfigurationsToDelete: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDataAccessorCommand
+ */
+export const se_UpdateDataAccessorCommand = async (
+  input: UpdateDataAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/dataaccessors/{dataAccessorId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("dataAccessorId", () => input.dataAccessorId!, "{dataAccessorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionConfigurations: (_) => se_ActionConfigurationList(_, context),
+      displayName: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1349,6 +1795,7 @@ export const se_UpdateDataSourceCommand = async (
       description: [],
       displayName: [],
       documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
+      mediaExtractionConfiguration: (_) => _json(_),
       roleArn: [],
       syncSchedule: [],
       vpcConfiguration: (_) => _json(_),
@@ -1440,6 +1887,30 @@ export const se_UpdateRetrieverCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateSubscriptionCommand
+ */
+export const se_UpdateSubscriptionCommand = async (
+  input: UpdateSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/subscriptions/{subscriptionId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("subscriptionId", () => input.subscriptionId!, "{subscriptionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      type: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateUserCommand
  */
 export const se_UpdateUserCommand = async (
@@ -1482,6 +1953,10 @@ export const se_UpdateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       authenticationConfiguration: (_) => _json(_),
+      browserExtensionConfiguration: (_) => _json(_),
+      customizationConfiguration: (_) => _json(_),
+      identityProviderConfiguration: (_) => _json(_),
+      origins: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -1491,6 +1966,27 @@ export const se_UpdateWebExperienceCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1AssociatePermissionCommand
+ */
+export const de_AssociatePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    statement: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -1530,6 +2026,29 @@ export const de_BatchPutDocumentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     failedDocuments: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelSubscriptionCommand
+ */
+export const de_CancelSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1598,6 +2117,29 @@ export const de_CreateApplicationCommand = async (
   const doc = take(data, {
     applicationArn: __expectString,
     applicationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataAccessorCommand
+ */
+export const de_CreateDataAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataAccessorArn: __expectString,
+    dataAccessorId: __expectString,
+    idcApplicationArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1693,6 +2235,30 @@ export const de_CreateRetrieverCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateSubscriptionCommand
+ */
+export const de_CreateSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
+    subscriptionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -1749,6 +2315,23 @@ export const de_DeleteApplicationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAttachmentCommand
+ */
+export const de_DeleteAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteChatControlsConfigurationCommand
  */
 export const de_DeleteChatControlsConfigurationCommand = async (
@@ -1772,6 +2355,23 @@ export const de_DeleteConversationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConversationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDataAccessorCommand
+ */
+export const de_DeleteDataAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1902,6 +2502,23 @@ export const de_DeleteWebExperienceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociatePermissionCommand
+ */
+export const de_DisassociatePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociatePermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetApplicationCommand
  */
 export const de_GetApplicationCommand = async (
@@ -1919,14 +2536,19 @@ export const de_GetApplicationCommand = async (
     applicationArn: __expectString,
     applicationId: __expectString,
     attachmentsConfiguration: _json,
+    autoSubscriptionConfiguration: _json,
+    clientIdsForOIDC: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     displayName: __expectString,
     encryptionConfiguration: _json,
     error: _json,
+    iamIdentityProviderArn: __expectString,
     identityCenterApplicationArn: __expectString,
+    identityType: __expectString,
     personalizationConfiguration: _json,
     qAppsConfiguration: _json,
+    quickSightConfiguration: _json,
     roleArn: __expectString,
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1953,8 +2575,38 @@ export const de_GetChatControlsConfigurationCommand = async (
     blockedPhrases: _json,
     creatorModeConfiguration: _json,
     nextToken: __expectString,
+    orchestrationConfiguration: _json,
     responseScope: __expectString,
     topicConfigurations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataAccessorCommand
+ */
+export const de_GetDataAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionConfigurations: (_) => de_ActionConfigurationList(_, context),
+    applicationId: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataAccessorArn: __expectString,
+    dataAccessorId: __expectString,
+    displayName: __expectString,
+    idcApplicationArn: __expectString,
+    principal: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1985,6 +2637,7 @@ export const de_GetDataSourceCommand = async (
     documentEnrichmentConfiguration: (_) => de_DocumentEnrichmentConfiguration(_, context),
     error: _json,
     indexId: __expectString,
+    mediaExtractionConfiguration: _json,
     roleArn: __expectString,
     status: __expectString,
     syncSchedule: __expectString,
@@ -2052,6 +2705,28 @@ export const de_GetIndexCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMediaCommand
+ */
+export const de_GetMediaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    mediaBytes: context.base64Decoder,
+    mediaMimeType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetPluginCommand
  */
 export const de_GetPluginCommand = async (
@@ -2078,6 +2753,27 @@ export const de_GetPluginCommand = async (
     state: __expectString,
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPolicyCommand
+ */
+export const de_GetPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policy: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2151,9 +2847,13 @@ export const de_GetWebExperienceCommand = async (
   const doc = take(data, {
     applicationId: __expectString,
     authenticationConfiguration: (_) => _json(__expectUnion(_)),
+    browserExtensionConfiguration: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customizationConfiguration: _json,
     defaultEndpoint: __expectString,
     error: _json,
+    identityProviderConfiguration: (_) => _json(__expectUnion(_)),
+    origins: _json,
     roleArn: __expectString,
     samplePromptsControlMode: __expectString,
     status: __expectString,
@@ -2191,6 +2891,28 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAttachmentsCommand
+ */
+export const de_ListAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttachmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachments: (_) => de_AttachmentList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListConversationsCommand
  */
 export const de_ListConversationsCommand = async (
@@ -2206,6 +2928,28 @@ export const de_ListConversationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     conversations: (_) => de_Conversations(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataAccessorsCommand
+ */
+export const de_ListDataAccessorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataAccessorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataAccessors: (_) => de_DataAccessors(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2345,6 +3089,28 @@ export const de_ListMessagesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPluginActionsCommand
+ */
+export const de_ListPluginActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPluginActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListPluginsCommand
  */
 export const de_ListPluginsCommand = async (
@@ -2367,6 +3133,50 @@ export const de_ListPluginsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPluginTypeActionsCommand
+ */
+export const de_ListPluginTypeActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPluginTypeActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPluginTypeMetadataCommand
+ */
+export const de_ListPluginTypeMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPluginTypeMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRetrieversCommand
  */
 export const de_ListRetrieversCommand = async (
@@ -2383,6 +3193,28 @@ export const de_ListRetrieversCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     retrievers: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSubscriptionsCommand
+ */
+export const de_ListSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubscriptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    subscriptions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2462,6 +3294,28 @@ export const de_PutGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchRelevantContentCommand
+ */
+export const de_SearchRelevantContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchRelevantContentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    relevantContent: (_) => de_RelevantContentList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2572,6 +3426,23 @@ export const de_UpdateChatControlsConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDataAccessorCommand
+ */
+export const de_UpdateDataAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -2640,6 +3511,29 @@ export const de_UpdateRetrieverCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSubscriptionCommand
+ */
+export const de_UpdateSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateUserCommand
  */
 export const de_UpdateUserCommand = async (
@@ -2701,18 +3595,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.qbusiness#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.qbusiness#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.qbusiness#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.qbusiness#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qbusiness#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ExternalResourceException":
+    case "com.amazonaws.qbusiness#ExternalResourceException":
+      throw await de_ExternalResourceExceptionRes(parsedOutput, context);
     case "LicenseNotFoundException":
     case "com.amazonaws.qbusiness#LicenseNotFoundException":
       throw await de_LicenseNotFoundExceptionRes(parsedOutput, context);
+    case "MediaTooLargeException":
+    case "com.amazonaws.qbusiness#MediaTooLargeException":
+      throw await de_MediaTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2764,6 +3664,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1ExternalResourceExceptionRes
+ */
+const de_ExternalResourceExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExternalResourceException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ExternalResourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
 const de_InternalServerExceptionRes = async (
@@ -2797,6 +3717,26 @@ const de_LicenseNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new LicenseNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1MediaTooLargeExceptionRes
+ */
+const de_MediaTooLargeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MediaTooLargeException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MediaTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2901,7 +3841,7 @@ const se_ChatInputStream = (input: any, context: __SerdeContext & __EventStreamS
 };
 const se_ActionExecutionEvent_event = (input: ActionExecutionEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "ActionExecutionEvent" },
+    ":event-type": { type: "string", value: "actionExecutionEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2912,7 +3852,7 @@ const se_ActionExecutionEvent_event = (input: ActionExecutionEvent, context: __S
 };
 const se_AttachmentInputEvent_event = (input: AttachmentInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "AttachmentInputEvent" },
+    ":event-type": { type: "string", value: "attachmentEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2923,7 +3863,7 @@ const se_AttachmentInputEvent_event = (input: AttachmentInputEvent, context: __S
 };
 const se_AuthChallengeResponseEvent_event = (input: AuthChallengeResponseEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "AuthChallengeResponseEvent" },
+    ":event-type": { type: "string", value: "authChallengeResponseEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2934,7 +3874,7 @@ const se_AuthChallengeResponseEvent_event = (input: AuthChallengeResponseEvent, 
 };
 const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":event-type": { type: "string", value: "configurationEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2945,7 +3885,7 @@ const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __Serde
 };
 const se_EndOfInputEvent_event = (input: EndOfInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "EndOfInputEvent" },
+    ":event-type": { type: "string", value: "endOfInputEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2956,7 +3896,7 @@ const se_EndOfInputEvent_event = (input: EndOfInputEvent, context: __SerdeContex
 };
 const se_TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "TextInputEvent" },
+    ":event-type": { type: "string", value: "textEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -3044,6 +3984,27 @@ const de_TextOutputEvent_event = async (output: any, context: __SerdeContext): P
 // se_AccessControls omitted.
 
 /**
+ * serializeAws_restJson1ActionConfiguration
+ */
+const se_ActionConfiguration = (input: ActionConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    action: [],
+    filterConfiguration: (_) => se_ActionFilterConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ActionConfigurationList
+ */
+const se_ActionConfigurationList = (input: ActionConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ActionConfiguration(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1ActionExecution
  */
 const se_ActionExecution = (input: ActionExecution, context: __SerdeContext): any => {
@@ -3091,6 +4052,15 @@ const se_ActionExecutionPayloadField = (input: ActionExecutionPayloadField, cont
 };
 
 /**
+ * serializeAws_restJson1ActionFilterConfiguration
+ */
+const se_ActionFilterConfiguration = (input: ActionFilterConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    documentAttributeFilter: (_) => se_AttributeFilter(_, context),
+  });
+};
+
+/**
  * serializeAws_restJson1ActionPayloadFieldValue
  */
 const se_ActionPayloadFieldValue = (input: __DocumentType, context: __SerdeContext): any => {
@@ -3104,6 +4074,7 @@ const se_ActionPayloadFieldValue = (input: __DocumentType, context: __SerdeConte
  */
 const se_AttachmentInput = (input: AttachmentInput, context: __SerdeContext): any => {
   return take(input, {
+    copyFrom: _json,
     data: context.base64Encoder,
     name: [],
   });
@@ -3160,11 +4131,15 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
     });
 };
 
+// se_AudioExtractionConfiguration omitted.
+
 // se_AuthChallengeResponse omitted.
 
 // se_AuthChallengeResponseEvent omitted.
 
 // se_AuthorizationResponseMap omitted.
+
+// se_AutoSubscriptionConfiguration omitted.
 
 // se_BasicAuthConfiguration omitted.
 
@@ -3172,7 +4147,13 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 
 // se_BlockedPhrasesConfigurationUpdate omitted.
 
+// se_BrowserExtensionConfiguration omitted.
+
+// se_BrowserExtensionList omitted.
+
 // se_ChatModeConfiguration omitted.
+
+// se_ClientIdsForOIDC omitted.
 
 /**
  * serializeAws_restJson1ConfigurationEvent
@@ -3189,7 +4170,15 @@ const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContex
 
 // se_ContentRetrievalRule omitted.
 
+// se_ContentSource omitted.
+
+// se_ConversationSource omitted.
+
+// se_CopyFromSource omitted.
+
 // se_CreatorModeConfiguration omitted.
+
+// se_CustomizationConfiguration omitted.
 
 // se_CustomPluginConfiguration omitted.
 
@@ -3219,6 +4208,7 @@ const se_Document = (input: Document, context: __SerdeContext): any => {
     contentType: [],
     documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
     id: [],
+    mediaExtractionConfiguration: _json,
     title: [],
   });
 };
@@ -3285,7 +4275,7 @@ const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __Ser
     longValue: (value) => ({ longValue: value }),
     stringListValue: (value) => ({ stringListValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3296,7 +4286,7 @@ const se_DocumentContent = (input: DocumentContent, context: __SerdeContext): an
   return DocumentContent.visit(input, {
     blob: (value) => ({ blob: context.base64Encoder(value) }),
     s3: (value) => ({ s3: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3346,6 +4336,12 @@ const se_HookConfiguration = (input: HookConfiguration, context: __SerdeContext)
   });
 };
 
+// se_IdcAuthConfiguration omitted.
+
+// se_IdentityProviderConfiguration omitted.
+
+// se_ImageExtractionConfiguration omitted.
+
 // se_IndexCapacityConfiguration omitted.
 
 /**
@@ -3378,6 +4374,8 @@ const se_InlineDocumentEnrichmentConfigurations = (
 
 // se_KendraIndexConfiguration omitted.
 
+// se_MediaExtractionConfiguration omitted.
+
 // se_MemberGroup omitted.
 
 // se_MemberGroups omitted.
@@ -3406,6 +4404,10 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_OAuth2ClientCredentialConfiguration omitted.
 
+// se_OpenIDConnectProviderConfiguration omitted.
+
+// se_OrchestrationConfiguration omitted.
+
 // se_PersonalizationConfiguration omitted.
 
 // se_PluginAuthConfiguration omitted.
@@ -3422,7 +4424,13 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_QAppsConfiguration omitted.
 
+// se_QIamActions omitted.
+
+// se_QuickSightConfiguration omitted.
+
 // se_RetrieverConfiguration omitted.
+
+// se_RetrieverContentSource omitted.
 
 // se_Rule omitted.
 
@@ -3434,6 +4442,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_SamlConfiguration omitted.
 
+// se_SamlProviderConfiguration omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_StringAttributeBoostingConfiguration omitted.
@@ -3443,6 +4453,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 // se_StringListAttributeBoostingConfiguration omitted.
 
 // se_SubnetIds omitted.
+
+// se_SubscriptionPrincipal omitted.
 
 // se_Tag omitted.
 
@@ -3464,7 +4476,33 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_UsersAndGroups omitted.
 
+// se_VideoExtractionConfiguration omitted.
+
 // se_WebExperienceAuthConfiguration omitted.
+
+// se_WebExperienceOrigins omitted.
+
+/**
+ * deserializeAws_restJson1ActionConfiguration
+ */
+const de_ActionConfiguration = (output: any, context: __SerdeContext): ActionConfiguration => {
+  return take(output, {
+    action: __expectString,
+    filterConfiguration: (_: any) => de_ActionFilterConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ActionConfigurationList
+ */
+const de_ActionConfigurationList = (output: any, context: __SerdeContext): ActionConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ActionConfiguration(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ActionExecution
@@ -3502,6 +4540,15 @@ const de_ActionExecutionPayload = (
 const de_ActionExecutionPayloadField = (output: any, context: __SerdeContext): ActionExecutionPayloadField => {
   return take(output, {
     value: (_: any) => de_ActionPayloadFieldValue(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ActionFilterConfiguration
+ */
+const de_ActionFilterConfiguration = (output: any, context: __SerdeContext): ActionFilterConfiguration => {
+  return take(output, {
+    documentAttributeFilter: (_: any) => de_AttributeFilter(_, context),
   }) as any;
 };
 
@@ -3559,6 +4606,7 @@ const de_ActionReviewPayloadField = (output: any, context: __SerdeContext): Acti
   return take(output, {
     allowedFormat: __expectString,
     allowedValues: (_: any) => de_ActionReviewPayloadFieldAllowedValues(_, context),
+    arrayItemJsonSchema: (_: any) => de_ActionReviewPayloadFieldArrayItemJsonSchema(_, context),
     displayDescription: __expectString,
     displayName: __expectString,
     displayOrder: __expectInt32,
@@ -3596,6 +4644,17 @@ const de_ActionReviewPayloadFieldAllowedValues = (
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ActionReviewPayloadFieldArrayItemJsonSchema
+ */
+const de_ActionReviewPayloadFieldArrayItemJsonSchema = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+// de_Actions omitted.
+
+// de_ActionSummary omitted.
+
 // de_APISchema omitted.
 
 /**
@@ -3606,6 +4665,8 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     applicationId: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
+    identityType: __expectString,
+    quickSightConfiguration: _json,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -3627,19 +4688,93 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_AppliedCreatorModeConfiguration omitted.
 
+// de_AppliedOrchestrationConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1Attachment
+ */
+const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
+  return take(output, {
+    attachmentId: __expectString,
+    conversationId: __expectString,
+    copyFrom: (_: any) => _json(__expectUnion(_)),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: _json,
+    fileSize: __expectInt32,
+    fileType: __expectString,
+    md5chksum: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AttachmentList
+ */
+const de_AttachmentList = (output: any, context: __SerdeContext): Attachment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Attachment(entry, context);
+    });
+  return retVal;
+};
+
 // de_AttachmentOutput omitted.
 
 // de_AttachmentsOutput omitted.
 
+/**
+ * deserializeAws_restJson1AttributeFilter
+ */
+const de_AttributeFilter = (output: any, context: __SerdeContext): AttributeFilter => {
+  return take(output, {
+    andAllFilters: (_: any) => de_AttributeFilters(_, context),
+    containsAll: (_: any) => de_DocumentAttribute(_, context),
+    containsAny: (_: any) => de_DocumentAttribute(_, context),
+    equalsTo: (_: any) => de_DocumentAttribute(_, context),
+    greaterThan: (_: any) => de_DocumentAttribute(_, context),
+    greaterThanOrEquals: (_: any) => de_DocumentAttribute(_, context),
+    lessThan: (_: any) => de_DocumentAttribute(_, context),
+    lessThanOrEquals: (_: any) => de_DocumentAttribute(_, context),
+    notFilter: (_: any) => de_AttributeFilter(_, context),
+    orAllFilters: (_: any) => de_AttributeFilters(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AttributeFilters
+ */
+const de_AttributeFilters = (output: any, context: __SerdeContext): AttributeFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AttributeFilter(entry, context);
+    });
+  return retVal;
+};
+
+// de_AudioExtractionConfiguration omitted.
+
+// de_AudioSourceDetails omitted.
+
 // de_AuthChallengeRequest omitted.
 
 // de_AuthChallengeRequestEvent omitted.
+
+// de_AutoSubscriptionConfiguration omitted.
 
 // de_BasicAuthConfiguration omitted.
 
 // de_BlockedPhrases omitted.
 
 // de_BlockedPhrasesConfiguration omitted.
+
+// de_BrowserExtensionConfiguration omitted.
+
+// de_BrowserExtensionList omitted.
+
+// de_ClientIdsForOIDC omitted.
 
 // de_ContentBlockerRule omitted.
 
@@ -3668,7 +4803,40 @@ const de_Conversations = (output: any, context: __SerdeContext): Conversation[] 
   return retVal;
 };
 
+// de_ConversationSource omitted.
+
+// de_CopyFromSource omitted.
+
+// de_CustomizationConfiguration omitted.
+
 // de_CustomPluginConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1DataAccessor
+ */
+const de_DataAccessor = (output: any, context: __SerdeContext): DataAccessor => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataAccessorArn: __expectString,
+    dataAccessorId: __expectString,
+    displayName: __expectString,
+    idcApplicationArn: __expectString,
+    principal: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataAccessors
+ */
+const de_DataAccessors = (output: any, context: __SerdeContext): DataAccessor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataAccessor(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1DataSource
@@ -3736,6 +4904,16 @@ const de_DataSourceSyncJobs = (output: any, context: __SerdeContext): DataSource
 
 // de_DateAttributeBoostingConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1DocumentAttribute
+ */
+const de_DocumentAttribute = (output: any, context: __SerdeContext): DocumentAttribute => {
+  return take(output, {
+    name: __expectString,
+    value: (_: any) => de_DocumentAttributeValue(__expectUnion(_), context),
+  }) as any;
+};
+
 // de_DocumentAttributeBoostingConfiguration omitted.
 
 // de_DocumentAttributeBoostingOverrideMap omitted.
@@ -3754,6 +4932,18 @@ const de_DocumentAttributeCondition = (output: any, context: __SerdeContext): Do
 // de_DocumentAttributeConfiguration omitted.
 
 // de_DocumentAttributeConfigurations omitted.
+
+/**
+ * deserializeAws_restJson1DocumentAttributes
+ */
+const de_DocumentAttributes = (output: any, context: __SerdeContext): DocumentAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DocumentAttribute(entry, context);
+    });
+  return retVal;
+};
 
 // de_DocumentAttributeStringListValue omitted.
 
@@ -3882,6 +5072,14 @@ const de_HookConfiguration = (output: any, context: __SerdeContext): HookConfigu
   }) as any;
 };
 
+// de_IdcAuthConfiguration omitted.
+
+// de_IdentityProviderConfiguration omitted.
+
+// de_ImageExtractionConfiguration omitted.
+
+// de_ImageSourceDetails omitted.
+
 /**
  * deserializeAws_restJson1Index
  */
@@ -3942,6 +5140,10 @@ const de_InlineDocumentEnrichmentConfigurations = (
 
 // de_KendraIndexConfiguration omitted.
 
+// de_ListPluginTypeMetadataSummaries omitted.
+
+// de_MediaExtractionConfiguration omitted.
+
 /**
  * deserializeAws_restJson1Message
  */
@@ -3991,6 +5193,8 @@ const de_MetadataEvent = (output: any, context: __SerdeContext): MetadataEvent =
 
 // de_OAuth2ClientCredentialConfiguration omitted.
 
+// de_OpenIDConnectProviderConfiguration omitted.
+
 // de_PersonalizationConfiguration omitted.
 
 /**
@@ -4023,7 +5227,37 @@ const de_Plugins = (output: any, context: __SerdeContext): Plugin[] => {
   return retVal;
 };
 
+// de_PluginTypeMetadataSummary omitted.
+
 // de_QAppsConfiguration omitted.
+
+// de_QuickSightConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1RelevantContent
+ */
+const de_RelevantContent = (output: any, context: __SerdeContext): RelevantContent => {
+  return take(output, {
+    content: __expectString,
+    documentAttributes: (_: any) => de_DocumentAttributes(_, context),
+    documentId: __expectString,
+    documentTitle: __expectString,
+    documentUri: __expectString,
+    scoreAttributes: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RelevantContentList
+ */
+const de_RelevantContentList = (output: any, context: __SerdeContext): RelevantContent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RelevantContent(entry, context);
+    });
+  return retVal;
+};
 
 // de_Retriever omitted.
 
@@ -4040,6 +5274,10 @@ const de_Plugins = (output: any, context: __SerdeContext): Plugin[] => {
 // de_S3 omitted.
 
 // de_SamlConfiguration omitted.
+
+// de_SamlProviderConfiguration omitted.
+
+// de_ScoreAttributes omitted.
 
 // de_SecurityGroupIds omitted.
 
@@ -4072,6 +5310,8 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
   return retVal;
 };
 
+// de_SourceDetails omitted.
+
 // de_StringAttributeBoostingConfiguration omitted.
 
 // de_StringAttributeValueBoosting omitted.
@@ -4079,6 +5319,14 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
 // de_StringListAttributeBoostingConfiguration omitted.
 
 // de_SubnetIds omitted.
+
+// de_Subscription omitted.
+
+// de_SubscriptionDetails omitted.
+
+// de_SubscriptionPrincipal omitted.
+
+// de_Subscriptions omitted.
 
 // de_Tag omitted.
 
@@ -4110,6 +5358,10 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
 
 // de_ValidationExceptionFields omitted.
 
+// de_VideoExtractionConfiguration omitted.
+
+// de_VideoSourceDetails omitted.
+
 /**
  * deserializeAws_restJson1WebExperience
  */
@@ -4124,6 +5376,8 @@ const de_WebExperience = (output: any, context: __SerdeContext): WebExperience =
 };
 
 // de_WebExperienceAuthConfiguration omitted.
+
+// de_WebExperienceOrigins omitted.
 
 /**
  * deserializeAws_restJson1WebExperiences
@@ -4148,13 +5402,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cI = "conversationId";
 const _cT = "clientToken";

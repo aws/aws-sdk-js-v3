@@ -11,10 +11,58 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>User does not have sufficient access to perform this action.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -25,6 +73,14 @@ export class AccessDeniedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -37,10 +93,58 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>Updating or deleting a resource can cause an inconsistent state.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -51,6 +155,14 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -61,32 +173,32 @@ export class ConflictException extends __BaseException {
  */
 export interface Video {
   /**
-   * <p>Video-resolution width. Note that the maximum value is determined by <code>width</code>
-   *          times <code>height</code>, such that the maximum total pixels is 2073600 (1920x1080 or
-   *          1080x1920). Default: 1280.</p>
+   * <p>Video-resolution width. This must be an even number. Note that the maximum value is
+   *          determined by <code>width</code> times <code>height</code>, such that the maximum total
+   *          pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.</p>
    * @public
    */
-  width?: number;
+  width?: number | undefined;
 
   /**
-   * <p>Video-resolution height. Note that the maximum value is determined by <code>width</code>
-   *          times <code>height</code>, such that the maximum total pixels is 2073600 (1920x1080 or
-   *          1080x1920). Default: 720.</p>
+   * <p>Video-resolution height. This must be an even number. Note that the maximum value is
+   *          determined by <code>width</code> times <code>height</code>, such that the maximum total
+   *          pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.</p>
    * @public
    */
-  height?: number;
+  height?: number | undefined;
 
   /**
    * <p>Video frame rate, in fps. Default: 30.</p>
    * @public
    */
-  framerate?: number;
+  framerate?: number | undefined;
 
   /**
    * <p>Bitrate for generated output, in bps. Default: 2500000.</p>
    * @public
    */
-  bitrate?: number;
+  bitrate?: number | undefined;
 }
 
 /**
@@ -97,24 +209,24 @@ export interface CreateEncoderConfigurationRequest {
    * <p>Optional name to identify the resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30
    *          fps.</p>
    * @public
    */
-  video?: Video;
+  video?: Video | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -132,24 +244,24 @@ export interface EncoderConfiguration {
    * <p>Optional name to identify the resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30
    *          fps</p>
    * @public
    */
-  video?: Video;
+  video?: Video | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -160,7 +272,7 @@ export interface CreateEncoderConfigurationResponse {
    * <p>The EncoderConfiguration that was created.</p>
    * @public
    */
-  encoderConfiguration?: EncoderConfiguration;
+  encoderConfiguration?: EncoderConfiguration | undefined;
 }
 
 /**
@@ -171,10 +283,58 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>Unexpected error during processing of request.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -185,6 +345,14 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -197,10 +365,58 @@ export class PendingVerification extends __BaseException {
   readonly name: "PendingVerification" = "PendingVerification";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p> Your account is pending verification. </p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -211,6 +427,14 @@ export class PendingVerification extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, PendingVerification.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -223,10 +447,58 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>Request references a resource which does not exist.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -237,6 +509,14 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -249,10 +529,58 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>Request would cause a service quota to be exceeded.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -263,6 +591,14 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -275,10 +611,58 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xAmznErrorType?: string | undefined;
+
+  /**
    * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
    * @public
    */
-  exceptionMessage?: string;
+  exceptionMessage?: string | undefined;
   /**
    * @internal
    */
@@ -289,8 +673,191 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.accessControlAllowOrigin = opts.accessControlAllowOrigin;
+    this.accessControlExposeHeaders = opts.accessControlExposeHeaders;
+    this.cacheControl = opts.cacheControl;
+    this.contentSecurityPolicy = opts.contentSecurityPolicy;
+    this.strictTransportSecurity = opts.strictTransportSecurity;
+    this.xContentTypeOptions = opts.xContentTypeOptions;
+    this.xFrameOptions = opts.xFrameOptions;
+    this.xAmznErrorType = opts.xAmznErrorType;
     this.exceptionMessage = opts.exceptionMessage;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestProtocol = {
+  RTMP: "RTMP",
+  RTMPS: "RTMPS",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestProtocol = (typeof IngestProtocol)[keyof typeof IngestProtocol];
+
+/**
+ * @public
+ */
+export interface CreateIngestConfigurationRequest {
+  /**
+   * <p>Optional name that can be specified for the IngestConfiguration being created.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>ARN of the stage with which the IngestConfiguration is associated.</p>
+   * @public
+   */
+  stageArn?: string | undefined;
+
+  /**
+   * <p>Customer-assigned name to help identify the participant using the IngestConfiguration; this can be used to link a participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *       <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   *          </p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>Application-provided attributes to store in the IngestConfiguration and attach to a stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.
+   *       <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   *          </p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Type of ingest protocol that the user employs to broadcast. If this is set to <code>RTMP</code>, <code>insecureIngest</code> must be set to <code>true</code>.</p>
+   * @public
+   */
+  ingestProtocol: IngestProtocol | undefined;
+
+  /**
+   * <p>Whether the stage allows insecure RTMP ingest. This must be set to <code>true</code>, if <code>ingestProtocol</code> is set to <code>RTMP</code>. Default: <code>false</code>. </p>
+   * @public
+   */
+  insecureIngest?: boolean | undefined;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   * 	 there.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestConfigurationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestConfigurationState = (typeof IngestConfigurationState)[keyof typeof IngestConfigurationState];
+
+/**
+ * <p>Object specifying an ingest configuration.</p>
+ * @public
+ */
+export interface IngestConfiguration {
+  /**
+   * <p>Ingest name</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Ingest configuration ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Type of ingest protocol that the user employs for broadcasting.</p>
+   * @public
+   */
+  ingestProtocol: IngestProtocol | undefined;
+
+  /**
+   * <p>Ingest-key value for the RTMP(S) protocol.</p>
+   * @public
+   */
+  streamKey: string | undefined;
+
+  /**
+   * <p>ARN of the stage with which the IngestConfiguration is associated.</p>
+   * @public
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of the participant within the stage.</p>
+   * @public
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>State of the ingest configuration. It is <code>ACTIVE</code> if a publisher currently is
+   *          publishing to the stage associated with the ingest configuration.</p>
+   * @public
+   */
+  state: IngestConfigurationState | undefined;
+
+  /**
+   * <p>Customer-assigned name to help identify the participant using the IngestConfiguration;
+   *          this can be used to link a participant to a user in the customer’s own systems. This can be
+   *          any UTF-8 encoded text. <i>This field is exposed to all stage participants and
+   *             should not be used for personally identifying, confidential, or sensitive
+   *             information.</i>
+   *          </p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>Application-provided attributes to to store in the IngestConfiguration and attach to a
+   *          stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field
+   *          is 1 KB total. <i>This field is exposed to all stage participants and should not be
+   *             used for personally identifying, confidential, or sensitive
+   *          information.</i>
+   *          </p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIngestConfigurationResponse {
+  /**
+   * <p>The IngestConfiguration that was created.</p>
+   * @public
+   */
+  ingestConfiguration?: IngestConfiguration | undefined;
 }
 
 /**
@@ -321,7 +888,7 @@ export interface CreateParticipantTokenRequest {
    * <p>Duration (in minutes), after which the token expires. Default: 720 (12 hours).</p>
    * @public
    */
-  duration?: number;
+  duration?: number | undefined;
 
   /**
    * <p>Name that can be specified to help identify the token. This can be any UTF-8 encoded
@@ -330,7 +897,7 @@ export interface CreateParticipantTokenRequest {
    *          </p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>Application-provided attributes to encode into the token and attach to a stage. Map keys
@@ -340,21 +907,22 @@ export interface CreateParticipantTokenRequest {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage. Default:
    *             <code>PUBLISH, SUBSCRIBE</code>.</p>
    * @public
    */
-  capabilities?: ParticipantTokenCapability[];
+  capabilities?: ParticipantTokenCapability[] | undefined;
 }
 
 /**
  * <p>Object specifying a participant token in a stage.</p>
  *          <p>
- *             <b>Important</b>: Treat tokens as opaque; i.e., do not build functionality
- *          based on token contents. The format of tokens could change in the future.</p>
+ *             <b>Important</b>: Treat tokens as opaque; i.e., do not build
+ *          functionality based on token contents. The format of tokens could change in the
+ *          future.</p>
  * @public
  */
 export interface ParticipantToken {
@@ -362,13 +930,13 @@ export interface ParticipantToken {
    * <p>Unique identifier for this participant token, assigned by IVS.</p>
    * @public
    */
-  participantId?: string;
+  participantId?: string | undefined;
 
   /**
    * <p>The issued client token, encrypted.</p>
    * @public
    */
-  token?: string;
+  token?: string | undefined;
 
   /**
    * <p>Customer-assigned name to help identify the token; this can be used to link a
@@ -378,7 +946,7 @@ export interface ParticipantToken {
    *          </p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>Application-provided attributes to encode into the token and attach to a stage.
@@ -387,26 +955,26 @@ export interface ParticipantToken {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Duration (in minutes), after which the participant token expires. Default: 720 (12
    *          hours).</p>
    * @public
    */
-  duration?: number;
+  duration?: number | undefined;
 
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    * @public
    */
-  capabilities?: ParticipantTokenCapability[];
+  capabilities?: ParticipantTokenCapability[] | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) for when this token expires.</p>
    * @public
    */
-  expirationTime?: Date;
+  expirationTime?: Date | undefined;
 }
 
 /**
@@ -417,7 +985,21 @@ export interface CreateParticipantTokenResponse {
    * <p>The participant token that was created.</p>
    * @public
    */
-  participantToken?: ParticipantToken;
+  participantToken?: ParticipantToken | undefined;
+}
+
+/**
+ * <p>An object representing a configuration of participant HLS recordings for individual participant recording.</p>
+ * @public
+ */
+export interface ParticipantRecordingHlsConfiguration {
+  /**
+   * <p>Defines the target duration for recorded segments generated when recording a stage participant.
+   * 	  Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe.
+   * 	  Default: 6.</p>
+   * @public
+   */
+  targetSegmentDurationSeconds?: number | undefined;
 }
 
 /**
@@ -427,6 +1009,7 @@ export interface CreateParticipantTokenResponse {
 export const ParticipantRecordingMediaType = {
   AUDIO_ONLY: "AUDIO_ONLY",
   AUDIO_VIDEO: "AUDIO_VIDEO",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -436,12 +1019,76 @@ export type ParticipantRecordingMediaType =
   (typeof ParticipantRecordingMediaType)[keyof typeof ParticipantRecordingMediaType];
 
 /**
+ * @public
+ * @enum
+ */
+export const ThumbnailRecordingMode = {
+  DISABLED: "DISABLED",
+  INTERVAL: "INTERVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailRecordingMode = (typeof ThumbnailRecordingMode)[keyof typeof ThumbnailRecordingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailStorageType = {
+  LATEST: "LATEST",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailStorageType = (typeof ThumbnailStorageType)[keyof typeof ThumbnailStorageType];
+
+/**
+ * <p>An object representing a configuration of thumbnails for recorded video from an
+ *          individual participant.</p>
+ * @public
+ */
+export interface ParticipantThumbnailConfiguration {
+  /**
+   * <p>The targeted thumbnail-generation interval in seconds. This is configurable only if
+   *             <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
+   * @public
+   */
+  targetIntervalSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records
+   *          all generated thumbnails in a serial manner, to the media/thumbnails/high directory.
+   *             <code>LATEST</code> saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg
+   *          and overwrites it at the interval specified by <code>targetIntervalSeconds</code>. You can
+   *          enable both <code>SEQUENTIAL</code> and <code>LATEST</code>. Default:
+   *             <code>SEQUENTIAL</code>.</p>
+   * @public
+   */
+  storage?: ThumbnailStorageType[] | undefined;
+
+  /**
+   * <p>Thumbnail recording mode. Default: <code>DISABLED</code>.</p>
+   * @public
+   */
+  recordingMode?: ThumbnailRecordingMode | undefined;
+}
+
+/**
  * <p>Object specifying a configuration for individual participant recording.</p>
  * @public
  */
 export interface AutoParticipantRecordingConfiguration {
   /**
-   * <p>ARN of the <a>StorageConfiguration</a> resource to use for individual participant recording. Default: <code>""</code> (empty string, no storage configuration is specified). Individual participant recording cannot be started unless a storage configuration is specified, when a  <a>Stage</a> is created or updated.</p>
+   * <p>ARN of the <a>StorageConfiguration</a> resource to use for individual
+   *          participant recording. Default: <code>""</code> (empty string, no storage configuration is
+   *          specified). Individual participant recording cannot be started unless a storage
+   *          configuration is specified, when a <a>Stage</a> is created or updated. To
+   *          disable individual participant recording, set this to <code>""</code>; other fields in this object will
+   *          get reset to their defaults when sending <code>""</code>. </p>
    * @public
    */
   storageConfigurationArn: string | undefined;
@@ -450,7 +1097,29 @@ export interface AutoParticipantRecordingConfiguration {
    * <p>Types of media to be recorded. Default: <code>AUDIO_VIDEO</code>.</p>
    * @public
    */
-  mediaTypes?: ParticipantRecordingMediaType[];
+  mediaTypes?: ParticipantRecordingMediaType[] | undefined;
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for
+   *          individual participant recording and modify the interval at which thumbnails are generated
+   *          for the live session.</p>
+   * @public
+   */
+  thumbnailConfiguration?: ParticipantThumbnailConfiguration | undefined;
+
+  /**
+   * <p>If a stage publisher disconnects and then reconnects within the specified interval,
+   * 	  the multiple recordings will be considered a single recording and merged together.</p>
+   *          <p>The default value is 0, which disables merging.</p>
+   * @public
+   */
+  recordingReconnectWindowSeconds?: number | undefined;
+
+  /**
+   * <p>HLS configuration object for individual participant recording.</p>
+   * @public
+   */
+  hlsConfiguration?: ParticipantRecordingHlsConfiguration | undefined;
 }
 
 /**
@@ -463,7 +1132,7 @@ export interface ParticipantTokenConfiguration {
    *          720 (12 hours).</p>
    * @public
    */
-  duration?: number;
+  duration?: number | undefined;
 
   /**
    * <p>Customer-assigned name to help identify the token; this can be used to link a
@@ -473,7 +1142,7 @@ export interface ParticipantTokenConfiguration {
    *          </p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>Application-provided attributes to encode into the corresponding participant token and
@@ -484,13 +1153,13 @@ export interface ParticipantTokenConfiguration {
    *          </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    * @public
    */
-  capabilities?: ParticipantTokenCapability[];
+  capabilities?: ParticipantTokenCapability[] | undefined;
 }
 
 /**
@@ -501,33 +1170,34 @@ export interface CreateStageRequest {
    * <p>Optional name that can be specified for the stage being created.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Array of participant token configuration objects to attach to the new stage.</p>
    * @public
    */
-  participantTokenConfigurations?: ParticipantTokenConfiguration[];
+  participantTokenConfigurations?: ParticipantTokenConfiguration[] | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Configuration object for individual participant recording, to attach to the new stage.</p>
    * @public
    */
-  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration | undefined;
 }
 
 /**
- * <p>Summary information about various endpoints for a stage.</p>
+ * <p>Summary information about various endpoints for a stage. We recommend that you cache
+ *          these values at stage creation; the values can be cached for up to 14 days.</p>
  * @public
  */
 export interface StageEndpoints {
@@ -535,13 +1205,25 @@ export interface StageEndpoints {
    * <p>Events endpoint.</p>
    * @public
    */
-  events?: string;
+  events?: string | undefined;
 
   /**
-   * <p>WHIP endpoint.</p>
+   * <p>The endpoint to be used for IVS real-time streaming using the WHIP protocol.</p>
    * @public
    */
-  whip?: string;
+  whip?: string | undefined;
+
+  /**
+   * <p>The endpoint to be used for IVS real-time streaming using the RTMP protocol.</p>
+   * @public
+   */
+  rtmp?: string | undefined;
+
+  /**
+   * <p>The endpoint to be used for IVS real-time streaming using the RTMPS protocol.</p>
+   * @public
+   */
+  rtmps?: string | undefined;
 }
 
 /**
@@ -559,35 +1241,35 @@ export interface Stage {
    * <p>Stage name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>ID of the active session within the stage.</p>
    * @public
    */
-  activeSessionId?: string;
+  activeSessionId?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Configuration object for individual participant recording, attached to the stage.</p>
    * @public
    */
-  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration | undefined;
 
   /**
    * <p>Summary information about various endpoints for a stage.</p>
    * @public
    */
-  endpoints?: StageEndpoints;
+  endpoints?: StageEndpoints | undefined;
 }
 
 /**
@@ -598,24 +1280,25 @@ export interface CreateStageResponse {
    * <p>The stage that was created.</p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 
   /**
    * <p>Participant tokens attached to the stage. These correspond to the
    *             <code>participants</code> in the request.</p>
    * @public
    */
-  participantTokens?: ParticipantToken[];
+  participantTokens?: ParticipantToken[] | undefined;
 }
 
 /**
- * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
+ * <p>A complex type that describes an S3 location where recorded videos will be
+ *          stored.</p>
  * @public
  */
 export interface S3StorageConfiguration {
   /**
-   * <p>Location (S3 bucket name) where recorded videos will be stored.  Note that the StorageConfiguration
-   * 	  and S3 bucket must be in the same region as the Composition.</p>
+   * <p>Location (S3 bucket name) where recorded videos will be stored. Note that the
+   *          StorageConfiguration and S3 bucket must be in the same region as the Composition.</p>
    * @public
    */
   bucketName: string | undefined;
@@ -629,7 +1312,7 @@ export interface CreateStorageConfigurationRequest {
    * <p>Storage configuration name. The value does not need to be unique.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A complex type that contains a storage configuration for where recorded video will be stored.</p>
@@ -639,13 +1322,13 @@ export interface CreateStorageConfigurationRequest {
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   * 	 in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -663,23 +1346,23 @@ export interface StorageConfiguration {
    * <p>Name of the storage configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>An S3 destination configuration where recorded videos will be stored.</p>
    * @public
    */
-  s3?: S3StorageConfiguration;
+  s3?: S3StorageConfiguration | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -690,7 +1373,7 @@ export interface CreateStorageConfigurationResponse {
    * <p>The StorageConfiguration that was created.</p>
    * @public
    */
-  storageConfiguration?: StorageConfiguration;
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -708,6 +1391,28 @@ export interface DeleteEncoderConfigurationRequest {
  * @public
  */
 export interface DeleteEncoderConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteIngestConfigurationRequest {
+  /**
+   * <p>ARN of the IngestConfiguration.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Optional field to force deletion of the IngestConfiguration. If this is set to <code>true</code> when a participant is actively publishing, the participant is disconnected from the stage, followed by deletion of the IngestConfiguration. Default: <code>false</code>.</p>
+   * @public
+   */
+  force?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIngestConfigurationResponse {}
 
 /**
  * @public
@@ -768,8 +1473,9 @@ export interface DisconnectParticipantRequest {
   stageArn: string | undefined;
 
   /**
-   * <p>Identifier of the participant to be disconnected. This is assigned by IVS and returned
-   *          by <a>CreateParticipantToken</a>.</p>
+   * <p>Identifier of the participant to be disconnected. IVS assigns this; it is returned
+   *             by <a>CreateParticipantToken</a> (for streams using WebRTC ingest) or <a>CreateIngestConfiguration</a> (for
+   * 	    streams using RTMP ingest).</p>
    * @public
    */
   participantId: string | undefined;
@@ -778,7 +1484,7 @@ export interface DisconnectParticipantRequest {
    * <p>Description of why this participant is being disconnected.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -814,7 +1520,7 @@ export interface ChannelDestinationConfiguration {
    *          and stage resources must be in the same AWS account and region.</p>
    * @public
    */
-  encoderConfigurationArn?: string;
+  encoderConfigurationArn?: string | undefined;
 }
 
 /**
@@ -832,42 +1538,96 @@ export type RecordingConfigurationFormat =
   (typeof RecordingConfigurationFormat)[keyof typeof RecordingConfigurationFormat];
 
 /**
+ * <p>An object representing a configuration of HLS recordings for server-side composition.</p>
+ * @public
+ */
+export interface CompositionRecordingHlsConfiguration {
+  /**
+   * <p>Defines the target duration for recorded segments generated when using composite recording.
+   * 	  Segments may have durations shorter than the specified value when needed to ensure each segment
+   * 	  begins with a keyframe. Default: 2.</p>
+   * @public
+   */
+  targetSegmentDurationSeconds?: number | undefined;
+}
+
+/**
  * <p>An object representing a configuration to record a stage stream.</p>
  * @public
  */
 export interface RecordingConfiguration {
   /**
+   * <p>An HLS configuration object to return information about how the recording will be configured.</p>
+   * @public
+   */
+  hlsConfiguration?: CompositionRecordingHlsConfiguration | undefined;
+
+  /**
    * <p>The recording format for storing a recording in Amazon S3.</p>
    * @public
    */
-  format?: RecordingConfigurationFormat;
+  format?: RecordingConfigurationFormat | undefined;
 }
 
 /**
- * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
+ * <p>An object representing a configuration of thumbnails for recorded video for a <a>Composition</a>.</p>
+ * @public
+ */
+export interface CompositionThumbnailConfiguration {
+  /**
+   * <p>The targeted thumbnail-generation interval in seconds. Default: 60.</p>
+   * @public
+   */
+  targetIntervalSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records
+   *          all generated thumbnails in a serial manner, to the media/thumbnails/(width)x(height)
+   *          directory, where (width) and (height) are the width and height of the thumbnail.
+   *             <code>LATEST</code> saves the latest thumbnail in
+   *          media/latest_thumbnail/(width)x(height)/thumb.jpg and overwrites it at the interval
+   *          specified by <code>targetIntervalSeconds</code>. You can enable both
+   *             <code>SEQUENTIAL</code> and <code>LATEST</code>. Default:
+   *          <code>SEQUENTIAL</code>.</p>
+   * @public
+   */
+  storage?: ThumbnailStorageType[] | undefined;
+}
+
+/**
+ * <p>A complex type that describes an S3 location where recorded videos will be
+ *          stored.</p>
  * @public
  */
 export interface S3DestinationConfiguration {
   /**
-   * <p>ARN of the <a>StorageConfiguration</a> where recorded videos will be stored.</p>
+   * <p>ARN of the <a>StorageConfiguration</a> where recorded videos will be
+   *          stored.</p>
    * @public
    */
   storageConfigurationArn: string | undefined;
 
   /**
-   * <p>ARNs of the <a>EncoderConfiguration</a> resource. The encoder configuration and stage resources
-   * 	  must be in the same AWS account and region. </p>
+   * <p>ARNs of the <a>EncoderConfiguration</a> resource. The encoder configuration
+   *          and stage resources must be in the same AWS account and region. </p>
    * @public
    */
   encoderConfigurationArns: string[] | undefined;
 
   /**
-   * <p>Array of maps, each of the form <code>string:string (key:value)</code>.
-   * 	  This is an optional customer specification, currently used only to specify
-   * 	  the recording format for storing a recording in Amazon S3.</p>
+   * <p>Array of maps, each of the form <code>string:string (key:value)</code>. This is an
+   *          optional customer specification, currently used only to specify the recording format for
+   *          storing a recording in Amazon S3.</p>
    * @public
    */
-  recordingConfiguration?: RecordingConfiguration;
+  recordingConfiguration?: RecordingConfiguration | undefined;
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for a <a>Composition</a> and modify the interval at which thumbnails are generated for
+   *          the live session.</p>
+   * @public
+   */
+  thumbnailConfigurations?: CompositionThumbnailConfiguration[] | undefined;
 }
 
 /**
@@ -879,21 +1639,21 @@ export interface DestinationConfiguration {
    * <p>Name that can be specified to help identify the destination.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
-   * <p>An IVS channel to be used for broadcasting, for server-side composition. Either a <code>channel</code> or an
-   * 	  <code>s3</code> must be specified. </p>
+   * <p>An IVS channel to be used for broadcasting, for server-side composition. Either a
+   *             <code>channel</code> or an <code>s3</code> must be specified. </p>
    * @public
    */
-  channel?: ChannelDestinationConfiguration;
+  channel?: ChannelDestinationConfiguration | undefined;
 
   /**
-   * <p>An S3 storage configuration to be used for recording video data. Either a <code>channel</code>
-   * 	  or an <code>s3</code> must be specified.</p>
+   * <p>An S3 storage configuration to be used for recording video data. Either a
+   *             <code>channel</code> or an <code>s3</code> must be specified.</p>
    * @public
    */
-  s3?: S3DestinationConfiguration;
+  s3?: S3DestinationConfiguration | undefined;
 }
 
 /**
@@ -917,7 +1677,7 @@ export interface DestinationDetail {
    * <p>An S3 detail object to return information about the S3 destination.</p>
    * @public
    */
-  s3?: S3Detail;
+  s3?: S3Detail | undefined;
 }
 
 /**
@@ -960,14 +1720,14 @@ export interface Destination {
    *             this is returned as a string</i>.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>UTC time of the destination end. This is an ISO 8601 timestamp; <i>note that this
    *             is returned as a string</i>.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Configuration used to create this destination.</p>
@@ -979,7 +1739,7 @@ export interface Destination {
    * <p>Optional details regarding the status of the destination.</p>
    * @public
    */
-  detail?: DestinationDetail;
+  detail?: DestinationDetail | undefined;
 }
 
 /**
@@ -1022,38 +1782,42 @@ export type VideoFillMode = (typeof VideoFillMode)[keyof typeof VideoFillMode];
 export interface GridConfiguration {
   /**
    * <p>This attribute name identifies the featured slot. A participant with this attribute set
-   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured
-   *          slot. Default: <code>""</code> (no featured participant).</p>
+   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured slot. Default: <code>""</code> (no featured
+   *          participant).</p>
    * @public
    */
-  featuredParticipantAttribute?: string;
+  featuredParticipantAttribute?: string | undefined;
 
   /**
-   * <p>Determines whether to omit participants with stopped video in the composition. Default: <code>false</code>.</p>
+   * <p>Determines whether to omit participants with stopped video in the composition. Default:
+   *             <code>false</code>.</p>
    * @public
    */
-  omitStoppedVideo?: boolean;
+  omitStoppedVideo?: boolean | undefined;
 
   /**
-   * <p>Sets the non-featured participant display mode, to control the aspect ratio of video tiles. <code>VIDEO</code> is 16:9, <code>SQUARE</code> is 1:1, and <code>PORTRAIT</code> is 3:4. Default: <code>VIDEO</code>.</p>
+   * <p>Sets the non-featured participant display mode, to control the aspect ratio of video
+   *          tiles. <code>VIDEO</code> is 16:9, <code>SQUARE</code> is 1:1, and <code>PORTRAIT</code> is
+   *          3:4. Default: <code>VIDEO</code>.</p>
    * @public
    */
-  videoAspectRatio?: VideoAspectRatio;
+  videoAspectRatio?: VideoAspectRatio | undefined;
 
   /**
-   * <p>Defines how video content fits within the participant tile: <code>FILL</code> (stretched), <code>COVER</code> (cropped),
-   *       or <code>CONTAIN</code> (letterboxed). When not set,
-   *       <code>videoFillMode</code> defaults to <code>COVER</code> fill mode for participants in the grid
-   *       and to <code>CONTAIN</code> fill mode for featured participants.</p>
+   * <p>Defines how video content fits within the participant tile: <code>FILL</code>
+   *          (stretched), <code>COVER</code> (cropped), or <code>CONTAIN</code> (letterboxed). When not
+   *          set, <code>videoFillMode</code> defaults to <code>COVER</code> fill mode for participants
+   *          in the grid and to <code>CONTAIN</code> fill mode for featured participants.</p>
    * @public
    */
-  videoFillMode?: VideoFillMode;
+  videoFillMode?: VideoFillMode | undefined;
 
   /**
-   * <p>Specifies the spacing between participant tiles in pixels. Default: <code>2</code>.</p>
+   * <p>Specifies the spacing between participant tiles in pixels. Default:
+   *          <code>2</code>.</p>
    * @public
    */
-  gridGap?: number;
+  gridGap?: number | undefined;
 }
 
 /**
@@ -1087,81 +1851,84 @@ export const PipPosition = {
 export type PipPosition = (typeof PipPosition)[keyof typeof PipPosition];
 
 /**
- * <p>Configuration information specific to Picture-in-Picture (PiP) layout,
- * 	        for <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html">server-side composition</a>.
- * 	  </p>
+ * <p>Configuration information specific to Picture-in-Picture (PiP) layout, for <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html">server-side composition</a>. </p>
  * @public
  */
 export interface PipConfiguration {
   /**
    * <p>This attribute name identifies the featured slot. A participant with this attribute set
-   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured
-   *          slot. Default: <code>""</code> (no featured participant).</p>
+   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured slot. Default: <code>""</code> (no featured
+   *          participant).</p>
    * @public
    */
-  featuredParticipantAttribute?: string;
+  featuredParticipantAttribute?: string | undefined;
 
   /**
-   * <p>Determines whether to omit participants with stopped video in the composition. Default: <code>false</code>.</p>
+   * <p>Determines whether to omit participants with stopped video in the composition. Default:
+   *             <code>false</code>.</p>
    * @public
    */
-  omitStoppedVideo?: boolean;
+  omitStoppedVideo?: boolean | undefined;
 
   /**
-   * <p>Defines how video content fits within the participant tile: <code>FILL</code> (stretched),
-   * 	  <code>COVER</code> (cropped), or <code>CONTAIN</code> (letterboxed). Default: <code>COVER</code>.</p>
+   * <p>Defines how video content fits within the participant tile: <code>FILL</code>
+   *          (stretched), <code>COVER</code> (cropped), or <code>CONTAIN</code> (letterboxed). Default:
+   *             <code>COVER</code>.</p>
    * @public
    */
-  videoFillMode?: VideoFillMode;
+  videoFillMode?: VideoFillMode | undefined;
 
   /**
-   * <p>Specifies the spacing between participant tiles in pixels. Default: <code>0</code>.</p>
+   * <p>Specifies the spacing between participant tiles in pixels. Default:
+   *          <code>0</code>.</p>
    * @public
    */
-  gridGap?: number;
+  gridGap?: number | undefined;
 
   /**
-   * <p>Specifies the participant for the PiP window. A participant with this attribute set
-   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a>
-   * 	 is placed in the PiP slot. Default: <code>""</code> (no PiP participant).</p>
+   * <p>Specifies the participant for the PiP window. A participant with this attribute set to
+   *             <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the PiP slot. Default: <code>""</code> (no PiP participant).</p>
    * @public
    */
-  pipParticipantAttribute?: string;
+  pipParticipantAttribute?: string | undefined;
 
   /**
-   * <p>Defines PiP behavior when all participants have left: <code>STATIC</code> (maintains original position/size) or <code>DYNAMIC</code> (expands to full composition). Default: <code>STATIC</code>.</p>
+   * <p>Defines PiP behavior when all participants have left: <code>STATIC</code> (maintains
+   *          original position/size) or <code>DYNAMIC</code> (expands to full composition). Default:
+   *             <code>STATIC</code>.</p>
    * @public
    */
-  pipBehavior?: PipBehavior;
+  pipBehavior?: PipBehavior | undefined;
 
   /**
-   * <p>Sets the PiP window’s offset position in pixels from the closest edges determined by <code>PipPosition</code>.
-   * 	  Default: <code>0</code>.</p>
+   * <p>Sets the PiP window’s offset position in pixels from the closest edges determined by
+   *             <code>PipPosition</code>. Default: <code>0</code>.</p>
    * @public
    */
-  pipOffset?: number;
+  pipOffset?: number | undefined;
 
   /**
-   * <p>Determines the corner position of the PiP window. Default: <code>BOTTOM_RIGHT</code>.</p>
+   * <p>Determines the corner position of the PiP window. Default:
+   *          <code>BOTTOM_RIGHT</code>.</p>
    * @public
    */
-  pipPosition?: PipPosition;
+  pipPosition?: PipPosition | undefined;
 
   /**
    * <p>Specifies the width of the PiP window in pixels. When this is not set explicitly,
-   * 	        <code>pipWidth</code>’s value will be based on the size of the composition and the
-   * 			aspect ratio of the participant’s video.</p>
+   *             <code>pipWidth</code>’s value will be based on the size of the composition and the
+   *          aspect ratio of the participant’s video.</p>
    * @public
    */
-  pipWidth?: number;
+  pipWidth?: number | undefined;
 
   /**
    * <p>Specifies the height of the PiP window in pixels. When this is not set explicitly,
-   * 	        <code>pipHeight</code>’s value will be based on the size of the composition and the
-   * 			aspect ratio of the participant’s video.</p>
+   *             <code>pipHeight</code>’s value will be based on the size of the composition and the
+   *          aspect ratio of the participant’s video.</p>
    * @public
    */
-  pipHeight?: number;
+  pipHeight?: number | undefined;
 }
 
 /**
@@ -1173,13 +1940,13 @@ export interface LayoutConfiguration {
    * <p>Configuration related to grid layout. Default: Grid layout.</p>
    * @public
    */
-  grid?: GridConfiguration;
+  grid?: GridConfiguration | undefined;
 
   /**
    * <p>Configuration related to PiP layout.</p>
    * @public
    */
-  pip?: PipConfiguration;
+  pip?: PipConfiguration | undefined;
 }
 
 /**
@@ -1230,34 +1997,35 @@ export interface Composition {
 
   /**
    * <p>Array of Destination objects. A Composition can contain either one destination
-   * 	        (<code>channel</code> or <code>s3</code>) or two (one <code>channel</code> and one <code>s3</code>).</p>
+   *             (<code>channel</code> or <code>s3</code>) or two (one <code>channel</code> and one
+   *             <code>s3</code>).</p>
    * @public
    */
   destinations: Destination[] | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>UTC time of the Composition start. This is an ISO 8601 timestamp; <i>note that
-   *          this is returned as a string</i>.</p>
+   *             this is returned as a string</i>.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
-   * <p>UTC time of the Composition end. This is an ISO 8601 timestamp; <i>note that
-   *          this is returned as a string</i>.</p>
+   * <p>UTC time of the Composition end. This is an ISO 8601 timestamp; <i>note that this
+   *             is returned as a string</i>.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1268,7 +2036,7 @@ export interface GetCompositionResponse {
    * <p>The Composition that was returned.</p>
    * @public
    */
-  composition?: Composition;
+  composition?: Composition | undefined;
 }
 
 /**
@@ -1290,7 +2058,29 @@ export interface GetEncoderConfigurationResponse {
    * <p>The EncoderConfiguration that was returned.</p>
    * @public
    */
-  encoderConfiguration?: EncoderConfiguration;
+  encoderConfiguration?: EncoderConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestConfigurationRequest {
+  /**
+   * <p>ARN of the ingest for which the information is to be retrieved.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestConfigurationResponse {
+  /**
+   * <p>The IngestConfiguration that was returned.</p>
+   * @public
+   */
+  ingestConfiguration?: IngestConfiguration | undefined;
 }
 
 /**
@@ -1315,6 +2105,22 @@ export interface GetParticipantRequest {
    */
   participantId: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantProtocol = {
+  RTMP: "RTMP",
+  RTMPS: "RTMPS",
+  UNKNOWN: "UNKNOWN",
+  WHIP: "WHIP",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantProtocol = (typeof ParticipantProtocol)[keyof typeof ParticipantProtocol];
 
 /**
  * @public
@@ -1357,7 +2163,7 @@ export interface Participant {
    * <p>Unique identifier for this participant, assigned by IVS.</p>
    * @public
    */
-  participantId?: string;
+  participantId?: string | undefined;
 
   /**
    * <p>Customer-assigned name to help identify the token; this can be used to link a
@@ -1366,20 +2172,20 @@ export interface Participant {
    *             personally identifying, confidential, or sensitive information</i>.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>Whether the participant is connected to or disconnected from the stage.</p>
    * @public
    */
-  state?: ParticipantState;
+  state?: ParticipantState | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage
    *          session.</p>
    * @public
    */
-  firstJoinTime?: Date;
+  firstJoinTime?: Date | undefined;
 
   /**
    * <p>Application-provided attributes to encode into the token and attach to a stage. Map keys
@@ -1388,67 +2194,77 @@ export interface Participant {
    *             personally identifying, confidential, or sensitive information</i>.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Whether the participant ever published to the stage session.</p>
    * @public
    */
-  published?: boolean;
+  published?: boolean | undefined;
 
   /**
    * <p>The participant’s Internet Service Provider.</p>
    * @public
    */
-  ispName?: string;
+  ispName?: string | undefined;
 
   /**
    * <p>The participant’s operating system.</p>
    * @public
    */
-  osName?: string;
+  osName?: string | undefined;
 
   /**
    * <p>The participant’s operating system version.</p>
    * @public
    */
-  osVersion?: string;
+  osVersion?: string | undefined;
 
   /**
    * <p>The participant’s browser.</p>
    * @public
    */
-  browserName?: string;
+  browserName?: string | undefined;
 
   /**
    * <p>The participant’s browser version.</p>
    * @public
    */
-  browserVersion?: string;
+  browserVersion?: string | undefined;
 
   /**
    * <p>The participant’s SDK version.</p>
    * @public
    */
-  sdkVersion?: string;
+  sdkVersion?: string | undefined;
 
   /**
-   * <p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or <code>""</code> (empty string), if recording is not enabled.</p>
+   * <p>Name of the S3 bucket to where the participant is being recorded, if individual
+   *          participant recording is enabled, or <code>""</code> (empty string), if recording is not
+   *          enabled.</p>
    * @public
    */
-  recordingS3BucketName?: string;
+  recordingS3BucketName?: string | undefined;
 
   /**
-   * <p>S3 prefix of the S3 bucket where the participant is being recorded, if individual participant recording is enabled, or <code>""</code> (empty string), if recording is not enabled.</p>
+   * <p>S3 prefix of the S3 bucket where the participant is being recorded, if individual
+   *          participant recording is enabled, or <code>""</code> (empty string), if recording is not
+   *          enabled.</p>
    * @public
    */
-  recordingS3Prefix?: string;
+  recordingS3Prefix?: string | undefined;
 
   /**
    * <p>The participant’s recording state.</p>
    * @public
    */
-  recordingState?: ParticipantRecordingState;
+  recordingState?: ParticipantRecordingState | undefined;
+
+  /**
+   * <p>Type of ingest protocol that the participant employs for broadcasting.</p>
+   * @public
+   */
+  protocol?: ParticipantProtocol | undefined;
 }
 
 /**
@@ -1459,7 +2275,7 @@ export interface GetParticipantResponse {
    * <p>The participant that is returned.</p>
    * @public
    */
-  participant?: Participant;
+  participant?: Participant | undefined;
 }
 
 /**
@@ -1482,35 +2298,36 @@ export interface PublicKey {
    * <p>Public key ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Public key name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Public key material.</p>
    * @public
    */
-  publicKeyMaterial?: string;
+  publicKeyMaterial?: string | undefined;
 
   /**
-   * <p>The public key fingerprint, a short string used to identify or verify the full public key.</p>
+   * <p>The public key fingerprint, a short string used to identify or verify the full public
+   *          key.</p>
    * @public
    */
-  fingerprint?: string;
+  fingerprint?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1521,7 +2338,7 @@ export interface GetPublicKeyResponse {
    * <p>The public key that is returned.</p>
    * @public
    */
-  publicKey?: PublicKey;
+  publicKey?: PublicKey | undefined;
 }
 
 /**
@@ -1543,7 +2360,7 @@ export interface GetStageResponse {
    * <p>The stage that is returned.</p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 }
 
 /**
@@ -1575,20 +2392,20 @@ export interface StageSession {
    * <p>ID of the session within the stage.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p> ISO 8601 timestamp (returned as a string) when this stage session began.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) when the stage session ended. This is null if
    *          the stage is active.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1599,7 +2416,7 @@ export interface GetStageSessionResponse {
    * <p>The stage session that is returned.</p>
    * @public
    */
-  stageSession?: StageSession;
+  stageSession?: StageSession | undefined;
 }
 
 /**
@@ -1621,7 +2438,7 @@ export interface GetStorageConfigurationResponse {
    * <p>The StorageConfiguration that was returned.</p>
    * @public
    */
-  storageConfiguration?: StorageConfiguration;
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -1638,17 +2455,17 @@ export interface ImportPublicKeyRequest {
    * <p>Name of the public key to be imported.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1659,7 +2476,7 @@ export interface ImportPublicKeyResponse {
    * <p>The public key that was imported.</p>
    * @public
    */
-  publicKey?: PublicKey;
+  publicKey?: PublicKey | undefined;
 }
 
 /**
@@ -1670,27 +2487,27 @@ export interface ListCompositionsRequest {
    * <p>Filters the Composition list to match the specified Stage ARN.</p>
    * @public
    */
-  filterByStageArn?: string;
+  filterByStageArn?: string | undefined;
 
   /**
    * <p>Filters the Composition list to match the specified EncoderConfiguration attached to at
    *          least one of its output.</p>
    * @public
    */
-  filterByEncoderConfigurationArn?: string;
+  filterByEncoderConfigurationArn?: string | undefined;
 
   /**
    * <p>The first Composition to retrieve. This is used for pagination; see the
    *          <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1715,14 +2532,14 @@ export interface DestinationSummary {
    *             this is returned as a string</i>.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>UTC time of the destination end. This is an ISO 8601 timestamp; <i>note that this
    *             is returned as a string</i>.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1756,27 +2573,27 @@ export interface CompositionSummary {
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>UTC time of the Composition start. This is an ISO 8601 timestamp; <i>note that
-   *          this is returned as a string</i>.</p>
+   *             this is returned as a string</i>.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
-   * <p>UTC time of the Composition end. This is an ISO 8601 timestamp; <i>note that
-   *          this is returned as a string</i>.</p>
+   * <p>UTC time of the Composition end. This is an ISO 8601 timestamp; <i>note that this
+   *             is returned as a string</i>.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1794,7 +2611,7 @@ export interface ListCompositionsResponse {
    *          in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1806,13 +2623,13 @@ export interface ListEncoderConfigurationsRequest {
    *             <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1830,17 +2647,17 @@ export interface EncoderConfigurationSummary {
    * <p>Optional name to identify the resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1858,7 +2675,107 @@ export interface ListEncoderConfigurationsResponse {
    *             <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestConfigurationsRequest {
+  /**
+   * <p>Filters the response list to match the specified stage ARN. Only one filter (by stage ARN or by state) can be used at a time.</p>
+   * @public
+   */
+  filterByStageArn?: string | undefined;
+
+  /**
+   * <p>Filters the response list to match the specified state. Only one filter (by stage ARN or by state) can be used at a time.</p>
+   * @public
+   */
+  filterByState?: IngestConfigurationState | undefined;
+
+  /**
+   * <p>The first IngestConfiguration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about an IngestConfiguration.</p>
+ * @public
+ */
+export interface IngestConfigurationSummary {
+  /**
+   * <p>Ingest name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Ingest configuration ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Type of ingest protocol that the user employs for broadcasting.</p>
+   * @public
+   */
+  ingestProtocol: IngestProtocol | undefined;
+
+  /**
+   * <p>ARN of the stage with which the IngestConfiguration is associated.</p>
+   * @public
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of the participant within the stage.</p>
+   * @public
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>State of the ingest configuration. It is <code>ACTIVE</code> if a publisher currently is
+   *          publishing to the stage associated with the ingest configuration.</p>
+   * @public
+   */
+  state: IngestConfigurationState | undefined;
+
+  /**
+   * <p>Customer-assigned name to help identify the participant using the IngestConfiguration;
+   *          this can be used to link a participant to a user in the customer’s own systems. This can be
+   *          any UTF-8 encoded text. <i>This field is exposed to all stage participants and
+   *             should not be used for personally identifying, confidential, or sensitive
+   *             information.</i>
+   *          </p>
+   * @public
+   */
+  userId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestConfigurationsResponse {
+  /**
+   * <p>List of the matching ingest configurations (summary information only).</p>
+   * @public
+   */
+  ingestConfigurations: IngestConfigurationSummary[] | undefined;
+
+  /**
+   * <p>If there are more IngestConfigurations than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1888,13 +2805,13 @@ export interface ListParticipantEventsRequest {
    *             <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1902,9 +2819,20 @@ export interface ListParticipantEventsRequest {
  * @enum
  */
 export const EventErrorCode = {
+  BITRATE_EXCEEDED: "BITRATE_EXCEEDED",
+  B_FRAME_PRESENT: "B_FRAME_PRESENT",
   INSUFFICIENT_CAPABILITIES: "INSUFFICIENT_CAPABILITIES",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  INVALID_AUDIO_CODEC: "INVALID_AUDIO_CODEC",
+  INVALID_INPUT: "INVALID_INPUT",
+  INVALID_PROTOCOL: "INVALID_PROTOCOL",
+  INVALID_STREAM_KEY: "INVALID_STREAM_KEY",
+  INVALID_VIDEO_CODEC: "INVALID_VIDEO_CODEC",
   PUBLISHER_NOT_FOUND: "PUBLISHER_NOT_FOUND",
   QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+  RESOLUTION_EXCEEDED: "RESOLUTION_EXCEEDED",
+  REUSE_OF_STREAM_KEY: "REUSE_OF_STREAM_KEY",
+  STREAM_DURATION_EXCEEDED: "STREAM_DURATION_EXCEEDED",
 } as const;
 
 /**
@@ -1942,41 +2870,118 @@ export interface Event {
    * <p>The name of the event.</p>
    * @public
    */
-  name?: EventName;
+  name?: EventName | undefined;
 
   /**
    * <p>Unique identifier for the participant who triggered the event. This is assigned by
    *          IVS.</p>
    * @public
    */
-  participantId?: string;
+  participantId?: string | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) for when the event occurred.</p>
    * @public
    */
-  eventTime?: Date;
+  eventTime?: Date | undefined;
 
   /**
    * <p>Unique identifier for the remote participant. For a subscribe event, this is the
    *          publisher. For a publish or join event, this is null. This is assigned by IVS.</p>
    * @public
    */
-  remoteParticipantId?: string;
+  remoteParticipantId?: string | undefined;
 
   /**
    * <p>If the event is an error event, the error code is provided to give insight into the
-   *          specific error that occurred. If the event is not an error event, this field is null.
-   *             <code>INSUFFICIENT_CAPABILITIES</code> indicates that the participant tried to take an
-   *          action that the participant’s token is not allowed to do. For more information about
-   *          participant capabilities, see the <code>capabilities</code> field in <a>CreateParticipantToken</a>. <code>QUOTA_EXCEEDED</code> indicates that the
-   *          number of participants who want to publish/subscribe to a stage exceeds the quota; for more
-   *          information, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html">Service Quotas</a>.
-   *             <code>PUBLISHER_NOT_FOUND</code> indicates that the participant tried to subscribe to a
-   *          publisher that doesn’t exist. </p>
+   *          specific error that occurred. If the event is not an error event, this field is
+   *          null.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>B_FRAME_PRESENT</code> — The participant's stream includes B-frames.
+   *                For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-rtmp-publishing.html"> IVS RTMP
+   *                   Publishing</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BITRATE_EXCEEDED</code> — The participant exceeded the maximum
+   *                supported bitrate. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html"> Service
+   *                Quotas</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CAPABILITIES</code> — The participant tried to take an
+   *                action that the participant’s token is not allowed to do. For details on participant
+   *                capabilities, see the <code>capabilities</code> field in <a>CreateParticipantToken</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_SERVER_EXCEPTION</code> — The participant failed to publish
+   *                to the stage due to an internal server error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_AUDIO_CODEC</code> — The participant is using an invalid audio
+   *                codec. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-stream-ingest.html"> Stream
+   *                Ingest</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_INPUT</code> — The participant is using an invalid input
+   *                stream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_PROTOCOL</code> — The participant's IngestConfiguration
+   *                resource is configured for RTMPS but they tried streaming with RTMP. For details, see
+   *                   <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-rtmp-publishing.html"> IVS RTMP
+   *                   Publishing</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_STREAM_KEY</code> — The participant is using an invalid stream
+   *                key. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-rtmp-publishing.html"> IVS RTMP
+   *                   Publishing</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_VIDEO_CODEC</code> — The participant is using an invalid video
+   *                codec. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-stream-ingest.html"> Stream
+   *                Ingest</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLISHER_NOT_FOUND</code> — The participant tried to subscribe to a
+   *                publisher that doesn’t exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code> — The number of participants who want to
+   *                publish/subscribe to a stage exceeds the quota. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html">
+   *                   Service Quotas</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLUTION_EXCEEDED</code> — The participant exceeded the maximum
+   *                supported resolution. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html"> Service
+   *                Quotas</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REUSE_OF_STREAM_KEY</code> — The participant tried to use a stream key
+   *                that is associated with another active stage session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STREAM_DURATION_EXCEEDED</code> — The participant exceeded the maximum
+   *                allowed stream duration. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html"> Service
+   *                Quotas</a>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  errorCode?: EventErrorCode;
+  errorCode?: EventErrorCode | undefined;
 }
 
 /**
@@ -1994,7 +2999,7 @@ export interface ListParticipantEventsResponse {
    *          request to get the next set. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2040,7 +3045,7 @@ export interface ListParticipantsRequest {
    *             to a user in the customer’s own systems.</p>
    * @public
    */
-  filterByUserId?: string;
+  filterByUserId?: string | undefined;
 
   /**
    * <p>Filters the response list to only show participants who published during the stage session.
@@ -2048,7 +3053,7 @@ export interface ListParticipantsRequest {
    *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
    * @public
    */
-  filterByPublished?: boolean;
+  filterByPublished?: boolean | undefined;
 
   /**
    * <p>Filters the response list to only show participants in the specified state.
@@ -2056,20 +3061,20 @@ export interface ListParticipantsRequest {
    *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
    * @public
    */
-  filterByState?: ParticipantState;
+  filterByState?: ParticipantState | undefined;
 
   /**
    * <p>The first participant to retrieve. This is used for pagination; see the
    *             <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Filters the response list to only show participants with the specified recording state.
@@ -2077,7 +3082,7 @@ export interface ListParticipantsRequest {
    *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
    * @public
    */
-  filterByRecordingState?: ParticipantRecordingFilterByRecordingState;
+  filterByRecordingState?: ParticipantRecordingFilterByRecordingState | undefined;
 }
 
 /**
@@ -2089,7 +3094,7 @@ export interface ParticipantSummary {
    * <p>Unique identifier for this participant, assigned by IVS.</p>
    * @public
    */
-  participantId?: string;
+  participantId?: string | undefined;
 
   /**
    * <p>Customer-assigned name to help identify the token; this can be used to link a
@@ -2098,32 +3103,32 @@ export interface ParticipantSummary {
    *             personally identifying, confidential, or sensitive information</i>.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>Whether the participant is connected to or disconnected from the stage.</p>
    * @public
    */
-  state?: ParticipantState;
+  state?: ParticipantState | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage
    *          session.</p>
    * @public
    */
-  firstJoinTime?: Date;
+  firstJoinTime?: Date | undefined;
 
   /**
    * <p>Whether the participant ever published to the stage session.</p>
    * @public
    */
-  published?: boolean;
+  published?: boolean | undefined;
 
   /**
    * <p>The participant’s recording state.</p>
    * @public
    */
-  recordingState?: ParticipantRecordingState;
+  recordingState?: ParticipantRecordingState | undefined;
 }
 
 /**
@@ -2141,7 +3146,7 @@ export interface ListParticipantsResponse {
    *          in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2152,13 +3157,13 @@ export interface ListPublicKeysRequest {
    * <p>The first public key to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2170,23 +3175,23 @@ export interface PublicKeySummary {
    * <p>Public key ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Public key name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2203,7 +3208,7 @@ export interface ListPublicKeysResponse {
    * <p>If there are more public keys than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2215,13 +3220,13 @@ export interface ListStagesRequest {
    *          response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2239,23 +3244,23 @@ export interface StageSummary {
    * <p>Stage name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>ID of the active session within the stage.</p>
    * @public
    */
-  activeSessionId?: string;
+  activeSessionId?: string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2273,7 +3278,7 @@ export interface ListStagesResponse {
    *          request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2291,13 +3296,13 @@ export interface ListStageSessionsRequest {
    *             <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return. Default: 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2309,20 +3314,20 @@ export interface StageSessionSummary {
    * <p>ID of the session within the stage.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p> ISO 8601 timestamp (returned as a string) when this stage session began.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) when the stage session ended. This is null if
    *          the stage is active.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -2340,7 +3345,7 @@ export interface ListStageSessionsResponse {
    *             <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2352,14 +3357,14 @@ export interface ListStorageConfigurationsRequest {
    * 	  see the <code>nextToken</code> response field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of storage configurations to return. Default: your service quota or 100,
    * 	  whichever is smaller.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2377,23 +3382,23 @@ export interface StorageConfigurationSummary {
    * <p>Name of the storage configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>An S3 destination configuration where recorded videos will be stored.</p>
    * @public
    */
-  s3?: S3StorageConfiguration;
+  s3?: S3StorageConfiguration | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag
+   *             Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2411,7 +3416,7 @@ export interface ListStorageConfigurationsResponse {
    *      in the request to get the next set.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2451,13 +3456,13 @@ export interface StartCompositionRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  idempotencyToken?: string;
+  idempotencyToken?: string | undefined;
 
   /**
    * <p>Layout object to configure composition parameters.</p>
    * @public
    */
-  layout?: LayoutConfiguration;
+  layout?: LayoutConfiguration | undefined;
 
   /**
    * <p>Array of destination configuration.</p>
@@ -2467,13 +3472,13 @@ export interface StartCompositionRequest {
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2484,7 +3489,7 @@ export interface StartCompositionResponse {
    * <p>The Composition that was created.</p>
    * @public
    */
-  composition?: Composition;
+  composition?: Composition | undefined;
 }
 
 /**
@@ -2515,9 +3520,9 @@ export interface TagResourceRequest {
 
   /**
    * <p>Array of tags to be added or updated. Array of maps, each of the form
-   *             <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS has no constraints beyond what is documented
+   *          <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
@@ -2540,10 +3545,10 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS has no constraints beyond what is documented
+   * <p>Array of tag keys (strings) for the tags to be removed.
+   *          See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+   *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
    *          there.</p>
    * @public
    */
@@ -2554,6 +3559,34 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateIngestConfigurationRequest {
+  /**
+   * <p>ARN of the IngestConfiguration, for which the related stage ARN needs to be updated.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Stage ARN that needs to be updated.</p>
+   * @public
+   */
+  stageArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIngestConfigurationResponse {
+  /**
+   * <p>The updated IngestConfiguration.</p>
+   * @public
+   */
+  ingestConfiguration?: IngestConfiguration | undefined;
+}
 
 /**
  * @public
@@ -2569,13 +3602,13 @@ export interface UpdateStageRequest {
    * <p>Name of the stage to be updated.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Configuration object for individual participant recording, to attach to the stage. Note that this cannot be updated while recording is active.</p>
    * @public
    */
-  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration | undefined;
 }
 
 /**
@@ -2586,8 +3619,26 @@ export interface UpdateStageResponse {
    * <p>The updated stage.</p>
    * @public
    */
-  stage?: Stage;
+  stage?: Stage | undefined;
 }
+
+/**
+ * @internal
+ */
+export const IngestConfigurationFilterSensitiveLog = (obj: IngestConfiguration): any => ({
+  ...obj,
+  ...(obj.streamKey && { streamKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateIngestConfigurationResponseFilterSensitiveLog = (obj: CreateIngestConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.ingestConfiguration && {
+    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
+  }),
+});
 
 /**
  * @internal
@@ -2612,5 +3663,25 @@ export const CreateStageResponseFilterSensitiveLog = (obj: CreateStageResponse):
   ...obj,
   ...(obj.participantTokens && {
     participantTokens: obj.participantTokens.map((item) => ParticipantTokenFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetIngestConfigurationResponseFilterSensitiveLog = (obj: GetIngestConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.ingestConfiguration && {
+    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIngestConfigurationResponseFilterSensitiveLog = (obj: UpdateIngestConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.ingestConfiguration && {
+    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
   }),
 });

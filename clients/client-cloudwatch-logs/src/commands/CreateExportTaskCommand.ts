@@ -45,6 +45,11 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *       bucket. To separate log data for each export task, specify a prefix to be used as the Amazon
  *       S3 key prefix for all exported objects.</p>
  *          <note>
+ *             <p>We recommend that you don't regularly export to Amazon S3 as a way to continuously archive your logs. For that use case, we instaed recommend that
+ *       you use subscriptions. For more information about subscriptions, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html">Real-time processing of log data with subscriptions</a>.</p>
+ *          </note>
+ *          <note>
  *             <p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can
  *         sort the exported log field data by using Linux utilities.</p>
  *          </note>
@@ -98,6 +103,7 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class CreateExportTaskCommand extends $Command
@@ -108,9 +114,7 @@ export class CreateExportTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +126,16 @@ export class CreateExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExportTaskCommand)
   .de(de_CreateExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExportTaskRequest;
+      output: CreateExportTaskResponse;
+    };
+    sdk: {
+      input: CreateExportTaskCommandInput;
+      output: CreateExportTaskCommandOutput;
+    };
+  };
+}

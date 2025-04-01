@@ -51,7 +51,7 @@ export interface UpdateCloudWatchAlarmTemplateCommandOutput
  *   Name: "STRING_VALUE",
  *   Period: Number("int"),
  *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
- *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET",
+ *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION",
  *   Threshold: Number("double"),
  *   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing",
  * };
@@ -74,7 +74,7 @@ export interface UpdateCloudWatchAlarmTemplateCommandOutput
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET",
+ * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION",
  * //   Threshold: Number("double"),
  * //   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing",
  * // };
@@ -108,6 +108,7 @@ export interface UpdateCloudWatchAlarmTemplateCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateCloudWatchAlarmTemplateCommand extends $Command
@@ -118,9 +119,7 @@ export class UpdateCloudWatchAlarmTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class UpdateCloudWatchAlarmTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCloudWatchAlarmTemplateCommand)
   .de(de_UpdateCloudWatchAlarmTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCloudWatchAlarmTemplateRequest;
+      output: UpdateCloudWatchAlarmTemplateResponse;
+    };
+    sdk: {
+      input: UpdateCloudWatchAlarmTemplateCommandInput;
+      output: UpdateCloudWatchAlarmTemplateCommandOutput;
+    };
+  };
+}

@@ -28,6 +28,7 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -36,9 +37,11 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
+  splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
@@ -211,6 +214,10 @@ import {
   MalformedContentTypeWithoutBodyServerOutput,
 } from "../server/operations/MalformedContentTypeWithoutBody";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputServerInput,
+  MalformedContentTypeWithoutBodyEmptyInputServerOutput,
+} from "../server/operations/MalformedContentTypeWithoutBodyEmptyInput";
+import {
   MalformedContentTypeWithPayloadServerInput,
   MalformedContentTypeWithPayloadServerOutput,
 } from "../server/operations/MalformedContentTypeWithPayload";
@@ -322,6 +329,14 @@ import {
 import { QueryPrecedenceServerInput, QueryPrecedenceServerOutput } from "../server/operations/QueryPrecedence";
 import { RecursiveShapesServerInput, RecursiveShapesServerOutput } from "../server/operations/RecursiveShapes";
 import {
+  ResponseCodeHttpFallbackServerInput,
+  ResponseCodeHttpFallbackServerOutput,
+} from "../server/operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequiredServerInput,
+  ResponseCodeRequiredServerOutput,
+} from "../server/operations/ResponseCodeRequired";
+import {
   SimpleScalarPropertiesServerInput,
   SimpleScalarPropertiesServerOutput,
 } from "../server/operations/SimpleScalarProperties";
@@ -338,15 +353,20 @@ import {
 } from "../server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructureServerInput, TestBodyStructureServerOutput } from "../server/operations/TestBodyStructure";
 import {
-  TestNoInputNoPayloadServerInput,
-  TestNoInputNoPayloadServerOutput,
-} from "../server/operations/TestNoInputNoPayload";
-import { TestNoPayloadServerInput, TestNoPayloadServerOutput } from "../server/operations/TestNoPayload";
+  TestGetNoInputNoPayloadServerInput,
+  TestGetNoInputNoPayloadServerOutput,
+} from "../server/operations/TestGetNoInputNoPayload";
+import { TestGetNoPayloadServerInput, TestGetNoPayloadServerOutput } from "../server/operations/TestGetNoPayload";
 import { TestPayloadBlobServerInput, TestPayloadBlobServerOutput } from "../server/operations/TestPayloadBlob";
 import {
   TestPayloadStructureServerInput,
   TestPayloadStructureServerOutput,
 } from "../server/operations/TestPayloadStructure";
+import {
+  TestPostNoInputNoPayloadServerInput,
+  TestPostNoInputNoPayloadServerOutput,
+} from "../server/operations/TestPostNoInputNoPayload";
+import { TestPostNoPayloadServerInput, TestPostNoPayloadServerOutput } from "../server/operations/TestPostNoPayload";
 import {
   TimestampFormatHeadersServerInput,
   TimestampFormatHeadersServerOutput,
@@ -393,13 +413,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["StringSet"] !== undefined) {
       const queryValue = Array.isArray(query["StringSet"])
         ? (query["StringSet"] as string[])
         : [query["StringSet"] as string];
-      contents.queryStringSet = queryValue.map((_entry) => _entry as any);
+      contents.queryStringSet = queryValue;
     }
     if (query["Byte"] !== undefined) {
       let queryValue: string;
@@ -552,7 +572,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnum"] !== undefined) {
       let queryValue: string;
@@ -577,7 +597,7 @@ export const deserializeAllQueryStringTypesRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.queryParamsMapOfStringList = parsedQuery;
   }
@@ -1110,8 +1130,10 @@ export const deserializeHttpPayloadWithUnionRequest = async (
     }
   }
   const contents: any = map({});
-  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
-  contents.nested = de_UnionPayload(data, context);
+  const data: Record<string, any> | undefined = await parseBody(output.body, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.nested = __expectUnion(de_UnionPayload(data, context));
+  }
   return contents;
 };
 
@@ -1467,19 +1489,19 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
     [_hSL]: [
       () => void 0 !== output.headers[_xs__],
-      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs__] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hSS]: [
       () => void 0 !== output.headers[_xs___],
-      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs___] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIL]: [
       () => void 0 !== output.headers[_xi_],
-      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi_] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
     [_hBL]: [
       () => void 0 !== output.headers[_xb___],
-      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xb___] || "").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
     [_hTL]: [
       () => void 0 !== output.headers[_xt],
@@ -1491,12 +1513,12 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hE]: [, output.headers[_xe]],
     [_hEL]: [
       () => void 0 !== output.headers[_xe_],
-      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xe_] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
     [_hIEL]: [
       () => void 0 !== output.headers[_xi___],
-      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi___] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2022,6 +2044,33 @@ export const deserializeMalformedContentTypeWithoutBodyRequest = async (
   return contents;
 };
 
+export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyEmptyInputServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_h]: [, output.headers[_h]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeMalformedContentTypeWithPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -2419,7 +2468,7 @@ export const deserializeMalformedStringRequest = async (
   const contents: any = map({
     [_bl]: [
       () => void 0 !== output.headers[_amth],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2859,7 +2908,7 @@ export const deserializeMediaTypeHeaderRequest = async (
   const contents: any = map({
     [_j]: [
       () => void 0 !== output.headers[_xj],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2941,7 +2990,7 @@ export const deserializeNullAndEmptyHeadersClientRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2973,7 +3022,7 @@ export const deserializeNullAndEmptyHeadersServerRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3061,7 +3110,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["IntegerList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerList"])
@@ -3091,7 +3140,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnumList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerEnumList"])
@@ -3335,7 +3384,7 @@ export const deserializeQueryParamsAsStringListMapRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.foo = parsedQuery;
   }
@@ -3428,6 +3477,56 @@ export const deserializeRecursiveShapesRequest = async (
   return contents;
 };
 
+export const deserializeResponseCodeHttpFallbackRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeHttpFallbackServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeResponseCodeRequiredRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeRequiredServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeSimpleScalarPropertiesRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3490,6 +3589,7 @@ export const deserializeSparseJsonListsRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    sparseShortList: (_) => de_SparseShortList(_, context),
     sparseStringList: (_) => de_SparseStringList(_, context),
   });
   Object.assign(contents, doc);
@@ -3619,10 +3719,10 @@ export const deserializeTestBodyStructureRequest = async (
   return contents;
 };
 
-export const deserializeTestNoInputNoPayloadRequest = async (
+export const deserializeTestGetNoInputNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
-): Promise<TestNoInputNoPayloadServerInput> => {
+): Promise<TestGetNoInputNoPayloadServerInput> => {
   const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
     (key) => key.toLowerCase() === "content-type"
   );
@@ -3644,10 +3744,10 @@ export const deserializeTestNoInputNoPayloadRequest = async (
   return contents;
 };
 
-export const deserializeTestNoPayloadRequest = async (
+export const deserializeTestGetNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
-): Promise<TestNoPayloadServerInput> => {
+): Promise<TestGetNoPayloadServerInput> => {
   const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
     (key) => key.toLowerCase() === "content-type"
   );
@@ -3708,6 +3808,58 @@ export const deserializeTestPayloadStructureRequest = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = de_PayloadConfig(data, context);
+  return contents;
+};
+
+export const deserializeTestPostNoInputNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoInputNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeTestPostNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -4958,14 +5110,8 @@ export const serializeInputAndOutputWithHeadersResponse = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).map(__quoteHeader).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).map(__quoteHeader).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -4979,10 +5125,7 @@ export const serializeInputAndOutputWithHeadersResponse = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).map(__quoteHeader).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -5615,6 +5758,40 @@ export const serializeMalformedContentTypeWithGenericStringResponse = async (
 
 export const serializeMalformedContentTypeWithoutBodyResponse = async (
   input: MalformedContentTypeWithoutBodyServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {});
+  let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeMalformedContentTypeWithoutBodyEmptyInputResponse = async (
+  input: MalformedContentTypeWithoutBodyEmptyInputServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -6447,7 +6624,7 @@ export const serializeMediaTypeHeaderResponse = async (
     "content-type": "application/json",
     [_xj]: [
       () => isSerializableHeaderValue(input[_j]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_j]!))),
     ],
   });
   let body: any;
@@ -6559,10 +6736,7 @@ export const serializeNullAndEmptyHeadersClientResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -6602,10 +6776,7 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -7065,6 +7236,83 @@ export const serializeRecursiveShapesResponse = async (
   });
 };
 
+export const serializeResponseCodeHttpFallbackResponse = async (
+  input: ResponseCodeHttpFallbackServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 201;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeResponseCodeRequiredResponse = async (
+  input: ResponseCodeRequiredServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  let statusCode = 200;
+  if (input.responseCode !== undefined) {
+    statusCode = input.responseCode;
+  }
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeSimpleScalarPropertiesResponse = async (
   input: SimpleScalarPropertiesServerOutput,
   ctx: ServerSerdeContext
@@ -7135,6 +7383,7 @@ export const serializeSparseJsonListsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      sparseShortList: (_) => se_SparseShortList(_, context),
       sparseStringList: (_) => se_SparseStringList(_, context),
     })
   );
@@ -7357,8 +7606,8 @@ export const serializeTestBodyStructureResponse = async (
   });
 };
 
-export const serializeTestNoInputNoPayloadResponse = async (
-  input: TestNoInputNoPayloadServerOutput,
+export const serializeTestGetNoInputNoPayloadResponse = async (
+  input: TestGetNoInputNoPayloadServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -7395,8 +7644,8 @@ export const serializeTestNoInputNoPayloadResponse = async (
   });
 };
 
-export const serializeTestNoPayloadResponse = async (
-  input: TestNoPayloadServerOutput,
+export const serializeTestGetNoPayloadResponse = async (
+  input: TestGetNoPayloadServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -7498,6 +7747,82 @@ export const serializeTestPayloadStructureResponse = async (
     body = {};
   }
   body = JSON.stringify(body);
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoInputNoPayloadResponse = async (
+  input: TestPostNoInputNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoPayloadResponse = async (
+  input: TestPostNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -7922,7 +8247,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -7951,7 +8276,7 @@ const se_PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any =>
 const se_PlayerAction = (input: PlayerAction, context: __SerdeContext): any => {
   return PlayerAction.visit(input, {
     quit: (value) => ({ quit: se_Unit(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8093,7 +8418,7 @@ const se_TestStringMap = (input: Record<string, string>, context: __SerdeContext
 const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
   return UnionPayload.visit(input, {
     greeting: (value) => ({ greeting: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8105,7 +8430,7 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
     bar: (value) => ({ bar: value }),
     baz: (value) => ({ _baz: value }),
     foo: (value) => ({ FOO: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8204,6 +8529,13 @@ const se_NestedStringList = (input: string[][], context: __SerdeContext): any =>
     .map((entry) => {
       return se_StringList(entry, context);
     });
+};
+
+/**
+ * serializeAws_restJson1SparseShortList
+ */
+const se_SparseShortList = (input: number[], context: __SerdeContext): any => {
+  return input;
 };
 
 /**
@@ -8902,6 +9234,19 @@ const de_NestedStringList = (output: any, context: __SerdeContext): string[][] =
 };
 
 /**
+ * deserializeAws_restJson1SparseShortList
+ */
+const de_SparseShortList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectShort(entry) as any;
+  });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1SparseStringList
  */
 const de_SparseStringList = (output: any, context: __SerdeContext): string[] => {
@@ -9003,13 +9348,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _H = "Header";
 const _a = "a";
 const _amth = "amz-media-typed-header";
@@ -9031,6 +9369,7 @@ const _f = "foo";
 const _fIH = "floatInHeader";
 const _fl = "floatinheader";
 const _g = "greeting";
+const _h = "header";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
 const _hD = "headerDouble";

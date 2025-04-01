@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutEnvironmentBlueprintConfigurationInput,
   PutEnvironmentBlueprintConfigurationOutput,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutEnvironmentBlueprintConfigurationCommand,
   se_PutEnvironmentBlueprintConfigurationCommand,
@@ -48,6 +48,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  *   environmentBlueprintIdentifier: "STRING_VALUE", // required
  *   provisioningRoleArn: "STRING_VALUE",
  *   manageAccessRoleArn: "STRING_VALUE",
+ *   environmentRolePermissionBoundary: "STRING_VALUE",
  *   enabledRegions: [ // EnabledRegionList // required
  *     "STRING_VALUE",
  *   ],
@@ -56,6 +57,16 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   provisioningConfigurations: [ // ProvisioningConfigurationList
+ *     { // ProvisioningConfiguration Union: only one key present
+ *       lakeFormationConfiguration: { // LakeFormationConfiguration
+ *         locationRegistrationRole: "STRING_VALUE",
+ *         locationRegistrationExcludeS3Locations: [ // S3LocationList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new PutEnvironmentBlueprintConfigurationCommand(input);
  * const response = await client.send(command);
@@ -63,6 +74,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * //   domainId: "STRING_VALUE", // required
  * //   environmentBlueprintId: "STRING_VALUE", // required
  * //   provisioningRoleArn: "STRING_VALUE",
+ * //   environmentRolePermissionBoundary: "STRING_VALUE",
  * //   manageAccessRoleArn: "STRING_VALUE",
  * //   enabledRegions: [ // EnabledRegionList
  * //     "STRING_VALUE",
@@ -74,6 +86,16 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   provisioningConfigurations: [ // ProvisioningConfigurationList
+ * //     { // ProvisioningConfiguration Union: only one key present
+ * //       lakeFormationConfiguration: { // LakeFormationConfiguration
+ * //         locationRegistrationRole: "STRING_VALUE",
+ * //         locationRegistrationExcludeS3Locations: [ // S3LocationList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -108,6 +130,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class PutEnvironmentBlueprintConfigurationCommand extends $Command
@@ -118,9 +141,7 @@ export class PutEnvironmentBlueprintConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +153,16 @@ export class PutEnvironmentBlueprintConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEnvironmentBlueprintConfigurationCommand)
   .de(de_PutEnvironmentBlueprintConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEnvironmentBlueprintConfigurationInput;
+      output: PutEnvironmentBlueprintConfigurationOutput;
+    };
+    sdk: {
+      input: PutEnvironmentBlueprintConfigurationCommandInput;
+      output: PutEnvironmentBlueprintConfigurationCommandOutput;
+    };
+  };
+}

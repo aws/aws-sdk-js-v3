@@ -15,6 +15,8 @@ export * from "./ListResourceScanRelatedResourcesPaginator";
 export * from "./ListResourceScanResourcesPaginator";
 export * from "./ListResourceScansPaginator";
 export * from "./ListStackInstancesPaginator";
+export * from "./ListStackRefactorActionsPaginator";
+export * from "./ListStackRefactorsPaginator";
 export * from "./ListStackResourcesPaginator";
 export * from "./ListStackSetOperationResultsPaginator";
 export * from "./ListStackSetOperationsPaginator";

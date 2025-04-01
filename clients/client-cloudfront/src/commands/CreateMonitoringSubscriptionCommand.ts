@@ -33,7 +33,7 @@ export interface CreateMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
+ * <p>Enables or disables additional Amazon CloudWatch metrics for the specified CloudFront distribution. The
  * 			additional metrics incur an additional cost.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
  * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -79,10 +79,11 @@ export interface CreateMonitoringSubscriptionCommandOutput
  *  <p>The specified distribution does not exist.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -94,9 +95,7 @@ export class CreateMonitoringSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateMonitoringSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMonitoringSubscriptionCommand)
   .de(de_CreateMonitoringSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMonitoringSubscriptionRequest;
+      output: CreateMonitoringSubscriptionResult;
+    };
+    sdk: {
+      input: CreateMonitoringSubscriptionCommandInput;
+      output: CreateMonitoringSubscriptionCommandOutput;
+    };
+  };
+}

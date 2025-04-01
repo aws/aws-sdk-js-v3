@@ -104,6 +104,7 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectConnectGatewayAssociationProposalCommand extends $Command
@@ -114,9 +115,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_CreateDirectConnectGatewayAssociationProposalCommand)
   .de(de_CreateDirectConnectGatewayAssociationProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectConnectGatewayAssociationProposalRequest;
+      output: CreateDirectConnectGatewayAssociationProposalResult;
+    };
+    sdk: {
+      input: CreateDirectConnectGatewayAssociationProposalCommandInput;
+      output: CreateDirectConnectGatewayAssociationProposalCommandOutput;
+    };
+  };
+}

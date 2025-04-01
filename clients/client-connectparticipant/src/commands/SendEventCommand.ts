@@ -41,6 +41,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *          <p>Sends an event. Message receipts are not supported when there are more than two active
  *             participants in the chat. Using the SendEvent API for message receipts when a supervisor
  *             is barged-in will result in a conflict exception.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -79,8 +80,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation conflicts with the current state of a service
- *             resource associated with the request. </p>
+ *  <p>The requested operation conflicts with the current state of a service resource
+ *             associated with the request. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
@@ -94,6 +95,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class SendEventCommand extends $Command
@@ -104,9 +106,7 @@ export class SendEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class SendEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendEventCommand)
   .de(de_SendEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendEventRequest;
+      output: SendEventResponse;
+    };
+    sdk: {
+      input: SendEventCommandInput;
+      output: SendEventCommandOutput;
+    };
+  };
+}

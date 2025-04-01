@@ -55,10 +55,10 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  *  <p>Access denied.</p>
  *
  * @throws {@link CannotDeleteEntityWhileInUse} (client fault)
- *  <p>The key value store entity cannot be deleted while it is in use.</p>
+ *  <p>The entity cannot be deleted while it is in use.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The key value store entity was not found.</p>
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -68,24 +68,27 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * 			<code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To delete a KeyValueStore
  * ```javascript
  * // Use the following command to delete a KeyValueStore.
  * const input = {
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
+ *   IfMatch: "ETVPDKIKX0DER",
+ *   Name: "my-keyvaluestore-name"
  * };
  * const command = new DeleteKeyValueStoreCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-key-value-store-1699751759648
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteKeyValueStoreCommand extends $Command
   .classBuilder<
@@ -95,9 +98,7 @@ export class DeleteKeyValueStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +110,16 @@ export class DeleteKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKeyValueStoreCommand)
   .de(de_DeleteKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKeyValueStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKeyValueStoreCommandInput;
+      output: DeleteKeyValueStoreCommandOutput;
+    };
+  };
+}

@@ -28,7 +28,8 @@ export interface PutDraftAppVersionTemplateCommandInput extends PutDraftAppVersi
 export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVersionTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates the app template for an Resilience Hub application draft version.</p>
+ * <p>Adds or updates the app template for an Resilience Hub application draft
+ *       version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +82,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class PutDraftAppVersionTemplateCommand extends $Command
@@ -91,9 +93,7 @@ export class PutDraftAppVersionTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class PutDraftAppVersionTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDraftAppVersionTemplateCommand)
   .de(de_PutDraftAppVersionTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDraftAppVersionTemplateRequest;
+      output: PutDraftAppVersionTemplateResponse;
+    };
+    sdk: {
+      input: PutDraftAppVersionTemplateCommandInput;
+      output: PutDraftAppVersionTemplateCommandOutput;
+    };
+  };
+}

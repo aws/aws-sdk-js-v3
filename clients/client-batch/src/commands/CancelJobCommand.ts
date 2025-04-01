@@ -28,15 +28,7 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a job in an Batch job queue. Jobs that are in the
- *       <code>SUBMITTED</code>
- *       or
- *         <code>PENDING</code>
- *       are
- *       canceled. A job
- *         in<code>RUNNABLE</code> remains in <code>RUNNABLE</code> until it reaches the head of the
- *       job queue. Then the job status is updated to
- *       <code>FAILED</code>.</p>
+ * <p>Cancels a job in an Batch job queue. Jobs that are in a <code>SUBMITTED</code>, <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled and the job status is updated to <code>FAILED</code>.</p>
  *          <note>
  *             <p>A <code>PENDING</code> job is canceled after all dependency jobs are completed.
  *         Therefore, it may take longer than expected to cancel a job in <code>PENDING</code>
@@ -82,19 +74,22 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To cancel a job
  * ```javascript
  * // This example cancels a job with the specified job ID.
  * const input = {
- *   "jobId": "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
- *   "reason": "Cancelling job."
+ *   jobId: "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
+ *   reason: "Cancelling job."
  * };
  * const command = new CancelJobCommand(input);
- * await client.send(command);
- * // example id: to-cancel-a-job-1481152314733
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<
@@ -104,9 +99,7 @@ export class CancelJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +111,16 @@ export class CancelJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJobCommand)
   .de(de_CancelJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelJobCommandInput;
+      output: CancelJobCommandOutput;
+    };
+  };
+}

@@ -32,7 +32,29 @@ export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProvid
 export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an IdP for a user pool.</p>
+ * <p>Deletes a user pool identity provider (IdP). After you delete an IdP, users can no
+ *             longer sign in to your user pool through that IdP. For more information about user pool
+ *             IdPs, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +105,7 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteIdentityProviderCommand extends $Command
@@ -93,9 +116,7 @@ export class DeleteIdentityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +128,16 @@ export class DeleteIdentityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityProviderCommand)
   .de(de_DeleteIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentityProviderCommandInput;
+      output: DeleteIdentityProviderCommandOutput;
+    };
+  };
+}

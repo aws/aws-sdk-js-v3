@@ -38,7 +38,7 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * const client = new ConnectClient(config);
  * const input = { // AssociateDefaultVocabularyRequest
  *   InstanceId: "STRING_VALUE", // required
- *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA" || "ca-ES" || "da-DK" || "fi-FI" || "id-ID" || "ms-MY" || "nl-NL" || "no-NO" || "pl-PL" || "sv-SE" || "tl-PH", // required
  *   VocabularyId: "STRING_VALUE",
  * };
  * const command = new AssociateDefaultVocabularyCommand(input);
@@ -71,6 +71,7 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateDefaultVocabularyCommand extends $Command
@@ -81,9 +82,7 @@ export class AssociateDefaultVocabularyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class AssociateDefaultVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDefaultVocabularyCommand)
   .de(de_AssociateDefaultVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDefaultVocabularyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDefaultVocabularyCommandInput;
+      output: AssociateDefaultVocabularyCommandOutput;
+    };
+  };
+}

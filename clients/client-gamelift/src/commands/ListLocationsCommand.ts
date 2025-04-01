@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListLocationsInput, ListLocationsOutput } from "../models/models_0";
+import { ListLocationsInput, ListLocationsOutput } from "../models/models_1";
 import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -76,6 +76,7 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListLocationsCommand extends $Command
@@ -86,9 +87,7 @@ export class ListLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLocationsCommand)
   .de(de_ListLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLocationsInput;
+      output: ListLocationsOutput;
+    };
+    sdk: {
+      input: ListLocationsCommandInput;
+      output: ListLocationsCommandOutput;
+    };
+  };
+}

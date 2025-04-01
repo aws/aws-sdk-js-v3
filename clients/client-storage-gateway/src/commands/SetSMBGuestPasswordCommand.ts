@@ -70,6 +70,7 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class SetSMBGuestPasswordCommand extends $Command
@@ -80,9 +81,7 @@ export class SetSMBGuestPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class SetSMBGuestPasswordCommand extends $Command
   .f(SetSMBGuestPasswordInputFilterSensitiveLog, void 0)
   .ser(se_SetSMBGuestPasswordCommand)
   .de(de_SetSMBGuestPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSMBGuestPasswordInput;
+      output: SetSMBGuestPasswordOutput;
+    };
+    sdk: {
+      input: SetSMBGuestPasswordCommandInput;
+      output: SetSMBGuestPasswordCommandOutput;
+    };
+  };
+}

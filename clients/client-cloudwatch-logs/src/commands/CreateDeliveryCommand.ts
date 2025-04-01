@@ -63,7 +63,7 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  *          </ul>
  *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
  *        can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
- *          <p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ *          <p>To update an existing delivery configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +73,14 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * const input = { // CreateDeliveryRequest
  *   deliverySourceName: "STRING_VALUE", // required
  *   deliveryDestinationArn: "STRING_VALUE", // required
+ *   recordFields: [ // RecordFields
+ *     "STRING_VALUE",
+ *   ],
+ *   fieldDelimiter: "STRING_VALUE",
+ *   s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ *     suffixPath: "STRING_VALUE",
+ *     enableHiveCompatiblePath: true || false,
+ *   },
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -86,6 +94,14 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * //     deliverySourceName: "STRING_VALUE",
  * //     deliveryDestinationArn: "STRING_VALUE",
  * //     deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //     recordFields: [ // RecordFields
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     fieldDelimiter: "STRING_VALUE",
+ * //     s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ * //       suffixPath: "STRING_VALUE",
+ * //       enableHiveCompatiblePath: true || false,
+ * //     },
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -124,6 +140,7 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class CreateDeliveryCommand extends $Command
@@ -134,9 +151,7 @@ export class CreateDeliveryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +163,16 @@ export class CreateDeliveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeliveryCommand)
   .de(de_CreateDeliveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeliveryRequest;
+      output: CreateDeliveryResponse;
+    };
+    sdk: {
+      input: CreateDeliveryCommandInput;
+      output: CreateDeliveryCommandOutput;
+    };
+  };
+}

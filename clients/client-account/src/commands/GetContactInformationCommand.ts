@@ -92,6 +92,7 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class GetContactInformationCommand extends $Command
@@ -102,9 +103,7 @@ export class GetContactInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class GetContactInformationCommand extends $Command
   .f(void 0, GetContactInformationResponseFilterSensitiveLog)
   .ser(se_GetContactInformationCommand)
   .de(de_GetContactInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactInformationRequest;
+      output: GetContactInformationResponse;
+    };
+    sdk: {
+      input: GetContactInformationCommandInput;
+      output: GetContactInformationCommandOutput;
+    };
+  };
+}

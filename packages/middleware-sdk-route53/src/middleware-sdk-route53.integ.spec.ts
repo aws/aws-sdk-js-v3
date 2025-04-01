@@ -1,5 +1,6 @@
 import { Route53 } from "@aws-sdk/client-route-53";
 import { XMLParser } from "fast-xml-parser";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

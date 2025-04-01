@@ -29,9 +29,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
 
 /**
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
- *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
- * 			the rule was created might
- * 			not be available.</p>
+ *          <p>If you create a rule, delete it, and then re-create it with the same name, historical
+ *             data from the first time the rule was created might not be available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,7 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DeleteInsightRulesCommand extends $Command
@@ -83,9 +83,7 @@ export class DeleteInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +95,16 @@ export class DeleteInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInsightRulesCommand)
   .de(de_DeleteInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInsightRulesInput;
+      output: DeleteInsightRulesOutput;
+    };
+    sdk: {
+      input: DeleteInsightRulesCommandInput;
+      output: DeleteInsightRulesCommandOutput;
+    };
+  };
+}

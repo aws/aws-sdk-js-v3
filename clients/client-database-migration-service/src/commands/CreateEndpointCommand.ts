@@ -40,10 +40,11 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * <p>Creates an endpoint using the provided settings.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
- *          the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code> API call.
- *          Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates all the
- *          task tables to this single database. For MySQL endpoints, you specify the database only when
- *          you specify the schema in the table-mapping rules of the DMS task.</p>
+ *             the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code> API
+ *             call. Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates
+ *             all the task tables to this single database. For MySQL endpoints, you specify the
+ *             database only when you specify the schema in the table-mapping rules of the DMS
+ *             task.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +153,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     IncludeControlDetails: true || false,
  *     IncludeNullAndEmpty: true || false,
  *     NoHexPrefix: true || false,
+ *     UseLargeIntegerValue: true || false,
  *   },
  *   KafkaSettings: { // KafkaSettings
  *     Broker: "STRING_VALUE",
@@ -174,6 +176,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     NoHexPrefix: true || false,
  *     SaslMechanism: "scram-sha-512" || "plain",
  *     SslEndpointIdentificationAlgorithm: "none" || "https",
+ *     UseLargeIntegerValue: true || false,
  *   },
  *   ElasticsearchSettings: { // ElasticsearchSettings
  *     ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -249,6 +252,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     MapLongVarcharAs: "wstring" || "clob" || "nclob",
  *     DatabaseMode: "default" || "babelfish",
  *     BabelfishDatabaseName: "STRING_VALUE",
+ *     DisableUnicodeSourceFilter: true || false,
  *   },
  *   MySQLSettings: { // MySQLSettings
  *     AfterConnectScript: "STRING_VALUE",
@@ -313,6 +317,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     ConvertTimestampWithZoneToUTC: true || false,
  *     OpenTransactionWindow: Number("int"),
+ *     AuthenticationMethod: "password" || "kerberos",
  *   },
  *   SybaseSettings: { // SybaseSettings
  *     DatabaseName: "STRING_VALUE",
@@ -341,6 +346,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  *     ForceLobLookup: true || false,
+ *     AuthenticationMethod: "password" || "kerberos",
  *   },
  *   IBMDb2Settings: { // IBMDb2Settings
  *     DatabaseName: "STRING_VALUE",
@@ -507,6 +513,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       IncludeControlDetails: true || false,
  * //       IncludeNullAndEmpty: true || false,
  * //       NoHexPrefix: true || false,
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     KafkaSettings: { // KafkaSettings
  * //       Broker: "STRING_VALUE",
@@ -529,6 +536,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       NoHexPrefix: true || false,
  * //       SaslMechanism: "scram-sha-512" || "plain",
  * //       SslEndpointIdentificationAlgorithm: "none" || "https",
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     ElasticsearchSettings: { // ElasticsearchSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -604,6 +612,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //       DatabaseMode: "default" || "babelfish",
  * //       BabelfishDatabaseName: "STRING_VALUE",
+ * //       DisableUnicodeSourceFilter: true || false,
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -668,6 +677,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       ConvertTimestampWithZoneToUTC: true || false,
  * //       OpenTransactionWindow: Number("int"),
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     SybaseSettings: { // SybaseSettings
  * //       DatabaseName: "STRING_VALUE",
@@ -696,6 +706,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  * //       ForceLobLookup: true || false,
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     IBMDb2Settings: { // IBMDb2Settings
  * //       DatabaseName: "STRING_VALUE",
@@ -796,50 +807,50 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create endpoint
  * ```javascript
  * // Creates an endpoint using the provided settings.
  * const input = {
- *   "CertificateArn": "",
- *   "DatabaseName": "testdb",
- *   "EndpointIdentifier": "test-endpoint-1",
- *   "EndpointType": "source",
- *   "EngineName": "mysql",
- *   "ExtraConnectionAttributes": "",
- *   "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *   "Password": "pasword",
- *   "Port": 3306,
- *   "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
- *   "SslMode": "require",
- *   "Tags": [
+ *   CertificateArn: "",
+ *   DatabaseName: "testdb",
+ *   EndpointIdentifier: "test-endpoint-1",
+ *   EndpointType: "source",
+ *   EngineName: "mysql",
+ *   ExtraConnectionAttributes: "",
+ *   KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *   Password: "pasword",
+ *   Port: 3306,
+ *   ServerName: "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *   SslMode: "require",
+ *   Tags: [
  *     {
- *       "Key": "Acount",
- *       "Value": "143327655"
+ *       Key: "Acount",
+ *       Value: "143327655"
  *     }
  *   ],
- *   "Username": "username"
+ *   Username: "username"
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoint": {
- *     "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
- *     "EndpointIdentifier": "test-endpoint-1",
- *     "EndpointType": "source",
- *     "EngineName": "mysql",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *     "Port": 3306,
- *     "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
- *     "Status": "active",
- *     "Username": "username"
+ *   Endpoint: {
+ *     EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+ *     EndpointIdentifier: "test-endpoint-1",
+ *     EndpointType: "source",
+ *     EngineName: "mysql",
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     Port: 3306,
+ *     ServerName: "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *     Status: "active",
+ *     Username: "username"
  *   }
  * }
  * *\/
- * // example id: create-endpoint-1481746254348
  * ```
  *
+ * @public
  */
 export class CreateEndpointCommand extends $Command
   .classBuilder<
@@ -849,9 +860,7 @@ export class CreateEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -863,4 +872,16 @@ export class CreateEndpointCommand extends $Command
   .f(CreateEndpointMessageFilterSensitiveLog, CreateEndpointResponseFilterSensitiveLog)
   .ser(se_CreateEndpointCommand)
   .de(de_CreateEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEndpointMessage;
+      output: CreateEndpointResponse;
+    };
+    sdk: {
+      input: CreateEndpointCommandInput;
+      output: CreateEndpointCommandOutput;
+    };
+  };
+}

@@ -48,6 +48,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   displayName: "STRING_VALUE",
  * //   applicationId: "STRING_VALUE",
  * //   applicationArn: "STRING_VALUE",
+ * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
+ * //   iamIdentityProviderArn: "STRING_VALUE",
  * //   identityCenterApplicationArn: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
  * //   status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
@@ -70,6 +72,16 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   personalizationConfiguration: { // PersonalizationConfiguration
  * //     personalizationControlMode: "ENABLED" || "DISABLED", // required
  * //   },
+ * //   autoSubscriptionConfiguration: { // AutoSubscriptionConfiguration
+ * //     autoSubscribe: "ENABLED" || "DISABLED", // required
+ * //     defaultSubscriptionType: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * //   clientIdsForOIDC: [ // ClientIdsForOIDC
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   quickSightConfiguration: { // QuickSightConfiguration
+ * //     clientNamespace: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```
@@ -89,8 +101,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
@@ -103,6 +115,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command
@@ -113,9 +126,7 @@ export class GetApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +138,16 @@ export class GetApplicationCommand extends $Command
   .f(void 0, GetApplicationResponseFilterSensitiveLog)
   .ser(se_GetApplicationCommand)
   .de(de_GetApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationRequest;
+      output: GetApplicationResponse;
+    };
+    sdk: {
+      input: GetApplicationCommandInput;
+      output: GetApplicationCommandOutput;
+    };
+  };
+}

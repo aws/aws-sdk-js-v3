@@ -119,55 +119,8 @@ export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
- * @example GetMediaAnalysisJob
- * ```javascript
- * // Retrieves the results for a given media analysis job.
- * const input = {
- *   "JobId": "861a0645d98ef88efb75477628c011c04942d9d5f58faf2703c393c8cf8c1537"
- * };
- * const command = new GetMediaAnalysisJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CompletionTimestamp": "2023-07-28T08:05:51.958000-07:00",
- *   "CreationTimestamp": "2023-07-28T08:05:51.958000-06:00",
- *   "Input": {
- *     "S3Object": {
- *       "Bucket": "input-bucket",
- *       "Name": "input-manifest.json"
- *     }
- *   },
- *   "JobId": "861a0645d98ef88efb75477628c011c04942d9d5f58faf2703c393c8cf8c1537",
- *   "JobName": "job-name",
- *   "ManifestSummary": {
- *     "S3Object": {
- *       "Bucket": "output-bucket",
- *       "Name": "output-location/861a0645d98ef88efb75477628c011c04942d9d5f58faf2703c393c8cf8c1537-manifest-summary.json"
- *     }
- *   },
- *   "OperationsConfig": {
- *     "DetectModerationLabels": {
- *       "MinConfidence": 50,
- *       "ProjectVersion": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
- *     }
- *   },
- *   "OutputConfig": {
- *     "S3Bucket": "output-bucket",
- *     "S3KeyPrefix": "output-location"
- *   },
- *   "Results": {
- *     "S3Object": {
- *       "Bucket": "output-bucket",
- *       "Name": "output-location/861a0645d98ef88efb75477628c011c04942d9d5f58faf2703c393c8cf8c1537-results.jsonl"
- *     }
- *   },
- *   "Status": "SUCCEEDED"
- * }
- * *\/
- * // example id: getmediaanalysisjob-1697650068124
- * ```
  *
+ * @public
  */
 export class GetMediaAnalysisJobCommand extends $Command
   .classBuilder<
@@ -177,9 +130,7 @@ export class GetMediaAnalysisJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +142,16 @@ export class GetMediaAnalysisJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMediaAnalysisJobCommand)
   .de(de_GetMediaAnalysisJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaAnalysisJobRequest;
+      output: GetMediaAnalysisJobResponse;
+    };
+    sdk: {
+      input: GetMediaAnalysisJobCommandInput;
+      output: GetMediaAnalysisJobCommandOutput;
+    };
+  };
+}

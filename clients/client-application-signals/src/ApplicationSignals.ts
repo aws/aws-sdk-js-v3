@@ -9,6 +9,11 @@ import {
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  BatchUpdateExclusionWindowsCommand,
+  BatchUpdateExclusionWindowsCommandInput,
+  BatchUpdateExclusionWindowsCommandOutput,
+} from "./commands/BatchUpdateExclusionWindowsCommand";
+import {
   CreateServiceLevelObjectiveCommand,
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
@@ -34,6 +39,11 @@ import {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "./commands/ListServiceDependentsCommand";
+import {
+  ListServiceLevelObjectiveExclusionWindowsCommand,
+  ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
+} from "./commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
   ListServiceLevelObjectivesCommand,
   ListServiceLevelObjectivesCommandInput,
@@ -73,12 +83,14 @@ import {
 
 const commands = {
   BatchGetServiceLevelObjectiveBudgetReportCommand,
+  BatchUpdateExclusionWindowsCommand,
   CreateServiceLevelObjectiveCommand,
   DeleteServiceLevelObjectiveCommand,
   GetServiceCommand,
   GetServiceLevelObjectiveCommand,
   ListServiceDependenciesCommand,
   ListServiceDependentsCommand,
+  ListServiceLevelObjectiveExclusionWindowsCommand,
   ListServiceLevelObjectivesCommand,
   ListServiceOperationsCommand,
   ListServicesCommand,
@@ -105,6 +117,23 @@ export interface ApplicationSignals {
     args: BatchGetServiceLevelObjectiveBudgetReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetServiceLevelObjectiveBudgetReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateExclusionWindowsCommand}
+   */
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateExclusionWindowsCommandOutput>;
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
+  ): void;
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
   ): void;
 
   /**
@@ -201,6 +230,23 @@ export interface ApplicationSignals {
     args: ListServiceDependentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceDependentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceLevelObjectiveExclusionWindowsCommand}
+   */
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceLevelObjectiveExclusionWindowsCommandOutput>;
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    cb: (err: any, data?: ListServiceLevelObjectiveExclusionWindowsCommandOutput) => void
+  ): void;
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceLevelObjectiveExclusionWindowsCommandOutput) => void
   ): void;
 
   /**
@@ -322,11 +368,7 @@ export interface ApplicationSignals {
 }
 
 /**
- * <important>
- *             <p>This is a Preview release of the Application Signals API Reference. Operations and parameters are subject to change before the general availability
- *      release.</p>
- *          </important>
- *          <p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications.
+ * <p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications.
  *         It enables real-time service health dashboards and helps you track long-term performance trends against your business goals.
  *         The application-centric view provides you with unified visibility across your applications, services, and
  *         dependencies, so you can proactively monitor and efficiently triage any issues that may arise,
@@ -343,6 +385,8 @@ export interface ApplicationSignals {
  *                <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p>
  *             </li>
  *          </ul>
+ *          <p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries,
+ *         and application names within dashboards and maps.</p>
  * @public
  */
 export class ApplicationSignals extends ApplicationSignalsClient implements ApplicationSignals {}

@@ -100,6 +100,11 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link ParameterVersionLabelLimitExceeded} (client fault)
  *  <p>A parameter version can have a maximum of ten labels.</p>
@@ -114,6 +119,7 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class LabelParameterVersionCommand extends $Command
@@ -124,9 +130,7 @@ export class LabelParameterVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +142,16 @@ export class LabelParameterVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LabelParameterVersionCommand)
   .de(de_LabelParameterVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LabelParameterVersionRequest;
+      output: LabelParameterVersionResult;
+    };
+    sdk: {
+      input: LabelParameterVersionCommandInput;
+      output: LabelParameterVersionCommandOutput;
+    };
+  };
+}

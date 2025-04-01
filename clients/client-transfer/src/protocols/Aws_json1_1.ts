@@ -25,6 +25,7 @@ import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "../co
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "../commands/CreateServerCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import { CreateWebAppCommandInput, CreateWebAppCommandOutput } from "../commands/CreateWebAppCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
 import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "../commands/DeleteAccessCommand";
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "../commands/DeleteAgreementCommand";
@@ -35,6 +36,11 @@ import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../comman
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "../commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "../commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DeleteWebAppCommandInput, DeleteWebAppCommandOutput } from "../commands/DeleteWebAppCommand";
+import {
+  DeleteWebAppCustomizationCommandInput,
+  DeleteWebAppCustomizationCommandOutput,
+} from "../commands/DeleteWebAppCustomizationCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "../commands/DescribeAccessCommand";
 import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "../commands/DescribeAgreementCommand";
@@ -52,6 +58,11 @@ import {
 } from "../commands/DescribeSecurityPolicyCommand";
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "../commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
+import { DescribeWebAppCommandInput, DescribeWebAppCommandOutput } from "../commands/DescribeWebAppCommand";
+import {
+  DescribeWebAppCustomizationCommandInput,
+  DescribeWebAppCustomizationCommandOutput,
+} from "../commands/DescribeWebAppCustomizationCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "../commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "../commands/ImportCertificateCommand";
 import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "../commands/ImportHostKeyCommand";
@@ -61,6 +72,10 @@ import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "../comm
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
+import {
+  ListFileTransferResultsCommandInput,
+  ListFileTransferResultsCommandOutput,
+} from "../commands/ListFileTransferResultsCommand";
 import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "../commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import {
@@ -73,6 +88,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { ListWebAppsCommandInput, ListWebAppsCommandOutput } from "../commands/ListWebAppsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
   SendWorkflowStepStateCommandInput,
@@ -100,6 +116,11 @@ import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "../comman
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "../commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
+import { UpdateWebAppCommandInput, UpdateWebAppCommandOutput } from "../commands/UpdateWebAppCommand";
+import {
+  UpdateWebAppCustomizationCommandInput,
+  UpdateWebAppCustomizationCommandOutput,
+} from "../commands/UpdateWebAppCustomizationCommand";
 import {
   AccessDeniedException,
   As2ConnectorConfig,
@@ -112,7 +133,9 @@ import {
   CreateProfileRequest,
   CreateServerRequest,
   CreateUserRequest,
+  CreateWebAppRequest,
   CreateWorkflowRequest,
+  CustomDirectoriesType,
   CustomStepDetails,
   DecryptStepDetails,
   DeleteAccessRequest,
@@ -125,6 +148,8 @@ import {
   DeleteSshPublicKeyRequest,
   DeleteStepDetails,
   DeleteUserRequest,
+  DeleteWebAppCustomizationRequest,
+  DeleteWebAppRequest,
   DeleteWorkflowRequest,
   DescribeAccessRequest,
   DescribeAgreementRequest,
@@ -134,6 +159,7 @@ import {
   DescribedCertificate,
   DescribedHostKey,
   DescribedUser,
+  DescribedWebAppCustomization,
   DescribeExecutionRequest,
   DescribeHostKeyRequest,
   DescribeHostKeyResponse,
@@ -142,10 +168,14 @@ import {
   DescribeServerRequest,
   DescribeUserRequest,
   DescribeUserResponse,
+  DescribeWebAppCustomizationRequest,
+  DescribeWebAppCustomizationResponse,
+  DescribeWebAppRequest,
   DescribeWorkflowRequest,
   EfsFileLocation,
   EndpointDetails,
   HomeDirectoryMapEntry,
+  IdentityCenterConfig,
   IdentityProviderDetails,
   ImportCertificateRequest,
   ImportHostKeyRequest,
@@ -162,6 +192,7 @@ import {
   ListedCertificate,
   ListedHostKey,
   ListExecutionsRequest,
+  ListFileTransferResultsRequest,
   ListHostKeysRequest,
   ListHostKeysResponse,
   ListProfilesRequest,
@@ -169,6 +200,7 @@ import {
   ListServersRequest,
   ListTagsForResourceRequest,
   ListUsersRequest,
+  ListWebAppsRequest,
   ListWorkflowsRequest,
   PosixProfile,
   Protocol,
@@ -201,6 +233,12 @@ import {
   UpdateProfileRequest,
   UpdateServerRequest,
   UpdateUserRequest,
+  UpdateWebAppCustomizationRequest,
+  UpdateWebAppIdentityCenterConfig,
+  UpdateWebAppIdentityProviderDetails,
+  UpdateWebAppRequest,
+  WebAppIdentityProviderDetails,
+  WebAppUnits,
   WorkflowDetail,
   WorkflowDetails,
   WorkflowStep,
@@ -280,6 +318,19 @@ export const se_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUser");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateWebAppCommand
+ */
+export const se_CreateWebAppCommand = async (
+  input: CreateWebAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWebApp");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -410,6 +461,32 @@ export const se_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUser");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteWebAppCommand
+ */
+export const se_DeleteWebAppCommand = async (
+  input: DeleteWebAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWebApp");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteWebAppCustomizationCommand
+ */
+export const se_DeleteWebAppCustomizationCommand = async (
+  input: DeleteWebAppCustomizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWebAppCustomization");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -559,6 +636,32 @@ export const se_DescribeUserCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeWebAppCommand
+ */
+export const se_DescribeWebAppCommand = async (
+  input: DescribeWebAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWebApp");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeWebAppCustomizationCommand
+ */
+export const se_DescribeWebAppCustomizationCommand = async (
+  input: DescribeWebAppCustomizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWebAppCustomization");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeWorkflowCommand
  */
 export const se_DescribeWorkflowCommand = async (
@@ -676,6 +779,19 @@ export const se_ListExecutionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListFileTransferResultsCommand
+ */
+export const se_ListFileTransferResultsCommand = async (
+  input: ListFileTransferResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFileTransferResults");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListHostKeysCommand
  */
 export const se_ListHostKeysCommand = async (
@@ -748,6 +864,19 @@ export const se_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUsers");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListWebAppsCommand
+ */
+export const se_ListWebAppsCommand = async (
+  input: ListWebAppsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWebApps");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,6 +1117,32 @@ export const se_UpdateUserCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateWebAppCommand
+ */
+export const se_UpdateWebAppCommand = async (
+  input: UpdateWebAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateWebApp");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateWebAppCustomizationCommand
+ */
+export const se_UpdateWebAppCustomizationCommand = async (
+  input: UpdateWebAppCustomizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateWebAppCustomization");
+  let body: any;
+  body = JSON.stringify(se_UpdateWebAppCustomizationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1CreateAccessCommand
  */
 export const de_CreateAccessCommand = async (
@@ -1101,6 +1256,26 @@ export const de_CreateUserCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: CreateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateWebAppCommand
+ */
+export const de_CreateWebAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWebAppCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateWebAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1275,6 +1450,40 @@ export const de_DeleteUserCommand = async (
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWebAppCommand
+ */
+export const de_DeleteWebAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWebAppCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWebAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWebAppCustomizationCommand
+ */
+export const de_DeleteWebAppCustomizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWebAppCustomizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWebAppCustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
@@ -1498,6 +1707,46 @@ export const de_DescribeUserCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeWebAppCommand
+ */
+export const de_DescribeWebAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWebAppCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeWebAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWebAppCustomizationCommand
+ */
+export const de_DescribeWebAppCustomizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWebAppCustomizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWebAppCustomizationResponse(data, context);
+  const response: DescribeWebAppCustomizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeWorkflowCommand
  */
 export const de_DescribeWorkflowCommand = async (
@@ -1678,6 +1927,26 @@ export const de_ListExecutionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListFileTransferResultsCommand
+ */
+export const de_ListFileTransferResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileTransferResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFileTransferResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListHostKeysCommand
  */
 export const de_ListHostKeysCommand = async (
@@ -1791,6 +2060,26 @@ export const de_ListUsersCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWebAppsCommand
+ */
+export const de_ListWebAppsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWebAppsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListWebAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2146,6 +2435,46 @@ export const de_UpdateUserCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateWebAppCommand
+ */
+export const de_UpdateWebAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWebAppCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWebAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWebAppCustomizationCommand
+ */
+export const de_UpdateWebAppCustomizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWebAppCustomizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWebAppCustomizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -2176,12 +2505,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transfer#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2352,7 +2681,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateUserRequest omitted.
 
+// se_CreateWebAppRequest omitted.
+
 // se_CreateWorkflowRequest omitted.
+
+// se_CustomDirectoriesType omitted.
 
 // se_CustomStepDetails omitted.
 
@@ -2378,6 +2711,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeleteUserRequest omitted.
 
+// se_DeleteWebAppCustomizationRequest omitted.
+
+// se_DeleteWebAppRequest omitted.
+
 // se_DeleteWorkflowRequest omitted.
 
 // se_DescribeAccessRequest omitted.
@@ -2400,6 +2737,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeUserRequest omitted.
 
+// se_DescribeWebAppCustomizationRequest omitted.
+
+// se_DescribeWebAppRequest omitted.
+
 // se_DescribeWorkflowRequest omitted.
 
 // se_EfsFileLocation omitted.
@@ -2411,6 +2752,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_HomeDirectoryMapEntry omitted.
 
 // se_HomeDirectoryMappings omitted.
+
+// se_IdentityCenterConfig omitted.
 
 // se_IdentityProviderDetails omitted.
 
@@ -2446,6 +2789,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_ListExecutionsRequest omitted.
 
+// se_ListFileTransferResultsRequest omitted.
+
 // se_ListHostKeysRequest omitted.
 
 // se_ListProfilesRequest omitted.
@@ -2457,6 +2802,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 // se_ListTagsForResourceRequest omitted.
 
 // se_ListUsersRequest omitted.
+
+// se_ListWebAppsRequest omitted.
 
 // se_ListWorkflowsRequest omitted.
 
@@ -2542,6 +2889,28 @@ const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: _
 
 // se_UpdateUserRequest omitted.
 
+/**
+ * serializeAws_json1_1UpdateWebAppCustomizationRequest
+ */
+const se_UpdateWebAppCustomizationRequest = (input: UpdateWebAppCustomizationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    FaviconFile: context.base64Encoder,
+    LogoFile: context.base64Encoder,
+    Title: [],
+    WebAppId: [],
+  });
+};
+
+// se_UpdateWebAppIdentityCenterConfig omitted.
+
+// se_UpdateWebAppIdentityProviderDetails omitted.
+
+// se_UpdateWebAppRequest omitted.
+
+// se_WebAppIdentityProviderDetails omitted.
+
+// se_WebAppUnits omitted.
+
 // se_WorkflowDetail omitted.
 
 // se_WorkflowDetails omitted.
@@ -2562,6 +2931,10 @@ const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: _
 
 // de_ConflictException omitted.
 
+// de_ConnectorFileTransferResult omitted.
+
+// de_ConnectorFileTransferResults omitted.
+
 // de_CopyStepDetails omitted.
 
 // de_CreateAccessResponse omitted.
@@ -2576,7 +2949,11 @@ const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: _
 
 // de_CreateUserResponse omitted.
 
+// de_CreateWebAppResponse omitted.
+
 // de_CreateWorkflowResponse omitted.
+
+// de_CustomDirectoriesType omitted.
 
 // de_CustomStepDetails omitted.
 
@@ -2644,6 +3021,8 @@ const de_DescribedHostKey = (output: any, context: __SerdeContext): DescribedHos
   }) as any;
 };
 
+// de_DescribedIdentityCenterConfig omitted.
+
 // de_DescribedProfile omitted.
 
 // de_DescribedSecurityPolicy omitted.
@@ -2667,6 +3046,23 @@ const de_DescribedUser = (output: any, context: __SerdeContext): DescribedUser =
     UserName: __expectString,
   }) as any;
 };
+
+// de_DescribedWebApp omitted.
+
+/**
+ * deserializeAws_json1_1DescribedWebAppCustomization
+ */
+const de_DescribedWebAppCustomization = (output: any, context: __SerdeContext): DescribedWebAppCustomization => {
+  return take(output, {
+    Arn: __expectString,
+    FaviconFile: context.base64Decoder,
+    LogoFile: context.base64Decoder,
+    Title: __expectString,
+    WebAppId: __expectString,
+  }) as any;
+};
+
+// de_DescribedWebAppIdentityProviderDetails omitted.
 
 // de_DescribedWorkflow omitted.
 
@@ -2696,6 +3092,20 @@ const de_DescribeUserResponse = (output: any, context: __SerdeContext): Describe
     User: (_: any) => de_DescribedUser(_, context),
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_1DescribeWebAppCustomizationResponse
+ */
+const de_DescribeWebAppCustomizationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeWebAppCustomizationResponse => {
+  return take(output, {
+    WebAppCustomization: (_: any) => de_DescribedWebAppCustomization(_, context),
+  }) as any;
+};
+
+// de_DescribeWebAppResponse omitted.
 
 // de_DescribeWorkflowResponse omitted.
 
@@ -2831,11 +3241,17 @@ const de_ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[
 
 // de_ListedUsers omitted.
 
+// de_ListedWebApp omitted.
+
+// de_ListedWebApps omitted.
+
 // de_ListedWorkflow omitted.
 
 // de_ListedWorkflows omitted.
 
 // de_ListExecutionsResponse omitted.
+
+// de_ListFileTransferResultsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListHostKeysResponse
@@ -2857,6 +3273,8 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListUsersResponse omitted.
+
+// de_ListWebAppsResponse omitted.
 
 // de_ListWorkflowsResponse omitted.
 
@@ -2967,7 +3385,13 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
 
 // de_UpdateUserResponse omitted.
 
+// de_UpdateWebAppCustomizationResponse omitted.
+
+// de_UpdateWebAppResponse omitted.
+
 // de_UserDetails omitted.
+
+// de_WebAppUnits omitted.
 
 // de_WorkflowDetail omitted.
 

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDhcpOptionsRequest } from "../models/models_2";
+import { DeleteDhcpOptionsRequest } from "../models/models_3";
 import { de_DeleteDhcpOptionsCommand, se_DeleteDhcpOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -54,18 +54,21 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a DHCP options set
  * ```javascript
  * // This example deletes the specified DHCP options set.
  * const input = {
- *   "DhcpOptionsId": "dopt-d9070ebb"
+ *   DhcpOptionsId: "dopt-d9070ebb"
  * };
  * const command = new DeleteDhcpOptionsCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-dhcp-options-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDhcpOptionsCommand extends $Command
   .classBuilder<
@@ -75,9 +78,7 @@ export class DeleteDhcpOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +90,16 @@ export class DeleteDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDhcpOptionsCommand)
   .de(de_DeleteDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDhcpOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDhcpOptionsCommandInput;
+      output: DeleteDhcpOptionsCommandOutput;
+    };
+  };
+}

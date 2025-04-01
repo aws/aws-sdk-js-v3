@@ -70,6 +70,11 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * //         cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     associatedCoreNetwork: { // AssociatedCoreNetwork
+ * //       id: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       attachmentId: "STRING_VALUE",
+ * //     },
  * //     virtualGatewayId: "STRING_VALUE",
  * //     virtualGatewayRegion: "STRING_VALUE",
  * //     virtualGatewayOwnerAccount: "STRING_VALUE",
@@ -93,6 +98,7 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectConnectGatewayAssociationCommand extends $Command
@@ -103,9 +109,7 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +121,16 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectConnectGatewayAssociationCommand)
   .de(de_DeleteDirectConnectGatewayAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectConnectGatewayAssociationRequest;
+      output: DeleteDirectConnectGatewayAssociationResult;
+    };
+    sdk: {
+      input: DeleteDirectConnectGatewayAssociationCommandInput;
+      output: DeleteDirectConnectGatewayAssociationCommandOutput;
+    };
+  };
+}

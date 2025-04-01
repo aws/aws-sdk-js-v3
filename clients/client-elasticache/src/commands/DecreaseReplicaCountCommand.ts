@@ -28,9 +28,9 @@ export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMe
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**
- * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled)
+ * <p>Dynamically decreases the number of replicas in a Valkey or Redis OSS (cluster mode disabled)
  *             replication group or the number of replica nodes in one or more node groups (shards) of
- *             a Redis (cluster mode enabled) replication group. This operation is performed with no
+ *             a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no
  *             cluster down time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +180,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -197,7 +198,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -234,6 +235,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DecreaseReplicaCountCommand extends $Command
@@ -244,9 +246,7 @@ export class DecreaseReplicaCountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -258,4 +258,16 @@ export class DecreaseReplicaCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DecreaseReplicaCountCommand)
   .de(de_DecreaseReplicaCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DecreaseReplicaCountMessage;
+      output: DecreaseReplicaCountResult;
+    };
+    sdk: {
+      input: DecreaseReplicaCountCommandInput;
+      output: DecreaseReplicaCountCommandOutput;
+    };
+  };
+}

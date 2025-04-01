@@ -90,24 +90,24 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To install to a remote access session
  * ```javascript
  * // The following example installs a specific app to a device in a specific remote access session.
  * const input = {
- *   "appArn": "arn:aws:devicefarm:us-west-2:123456789101:app:EXAMPLE-GUID-123-456",
- *   "remoteAccessSessionArn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ *   appArn: "arn:aws:devicefarm:us-west-2:123456789101:app:EXAMPLE-GUID-123-456",
+ *   remoteAccessSessionArn: "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
  * };
  * const command = new InstallToRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appUpload": {}
+ *   appUpload:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-install-to-a-remote-access-session-1471634453818
  * ```
  *
+ * @public
  */
 export class InstallToRemoteAccessSessionCommand extends $Command
   .classBuilder<
@@ -117,9 +117,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +129,16 @@ export class InstallToRemoteAccessSessionCommand extends $Command
   .f(void 0, InstallToRemoteAccessSessionResultFilterSensitiveLog)
   .ser(se_InstallToRemoteAccessSessionCommand)
   .de(de_InstallToRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InstallToRemoteAccessSessionRequest;
+      output: InstallToRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: InstallToRemoteAccessSessionCommandInput;
+      output: InstallToRemoteAccessSessionCommandOutput;
+    };
+  };
+}

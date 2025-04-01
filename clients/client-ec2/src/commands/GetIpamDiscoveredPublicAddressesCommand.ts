@@ -66,7 +66,7 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput
  * //       AddressOwnerId: "STRING_VALUE",
  * //       AddressAllocationId: "STRING_VALUE",
  * //       AssociationStatus: "associated" || "disassociated",
- * //       AddressType: "service-managed-ip" || "service-managed-byoip" || "amazon-owned-eip" || "byoip" || "ec2-public-ip",
+ * //       AddressType: "service-managed-ip" || "service-managed-byoip" || "amazon-owned-eip" || "amazon-owned-contig" || "byoip" || "ec2-public-ip",
  * //       Service: "nat-gateway" || "database-migration-service" || "redshift" || "elastic-container-service" || "relational-database-service" || "site-to-site-vpn" || "load-balancer" || "global-accelerator" || "other",
  * //       ServiceResource: "STRING_VALUE",
  * //       VpcId: "STRING_VALUE",
@@ -108,6 +108,7 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetIpamDiscoveredPublicAddressesCommand extends $Command
@@ -118,9 +119,7 @@ export class GetIpamDiscoveredPublicAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class GetIpamDiscoveredPublicAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamDiscoveredPublicAddressesCommand)
   .de(de_GetIpamDiscoveredPublicAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamDiscoveredPublicAddressesRequest;
+      output: GetIpamDiscoveredPublicAddressesResult;
+    };
+    sdk: {
+      input: GetIpamDiscoveredPublicAddressesCommandInput;
+      output: GetIpamDiscoveredPublicAddressesCommandOutput;
+    };
+  };
+}

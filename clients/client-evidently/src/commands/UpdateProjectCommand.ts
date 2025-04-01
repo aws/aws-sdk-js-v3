@@ -109,6 +109,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class UpdateProjectCommand extends $Command
@@ -119,9 +120,7 @@ export class UpdateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class UpdateProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProjectCommand)
   .de(de_UpdateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProjectRequest;
+      output: UpdateProjectResponse;
+    };
+    sdk: {
+      input: UpdateProjectCommandInput;
+      output: UpdateProjectCommandOutput;
+    };
+  };
+}

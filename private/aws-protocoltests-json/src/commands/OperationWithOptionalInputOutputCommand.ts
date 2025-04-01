@@ -59,6 +59,7 @@ export interface OperationWithOptionalInputOutputCommandOutput
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class OperationWithOptionalInputOutputCommand extends $Command
   .classBuilder<
@@ -76,4 +77,16 @@ export class OperationWithOptionalInputOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_OperationWithOptionalInputOutputCommand)
   .de(de_OperationWithOptionalInputOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OperationWithOptionalInputOutputInput;
+      output: OperationWithOptionalInputOutputOutput;
+    };
+    sdk: {
+      input: OperationWithOptionalInputOutputCommandInput;
+      output: OperationWithOptionalInputOutputCommandOutput;
+    };
+  };
+}

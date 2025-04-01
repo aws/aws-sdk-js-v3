@@ -86,28 +86,28 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To describe the tags for a file system
  * ```javascript
  * // This operation describes all of a file system's tags.
  * const input = {
- *   "FileSystemId": "fs-01234567"
+ *   FileSystemId: "fs-01234567"
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
+ *       Key: "Name",
+ *       Value: "MyFileSystem"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-tags-for-a-file-system-1481850497090
  * ```
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<
@@ -117,9 +117,7 @@ export class DescribeTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +129,16 @@ export class DescribeTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTagsCommand)
   .de(de_DescribeTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTagsRequest;
+      output: DescribeTagsResponse;
+    };
+    sdk: {
+      input: DescribeTagsCommandInput;
+      output: DescribeTagsCommandOutput;
+    };
+  };
+}

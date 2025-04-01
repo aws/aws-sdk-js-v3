@@ -1,7 +1,9 @@
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { crossRegionPresignedUrlMiddleware } from "./";
 import { credentials, endpoint, MockSha256, region } from "./fixture";
 
-const nextHandler = jest.fn();
+const nextHandler = vi.fn();
 const arn = "arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot";
 const arnSameRegion = "arn:aws:rds:mock-region:000000000000:src-snapshot:dist-snapshot";
 const sourceIdentifier = "src-snapshot";
@@ -16,7 +18,7 @@ const handler = crossRegionPresignedUrlMiddleware({
 
 describe("middleware-sdk-rds", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should build CopyDBSnapshot cross origin presigned url correctly ", async () => {

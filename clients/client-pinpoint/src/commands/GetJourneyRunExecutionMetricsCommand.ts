@@ -93,35 +93,35 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
- * @public
+ *
  * @example To get the execution metrics for a journey run
  * ```javascript
  * // The following example gets execution metrics for a single run of a journey.
  * const input = {
- *   "ApplicationId": "11111111112222222222333333333344",
- *   "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd",
- *   "RunId": "99999999998888888888777777777766"
+ *   ApplicationId: "11111111112222222222333333333344",
+ *   JourneyId: "aaaaaaaaaabbbbbbbbbbccccccccccdd",
+ *   RunId: "99999999998888888888777777777766"
  * };
  * const command = new GetJourneyRunExecutionMetricsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JourneyRunExecutionMetricsResponse": {
- *     "ApplicationId": "11111111112222222222333333333344",
- *     "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd",
- *     "RunId": "99999999998888888888777777777766",
- *     "LastEvaluatedTime": "2000-01-01T00:00:05.000Z",
- *     "Metrics": {
- *       "ENDPOINT_PRODUCED": "1",
- *       "ENDPOINT_ENTERED": "1",
- *       "ENDPOINT_LEFT": "1"
- *     }
+ *   JourneyRunExecutionMetricsResponse: {
+ *     ApplicationId: "11111111112222222222333333333344",
+ *     JourneyId: "aaaaaaaaaabbbbbbbbbbccccccccccdd",
+ *     LastEvaluatedTime: "2000-01-01T00:00:05.000Z",
+ *     Metrics: {
+ *       ENDPOINT_ENTERED: "1",
+ *       ENDPOINT_LEFT: "1",
+ *       ENDPOINT_PRODUCED: "1"
+ *     },
+ *     RunId: "99999999998888888888777777777766"
  *   }
  * }
  * *\/
- * // example id: to-get-the-execution-metrics-for-a-journey-run
  * ```
  *
+ * @public
  */
 export class GetJourneyRunExecutionMetricsCommand extends $Command
   .classBuilder<
@@ -131,9 +131,7 @@ export class GetJourneyRunExecutionMetricsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +143,16 @@ export class GetJourneyRunExecutionMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyRunExecutionMetricsCommand)
   .de(de_GetJourneyRunExecutionMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyRunExecutionMetricsRequest;
+      output: GetJourneyRunExecutionMetricsResponse;
+    };
+    sdk: {
+      input: GetJourneyRunExecutionMetricsCommandInput;
+      output: GetJourneyRunExecutionMetricsCommandOutput;
+    };
+  };
+}

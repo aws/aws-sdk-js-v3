@@ -111,6 +111,7 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateLinkCommand extends $Command
@@ -121,9 +122,7 @@ export class CreateLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class CreateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLinkCommand)
   .de(de_CreateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLinkRequest;
+      output: CreateLinkResponse;
+    };
+    sdk: {
+      input: CreateLinkCommandInput;
+      output: CreateLinkCommandOutput;
+    };
+  };
+}

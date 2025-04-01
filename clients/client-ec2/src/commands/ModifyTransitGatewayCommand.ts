@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyTransitGatewayRequest, ModifyTransitGatewayResult } from "../models/models_6";
+import { ModifyTransitGatewayRequest, ModifyTransitGatewayResult } from "../models/models_7";
 import { de_ModifyTransitGatewayCommand, se_ModifyTransitGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -102,6 +102,7 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyTransitGatewayCommand extends $Command
@@ -112,9 +113,7 @@ export class ModifyTransitGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class ModifyTransitGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTransitGatewayCommand)
   .de(de_ModifyTransitGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTransitGatewayRequest;
+      output: ModifyTransitGatewayResult;
+    };
+    sdk: {
+      input: ModifyTransitGatewayCommandInput;
+      output: ModifyTransitGatewayCommandOutput;
+    };
+  };
+}

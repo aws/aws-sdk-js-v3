@@ -32,8 +32,8 @@ export interface AcceptAdministratorInvitationResponse {}
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -56,8 +56,8 @@ export class InternalException extends __BaseException {
 export class InvalidAccessException extends __BaseException {
   readonly name: "InvalidAccessException" = "InvalidAccessException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -81,8 +81,8 @@ export class InvalidAccessException extends __BaseException {
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -106,8 +106,8 @@ export class InvalidInputException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -130,8 +130,8 @@ export class LimitExceededException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -176,8 +176,8 @@ export interface AcceptInvitationResponse {}
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -208,7 +208,7 @@ export interface AccountDetails {
    * <p>The email of an Amazon Web Services account.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface AwsApiCallActionDomainDetails {
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -234,7 +234,7 @@ export interface City {
    * <p>The name of the city.</p>
    * @public
    */
-  CityName?: string;
+  CityName?: string | undefined;
 }
 
 /**
@@ -246,13 +246,13 @@ export interface Country {
    * <p>The 2-letter ISO 3166 country code for the country.</p>
    * @public
    */
-  CountryCode?: string;
+  CountryCode?: string | undefined;
 
   /**
    * <p>The name of the country.</p>
    * @public
    */
-  CountryName?: string;
+  CountryName?: string | undefined;
 }
 
 /**
@@ -264,13 +264,13 @@ export interface GeoLocation {
    * <p>The longitude of the location.</p>
    * @public
    */
-  Lon?: number;
+  Lon?: number | undefined;
 
   /**
    * <p>The latitude of the location.</p>
    * @public
    */
-  Lat?: number;
+  Lat?: number | undefined;
 }
 
 /**
@@ -282,25 +282,25 @@ export interface IpOrganizationDetails {
    * <p>The Autonomous System Number (ASN) of the internet provider</p>
    * @public
    */
-  Asn?: number;
+  Asn?: number | undefined;
 
   /**
    * <p>The name of the organization that registered the ASN.</p>
    * @public
    */
-  AsnOrg?: string;
+  AsnOrg?: string | undefined;
 
   /**
    * <p>The ISP information for the internet provider.</p>
    * @public
    */
-  Isp?: string;
+  Isp?: string | undefined;
 
   /**
    * <p>The name of the internet provider.</p>
    * @public
    */
-  Org?: string;
+  Org?: string | undefined;
 }
 
 /**
@@ -314,32 +314,32 @@ export interface ActionRemoteIpDetails {
    * <p>The IP address.</p>
    * @public
    */
-  IpAddressV4?: string;
+  IpAddressV4?: string | undefined;
 
   /**
    * <p>The internet service provider (ISP) organization associated with the remote IP
    *          address.</p>
    * @public
    */
-  Organization?: IpOrganizationDetails;
+  Organization?: IpOrganizationDetails | undefined;
 
   /**
    * <p>The country where the remote IP address is located.</p>
    * @public
    */
-  Country?: Country;
+  Country?: Country | undefined;
 
   /**
    * <p>The city where the remote IP address is located.</p>
    * @public
    */
-  City?: City;
+  City?: City | undefined;
 
   /**
    * <p>The coordinates of the location of the remote IP address.</p>
    * @public
    */
-  GeoLocation?: GeoLocation;
+  GeoLocation?: GeoLocation | undefined;
 }
 
 /**
@@ -353,105 +353,57 @@ export interface AwsApiCallAction {
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  Api?: string;
+  Api?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services service that the API method belongs to.</p>
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>Indicates whether the API call originated from a remote IP address
    *             (<code>remoteip</code>) or from a DNS domain (<code>domain</code>).</p>
    * @public
    */
-  CallerType?: string;
+  CallerType?: string | undefined;
 
   /**
-   * <p>Provided if <code>CallerType</code> is <code>remoteIp</code>. Provides information about
+   * <p>Provided if <code>CallerType</code> is <code>remoteip</code>. Provides information about
    *          the remote IP address that the API call originated from.</p>
    * @public
    */
-  RemoteIpDetails?: ActionRemoteIpDetails;
+  RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 
   /**
    * <p>Provided if <code>CallerType</code> is <code>domain</code>. Provides information about
    *          the DNS domain that the API call originated from.</p>
    * @public
    */
-  DomainDetails?: AwsApiCallActionDomainDetails;
+  DomainDetails?: AwsApiCallActionDomainDetails | undefined;
 
   /**
    * <p>Identifies the resources that were affected by the API call.</p>
    * @public
    */
-  AffectedResources?: Record<string, string>;
+  AffectedResources?: Record<string, string> | undefined;
 
   /**
    * <p>A timestamp that indicates when the API call was first
    *          observed.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  FirstSeen?: string;
+  FirstSeen?: string | undefined;
 
   /**
    * <p>A timestamp that indicates when the API call was most recently
    *          observed.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastSeen?: string;
+  LastSeen?: string | undefined;
 }
 
 /**
@@ -465,20 +417,20 @@ export interface DnsRequestAction {
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The protocol that was used for the DNS request.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>Indicates whether the DNS request was blocked.</p>
    * @public
    */
-  Blocked?: boolean;
+  Blocked?: boolean | undefined;
 }
 
 /**
@@ -492,14 +444,14 @@ export interface ActionLocalPortDetails {
    * <p>The number of the port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The port name of the local connection.</p>
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  PortName?: string;
+  PortName?: string | undefined;
 }
 
 /**
@@ -512,14 +464,14 @@ export interface ActionRemotePortDetails {
    * <p>The number of the port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The port name of the remote connection.</p>
    *          <p>Length Constraints: 128.</p>
    * @public
    */
-  PortName?: string;
+  PortName?: string | undefined;
 }
 
 /**
@@ -533,39 +485,39 @@ export interface NetworkConnectionAction {
    *          <code>OUT</code>).</p>
    * @public
    */
-  ConnectionDirection?: string;
+  ConnectionDirection?: string | undefined;
 
   /**
    * <p>Information about the remote IP address that issued the network connection
    *          request.</p>
    * @public
    */
-  RemoteIpDetails?: ActionRemoteIpDetails;
+  RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 
   /**
    * <p>Information about the port on the remote IP address.</p>
    * @public
    */
-  RemotePortDetails?: ActionRemotePortDetails;
+  RemotePortDetails?: ActionRemotePortDetails | undefined;
 
   /**
    * <p>Information about the port on the EC2 instance.</p>
    * @public
    */
-  LocalPortDetails?: ActionLocalPortDetails;
+  LocalPortDetails?: ActionLocalPortDetails | undefined;
 
   /**
    * <p>The protocol used to make the network connection request.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>Indicates whether the network connection attempt was blocked.</p>
    * @public
    */
-  Blocked?: boolean;
+  Blocked?: boolean | undefined;
 }
 
 /**
@@ -577,7 +529,7 @@ export interface ActionLocalIpDetails {
    * <p>The IP address.</p>
    * @public
    */
-  IpAddressV4?: string;
+  IpAddressV4?: string | undefined;
 }
 
 /**
@@ -591,19 +543,19 @@ export interface PortProbeDetail {
    * <p>Provides information about the port that was scanned.</p>
    * @public
    */
-  LocalPortDetails?: ActionLocalPortDetails;
+  LocalPortDetails?: ActionLocalPortDetails | undefined;
 
   /**
    * <p>Provides information about the IP address where the scanned port is located.</p>
    * @public
    */
-  LocalIpDetails?: ActionLocalIpDetails;
+  LocalIpDetails?: ActionLocalIpDetails | undefined;
 
   /**
    * <p>Provides information about the remote IP address that performed the scan.</p>
    * @public
    */
-  RemoteIpDetails?: ActionRemoteIpDetails;
+  RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 }
 
 /**
@@ -616,13 +568,13 @@ export interface PortProbeAction {
    * <p>Information about the ports affected by the port probe.</p>
    * @public
    */
-  PortProbeDetails?: PortProbeDetail[];
+  PortProbeDetails?: PortProbeDetail[] | undefined;
 
   /**
    * <p>Indicates whether the port probe was blocked.</p>
    * @public
    */
-  Blocked?: boolean;
+  Blocked?: boolean | undefined;
 }
 
 /**
@@ -670,35 +622,35 @@ export interface Action {
    *          </ul>
    * @public
    */
-  ActionType?: string;
+  ActionType?: string | undefined;
 
   /**
    * <p>Included if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. Provides details
    *          about the network connection that was detected.</p>
    * @public
    */
-  NetworkConnectionAction?: NetworkConnectionAction;
+  NetworkConnectionAction?: NetworkConnectionAction | undefined;
 
   /**
    * <p>Included if <code>ActionType</code> is <code>AWS_API_CALL</code>. Provides details about
    *          the API call that was detected. </p>
    * @public
    */
-  AwsApiCallAction?: AwsApiCallAction;
+  AwsApiCallAction?: AwsApiCallAction | undefined;
 
   /**
    * <p>Included if <code>ActionType</code> is <code>DNS_REQUEST</code>. Provides details about
    *          the DNS request that was detected. </p>
    * @public
    */
-  DnsRequestAction?: DnsRequestAction;
+  DnsRequestAction?: DnsRequestAction | undefined;
 
   /**
    * <p>Included if <code>ActionType</code> is <code>PORT_PROBE</code>. Provides details about
    *          the port probe that was detected. </p>
    * @public
    */
-  PortProbeAction?: PortProbeAction;
+  PortProbeAction?: PortProbeAction | undefined;
 }
 
 /**
@@ -762,7 +714,7 @@ export interface SeverityUpdate {
   /**
    * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
    *             <code>Label</code>.</p>
-   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
+   *          <p>If you provide <code>Normalized</code> and don't provide <code>Label</code>,
    *             <code>Label</code> is set automatically as follows.</p>
    *          <ul>
    *             <li>
@@ -788,14 +740,14 @@ export interface SeverityUpdate {
    *          </ul>
    * @public
    */
-  Normalized?: number;
+  Normalized?: number | undefined;
 
   /**
    * <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
    *          generated the finding.</p>
    * @public
    */
-  Product?: number;
+  Product?: number | undefined;
 
   /**
    * <p>The severity value of the finding. The allowed values are the following.</p>
@@ -824,7 +776,7 @@ export interface SeverityUpdate {
    *          </ul>
    * @public
    */
-  Label?: SeverityLabel;
+  Label?: SeverityLabel | undefined;
 }
 
 /**
@@ -898,12 +850,12 @@ export interface WorkflowUpdate {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  Status?: WorkflowStatus;
+  Status?: WorkflowStatus | undefined;
 }
 
 /**
@@ -917,13 +869,13 @@ export interface AutomationRulesFindingFieldsUpdate {
    * <p>The updated note.</p>
    * @public
    */
-  Note?: NoteUpdate;
+  Note?: NoteUpdate | undefined;
 
   /**
    * <p>Updates to the severity information for a finding.</p>
    * @public
    */
-  Severity?: SeverityUpdate;
+  Severity?: SeverityUpdate | undefined;
 
   /**
    * <p>
@@ -931,7 +883,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *       </p>
    * @public
    */
-  VerificationState?: VerificationState;
+  VerificationState?: VerificationState | undefined;
 
   /**
    * <p>
@@ -939,7 +891,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *       </p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>
@@ -947,7 +899,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *       </p>
    * @public
    */
-  Criticality?: number;
+  Criticality?: number | undefined;
 
   /**
    * <p>
@@ -955,7 +907,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *       </p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 
   /**
    * <p>
@@ -963,13 +915,13 @@ export interface AutomationRulesFindingFieldsUpdate {
    *       </p>
    * @public
    */
-  UserDefinedFields?: Record<string, string>;
+  UserDefinedFields?: Record<string, string> | undefined;
 
   /**
    * <p>Used to update information about the investigation into the finding.</p>
    * @public
    */
-  Workflow?: WorkflowUpdate;
+  Workflow?: WorkflowUpdate | undefined;
 
   /**
    * <p>
@@ -977,7 +929,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *         </p>
    * @public
    */
-  RelatedFindings?: RelatedFinding[];
+  RelatedFindings?: RelatedFinding[] | undefined;
 }
 
 /**
@@ -995,22 +947,19 @@ export type AutomationRulesActionType = (typeof AutomationRulesActionType)[keyof
 
 /**
  * <p>
- *          One or more actions to update finding fields if a finding matches the defined criteria
- *          of the rule.
+ *          One or more actions that Security Hub takes when a finding matches the defined criteria
+ *          of a rule.
  *       </p>
  * @public
  */
 export interface AutomationRulesAction {
   /**
    * <p>
-   *          Specifies that the rule action should update the <code>Types</code> finding field. The <code>Types</code>
-   *          finding field classifies findings in the format of namespace/category/classifier. For more information, see
-   *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types taxonomy for ASFF</a> in
-   *          the <i>Security Hub User Guide</i>.
+   *          Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
    *       </p>
    * @public
    */
-  Type?: AutomationRulesActionType;
+  Type?: AutomationRulesActionType | undefined;
 
   /**
    * <p>
@@ -1018,7 +967,7 @@ export interface AutomationRulesAction {
    *       </p>
    * @public
    */
-  FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdate;
+  FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdate | undefined;
 }
 
 /**
@@ -1046,6 +995,168 @@ export interface ActionTarget {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ActorSessionMfaStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ActorSessionMfaStatus = (typeof ActorSessionMfaStatus)[keyof typeof ActorSessionMfaStatus];
+
+/**
+ * <p>
+ *             Contains information about the authenticated session used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface ActorSession {
+  /**
+   * <p>
+   *             Unique identifier of the session.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether multi-factor authentication (MFA) was used for authentication during the session.</p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
+   * @public
+   */
+  MfaStatus?: ActorSessionMfaStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.
+   *         </p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
+   * @public
+   */
+  CreatedTime?: number | undefined;
+
+  /**
+   * <p>
+   *             The issuer of the session.
+   *         </p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Provides Amazon Web Services account information of the user involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface UserAccount {
+  /**
+   * <p>
+   *             The unique identifier of the user account involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             The name of the user account involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the credentials used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface ActorUser {
+  /**
+   * <p>
+   *             The name of the threat actor.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The unique identifier of the threat actor.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             The type of user.
+   *         </p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>
+   *             Unique identifier of the threat actor’s user credentials.
+   *         </p>
+   * @public
+   */
+  CredentialUid?: string | undefined;
+
+  /**
+   * <p>
+   *             The account of the threat actor.
+   *         </p>
+   * @public
+   */
+  Account?: UserAccount | undefined;
+}
+
+/**
+ * <p>
+ *             Information about the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface Actor {
+  /**
+   * <p>
+   *             The ID of the threat actor.
+   *         </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the user credentials used by the threat actor.</p>
+   * @public
+   */
+  User?: ActorUser | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the user session where the activity initiated.</p>
+   * @public
+   */
+  Session?: ActorSession | undefined;
+}
+
+/**
  * <p>An adjustment to the CVSS metric.</p>
  * @public
  */
@@ -1054,13 +1165,13 @@ export interface Adjustment {
    * <p>The metric to adjust.</p>
    * @public
    */
-  Metric?: string;
+  Metric?: string | undefined;
 
   /**
    * <p>The reason for the adjustment.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -1087,14 +1198,14 @@ export interface AdminAccount {
    * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The current status of the Security Hub administrator account. Indicates whether the account is
    *          currently enabled as a Security Hub administrator.</p>
    * @public
    */
-  Status?: AdminStatus;
+  Status?: AdminStatus | undefined;
 }
 
 /**
@@ -1110,7 +1221,7 @@ export interface AssociatedStandard {
    *       </p>
    * @public
    */
-  StandardsId?: string;
+  StandardsId?: string | undefined;
 }
 
 /**
@@ -1157,7 +1268,7 @@ export interface AssociationFilters {
    *         </p>
    * @public
    */
-  ConfigurationPolicyId?: string;
+  ConfigurationPolicyId?: string | undefined;
 
   /**
    * <p>
@@ -1166,7 +1277,7 @@ export interface AssociationFilters {
    *         </p>
    * @public
    */
-  AssociationType?: AssociationType;
+  AssociationType?: AssociationType | undefined;
 
   /**
    * <p>
@@ -1174,7 +1285,7 @@ export interface AssociationFilters {
    *         </p>
    * @public
    */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 }
 
 /**
@@ -1190,7 +1301,7 @@ export interface AssociationStateDetails {
    *       </p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>
@@ -1198,7 +1309,7 @@ export interface AssociationStateDetails {
    *       </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -1214,7 +1325,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  AssociationState?: AssociationStateDetails;
+  AssociationState?: AssociationStateDetails | undefined;
 
   /**
    * <p>
@@ -1222,7 +1333,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  GatewayId?: string;
+  GatewayId?: string | undefined;
 
   /**
    * <p>
@@ -1230,7 +1341,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  Main?: boolean;
+  Main?: boolean | undefined;
 
   /**
    * <p>
@@ -1238,7 +1349,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  RouteTableAssociationId?: string;
+  RouteTableAssociationId?: string | undefined;
 
   /**
    * <p>
@@ -1246,7 +1357,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  RouteTableId?: string;
+  RouteTableId?: string | undefined;
 
   /**
    * <p>
@@ -1254,7 +1365,7 @@ export interface AssociationSetDetails {
    *       </p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -1314,7 +1425,7 @@ export interface StringFilter {
    *          as the filter value, there's no match.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The condition to apply to a string value when filtering Security Hub findings.</p>
@@ -1402,7 +1513,7 @@ export interface StringFilter {
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    * @public
    */
-  Comparison?: StringFilterComparison;
+  Comparison?: StringFilterComparison | undefined;
 }
 
 /**
@@ -1415,21 +1526,21 @@ export interface NumberFilter {
    *          findings. </p>
    * @public
    */
-  Gte?: number;
+  Gte?: number | undefined;
 
   /**
    * <p>The less-than-equal condition to be applied to a single field when querying for
    *          findings. </p>
    * @public
    */
-  Lte?: number;
+  Lte?: number | undefined;
 
   /**
    * <p>The equal-to condition to be applied to a single field when querying for
    *          findings.</p>
    * @public
    */
-  Eq?: number;
+  Eq?: number | undefined;
 
   /**
    * <p>
@@ -1437,7 +1548,7 @@ export interface NumberFilter {
    *         </p>
    * @public
    */
-  Gt?: number;
+  Gt?: number | undefined;
 
   /**
    * <p>
@@ -1445,7 +1556,7 @@ export interface NumberFilter {
    *         </p>
    * @public
    */
-  Lt?: number;
+  Lt?: number | undefined;
 }
 
 /**
@@ -1470,13 +1581,13 @@ export interface DateRange {
    * <p>A date range value for the date filter.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 
   /**
    * <p>A date range unit for the date filter.</p>
    * @public
    */
-  Unit?: DateRangeUnit;
+  Unit?: DateRangeUnit | undefined;
 }
 
 /**
@@ -1486,71 +1597,23 @@ export interface DateRange {
 export interface DateFilter {
   /**
    * <p>A timestamp that provides the start date for the date filter.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  Start?: string;
+  Start?: string | undefined;
 
   /**
    * <p>A timestamp that provides the end date for the date filter.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  End?: string;
+  End?: string | undefined;
 
   /**
    * <p>A date range for the date filter.</p>
    * @public
    */
-  DateRange?: DateRange;
+  DateRange?: DateRange | undefined;
 }
 
 /**
@@ -1581,7 +1644,7 @@ export interface MapFilter {
    *          name of the field.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
@@ -1589,7 +1652,7 @@ export interface MapFilter {
    *          If you provide <code>security</code> as the filter value, then there's no match.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The condition to apply to the key value when filtering Security Hub findings with a map
@@ -1643,7 +1706,7 @@ export interface MapFilter {
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    * @public
    */
-  Comparison?: MapFilterComparison;
+  Comparison?: MapFilterComparison | undefined;
 }
 
 /**
@@ -1663,7 +1726,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ProductArn?: StringFilter[];
+  ProductArn?: StringFilter[] | undefined;
 
   /**
    * <p>The Amazon Web Services account ID in which a finding was generated.</p>
@@ -1672,7 +1735,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  AwsAccountId?: StringFilter[];
+  AwsAccountId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1683,7 +1746,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Id?: StringFilter[];
+  Id?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1695,7 +1758,7 @@ export interface AutomationRulesFindingFilters {
    *       	</p>
    * @public
    */
-  GeneratorId?: StringFilter[];
+  GeneratorId?: StringFilter[] | undefined;
 
   /**
    * <p> One or more finding types in the format of namespace/category/classifier that classify
@@ -1706,153 +1769,56 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Type?: StringFilter[];
+  Type?: StringFilter[] | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the potential security issue captured by a
    *          finding was first observed by the security findings product.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    *          <p>
    *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
    *    	</p>
    * @public
    */
-  FirstObservedAt?: DateFilter[];
+  FirstObservedAt?: DateFilter[] | undefined;
 
   /**
    * <p>
-   *          A timestamp that indicates when the potential security issue captured by a finding
-   *          was most recently observed by the security findings product.
+   *           A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    *          <p>
    *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
    *    	</p>
    * @public
    */
-  LastObservedAt?: DateFilter[];
+  LastObservedAt?: DateFilter[] | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when this finding record was created.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    *          <p>
    *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
    *    	</p>
    * @public
    */
-  CreatedAt?: DateFilter[];
+  CreatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the finding record was most recently updated.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    *          <p>
    *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
    *    	</p>
    * @public
    */
-  UpdatedAt?: DateFilter[];
+  UpdatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The likelihood that a finding accurately identifies the behavior or issue that it was
@@ -1866,7 +1832,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Confidence?: NumberFilter[];
+  Confidence?: NumberFilter[] | undefined;
 
   /**
    * <p>
@@ -1880,7 +1846,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Criticality?: NumberFilter[];
+  Criticality?: NumberFilter[] | undefined;
 
   /**
    * <p>
@@ -1891,7 +1857,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Title?: StringFilter[];
+  Title?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1902,7 +1868,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  Description?: StringFilter[];
+  Description?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1913,7 +1879,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  SourceUrl?: StringFilter[];
+  SourceUrl?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1925,7 +1891,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ProductName?: StringFilter[];
+  ProductName?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1937,7 +1903,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  CompanyName?: StringFilter[];
+  CompanyName?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1948,7 +1914,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  SeverityLabel?: StringFilter[];
+  SeverityLabel?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1959,13 +1925,13 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourceType?: StringFilter[];
+  ResourceType?: StringFilter[] | undefined;
 
   /**
    * <p>
    *          The identifier for the given resource type. For Amazon Web Services resources that are identified by
    *          Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services resources that lack ARNs,
-   *          this is the identifier as defined by the Amazon Web Service that created the resource.
+   *          this is the identifier as defined by the Amazon Web Services service that created the resource.
    *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
    *          resource.
    *       </p>
@@ -1974,7 +1940,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourceId?: StringFilter[];
+  ResourceId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1986,7 +1952,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourcePartition?: StringFilter[];
+  ResourcePartition?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -1997,7 +1963,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourceRegion?: StringFilter[];
+  ResourceRegion?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2008,7 +1974,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourceTags?: MapFilter[];
+  ResourceTags?: MapFilter[] | undefined;
 
   /**
    * <p>
@@ -2019,7 +1985,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ResourceDetailsOther?: MapFilter[];
+  ResourceDetailsOther?: MapFilter[] | undefined;
 
   /**
    * <p>
@@ -2031,7 +1997,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  ComplianceStatus?: StringFilter[];
+  ComplianceStatus?: StringFilter[] | undefined;
 
   /**
    * <p> The security control ID for which a finding was generated. Security control IDs are the same across standards.</p>
@@ -2040,7 +2006,7 @@ export interface AutomationRulesFindingFilters {
    *     	</p>
    * @public
    */
-  ComplianceSecurityControlId?: StringFilter[];
+  ComplianceSecurityControlId?: StringFilter[] | undefined;
 
   /**
    * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of
@@ -2050,7 +2016,7 @@ export interface AutomationRulesFindingFilters {
    *     	</p>
    * @public
    */
-  ComplianceAssociatedStandardsId?: StringFilter[];
+  ComplianceAssociatedStandardsId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2061,7 +2027,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  VerificationState?: StringFilter[];
+  VerificationState?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2072,7 +2038,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  WorkflowStatus?: StringFilter[];
+  WorkflowStatus?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2083,7 +2049,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  RecordState?: StringFilter[];
+  RecordState?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2094,7 +2060,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  RelatedFindingsProductArn?: StringFilter[];
+  RelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2105,7 +2071,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  RelatedFindingsId?: StringFilter[];
+  RelatedFindingsId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2116,42 +2082,18 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  NoteText?: StringFilter[];
+  NoteText?: StringFilter[] | undefined;
 
   /**
    * <p>
    *          The timestamp of when the note was updated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    *          <p>
    *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
    *    	</p>
    * @public
    */
-  NoteUpdatedAt?: DateFilter[];
+  NoteUpdatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>
@@ -2162,7 +2104,7 @@ export interface AutomationRulesFindingFilters {
    *    	</p>
    * @public
    */
-  NoteUpdatedBy?: StringFilter[];
+  NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2173,7 +2115,7 @@ export interface AutomationRulesFindingFilters {
    *     	</p>
    * @public
    */
-  UserDefinedFields?: MapFilter[];
+  UserDefinedFields?: MapFilter[] | undefined;
 
   /**
    * <p>
@@ -2184,7 +2126,7 @@ export interface AutomationRulesFindingFilters {
    *         </p>
    * @public
    */
-  ResourceApplicationArn?: StringFilter[];
+  ResourceApplicationArn?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -2195,7 +2137,7 @@ export interface AutomationRulesFindingFilters {
    *         </p>
    * @public
    */
-  ResourceApplicationName?: StringFilter[];
+  ResourceApplicationName?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the Amazon Web Services account in which a finding was generated.
@@ -2205,7 +2147,7 @@ export interface AutomationRulesFindingFilters {
    *         </p>
    * @public
    */
-  AwsAccountName?: StringFilter[];
+  AwsAccountName?: StringFilter[] | undefined;
 }
 
 /**
@@ -2235,7 +2177,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  RuleArn?: string;
+  RuleArn?: string | undefined;
 
   /**
    * <p>
@@ -2245,7 +2187,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  RuleStatus?: RuleStatus;
+  RuleStatus?: RuleStatus | undefined;
 
   /**
    * <p> An integer ranging from 1 to 1000 that represents the order in which the rule action is
@@ -2253,7 +2195,7 @@ export interface AutomationRulesConfig {
    *          first. </p>
    * @public
    */
-  RuleOrder?: number;
+  RuleOrder?: number | undefined;
 
   /**
    * <p>
@@ -2261,7 +2203,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  RuleName?: string;
+  RuleName?: string | undefined;
 
   /**
    * <p>
@@ -2269,7 +2211,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
@@ -2278,7 +2220,7 @@ export interface AutomationRulesConfig {
    *         </p>
    * @public
    */
-  IsTerminal?: boolean;
+  IsTerminal?: boolean | undefined;
 
   /**
    * <p>
@@ -2289,7 +2231,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  Criteria?: AutomationRulesFindingFilters;
+  Criteria?: AutomationRulesFindingFilters | undefined;
 
   /**
    * <p>
@@ -2298,73 +2240,25 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  Actions?: AutomationRulesAction[];
+  Actions?: AutomationRulesAction[] | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the rule was created.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the rule was most recently updated.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -2372,7 +2266,7 @@ export interface AutomationRulesConfig {
    *       </p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 }
 
 /**
@@ -2389,7 +2283,7 @@ export interface AutomationRulesMetadata {
    *       </p>
    * @public
    */
-  RuleArn?: string;
+  RuleArn?: string | undefined;
 
   /**
    * <p>
@@ -2402,7 +2296,7 @@ export interface AutomationRulesMetadata {
    *       </p>
    * @public
    */
-  RuleStatus?: RuleStatus;
+  RuleStatus?: RuleStatus | undefined;
 
   /**
    * <p>An integer ranging from 1 to 1000 that represents the order in which the rule action is
@@ -2410,7 +2304,7 @@ export interface AutomationRulesMetadata {
    *          first. </p>
    * @public
    */
-  RuleOrder?: number;
+  RuleOrder?: number | undefined;
 
   /**
    * <p>
@@ -2418,7 +2312,7 @@ export interface AutomationRulesMetadata {
    *       </p>
    * @public
    */
-  RuleName?: string;
+  RuleName?: string | undefined;
 
   /**
    * <p>
@@ -2426,7 +2320,7 @@ export interface AutomationRulesMetadata {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
@@ -2435,73 +2329,25 @@ export interface AutomationRulesMetadata {
    *         </p>
    * @public
    */
-  IsTerminal?: boolean;
+  IsTerminal?: boolean | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the rule was created.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
    *          A timestamp that indicates when the rule was most recently updated.
    *       </p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -2509,7 +2355,7 @@ export interface AutomationRulesMetadata {
    *       </p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 }
 
 /**
@@ -2521,13 +2367,13 @@ export interface AvailabilityZone {
    * <p>The name of the Availability Zone.</p>
    * @public
    */
-  ZoneName?: string;
+  ZoneName?: string | undefined;
 
   /**
    * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -2544,7 +2390,7 @@ export interface AwsAmazonMqBrokerEncryptionOptionsDetails {
    *         </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>
@@ -2553,7 +2399,7 @@ export interface AwsAmazonMqBrokerEncryptionOptionsDetails {
    *         </p>
    * @public
    */
-  UseAwsOwnedKey?: boolean;
+  UseAwsOwnedKey?: boolean | undefined;
 }
 
 /**
@@ -2570,7 +2416,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  Hosts?: string[];
+  Hosts?: string[] | undefined;
 
   /**
    * <p>
@@ -2578,7 +2424,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  RoleBase?: string;
+  RoleBase?: string | undefined;
 
   /**
    * <p>
@@ -2586,7 +2432,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>
@@ -2594,7 +2440,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  RoleSearchMatching?: string;
+  RoleSearchMatching?: string | undefined;
 
   /**
    * <p>
@@ -2602,7 +2448,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  RoleSearchSubtree?: boolean;
+  RoleSearchSubtree?: boolean | undefined;
 
   /**
    * <p>
@@ -2610,7 +2456,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  ServiceAccountUsername?: string;
+  ServiceAccountUsername?: string | undefined;
 
   /**
    * <p>
@@ -2618,14 +2464,14 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  UserBase?: string;
+  UserBase?: string | undefined;
 
   /**
    * <p>
    *             The name of the LDAP attribute in the user's directory entry for the user's group membership. </p>
    * @public
    */
-  UserRoleName?: string;
+  UserRoleName?: string | undefined;
 
   /**
    * <p>
@@ -2633,7 +2479,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  UserSearchMatching?: string;
+  UserSearchMatching?: string | undefined;
 
   /**
    * <p>
@@ -2641,7 +2487,7 @@ export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
    *         </p>
    * @public
    */
-  UserSearchSubtree?: boolean;
+  UserSearchSubtree?: boolean | undefined;
 }
 
 /**
@@ -2658,7 +2504,7 @@ export interface AwsAmazonMqBrokerLogsPendingDetails {
    *         </p>
    * @public
    */
-  Audit?: boolean;
+  Audit?: boolean | undefined;
 
   /**
    * <p>
@@ -2666,7 +2512,7 @@ export interface AwsAmazonMqBrokerLogsPendingDetails {
    *         </p>
    * @public
    */
-  General?: boolean;
+  General?: boolean | undefined;
 }
 
 /**
@@ -2682,7 +2528,7 @@ export interface AwsAmazonMqBrokerLogsDetails {
    *         </p>
    * @public
    */
-  Audit?: boolean;
+  Audit?: boolean | undefined;
 
   /**
    * <p>
@@ -2690,7 +2536,7 @@ export interface AwsAmazonMqBrokerLogsDetails {
    *         </p>
    * @public
    */
-  General?: boolean;
+  General?: boolean | undefined;
 
   /**
    * <p>
@@ -2698,7 +2544,7 @@ export interface AwsAmazonMqBrokerLogsDetails {
    *         </p>
    * @public
    */
-  AuditLogGroup?: string;
+  AuditLogGroup?: string | undefined;
 
   /**
    * <p>
@@ -2706,7 +2552,7 @@ export interface AwsAmazonMqBrokerLogsDetails {
    *         </p>
    * @public
    */
-  GeneralLogGroup?: string;
+  GeneralLogGroup?: string | undefined;
 
   /**
    * <p>
@@ -2714,7 +2560,7 @@ export interface AwsAmazonMqBrokerLogsDetails {
    *         </p>
    * @public
    */
-  Pending?: AwsAmazonMqBrokerLogsPendingDetails;
+  Pending?: AwsAmazonMqBrokerLogsPendingDetails | undefined;
 }
 
 /**
@@ -2730,7 +2576,7 @@ export interface AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails {
    *         </p>
    * @public
    */
-  DayOfWeek?: string;
+  DayOfWeek?: string | undefined;
 
   /**
    * <p>
@@ -2738,7 +2584,7 @@ export interface AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails {
    *         </p>
    * @public
    */
-  TimeOfDay?: string;
+  TimeOfDay?: string | undefined;
 
   /**
    * <p>
@@ -2746,7 +2592,7 @@ export interface AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails {
    *         </p>
    * @public
    */
-  TimeZone?: string;
+  TimeZone?: string | undefined;
 }
 
 /**
@@ -2762,7 +2608,7 @@ export interface AwsAmazonMqBrokerUsersDetails {
    *         </p>
    * @public
    */
-  PendingChange?: string;
+  PendingChange?: string | undefined;
 
   /**
    * <p>
@@ -2770,7 +2616,7 @@ export interface AwsAmazonMqBrokerUsersDetails {
    *         </p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 }
 
 /**
@@ -2787,7 +2633,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  AuthenticationStrategy?: string;
+  AuthenticationStrategy?: string | undefined;
 
   /**
    * <p>
@@ -2796,7 +2642,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>
@@ -2804,14 +2650,14 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  BrokerArn?: string;
+  BrokerArn?: string | undefined;
 
   /**
    * <p>The broker's name.
    *         </p>
    * @public
    */
-  BrokerName?: string;
+  BrokerName?: string | undefined;
 
   /**
    * <p>
@@ -2819,7 +2665,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  DeploymentMode?: string;
+  DeploymentMode?: string | undefined;
 
   /**
    * <p>
@@ -2827,7 +2673,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  EncryptionOptions?: AwsAmazonMqBrokerEncryptionOptionsDetails;
+  EncryptionOptions?: AwsAmazonMqBrokerEncryptionOptionsDetails | undefined;
 
   /**
    * <p>
@@ -2835,7 +2681,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  EngineType?: string;
+  EngineType?: string | undefined;
 
   /**
    * <p>
@@ -2843,7 +2689,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>
@@ -2851,7 +2697,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>
@@ -2859,7 +2705,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>
@@ -2867,7 +2713,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  LdapServerMetadata?: AwsAmazonMqBrokerLdapServerMetadataDetails;
+  LdapServerMetadata?: AwsAmazonMqBrokerLdapServerMetadataDetails | undefined;
 
   /**
    * <p>
@@ -2875,7 +2721,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  Logs?: AwsAmazonMqBrokerLogsDetails;
+  Logs?: AwsAmazonMqBrokerLogsDetails | undefined;
 
   /**
    * <p>
@@ -2883,7 +2729,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  MaintenanceWindowStartTime?: AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails;
+  MaintenanceWindowStartTime?: AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails | undefined;
 
   /**
    * <p>
@@ -2891,7 +2737,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>
@@ -2899,7 +2745,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>
@@ -2907,7 +2753,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>
@@ -2915,7 +2761,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>
@@ -2923,7 +2769,7 @@ export interface AwsAmazonMqBrokerDetails {
    *         </p>
    * @public
    */
-  Users?: AwsAmazonMqBrokerUsersDetails[];
+  Users?: AwsAmazonMqBrokerUsersDetails[] | undefined;
 }
 
 /**
@@ -2937,13 +2783,13 @@ export interface AwsApiGatewayAccessLogSettings {
    *             <code>$context.requestId</code>.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 
   /**
    * <p>The ARN of the CloudWatch Logs log group that receives the access logs.</p>
    * @public
    */
-  DestinationArn?: string;
+  DestinationArn?: string | undefined;
 }
 
 /**
@@ -2955,13 +2801,13 @@ export interface AwsApiGatewayCanarySettings {
    * <p>The percentage of traffic that is diverted to a canary deployment.</p>
    * @public
    */
-  PercentTraffic?: number;
+  PercentTraffic?: number | undefined;
 
   /**
    * <p>The deployment identifier for the canary deployment.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>Stage variables that are overridden in the canary release deployment. The variables
@@ -2970,13 +2816,13 @@ export interface AwsApiGatewayCanarySettings {
    *          and the variable value.</p>
    * @public
    */
-  StageVariableOverrides?: Record<string, string>;
+  StageVariableOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>Indicates whether the canary deployment uses the stage cache.</p>
    * @public
    */
-  UseStageCache?: boolean;
+  UseStageCache?: boolean | undefined;
 }
 
 /**
@@ -2991,7 +2837,7 @@ export interface AwsApiGatewayEndpointConfiguration {
    *             <code>PRIVATE</code>.</p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 }
 
 /**
@@ -3003,7 +2849,7 @@ export interface AwsApiGatewayMethodSettings {
    * <p>Indicates whether CloudWatch metrics are enabled for the method. </p>
    * @public
    */
-  MetricsEnabled?: boolean;
+  MetricsEnabled?: boolean | undefined;
 
   /**
    * <p>The logging level for this method. The logging level affects the log entries that are
@@ -3016,52 +2862,52 @@ export interface AwsApiGatewayMethodSettings {
    *          </p>
    * @public
    */
-  LoggingLevel?: string;
+  LoggingLevel?: string | undefined;
 
   /**
    * <p>Indicates whether data trace logging is enabled for the method. Data trace logging
    *          affects the log entries that are pushed to CloudWatch Logs.</p>
    * @public
    */
-  DataTraceEnabled?: boolean;
+  DataTraceEnabled?: boolean | undefined;
 
   /**
    * <p>The throttling burst limit for the method.</p>
    * @public
    */
-  ThrottlingBurstLimit?: number;
+  ThrottlingBurstLimit?: number | undefined;
 
   /**
    * <p>The throttling rate limit for the method.</p>
    * @public
    */
-  ThrottlingRateLimit?: number;
+  ThrottlingRateLimit?: number | undefined;
 
   /**
    * <p>Indicates whether responses are cached and returned for requests. For responses to be
    *          cached, a cache cluster must be enabled on the stage.</p>
    * @public
    */
-  CachingEnabled?: boolean;
+  CachingEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL,
    *          the longer the response is cached.</p>
    * @public
    */
-  CacheTtlInSeconds?: number;
+  CacheTtlInSeconds?: number | undefined;
 
   /**
    * <p>Indicates whether the cached responses are encrypted. </p>
    * @public
    */
-  CacheDataEncrypted?: boolean;
+  CacheDataEncrypted?: boolean | undefined;
 
   /**
    * <p>Indicates whether authorization is required for a cache invalidation request.</p>
    * @public
    */
-  RequireAuthorizationForCacheControl?: boolean;
+  RequireAuthorizationForCacheControl?: boolean | undefined;
 
   /**
    * <p>Indicates how to handle unauthorized requests for cache invalidation.</p>
@@ -3070,14 +2916,14 @@ export interface AwsApiGatewayMethodSettings {
    *          </p>
    * @public
    */
-  UnauthorizedCacheControlHeaderStrategy?: string;
+  UnauthorizedCacheControlHeaderStrategy?: string | undefined;
 
   /**
    * <p>The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to
    *          multiple methods.</p>
    * @public
    */
-  HttpMethod?: string;
+  HttpMethod?: string | undefined;
 
   /**
    * <p>The resource path for this method. Forward slashes (/) are encoded as ~1 . The initial
@@ -3088,7 +2934,7 @@ export interface AwsApiGatewayMethodSettings {
    *          wildcard to apply method settings to multiple methods.</p>
    * @public
    */
-  ResourcePath?: string;
+  ResourcePath?: string | undefined;
 }
 
 /**
@@ -3100,62 +2946,38 @@ export interface AwsApiGatewayRestApiDetails {
    * <p>The identifier of the REST API.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the REST API.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the REST API.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Indicates when the API was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>The version identifier for the REST API.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The list of binary media types supported by the REST API.</p>
    * @public
    */
-  BinaryMediaTypes?: string[];
+  BinaryMediaTypes?: string[] | undefined;
 
   /**
    * <p>The minimum size in bytes of a payload before compression is enabled.</p>
@@ -3163,7 +2985,7 @@ export interface AwsApiGatewayRestApiDetails {
    *          <p>If 0, then all payloads are compressed.</p>
    * @public
    */
-  MinimumCompressionSize?: number;
+  MinimumCompressionSize?: number | undefined;
 
   /**
    * <p>The source of the API key for metering requests according to a usage plan.</p>
@@ -3175,13 +2997,13 @@ export interface AwsApiGatewayRestApiDetails {
    *             <code>UsageIdentifierKey</code> from a custom authorizer.</p>
    * @public
    */
-  ApiKeySource?: string;
+  ApiKeySource?: string | undefined;
 
   /**
    * <p>The endpoint configuration of the REST API.</p>
    * @public
    */
-  EndpointConfiguration?: AwsApiGatewayEndpointConfiguration;
+  EndpointConfiguration?: AwsApiGatewayEndpointConfiguration | undefined;
 }
 
 /**
@@ -3193,49 +3015,49 @@ export interface AwsApiGatewayStageDetails {
    * <p>The identifier of the deployment that the stage points to.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>The identifier of the client certificate for the stage.</p>
    * @public
    */
-  ClientCertificateId?: string;
+  ClientCertificateId?: string | undefined;
 
   /**
    * <p>The name of the stage.</p>
    * @public
    */
-  StageName?: string;
+  StageName?: string | undefined;
 
   /**
    * <p>A description of the stage.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Indicates whether a cache cluster is enabled for the stage.</p>
    * @public
    */
-  CacheClusterEnabled?: boolean;
+  CacheClusterEnabled?: boolean | undefined;
 
   /**
    * <p>If a cache cluster is enabled, the size of the cache cluster.</p>
    * @public
    */
-  CacheClusterSize?: string;
+  CacheClusterSize?: string | undefined;
 
   /**
    * <p>If a cache cluster is enabled, the status of the cache cluster.</p>
    * @public
    */
-  CacheClusterStatus?: string;
+  CacheClusterStatus?: string | undefined;
 
   /**
    * <p>Defines the method settings for the stage.</p>
    * @public
    */
-  MethodSettings?: AwsApiGatewayMethodSettings[];
+  MethodSettings?: AwsApiGatewayMethodSettings[] | undefined;
 
   /**
    * <p>A map that defines the stage variables for the stage.</p>
@@ -3254,99 +3076,51 @@ export interface AwsApiGatewayStageDetails {
    *          </ul>
    * @public
    */
-  Variables?: Record<string, string>;
+  Variables?: Record<string, string> | undefined;
 
   /**
    * <p>The version of the API documentation that is associated with the stage.</p>
    * @public
    */
-  DocumentationVersion?: string;
+  DocumentationVersion?: string | undefined;
 
   /**
    * <p>Settings for logging access for the stage.</p>
    * @public
    */
-  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
+  AccessLogSettings?: AwsApiGatewayAccessLogSettings | undefined;
 
   /**
    * <p>Information about settings for canary deployment in the stage.</p>
    * @public
    */
-  CanarySettings?: AwsApiGatewayCanarySettings;
+  CanarySettings?: AwsApiGatewayCanarySettings | undefined;
 
   /**
    * <p>Indicates whether active tracing with X-Ray is enabled for the stage.</p>
    * @public
    */
-  TracingEnabled?: boolean;
+  TracingEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates when the stage was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastUpdatedDate?: string;
+  LastUpdatedDate?: string | undefined;
 
   /**
    * <p>The ARN of the web ACL associated with the stage.</p>
    * @public
    */
-  WebAclArn?: string;
+  WebAclArn?: string | undefined;
 }
 
 /**
@@ -3359,37 +3133,37 @@ export interface AwsCorsConfiguration {
    * <p>The allowed origins for CORS requests.</p>
    * @public
    */
-  AllowOrigins?: string[];
+  AllowOrigins?: string[] | undefined;
 
   /**
    * <p>Indicates whether the CORS request includes credentials.</p>
    * @public
    */
-  AllowCredentials?: boolean;
+  AllowCredentials?: boolean | undefined;
 
   /**
    * <p>The exposed headers for CORS requests.</p>
    * @public
    */
-  ExposeHeaders?: string[];
+  ExposeHeaders?: string[] | undefined;
 
   /**
    * <p>The number of seconds for which the browser caches preflight request results.</p>
    * @public
    */
-  MaxAge?: number;
+  MaxAge?: number | undefined;
 
   /**
    * <p>The allowed methods for CORS requests.</p>
    * @public
    */
-  AllowMethods?: string[];
+  AllowMethods?: string[] | undefined;
 
   /**
    * <p>The allowed headers for CORS requests.</p>
    * @public
    */
-  AllowHeaders?: string[];
+  AllowHeaders?: string[] | undefined;
 }
 
 /**
@@ -3407,68 +3181,44 @@ export interface AwsApiGatewayV2ApiDetails {
    *          API stage.</p>
    * @public
    */
-  ApiEndpoint?: string;
+  ApiEndpoint?: string | undefined;
 
   /**
    * <p>The identifier of the API.</p>
    * @public
    */
-  ApiId?: string;
+  ApiId?: string | undefined;
 
   /**
    * <p>An API key selection expression. Supported only for WebSocket APIs. </p>
    * @public
    */
-  ApiKeySelectionExpression?: string;
+  ApiKeySelectionExpression?: string | undefined;
 
   /**
    * <p>Indicates when the API was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>A description of the API.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The version identifier for the API.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The name of the API.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The API protocol for the API.</p>
@@ -3476,7 +3226,7 @@ export interface AwsApiGatewayV2ApiDetails {
    *          </p>
    * @public
    */
-  ProtocolType?: string;
+  ProtocolType?: string | undefined;
 
   /**
    * <p>The route selection expression for the API.</p>
@@ -3485,14 +3235,14 @@ export interface AwsApiGatewayV2ApiDetails {
    *          <p>For WebSocket APIs, there is no default value.</p>
    * @public
    */
-  RouteSelectionExpression?: string;
+  RouteSelectionExpression?: string | undefined;
 
   /**
    * <p>A cross-origin resource sharing (CORS) configuration. Supported only for HTTP
    *          APIs.</p>
    * @public
    */
-  CorsConfiguration?: AwsCorsConfiguration;
+  CorsConfiguration?: AwsCorsConfiguration | undefined;
 }
 
 /**
@@ -3504,7 +3254,7 @@ export interface AwsApiGatewayV2RouteSettings {
    * <p>Indicates whether detailed metrics are enabled.</p>
    * @public
    */
-  DetailedMetricsEnabled?: boolean;
+  DetailedMetricsEnabled?: boolean | undefined;
 
   /**
    * <p>The logging level. The logging level affects the log entries that are pushed to
@@ -3517,26 +3267,26 @@ export interface AwsApiGatewayV2RouteSettings {
    *          </p>
    * @public
    */
-  LoggingLevel?: string;
+  LoggingLevel?: string | undefined;
 
   /**
    * <p>Indicates whether data trace logging is enabled. Data trace logging affects the log
    *          entries that are pushed to CloudWatch Logs. Supported only for WebSocket APIs.</p>
    * @public
    */
-  DataTraceEnabled?: boolean;
+  DataTraceEnabled?: boolean | undefined;
 
   /**
    * <p>The throttling burst limit.</p>
    * @public
    */
-  ThrottlingBurstLimit?: number;
+  ThrottlingBurstLimit?: number | undefined;
 
   /**
    * <p>The throttling rate limit.</p>
    * @public
    */
-  ThrottlingRateLimit?: number;
+  ThrottlingRateLimit?: number | undefined;
 }
 
 /**
@@ -3548,99 +3298,51 @@ export interface AwsApiGatewayV2StageDetails {
    * <p>The identifier of a client certificate for a stage. Supported only for WebSocket API calls.</p>
    * @public
    */
-  ClientCertificateId?: string;
+  ClientCertificateId?: string | undefined;
 
   /**
    * <p>Indicates when the stage was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>The description of the stage.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Default route settings for the stage.</p>
    * @public
    */
-  DefaultRouteSettings?: AwsApiGatewayV2RouteSettings;
+  DefaultRouteSettings?: AwsApiGatewayV2RouteSettings | undefined;
 
   /**
    * <p>The identifier of the deployment that the stage is associated with. </p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastUpdatedDate?: string;
+  LastUpdatedDate?: string | undefined;
 
   /**
    * <p>The route settings for the stage.</p>
    * @public
    */
-  RouteSettings?: AwsApiGatewayV2RouteSettings;
+  RouteSettings?: AwsApiGatewayV2RouteSettings | undefined;
 
   /**
    * <p>The name of the stage.</p>
    * @public
    */
-  StageName?: string;
+  StageName?: string | undefined;
 
   /**
    * <p>A map that defines the stage variables for the stage.</p>
@@ -3659,32 +3361,32 @@ export interface AwsApiGatewayV2StageDetails {
    *          </ul>
    * @public
    */
-  StageVariables?: Record<string, string>;
+  StageVariables?: Record<string, string> | undefined;
 
   /**
    * <p>Information about settings for logging access for the stage.</p>
    * @public
    */
-  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
+  AccessLogSettings?: AwsApiGatewayAccessLogSettings | undefined;
 
   /**
    * <p>Indicates whether updates to an API automatically trigger a new deployment.</p>
    * @public
    */
-  AutoDeploy?: boolean;
+  AutoDeploy?: boolean | undefined;
 
   /**
    * <p>The status of the last deployment of a stage. Supported only if the stage has automatic
    *          deployment enabled.</p>
    * @public
    */
-  LastDeploymentStatusMessage?: string;
+  LastDeploymentStatusMessage?: string | undefined;
 
   /**
    * <p>Indicates whether the stage is managed by API Gateway.</p>
    * @public
    */
-  ApiGatewayManaged?: boolean;
+  ApiGatewayManaged?: boolean | undefined;
 }
 
 /**
@@ -3701,7 +3403,7 @@ export interface AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails {
    *         </p>
    * @public
    */
-  AuthorizerResultTtlInSeconds?: number;
+  AuthorizerResultTtlInSeconds?: number | undefined;
 
   /**
    * <p>
@@ -3710,7 +3412,7 @@ export interface AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails {
    *         </p>
    * @public
    */
-  AuthorizerUri?: string;
+  AuthorizerUri?: string | undefined;
 
   /**
    * <p>
@@ -3718,7 +3420,7 @@ export interface AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails {
    *         </p>
    * @public
    */
-  IdentityValidationExpression?: string;
+  IdentityValidationExpression?: string | undefined;
 }
 
 /**
@@ -3735,7 +3437,7 @@ export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
    *         </p>
    * @public
    */
-  AuthTtL?: number;
+  AuthTtL?: number | undefined;
 
   /**
    * <p>
@@ -3745,7 +3447,7 @@ export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
    *         </p>
    * @public
    */
-  ClientId?: string;
+  ClientId?: string | undefined;
 
   /**
    * <p>
@@ -3753,7 +3455,7 @@ export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
    *         </p>
    * @public
    */
-  IatTtL?: number;
+  IatTtL?: number | undefined;
 
   /**
    * <p>
@@ -3762,7 +3464,7 @@ export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
    *         </p>
    * @public
    */
-  Issuer?: string;
+  Issuer?: string | undefined;
 }
 
 /**
@@ -3780,7 +3482,7 @@ export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
    *         </p>
    * @public
    */
-  AppIdClientRegex?: string;
+  AppIdClientRegex?: string | undefined;
 
   /**
    * <p>
@@ -3788,7 +3490,7 @@ export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
    *         </p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>
@@ -3797,7 +3499,7 @@ export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
    *         </p>
    * @public
    */
-  DefaultAction?: string;
+  DefaultAction?: string | undefined;
 
   /**
    * <p>
@@ -3805,7 +3507,7 @@ export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
    *         </p>
    * @public
    */
-  UserPoolId?: string;
+  UserPoolId?: string | undefined;
 }
 
 /**
@@ -3821,7 +3523,7 @@ export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
    *         </p>
    * @public
    */
-  AuthenticationType?: string;
+  AuthenticationType?: string | undefined;
 
   /**
    * <p>
@@ -3829,7 +3531,7 @@ export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
    *         </p>
    * @public
    */
-  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails;
+  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails | undefined;
 
   /**
    * <p>
@@ -3837,7 +3539,7 @@ export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
    *         </p>
    * @public
    */
-  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails;
+  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails | undefined;
 
   /**
    * <p>
@@ -3845,7 +3547,7 @@ export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
    *         </p>
    * @public
    */
-  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails;
+  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails | undefined;
 }
 
 /**
@@ -3863,7 +3565,7 @@ export interface AwsAppSyncGraphQlApiLogConfigDetails {
    *         </p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>
@@ -3872,7 +3574,7 @@ export interface AwsAppSyncGraphQlApiLogConfigDetails {
    *         </p>
    * @public
    */
-  ExcludeVerboseContent?: boolean;
+  ExcludeVerboseContent?: boolean | undefined;
 
   /**
    * <p>
@@ -3880,7 +3582,7 @@ export interface AwsAppSyncGraphQlApiLogConfigDetails {
    *         </p>
    * @public
    */
-  FieldLogLevel?: string;
+  FieldLogLevel?: string | undefined;
 }
 
 /**
@@ -3896,13 +3598,13 @@ export interface AwsAppSyncGraphQlApiDetails {
    *         </p>
    * @public
    */
-  ApiId?: string;
+  ApiId?: string | undefined;
 
   /**
    * <p>The unique identifier for the API.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -3910,7 +3612,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails;
+  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails | undefined;
 
   /**
    * <p>
@@ -3918,7 +3620,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -3926,7 +3628,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails;
+  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails | undefined;
 
   /**
    * <p>
@@ -3934,7 +3636,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  XrayEnabled?: boolean;
+  XrayEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -3942,7 +3644,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -3950,7 +3652,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails;
+  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails | undefined;
 
   /**
    * <p>
@@ -3958,7 +3660,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    * </p>
    * @public
    */
-  AuthenticationType?: string;
+  AuthenticationType?: string | undefined;
 
   /**
    * <p>
@@ -3966,7 +3668,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    *         </p>
    * @public
    */
-  LogConfig?: AwsAppSyncGraphQlApiLogConfigDetails;
+  LogConfig?: AwsAppSyncGraphQlApiLogConfigDetails | undefined;
 
   /**
    * <p>
@@ -3974,7 +3676,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    *         </p>
    * @public
    */
-  AdditionalAuthenticationProviders?: AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails[];
+  AdditionalAuthenticationProviders?: AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails[] | undefined;
 
   /**
    * <p>
@@ -3983,7 +3685,7 @@ export interface AwsAppSyncGraphQlApiDetails {
    *         </p>
    * @public
    */
-  WafWebAclArn?: string;
+  WafWebAclArn?: string | undefined;
 }
 
 /**
@@ -4001,7 +3703,7 @@ export interface AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionCon
    *         </p>
    * @public
    */
-  EncryptionOption?: string;
+  EncryptionOption?: string | undefined;
 
   /**
    * <p>
@@ -4009,7 +3711,7 @@ export interface AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionCon
    *         </p>
    * @public
    */
-  KmsKey?: string;
+  KmsKey?: string | undefined;
 }
 
 /**
@@ -4027,7 +3729,9 @@ export interface AwsAthenaWorkGroupConfigurationResultConfigurationDetails {
    *         </p>
    * @public
    */
-  EncryptionConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails;
+  EncryptionConfiguration?:
+    | AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails
+    | undefined;
 }
 
 /**
@@ -4047,7 +3751,7 @@ export interface AwsAthenaWorkGroupConfigurationDetails {
    *             workgroup settings override client-side settings, then the query uses the workgroup settings.</p>
    * @public
    */
-  ResultConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationDetails;
+  ResultConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationDetails | undefined;
 }
 
 /**
@@ -4063,7 +3767,7 @@ export interface AwsAthenaWorkGroupDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -4071,7 +3775,7 @@ export interface AwsAthenaWorkGroupDetails {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -4079,7 +3783,7 @@ export interface AwsAthenaWorkGroupDetails {
    *         </p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>
@@ -4090,7 +3794,7 @@ export interface AwsAthenaWorkGroupDetails {
    *         </p>
    * @public
    */
-  Configuration?: AwsAthenaWorkGroupConfigurationDetails;
+  Configuration?: AwsAthenaWorkGroupConfigurationDetails | undefined;
 }
 
 /**
@@ -4102,7 +3806,7 @@ export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
    * <p>The name of the Availability Zone.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -4114,19 +3818,19 @@ export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpeci
    * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
    * @public
    */
-  LaunchTemplateId?: string;
+  LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
    * @public
    */
-  LaunchTemplateName?: string;
+  LaunchTemplateName?: string | undefined;
 
   /**
    * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -4138,19 +3842,19 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
    * <p>How to allocate instance types to fulfill On-Demand capacity. The valid value is <code>prioritized</code>.</p>
    * @public
    */
-  OnDemandAllocationStrategy?: string;
+  OnDemandAllocationStrategy?: string | undefined;
 
   /**
    * <p>The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.</p>
    * @public
    */
-  OnDemandBaseCapacity?: number;
+  OnDemandBaseCapacity?: number | undefined;
 
   /**
    * <p>The percentage of On-Demand Instances and Spot Instances for additional capacity beyond <code>OnDemandBaseCapacity</code>.</p>
    * @public
    */
-  OnDemandPercentageAboveBaseCapacity?: number;
+  OnDemandPercentageAboveBaseCapacity?: number | undefined;
 
   /**
    * <p>How to allocate instances across Spot Instance pools. Valid values are as follows:</p>
@@ -4173,19 +3877,19 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
    *          </ul>
    * @public
    */
-  SpotAllocationStrategy?: string;
+  SpotAllocationStrategy?: string | undefined;
 
   /**
    * <p>The number of Spot Instance pools across which to allocate your Spot Instances.</p>
    * @public
    */
-  SpotInstancePools?: number;
+  SpotInstancePools?: number | undefined;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
    * @public
    */
-  SpotMaxPrice?: string;
+  SpotMaxPrice?: string | undefined;
 }
 
 /**
@@ -4197,19 +3901,19 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
    * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
    * @public
    */
-  LaunchTemplateId?: string;
+  LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
    * @public
    */
-  LaunchTemplateName?: string;
+  LaunchTemplateName?: string | undefined;
 
   /**
    * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -4221,13 +3925,13 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
    * <p>The instance type. For example, <code>m3.xlarge</code>.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.</p>
    * @public
    */
-  WeightedCapacity?: string;
+  WeightedCapacity?: string | undefined;
 }
 
 /**
@@ -4239,13 +3943,15 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
    * <p>The launch template to use for a mixed instances policy.</p>
    * @public
    */
-  LaunchTemplateSpecification?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
+  LaunchTemplateSpecification?:
+    | AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
+    | undefined;
 
   /**
    * <p>Property values to use to override the values in the launch template.</p>
    * @public
    */
-  Overrides?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[];
+  Overrides?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[] | undefined;
 }
 
 /**
@@ -4257,13 +3963,13 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
    * <p>The instances distribution. The instances distribution specifies the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacity.</p>
    * @public
    */
-  InstancesDistribution?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails;
+  InstancesDistribution?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails | undefined;
 
   /**
    * <p>The launch template to use and the instance types (overrides) to use to provision EC2 instances to fulfill On-Demand and Spot capacities.</p>
    * @public
    */
-  LaunchTemplate?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails;
+  LaunchTemplate?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails | undefined;
 }
 
 /**
@@ -4275,82 +3981,58 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
    * <p>The name of the launch configuration.</p>
    * @public
    */
-  LaunchConfigurationName?: string;
+  LaunchConfigurationName?: string | undefined;
 
   /**
    * <p>The list of load balancers associated with the group.</p>
    * @public
    */
-  LoadBalancerNames?: string[];
+  LoadBalancerNames?: string[] | undefined;
 
   /**
    * <p>The service to use for the health checks. Valid values are <code>EC2</code> or <code>ELB</code>.</p>
    * @public
    */
-  HealthCheckType?: string;
+  HealthCheckType?: string | undefined;
 
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the
    *          health status of an EC2 instance that has come into service.</p>
    * @public
    */
-  HealthCheckGracePeriod?: number;
+  HealthCheckGracePeriod?: number | undefined;
 
   /**
    * <p>Indicates when the auto scaling group was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The mixed instances policy for the automatic scaling group.</p>
    * @public
    */
-  MixedInstancesPolicy?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails;
+  MixedInstancesPolicy?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails | undefined;
 
   /**
    * <p>The list of Availability Zones for the automatic scaling group.</p>
    * @public
    */
-  AvailabilityZones?: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[];
+  AvailabilityZones?: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[] | undefined;
 
   /**
    * <p>The launch template to use.</p>
    * @public
    */
-  LaunchTemplate?: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification;
+  LaunchTemplate?: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification | undefined;
 
   /**
    * <p>Indicates whether capacity rebalancing is enabled.
    *       </p>
    * @public
    */
-  CapacityRebalance?: boolean;
+  CapacityRebalance?: boolean | undefined;
 }
 
 /**
@@ -4362,27 +4044,27 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
    * <p>Whether to delete the volume when the instance is terminated.</p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>Whether to encrypt the volume.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume.</p>
    *          <p>Only supported for <code>gp3</code> or <code>io1</code> volumes. Required for <code>io1</code> volumes. Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>The snapshot ID of the volume to use.</p>
    *          <p>You must specify either <code>VolumeSize</code> or <code>SnapshotId</code>.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type:</p>
@@ -4403,7 +4085,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
    *          <p>You must specify either <code>SnapshotId</code> or <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>The volume type. Valid values are as follows:</p>
@@ -4441,7 +4123,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
    *          </ul>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 }
 
 /**
@@ -4453,27 +4135,27 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
    * <p>The device name that is exposed to the EC2 instance. For example, <code>/dev/sdh</code> or <code>xvdh</code>.</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>Parameters that are used to automatically set up Amazon EBS volumes when an instance is launched.</p>
    * @public
    */
-  Ebs?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails;
+  Ebs?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails | undefined;
 
   /**
    * <p>Whether to suppress the device that is included in the block device mapping of the Amazon Machine Image (AMI).</p>
    *          <p>If <code>NoDevice</code> is <code>true</code>, then you cannot specify <code>Ebs</code>.></p>
    * @public
    */
-  NoDevice?: boolean;
+  NoDevice?: boolean | undefined;
 
   /**
    * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
    *          <p>You can provide either <code>VirtualName</code> or <code>Ebs</code>, but not both.</p>
    * @public
    */
-  VirtualName?: string;
+  VirtualName?: string | undefined;
 }
 
 /**
@@ -4488,7 +4170,7 @@ export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
    *          monitoring.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -4500,19 +4182,19 @@ export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
    * <p>Enables or disables the HTTP metadata endpoint on your instances. By default, the metadata endpoint is enabled.</p>
    * @public
    */
-  HttpEndpoint?: string;
+  HttpEndpoint?: string | undefined;
 
   /**
    * <p>The HTTP <code>PUT</code> response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>
    * @public
    */
-  HttpPutResponseHopLimit?: number;
+  HttpPutResponseHopLimit?: number | undefined;
 
   /**
    * <p>Indicates whether token usage is <code>required</code> or <code>optional</code> for metadata requests. By default, token usage is <code>optional</code>.</p>
    * @public
    */
-  HttpTokens?: string;
+  HttpTokens?: string | undefined;
 }
 
 /**
@@ -4524,145 +4206,121 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
    * <p>For Auto Scaling groups that run in a VPC, specifies whether to assign a public IP address to the group's instances.</p>
    * @public
    */
-  AssociatePublicIpAddress?: boolean;
+  AssociatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>Specifies the block devices for the instance.</p>
    * @public
    */
-  BlockDeviceMappings?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails[];
+  BlockDeviceMappings?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails[] | undefined;
 
   /**
    * <p>The identifier of a ClassicLink-enabled VPC that EC2-Classic instances are linked to.</p>
    * @public
    */
-  ClassicLinkVpcId?: string;
+  ClassicLinkVpcId?: string | undefined;
 
   /**
    * <p>The identifiers of one or more security groups for the VPC that is specified in <code>ClassicLinkVPCId</code>.</p>
    * @public
    */
-  ClassicLinkVpcSecurityGroups?: string[];
+  ClassicLinkVpcSecurityGroups?: string[] | undefined;
 
   /**
    * <p>The creation date and time for the launch configuration.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>Whether the launch configuration is optimized for Amazon EBS I/O.</p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>The name or the ARN of the instance profile associated with the IAM role for the
    *          instance. The instance profile contains the IAM role.</p>
    * @public
    */
-  IamInstanceProfile?: string;
+  IamInstanceProfile?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Machine Image (AMI) that is used to launch EC2
    *          instances.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>Indicates the type of monitoring for instances in the group.</p>
    * @public
    */
-  InstanceMonitoring?: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails;
+  InstanceMonitoring?: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails | undefined;
 
   /**
    * <p>The instance type for the instances.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The identifier of the kernel associated with the AMI.</p>
    * @public
    */
-  KernelId?: string;
+  KernelId?: string | undefined;
 
   /**
    * <p>The name of the key pair.</p>
    * @public
    */
-  KeyName?: string;
+  KeyName?: string | undefined;
 
   /**
    * <p>The name of the launch configuration.</p>
    * @public
    */
-  LaunchConfigurationName?: string;
+  LaunchConfigurationName?: string | undefined;
 
   /**
    * <p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on
    *          isolated, single-tenant hardware and can only be launched into a VPC.</p>
    * @public
    */
-  PlacementTenancy?: string;
+  PlacementTenancy?: string | undefined;
 
   /**
    * <p>The identifier of the RAM disk associated with the AMI.</p>
    * @public
    */
-  RamdiskId?: string;
+  RamdiskId?: string | undefined;
 
   /**
    * <p>The security groups to assign to the instances in the Auto Scaling group.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The maximum hourly price to be paid for any Spot Instance that is launched to fulfill the
    *          request.</p>
    * @public
    */
-  SpotPrice?: string;
+  SpotPrice?: string | undefined;
 
   /**
    * <p>The user data to make available to the launched EC2 instances. Must be base64-encoded
    *          text.</p>
    * @public
    */
-  UserData?: string;
+  UserData?: string | undefined;
 
   /**
    * <p>The metadata options for the instances.</p>
    * @public
    */
-  MetadataOptions?: AwsAutoScalingLaunchConfigurationMetadataOptions;
+  MetadataOptions?: AwsAutoScalingLaunchConfigurationMetadataOptions | undefined;
 }
 
 /**
@@ -4684,14 +4342,14 @@ export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
    *          </ul>
    * @public
    */
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Record<string, string> | undefined;
 
   /**
    * <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
    *          <p>The only valid value is <code>EC2</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -4705,14 +4363,14 @@ export interface AwsBackupBackupPlanLifecycleDetails {
    *       </p>
    * @public
    */
-  DeleteAfterDays?: number;
+  DeleteAfterDays?: number | undefined;
 
   /**
    * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
    *       </p>
    * @public
    */
-  MoveToColdStorageAfterDays?: number;
+  MoveToColdStorageAfterDays?: number | undefined;
 }
 
 /**
@@ -4726,17 +4384,17 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
    *       </p>
    * @public
    */
-  DestinationBackupVaultArn?: string;
+  DestinationBackupVaultArn?: string | undefined;
 
   /**
    * <p>Defines when a protected resource is transitioned to cold storage and when it expires.
    *             Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. If you do not specify a lifecycle, Backup applies
+   *          lifecycle that you define. If you don't specify a lifecycle, Backup applies
    *          the lifecycle policy of the source backup to the destination backup.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
    * @public
    */
-  Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
+  Lifecycle?: AwsBackupBackupPlanLifecycleDetails | undefined;
 }
 
 /**
@@ -4750,62 +4408,62 @@ export interface AwsBackupBackupPlanRuleDetails {
    *       </p>
    * @public
    */
-  TargetBackupVault?: string;
+  TargetBackupVault?: string | undefined;
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully.
    *       </p>
    * @public
    */
-  StartWindowMinutes?: number;
+  StartWindowMinutes?: number | undefined;
 
   /**
    * <p>A cron expression in UTC specifying when Backup initiates a backup job.
    *       </p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters. </p>
    * @public
    */
-  RuleName?: string;
+  RuleName?: string | undefined;
 
   /**
    * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
    *       </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>Specifies whether Backup creates continuous backups capable of point-in-time restore (PITR).
    *       </p>
    * @public
    */
-  EnableContinuousBackup?: boolean;
+  EnableContinuousBackup?: boolean | undefined;
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be completed, or it is canceled by Backup.
    *       </p>
    * @public
    */
-  CompletionWindowMinutes?: number;
+  CompletionWindowMinutes?: number | undefined;
 
   /**
    * <p>An array of <code>CopyAction</code> objects, each of which contains details of the
    *          copy operation. </p>
    * @public
    */
-  CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[];
+  CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[] | undefined;
 
   /**
-   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
+   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you don't specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
    * @public
    */
-  Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
+  Lifecycle?: AwsBackupBackupPlanLifecycleDetails | undefined;
 }
 
 /**
@@ -4819,21 +4477,21 @@ export interface AwsBackupBackupPlanBackupPlanDetails {
    *       </p>
    * @public
    */
-  BackupPlanName?: string;
+  BackupPlanName?: string | undefined;
 
   /**
    * <p>A list of backup options for each resource type.
    *       </p>
    * @public
    */
-  AdvancedBackupSettings?: AwsBackupBackupPlanAdvancedBackupSettingsDetails[];
+  AdvancedBackupSettings?: AwsBackupBackupPlanAdvancedBackupSettingsDetails[] | undefined;
 
   /**
    * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
    *       </p>
    * @public
    */
-  BackupPlanRule?: AwsBackupBackupPlanRuleDetails[];
+  BackupPlanRule?: AwsBackupBackupPlanRuleDetails[] | undefined;
 }
 
 /**
@@ -4847,28 +4505,28 @@ export interface AwsBackupBackupPlanDetails {
    *       </p>
    * @public
    */
-  BackupPlan?: AwsBackupBackupPlanBackupPlanDetails;
+  BackupPlan?: AwsBackupBackupPlanBackupPlanDetails | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the backup plan.
    *       </p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>A unique ID for the backup plan.
    *       </p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings. Version IDs cannot be edited.
    *       </p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -4904,14 +4562,14 @@ export interface AwsBackupBackupVaultNotificationsDetails {
    *          </ul>
    * @public
    */
-  BackupVaultEvents?: string[];
+  BackupVaultEvents?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS topic for
    *          a backup vault's events. </p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 }
 
 /**
@@ -4926,7 +4584,7 @@ export interface AwsBackupBackupVaultDetails {
    *       </p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the
@@ -4935,29 +4593,29 @@ export interface AwsBackupBackupVaultDetails {
    *       </p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>The unique ARN associated with the server-side encryption key. You can specify a key to encrypt your backups from services that support
-   * full Backup management. If you do not specify a key, Backup creates an KMS key for you by default.
+   * full Backup management. If you don't specify a key, Backup creates an KMS key for you by default.
    *       </p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon SNS event notifications for the specified backup vault.
    *       </p>
    * @public
    */
-  Notifications?: AwsBackupBackupVaultNotificationsDetails;
+  Notifications?: AwsBackupBackupVaultNotificationsDetails | undefined;
 
   /**
    * <p>A resource-based policy that is used to manage access permissions on the target backup vault.
    *       </p>
    * @public
    */
-  AccessPolicy?: string;
+  AccessPolicy?: string | undefined;
 }
 
 /**
@@ -4972,14 +4630,14 @@ export interface AwsBackupRecoveryPointCalculatedLifecycleDetails {
    *       </p>
    * @public
    */
-  DeleteAt?: string;
+  DeleteAt?: string | undefined;
 
   /**
    * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
    *       </p>
    * @public
    */
-  MoveToColdStorageAt?: string;
+  MoveToColdStorageAt?: string | undefined;
 }
 
 /**
@@ -4993,14 +4651,14 @@ export interface AwsBackupRecoveryPointCreatedByDetails {
    *       </p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>Uniquely identifies a backup plan.
    *       </p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most
@@ -5008,14 +4666,14 @@ export interface AwsBackupRecoveryPointCreatedByDetails {
    *       </p>
    * @public
    */
-  BackupPlanVersion?: string;
+  BackupPlanVersion?: string | undefined;
 
   /**
    * <p>Uniquely identifies a rule used to schedule the backup of a selection of resources.
    *       </p>
    * @public
    */
-  BackupRuleId?: string;
+  BackupRuleId?: string | undefined;
 }
 
 /**
@@ -5030,14 +4688,14 @@ export interface AwsBackupRecoveryPointLifecycleDetails {
    *       </p>
    * @public
    */
-  DeleteAfterDays?: number;
+  DeleteAfterDays?: number | undefined;
 
   /**
    * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
    *       </p>
    * @public
    */
-  MoveToColdStorageAfterDays?: number;
+  MoveToColdStorageAfterDays?: number | undefined;
 }
 
 /**
@@ -5052,14 +4710,14 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
    *       </p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified by names
@@ -5068,14 +4726,14 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps.
    *       </p>
    * @public
    */
-  CalculatedLifecycle?: AwsBackupRecoveryPointCalculatedLifecycleDetails;
+  CalculatedLifecycle?: AwsBackupRecoveryPointCalculatedLifecycleDetails | undefined;
 
   /**
    * <p>The date and time that a job to create a recovery point is completed, in Unix format and UTC.
@@ -5084,7 +4742,7 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  CompletionDate?: string;
+  CompletionDate?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a recovery point, including the
@@ -5093,7 +4751,7 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  CreatedBy?: AwsBackupRecoveryPointCreatedByDetails;
+  CreatedBy?: AwsBackupRecoveryPointCreatedByDetails | undefined;
 
   /**
    * <p>The date and time a recovery point is created, in Unix format and UTC. The value of <code>CreationDate</code>
@@ -5101,21 +4759,21 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  CreationDate?: string;
+  CreationDate?: string | undefined;
 
   /**
    * <p>The ARN for the server-side encryption key that is used to protect your backups.
    *       </p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point
    *       </p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
@@ -5123,7 +4781,7 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  IsEncrypted?: boolean;
+  IsEncrypted?: boolean | undefined;
 
   /**
    * <p>The date and time that a recovery point was last restored, in Unix format and UTC. The value of
@@ -5132,7 +4790,7 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  LastRestoreTime?: string;
+  LastRestoreTime?: string | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it
@@ -5141,28 +4799,28 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  Lifecycle?: AwsBackupRecoveryPointLifecycleDetails;
+  Lifecycle?: AwsBackupRecoveryPointLifecycleDetails | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point.
    *       </p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the resource type.
    *       </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource saved as a recovery point, such as an Amazon EBS volume or an Amazon RDS database.
    *       </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ARN for the backup vault where the recovery point was originally copied from. If the recovery
@@ -5170,7 +4828,7 @@ export interface AwsBackupRecoveryPointDetails {
    *       </p>
    * @public
    */
-  SourceBackupVaultArn?: string;
+  SourceBackupVaultArn?: string | undefined;
 
   /**
    * <p>A status code specifying the state of the recovery point. Valid values are as follows:</p>
@@ -5198,14 +4856,14 @@ export interface AwsBackupRecoveryPointDetails {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>A message explaining the reason of the recovery point deletion failure.
    *       </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Specifies the storage class of the recovery point. Valid values are as follows:</p>
@@ -5228,7 +4886,7 @@ export interface AwsBackupRecoveryPointDetails {
    *          </ul>
    * @public
    */
-  StorageClass?: string;
+  StorageClass?: string | undefined;
 }
 
 /**
@@ -5241,19 +4899,19 @@ export interface AwsCertificateManagerCertificateResourceRecord {
    * <p>The name of the resource.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The value of the resource.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -5274,39 +4932,39 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
    * <p>A fully qualified domain name (FQDN) in the certificate.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The CNAME record that is added to the DNS database for domain validation.</p>
    * @public
    */
-  ResourceRecord?: AwsCertificateManagerCertificateResourceRecord;
+  ResourceRecord?: AwsCertificateManagerCertificateResourceRecord | undefined;
 
   /**
    * <p>The domain name that Certificate Manager uses to send domain validation
    *          emails.</p>
    * @public
    */
-  ValidationDomain?: string;
+  ValidationDomain?: string | undefined;
 
   /**
    * <p>A list of email addresses that Certificate Manager uses to send domain validation
    *          emails.</p>
    * @public
    */
-  ValidationEmails?: string[];
+  ValidationEmails?: string[] | undefined;
 
   /**
    * <p>The method used to validate the domain name.</p>
    * @public
    */
-  ValidationMethod?: string;
+  ValidationMethod?: string | undefined;
 
   /**
    * <p>The validation status of the domain name.</p>
    * @public
    */
-  ValidationStatus?: string;
+  ValidationStatus?: string | undefined;
 }
 
 /**
@@ -5319,14 +4977,14 @@ export interface AwsCertificateManagerCertificateExtendedKeyUsage {
    *          key can be used.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An object identifier (OID) for the extension value.</p>
    *          <p>The format is numbers separated by periods.</p>
    * @public
    */
-  OId?: string;
+  OId?: string | undefined;
 }
 
 /**
@@ -5338,7 +4996,7 @@ export interface AwsCertificateManagerCertificateKeyUsage {
    * <p>The key usage extension name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5352,7 +5010,7 @@ export interface AwsCertificateManagerCertificateOptions {
    *          </p>
    * @public
    */
-  CertificateTransparencyLoggingPreference?: string;
+  CertificateTransparencyLoggingPreference?: string | undefined;
 }
 
 /**
@@ -5367,7 +5025,7 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
    *             <code>AMAZON_ISSUED</code>.</p>
    * @public
    */
-  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
+  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[] | undefined;
 
   /**
    * <p>The status of the Certificate Manager managed renewal of the certificate.</p>
@@ -5376,7 +5034,7 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
    *          </p>
    * @public
    */
-  RenewalStatus?: string;
+  RenewalStatus?: string | undefined;
 
   /**
    * <p>The reason that a renewal request was unsuccessful. This attribute is used only when <code>RenewalStatus</code> is <code>FAILED</code>.</p>
@@ -5391,38 +5049,14 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
    *          </p>
    * @public
    */
-  RenewalStatusReason?: string;
+  RenewalStatusReason?: string | undefined;
 
   /**
    * <p>Indicates when the renewal summary was last updated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  UpdatedAt?: string;
+  UpdatedAt?: string | undefined;
 }
 
 /**
@@ -5435,45 +5069,21 @@ export interface AwsCertificateManagerCertificateDetails {
    *          certificate.</p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>Indicates when the certificate was requested.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The fully qualified domain name (FQDN), such as www.example.com, that is secured by the
    *          certificate.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>Contains information about the initial validation of each domain name that occurs as a
@@ -5481,7 +5091,7 @@ export interface AwsCertificateManagerCertificateDetails {
    *          <p>Only provided if the certificate type is <code>AMAZON_ISSUED</code>.</p>
    * @public
    */
-  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
+  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[] | undefined;
 
   /**
    * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies
@@ -5489,7 +5099,7 @@ export interface AwsCertificateManagerCertificateDetails {
    *          object identifier (OID).</p>
    * @public
    */
-  ExtendedKeyUsages?: AwsCertificateManagerCertificateExtendedKeyUsage[];
+  ExtendedKeyUsages?: AwsCertificateManagerCertificateExtendedKeyUsage[] | undefined;
 
   /**
    * <p>For a failed certificate request, the reason for the failure.</p>
@@ -5504,83 +5114,35 @@ export interface AwsCertificateManagerCertificateDetails {
    *          </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>Indicates when the certificate was imported. Provided if the certificate type is
    *             <code>IMPORTED</code>.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  ImportedAt?: string;
+  ImportedAt?: string | undefined;
 
   /**
    * <p>The list of ARNs for the Amazon Web Services resources that use the certificate.</p>
    * @public
    */
-  InUseBy?: string[];
+  InUseBy?: string[] | undefined;
 
   /**
    * <p>Indicates when the certificate was issued. Provided if the certificate type is
    *             <code>AMAZON_ISSUED</code>.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  IssuedAt?: string;
+  IssuedAt?: string | undefined;
 
   /**
    * <p>The name of the certificate authority that issued and signed the certificate.</p>
    * @public
    */
-  Issuer?: string;
+  Issuer?: string | undefined;
 
   /**
    * <p>The algorithm that was used to generate the public-private key pair.</p>
@@ -5590,82 +5152,34 @@ export interface AwsCertificateManagerCertificateDetails {
    *          </p>
    * @public
    */
-  KeyAlgorithm?: string;
+  KeyAlgorithm?: string | undefined;
 
   /**
    * <p>A list of key usage X.509 v3 extension objects.</p>
    * @public
    */
-  KeyUsages?: AwsCertificateManagerCertificateKeyUsage[];
+  KeyUsages?: AwsCertificateManagerCertificateKeyUsage[] | undefined;
 
   /**
    * <p>The time after which the certificate becomes invalid.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  NotAfter?: string;
+  NotAfter?: string | undefined;
 
   /**
    * <p>The time before which the certificate is not valid.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  NotBefore?: string;
+  NotBefore?: string | undefined;
 
   /**
    * <p>Provides a value that specifies whether to add the certificate to a transparency
    *          log.</p>
    * @public
    */
-  Options?: AwsCertificateManagerCertificateOptions;
+  Options?: AwsCertificateManagerCertificateOptions | undefined;
 
   /**
    * <p>Whether the certificate is eligible for renewal.</p>
@@ -5673,26 +5187,26 @@ export interface AwsCertificateManagerCertificateDetails {
    *          </p>
    * @public
    */
-  RenewalEligibility?: string;
+  RenewalEligibility?: string | undefined;
 
   /**
    * <p>Information about the status of the Certificate Manager managed renewal for the
    *          certificate. Provided only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
    * @public
    */
-  RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary;
+  RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary | undefined;
 
   /**
    * <p>The serial number of the certificate.</p>
    * @public
    */
-  Serial?: string;
+  Serial?: string | undefined;
 
   /**
    * <p>The algorithm that was used to sign the certificate.</p>
    * @public
    */
-  SignatureAlgorithm?: string;
+  SignatureAlgorithm?: string | undefined;
 
   /**
    * <p>The status of the certificate.</p>
@@ -5702,14 +5216,14 @@ export interface AwsCertificateManagerCertificateDetails {
    *          </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The name of the entity that is associated with the public key contained in the
    *          certificate.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>One or more domain names (subject alternative names) included in the certificate. This
@@ -5719,7 +5233,7 @@ export interface AwsCertificateManagerCertificateDetails {
    *          and additional domain names that can be used to connect to the website.</p>
    * @public
    */
-  SubjectAlternativeNames?: string[];
+  SubjectAlternativeNames?: string[] | undefined;
 
   /**
    * <p>The source of the certificate. For certificates that Certificate Manager provides,
@@ -5730,7 +5244,7 @@ export interface AwsCertificateManagerCertificateDetails {
    *          </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -5744,7 +5258,7 @@ export interface AwsCloudFormationStackDriftInformationDetails {
    *       </p>
    * @public
    */
-  StackDriftStatus?: string;
+  StackDriftStatus?: string | undefined;
 }
 
 /**
@@ -5758,21 +5272,21 @@ export interface AwsCloudFormationStackOutputsDetails {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The key associated with the output.
    *       </p>
    * @public
    */
-  OutputKey?: string;
+  OutputKey?: string | undefined;
 
   /**
    * <p>The value associated with the output.
    *       </p>
    * @public
    */
-  OutputValue?: string;
+  OutputValue?: string | undefined;
 }
 
 /**
@@ -5786,27 +5300,27 @@ export interface AwsCloudFormationStackDetails {
    *       </p>
    * @public
    */
-  Capabilities?: string[];
+  Capabilities?: string[] | undefined;
 
   /**
    * <p>The time at which the stack was created. </p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>A user-defined description associated with the stack.
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Boolean to enable or disable rollback on stack creation failures.
    *       </p>
    * @public
    */
-  DisableRollback?: boolean;
+  DisableRollback?: boolean | undefined;
 
   /**
    * <p>Information about whether a stack's actual configuration differs, or has drifted, from its expected
@@ -5814,70 +5328,70 @@ export interface AwsCloudFormationStackDetails {
    *       </p>
    * @public
    */
-  DriftInformation?: AwsCloudFormationStackDriftInformationDetails;
+  DriftInformation?: AwsCloudFormationStackDriftInformationDetails | undefined;
 
   /**
    * <p>Whether termination protection is enabled for the stack.
    *       </p>
    * @public
    */
-  EnableTerminationProtection?: boolean;
+  EnableTerminationProtection?: boolean | undefined;
 
   /**
    * <p>The time the nested stack was last updated. This field will only be returned if the stack has been
    * updated at least once.</p>
    * @public
    */
-  LastUpdatedTime?: string;
+  LastUpdatedTime?: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the Amazon SNS topic to which stack-related events are published.
    *       </p>
    * @public
    */
-  NotificationArns?: string[];
+  NotificationArns?: string[] | undefined;
 
   /**
    * <p>A list of output structures.
    *       </p>
    * @public
    */
-  Outputs?: AwsCloudFormationStackOutputsDetails[];
+  Outputs?: AwsCloudFormationStackOutputsDetails[] | undefined;
 
   /**
    * <p>The ARN of an IAM role that's associated with the stack.
    *       </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Unique identifier of the stack.
    *       </p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The name associated with the stack.
    *       </p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>Current status of the stack.
    *       </p>
    * @public
    */
-  StackStatus?: string;
+  StackStatus?: string | undefined;
 
   /**
    * <p>Success or failure message associated with the stack status.
    *       </p>
    * @public
    */
-  StackStatusReason?: string;
+  StackStatusReason?: string | undefined;
 
   /**
    * <p>The length of time, in minutes, that CloudFormation waits for the nested stack to reach
@@ -5885,7 +5399,7 @@ export interface AwsCloudFormationStackDetails {
    *       </p>
    * @public
    */
-  TimeoutInMinutes?: number;
+  TimeoutInMinutes?: number | undefined;
 }
 
 /**
@@ -5915,7 +5429,7 @@ export interface AwsCloudFrontDistributionCacheBehavior {
    *          </ul>
    * @public
    */
-  ViewerProtocolPolicy?: string;
+  ViewerProtocolPolicy?: string | undefined;
 }
 
 /**
@@ -5927,7 +5441,7 @@ export interface AwsCloudFrontDistributionCacheBehaviors {
    * <p>The cache behaviors for the distribution.</p>
    * @public
    */
-  Items?: AwsCloudFrontDistributionCacheBehavior[];
+  Items?: AwsCloudFrontDistributionCacheBehavior[] | undefined;
 }
 
 /**
@@ -5957,7 +5471,7 @@ export interface AwsCloudFrontDistributionDefaultCacheBehavior {
    *          </ul>
    * @public
    */
-  ViewerProtocolPolicy?: string;
+  ViewerProtocolPolicy?: string | undefined;
 }
 
 /**
@@ -5969,26 +5483,26 @@ export interface AwsCloudFrontDistributionLogging {
    * <p>The S3 bucket to store the access logs in.</p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>With this field, you can enable or disable the selected distribution.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether you want CloudFront to include cookies in access logs.</p>
    * @public
    */
-  IncludeCookies?: boolean;
+  IncludeCookies?: boolean | undefined;
 
   /**
    * <p>An optional string that you want CloudFront to use as a prefix to the access log
    *          filenames for this distribution.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -6000,13 +5514,13 @@ export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
    * <p>The list of status code values that can cause a failover to the next origin.</p>
    * @public
    */
-  Items?: number[];
+  Items?: number[] | undefined;
 
   /**
    * <p>The number of status codes that can cause a failover.</p>
    * @public
    */
-  Quantity?: number;
+  Quantity?: number | undefined;
 }
 
 /**
@@ -6018,7 +5532,7 @@ export interface AwsCloudFrontDistributionOriginGroupFailover {
    * <p>Information about the status codes that cause an origin group to fail over.</p>
    * @public
    */
-  StatusCodes?: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes;
+  StatusCodes?: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes | undefined;
 }
 
 /**
@@ -6030,7 +5544,7 @@ export interface AwsCloudFrontDistributionOriginGroup {
    * <p>Provides the criteria for an origin group to fail over.</p>
    * @public
    */
-  FailoverCriteria?: AwsCloudFrontDistributionOriginGroupFailover;
+  FailoverCriteria?: AwsCloudFrontDistributionOriginGroupFailover | undefined;
 }
 
 /**
@@ -6042,7 +5556,7 @@ export interface AwsCloudFrontDistributionOriginGroups {
    * <p>The list of origin groups.</p>
    * @public
    */
-  Items?: AwsCloudFrontDistributionOriginGroup[];
+  Items?: AwsCloudFrontDistributionOriginGroup[] | undefined;
 }
 
 /**
@@ -6057,7 +5571,7 @@ export interface AwsCloudFrontDistributionOriginSslProtocols {
    *       </p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 
   /**
    * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing
@@ -6065,7 +5579,7 @@ export interface AwsCloudFrontDistributionOriginSslProtocols {
    *       </p>
    * @public
    */
-  Quantity?: number;
+  Quantity?: number | undefined;
 }
 
 /**
@@ -6079,42 +5593,42 @@ export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
    *       </p>
    * @public
    */
-  HttpPort?: number;
+  HttpPort?: number | undefined;
 
   /**
    * <p>The HTTPS port that CloudFront uses to connect to the origin.
    *       </p>
    * @public
    */
-  HttpsPort?: number;
+  HttpsPort?: number | undefined;
 
   /**
    * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin.
    *       </p>
    * @public
    */
-  OriginKeepaliveTimeout?: number;
+  OriginKeepaliveTimeout?: number | undefined;
 
   /**
    * <p>Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
    *       </p>
    * @public
    */
-  OriginProtocolPolicy?: string;
+  OriginProtocolPolicy?: string | undefined;
 
   /**
    * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin.
    *       </p>
    * @public
    */
-  OriginReadTimeout?: number;
+  OriginReadTimeout?: number | undefined;
 
   /**
    * <p>Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.
    *       </p>
    * @public
    */
-  OriginSslProtocols?: AwsCloudFrontDistributionOriginSslProtocols;
+  OriginSslProtocols?: AwsCloudFrontDistributionOriginSslProtocols | undefined;
 }
 
 /**
@@ -6127,7 +5641,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
    * <p>The CloudFront origin access identity to associate with the origin.</p>
    * @public
    */
-  OriginAccessIdentity?: string;
+  OriginAccessIdentity?: string | undefined;
 }
 
 /**
@@ -6141,27 +5655,27 @@ export interface AwsCloudFrontDistributionOriginItem {
    *             CloudFront to get objects for this origin.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>A unique identifier for the origin or origin group.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>An optional element that causes CloudFront to request your content from a
    *          directory in your Amazon S3 bucket or your custom origin.</p>
    * @public
    */
-  OriginPath?: string;
+  OriginPath?: string | undefined;
 
   /**
    * <p>An origin that is an S3 bucket that is not configured with static website
    *          hosting.</p>
    * @public
    */
-  S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig;
+  S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig | undefined;
 
   /**
    * <p>An origin that is not an Amazon S3 bucket, with one exception.
@@ -6170,7 +5684,7 @@ export interface AwsCloudFrontDistributionOriginItem {
    *       </p>
    * @public
    */
-  CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig;
+  CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig | undefined;
 }
 
 /**
@@ -6182,7 +5696,7 @@ export interface AwsCloudFrontDistributionOrigins {
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    * @public
    */
-  Items?: AwsCloudFrontDistributionOriginItem[];
+  Items?: AwsCloudFrontDistributionOriginItem[] | undefined;
 }
 
 /**
@@ -6194,43 +5708,43 @@ export interface AwsCloudFrontDistributionViewerCertificate {
    * <p>The ARN of the ACM certificate. Used if the certificate is stored in ACM. If you provide an ACM certificate ARN, you must also provide <code>MinimumCertificateVersion</code> and <code>SslSupportMethod</code>.</p>
    * @public
    */
-  AcmCertificateArn?: string;
+  AcmCertificateArn?: string | undefined;
 
   /**
    * <p>The identifier of the certificate. Note that in CloudFront, this attribute is deprecated.</p>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * <p>The source of the certificate identified by <code>Certificate</code>. Note that in CloudFront, this attribute is deprecated.</p>
    * @public
    */
-  CertificateSource?: string;
+  CertificateSource?: string | undefined;
 
   /**
    * <p>Whether the distribution uses the CloudFront domain name. If set to <code>false</code>, then you provide either <code>AcmCertificateArn</code> or <code>IamCertificateId</code>.</p>
    * @public
    */
-  CloudFrontDefaultCertificate?: boolean;
+  CloudFrontDefaultCertificate?: boolean | undefined;
 
   /**
    * <p>The identifier of the IAM certificate. Used if the certificate is stored in IAM. If you provide <code>IamCertificateId</code>, then you also must provide <code>MinimumProtocolVersion</code> and <code>SslSupportMethod</code>.</p>
    * @public
    */
-  IamCertificateId?: string;
+  IamCertificateId?: string | undefined;
 
   /**
    * <p>The security policy that CloudFront uses for HTTPS connections with viewers. If <code>SslSupportMethod</code> is <code>sni-only</code>, then <code>MinimumProtocolVersion</code> must be <code>TLSv1</code> or higher.</p>
    * @public
    */
-  MinimumProtocolVersion?: string;
+  MinimumProtocolVersion?: string | undefined;
 
   /**
    * <p>The viewers that the distribution accepts HTTPS connections from.</p>
    * @public
    */
-  SslSupportMethod?: string;
+  SslSupportMethod?: string | undefined;
 }
 
 /**
@@ -6242,13 +5756,13 @@ export interface AwsCloudFrontDistributionDetails {
    * <p>Provides information about the cache configuration for the distribution.</p>
    * @public
    */
-  CacheBehaviors?: AwsCloudFrontDistributionCacheBehaviors;
+  CacheBehaviors?: AwsCloudFrontDistributionCacheBehaviors | undefined;
 
   /**
    * <p>The default cache behavior for the configuration.</p>
    * @public
    */
-  DefaultCacheBehavior?: AwsCloudFrontDistributionDefaultCacheBehavior;
+  DefaultCacheBehavior?: AwsCloudFrontDistributionDefaultCacheBehavior | undefined;
 
   /**
    * <p>The object that CloudFront sends in response to requests from the origin (for example,
@@ -6257,86 +5771,62 @@ export interface AwsCloudFrontDistributionDetails {
    *          (http://www.example.com/product-description.html). </p>
    * @public
    */
-  DefaultRootObject?: string;
+  DefaultRootObject?: string | undefined;
 
   /**
    * <p>The domain name corresponding to the distribution.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The entity tag is a hash of the object.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>Indicates when that the distribution was last modified.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastModifiedTime?: string;
+  LastModifiedTime?: string | undefined;
 
   /**
    * <p>A complex type that controls whether access logs are written for the distribution.</p>
    * @public
    */
-  Logging?: AwsCloudFrontDistributionLogging;
+  Logging?: AwsCloudFrontDistributionLogging | undefined;
 
   /**
    * <p>A complex type that contains information about origins for this distribution.</p>
    * @public
    */
-  Origins?: AwsCloudFrontDistributionOrigins;
+  Origins?: AwsCloudFrontDistributionOrigins | undefined;
 
   /**
    * <p>Provides information about the origin groups in the distribution.</p>
    * @public
    */
-  OriginGroups?: AwsCloudFrontDistributionOriginGroups;
+  OriginGroups?: AwsCloudFrontDistributionOriginGroups | undefined;
 
   /**
    * <p>Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.</p>
    * @public
    */
-  ViewerCertificate?: AwsCloudFrontDistributionViewerCertificate;
+  ViewerCertificate?: AwsCloudFrontDistributionViewerCertificate | undefined;
 
   /**
    * <p>Indicates the current status of the distribution.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution.</p>
    * @public
    */
-  WebAclId?: string;
+  WebAclId?: string | undefined;
 }
 
 /**
@@ -6348,95 +5838,95 @@ export interface AwsCloudTrailTrailDetails {
    * <p>The ARN of the log group that CloudTrail logs are delivered to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>The ARN of the role that the CloudWatch Events endpoint assumes when it writes to the log
    *          group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Indicates whether the trail has custom event selectors.</p>
    * @public
    */
-  HasCustomEventSelectors?: boolean;
+  HasCustomEventSelectors?: boolean | undefined;
 
   /**
    * <p>The Region where the trail was created.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 
   /**
    * <p>Indicates whether the trail publishes events from global services such as IAM to the log
    *          files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Indicates whether the trail applies only to the current Region or to all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Whether the trail is created for all accounts in an organization in Organizations,
    *          or only for the current Amazon Web Services account.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 
   /**
    * <p>The KMS key ID to use to encrypt the logs.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether CloudTrail log file validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The name of the S3 bucket where the log files are published.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>The S3 key prefix. The key prefix is added after the name of the S3 bucket where the log
    *          files are published.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * <p>The ARN of the SNS topic that is used for notifications of log file delivery.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The name of the SNS topic that is used for notifications of log file delivery.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>The ARN of the trail.</p>
    * @public
    */
-  TrailArn?: string;
+  TrailArn?: string | undefined;
 }
 
 /**
@@ -6450,14 +5940,14 @@ export interface AwsCloudWatchAlarmDimensionsDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of a dimension.
    *       </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6471,35 +5961,35 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  ActionsEnabled?: boolean;
+  ActionsEnabled?: boolean | undefined;
 
   /**
    * <p>The list of actions, specified as Amazon Resource Names (ARNs) to execute when this alarm transitions into an <code>ALARM</code> state from any other
    *          state. </p>
    * @public
    */
-  AlarmActions?: string[];
+  AlarmActions?: string[] | undefined;
 
   /**
    * <p>The ARN of the alarm.
    *       </p>
    * @public
    */
-  AlarmArn?: string;
+  AlarmArn?: string | undefined;
 
   /**
    * <p>The time stamp of the last update to the alarm configuration.
    *       </p>
    * @public
    */
-  AlarmConfigurationUpdatedTimestamp?: string;
+  AlarmConfigurationUpdatedTimestamp?: string | undefined;
 
   /**
    * <p>The description of the alarm.
    *       </p>
    * @public
    */
-  AlarmDescription?: string;
+  AlarmDescription?: string | undefined;
 
   /**
    * <p>The name of the alarm. If you don't specify a name, CloudFront generates a unique physical ID
@@ -6507,7 +5997,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 
   /**
    * <p>The arithmetic operation to use when comparing the specified statistic and threshold. The specified
@@ -6515,21 +6005,21 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  ComparisonOperator?: string;
+  ComparisonOperator?: string | undefined;
 
   /**
    * <p>The number of datapoints that must be breaching to trigger the alarm.
    *       </p>
    * @public
    */
-  DatapointsToAlarm?: number;
+  DatapointsToAlarm?: number | undefined;
 
   /**
    * <p>The dimensions for the metric associated with the alarm.
    *       </p>
    * @public
    */
-  Dimensions?: AwsCloudWatchAlarmDimensionsDetails[];
+  Dimensions?: AwsCloudWatchAlarmDimensionsDetails[] | undefined;
 
   /**
    * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change during
@@ -6538,21 +6028,21 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  EvaluateLowSampleCountPercentile?: string;
+  EvaluateLowSampleCountPercentile?: string | undefined;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold.
    *       </p>
    * @public
    */
-  EvaluationPeriods?: number;
+  EvaluationPeriods?: number | undefined;
 
   /**
    * <p>The percentile statistic for the metric associated with the alarm.
    *       </p>
    * @public
    */
-  ExtendedStatistic?: string;
+  ExtendedStatistic?: string | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from
@@ -6560,7 +6050,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  InsufficientDataActions?: string[];
+  InsufficientDataActions?: string[] | undefined;
 
   /**
    * <p>The name of the metric associated with the alarm. This is required for an alarm based on a metric.
@@ -6568,7 +6058,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The namespace of the metric associated with the alarm. This is required for an alarm based on a
@@ -6577,7 +6067,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>OK</code> state from any other state.
@@ -6585,7 +6075,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  OkActions?: string[];
+  OkActions?: string[] | undefined;
 
   /**
    * <p>The period, in seconds, over which the statistic is applied. This is required for an alarm based on a
@@ -6593,7 +6083,7 @@ export interface AwsCloudWatchAlarmDetails {
    *       </p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>.</p>
@@ -6601,35 +6091,35 @@ export interface AwsCloudWatchAlarmDetails {
    *          <p>For an alarm based on a math expression, you can't specify <code>Statistic</code>. Instead, you use <code>Metrics</code>.</p>
    * @public
    */
-  Statistic?: string;
+  Statistic?: string | undefined;
 
   /**
    * <p>The value to compare with the specified statistic.
    *       </p>
    * @public
    */
-  Threshold?: number;
+  Threshold?: number | undefined;
 
   /**
    * <p>n an alarm based on an anomaly detection model, this is the ID of the <code>ANOMALY_DETECTION_BAND</code> function used as the threshold for the alarm.
    *       </p>
    * @public
    */
-  ThresholdMetricId?: string;
+  ThresholdMetricId?: string | undefined;
 
   /**
    * <p>Sets how this alarm is to handle missing data points.
    *       </p>
    * @public
    */
-  TreatMissingData?: string;
+  TreatMissingData?: string | undefined;
 
   /**
    * <p>The unit of the metric associated with the alarm.
    *       </p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -6641,55 +6131,55 @@ export interface AwsCodeBuildProjectArtifactsDetails {
    * <p>An identifier for the artifact definition.</p>
    * @public
    */
-  ArtifactIdentifier?: string;
+  ArtifactIdentifier?: string | undefined;
 
   /**
    * <p>Indicates whether to disable encryption on the artifact. Only valid when <code>Type</code> is <code>S3</code>.</p>
    * @public
    */
-  EncryptionDisabled?: boolean;
+  EncryptionDisabled?: boolean | undefined;
 
   /**
    * <p>Only used when <code>Type</code> is <code>S3</code>. The name of the S3 bucket where the artifact is located.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>Only used when Type is S3. The name of the artifact. Used with <code>NamepaceType</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Only used when <code>Type</code> is <code>S3</code>. The value to use for the namespace. Used with <code>Name</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
    * @public
    */
-  NamespaceType?: string;
+  NamespaceType?: string | undefined;
 
   /**
    * <p>Whether the name specified in the buildspec file overrides the artifact name.</p>
    * @public
    */
-  OverrideArtifactName?: boolean;
+  OverrideArtifactName?: boolean | undefined;
 
   /**
    * <p>Only used when <code>Type</code> is <code>S3</code>. The type of output artifact to create.</p>
    * @public
    */
-  Packaging?: string;
+  Packaging?: string | undefined;
 
   /**
    * <p>Only used when <code>Type</code> is <code>S3</code>. The path to the artifact. Used with <code>Name</code> and <code>NamespaceType</code> to determine the pattern for storing the artifact.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The type of build artifact.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -6701,19 +6191,19 @@ export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
    * <p>The name of the environment variable.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of environment variable.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The value of the environment variable.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6729,14 +6219,14 @@ export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
    *          </note>
    * @public
    */
-  Credential?: string;
+  Credential?: string | undefined;
 
   /**
    * <p>The service that created the credentials to access a private Docker registry.</p>
    *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for Secrets Manager.</p>
    * @public
    */
-  CredentialProvider?: string;
+  CredentialProvider?: string | undefined;
 }
 
 /**
@@ -6748,19 +6238,19 @@ export interface AwsCodeBuildProjectEnvironment {
    * <p>The certificate to use with this build project.</p>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * <p>A set of environment variables to make available to builds for the build project.</p>
    * @public
    */
-  EnvironmentVariables?: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails[];
+  EnvironmentVariables?: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails[] | undefined;
 
   /**
    * <p>Whether to allow the Docker daemon to run inside a Docker container. Set to <code>true</code> if the build project is used to build Docker images.</p>
    * @public
    */
-  PrivilegedMode?: boolean;
+  PrivilegedMode?: boolean | undefined;
 
   /**
    * <p>The type of credentials CodeBuild uses to pull images in your build.</p>
@@ -6783,13 +6273,13 @@ export interface AwsCodeBuildProjectEnvironment {
    *          must use <code>CODEBUILD</code> credentials.</p>
    * @public
    */
-  ImagePullCredentialsType?: string;
+  ImagePullCredentialsType?: string | undefined;
 
   /**
    * <p>The credentials for access to a private registry.</p>
    * @public
    */
-  RegistryCredential?: AwsCodeBuildProjectEnvironmentRegistryCredential;
+  RegistryCredential?: AwsCodeBuildProjectEnvironmentRegistryCredential | undefined;
 
   /**
    * <p>The type of build environment to use for related builds.</p>
@@ -6811,7 +6301,7 @@ export interface AwsCodeBuildProjectEnvironment {
    *          </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -6823,19 +6313,19 @@ export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
    * <p>The group name of the logs in CloudWatch Logs.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The current status of the logs in CloudWatch Logs for a build project.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The prefix of the stream name of the CloudWatch Logs.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 }
 
 /**
@@ -6847,19 +6337,19 @@ export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
    * <p>Whether to disable encryption of the S3 build log output.</p>
    * @public
    */
-  EncryptionDisabled?: boolean;
+  EncryptionDisabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the S3 bucket and the path prefix for S3 logs.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current status of the S3 build logs.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -6871,13 +6361,13 @@ export interface AwsCodeBuildProjectLogsConfigDetails {
    * <p>Information about CloudWatch Logs for the build project.</p>
    * @public
    */
-  CloudWatchLogs?: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails;
+  CloudWatchLogs?: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails | undefined;
 
   /**
    * <p>Information about logs built to an S3 bucket for a build project.</p>
    * @public
    */
-  S3Logs?: AwsCodeBuildProjectLogsConfigS3LogsDetails;
+  S3Logs?: AwsCodeBuildProjectLogsConfigS3LogsDetails | undefined;
 }
 
 /**
@@ -6923,7 +6413,7 @@ export interface AwsCodeBuildProjectSource {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>Information about the location of the source code to be built.</p>
@@ -6964,19 +6454,19 @@ export interface AwsCodeBuildProjectSource {
    *          </ul>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>Information about the Git clone depth for the build project.</p>
    * @public
    */
-  GitCloneDepth?: number;
+  GitCloneDepth?: number | undefined;
 
   /**
    * <p>Whether to ignore SSL warnings while connecting to the project source code.</p>
    * @public
    */
-  InsecureSsl?: boolean;
+  InsecureSsl?: boolean | undefined;
 }
 
 /**
@@ -6988,19 +6478,19 @@ export interface AwsCodeBuildProjectVpcConfig {
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>A list of one or more subnet IDs in your VPC.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 
   /**
    * <p>A list of one or more security group IDs in your VPC.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -7015,56 +6505,56 @@ export interface AwsCodeBuildProjectDetails {
    *          KMS key alias (using the format alias/alias-name). </p>
    * @public
    */
-  EncryptionKey?: string;
+  EncryptionKey?: string | undefined;
 
   /**
    * <p>Information about the build artifacts for the CodeBuild project.</p>
    * @public
    */
-  Artifacts?: AwsCodeBuildProjectArtifactsDetails[];
+  Artifacts?: AwsCodeBuildProjectArtifactsDetails[] | undefined;
 
   /**
    * <p>Information about the build environment for this build project.</p>
    * @public
    */
-  Environment?: AwsCodeBuildProjectEnvironment;
+  Environment?: AwsCodeBuildProjectEnvironment | undefined;
 
   /**
    * <p>The name of the build project.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Information about the build input source code for this build project.</p>
    * @public
    */
-  Source?: AwsCodeBuildProjectSource;
+  Source?: AwsCodeBuildProjectSource | undefined;
 
   /**
    * <p>The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web Services
    *          services on behalf of the Amazon Web Services account.</p>
    * @public
    */
-  ServiceRole?: string;
+  ServiceRole?: string | undefined;
 
   /**
    * <p>Information about logs for the build project.</p>
    * @public
    */
-  LogsConfig?: AwsCodeBuildProjectLogsConfigDetails;
+  LogsConfig?: AwsCodeBuildProjectLogsConfigDetails | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  VpcConfig?: AwsCodeBuildProjectVpcConfig;
+  VpcConfig?: AwsCodeBuildProjectVpcConfig | undefined;
 
   /**
    * <p>Information about the secondary artifacts for the CodeBuild project.</p>
    * @public
    */
-  SecondaryArtifacts?: AwsCodeBuildProjectArtifactsDetails[];
+  SecondaryArtifacts?: AwsCodeBuildProjectArtifactsDetails[] | undefined;
 }
 
 /**
@@ -7082,14 +6572,14 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>
    *             The name of the endpoint database.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>
@@ -7097,7 +6587,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>
@@ -7105,7 +6595,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  EndpointIdentifier?: string;
+  EndpointIdentifier?: string | undefined;
 
   /**
    * <p>
@@ -7113,7 +6603,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  EndpointType?: string;
+  EndpointType?: string | undefined;
 
   /**
    * <p>
@@ -7121,7 +6611,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  EngineName?: string;
+  EngineName?: string | undefined;
 
   /**
    * <p>
@@ -7129,7 +6619,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  ExternalId?: string;
+  ExternalId?: string | undefined;
 
   /**
    * <p>
@@ -7137,7 +6627,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  ExtraConnectionAttributes?: string;
+  ExtraConnectionAttributes?: string | undefined;
 
   /**
    * <p>
@@ -7147,7 +6637,7 @@ export interface AwsDmsEndpointDetails {
    *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>
@@ -7155,21 +6645,21 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>
    *             The name of the server where the endpoint database resides.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>
    *             The SSL mode used to connect to the endpoint. The default is none.</p>
    * @public
    */
-  SslMode?: string;
+  SslMode?: string | undefined;
 
   /**
    * <p>
@@ -7177,7 +6667,7 @@ export interface AwsDmsEndpointDetails {
    *         </p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 }
 
 /**
@@ -7192,7 +6682,7 @@ export interface AwsDmsReplicationInstanceReplicationSubnetGroupDetails {
    *         </p>
    * @public
    */
-  ReplicationSubnetGroupIdentifier?: string;
+  ReplicationSubnetGroupIdentifier?: string | undefined;
 }
 
 /**
@@ -7207,7 +6697,7 @@ export interface AwsDmsReplicationInstanceVpcSecurityGroupsDetails {
    *         </p>
    * @public
    */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroupId?: string | undefined;
 }
 
 /**
@@ -7224,7 +6714,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *         </p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>
@@ -7233,7 +6723,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *         </p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>
@@ -7241,7 +6731,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *             Availability Zone in the endpoint's Amazon Web Services Region, such as <code>us-east-1d</code>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>
@@ -7250,7 +6740,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *         </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>
@@ -7260,7 +6750,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>
@@ -7268,7 +6758,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *             <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>
@@ -7276,7 +6766,7 @@ export interface AwsDmsReplicationInstanceDetails {
    *             this time.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>
@@ -7285,35 +6775,35 @@ export interface AwsDmsReplicationInstanceDetails {
    *             value is <code>true</code>.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>
    *             The compute and memory capacity of the replication instance as defined for the specified replication instance class. </p>
    * @public
    */
-  ReplicationInstanceClass?: string;
+  ReplicationInstanceClass?: string | undefined;
 
   /**
    * <p>
    *             The replication instance identifier.</p>
    * @public
    */
-  ReplicationInstanceIdentifier?: string;
+  ReplicationInstanceIdentifier?: string | undefined;
 
   /**
    * <p>
    *             The subnet group for the replication instance.</p>
    * @public
    */
-  ReplicationSubnetGroup?: AwsDmsReplicationInstanceReplicationSubnetGroupDetails;
+  ReplicationSubnetGroup?: AwsDmsReplicationInstanceReplicationSubnetGroupDetails | undefined;
 
   /**
    * <p>
    *             The virtual private cloud (VPC) security group for the replication instance.</p>
    * @public
    */
-  VpcSecurityGroups?: AwsDmsReplicationInstanceVpcSecurityGroupsDetails[];
+  VpcSecurityGroups?: AwsDmsReplicationInstanceVpcSecurityGroupsDetails[] | undefined;
 }
 
 /**
@@ -7330,7 +6820,7 @@ export interface AwsDmsReplicationTaskDetails {
    *             is included.</p>
    * @public
    */
-  CdcStartPosition?: string;
+  CdcStartPosition?: string | undefined;
 
   /**
    * <p>
@@ -7338,14 +6828,14 @@ export interface AwsDmsReplicationTaskDetails {
    *             when you want a CDC operation to start. Only a value for one of these fields is included.</p>
    * @public
    */
-  CdcStartTime?: string;
+  CdcStartTime?: string | undefined;
 
   /**
    * <p>
    *             Indicates when you want a CDC operation to stop. The value can be either server time or commit time.</p>
    * @public
    */
-  CdcStopPosition?: string;
+  CdcStopPosition?: string | undefined;
 
   /**
    * <p>
@@ -7353,14 +6843,14 @@ export interface AwsDmsReplicationTaskDetails {
    *         </p>
    * @public
    */
-  MigrationType?: string;
+  MigrationType?: string | undefined;
 
   /**
    * <p>
    *             The identifier of the replication task.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -7369,7 +6859,7 @@ export interface AwsDmsReplicationTaskDetails {
    *             the end of <code>EndpointArn</code>.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>
@@ -7377,49 +6867,49 @@ export interface AwsDmsReplicationTaskDetails {
    *         </p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>
    *             The user-defined replication task identifier or name.</p>
    * @public
    */
-  ReplicationTaskIdentifier?: string;
+  ReplicationTaskIdentifier?: string | undefined;
 
   /**
    * <p>
    *             The settings for the replication task.</p>
    * @public
    */
-  ReplicationTaskSettings?: string;
+  ReplicationTaskSettings?: string | undefined;
 
   /**
    * <p>
    *             The ARN of the source endpoint.</p>
    * @public
    */
-  SourceEndpointArn?: string;
+  SourceEndpointArn?: string | undefined;
 
   /**
    * <p>
    *             The table mappings for the replication task, in JSON format.</p>
    * @public
    */
-  TableMappings?: string;
+  TableMappings?: string | undefined;
 
   /**
    * <p>
    *             The ARN of the target endpoint.</p>
    * @public
    */
-  TargetEndpointArn?: string;
+  TargetEndpointArn?: string | undefined;
 
   /**
    * <p>
    *             Supplemental information that the task requires to migrate the data for certain source and target endpoints.</p>
    * @public
    */
-  TaskData?: string;
+  TaskData?: string | undefined;
 }
 
 /**
@@ -7431,13 +6921,13 @@ export interface AwsDynamoDbTableAttributeDefinition {
    * <p>The name of the attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The type of the attribute.</p>
    * @public
    */
-  AttributeType?: string;
+  AttributeType?: string | undefined;
 }
 
 /**
@@ -7449,39 +6939,15 @@ export interface AwsDynamoDbTableBillingModeSummary {
    * <p>The method used to charge for read and write throughput and to manage capacity.</p>
    * @public
    */
-  BillingMode?: string;
+  BillingMode?: string | undefined;
 
   /**
    * <p>If the billing mode is <code>PAY_PER_REQUEST</code>, indicates when the billing mode was
    *          set to that value.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastUpdateToPayPerRequestDateTime?: string;
+  LastUpdateToPayPerRequestDateTime?: string | undefined;
 }
 
 /**
@@ -7494,13 +6960,13 @@ export interface AwsDynamoDbTableKeySchema {
    * <p>The name of the key schema attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The type of key used for the key schema attribute. Valid values are <code>HASH</code> or <code>RANGE</code>.</p>
    * @public
    */
-  KeyType?: string;
+  KeyType?: string | undefined;
 }
 
 /**
@@ -7514,7 +6980,7 @@ export interface AwsDynamoDbTableProjection {
    *          attribute name.</p>
    * @public
    */
-  NonKeyAttributes?: string[];
+  NonKeyAttributes?: string[] | undefined;
 
   /**
    * <p>The types of attributes that are projected into the index. Valid values are as follows:</p>
@@ -7537,7 +7003,7 @@ export interface AwsDynamoDbTableProjection {
    *          </ul>
    * @public
    */
-  ProjectionType?: string;
+  ProjectionType?: string | undefined;
 }
 
 /**
@@ -7548,86 +7014,38 @@ export interface AwsDynamoDbTableProjection {
 export interface AwsDynamoDbTableProvisionedThroughput {
   /**
    * <p>Indicates when the provisioned throughput was last decreased.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastDecreaseDateTime?: string;
+  LastDecreaseDateTime?: string | undefined;
 
   /**
    * <p>Indicates when the provisioned throughput was last increased.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastIncreaseDateTime?: string;
+  LastIncreaseDateTime?: string | undefined;
 
   /**
    * <p>The number of times during the current UTC calendar day that the provisioned throughput
    *          was decreased.</p>
    * @public
    */
-  NumberOfDecreasesToday?: number;
+  NumberOfDecreasesToday?: number | undefined;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
    *          returns a <code>ThrottlingException</code>.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
    *             <code>ThrottlingException</code>.</p>
    * @public
    */
-  WriteCapacityUnits?: number;
+  WriteCapacityUnits?: number | undefined;
 }
 
 /**
@@ -7639,25 +7057,25 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
    * <p>Whether the index is currently backfilling.</p>
    * @public
    */
-  Backfilling?: boolean;
+  Backfilling?: boolean | undefined;
 
   /**
    * <p>The ARN of the index.</p>
    * @public
    */
-  IndexArn?: string;
+  IndexArn?: string | undefined;
 
   /**
    * <p>The name of the index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The total size in bytes of the index.</p>
    * @public
    */
-  IndexSizeBytes?: number;
+  IndexSizeBytes?: number | undefined;
 
   /**
    * <p>The current status of the index.</p>
@@ -7685,31 +7103,31 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
    *          </ul>
    * @public
    */
-  IndexStatus?: string;
+  IndexStatus?: string | undefined;
 
   /**
    * <p>The number of items in the index.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The key schema for the index.</p>
    * @public
    */
-  KeySchema?: AwsDynamoDbTableKeySchema[];
+  KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
    * <p>Attributes that are copied from the table into an index.</p>
    * @public
    */
-  Projection?: AwsDynamoDbTableProjection;
+  Projection?: AwsDynamoDbTableProjection | undefined;
 
   /**
    * <p>Information about the provisioned throughput settings for the indexes.</p>
    * @public
    */
-  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
+  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput | undefined;
 }
 
 /**
@@ -7721,26 +7139,26 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
    * <p>The ARN of the index.</p>
    * @public
    */
-  IndexArn?: string;
+  IndexArn?: string | undefined;
 
   /**
    * <p>The name of the index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The complete key schema for the index.</p>
    * @public
    */
-  KeySchema?: AwsDynamoDbTableKeySchema[];
+  KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
    * <p>Attributes that are copied from the table into the index. These are in addition to the
    *          primary key attributes and index key attributes, which are automatically projected.</p>
    * @public
    */
-  Projection?: AwsDynamoDbTableProjection;
+  Projection?: AwsDynamoDbTableProjection | undefined;
 }
 
 /**
@@ -7752,7 +7170,7 @@ export interface AwsDynamoDbTableProvisionedThroughputOverride {
    * <p>The read capacity units for the replica.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
 }
 
 /**
@@ -7764,13 +7182,13 @@ export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
    * <p>The name of the index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>Replica-specific configuration for the provisioned throughput for the index.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride | undefined;
 }
 
 /**
@@ -7782,26 +7200,26 @@ export interface AwsDynamoDbTableReplica {
    * <p>List of global secondary indexes for the replica.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>The identifier of the KMS key that will be used for KMS
    *          encryption for the replica.</p>
    * @public
    */
-  KmsMasterKeyId?: string;
+  KmsMasterKeyId?: string | undefined;
 
   /**
    * <p>Replica-specific configuration for the provisioned throughput.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride | undefined;
 
   /**
    * <p>The name of the Region where the replica is located.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>The current status of the replica. Valid values are as follows:</p>
@@ -7834,13 +7252,13 @@ export interface AwsDynamoDbTableReplica {
    *          </ul>
    * @public
    */
-  ReplicaStatus?: string;
+  ReplicaStatus?: string | undefined;
 
   /**
    * <p>Detailed information about the replica status.</p>
    * @public
    */
-  ReplicaStatusDescription?: string;
+  ReplicaStatusDescription?: string | undefined;
 }
 
 /**
@@ -7852,50 +7270,26 @@ export interface AwsDynamoDbTableRestoreSummary {
    * <p>The ARN of the source backup from which the table was restored.</p>
    * @public
    */
-  SourceBackupArn?: string;
+  SourceBackupArn?: string | undefined;
 
   /**
    * <p>The ARN of the source table for the backup.</p>
    * @public
    */
-  SourceTableArn?: string;
+  SourceTableArn?: string | undefined;
 
   /**
    * <p>Indicates the point in time that the table was restored to.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  RestoreDateTime?: string;
+  RestoreDateTime?: string | undefined;
 
   /**
    * <p>Whether a restore is currently in progress.</p>
    * @public
    */
-  RestoreInProgress?: boolean;
+  RestoreInProgress?: boolean | undefined;
 }
 
 /**
@@ -7906,53 +7300,29 @@ export interface AwsDynamoDbTableSseDescription {
   /**
    * <p>If the key is inaccessible, the date and time when DynamoDB detected that the key was
    *          inaccessible.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  InaccessibleEncryptionDateTime?: string;
+  InaccessibleEncryptionDateTime?: string | undefined;
 
   /**
    * <p>The status of the server-side encryption.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of server-side encryption.</p>
    * @public
    */
-  SseType?: string;
+  SseType?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key that is used for the KMS
    *          encryption.</p>
    * @public
    */
-  KmsMasterKeyArn?: string;
+  KmsMasterKeyArn?: string | undefined;
 }
 
 /**
@@ -7964,13 +7334,13 @@ export interface AwsDynamoDbTableStreamSpecification {
    * <p>Indicates whether DynamoDB Streams is enabled on the table.</p>
    * @public
    */
-  StreamEnabled?: boolean;
+  StreamEnabled?: boolean | undefined;
 
   /**
    * <p>Determines the information that is written to the table.</p>
    * @public
    */
-  StreamViewType?: string;
+  StreamViewType?: string | undefined;
 }
 
 /**
@@ -7982,134 +7352,110 @@ export interface AwsDynamoDbTableDetails {
    * <p>A list of attribute definitions for the table.</p>
    * @public
    */
-  AttributeDefinitions?: AwsDynamoDbTableAttributeDefinition[];
+  AttributeDefinitions?: AwsDynamoDbTableAttributeDefinition[] | undefined;
 
   /**
    * <p>Information about the billing for read/write capacity on the table.</p>
    * @public
    */
-  BillingModeSummary?: AwsDynamoDbTableBillingModeSummary;
+  BillingModeSummary?: AwsDynamoDbTableBillingModeSummary | undefined;
 
   /**
    * <p>Indicates when the table was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreationDateTime?: string;
+  CreationDateTime?: string | undefined;
 
   /**
    * <p>List of global secondary indexes for the table.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: AwsDynamoDbTableGlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: AwsDynamoDbTableGlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>The version of global tables being used.</p>
    * @public
    */
-  GlobalTableVersion?: string;
+  GlobalTableVersion?: string | undefined;
 
   /**
    * <p>The number of items in the table.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The primary key structure for the table.</p>
    * @public
    */
-  KeySchema?: AwsDynamoDbTableKeySchema[];
+  KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
    * <p>The ARN of the latest stream for the table.</p>
    * @public
    */
-  LatestStreamArn?: string;
+  LatestStreamArn?: string | undefined;
 
   /**
    * <p>The label of the latest stream. The label is not a unique identifier.</p>
    * @public
    */
-  LatestStreamLabel?: string;
+  LatestStreamLabel?: string | undefined;
 
   /**
    * <p>The list of local secondary indexes for the table.</p>
    * @public
    */
-  LocalSecondaryIndexes?: AwsDynamoDbTableLocalSecondaryIndex[];
+  LocalSecondaryIndexes?: AwsDynamoDbTableLocalSecondaryIndex[] | undefined;
 
   /**
    * <p>Information about the provisioned throughput for the table.</p>
    * @public
    */
-  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
+  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput | undefined;
 
   /**
    * <p>The list of replicas of this table.</p>
    * @public
    */
-  Replicas?: AwsDynamoDbTableReplica[];
+  Replicas?: AwsDynamoDbTableReplica[] | undefined;
 
   /**
    * <p>Information about the restore for the table.</p>
    * @public
    */
-  RestoreSummary?: AwsDynamoDbTableRestoreSummary;
+  RestoreSummary?: AwsDynamoDbTableRestoreSummary | undefined;
 
   /**
    * <p>Information about the server-side encryption for the table.</p>
    * @public
    */
-  SseDescription?: AwsDynamoDbTableSseDescription;
+  SseDescription?: AwsDynamoDbTableSseDescription | undefined;
 
   /**
    * <p>The current DynamoDB Streams configuration for the table.</p>
    * @public
    */
-  StreamSpecification?: AwsDynamoDbTableStreamSpecification;
+  StreamSpecification?: AwsDynamoDbTableStreamSpecification | undefined;
 
   /**
    * <p>The identifier of the table.</p>
    * @public
    */
-  TableId?: string;
+  TableId?: string | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The total size of the table in bytes.</p>
    * @public
    */
-  TableSizeBytes?: number;
+  TableSizeBytes?: number | undefined;
 
   /**
    * <p>The current status of the table. Valid values are as follows:</p>
@@ -8152,7 +7498,7 @@ export interface AwsDynamoDbTableDetails {
    *          </ul>
    * @public
    */
-  TableStatus?: string;
+  TableStatus?: string | undefined;
 
   /**
    * <p>
@@ -8160,7 +7506,7 @@ export interface AwsDynamoDbTableDetails {
    *         </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -8176,7 +7522,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDeta
    *         </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -8192,7 +7538,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthentica
    *         </p>
    * @public
    */
-  SamlProviderArn?: string;
+  SamlProviderArn?: string | undefined;
 
   /**
    * <p>
@@ -8200,7 +7546,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthentica
    *         </p>
    * @public
    */
-  SelfServiceSamlProviderArn?: string;
+  SelfServiceSamlProviderArn?: string | undefined;
 }
 
 /**
@@ -8216,7 +7562,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticatio
    *         </p>
    * @public
    */
-  ClientRootCertificateChain?: string;
+  ClientRootCertificateChain?: string | undefined;
 }
 
 /**
@@ -8232,7 +7578,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsDetails {
    *         </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>
@@ -8241,21 +7587,21 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsDetails {
    *         </p>
    * @public
    */
-  ActiveDirectory?: AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails;
+  ActiveDirectory?: AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails | undefined;
 
   /**
    * <p>
    *             Information about the authentication certificates, if applicable.</p>
    * @public
    */
-  MutualAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails;
+  MutualAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails | undefined;
 
   /**
    * <p>
    *             Information about the IAM SAML identity provider, if applicable.</p>
    * @public
    */
-  FederatedAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails;
+  FederatedAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails | undefined;
 }
 
 /**
@@ -8271,7 +7617,7 @@ export interface AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails {
    *         </p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>
@@ -8279,7 +7625,7 @@ export interface AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails {
    *         </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -8295,7 +7641,7 @@ export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
    *         </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>
@@ -8303,7 +7649,7 @@ export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
    *         </p>
    * @public
    */
-  LambdaFunctionArn?: string;
+  LambdaFunctionArn?: string | undefined;
 
   /**
    * <p>
@@ -8311,7 +7657,7 @@ export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
    *         </p>
    * @public
    */
-  Status?: AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails;
+  Status?: AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails | undefined;
 }
 
 /**
@@ -8328,7 +7674,7 @@ export interface AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails {
    *         </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>
@@ -8337,7 +7683,7 @@ export interface AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails {
    *         </p>
    * @public
    */
-  BannerText?: string;
+  BannerText?: string | undefined;
 }
 
 /**
@@ -8353,7 +7699,7 @@ export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
    *         </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>
@@ -8361,7 +7707,7 @@ export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
    *         </p>
    * @public
    */
-  CloudwatchLogGroup?: string;
+  CloudwatchLogGroup?: string | undefined;
 
   /**
    * <p>
@@ -8369,7 +7715,7 @@ export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
    *         </p>
    * @public
    */
-  CloudwatchLogStream?: string;
+  CloudwatchLogStream?: string | undefined;
 }
 
 /**
@@ -8386,7 +7732,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ClientVpnEndpointId?: string;
+  ClientVpnEndpointId?: string | undefined;
 
   /**
    * <p>
@@ -8394,7 +7740,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -8402,7 +7748,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ClientCidrBlock?: string;
+  ClientCidrBlock?: string | undefined;
 
   /**
    * <p>
@@ -8410,7 +7756,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  DnsServer?: string[];
+  DnsServer?: string[] | undefined;
 
   /**
    * <p>
@@ -8418,7 +7764,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  SplitTunnel?: boolean;
+  SplitTunnel?: boolean | undefined;
 
   /**
    * <p>
@@ -8426,7 +7772,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  TransportProtocol?: string;
+  TransportProtocol?: string | undefined;
 
   /**
    * <p>
@@ -8434,7 +7780,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  VpnPort?: number;
+  VpnPort?: number | undefined;
 
   /**
    * <p>
@@ -8442,7 +7788,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ServerCertificateArn?: string;
+  ServerCertificateArn?: string | undefined;
 
   /**
    * <p>
@@ -8450,7 +7796,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  AuthenticationOptions?: AwsEc2ClientVpnEndpointAuthenticationOptionsDetails[];
+  AuthenticationOptions?: AwsEc2ClientVpnEndpointAuthenticationOptionsDetails[] | undefined;
 
   /**
    * <p>
@@ -8458,7 +7804,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ConnectionLogOptions?: AwsEc2ClientVpnEndpointConnectionLogOptionsDetails;
+  ConnectionLogOptions?: AwsEc2ClientVpnEndpointConnectionLogOptionsDetails | undefined;
 
   /**
    * <p>
@@ -8466,7 +7812,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  SecurityGroupIdSet?: string[];
+  SecurityGroupIdSet?: string[] | undefined;
 
   /**
    * <p>
@@ -8474,7 +7820,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>
@@ -8482,7 +7828,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  SelfServicePortalUrl?: string;
+  SelfServicePortalUrl?: string | undefined;
 
   /**
    * <p>
@@ -8490,7 +7836,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ClientConnectOptions?: AwsEc2ClientVpnEndpointClientConnectOptionsDetails;
+  ClientConnectOptions?: AwsEc2ClientVpnEndpointClientConnectOptionsDetails | undefined;
 
   /**
    * <p>
@@ -8498,7 +7844,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  SessionTimeoutHours?: number;
+  SessionTimeoutHours?: number | undefined;
 
   /**
    * <p>
@@ -8507,7 +7853,7 @@ export interface AwsEc2ClientVpnEndpointDetails {
    *         </p>
    * @public
    */
-  ClientLoginBannerOptions?: AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails;
+  ClientLoginBannerOptions?: AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails | undefined;
 }
 
 /**
@@ -8519,27 +7865,27 @@ export interface AwsEc2EipDetails {
    * <p>The identifier of the EC2 instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>A public IP address that is associated with the EC2 instance.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>The identifier that Amazon Web Services assigns to represent the allocation of the Elastic IP address
    *          for use with Amazon VPC.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The identifier that represents the association of the Elastic IP address with an EC2
    *          instance.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The domain in which to allocate the address.</p>
@@ -8547,38 +7893,38 @@ export interface AwsEc2EipDetails {
    *             <code>vpc</code>. Otherwise, <code>Domain</code> is <code>standard</code>. </p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The identifier of an IP address pool. This parameter allows Amazon EC2 to select an IP
    *          address from the address pool.</p>
    * @public
    */
-  PublicIpv4Pool?: string;
+  PublicIpv4Pool?: string | undefined;
 
   /**
    * <p>The name of the location from which the Elastic IP address is advertised.</p>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The identifier of the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
    * @public
    */
-  NetworkInterfaceOwnerId?: string;
+  NetworkInterfaceOwnerId?: string | undefined;
 
   /**
    * <p>The private IP address that is associated with the Elastic IP address.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 }
 
 /**
@@ -8591,14 +7937,14 @@ export interface AwsEc2InstanceMetadataOptions {
    *       </p>
    * @public
    */
-  HttpEndpoint?: string;
+  HttpEndpoint?: string | undefined;
 
   /**
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
    *       </p>
    * @public
    */
-  HttpProtocolIpv6?: string;
+  HttpProtocolIpv6?: string | undefined;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests.
@@ -8606,21 +7952,21 @@ export interface AwsEc2InstanceMetadataOptions {
    *       </p>
    * @public
    */
-  HttpPutResponseHopLimit?: number;
+  HttpPutResponseHopLimit?: number | undefined;
 
   /**
    * <p>The state of token usage for your instance metadata requests.
    *       </p>
    * @public
    */
-  HttpTokens?: string;
+  HttpTokens?: string | undefined;
 
   /**
    * <p>Specifies whether to allow access to instance tags from the instance metadata.
    *       </p>
    * @public
    */
-  InstanceMetadataTags?: string;
+  InstanceMetadataTags?: string | undefined;
 }
 
 /**
@@ -8636,7 +7982,7 @@ export interface AwsEc2InstanceMonitoringDetails {
    *       </p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -8648,7 +7994,7 @@ export interface AwsEc2InstanceNetworkInterfacesDetails {
    * <p>The identifier of the network interface. The details are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 }
 
 /**
@@ -8660,100 +8006,76 @@ export interface AwsEc2InstanceDetails {
    * <p>The instance type of the instance. </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The IPv4 addresses associated with the instance.</p>
    * @public
    */
-  IpV4Addresses?: string[];
+  IpV4Addresses?: string[] | undefined;
 
   /**
    * <p>The IPv6 addresses associated with the instance.</p>
    * @public
    */
-  IpV6Addresses?: string[];
+  IpV6Addresses?: string[] | undefined;
 
   /**
    * <p>The key name associated with the instance.</p>
    * @public
    */
-  KeyName?: string;
+  KeyName?: string | undefined;
 
   /**
    * <p>The IAM profile ARN of the instance.</p>
    * @public
    */
-  IamInstanceProfileArn?: string;
+  IamInstanceProfileArn?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that the instance was launched in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The identifier of the subnet that the instance was launched in.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>Indicates when the instance was launched.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LaunchedAt?: string;
+  LaunchedAt?: string | undefined;
 
   /**
    * <p>The identifiers of the network interfaces for the EC2 instance. The details for each network interface are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
    * @public
    */
-  NetworkInterfaces?: AwsEc2InstanceNetworkInterfacesDetails[];
+  NetworkInterfaces?: AwsEc2InstanceNetworkInterfacesDetails[] | undefined;
 
   /**
    * <p>The virtualization type of the Amazon Machine Image (AMI) required to launch the instance.
    *       </p>
    * @public
    */
-  VirtualizationType?: string;
+  VirtualizationType?: string | undefined;
 
   /**
    * <p>Details about the metadata options for the Amazon EC2 instance.
    *       </p>
    * @public
    */
-  MetadataOptions?: AwsEc2InstanceMetadataOptions;
+  MetadataOptions?: AwsEc2InstanceMetadataOptions | undefined;
 
   /**
    * <p>
@@ -8761,7 +8083,7 @@ export interface AwsEc2InstanceDetails {
    *       </p>
    * @public
    */
-  Monitoring?: AwsEc2InstanceMonitoringDetails;
+  Monitoring?: AwsEc2InstanceMonitoringDetails | undefined;
 }
 
 /**
@@ -8777,7 +8099,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>
@@ -8787,7 +8109,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>
@@ -8795,7 +8117,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>
@@ -8804,7 +8126,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>
@@ -8812,7 +8134,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>
@@ -8820,7 +8142,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  Throughput?: number;
+  Throughput?: number | undefined;
 
   /**
    * <p>
@@ -8828,7 +8150,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>
@@ -8836,7 +8158,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
    *       </p>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 }
 
 /**
@@ -8852,7 +8174,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
    *       </p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>
@@ -8861,7 +8183,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
    *       </p>
    * @public
    */
-  Ebs?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails;
+  Ebs?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails | undefined;
 
   /**
    * <p>
@@ -8869,7 +8191,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
    *       </p>
    * @public
    */
-  NoDevice?: string;
+  NoDevice?: string | undefined;
 
   /**
    * <p>
@@ -8880,7 +8202,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
    *       </p>
    * @public
    */
-  VirtualName?: string;
+  VirtualName?: string | undefined;
 }
 
 /**
@@ -8896,7 +8218,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacit
    *       </p>
    * @public
    */
-  CapacityReservationId?: string;
+  CapacityReservationId?: string | undefined;
 
   /**
    * <p>
@@ -8904,7 +8226,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacit
    *       </p>
    * @public
    */
-  CapacityReservationResourceGroupArn?: string;
+  CapacityReservationResourceGroupArn?: string | undefined;
 }
 
 /**
@@ -8921,7 +8243,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
    *       </p>
    * @public
    */
-  CapacityReservationPreference?: string;
+  CapacityReservationPreference?: string | undefined;
 
   /**
    * <p>
@@ -8929,7 +8251,9 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
    *       </p>
    * @public
    */
-  CapacityReservationTarget?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails;
+  CapacityReservationTarget?:
+    | AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
+    | undefined;
 }
 
 /**
@@ -8946,7 +8270,7 @@ export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
    *       </p>
    * @public
    */
-  CoreCount?: number;
+  CoreCount?: number | undefined;
 
   /**
    * <p>
@@ -8955,7 +8279,7 @@ export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
    *       </p>
    * @public
    */
-  ThreadsPerCore?: number;
+  ThreadsPerCore?: number | undefined;
 }
 
 /**
@@ -8971,7 +8295,7 @@ export interface AwsEc2LaunchTemplateDataCreditSpecificationDetails {
    *       </p>
    * @public
    */
-  CpuCredits?: string;
+  CpuCredits?: string | undefined;
 }
 
 /**
@@ -8987,7 +8311,7 @@ export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -9003,7 +8327,7 @@ export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
    *       </p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>
@@ -9011,7 +8335,7 @@ export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -9027,7 +8351,7 @@ export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
    *       </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -9043,7 +8367,7 @@ export interface AwsEc2LaunchTemplateDataHibernationOptionsDetails {
    *       </p>
    * @public
    */
-  Configured?: boolean;
+  Configured?: boolean | undefined;
 }
 
 /**
@@ -9059,7 +8383,7 @@ export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
    *       </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -9067,7 +8391,7 @@ export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -9083,7 +8407,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
    *       </p>
    * @public
    */
-  BlockDurationMinutes?: number;
+  BlockDurationMinutes?: number | undefined;
 
   /**
    * <p>
@@ -9091,7 +8415,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
    *       </p>
    * @public
    */
-  InstanceInterruptionBehavior?: string;
+  InstanceInterruptionBehavior?: string | undefined;
 
   /**
    * <p>
@@ -9099,7 +8423,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
    *       </p>
    * @public
    */
-  MaxPrice?: string;
+  MaxPrice?: string | undefined;
 
   /**
    * <p>
@@ -9107,7 +8431,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
    *       </p>
    * @public
    */
-  SpotInstanceType?: string;
+  SpotInstanceType?: string | undefined;
 
   /**
    * <p>
@@ -9115,7 +8439,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
    *       </p>
    * @public
    */
-  ValidUntil?: string;
+  ValidUntil?: string | undefined;
 }
 
 /**
@@ -9131,7 +8455,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
    *       </p>
    * @public
    */
-  MarketType?: string;
+  MarketType?: string | undefined;
 
   /**
    * <p>
@@ -9139,7 +8463,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
    *       </p>
    * @public
    */
-  SpotOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails;
+  SpotOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails | undefined;
 }
 
 /**
@@ -9155,7 +8479,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDet
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9163,7 +8487,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDet
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9179,7 +8503,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMem
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9187,7 +8511,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMem
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9204,7 +8528,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidt
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9212,7 +8536,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidt
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9228,7 +8552,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDet
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9236,7 +8560,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDet
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9252,7 +8576,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9260,7 +8584,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9276,7 +8600,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCou
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9284,7 +8608,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCou
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9300,7 +8624,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGB
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9308,7 +8632,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGB
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9324,7 +8648,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
    *       </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -9332,7 +8656,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
    *       </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 }
 
 /**
@@ -9348,14 +8672,14 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  AcceleratorCount?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails;
+  AcceleratorCount?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails | undefined;
 
   /**
    * <p>Indicates whether instance types must have accelerators by specific manufacturers.
    *       </p>
    * @public
    */
-  AcceleratorManufacturers?: string[];
+  AcceleratorManufacturers?: string[] | undefined;
 
   /**
    * <p>
@@ -9363,7 +8687,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  AcceleratorNames?: string[];
+  AcceleratorNames?: string[] | undefined;
 
   /**
    * <p>
@@ -9371,21 +8695,21 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  AcceleratorTotalMemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails;
+  AcceleratorTotalMemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails | undefined;
 
   /**
    * <p>The accelerator types that must be on the instance type.
    *       </p>
    * @public
    */
-  AcceleratorTypes?: string[];
+  AcceleratorTypes?: string[] | undefined;
 
   /**
    * <p>Indicates whether bare metal instance types must be included, excluded, or required.
    *       </p>
    * @public
    */
-  BareMetal?: string;
+  BareMetal?: string | undefined;
 
   /**
    * <p>
@@ -9393,7 +8717,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  BaselineEbsBandwidthMbps?: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails;
+  BaselineEbsBandwidthMbps?: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails | undefined;
 
   /**
    * <p>
@@ -9401,7 +8725,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  BurstablePerformance?: string;
+  BurstablePerformance?: string | undefined;
 
   /**
    * <p>
@@ -9409,7 +8733,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  CpuManufacturers?: string[];
+  CpuManufacturers?: string[] | undefined;
 
   /**
    * <p>
@@ -9417,7 +8741,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  ExcludedInstanceTypes?: string[];
+  ExcludedInstanceTypes?: string[] | undefined;
 
   /**
    * <p>
@@ -9425,7 +8749,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  InstanceGenerations?: string[];
+  InstanceGenerations?: string[] | undefined;
 
   /**
    * <p>
@@ -9433,7 +8757,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  LocalStorage?: string;
+  LocalStorage?: string | undefined;
 
   /**
    * <p>
@@ -9441,7 +8765,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  LocalStorageTypes?: string[];
+  LocalStorageTypes?: string[] | undefined;
 
   /**
    * <p>
@@ -9449,7 +8773,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  MemoryGiBPerVCpu?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails;
+  MemoryGiBPerVCpu?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails | undefined;
 
   /**
    * <p>
@@ -9457,7 +8781,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  MemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails;
+  MemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails | undefined;
 
   /**
    * <p>
@@ -9465,7 +8789,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails;
+  NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails | undefined;
 
   /**
    * <p> The price protection threshold for On-Demand Instances. This is the maximum you'll pay
@@ -9477,7 +8801,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    * @public
    */
-  OnDemandMaxPricePercentageOverLowestPrice?: number;
+  OnDemandMaxPricePercentageOverLowestPrice?: number | undefined;
 
   /**
    * <p>
@@ -9485,7 +8809,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  RequireHibernateSupport?: boolean;
+  RequireHibernateSupport?: boolean | undefined;
 
   /**
    * <p> The price protection threshold for Spot Instances. This is the maximum you'll pay for a
@@ -9496,7 +8820,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    * @public
    */
-  SpotMaxPricePercentageOverLowestPrice?: number;
+  SpotMaxPricePercentageOverLowestPrice?: number | undefined;
 
   /**
    * <p>
@@ -9504,7 +8828,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  TotalLocalStorageGB?: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails;
+  TotalLocalStorageGB?: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails | undefined;
 
   /**
    * <p>
@@ -9512,7 +8836,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
    *       </p>
    * @public
    */
-  VCpuCount?: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails;
+  VCpuCount?: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails | undefined;
 }
 
 /**
@@ -9528,7 +8852,7 @@ export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
    *       </p>
    * @public
    */
-  LicenseConfigurationArn?: string;
+  LicenseConfigurationArn?: string | undefined;
 }
 
 /**
@@ -9544,7 +8868,7 @@ export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
    *       </p>
    * @public
    */
-  AutoRecovery?: string;
+  AutoRecovery?: string | undefined;
 }
 
 /**
@@ -9560,7 +8884,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
    *          metadata. </p>
    * @public
    */
-  HttpEndpoint?: string;
+  HttpEndpoint?: string | undefined;
 
   /**
    * <p>
@@ -9568,7 +8892,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
    *       </p>
    * @public
    */
-  HttpProtocolIpv6?: string;
+  HttpProtocolIpv6?: string | undefined;
 
   /**
    * <p>
@@ -9576,7 +8900,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
    *       </p>
    * @public
    */
-  HttpTokens?: string;
+  HttpTokens?: string | undefined;
 
   /**
    * <p>
@@ -9585,7 +8909,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
    *       </p>
    * @public
    */
-  HttpPutResponseHopLimit?: number;
+  HttpPutResponseHopLimit?: number | undefined;
 
   /**
    * <p>
@@ -9594,7 +8918,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
    *       </p>
    * @public
    */
-  InstanceMetadataTags?: string;
+  InstanceMetadataTags?: string | undefined;
 }
 
 /**
@@ -9612,7 +8936,7 @@ export interface AwsEc2LaunchTemplateDataMonitoringDetails {
    *       </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -9628,7 +8952,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails 
    *       </p>
    * @public
    */
-  Ipv4Prefix?: string;
+  Ipv4Prefix?: string | undefined;
 }
 
 /**
@@ -9644,7 +8968,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
    *       </p>
    * @public
    */
-  Ipv6Address?: string;
+  Ipv6Address?: string | undefined;
 }
 
 /**
@@ -9660,7 +8984,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails 
    *       </p>
    * @public
    */
-  Ipv6Prefix?: string;
+  Ipv6Prefix?: string | undefined;
 }
 
 /**
@@ -9676,7 +9000,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDe
    *       </p>
    * @public
    */
-  Primary?: boolean;
+  Primary?: boolean | undefined;
 
   /**
    * <p>
@@ -9684,7 +9008,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDe
    *       </p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 }
 
 /**
@@ -9704,7 +9028,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  AssociateCarrierIpAddress?: boolean;
+  AssociateCarrierIpAddress?: boolean | undefined;
 
   /**
    * <p>
@@ -9712,7 +9036,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  AssociatePublicIpAddress?: boolean;
+  AssociatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>
@@ -9720,7 +9044,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>
@@ -9728,7 +9052,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -9736,7 +9060,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  DeviceIndex?: number;
+  DeviceIndex?: number | undefined;
 
   /**
    * <p>
@@ -9744,7 +9068,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>
@@ -9752,7 +9076,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  InterfaceType?: string;
+  InterfaceType?: string | undefined;
 
   /**
    * <p>
@@ -9761,7 +9085,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv4PrefixCount?: number;
+  Ipv4PrefixCount?: number | undefined;
 
   /**
    * <p>
@@ -9770,7 +9094,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv4Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails[];
+  Ipv4Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails[] | undefined;
 
   /**
    * <p>
@@ -9780,7 +9104,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv6AddressCount?: number;
+  Ipv6AddressCount?: number | undefined;
 
   /**
    * <p>
@@ -9789,7 +9113,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv6Addresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails[];
+  Ipv6Addresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails[] | undefined;
 
   /**
    * <p>
@@ -9798,7 +9122,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv6PrefixCount?: number;
+  Ipv6PrefixCount?: number | undefined;
 
   /**
    * <p>
@@ -9807,7 +9131,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  Ipv6Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails[];
+  Ipv6Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails[] | undefined;
 
   /**
    * <p>
@@ -9817,7 +9141,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  NetworkCardIndex?: number;
+  NetworkCardIndex?: number | undefined;
 
   /**
    * <p>
@@ -9825,7 +9149,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>
@@ -9833,7 +9157,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 
   /**
    * <p>
@@ -9841,7 +9165,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  PrivateIpAddresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails[];
+  PrivateIpAddresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails[] | undefined;
 
   /**
    * <p>
@@ -9849,7 +9173,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  SecondaryPrivateIpAddressCount?: number;
+  SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
    * <p>
@@ -9857,7 +9181,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
    *       </p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -9873,7 +9197,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  Affinity?: string;
+  Affinity?: string | undefined;
 
   /**
    * <p>
@@ -9881,7 +9205,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>
@@ -9889,7 +9213,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>
@@ -9897,7 +9221,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  HostId?: string;
+  HostId?: string | undefined;
 
   /**
    * <p>
@@ -9905,7 +9229,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  HostResourceGroupArn?: string;
+  HostResourceGroupArn?: string | undefined;
 
   /**
    * <p>
@@ -9913,7 +9237,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  PartitionNumber?: number;
+  PartitionNumber?: number | undefined;
 
   /**
    * <p>
@@ -9921,7 +9245,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  SpreadDomain?: string;
+  SpreadDomain?: string | undefined;
 
   /**
    * <p>
@@ -9929,7 +9253,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
    *       </p>
    * @public
    */
-  Tenancy?: string;
+  Tenancy?: string | undefined;
 }
 
 /**
@@ -9945,7 +9269,7 @@ export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
    *       </p>
    * @public
    */
-  EnableResourceNameDnsAAAARecord?: boolean;
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
 
   /**
    * <p>
@@ -9953,7 +9277,7 @@ export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
    *       </p>
    * @public
    */
-  EnableResourceNameDnsARecord?: boolean;
+  EnableResourceNameDnsARecord?: boolean | undefined;
 
   /**
    * <p>
@@ -9961,7 +9285,7 @@ export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
    *       </p>
    * @public
    */
-  HostnameType?: string;
+  HostnameType?: string | undefined;
 }
 
 /**
@@ -9977,7 +9301,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  BlockDeviceMappingSet?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails[];
+  BlockDeviceMappingSet?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails[] | undefined;
 
   /**
    * <p>
@@ -9986,7 +9310,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  CapacityReservationSpecification?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails;
+  CapacityReservationSpecification?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails | undefined;
 
   /**
    * <p>
@@ -9995,7 +9319,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  CpuOptions?: AwsEc2LaunchTemplateDataCpuOptionsDetails;
+  CpuOptions?: AwsEc2LaunchTemplateDataCpuOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10003,7 +9327,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  CreditSpecification?: AwsEc2LaunchTemplateDataCreditSpecificationDetails;
+  CreditSpecification?: AwsEc2LaunchTemplateDataCreditSpecificationDetails | undefined;
 
   /**
    * <p>
@@ -10012,7 +9336,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  DisableApiStop?: boolean;
+  DisableApiStop?: boolean | undefined;
 
   /**
    * <p>
@@ -10020,7 +9344,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  DisableApiTermination?: boolean;
+  DisableApiTermination?: boolean | undefined;
 
   /**
    * <p>
@@ -10028,7 +9352,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>
@@ -10036,7 +9360,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  ElasticGpuSpecificationSet?: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails[];
+  ElasticGpuSpecificationSet?: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10044,7 +9368,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  ElasticInferenceAcceleratorSet?: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails[];
+  ElasticInferenceAcceleratorSet?: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10052,7 +9376,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  EnclaveOptions?: AwsEc2LaunchTemplateDataEnclaveOptionsDetails;
+  EnclaveOptions?: AwsEc2LaunchTemplateDataEnclaveOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10060,7 +9384,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  HibernationOptions?: AwsEc2LaunchTemplateDataHibernationOptionsDetails;
+  HibernationOptions?: AwsEc2LaunchTemplateDataHibernationOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10068,7 +9392,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  IamInstanceProfile?: AwsEc2LaunchTemplateDataIamInstanceProfileDetails;
+  IamInstanceProfile?: AwsEc2LaunchTemplateDataIamInstanceProfileDetails | undefined;
 
   /**
    * <p>
@@ -10076,7 +9400,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>
@@ -10084,7 +9408,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  InstanceInitiatedShutdownBehavior?: string;
+  InstanceInitiatedShutdownBehavior?: string | undefined;
 
   /**
    * <p>
@@ -10092,7 +9416,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  InstanceMarketOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails;
+  InstanceMarketOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10101,7 +9425,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  InstanceRequirements?: AwsEc2LaunchTemplateDataInstanceRequirementsDetails;
+  InstanceRequirements?: AwsEc2LaunchTemplateDataInstanceRequirementsDetails | undefined;
 
   /**
    * <p>
@@ -10110,7 +9434,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>
@@ -10118,7 +9442,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  KernelId?: string;
+  KernelId?: string | undefined;
 
   /**
    * <p>
@@ -10126,7 +9450,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  KeyName?: string;
+  KeyName?: string | undefined;
 
   /**
    * <p>
@@ -10134,7 +9458,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  LicenseSet?: AwsEc2LaunchTemplateDataLicenseSetDetails[];
+  LicenseSet?: AwsEc2LaunchTemplateDataLicenseSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10142,7 +9466,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  MaintenanceOptions?: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails;
+  MaintenanceOptions?: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10150,7 +9474,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  MetadataOptions?: AwsEc2LaunchTemplateDataMetadataOptionsDetails;
+  MetadataOptions?: AwsEc2LaunchTemplateDataMetadataOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10158,7 +9482,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  Monitoring?: AwsEc2LaunchTemplateDataMonitoringDetails;
+  Monitoring?: AwsEc2LaunchTemplateDataMonitoringDetails | undefined;
 
   /**
    * <p>
@@ -10166,7 +9490,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  NetworkInterfaceSet?: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails[];
+  NetworkInterfaceSet?: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10174,7 +9498,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  Placement?: AwsEc2LaunchTemplateDataPlacementDetails;
+  Placement?: AwsEc2LaunchTemplateDataPlacementDetails | undefined;
 
   /**
    * <p>
@@ -10182,7 +9506,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  PrivateDnsNameOptions?: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails;
+  PrivateDnsNameOptions?: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails | undefined;
 
   /**
    * <p>
@@ -10190,7 +9514,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  RamDiskId?: string;
+  RamDiskId?: string | undefined;
 
   /**
    * <p>
@@ -10198,7 +9522,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  SecurityGroupIdSet?: string[];
+  SecurityGroupIdSet?: string[] | undefined;
 
   /**
    * <p>
@@ -10206,7 +9530,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  SecurityGroupSet?: string[];
+  SecurityGroupSet?: string[] | undefined;
 
   /**
    * <p>
@@ -10214,7 +9538,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
    *       </p>
    * @public
    */
-  UserData?: string;
+  UserData?: string | undefined;
 }
 
 /**
@@ -10230,7 +9554,7 @@ export interface AwsEc2LaunchTemplateDetails {
    *       </p>
    * @public
    */
-  LaunchTemplateName?: string;
+  LaunchTemplateName?: string | undefined;
 
   /**
    * <p>
@@ -10238,7 +9562,7 @@ export interface AwsEc2LaunchTemplateDetails {
    *       </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -10246,7 +9570,7 @@ export interface AwsEc2LaunchTemplateDetails {
    *       </p>
    * @public
    */
-  LaunchTemplateData?: AwsEc2LaunchTemplateDataDetails;
+  LaunchTemplateData?: AwsEc2LaunchTemplateDataDetails | undefined;
 
   /**
    * <p>
@@ -10254,7 +9578,7 @@ export interface AwsEc2LaunchTemplateDetails {
    *       </p>
    * @public
    */
-  DefaultVersionNumber?: number;
+  DefaultVersionNumber?: number | undefined;
 
   /**
    * <p>
@@ -10262,7 +9586,7 @@ export interface AwsEc2LaunchTemplateDetails {
    *       </p>
    * @public
    */
-  LatestVersionNumber?: number;
+  LatestVersionNumber?: number | undefined;
 }
 
 /**
@@ -10274,19 +9598,19 @@ export interface AwsEc2NetworkAclAssociation {
    * <p>The identifier of the association between the network ACL and the subnet.</p>
    * @public
    */
-  NetworkAclAssociationId?: string;
+  NetworkAclAssociationId?: string | undefined;
 
   /**
    * <p>The identifier of the network ACL.</p>
    * @public
    */
-  NetworkAclId?: string;
+  NetworkAclId?: string | undefined;
 
   /**
    * <p>The identifier of the subnet that is associated with the network ACL.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -10299,14 +9623,14 @@ export interface IcmpTypeCode {
    *          value <code>-1</code>.</p>
    * @public
    */
-  Code?: number;
+  Code?: number | undefined;
 
   /**
    * <p>The ICMP type for which to deny or allow access. To deny or allow all types, use the
    *          value <code>-1</code>.</p>
    * @public
    */
-  Type?: number;
+  Type?: number | undefined;
 }
 
 /**
@@ -10318,13 +9642,13 @@ export interface PortRangeFromTo {
    * <p>The first port in the port range.</p>
    * @public
    */
-  From?: number;
+  From?: number | undefined;
 
   /**
    * <p>The last port in the port range.</p>
    * @public
    */
-  To?: number;
+  To?: number | undefined;
 }
 
 /**
@@ -10336,50 +9660,50 @@ export interface AwsEc2NetworkAclEntry {
    * <p>The IPV4 network range for which to deny or allow access.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>Whether the rule is an egress rule. An egress rule is a rule that applies to traffic that leaves the subnet.</p>
    * @public
    */
-  Egress?: boolean;
+  Egress?: boolean | undefined;
 
   /**
    * <p>The Internet Control Message Protocol (ICMP) type and code for which to deny or allow access.</p>
    * @public
    */
-  IcmpTypeCode?: IcmpTypeCode;
+  IcmpTypeCode?: IcmpTypeCode | undefined;
 
   /**
    * <p>The IPV6 network range for which to deny or allow access.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 
   /**
    * <p>For TCP or UDP protocols, the range of ports that the rule applies to.</p>
    * @public
    */
-  PortRange?: PortRangeFromTo;
+  PortRange?: PortRangeFromTo | undefined;
 
   /**
    * <p>The protocol that the rule applies to. To deny or allow access to all protocols, use the
    *          value <code>-1</code>.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>Whether the rule is used to allow access or deny access.</p>
    * @public
    */
-  RuleAction?: string;
+  RuleAction?: string | undefined;
 
   /**
    * <p>The rule number. The rules are processed in order by their number.</p>
    * @public
    */
-  RuleNumber?: number;
+  RuleNumber?: number | undefined;
 }
 
 /**
@@ -10391,37 +9715,37 @@ export interface AwsEc2NetworkAclDetails {
    * <p>Whether this is the default network ACL for the VPC.</p>
    * @public
    */
-  IsDefault?: boolean;
+  IsDefault?: boolean | undefined;
 
   /**
    * <p>The identifier of the network ACL.</p>
    * @public
    */
-  NetworkAclId?: string;
+  NetworkAclId?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the network ACL.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The identifier of the VPC for the network ACL.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Associations between the network ACL and subnets.</p>
    * @public
    */
-  Associations?: AwsEc2NetworkAclAssociation[];
+  Associations?: AwsEc2NetworkAclAssociation[] | undefined;
 
   /**
    * <p>The set of rules in the network ACL.</p>
    * @public
    */
-  Entries?: AwsEc2NetworkAclEntry[];
+  Entries?: AwsEc2NetworkAclEntry[] | undefined;
 }
 
 /**
@@ -10431,65 +9755,41 @@ export interface AwsEc2NetworkAclDetails {
 export interface AwsEc2NetworkInterfaceAttachment {
   /**
    * <p>Indicates when the attachment initiated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  AttachTime?: string;
+  AttachTime?: string | undefined;
 
   /**
    * <p>The identifier of the network interface attachment</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>Indicates whether the network interface is deleted when the instance is
    *          terminated.</p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>The device index of the network interface attachment on the instance.</p>
    * @public
    */
-  DeviceIndex?: number;
+  DeviceIndex?: number | undefined;
 
   /**
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the instance.</p>
    * @public
    */
-  InstanceOwnerId?: string;
+  InstanceOwnerId?: string | undefined;
 
   /**
    * <p>The attachment state.</p>
@@ -10498,7 +9798,7 @@ export interface AwsEc2NetworkInterfaceAttachment {
    *          </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -10511,7 +9811,7 @@ export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
    * <p>The IPV6 address.</p>
    * @public
    */
-  IpV6Address?: string;
+  IpV6Address?: string | undefined;
 }
 
 /**
@@ -10524,13 +9824,13 @@ export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
    * <p>The IP address.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 
   /**
    * <p>The private DNS name for the IP address.</p>
    * @public
    */
-  PrivateDnsName?: string;
+  PrivateDnsName?: string | undefined;
 }
 
 /**
@@ -10542,13 +9842,13 @@ export interface AwsEc2NetworkInterfaceSecurityGroup {
    * <p>The name of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 }
 
 /**
@@ -10560,49 +9860,49 @@ export interface AwsEc2NetworkInterfaceDetails {
    * <p>The network interface attachment.</p>
    * @public
    */
-  Attachment?: AwsEc2NetworkInterfaceAttachment;
+  Attachment?: AwsEc2NetworkInterfaceAttachment | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>Security groups for the network interface.</p>
    * @public
    */
-  SecurityGroups?: AwsEc2NetworkInterfaceSecurityGroup[];
+  SecurityGroups?: AwsEc2NetworkInterfaceSecurityGroup[] | undefined;
 
   /**
    * <p>Indicates whether traffic to or from the instance is validated.</p>
    * @public
    */
-  SourceDestCheck?: boolean;
+  SourceDestCheck?: boolean | undefined;
 
   /**
    * <p>The IPv6 addresses associated with the network interface.</p>
    * @public
    */
-  IpV6Addresses?: AwsEc2NetworkInterfaceIpV6AddressDetail[];
+  IpV6Addresses?: AwsEc2NetworkInterfaceIpV6AddressDetail[] | undefined;
 
   /**
    * <p>The private IPv4 addresses associated with the network interface.</p>
    * @public
    */
-  PrivateIpAddresses?: AwsEc2NetworkInterfacePrivateIpAddressDetail[];
+  PrivateIpAddresses?: AwsEc2NetworkInterfacePrivateIpAddressDetail[] | undefined;
 
   /**
    * <p>The public DNS name of the network interface.</p>
    * @public
    */
-  PublicDnsName?: string;
+  PublicDnsName?: string | undefined;
 
   /**
    * <p>The address of the Elastic IP address bound to the network interface.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 }
 
 /**
@@ -10618,7 +9918,7 @@ export interface PropagatingVgwSetDetails {
    *       </p>
    * @public
    */
-  GatewayId?: string;
+  GatewayId?: string | undefined;
 }
 
 /**
@@ -10634,7 +9934,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  CarrierGatewayId?: string;
+  CarrierGatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10642,7 +9942,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>
@@ -10650,7 +9950,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  DestinationCidrBlock?: string;
+  DestinationCidrBlock?: string | undefined;
 
   /**
    * <p>
@@ -10658,15 +9958,15 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  DestinationIpv6CidrBlock?: string;
+  DestinationIpv6CidrBlock?: string | undefined;
 
   /**
    * <p>
-   *          The prefix of the destination Amazon Web Service.
+   *          The prefix of the destination Amazon Web Services service.
    *       </p>
    * @public
    */
-  DestinationPrefixListId?: string;
+  DestinationPrefixListId?: string | undefined;
 
   /**
    * <p>
@@ -10674,7 +9974,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  EgressOnlyInternetGatewayId?: string;
+  EgressOnlyInternetGatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10682,7 +9982,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  GatewayId?: string;
+  GatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10690,7 +9990,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>
@@ -10698,7 +9998,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  InstanceOwnerId?: string;
+  InstanceOwnerId?: string | undefined;
 
   /**
    * <p>
@@ -10706,7 +10006,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  LocalGatewayId?: string;
+  LocalGatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10714,7 +10014,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  NatGatewayId?: string;
+  NatGatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10722,7 +10022,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>
@@ -10730,7 +10030,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  Origin?: string;
+  Origin?: string | undefined;
 
   /**
    * <p>
@@ -10738,7 +10038,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>
@@ -10746,7 +10046,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>
@@ -10754,7 +10054,7 @@ export interface RouteSetDetails {
    *       </p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
@@ -10770,7 +10070,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  AssociationSet?: AssociationSetDetails[];
+  AssociationSet?: AssociationSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10778,7 +10078,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>
@@ -10786,7 +10086,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  PropagatingVgwSet?: PropagatingVgwSetDetails[];
+  PropagatingVgwSet?: PropagatingVgwSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10794,7 +10094,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  RouteTableId?: string;
+  RouteTableId?: string | undefined;
 
   /**
    * <p>
@@ -10802,7 +10102,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  RouteSet?: RouteSetDetails[];
+  RouteSet?: RouteSetDetails[] | undefined;
 
   /**
    * <p>
@@ -10810,7 +10110,7 @@ export interface AwsEc2RouteTableDetails {
    *       </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -10823,7 +10123,7 @@ export interface AwsEc2SecurityGroupIpRange {
    *          not both. To specify a single IPv4 address, use the /32 prefix length.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 }
 
 /**
@@ -10836,7 +10136,7 @@ export interface AwsEc2SecurityGroupIpv6Range {
    *          not both. To specify a single IPv6 address, use the /128 prefix length.</p>
    * @public
    */
-  CidrIpv6?: string;
+  CidrIpv6?: string | undefined;
 }
 
 /**
@@ -10848,7 +10148,7 @@ export interface AwsEc2SecurityGroupPrefixListId {
    * <p>The ID of the prefix.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 }
 
 /**
@@ -10860,19 +10160,19 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The name of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The status of a VPC peering connection, if applicable.</p>
    * @public
    */
-  PeeringStatus?: string;
+  PeeringStatus?: string | undefined;
 
   /**
    * <p>The ID of an Amazon Web Services account.</p>
@@ -10883,19 +10183,19 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
    *          another VPC. </p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The ID of the VPC for the referenced security group, if applicable.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The ID of the VPC peering connection, if applicable.</p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
@@ -10917,7 +10217,7 @@ export interface AwsEc2SecurityGroupIpPermission {
    *          for all types and codes is allowed. </p>
    * @public
    */
-  IpProtocol?: string;
+  IpProtocol?: string | undefined;
 
   /**
    * <p>The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
@@ -10926,7 +10226,7 @@ export interface AwsEc2SecurityGroupIpPermission {
    *          must specify all codes. </p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.</p>
@@ -10934,25 +10234,25 @@ export interface AwsEc2SecurityGroupIpPermission {
    *          codes.</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 
   /**
    * <p>The security group and Amazon Web Services account ID pairs.</p>
    * @public
    */
-  UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[];
+  UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[] | undefined;
 
   /**
    * <p>The IPv4 ranges.</p>
    * @public
    */
-  IpRanges?: AwsEc2SecurityGroupIpRange[];
+  IpRanges?: AwsEc2SecurityGroupIpRange[] | undefined;
 
   /**
    * <p>The IPv6 ranges.</p>
    * @public
    */
-  Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[];
+  Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[] | undefined;
 
   /**
    * <p>[VPC only] The prefix list IDs for an Amazon Web Services service. With outbound rules, this is the Amazon Web Services
@@ -10960,7 +10260,7 @@ export interface AwsEc2SecurityGroupIpPermission {
    *          group.</p>
    * @public
    */
-  PrefixListIds?: AwsEc2SecurityGroupPrefixListId[];
+  PrefixListIds?: AwsEc2SecurityGroupPrefixListId[] | undefined;
 }
 
 /**
@@ -10972,37 +10272,37 @@ export interface AwsEc2SecurityGroupDetails {
    * <p>The name of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the security group.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>[VPC only] The ID of the VPC for the security group.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The inbound rules associated with the security group.</p>
    * @public
    */
-  IpPermissions?: AwsEc2SecurityGroupIpPermission[];
+  IpPermissions?: AwsEc2SecurityGroupIpPermission[] | undefined;
 
   /**
    * <p>[VPC only] The outbound rules associated with the security group.</p>
    * @public
    */
-  IpPermissionsEgress?: AwsEc2SecurityGroupIpPermission[];
+  IpPermissionsEgress?: AwsEc2SecurityGroupIpPermission[] | undefined;
 }
 
 /**
@@ -11014,13 +10314,13 @@ export interface Ipv6CidrBlockAssociation {
    * <p>The association ID for the IPv6 CIDR block.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The IPv6 CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 
   /**
    * <p>Information about the state of the CIDR block. Valid values are as follows:</p>
@@ -11058,7 +10358,7 @@ export interface Ipv6CidrBlockAssociation {
    *          </ul>
    * @public
    */
-  CidrBlockState?: string;
+  CidrBlockState?: string | undefined;
 }
 
 /**
@@ -11070,79 +10370,79 @@ export interface AwsEc2SubnetDetails {
    * <p>Whether to assign an IPV6 address to a network interface that is created in this subnet.</p>
    * @public
    */
-  AssignIpv6AddressOnCreation?: boolean;
+  AssignIpv6AddressOnCreation?: boolean | undefined;
 
   /**
    * <p>The Availability Zone for the subnet.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The identifier of the Availability Zone for the subnet.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The number of available IPV4 addresses in the subnet. Does not include addresses for stopped instances.</p>
    * @public
    */
-  AvailableIpAddressCount?: number;
+  AvailableIpAddressCount?: number | undefined;
 
   /**
    * <p>The IPV4 CIDR block that is assigned to the subnet.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>Whether this subnet is the default subnet for the Availability Zone.</p>
    * @public
    */
-  DefaultForAz?: boolean;
+  DefaultForAz?: boolean | undefined;
 
   /**
    * <p>Whether instances in this subnet receive a public IP address.</p>
    * @public
    */
-  MapPublicIpOnLaunch?: boolean;
+  MapPublicIpOnLaunch?: boolean | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the subnet.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The current state of the subnet. Valid values are <code>available</code> or <code>pending</code>.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The ARN of the subnet.</p>
    * @public
    */
-  SubnetArn?: string;
+  SubnetArn?: string | undefined;
 
   /**
    * <p>The identifier of the subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that contains the subnet.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The IPV6 CIDR blocks that are associated with the subnet.</p>
    * @public
    */
-  Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[];
+  Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[] | undefined;
 }
 
 /**
@@ -11157,84 +10457,84 @@ export interface AwsEc2TransitGatewayDetails {
    *       </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The description of the transit gateway.
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Turn on or turn off automatic propagation of routes to the default propagation route table.
    *       </p>
    * @public
    */
-  DefaultRouteTablePropagation?: string;
+  DefaultRouteTablePropagation?: string | undefined;
 
   /**
    * <p>Turn on or turn off automatic acceptance of attachment requests.
    *       </p>
    * @public
    */
-  AutoAcceptSharedAttachments?: string;
+  AutoAcceptSharedAttachments?: string | undefined;
 
   /**
    * <p>Turn on or turn off automatic association with the default association route table.
    *       </p>
    * @public
    */
-  DefaultRouteTableAssociation?: string;
+  DefaultRouteTableAssociation?: string | undefined;
 
   /**
    * <p>The transit gateway Classless Inter-Domain Routing (CIDR) blocks.
    *       </p>
    * @public
    */
-  TransitGatewayCidrBlocks?: string[];
+  TransitGatewayCidrBlocks?: string[] | undefined;
 
   /**
    * <p>The ID of the default association route table.
    *       </p>
    * @public
    */
-  AssociationDefaultRouteTableId?: string;
+  AssociationDefaultRouteTableId?: string | undefined;
 
   /**
    * <p>The ID of the default propagation route table.
    *       </p>
    * @public
    */
-  PropagationDefaultRouteTableId?: string;
+  PropagationDefaultRouteTableId?: string | undefined;
 
   /**
    * <p>Turn on or turn off Equal Cost Multipath Protocol (ECMP) support.
    *       </p>
    * @public
    */
-  VpnEcmpSupport?: string;
+  VpnEcmpSupport?: string | undefined;
 
   /**
    * <p>Turn on or turn off DNS support.
    *       </p>
    * @public
    */
-  DnsSupport?: string;
+  DnsSupport?: string | undefined;
 
   /**
    * <p>Indicates whether multicast is supported on the transit gateway.
    *       </p>
    * @public
    */
-  MulticastSupport?: string;
+  MulticastSupport?: string | undefined;
 
   /**
    * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
    *       </p>
    * @public
    */
-  AmazonSideAsn?: number;
+  AmazonSideAsn?: number | undefined;
 }
 
 /**
@@ -11246,19 +10546,19 @@ export interface AwsEc2VolumeAttachment {
    * <p>The datetime when the attachment initiated.</p>
    * @public
    */
-  AttachTime?: string;
+  AttachTime?: string | undefined;
 
   /**
    * <p>Whether the EBS volume is deleted when the EC2 instance is terminated.</p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>The identifier of the EC2 instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The attachment state of the volume. Valid values are as follows:</p>
@@ -11291,7 +10591,7 @@ export interface AwsEc2VolumeAttachment {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -11301,59 +10601,35 @@ export interface AwsEc2VolumeAttachment {
 export interface AwsEc2VolumeDetails {
   /**
    * <p>Indicates when the volume was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  CreateTime?: string;
+  CreateTime?: string | undefined;
 
   /**
    * <p>The device name for the volume that is attached to the instance.
    *       </p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>Specifies whether the volume is encrypted.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The size of the volume, in GiBs.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>The snapshot from which the volume was created.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>The volume state. Valid values are as follows:</p>
@@ -11391,41 +10667,41 @@ export interface AwsEc2VolumeDetails {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key that was
    *          used to protect the volume encryption key for the volume.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The volume attachments.</p>
    * @public
    */
-  Attachments?: AwsEc2VolumeAttachment[];
+  Attachments?: AwsEc2VolumeAttachment[] | undefined;
 
   /**
    * <p>The ID of the volume.
    *       </p>
    * @public
    */
-  VolumeId?: string;
+  VolumeId?: string | undefined;
 
   /**
    * <p>The volume type.
    *       </p>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 
   /**
    * <p>Indicates whether the volume was scanned or skipped.
    *       </p>
    * @public
    */
-  VolumeScanStatus?: string;
+  VolumeScanStatus?: string | undefined;
 }
 
 /**
@@ -11437,19 +10713,19 @@ export interface CidrBlockAssociation {
    * <p>The association ID for the IPv4 CIDR block.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The IPv4 CIDR block.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>Information about the state of the IPv4 CIDR block.</p>
    * @public
    */
-  CidrBlockState?: string;
+  CidrBlockState?: string | undefined;
 }
 
 /**
@@ -11461,13 +10737,13 @@ export interface AwsEc2VpcDetails {
    * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
    * @public
    */
-  CidrBlockAssociationSet?: CidrBlockAssociation[];
+  CidrBlockAssociationSet?: CidrBlockAssociation[] | undefined;
 
   /**
    * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
    * @public
    */
-  Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[];
+  Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[] | undefined;
 
   /**
    * <p>The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are
@@ -11475,13 +10751,13 @@ export interface AwsEc2VpcDetails {
    *          default.</p>
    * @public
    */
-  DhcpOptionsId?: string;
+  DhcpOptionsId?: string | undefined;
 
   /**
    * <p>The current state of the VPC. Valid values are <code>available</code> or <code>pending</code>.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -11493,7 +10769,7 @@ export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
    * <p>The type of service.</p>
    * @public
    */
-  ServiceType?: string;
+  ServiceType?: string | undefined;
 }
 
 /**
@@ -11505,55 +10781,55 @@ export interface AwsEc2VpcEndpointServiceDetails {
    * <p>Whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
    * @public
    */
-  AcceptanceRequired?: boolean;
+  AcceptanceRequired?: boolean | undefined;
 
   /**
    * <p>The Availability Zones where the service is available.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The DNS names for the service.</p>
    * @public
    */
-  BaseEndpointDnsNames?: string[];
+  BaseEndpointDnsNames?: string[] | undefined;
 
   /**
    * <p>Whether the service manages its VPC endpoints.</p>
    * @public
    */
-  ManagesVpcEndpoints?: boolean;
+  ManagesVpcEndpoints?: boolean | undefined;
 
   /**
    * <p>The ARNs of the Gateway Load Balancers for the service.</p>
    * @public
    */
-  GatewayLoadBalancerArns?: string[];
+  GatewayLoadBalancerArns?: string[] | undefined;
 
   /**
    * <p>The ARNs of the Network Load Balancers for the service.</p>
    * @public
    */
-  NetworkLoadBalancerArns?: string[];
+  NetworkLoadBalancerArns?: string[] | undefined;
 
   /**
    * <p>The private DNS name for the service.</p>
    * @public
    */
-  PrivateDnsName?: string;
+  PrivateDnsName?: string | undefined;
 
   /**
    * <p>The identifier of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>The current state of the service. Valid values are as follows:</p>
@@ -11586,13 +10862,13 @@ export interface AwsEc2VpcEndpointServiceDetails {
    *          </ul>
    * @public
    */
-  ServiceState?: string;
+  ServiceState?: string | undefined;
 
   /**
    * <p>The types for the service.</p>
    * @public
    */
-  ServiceType?: AwsEc2VpcEndpointServiceServiceTypeDetails[];
+  ServiceType?: AwsEc2VpcEndpointServiceServiceTypeDetails[] | undefined;
 }
 
 /**
@@ -11606,7 +10882,7 @@ export interface VpcInfoCidrBlockSetDetails {
    *       </p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 }
 
 /**
@@ -11620,7 +10896,7 @@ export interface VpcInfoIpv6CidrBlockSetDetails {
    *       </p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 }
 
 /**
@@ -11634,21 +10910,21 @@ export interface VpcInfoPeeringOptionsDetails {
    *       </p>
    * @public
    */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
+  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
 
   /**
    * <p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
    *       </p>
    * @public
    */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
 
   /**
    * <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
    *       </p>
    * @public
    */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
 }
 
 /**
@@ -11662,49 +10938,49 @@ export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
    *       </p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>Information about the IPv4 CIDR blocks for the VPC.
    *       </p>
    * @public
    */
-  CidrBlockSet?: VpcInfoCidrBlockSetDetails[];
+  CidrBlockSet?: VpcInfoCidrBlockSetDetails[] | undefined;
 
   /**
    * <p>The IPv6 CIDR block for the VPC.
    *       </p>
    * @public
    */
-  Ipv6CidrBlockSet?: VpcInfoIpv6CidrBlockSetDetails[];
+  Ipv6CidrBlockSet?: VpcInfoIpv6CidrBlockSetDetails[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the VPC.
    *       </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Information about the VPC peering connection options for the accepter or requester VPC.
    *       </p>
    * @public
    */
-  PeeringOptions?: VpcInfoPeeringOptionsDetails;
+  PeeringOptions?: VpcInfoPeeringOptionsDetails | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which the VPC is located.
    *       </p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The ID of the VPC.
    *       </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -11718,14 +10994,14 @@ export interface AwsEc2VpcPeeringConnectionStatusDetails {
    *       </p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A message that provides more information about the status, if applicable.
    *       </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -11740,35 +11016,35 @@ export interface AwsEc2VpcPeeringConnectionDetails {
    *       </p>
    * @public
    */
-  AccepterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails;
+  AccepterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails | undefined;
 
   /**
    * <p>The time at which an unaccepted VPC peering connection will expire.
    *       </p>
    * @public
    */
-  ExpirationTime?: string;
+  ExpirationTime?: string | undefined;
 
   /**
    * <p>Information about the requester VPC.
    *       </p>
    * @public
    */
-  RequesterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails;
+  RequesterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails | undefined;
 
   /**
    * <p>The status of the VPC peering connection.
    *       </p>
    * @public
    */
-  Status?: AwsEc2VpcPeeringConnectionStatusDetails;
+  Status?: AwsEc2VpcPeeringConnectionStatusDetails | undefined;
 
   /**
    * <p>The ID of the VPC peering connection.
    *       </p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
@@ -11780,106 +11056,106 @@ export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
    * <p>The number of seconds after which a Dead Peer Detection (DPD) timeout occurs.</p>
    * @public
    */
-  DpdTimeoutSeconds?: number;
+  DpdTimeoutSeconds?: number | undefined;
 
   /**
    * <p>The Internet Key Exchange (IKE) versions that are permitted for the VPN tunnel.</p>
    * @public
    */
-  IkeVersions?: string[];
+  IkeVersions?: string[] | undefined;
 
   /**
    * <p>The external IP address of the VPN tunnel.</p>
    * @public
    */
-  OutsideIpAddress?: string;
+  OutsideIpAddress?: string | undefined;
 
   /**
    * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase1DhGroupNumbers?: number[];
+  Phase1DhGroupNumbers?: number[] | undefined;
 
   /**
    * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase1EncryptionAlgorithms?: string[];
+  Phase1EncryptionAlgorithms?: string[] | undefined;
 
   /**
    * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase1IntegrityAlgorithms?: string[];
+  Phase1IntegrityAlgorithms?: string[] | undefined;
 
   /**
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
    * @public
    */
-  Phase1LifetimeSeconds?: number;
+  Phase1LifetimeSeconds?: number | undefined;
 
   /**
    * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase2DhGroupNumbers?: number[];
+  Phase2DhGroupNumbers?: number[] | undefined;
 
   /**
    * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase2EncryptionAlgorithms?: string[];
+  Phase2EncryptionAlgorithms?: string[] | undefined;
 
   /**
    * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
    *          negotiations.</p>
    * @public
    */
-  Phase2IntegrityAlgorithms?: string[];
+  Phase2IntegrityAlgorithms?: string[] | undefined;
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
    * @public
    */
-  Phase2LifetimeSeconds?: number;
+  Phase2LifetimeSeconds?: number | undefined;
 
   /**
    * <p>The preshared key to establish initial authentication between the virtual private gateway
    *          and the customer gateway.</p>
    * @public
    */
-  PreSharedKey?: string;
+  PreSharedKey?: string | undefined;
 
   /**
    * <p>The percentage of the rekey window, which is determined by
    *          <code>RekeyMarginTimeSeconds</code> during which the rekey time is randomly selected.</p>
    * @public
    */
-  RekeyFuzzPercentage?: number;
+  RekeyFuzzPercentage?: number | undefined;
 
   /**
    * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the Amazon Web Services
    *          side of the VPN connection performs an IKE rekey.</p>
    * @public
    */
-  RekeyMarginTimeSeconds?: number;
+  RekeyMarginTimeSeconds?: number | undefined;
 
   /**
    * <p>The number of packets in an IKE replay window.</p>
    * @public
    */
-  ReplayWindowSize?: number;
+  ReplayWindowSize?: number | undefined;
 
   /**
    * <p>The range of inside IPv4 addresses for the tunnel.</p>
    * @public
    */
-  TunnelInsideCidr?: string;
+  TunnelInsideCidr?: string | undefined;
 }
 
 /**
@@ -11891,13 +11167,13 @@ export interface AwsEc2VpnConnectionOptionsDetails {
    * <p>Whether the VPN connection uses static routes only.</p>
    * @public
    */
-  StaticRoutesOnly?: boolean;
+  StaticRoutesOnly?: boolean | undefined;
 
   /**
    * <p>The VPN tunnel options.</p>
    * @public
    */
-  TunnelOptions?: AwsEc2VpnConnectionOptionsTunnelOptionsDetails[];
+  TunnelOptions?: AwsEc2VpnConnectionOptionsTunnelOptionsDetails[] | undefined;
 }
 
 /**
@@ -11910,13 +11186,13 @@ export interface AwsEc2VpnConnectionRoutesDetails {
    * <p>The CIDR block associated with the local subnet of the customer data center.</p>
    * @public
    */
-  DestinationCidrBlock?: string;
+  DestinationCidrBlock?: string | undefined;
 
   /**
    * <p>The current state of the static route.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -11928,63 +11204,39 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
    * <p>The number of accepted routes.</p>
    * @public
    */
-  AcceptedRouteCount?: number;
+  AcceptedRouteCount?: number | undefined;
 
   /**
    * <p>The ARN of the VPN tunnel endpoint certificate.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The date and time of the last change in status.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  LastStatusChange?: string;
+  LastStatusChange?: string | undefined;
 
   /**
    * <p>The Internet-routable IP address of the virtual private gateway's outside
    *          interface.</p>
    * @public
    */
-  OutsideIpAddress?: string;
+  OutsideIpAddress?: string | undefined;
 
   /**
    * <p>The status of the VPN tunnel. Valid values are <code>DOWN</code> or <code>UP</code>.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurs, a description of the error.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -11997,7 +11249,7 @@ export interface AwsEc2VpnConnectionDetails {
    * <p>The identifier of the VPN connection.</p>
    * @public
    */
-  VpnConnectionId?: string;
+  VpnConnectionId?: string | undefined;
 
   /**
    * <p>The current state of the VPN connection. Valid values are as follows:</p>
@@ -12025,64 +11277,64 @@ export interface AwsEc2VpnConnectionDetails {
    *          </ul>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The identifier of the customer gateway that is at your end of the VPN connection.</p>
    * @public
    */
-  CustomerGatewayId?: string;
+  CustomerGatewayId?: string | undefined;
 
   /**
    * <p>The configuration information for the VPN connection's customer gateway, in the native XML
    *          format.</p>
    * @public
    */
-  CustomerGatewayConfiguration?: string;
+  CustomerGatewayConfiguration?: string | undefined;
 
   /**
    * <p>The type of VPN connection.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The identifier of the virtual private gateway that is at the Amazon Web Services side of the VPN
    *          connection.</p>
    * @public
    */
-  VpnGatewayId?: string;
+  VpnGatewayId?: string | undefined;
 
   /**
    * <p>The category of the VPN connection. <code>VPN</code> indicates an Amazon Web Services VPN connection. <code>VPN-Classic</code>
    *          indicates an Amazon Web Services Classic VPN connection.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>Information about the VPN tunnel.</p>
    * @public
    */
-  VgwTelemetry?: AwsEc2VpnConnectionVgwTelemetryDetails[];
+  VgwTelemetry?: AwsEc2VpnConnectionVgwTelemetryDetails[] | undefined;
 
   /**
    * <p>The VPN connection options.</p>
    * @public
    */
-  Options?: AwsEc2VpnConnectionOptionsDetails;
+  Options?: AwsEc2VpnConnectionOptionsDetails | undefined;
 
   /**
    * <p>The static routes that are associated with the VPN connection.</p>
    * @public
    */
-  Routes?: AwsEc2VpnConnectionRoutesDetails[];
+  Routes?: AwsEc2VpnConnectionRoutesDetails[] | undefined;
 
   /**
    * <p>The identifier of the transit gateway that is associated with the VPN connection.</p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 }
 
 /**
@@ -12095,13 +11347,13 @@ export interface AwsEcrContainerImageDetails {
    *          to.</p>
    * @public
    */
-  RegistryId?: string;
+  RegistryId?: string | undefined;
 
   /**
    * <p>The name of the repository that the image belongs to.</p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The architecture of the image. Valid values are as follows:</p>
@@ -12124,50 +11376,26 @@ export interface AwsEcrContainerImageDetails {
    *          </ul>
    * @public
    */
-  Architecture?: string;
+  Architecture?: string | undefined;
 
   /**
    * <p>The sha256 digest of the image manifest.</p>
    * @public
    */
-  ImageDigest?: string;
+  ImageDigest?: string | undefined;
 
   /**
    * <p>The list of tags that are associated with the image.</p>
    * @public
    */
-  ImageTags?: string[];
+  ImageTags?: string[] | undefined;
 
   /**
    * <p>The date and time when the image was pushed to the repository.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
-  ImagePublishedAt?: string;
+  ImagePublishedAt?: string | undefined;
 }
 
 /**
@@ -12179,7 +11407,7 @@ export interface AwsEcrRepositoryImageScanningConfigurationDetails {
    * <p>Whether to scan images after they are pushed to a repository.</p>
    * @public
    */
-  ScanOnPush?: boolean;
+  ScanOnPush?: boolean | undefined;
 }
 
 /**
@@ -12191,13 +11419,13 @@ export interface AwsEcrRepositoryLifecyclePolicyDetails {
    * <p>The text of the lifecycle policy.</p>
    * @public
    */
-  LifecyclePolicyText?: string;
+  LifecyclePolicyText?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account identifier that is associated with the registry that contains the repository.</p>
    * @public
    */
-  RegistryId?: string;
+  RegistryId?: string | undefined;
 }
 
 /**
@@ -12209,37 +11437,37 @@ export interface AwsEcrRepositoryDetails {
    * <p>The ARN of the repository.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The image scanning configuration for a repository.</p>
    * @public
    */
-  ImageScanningConfiguration?: AwsEcrRepositoryImageScanningConfigurationDetails;
+  ImageScanningConfiguration?: AwsEcrRepositoryImageScanningConfigurationDetails | undefined;
 
   /**
    * <p>The tag mutability setting for the repository. Valid values are <code>IMMUTABLE</code> or <code>MUTABLE</code>.</p>
    * @public
    */
-  ImageTagMutability?: string;
+  ImageTagMutability?: string | undefined;
 
   /**
    * <p>Information about the lifecycle policy for the repository.</p>
    * @public
    */
-  LifecyclePolicy?: AwsEcrRepositoryLifecyclePolicyDetails;
+  LifecyclePolicy?: AwsEcrRepositoryLifecyclePolicyDetails | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The text of the repository policy.</p>
    * @public
    */
-  RepositoryPolicyText?: string;
+  RepositoryPolicyText?: string | undefined;
 }
 
 /**
@@ -12251,13 +11479,13 @@ export interface AwsEcsClusterClusterSettingsDetails {
    * <p>The name of the setting. The valid value is <code>containerInsights</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the setting. Valid values are <code>disabled</code> or <code>enabled</code>.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -12269,31 +11497,31 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigu
    * <p>Whether to enable encryption on the CloudWatch logs.</p>
    * @public
    */
-  CloudWatchEncryptionEnabled?: boolean;
+  CloudWatchEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the CloudWatch log group to send the logs to.</p>
    * @public
    */
-  CloudWatchLogGroupName?: string;
+  CloudWatchLogGroupName?: string | undefined;
 
   /**
    * <p>The name of the S3 bucket to send logs to.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Whether to encrypt the logs that are sent to the S3 bucket.</p>
    * @public
    */
-  S3EncryptionEnabled?: boolean;
+  S3EncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>Identifies the folder in the S3 bucket to send the logs to.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 }
 
 /**
@@ -12305,19 +11533,19 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
    * <p>The identifier of the KMS key that is used to encrypt the data between the local client and the container.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The log configuration for the results of the run command actions. Required if <code>Logging</code> is <code>NONE</code>.</p>
    * @public
    */
-  LogConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails;
+  LogConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails | undefined;
 
   /**
    * <p>The log setting to use for redirecting logs for run command results.</p>
    * @public
    */
-  Logging?: string;
+  Logging?: string | undefined;
 }
 
 /**
@@ -12329,7 +11557,7 @@ export interface AwsEcsClusterConfigurationDetails {
    * <p>Contains the run command configuration for the cluster.</p>
    * @public
    */
-  ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails;
+  ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails | undefined;
 }
 
 /**
@@ -12341,19 +11569,19 @@ export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
    * <p>The minimum number of tasks to run on the specified capacity provider.</p>
    * @public
    */
-  Base?: number;
+  Base?: number | undefined;
 
   /**
    * <p>The name of the capacity provider.</p>
    * @public
    */
-  CapacityProvider?: string;
+  CapacityProvider?: string | undefined;
 
   /**
    * <p>The relative percentage of the total number of tasks launched that should use the capacity provider.</p>
    * @public
    */
-  Weight?: number;
+  Weight?: number | undefined;
 }
 
 /**
@@ -12366,7 +11594,7 @@ export interface AwsEcsClusterDetails {
    *       </p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>The number of services that are running on the cluster in an <code>ACTIVE</code> state. You can view these services with the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">
@@ -12375,59 +11603,59 @@ export interface AwsEcsClusterDetails {
    *       </p>
    * @public
    */
-  ActiveServicesCount?: number;
+  ActiveServicesCount?: number | undefined;
 
   /**
    * <p>The short name of one or more capacity providers to associate with the cluster.</p>
    * @public
    */
-  CapacityProviders?: string[];
+  CapacityProviders?: string[] | undefined;
 
   /**
    * <p>The setting to use to create the cluster. Specifically used to configure whether to enable CloudWatch Container Insights for the cluster.</p>
    * @public
    */
-  ClusterSettings?: AwsEcsClusterClusterSettingsDetails[];
+  ClusterSettings?: AwsEcsClusterClusterSettingsDetails[] | undefined;
 
   /**
    * <p>The run command configuration for the cluster.</p>
    * @public
    */
-  Configuration?: AwsEcsClusterConfigurationDetails;
+  Configuration?: AwsEcsClusterConfigurationDetails | undefined;
 
   /**
    * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
    * @public
    */
-  DefaultCapacityProviderStrategy?: AwsEcsClusterDefaultCapacityProviderStrategyDetails[];
+  DefaultCapacityProviderStrategy?: AwsEcsClusterDefaultCapacityProviderStrategyDetails[] | undefined;
 
   /**
    * <p>A name that you use to identify your cluster.
    *       </p>
    * @public
    */
-  ClusterName?: string;
+  ClusterName?: string | undefined;
 
   /**
    * <p>The number of container instances registered into the cluster. This includes container instances in both <code>ACTIVE</code> and <code>DRAINING</code> status.
    *       </p>
    * @public
    */
-  RegisteredContainerInstancesCount?: number;
+  RegisteredContainerInstancesCount?: number | undefined;
 
   /**
    * <p>The number of tasks in the cluster that are in the <code>RUNNING</code> state.
    *       </p>
    * @public
    */
-  RunningTasksCount?: number;
+  RunningTasksCount?: number | undefined;
 
   /**
    * <p>The status of the cluster.
    *       </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -12442,14 +11670,14 @@ export interface AwsMountPoint {
    *       </p>
    * @public
    */
-  SourceVolume?: string;
+  SourceVolume?: string | undefined;
 
   /**
    * <p>The path on the container to mount the host volume at.
    *       </p>
    * @public
    */
-  ContainerPath?: string;
+  ContainerPath?: string | undefined;
 }
 
 /**
@@ -12463,21 +11691,21 @@ export interface AwsEcsContainerDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The image used for the container.
    *       </p>
    * @public
    */
-  Image?: string;
+  Image?: string | undefined;
 
   /**
    * <p>The mount points for data volumes in your container.
    *       </p>
    * @public
    */
-  MountPoints?: AwsMountPoint[];
+  MountPoints?: AwsMountPoint[] | undefined;
 
   /**
    * <p>When this parameter is true, the container is given elevated privileges on the host container instance
@@ -12485,7 +11713,7 @@ export interface AwsEcsContainerDetails {
    *       </p>
    * @public
    */
-  Privileged?: boolean;
+  Privileged?: boolean | undefined;
 }
 
 /**
@@ -12498,13 +11726,13 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
    *          <p>The value must be between 0 and 100000.</p>
    * @public
    */
-  Base?: number;
+  Base?: number | undefined;
 
   /**
    * <p>The short name of the capacity provider.</p>
    * @public
    */
-  CapacityProvider?: string;
+  CapacityProvider?: string | undefined;
 
   /**
    * <p>The relative percentage of the total number of tasks that should use the capacity provider.</p>
@@ -12512,7 +11740,7 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
    *          <p>The value can be between 0 and 1000.</p>
    * @public
    */
-  Weight?: number;
+  Weight?: number | undefined;
 }
 
 /**
@@ -12524,13 +11752,13 @@ export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDet
    * <p>Whether to enable the deployment circuit breaker logic for the service.</p>
    * @public
    */
-  Enable?: boolean;
+  Enable?: boolean | undefined;
 
   /**
    * <p>Whether to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.</p>
    * @public
    */
-  Rollback?: boolean;
+  Rollback?: boolean | undefined;
 }
 
 /**
@@ -12542,7 +11770,7 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
    * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
    * @public
    */
-  DeploymentCircuitBreaker?: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails;
+  DeploymentCircuitBreaker?: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails | undefined;
 
   /**
    * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the maximum number of tasks in a service that are allowed in the <code>RUNNING</code> or <code>PENDING</code> state during a deployment, and for tasks that use the EC2 launch type, when any container instances are in the <code>DRAINING</code> state. Provided as a percentage of the desired number of tasks. The default value is 200%.</p>
@@ -12550,7 +11778,7 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
    *          <p>For the Fargate launch type, the maximum percent value is not used.</p>
    * @public
    */
-  MaximumPercent?: number;
+  MaximumPercent?: number | undefined;
 
   /**
    * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the minimum number of tasks in a service that must remain in the <code>RUNNING</code> state during a deployment, and while any container instances are in the <code>DRAINING</code> state if the service contains tasks using the EC2 launch type. Expressed as a percentage of the desired number of tasks. The default value is 100%.</p>
@@ -12558,7 +11786,7 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
    *          <p>For the Fargate launch type, the minimum healthy percent value is not used.</p>
    * @public
    */
-  MinimumHealthyPercent?: number;
+  MinimumHealthyPercent?: number | undefined;
 }
 
 /**
@@ -12574,7 +11802,7 @@ export interface AwsEcsServiceDeploymentControllerDetails {
    *          </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -12586,27 +11814,27 @@ export interface AwsEcsServiceLoadBalancersDetails {
    * <p>The name of the container to associate with the load balancer.</p>
    * @public
    */
-  ContainerName?: string;
+  ContainerName?: string | undefined;
 
   /**
    * <p>The port on the container to associate with the load balancer. This port must correspond to a <code>containerPort</code> in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the <code>hostPort</code> of the port mapping.</p>
    * @public
    */
-  ContainerPort?: number;
+  ContainerPort?: number | undefined;
 
   /**
    * <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
    *          <p>Only specified when using a Classic Load Balancer. For an Application Load Balancer or a Network Load Balancer, the load balancer name is omitted.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>The ARN of the Elastic Load Balancing target group or groups associated with a service or task set.</p>
    *          <p>Only specified when using an Application Load Balancer or a Network Load Balancer. For a Classic Load Balancer, the target group ARN is omitted.</p>
    * @public
    */
-  TargetGroupArn?: string;
+  TargetGroupArn?: string | undefined;
 }
 
 /**
@@ -12620,21 +11848,21 @@ export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
    *          </p>
    * @public
    */
-  AssignPublicIp?: string;
+  AssignPublicIp?: string | undefined;
 
   /**
    * <p>The IDs of the security groups associated with the task or service.</p>
    *          <p>You can provide up to five security groups.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The IDs of the subnets associated with the task or service.</p>
    *          <p>You can provide up to 16 subnets.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 }
 
 /**
@@ -12646,7 +11874,7 @@ export interface AwsEcsServiceNetworkConfigurationDetails {
    * <p>The VPC subnet and security group configuration.</p>
    * @public
    */
-  AwsVpcConfiguration?: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails;
+  AwsVpcConfiguration?: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails | undefined;
 }
 
 /**
@@ -12658,7 +11886,7 @@ export interface AwsEcsServicePlacementConstraintsDetails {
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>The type of constraint. Use <code>distinctInstance</code> to run each task in a particular group on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
@@ -12666,7 +11894,7 @@ export interface AwsEcsServicePlacementConstraintsDetails {
    *          </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -12681,7 +11909,7 @@ export interface AwsEcsServicePlacementStrategiesDetails {
    *          <p>For the <code>random</code> placement strategy, this attribute is not used.</p>
    * @public
    */
-  Field?: string;
+  Field?: string | undefined;
 
   /**
    * <p>The type of placement strategy.</p>
@@ -12692,7 +11920,7 @@ export interface AwsEcsServicePlacementStrategiesDetails {
    *          </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -12706,7 +11934,7 @@ export interface AwsEcsServiceServiceRegistriesDetails {
    *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
    * @public
    */
-  ContainerName?: string;
+  ContainerName?: string | undefined;
 
   /**
    * <p>The port value to use for the service discovery service.</p>
@@ -12714,19 +11942,19 @@ export interface AwsEcsServiceServiceRegistriesDetails {
    *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
    * @public
    */
-  ContainerPort?: number;
+  ContainerPort?: number | undefined;
 
   /**
    * <p>The port value to use for a service discovery service that specifies an SRV record. This field can be used if both the <code>awsvpc</code>awsvpc network mode and SRV records are used.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The ARN of the service registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 }
 
 /**
@@ -12738,49 +11966,49 @@ export interface AwsEcsServiceDetails {
    * <p>The capacity provider strategy that the service uses.</p>
    * @public
    */
-  CapacityProviderStrategy?: AwsEcsServiceCapacityProviderStrategyDetails[];
+  CapacityProviderStrategy?: AwsEcsServiceCapacityProviderStrategyDetails[] | undefined;
 
   /**
    * <p>The ARN of the cluster that hosts the service.</p>
    * @public
    */
-  Cluster?: string;
+  Cluster?: string | undefined;
 
   /**
    * <p>Deployment parameters for the service. Includes the number of tasks that run and the order in which to start and stop tasks.</p>
    * @public
    */
-  DeploymentConfiguration?: AwsEcsServiceDeploymentConfigurationDetails;
+  DeploymentConfiguration?: AwsEcsServiceDeploymentConfigurationDetails | undefined;
 
   /**
    * <p>Contains the deployment controller type that the service uses.</p>
    * @public
    */
-  DeploymentController?: AwsEcsServiceDeploymentControllerDetails;
+  DeploymentController?: AwsEcsServiceDeploymentControllerDetails | undefined;
 
   /**
    * <p>The number of instantiations of the task definition to run on the service.</p>
    * @public
    */
-  DesiredCount?: number;
+  DesiredCount?: number | undefined;
 
   /**
    * <p>Whether to enable Amazon ECS managed tags for the tasks in the service.</p>
    * @public
    */
-  EnableEcsManagedTags?: boolean;
+  EnableEcsManagedTags?: boolean | undefined;
 
   /**
    * <p>Whether the execute command functionality is enabled for the service.</p>
    * @public
    */
-  EnableExecuteCommand?: boolean;
+  EnableExecuteCommand?: boolean | undefined;
 
   /**
    * <p>After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks.</p>
    * @public
    */
-  HealthCheckGracePeriodSeconds?: number;
+  HealthCheckGracePeriodSeconds?: number | undefined;
 
   /**
    * <p>The launch type that the service uses.</p>
@@ -12788,43 +12016,43 @@ export interface AwsEcsServiceDetails {
    *          </p>
    * @public
    */
-  LaunchType?: string;
+  LaunchType?: string | undefined;
 
   /**
    * <p>Information about the load balancers that the service uses.</p>
    * @public
    */
-  LoadBalancers?: AwsEcsServiceLoadBalancersDetails[];
+  LoadBalancers?: AwsEcsServiceLoadBalancersDetails[] | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
    * @public
    */
-  NetworkConfiguration?: AwsEcsServiceNetworkConfigurationDetails;
+  NetworkConfiguration?: AwsEcsServiceNetworkConfigurationDetails | undefined;
 
   /**
    * <p>The placement constraints for the tasks in the service.</p>
    * @public
    */
-  PlacementConstraints?: AwsEcsServicePlacementConstraintsDetails[];
+  PlacementConstraints?: AwsEcsServicePlacementConstraintsDetails[] | undefined;
 
   /**
    * <p>Information about how tasks for the service are placed.</p>
    * @public
    */
-  PlacementStrategies?: AwsEcsServicePlacementStrategiesDetails[];
+  PlacementStrategies?: AwsEcsServicePlacementStrategiesDetails[] | undefined;
 
   /**
    * <p>The platform version on which to run the service. Only specified for tasks that are hosted on Fargate. If a platform version is not specified, the <code>LATEST</code> platform version is used by default.</p>
    * @public
    */
-  PlatformVersion?: string;
+  PlatformVersion?: string | undefined;
 
   /**
    * <p>Indicates whether to propagate the tags from the task definition to the task or from the service to the task. If no value is provided, then tags are not propagated.</p>
@@ -12832,48 +12060,48 @@ export interface AwsEcsServiceDetails {
    *          </p>
    * @public
    */
-  PropagateTags?: string;
+  PropagateTags?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>The scheduling strategy to use for the service.</p>
    *          <p>The <code>REPLICA</code> scheduling strategy places and maintains the desired number of tasks across the cluster. By default, the service scheduler spreads tasks across Availability Zones. Task placement strategies and constraints are used to customize task placement decisions.</p>
-   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that do not meet the placement constraints.</p>
+   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that don't meet the placement constraints.</p>
    *          <p>Valid values: <code>REPLICA</code> | <code>DAEMON</code>
    *          </p>
    * @public
    */
-  SchedulingStrategy?: string;
+  SchedulingStrategy?: string | undefined;
 
   /**
    * <p>The ARN of the service.</p>
    * @public
    */
-  ServiceArn?: string;
+  ServiceArn?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    *          <p>The name can contain up to 255 characters. It can use letters, numbers, underscores, and hyphens.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>Information about the service discovery registries to assign to the service.</p>
    * @public
    */
-  ServiceRegistries?: AwsEcsServiceServiceRegistriesDetails[];
+  ServiceRegistries?: AwsEcsServiceServiceRegistriesDetails[] | undefined;
 
   /**
    * <p>The task definition to use for tasks in the service.</p>
    * @public
    */
-  TaskDefinition?: string;
+  TaskDefinition?: string | undefined;
 }
 
 /**
@@ -12907,13 +12135,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
    *          </ul>
    * @public
    */
-  Condition?: string;
+  Condition?: string | undefined;
 
   /**
    * <p>The name of the dependent container.</p>
    * @public
    */
-  ContainerName?: string;
+  ContainerName?: string | undefined;
 }
 
 /**
@@ -12925,13 +12153,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
    * <p>The name of the environment variable.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the environment variable.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -12943,13 +12171,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
    * <p>The type of environment file. The valid value is <code>s3</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The ARN of the S3 object that contains the environment variable file.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -12961,13 +12189,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
    * <p>The hostname to use in the <b>/etc/hosts</b> entry.</p>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The IP address to use in the <b>/etc/hosts</b> entry.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 }
 
 /**
@@ -12996,13 +12224,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
    *          </ul>
    * @public
    */
-  Options?: Record<string, string>;
+  Options?: Record<string, string> | undefined;
 
   /**
    * <p>The log router to use. Valid values are <code>fluentbit</code> or <code>fluentd</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -13014,31 +12242,31 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
    * <p>The command that the container runs to determine whether it is healthy.</p>
    * @public
    */
-  Command?: string[];
+  Command?: string[] | undefined;
 
   /**
    * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
    * @public
    */
-  Retries?: number;
+  Retries?: number | undefined;
 
   /**
    * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
    * @public
    */
-  StartPeriod?: number;
+  StartPeriod?: number | undefined;
 
   /**
    * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 }
 
 /**
@@ -13064,7 +12292,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
    *          </p>
    * @public
    */
-  Add?: string[];
+  Add?: string[] | undefined;
 
   /**
    * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
@@ -13084,7 +12312,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
    *          </p>
    * @public
    */
-  Drop?: string[];
+  Drop?: string[] | undefined;
 }
 
 /**
@@ -13096,19 +12324,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesD
    * <p>The path inside the container at which to expose the host device.</p>
    * @public
    */
-  ContainerPath?: string;
+  ContainerPath?: string | undefined;
 
   /**
    * <p>The path for the device on the host container instance.</p>
    * @public
    */
-  HostPath?: string;
+  HostPath?: string | undefined;
 
   /**
    * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
    * @public
    */
-  Permissions?: string[];
+  Permissions?: string[] | undefined;
 }
 
 /**
@@ -13120,7 +12348,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
    * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
    * @public
    */
-  ContainerPath?: string;
+  ContainerPath?: string | undefined;
 
   /**
    * <p>The list of tmpfs volume mount options.</p>
@@ -13139,13 +12367,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
    *          </p>
    * @public
    */
-  MountOptions?: string[];
+  MountOptions?: string[] | undefined;
 
   /**
    * <p>The maximum size (in MiB) of the tmpfs volume.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 }
 
 /**
@@ -13157,43 +12385,43 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails 
    * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
    * @public
    */
-  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails;
+  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails | undefined;
 
   /**
    * <p>The host devices to expose to the container.</p>
    * @public
    */
-  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[];
+  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[] | undefined;
 
   /**
    * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
    * @public
    */
-  InitProcessEnabled?: boolean;
+  InitProcessEnabled?: boolean | undefined;
 
   /**
    * <p>The total amount of swap memory (in MiB) that a container can use.</p>
    * @public
    */
-  MaxSwap?: number;
+  MaxSwap?: number | undefined;
 
   /**
    * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
    * @public
    */
-  SharedMemorySize?: number;
+  SharedMemorySize?: number | undefined;
 
   /**
    * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
    * @public
    */
-  Swappiness?: number;
+  Swappiness?: number | undefined;
 
   /**
    * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
    * @public
    */
-  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[];
+  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[] | undefined;
 }
 
 /**
@@ -13205,7 +12433,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The secret to expose to the container.</p>
@@ -13213,7 +12441,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
    *          parameter in the Systems Manager Parameter Store.</p>
    * @public
    */
-  ValueFrom?: string;
+  ValueFrom?: string | undefined;
 }
 
 /**
@@ -13291,19 +12519,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
    *          </ul>
    * @public
    */
-  LogDriver?: string;
+  LogDriver?: string | undefined;
 
   /**
    * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
    * @public
    */
-  Options?: Record<string, string>;
+  Options?: Record<string, string> | undefined;
 
   /**
    * <p>The secrets to pass to the log configuration.</p>
    * @public
    */
-  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[];
+  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[] | undefined;
 }
 
 /**
@@ -13315,19 +12543,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
    * <p>The path on the container to mount the host volume at.</p>
    * @public
    */
-  ContainerPath?: string;
+  ContainerPath?: string | undefined;
 
   /**
    * <p>Whether the container has read-only access to the volume.</p>
    * @public
    */
-  ReadOnly?: boolean;
+  ReadOnly?: boolean | undefined;
 
   /**
    * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
    * @public
    */
-  SourceVolume?: string;
+  SourceVolume?: string | undefined;
 }
 
 /**
@@ -13339,189 +12567,17 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
    * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
    * @public
    */
-  ContainerPort?: number;
+  ContainerPort?: number | undefined;
 
   /**
    * <p>The port number on the container instance to reserve for the container.</p>
    * @public
    */
-  HostPort?: number;
+  HostPort?: number | undefined;
 
   /**
    * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
    * @public
    */
-  Protocol?: string;
-}
-
-/**
- * <p>The private repository authentication credentials to use.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
-  /**
-   * <p>The ARN of the secret that contains the private repository credentials.</p>
-   * @public
-   */
-  CredentialsParameter?: string;
-}
-
-/**
- * <p>A resource to assign to a container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
-  /**
-   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
-   * @public
-   */
-  Type?: string;
-
-  /**
-   * <p>The value for the specified resource type.</p>
-   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
-   *          reserves for the container.</p>
-   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
-   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
-   * @public
-   */
-  Value?: string;
-}
-
-/**
- * <p>A secret to pass to the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
-  /**
-   * <p>The name of the secret.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
-   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
-   * @public
-   */
-  ValueFrom?: string;
-}
-
-/**
- * <p>A namespaced kernel parameter to set in the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
-  /**
-   * <p>The namespaced kernel parameter for which to set a value.</p>
-   * @public
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The value of the parameter.</p>
-   * @public
-   */
-  Value?: string;
-}
-
-/**
- * <p>A ulimit to set in the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
-  /**
-   * <p>The hard limit for the ulimit type.</p>
-   * @public
-   */
-  HardLimit?: number;
-
-  /**
-   * <p>The type of the ulimit. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>core</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cpu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>data</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fsize</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>locks</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memlock</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>msgqueue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nice</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nofile</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nproc</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rss</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rtprio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rttime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sigpending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stack</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The soft limit for the ulimit type.</p>
-   * @public
-   */
-  SoftLimit?: number;
+  Protocol?: string | undefined;
 }

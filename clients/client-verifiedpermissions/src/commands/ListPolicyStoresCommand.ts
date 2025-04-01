@@ -166,6 +166,31 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example ListPolicyStores
+ * ```javascript
+ * // The following example lists all policy stores in the AWS account in the AWS Region in which you call the operation.
+ * const input = { /* empty *\/ };
+ * const command = new ListPolicyStoresCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policyStores: [
+ *     {
+ *       arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *       createdDate: "2023-05-16T17:41:29.103459Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ *     },
+ *     {
+ *       arn: "arn:aws:verifiedpermissions::123456789012:policy-store/PSEXAMPLEabcdefg222222",
+ *       createdDate: "2023-05-16T18:23:04.985521Z",
+ *       policyStoreId: "PSEXAMPLEabcdefg222222"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListPolicyStoresCommand extends $Command
@@ -176,9 +201,7 @@ export class ListPolicyStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +213,16 @@ export class ListPolicyStoresCommand extends $Command
   .f(void 0, ListPolicyStoresOutputFilterSensitiveLog)
   .ser(se_ListPolicyStoresCommand)
   .de(de_ListPolicyStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyStoresInput;
+      output: ListPolicyStoresOutput;
+    };
+    sdk: {
+      input: ListPolicyStoresCommandInput;
+      output: ListPolicyStoresCommandOutput;
+    };
+  };
+}

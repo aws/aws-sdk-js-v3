@@ -57,6 +57,10 @@ export interface DisassociateLibraryItemReviewCommandOutput extends __MetadataBe
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
  *
@@ -64,12 +68,12 @@ export interface DisassociateLibraryItemReviewCommandOutput extends __MetadataBe
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -79,6 +83,21 @@ export interface DisassociateLibraryItemReviewCommandOutput extends __MetadataBe
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Decrease the rating counter by 1 for the related app for this user
+ * ```javascript
+ * //
+ * const input = {
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316"
+ * };
+ * const command = new DisassociateLibraryItemReviewCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -90,9 +109,7 @@ export class DisassociateLibraryItemReviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +121,16 @@ export class DisassociateLibraryItemReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLibraryItemReviewCommand)
   .de(de_DisassociateLibraryItemReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLibraryItemReviewInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLibraryItemReviewCommandInput;
+      output: DisassociateLibraryItemReviewCommandOutput;
+    };
+  };
+}

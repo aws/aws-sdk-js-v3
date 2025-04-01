@@ -79,6 +79,7 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class DisassociateLensesCommand extends $Command
@@ -89,9 +90,7 @@ export class DisassociateLensesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DisassociateLensesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLensesCommand)
   .de(de_DisassociateLensesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLensesInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLensesCommandInput;
+      output: DisassociateLensesCommandOutput;
+    };
+  };
+}

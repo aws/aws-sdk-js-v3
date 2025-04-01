@@ -94,6 +94,7 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdatePhoneNumberCommand extends $Command
@@ -104,9 +105,7 @@ export class BatchUpdatePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class BatchUpdatePhoneNumberCommand extends $Command
   .f(BatchUpdatePhoneNumberRequestFilterSensitiveLog, void 0)
   .ser(se_BatchUpdatePhoneNumberCommand)
   .de(de_BatchUpdatePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdatePhoneNumberRequest;
+      output: BatchUpdatePhoneNumberResponse;
+    };
+    sdk: {
+      input: BatchUpdatePhoneNumberCommandInput;
+      output: BatchUpdatePhoneNumberCommandOutput;
+    };
+  };
+}

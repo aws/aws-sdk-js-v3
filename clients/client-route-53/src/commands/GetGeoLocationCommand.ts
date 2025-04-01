@@ -97,6 +97,7 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetGeoLocationCommand extends $Command
@@ -107,9 +108,7 @@ export class GetGeoLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class GetGeoLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGeoLocationCommand)
   .de(de_GetGeoLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGeoLocationRequest;
+      output: GetGeoLocationResponse;
+    };
+    sdk: {
+      input: GetGeoLocationCommandInput;
+      output: GetGeoLocationCommandOutput;
+    };
+  };
+}

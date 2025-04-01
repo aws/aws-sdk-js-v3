@@ -86,6 +86,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *   TargetContainerHostname: "STRING_VALUE",
  *   InferenceId: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
+ *   SessionId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointWithResponseStreamCommand(input);
  * const response = await client.send(command);
@@ -149,6 +150,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * @throws {@link SageMakerRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeEndpointWithResponseStreamCommand extends $Command
@@ -159,9 +161,7 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command
   .f(InvokeEndpointWithResponseStreamInputFilterSensitiveLog, InvokeEndpointWithResponseStreamOutputFilterSensitiveLog)
   .ser(se_InvokeEndpointWithResponseStreamCommand)
   .de(de_InvokeEndpointWithResponseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeEndpointWithResponseStreamInput;
+      output: InvokeEndpointWithResponseStreamOutput;
+    };
+    sdk: {
+      input: InvokeEndpointWithResponseStreamCommandInput;
+      output: InvokeEndpointWithResponseStreamCommandOutput;
+    };
+  };
+}

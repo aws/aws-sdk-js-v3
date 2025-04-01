@@ -144,84 +144,84 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe one of your load balancers
  * ```javascript
  * // This example describes the specified load balancer.
  * const input = {
- *   "LoadBalancerNames": [
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ]
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancerDescriptions": [
+ *   LoadBalancerDescriptions: [
  *     {
- *       "AvailabilityZones": [
+ *       AvailabilityZones: [
  *         "us-west-2a"
  *       ],
- *       "BackendServerDescriptions": [
+ *       BackendServerDescriptions: [
  *         {
- *           "InstancePort": 80,
- *           "PolicyNames": [
+ *           InstancePort: 80,
+ *           PolicyNames: [
  *             "my-ProxyProtocol-policy"
  *           ]
  *         }
  *       ],
- *       "CanonicalHostedZoneName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
- *       "CanonicalHostedZoneNameID": "Z3DZXE0EXAMPLE",
- *       "CreatedTime": "2015-03-19T03:24:02.650Z",
- *       "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
- *       "HealthCheck": {
- *         "HealthyThreshold": 2,
- *         "Interval": 30,
- *         "Target": "HTTP:80/png",
- *         "Timeout": 3,
- *         "UnhealthyThreshold": 2
+ *       CanonicalHostedZoneName: "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
+ *       CanonicalHostedZoneNameID: "Z3DZXE0EXAMPLE",
+ *       CreatedTime: "2015-03-19T03:24:02.650Z",
+ *       DNSName: "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
+ *       HealthCheck: {
+ *         HealthyThreshold: 2,
+ *         Interval: 30,
+ *         Target: "HTTP:80/png",
+ *         Timeout: 3,
+ *         UnhealthyThreshold: 2
  *       },
- *       "Instances": [
+ *       Instances: [
  *         {
- *           "InstanceId": "i-207d9717"
+ *           InstanceId: "i-207d9717"
  *         },
  *         {
- *           "InstanceId": "i-afefb49b"
+ *           InstanceId: "i-afefb49b"
  *         }
  *       ],
- *       "ListenerDescriptions": [
+ *       ListenerDescriptions: [
  *         {
- *           "Listener": {
- *             "InstancePort": 80,
- *             "InstanceProtocol": "HTTP",
- *             "LoadBalancerPort": 80,
- *             "Protocol": "HTTP"
+ *           Listener: {
+ *             InstancePort: 80,
+ *             InstanceProtocol: "HTTP",
+ *             LoadBalancerPort: 80,
+ *             Protocol: "HTTP"
  *           },
- *           "PolicyNames": []
+ *           PolicyNames:           []
  *         },
  *         {
- *           "Listener": {
- *             "InstancePort": 443,
- *             "InstanceProtocol": "HTTPS",
- *             "LoadBalancerPort": 443,
- *             "Protocol": "HTTPS",
- *             "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *           Listener: {
+ *             InstancePort: 443,
+ *             InstanceProtocol: "HTTPS",
+ *             LoadBalancerPort: 443,
+ *             Protocol: "HTTPS",
+ *             SSLCertificateId: "arn:aws:iam::123456789012:server-certificate/my-server-cert"
  *           },
- *           "PolicyNames": [
+ *           PolicyNames: [
  *             "ELBSecurityPolicy-2015-03"
  *           ]
  *         }
  *       ],
- *       "LoadBalancerName": "my-load-balancer",
- *       "Policies": {
- *         "AppCookieStickinessPolicies": [],
- *         "LBCookieStickinessPolicies": [
+ *       LoadBalancerName: "my-load-balancer",
+ *       Policies: {
+ *         AppCookieStickinessPolicies:         [],
+ *         LBCookieStickinessPolicies: [
  *           {
- *             "CookieExpirationPeriod": 60,
- *             "PolicyName": "my-duration-cookie-policy"
+ *             CookieExpirationPeriod: 60,
+ *             PolicyName: "my-duration-cookie-policy"
  *           }
  *         ],
- *         "OtherPolicies": [
+ *         OtherPolicies: [
  *           "my-PublicKey-policy",
  *           "my-authentication-policy",
  *           "my-SSLNegotiation-policy",
@@ -229,25 +229,25 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  *           "ELBSecurityPolicy-2015-03"
  *         ]
  *       },
- *       "Scheme": "internet-facing",
- *       "SecurityGroups": [
+ *       Scheme: "internet-facing",
+ *       SecurityGroups: [
  *         "sg-a61988c3"
  *       ],
- *       "SourceSecurityGroup": {
- *         "GroupName": "my-elb-sg",
- *         "OwnerAlias": "123456789012"
+ *       SourceSecurityGroup: {
+ *         GroupName: "my-elb-sg",
+ *         OwnerAlias: "123456789012"
  *       },
- *       "Subnets": [
+ *       Subnets: [
  *         "subnet-15aaab61"
  *       ],
- *       "VPCId": "vpc-a01106c2"
+ *       VPCId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-load-balancers-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancersCommand extends $Command
   .classBuilder<
@@ -257,9 +257,7 @@ export class DescribeLoadBalancersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -271,4 +269,16 @@ export class DescribeLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancersCommand)
   .de(de_DescribeLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccessPointsInput;
+      output: DescribeAccessPointsOutput;
+    };
+    sdk: {
+      input: DescribeLoadBalancersCommandInput;
+      output: DescribeLoadBalancersCommandOutput;
+    };
+  };
+}

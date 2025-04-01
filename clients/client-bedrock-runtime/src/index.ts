@@ -11,6 +11,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BedrockRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { BedrockRuntimeServiceException } from "./models/BedrockRuntimeServiceException";

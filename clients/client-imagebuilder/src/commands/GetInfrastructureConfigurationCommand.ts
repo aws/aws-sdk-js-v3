@@ -80,6 +80,12 @@ export interface GetInfrastructureConfigurationCommandOutput
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     placement: { // Placement
+ * //       availabilityZone: "STRING_VALUE",
+ * //       tenancy: "default" || "dedicated" || "host",
+ * //       hostId: "STRING_VALUE",
+ * //       hostResourceGroupArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -115,6 +121,7 @@ export interface GetInfrastructureConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetInfrastructureConfigurationCommand extends $Command
@@ -125,9 +132,7 @@ export class GetInfrastructureConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +144,16 @@ export class GetInfrastructureConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInfrastructureConfigurationCommand)
   .de(de_GetInfrastructureConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInfrastructureConfigurationRequest;
+      output: GetInfrastructureConfigurationResponse;
+    };
+    sdk: {
+      input: GetInfrastructureConfigurationCommandInput;
+      output: GetInfrastructureConfigurationCommandOutput;
+    };
+  };
+}

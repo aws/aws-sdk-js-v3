@@ -106,6 +106,7 @@ export interface GetOperationsForResourceCommandOutput extends GetOperationsForR
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetOperationsForResourceCommand extends $Command
@@ -116,9 +117,7 @@ export class GetOperationsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class GetOperationsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOperationsForResourceCommand)
   .de(de_GetOperationsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOperationsForResourceRequest;
+      output: GetOperationsForResourceResult;
+    };
+    sdk: {
+      input: GetOperationsForResourceCommandInput;
+      output: GetOperationsForResourceCommandOutput;
+    };
+  };
+}

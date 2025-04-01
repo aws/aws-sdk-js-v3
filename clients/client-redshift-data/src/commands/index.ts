@@ -5,6 +5,7 @@ export * from "./DescribeStatementCommand";
 export * from "./DescribeTableCommand";
 export * from "./ExecuteStatementCommand";
 export * from "./GetStatementResultCommand";
+export * from "./GetStatementResultV2Command";
 export * from "./ListDatabasesCommand";
 export * from "./ListSchemasCommand";
 export * from "./ListStatementsCommand";

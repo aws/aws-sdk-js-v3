@@ -28,9 +28,10 @@ export interface DescribeChangeSetCommandInput extends DescribeChangeSetInput {}
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the inputs for the change set and a list of changes that CloudFormation will make if you execute the change set.
- *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change
- *    Sets</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Returns the inputs for the change set and a list of changes that CloudFormation will make if
+ *       you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Update
+ *         CloudFormation stacks using change sets</a> in the
+ *       <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,6 +148,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeChangeSetCommand extends $Command
@@ -157,9 +159,7 @@ export class DescribeChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +171,16 @@ export class DescribeChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeChangeSetCommand)
   .de(de_DescribeChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChangeSetInput;
+      output: DescribeChangeSetOutput;
+    };
+    sdk: {
+      input: DescribeChangeSetCommandInput;
+      output: DescribeChangeSetCommandOutput;
+    };
+  };
+}

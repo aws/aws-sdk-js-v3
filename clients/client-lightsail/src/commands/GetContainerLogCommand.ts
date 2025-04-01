@@ -98,6 +98,7 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetContainerLogCommand extends $Command
@@ -108,9 +109,7 @@ export class GetContainerLogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class GetContainerLogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerLogCommand)
   .de(de_GetContainerLogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerLogRequest;
+      output: GetContainerLogResult;
+    };
+    sdk: {
+      input: GetContainerLogCommandInput;
+      output: GetContainerLogCommandOutput;
+    };
+  };
+}

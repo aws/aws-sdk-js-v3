@@ -48,7 +48,7 @@ export interface ListRecommendationTemplatesCommandOutput
  *   assessmentArn: "STRING_VALUE",
  *   reverseOrder: true || false,
  *   status: [ // RecommendationTemplateStatusList
- *     "STRING_VALUE",
+ *     "Pending" || "InProgress" || "Failed" || "Success",
  *   ],
  *   recommendationTemplateArn: "STRING_VALUE",
  *   name: "STRING_VALUE",
@@ -71,12 +71,12 @@ export interface ListRecommendationTemplatesCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       recommendationTypes: [ // RenderRecommendationTypeList // required
- * //         "STRING_VALUE",
+ * //         "Alarm" || "Sop" || "Test",
  * //       ],
- * //       format: "STRING_VALUE", // required
+ * //       format: "CfnYaml" || "CfnJson", // required
  * //       recommendationTemplateArn: "STRING_VALUE", // required
  * //       message: "STRING_VALUE",
- * //       status: "STRING_VALUE", // required
+ * //       status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //       name: "STRING_VALUE", // required
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
@@ -114,6 +114,7 @@ export interface ListRecommendationTemplatesCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListRecommendationTemplatesCommand extends $Command
@@ -124,9 +125,7 @@ export class ListRecommendationTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class ListRecommendationTemplatesCommand extends $Command
   .f(void 0, ListRecommendationTemplatesResponseFilterSensitiveLog)
   .ser(se_ListRecommendationTemplatesCommand)
   .de(de_ListRecommendationTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendationTemplatesRequest;
+      output: ListRecommendationTemplatesResponse;
+    };
+    sdk: {
+      input: ListRecommendationTemplatesCommandInput;
+      output: ListRecommendationTemplatesCommandOutput;
+    };
+  };
+}

@@ -6,15 +6,11 @@
 
 AWS SDK for JavaScript PcaConnectorScep Client for Node.js, Browser and React Native.
 
-<note>
-<p>Connector for SCEP (Preview) is in preview release for Amazon Web Services Private Certificate Authority and is subject to change.</p>
-</note>
-<p>Connector for SCEP (Preview) creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more
-information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
+<p>Connector for SCEP creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pca-connector-scep
+To install this package, simply type add or install @aws-sdk/client-pca-connector-scep
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pca-connector-scep`

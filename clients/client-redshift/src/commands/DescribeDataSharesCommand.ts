@@ -61,6 +61,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * //         },
  * //       ],
  * //       ManagedBy: "STRING_VALUE",
+ * //       DataShareType: "INTERNAL",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",
@@ -80,6 +81,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSharesCommand extends $Command
@@ -90,9 +92,7 @@ export class DescribeDataSharesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DescribeDataSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSharesCommand)
   .de(de_DescribeDataSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSharesMessage;
+      output: DescribeDataSharesResult;
+    };
+    sdk: {
+      input: DescribeDataSharesCommandInput;
+      output: DescribeDataSharesCommandOutput;
+    };
+  };
+}

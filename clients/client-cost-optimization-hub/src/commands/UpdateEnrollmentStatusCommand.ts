@@ -34,8 +34,8 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
 /**
  * <p>Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization
  *       Hub service.</p>
- *          <p>If the account is a management account of an organization, this action can also be used to
- *       enroll member accounts of the organization.</p>
+ *          <p>If the account is a management account or delegated administrator of an organization, this
+ *       action can also be used to enroll member accounts of the organization.</p>
  *          <p>You must have the appropriate permissions to opt in to Cost Optimization Hub and to view
  *       its recommendations. When you opt in, Cost Optimization Hub automatically creates a
  *       service-linked role in your account to access its data.</p>
@@ -80,6 +80,7 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnrollmentStatusCommand extends $Command
@@ -90,9 +91,7 @@ export class UpdateEnrollmentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class UpdateEnrollmentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnrollmentStatusCommand)
   .de(de_UpdateEnrollmentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnrollmentStatusRequest;
+      output: UpdateEnrollmentStatusResponse;
+    };
+    sdk: {
+      input: UpdateEnrollmentStatusCommandInput;
+      output: UpdateEnrollmentStatusCommandOutput;
+    };
+  };
+}

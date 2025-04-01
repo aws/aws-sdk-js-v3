@@ -74,6 +74,7 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectInstanceConfigCommand extends $Command
@@ -84,9 +85,7 @@ export class DeleteConnectInstanceConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class DeleteConnectInstanceConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectInstanceConfigCommand)
   .de(de_DeleteConnectInstanceConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectInstanceConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConnectInstanceConfigCommandInput;
+      output: DeleteConnectInstanceConfigCommandOutput;
+    };
+  };
+}

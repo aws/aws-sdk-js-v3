@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNetworkAclEntryRequest } from "../models/models_1";
+import { CreateNetworkAclEntryRequest } from "../models/models_2";
 import { de_CreateNetworkAclEntryCommand, se_CreateNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -44,22 +44,22 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, CreateNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkAclEntryRequest
- *   CidrBlock: "STRING_VALUE",
  *   DryRun: true || false,
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   RuleNumber: Number("int"), // required
+ *   Protocol: "STRING_VALUE", // required
+ *   RuleAction: "allow" || "deny", // required
  *   Egress: true || false, // required
+ *   CidrBlock: "STRING_VALUE",
+ *   Ipv6CidrBlock: "STRING_VALUE",
  *   IcmpTypeCode: { // IcmpTypeCode
  *     Code: Number("int"),
  *     Type: Number("int"),
  *   },
- *   Ipv6CidrBlock: "STRING_VALUE",
- *   NetworkAclId: "STRING_VALUE", // required
  *   PortRange: { // PortRange
  *     From: Number("int"),
  *     To: Number("int"),
  *   },
- *   Protocol: "STRING_VALUE", // required
- *   RuleAction: "allow" || "deny", // required
- *   RuleNumber: Number("int"), // required
  * };
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);
@@ -76,27 +76,30 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a network ACL entry
  * ```javascript
  * // This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.
  * const input = {
- *   "CidrBlock": "0.0.0.0/0",
- *   "Egress": false,
- *   "NetworkAclId": "acl-5fb85d36",
- *   "PortRange": {
- *     "From": 53,
- *     "To": 53
+ *   CidrBlock: "0.0.0.0/0",
+ *   Egress: false,
+ *   NetworkAclId: "acl-5fb85d36",
+ *   PortRange: {
+ *     From: 53,
+ *     To: 53
  *   },
- *   "Protocol": "17",
- *   "RuleAction": "allow",
- *   "RuleNumber": 100
+ *   Protocol: "17",
+ *   RuleAction: "allow",
+ *   RuleNumber: 100
  * };
  * const command = new CreateNetworkAclEntryCommand(input);
- * await client.send(command);
- * // example id: ec2-create-network-acl-entry-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateNetworkAclEntryCommand extends $Command
   .classBuilder<
@@ -106,9 +109,7 @@ export class CreateNetworkAclEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +121,16 @@ export class CreateNetworkAclEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkAclEntryCommand)
   .de(de_CreateNetworkAclEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkAclEntryRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateNetworkAclEntryCommandInput;
+      output: CreateNetworkAclEntryCommandOutput;
+    };
+  };
+}

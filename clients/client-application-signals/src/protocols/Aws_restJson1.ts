@@ -37,6 +37,10 @@ import {
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "../commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  BatchUpdateExclusionWindowsCommandInput,
+  BatchUpdateExclusionWindowsCommandOutput,
+} from "../commands/BatchUpdateExclusionWindowsCommand";
+import {
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
 } from "../commands/CreateServiceLevelObjectiveCommand";
@@ -57,6 +61,10 @@ import {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "../commands/ListServiceDependentsCommand";
+import {
+  ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
+} from "../commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
   ListServiceLevelObjectivesCommandInput,
   ListServiceLevelObjectivesCommandOutput,
@@ -80,14 +88,21 @@ import {
 import { ApplicationSignalsServiceException as __BaseException } from "../models/ApplicationSignalsServiceException";
 import {
   AccessDeniedException,
+  BurnRateConfiguration,
   CalendarInterval,
   ConflictException,
   Dimension,
+  ExclusionWindow,
   Goal,
   Interval,
   Metric,
   MetricDataQuery,
   MetricStat,
+  MonitoredRequestCountMetricDataQueries,
+  RecurrenceRule,
+  RequestBasedServiceLevelIndicator,
+  RequestBasedServiceLevelIndicatorConfig,
+  RequestBasedServiceLevelIndicatorMetricConfig,
   ResourceNotFoundException,
   RollingInterval,
   ServiceLevelIndicator,
@@ -100,6 +115,7 @@ import {
   Tag,
   ThrottlingException,
   ValidationException,
+  Window,
 } from "../models/models_0";
 
 /**
@@ -126,6 +142,30 @@ export const se_BatchGetServiceLevelObjectiveBudgetReportCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchUpdateExclusionWindowsCommand
+ */
+export const se_BatchUpdateExclusionWindowsCommand = async (
+  input: BatchUpdateExclusionWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/exclusion-windows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AddExclusionWindows: (_) => se_ExclusionWindows(_, context),
+      RemoveExclusionWindows: (_) => se_ExclusionWindows(_, context),
+      SloIds: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateServiceLevelObjectiveCommand
  */
 export const se_CreateServiceLevelObjectiveCommand = async (
@@ -140,9 +180,11 @@ export const se_CreateServiceLevelObjectiveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BurnRateConfigurations: (_) => _json(_),
       Description: [],
       Goal: (_) => se_Goal(_, context),
       Name: [],
+      RequestBasedSliConfig: (_) => se_RequestBasedServiceLevelIndicatorConfig(_, context),
       SliConfig: (_) => se_ServiceLevelIndicatorConfig(_, context),
       Tags: (_) => _json(_),
     })
@@ -266,6 +308,26 @@ export const se_ListServiceDependentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListServiceLevelObjectiveExclusionWindowsCommand
+ */
+export const se_ListServiceLevelObjectiveExclusionWindowsCommand = async (
+  input: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/slo/{Id}/exclusion-windows");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  const query: any = map({
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListServiceLevelObjectivesCommand
  */
 export const se_ListServiceLevelObjectivesCommand = async (
@@ -281,6 +343,8 @@ export const se_ListServiceLevelObjectivesCommand = async (
     [_ON]: [, input[_ON]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
+    [_ILA]: [() => input.IncludeLinkedAccounts !== void 0, () => input[_ILA]!.toString()],
+    [_SOAAI]: [, input[_SOAAI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -335,6 +399,8 @@ export const se_ListServicesCommand = async (
     [_ET]: [__expectNonNull(input.EndTime, `EndTime`) != null, () => __serializeDateTime(input[_ET]!).toString()],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
+    [_ILA]: [() => input.IncludeLinkedAccounts !== void 0, () => input[_ILA]!.toString()],
+    [_AAI]: [, input[_AAI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -436,8 +502,10 @@ export const se_UpdateServiceLevelObjectiveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BurnRateConfigurations: (_) => _json(_),
       Description: [],
       Goal: (_) => se_Goal(_, context),
+      RequestBasedSliConfig: (_) => se_RequestBasedServiceLevelIndicatorConfig(_, context),
       SliConfig: (_) => se_ServiceLevelIndicatorConfig(_, context),
     })
   );
@@ -463,6 +531,28 @@ export const de_BatchGetServiceLevelObjectiveBudgetReportCommand = async (
     Errors: _json,
     Reports: (_) => de_ServiceLevelObjectiveBudgetReports(_, context),
     Timestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateExclusionWindowsCommand
+ */
+export const de_BatchUpdateExclusionWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateExclusionWindowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    SloIds: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -522,6 +612,7 @@ export const de_GetServiceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogGroupReferences: _json,
     Service: _json,
     StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
@@ -593,6 +684,28 @@ export const de_ListServiceDependentsCommand = async (
     NextToken: __expectString,
     ServiceDependents: _json,
     StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListServiceLevelObjectiveExclusionWindowsCommand
+ */
+export const de_ListServiceLevelObjectiveExclusionWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceLevelObjectiveExclusionWindowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ExclusionWindows: (_) => de_ExclusionWindows(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -777,6 +890,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.applicationsignals#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationsignals#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.applicationsignals#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
@@ -786,9 +902,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.applicationsignals#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationsignals#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -915,6 +1028,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Attributes omitted.
 
+// se_BurnRateConfiguration omitted.
+
+// se_BurnRateConfigurations omitted.
+
 /**
  * serializeAws_restJson1CalendarInterval
  */
@@ -929,6 +1046,29 @@ const se_CalendarInterval = (input: CalendarInterval, context: __SerdeContext): 
 // se_Dimension omitted.
 
 // se_Dimensions omitted.
+
+/**
+ * serializeAws_restJson1ExclusionWindow
+ */
+const se_ExclusionWindow = (input: ExclusionWindow, context: __SerdeContext): any => {
+  return take(input, {
+    Reason: [],
+    RecurrenceRule: _json,
+    StartTime: (_) => _.getTime() / 1_000,
+    Window: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExclusionWindows
+ */
+const se_ExclusionWindows = (input: ExclusionWindow[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ExclusionWindow(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1Goal
@@ -948,7 +1088,7 @@ const se_Interval = (input: Interval, context: __SerdeContext): any => {
   return Interval.visit(input, {
     CalendarInterval: (value) => ({ CalendarInterval: se_CalendarInterval(value, context) }),
     RollingInterval: (value) => ({ RollingInterval: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -959,6 +1099,26 @@ const se_Interval = (input: Interval, context: __SerdeContext): any => {
 // se_MetricDataQuery omitted.
 
 // se_MetricStat omitted.
+
+// se_MonitoredRequestCountMetricDataQueries omitted.
+
+// se_RecurrenceRule omitted.
+
+/**
+ * serializeAws_restJson1RequestBasedServiceLevelIndicatorConfig
+ */
+const se_RequestBasedServiceLevelIndicatorConfig = (
+  input: RequestBasedServiceLevelIndicatorConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ComparisonOperator: [],
+    MetricThreshold: __serializeFloat,
+    RequestBasedSliMetricConfig: _json,
+  });
+};
+
+// se_RequestBasedServiceLevelIndicatorMetricConfig omitted.
 
 // se_RollingInterval omitted.
 
@@ -983,11 +1143,21 @@ const se_ServiceLevelIndicatorConfig = (input: ServiceLevelIndicatorConfig, cont
 
 // se_TagList omitted.
 
+// se_Window omitted.
+
 // de_AttributeMap omitted.
 
 // de_AttributeMaps omitted.
 
 // de_Attributes omitted.
+
+// de_BatchUpdateExclusionWindowsError omitted.
+
+// de_BatchUpdateExclusionWindowsErrors omitted.
+
+// de_BurnRateConfiguration omitted.
+
+// de_BurnRateConfigurations omitted.
 
 /**
  * deserializeAws_restJson1CalendarInterval
@@ -1003,6 +1173,30 @@ const de_CalendarInterval = (output: any, context: __SerdeContext): CalendarInte
 // de_Dimension omitted.
 
 // de_Dimensions omitted.
+
+/**
+ * deserializeAws_restJson1ExclusionWindow
+ */
+const de_ExclusionWindow = (output: any, context: __SerdeContext): ExclusionWindow => {
+  return take(output, {
+    Reason: __expectString,
+    RecurrenceRule: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Window: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExclusionWindows
+ */
+const de_ExclusionWindows = (output: any, context: __SerdeContext): ExclusionWindow[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExclusionWindow(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Goal
@@ -1032,6 +1226,8 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_LogGroupReferences omitted.
+
 // de_Metric omitted.
 
 // de_MetricDataQueries omitted.
@@ -1043,6 +1239,26 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
 // de_MetricReferences omitted.
 
 // de_MetricStat omitted.
+
+// de_MonitoredRequestCountMetricDataQueries omitted.
+
+// de_RecurrenceRule omitted.
+
+/**
+ * deserializeAws_restJson1RequestBasedServiceLevelIndicator
+ */
+const de_RequestBasedServiceLevelIndicator = (
+  output: any,
+  context: __SerdeContext
+): RequestBasedServiceLevelIndicator => {
+  return take(output, {
+    ComparisonOperator: __expectString,
+    MetricThreshold: __limitedParseDouble,
+    RequestBasedSliMetric: _json,
+  }) as any;
+};
+
+// de_RequestBasedServiceLevelIndicatorMetric omitted.
 
 // de_RollingInterval omitted.
 
@@ -1075,11 +1291,14 @@ const de_ServiceLevelIndicator = (output: any, context: __SerdeContext): Service
 const de_ServiceLevelObjective = (output: any, context: __SerdeContext): ServiceLevelObjective => {
   return take(output, {
     Arn: __expectString,
+    BurnRateConfigurations: _json,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    EvaluationType: __expectString,
     Goal: (_: any) => de_Goal(_, context),
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    RequestBasedSli: (_: any) => de_RequestBasedServiceLevelIndicator(_, context),
     Sli: (_: any) => de_ServiceLevelIndicator(_, context),
   }) as any;
 };
@@ -1094,11 +1313,15 @@ const de_ServiceLevelObjectiveBudgetReport = (
   return take(output, {
     Arn: __expectString,
     Attainment: __limitedParseDouble,
+    BudgetRequestsRemaining: __expectInt32,
     BudgetSecondsRemaining: __expectInt32,
     BudgetStatus: __expectString,
+    EvaluationType: __expectString,
     Goal: (_: any) => de_Goal(_, context),
     Name: __expectString,
+    RequestBasedSli: (_: any) => de_RequestBasedServiceLevelIndicator(_, context),
     Sli: (_: any) => de_ServiceLevelIndicator(_, context),
+    TotalBudgetRequests: __expectInt32,
     TotalBudgetSeconds: __expectInt32,
   }) as any;
 };
@@ -1121,6 +1344,8 @@ const de_ServiceLevelObjectiveBudgetReports = (
     });
   return retVal;
 };
+
+// de_ServiceLevelObjectiveIds omitted.
 
 /**
  * deserializeAws_restJson1ServiceLevelObjectiveSummaries
@@ -1159,6 +1384,8 @@ const de_ServiceLevelObjectiveSummary = (output: any, context: __SerdeContext): 
 
 // de_TagList omitted.
 
+// de_Window omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -1171,16 +1398,12 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
+const _AAI = "AwsAccountId";
 const _ET = "EndTime";
+const _ILA = "IncludeLinkedAccounts";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _ON = "OperationName";
 const _RA = "ResourceArn";
+const _SOAAI = "SloOwnerAwsAccountId";
 const _ST = "StartTime";

@@ -75,6 +75,7 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListEventTrackersCommand extends $Command
@@ -85,9 +86,7 @@ export class ListEventTrackersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListEventTrackersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventTrackersCommand)
   .de(de_ListEventTrackersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventTrackersRequest;
+      output: ListEventTrackersResponse;
+    };
+    sdk: {
+      input: ListEventTrackersCommandInput;
+      output: ListEventTrackersCommandOutput;
+    };
+  };
+}

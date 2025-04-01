@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateResourceRequest, CreateResourceResponse } from "../models/models_0";
+import {
+  CreateResourceRequest,
+  CreateResourceRequestFilterSensitiveLog,
+  CreateResourceResponse,
+} from "../models/models_0";
 import { de_CreateResourceCommand, se_CreateResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -85,6 +89,7 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceCommand extends $Command
@@ -95,9 +100,7 @@ export class CreateResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,7 +109,19 @@ export class CreateResourceCommand extends $Command
   })
   .s("WorkMailService", "CreateResource", {})
   .n("WorkMailClient", "CreateResourceCommand")
-  .f(void 0, void 0)
+  .f(CreateResourceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateResourceCommand)
   .de(de_CreateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceRequest;
+      output: CreateResourceResponse;
+    };
+    sdk: {
+      input: CreateResourceCommandInput;
+      output: CreateResourceCommandOutput;
+    };
+  };
+}

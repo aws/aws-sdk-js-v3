@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDashboardPermissionsRequest, UpdateDashboardPermissionsResponse } from "../models/models_4";
+import { UpdateDashboardPermissionsRequest, UpdateDashboardPermissionsResponse } from "../models/models_5";
 import { de_UpdateDashboardPermissionsCommand, se_UpdateDashboardPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -76,7 +76,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * // { // UpdateDashboardPermissionsResponse
  * //   DashboardArn: "STRING_VALUE",
  * //   DashboardId: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -87,7 +87,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * //   LinkSharingConfiguration: { // LinkSharingConfiguration
- * //     Permissions: [
+ * //     Permissions: [ // ResourcePermissionList
  * //       {
  * //         Principal: "STRING_VALUE", // required
  * //         Actions: [ // required
@@ -133,6 +133,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardPermissionsCommand extends $Command
@@ -143,9 +144,7 @@ export class UpdateDashboardPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +156,16 @@ export class UpdateDashboardPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDashboardPermissionsCommand)
   .de(de_UpdateDashboardPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDashboardPermissionsRequest;
+      output: UpdateDashboardPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateDashboardPermissionsCommandInput;
+      output: UpdateDashboardPermissionsCommandOutput;
+    };
+  };
+}

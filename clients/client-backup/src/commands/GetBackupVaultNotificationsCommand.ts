@@ -76,6 +76,7 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetBackupVaultNotificationsCommand extends $Command
@@ -86,9 +87,7 @@ export class GetBackupVaultNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class GetBackupVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackupVaultNotificationsCommand)
   .de(de_GetBackupVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupVaultNotificationsInput;
+      output: GetBackupVaultNotificationsOutput;
+    };
+    sdk: {
+      input: GetBackupVaultNotificationsCommandInput;
+      output: GetBackupVaultNotificationsCommandOutput;
+    };
+  };
+}

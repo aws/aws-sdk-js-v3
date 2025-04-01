@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHubsRequest, ListHubsResponse } from "../models/models_3";
+import { ListHubsRequest, ListHubsResponse } from "../models/models_4";
 import { de_ListHubsCommand, se_ListHubsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -77,6 +77,7 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHubsCommand extends $Command
@@ -87,9 +88,7 @@ export class ListHubsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class ListHubsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubsCommand)
   .de(de_ListHubsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubsRequest;
+      output: ListHubsResponse;
+    };
+    sdk: {
+      input: ListHubsCommandInput;
+      output: ListHubsCommandOutput;
+    };
+  };
+}

@@ -62,6 +62,7 @@ export interface MalformedAcceptWithPayloadCommandOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedAcceptWithPayloadCommand extends $Command
   .classBuilder<
@@ -79,4 +80,16 @@ export class MalformedAcceptWithPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedAcceptWithPayloadCommand)
   .de(de_MalformedAcceptWithPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: MalformedAcceptWithPayloadOutput;
+    };
+    sdk: {
+      input: MalformedAcceptWithPayloadCommandInput;
+      output: MalformedAcceptWithPayloadCommandOutput;
+    };
+  };
+}

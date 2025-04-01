@@ -65,10 +65,21 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -76,16 +87,36 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
+ * @example To list the registered task definitions in a family
+ * ```javascript
+ * // This example lists the task definition revisions of a specified family.
+ * const input = {
+ *   familyPrefix: "wordpress"
+ * };
+ * const command = new ListTaskDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   taskDefinitionArns: [
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:3",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:4",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:5",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:6"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example To list your registered task definitions
  * ```javascript
  * // This example lists all of your registered task definitions.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListTaskDefinitionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskDefinitionArns": [
+ *   taskDefinitionArns: [
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep300:2",
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1",
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:3",
@@ -95,30 +126,9 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  *   ]
  * }
  * *\/
- * // example id: b381ebaf-7eba-4d60-b99b-7f6ae49d3d60
  * ```
  *
- * @example To list the registered task definitions in a family
- * ```javascript
- * // This example lists the task definition revisions of a specified family.
- * const input = {
- *   "familyPrefix": "wordpress"
- * };
- * const command = new ListTaskDefinitionsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "taskDefinitionArns": [
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:3",
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:4",
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:5",
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:6"
- *   ]
- * }
- * *\/
- * // example id: 734e7afd-753a-4bc2-85d0-badddce10910
- * ```
- *
+ * @public
  */
 export class ListTaskDefinitionsCommand extends $Command
   .classBuilder<
@@ -128,9 +138,7 @@ export class ListTaskDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +150,16 @@ export class ListTaskDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskDefinitionsCommand)
   .de(de_ListTaskDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskDefinitionsRequest;
+      output: ListTaskDefinitionsResponse;
+    };
+    sdk: {
+      input: ListTaskDefinitionsCommandInput;
+      output: ListTaskDefinitionsCommandOutput;
+    };
+  };
+}

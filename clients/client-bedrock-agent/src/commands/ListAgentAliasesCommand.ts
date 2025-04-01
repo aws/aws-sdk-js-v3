@@ -54,7 +54,7 @@ export interface ListAgentAliasesCommandOutput extends ListAgentAliasesResponse,
  * //           provisionedThroughput: "STRING_VALUE",
  * //         },
  * //       ],
- * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
@@ -88,6 +88,7 @@ export interface ListAgentAliasesCommandOutput extends ListAgentAliasesResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class ListAgentAliasesCommand extends $Command
@@ -98,9 +99,7 @@ export class ListAgentAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class ListAgentAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAgentAliasesCommand)
   .de(de_ListAgentAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAgentAliasesRequest;
+      output: ListAgentAliasesResponse;
+    };
+    sdk: {
+      input: ListAgentAliasesCommandInput;
+      output: ListAgentAliasesCommandOutput;
+    };
+  };
+}

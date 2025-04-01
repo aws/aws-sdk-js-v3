@@ -34,7 +34,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  *          <important>
  *             <p>Perform this operation only if you were expecting the host key or certificate mismatch
  *         or if you are familiar with the new host key or certificate on the instance. For more
- *         information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
+ *         information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
  *           client</a>.</p>
  *          </important>
  * @example
@@ -111,6 +111,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteKnownHostKeysCommand extends $Command
@@ -121,9 +122,7 @@ export class DeleteKnownHostKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DeleteKnownHostKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKnownHostKeysCommand)
   .de(de_DeleteKnownHostKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKnownHostKeysRequest;
+      output: DeleteKnownHostKeysResult;
+    };
+    sdk: {
+      input: DeleteKnownHostKeysCommandInput;
+      output: DeleteKnownHostKeysCommandOutput;
+    };
+  };
+}

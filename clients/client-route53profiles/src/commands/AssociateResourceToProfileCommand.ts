@@ -112,6 +112,7 @@ export interface AssociateResourceToProfileCommandOutput extends AssociateResour
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class AssociateResourceToProfileCommand extends $Command
@@ -122,9 +123,7 @@ export class AssociateResourceToProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class AssociateResourceToProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResourceToProfileCommand)
   .de(de_AssociateResourceToProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResourceToProfileRequest;
+      output: AssociateResourceToProfileResponse;
+    };
+    sdk: {
+      input: AssociateResourceToProfileCommandInput;
+      output: AssociateResourceToProfileCommandOutput;
+    };
+  };
+}

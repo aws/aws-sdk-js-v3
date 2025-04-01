@@ -104,6 +104,7 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetCachePolicyConfigCommand extends $Command
@@ -114,9 +115,7 @@ export class GetCachePolicyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class GetCachePolicyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCachePolicyConfigCommand)
   .de(de_GetCachePolicyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCachePolicyConfigRequest;
+      output: GetCachePolicyConfigResult;
+    };
+    sdk: {
+      input: GetCachePolicyConfigCommandInput;
+      output: GetCachePolicyConfigCommandOutput;
+    };
+  };
+}

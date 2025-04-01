@@ -77,33 +77,33 @@ export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListCapabilities call
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo"
+ *   maxResults: 50,
+ *   nextToken: "foo"
  * };
  * const command = new ListCapabilitiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "capabilities": [
+ *   capabilities: [
  *     {
- *       "name": "b2biexample",
- *       "type": "edi",
- *       "capabilityId": "ca-963a8121e4fc4e348",
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "modifiedAt": "2023-11-01T21:51:05.504Z"
+ *       capabilityId: "ca-963a8121e4fc4e348",
+ *       createdAt: "2023-11-01T21:51:05.504Z",
+ *       modifiedAt: "2023-11-01T21:51:05.504Z",
+ *       name: "b2biexample",
+ *       type: "edi"
  *     }
  *   ],
- *   "nextToken": "foo"
+ *   nextToken: "foo"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListCapabilitiesCommand extends $Command
   .classBuilder<
@@ -113,9 +113,7 @@ export class ListCapabilitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +125,16 @@ export class ListCapabilitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCapabilitiesCommand)
   .de(de_ListCapabilitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCapabilitiesRequest;
+      output: ListCapabilitiesResponse;
+    };
+    sdk: {
+      input: ListCapabilitiesCommandInput;
+      output: ListCapabilitiesCommandOutput;
+    };
+  };
+}

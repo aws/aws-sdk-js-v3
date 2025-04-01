@@ -77,6 +77,7 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationsCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationsCommand)
   .de(de_DeleteApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationsCommandInput;
+      output: DeleteApplicationsCommandOutput;
+    };
+  };
+}

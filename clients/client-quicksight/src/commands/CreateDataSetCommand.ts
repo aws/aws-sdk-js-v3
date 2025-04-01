@@ -9,7 +9,7 @@ import {
   CreateDataSetRequest,
   CreateDataSetRequestFilterSensitiveLog,
   CreateDataSetResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -295,6 +295,16 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *   FolderArns: [ // FolderArnList
  *     "STRING_VALUE",
  *   ],
+ *   PerformanceConfiguration: { // PerformanceConfiguration
+ *     UniqueKeys: [ // UniqueKeyList
+ *       { // UniqueKey
+ *         ColumnNames: [ // UniqueKeyColumnNameList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   UseAs: "RLS_RULES",
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);
@@ -351,6 +361,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSetCommand extends $Command
@@ -361,9 +372,7 @@ export class CreateDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -375,4 +384,16 @@ export class CreateDataSetCommand extends $Command
   .f(CreateDataSetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDataSetCommand)
   .de(de_CreateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSetRequest;
+      output: CreateDataSetResponse;
+    };
+    sdk: {
+      input: CreateDataSetCommandInput;
+      output: CreateDataSetCommandOutput;
+    };
+  };
+}

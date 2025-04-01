@@ -222,6 +222,7 @@ export interface UpdateAssessmentCommandOutput extends UpdateAssessmentResponse,
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssessmentCommand extends $Command
@@ -232,9 +233,7 @@ export class UpdateAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +245,16 @@ export class UpdateAssessmentCommand extends $Command
   .f(UpdateAssessmentRequestFilterSensitiveLog, UpdateAssessmentResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentCommand)
   .de(de_UpdateAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentRequest;
+      output: UpdateAssessmentResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentCommandInput;
+      output: UpdateAssessmentCommandOutput;
+    };
+  };
+}

@@ -124,8 +124,12 @@ import { MediaTailorServiceException as __BaseException } from "../models/MediaT
 import {
   AccessConfiguration,
   AdBreak,
+  AdConditioningConfiguration,
   AdMarkerPassthrough,
   AdMarkupType,
+  AdsInteractionExcludeEventType,
+  AdsInteractionLog,
+  AdsInteractionPublishOptInEventType,
   Alert,
   AlternateMedia,
   AudienceMedia,
@@ -145,8 +149,11 @@ import {
   KeyValuePair,
   LivePreRollConfiguration,
   LiveSource,
+  LoggingStrategy,
   LogType,
   ManifestProcessingRules,
+  ManifestServiceExcludeEventType,
+  ManifestServiceInteractionLog,
   PlaybackConfiguration,
   PrefetchConsumption,
   PrefetchRetrieval,
@@ -207,6 +214,9 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdsInteractionLog: (_) => _json(_),
+      EnabledLoggingStrategies: (_) => _json(_),
+      ManifestServiceInteractionLog: (_) => _json(_),
       PercentEnabled: [],
       PlaybackConfigurationName: [],
     })
@@ -858,6 +868,7 @@ export const se_PutPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdConditioningConfiguration: (_) => _json(_),
       AdDecisionServerUrl: [],
       AvailSuppression: (_) => _json(_),
       Bumper: (_) => _json(_),
@@ -946,10 +957,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1119,6 +1127,9 @@ export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdsInteractionLog: _json,
+    EnabledLoggingStrategies: _json,
+    ManifestServiceInteractionLog: _json,
     PercentEnabled: __expectInt32,
     PlaybackConfigurationName: __expectString,
   });
@@ -1642,6 +1653,7 @@ export const de_GetPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -1900,6 +1912,7 @@ export const de_PutPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -2181,6 +2194,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se___adsInteractionExcludeEventTypesList omitted.
+
+// se___adsInteractionPublishOptInEventTypesList omitted.
+
 // se___listOfAdBreak omitted.
 
 // se___listOfAlternateMedia omitted.
@@ -2189,7 +2206,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se___listOfAvailMatchingCriteria omitted.
 
+// se___listOfLoggingStrategies omitted.
+
 // se___listOfSegmentDeliveryConfiguration omitted.
+
+// se___manifestServiceExcludeEventTypesList omitted.
 
 // se___mapOf__string omitted.
 
@@ -2199,9 +2220,13 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdBreakMetadataList omitted.
 
+// se_AdConditioningConfiguration omitted.
+
 // se_AdMarkerPassthrough omitted.
 
 // se_adMarkupTypes omitted.
+
+// se_AdsInteractionLog omitted.
 
 // se_AlternateMedia omitted.
 
@@ -2242,6 +2267,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LogTypes omitted.
 
 // se_ManifestProcessingRules omitted.
+
+// se_ManifestServiceInteractionLog omitted.
 
 /**
  * serializeAws_restJson1PrefetchConsumption
@@ -2293,6 +2320,10 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
 
 // se_UpdateProgramTransition omitted.
 
+// de___adsInteractionExcludeEventTypesList omitted.
+
+// de___adsInteractionPublishOptInEventTypesList omitted.
+
 // de___listOf__string omitted.
 
 // de___listOfAdBreak omitted.
@@ -2338,6 +2369,8 @@ const de___listOfLiveSource = (output: any, context: __SerdeContext): LiveSource
     });
   return retVal;
 };
+
+// de___listOfLoggingStrategies omitted.
 
 /**
  * deserializeAws_restJson1__listOfPlaybackConfiguration
@@ -2413,6 +2446,8 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
   return retVal;
 };
 
+// de___manifestServiceExcludeEventTypesList omitted.
+
 // de___mapOf__string omitted.
 
 // de_AccessConfiguration omitted.
@@ -2425,9 +2460,13 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 
 // de_AdBreakOpportunity omitted.
 
+// de_AdConditioningConfiguration omitted.
+
 // de_AdMarkerPassthrough omitted.
 
 // de_adMarkupTypes omitted.
+
+// de_AdsInteractionLog omitted.
 
 /**
  * deserializeAws_restJson1Alert
@@ -2524,11 +2563,14 @@ const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
 
 // de_ManifestProcessingRules omitted.
 
+// de_ManifestServiceInteractionLog omitted.
+
 /**
  * deserializeAws_restJson1PlaybackConfiguration
  */
 const de_PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
   return take(output, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -2682,13 +2724,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Audience";
 const _DM = "DurationMinutes";

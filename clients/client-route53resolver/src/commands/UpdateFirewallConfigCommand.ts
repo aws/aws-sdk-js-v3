@@ -80,6 +80,7 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class UpdateFirewallConfigCommand extends $Command
@@ -90,9 +91,7 @@ export class UpdateFirewallConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class UpdateFirewallConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallConfigCommand)
   .de(de_UpdateFirewallConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallConfigRequest;
+      output: UpdateFirewallConfigResponse;
+    };
+    sdk: {
+      input: UpdateFirewallConfigCommandInput;
+      output: UpdateFirewallConfigCommandOutput;
+    };
+  };
+}

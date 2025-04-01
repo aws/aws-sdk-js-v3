@@ -84,6 +84,7 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectorCommand extends $Command
@@ -94,9 +95,7 @@ export class DeleteConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DeleteConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectorCommand)
   .de(de_DeleteConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectorRequest;
+      output: DeleteConnectorResponse;
+    };
+    sdk: {
+      input: DeleteConnectorCommandInput;
+      output: DeleteConnectorCommandOutput;
+    };
+  };
+}

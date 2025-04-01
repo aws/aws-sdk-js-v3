@@ -156,6 +156,9 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -196,6 +199,9 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -218,60 +224,60 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about a handshake
  * ```javascript
  * // The following example shows you how to request details about a handshake. The handshake ID comes either from the original call to "InviteAccountToOrganization", or from a call to "ListHandshakesForAccount" or "ListHandshakesForOrganization":
  * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
+ *   HandshakeId: "h-examplehandshakeid111"
  * };
  * const command = new DescribeHandshakeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "2016-11-30T17:24:58.046Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
+ *   Handshake: {
+ *     Action: "INVITE",
+ *     Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     ExpirationTimestamp: "2016-11-30T17:24:58.046Z",
+ *     Id: "h-examplehandshakeid111",
+ *     Parties: [
  *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
+ *         Id: "o-exampleorgid",
+ *         Type: "ORGANIZATION"
  *       },
  *       {
- *         "Id": "333333333333",
- *         "Type": "ACCOUNT"
+ *         Id: "333333333333",
+ *         Type: "ACCOUNT"
  *       }
  *     ],
- *     "RequestedTimestamp": "2016-11-30T17:24:58.046Z",
- *     "Resources": [
+ *     RequestedTimestamp: "2016-11-30T17:24:58.046Z",
+ *     Resources: [
  *       {
- *         "Resources": [
+ *         Resources: [
  *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@example.com"
+ *             Type: "MASTER_EMAIL",
+ *             Value: "bill@example.com"
  *           },
  *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Master Account"
+ *             Type: "MASTER_NAME",
+ *             Value: "Master Account"
  *           }
  *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
+ *         Type: "ORGANIZATION",
+ *         Value: "o-exampleorgid"
  *       },
  *       {
- *         "Type": "ACCOUNT",
- *         "Value": "333333333333"
+ *         Type: "ACCOUNT",
+ *         Value: "333333333333"
  *       }
  *     ],
- *     "State": "OPEN"
+ *     State: "OPEN"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-handshake-1472503400505
  * ```
  *
+ * @public
  */
 export class DescribeHandshakeCommand extends $Command
   .classBuilder<
@@ -281,9 +287,7 @@ export class DescribeHandshakeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -295,4 +299,16 @@ export class DescribeHandshakeCommand extends $Command
   .f(void 0, DescribeHandshakeResponseFilterSensitiveLog)
   .ser(se_DescribeHandshakeCommand)
   .de(de_DescribeHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHandshakeRequest;
+      output: DescribeHandshakeResponse;
+    };
+    sdk: {
+      input: DescribeHandshakeCommandInput;
+      output: DescribeHandshakeCommandOutput;
+    };
+  };
+}

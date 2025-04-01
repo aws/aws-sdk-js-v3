@@ -119,6 +119,7 @@ export interface UpdateIngestionDestinationCommandOutput extends UpdateIngestion
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class UpdateIngestionDestinationCommand extends $Command
@@ -129,9 +130,7 @@ export class UpdateIngestionDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class UpdateIngestionDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIngestionDestinationCommand)
   .de(de_UpdateIngestionDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIngestionDestinationRequest;
+      output: UpdateIngestionDestinationResponse;
+    };
+    sdk: {
+      input: UpdateIngestionDestinationCommandInput;
+      output: UpdateIngestionDestinationCommandOutput;
+    };
+  };
+}

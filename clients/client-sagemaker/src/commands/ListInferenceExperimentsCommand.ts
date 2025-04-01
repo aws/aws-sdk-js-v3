@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_3";
+import { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_4";
 import { de_ListInferenceExperimentsCommand, se_ListInferenceExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -82,6 +82,7 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListInferenceExperimentsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListInferenceExperimentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListInferenceExperimentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceExperimentsCommand)
   .de(de_ListInferenceExperimentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceExperimentsRequest;
+      output: ListInferenceExperimentsResponse;
+    };
+    sdk: {
+      input: ListInferenceExperimentsCommandInput;
+      output: ListInferenceExperimentsCommandOutput;
+    };
+  };
+}

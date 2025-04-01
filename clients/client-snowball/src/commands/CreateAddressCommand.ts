@@ -83,32 +83,32 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To create an address for a job
  * ```javascript
  * // This operation creates an address for a job. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.
  * const input = {
- *   "Address": {
- *     "City": "Seattle",
- *     "Company": "My Company's Name",
- *     "Country": "USA",
- *     "Name": "My Name",
- *     "PhoneNumber": "425-555-5555",
- *     "PostalCode": "98101",
- *     "StateOrProvince": "WA",
- *     "Street1": "123 Main Street"
+ *   Address: {
+ *     City: "Seattle",
+ *     Company: "My Company's Name",
+ *     Country: "USA",
+ *     Name: "My Name",
+ *     PhoneNumber: "425-555-5555",
+ *     PostalCode: "98101",
+ *     StateOrProvince: "WA",
+ *     Street1: "123 Main Street"
  *   }
  * };
  * const command = new CreateAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
  * }
  * *\/
- * // example id: to-create-an-address-for-a-job-1482535416294
  * ```
  *
+ * @public
  */
 export class CreateAddressCommand extends $Command
   .classBuilder<
@@ -118,9 +118,7 @@ export class CreateAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +130,16 @@ export class CreateAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAddressCommand)
   .de(de_CreateAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddressRequest;
+      output: CreateAddressResult;
+    };
+    sdk: {
+      input: CreateAddressCommandInput;
+      output: CreateAddressCommandOutput;
+    };
+  };
+}

@@ -56,6 +56,7 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelPackageGroupPolicyCommand extends $Command
@@ -66,9 +67,7 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +79,16 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelPackageGroupPolicyCommand)
   .de(de_DeleteModelPackageGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelPackageGroupPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelPackageGroupPolicyCommandInput;
+      output: DeleteModelPackageGroupPolicyCommandOutput;
+    };
+  };
+}

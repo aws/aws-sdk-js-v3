@@ -54,6 +54,10 @@ export interface CreateSecurityConfigurationCommandOutput
  *       JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
  *       KmsKeyArn: "STRING_VALUE",
  *     },
+ *     DataQualityEncryption: { // DataQualityEncryption
+ *       DataQualityEncryptionMode: "DISABLED" || "SSE-KMS",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
@@ -89,6 +93,7 @@ export interface CreateSecurityConfigurationCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateSecurityConfigurationCommand extends $Command
@@ -99,9 +104,7 @@ export class CreateSecurityConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +116,16 @@ export class CreateSecurityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSecurityConfigurationCommand)
   .de(de_CreateSecurityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecurityConfigurationRequest;
+      output: CreateSecurityConfigurationResponse;
+    };
+    sdk: {
+      input: CreateSecurityConfigurationCommandInput;
+      output: CreateSecurityConfigurationCommandOutput;
+    };
+  };
+}

@@ -266,6 +266,7 @@ import {
   OpenZFSClientConfiguration,
   OpenZFSCreateRootVolumeConfiguration,
   OpenZFSNfsExport,
+  OpenZFSReadCacheConfiguration,
   OpenZFSUserOrGroupQuota,
   ReleaseConfiguration,
   ReleaseFileSystemNfsV3LocksRequest,
@@ -2897,6 +2898,8 @@ const se_DisassociateFileSystemAliasesRequest = (
 
 // se_OpenZFSNfsExports omitted.
 
+// se_OpenZFSReadCacheConfiguration omitted.
+
 // se_OpenZFSUserAndGroupQuotas omitted.
 
 // se_OpenZFSUserOrGroupQuota omitted.
@@ -3036,6 +3039,7 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
   return take(input, {
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
+    FileSystemTypeVersion: [],
     LustreConfiguration: _json,
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,
@@ -3187,6 +3191,7 @@ const de_Backup = (output: any, context: __SerdeContext): Backup => {
     ProgressPercent: __expectInt32,
     ResourceARN: __expectString,
     ResourceType: __expectString,
+    SizeInBytes: __expectLong,
     SourceBackupId: __expectString,
     SourceBackupRegion: __expectString,
     Tags: _json,
@@ -3764,6 +3769,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 // de_OpenZFSNfsExports omitted.
 
 // de_OpenZFSOriginSnapshotConfiguration omitted.
+
+// de_OpenZFSReadCacheConfiguration omitted.
 
 // de_OpenZFSUserAndGroupQuotas omitted.
 

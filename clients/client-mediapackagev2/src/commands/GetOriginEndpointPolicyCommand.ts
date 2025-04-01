@@ -75,28 +75,28 @@ export interface GetOriginEndpointPolicyCommandOutput extends GetOriginEndpointP
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Getting an Origin Endpoint Policy
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpoint"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpoint"
  * };
  * const command = new GetOriginEndpointPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpoint",
- *   "Policy": "{...}"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpoint",
+ *   Policy: "{...}"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetOriginEndpointPolicyCommand extends $Command
   .classBuilder<
@@ -106,9 +106,7 @@ export class GetOriginEndpointPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +118,16 @@ export class GetOriginEndpointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginEndpointPolicyCommand)
   .de(de_GetOriginEndpointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginEndpointPolicyRequest;
+      output: GetOriginEndpointPolicyResponse;
+    };
+    sdk: {
+      input: GetOriginEndpointPolicyCommandInput;
+      output: GetOriginEndpointPolicyCommandOutput;
+    };
+  };
+}

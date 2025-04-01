@@ -33,7 +33,13 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
 
 /**
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
- *       filtered based on customer identifier or product dimensions.</p>
+ *       filtered based on customer identifier, AWS account ID, or product dimensions.</p>
+ *          <important>
+ *             <p>
+ *        The <code>CustomerIdentifier</code> parameter is on path for deprecation. Use <code>CustomerAWSAccountID</code> instead.</p>
+ *             <p>These parameters are mutually exclusive. You can't specify both <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> in the same request.
+ *      </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +64,7 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * //       ProductCode: "STRING_VALUE",
  * //       Dimension: "STRING_VALUE",
  * //       CustomerIdentifier: "STRING_VALUE",
+ * //       CustomerAWSAccountId: "STRING_VALUE",
  * //       Value: { // EntitlementValue
  * //         IntegerValue: Number("int"),
  * //         DoubleValue: Number("double"),
@@ -91,6 +98,7 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @throws {@link MarketplaceEntitlementServiceServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
+ *
  * @public
  */
 export class GetEntitlementsCommand extends $Command
@@ -101,9 +109,7 @@ export class GetEntitlementsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceEntitlementServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +121,16 @@ export class GetEntitlementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEntitlementsCommand)
   .de(de_GetEntitlementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEntitlementsRequest;
+      output: GetEntitlementsResult;
+    };
+    sdk: {
+      input: GetEntitlementsCommandInput;
+      output: GetEntitlementsCommandOutput;
+    };
+  };
+}

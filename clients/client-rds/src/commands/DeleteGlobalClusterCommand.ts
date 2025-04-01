@@ -67,12 +67,19 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -93,33 +100,33 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a global DB cluster
  * ```javascript
  * // The following example deletes an Aurora MySQL-compatible global DB cluster.
  * const input = {
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": false,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
+ *   GlobalCluster: {
+ *     DeletionProtection: false,
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.07.2",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers:     [],
+ *     GlobalClusterResourceId: "cluster-f0e523bfe07aabb",
+ *     Status: "available",
+ *     StorageEncrypted: false
  *   }
  * }
  * *\/
- * // example id: to-delete-a-global-db-cluster-1680128523630
  * ```
  *
+ * @public
  */
 export class DeleteGlobalClusterCommand extends $Command
   .classBuilder<
@@ -129,9 +136,7 @@ export class DeleteGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +148,16 @@ export class DeleteGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGlobalClusterCommand)
   .de(de_DeleteGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGlobalClusterMessage;
+      output: DeleteGlobalClusterResult;
+    };
+    sdk: {
+      input: DeleteGlobalClusterCommandInput;
+      output: DeleteGlobalClusterCommandOutput;
+    };
+  };
+}

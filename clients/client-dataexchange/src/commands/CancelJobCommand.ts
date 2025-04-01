@@ -28,7 +28,8 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
+ * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING
+ *          state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +52,8 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -68,6 +70,7 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class CancelJobCommand extends $Command
@@ -78,9 +81,7 @@ export class CancelJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +93,16 @@ export class CancelJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJobCommand)
   .de(de_CancelJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelJobCommandInput;
+      output: CancelJobCommandOutput;
+    };
+  };
+}

@@ -79,6 +79,7 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * //             },
  * //           },
  * //         ],
+ * //         resourceControlPolicyRestriction: "STRING_VALUE",
  * //       },
  * //       unusedPermissionDetails: { // UnusedPermissionDetails
  * //         actions: [ // UnusedActionList
@@ -131,6 +132,7 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetFindingV2Command extends $Command
@@ -141,9 +143,7 @@ export class GetFindingV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class GetFindingV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingV2Command)
   .de(de_GetFindingV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingV2Request;
+      output: GetFindingV2Response;
+    };
+    sdk: {
+      input: GetFindingV2CommandInput;
+      output: GetFindingV2CommandOutput;
+    };
+  };
+}

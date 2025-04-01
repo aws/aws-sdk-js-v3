@@ -90,6 +90,7 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceTemplateCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateServiceTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateServiceTemplateCommand extends $Command
   .f(UpdateServiceTemplateInputFilterSensitiveLog, UpdateServiceTemplateOutputFilterSensitiveLog)
   .ser(se_UpdateServiceTemplateCommand)
   .de(de_UpdateServiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceTemplateInput;
+      output: UpdateServiceTemplateOutput;
+    };
+    sdk: {
+      input: UpdateServiceTemplateCommandInput;
+      output: UpdateServiceTemplateCommandOutput;
+    };
+  };
+}

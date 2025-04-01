@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserProfileInput, GetUserProfileOutput, GetUserProfileOutputFilterSensitiveLog } from "../models/models_0";
+import { GetUserProfileInput, GetUserProfileOutput, GetUserProfileOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetUserProfileCommand, se_GetUserProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -88,6 +88,7 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetUserProfileCommand extends $Command
@@ -98,9 +99,7 @@ export class GetUserProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetUserProfileCommand extends $Command
   .f(void 0, GetUserProfileOutputFilterSensitiveLog)
   .ser(se_GetUserProfileCommand)
   .de(de_GetUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserProfileInput;
+      output: GetUserProfileOutput;
+    };
+    sdk: {
+      input: GetUserProfileCommandInput;
+      output: GetUserProfileCommandOutput;
+    };
+  };
+}

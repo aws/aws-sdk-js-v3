@@ -157,27 +157,27 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an HMAC for a message
  * ```javascript
  * // This example generates an HMAC for a message, an HMAC KMS key, and a MAC algorithm. The algorithm must be supported by the specified HMAC KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "MacAlgorithm": "HMAC_SHA_384",
- *   "Message": "Hello World"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   MacAlgorithm: "HMAC_SHA_384",
+ *   Message: "Hello World"
  * };
  * const command = new GenerateMacCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Mac": "<HMAC_TAG>",
- *   "MacAlgorithm": "HMAC_SHA_384"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Mac: "<HMAC_TAG>",
+ *   MacAlgorithm: "HMAC_SHA_384"
  * }
  * *\/
- * // example id: to-generate-an-hmac-for-a-message-1631570135665
  * ```
  *
+ * @public
  */
 export class GenerateMacCommand extends $Command
   .classBuilder<
@@ -187,9 +187,7 @@ export class GenerateMacCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +199,16 @@ export class GenerateMacCommand extends $Command
   .f(GenerateMacRequestFilterSensitiveLog, void 0)
   .ser(se_GenerateMacCommand)
   .de(de_GenerateMacCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateMacRequest;
+      output: GenerateMacResponse;
+    };
+    sdk: {
+      input: GenerateMacCommandInput;
+      output: GenerateMacCommandOutput;
+    };
+  };
+}

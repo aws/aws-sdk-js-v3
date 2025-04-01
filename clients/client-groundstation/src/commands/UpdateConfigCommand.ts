@@ -134,6 +134,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigCommand extends $Command
@@ -144,9 +145,7 @@ export class UpdateConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class UpdateConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigCommand)
   .de(de_UpdateConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: UpdateConfigCommandInput;
+      output: UpdateConfigCommandOutput;
+    };
+  };
+}

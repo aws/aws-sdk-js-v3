@@ -90,6 +90,7 @@ export interface ListCustomDomainAssociationsCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListCustomDomainAssociationsCommand extends $Command
@@ -100,9 +101,7 @@ export class ListCustomDomainAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListCustomDomainAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomDomainAssociationsCommand)
   .de(de_ListCustomDomainAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomDomainAssociationsRequest;
+      output: ListCustomDomainAssociationsResponse;
+    };
+    sdk: {
+      input: ListCustomDomainAssociationsCommandInput;
+      output: ListCustomDomainAssociationsCommandOutput;
+    };
+  };
+}

@@ -28,8 +28,8 @@ export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more
- *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+ * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group. For more
+ *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +114,7 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class CreateUserGroupCommand extends $Command
@@ -124,9 +125,7 @@ export class CreateUserGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class CreateUserGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserGroupCommand)
   .de(de_CreateUserGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserGroupMessage;
+      output: UserGroup;
+    };
+    sdk: {
+      input: CreateUserGroupCommandInput;
+      output: CreateUserGroupCommandOutput;
+    };
+  };
+}

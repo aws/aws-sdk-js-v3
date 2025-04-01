@@ -139,6 +139,7 @@ export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __Metadat
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetMilestoneCommand extends $Command
@@ -149,9 +150,7 @@ export class GetMilestoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class GetMilestoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMilestoneCommand)
   .de(de_GetMilestoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMilestoneInput;
+      output: GetMilestoneOutput;
+    };
+    sdk: {
+      input: GetMilestoneCommandInput;
+      output: GetMilestoneCommandOutput;
+    };
+  };
+}

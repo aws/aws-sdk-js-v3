@@ -31,8 +31,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
- *             </p>
+ *             <p>For global tables, this operation only applies to global tables using Version
+ *                 2019.11.21 (Current version). </p>
  *          </important>
  *          <note>
  *             <p>If you issue a <code>DescribeTable</code> request immediately after a
@@ -136,6 +136,11 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -158,6 +163,11 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -166,6 +176,11 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -202,6 +217,12 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -225,54 +246,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To describe a table
- * ```javascript
- * // This example describes the Music table.
- * const input = {
- *   "TableName": "Music"
- * };
- * const command = new DescribeTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Table": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
- *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "ACTIVE"
- *   }
- * }
- * *\/
- * // example id: to-describe-a-table-1475884440502
- * ```
  *
+ * @public
  */
 export class DescribeTableCommand extends $Command
   .classBuilder<
@@ -284,6 +259,7 @@ export class DescribeTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -296,4 +272,16 @@ export class DescribeTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTableCommand)
   .de(de_DescribeTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTableInput;
+      output: DescribeTableOutput;
+    };
+    sdk: {
+      input: DescribeTableCommandInput;
+      output: DescribeTableCommandOutput;
+    };
+  };
+}

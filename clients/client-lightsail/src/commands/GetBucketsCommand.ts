@@ -31,7 +31,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
- *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+ *          <p>For more information about buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
  *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -135,6 +135,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetBucketsCommand extends $Command
@@ -145,9 +146,7 @@ export class GetBucketsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class GetBucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketsCommand)
   .de(de_GetBucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketsRequest;
+      output: GetBucketsResult;
+    };
+    sdk: {
+      input: GetBucketsCommandInput;
+      output: GetBucketsCommandOutput;
+    };
+  };
+}

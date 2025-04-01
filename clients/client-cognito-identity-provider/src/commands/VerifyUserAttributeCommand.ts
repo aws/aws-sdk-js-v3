@@ -36,10 +36,12 @@ export interface VerifyUserAttributeCommandInput extends VerifyUserAttributeRequ
 export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeResponse, __MetadataBearer {}
 
 /**
- * <p>Verifies the specified user attributes in the user pool.</p>
+ * <p>Submits a verification code for a signed-in user who has added or changed a value of
+ *             an auto-verified attribute. When successful, the user's attribute becomes verified
+ *             and the attribute <code>email_verified</code> or <code>phone_number_verified</code>
+ *             becomes <code>true</code>.</p>
  *          <p> If your user pool requires verification before Amazon Cognito updates the attribute value,
- *             VerifyUserAttribute updates the affected attribute to its pending value. For more
- *             information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html"> UserAttributeUpdateSettingsType</a>. </p>
+ *             this operation updates the affected attribute to its pending value.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -122,6 +124,7 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class VerifyUserAttributeCommand extends $Command
@@ -132,9 +135,7 @@ export class VerifyUserAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +147,16 @@ export class VerifyUserAttributeCommand extends $Command
   .f(VerifyUserAttributeRequestFilterSensitiveLog, void 0)
   .ser(se_VerifyUserAttributeCommand)
   .de(de_VerifyUserAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyUserAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: VerifyUserAttributeCommandInput;
+      output: VerifyUserAttributeCommandOutput;
+    };
+  };
+}

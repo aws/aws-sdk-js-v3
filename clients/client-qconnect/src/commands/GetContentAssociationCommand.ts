@@ -85,6 +85,7 @@ export interface GetContentAssociationCommandOutput extends GetContentAssociatio
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetContentAssociationCommand extends $Command
@@ -95,9 +96,7 @@ export class GetContentAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetContentAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContentAssociationCommand)
   .de(de_GetContentAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContentAssociationRequest;
+      output: GetContentAssociationResponse;
+    };
+    sdk: {
+      input: GetContentAssociationCommandInput;
+      output: GetContentAssociationCommandOutput;
+    };
+  };
+}

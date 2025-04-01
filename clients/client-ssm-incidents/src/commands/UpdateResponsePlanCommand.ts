@@ -127,6 +127,7 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class UpdateResponsePlanCommand extends $Command
@@ -137,9 +138,7 @@ export class UpdateResponsePlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class UpdateResponsePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResponsePlanCommand)
   .de(de_UpdateResponsePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResponsePlanInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResponsePlanCommandInput;
+      output: UpdateResponsePlanCommandOutput;
+    };
+  };
+}

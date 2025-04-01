@@ -30,6 +30,14 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
 /**
  * <p>Updates a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
+ *          <important>
+ *             <p>The value of <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateRoleAlias.html#iot-UpdateRoleAlias-request-credentialDurationSeconds">
+ *                   <code>credentialDurationSeconds</code>
+ *                </a> must be less than or equal to the
+ *             maximum session duration of the IAM role that the role alias references. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api"> Modifying a role maximum session duration (Amazon Web Services API)</a> from the Amazon Web Services
+ *             Identity and Access Management User Guide.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +85,7 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoleAliasCommand extends $Command
@@ -87,9 +96,7 @@ export class UpdateRoleAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +108,16 @@ export class UpdateRoleAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoleAliasCommand)
   .de(de_UpdateRoleAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoleAliasRequest;
+      output: UpdateRoleAliasResponse;
+    };
+    sdk: {
+      input: UpdateRoleAliasCommandInput;
+      output: UpdateRoleAliasCommandOutput;
+    };
+  };
+}

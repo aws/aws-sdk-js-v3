@@ -113,47 +113,47 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a DB snapshot
  * ```javascript
  * // The following example upgrades a PostgeSQL 10.6 snapshot named db5-snapshot-upg-test to PostgreSQL 11.7. The new DB engine version is shown after the snapshot has finished upgrading and its status is available.
  * const input = {
- *   "DBSnapshotIdentifier": "db5-snapshot-upg-test",
- *   "EngineVersion": "11.7"
+ *   DBSnapshotIdentifier: "db5-snapshot-upg-test",
+ *   EngineVersion: "11.7"
  * };
  * const command = new ModifyDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshot": {
- *     "AllocatedStorage": 20,
- *     "AvailabilityZone": "us-west-2a",
- *     "DBInstanceIdentifier": "database-5",
- *     "DBSnapshotArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-upg-test",
- *     "DBSnapshotIdentifier": "db5-snapshot-upg-test",
- *     "DbiResourceId": "db-GJMF75LM42IL6BTFRE4UZJ5YM4",
- *     "Encrypted": false,
- *     "Engine": "postgres",
- *     "EngineVersion": "10.6",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2020-03-27T19:59:04.735Z",
- *     "LicenseModel": "postgresql-license",
- *     "MasterUsername": "postgres",
- *     "OptionGroupName": "default:postgres-11",
- *     "PercentProgress": 100,
- *     "Port": 5432,
- *     "ProcessorFeatures": [],
- *     "SnapshotCreateTime": "2020-03-27T20:49:17.092Z",
- *     "SnapshotType": "manual",
- *     "Status": "upgrading",
- *     "StorageType": "gp2",
- *     "VpcId": "vpc-2ff27557"
+ *   DBSnapshot: {
+ *     AllocatedStorage: 20,
+ *     AvailabilityZone: "us-west-2a",
+ *     DBInstanceIdentifier: "database-5",
+ *     DBSnapshotArn: "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-upg-test",
+ *     DBSnapshotIdentifier: "db5-snapshot-upg-test",
+ *     DbiResourceId: "db-GJMF75LM42IL6BTFRE4UZJ5YM4",
+ *     Encrypted: false,
+ *     Engine: "postgres",
+ *     EngineVersion: "10.6",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2020-03-27T19:59:04.735Z",
+ *     LicenseModel: "postgresql-license",
+ *     MasterUsername: "postgres",
+ *     OptionGroupName: "default:postgres-11",
+ *     PercentProgress: 100,
+ *     Port: 5432,
+ *     ProcessorFeatures:     [],
+ *     SnapshotCreateTime: "2020-03-27T20:49:17.092Z",
+ *     SnapshotType: "manual",
+ *     Status: "upgrading",
+ *     StorageType: "gp2",
+ *     VpcId: "vpc-2ff27557"
  *   }
  * }
  * *\/
- * // example id: to-modify-a-db-snapshot-1680381968028
  * ```
  *
+ * @public
  */
 export class ModifyDBSnapshotCommand extends $Command
   .classBuilder<
@@ -163,9 +163,7 @@ export class ModifyDBSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +175,16 @@ export class ModifyDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBSnapshotCommand)
   .de(de_ModifyDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBSnapshotMessage;
+      output: ModifyDBSnapshotResult;
+    };
+    sdk: {
+      input: ModifyDBSnapshotCommandInput;
+      output: ModifyDBSnapshotCommandOutput;
+    };
+  };
+}

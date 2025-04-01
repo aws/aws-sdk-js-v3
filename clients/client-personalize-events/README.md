@@ -12,7 +12,7 @@ it for model training either alone or combined with historical data. For more in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-personalize-events
+To install this package, simply type add or install @aws-sdk/client-personalize-events
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-personalize-events`

@@ -62,16 +62,19 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete the current account password policy
  * ```javascript
  * // The following command removes the password policy from the current AWS account:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DeleteAccountPasswordPolicyCommand(input);
- * await client.send(command);
- * // example id: 9ddf755e-495c-49bc-ae3b-ea6cc9b8ebcf
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAccountPasswordPolicyCommand extends $Command
   .classBuilder<
@@ -81,9 +84,7 @@ export class DeleteAccountPasswordPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +96,16 @@ export class DeleteAccountPasswordPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccountPasswordPolicyCommand)
   .de(de_DeleteAccountPasswordPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccountPasswordPolicyCommandInput;
+      output: DeleteAccountPasswordPolicyCommandOutput;
+    };
+  };
+}

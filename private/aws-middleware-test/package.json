@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-middleware-test",
   "description": "Integration test suite for AWS middleware",
-  "version": "3.609.0",
+  "version": "3.779.0",
   "scripts": {
     "build": "exit 0",
     "build:cjs": "exit 0",
@@ -10,7 +10,8 @@
     "build:types": "exit 0",
     "build:types:downlevel": "exit 0",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -25,21 +26,21 @@
     "@aws-sdk/client-sagemaker": "*",
     "@aws-sdk/client-sagemaker-runtime": "*",
     "@aws-sdk/client-xray": "*",
-    "@smithy/protocol-http": "^4.0.3",
-    "@smithy/types": "^3.3.0",
-    "@smithy/util-stream": "^3.0.5",
-    "@smithy/util-utf8": "^3.0.0",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/types": "^4.2.0",
+    "@smithy/util-stream": "^4.2.0",
+    "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@tsconfig/node16": "16.1.3",
-    "@types/node": "^16.18.96",
+    "@tsconfig/node18": "18.2.4",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

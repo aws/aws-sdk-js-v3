@@ -94,11 +94,15 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *                 record: { // RecordAttribute
  *                   "<keys>": "<AttributeValue>",
  *                 },
+ *                 ipaddr: "STRING_VALUE",
+ *                 decimal: "STRING_VALUE",
  *               },
  *             ],
  *             record: {
  *               "<keys>": "<AttributeValue>",
  *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
  *           },
  *         },
  *         parents: [ // ParentList
@@ -106,6 +110,7 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   requests: [ // BatchIsAuthorizedWithTokenInputList // required
  *     { // BatchIsAuthorizedWithTokenInputItem
@@ -118,6 +123,7 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *         contextMap: { // ContextMap
  *           "<keys>": "<AttributeValue>",
  *         },
+ *         cedarJson: "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -159,13 +165,18 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * //                   record: { // RecordAttribute
  * //                     "<keys>": "<AttributeValue>",
  * //                   },
+ * //                   ipaddr: "STRING_VALUE",
+ * //                   decimal: "STRING_VALUE",
  * //                 },
  * //               ],
  * //               record: {
  * //                 "<keys>": "<AttributeValue>",
  * //               },
+ * //               ipaddr: "STRING_VALUE",
+ * //               decimal: "STRING_VALUE",
  * //             },
  * //           },
+ * //           cedarJson: "STRING_VALUE",
  * //         },
  * //       },
  * //       decision: "ALLOW" || "DENY", // required
@@ -290,6 +301,141 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example Batch - Example 1
+ * ```javascript
+ * // The following example requests three authorization decisions for two resources                     and two actions in different photo albums.
+ * const input = {
+ *   entities: {
+ *     entityList: [
+ *       {
+ *         identifier: {
+ *           entityId: "VacationPhoto94.jpg",
+ *           entityType: "PhotoFlash::Photo"
+ *         },
+ *         parents: [
+ *           {
+ *             entityId: "MyExampleAlbum1",
+ *             entityType: "PhotoFlash::Album"
+ *           }
+ *         ]
+ *       },
+ *       {
+ *         identifier: {
+ *           entityId: "OfficePhoto94.jpg",
+ *           entityType: "PhotoFlash::Photo"
+ *         },
+ *         parents: [
+ *           {
+ *             entityId: "MyExampleAlbum2",
+ *             entityType: "PhotoFlash::Album"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   },
+ *   identityToken: "eyJra12345EXAMPLE",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   requests: [
+ *     {
+ *       action: {
+ *         actionId: "ViewPhoto",
+ *         actionType: "PhotoFlash::Action"
+ *       },
+ *       resource: {
+ *         entityId: "VacationPhoto94.jpg",
+ *         entityType: "PhotoFlash::Photo"
+ *       }
+ *     },
+ *     {
+ *       action: {
+ *         actionId: "SharePhoto",
+ *         actionType: "PhotoFlash::Action"
+ *       },
+ *       resource: {
+ *         entityId: "VacationPhoto94.jpg",
+ *         entityType: "PhotoFlash::Photo"
+ *       }
+ *     },
+ *     {
+ *       action: {
+ *         actionId: "ViewPhoto",
+ *         actionType: "PhotoFlash::Action"
+ *       },
+ *       resource: {
+ *         entityId: "OfficePhoto94.jpg",
+ *         entityType: "PhotoFlash::Photo"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new BatchIsAuthorizedWithTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   principal: {
+ *     entityId: "us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     entityType: "PhotoFlash::User"
+ *   },
+ *   results: [
+ *     {
+ *       decision: "ALLOW",
+ *       determiningPolicies: [
+ *         {
+ *           policyId: "9wYixMplbbZQb5fcZHyJhY"
+ *         }
+ *       ],
+ *       errors:       [],
+ *       request: {
+ *         action: {
+ *           actionId: "ViewPhoto",
+ *           actionType: "PhotoFlash::Action"
+ *         },
+ *         resource: {
+ *           entityId: "VacationPhoto94.jpg",
+ *           entityType: "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       decision: "ALLOW",
+ *       determiningPolicies: [
+ *         {
+ *           policyId: "9wYixMplbbZQb5fcZHyJhY"
+ *         }
+ *       ],
+ *       errors:       [],
+ *       request: {
+ *         action: {
+ *           actionId: "SharePhoto",
+ *           actionType: "PhotoFlash::Action"
+ *         },
+ *         resource: {
+ *           entityId: "VacationPhoto94.jpg",
+ *           entityType: "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       decision: "DENY",
+ *       determiningPolicies:       [],
+ *       errors:       [],
+ *       request: {
+ *         action: {
+ *           actionId: "ViewPhoto",
+ *           actionType: "PhotoFlash::Action"
+ *         },
+ *         resource: {
+ *           entityId: "OfficePhoto94.jpg",
+ *           entityType: "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class BatchIsAuthorizedWithTokenCommand extends $Command
@@ -300,9 +446,7 @@ export class BatchIsAuthorizedWithTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -314,4 +458,16 @@ export class BatchIsAuthorizedWithTokenCommand extends $Command
   .f(BatchIsAuthorizedWithTokenInputFilterSensitiveLog, BatchIsAuthorizedWithTokenOutputFilterSensitiveLog)
   .ser(se_BatchIsAuthorizedWithTokenCommand)
   .de(de_BatchIsAuthorizedWithTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchIsAuthorizedWithTokenInput;
+      output: BatchIsAuthorizedWithTokenOutput;
+    };
+    sdk: {
+      input: BatchIsAuthorizedWithTokenCommandInput;
+      output: BatchIsAuthorizedWithTokenCommandOutput;
+    };
+  };
+}

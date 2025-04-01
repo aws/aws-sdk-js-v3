@@ -125,6 +125,7 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ListNetworkSitesCommand extends $Command
@@ -135,9 +136,7 @@ export class ListNetworkSitesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class ListNetworkSitesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworkSitesCommand)
   .de(de_ListNetworkSitesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkSitesRequest;
+      output: ListNetworkSitesResponse;
+    };
+    sdk: {
+      input: ListNetworkSitesCommandInput;
+      output: ListNetworkSitesCommandOutput;
+    };
+  };
+}

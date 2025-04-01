@@ -186,6 +186,7 @@ export interface PauseReplicationCommandOutput extends SourceServer, __MetadataB
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class PauseReplicationCommand extends $Command
@@ -196,9 +197,7 @@ export class PauseReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +209,16 @@ export class PauseReplicationCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_PauseReplicationCommand)
   .de(de_PauseReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PauseReplicationRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: PauseReplicationCommandInput;
+      output: PauseReplicationCommandOutput;
+    };
+  };
+}

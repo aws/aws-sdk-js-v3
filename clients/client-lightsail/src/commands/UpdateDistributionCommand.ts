@@ -142,6 +142,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionCommand extends $Command
@@ -152,9 +153,7 @@ export class UpdateDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +165,16 @@ export class UpdateDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDistributionCommand)
   .de(de_UpdateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionRequest;
+      output: UpdateDistributionResult;
+    };
+    sdk: {
+      input: UpdateDistributionCommandInput;
+      output: UpdateDistributionCommandOutput;
+    };
+  };
+}

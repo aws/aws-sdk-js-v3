@@ -80,6 +80,7 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListRecoveryPointsCommand extends $Command
@@ -90,9 +91,7 @@ export class ListRecoveryPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListRecoveryPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecoveryPointsCommand)
   .de(de_ListRecoveryPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecoveryPointsRequest;
+      output: ListRecoveryPointsResponse;
+    };
+    sdk: {
+      input: ListRecoveryPointsCommandInput;
+      output: ListRecoveryPointsCommandOutput;
+    };
+  };
+}

@@ -68,10 +68,10 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *                         <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p>
  *             </li>
  *          </ul>
- *          <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
- *             group, call the <a>DescribePolicies</a> API. If the group has scaling
- *             policies, you can update them by calling the <a>PutScalingPolicy</a>
- *             API.</p>
+ *          <p>To see which properties have been set, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a> API.
+ *             To view the scaling policies for an Auto Scaling
+ *             group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a> API. If the group has scaling
+ *             policies, you can update them by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,6 +166,15 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             AllowedInstanceTypes: [ // AllowedInstanceTypes
  *               "STRING_VALUE",
  *             ],
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *               Cpu: { // CpuPerformanceFactorRequest
+ *                 References: [ // PerformanceFactorReferenceSetRequest
+ *                   { // PerformanceFactorReferenceRequest
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *         },
  *       ],
@@ -204,6 +213,25 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     MinHealthyPercentage: Number("int"),
  *     MaxHealthyPercentage: Number("int"),
  *   },
+ *   AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
+ *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
+ *   },
+ *   AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
+ *     ZonalShiftEnabled: true || false,
+ *     ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
+ *   },
+ *   SkipZonalShiftValidation: true || false,
+ *   CapacityReservationSpecification: { // CapacityReservationSpecification
+ *     CapacityReservationPreference: "capacity-reservations-only" || "capacity-reservations-first" || "none" || "default",
+ *     CapacityReservationTarget: { // CapacityReservationTarget
+ *       CapacityReservationIds: [ // CapacityReservationIds
+ *         "STRING_VALUE",
+ *       ],
+ *       CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
@@ -231,25 +259,28 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To update an Auto Scaling group
  * ```javascript
  * // This example updates multiple properties at the same time.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "2"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LaunchTemplate: {
+ *     LaunchTemplateName: "my-template-for-auto-scaling",
+ *     Version: "2"
  *   },
- *   "MaxSize": 5,
- *   "MinSize": 1,
- *   "NewInstancesProtectedFromScaleIn": true
+ *   MaxSize: 5,
+ *   MinSize: 1,
+ *   NewInstancesProtectedFromScaleIn: true
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-update-auto-scaling-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAutoScalingGroupCommand extends $Command
   .classBuilder<
@@ -259,9 +290,7 @@ export class UpdateAutoScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -273,4 +302,16 @@ export class UpdateAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAutoScalingGroupCommand)
   .de(de_UpdateAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAutoScalingGroupType;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAutoScalingGroupCommandInput;
+      output: UpdateAutoScalingGroupCommandOutput;
+    };
+  };
+}

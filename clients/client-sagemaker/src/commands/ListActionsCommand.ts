@@ -80,6 +80,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListActionsCommand extends $Command
@@ -90,9 +91,7 @@ export class ListActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActionsCommand)
   .de(de_ListActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActionsRequest;
+      output: ListActionsResponse;
+    };
+    sdk: {
+      input: ListActionsCommandInput;
+      output: ListActionsCommandOutput;
+    };
+  };
+}

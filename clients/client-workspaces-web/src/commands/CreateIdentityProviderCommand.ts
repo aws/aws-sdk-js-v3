@@ -92,6 +92,7 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateIdentityProviderCommand extends $Command
@@ -102,9 +103,7 @@ export class CreateIdentityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class CreateIdentityProviderCommand extends $Command
   .f(CreateIdentityProviderRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIdentityProviderCommand)
   .de(de_CreateIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdentityProviderRequest;
+      output: CreateIdentityProviderResponse;
+    };
+    sdk: {
+      input: CreateIdentityProviderCommandInput;
+      output: CreateIdentityProviderCommandOutput;
+    };
+  };
+}

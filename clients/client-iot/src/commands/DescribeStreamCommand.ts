@@ -92,6 +92,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeStreamCommand extends $Command
@@ -102,9 +103,7 @@ export class DescribeStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class DescribeStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStreamCommand)
   .de(de_DescribeStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStreamRequest;
+      output: DescribeStreamResponse;
+    };
+    sdk: {
+      input: DescribeStreamCommandInput;
+      output: DescribeStreamCommandOutput;
+    };
+  };
+}

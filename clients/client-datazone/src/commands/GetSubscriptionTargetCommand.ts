@@ -10,7 +10,7 @@ import {
   GetSubscriptionTargetInput,
   GetSubscriptionTargetOutput,
   GetSubscriptionTargetOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetSubscriptionTargetCommand, se_GetSubscriptionTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -60,7 +60,7 @@ export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTarge
  * //   updatedBy: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"),
- * //   manageAccessRole: "STRING_VALUE", // required
+ * //   manageAccessRole: "STRING_VALUE",
  * //   applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //     "STRING_VALUE",
  * //   ],
@@ -102,6 +102,7 @@ export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTarge
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionTargetCommand extends $Command
@@ -112,9 +113,7 @@ export class GetSubscriptionTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class GetSubscriptionTargetCommand extends $Command
   .f(void 0, GetSubscriptionTargetOutputFilterSensitiveLog)
   .ser(se_GetSubscriptionTargetCommand)
   .de(de_GetSubscriptionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionTargetInput;
+      output: GetSubscriptionTargetOutput;
+    };
+    sdk: {
+      input: GetSubscriptionTargetCommandInput;
+      output: GetSubscriptionTargetCommandOutput;
+    };
+  };
+}

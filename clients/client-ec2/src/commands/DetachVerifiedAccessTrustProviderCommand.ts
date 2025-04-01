@@ -85,6 +85,15 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //       PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //     },
  * //   },
  * //   VerifiedAccessInstance: { // VerifiedAccessInstance
  * //     VerifiedAccessInstanceId: "STRING_VALUE",
@@ -107,6 +116,12 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -121,6 +136,7 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DetachVerifiedAccessTrustProviderCommand extends $Command
@@ -131,9 +147,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +159,16 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command
   .f(void 0, DetachVerifiedAccessTrustProviderResultFilterSensitiveLog)
   .ser(se_DetachVerifiedAccessTrustProviderCommand)
   .de(de_DetachVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachVerifiedAccessTrustProviderRequest;
+      output: DetachVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: DetachVerifiedAccessTrustProviderCommandInput;
+      output: DetachVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

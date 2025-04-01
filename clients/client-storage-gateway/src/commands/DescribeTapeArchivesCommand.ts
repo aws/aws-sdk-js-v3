@@ -87,44 +87,8 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
- * @example To describe virtual tapes in the VTS
- * ```javascript
- * // Returns a description of specified virtual tapes in the virtual tape shelf (VTS).
- * const input = {
- *   "Limit": 123,
- *   "Marker": "1",
- *   "TapeARNs": [
- *     "arn:aws:storagegateway:us-east-1:999999999999:tape/AM08A1AD",
- *     "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
- *   ]
- * };
- * const command = new DescribeTapeArchivesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Marker": "1",
- *   "TapeArchives": [
- *     {
- *       "CompletionTime": "2016-12-16T13:50Z",
- *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AM08A1AD",
- *       "TapeBarcode": "AM08A1AD",
- *       "TapeSizeInBytes": 107374182400,
- *       "TapeStatus": "ARCHIVED"
- *     },
- *     {
- *       "CompletionTime": "2016-12-16T13:59Z",
- *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AMZN01A2A4",
- *       "TapeBarcode": "AMZN01A2A4",
- *       "TapeSizeInBytes": 429496729600,
- *       "TapeStatus": "ARCHIVED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-virtual-tapes-in-the-vts-1471473188198
- * ```
  *
+ * @public
  */
 export class DescribeTapeArchivesCommand extends $Command
   .classBuilder<
@@ -134,9 +98,7 @@ export class DescribeTapeArchivesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +110,16 @@ export class DescribeTapeArchivesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTapeArchivesCommand)
   .de(de_DescribeTapeArchivesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTapeArchivesInput;
+      output: DescribeTapeArchivesOutput;
+    };
+    sdk: {
+      input: DescribeTapeArchivesCommandInput;
+      output: DescribeTapeArchivesCommandOutput;
+    };
+  };
+}

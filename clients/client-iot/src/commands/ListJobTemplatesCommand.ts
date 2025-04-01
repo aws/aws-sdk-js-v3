@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/models_1";
+import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/models_2";
 import { de_ListJobTemplatesCommand, se_ListJobTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -74,6 +74,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListJobTemplatesCommand extends $Command
@@ -84,9 +85,7 @@ export class ListJobTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +97,16 @@ export class ListJobTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobTemplatesCommand)
   .de(de_ListJobTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobTemplatesRequest;
+      output: ListJobTemplatesResponse;
+    };
+    sdk: {
+      input: ListJobTemplatesCommandInput;
+      output: ListJobTemplatesCommandOutput;
+    };
+  };
+}

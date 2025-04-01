@@ -28,7 +28,7 @@ export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
- * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
+ * <p>Terminates a web-based Amazon DCV session that’s used to access a virtual computer’s
  *       operating system or application. The session will close and any unsaved data will be
  *       lost.</p>
  * @example
@@ -98,6 +98,7 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class StopGUISessionCommand extends $Command
@@ -108,9 +109,7 @@ export class StopGUISessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class StopGUISessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopGUISessionCommand)
   .de(de_StopGUISessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopGUISessionRequest;
+      output: StopGUISessionResult;
+    };
+    sdk: {
+      input: StopGUISessionCommandInput;
+      output: StopGUISessionCommandOutput;
+    };
+  };
+}

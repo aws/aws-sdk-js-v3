@@ -91,6 +91,7 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBProxyEndpointsCommand extends $Command
@@ -101,9 +102,7 @@ export class DescribeDBProxyEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeDBProxyEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBProxyEndpointsCommand)
   .de(de_DescribeDBProxyEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBProxyEndpointsRequest;
+      output: DescribeDBProxyEndpointsResponse;
+    };
+    sdk: {
+      input: DescribeDBProxyEndpointsCommandInput;
+      output: DescribeDBProxyEndpointsCommandOutput;
+    };
+  };
+}

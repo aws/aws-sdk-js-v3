@@ -73,6 +73,7 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class DescribeEnvironmentManagedActionsCommand extends $Command
@@ -83,9 +84,7 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentManagedActionsCommand)
   .de(de_DescribeEnvironmentManagedActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentManagedActionsRequest;
+      output: DescribeEnvironmentManagedActionsResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentManagedActionsCommandInput;
+      output: DescribeEnvironmentManagedActionsCommandOutput;
+    };
+  };
+}

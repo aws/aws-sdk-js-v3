@@ -71,6 +71,7 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeHubCommand extends $Command
@@ -81,9 +82,7 @@ export class DescribeHubCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DescribeHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHubCommand)
   .de(de_DescribeHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHubRequest;
+      output: DescribeHubResponse;
+    };
+    sdk: {
+      input: DescribeHubCommandInput;
+      output: DescribeHubCommandOutput;
+    };
+  };
+}

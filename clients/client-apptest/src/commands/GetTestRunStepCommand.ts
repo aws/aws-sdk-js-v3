@@ -274,6 +274,7 @@ export interface GetTestRunStepCommandOutput extends GetTestRunStepResponse, __M
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class GetTestRunStepCommand extends $Command
@@ -284,9 +285,7 @@ export class GetTestRunStepCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -298,4 +297,16 @@ export class GetTestRunStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestRunStepCommand)
   .de(de_GetTestRunStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestRunStepRequest;
+      output: GetTestRunStepResponse;
+    };
+    sdk: {
+      input: GetTestRunStepCommandInput;
+      output: GetTestRunStepCommandOutput;
+    };
+  };
+}

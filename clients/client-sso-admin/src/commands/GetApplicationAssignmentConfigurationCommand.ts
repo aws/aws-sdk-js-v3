@@ -81,6 +81,7 @@ export interface GetApplicationAssignmentConfigurationCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationAssignmentConfigurationCommand extends $Command
@@ -91,9 +92,7 @@ export class GetApplicationAssignmentConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class GetApplicationAssignmentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationAssignmentConfigurationCommand)
   .de(de_GetApplicationAssignmentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationAssignmentConfigurationRequest;
+      output: GetApplicationAssignmentConfigurationResponse;
+    };
+    sdk: {
+      input: GetApplicationAssignmentConfigurationCommandInput;
+      output: GetApplicationAssignmentConfigurationCommandOutput;
+    };
+  };
+}

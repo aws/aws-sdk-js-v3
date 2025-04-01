@@ -101,6 +101,7 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class GetSigningProfileCommand extends $Command
@@ -111,9 +112,7 @@ export class GetSigningProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class GetSigningProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSigningProfileCommand)
   .de(de_GetSigningProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSigningProfileRequest;
+      output: GetSigningProfileResponse;
+    };
+    sdk: {
+      input: GetSigningProfileCommandInput;
+      output: GetSigningProfileCommandOutput;
+    };
+  };
+}

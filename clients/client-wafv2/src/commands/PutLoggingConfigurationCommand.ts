@@ -30,6 +30,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
 /**
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
  *          web ACL, according to the configuration provided. </p>
+ *          <p>If you configure data protection for the web ACL, the protection applies to the data that WAF sends to the logs. </p>
  *          <note>
  *             <p>This operation completely replaces any mutable specifications that you already have for a logging configuration with the ones that you provide to this call. </p>
  *             <p>To modify an existing logging configuration, do the following: </p>
@@ -141,6 +142,12 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *         JA3Fingerprint: { // JA3Fingerprint
  *           FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *         },
+ *         JA4Fingerprint: { // JA4Fingerprint
+ *           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *         },
+ *         UriFragment: { // UriFragment
+ *           FallbackBehavior: "MATCH" || "NO_MATCH",
+ *         },
  *       },
  *     ],
  *     ManagedByFirewallManager: true || false,
@@ -232,6 +239,12 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //         },
  * //         JA3Fingerprint: { // JA3Fingerprint
  * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //         },
+ * //         JA4Fingerprint: { // JA4Fingerprint
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //         },
+ * //         UriFragment: { // UriFragment
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH",
  * //         },
  * //       },
  * //     ],
@@ -331,6 +344,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class PutLoggingConfigurationCommand extends $Command
@@ -341,9 +355,7 @@ export class PutLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -355,4 +367,16 @@ export class PutLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLoggingConfigurationCommand)
   .de(de_PutLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLoggingConfigurationRequest;
+      output: PutLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: PutLoggingConfigurationCommandInput;
+      output: PutLoggingConfigurationCommandOutput;
+    };
+  };
+}

@@ -30,10 +30,6 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
 /**
  * <p> Deletes a decoder manifest. You can't delete a decoder manifest if it has vehicles
  *             associated with it. </p>
- *          <note>
- *             <p>If the decoder manifest is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
- *                 response with an empty body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +73,7 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteDecoderManifestCommand extends $Command
@@ -87,9 +84,7 @@ export class DeleteDecoderManifestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +96,16 @@ export class DeleteDecoderManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDecoderManifestCommand)
   .de(de_DeleteDecoderManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDecoderManifestRequest;
+      output: DeleteDecoderManifestResponse;
+    };
+    sdk: {
+      input: DeleteDecoderManifestCommandInput;
+      output: DeleteDecoderManifestCommandOutput;
+    };
+  };
+}

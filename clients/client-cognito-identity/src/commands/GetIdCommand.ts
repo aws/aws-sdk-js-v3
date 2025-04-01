@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIdInput, GetIdResponse } from "../models/models_0";
+import { GetIdInput, GetIdInputFilterSensitiveLog, GetIdResponse } from "../models/models_0";
 import { de_GetIdCommand, se_GetIdCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -28,7 +28,7 @@ export interface GetIdCommandInput extends GetIdInput {}
 export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
 
 /**
- * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
+ * <p>Generates (or retrieves) IdentityID. Supplying multiple logins will create an
  *          implicit linked account.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
  * @example
@@ -88,6 +88,7 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class GetIdCommand extends $Command
@@ -98,9 +99,7 @@ export class GetIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,7 +108,19 @@ export class GetIdCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetId", {})
   .n("CognitoIdentityClient", "GetIdCommand")
-  .f(void 0, void 0)
+  .f(GetIdInputFilterSensitiveLog, void 0)
   .ser(se_GetIdCommand)
   .de(de_GetIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdInput;
+      output: GetIdResponse;
+    };
+    sdk: {
+      input: GetIdCommandInput;
+      output: GetIdCommandOutput;
+    };
+  };
+}

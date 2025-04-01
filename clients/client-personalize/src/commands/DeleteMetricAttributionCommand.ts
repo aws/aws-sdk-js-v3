@@ -62,6 +62,7 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DeleteMetricAttributionCommand extends $Command
@@ -72,9 +73,7 @@ export class DeleteMetricAttributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +85,16 @@ export class DeleteMetricAttributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMetricAttributionCommand)
   .de(de_DeleteMetricAttributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMetricAttributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMetricAttributionCommandInput;
+      output: DeleteMetricAttributionCommandOutput;
+    };
+  };
+}

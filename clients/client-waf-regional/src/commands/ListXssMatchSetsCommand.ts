@@ -76,28 +76,28 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To list XSS match sets
  * ```javascript
  * // The following example returns an array of up to 100 XSS match sets.
  * const input = {
- *   "Limit": 100
+ *   Limit: 100
  * };
  * const command = new ListXssMatchSetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "XssMatchSets": [
+ *   XssMatchSets: [
  *     {
- *       "Name": "MySampleXssMatchSet",
- *       "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *       Name: "MySampleXssMatchSet",
+ *       XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listxssmatchsets-1474561481168
  * ```
  *
+ * @public
  */
 export class ListXssMatchSetsCommand extends $Command
   .classBuilder<
@@ -107,9 +107,7 @@ export class ListXssMatchSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +119,16 @@ export class ListXssMatchSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListXssMatchSetsCommand)
   .de(de_ListXssMatchSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListXssMatchSetsRequest;
+      output: ListXssMatchSetsResponse;
+    };
+    sdk: {
+      input: ListXssMatchSetsCommandInput;
+      output: ListXssMatchSetsCommandOutput;
+    };
+  };
+}

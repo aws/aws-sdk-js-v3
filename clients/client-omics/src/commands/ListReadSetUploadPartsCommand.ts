@@ -99,6 +99,7 @@ export interface ListReadSetUploadPartsCommandOutput extends ListReadSetUploadPa
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListReadSetUploadPartsCommand extends $Command
@@ -109,9 +110,7 @@ export class ListReadSetUploadPartsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListReadSetUploadPartsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReadSetUploadPartsCommand)
   .de(de_ListReadSetUploadPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReadSetUploadPartsRequest;
+      output: ListReadSetUploadPartsResponse;
+    };
+    sdk: {
+      input: ListReadSetUploadPartsCommandInput;
+      output: ListReadSetUploadPartsCommandOutput;
+    };
+  };
+}

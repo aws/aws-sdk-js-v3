@@ -102,6 +102,7 @@ export interface CreateAccessGrantCommandOutput extends CreateAccessGrantResult,
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessGrantCommand extends $Command
@@ -130,4 +131,16 @@ export class CreateAccessGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessGrantCommand)
   .de(de_CreateAccessGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessGrantRequest;
+      output: CreateAccessGrantResult;
+    };
+    sdk: {
+      input: CreateAccessGrantCommandInput;
+      output: CreateAccessGrantCommandOutput;
+    };
+  };
+}

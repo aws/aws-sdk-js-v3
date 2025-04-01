@@ -80,6 +80,7 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class UploadDocumentsCommand extends $Command
@@ -90,9 +91,7 @@ export class UploadDocumentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class UploadDocumentsCommand extends $Command
   .f(UploadDocumentsRequestFilterSensitiveLog, void 0)
   .ser(se_UploadDocumentsCommand)
   .de(de_UploadDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadDocumentsRequest;
+      output: UploadDocumentsResponse;
+    };
+    sdk: {
+      input: UploadDocumentsCommandInput;
+      output: UploadDocumentsCommandOutput;
+    };
+  };
+}

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
+import { de_OnlyCustomAuthCommand, se_OnlyCustomAuthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -48,6 +48,7 @@ export interface OnlyCustomAuthCommandOutput extends __MetadataBearer {}
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyCustomAuthCommand extends $Command
   .classBuilder<
@@ -58,15 +59,23 @@ export class OnlyCustomAuthCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize), getSigV4AuthPlugin(config)];
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("Weather", "OnlyCustomAuth", {})
   .n("WeatherClient", "OnlyCustomAuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_OnlyCustomAuthCommand)
+  .de(de_OnlyCustomAuthCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: OnlyCustomAuthCommandInput;
+      output: OnlyCustomAuthCommandOutput;
+    };
+  };
+}

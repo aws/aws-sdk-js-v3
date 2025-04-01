@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetLineageNodeInput, GetLineageNodeOutput, GetLineageNodeOutputFilterSensitiveLog } from "../models/models_0";
+import { GetLineageNodeInput, GetLineageNodeOutput, GetLineageNodeOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetLineageNodeCommand, se_GetLineageNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -106,6 +106,7 @@ export interface GetLineageNodeCommandOutput extends GetLineageNodeOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetLineageNodeCommand extends $Command
@@ -116,9 +117,7 @@ export class GetLineageNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class GetLineageNodeCommand extends $Command
   .f(void 0, GetLineageNodeOutputFilterSensitiveLog)
   .ser(se_GetLineageNodeCommand)
   .de(de_GetLineageNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLineageNodeInput;
+      output: GetLineageNodeOutput;
+    };
+    sdk: {
+      input: GetLineageNodeCommandInput;
+      output: GetLineageNodeCommandOutput;
+    };
+  };
+}

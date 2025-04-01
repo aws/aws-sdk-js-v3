@@ -94,35 +94,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
- * @example To describe an Amazon Rekognition Custom Labels dataset
- * ```javascript
- * // Describes an Amazon Rekognition Custom Labels dataset.
- * const input = {
- *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1690476084535"
- * };
- * const command = new DescribeDatasetCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DatasetDescription": {
- *     "CreationTimestamp": "2023-07-27T09:41:24.738000-07:00",
- *     "DatasetStats": {
- *       "ErrorEntries": 0,
- *       "LabeledEntries": 15,
- *       "TotalEntries": 15,
- *       "TotalLabels": 9
- *     },
- *     "LastUpdatedTimestamp": "2023-07-28T09:46:45.406000-07:00",
- *     "Status": "UPDATE_FAILED",
- *     "StatusMessage": "The manifest file contains images from multiple S3 buckets.",
- *     "StatusMessageCode": "CLIENT_ERROR"
- *   }
- * }
- * *\/
- * // example id: to-describe-an-amazon-rekognition-custom-labels-dataset-1690827075604
- * ```
  *
+ * @public
  */
 export class DescribeDatasetCommand extends $Command
   .classBuilder<
@@ -132,9 +105,7 @@ export class DescribeDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +117,16 @@ export class DescribeDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDatasetCommand)
   .de(de_DescribeDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDatasetRequest;
+      output: DescribeDatasetResponse;
+    };
+    sdk: {
+      input: DescribeDatasetCommandInput;
+      output: DescribeDatasetCommandOutput;
+    };
+  };
+}

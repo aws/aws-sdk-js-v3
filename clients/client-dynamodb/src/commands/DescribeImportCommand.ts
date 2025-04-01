@@ -115,6 +115,10 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * //             MaxReadRequestUnits: Number("long"),
  * //             MaxWriteRequestUnits: Number("long"),
  * //           },
+ * //           WarmThroughput: { // WarmThroughput
+ * //             ReadUnitsPerSecond: Number("long"),
+ * //             WriteUnitsPerSecond: Number("long"),
+ * //           },
  * //         },
  * //       ],
  * //     },
@@ -144,6 +148,7 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportCommand extends $Command
@@ -156,6 +161,7 @@ export class DescribeImportCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "ImportArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -168,4 +174,16 @@ export class DescribeImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImportCommand)
   .de(de_DescribeImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportInput;
+      output: DescribeImportOutput;
+    };
+    sdk: {
+      input: DescribeImportCommandInput;
+      output: DescribeImportCommandOutput;
+    };
+  };
+}

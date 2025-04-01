@@ -9,7 +9,7 @@ import {
   UpdateDataSourceRequest,
   UpdateDataSourceRequestFilterSensitiveLog,
   UpdateDataSourceResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -81,6 +81,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
+ *       UseServiceName: true || false,
  *     },
  *     PostgreSqlParameters: { // PostgreSqlParameters
  *       Host: "STRING_VALUE", // required
@@ -127,6 +128,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *       Warehouse: "STRING_VALUE", // required
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       OAuthParameters: { // OAuthParameters
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     SparkParameters: { // SparkParameters
  *       Host: "STRING_VALUE", // required
@@ -163,6 +174,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
  *       ProductType: "GALAXY" || "ENTERPRISE",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       OAuthParameters: {
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: {
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     TrinoParameters: { // TrinoParameters
  *       Host: "STRING_VALUE", // required
@@ -217,6 +238,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Database: "STRING_VALUE", // required
+ *             UseServiceName: true || false,
  *           },
  *           PostgreSqlParameters: {
  *             Host: "STRING_VALUE", // required
@@ -263,6 +285,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           SparkParameters: {
  *             Host: "STRING_VALUE", // required
@@ -299,6 +331,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           TrinoParameters: {
  *             Host: "STRING_VALUE", // required
@@ -315,9 +357,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     CopySourceArn: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
  *   },
- *   VpcConnectionProperties: { // VpcConnectionProperties
- *     VpcConnectionArn: "STRING_VALUE", // required
- *   },
+ *   VpcConnectionProperties: "<VpcConnectionProperties>",
  *   SslProperties: { // SslProperties
  *     DisableSsl: true || false,
  *   },
@@ -349,6 +389,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
+ * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
+ *  <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
@@ -364,6 +407,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSourceCommand extends $Command
@@ -374,9 +418,7 @@ export class UpdateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -388,4 +430,16 @@ export class UpdateDataSourceCommand extends $Command
   .f(UpdateDataSourceRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDataSourceCommand)
   .de(de_UpdateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSourceRequest;
+      output: UpdateDataSourceResponse;
+    };
+    sdk: {
+      input: UpdateDataSourceCommandInput;
+      output: UpdateDataSourceCommandOutput;
+    };
+  };
+}

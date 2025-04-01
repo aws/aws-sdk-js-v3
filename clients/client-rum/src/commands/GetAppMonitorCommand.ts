@@ -44,6 +44,9 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * //   AppMonitor: { // AppMonitor
  * //     Name: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
+ * //     DomainList: [ // AppMonitorDomainList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     Id: "STRING_VALUE",
  * //     Created: "STRING_VALUE",
  * //     LastModified: "STRING_VALUE",
@@ -79,6 +82,12 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * //     CustomEvents: { // CustomEvents
  * //       Status: "STRING_VALUE",
  * //     },
+ * //     DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ * //       JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ * //         Status: "STRING_VALUE", // required
+ * //         S3Uri: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -108,6 +117,7 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class GetAppMonitorCommand extends $Command
@@ -118,9 +128,7 @@ export class GetAppMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +140,16 @@ export class GetAppMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppMonitorCommand)
   .de(de_GetAppMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppMonitorRequest;
+      output: GetAppMonitorResponse;
+    };
+    sdk: {
+      input: GetAppMonitorCommandInput;
+      output: GetAppMonitorCommandOutput;
+    };
+  };
+}

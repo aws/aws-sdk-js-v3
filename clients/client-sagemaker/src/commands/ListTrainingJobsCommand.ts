@@ -68,6 +68,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *   SortBy: "Name" || "CreationTime" || "Status",
  *   SortOrder: "Ascending" || "Descending",
  *   WarmPoolStatusEquals: "Available" || "Terminated" || "Reused" || "InUse",
+ *   TrainingPlanArnEquals: "STRING_VALUE",
  * };
  * const command = new ListTrainingJobsCommand(input);
  * const response = await client.send(command);
@@ -80,11 +81,13 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * //       TrainingEndTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //       WarmPoolStatus: { // WarmPoolStatus
  * //         Status: "Available" || "Terminated" || "Reused" || "InUse", // required
  * //         ResourceRetainedBillableTimeInSeconds: Number("int"),
  * //         ReusedByJob: "STRING_VALUE",
  * //       },
+ * //       TrainingPlanArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -101,6 +104,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrainingJobsCommand extends $Command
@@ -111,9 +115,7 @@ export class ListTrainingJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +127,16 @@ export class ListTrainingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrainingJobsCommand)
   .de(de_ListTrainingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrainingJobsRequest;
+      output: ListTrainingJobsResponse;
+    };
+    sdk: {
+      input: ListTrainingJobsCommandInput;
+      output: ListTrainingJobsCommandOutput;
+    };
+  };
+}

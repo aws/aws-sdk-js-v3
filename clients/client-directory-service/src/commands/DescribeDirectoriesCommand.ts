@@ -72,7 +72,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //       DnsIpAddrs: [ // DnsIpAddrs
  * //         "STRING_VALUE",
  * //       ],
- * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
  * //       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
  * //       ShareNotes: "STRING_VALUE",
@@ -187,6 +187,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectoriesCommand extends $Command
@@ -197,9 +198,7 @@ export class DescribeDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -211,4 +210,16 @@ export class DescribeDirectoriesCommand extends $Command
   .f(void 0, DescribeDirectoriesResultFilterSensitiveLog)
   .ser(se_DescribeDirectoriesCommand)
   .de(de_DescribeDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectoriesRequest;
+      output: DescribeDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeDirectoriesCommandInput;
+      output: DescribeDirectoriesCommandOutput;
+    };
+  };
+}

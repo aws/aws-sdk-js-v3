@@ -53,6 +53,7 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  *   RedundancyPercent: Number("int"),
  *   FragmentSizeBytes: Number("int"),
  *   FragmentIntervalMS: Number("int"),
+ *   Descriptor: "STRING_VALUE",
  * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);
@@ -90,6 +91,7 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class CreateFuotaTaskCommand extends $Command
@@ -100,9 +102,7 @@ export class CreateFuotaTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class CreateFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFuotaTaskCommand)
   .de(de_CreateFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFuotaTaskRequest;
+      output: CreateFuotaTaskResponse;
+    };
+    sdk: {
+      input: CreateFuotaTaskCommandInput;
+      output: CreateFuotaTaskCommandOutput;
+    };
+  };
+}

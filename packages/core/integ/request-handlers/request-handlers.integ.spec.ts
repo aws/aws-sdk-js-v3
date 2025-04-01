@@ -6,6 +6,7 @@ import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { NodeHttp2Handler, NodeHttpHandler } from "@smithy/node-http-handler";
 import { Agent } from "https";
+import { describe, expect, test as it } from "vitest";
 
 describe("request handler initialization", () => {
   describe("http", () => {

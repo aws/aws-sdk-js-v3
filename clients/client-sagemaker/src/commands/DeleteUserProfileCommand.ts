@@ -29,7 +29,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
- *      volume, including data, notebooks, and other artifacts.</p>
+ *       volume, including data, notebooks, and other artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +61,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserProfileCommand extends $Command
@@ -71,9 +72,7 @@ export class DeleteUserProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DeleteUserProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserProfileCommand)
   .de(de_DeleteUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserProfileCommandInput;
+      output: DeleteUserProfileCommandOutput;
+    };
+  };
+}

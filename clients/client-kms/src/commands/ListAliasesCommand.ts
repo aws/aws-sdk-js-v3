@@ -130,63 +130,63 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To list aliases
  * ```javascript
  * // The following example lists aliases.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Aliases": [
+ *   Aliases: [
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/acm",
- *       "AliasName": "alias/aws/acm",
- *       "TargetKeyId": "da03f6f7-d279-427a-9cae-de48d07e5b66"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/aws/acm",
+ *       AliasName: "alias/aws/acm",
+ *       TargetKeyId: "da03f6f7-d279-427a-9cae-de48d07e5b66"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/ebs",
- *       "AliasName": "alias/aws/ebs",
- *       "TargetKeyId": "25a217e7-7170-4b8c-8bf6-045ea5f70e5b"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/aws/ebs",
+ *       AliasName: "alias/aws/ebs",
+ *       TargetKeyId: "25a217e7-7170-4b8c-8bf6-045ea5f70e5b"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/rds",
- *       "AliasName": "alias/aws/rds",
- *       "TargetKeyId": "7ec3104e-c3f2-4b5c-bf42-bfc4772c6685"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/aws/rds",
+ *       AliasName: "alias/aws/rds",
+ *       TargetKeyId: "7ec3104e-c3f2-4b5c-bf42-bfc4772c6685"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/redshift",
- *       "AliasName": "alias/aws/redshift",
- *       "TargetKeyId": "08f7a25a-69e2-4fb5-8f10-393db27326fa"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/aws/redshift",
+ *       AliasName: "alias/aws/redshift",
+ *       TargetKeyId: "08f7a25a-69e2-4fb5-8f10-393db27326fa"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/s3",
- *       "AliasName": "alias/aws/s3",
- *       "TargetKeyId": "d2b0f1a3-580d-4f79-b836-bc983be8cfa5"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/aws/s3",
+ *       AliasName: "alias/aws/s3",
+ *       TargetKeyId: "d2b0f1a3-580d-4f79-b836-bc983be8cfa5"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example1",
- *       "AliasName": "alias/example1",
- *       "TargetKeyId": "4da1e216-62d0-46c5-a7c0-5f3a3d2f8046"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/example1",
+ *       AliasName: "alias/example1",
+ *       TargetKeyId: "4da1e216-62d0-46c5-a7c0-5f3a3d2f8046"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example2",
- *       "AliasName": "alias/example2",
- *       "TargetKeyId": "f32fef59-2cc2-445b-8573-2d73328acbee"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/example2",
+ *       AliasName: "alias/example2",
+ *       TargetKeyId: "f32fef59-2cc2-445b-8573-2d73328acbee"
  *     },
  *     {
- *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example3",
- *       "AliasName": "alias/example3",
- *       "TargetKeyId": "1374ef38-d34e-4d5f-b2c9-4e0daee38855"
+ *       AliasArn: "arn:aws:kms:us-east-2:111122223333:alias/example3",
+ *       AliasName: "alias/example3",
+ *       TargetKeyId: "1374ef38-d34e-4d5f-b2c9-4e0daee38855"
  *     }
  *   ],
- *   "Truncated": false
+ *   Truncated: false
  * }
  * *\/
- * // example id: to-list-aliases-1480729693349
  * ```
  *
+ * @public
  */
 export class ListAliasesCommand extends $Command
   .classBuilder<
@@ -196,9 +196,7 @@ export class ListAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +208,16 @@ export class ListAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAliasesCommand)
   .de(de_ListAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAliasesRequest;
+      output: ListAliasesResponse;
+    };
+    sdk: {
+      input: ListAliasesCommandInput;
+      output: ListAliasesCommandOutput;
+    };
+  };
+}

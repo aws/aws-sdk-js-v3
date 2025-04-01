@@ -97,6 +97,7 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class ListAccessPointsForObjectLambdaCommand extends $Command
@@ -124,4 +125,16 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessPointsForObjectLambdaCommand)
   .de(de_ListAccessPointsForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessPointsForObjectLambdaRequest;
+      output: ListAccessPointsForObjectLambdaResult;
+    };
+    sdk: {
+      input: ListAccessPointsForObjectLambdaCommandInput;
+      output: ListAccessPointsForObjectLambdaCommandOutput;
+    };
+  };
+}

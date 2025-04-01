@@ -11,7 +11,7 @@ Amazon EC2 instances.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-license-manager-linux-subscriptions
+To install this package, simply type add or install @aws-sdk/client-license-manager-linux-subscriptions
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-license-manager-linux-subscriptions`
@@ -212,6 +212,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+DeregisterSubscriptionProvider
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/DeregisterSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/DeregisterSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/DeregisterSubscriptionProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRegisteredSubscriptionProvider
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/GetRegisteredSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetRegisteredSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetRegisteredSubscriptionProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetServiceSettings
 </summary>
 
@@ -232,6 +248,46 @@ ListLinuxSubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListLinuxSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRegisteredSubscriptionProviders
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListRegisteredSubscriptionProvidersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListRegisteredSubscriptionProvidersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListRegisteredSubscriptionProvidersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+RegisterSubscriptionProvider
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/RegisterSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/RegisterSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/RegisterSubscriptionProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>

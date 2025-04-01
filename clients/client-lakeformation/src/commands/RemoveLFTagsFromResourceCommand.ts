@@ -38,7 +38,9 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * const input = { // RemoveLFTagsFromResourceRequest
  *   CatalogId: "STRING_VALUE",
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -82,7 +84,7 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -90,6 +92,11 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   LFTags: [ // LFTagsList // required
@@ -154,6 +161,7 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class RemoveLFTagsFromResourceCommand extends $Command
@@ -164,9 +172,7 @@ export class RemoveLFTagsFromResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +184,16 @@ export class RemoveLFTagsFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveLFTagsFromResourceCommand)
   .de(de_RemoveLFTagsFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveLFTagsFromResourceRequest;
+      output: RemoveLFTagsFromResourceResponse;
+    };
+    sdk: {
+      input: RemoveLFTagsFromResourceCommandInput;
+      output: RemoveLFTagsFromResourceCommandOutput;
+    };
+  };
+}

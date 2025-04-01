@@ -30,8 +30,7 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
 /**
  * <p>Adds the specified resources to the specified group.</p>
  *          <important>
- *             <p>You can use this operation with only resource groups that are configured with the
- *                 following types:</p>
+ *             <p>You can only use this operation with the following groups:</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -43,8 +42,13 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *                      <code>AWS::EC2::CapacityReservationPool</code>
  *                   </p>
  *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>AWS::ResourceGroups::ApplicationGroup</code>
+ *                   </p>
+ *                </li>
  *             </ul>
- *             <p>Other resource group type and resource types aren't currently supported by this
+ *             <p>Other resource group types and resource types are not currently supported by this
  *                 operation.</p>
  *          </important>
  *          <p>
@@ -120,6 +124,7 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class GroupResourcesCommand extends $Command
@@ -130,9 +135,7 @@ export class GroupResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +147,16 @@ export class GroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GroupResourcesCommand)
   .de(de_GroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GroupResourcesInput;
+      output: GroupResourcesOutput;
+    };
+    sdk: {
+      input: GroupResourcesCommandInput;
+      output: GroupResourcesCommandOutput;
+    };
+  };
+}

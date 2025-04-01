@@ -92,6 +92,7 @@ export interface UpdateRepositoryLinkCommandOutput extends UpdateRepositoryLinkO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateRepositoryLinkCommand extends $Command
@@ -102,9 +103,7 @@ export class UpdateRepositoryLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class UpdateRepositoryLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRepositoryLinkCommand)
   .de(de_UpdateRepositoryLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRepositoryLinkInput;
+      output: UpdateRepositoryLinkOutput;
+    };
+    sdk: {
+      input: UpdateRepositoryLinkCommandInput;
+      output: UpdateRepositoryLinkCommandOutput;
+    };
+  };
+}

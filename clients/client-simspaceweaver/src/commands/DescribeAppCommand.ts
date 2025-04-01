@@ -88,6 +88,7 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppCommand extends $Command
@@ -98,9 +99,7 @@ export class DescribeAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppCommand)
   .de(de_DescribeAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppInput;
+      output: DescribeAppOutput;
+    };
+    sdk: {
+      input: DescribeAppCommandInput;
+      output: DescribeAppCommandOutput;
+    };
+  };
+}

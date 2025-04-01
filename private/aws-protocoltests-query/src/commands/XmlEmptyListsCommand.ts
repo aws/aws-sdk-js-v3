@@ -98,6 +98,7 @@ export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBe
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyListsCommand extends $Command
   .classBuilder<
@@ -115,4 +116,16 @@ export class XmlEmptyListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyListsCommand)
   .de(de_XmlEmptyListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlListsOutput;
+    };
+    sdk: {
+      input: XmlEmptyListsCommandInput;
+      output: XmlEmptyListsCommandOutput;
+    };
+  };
+}

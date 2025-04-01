@@ -84,6 +84,7 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationSetCommand extends $Command
@@ -94,9 +95,7 @@ export class CreateReplicationSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateReplicationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationSetCommand)
   .de(de_CreateReplicationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationSetInput;
+      output: CreateReplicationSetOutput;
+    };
+    sdk: {
+      input: CreateReplicationSetCommandInput;
+      output: CreateReplicationSetCommandOutput;
+    };
+  };
+}

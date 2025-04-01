@@ -62,6 +62,7 @@ export interface MalformedContentTypeWithPayloadCommandOutput extends __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedContentTypeWithPayloadCommand extends $Command
   .classBuilder<
@@ -79,4 +80,16 @@ export class MalformedContentTypeWithPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedContentTypeWithPayloadCommand)
   .de(de_MalformedContentTypeWithPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedContentTypeWithPayloadInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedContentTypeWithPayloadCommandInput;
+      output: MalformedContentTypeWithPayloadCommandOutput;
+    };
+  };
+}

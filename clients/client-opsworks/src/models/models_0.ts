@@ -12,14 +12,14 @@ export interface StackConfigurationManager {
    * <p>The name. This parameter must be set to <code>Chef</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks.
    *           The default value for Linux stacks is 12.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -31,13 +31,13 @@ export interface AgentVersion {
    * <p>The agent version.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The configuration manager.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 }
 
 /**
@@ -67,14 +67,14 @@ export interface Source {
    * <p>The repository type.</p>
    * @public
    */
-  Type?: SourceType;
+  Type?: SourceType | undefined;
 
   /**
    * <p>The source URL. The following is an example of an Amazon S3 source
    *           URL:  <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>This parameter depends on the repository type.</p>
@@ -90,7 +90,7 @@ export interface Source {
    *          </ul>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>When included in a request, the parameter depends on the repository type.</p>
@@ -108,14 +108,14 @@ export interface Source {
    *          <p>In responses, OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>In requests, the repository's SSH key.</p>
    *          <p>In responses, OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
    * @public
    */
-  SshKey?: string;
+  SshKey?: string | undefined;
 
   /**
    * <p>The application's version. OpsWorks Stacks enables you to easily deploy new versions of an application.
@@ -123,7 +123,7 @@ export interface Source {
    *           versions that can potentially be deployed.</p>
    * @public
    */
-  Revision?: string;
+  Revision?: string | undefined;
 }
 
 /**
@@ -152,19 +152,19 @@ export interface DataSource {
    *         <code>OpsworksMysqlInstance</code>, <code>RdsDbInstance</code>, or <code>None</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The data source's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The database name.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface EnvironmentVariable {
    *       value. The default value for <code>Secure</code> is <code>false</code>. </p>
    * @public
    */
-  Secure?: boolean;
+  Secure?: boolean | undefined;
 }
 
 /**
@@ -217,7 +217,7 @@ export interface SslConfiguration {
    * <p>Optional. Can be used to specify an intermediate certificate authority key or client authentication.</p>
    * @public
    */
-  Chain?: string;
+  Chain?: string | undefined;
 }
 
 /**
@@ -248,49 +248,49 @@ export interface App {
    * <p>The app ID.</p>
    * @public
    */
-  AppId?: string;
+  AppId?: string | undefined;
 
   /**
    * <p>The app stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The app's short name.</p>
    * @public
    */
-  Shortname?: string;
+  Shortname?: string | undefined;
 
   /**
    * <p>The app name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the app.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The app's data sources.</p>
    * @public
    */
-  DataSources?: DataSource[];
+  DataSources?: DataSource[] | undefined;
 
   /**
    * <p>The app type.</p>
    * @public
    */
-  Type?: AppType;
+  Type?: AppType | undefined;
 
   /**
    * <p>A <code>Source</code> object that describes the app repository.</p>
    * @public
    */
-  AppSource?: Source;
+  AppSource?: Source | undefined;
 
   /**
    * <p>The app vhost settings with multiple domains separated by commas. For example:
@@ -298,31 +298,31 @@ export interface App {
    *          </p>
    * @public
    */
-  Domains?: string[];
+  Domains?: string[] | undefined;
 
   /**
    * <p>Whether to enable SSL for the app.</p>
    * @public
    */
-  EnableSsl?: boolean;
+  EnableSsl?: boolean | undefined;
 
   /**
    * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
    * @public
    */
-  SslConfiguration?: SslConfiguration;
+  SslConfiguration?: SslConfiguration | undefined;
 
   /**
    * <p>The stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<AppAttributesKeys, string>>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>> | undefined;
 
   /**
    * <p>When the app was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be
@@ -336,7 +336,7 @@ export interface App {
    *          </note>
    * @public
    */
-  Environment?: EnvironmentVariable[];
+  Environment?: EnvironmentVariable[] | undefined;
 }
 
 /**
@@ -424,7 +424,7 @@ export interface AssignVolumeRequest {
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -441,7 +441,7 @@ export interface AssociateElasticIpRequest {
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -471,13 +471,13 @@ export interface AutoScalingThresholds {
    * <p>The number of instances to add or remove when the load exceeds a threshold.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.</p>
    * @public
    */
-  ThresholdsWaitTime?: number;
+  ThresholdsWaitTime?: number | undefined;
 
   /**
    * <p>The amount of time (in minutes) after a scaling event occurs that OpsWorks Stacks should ignore metrics
@@ -488,26 +488,26 @@ export interface AutoScalingThresholds {
    *           OpsWorks Stacks to suppress scaling events long enough to get the new instances online.</p>
    * @public
    */
-  IgnoreMetricsTime?: number;
+  IgnoreMetricsTime?: number | undefined;
 
   /**
    * <p>The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.</p>
    * @public
    */
-  CpuThreshold?: number;
+  CpuThreshold?: number | undefined;
 
   /**
    * <p>The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.</p>
    * @public
    */
-  MemoryThreshold?: number;
+  MemoryThreshold?: number | undefined;
 
   /**
    * <p>The load threshold. A value of -1 disables the threshold. For more information about how load is computed,
    *           see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load (computing)</a>.</p>
    * @public
    */
-  LoadThreshold?: number;
+  LoadThreshold?: number | undefined;
 
   /**
    * <p>Custom CloudWatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names,
@@ -520,7 +520,7 @@ export interface AutoScalingThresholds {
    *          </note>
    * @public
    */
-  Alarms?: string[];
+  Alarms?: string[] | undefined;
 }
 
 /**
@@ -562,20 +562,20 @@ export interface EbsBlockDevice {
    * <p>The snapshot ID.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>The number of I/O operations per second (IOPS) that the volume supports. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>The volume size, in GiB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>The volume type. <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code> for
@@ -585,13 +585,13 @@ export interface EbsBlockDevice {
    *           specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
    * @public
    */
-  VolumeType?: VolumeType;
+  VolumeType?: VolumeType | undefined;
 
   /**
    * <p>Whether the volume is deleted on instance termination.</p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 }
 
 /**
@@ -605,26 +605,26 @@ export interface BlockDeviceMapping {
    *           <code>ROOT_DEVICE</code> and OpsWorks Stacks will provide the correct device name.</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>Suppresses the specified device included in the AMI's block device mapping.</p>
    * @public
    */
-  NoDevice?: string;
+  NoDevice?: string | undefined;
 
   /**
    * <p>The virtual device name. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a>.</p>
    * @public
    */
-  VirtualName?: string;
+  VirtualName?: string | undefined;
 
   /**
    * <p>An <code>EBSBlockDevice</code> that defines how to configure an Amazon EBS volume when the
    *       instance is launched.</p>
    * @public
    */
-  Ebs?: EbsBlockDevice;
+  Ebs?: EbsBlockDevice | undefined;
 }
 
 /**
@@ -636,13 +636,13 @@ export interface ChefConfiguration {
    * <p>Whether to enable Berkshelf.</p>
    * @public
    */
-  ManageBerkshelf?: boolean;
+  ManageBerkshelf?: boolean | undefined;
 
   /**
    * <p>The Berkshelf version.</p>
    * @public
    */
-  BerkshelfVersion?: string;
+  BerkshelfVersion?: string | undefined;
 }
 
 /**
@@ -686,7 +686,7 @@ export interface CloneStackRequest {
    * <p>The cloned stack name. Stack names can be a maximum of 64 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The cloned stack Amazon Web Services Region, such as <code>ap-northeast-2</code>. For more information
@@ -694,7 +694,7 @@ export interface CloneStackRequest {
    *         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The ID of the VPC that the cloned stack is to be launched into. It must be in the specified region. All
@@ -726,13 +726,13 @@ export interface CloneStackRequest {
    *         Platforms</a>. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
    * @public
    */
-  Attributes?: Partial<Record<StackAttributesKeys, string>>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>> | undefined;
 
   /**
    * <p>The stack Identity and Access Management (IAM) role, which allows OpsWorks Stacks to work with Amazon Web Services
@@ -757,7 +757,7 @@ export interface CloneStackRequest {
    *       Identifiers</a>.</p>
    * @public
    */
-  DefaultInstanceProfileArn?: string;
+  DefaultInstanceProfileArn?: string | undefined;
 
   /**
    * <p>The stack's operating system, which must be set to one of the following.</p>
@@ -799,7 +799,7 @@ export interface CloneStackRequest {
    *          </note>
    * @public
    */
-  DefaultOs?: string;
+  DefaultOs?: string | undefined;
 
   /**
    * <p>The stack's host name theme, with spaces are replaced by underscores. The theme is used to
@@ -867,7 +867,7 @@ export interface CloneStackRequest {
    *       host name based on the current theme.</p>
    * @public
    */
-  HostnameTheme?: string;
+  HostnameTheme?: string | undefined;
 
   /**
    * <p>The cloned stack's default Availability Zone, which must be in the specified region. For more
@@ -877,7 +877,7 @@ export interface CloneStackRequest {
    *     </p>
    * @public
    */
-  DefaultAvailabilityZone?: string;
+  DefaultAvailabilityZone?: string | undefined;
 
   /**
    * <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the
@@ -888,7 +888,7 @@ export interface CloneStackRequest {
    *       description. </p>
    * @public
    */
-  DefaultSubnetId?: string;
+  DefaultSubnetId?: string | undefined;
 
   /**
    * <p>A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration
@@ -901,27 +901,27 @@ export interface CloneStackRequest {
    *          </p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>The configuration manager. When you clone a stack we recommend that you use the configuration manager to specify the
    *           Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 
   /**
    * <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the
    *       Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
    * @public
    */
-  ChefConfiguration?: ChefConfiguration;
+  ChefConfiguration?: ChefConfiguration | undefined;
 
   /**
    * <p>Whether to use custom cookbooks.</p>
    * @public
    */
-  UseCustomCookbooks?: boolean;
+  UseCustomCookbooks?: boolean | undefined;
 
   /**
    * <p>Whether to associate the OpsWorks Stacks built-in security groups with the stack's layers.</p>
@@ -946,7 +946,7 @@ export interface CloneStackRequest {
    *         Stack</a>.</p>
    * @public
    */
-  UseOpsworksSecurityGroups?: boolean;
+  UseOpsworksSecurityGroups?: boolean | undefined;
 
   /**
    * <p>Contains the information required to retrieve an app or cookbook from a repository. For more information,
@@ -954,7 +954,7 @@ export interface CloneStackRequest {
    *             <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
    * @public
    */
-  CustomCookbooksSource?: Source;
+  CustomCookbooksSource?: Source | undefined;
 
   /**
    * <p>A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name,
@@ -966,26 +966,26 @@ export interface CloneStackRequest {
    *         create an instance</a>. </p>
    * @public
    */
-  DefaultSshKeyName?: string;
+  DefaultSshKeyName?: string | undefined;
 
   /**
    * <p>Whether to clone the source stack's permissions.</p>
    * @public
    */
-  ClonePermissions?: boolean;
+  ClonePermissions?: boolean | undefined;
 
   /**
    * <p>A list of source stack app IDs to be included in the cloned stack.</p>
    * @public
    */
-  CloneAppIds?: string[];
+  CloneAppIds?: string[] | undefined;
 
   /**
    * <p>The default root device type. This value is used by default for all instances in the cloned
    *       stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    * @public
    */
-  DefaultRootDeviceType?: RootDeviceType;
+  DefaultRootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>The default OpsWorks Stacks agent version. You have the following options:</p>
@@ -1010,7 +1010,7 @@ export interface CloneStackRequest {
    *          </note>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 }
 
 /**
@@ -1022,7 +1022,7 @@ export interface CloneStackResult {
    * <p>The cloned stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -1170,20 +1170,20 @@ export interface CloudWatchLogsLogStream {
    *             '-' (hyphen), '/' (forward slash), and '.' (period).</p>
    * @public
    */
-  LogGroupName?: string;
+  LogGroupName?: string | undefined;
 
   /**
    * <p>Specifies how the time stamp is extracted from logs. For more information, see the
    *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html">CloudWatch Logs Agent Reference</a>.</p>
    * @public
    */
-  DatetimeFormat?: string;
+  DatetimeFormat?: string | undefined;
 
   /**
    * <p>Specifies the time zone of log event time stamps.</p>
    * @public
    */
-  TimeZone?: CloudWatchLogsTimeZone;
+  TimeZone?: CloudWatchLogsTimeZone | undefined;
 
   /**
    * <p>Specifies log files that you want to push to CloudWatch Logs.</p>
@@ -1199,7 +1199,7 @@ export interface CloudWatchLogsLogStream {
    *          <p>Zipped files are not supported.</p>
    * @public
    */
-  File?: string;
+  File?: string | undefined;
 
   /**
    * <p>Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers,
@@ -1208,39 +1208,39 @@ export interface CloudWatchLogsLogStream {
    *             not sent to CloudWatch Logs unless all specified lines are available.</p>
    * @public
    */
-  FileFingerprintLines?: string;
+  FileFingerprintLines?: string | undefined;
 
   /**
    * <p>Specifies the pattern for identifying the start of a log message.</p>
    * @public
    */
-  MultiLineStartPattern?: string;
+  MultiLineStartPattern?: string | undefined;
 
   /**
    * <p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file.
    *             This setting is only used if there is no state persisted for that log stream.</p>
    * @public
    */
-  InitialPosition?: CloudWatchLogsInitialPosition;
+  InitialPosition?: CloudWatchLogsInitialPosition | undefined;
 
   /**
    * <p>Specifies the encoding of the log file so that the file can be read correctly.
    *             The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>
    * @public
    */
-  Encoding?: CloudWatchLogsEncoding;
+  Encoding?: CloudWatchLogsEncoding | undefined;
 
   /**
    * <p>Specifies the time duration for the batching of log events. The minimum value is 5000ms and default value is 5000ms.</p>
    * @public
    */
-  BufferDuration?: number;
+  BufferDuration?: number | undefined;
 
   /**
    * <p>Specifies the max number of log events in a batch, up to 10000. The default value is 1000.</p>
    * @public
    */
-  BatchCount?: number;
+  BatchCount?: number | undefined;
 
   /**
    * <p>Specifies the maximum size of log events in a batch, in bytes, up to 1048576 bytes.
@@ -1248,7 +1248,7 @@ export interface CloudWatchLogsLogStream {
    *             in UTF-8, plus 26 bytes for each log event.</p>
    * @public
    */
-  BatchSize?: number;
+  BatchSize?: number | undefined;
 }
 
 /**
@@ -1260,13 +1260,13 @@ export interface CloudWatchLogsConfiguration {
    * <p>Whether CloudWatch Logs is enabled for a layer.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>A list of configuration options for CloudWatch Logs.</p>
    * @public
    */
-  LogStreams?: CloudWatchLogsLogStream[];
+  LogStreams?: CloudWatchLogsLogStream[] | undefined;
 }
 
 /**
@@ -1278,37 +1278,37 @@ export interface Command {
    * <p>The command ID.</p>
    * @public
    */
-  CommandId?: string;
+  CommandId?: string | undefined;
 
   /**
    * <p>The ID of the instance where the command was executed.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The command deployment ID.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>Date and time when the command was run.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>Date and time when the command was acknowledged.</p>
    * @public
    */
-  AcknowledgedAt?: string;
+  AcknowledgedAt?: string | undefined;
 
   /**
    * <p>Date when the command completed.</p>
    * @public
    */
-  CompletedAt?: string;
+  CompletedAt?: string | undefined;
 
   /**
    * <p>The command status:</p>
@@ -1328,19 +1328,19 @@ export interface Command {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The command exit code.</p>
    * @public
    */
-  ExitCode?: number;
+  ExitCode?: number | undefined;
 
   /**
    * <p>The URL of the command log.</p>
    * @public
    */
-  LogUrl?: string;
+  LogUrl?: string | undefined;
 
   /**
    * <p>The command type:</p>
@@ -1408,7 +1408,7 @@ export interface Command {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -1425,7 +1425,7 @@ export interface CreateAppRequest {
    * <p>The app's short name.</p>
    * @public
    */
-  Shortname?: string;
+  Shortname?: string | undefined;
 
   /**
    * <p>The app name.</p>
@@ -1437,13 +1437,13 @@ export interface CreateAppRequest {
    * <p>A description of the app.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The app's data source.</p>
    * @public
    */
-  DataSources?: DataSource[];
+  DataSources?: DataSource[] | undefined;
 
   /**
    * <p>The app type. Each supported type is associated with a particular layer. For example, PHP
@@ -1458,7 +1458,7 @@ export interface CreateAppRequest {
    * <p>A <code>Source</code> object that specifies the app repository.</p>
    * @public
    */
-  AppSource?: Source;
+  AppSource?: Source | undefined;
 
   /**
    * <p>The app virtual host settings, with multiple domains separated by commas. For example:
@@ -1466,25 +1466,25 @@ export interface CreateAppRequest {
    *          </p>
    * @public
    */
-  Domains?: string[];
+  Domains?: string[] | undefined;
 
   /**
    * <p>Whether to enable SSL for the app.</p>
    * @public
    */
-  EnableSsl?: boolean;
+  EnableSsl?: boolean | undefined;
 
   /**
    * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
    * @public
    */
-  SslConfiguration?: SslConfiguration;
+  SslConfiguration?: SslConfiguration | undefined;
 
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<AppAttributesKeys, string>>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>> | undefined;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be
@@ -1496,7 +1496,7 @@ export interface CreateAppRequest {
    *          </note>
    * @public
    */
-  Environment?: EnvironmentVariable[];
+  Environment?: EnvironmentVariable[] | undefined;
 }
 
 /**
@@ -1508,7 +1508,7 @@ export interface CreateAppResult {
    * <p>The app ID.</p>
    * @public
    */
-  AppId?: string;
+  AppId?: string | undefined;
 }
 
 /**
@@ -1630,7 +1630,7 @@ export interface DeploymentCommand {
    *          </p>
    * @public
    */
-  Args?: Record<string, string[]>;
+  Args?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1647,19 +1647,19 @@ export interface CreateDeploymentRequest {
    * <p>The app ID. This parameter is required for app deployments, but not for other deployment commands.</p>
    * @public
    */
-  AppId?: string;
+  AppId?: string | undefined;
 
   /**
    * <p>The instance IDs for the deployment targets.</p>
    * @public
    */
-  InstanceIds?: string[];
+  InstanceIds?: string[] | undefined;
 
   /**
    * <p>The layer IDs for the deployment targets.</p>
    * @public
    */
-  LayerIds?: string[];
+  LayerIds?: string[] | undefined;
 
   /**
    * <p>A <code>DeploymentCommand</code> object that specifies the deployment command and any
@@ -1672,7 +1672,7 @@ export interface CreateDeploymentRequest {
    * <p>A user-defined comment.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default
@@ -1686,7 +1686,7 @@ export interface CreateDeploymentRequest {
    *               JSON</a>.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 }
 
 /**
@@ -1698,7 +1698,7 @@ export interface CreateDeploymentResult {
    * <p>The deployment ID, which can be used with other requests to identify the deployment.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 }
 
 /**
@@ -1732,7 +1732,7 @@ export interface CreateInstanceRequest {
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    * @public
    */
-  AutoScalingType?: AutoScalingType;
+  AutoScalingType?: AutoScalingType | undefined;
 
   /**
    * <p>The instance host name. The following are character limits for instance host names.</p>
@@ -1746,7 +1746,7 @@ export interface CreateInstanceRequest {
    *          </ul>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The instance's operating system, which must be set to one of the following.</p>
@@ -1785,7 +1785,7 @@ export interface CreateInstanceRequest {
    *         Custom AMIs</a>.</p>
    * @public
    */
-  Os?: string;
+  Os?: string | undefined;
 
   /**
    * <p>A custom AMI ID to be used to create the instance. The AMI should be based on one of the
@@ -1797,32 +1797,32 @@ export interface CreateInstanceRequest {
    *          </note>
    * @public
    */
-  AmiId?: string;
+  AmiId?: string | undefined;
 
   /**
    * <p>The instance's Amazon EC2 key-pair name.</p>
    * @public
    */
-  SshKeyName?: string;
+  SshKeyName?: string | undefined;
 
   /**
    * <p>The instance Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The instance's virtualization type, <code>paravirtual</code> or <code>hvm</code>.</p>
    * @public
    */
-  VirtualizationType?: string;
+  VirtualizationType?: string | undefined;
 
   /**
    * <p>The ID of the instance's subnet. If the stack is running in a VPC, you can use this parameter to override the stack's
    *           default subnet ID value and direct OpsWorks Stacks to launch the instance in a different subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The instance architecture. The default option is <code>x86_64</code>. Instance types do not
@@ -1831,13 +1831,13 @@ export interface CreateInstanceRequest {
    *         Types</a>.</p>
    * @public
    */
-  Architecture?: Architecture;
+  Architecture?: Architecture | undefined;
 
   /**
    * <p>The instance root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    * @public
    */
-  RootDeviceType?: RootDeviceType;
+  RootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
@@ -1845,7 +1845,7 @@ export interface CreateInstanceRequest {
    *         Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</p>
    * @public
    */
-  BlockDeviceMappings?: BlockDeviceMapping[];
+  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -1860,13 +1860,13 @@ export interface CreateInstanceRequest {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>Whether to create an Amazon EBS-optimized instance.</p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>The default OpsWorks Stacks agent version. You have the following options:</p>
@@ -1890,7 +1890,7 @@ export interface CreateInstanceRequest {
    *           AgentVersion cannot be set to Chef 12.2.</p>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 
   /**
    * <p>The instance's tenancy option. The default option is no tenancy, or if the instance is running in a VPC,
@@ -1905,7 +1905,7 @@ export interface CreateInstanceRequest {
    *           <a href="http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/">Amazon EC2 Dedicated Instances</a>.</p>
    * @public
    */
-  Tenancy?: string;
+  Tenancy?: string | undefined;
 }
 
 /**
@@ -1917,7 +1917,7 @@ export interface CreateInstanceResult {
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -1975,31 +1975,31 @@ export interface Recipes {
    * <p>An array of custom recipe names to be run following a <code>setup</code> event.</p>
    * @public
    */
-  Setup?: string[];
+  Setup?: string[] | undefined;
 
   /**
    * <p>An array of custom recipe names to be run following a <code>configure</code> event.</p>
    * @public
    */
-  Configure?: string[];
+  Configure?: string[] | undefined;
 
   /**
    * <p>An array of custom recipe names to be run following a <code>deploy</code> event.</p>
    * @public
    */
-  Deploy?: string[];
+  Deploy?: string[] | undefined;
 
   /**
    * <p>An array of custom recipe names to be run following a <code>undeploy</code> event.</p>
    * @public
    */
-  Undeploy?: string[];
+  Undeploy?: string[] | undefined;
 
   /**
    * <p>An array of custom recipe names to be run following a <code>shutdown</code> event.</p>
    * @public
    */
-  Shutdown?: string[];
+  Shutdown?: string[] | undefined;
 }
 
 /**
@@ -2012,14 +2012,14 @@ export interface ShutdownEventConfiguration {
    *           shutting down an instance.</p>
    * @public
    */
-  ExecutionTimeout?: number;
+  ExecutionTimeout?: number | undefined;
 
   /**
    * <p>Whether to enable Elastic Load Balancing connection draining. For more information, see <a href="https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain">Connection Draining</a>
    *          </p>
    * @public
    */
-  DelayUntilElbConnectionsDrained?: boolean;
+  DelayUntilElbConnectionsDrained?: boolean | undefined;
 }
 
 /**
@@ -2032,7 +2032,7 @@ export interface LifecycleEventConfiguration {
    *       configuration.</p>
    * @public
    */
-  Shutdown?: ShutdownEventConfiguration;
+  Shutdown?: ShutdownEventConfiguration | undefined;
 }
 
 /**
@@ -2074,7 +2074,7 @@ export interface VolumeConfiguration {
    * <p>The volume <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels">RAID level</a>.</p>
    * @public
    */
-  RaidLevel?: number;
+  RaidLevel?: number | undefined;
 
   /**
    * <p>The number of disks in the volume.</p>
@@ -2117,20 +2117,20 @@ export interface VolumeConfiguration {
    *          </ul>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 
   /**
    * <p>For PIOPS volumes, the IOPS per disk.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>Specifies whether an Amazon EBS volume is encrypted. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 }
 
 /**
@@ -2172,21 +2172,21 @@ export interface CreateLayerRequest {
    *          <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
    * @public
    */
-  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>> | undefined;
 
   /**
    * <p>Specifies CloudWatch Logs configuration options for the layer. For more information,
    *             see <a>CloudWatchLogsLogStream</a>.</p>
    * @public
    */
-  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
+  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration | undefined;
 
   /**
    * <p>The ARN of an IAM profile to be used for the layer's EC2 instances. For more information
    *           about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
    * @public
    */
-  CustomInstanceProfileArn?: string;
+  CustomInstanceProfileArn?: string | undefined;
 
   /**
    * <p>A JSON-formatted string containing custom stack configuration and deployment attributes
@@ -2196,31 +2196,31 @@ export interface CreateLayerRequest {
    *     </p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>An array containing the layer custom security group IDs.</p>
    * @public
    */
-  CustomSecurityGroupIds?: string[];
+  CustomSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>An array of <code>Package</code> objects that describes the layer packages.</p>
    * @public
    */
-  Packages?: string[];
+  Packages?: string[] | undefined;
 
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    * @public
    */
-  VolumeConfigurations?: VolumeConfiguration[];
+  VolumeConfigurations?: VolumeConfiguration[] | undefined;
 
   /**
    * <p>Whether to disable auto healing for the layer.</p>
    * @public
    */
-  EnableAutoHealing?: boolean;
+  EnableAutoHealing?: boolean | undefined;
 
   /**
    * <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -2228,7 +2228,7 @@ export interface CreateLayerRequest {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignElasticIps?: boolean;
+  AutoAssignElasticIps?: boolean | undefined;
 
   /**
    * <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to
@@ -2236,13 +2236,13 @@ export interface CreateLayerRequest {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignPublicIps?: boolean;
+  AutoAssignPublicIps?: boolean | undefined;
 
   /**
    * <p>A <code>LayerCustomRecipes</code> object that specifies the layer custom recipes.</p>
    * @public
    */
-  CustomRecipes?: Recipes;
+  CustomRecipes?: Recipes | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -2257,13 +2257,13 @@ export interface CreateLayerRequest {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>Whether to use Amazon EBS-optimized instances.</p>
    * @public
    */
-  UseEbsOptimizedInstances?: boolean;
+  UseEbsOptimizedInstances?: boolean | undefined;
 
   /**
    * <p>A <code>LifeCycleEventConfiguration</code> object that you can use to configure the Shutdown event to
@@ -2271,7 +2271,7 @@ export interface CreateLayerRequest {
    *       draining.</p>
    * @public
    */
-  LifecycleEventConfiguration?: LifecycleEventConfiguration;
+  LifecycleEventConfiguration?: LifecycleEventConfiguration | undefined;
 }
 
 /**
@@ -2283,7 +2283,7 @@ export interface CreateLayerResult {
    * <p>The layer ID.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 }
 
 /**
@@ -2353,13 +2353,13 @@ export interface CreateStackRequest {
    *         Platforms</a>. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<StackAttributesKeys, string>>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>> | undefined;
 
   /**
    * <p>The stack's IAM role, which allows OpsWorks Stacks to work with Amazon Web Services
@@ -2418,7 +2418,7 @@ export interface CreateStackRequest {
    *           see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">OpsWorks Stacks Operating Systems</a>.</p>
    * @public
    */
-  DefaultOs?: string;
+  DefaultOs?: string | undefined;
 
   /**
    * <p>The stack's host name theme, with spaces replaced by underscores. The theme is used to
@@ -2486,7 +2486,7 @@ export interface CreateStackRequest {
    *       host name based on the current theme.</p>
    * @public
    */
-  HostnameTheme?: string;
+  HostnameTheme?: string | undefined;
 
   /**
    * <p>The stack's default Availability Zone, which must be in the specified region. For more
@@ -2496,7 +2496,7 @@ export interface CreateStackRequest {
    *     </p>
    * @public
    */
-  DefaultAvailabilityZone?: string;
+  DefaultAvailabilityZone?: string | undefined;
 
   /**
    * <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the
@@ -2507,7 +2507,7 @@ export interface CreateStackRequest {
    *       description. </p>
    * @public
    */
-  DefaultSubnetId?: string;
+  DefaultSubnetId?: string | undefined;
 
   /**
    * <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration
@@ -2519,7 +2519,7 @@ export interface CreateStackRequest {
    *         Modify the Stack Configuration Attributes</a>.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the
@@ -2527,20 +2527,20 @@ export interface CreateStackRequest {
    *           currently 12.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 
   /**
    * <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the
    *       Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
    * @public
    */
-  ChefConfiguration?: ChefConfiguration;
+  ChefConfiguration?: ChefConfiguration | undefined;
 
   /**
    * <p>Whether the stack uses custom cookbooks.</p>
    * @public
    */
-  UseCustomCookbooks?: boolean;
+  UseCustomCookbooks?: boolean | undefined;
 
   /**
    * <p>Whether to associate the OpsWorks Stacks built-in security groups with the stack's layers.</p>
@@ -2565,7 +2565,7 @@ export interface CreateStackRequest {
    *         Stack</a>.</p>
    * @public
    */
-  UseOpsworksSecurityGroups?: boolean;
+  UseOpsworksSecurityGroups?: boolean | undefined;
 
   /**
    * <p>Contains the information required to retrieve an app or cookbook from a repository. For more information,
@@ -2573,7 +2573,7 @@ export interface CreateStackRequest {
    *             <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
    * @public
    */
-  CustomCookbooksSource?: Source;
+  CustomCookbooksSource?: Source | undefined;
 
   /**
    * <p>A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name,
@@ -2585,7 +2585,7 @@ export interface CreateStackRequest {
    *         create an instance</a>. </p>
    * @public
    */
-  DefaultSshKeyName?: string;
+  DefaultSshKeyName?: string | undefined;
 
   /**
    * <p>The default root device type. This value is the default for all instances in the stack,
@@ -2593,7 +2593,7 @@ export interface CreateStackRequest {
    *         <code>instance-store</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    * @public
    */
-  DefaultRootDeviceType?: RootDeviceType;
+  DefaultRootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>The default OpsWorks Stacks agent version. You have the following options:</p>
@@ -2618,7 +2618,7 @@ export interface CreateStackRequest {
    *          </note>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 }
 
 /**
@@ -2631,7 +2631,7 @@ export interface CreateStackResult {
    *       actions such as <code>DescribeStacks</code>.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -2651,13 +2651,13 @@ export interface CreateUserProfileRequest {
    *           user name, OpsWorks Stacks generates one from the IAM user name. </p>
    * @public
    */
-  SshUsername?: string;
+  SshUsername?: string | undefined;
 
   /**
    * <p>The user's public SSH key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 
   /**
    * <p>Whether users can specify their own SSH public key through the My Settings page. For more
@@ -2665,7 +2665,7 @@ export interface CreateUserProfileRequest {
    *         User's Public SSH Key</a>.</p>
    * @public
    */
-  AllowSelfManagement?: boolean;
+  AllowSelfManagement?: boolean | undefined;
 }
 
 /**
@@ -2677,7 +2677,7 @@ export interface CreateUserProfileResult {
    * <p>The user's IAM ARN.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 }
 
 /**
@@ -2705,13 +2705,13 @@ export interface DeleteInstanceRequest {
    * <p>Whether to delete the instance Elastic IP address.</p>
    * @public
    */
-  DeleteElasticIp?: boolean;
+  DeleteElasticIp?: boolean | undefined;
 
   /**
    * <p>Whether to delete the instance's Amazon EBS volumes.</p>
    * @public
    */
-  DeleteVolumes?: boolean;
+  DeleteVolumes?: boolean | undefined;
 }
 
 /**
@@ -2756,55 +2756,55 @@ export interface Deployment {
    * <p>The deployment ID.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The app ID.</p>
    * @public
    */
-  AppId?: string;
+  AppId?: string | undefined;
 
   /**
    * <p>Date when the deployment was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>Date when the deployment completed.</p>
    * @public
    */
-  CompletedAt?: string;
+  CompletedAt?: string | undefined;
 
   /**
    * <p>The deployment duration.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The user's IAM ARN.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 
   /**
    * <p>A user-defined comment.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>Used to specify a stack or deployment command.</p>
    * @public
    */
-  Command?: DeploymentCommand;
+  Command?: DeploymentCommand | undefined;
 
   /**
    * <p>The deployment status:</p>
@@ -2821,7 +2821,7 @@ export interface Deployment {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration
@@ -2833,13 +2833,13 @@ export interface Deployment {
    *         Modify the Stack Configuration Attributes</a>.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>The IDs of the target instances.</p>
    * @public
    */
-  InstanceIds?: string[];
+  InstanceIds?: string[] | undefined;
 }
 
 /**
@@ -2906,13 +2906,13 @@ export interface DescribeAgentVersionsRequest {
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The configuration manager.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 }
 
 /**
@@ -2925,7 +2925,7 @@ export interface DescribeAgentVersionsResult {
    *           not the abbreviated number used by the console.</p>
    * @public
    */
-  AgentVersions?: AgentVersion[];
+  AgentVersions?: AgentVersion[] | undefined;
 }
 
 /**
@@ -2937,7 +2937,7 @@ export interface DescribeAppsRequest {
    *       of the apps in the specified stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>An array of app IDs for the apps to be described. If you use this parameter,
@@ -2945,7 +2945,7 @@ export interface DescribeAppsRequest {
    *       a description of every app.</p>
    * @public
    */
-  AppIds?: string[];
+  AppIds?: string[] | undefined;
 }
 
 /**
@@ -2957,7 +2957,7 @@ export interface DescribeAppsResult {
    * <p>An array of <code>App</code> objects that describe the specified apps. </p>
    * @public
    */
-  Apps?: App[];
+  Apps?: App[] | undefined;
 }
 
 /**
@@ -2969,14 +2969,14 @@ export interface DescribeCommandsRequest {
    *       description of the commands associated with the specified deployment.</p>
    * @public
    */
-  DeploymentId?: string;
+  DeploymentId?: string | undefined;
 
   /**
    * <p>The instance ID. If you include this parameter, <code>DescribeCommands</code> returns a
    *       description of the commands associated with the specified instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>An array of command IDs. If you include this parameter, <code>DescribeCommands</code> returns
@@ -2984,7 +2984,7 @@ export interface DescribeCommandsRequest {
    *       command.</p>
    * @public
    */
-  CommandIds?: string[];
+  CommandIds?: string[] | undefined;
 }
 
 /**
@@ -2996,7 +2996,7 @@ export interface DescribeCommandsResult {
    * <p>An array of <code>Command</code> objects that describe each of the specified commands.</p>
    * @public
    */
-  Commands?: Command[];
+  Commands?: Command[] | undefined;
 }
 
 /**
@@ -3008,14 +3008,14 @@ export interface DescribeDeploymentsRequest {
    *       description of the commands associated with the specified stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The app ID. If you include this parameter, the command returns a
    *       description of the commands associated with the specified app.</p>
    * @public
    */
-  AppId?: string;
+  AppId?: string | undefined;
 
   /**
    * <p>An array of deployment IDs to be described. If you include this parameter,
@@ -3023,7 +3023,7 @@ export interface DescribeDeploymentsRequest {
    *       Otherwise, it returns a description of every deployment.</p>
    * @public
    */
-  DeploymentIds?: string[];
+  DeploymentIds?: string[] | undefined;
 }
 
 /**
@@ -3035,7 +3035,7 @@ export interface DescribeDeploymentsResult {
    * <p>An array of <code>Deployment</code> objects that describe the deployments.</p>
    * @public
    */
-  Deployments?: Deployment[];
+  Deployments?: Deployment[] | undefined;
 }
 
 /**
@@ -3046,14 +3046,14 @@ export interface DescribeEcsClustersRequest {
    * <p>A list of ARNs, one for each cluster to be described.</p>
    * @public
    */
-  EcsClusterArns?: string[];
+  EcsClusterArns?: string[] | undefined;
 
   /**
    * <p>A stack ID.
    *       <code>DescribeEcsClusters</code> returns a description of the cluster that is registered with the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>If the previous paginated request did not return all of the remaining results,
@@ -3064,7 +3064,7 @@ export interface DescribeEcsClustersRequest {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>To receive a paginated response, use this parameter to specify the maximum number
@@ -3073,7 +3073,7 @@ export interface DescribeEcsClustersRequest {
    *       to the <code>NextToken</code> request parameter to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3085,25 +3085,25 @@ export interface EcsCluster {
    * <p>The cluster's ARN.</p>
    * @public
    */
-  EcsClusterArn?: string;
+  EcsClusterArn?: string | undefined;
 
   /**
    * <p>The cluster name.</p>
    * @public
    */
-  EcsClusterName?: string;
+  EcsClusterName?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The time and date that the cluster was registered with the stack.</p>
    * @public
    */
-  RegisteredAt?: string;
+  RegisteredAt?: string | undefined;
 }
 
 /**
@@ -3115,7 +3115,7 @@ export interface DescribeEcsClustersResult {
    * <p>A list of <code>EcsCluster</code> objects containing the cluster descriptions.</p>
    * @public
    */
-  EcsClusters?: EcsCluster[];
+  EcsClusters?: EcsCluster[] | undefined;
 
   /**
    * <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that
@@ -3124,7 +3124,7 @@ export interface DescribeEcsClustersResult {
    *       this parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3136,14 +3136,14 @@ export interface DescribeElasticIpsRequest {
    *       description of the Elastic IP addresses associated with the specified instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns a
    *       description of the Elastic IP addresses that are registered with the specified stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>An array of Elastic IP addresses to be described. If you include this parameter,
@@ -3151,7 +3151,7 @@ export interface DescribeElasticIpsRequest {
    *       Otherwise, it returns a description of every Elastic IP address.</p>
    * @public
    */
-  Ips?: string[];
+  Ips?: string[] | undefined;
 }
 
 /**
@@ -3163,31 +3163,31 @@ export interface ElasticIp {
    * <p>The IP address.</p>
    * @public
    */
-  Ip?: string;
+  Ip?: string | undefined;
 
   /**
    * <p>The name, which can be a maximum of 32 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The domain.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The ID of the instance that the address is attached to.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -3199,7 +3199,7 @@ export interface DescribeElasticIpsResult {
    * <p>An <code>ElasticIps</code> object that describes the specified Elastic IP addresses.</p>
    * @public
    */
-  ElasticIps?: ElasticIp[];
+  ElasticIps?: ElasticIp[] | undefined;
 }
 
 /**
@@ -3210,13 +3210,13 @@ export interface DescribeElasticLoadBalancersRequest {
    * <p>A stack ID. The action describes the stack's Elastic Load Balancing instances.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>A list of layer IDs. The action describes the Elastic Load Balancing instances for the specified layers.</p>
    * @public
    */
-  LayerIds?: string[];
+  LayerIds?: string[] | undefined;
 }
 
 /**
@@ -3228,55 +3228,55 @@ export interface ElasticLoadBalancer {
    * <p>The Elastic Load Balancing instance name.</p>
    * @public
    */
-  ElasticLoadBalancerName?: string;
+  ElasticLoadBalancerName?: string | undefined;
 
   /**
    * <p>The instance's Amazon Web Services Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The instance's public DNS name.</p>
    * @public
    */
-  DnsName?: string;
+  DnsName?: string | undefined;
 
   /**
    * <p>The ID of the stack with which the instance is associated.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The ID of the layer to which the instance is attached.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 
   /**
    * <p>The VPC ID.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>A list of Availability Zones.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>A list of subnet IDs, if the stack is running in a VPC.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>A list of the EC2 instances for which the Elastic Load Balancing instance is managing traffic.</p>
    * @public
    */
-  Ec2InstanceIds?: string[];
+  Ec2InstanceIds?: string[] | undefined;
 }
 
 /**
@@ -3289,7 +3289,7 @@ export interface DescribeElasticLoadBalancersResult {
    *       instances.</p>
    * @public
    */
-  ElasticLoadBalancers?: ElasticLoadBalancer[];
+  ElasticLoadBalancers?: ElasticLoadBalancer[] | undefined;
 }
 
 /**
@@ -3301,14 +3301,14 @@ export interface DescribeInstancesRequest {
    *       the instances associated with the specified stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of
    *           the instances associated with the specified layer.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 
   /**
    * <p>An array of instance IDs to be described. If you use this parameter,
@@ -3316,7 +3316,7 @@ export interface DescribeInstancesRequest {
    *       it returns a description of every instance.</p>
    * @public
    */
-  InstanceIds?: string[];
+  InstanceIds?: string[] | undefined;
 }
 
 /**
@@ -3328,19 +3328,19 @@ export interface ReportedOs {
    * <p>The operating system family.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The operating system name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The operating system version.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3368,7 +3368,7 @@ export interface Instance {
    *       a version number for a fixed agent version.</p>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 
   /**
    * <p>A custom AMI ID to be used to create the instance. For more
@@ -3376,74 +3376,74 @@ export interface Instance {
    *          </p>
    * @public
    */
-  AmiId?: string;
+  AmiId?: string | undefined;
 
   /**
    * <p>The instance architecture: "i386" or "x86_64".</p>
    * @public
    */
-  Architecture?: Architecture;
+  Architecture?: Architecture | undefined;
 
   /**
    * <p>The instance's Amazon Resource Number (ARN).</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>For load-based or time-based instances, the type.</p>
    * @public
    */
-  AutoScalingType?: AutoScalingType;
+  AutoScalingType?: AutoScalingType | undefined;
 
   /**
    * <p>The instance Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block device
    *       mappings.</p>
    * @public
    */
-  BlockDeviceMappings?: BlockDeviceMapping[];
+  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
 
   /**
    * <p>The time that the instance was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>Whether this is an Amazon EBS-optimized instance.</p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>The ID of the associated Amazon EC2 instance.</p>
    * @public
    */
-  Ec2InstanceId?: string;
+  Ec2InstanceId?: string | undefined;
 
   /**
    * <p>For container instances, the Amazon ECS cluster's ARN.</p>
    * @public
    */
-  EcsClusterArn?: string;
+  EcsClusterArn?: string | undefined;
 
   /**
    * <p>For container instances, the instance's ARN.</p>
    * @public
    */
-  EcsContainerInstanceArn?: string;
+  EcsContainerInstanceArn?: string | undefined;
 
   /**
    * <p>The instance <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP address</a>.</p>
    * @public
    */
-  ElasticIp?: string;
+  ElasticIp?: string | undefined;
 
   /**
    * <p>The instance host name. The following are character limits for instance host names.</p>
@@ -3457,14 +3457,14 @@ export interface Instance {
    *          </ul>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>For registered instances, the infrastructure class: <code>ec2</code> or
    *         <code>on-premises</code>.</p>
    * @public
    */
-  InfrastructureClass?: string;
+  InfrastructureClass?: string | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -3479,13 +3479,13 @@ export interface Instance {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The ARN of the instance's IAM profile. For more information about IAM ARNs,
@@ -3493,122 +3493,122 @@ export interface Instance {
    *       Identifiers</a>.</p>
    * @public
    */
-  InstanceProfileArn?: string;
+  InstanceProfileArn?: string | undefined;
 
   /**
    * <p>The instance type, such as <code>t2.micro</code>.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The ID of the last service error. For more information, call
    *       <a>DescribeServiceErrors</a>.</p>
    * @public
    */
-  LastServiceErrorId?: string;
+  LastServiceErrorId?: string | undefined;
 
   /**
    * <p>An array containing the instance layer IDs.</p>
    * @public
    */
-  LayerIds?: string[];
+  LayerIds?: string[] | undefined;
 
   /**
    * <p>The instance's operating system.</p>
    * @public
    */
-  Os?: string;
+  Os?: string | undefined;
 
   /**
    * <p>The instance's platform.</p>
    * @public
    */
-  Platform?: string;
+  Platform?: string | undefined;
 
   /**
    * <p>The instance's private DNS name.</p>
    * @public
    */
-  PrivateDns?: string;
+  PrivateDns?: string | undefined;
 
   /**
    * <p>The instance's private IP address.</p>
    * @public
    */
-  PrivateIp?: string;
+  PrivateIp?: string | undefined;
 
   /**
    * <p>The instance public DNS name.</p>
    * @public
    */
-  PublicDns?: string;
+  PublicDns?: string | undefined;
 
   /**
    * <p>The instance public IP address.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>For registered instances, who performed the registration.</p>
    * @public
    */
-  RegisteredBy?: string;
+  RegisteredBy?: string | undefined;
 
   /**
    * <p>The instance's reported OpsWorks Stacks agent version.</p>
    * @public
    */
-  ReportedAgentVersion?: string;
+  ReportedAgentVersion?: string | undefined;
 
   /**
    * <p>For registered instances, the reported operating system.</p>
    * @public
    */
-  ReportedOs?: ReportedOs;
+  ReportedOs?: ReportedOs | undefined;
 
   /**
    * <p>The instance's root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    * @public
    */
-  RootDeviceType?: RootDeviceType;
+  RootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>The root device volume ID.</p>
    * @public
    */
-  RootDeviceVolumeId?: string;
+  RootDeviceVolumeId?: string | undefined;
 
   /**
    * <p>An array containing the instance security group IDs.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The SSH key's Deep Security Agent (DSA) fingerprint.</p>
    * @public
    */
-  SshHostDsaKeyFingerprint?: string;
+  SshHostDsaKeyFingerprint?: string | undefined;
 
   /**
    * <p>The SSH key's RSA fingerprint.</p>
    * @public
    */
-  SshHostRsaKeyFingerprint?: string;
+  SshHostRsaKeyFingerprint?: string | undefined;
 
   /**
    * <p>The instance's Amazon EC2 key-pair name.</p>
    * @public
    */
-  SshKeyName?: string;
+  SshKeyName?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The instance status:</p>
@@ -3691,25 +3691,25 @@ export interface Instance {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The instance's subnet ID; applicable only if the stack is running in a VPC.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The instance's tenancy option, such as <code>dedicated</code> or <code>host</code>.</p>
    * @public
    */
-  Tenancy?: string;
+  Tenancy?: string | undefined;
 
   /**
    * <p>The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>.</p>
    * @public
    */
-  VirtualizationType?: VirtualizationType;
+  VirtualizationType?: VirtualizationType | undefined;
 }
 
 /**
@@ -3721,7 +3721,7 @@ export interface DescribeInstancesResult {
    * <p>An array of <code>Instance</code> objects that describe the instances.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 }
 
 /**
@@ -3732,14 +3732,14 @@ export interface DescribeLayersRequest {
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>An array of layer IDs that specify the layers to be described. If you omit this parameter,
    *         <code>DescribeLayers</code> returns a description of every layer in the specified stack.</p>
    * @public
    */
-  LayerIds?: string[];
+  LayerIds?: string[] | undefined;
 }
 
 /**
@@ -3751,37 +3751,37 @@ export interface Layer {
    * <p>The Amazon Resource Number (ARN) of a layer.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The layer stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The layer ID.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 
   /**
    * <p>The layer type.</p>
    * @public
    */
-  Type?: LayerType;
+  Type?: LayerType | undefined;
 
   /**
    * <p>The layer name. Layer names can be a maximum of 32 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The layer short name.</p>
    * @public
    */
-  Shortname?: string;
+  Shortname?: string | undefined;
 
   /**
    * <p>The layer attributes.</p>
@@ -3791,13 +3791,13 @@ export interface Layer {
    *          <p>For an ECS Cluster layer, OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
    * @public
    */
-  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>> | undefined;
 
   /**
    * <p>The Amazon CloudWatch Logs configuration settings for the layer.</p>
    * @public
    */
-  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
+  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration | undefined;
 
   /**
    * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances. For more
@@ -3805,43 +3805,43 @@ export interface Layer {
    *       Identifiers</a>.</p>
    * @public
    */
-  CustomInstanceProfileArn?: string;
+  CustomInstanceProfileArn?: string | undefined;
 
   /**
    * <p>A JSON formatted string containing the layer's custom stack configuration and deployment attributes.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>An array containing the layer's custom security group IDs.</p>
    * @public
    */
-  CustomSecurityGroupIds?: string[];
+  CustomSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>An array containing the layer's security group names.</p>
    * @public
    */
-  DefaultSecurityGroupNames?: string[];
+  DefaultSecurityGroupNames?: string[] | undefined;
 
   /**
    * <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
    * @public
    */
-  Packages?: string[];
+  Packages?: string[] | undefined;
 
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    * @public
    */
-  VolumeConfigurations?: VolumeConfiguration[];
+  VolumeConfigurations?: VolumeConfiguration[] | undefined;
 
   /**
    * <p>Whether auto healing is disabled for the layer.</p>
    * @public
    */
-  EnableAutoHealing?: boolean;
+  EnableAutoHealing?: boolean | undefined;
 
   /**
    * <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -3849,7 +3849,7 @@ export interface Layer {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignElasticIps?: boolean;
+  AutoAssignElasticIps?: boolean | undefined;
 
   /**
    * <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to
@@ -3857,7 +3857,7 @@ export interface Layer {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignPublicIps?: boolean;
+  AutoAssignPublicIps?: boolean | undefined;
 
   /**
    * <p>OpsWorks Stacks supports five lifecycle events: <b>setup</b>, <b>configuration</b>,
@@ -3871,19 +3871,19 @@ export interface Layer {
    *             <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code> folder.</p>
    * @public
    */
-  DefaultRecipes?: Recipes;
+  DefaultRecipes?: Recipes | undefined;
 
   /**
    * <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom recipes.</p>
    * @public
    */
-  CustomRecipes?: Recipes;
+  CustomRecipes?: Recipes | undefined;
 
   /**
    * <p>Date when the layer was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -3897,20 +3897,20 @@ export interface Layer {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>Whether the layer uses Amazon EBS-optimized instances.</p>
    * @public
    */
-  UseEbsOptimizedInstances?: boolean;
+  UseEbsOptimizedInstances?: boolean | undefined;
 
   /**
    * <p>A <code>LifeCycleEventConfiguration</code> object that specifies the Shutdown event
    *       configuration.</p>
    * @public
    */
-  LifecycleEventConfiguration?: LifecycleEventConfiguration;
+  LifecycleEventConfiguration?: LifecycleEventConfiguration | undefined;
 }
 
 /**
@@ -3922,7 +3922,7 @@ export interface DescribeLayersResult {
    * <p>An array of <code>Layer</code> objects that describe the layers.</p>
    * @public
    */
-  Layers?: Layer[];
+  Layers?: Layer[] | undefined;
 }
 
 /**
@@ -3945,27 +3945,27 @@ export interface LoadBasedAutoScalingConfiguration {
    * <p>The layer ID.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 
   /**
    * <p>Whether load-based auto scaling is enabled for the layer.</p>
    * @public
    */
-  Enable?: boolean;
+  Enable?: boolean | undefined;
 
   /**
    * <p>An <code>AutoScalingThresholds</code> object that describes the upscaling configuration,
    *           which defines how and when OpsWorks Stacks increases the number of instances.</p>
    * @public
    */
-  UpScaling?: AutoScalingThresholds;
+  UpScaling?: AutoScalingThresholds | undefined;
 
   /**
    * <p>An <code>AutoScalingThresholds</code> object that describes the downscaling configuration,
    *           which defines how and when OpsWorks Stacks reduces the number of instances.</p>
    * @public
    */
-  DownScaling?: AutoScalingThresholds;
+  DownScaling?: AutoScalingThresholds | undefined;
 }
 
 /**
@@ -3978,7 +3978,7 @@ export interface DescribeLoadBasedAutoScalingResult {
    *       configuration.</p>
    * @public
    */
-  LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfiguration[];
+  LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfiguration[] | undefined;
 }
 
 /**
@@ -3990,25 +3990,25 @@ export interface SelfUserProfile {
    * <p>The user's IAM ARN.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 
   /**
    * <p>The user's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The user's SSH user name.</p>
    * @public
    */
-  SshUsername?: string;
+  SshUsername?: string | undefined;
 
   /**
    * <p>The user's SSH public key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 }
 
 /**
@@ -4020,7 +4020,7 @@ export interface DescribeMyUserProfileResult {
    * <p>A <code>UserProfile</code> object that describes the user's SSH information.</p>
    * @public
    */
-  UserProfile?: SelfUserProfile;
+  UserProfile?: SelfUserProfile | undefined;
 }
 
 /**
@@ -4033,13 +4033,13 @@ export interface OperatingSystemConfigurationManager {
    * <p>The name of the configuration manager, which is Chef.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The versions of the configuration manager that are supported by an operating system.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -4051,43 +4051,43 @@ export interface OperatingSystem {
    * <p>The name of the operating system, such as <code>Amazon Linux 2</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of a supported operating system, such as <code>Amazon Linux 2</code>.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The type of a supported operating system, either <code>Linux</code> or <code>Windows</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>Supported configuration manager name and versions for an OpsWorks Stacks operating system.</p>
    * @public
    */
-  ConfigurationManagers?: OperatingSystemConfigurationManager[];
+  ConfigurationManagers?: OperatingSystemConfigurationManager[] | undefined;
 
   /**
    * <p>A short name for the operating system manufacturer.</p>
    * @public
    */
-  ReportedName?: string;
+  ReportedName?: string | undefined;
 
   /**
    * <p>The version of the operating system, including the release and edition, if applicable.</p>
    * @public
    */
-  ReportedVersion?: string;
+  ReportedVersion?: string | undefined;
 
   /**
    * <p>Indicates that an operating system is not supported for new instances.</p>
    * @public
    */
-  Supported?: boolean;
+  Supported?: boolean | undefined;
 }
 
 /**
@@ -4099,7 +4099,7 @@ export interface DescribeOperatingSystemsResponse {
    * <p>Contains information in response to a <code>DescribeOperatingSystems</code> request.</p>
    * @public
    */
-  OperatingSystems?: OperatingSystem[];
+  OperatingSystems?: OperatingSystem[] | undefined;
 }
 
 /**
@@ -4112,13 +4112,13 @@ export interface DescribePermissionsRequest {
    *       Identifiers</a>.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -4130,7 +4130,7 @@ export interface Permission {
    * <p>A stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for an Identity and Access Management (IAM) role. For more
@@ -4138,19 +4138,19 @@ export interface Permission {
    *       Identifiers</a>.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 
   /**
    * <p>Whether the user can use SSH.</p>
    * @public
    */
-  AllowSsh?: boolean;
+  AllowSsh?: boolean | undefined;
 
   /**
    * <p>Whether the user can use <b>sudo</b>.</p>
    * @public
    */
-  AllowSudo?: boolean;
+  AllowSudo?: boolean | undefined;
 
   /**
    * <p>The user's permission level, which must be the following:</p>
@@ -4185,7 +4185,7 @@ export interface Permission {
    *          </p>
    * @public
    */
-  Level?: string;
+  Level?: string | undefined;
 }
 
 /**
@@ -4211,7 +4211,7 @@ export interface DescribePermissionsResult {
    *          </ul>
    * @public
    */
-  Permissions?: Permission[];
+  Permissions?: Permission[] | undefined;
 }
 
 /**
@@ -4223,13 +4223,13 @@ export interface DescribeRaidArraysRequest {
    *       descriptions of the RAID arrays associated with the specified instance. </p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>An array of RAID array IDs. If you use this parameter, <code>DescribeRaidArrays</code>
@@ -4237,7 +4237,7 @@ export interface DescribeRaidArraysRequest {
    *       array.</p>
    * @public
    */
-  RaidArrayIds?: string[];
+  RaidArrayIds?: string[] | undefined;
 }
 
 /**
@@ -4249,79 +4249,79 @@ export interface RaidArray {
    * <p>The array ID.</p>
    * @public
    */
-  RaidArrayId?: string;
+  RaidArrayId?: string | undefined;
 
   /**
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The array name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels">RAID level</a>.</p>
    * @public
    */
-  RaidLevel?: number;
+  RaidLevel?: number | undefined;
 
   /**
    * <p>The number of disks in the array.</p>
    * @public
    */
-  NumberOfDisks?: number;
+  NumberOfDisks?: number | undefined;
 
   /**
    * <p>The array's size.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>The array's Linux device. For example /dev/mdadm0.</p>
    * @public
    */
-  Device?: string;
+  Device?: string | undefined;
 
   /**
    * <p>The array's mount point.</p>
    * @public
    */
-  MountPoint?: string;
+  MountPoint?: string | undefined;
 
   /**
    * <p>The array's Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>When the RAID array was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The volume type, standard or PIOPS.</p>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 
   /**
    * <p>For PIOPS volumes, the IOPS per disk.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 }
 
 /**
@@ -4333,7 +4333,7 @@ export interface DescribeRaidArraysResult {
    * <p>A <code>RaidArrays</code> object that describes the specified RAID arrays.</p>
    * @public
    */
-  RaidArrays?: RaidArray[];
+  RaidArrays?: RaidArray[] | undefined;
 }
 
 /**
@@ -4351,7 +4351,7 @@ export interface DescribeRdsDbInstancesRequest {
    * <p>An array containing the ARNs of the instances to be described.</p>
    * @public
    */
-  RdsDbInstanceArns?: string[];
+  RdsDbInstanceArns?: string[] | undefined;
 }
 
 /**
@@ -4363,49 +4363,49 @@ export interface RdsDbInstance {
    * <p>The instance's ARN.</p>
    * @public
    */
-  RdsDbInstanceArn?: string;
+  RdsDbInstanceArn?: string | undefined;
 
   /**
    * <p>The database instance identifier.</p>
    * @public
    */
-  DbInstanceIdentifier?: string;
+  DbInstanceIdentifier?: string | undefined;
 
   /**
    * <p>The master user name.</p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
    * @public
    */
-  DbPassword?: string;
+  DbPassword?: string | undefined;
 
   /**
    * <p>The instance's Amazon Web Services Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The instance's address.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The instance's database engine.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The ID of the stack with which the instance is registered.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>Set to <code>true</code> if OpsWorks Stacks is unable to discover the Amazon RDS instance.
@@ -4414,7 +4414,7 @@ export interface RdsDbInstance {
    *       deregister the instance, and then register it again.</p>
    * @public
    */
-  MissingOnRds?: boolean;
+  MissingOnRds?: boolean | undefined;
 }
 
 /**
@@ -4426,7 +4426,7 @@ export interface DescribeRdsDbInstancesResult {
    * <p>An a array of <code>RdsDbInstance</code> objects that describe the instances.</p>
    * @public
    */
-  RdsDbInstances?: RdsDbInstance[];
+  RdsDbInstances?: RdsDbInstance[] | undefined;
 }
 
 /**
@@ -4438,14 +4438,14 @@ export interface DescribeServiceErrorsRequest {
    *       descriptions of the errors associated with the specified stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The instance ID. If you use this parameter, <code>DescribeServiceErrors</code> returns
    *       descriptions of the errors associated with the specified instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>An array of service error IDs. If you use this parameter, <code>DescribeServiceErrors</code>
@@ -4453,7 +4453,7 @@ export interface DescribeServiceErrorsRequest {
    *       error.</p>
    * @public
    */
-  ServiceErrorIds?: string[];
+  ServiceErrorIds?: string[] | undefined;
 }
 
 /**
@@ -4465,37 +4465,37 @@ export interface ServiceError {
    * <p>The error ID.</p>
    * @public
    */
-  ServiceErrorId?: string;
+  ServiceErrorId?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The error type.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>A message that describes the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the error occurred.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 }
 
 /**
@@ -4507,7 +4507,7 @@ export interface DescribeServiceErrorsResult {
    * <p>An array of <code>ServiceError</code> objects that describe the specified service errors.</p>
    * @public
    */
-  ServiceErrors?: ServiceError[];
+  ServiceErrors?: ServiceError[] | undefined;
 }
 
 /**
@@ -4530,13 +4530,13 @@ export interface DescribeStackProvisioningParametersResult {
    * <p>The OpsWorks Stacks agent installer's URL.</p>
    * @public
    */
-  AgentInstallerUrl?: string;
+  AgentInstallerUrl?: string | undefined;
 
   /**
    * <p>An embedded object that contains the provisioning parameters.</p>
    * @public
    */
-  Parameters?: Record<string, string>;
+  Parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -4550,7 +4550,7 @@ export interface DescribeStacksRequest {
    *           Otherwise, <code>DescribeStacks</code> returns an <code>AccessDenied</code> error.</p>
    * @public
    */
-  StackIds?: string[];
+  StackIds?: string[] | undefined;
 }
 
 /**
@@ -4562,44 +4562,44 @@ export interface Stack {
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The stack name. Stack names can be a maximum of 64 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The stack's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The stack Amazon Web Services Region, such as <code>ap-northeast-2</code>. For more information about
    *           Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The VPC ID; applicable only if the stack is running in a VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The stack's attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<StackAttributesKeys, string>>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>> | undefined;
 
   /**
    * <p>The stack Identity and Access Management (IAM) role.</p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances.
@@ -4607,31 +4607,31 @@ export interface Stack {
    *       Identifiers</a>.</p>
    * @public
    */
-  DefaultInstanceProfileArn?: string;
+  DefaultInstanceProfileArn?: string | undefined;
 
   /**
    * <p>The stack's default operating system.</p>
    * @public
    */
-  DefaultOs?: string;
+  DefaultOs?: string | undefined;
 
   /**
    * <p>The stack host name theme, with spaces replaced by underscores.</p>
    * @public
    */
-  HostnameTheme?: string;
+  HostnameTheme?: string | undefined;
 
   /**
    * <p>The stack's default Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  DefaultAvailabilityZone?: string;
+  DefaultAvailabilityZone?: string | undefined;
 
   /**
    * <p>The default subnet ID; applicable only if the stack is running in a VPC.</p>
    * @public
    */
-  DefaultSubnetId?: string;
+  DefaultSubnetId?: string | undefined;
 
   /**
    * <p>A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes.
@@ -4644,32 +4644,32 @@ export interface Stack {
    *         Modify the Stack Configuration Attributes</a>.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>The configuration manager.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 
   /**
    * <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the
    *       Berkshelf version. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
    * @public
    */
-  ChefConfiguration?: ChefConfiguration;
+  ChefConfiguration?: ChefConfiguration | undefined;
 
   /**
    * <p>Whether the stack uses custom cookbooks.</p>
    * @public
    */
-  UseCustomCookbooks?: boolean;
+  UseCustomCookbooks?: boolean | undefined;
 
   /**
    * <p>Whether the stack automatically associates the OpsWorks Stacks built-in security groups with the stack's layers.</p>
    * @public
    */
-  UseOpsworksSecurityGroups?: boolean;
+  UseOpsworksSecurityGroups?: boolean | undefined;
 
   /**
    * <p>Contains the information required to retrieve an app or cookbook from a repository. For more information,
@@ -4677,20 +4677,20 @@ export interface Stack {
    *             <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
    * @public
    */
-  CustomCookbooksSource?: Source;
+  CustomCookbooksSource?: Source | undefined;
 
   /**
    * <p>A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or
    *           update an instance.</p>
    * @public
    */
-  DefaultSshKeyName?: string;
+  DefaultSshKeyName?: string | undefined;
 
   /**
    * <p>The date when the stack was created.</p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The default root device type. This value is used by default for all instances in the stack,
@@ -4698,14 +4698,14 @@ export interface Stack {
    *       </p>
    * @public
    */
-  DefaultRootDeviceType?: RootDeviceType;
+  DefaultRootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>The agent version. This parameter is set to <code>LATEST</code> for auto-update.
    *       or a version number for a fixed agent version.</p>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 }
 
 /**
@@ -4717,7 +4717,7 @@ export interface DescribeStacksResult {
    * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
    * @public
    */
-  Stacks?: Stack[];
+  Stacks?: Stack[] | undefined;
 }
 
 /**
@@ -4740,121 +4740,121 @@ export interface InstancesCount {
    * <p>The number of instances in the Assigning state.</p>
    * @public
    */
-  Assigning?: number;
+  Assigning?: number | undefined;
 
   /**
    * <p>The number of instances with <code>booting</code> status.</p>
    * @public
    */
-  Booting?: number;
+  Booting?: number | undefined;
 
   /**
    * <p>The number of instances with <code>connection_lost</code> status.</p>
    * @public
    */
-  ConnectionLost?: number;
+  ConnectionLost?: number | undefined;
 
   /**
    * <p>The number of instances in the Deregistering state.</p>
    * @public
    */
-  Deregistering?: number;
+  Deregistering?: number | undefined;
 
   /**
    * <p>The number of instances with <code>online</code> status.</p>
    * @public
    */
-  Online?: number;
+  Online?: number | undefined;
 
   /**
    * <p>The number of instances with <code>pending</code> status.</p>
    * @public
    */
-  Pending?: number;
+  Pending?: number | undefined;
 
   /**
    * <p>The number of instances with <code>rebooting</code> status.</p>
    * @public
    */
-  Rebooting?: number;
+  Rebooting?: number | undefined;
 
   /**
    * <p>The number of instances in the Registered state.</p>
    * @public
    */
-  Registered?: number;
+  Registered?: number | undefined;
 
   /**
    * <p>The number of instances in the Registering state.</p>
    * @public
    */
-  Registering?: number;
+  Registering?: number | undefined;
 
   /**
    * <p>The number of instances with <code>requested</code> status.</p>
    * @public
    */
-  Requested?: number;
+  Requested?: number | undefined;
 
   /**
    * <p>The number of instances with <code>running_setup</code> status.</p>
    * @public
    */
-  RunningSetup?: number;
+  RunningSetup?: number | undefined;
 
   /**
    * <p>The number of instances with <code>setup_failed</code> status.</p>
    * @public
    */
-  SetupFailed?: number;
+  SetupFailed?: number | undefined;
 
   /**
    * <p>The number of instances with <code>shutting_down</code> status.</p>
    * @public
    */
-  ShuttingDown?: number;
+  ShuttingDown?: number | undefined;
 
   /**
    * <p>The number of instances with <code>start_failed</code> status.</p>
    * @public
    */
-  StartFailed?: number;
+  StartFailed?: number | undefined;
 
   /**
    * <p>The number of instances with <code>stop_failed</code> status.</p>
    * @public
    */
-  StopFailed?: number;
+  StopFailed?: number | undefined;
 
   /**
    * <p>The number of instances with <code>stopped</code> status.</p>
    * @public
    */
-  Stopped?: number;
+  Stopped?: number | undefined;
 
   /**
    * <p>The number of instances with <code>stopping</code> status.</p>
    * @public
    */
-  Stopping?: number;
+  Stopping?: number | undefined;
 
   /**
    * <p>The number of instances with <code>terminated</code> status.</p>
    * @public
    */
-  Terminated?: number;
+  Terminated?: number | undefined;
 
   /**
    * <p>The number of instances with <code>terminating</code> status.</p>
    * @public
    */
-  Terminating?: number;
+  Terminating?: number | undefined;
 
   /**
    * <p>The number of instances in the Unassigning state.</p>
    * @public
    */
-  Unassigning?: number;
+  Unassigning?: number | undefined;
 }
 
 /**
@@ -4866,37 +4866,37 @@ export interface StackSummary {
    * <p>The stack ID.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The stack name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The stack's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The number of layers.</p>
    * @public
    */
-  LayersCount?: number;
+  LayersCount?: number | undefined;
 
   /**
    * <p>The number of apps.</p>
    * @public
    */
-  AppsCount?: number;
+  AppsCount?: number | undefined;
 
   /**
    * <p>An <code>InstancesCount</code> object with the number of instances in each status.</p>
    * @public
    */
-  InstancesCount?: InstancesCount;
+  InstancesCount?: InstancesCount | undefined;
 }
 
 /**
@@ -4908,7 +4908,7 @@ export interface DescribeStackSummaryResult {
    * <p>A <code>StackSummary</code> object that contains the results.</p>
    * @public
    */
-  StackSummary?: StackSummary;
+  StackSummary?: StackSummary | undefined;
 }
 
 /**
@@ -4946,43 +4946,43 @@ export interface WeeklyAutoScalingSchedule {
    * <p>The schedule for Monday.</p>
    * @public
    */
-  Monday?: Record<string, string>;
+  Monday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Tuesday.</p>
    * @public
    */
-  Tuesday?: Record<string, string>;
+  Tuesday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Wednesday.</p>
    * @public
    */
-  Wednesday?: Record<string, string>;
+  Wednesday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Thursday.</p>
    * @public
    */
-  Thursday?: Record<string, string>;
+  Thursday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Friday.</p>
    * @public
    */
-  Friday?: Record<string, string>;
+  Friday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Saturday.</p>
    * @public
    */
-  Saturday?: Record<string, string>;
+  Saturday?: Record<string, string> | undefined;
 
   /**
    * <p>The schedule for Sunday.</p>
    * @public
    */
-  Sunday?: Record<string, string>;
+  Sunday?: Record<string, string> | undefined;
 }
 
 /**
@@ -4994,13 +4994,13 @@ export interface TimeBasedAutoScalingConfiguration {
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>A <code>WeeklyAutoScalingSchedule</code> object with the instance schedule.</p>
    * @public
    */
-  AutoScalingSchedule?: WeeklyAutoScalingSchedule;
+  AutoScalingSchedule?: WeeklyAutoScalingSchedule | undefined;
 }
 
 /**
@@ -5013,7 +5013,7 @@ export interface DescribeTimeBasedAutoScalingResult {
    *       configuration for the specified instances.</p>
    * @public
    */
-  TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfiguration[];
+  TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfiguration[] | undefined;
 }
 
 /**
@@ -5024,7 +5024,7 @@ export interface DescribeUserProfilesRequest {
    * <p>An array of IAM or federated user ARNs that identify the users to be described.</p>
    * @public
    */
-  IamUserArns?: string[];
+  IamUserArns?: string[] | undefined;
 }
 
 /**
@@ -5036,25 +5036,25 @@ export interface UserProfile {
    * <p>The user's IAM ARN.</p>
    * @public
    */
-  IamUserArn?: string;
+  IamUserArn?: string | undefined;
 
   /**
    * <p>The user's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The user's SSH user name.</p>
    * @public
    */
-  SshUsername?: string;
+  SshUsername?: string | undefined;
 
   /**
    * <p>The user's SSH public key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 
   /**
    * <p>Whether users can specify their own SSH public key through the My Settings page. For more
@@ -5062,7 +5062,7 @@ export interface UserProfile {
    *         Permissions</a>.</p>
    * @public
    */
-  AllowSelfManagement?: boolean;
+  AllowSelfManagement?: boolean | undefined;
 }
 
 /**
@@ -5074,7 +5074,7 @@ export interface DescribeUserProfilesResult {
    * <p>A <code>Users</code> object that describes the specified users.</p>
    * @public
    */
-  UserProfiles?: UserProfile[];
+  UserProfiles?: UserProfile[] | undefined;
 }
 
 /**
@@ -5086,20 +5086,20 @@ export interface DescribeVolumesRequest {
    *       of the volumes associated with the specified instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>A stack ID. The action describes the stack's registered Amazon EBS volumes.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The RAID array ID. If you use this parameter, <code>DescribeVolumes</code> returns
    *       descriptions of the volumes associated with the specified RAID array.</p>
    * @public
    */
-  RaidArrayId?: string;
+  RaidArrayId?: string | undefined;
 
   /**
    * <p>Am array of volume IDs. If you use this parameter, <code>DescribeVolumes</code> returns
@@ -5107,7 +5107,7 @@ export interface DescribeVolumesRequest {
    *       volume.</p>
    * @public
    */
-  VolumeIds?: string[];
+  VolumeIds?: string[] | undefined;
 }
 
 /**
@@ -5119,68 +5119,68 @@ export interface Volume {
    * <p>The volume ID.</p>
    * @public
    */
-  VolumeId?: string;
+  VolumeId?: string | undefined;
 
   /**
    * <p>The Amazon EC2 volume ID.</p>
    * @public
    */
-  Ec2VolumeId?: string;
+  Ec2VolumeId?: string | undefined;
 
   /**
    * <p>The volume name. Volume names are a maximum of 128 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The RAID array ID.</p>
    * @public
    */
-  RaidArrayId?: string;
+  RaidArrayId?: string | undefined;
 
   /**
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The value returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html">DescribeVolumes</a>.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The volume size.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>The device name.</p>
    * @public
    */
-  Device?: string;
+  Device?: string | undefined;
 
   /**
    * <p>The volume mount point. For example, "/mnt/disk1".</p>
    * @public
    */
-  MountPoint?: string;
+  MountPoint?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region. For more information about Amazon Web Services Regions, see
    *           <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The volume Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">
@@ -5211,20 +5211,20 @@ export interface Volume {
    *          </ul>
    * @public
    */
-  VolumeType?: string;
+  VolumeType?: string | undefined;
 
   /**
    * <p>For PIOPS volumes, the IOPS per disk.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>Specifies whether an Amazon EBS volume is encrypted. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 }
 
 /**
@@ -5236,7 +5236,7 @@ export interface DescribeVolumesResult {
    * <p>An array of volume IDs.</p>
    * @public
    */
-  Volumes?: Volume[];
+  Volumes?: Volume[] | undefined;
 }
 
 /**
@@ -5287,13 +5287,13 @@ export interface GetHostnameSuggestionResult {
    * <p>The layer ID.</p>
    * @public
    */
-  LayerId?: string;
+  LayerId?: string | undefined;
 
   /**
    * <p>The generated host name.</p>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 }
 
 /**
@@ -5312,7 +5312,7 @@ export interface GrantAccessRequest {
    *           logged out.</p>
    * @public
    */
-  ValidForInMinutes?: number;
+  ValidForInMinutes?: number | undefined;
 }
 
 /**
@@ -5324,13 +5324,13 @@ export interface TemporaryCredential {
    * <p>The user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period,
@@ -5338,13 +5338,13 @@ export interface TemporaryCredential {
    *           automatically logged out.</p>
    * @public
    */
-  ValidForInMinutes?: number;
+  ValidForInMinutes?: number | undefined;
 
   /**
    * <p>The instance's OpsWorks Stacks ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -5357,7 +5357,7 @@ export interface GrantAccessResult {
    *       instance by RDP clients, such as the Microsoft Remote Desktop Connection.</p>
    * @public
    */
-  TemporaryCredential?: TemporaryCredential;
+  TemporaryCredential?: TemporaryCredential | undefined;
 }
 
 /**
@@ -5370,13 +5370,13 @@ export interface InstanceIdentity {
    * <p>A JSON document that contains the metadata.</p>
    * @public
    */
-  Document?: string;
+  Document?: string | undefined;
 
   /**
    * <p>A signature that can be used to verify the document's accuracy and authenticity.</p>
    * @public
    */
-  Signature?: string;
+  Signature?: string | undefined;
 }
 
 /**
@@ -5395,7 +5395,7 @@ export interface ListTagsRequest {
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Do not use. A validation exception occurs if you add a <code>NextToken</code> parameter to a <code>ListTagsRequest</code>
@@ -5403,7 +5403,7 @@ export interface ListTagsRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5415,7 +5415,7 @@ export interface ListTagsResult {
    * <p>A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that
@@ -5425,7 +5425,7 @@ export interface ListTagsResult {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5465,7 +5465,7 @@ export interface RegisterEcsClusterResult {
    * <p>The cluster's ARN.</p>
    * @public
    */
-  EcsClusterArn?: string;
+  EcsClusterArn?: string | undefined;
 }
 
 /**
@@ -5494,7 +5494,7 @@ export interface RegisterElasticIpResult {
    * <p>The Elastic IP address.</p>
    * @public
    */
-  ElasticIp?: string;
+  ElasticIp?: string | undefined;
 }
 
 /**
@@ -5519,37 +5519,37 @@ export interface RegisterInstanceRequest {
    *          </ul>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The instance's public IP address.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>The instance's private IP address.</p>
    * @public
    */
-  PrivateIp?: string;
+  PrivateIp?: string | undefined;
 
   /**
    * <p>The instances public RSA key. This key is used to encrypt communication between the instance and the service.</p>
    * @public
    */
-  RsaPublicKey?: string;
+  RsaPublicKey?: string | undefined;
 
   /**
    * <p>The instances public RSA key fingerprint.</p>
    * @public
    */
-  RsaPublicKeyFingerprint?: string;
+  RsaPublicKeyFingerprint?: string | undefined;
 
   /**
    * <p>An InstanceIdentity object that contains the instance's identity.</p>
    * @public
    */
-  InstanceIdentity?: InstanceIdentity;
+  InstanceIdentity?: InstanceIdentity | undefined;
 }
 
 /**
@@ -5561,7 +5561,7 @@ export interface RegisterInstanceResult {
    * <p>The registered instance's OpsWorks Stacks ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -5601,7 +5601,7 @@ export interface RegisterVolumeRequest {
    * <p>The Amazon EBS volume ID.</p>
    * @public
    */
-  Ec2VolumeId?: string;
+  Ec2VolumeId?: string | undefined;
 
   /**
    * <p>The stack ID.</p>
@@ -5619,7 +5619,7 @@ export interface RegisterVolumeResult {
    * <p>The volume ID.</p>
    * @public
    */
-  VolumeId?: string;
+  VolumeId?: string | undefined;
 }
 
 /**
@@ -5636,7 +5636,7 @@ export interface SetLoadBasedAutoScalingRequest {
    * <p>Enables load-based auto scaling for the layer.</p>
    * @public
    */
-  Enable?: boolean;
+  Enable?: boolean | undefined;
 
   /**
    * <p>An <code>AutoScalingThresholds</code> object with the upscaling threshold configuration. If
@@ -5644,7 +5644,7 @@ export interface SetLoadBasedAutoScalingRequest {
    *       number of instances.</p>
    * @public
    */
-  UpScaling?: AutoScalingThresholds;
+  UpScaling?: AutoScalingThresholds | undefined;
 
   /**
    * <p>An <code>AutoScalingThresholds</code> object with the downscaling threshold configuration. If
@@ -5652,7 +5652,7 @@ export interface SetLoadBasedAutoScalingRequest {
    *       number of instances.</p>
    * @public
    */
-  DownScaling?: AutoScalingThresholds;
+  DownScaling?: AutoScalingThresholds | undefined;
 }
 
 /**
@@ -5675,13 +5675,13 @@ export interface SetPermissionRequest {
    * <p>The user is allowed to use SSH to communicate with the instance.</p>
    * @public
    */
-  AllowSsh?: boolean;
+  AllowSsh?: boolean | undefined;
 
   /**
    * <p>The user is allowed to use <b>sudo</b> to elevate privileges.</p>
    * @public
    */
-  AllowSudo?: boolean;
+  AllowSudo?: boolean | undefined;
 
   /**
    * <p>The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.</p>
@@ -5715,7 +5715,7 @@ export interface SetPermissionRequest {
    *          <p>For more information about the permissions associated with these levels, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User Permissions</a>.</p>
    * @public
    */
-  Level?: string;
+  Level?: string | undefined;
 }
 
 /**
@@ -5732,7 +5732,7 @@ export interface SetTimeBasedAutoScalingRequest {
    * <p>An <code>AutoScalingSchedule</code> with the instance schedule.</p>
    * @public
    */
-  AutoScalingSchedule?: WeeklyAutoScalingSchedule;
+  AutoScalingSchedule?: WeeklyAutoScalingSchedule | undefined;
 }
 
 /**
@@ -5775,7 +5775,7 @@ export interface StopInstanceRequest {
    *             instance with a new one.</p>
    * @public
    */
-  Force?: boolean;
+  Force?: boolean | undefined;
 }
 
 /**
@@ -5880,31 +5880,31 @@ export interface UpdateAppRequest {
    * <p>The app name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the app.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The app's data sources.</p>
    * @public
    */
-  DataSources?: DataSource[];
+  DataSources?: DataSource[] | undefined;
 
   /**
    * <p>The app type.</p>
    * @public
    */
-  Type?: AppType;
+  Type?: AppType | undefined;
 
   /**
    * <p>A <code>Source</code> object that specifies the app repository.</p>
    * @public
    */
-  AppSource?: Source;
+  AppSource?: Source | undefined;
 
   /**
    * <p>The app's virtual host settings, with multiple domains separated by commas. For example:
@@ -5912,25 +5912,25 @@ export interface UpdateAppRequest {
    *          </p>
    * @public
    */
-  Domains?: string[];
+  Domains?: string[] | undefined;
 
   /**
    * <p>Whether SSL is enabled for the app.</p>
    * @public
    */
-  EnableSsl?: boolean;
+  EnableSsl?: boolean | undefined;
 
   /**
    * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
    * @public
    */
-  SslConfiguration?: SslConfiguration;
+  SslConfiguration?: SslConfiguration | undefined;
 
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<AppAttributesKeys, string>>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>> | undefined;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be
@@ -5944,7 +5944,7 @@ export interface UpdateAppRequest {
    *          </note>
    * @public
    */
-  Environment?: EnvironmentVariable[];
+  Environment?: EnvironmentVariable[] | undefined;
 }
 
 /**
@@ -5961,7 +5961,7 @@ export interface UpdateElasticIpRequest {
    * <p>The new name, which can be a maximum of 32 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5978,7 +5978,7 @@ export interface UpdateInstanceRequest {
    * <p>The instance's layer IDs.</p>
    * @public
    */
-  LayerIds?: string[];
+  LayerIds?: string[] | undefined;
 
   /**
    * <p>The instance type, such as <code>t2.micro</code>. For a list of supported instance types,
@@ -5988,13 +5988,13 @@ export interface UpdateInstanceRequest {
    *       in the <b>API Name</b> column of the <b>Available Instance Types</b> table.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    * @public
    */
-  AutoScalingType?: AutoScalingType;
+  AutoScalingType?: AutoScalingType | undefined;
 
   /**
    * <p>The instance host name. The following are character limits for instance host names.</p>
@@ -6008,7 +6008,7 @@ export interface UpdateInstanceRequest {
    *          </ul>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The instance's operating system, which must be set to one of the following. You cannot update an instance that is using
@@ -6047,7 +6047,7 @@ export interface UpdateInstanceRequest {
    *          </note>
    * @public
    */
-  Os?: string;
+  Os?: string | undefined;
 
   /**
    * <p>The ID of the AMI that was used to create the instance. The value of this parameter must be the same AMI ID that the
@@ -6057,13 +6057,13 @@ export interface UpdateInstanceRequest {
    *       </p>
    * @public
    */
-  AmiId?: string;
+  AmiId?: string | undefined;
 
   /**
    * <p>The instance's Amazon EC2 key name.</p>
    * @public
    */
-  SshKeyName?: string;
+  SshKeyName?: string | undefined;
 
   /**
    * <p>The instance architecture. Instance types do not necessarily support both architectures. For
@@ -6071,7 +6071,7 @@ export interface UpdateInstanceRequest {
    *         Families and Types</a>.</p>
    * @public
    */
-  Architecture?: Architecture;
+  Architecture?: Architecture | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -6086,13 +6086,13 @@ export interface UpdateInstanceRequest {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>This property cannot be updated.</p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>The default OpsWorks Stacks agent version. You have the following options:</p>
@@ -6116,7 +6116,7 @@ export interface UpdateInstanceRequest {
    *          <p>AgentVersion cannot be set to Chef 12.2.</p>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 }
 
 /**
@@ -6133,7 +6133,7 @@ export interface UpdateLayerRequest {
    * <p>The layer name, which is used by the console. Layer names can be a maximum of 32 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by
@@ -6144,20 +6144,20 @@ export interface UpdateLayerRequest {
    *       </p>
    * @public
    */
-  Shortname?: string;
+  Shortname?: string | undefined;
 
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>> | undefined;
 
   /**
    * <p>Specifies CloudWatch Logs configuration options for the layer. For more information,
    *           see <a>CloudWatchLogsLogStream</a>.</p>
    * @public
    */
-  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
+  CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration | undefined;
 
   /**
    * <p>The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more
@@ -6165,7 +6165,7 @@ export interface UpdateLayerRequest {
    *       Identifiers</a>.</p>
    * @public
    */
-  CustomInstanceProfileArn?: string;
+  CustomInstanceProfileArn?: string | undefined;
 
   /**
    * <p>A JSON-formatted string containing custom stack configuration and deployment attributes
@@ -6175,31 +6175,31 @@ export interface UpdateLayerRequest {
    *     </p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>An array containing the layer's custom security group IDs.</p>
    * @public
    */
-  CustomSecurityGroupIds?: string[];
+  CustomSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
    * @public
    */
-  Packages?: string[];
+  Packages?: string[] | undefined;
 
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    * @public
    */
-  VolumeConfigurations?: VolumeConfiguration[];
+  VolumeConfigurations?: VolumeConfiguration[] | undefined;
 
   /**
    * <p>Whether to disable auto healing for the layer.</p>
    * @public
    */
-  EnableAutoHealing?: boolean;
+  EnableAutoHealing?: boolean | undefined;
 
   /**
    * <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -6207,7 +6207,7 @@ export interface UpdateLayerRequest {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignElasticIps?: boolean;
+  AutoAssignElasticIps?: boolean | undefined;
 
   /**
    * <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to
@@ -6215,13 +6215,13 @@ export interface UpdateLayerRequest {
    *         a Layer</a>.</p>
    * @public
    */
-  AutoAssignPublicIps?: boolean;
+  AutoAssignPublicIps?: boolean | undefined;
 
   /**
    * <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom recipes.</p>
    * @public
    */
-  CustomRecipes?: Recipes;
+  CustomRecipes?: Recipes | undefined;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -6236,19 +6236,19 @@ export interface UpdateLayerRequest {
    *          </note>
    * @public
    */
-  InstallUpdatesOnBoot?: boolean;
+  InstallUpdatesOnBoot?: boolean | undefined;
 
   /**
    * <p>Whether to use Amazon EBS-optimized instances.</p>
    * @public
    */
-  UseEbsOptimizedInstances?: boolean;
+  UseEbsOptimizedInstances?: boolean | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  LifecycleEventConfiguration?: LifecycleEventConfiguration;
+  LifecycleEventConfiguration?: LifecycleEventConfiguration | undefined;
 }
 
 /**
@@ -6259,7 +6259,7 @@ export interface UpdateMyUserProfileRequest {
    * <p>The user's SSH public key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 }
 
 /**
@@ -6276,13 +6276,13 @@ export interface UpdateRdsDbInstanceRequest {
    * <p>The master user name.</p>
    * @public
    */
-  DbUser?: string;
+  DbUser?: string | undefined;
 
   /**
    * <p>The database password.</p>
    * @public
    */
-  DbPassword?: string;
+  DbPassword?: string | undefined;
 }
 
 /**
@@ -6299,19 +6299,19 @@ export interface UpdateStackRequest {
    * <p>The stack's new name. Stack names can be a maximum of 64 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    * @public
    */
-  Attributes?: Partial<Record<StackAttributesKeys, string>>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>> | undefined;
 
   /**
    * <p>Do not use this parameter. You cannot update a stack's service role.</p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances.
@@ -6319,7 +6319,7 @@ export interface UpdateStackRequest {
    *       Identifiers</a>.</p>
    * @public
    */
-  DefaultInstanceProfileArn?: string;
+  DefaultInstanceProfileArn?: string | undefined;
 
   /**
    * <p>The stack's operating system, which must be set to one of the following:</p>
@@ -6356,7 +6356,7 @@ export interface UpdateStackRequest {
    *           see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">OpsWorks Stacks Operating Systems</a>.</p>
    * @public
    */
-  DefaultOs?: string;
+  DefaultOs?: string | undefined;
 
   /**
    * <p>The stack's new host name theme, with spaces replaced by underscores.
@@ -6425,7 +6425,7 @@ export interface UpdateStackRequest {
    *       host name based on the current theme.</p>
    * @public
    */
-  HostnameTheme?: string;
+  HostnameTheme?: string | undefined;
 
   /**
    * <p>The stack's default Availability Zone, which must be in the
@@ -6435,7 +6435,7 @@ export interface UpdateStackRequest {
    *       be in the same zone. For more information, see <a>CreateStack</a>. </p>
    * @public
    */
-  DefaultAvailabilityZone?: string;
+  DefaultAvailabilityZone?: string | undefined;
 
   /**
    * <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the
@@ -6446,7 +6446,7 @@ export interface UpdateStackRequest {
    *       description. </p>
    * @public
    */
-  DefaultSubnetId?: string;
+  DefaultSubnetId?: string | undefined;
 
   /**
    * <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration
@@ -6458,27 +6458,27 @@ export interface UpdateStackRequest {
    *         Modify the Stack Configuration Attributes</a>.</p>
    * @public
    */
-  CustomJson?: string;
+  CustomJson?: string | undefined;
 
   /**
    * <p>The configuration manager. When you update a stack, we recommend that you use the configuration manager to specify the
    *           Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.</p>
    * @public
    */
-  ConfigurationManager?: StackConfigurationManager;
+  ConfigurationManager?: StackConfigurationManager | undefined;
 
   /**
    * <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the
    *       Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
    * @public
    */
-  ChefConfiguration?: ChefConfiguration;
+  ChefConfiguration?: ChefConfiguration | undefined;
 
   /**
    * <p>Whether the stack uses custom cookbooks.</p>
    * @public
    */
-  UseCustomCookbooks?: boolean;
+  UseCustomCookbooks?: boolean | undefined;
 
   /**
    * <p>Contains the information required to retrieve an app or cookbook from a repository. For more information,
@@ -6486,7 +6486,7 @@ export interface UpdateStackRequest {
    *             <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
    * @public
    */
-  CustomCookbooksSource?: Source;
+  CustomCookbooksSource?: Source | undefined;
 
   /**
    * <p>A default Amazon EC2 key-pair name. The default value is
@@ -6499,14 +6499,14 @@ export interface UpdateStackRequest {
    *         create an instance</a>. </p>
    * @public
    */
-  DefaultSshKeyName?: string;
+  DefaultSshKeyName?: string | undefined;
 
   /**
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    * @public
    */
-  DefaultRootDeviceType?: RootDeviceType;
+  DefaultRootDeviceType?: RootDeviceType | undefined;
 
   /**
    * <p>Whether to associate the OpsWorks Stacks built-in security groups with the stack's layers.</p>
@@ -6532,7 +6532,7 @@ export interface UpdateStackRequest {
    *         Stack</a>.</p>
    * @public
    */
-  UseOpsworksSecurityGroups?: boolean;
+  UseOpsworksSecurityGroups?: boolean | undefined;
 
   /**
    * <p>The default OpsWorks Stacks agent version. You have the following options:</p>
@@ -6558,7 +6558,7 @@ export interface UpdateStackRequest {
    *          </note>
    * @public
    */
-  AgentVersion?: string;
+  AgentVersion?: string | undefined;
 }
 
 /**
@@ -6578,13 +6578,13 @@ export interface UpdateUserProfileRequest {
    *           user name, OpsWorks Stacks generates one from the IAM user name. </p>
    * @public
    */
-  SshUsername?: string;
+  SshUsername?: string | undefined;
 
   /**
    * <p>The user's new SSH public key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 
   /**
    * <p>Whether users can specify their own SSH public key through the My Settings page. For more
@@ -6592,7 +6592,7 @@ export interface UpdateUserProfileRequest {
    *         Permissions</a>.</p>
    * @public
    */
-  AllowSelfManagement?: boolean;
+  AllowSelfManagement?: boolean | undefined;
 }
 
 /**
@@ -6609,11 +6609,11 @@ export interface UpdateVolumeRequest {
    * <p>The new name. Volume names can be a maximum of 128 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The new mount point.</p>
    * @public
    */
-  MountPoint?: string;
+  MountPoint?: string | undefined;
 }

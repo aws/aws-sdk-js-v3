@@ -34,8 +34,8 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *             desired capacity.</p>
  *          <p>This operation must be called from the Region in which the Auto Scaling group was
  *             created.</p>
- *          <p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the
- *                 <a>DeleteWarmPool</a> API.</p>
+ *          <p>You can view the instances in the warm pool using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html">DescribeWarmPool</a> API call.
+ *             If you are no longer using a warm pool, you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteWarmPool.html">DeleteWarmPool</a> API.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
@@ -78,23 +78,26 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript
  * // This example creates a warm pool for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceReusePolicy": {
- *     "ReuseOnScaleIn": true
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceReusePolicy: {
+ *     ReuseOnScaleIn: true
  *   },
- *   "MinSize": 30,
- *   "PoolState": "Hibernated"
+ *   MinSize: 30,
+ *   PoolState: "Hibernated"
  * };
  * const command = new PutWarmPoolCommand(input);
- * await client.send(command);
- * // example id: to-add-a-warm-pool-to-an-auto-scaling-group-1617818810383
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutWarmPoolCommand extends $Command
   .classBuilder<
@@ -104,9 +107,7 @@ export class PutWarmPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +119,16 @@ export class PutWarmPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWarmPoolCommand)
   .de(de_PutWarmPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWarmPoolType;
+      output: {};
+    };
+    sdk: {
+      input: PutWarmPoolCommandInput;
+      output: PutWarmPoolCommandOutput;
+    };
+  };
+}

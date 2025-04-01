@@ -80,6 +80,7 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class ExportCertificateCommand extends $Command
@@ -90,9 +91,7 @@ export class ExportCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ExportCertificateCommand extends $Command
   .f(ExportCertificateRequestFilterSensitiveLog, ExportCertificateResponseFilterSensitiveLog)
   .ser(se_ExportCertificateCommand)
   .de(de_ExportCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportCertificateRequest;
+      output: ExportCertificateResponse;
+    };
+    sdk: {
+      input: ExportCertificateCommandInput;
+      output: ExportCertificateCommandOutput;
+    };
+  };
+}

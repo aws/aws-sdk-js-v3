@@ -146,6 +146,7 @@ export interface VerifyCardValidationDataCommandOutput extends VerifyCardValidat
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class VerifyCardValidationDataCommand extends $Command
@@ -156,9 +157,7 @@ export class VerifyCardValidationDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +169,16 @@ export class VerifyCardValidationDataCommand extends $Command
   .f(VerifyCardValidationDataInputFilterSensitiveLog, void 0)
   .ser(se_VerifyCardValidationDataCommand)
   .de(de_VerifyCardValidationDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyCardValidationDataInput;
+      output: VerifyCardValidationDataOutput;
+    };
+    sdk: {
+      input: VerifyCardValidationDataCommandInput;
+      output: VerifyCardValidationDataCommandOutput;
+    };
+  };
+}

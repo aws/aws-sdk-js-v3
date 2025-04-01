@@ -87,19 +87,22 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To set or change the current account password policy
  * ```javascript
  * // The following command sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password:
  * const input = {
- *   "MinimumPasswordLength": 8,
- *   "RequireNumbers": true
+ *   MinimumPasswordLength: 8,
+ *   RequireNumbers: true
  * };
  * const command = new UpdateAccountPasswordPolicyCommand(input);
- * await client.send(command);
- * // example id: c263a1af-37dc-4423-8dba-9790284ef5e0
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAccountPasswordPolicyCommand extends $Command
   .classBuilder<
@@ -109,9 +112,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +124,16 @@ export class UpdateAccountPasswordPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountPasswordPolicyCommand)
   .de(de_UpdateAccountPasswordPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountPasswordPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccountPasswordPolicyCommandInput;
+      output: UpdateAccountPasswordPolicyCommandOutput;
+    };
+  };
+}

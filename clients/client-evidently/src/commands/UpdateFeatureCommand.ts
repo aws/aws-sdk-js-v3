@@ -127,6 +127,7 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class UpdateFeatureCommand extends $Command
@@ -137,9 +138,7 @@ export class UpdateFeatureCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class UpdateFeatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFeatureCommand)
   .de(de_UpdateFeatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFeatureRequest;
+      output: UpdateFeatureResponse;
+    };
+    sdk: {
+      input: UpdateFeatureCommandInput;
+      output: UpdateFeatureCommandOutput;
+    };
+  };
+}

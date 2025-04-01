@@ -28,8 +28,8 @@ export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances must be deleted. For more
- *    information about how to complete this, see <a>DeleteStackInstances</a>.</p>
+ * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
+ *       must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +63,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteStackSetCommand extends $Command
@@ -73,9 +74,7 @@ export class DeleteStackSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +86,16 @@ export class DeleteStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStackSetCommand)
   .de(de_DeleteStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStackSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStackSetCommandInput;
+      output: DeleteStackSetCommandOutput;
+    };
+  };
+}

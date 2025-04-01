@@ -84,23 +84,23 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To stop an Amazon Rekognition Custom Labels model.
  * ```javascript
  * // Stops a version of an Amazon Rekognition Custom Labels model.
  * const input = {
- *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
+ *   ProjectVersionArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
  * };
  * const command = new StopProjectVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "STOPPING"
+ *   Status: "STOPPING"
  * }
  * *\/
- * // example id: to-stop-an-amazon-rekognition-custom-labels-model-1690561110698
  * ```
  *
+ * @public
  */
 export class StopProjectVersionCommand extends $Command
   .classBuilder<
@@ -110,9 +110,7 @@ export class StopProjectVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +122,16 @@ export class StopProjectVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopProjectVersionCommand)
   .de(de_StopProjectVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopProjectVersionRequest;
+      output: StopProjectVersionResponse;
+    };
+    sdk: {
+      input: StopProjectVersionCommandInput;
+      output: StopProjectVersionCommandOutput;
+    };
+  };
+}

@@ -89,6 +89,7 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class ListServiceVersionsCommand extends $Command
@@ -99,9 +100,7 @@ export class ListServiceVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListServiceVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceVersionsCommand)
   .de(de_ListServiceVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceVersionsRequest;
+      output: ListServiceVersionsResult;
+    };
+    sdk: {
+      input: ListServiceVersionsCommandInput;
+      output: ListServiceVersionsCommandOutput;
+    };
+  };
+}

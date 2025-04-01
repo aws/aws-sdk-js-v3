@@ -12,6 +12,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   map,
   resolvedPath as __resolvedPath,
@@ -156,7 +157,7 @@ export const se_PublishCommand = async (
     "content-type": "application/octet-stream",
     [_xamup]: [
       () => isSerializableHeaderValue(input[_uP]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_uP]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_uP]!))),
     ],
     [_xampfi]: input[_pFI]!,
     [_xamcd]: input[_cD]!,
@@ -605,13 +606,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cD = "correlationData";
 const _cT = "contentType";

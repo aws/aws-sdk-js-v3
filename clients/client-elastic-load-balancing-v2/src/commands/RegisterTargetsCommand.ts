@@ -39,7 +39,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *       port for the target group. Alternatively, you can override the port for a target when you
  *       register it. You can register each EC2 instance or IP address with the same target group
  *       multiple times using different ports.</p>
- *          <p>With a Network Load Balancer, you cannot register instances by instance ID if they have
+ *          <p>With a Network Load Balancer, you can't register instances by instance ID if they have
  *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
  *       and T1. You can register instances of these types by IP address.</p>
  * @example
@@ -87,47 +87,52 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To register targets with a target group
  * ```javascript
  * // This example registers the specified instances with the specified target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   Targets: [
  *     {
- *       "Id": "i-80c8dd94"
+ *       Id: "i-80c8dd94"
  *     },
  *     {
- *       "Id": "i-ceddcd4d"
+ *       Id: "i-ceddcd4d"
  *     }
  *   ]
  * };
  * const command = new RegisterTargetsCommand(input);
- * await client.send(command);
- * // example id: elbv2-register-targets-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To register targets with a target group using port overrides
  * ```javascript
  * // This example registers the specified instance with the specified target group using multiple ports. This enables you to register ECS containers on the same instance as targets in the target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
+ *   Targets: [
  *     {
- *       "Id": "i-80c8dd94",
- *       "Port": 80
+ *       Id: "i-80c8dd94",
+ *       Port: 80
  *     },
  *     {
- *       "Id": "i-80c8dd94",
- *       "Port": 766
+ *       Id: "i-80c8dd94",
+ *       Port: 766
  *     }
  *   ]
  * };
  * const command = new RegisterTargetsCommand(input);
- * await client.send(command);
- * // example id: elbv2-register-targets-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RegisterTargetsCommand extends $Command
   .classBuilder<
@@ -137,9 +142,7 @@ export class RegisterTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +154,16 @@ export class RegisterTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTargetsCommand)
   .de(de_RegisterTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTargetsInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterTargetsCommandInput;
+      output: RegisterTargetsCommandOutput;
+    };
+  };
+}

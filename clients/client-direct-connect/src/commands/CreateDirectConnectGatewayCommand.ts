@@ -42,6 +42,12 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * const client = new DirectConnectClient(config);
  * const input = { // CreateDirectConnectGatewayRequest
  *   directConnectGatewayName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  *   amazonSideAsn: Number("long"),
  * };
  * const command = new CreateDirectConnectGatewayCommand(input);
@@ -54,6 +60,12 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * //     ownerAccount: "STRING_VALUE",
  * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //     stateChangeError: "STRING_VALUE",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -74,6 +86,7 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectConnectGatewayCommand extends $Command
@@ -84,9 +97,7 @@ export class CreateDirectConnectGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +109,16 @@ export class CreateDirectConnectGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDirectConnectGatewayCommand)
   .de(de_CreateDirectConnectGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectConnectGatewayRequest;
+      output: CreateDirectConnectGatewayResult;
+    };
+    sdk: {
+      input: CreateDirectConnectGatewayCommandInput;
+      output: CreateDirectConnectGatewayCommandOutput;
+    };
+  };
+}

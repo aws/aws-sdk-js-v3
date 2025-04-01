@@ -32,8 +32,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
  *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Creating or
- *                 updating a <code>kubeconfig</code> file for an Amazon EKS
- *             cluster</a>.</p>
+ *                 updating a <code>kubeconfig</code> file for an Amazon EKS cluster</a>.</p>
  *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
@@ -76,6 +75,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       serviceIpv4Cidr: "STRING_VALUE",
  * //       serviceIpv6Cidr: "STRING_VALUE",
  * //       ipFamily: "ipv4" || "ipv6",
+ * //       elasticLoadBalancing: { // ElasticLoadBalancing
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //     logging: { // Logging
  * //       clusterLogging: [ // LogSetups
@@ -139,6 +141,34 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       bootstrapClusterCreatorAdminPermissions: true || false,
  * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
+ * //     upgradePolicy: { // UpgradePolicyResponse
+ * //       supportType: "STANDARD" || "EXTENDED",
+ * //     },
+ * //     zonalShiftConfig: { // ZonalShiftConfigResponse
+ * //       enabled: true || false,
+ * //     },
+ * //     remoteNetworkConfig: { // RemoteNetworkConfigResponse
+ * //       remoteNodeNetworks: [ // RemoteNodeNetworkList
+ * //         { // RemoteNodeNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //       remotePodNetworks: [ // RemotePodNetworkList
+ * //         { // RemotePodNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     computeConfig: { // ComputeConfigResponse
+ * //       enabled: true || false,
+ * //       nodePools: "<StringList>",
+ * //       nodeRoleArn: "STRING_VALUE",
+ * //     },
+ * //     storageConfig: { // StorageConfigResponse
+ * //       blockStorage: { // BlockStorage
+ * //         enabled: true || false,
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -158,7 +188,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -169,44 +200,44 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
- * @public
+ *
  * @example To describe a cluster
  * ```javascript
  * // This example command provides a description of the specified cluster in your default region.
  * const input = {
- *   "name": "devel"
+ *   name: "devel"
  * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "version": "1.10",
- *     "name": "devel",
- *     "arn": "arn:aws:eks:us-west-2:012345678910:cluster/devel",
- *     "certificateAuthority": {
- *       "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNE1EVXpNVEl6TVRFek1Wb1hEVEk0TURVeU9ESXpNVEV6TVZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTTZWCjVUaG4rdFcySm9Xa2hQMzRlVUZMNitaRXJOZGIvWVdrTmtDdWNGS2RaaXl2TjlMVmdvUmV2MjlFVFZlN1ZGbSsKUTJ3ZURyRXJiQyt0dVlibkFuN1ZLYmE3ay9hb1BHekZMdmVnb0t6b0M1N2NUdGVwZzRIazRlK2tIWHNaME10MApyb3NzcjhFM1ROeExETnNJTThGL1cwdjhsTGNCbWRPcjQyV2VuTjFHZXJnaDNSZ2wzR3JIazBnNTU0SjFWenJZCm9hTi8zODFUczlOTFF2QTBXb0xIcjBFRlZpTFdSZEoyZ3lXaC9ybDVyOFNDOHZaQXg1YW1BU0hVd01aTFpWRC8KTDBpOW4wRVM0MkpVdzQyQmxHOEdpd3NhTkJWV3lUTHZKclNhRXlDSHFtVVZaUTFDZkFXUjl0L3JleVVOVXM3TApWV1FqM3BFbk9RMitMSWJrc0RzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFNZ3RsQ1dIQ2U2YzVHMXl2YlFTS0Q4K2hUalkKSm1NSG56L2EvRGt0WG9YUjFVQzIrZUgzT1BZWmVjRVZZZHVaSlZCckNNQ2VWR0ZkeWdBYlNLc1FxWDg0S2RXbAp1MU5QaERDSmEyRHliN2pVMUV6VThTQjFGZUZ5ZFE3a0hNS1E1blpBRVFQOTY4S01hSGUrSm0yQ2x1UFJWbEJVCjF4WlhTS1gzTVZ0K1Q0SU1EV2d6c3JRSjVuQkRjdEtLcUZtM3pKdVVubHo5ZEpVckdscEltMjVJWXJDckxYUFgKWkUwRUtRNWEzMHhkVWNrTHRGQkQrOEtBdFdqSS9yZUZPNzM1YnBMdVoyOTBaNm42QlF3elRrS0p4cnhVc3QvOAppNGsxcnlsaUdWMm5SSjBUYjNORkczNHgrYWdzYTRoSTFPbU90TFM0TmgvRXJxT3lIUXNDc2hEQUtKUT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+ *   cluster: {
+ *     arn: "arn:aws:eks:us-west-2:012345678910:cluster/devel",
+ *     certificateAuthority: {
+ *       data: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNE1EVXpNVEl6TVRFek1Wb1hEVEk0TURVeU9ESXpNVEV6TVZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTTZWCjVUaG4rdFcySm9Xa2hQMzRlVUZMNitaRXJOZGIvWVdrTmtDdWNGS2RaaXl2TjlMVmdvUmV2MjlFVFZlN1ZGbSsKUTJ3ZURyRXJiQyt0dVlibkFuN1ZLYmE3ay9hb1BHekZMdmVnb0t6b0M1N2NUdGVwZzRIazRlK2tIWHNaME10MApyb3NzcjhFM1ROeExETnNJTThGL1cwdjhsTGNCbWRPcjQyV2VuTjFHZXJnaDNSZ2wzR3JIazBnNTU0SjFWenJZCm9hTi8zODFUczlOTFF2QTBXb0xIcjBFRlZpTFdSZEoyZ3lXaC9ybDVyOFNDOHZaQXg1YW1BU0hVd01aTFpWRC8KTDBpOW4wRVM0MkpVdzQyQmxHOEdpd3NhTkJWV3lUTHZKclNhRXlDSHFtVVZaUTFDZkFXUjl0L3JleVVOVXM3TApWV1FqM3BFbk9RMitMSWJrc0RzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFNZ3RsQ1dIQ2U2YzVHMXl2YlFTS0Q4K2hUalkKSm1NSG56L2EvRGt0WG9YUjFVQzIrZUgzT1BZWmVjRVZZZHVaSlZCckNNQ2VWR0ZkeWdBYlNLc1FxWDg0S2RXbAp1MU5QaERDSmEyRHliN2pVMUV6VThTQjFGZUZ5ZFE3a0hNS1E1blpBRVFQOTY4S01hSGUrSm0yQ2x1UFJWbEJVCjF4WlhTS1gzTVZ0K1Q0SU1EV2d6c3JRSjVuQkRjdEtLcUZtM3pKdVVubHo5ZEpVckdscEltMjVJWXJDckxYUFgKWkUwRUtRNWEzMHhkVWNrTHRGQkQrOEtBdFdqSS9yZUZPNzM1YnBMdVoyOTBaNm42QlF3elRrS0p4cnhVc3QvOAppNGsxcnlsaUdWMm5SSjBUYjNORkczNHgrYWdzYTRoSTFPbU90TFM0TmgvRXJxT3lIUXNDc2hEQUtKUT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
  *     },
- *     "createdAt": 1527807879.988,
- *     "endpoint": "https://A0DCCD80A04F01705DD065655C30CC3D.yl4.us-west-2.eks.amazonaws.com",
- *     "resourcesVpcConfig": {
- *       "securityGroupIds": [
+ *     createdAt: 1.527807879988E9,
+ *     endpoint: "https://A0DCCD80A04F01705DD065655C30CC3D.yl4.us-west-2.eks.amazonaws.com",
+ *     name: "devel",
+ *     resourcesVpcConfig: {
+ *       securityGroupIds: [
  *         "sg-6979fe18"
  *       ],
- *       "subnetIds": [
+ *       subnetIds: [
  *         "subnet-6782e71e",
  *         "subnet-e7e761ac"
  *       ],
- *       "vpcId": "vpc-950809ec"
+ *       vpcId: "vpc-950809ec"
  *     },
- *     "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
- *     "status": "ACTIVE"
+ *     roleArn: "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
+ *     status: "ACTIVE",
+ *     version: "1.10"
  *   }
  * }
  * *\/
- * // example id: to-describe-a-cluster-1527868708512
  * ```
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<
@@ -216,9 +247,7 @@ export class DescribeClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -230,4 +259,16 @@ export class DescribeClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterCommand)
   .de(de_DescribeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterRequest;
+      output: DescribeClusterResponse;
+    };
+    sdk: {
+      input: DescribeClusterCommandInput;
+      output: DescribeClusterCommandOutput;
+    };
+  };
+}

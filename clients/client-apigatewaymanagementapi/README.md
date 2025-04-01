@@ -10,7 +10,7 @@ AWS SDK for JavaScript ApiGatewayManagementApi Client for Node.js, Browser and R
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-apigatewaymanagementapi
+To install this package, simply type add or install @aws-sdk/client-apigatewaymanagementapi
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-apigatewaymanagementapi`

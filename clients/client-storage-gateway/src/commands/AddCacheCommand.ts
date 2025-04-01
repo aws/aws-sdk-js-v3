@@ -69,27 +69,27 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To add a cache
  * ```javascript
  * // The following example shows a request that activates a gateway-stored volume.
  * const input = {
- *   "DiskIds": [
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:03:00.0-scsi-0:0:1:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new AddCacheCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-add-a-cache-1471043606854
  * ```
  *
+ * @public
  */
 export class AddCacheCommand extends $Command
   .classBuilder<
@@ -99,9 +99,7 @@ export class AddCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +111,16 @@ export class AddCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddCacheCommand)
   .de(de_AddCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddCacheInput;
+      output: AddCacheOutput;
+    };
+    sdk: {
+      input: AddCacheCommandInput;
+      output: AddCacheCommandOutput;
+    };
+  };
+}

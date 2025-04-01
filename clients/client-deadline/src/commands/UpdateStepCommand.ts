@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateStepRequest, UpdateStepResponse } from "../models/models_0";
+import { UpdateStepRequest, UpdateStepResponse } from "../models/models_1";
 import { de_UpdateStepCommand, se_UpdateStepCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,12 +36,12 @@ export interface UpdateStepCommandOutput extends UpdateStepResponse, __MetadataB
  * // const { DeadlineClient, UpdateStepCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
  * const input = { // UpdateStepRequest
+ *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  *   stepId: "STRING_VALUE", // required
- *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  * };
  * const command = new UpdateStepCommand(input);
  * const response = await client.send(command);
@@ -78,6 +78,7 @@ export interface UpdateStepCommandOutput extends UpdateStepResponse, __MetadataB
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateStepCommand extends $Command
@@ -88,9 +89,7 @@ export class UpdateStepCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class UpdateStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStepCommand)
   .de(de_UpdateStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStepRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStepCommandInput;
+      output: UpdateStepCommandOutput;
+    };
+  };
+}

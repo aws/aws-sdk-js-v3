@@ -90,6 +90,7 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class ListTerminologiesCommand extends $Command
@@ -100,9 +101,7 @@ export class ListTerminologiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListTerminologiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTerminologiesCommand)
   .de(de_ListTerminologiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTerminologiesRequest;
+      output: ListTerminologiesResponse;
+    };
+    sdk: {
+      input: ListTerminologiesCommandInput;
+      output: ListTerminologiesCommandOutput;
+    };
+  };
+}

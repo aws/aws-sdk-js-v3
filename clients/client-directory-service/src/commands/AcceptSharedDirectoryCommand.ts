@@ -84,6 +84,7 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class AcceptSharedDirectoryCommand extends $Command
@@ -94,9 +95,7 @@ export class AcceptSharedDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class AcceptSharedDirectoryCommand extends $Command
   .f(void 0, AcceptSharedDirectoryResultFilterSensitiveLog)
   .ser(se_AcceptSharedDirectoryCommand)
   .de(de_AcceptSharedDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptSharedDirectoryRequest;
+      output: AcceptSharedDirectoryResult;
+    };
+    sdk: {
+      input: AcceptSharedDirectoryCommandInput;
+      output: AcceptSharedDirectoryCommandOutput;
+    };
+  };
+}

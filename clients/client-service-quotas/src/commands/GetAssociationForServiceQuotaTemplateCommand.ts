@@ -88,6 +88,7 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command
@@ -98,9 +99,7 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssociationForServiceQuotaTemplateCommand)
   .de(de_GetAssociationForServiceQuotaTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAssociationForServiceQuotaTemplateResponse;
+    };
+    sdk: {
+      input: GetAssociationForServiceQuotaTemplateCommandInput;
+      output: GetAssociationForServiceQuotaTemplateCommandOutput;
+    };
+  };
+}

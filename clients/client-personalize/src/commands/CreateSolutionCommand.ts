@@ -29,8 +29,10 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
 
 /**
  * <important>
- *             <p>After you create a solution, you can’t change its configuration. By default, all new solutions use automatic training. With automatic training, you incur training costs while
- *            your solution is active. You can't stop automatic training for a solution. To avoid unnecessary costs, make sure to delete the solution when you are finished. For information about training
+ *             <p>By default, all new solutions use automatic training. With automatic training, you incur training costs while
+ *            your solution is active. To avoid unnecessary costs, when you are finished you can
+ *            <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">update the solution</a> to turn off automatic training.
+ *            For information about training
  *   costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
  *          </important>
  *          <p>Creates the configuration for training a model (creating a solution version). This configuration
@@ -39,7 +41,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *     </p>
  *          <p>
  *       By default, new solutions use automatic training to create solution versions every 7 days. You can change the training frequency.
- *       Automatic solution version creation starts one hour after the solution is ACTIVE. If you manually create a solution version within
+ *       Automatic solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within
  *       the hour, the solution skips the first automatic training. For more information,
  *         see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.</p>
  *          <p>
@@ -76,6 +78,11 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *             <b>Related APIs</b>
  *          </p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">UpdateSolution</a>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a>
@@ -229,6 +236,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateSolutionCommand extends $Command
@@ -239,9 +247,7 @@ export class CreateSolutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -253,4 +259,16 @@ export class CreateSolutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSolutionCommand)
   .de(de_CreateSolutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSolutionRequest;
+      output: CreateSolutionResponse;
+    };
+    sdk: {
+      input: CreateSolutionCommandInput;
+      output: CreateSolutionCommandOutput;
+    };
+  };
+}

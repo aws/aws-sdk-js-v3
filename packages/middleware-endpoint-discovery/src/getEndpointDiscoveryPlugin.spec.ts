@@ -1,13 +1,15 @@
+import { describe, expect, test as it, vi } from "vitest";
+
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { endpointDiscoveryMiddlewareOptions, getEndpointDiscoveryPlugin } from "./getEndpointDiscoveryPlugin";
 
-jest.mock("./endpointDiscoveryMiddleware");
+vi.mock("./endpointDiscoveryMiddleware");
 
 describe(getEndpointDiscoveryPlugin.name, () => {
   const pluginConfig = {
     isCustomEndpoint: false,
-    endpointCache: jest.fn(),
-    endpointDiscoveryEnabled: jest.fn(),
+    endpointCache: vi.fn(),
+    endpointDiscoveryEnabled: vi.fn(),
     isClientEndpointDiscoveryEnabled: false,
   };
   const middlewareConfig = {
@@ -16,11 +18,11 @@ describe(getEndpointDiscoveryPlugin.name, () => {
 
   it(`applyToStack function adds endpoint discovery middleware`, () => {
     const middlewareReturn = {};
-    (endpointDiscoveryMiddleware as jest.Mock).mockReturnValueOnce(middlewareReturn);
+    vi.mocked(endpointDiscoveryMiddleware).mockReturnValueOnce(middlewareReturn as any);
 
     // @ts-ignore
     const plugin = getEndpointDiscoveryPlugin(pluginConfig, middlewareConfig);
-    const commandStack = { add: jest.fn() };
+    const commandStack = { add: vi.fn() };
 
     // @ts-ignore
     plugin.applyToStack(commandStack);

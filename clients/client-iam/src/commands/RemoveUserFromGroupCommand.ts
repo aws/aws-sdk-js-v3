@@ -66,19 +66,22 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a user from an IAM group
  * ```javascript
  * // The following command removes the user named Bob from the IAM group named Admins.
  * const input = {
- *   "GroupName": "Admins",
- *   "UserName": "Bob"
+ *   GroupName: "Admins",
+ *   UserName: "Bob"
  * };
  * const command = new RemoveUserFromGroupCommand(input);
- * await client.send(command);
- * // example id: fb54d5b4-0caf-41d8-af0e-10a84413f174
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveUserFromGroupCommand extends $Command
   .classBuilder<
@@ -88,9 +91,7 @@ export class RemoveUserFromGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +103,16 @@ export class RemoveUserFromGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveUserFromGroupCommand)
   .de(de_RemoveUserFromGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveUserFromGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveUserFromGroupCommandInput;
+      output: RemoveUserFromGroupCommandOutput;
+    };
+  };
+}

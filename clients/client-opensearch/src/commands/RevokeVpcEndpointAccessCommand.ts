@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
+import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
@@ -38,7 +38,8 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * const client = new OpenSearchClient(config);
  * const input = { // RevokeVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE",
+ *   Service: "application.opensearchservice.amazonaws.com",
  * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
@@ -70,6 +71,7 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class RevokeVpcEndpointAccessCommand extends $Command
@@ -80,9 +82,7 @@ export class RevokeVpcEndpointAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class RevokeVpcEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeVpcEndpointAccessCommand)
   .de(de_RevokeVpcEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeVpcEndpointAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeVpcEndpointAccessCommandInput;
+      output: RevokeVpcEndpointAccessCommandOutput;
+    };
+  };
+}

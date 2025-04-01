@@ -73,20 +73,23 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Creating a Channel Policy
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "Policy": "{...}"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   Policy: "{...}"
  * };
  * const command = new PutChannelPolicyCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutChannelPolicyCommand extends $Command
   .classBuilder<
@@ -96,9 +99,7 @@ export class PutChannelPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class PutChannelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutChannelPolicyCommand)
   .de(de_PutChannelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutChannelPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutChannelPolicyCommandInput;
+      output: PutChannelPolicyCommandOutput;
+    };
+  };
+}

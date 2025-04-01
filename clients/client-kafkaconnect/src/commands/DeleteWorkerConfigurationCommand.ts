@@ -83,6 +83,7 @@ export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConf
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkerConfigurationCommand extends $Command
@@ -93,9 +94,7 @@ export class DeleteWorkerConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DeleteWorkerConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkerConfigurationCommand)
   .de(de_DeleteWorkerConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkerConfigurationRequest;
+      output: DeleteWorkerConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteWorkerConfigurationCommandInput;
+      output: DeleteWorkerConfigurationCommandOutput;
+    };
+  };
+}

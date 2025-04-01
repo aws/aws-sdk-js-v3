@@ -28,8 +28,7 @@ export interface DisassociateQAppFromUserCommandInput extends DisassociateQAppFr
 export interface DisassociateQAppFromUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates a Q App from a user removing the user's access to run the
- *       Q App.</p>
+ * <p>Disassociates a Q App from a user removing the user's access to run the Q App.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,8 @@ export interface DisassociateQAppFromUserCommandOutput extends __MetadataBearer 
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -73,6 +72,21 @@ export interface DisassociateQAppFromUserCommandOutput extends __MetadataBearer 
  *
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ *
+ * @example Unlinks an Amazon Q App from the invoker's list of apps
+ * ```javascript
+ * //
+ * const input = {
+ *   appId: "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ * };
+ * const command = new DisassociateQAppFromUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -84,9 +98,7 @@ export class DisassociateQAppFromUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +110,16 @@ export class DisassociateQAppFromUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateQAppFromUserCommand)
   .de(de_DisassociateQAppFromUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateQAppFromUserInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateQAppFromUserCommandInput;
+      output: DisassociateQAppFromUserCommandOutput;
+    };
+  };
+}

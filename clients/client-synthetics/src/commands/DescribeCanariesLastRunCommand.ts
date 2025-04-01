@@ -92,6 +92,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DescribeCanariesLastRunCommand extends $Command
@@ -102,9 +103,7 @@ export class DescribeCanariesLastRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class DescribeCanariesLastRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCanariesLastRunCommand)
   .de(de_DescribeCanariesLastRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCanariesLastRunRequest;
+      output: DescribeCanariesLastRunResponse;
+    };
+    sdk: {
+      input: DescribeCanariesLastRunCommandInput;
+      output: DescribeCanariesLastRunCommandOutput;
+    };
+  };
+}

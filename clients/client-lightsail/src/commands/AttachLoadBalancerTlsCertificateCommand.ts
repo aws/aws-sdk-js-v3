@@ -41,7 +41,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  *       it will replace the existing one and become the attached certificate.</p>
  *          <p>The <code>AttachLoadBalancerTlsCertificate</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer
- *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *         name</code>. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +117,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class AttachLoadBalancerTlsCertificateCommand extends $Command
@@ -127,9 +128,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachLoadBalancerTlsCertificateCommand)
   .de(de_AttachLoadBalancerTlsCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachLoadBalancerTlsCertificateRequest;
+      output: AttachLoadBalancerTlsCertificateResult;
+    };
+    sdk: {
+      input: AttachLoadBalancerTlsCertificateCommandInput;
+      output: AttachLoadBalancerTlsCertificateCommandOutput;
+    };
+  };
+}

@@ -94,6 +94,7 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateApiKeyCommand extends $Command
@@ -104,9 +105,7 @@ export class UpdateApiKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class UpdateApiKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApiKeyCommand)
   .de(de_UpdateApiKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApiKeyRequest;
+      output: ApiKey;
+    };
+    sdk: {
+      input: UpdateApiKeyCommandInput;
+      output: UpdateApiKeyCommandOutput;
+    };
+  };
+}

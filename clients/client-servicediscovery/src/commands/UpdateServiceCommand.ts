@@ -105,38 +105,38 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example UpdateService Example
  * ```javascript
  * // This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.
  * const input = {
- *   "Id": "srv-e4anhexample0004",
- *   "Service": {
- *     "DnsConfig": {
- *       "DnsRecords": [
+ *   Id: "srv-e4anhexample0004",
+ *   Service: {
+ *     DnsConfig: {
+ *       DnsRecords: [
  *         {
- *           "TTL": 60,
- *           "Type": "A"
+ *           TTL: 60,
+ *           Type: "A"
  *         }
  *       ]
  *     },
- *     "HealthCheckConfig": {
- *       "FailureThreshold": 2,
- *       "ResourcePath": "/",
- *       "Type": "HTTP"
+ *     HealthCheckConfig: {
+ *       FailureThreshold: 2,
+ *       ResourcePath: "/",
+ *       Type: "HTTP"
  *     }
  *   }
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
+ *   OperationId: "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
  * }
  * *\/
- * // example id: updateservice-example-1590117830880
  * ```
  *
+ * @public
  */
 export class UpdateServiceCommand extends $Command
   .classBuilder<
@@ -146,9 +146,7 @@ export class UpdateServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +158,16 @@ export class UpdateServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceCommand)
   .de(de_UpdateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceRequest;
+      output: UpdateServiceResponse;
+    };
+    sdk: {
+      input: UpdateServiceCommandInput;
+      output: UpdateServiceCommandOutput;
+    };
+  };
+}

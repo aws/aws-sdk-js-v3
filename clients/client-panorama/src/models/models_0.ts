@@ -34,7 +34,7 @@ export interface AlternateSoftwareMetadata {
    * <p>The appliance software version.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -153,73 +153,73 @@ export interface ApplicationInstance {
    * <p>The application instance's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The application instance's ID.</p>
    * @public
    */
-  ApplicationInstanceId?: string;
+  ApplicationInstanceId?: string | undefined;
 
   /**
    * <p>The device's ID.</p>
    * @public
    */
-  DefaultRuntimeContextDevice?: string;
+  DefaultRuntimeContextDevice?: string | undefined;
 
   /**
    * <p>The device's name.</p>
    * @public
    */
-  DefaultRuntimeContextDeviceName?: string;
+  DefaultRuntimeContextDeviceName?: string | undefined;
 
   /**
    * <p>The application instance's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The application instance's status.</p>
    * @public
    */
-  Status?: ApplicationInstanceStatus;
+  Status?: ApplicationInstanceStatus | undefined;
 
   /**
    * <p>The application instance's health status.</p>
    * @public
    */
-  HealthStatus?: ApplicationInstanceHealthStatus;
+  HealthStatus?: ApplicationInstanceHealthStatus | undefined;
 
   /**
    * <p>The application instance's status description.</p>
    * @public
    */
-  StatusDescription?: string;
+  StatusDescription?: string | undefined;
 
   /**
    * <p>When the application instance was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The application instance's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The application instance's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The application's state.</p>
    * @public
    */
-  RuntimeContextStates?: ReportedRuntimeContextState[];
+  RuntimeContextStates?: ReportedRuntimeContextState[] | undefined;
 }
 
 /**
@@ -264,13 +264,13 @@ export class ConflictException extends __BaseException {
    * <p>A unique ID for the error.</p>
    * @public
    */
-  ErrorId?: string;
+  ErrorId?: string | undefined;
 
   /**
    * <p>A list of attributes that led to the exception and their values.</p>
    * @public
    */
-  ErrorArguments?: ConflictExceptionErrorArgument[];
+  ErrorArguments?: ConflictExceptionErrorArgument[] | undefined;
   /**
    * @internal
    */
@@ -392,13 +392,13 @@ export interface CreateApplicationInstanceRequest {
    * <p>A name for the application instance.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description for the application instance.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The application's manifest document.</p>
@@ -410,19 +410,19 @@ export interface CreateApplicationInstanceRequest {
    * <p>Setting overrides for the application manifest.</p>
    * @public
    */
-  ManifestOverridesPayload?: ManifestOverridesPayload;
+  ManifestOverridesPayload?: ManifestOverridesPayload | undefined;
 
   /**
    * <p>The ID of an application instance to replace with the new instance.</p>
    * @public
    */
-  ApplicationInstanceIdToReplace?: string;
+  ApplicationInstanceIdToReplace?: string | undefined;
 
   /**
    * <p>The ARN of a runtime role for the application instance.</p>
    * @public
    */
-  RuntimeRoleArn?: string;
+  RuntimeRoleArn?: string | undefined;
 
   /**
    * <p>A device's ID.</p>
@@ -434,7 +434,7 @@ export interface CreateApplicationInstanceRequest {
    * <p>Tags for the application instance.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -460,7 +460,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds a client should wait before retrying the call.</p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -488,13 +488,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The target resource's ID.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The target resource's type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the limit.</p>
@@ -589,25 +589,25 @@ export class ValidationException extends __BaseException {
    * <p>The reason that validation failed.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>A unique ID for the error.</p>
    * @public
    */
-  ErrorId?: string;
+  ErrorId?: string | undefined;
 
   /**
    * <p>A list of attributes that led to the exception and their values.</p>
    * @public
    */
-  ErrorArguments?: ValidationExceptionErrorArgument[];
+  ErrorArguments?: ValidationExceptionErrorArgument[] | undefined;
 
   /**
    * <p>A list of request parameters that failed validation.</p>
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -641,7 +641,7 @@ export interface OTAJobConfig {
    * <p>Whether to apply the update if it is a major version change.</p>
    * @public
    */
-  AllowMajorVersionUpdate?: boolean;
+  AllowMajorVersionUpdate?: boolean | undefined;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface DeviceJobConfig {
    * <p>A configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.</p>
    * @public
    */
-  OTAJobConfig?: OTAJobConfig;
+  OTAJobConfig?: OTAJobConfig | undefined;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface CreateJobForDevicesRequest {
    * <p>Configuration settings for a software update job.</p>
    * @public
    */
-  DeviceJobConfig?: DeviceJobConfig;
+  DeviceJobConfig?: DeviceJobConfig | undefined;
 
   /**
    * <p>The type of job to run.</p>
@@ -702,13 +702,13 @@ export interface Job {
    * <p>The job's ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The target device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 }
 
 /**
@@ -833,7 +833,7 @@ export interface CreateNodeFromTemplateJobRequest {
    * <p>A description for the node.</p>
    * @public
    */
-  NodeDescription?: string;
+  NodeDescription?: string | undefined;
 
   /**
    * <p>Template parameters for the node.</p>
@@ -845,7 +845,7 @@ export interface CreateNodeFromTemplateJobRequest {
    * <p>Tags for the job.</p>
    * @public
    */
-  JobTags?: JobResourceTags[];
+  JobTags?: JobResourceTags[] | undefined;
 }
 
 /**
@@ -873,7 +873,7 @@ export interface CreatePackageRequest {
    * <p>Tags for the package.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -920,13 +920,13 @@ export interface CreatePackageResponse {
    * <p>The package's ID.</p>
    * @public
    */
-  PackageId?: string;
+  PackageId?: string | undefined;
 
   /**
    * <p>The package's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The package's storage location.</p>
@@ -944,7 +944,7 @@ export interface S3Location {
    * <p>The bucket's Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>A bucket name.</p>
@@ -980,7 +980,7 @@ export interface PackageImportJobInputConfig {
    * <p>The package version's input configuration.</p>
    * @public
    */
-  PackageVersionInputConfig?: PackageVersionInputConfig;
+  PackageVersionInputConfig?: PackageVersionInputConfig | undefined;
 }
 
 /**
@@ -1018,7 +1018,7 @@ export interface PackageVersionOutputConfig {
    * <p>Indicates that the version is recommended for all users.</p>
    * @public
    */
-  MarkLatest?: boolean;
+  MarkLatest?: boolean | undefined;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface PackageImportJobOutputConfig {
    * <p>The package version's output configuration.</p>
    * @public
    */
-  PackageVersionOutputConfig?: PackageVersionOutputConfig;
+  PackageVersionOutputConfig?: PackageVersionOutputConfig | undefined;
 }
 
 /**
@@ -1065,7 +1065,7 @@ export interface CreatePackageImportJobRequest {
    * <p>Tags for the package import job.</p>
    * @public
    */
-  JobTags?: JobResourceTags[];
+  JobTags?: JobResourceTags[] | undefined;
 }
 
 /**
@@ -1098,7 +1098,7 @@ export interface DeleteDeviceResponse {
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 }
 
 /**
@@ -1116,7 +1116,7 @@ export interface DeletePackageRequest {
    *       Amazon S3.</p>
    * @public
    */
-  ForceDelete?: boolean;
+  ForceDelete?: boolean | undefined;
 }
 
 /**
@@ -1132,7 +1132,7 @@ export interface DeregisterPackageVersionRequest {
    * <p>An owner account.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>A package ID.</p>
@@ -1156,7 +1156,7 @@ export interface DeregisterPackageVersionRequest {
    * <p>If the version was marked latest, the new version to maker as latest.</p>
    * @public
    */
-  UpdatedLatestPatchVersion?: string;
+  UpdatedLatestPatchVersion?: string | undefined;
 }
 
 /**
@@ -1183,91 +1183,91 @@ export interface DescribeApplicationInstanceResponse {
    * <p>The application instance's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The application instance's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The device's ID.</p>
    * @public
    */
-  DefaultRuntimeContextDevice?: string;
+  DefaultRuntimeContextDevice?: string | undefined;
 
   /**
    * <p>The device's bane.</p>
    * @public
    */
-  DefaultRuntimeContextDeviceName?: string;
+  DefaultRuntimeContextDeviceName?: string | undefined;
 
   /**
    * <p>The ID of the application instance that this instance replaced.</p>
    * @public
    */
-  ApplicationInstanceIdToReplace?: string;
+  ApplicationInstanceIdToReplace?: string | undefined;
 
   /**
    * <p>The application instance's runtime role ARN.</p>
    * @public
    */
-  RuntimeRoleArn?: string;
+  RuntimeRoleArn?: string | undefined;
 
   /**
    * <p>The application instance's status.</p>
    * @public
    */
-  Status?: ApplicationInstanceStatus;
+  Status?: ApplicationInstanceStatus | undefined;
 
   /**
    * <p>The application instance's health status.</p>
    * @public
    */
-  HealthStatus?: ApplicationInstanceHealthStatus;
+  HealthStatus?: ApplicationInstanceHealthStatus | undefined;
 
   /**
    * <p>The application instance's status description.</p>
    * @public
    */
-  StatusDescription?: string;
+  StatusDescription?: string | undefined;
 
   /**
    * <p>When the application instance was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The application instance was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The application instance's ID.</p>
    * @public
    */
-  ApplicationInstanceId?: string;
+  ApplicationInstanceId?: string | undefined;
 
   /**
    * <p>The application instance's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The application instance's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The application instance's state.</p>
    * @public
    */
-  RuntimeContextStates?: ReportedRuntimeContextState[];
+  RuntimeContextStates?: ReportedRuntimeContextState[] | undefined;
 }
 
 /**
@@ -1289,49 +1289,49 @@ export interface DescribeApplicationInstanceDetailsResponse {
    * <p>The application instance's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The application instance's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The application instance's default runtime context device.</p>
    * @public
    */
-  DefaultRuntimeContextDevice?: string;
+  DefaultRuntimeContextDevice?: string | undefined;
 
   /**
    * <p>The application instance's configuration manifest.</p>
    * @public
    */
-  ManifestPayload?: ManifestPayload;
+  ManifestPayload?: ManifestPayload | undefined;
 
   /**
    * <p>Parameter overrides for the configuration manifest.</p>
    * @public
    */
-  ManifestOverridesPayload?: ManifestOverridesPayload;
+  ManifestOverridesPayload?: ManifestOverridesPayload | undefined;
 
   /**
    * <p>The ID of the application instance that this instance replaced.</p>
    * @public
    */
-  ApplicationInstanceIdToReplace?: string;
+  ApplicationInstanceIdToReplace?: string | undefined;
 
   /**
    * <p>When the application instance was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The application instance's ID.</p>
    * @public
    */
-  ApplicationInstanceId?: string;
+  ApplicationInstanceId?: string | undefined;
 }
 
 /**
@@ -1383,19 +1383,19 @@ export interface EthernetStatus {
    * <p>The device's IP address.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The device's connection status.</p>
    * @public
    */
-  ConnectionStatus?: NetworkConnectionStatus;
+  ConnectionStatus?: NetworkConnectionStatus | undefined;
 
   /**
    * <p>The device's physical address.</p>
    * @public
    */
-  HwAddress?: string;
+  HwAddress?: string | undefined;
 }
 
 /**
@@ -1407,19 +1407,19 @@ export interface NtpStatus {
    * <p>The connection's status.</p>
    * @public
    */
-  ConnectionStatus?: NetworkConnectionStatus;
+  ConnectionStatus?: NetworkConnectionStatus | undefined;
 
   /**
    * <p>The IP address of the server.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The domain name of the server.</p>
    * @public
    */
-  NtpServerName?: string;
+  NtpServerName?: string | undefined;
 }
 
 /**
@@ -1431,25 +1431,25 @@ export interface NetworkStatus {
    * <p>The status of Ethernet port 0.</p>
    * @public
    */
-  Ethernet0Status?: EthernetStatus;
+  Ethernet0Status?: EthernetStatus | undefined;
 
   /**
    * <p>The status of Ethernet port 1.</p>
    * @public
    */
-  Ethernet1Status?: EthernetStatus;
+  Ethernet1Status?: EthernetStatus | undefined;
 
   /**
    * <p>Details about a network time protocol (NTP) server connection.</p>
    * @public
    */
-  NtpStatus?: NtpStatus;
+  NtpStatus?: NtpStatus | undefined;
 
   /**
    * <p>When the network status changed.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -1519,19 +1519,19 @@ export interface LatestDeviceJob {
    * <p>The target version of the device software.</p>
    * @public
    */
-  ImageVersion?: string;
+  ImageVersion?: string | undefined;
 
   /**
    * <p>Status of the latest device job.</p>
    * @public
    */
-  Status?: UpdateProgress;
+  Status?: UpdateProgress | undefined;
 
   /**
    * <p>The job's type.</p>
    * @public
    */
-  JobType?: JobType;
+  JobType?: JobType | undefined;
 }
 
 /**
@@ -1579,7 +1579,7 @@ export interface EthernetPayload {
    * <p>Network configuration for a static IP connection.</p>
    * @public
    */
-  StaticIpConnectionInfo?: StaticIpConnectionInfo;
+  StaticIpConnectionInfo?: StaticIpConnectionInfo | undefined;
 }
 
 /**
@@ -1604,19 +1604,19 @@ export interface NetworkPayload {
    * <p>Settings for Ethernet port 0.</p>
    * @public
    */
-  Ethernet0?: EthernetPayload;
+  Ethernet0?: EthernetPayload | undefined;
 
   /**
    * <p>Settings for Ethernet port 1.</p>
    * @public
    */
-  Ethernet1?: EthernetPayload;
+  Ethernet1?: EthernetPayload | undefined;
 
   /**
    * <p>Network time protocol (NTP) server settings.</p>
    * @public
    */
-  Ntp?: NtpPayload;
+  Ntp?: NtpPayload | undefined;
 }
 
 /**
@@ -1659,121 +1659,121 @@ export interface DescribeDeviceResponse {
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The device's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The device's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The device's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The device's type.</p>
    * @public
    */
-  Type?: DeviceType;
+  Type?: DeviceType | undefined;
 
   /**
    * <p>The device's connection status.</p>
    * @public
    */
-  DeviceConnectionStatus?: DeviceConnectionStatus;
+  DeviceConnectionStatus?: DeviceConnectionStatus | undefined;
 
   /**
    * <p>When the device was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The device's provisioning status.</p>
    * @public
    */
-  ProvisioningStatus?: DeviceStatus;
+  ProvisioningStatus?: DeviceStatus | undefined;
 
   /**
    * <p>The latest software version available for the device.</p>
    * @public
    */
-  LatestSoftware?: string;
+  LatestSoftware?: string | undefined;
 
   /**
    * <p>The device's current software version.</p>
    * @public
    */
-  CurrentSoftware?: string;
+  CurrentSoftware?: string | undefined;
 
   /**
    * <p>The device's serial number.</p>
    * @public
    */
-  SerialNumber?: string;
+  SerialNumber?: string | undefined;
 
   /**
    * <p>The device's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The device's networking configuration.</p>
    * @public
    */
-  NetworkingConfiguration?: NetworkPayload;
+  NetworkingConfiguration?: NetworkPayload | undefined;
 
   /**
    * <p>The device's networking status.</p>
    * @public
    */
-  CurrentNetworkingStatus?: NetworkStatus;
+  CurrentNetworkingStatus?: NetworkStatus | undefined;
 
   /**
    * <p>The device's lease expiration time.</p>
    * @public
    */
-  LeaseExpirationTime?: Date;
+  LeaseExpirationTime?: Date | undefined;
 
   /**
    * <p>Beta software releases available for the device.</p>
    * @public
    */
-  AlternateSoftwares?: AlternateSoftwareMetadata[];
+  AlternateSoftwares?: AlternateSoftwareMetadata[] | undefined;
 
   /**
    * <p>The most recent beta software release.</p>
    * @public
    */
-  LatestAlternateSoftware?: string;
+  LatestAlternateSoftware?: string | undefined;
 
   /**
    * <p>The device's maker.</p>
    * @public
    */
-  Brand?: DeviceBrand;
+  Brand?: DeviceBrand | undefined;
 
   /**
    * <p>A device's latest job. Includes the target image version, and the job status.</p>
    * @public
    */
-  LatestDeviceJob?: LatestDeviceJob;
+  LatestDeviceJob?: LatestDeviceJob | undefined;
 
   /**
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    * @public
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus;
+  DeviceAggregatedStatus?: DeviceAggregatedStatus | undefined;
 }
 
 /**
@@ -1795,55 +1795,55 @@ export interface DescribeDeviceJobResponse {
    * <p>The job's ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The device's ARN.</p>
    * @public
    */
-  DeviceArn?: string;
+  DeviceArn?: string | undefined;
 
   /**
    * <p>The device's name.</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>The device's type.</p>
    * @public
    */
-  DeviceType?: DeviceType;
+  DeviceType?: DeviceType | undefined;
 
   /**
    * <p>For an OTA job, the target version of the device software.</p>
    * @public
    */
-  ImageVersion?: string;
+  ImageVersion?: string | undefined;
 
   /**
    * <p>The job's status.</p>
    * @public
    */
-  Status?: UpdateProgress;
+  Status?: UpdateProgress | undefined;
 
   /**
    * <p>When the job was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The job's type.</p>
    * @public
    */
-  JobType?: JobType;
+  JobType?: JobType | undefined;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface DescribeNodeRequest {
    * <p>The account ID of the node's owner.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 }
 
 /**
@@ -1905,31 +1905,31 @@ export interface NodeInputPort {
    * <p>The input port's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The input port's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The input port's type.</p>
    * @public
    */
-  Type?: PortType;
+  Type?: PortType | undefined;
 
   /**
    * <p>The input port's default value.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>The input port's max connections.</p>
    * @public
    */
-  MaxConnections?: number;
+  MaxConnections?: number | undefined;
 }
 
 /**
@@ -1941,19 +1941,19 @@ export interface NodeOutputPort {
    * <p>The output port's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The output port's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The output port's type.</p>
    * @public
    */
-  Type?: PortType;
+  Type?: PortType | undefined;
 }
 
 /**
@@ -2018,7 +2018,7 @@ export interface DescribeNodeResponse {
    * <p>The node's ARN.</p>
    * @public
    */
-  PackageArn?: string;
+  PackageArn?: string | undefined;
 
   /**
    * <p>The node's package version.</p>
@@ -2042,7 +2042,7 @@ export interface DescribeNodeResponse {
    * <p>The node's asset name.</p>
    * @public
    */
-  AssetName?: string;
+  AssetName?: string | undefined;
 
   /**
    * <p>The node's description.</p>
@@ -2145,7 +2145,7 @@ export interface DescribeNodeFromTemplateJobResponse {
    * <p>The node's description.</p>
    * @public
    */
-  NodeDescription?: string;
+  NodeDescription?: string | undefined;
 
   /**
    * <p>The job's template type.</p>
@@ -2163,7 +2163,7 @@ export interface DescribeNodeFromTemplateJobResponse {
    * <p>The job's tags.</p>
    * @public
    */
-  JobTags?: JobResourceTags[];
+  JobTags?: JobResourceTags[] | undefined;
 }
 
 /**
@@ -2209,13 +2209,13 @@ export interface DescribePackageResponse {
    * <p>ARNs of accounts that have read access to the package.</p>
    * @public
    */
-  ReadAccessPrincipalArns?: string[];
+  ReadAccessPrincipalArns?: string[] | undefined;
 
   /**
    * <p>ARNs of accounts that have write access to the package.</p>
    * @public
    */
-  WriteAccessPrincipalArns?: string[];
+  WriteAccessPrincipalArns?: string[] | undefined;
 
   /**
    * <p>When the package was created.</p>
@@ -2318,7 +2318,7 @@ export interface DescribePackageImportJobResponse {
    * <p>The job's client token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The job's type.</p>
@@ -2372,7 +2372,7 @@ export interface DescribePackageImportJobResponse {
    * <p>The job's tags.</p>
    * @public
    */
-  JobTags?: JobResourceTags[];
+  JobTags?: JobResourceTags[] | undefined;
 }
 
 /**
@@ -2383,7 +2383,7 @@ export interface DescribePackageVersionRequest {
    * <p>The version's owner account.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>The version's ID.</p>
@@ -2401,7 +2401,7 @@ export interface DescribePackageVersionRequest {
    * <p>The version's patch version.</p>
    * @public
    */
-  PatchVersion?: string;
+  PatchVersion?: string | undefined;
 }
 
 /**
@@ -2428,7 +2428,7 @@ export interface DescribePackageVersionResponse {
    * <p>The account ID of the version's owner.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>The version's ID.</p>
@@ -2440,7 +2440,7 @@ export interface DescribePackageVersionResponse {
    * <p>The ARN of the package.</p>
    * @public
    */
-  PackageArn?: string;
+  PackageArn?: string | undefined;
 
   /**
    * <p>The version's name.</p>
@@ -2476,13 +2476,13 @@ export interface DescribePackageVersionResponse {
    * <p>The version's status description.</p>
    * @public
    */
-  StatusDescription?: string;
+  StatusDescription?: string | undefined;
 
   /**
    * <p>The version's registered time.</p>
    * @public
    */
-  RegisteredTime?: Date;
+  RegisteredTime?: Date | undefined;
 }
 
 /**
@@ -2494,79 +2494,79 @@ export interface Device {
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The device's name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>When the device was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The device's provisioning status.</p>
    * @public
    */
-  ProvisioningStatus?: DeviceStatus;
+  ProvisioningStatus?: DeviceStatus | undefined;
 
   /**
    * <p>When the device was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The device's lease expiration time.</p>
    * @public
    */
-  LeaseExpirationTime?: Date;
+  LeaseExpirationTime?: Date | undefined;
 
   /**
    * <p>The device's maker.</p>
    * @public
    */
-  Brand?: DeviceBrand;
+  Brand?: DeviceBrand | undefined;
 
   /**
    * <p>A device's current software.</p>
    * @public
    */
-  CurrentSoftware?: string;
+  CurrentSoftware?: string | undefined;
 
   /**
    * <p>A description for the device.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The device's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The device's type.</p>
    * @public
    */
-  Type?: DeviceType;
+  Type?: DeviceType | undefined;
 
   /**
    * <p>A device's latest job. Includes the target image version, and the update job status.</p>
    * @public
    */
-  LatestDeviceJob?: LatestDeviceJob;
+  LatestDeviceJob?: LatestDeviceJob | undefined;
 
   /**
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    * @public
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus;
+  DeviceAggregatedStatus?: DeviceAggregatedStatus | undefined;
 }
 
 /**
@@ -2578,31 +2578,31 @@ export interface DeviceJob {
    * <p>The name of the target device</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>The ID of the target device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The job's ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>When the job was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The job's type.</p>
    * @public
    */
-  JobType?: JobType;
+  JobType?: JobType | undefined;
 }
 
 /**
@@ -2619,13 +2619,13 @@ export interface ListApplicationInstanceDependenciesRequest {
    * <p>The maximum number of application instance dependencies to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2660,13 +2660,13 @@ export interface ListApplicationInstanceDependenciesResponse {
    * <p>A list of package objects.</p>
    * @public
    */
-  PackageObjects?: PackageObject[];
+  PackageObjects?: PackageObject[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2683,13 +2683,13 @@ export interface ListApplicationInstanceNodeInstancesRequest {
    * <p>The maximum number of node instances to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2723,31 +2723,31 @@ export interface NodeInstance {
    * <p>The node's ID.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 
   /**
    * <p>The instance's package name.</p>
    * @public
    */
-  PackageName?: string;
+  PackageName?: string | undefined;
 
   /**
    * <p>The instance's package version.</p>
    * @public
    */
-  PackageVersion?: string;
+  PackageVersion?: string | undefined;
 
   /**
    * <p>The instance's package patch version.</p>
    * @public
    */
-  PackagePatchVersion?: string;
+  PackagePatchVersion?: string | undefined;
 
   /**
    * <p>The instance's name.</p>
    * @public
    */
-  NodeName?: string;
+  NodeName?: string | undefined;
 
   /**
    * <p>The instance's current status.</p>
@@ -2764,13 +2764,13 @@ export interface ListApplicationInstanceNodeInstancesResponse {
    * <p>A list of node instances.</p>
    * @public
    */
-  NodeInstances?: NodeInstance[];
+  NodeInstances?: NodeInstance[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2800,25 +2800,25 @@ export interface ListApplicationInstancesRequest {
    * <p>The application instances' device ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>Only include instances with a specific status.</p>
    * @public
    */
-  StatusFilter?: StatusFilter;
+  StatusFilter?: StatusFilter | undefined;
 
   /**
    * <p>The maximum number of application instances to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2829,13 +2829,13 @@ export interface ListApplicationInstancesResponse {
    * <p>A list of application instances.</p>
    * @public
    */
-  ApplicationInstances?: ApplicationInstance[];
+  ApplicationInstances?: ApplicationInstance[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2876,37 +2876,37 @@ export interface ListDevicesRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of devices to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The target column to be sorted on. Default column sort is CREATED_TIME.</p>
    * @public
    */
-  SortBy?: ListDevicesSortBy;
+  SortBy?: ListDevicesSortBy | undefined;
 
   /**
    * <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>Filter based on device's name. Prefixes supported.</p>
    * @public
    */
-  NameFilter?: string;
+  NameFilter?: string | undefined;
 
   /**
    * <p>Filter based on a device's status.</p>
    * @public
    */
-  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus;
+  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | undefined;
 }
 
 /**
@@ -2923,7 +2923,7 @@ export interface ListDevicesResponse {
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2934,19 +2934,19 @@ export interface ListDevicesJobsRequest {
    * <p>Filter results by the job's target device ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of device jobs to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2957,13 +2957,13 @@ export interface ListDevicesJobsResponse {
    * <p>A list of jobs.</p>
    * @public
    */
-  DeviceJobs?: DeviceJob[];
+  DeviceJobs?: DeviceJob[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2974,13 +2974,13 @@ export interface ListNodeFromTemplateJobsRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of node from template jobs to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2992,37 +2992,37 @@ export interface NodeFromTemplateJob {
    * <p>The job's ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The job's template type.</p>
    * @public
    */
-  TemplateType?: TemplateType;
+  TemplateType?: TemplateType | undefined;
 
   /**
    * <p>The job's status.</p>
    * @public
    */
-  Status?: NodeFromTemplateJobStatus;
+  Status?: NodeFromTemplateJobStatus | undefined;
 
   /**
    * <p>The job's status message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>When the job was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The node's name.</p>
    * @public
    */
-  NodeName?: string;
+  NodeName?: string | undefined;
 }
 
 /**
@@ -3039,7 +3039,7 @@ export interface ListNodeFromTemplateJobsResponse {
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3050,43 +3050,43 @@ export interface ListNodesRequest {
    * <p>Search for nodes by category.</p>
    * @public
    */
-  Category?: NodeCategory;
+  Category?: NodeCategory | undefined;
 
   /**
    * <p>Search for nodes by the account ID of the nodes' owner.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>Search for nodes by name.</p>
    * @public
    */
-  PackageName?: string;
+  PackageName?: string | undefined;
 
   /**
    * <p>Search for nodes by version.</p>
    * @public
    */
-  PackageVersion?: string;
+  PackageVersion?: string | undefined;
 
   /**
    * <p>Search for nodes by patch version.</p>
    * @public
    */
-  PatchVersion?: string;
+  PatchVersion?: string | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of nodes to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3116,7 +3116,7 @@ export interface Node {
    * <p>The account ID of the node's owner.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>The node's package name.</p>
@@ -3134,7 +3134,7 @@ export interface Node {
    * <p>The node's ARN.</p>
    * @public
    */
-  PackageArn?: string;
+  PackageArn?: string | undefined;
 
   /**
    * <p>The node's package version.</p>
@@ -3152,7 +3152,7 @@ export interface Node {
    * <p>The node's description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>When the node was created.</p>
@@ -3169,13 +3169,13 @@ export interface ListNodesResponse {
    * <p>A list of nodes.</p>
    * @public
    */
-  Nodes?: Node[];
+  Nodes?: Node[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3186,13 +3186,13 @@ export interface ListPackageImportJobsRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of package import jobs to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3204,37 +3204,37 @@ export interface PackageImportJob {
    * <p>The job's ID.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The job's type.</p>
    * @public
    */
-  JobType?: PackageImportJobType;
+  JobType?: PackageImportJobType | undefined;
 
   /**
    * <p>The job's status.</p>
    * @public
    */
-  Status?: PackageImportJobStatus;
+  Status?: PackageImportJobStatus | undefined;
 
   /**
    * <p>The job's status message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>When the job was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>When the job was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -3251,7 +3251,7 @@ export interface ListPackageImportJobsResponse {
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3262,13 +3262,13 @@ export interface ListPackagesRequest {
    * <p>The maximum number of packages to return in one page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3280,31 +3280,31 @@ export interface PackageListItem {
    * <p>The package's ID.</p>
    * @public
    */
-  PackageId?: string;
+  PackageId?: string | undefined;
 
   /**
    * <p>The package's name.</p>
    * @public
    */
-  PackageName?: string;
+  PackageName?: string | undefined;
 
   /**
    * <p>The package's ARN.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>When the package was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The package's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3315,13 +3315,13 @@ export interface ListPackagesResponse {
    * <p>A list of packages.</p>
    * @public
    */
-  Packages?: PackageListItem[];
+  Packages?: PackageListItem[] | undefined;
 
   /**
    * <p>A pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3343,7 +3343,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3392,19 +3392,19 @@ export interface ProvisionDeviceRequest {
    * <p>A description for the device.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Tags for the device.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A networking configuration for the device.</p>
    * @public
    */
-  NetworkingConfiguration?: NetworkPayload;
+  NetworkingConfiguration?: NetworkPayload | undefined;
 }
 
 /**
@@ -3415,7 +3415,7 @@ export interface ProvisionDeviceResponse {
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The device's ARN.</p>
@@ -3433,13 +3433,13 @@ export interface ProvisionDeviceResponse {
    * <p>The device's configuration bundle.</p>
    * @public
    */
-  Certificates?: Uint8Array;
+  Certificates?: Uint8Array | undefined;
 
   /**
    * <p>The device's IoT thing name.</p>
    * @public
    */
-  IotThingName?: string;
+  IotThingName?: string | undefined;
 }
 
 /**
@@ -3450,7 +3450,7 @@ export interface RegisterPackageVersionRequest {
    * <p>An owner account.</p>
    * @public
    */
-  OwnerAccount?: string;
+  OwnerAccount?: string | undefined;
 
   /**
    * <p>A package ID.</p>
@@ -3474,7 +3474,7 @@ export interface RegisterPackageVersionRequest {
    * <p>Whether to mark the new version as the latest version.</p>
    * @public
    */
-  MarkLatest?: boolean;
+  MarkLatest?: boolean | undefined;
 }
 
 /**
@@ -3584,7 +3584,7 @@ export interface UpdateDeviceMetadataRequest {
    * <p>A description for the device.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -3595,7 +3595,7 @@ export interface UpdateDeviceMetadataResponse {
    * <p>The device's ID.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 }
 
 /**

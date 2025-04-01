@@ -20,6 +20,7 @@ export * from "./ListSafetyRulesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateClusterCommand";
 export * from "./UpdateControlPanelCommand";
 export * from "./UpdateRoutingControlCommand";
 export * from "./UpdateSafetyRuleCommand";

@@ -98,6 +98,7 @@ export interface UpdateAppInstanceBotCommandOutput extends UpdateAppInstanceBotR
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppInstanceBotCommand extends $Command
@@ -108,9 +109,7 @@ export class UpdateAppInstanceBotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class UpdateAppInstanceBotCommand extends $Command
   .f(UpdateAppInstanceBotRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppInstanceBotCommand)
   .de(de_UpdateAppInstanceBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppInstanceBotRequest;
+      output: UpdateAppInstanceBotResponse;
+    };
+    sdk: {
+      input: UpdateAppInstanceBotCommandInput;
+      output: UpdateAppInstanceBotCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopTransformJobRequest } from "../models/models_4";
+import { StopTransformJobRequest } from "../models/models_5";
 import { de_StopTransformJobCommand, se_StopTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -61,6 +61,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopTransformJobCommand extends $Command
@@ -71,9 +72,7 @@ export class StopTransformJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class StopTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTransformJobCommand)
   .de(de_StopTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTransformJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTransformJobCommandInput;
+      output: StopTransformJobCommandOutput;
+    };
+  };
+}

@@ -30,7 +30,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,
@@ -99,7 +99,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * const input = { // PutBucketTaggingRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   Tagging: { // Tagging
  *     TagSet: [ // TagSet // required
  *       { // Tag
@@ -125,30 +125,33 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set tags on a bucket
  * ```javascript
  * // The following example sets tags on a bucket. Any existing tags are replaced.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Tagging": {
- *     "TagSet": [
+ *   Bucket: "examplebucket",
+ *   Tagging: {
+ *     TagSet: [
  *       {
- *         "Key": "Key1",
- *         "Value": "Value1"
+ *         Key: "Key1",
+ *         Value: "Value1"
  *       },
  *       {
- *         "Key": "Key2",
- *         "Value": "Value2"
+ *         Key: "Key2",
+ *         Value: "Value2"
  *       }
  *     ]
  *   }
  * };
  * const command = new PutBucketTaggingCommand(input);
- * await client.send(command);
- * // example id: set-tags-on-a-bucket-1482346269066
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketTaggingCommand extends $Command
   .classBuilder<
@@ -168,8 +171,7 @@ export class PutBucketTaggingCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -179,4 +181,16 @@ export class PutBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketTaggingCommand)
   .de(de_PutBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketTaggingCommandInput;
+      output: PutBucketTaggingCommandOutput;
+    };
+  };
+}

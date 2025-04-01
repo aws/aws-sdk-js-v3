@@ -16,7 +16,7 @@ about the Well-Architected Tool, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-wellarchitected
+To install this package, simply type add or install @aws-sdk/client-wellarchitected
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-wellarchitected`

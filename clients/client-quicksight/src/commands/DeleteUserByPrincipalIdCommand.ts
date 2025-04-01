@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_3";
+import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_4";
 import { de_DeleteUserByPrincipalIdCommand, se_DeleteUserByPrincipalIdCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -82,6 +82,7 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserByPrincipalIdCommand extends $Command
@@ -92,9 +93,7 @@ export class DeleteUserByPrincipalIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DeleteUserByPrincipalIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserByPrincipalIdCommand)
   .de(de_DeleteUserByPrincipalIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserByPrincipalIdRequest;
+      output: DeleteUserByPrincipalIdResponse;
+    };
+    sdk: {
+      input: DeleteUserByPrincipalIdCommandInput;
+      output: DeleteUserByPrincipalIdCommandOutput;
+    };
+  };
+}

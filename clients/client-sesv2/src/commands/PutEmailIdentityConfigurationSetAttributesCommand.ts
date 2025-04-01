@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutEmailIdentityConfigurationSetAttributesRequest,
   PutEmailIdentityConfigurationSetAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutEmailIdentityConfigurationSetAttributesCommand,
   se_PutEmailIdentityConfigurationSetAttributesCommand,
@@ -72,6 +72,7 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
@@ -82,9 +83,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityConfigurationSetAttributesCommand)
   .de(de_PutEmailIdentityConfigurationSetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityConfigurationSetAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityConfigurationSetAttributesCommandInput;
+      output: PutEmailIdentityConfigurationSetAttributesCommandOutput;
+    };
+  };
+}

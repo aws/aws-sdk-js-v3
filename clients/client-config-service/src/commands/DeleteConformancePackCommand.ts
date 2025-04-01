@@ -85,6 +85,7 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteConformancePackCommand extends $Command
@@ -95,9 +96,7 @@ export class DeleteConformancePackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DeleteConformancePackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConformancePackCommand)
   .de(de_DeleteConformancePackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConformancePackRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConformancePackCommandInput;
+      output: DeleteConformancePackCommandOutput;
+    };
+  };
+}

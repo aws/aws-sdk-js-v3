@@ -77,6 +77,7 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteSipMediaApplicationCommand extends $Command
@@ -87,9 +88,7 @@ export class DeleteSipMediaApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DeleteSipMediaApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSipMediaApplicationCommand)
   .de(de_DeleteSipMediaApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSipMediaApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSipMediaApplicationCommandInput;
+      output: DeleteSipMediaApplicationCommandOutput;
+    };
+  };
+}

@@ -82,6 +82,7 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetServicesInScopeCommand extends $Command
@@ -92,9 +93,7 @@ export class GetServicesInScopeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class GetServicesInScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServicesInScopeCommand)
   .de(de_GetServicesInScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetServicesInScopeResponse;
+    };
+    sdk: {
+      input: GetServicesInScopeCommandInput;
+      output: GetServicesInScopeCommandOutput;
+    };
+  };
+}

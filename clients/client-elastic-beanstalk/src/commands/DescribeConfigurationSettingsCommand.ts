@@ -99,60 +99,60 @@ export interface DescribeConfigurationSettingsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view configurations settings for an environment
  * ```javascript
  * // The following operation retrieves configuration settings for an environment named my-env:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "EnvironmentName": "my-env"
+ *   ApplicationName: "my-app",
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeConfigurationSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConfigurationSettings": [
+ *   ConfigurationSettings: [
  *     {
- *       "ApplicationName": "my-app",
- *       "DateCreated": "2015-08-13T19:16:25Z",
- *       "DateUpdated": "2015-08-13T23:30:07Z",
- *       "DeploymentStatus": "deployed",
- *       "Description": "Environment created from the EB CLI using \"eb create\"",
- *       "EnvironmentName": "my-env",
- *       "OptionSettings": [
+ *       ApplicationName: "my-app",
+ *       DateCreated: "2015-08-13T19:16:25Z",
+ *       DateUpdated: "2015-08-13T23:30:07Z",
+ *       DeploymentStatus: "deployed",
+ *       Description: `Environment created from the EB CLI using "eb create"`,
+ *       EnvironmentName: "my-env",
+ *       OptionSettings: [
  *         {
- *           "Namespace": "aws:autoscaling:asg",
- *           "OptionName": "Availability Zones",
- *           "ResourceName": "AWSEBAutoScalingGroup",
- *           "Value": "Any"
+ *           Namespace: "aws:autoscaling:asg",
+ *           OptionName: "Availability Zones",
+ *           ResourceName: "AWSEBAutoScalingGroup",
+ *           Value: "Any"
  *         },
  *         {
- *           "Namespace": "aws:autoscaling:asg",
- *           "OptionName": "Cooldown",
- *           "ResourceName": "AWSEBAutoScalingGroup",
- *           "Value": "360"
+ *           Namespace: "aws:autoscaling:asg",
+ *           OptionName: "Cooldown",
+ *           ResourceName: "AWSEBAutoScalingGroup",
+ *           Value: "360"
  *         },
  *         {
- *           "Namespace": "aws:elb:policies",
- *           "OptionName": "ConnectionDrainingTimeout",
- *           "ResourceName": "AWSEBLoadBalancer",
- *           "Value": "20"
+ *           Namespace: "aws:elb:policies",
+ *           OptionName: "ConnectionDrainingTimeout",
+ *           ResourceName: "AWSEBLoadBalancer",
+ *           Value: "20"
  *         },
  *         {
- *           "Namespace": "aws:elb:policies",
- *           "OptionName": "ConnectionSettingIdleTimeout",
- *           "ResourceName": "AWSEBLoadBalancer",
- *           "Value": "60"
+ *           Namespace: "aws:elb:policies",
+ *           OptionName: "ConnectionSettingIdleTimeout",
+ *           ResourceName: "AWSEBLoadBalancer",
+ *           Value: "60"
  *         }
  *       ],
- *       "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8"
+ *       SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-configurations-settings-for-an-environment-1456276924537
  * ```
  *
+ * @public
  */
 export class DescribeConfigurationSettingsCommand extends $Command
   .classBuilder<
@@ -162,9 +162,7 @@ export class DescribeConfigurationSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +174,16 @@ export class DescribeConfigurationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationSettingsCommand)
   .de(de_DescribeConfigurationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationSettingsMessage;
+      output: ConfigurationSettingsDescriptions;
+    };
+    sdk: {
+      input: DescribeConfigurationSettingsCommandInput;
+      output: DescribeConfigurationSettingsCommandOutput;
+    };
+  };
+}

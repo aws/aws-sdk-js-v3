@@ -54,8 +54,13 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * //     experimentTemplateId: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE",
  * //     state: { // ExperimentState
- * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed" || "cancelled",
  * //       reason: "STRING_VALUE",
+ * //       error: { // ExperimentError
+ * //         accountId: "STRING_VALUE",
+ * //         code: "STRING_VALUE",
+ * //         location: "STRING_VALUE",
+ * //       },
  * //     },
  * //     targets: { // ExperimentTargetMap
  * //       "<keys>": { // ExperimentTarget
@@ -129,6 +134,38 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * //       actionsMode: "skip-all" || "run-all",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentReportConfiguration
+ * //       outputs: { // ExperimentReportConfigurationOutputs
+ * //         s3Configuration: { // ExperimentReportConfigurationOutputsS3Configuration
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
+ * //     experimentReport: { // ExperimentReport
+ * //       state: { // ExperimentReportState
+ * //         status: "pending" || "running" || "completed" || "cancelled" || "failed",
+ * //         reason: "STRING_VALUE",
+ * //         error: { // ExperimentReportError
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       s3Reports: [ // ExperimentReportS3ReportList
+ * //         { // ExperimentReportS3Report
+ * //           arn: "STRING_VALUE",
+ * //           reportType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -155,6 +192,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class StartExperimentCommand extends $Command
@@ -165,9 +203,7 @@ export class StartExperimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +215,16 @@ export class StartExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExperimentCommand)
   .de(de_StartExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExperimentRequest;
+      output: StartExperimentResponse;
+    };
+    sdk: {
+      input: StartExperimentCommandInput;
+      output: StartExperimentCommandOutput;
+    };
+  };
+}

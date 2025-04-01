@@ -103,6 +103,7 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StopMultiplexCommand extends $Command
@@ -113,9 +114,7 @@ export class StopMultiplexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class StopMultiplexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopMultiplexCommand)
   .de(de_StopMultiplexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopMultiplexRequest;
+      output: StopMultiplexResponse;
+    };
+    sdk: {
+      input: StopMultiplexCommandInput;
+      output: StopMultiplexCommandOutput;
+    };
+  };
+}

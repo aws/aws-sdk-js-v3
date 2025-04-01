@@ -43,6 +43,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ResumeContactRecordingCommand extends $Command
@@ -78,9 +80,7 @@ export class ResumeContactRecordingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class ResumeContactRecordingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeContactRecordingCommand)
   .de(de_ResumeContactRecordingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeContactRecordingRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeContactRecordingCommandInput;
+      output: ResumeContactRecordingCommandOutput;
+    };
+  };
+}

@@ -108,30 +108,30 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "Description": "my application"
+ *   ApplicationName: "my-app",
+ *   Description: "my application"
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Application": {
- *     "ApplicationName": "my-app",
- *     "ConfigurationTemplates": [],
- *     "DateCreated": "2015-02-12T18:32:21.181Z",
- *     "DateUpdated": "2015-02-12T18:32:21.181Z",
- *     "Description": "my application"
+ *   Application: {
+ *     ApplicationName: "my-app",
+ *     ConfigurationTemplates:     [],
+ *     DateCreated: "2015-02-12T18:32:21.181Z",
+ *     DateUpdated: "2015-02-12T18:32:21.181Z",
+ *     Description: "my application"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-application-1456268895683
  * ```
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<
@@ -141,9 +141,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +153,16 @@ export class CreateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationMessage;
+      output: ApplicationDescriptionMessage;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

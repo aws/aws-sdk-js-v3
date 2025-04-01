@@ -39,8 +39,7 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  *             the phone number is added to the opt-out list. In addition to STOP, your recipients can
  *             use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported
  *             opt-out keywords, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-manage.html#channels-sms-manage-optout">
- *                 SMS opt out </a> in the <i>Amazon Pinpoint User
- *             Guide</i>.</p>
+ *                 SMS opt out </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,6 +105,7 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateOptOutListCommand extends $Command
@@ -116,9 +116,7 @@ export class CreateOptOutListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +128,16 @@ export class CreateOptOutListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOptOutListCommand)
   .de(de_CreateOptOutListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOptOutListRequest;
+      output: CreateOptOutListResult;
+    };
+    sdk: {
+      input: CreateOptOutListCommandInput;
+      output: CreateOptOutListCommandOutput;
+    };
+  };
+}

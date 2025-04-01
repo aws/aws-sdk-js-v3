@@ -48,6 +48,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * //   Queues: [ // __listOfQueue
  * //     { // Queue
  * //       Arn: "STRING_VALUE",
+ * //       ConcurrentJobs: Number("int"),
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
  * //       LastUpdated: new Date("TIMESTAMP"),
@@ -62,11 +63,21 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * //         ReservedSlots: Number("int"),
  * //         Status: "ACTIVE" || "EXPIRED",
  * //       },
+ * //       ServiceOverrides: [ // __listOfServiceOverride
+ * //         { // ServiceOverride
+ * //           Message: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //           OverrideValue: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       Status: "ACTIVE" || "PAUSED",
  * //       SubmittedJobsCount: Number("int"),
  * //       Type: "SYSTEM" || "CUSTOM",
  * //     },
  * //   ],
+ * //   TotalConcurrentJobs: Number("int"),
+ * //   UnallocatedConcurrentJobs: Number("int"),
  * // };
  *
  * ```
@@ -98,6 +109,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class ListQueuesCommand extends $Command
@@ -108,9 +120,7 @@ export class ListQueuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +132,16 @@ export class ListQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueuesCommand)
   .de(de_ListQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueuesRequest;
+      output: ListQueuesResponse;
+    };
+    sdk: {
+      input: ListQueuesCommandInput;
+      output: ListQueuesCommandOutput;
+    };
+  };
+}

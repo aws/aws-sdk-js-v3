@@ -177,6 +177,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateLaunchConfigurationTemplateCommand extends $Command
@@ -187,9 +188,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +200,16 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
   .f(void 0, LaunchConfigurationTemplateFilterSensitiveLog)
   .ser(se_UpdateLaunchConfigurationTemplateCommand)
   .de(de_UpdateLaunchConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLaunchConfigurationTemplateRequest;
+      output: LaunchConfigurationTemplate;
+    };
+    sdk: {
+      input: UpdateLaunchConfigurationTemplateCommandInput;
+      output: UpdateLaunchConfigurationTemplateCommandOutput;
+    };
+  };
+}

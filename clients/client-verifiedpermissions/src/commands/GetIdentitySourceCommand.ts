@@ -204,6 +204,35 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To retrieve details about an identity source
+ * ```javascript
+ * // The following example retrieves the details for the specified identity source.
+ * const input = {
+ *   identitySourceId: "ISEXAMPLEabcdefg111111",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new GetIdentitySourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   details: {
+ *     clientIds: [
+ *       "a1b2c3d4e5f6g7h8i9j0kalbmc"
+ *     ],
+ *     discoveryUrl: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5",
+ *     openIdIssuer: "COGNITO",
+ *     userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
+ *   },
+ *   identitySourceId: "ISEXAMPLEabcdefg111111",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   principalEntityType: "AWS::Cognito"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetIdentitySourceCommand extends $Command
@@ -214,9 +243,7 @@ export class GetIdentitySourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -228,4 +255,16 @@ export class GetIdentitySourceCommand extends $Command
   .f(void 0, GetIdentitySourceOutputFilterSensitiveLog)
   .ser(se_GetIdentitySourceCommand)
   .de(de_GetIdentitySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentitySourceInput;
+      output: GetIdentitySourceOutput;
+    };
+    sdk: {
+      input: GetIdentitySourceCommandInput;
+      output: GetIdentitySourceCommandOutput;
+    };
+  };
+}

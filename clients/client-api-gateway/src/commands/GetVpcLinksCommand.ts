@@ -83,6 +83,7 @@ export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetVpcLinksCommand extends $Command
@@ -93,9 +94,7 @@ export class GetVpcLinksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class GetVpcLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVpcLinksCommand)
   .de(de_GetVpcLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVpcLinksRequest;
+      output: VpcLinks;
+    };
+    sdk: {
+      input: GetVpcLinksCommandInput;
+      output: GetVpcLinksCommandOutput;
+    };
+  };
+}

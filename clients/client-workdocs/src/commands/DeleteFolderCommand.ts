@@ -83,6 +83,7 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DeleteFolderCommand extends $Command
@@ -93,9 +94,7 @@ export class DeleteFolderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class DeleteFolderCommand extends $Command
   .f(DeleteFolderRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteFolderCommand)
   .de(de_DeleteFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFolderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFolderCommandInput;
+      output: DeleteFolderCommandOutput;
+    };
+  };
+}

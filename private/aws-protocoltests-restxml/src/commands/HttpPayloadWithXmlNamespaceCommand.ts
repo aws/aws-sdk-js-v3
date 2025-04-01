@@ -59,6 +59,7 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPayloadWithXmlNamespaceCommand extends $Command
@@ -77,4 +78,16 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPayloadWithXmlNamespaceCommand)
   .de(de_HttpPayloadWithXmlNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPayloadWithXmlNamespaceInputOutput;
+      output: HttpPayloadWithXmlNamespaceInputOutput;
+    };
+    sdk: {
+      input: HttpPayloadWithXmlNamespaceCommandInput;
+      output: HttpPayloadWithXmlNamespaceCommandOutput;
+    };
+  };
+}

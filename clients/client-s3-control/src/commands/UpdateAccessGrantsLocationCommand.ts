@@ -74,6 +74,7 @@ export interface UpdateAccessGrantsLocationCommandOutput extends UpdateAccessGra
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccessGrantsLocationCommand extends $Command
@@ -102,4 +103,16 @@ export class UpdateAccessGrantsLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessGrantsLocationCommand)
   .de(de_UpdateAccessGrantsLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessGrantsLocationRequest;
+      output: UpdateAccessGrantsLocationResult;
+    };
+    sdk: {
+      input: UpdateAccessGrantsLocationCommandInput;
+      output: UpdateAccessGrantsLocationCommandOutput;
+    };
+  };
+}

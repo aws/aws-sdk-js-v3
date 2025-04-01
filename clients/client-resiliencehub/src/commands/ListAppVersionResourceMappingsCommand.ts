@@ -57,10 +57,10 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * //       logicalStackName: "STRING_VALUE",
  * //       appRegistryAppName: "STRING_VALUE",
  * //       resourceGroupName: "STRING_VALUE",
- * //       mappingType: "STRING_VALUE", // required
+ * //       mappingType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  * //       physicalResourceId: { // PhysicalResourceId
  * //         identifier: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "Arn" || "Native", // required
  * //         awsRegion: "STRING_VALUE",
  * //         awsAccountId: "STRING_VALUE",
  * //       },
@@ -100,6 +100,7 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppVersionResourceMappingsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListAppVersionResourceMappingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListAppVersionResourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppVersionResourceMappingsCommand)
   .de(de_ListAppVersionResourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppVersionResourceMappingsRequest;
+      output: ListAppVersionResourceMappingsResponse;
+    };
+    sdk: {
+      input: ListAppVersionResourceMappingsCommandInput;
+      output: ListAppVersionResourceMappingsCommandOutput;
+    };
+  };
+}

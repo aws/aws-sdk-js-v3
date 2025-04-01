@@ -11,7 +11,7 @@ import {
   ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
   ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_ModifyVpnTunnelOptionsCommand, se_ModifyVpnTunnelOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -109,13 +109,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * const response = await client.send(command);
  * // { // ModifyVpnTunnelOptionsResult
  * //   VpnConnection: { // VpnConnection
- * //     CustomerGatewayConfiguration: "STRING_VALUE",
- * //     CustomerGatewayId: "STRING_VALUE",
  * //     Category: "STRING_VALUE",
- * //     State: "pending" || "available" || "deleting" || "deleted",
- * //     Type: "ipsec.1",
- * //     VpnConnectionId: "STRING_VALUE",
- * //     VpnGatewayId: "STRING_VALUE",
  * //     TransitGatewayId: "STRING_VALUE",
  * //     CoreNetworkArn: "STRING_VALUE",
  * //     CoreNetworkAttachmentArn: "STRING_VALUE",
@@ -213,6 +207,12 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     VpnConnectionId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CustomerGatewayConfiguration: "STRING_VALUE",
+ * //     Type: "ipsec.1",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     VpnGatewayId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -227,6 +227,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVpnTunnelOptionsCommand extends $Command
@@ -237,9 +238,7 @@ export class ModifyVpnTunnelOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -251,4 +250,16 @@ export class ModifyVpnTunnelOptionsCommand extends $Command
   .f(ModifyVpnTunnelOptionsRequestFilterSensitiveLog, ModifyVpnTunnelOptionsResultFilterSensitiveLog)
   .ser(se_ModifyVpnTunnelOptionsCommand)
   .de(de_ModifyVpnTunnelOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpnTunnelOptionsRequest;
+      output: ModifyVpnTunnelOptionsResult;
+    };
+    sdk: {
+      input: ModifyVpnTunnelOptionsCommandInput;
+      output: ModifyVpnTunnelOptionsCommandOutput;
+    };
+  };
+}

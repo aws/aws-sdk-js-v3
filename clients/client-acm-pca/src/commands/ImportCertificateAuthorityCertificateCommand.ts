@@ -214,6 +214,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command
@@ -224,9 +225,7 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -238,4 +237,16 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportCertificateAuthorityCertificateCommand)
   .de(de_ImportCertificateAuthorityCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateAuthorityCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportCertificateAuthorityCertificateCommandInput;
+      output: ImportCertificateAuthorityCertificateCommandOutput;
+    };
+  };
+}

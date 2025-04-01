@@ -54,6 +54,7 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class ConstantQueryStringCommand extends $Command
@@ -72,4 +73,16 @@ export class ConstantQueryStringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConstantQueryStringCommand)
   .de(de_ConstantQueryStringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConstantQueryStringInput;
+      output: {};
+    };
+    sdk: {
+      input: ConstantQueryStringCommandInput;
+      output: ConstantQueryStringCommandOutput;
+    };
+  };
+}

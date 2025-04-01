@@ -76,31 +76,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
- * @example To get a list of jobs that you've created for AWS Snowball
- * ```javascript
- * // Returns an array of JobListEntry objects of the specified length. Each JobListEntry object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
- * const input = {};
- * const command = new ListJobsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobListEntries": [
- *     {
- *       "CreationDate": "1460678186.0",
- *       "Description": "MyJob",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440000",
- *       "JobState": "New",
- *       "JobType": "IMPORT",
- *       "SnowballType": "STANDARD"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-jobs-that-youve-created-for-aws-snowball-1482542167627
- * ```
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<
@@ -110,9 +87,7 @@ export class ListJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +99,16 @@ export class ListJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobsCommand)
   .de(de_ListJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobsRequest;
+      output: ListJobsResult;
+    };
+    sdk: {
+      input: ListJobsCommandInput;
+      output: ListJobsCommandOutput;
+    };
+  };
+}

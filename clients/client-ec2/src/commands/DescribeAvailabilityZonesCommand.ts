@@ -29,8 +29,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
 
 /**
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
- *       you. If there is an event impacting a zone, you can use this request to view the state and any
- *       provided messages for that zone.</p>
+ *       you.</p>
  *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a>
  *       in the <i>Amazon EC2 User Guide</i>.</p>
@@ -46,14 +45,6 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * // const { EC2Client, DescribeAvailabilityZonesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAvailabilityZonesRequest
- *   Filters: [ // FilterList
- *     { // Filter
- *       Name: "STRING_VALUE",
- *       Values: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
  *   ZoneNames: [ // ZoneNameStringList
  *     "STRING_VALUE",
  *   ],
@@ -62,13 +53,20 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  *   ],
  *   AllAvailabilityZones: true || false,
  *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAvailabilityZonesResult
  * //   AvailabilityZones: [ // AvailabilityZoneList
  * //     { // AvailabilityZone
- * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
  * //       Messages: [ // AvailabilityZoneMessageList
  * //         { // AvailabilityZoneMessage
@@ -83,6 +81,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * //       ZoneType: "STRING_VALUE",
  * //       ParentZoneName: "STRING_VALUE",
  * //       ParentZoneId: "STRING_VALUE",
+ * //       GroupLongName: "STRING_VALUE",
+ * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //     },
  * //   ],
  * // };
@@ -98,46 +98,46 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your Availability Zones
  * ```javascript
  * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1b"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1b"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1c"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1c"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1d"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1d"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1e"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1e"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-availability-zones-1
  * ```
  *
+ * @public
  */
 export class DescribeAvailabilityZonesCommand extends $Command
   .classBuilder<
@@ -147,9 +147,7 @@ export class DescribeAvailabilityZonesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +159,16 @@ export class DescribeAvailabilityZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAvailabilityZonesCommand)
   .de(de_DescribeAvailabilityZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAvailabilityZonesRequest;
+      output: DescribeAvailabilityZonesResult;
+    };
+    sdk: {
+      input: DescribeAvailabilityZonesCommandInput;
+      output: DescribeAvailabilityZonesCommandOutput;
+    };
+  };
+}

@@ -40,8 +40,8 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts a new premigration assessment run for one or more individual assessments
- *          of a migration task.</p>
+ * <p>Starts a new premigration assessment run for one or more individual assessments of a
+ *          migration task.</p>
  *          <p>The assessments that you can specify depend on the source and target database engine and
  *          the migration type defined for the given task. To run this operation, your migration task
  *          must already be created. After you run this operation, you can review the status of each
@@ -67,6 +67,13 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  *   Exclude: [ // ExcludeTestList
  *     "STRING_VALUE",
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
@@ -87,6 +94,15 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * //     ResultEncryptionMode: "STRING_VALUE",
  * //     ResultKmsKeyArn: "STRING_VALUE",
  * //     AssessmentRunName: "STRING_VALUE",
+ * //     IsLatestTaskAssessmentRun: true || false,
+ * //     ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //       Passed: Number("int"),
+ * //       Failed: Number("int"),
+ * //       Error: Number("int"),
+ * //       Warning: Number("int"),
+ * //       Cancelled: Number("int"),
+ * //       Skipped: Number("int"),
+ * //     },
  * //   },
  * // };
  *
@@ -139,6 +155,7 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class StartReplicationTaskAssessmentRunCommand extends $Command
@@ -149,9 +166,7 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +178,16 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplicationTaskAssessmentRunCommand)
   .de(de_StartReplicationTaskAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationTaskAssessmentRunMessage;
+      output: StartReplicationTaskAssessmentRunResponse;
+    };
+    sdk: {
+      input: StartReplicationTaskAssessmentRunCommandInput;
+      output: StartReplicationTaskAssessmentRunCommandOutput;
+    };
+  };
+}

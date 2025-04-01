@@ -284,6 +284,7 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ExportComponentsCommand extends $Command
@@ -294,9 +295,7 @@ export class ExportComponentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -308,4 +307,16 @@ export class ExportComponentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportComponentsCommand)
   .de(de_ExportComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportComponentsRequest;
+      output: ExportComponentsResponse;
+    };
+    sdk: {
+      input: ExportComponentsCommandInput;
+      output: ExportComponentsCommandOutput;
+    };
+  };
+}

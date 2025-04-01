@@ -87,6 +87,7 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetBucketCommand extends $Command
@@ -115,4 +116,16 @@ export class GetBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketCommand)
   .de(de_GetBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketRequest;
+      output: GetBucketResult;
+    };
+    sdk: {
+      input: GetBucketCommandInput;
+      output: GetBucketCommandOutput;
+    };
+  };
+}

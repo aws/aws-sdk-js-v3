@@ -84,7 +84,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -94,6 +94,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -105,9 +106,7 @@ export class DeleteFleetLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class DeleteFleetLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetLocationsCommand)
   .de(de_DeleteFleetLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetLocationsInput;
+      output: DeleteFleetLocationsOutput;
+    };
+    sdk: {
+      input: DeleteFleetLocationsCommandInput;
+      output: DeleteFleetLocationsCommandOutput;
+    };
+  };
+}

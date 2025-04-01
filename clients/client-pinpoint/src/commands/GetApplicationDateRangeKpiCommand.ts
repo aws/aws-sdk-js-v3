@@ -107,6 +107,7 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationDateRangeKpiCommand extends $Command
@@ -117,9 +118,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class GetApplicationDateRangeKpiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationDateRangeKpiCommand)
   .de(de_GetApplicationDateRangeKpiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationDateRangeKpiRequest;
+      output: GetApplicationDateRangeKpiResponse;
+    };
+    sdk: {
+      input: GetApplicationDateRangeKpiCommandInput;
+      output: GetApplicationDateRangeKpiCommandOutput;
+    };
+  };
+}

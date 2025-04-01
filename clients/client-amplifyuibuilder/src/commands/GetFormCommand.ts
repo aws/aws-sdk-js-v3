@@ -222,6 +222,7 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetFormCommand extends $Command
@@ -232,9 +233,7 @@ export class GetFormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +245,16 @@ export class GetFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFormCommand)
   .de(de_GetFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFormRequest;
+      output: GetFormResponse;
+    };
+    sdk: {
+      input: GetFormCommandInput;
+      output: GetFormCommandOutput;
+    };
+  };
+}

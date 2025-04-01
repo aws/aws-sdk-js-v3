@@ -86,6 +86,7 @@ export interface ListTestConfigurationsCommandOutput extends ListTestConfigurati
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class ListTestConfigurationsCommand extends $Command
@@ -96,9 +97,7 @@ export class ListTestConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListTestConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestConfigurationsCommand)
   .de(de_ListTestConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestConfigurationsRequest;
+      output: ListTestConfigurationsResponse;
+    };
+    sdk: {
+      input: ListTestConfigurationsCommandInput;
+      output: ListTestConfigurationsCommandOutput;
+    };
+  };
+}

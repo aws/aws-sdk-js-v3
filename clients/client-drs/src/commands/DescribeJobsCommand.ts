@@ -132,6 +132,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobsCommand extends $Command
@@ -142,9 +143,7 @@ export class DescribeJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +155,16 @@ export class DescribeJobsCommand extends $Command
   .f(void 0, DescribeJobsResponseFilterSensitiveLog)
   .ser(se_DescribeJobsCommand)
   .de(de_DescribeJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobsRequest;
+      output: DescribeJobsResponse;
+    };
+    sdk: {
+      input: DescribeJobsCommandInput;
+      output: DescribeJobsCommandOutput;
+    };
+  };
+}

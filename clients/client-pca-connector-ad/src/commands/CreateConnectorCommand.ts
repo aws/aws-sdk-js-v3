@@ -40,6 +40,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *   DirectoryId: "STRING_VALUE", // required
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   VpcInformation: { // VpcInformation
+ *     IpAddressType: "IPV4" || "DUALSTACK",
  *     SecurityGroupIds: [ // SecurityGroupIdList // required
  *       "STRING_VALUE",
  *     ],
@@ -95,6 +96,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command
@@ -105,9 +107,7 @@ export class CreateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class CreateConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectorCommand)
   .de(de_CreateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorRequest;
+      output: CreateConnectorResponse;
+    };
+    sdk: {
+      input: CreateConnectorCommandInput;
+      output: CreateConnectorCommandOutput;
+    };
+  };
+}

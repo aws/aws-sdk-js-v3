@@ -98,6 +98,7 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class AddNotificationChannelsCommand extends $Command
@@ -108,9 +109,7 @@ export class AddNotificationChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class AddNotificationChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddNotificationChannelsCommand)
   .de(de_AddNotificationChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddNotificationChannelsRequest;
+      output: AddNotificationChannelsResponse;
+    };
+    sdk: {
+      input: AddNotificationChannelsCommandInput;
+      output: AddNotificationChannelsCommandOutput;
+    };
+  };
+}

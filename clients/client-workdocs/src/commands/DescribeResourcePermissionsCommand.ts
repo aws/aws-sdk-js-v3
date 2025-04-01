@@ -97,6 +97,7 @@ export interface DescribeResourcePermissionsCommandOutput
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeResourcePermissionsCommand extends $Command
@@ -107,9 +108,7 @@ export class DescribeResourcePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class DescribeResourcePermissionsCommand extends $Command
   .f(DescribeResourcePermissionsRequestFilterSensitiveLog, void 0)
   .ser(se_DescribeResourcePermissionsCommand)
   .de(de_DescribeResourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourcePermissionsRequest;
+      output: DescribeResourcePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeResourcePermissionsCommandInput;
+      output: DescribeResourcePermissionsCommandOutput;
+    };
+  };
+}

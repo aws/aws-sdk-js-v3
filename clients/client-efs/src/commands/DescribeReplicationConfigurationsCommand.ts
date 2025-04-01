@@ -66,8 +66,12 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * //           FileSystemId: "STRING_VALUE", // required
  * //           Region: "STRING_VALUE", // required
  * //           LastReplicatedTimestamp: new Date("TIMESTAMP"),
+ * //           OwnerId: "STRING_VALUE",
+ * //           StatusMessage: "STRING_VALUE",
+ * //           RoleArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SourceFileSystemOwnerId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -102,6 +106,7 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationConfigurationsCommand extends $Command
@@ -112,9 +117,7 @@ export class DescribeReplicationConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +129,16 @@ export class DescribeReplicationConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationConfigurationsCommand)
   .de(de_DescribeReplicationConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationConfigurationsRequest;
+      output: DescribeReplicationConfigurationsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationConfigurationsCommandInput;
+      output: DescribeReplicationConfigurationsCommandOutput;
+    };
+  };
+}

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
@@ -50,7 +50,7 @@ export interface EvaluationRequest {
    *        in the evaluation events sent to Evidently from the user session. </p>
    * @public
    */
-  evaluationContext?: __LazyJsonString | string;
+  evaluationContext?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface EvaluationResult {
    * <p>The name or ARN of the project that contains the feature being evaluated.</p>
    * @public
    */
-  project?: string;
+  project?: string | undefined;
 
   /**
    * <p>The name of the feature being evaluated.</p>
@@ -189,13 +189,13 @@ export interface EvaluationResult {
    * <p>The name of the variation that was served to the user session.</p>
    * @public
    */
-  variation?: string;
+  variation?: string | undefined;
 
   /**
    * <p>The value assigned to this variation to differentiate it from the other variations of this feature.</p>
    * @public
    */
-  value?: VariableValue;
+  value?: VariableValue | undefined;
 
   /**
    * <p>An internal ID that represents a unique user session of the application.</p>
@@ -211,13 +211,13 @@ export interface EvaluationResult {
    *       experiment.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>If this user was assigned to a launch or experiment, this field lists the launch or experiment name.</p>
    * @public
    */
-  details?: __LazyJsonString | string;
+  details?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -229,7 +229,7 @@ export interface BatchEvaluateFeatureResponse {
    *        assignment to one user session.</p>
    * @public
    */
-  results?: EvaluationResult[];
+  results?: EvaluationResult[] | undefined;
 }
 
 /**
@@ -243,13 +243,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The ID of the resource that caused the exception.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that is associated with the error.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -277,13 +277,13 @@ export class ThrottlingException extends __BaseException {
    * <p>The ID of the service that is associated with the error.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The ID of the service quota that was exceeded.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -345,13 +345,13 @@ export class ValidationException extends __BaseException {
    * <p>A reason for the error.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The parameter that caused the exception.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -393,7 +393,7 @@ export interface CloudWatchLogsDestination {
    *        events.</p>
    * @public
    */
-  logGroup?: string;
+  logGroup?: string | undefined;
 }
 
 /**
@@ -407,7 +407,7 @@ export interface CloudWatchLogsDestinationConfig {
    *        events.</p>
    * @public
    */
-  logGroup?: string;
+  logGroup?: string | undefined;
 }
 
 /**
@@ -421,13 +421,13 @@ export class ConflictException extends __BaseException {
    * <p>The ID of the resource that caused the exception.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that is associated with the error.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -475,13 +475,13 @@ export interface MetricDefinitionConfig {
    *        <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a>.</p>
    * @public
    */
-  eventPattern?: __LazyJsonString | string;
+  eventPattern?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>A label for the units that the metric is measuring.</p>
    * @public
    */
-  unitLabel?: string;
+  unitLabel?: string | undefined;
 }
 
 /**
@@ -505,7 +505,7 @@ export interface MetricGoalConfig {
    *        better.</p>
    * @public
    */
-  desiredChange?: ChangeDirectionEnum;
+  desiredChange?: ChangeDirectionEnum | undefined;
 }
 
 /**
@@ -519,7 +519,7 @@ export interface OnlineAbConfig {
    * <p>The name of the variation that is to be the default variation that the other variations are compared to.</p>
    * @public
    */
-  controlTreatmentName?: string;
+  controlTreatmentName?: string | undefined;
 
   /**
    * <p>A set of key-value pairs. The keys are variation names, and the values are the portion
@@ -528,7 +528,7 @@ export interface OnlineAbConfig {
    *       traffic to that variation.</p>
    * @public
    */
-  treatmentWeights?: Record<string, number>;
+  treatmentWeights?: Record<string, number> | undefined;
 }
 
 /**
@@ -547,7 +547,7 @@ export interface TreatmentConfig {
    * <p>A description for this treatment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The feature that this experiment is testing.</p>
@@ -582,7 +582,7 @@ export interface CreateExperimentRequest {
    * <p>An optional description of the experiment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An array of structures that describe the configuration of each feature variation used in the experiment.</p>
@@ -604,7 +604,7 @@ export interface CreateExperimentRequest {
    *        the experiment name as the <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience
@@ -613,7 +613,7 @@ export interface CreateExperimentRequest {
    *          <p>This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.</p>
    * @public
    */
-  samplingRate?: number;
+  samplingRate?: number | undefined;
 
   /**
    * <p>A structure that contains the configuration of which variation to use as the "control"
@@ -621,14 +621,14 @@ export interface CreateExperimentRequest {
    *       also specifies how much experiment traffic is allocated to each variation.</p>
    * @public
    */
-  onlineAbConfig?: OnlineAbConfig;
+  onlineAbConfig?: OnlineAbConfig | undefined;
 
   /**
    * <p>Specifies an audience <i>segment</i> to use in the experiment. When a segment is used in an experiment, only
    *       user sessions that match the segment pattern are used in the experiment.</p>
    * @public
    */
-  segment?: string;
+  segment?: string | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the experiment.</p>
@@ -640,7 +640,7 @@ export interface CreateExperimentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -652,13 +652,13 @@ export interface ExperimentExecution {
    * <p>The date and time that the experiment started.</p>
    * @public
    */
-  startedTime?: Date;
+  startedTime?: Date | undefined;
 
   /**
    * <p>The date and time that the experiment ended.</p>
    * @public
    */
-  endedTime?: Date;
+  endedTime?: Date | undefined;
 }
 
 /**
@@ -671,20 +671,20 @@ export interface MetricDefinition {
    * <p>The name of the metric.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The entity, such as a user or session, that does an action that causes a metric
    *       value to be recorded.</p>
    * @public
    */
-  entityIdKey?: string;
+  entityIdKey?: string | undefined;
 
   /**
    * <p>The value that is tracked to produce the metric.</p>
    * @public
    */
-  valueKey?: string;
+  valueKey?: string | undefined;
 
   /**
    * <p>The EventBridge event pattern that defines how the metric is recorded.</p>
@@ -692,13 +692,13 @@ export interface MetricDefinition {
    *        <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a>.</p>
    * @public
    */
-  eventPattern?: __LazyJsonString | string;
+  eventPattern?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The label for the units that the metric is measuring.</p>
    * @public
    */
-  unitLabel?: string;
+  unitLabel?: string | undefined;
 }
 
 /**
@@ -722,7 +722,7 @@ export interface MetricGoal {
    *      better.</p>
    * @public
    */
-  desiredChange?: ChangeDirectionEnum;
+  desiredChange?: ChangeDirectionEnum | undefined;
 }
 
 /**
@@ -736,7 +736,7 @@ export interface OnlineAbDefinition {
    * <p>The name of the variation that is the default variation that the other variations are compared to.</p>
    * @public
    */
-  controlTreatmentName?: string;
+  controlTreatmentName?: string | undefined;
 
   /**
    * <p>A set of key-value pairs.  The keys are variation names, and the values are the portion
@@ -745,7 +745,7 @@ export interface OnlineAbDefinition {
    *       traffic to that variation.</p>
    * @public
    */
-  treatmentWeights?: Record<string, number>;
+  treatmentWeights?: Record<string, number> | undefined;
 }
 
 /**
@@ -757,7 +757,7 @@ export interface ExperimentSchedule {
    * <p>The time and date that Evidently completed the analysis of the experiment.</p>
    * @public
    */
-  analysisCompleteTime?: Date;
+  analysisCompleteTime?: Date | undefined;
 }
 
 /**
@@ -793,14 +793,14 @@ export interface Treatment {
    * <p>The description of the treatment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The feature variation used for this treatment. This is a key-value pair. The key is the
    *       feature name, and the value is the variation name.</p>
    * @public
    */
-  featureVariations?: Record<string, string>;
+  featureVariations?: Record<string, string> | undefined;
 }
 
 /**
@@ -837,7 +837,7 @@ export interface Experiment {
    * <p>The name or ARN of the project that contains this experiment.</p>
    * @public
    */
-  project?: string;
+  project?: string | undefined;
 
   /**
    * <p>The current state of the experiment.</p>
@@ -850,13 +850,13 @@ export interface Experiment {
    *       stopped the experiment, to explain why it was stopped.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>A description of the experiment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the experiment is first created.</p>
@@ -874,26 +874,26 @@ export interface Experiment {
    * <p>A structure that contains the time and date that Evidently completed the analysis of the experiment.</p>
    * @public
    */
-  schedule?: ExperimentSchedule;
+  schedule?: ExperimentSchedule | undefined;
 
   /**
    * <p>A structure that contains the date and time that the experiment started and ended.</p>
    * @public
    */
-  execution?: ExperimentExecution;
+  execution?: ExperimentExecution | undefined;
 
   /**
    * <p>An array of structures that describe the configuration of each feature variation used in the experiment.</p>
    * @public
    */
-  treatments?: Treatment[];
+  treatments?: Treatment[] | undefined;
 
   /**
    * <p>An array of structures that defines the metrics used for the experiment, and whether a higher
    *       or lower value for each metric is the goal.</p>
    * @public
    */
-  metricGoals?: MetricGoal[];
+  metricGoals?: MetricGoal[] | undefined;
 
   /**
    * <p>This value is used when Evidently assigns a particular user session to the experiment. It
@@ -901,7 +901,7 @@ export interface Experiment {
    *       randomization ID is a combination of the entity ID and <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>In thousandths of a percent, the amount of the available audience that is allocated to this experiment.
@@ -911,13 +911,13 @@ export interface Experiment {
    *          <p>This is represented in thousandths of a percent, so a value of 10,000 is 10% of the available audience.</p>
    * @public
    */
-  samplingRate?: number;
+  samplingRate?: number | undefined;
 
   /**
    * <p>The audience segment being used for the experiment, if a segment is being used.</p>
    * @public
    */
-  segment?: string;
+  segment?: string | undefined;
 
   /**
    * <p>The type of this experiment. Currently, this value must be <code>aws.experiment.onlineab</code>.</p>
@@ -931,13 +931,13 @@ export interface Experiment {
    *       also specifies how much experiment traffic is allocated to each variation.</p>
    * @public
    */
-  onlineAbDefinition?: OnlineAbDefinition;
+  onlineAbDefinition?: OnlineAbDefinition | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this experiment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -963,25 +963,25 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The ID of the resource that caused the exception.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that is associated with the error.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The ID of the service that is associated with the error.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The ID of the service quota that was exceeded.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -1054,13 +1054,13 @@ export interface CreateFeatureRequest {
    *       variation to all users instead.</p>
    * @public
    */
-  evaluationStrategy?: FeatureEvaluationStrategy;
+  evaluationStrategy?: FeatureEvaluationStrategy | undefined;
 
   /**
    * <p>An optional description of the feature.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An array of structures that contain the configuration of the feature's different variations.</p>
@@ -1077,7 +1077,7 @@ export interface CreateFeatureRequest {
    *        the <code>variations</code> structure is used as the default variation.</p>
    * @public
    */
-  defaultVariation?: string;
+  defaultVariation?: string | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the feature.</p>
@@ -1089,7 +1089,7 @@ export interface CreateFeatureRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specify users that should always be served a specific variation of a feature. Each user
@@ -1100,7 +1100,7 @@ export interface CreateFeatureRequest {
    *      per override.</p>
    * @public
    */
-  entityOverrides?: Record<string, string>;
+  entityOverrides?: Record<string, string> | undefined;
 }
 
 /**
@@ -1113,7 +1113,7 @@ export interface EvaluationRule {
    * <p>The name of the experiment or launch.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>This value is <code>aws.evidently.splits</code> if this is an evaluation rule for a launch, and it is
@@ -1162,13 +1162,13 @@ export interface Variation {
    * <p>The name of the variation.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The value assigned to this variation.</p>
    * @public
    */
-  value?: VariableValue;
+  value?: VariableValue | undefined;
 }
 
 /**
@@ -1192,7 +1192,7 @@ export interface Feature {
    * <p>The name or ARN of the project that contains the feature.</p>
    * @public
    */
-  project?: string;
+  project?: string | undefined;
 
   /**
    * <p>The current state of the feature.</p>
@@ -1216,7 +1216,7 @@ export interface Feature {
    * <p>The description of the feature.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>If this value is <code>ALL_RULES</code>, the traffic allocation specified by
@@ -1249,19 +1249,19 @@ export interface Feature {
    *     the <code>variations</code> structure is used as the default variation.</p>
    * @public
    */
-  defaultVariation?: string;
+  defaultVariation?: string | undefined;
 
   /**
    * <p>An array of structures that define the evaluation rules for the feature.</p>
    * @public
    */
-  evaluationRules?: EvaluationRule[];
+  evaluationRules?: EvaluationRule[] | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this feature.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A set of key-value pairs  that specify users who should always be served a specific
@@ -1272,7 +1272,7 @@ export interface Feature {
    *       in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation.</p>
    * @public
    */
-  entityOverrides?: Record<string, string>;
+  entityOverrides?: Record<string, string> | undefined;
 }
 
 /**
@@ -1283,7 +1283,7 @@ export interface CreateFeatureResponse {
    * <p>A structure that contains information about the new feature.</p>
    * @public
    */
-  feature?: Feature;
+  feature?: Feature | undefined;
 }
 
 /**
@@ -1302,7 +1302,7 @@ export interface LaunchGroupConfig {
    * <p>A description of the launch group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The feature that this launch is using.</p>
@@ -1393,7 +1393,7 @@ export interface ScheduledSplitConfig {
    *       that you have already created, and defines the traffic split for that segment.</p>
    * @public
    */
-  segmentOverrides?: SegmentOverride[];
+  segmentOverrides?: SegmentOverride[] | undefined;
 }
 
 /**
@@ -1431,21 +1431,21 @@ export interface CreateLaunchRequest {
    * <p>An optional description for the launch.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An array of structures that define the traffic allocation percentages among the feature
    *       variations during each step of the launch.</p>
    * @public
    */
-  scheduledSplitsConfig?: ScheduledSplitsLaunchConfig;
+  scheduledSplitsConfig?: ScheduledSplitsLaunchConfig | undefined;
 
   /**
    * <p>An array of structures that define the metrics that will be used to monitor
    *        the launch performance.</p>
    * @public
    */
-  metricMonitors?: MetricMonitorConfig[];
+  metricMonitors?: MetricMonitorConfig[] | undefined;
 
   /**
    * <p>An array of structures that contains the feature and variations that are to be used for the launch.</p>
@@ -1460,7 +1460,7 @@ export interface CreateLaunchRequest {
    *       the launch name as the <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the launch.</p>
@@ -1472,7 +1472,7 @@ export interface CreateLaunchRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1484,13 +1484,13 @@ export interface LaunchExecution {
    * <p>The date and time that the launch started.</p>
    * @public
    */
-  startedTime?: Date;
+  startedTime?: Date | undefined;
 
   /**
    * <p>The date and time that the launch ended.</p>
    * @public
    */
-  endedTime?: Date;
+  endedTime?: Date | undefined;
 }
 
 /**
@@ -1509,7 +1509,7 @@ export interface LaunchGroup {
    * <p>A description of the launch group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The feature variation for this launch group. This is a key-value pair.</p>
@@ -1553,7 +1553,7 @@ export interface ScheduledSplit {
    *      on to the next segment override or the default traffic split.</p>
    * @public
    */
-  groupWeights?: Record<string, number>;
+  groupWeights?: Record<string, number> | undefined;
 
   /**
    * <p>Use this parameter to specify different traffic splits for one or more audience <i>segments</i>.
@@ -1565,7 +1565,7 @@ export interface ScheduledSplit {
    *     that you have already created, and defines the traffic split for that segment.</p>
    * @public
    */
-  segmentOverrides?: SegmentOverride[];
+  segmentOverrides?: SegmentOverride[] | undefined;
 }
 
 /**
@@ -1580,7 +1580,7 @@ export interface ScheduledSplitsLaunchDefinition {
    *       step.</p>
    * @public
    */
-  steps?: ScheduledSplit[];
+  steps?: ScheduledSplit[] | undefined;
 }
 
 /**
@@ -1634,7 +1634,7 @@ export interface Launch {
    * <p>The name or ARN of the project that contains the launch.</p>
    * @public
    */
-  project?: string;
+  project?: string | undefined;
 
   /**
    * <p>The current state of the launch.</p>
@@ -1647,13 +1647,13 @@ export interface Launch {
    *       stopped the launch, to explain why it was stopped.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The description of the launch.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the launch is created.</p>
@@ -1671,19 +1671,19 @@ export interface Launch {
    * <p>A structure that contains information about the start and end times of the launch.</p>
    * @public
    */
-  execution?: LaunchExecution;
+  execution?: LaunchExecution | undefined;
 
   /**
    * <p>An array of structures that define the feature variations that are being used in the launch.</p>
    * @public
    */
-  groups?: LaunchGroup[];
+  groups?: LaunchGroup[] | undefined;
 
   /**
    * <p>An array of structures that define the metrics that are being used to monitor the launch performance.</p>
    * @public
    */
-  metricMonitors?: MetricMonitor[];
+  metricMonitors?: MetricMonitor[] | undefined;
 
   /**
    * <p>This value is used when Evidently assigns a particular user session to the launch, to help create a randomization ID
@@ -1691,7 +1691,7 @@ export interface Launch {
    *       and <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>The type of launch.</p>
@@ -1704,13 +1704,13 @@ export interface Launch {
    *       variations during each step of the launch.</p>
    * @public
    */
-  scheduledSplitsDefinition?: ScheduledSplitsLaunchDefinition;
+  scheduledSplitsDefinition?: ScheduledSplitsLaunchDefinition | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this launch.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1739,14 +1739,14 @@ export interface ProjectAppConfigResourceConfig {
    * <p>The ID of the AppConfig application to use for client-side evaluation. </p>
    * @public
    */
-  applicationId?: string;
+  applicationId?: string | undefined;
 
   /**
    * <p>The ID of the AppConfig environment to use for client-side evaluation. This must be an
    *       environment that is within the application that you specify for <code>applicationId</code>.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 }
 
 /**
@@ -1759,13 +1759,13 @@ export interface S3DestinationConfig {
    * <p>The name of the bucket in which Evidently stores evaluation events.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The bucket prefix in which Evidently stores evaluation events.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -1779,14 +1779,14 @@ export interface ProjectDataDeliveryConfig {
    *        stores the bucket name and bucket prefix.</p>
    * @public
    */
-  s3Destination?: S3DestinationConfig;
+  s3Destination?: S3DestinationConfig | undefined;
 
   /**
    * <p>If the project stores evaluation events in CloudWatch Logs, this structure
    *        stores the log group name.</p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsDestinationConfig;
+  cloudWatchLogs?: CloudWatchLogsDestinationConfig | undefined;
 }
 
 /**
@@ -1803,7 +1803,7 @@ export interface CreateProjectRequest {
    * <p>An optional description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A structure that contains information about where Evidently is to store
@@ -1812,7 +1812,7 @@ export interface CreateProjectRequest {
    *       results that you can view.</p>
    * @public
    */
-  dataDelivery?: ProjectDataDeliveryConfig;
+  dataDelivery?: ProjectDataDeliveryConfig | undefined;
 
   /**
    * <p>Use this parameter if the project will use <i>client-side evaluation powered by AppConfig</i>. Client-side
@@ -1828,7 +1828,7 @@ export interface CreateProjectRequest {
    *       <code>evidently:ExportProjectAsConfiguration</code> permission.</p>
    * @public
    */
-  appConfigResource?: ProjectAppConfigResourceConfig;
+  appConfigResource?: ProjectAppConfigResourceConfig | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the project.</p>
@@ -1840,7 +1840,7 @@ export interface CreateProjectRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1879,13 +1879,13 @@ export interface S3Destination {
    * <p>The name of the bucket in which Evidently stores evaluation events.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The bucket prefix in which Evidently stores evaluation events.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -1899,14 +1899,14 @@ export interface ProjectDataDelivery {
    *        stores the bucket name and bucket prefix.</p>
    * @public
    */
-  s3Destination?: S3Destination;
+  s3Destination?: S3Destination | undefined;
 
   /**
    * <p>If the project stores evaluation events in CloudWatch Logs, this structure
    *       stores the log group name.</p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsDestination;
+  cloudWatchLogs?: CloudWatchLogsDestination | undefined;
 }
 
 /**
@@ -1951,7 +1951,7 @@ export interface Project {
    * <p>The user-entered description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the project is created.</p>
@@ -1969,53 +1969,53 @@ export interface Project {
    * <p>The number of features currently in the project.</p>
    * @public
    */
-  featureCount?: number;
+  featureCount?: number | undefined;
 
   /**
    * <p>The number of launches currently in the project. This includes all launches that have been created
    *        and not deleted, whether they are ongoing or not.</p>
    * @public
    */
-  launchCount?: number;
+  launchCount?: number | undefined;
 
   /**
    * <p>The number of ongoing launches currently in the project.</p>
    * @public
    */
-  activeLaunchCount?: number;
+  activeLaunchCount?: number | undefined;
 
   /**
    * <p>The number of experiments currently in the project. This includes all experiments that have been created
    *       and not deleted, whether they are ongoing or not.</p>
    * @public
    */
-  experimentCount?: number;
+  experimentCount?: number | undefined;
 
   /**
    * <p>The number of ongoing experiments currently in the project.</p>
    * @public
    */
-  activeExperimentCount?: number;
+  activeExperimentCount?: number | undefined;
 
   /**
    * <p>A structure that contains information about where Evidently is to store
    *        evaluation events for longer term storage.</p>
    * @public
    */
-  dataDelivery?: ProjectDataDelivery;
+  dataDelivery?: ProjectDataDelivery | undefined;
 
   /**
    * <p>This structure defines the configuration of how your application
    *       integrates with AppConfig to run client-side evaluation.</p>
    * @public
    */
-  appConfigResource?: ProjectAppConfigResource;
+  appConfigResource?: ProjectAppConfigResource | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this project.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2045,13 +2045,13 @@ export interface CreateSegmentRequest {
    *         Segment rule pattern syntax</a>.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>An optional description for this segment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the segment.</p>
@@ -2063,7 +2063,7 @@ export interface CreateSegmentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2091,7 +2091,7 @@ export interface Segment {
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Segment rule pattern syntax</a>.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The date and time that this segment was created.</p>
@@ -2109,27 +2109,27 @@ export interface Segment {
    * <p>The customer-created description for this segment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of experiments that this segment is used in. This count includes all current experiments, not just
    *     those that are currently running.</p>
    * @public
    */
-  experimentCount?: number;
+  experimentCount?: number | undefined;
 
   /**
    * <p>The number of launches that this segment is used in. This count includes all current launches, not just
    *       those that are currently running.</p>
    * @public
    */
-  launchCount?: number;
+  launchCount?: number | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this launch.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2314,7 +2314,7 @@ export interface EvaluateFeatureRequest {
    *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    * @public
    */
-  evaluationContext?: __LazyJsonString | string;
+  evaluationContext?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2325,13 +2325,13 @@ export interface EvaluateFeatureResponse {
    * <p>The name of the variation that was served to the user session.</p>
    * @public
    */
-  variation?: string;
+  variation?: string | undefined;
 
   /**
    * <p>The value assigned to this variation to differentiate it from the other variations of this feature.</p>
    * @public
    */
-  value?: VariableValue;
+  value?: VariableValue | undefined;
 
   /**
    * <p>Specifies the reason that the user session was assigned this variation. Possible values
@@ -2342,13 +2342,13 @@ export interface EvaluateFeatureResponse {
    *       rule.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>If this user was assigned to a launch or experiment, this field lists the launch or experiment name.</p>
    * @public
    */
-  details?: __LazyJsonString | string;
+  details?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2391,7 +2391,7 @@ export interface Event {
    * <p>The event data.</p>
    * @public
    */
-  data: __LazyJsonString | string | undefined;
+  data: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2413,7 +2413,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2441,7 +2441,7 @@ export interface GetExperimentResponse {
    * <p>A structure containing the configuration details of the experiment.</p>
    * @public
    */
-  experiment?: Experiment;
+  experiment?: Experiment | undefined;
 }
 
 /**
@@ -2507,14 +2507,14 @@ export interface GetExperimentResultsRequest {
    * <p>The date and time that the experiment started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The date and time that the experiment ended, if it is completed. This must be no longer than 30 days
    *       after the experiment start time.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The names of the experiment metrics that you want to see the results of.</p>
@@ -2533,7 +2533,7 @@ export interface GetExperimentResultsRequest {
    *       which uses the mean of the collected values as the statistic.</p>
    * @public
    */
-  baseStat?: ExperimentBaseStat;
+  baseStat?: ExperimentBaseStat | undefined;
 
   /**
    * <p>The statistics that you want to see in the returned results.</p>
@@ -2567,20 +2567,20 @@ export interface GetExperimentResultsRequest {
    *          </ul>
    * @public
    */
-  resultStats?: ExperimentResultRequestType[];
+  resultStats?: ExperimentResultRequestType[] | undefined;
 
   /**
    * <p>The names of the report types that you want to see. Currently, <code>BayesianInference</code>
    *        is the only valid value.</p>
    * @public
    */
-  reportNames?: ExperimentReportName[];
+  reportNames?: ExperimentReportName[] | undefined;
 
   /**
    * <p>In seconds, the amount of time to aggregate results together. </p>
    * @public
    */
-  period?: number;
+  period?: number | undefined;
 }
 
 /**
@@ -2592,25 +2592,25 @@ export interface ExperimentReport {
    * <p>The name of the metric that is analyzed in this experiment report.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>The name of the variation that this report pertains to.</p>
    * @public
    */
-  treatmentName?: string;
+  treatmentName?: string | undefined;
 
   /**
    * <p>The type of analysis used for this report.</p>
    * @public
    */
-  reportName?: ExperimentReportName;
+  reportName?: ExperimentReportName | undefined;
 
   /**
    * <p>The content of the report.</p>
    * @public
    */
-  content?: __LazyJsonString | string;
+  content?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2641,25 +2641,25 @@ export interface ExperimentResultsData {
    * <p>The name of the metric.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>The treatment, or variation, that returned the <code>values</code> in this structure.</p>
    * @public
    */
-  treatmentName?: string;
+  treatmentName?: string | undefined;
 
   /**
    * <p>The experiment statistic that these results pertain to.</p>
    * @public
    */
-  resultStat?: ExperimentResultResponseType;
+  resultStat?: ExperimentResultResponseType | undefined;
 
   /**
    * <p>The values for the <code>metricName</code> that were recorded in the experiment.</p>
    * @public
    */
-  values?: number[];
+  values?: number[] | undefined;
 }
 
 /**
@@ -2670,19 +2670,19 @@ export interface GetExperimentResultsResponse {
    * <p>An array of structures that include experiment results including metric names and values. </p>
    * @public
    */
-  resultsData?: ExperimentResultsData[];
+  resultsData?: ExperimentResultsData[] | undefined;
 
   /**
    * <p>An array of structures that include the reports that you requested.</p>
    * @public
    */
-  reports?: ExperimentReport[];
+  reports?: ExperimentReport[] | undefined;
 
   /**
    * <p>The timestamps of each result returned.</p>
    * @public
    */
-  timestamps?: Date[];
+  timestamps?: Date[] | undefined;
 
   /**
    * <p>If the experiment doesn't yet have enough events to provide valid results, this
@@ -2690,7 +2690,7 @@ export interface GetExperimentResultsResponse {
    *       enough events to provide valid results, this field is not returned.</p>
    * @public
    */
-  details?: string;
+  details?: string | undefined;
 }
 
 /**
@@ -2707,20 +2707,20 @@ export interface ListExperimentsRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *        <code>ListExperiments</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Use this optional parameter to limit the returned results to only the experiments with the status that you specify here.</p>
    * @public
    */
-  status?: ExperimentStatus;
+  status?: ExperimentStatus | undefined;
 }
 
 /**
@@ -2732,14 +2732,14 @@ export interface ListExperimentsResponse {
    *       specified project.</p>
    * @public
    */
-  experiments?: Experiment[];
+  experiments?: Experiment[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListExperiments</code> operation to return
    *        the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2774,7 +2774,7 @@ export interface StartExperimentResponse {
    * <p>A timestamp that indicates when the experiment started.</p>
    * @public
    */
-  startedTime?: Date;
+  startedTime?: Date | undefined;
 }
 
 /**
@@ -2812,13 +2812,13 @@ export interface StopExperimentRequest {
    *       <code>CANCELLED</code> after it stops.</p>
    * @public
    */
-  desiredState?: ExperimentStopDesiredState;
+  desiredState?: ExperimentStopDesiredState | undefined;
 
   /**
    * <p>A string that describes why you are stopping the experiment.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -2829,7 +2829,7 @@ export interface StopExperimentResponse {
    * <p>The date and time that the experiment stopped.</p>
    * @public
    */
-  endedTime?: Date;
+  endedTime?: Date | undefined;
 }
 
 /**
@@ -2852,20 +2852,20 @@ export interface UpdateExperimentRequest {
    * <p>An optional description of the experiment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An array of structures that define the variations being tested in the experiment.</p>
    * @public
    */
-  treatments?: TreatmentConfig[];
+  treatments?: TreatmentConfig[] | undefined;
 
   /**
    * <p>An array of structures that defines the metrics used for the experiment, and whether a higher
    *       or lower value for each metric is the goal.</p>
    * @public
    */
-  metricGoals?: MetricGoalConfig[];
+  metricGoals?: MetricGoalConfig[] | undefined;
 
   /**
    * <p>When Evidently assigns a particular user session to an experiment, it must use a randomization ID
@@ -2874,7 +2874,7 @@ export interface UpdateExperimentRequest {
    *       the experiment name as the <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience
@@ -2883,7 +2883,7 @@ export interface UpdateExperimentRequest {
    *          <p>This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the available audience.</p>
    * @public
    */
-  samplingRate?: number;
+  samplingRate?: number | undefined;
 
   /**
    * <p>Adds an audience <i>segment</i> to an experiment. When a segment is used in an experiment, only
@@ -2892,14 +2892,14 @@ export interface UpdateExperimentRequest {
    *       running.</p>
    * @public
    */
-  segment?: string;
+  segment?: string | undefined;
 
   /**
    * <p>Removes a segment from being used in an experiment. You can't use this parameter if the experiment is currently
    *       running.</p>
    * @public
    */
-  removeSegment?: boolean;
+  removeSegment?: boolean | undefined;
 
   /**
    * <p>A structure that contains the configuration of which variation o use as the "control"
@@ -2907,7 +2907,7 @@ export interface UpdateExperimentRequest {
    *       also specifies how much experiment traffic is allocated to each variation.</p>
    * @public
    */
-  onlineAbConfig?: OnlineAbConfig;
+  onlineAbConfig?: OnlineAbConfig | undefined;
 }
 
 /**
@@ -2964,14 +2964,14 @@ export interface ListFeaturesRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *        <code>ListFeatures</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2995,7 +2995,7 @@ export interface FeatureSummary {
    * <p>The name or ARN of the project that contains the feature.</p>
    * @public
    */
-  project?: string;
+  project?: string | undefined;
 
   /**
    * <p>The current state of the feature.</p>
@@ -3027,7 +3027,7 @@ export interface FeatureSummary {
    * <p>An array of structures that define</p>
    * @public
    */
-  evaluationRules?: EvaluationRule[];
+  evaluationRules?: EvaluationRule[] | undefined;
 
   /**
    * <p>The name of the variation that is used as the default variation. The default
@@ -3035,13 +3035,13 @@ export interface FeatureSummary {
    *       or experiments of this feature.</p>
    * @public
    */
-  defaultVariation?: string;
+  defaultVariation?: string | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this feature.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3053,14 +3053,14 @@ export interface ListFeaturesResponse {
    *        specified project.</p>
    * @public
    */
-  features?: FeatureSummary[];
+  features?: FeatureSummary[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListFeatures</code> operation to return
    *        the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3085,13 +3085,13 @@ export interface UpdateFeatureRequest {
    *       to all users instead.</p>
    * @public
    */
-  evaluationStrategy?: FeatureEvaluationStrategy;
+  evaluationStrategy?: FeatureEvaluationStrategy | undefined;
 
   /**
    * <p>An optional description of the feature.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>To update variation configurations for this feature, or add new ones, specify this structure.
@@ -3100,7 +3100,7 @@ export interface UpdateFeatureRequest {
    *       as a new variation.</p>
    * @public
    */
-  addOrUpdateVariations?: VariationConfig[];
+  addOrUpdateVariations?: VariationConfig[] | undefined;
 
   /**
    * <p>Removes a variation from the feature. If the variation you specify doesn't exist, then this
@@ -3109,7 +3109,7 @@ export interface UpdateFeatureRequest {
    *     ongoing launch or experiment.</p>
    * @public
    */
-  removeVariations?: string[];
+  removeVariations?: string[] | undefined;
 
   /**
    * <p>The name of the variation to use as the default variation. The default
@@ -3117,7 +3117,7 @@ export interface UpdateFeatureRequest {
    *       or experiments of this feature.</p>
    * @public
    */
-  defaultVariation?: string;
+  defaultVariation?: string | undefined;
 
   /**
    * <p>Specified users that should always be served a specific variation of a feature. Each user
@@ -3128,7 +3128,7 @@ export interface UpdateFeatureRequest {
    *       per override.</p>
    * @public
    */
-  entityOverrides?: Record<string, string>;
+  entityOverrides?: Record<string, string> | undefined;
 }
 
 /**
@@ -3189,7 +3189,7 @@ export interface GetLaunchResponse {
    * <p>A structure containing the configuration details of the launch.</p>
    * @public
    */
-  launch?: Launch;
+  launch?: Launch | undefined;
 }
 
 /**
@@ -3206,20 +3206,20 @@ export interface ListLaunchesRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *        <code>ListLaunches</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Use this optional parameter to limit the returned results to only the launches with the status that you specify here.</p>
    * @public
    */
-  status?: LaunchStatus;
+  status?: LaunchStatus | undefined;
 }
 
 /**
@@ -3231,14 +3231,14 @@ export interface ListLaunchesResponse {
    *        specified project.</p>
    * @public
    */
-  launches?: Launch[];
+  launches?: Launch[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListLaunches</code> operation to return
    *        the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3304,13 +3304,13 @@ export interface StopLaunchRequest {
    *         <code>CANCELLED</code> after it stops.</p>
    * @public
    */
-  desiredState?: LaunchStopDesiredState;
+  desiredState?: LaunchStopDesiredState | undefined;
 
   /**
    * <p>A string that describes why you are stopping the launch.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -3321,7 +3321,7 @@ export interface StopLaunchResponse {
    * <p>The date and time that the launch stopped.</p>
    * @public
    */
-  endedTime?: Date;
+  endedTime?: Date | undefined;
 }
 
 /**
@@ -3344,21 +3344,21 @@ export interface UpdateLaunchRequest {
    * <p>An optional description for the launch.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An array of structures that contains the feature and variations that are to be used for
    *       the launch.</p>
    * @public
    */
-  groups?: LaunchGroupConfig[];
+  groups?: LaunchGroupConfig[] | undefined;
 
   /**
    * <p>An array of structures that define the metrics that will be used to monitor
    *     the launch performance.</p>
    * @public
    */
-  metricMonitors?: MetricMonitorConfig[];
+  metricMonitors?: MetricMonitorConfig[] | undefined;
 
   /**
    * <p>When Evidently assigns a particular user session to a launch, it must use a randomization ID
@@ -3367,14 +3367,14 @@ export interface UpdateLaunchRequest {
    *       the launch name as the <code>randomizationSalt</code>.</p>
    * @public
    */
-  randomizationSalt?: string;
+  randomizationSalt?: string | undefined;
 
   /**
    * <p>An array of structures that define the traffic allocation percentages among the feature
    *       variations during each step of the launch.</p>
    * @public
    */
-  scheduledSplitsConfig?: ScheduledSplitsLaunchConfig;
+  scheduledSplitsConfig?: ScheduledSplitsLaunchConfig | undefined;
 }
 
 /**
@@ -3396,14 +3396,14 @@ export interface ListProjectsRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *        <code>ListProjects</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3433,7 +3433,7 @@ export interface ProjectSummary {
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the project is created.</p>
@@ -3451,37 +3451,37 @@ export interface ProjectSummary {
    * <p>The number of features currently in the project.</p>
    * @public
    */
-  featureCount?: number;
+  featureCount?: number | undefined;
 
   /**
    * <p>The number of launches currently in the project, including launches that are ongoing, completed, and not started yet.</p>
    * @public
    */
-  launchCount?: number;
+  launchCount?: number | undefined;
 
   /**
    * <p>The number of ongoing launches currently in the project.</p>
    * @public
    */
-  activeLaunchCount?: number;
+  activeLaunchCount?: number | undefined;
 
   /**
    * <p>The number of experiments currently in the project.</p>
    * @public
    */
-  experimentCount?: number;
+  experimentCount?: number | undefined;
 
   /**
    * <p>The number of experiments currently in the project.</p>
    * @public
    */
-  activeExperimentCount?: number;
+  activeExperimentCount?: number | undefined;
 
   /**
    * <p>The list of tag keys and values associated with this project.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3492,14 +3492,14 @@ export interface ListProjectsResponse {
    * <p>An array of structures that contain the configuration details of the projects in the Region.</p>
    * @public
    */
-  projects?: ProjectSummary[];
+  projects?: ProjectSummary[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListProjects</code> operation to return
    *        the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3529,21 +3529,21 @@ export interface PutProjectEventsResultEntry {
    * <p>A unique ID assigned to this <code>PutProjectEvents</code> operation. </p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>If the <code>PutProjectEvents</code> operation has an error, the error code is returned
    *       here.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>If the <code>PutProjectEvents</code> operation has an error, the error message is
    *       returned here.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -3554,14 +3554,14 @@ export interface PutProjectEventsResponse {
    * <p>The number of events in the operation that could not be used by Evidently.</p>
    * @public
    */
-  failedEventCount?: number;
+  failedEventCount?: number | undefined;
 
   /**
    * <p>A structure that contains Evidently's response to the sent events, including an event ID and
    *       error codes, if any.</p>
    * @public
    */
-  eventResults?: PutProjectEventsResultEntry[];
+  eventResults?: PutProjectEventsResultEntry[] | undefined;
 }
 
 /**
@@ -3584,13 +3584,13 @@ export interface UpdateProjectRequest {
    *       contains information about the AppConfig application that will be used for client-side evaluation.</p>
    * @public
    */
-  appConfigResource?: ProjectAppConfigResourceConfig;
+  appConfigResource?: ProjectAppConfigResourceConfig | undefined;
 
   /**
    * <p>An optional description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3618,14 +3618,14 @@ export interface UpdateProjectDataDeliveryRequest {
    * <p>A structure containing the S3 bucket name and bucket prefix where you want to store evaluation events.</p>
    * @public
    */
-  s3Destination?: S3DestinationConfig;
+  s3Destination?: S3DestinationConfig | undefined;
 
   /**
    * <p>A structure containing the CloudWatch Logs log group where you want to store evaluation
    *       events.</p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsDestinationConfig;
+  cloudWatchLogs?: CloudWatchLogsDestinationConfig | undefined;
 }
 
 /**
@@ -3690,14 +3690,14 @@ export interface ListSegmentReferencesRequest {
    * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *       <code>ListSegmentReferences</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies whether to return information about launches or experiments that use this segment.</p>
@@ -3728,31 +3728,31 @@ export interface RefResource {
    * <p>The ARN of the experiment or launch.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status of the experiment or launch.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The day and time that this experiment or launch started.</p>
    * @public
    */
-  startTime?: string;
+  startTime?: string | undefined;
 
   /**
    * <p>The day and time that this experiment or launch ended.</p>
    * @public
    */
-  endTime?: string;
+  endTime?: string | undefined;
 
   /**
    * <p>The day and time that this experiment or launch was most recently updated.</p>
    * @public
    */
-  lastUpdatedOn?: string;
+  lastUpdatedOn?: string | undefined;
 }
 
 /**
@@ -3764,14 +3764,14 @@ export interface ListSegmentReferencesResponse {
    *       uses this segment.  </p>
    * @public
    */
-  referencedBy?: RefResource[];
+  referencedBy?: RefResource[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListSegmentReferences</code> operation to return
    *       the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3782,14 +3782,14 @@ export interface ListSegmentsRequest {
    * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from a previous
    *       <code>ListSegments</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3800,14 +3800,14 @@ export interface ListSegmentsResponse {
    * <p>An array of structures that contain information about the segments in this Region.</p>
    * @public
    */
-  segments?: Segment[];
+  segments?: Segment[] | undefined;
 
   /**
    * <p>The token to use in a subsequent <code>ListSegments</code> operation to return
    *       the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3840,13 +3840,13 @@ export interface TestSegmentPatternRequest {
    * <p>The pattern to test.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>A sample <code>evaluationContext</code> JSON block to test against the specified pattern.</p>
    * @public
    */
-  payload: __LazyJsonString | string | undefined;
+  payload: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

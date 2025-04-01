@@ -65,18 +65,21 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a specific remote access session
  * ```javascript
  * // The following example deletes a specific remote access session.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-specific-remote-access-session-1470971431677
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRemoteAccessSessionCommand extends $Command
   .classBuilder<
@@ -86,9 +89,7 @@ export class DeleteRemoteAccessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class DeleteRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRemoteAccessSessionCommand)
   .de(de_DeleteRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRemoteAccessSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRemoteAccessSessionCommandInput;
+      output: DeleteRemoteAccessSessionCommandOutput;
+    };
+  };
+}

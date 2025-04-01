@@ -161,19 +161,22 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To enable automatic rotation of key material
  * ```javascript
  * // The following example enables automatic rotation with a rotation period of 365 days for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "RotationPeriodInDays": 365
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   RotationPeriodInDays: 365
  * };
  * const command = new EnableKeyRotationCommand(input);
- * await client.send(command);
- * // example id: to-enable-automatic-rotation-of-key-material-1712499675853
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableKeyRotationCommand extends $Command
   .classBuilder<
@@ -183,9 +186,7 @@ export class EnableKeyRotationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -197,4 +198,16 @@ export class EnableKeyRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableKeyRotationCommand)
   .de(de_EnableKeyRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableKeyRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableKeyRotationCommandInput;
+      output: EnableKeyRotationCommandOutput;
+    };
+  };
+}

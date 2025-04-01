@@ -88,6 +88,7 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteOptOutListCommand extends $Command
@@ -98,9 +99,7 @@ export class DeleteOptOutListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DeleteOptOutListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOptOutListCommand)
   .de(de_DeleteOptOutListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOptOutListRequest;
+      output: DeleteOptOutListResult;
+    };
+    sdk: {
+      input: DeleteOptOutListCommandInput;
+      output: DeleteOptOutListCommandOutput;
+    };
+  };
+}

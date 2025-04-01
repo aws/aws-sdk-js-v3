@@ -93,6 +93,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ *
  * @public
  */
 export class GetLifecyclePoliciesCommand extends $Command
@@ -103,9 +104,7 @@ export class GetLifecyclePoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DLMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class GetLifecyclePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLifecyclePoliciesCommand)
   .de(de_GetLifecyclePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLifecyclePoliciesRequest;
+      output: GetLifecyclePoliciesResponse;
+    };
+    sdk: {
+      input: GetLifecyclePoliciesCommandInput;
+      output: GetLifecyclePoliciesCommandOutput;
+    };
+  };
+}

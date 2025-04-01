@@ -81,6 +81,7 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class UpdateUploadCommand extends $Command
@@ -91,9 +92,7 @@ export class UpdateUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class UpdateUploadCommand extends $Command
   .f(void 0, UpdateUploadResultFilterSensitiveLog)
   .ser(se_UpdateUploadCommand)
   .de(de_UpdateUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUploadRequest;
+      output: UpdateUploadResult;
+    };
+    sdk: {
+      input: UpdateUploadCommandInput;
+      output: UpdateUploadCommandOutput;
+    };
+  };
+}

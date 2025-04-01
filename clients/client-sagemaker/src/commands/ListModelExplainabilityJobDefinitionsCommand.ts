@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_ListModelExplainabilityJobDefinitionsCommand,
   se_ListModelExplainabilityJobDefinitionsCommand,
@@ -79,6 +79,7 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelExplainabilityJobDefinitionsCommand extends $Command
@@ -89,9 +90,7 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelExplainabilityJobDefinitionsCommand)
   .de(de_ListModelExplainabilityJobDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelExplainabilityJobDefinitionsRequest;
+      output: ListModelExplainabilityJobDefinitionsResponse;
+    };
+    sdk: {
+      input: ListModelExplainabilityJobDefinitionsCommandInput;
+      output: ListModelExplainabilityJobDefinitionsCommandOutput;
+    };
+  };
+}

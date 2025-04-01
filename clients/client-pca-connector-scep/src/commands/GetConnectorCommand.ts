@@ -95,6 +95,7 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetConnectorCommand extends $Command
@@ -105,9 +106,7 @@ export class GetConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class GetConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectorCommand)
   .de(de_GetConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectorRequest;
+      output: GetConnectorResponse;
+    };
+    sdk: {
+      input: GetConnectorCommandInput;
+      output: GetConnectorCommandOutput;
+    };
+  };
+}

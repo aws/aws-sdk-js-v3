@@ -57,6 +57,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class ConstantAndVariableQueryStringCommand extends $Command
@@ -75,4 +76,16 @@ export class ConstantAndVariableQueryStringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConstantAndVariableQueryStringCommand)
   .de(de_ConstantAndVariableQueryStringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConstantAndVariableQueryStringInput;
+      output: {};
+    };
+    sdk: {
+      input: ConstantAndVariableQueryStringCommandInput;
+      output: ConstantAndVariableQueryStringCommandOutput;
+    };
+  };
+}

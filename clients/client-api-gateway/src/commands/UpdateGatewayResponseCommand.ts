@@ -90,6 +90,7 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateGatewayResponseCommand extends $Command
@@ -100,9 +101,7 @@ export class UpdateGatewayResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class UpdateGatewayResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGatewayResponseCommand)
   .de(de_UpdateGatewayResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGatewayResponseRequest;
+      output: GatewayResponse;
+    };
+    sdk: {
+      input: UpdateGatewayResponseCommandInput;
+      output: UpdateGatewayResponseCommandOutput;
+    };
+  };
+}

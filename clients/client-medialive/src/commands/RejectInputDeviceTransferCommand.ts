@@ -80,6 +80,7 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class RejectInputDeviceTransferCommand extends $Command
@@ -90,9 +91,7 @@ export class RejectInputDeviceTransferCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class RejectInputDeviceTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectInputDeviceTransferCommand)
   .de(de_RejectInputDeviceTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectInputDeviceTransferRequest;
+      output: {};
+    };
+    sdk: {
+      input: RejectInputDeviceTransferCommandInput;
+      output: RejectInputDeviceTransferCommandOutput;
+    };
+  };
+}

@@ -176,6 +176,7 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateRuleCommand extends $Command
@@ -186,9 +187,7 @@ export class BatchUpdateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +199,16 @@ export class BatchUpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateRuleCommand)
   .de(de_BatchUpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateRuleRequest;
+      output: BatchUpdateRuleResponse;
+    };
+    sdk: {
+      input: BatchUpdateRuleCommandInput;
+      output: BatchUpdateRuleCommandOutput;
+    };
+  };
+}

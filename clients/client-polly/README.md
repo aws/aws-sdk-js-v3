@@ -15,7 +15,7 @@ the best results for your application domain.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-polly
+To install this package, simply type add or install @aws-sdk/client-polly
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-polly`

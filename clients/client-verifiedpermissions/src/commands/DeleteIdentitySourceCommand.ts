@@ -161,6 +161,21 @@ export interface DeleteIdentitySourceCommandOutput extends DeleteIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ *
+ * @example To delete an identity source
+ * ```javascript
+ * // The following example request deletes the specified identity source.
+ * const input = {
+ *   identitySourceId: "ISEXAMPLEabcdefg111111",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new DeleteIdentitySourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteIdentitySourceCommand extends $Command
@@ -171,9 +186,7 @@ export class DeleteIdentitySourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +198,16 @@ export class DeleteIdentitySourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentitySourceCommand)
   .de(de_DeleteIdentitySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentitySourceInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentitySourceCommandInput;
+      output: DeleteIdentitySourceCommandOutput;
+    };
+  };
+}

@@ -94,6 +94,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class NotifyResourceDeploymentStatusChangeCommand extends $Command
@@ -104,9 +105,7 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command
   .f(NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog, void 0)
   .ser(se_NotifyResourceDeploymentStatusChangeCommand)
   .de(de_NotifyResourceDeploymentStatusChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyResourceDeploymentStatusChangeInput;
+      output: {};
+    };
+    sdk: {
+      input: NotifyResourceDeploymentStatusChangeCommandInput;
+      output: NotifyResourceDeploymentStatusChangeCommandOutput;
+    };
+  };
+}

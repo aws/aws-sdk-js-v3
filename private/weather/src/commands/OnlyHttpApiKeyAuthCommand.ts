@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
-import { getHttpApiKeyAuthPlugin } from "../middleware/HttpApiKeyAuth";
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
+import { de_OnlyHttpApiKeyAuthCommand, se_OnlyHttpApiKeyAuthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -49,6 +48,7 @@ export interface OnlyHttpApiKeyAuthCommandOutput extends __MetadataBearer {}
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyHttpApiKeyAuthCommand extends $Command
   .classBuilder<
@@ -59,19 +59,23 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getSigV4AuthPlugin(config),
-      getHttpApiKeyAuthPlugin(config, { in: "header", name: "X-Api-Key" }),
-    ];
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("Weather", "OnlyHttpApiKeyAuth", {})
   .n("WeatherClient", "OnlyHttpApiKeyAuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_OnlyHttpApiKeyAuthCommand)
+  .de(de_OnlyHttpApiKeyAuthCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: OnlyHttpApiKeyAuthCommandInput;
+      output: OnlyHttpApiKeyAuthCommandOutput;
+    };
+  };
+}

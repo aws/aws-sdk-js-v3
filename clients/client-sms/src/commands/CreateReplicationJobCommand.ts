@@ -94,6 +94,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationJobCommand extends $Command
@@ -104,9 +105,7 @@ export class CreateReplicationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class CreateReplicationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationJobCommand)
   .de(de_CreateReplicationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationJobRequest;
+      output: CreateReplicationJobResponse;
+    };
+    sdk: {
+      input: CreateReplicationJobCommandInput;
+      output: CreateReplicationJobCommandOutput;
+    };
+  };
+}

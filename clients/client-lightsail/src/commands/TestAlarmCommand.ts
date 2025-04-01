@@ -34,7 +34,7 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  *       alarm.</p>
  *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
- *       on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *       on the Amazon Lightsail console. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms
  *         in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +107,7 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class TestAlarmCommand extends $Command
@@ -117,9 +118,7 @@ export class TestAlarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class TestAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestAlarmCommand)
   .de(de_TestAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestAlarmRequest;
+      output: TestAlarmResult;
+    };
+    sdk: {
+      input: TestAlarmCommandInput;
+      output: TestAlarmCommandOutput;
+    };
+  };
+}

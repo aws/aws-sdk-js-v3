@@ -44,7 +44,7 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  *   QueueReferences: [ // RoutingProfileQueueReferenceList // required
  *     { // RoutingProfileQueueReference
  *       QueueId: "STRING_VALUE", // required
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *     },
  *   ],
  * };
@@ -78,6 +78,7 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateRoutingProfileQueuesCommand extends $Command
@@ -88,9 +89,7 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateRoutingProfileQueuesCommand)
   .de(de_DisassociateRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateRoutingProfileQueuesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateRoutingProfileQueuesCommandInput;
+      output: DisassociateRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

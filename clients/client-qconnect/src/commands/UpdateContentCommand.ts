@@ -100,6 +100,7 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContentCommand extends $Command
@@ -110,9 +111,7 @@ export class UpdateContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class UpdateContentCommand extends $Command
   .f(void 0, UpdateContentResponseFilterSensitiveLog)
   .ser(se_UpdateContentCommand)
   .de(de_UpdateContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContentRequest;
+      output: UpdateContentResponse;
+    };
+    sdk: {
+      input: UpdateContentCommandInput;
+      output: UpdateContentCommandOutput;
+    };
+  };
+}

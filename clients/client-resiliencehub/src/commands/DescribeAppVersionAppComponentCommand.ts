@@ -97,6 +97,7 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppVersionAppComponentCommand extends $Command
@@ -107,9 +108,7 @@ export class DescribeAppVersionAppComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class DescribeAppVersionAppComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppVersionAppComponentCommand)
   .de(de_DescribeAppVersionAppComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppVersionAppComponentRequest;
+      output: DescribeAppVersionAppComponentResponse;
+    };
+    sdk: {
+      input: DescribeAppVersionAppComponentCommandInput;
+      output: DescribeAppVersionAppComponentCommandOutput;
+    };
+  };
+}

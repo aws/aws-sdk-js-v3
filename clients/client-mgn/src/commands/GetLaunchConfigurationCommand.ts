@@ -101,6 +101,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class GetLaunchConfigurationCommand extends $Command
@@ -111,9 +112,7 @@ export class GetLaunchConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class GetLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLaunchConfigurationCommand)
   .de(de_GetLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchConfigurationRequest;
+      output: LaunchConfiguration;
+    };
+    sdk: {
+      input: GetLaunchConfigurationCommandInput;
+      output: GetLaunchConfigurationCommandOutput;
+    };
+  };
+}

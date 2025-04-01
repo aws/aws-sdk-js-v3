@@ -82,6 +82,7 @@ export interface ListSoftwareSetsCommandOutput extends ListSoftwareSetsResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class ListSoftwareSetsCommand extends $Command
@@ -92,9 +93,7 @@ export class ListSoftwareSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListSoftwareSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSoftwareSetsCommand)
   .de(de_ListSoftwareSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSoftwareSetsRequest;
+      output: ListSoftwareSetsResponse;
+    };
+    sdk: {
+      input: ListSoftwareSetsCommandInput;
+      output: ListSoftwareSetsCommandOutput;
+    };
+  };
+}

@@ -100,18 +100,21 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To list DB security group settings
  * ```javascript
  * // This example lists settings for the specified security group.
  * const input = {
- *   "DBSecurityGroupName": "mydbsecuritygroup"
+ *   DBSecurityGroupName: "mydbsecuritygroup"
  * };
  * const command = new DescribeDBSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-db-security-groups-66fe9ea1-17dd-4275-b82e-f771cee0c849
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeDBSecurityGroupsCommand extends $Command
   .classBuilder<
@@ -121,9 +124,7 @@ export class DescribeDBSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +136,16 @@ export class DescribeDBSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSecurityGroupsCommand)
   .de(de_DescribeDBSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSecurityGroupsMessage;
+      output: DBSecurityGroupMessage;
+    };
+    sdk: {
+      input: DescribeDBSecurityGroupsCommandInput;
+      output: DescribeDBSecurityGroupsCommandOutput;
+    };
+  };
+}

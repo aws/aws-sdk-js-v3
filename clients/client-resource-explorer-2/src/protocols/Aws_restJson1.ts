@@ -43,12 +43,15 @@ import {
 } from "../commands/GetAccountLevelServiceConfigurationCommand";
 import { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "../commands/GetDefaultViewCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
+import { GetManagedViewCommandInput, GetManagedViewCommandOutput } from "../commands/GetManagedViewCommand";
 import { GetViewCommandInput, GetViewCommandOutput } from "../commands/GetViewCommand";
 import { ListIndexesCommandInput, ListIndexesCommandOutput } from "../commands/ListIndexesCommand";
 import {
   ListIndexesForMembersCommandInput,
   ListIndexesForMembersCommandOutput,
 } from "../commands/ListIndexesForMembersCommand";
+import { ListManagedViewsCommandInput, ListManagedViewsCommandOutput } from "../commands/ListManagedViewsCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -68,6 +71,7 @@ import {
   ConflictException,
   IncludedProperty,
   InternalServerException,
+  ManagedView,
   Resource,
   ResourceNotFoundException,
   ResourceProperty,
@@ -279,6 +283,28 @@ export const se_GetIndexCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetManagedViewCommand
+ */
+export const se_GetManagedViewCommand = async (
+  input: GetManagedViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetManagedView");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ManagedViewArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetViewCommand
  */
 export const se_GetViewCommand = async (
@@ -343,6 +369,55 @@ export const se_ListIndexesForMembersCommand = async (
       AccountIdList: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListManagedViewsCommand
+ */
+export const se_ListManagedViewsCommand = async (
+  input: ListManagedViewsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListManagedViews");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ServicePrincipal: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListResourcesCommand
+ */
+export const se_ListResourcesCommand = async (
+  input: ListResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListResources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ViewArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -468,10 +543,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -744,6 +816,27 @@ export const de_GetIndexCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetManagedViewCommand
+ */
+export const de_GetManagedViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ManagedView: (_) => de_ManagedView(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetViewCommand
  */
 export const de_GetViewCommand = async (
@@ -804,6 +897,51 @@ export const de_ListIndexesForMembersCommand = async (
   const doc = take(data, {
     Indexes: _json,
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedViewsCommand
+ */
+export const de_ListManagedViewsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedViewsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ManagedViews: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListResourcesCommand
+ */
+export const de_ListResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Resources: (_) => de_ResourceList(_, context),
+    ViewArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1202,6 +1340,26 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_IndexList omitted.
 
+/**
+ * deserializeAws_restJson1ManagedView
+ */
+const de_ManagedView = (output: any, context: __SerdeContext): ManagedView => {
+  return take(output, {
+    Filters: _json,
+    IncludedProperties: _json,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ManagedViewArn: __expectString,
+    ManagedViewName: __expectString,
+    Owner: __expectString,
+    ResourcePolicy: __expectString,
+    Scope: __expectString,
+    TrustedService: __expectString,
+    Version: __expectString,
+  }) as any;
+};
+
+// de_ManagedViewArnList omitted.
+
 // de_MemberIndex omitted.
 
 // de_MemberIndexList omitted.
@@ -1320,12 +1478,5 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _tK = "tagKeys";

@@ -10,6 +10,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
@@ -157,6 +158,7 @@ import {
   GetSolNetworkOperationMetadata,
   GetSolNetworkOperationTaskDetails,
   GetSolNetworkPackageMetadata,
+  InstantiateMetadata,
   InternalServerException,
   ListSolFunctionInstanceInfo,
   ListSolFunctionInstanceMetadata,
@@ -168,10 +170,13 @@ import {
   ListSolNetworkOperationsMetadata,
   ListSolNetworkPackageInfo,
   ListSolNetworkPackageMetadata,
+  ModifyVnfInfoMetadata,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
+  UpdateNsMetadata,
   UpdateSolNetworkModify,
+  UpdateSolNetworkServiceData,
   ValidationException,
 } from "../models/models_0";
 import { TnbServiceException as __BaseException } from "../models/TnbServiceException";
@@ -554,6 +559,7 @@ export const se_ListSolNetworkOperationsCommand = async (
   const headers: any = {};
   b.bp("/sol/nslcm/v1/ns_lcm_op_occs");
   const query: any = map({
+    [_nII]: [, input[_nII]!],
     [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nom]: [, input[_nT]!],
   });
@@ -697,10 +703,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -748,6 +751,7 @@ export const se_UpdateSolNetworkInstanceCommand = async (
     take(input, {
       modifyVnfInfoData: (_) => se_UpdateSolNetworkModify(_, context),
       tags: (_) => _json(_),
+      updateNs: (_) => se_UpdateSolNetworkServiceData(_, context),
       updateType: [],
     })
   );
@@ -1120,6 +1124,7 @@ export const de_GetSolNetworkOperationCommand = async (
     operationState: __expectString,
     tags: _json,
     tasks: (_) => de_GetSolNetworkOperationTasksList(_, context),
+    updateType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1739,6 +1744,16 @@ const se_UpdateSolNetworkModify = (input: UpdateSolNetworkModify, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1UpdateSolNetworkServiceData
+ */
+const se_UpdateSolNetworkServiceData = (input: UpdateSolNetworkServiceData, context: __SerdeContext): any => {
+  return take(input, {
+    additionalParamsForNs: (_) => se_Document(_, context),
+    nsdInfoId: [],
+  });
+};
+
+/**
  * serializeAws_restJson1Document
  */
 const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
@@ -1788,7 +1803,10 @@ const de_GetSolNetworkInstanceMetadata = (output: any, context: __SerdeContext):
 const de_GetSolNetworkOperationMetadata = (output: any, context: __SerdeContext): GetSolNetworkOperationMetadata => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    instantiateMetadata: (_: any) => de_InstantiateMetadata(_, context),
     lastModified: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modifyVnfInfoMetadata: (_: any) => de_ModifyVnfInfoMetadata(_, context),
+    updateNsMetadata: (_: any) => de_UpdateNsMetadata(_, context),
   }) as any;
 };
 
@@ -1842,6 +1860,16 @@ const de_GetSolNetworkPackageMetadata = (output: any, context: __SerdeContext): 
 // de_GetSolVnfcResourceInfoMetadata omitted.
 
 // de_GetSolVnfInfo omitted.
+
+/**
+ * deserializeAws_restJson1InstantiateMetadata
+ */
+const de_InstantiateMetadata = (output: any, context: __SerdeContext): InstantiateMetadata => {
+  return take(output, {
+    additionalParamsForNs: (_: any) => de_Document(_, context),
+    nsdInfoId: __expectString,
+  }) as any;
+};
 
 // de_LcmOperationInfo omitted.
 
@@ -1973,6 +2001,7 @@ const de_ListSolNetworkOperationsInfo = (output: any, context: __SerdeContext): 
     metadata: (_: any) => de_ListSolNetworkOperationsMetadata(_, context),
     nsInstanceId: __expectString,
     operationState: __expectString,
+    updateType: __expectString,
   }) as any;
 };
 
@@ -1986,6 +2015,8 @@ const de_ListSolNetworkOperationsMetadata = (
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     lastModified: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    nsdInfoId: __expectString,
+    vnfInstanceId: __expectString,
   }) as any;
 };
 
@@ -2043,6 +2074,16 @@ const de_ListSolNetworkPackageResources = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ModifyVnfInfoMetadata
+ */
+const de_ModifyVnfInfoMetadata = (output: any, context: __SerdeContext): ModifyVnfInfoMetadata => {
+  return take(output, {
+    vnfConfigurableProperties: (_: any) => de_Document(_, context),
+    vnfInstanceId: __expectString,
+  }) as any;
+};
+
 // de_NetworkArtifactMeta omitted.
 
 // de_OverrideList omitted.
@@ -2059,11 +2100,28 @@ const de_ListSolNetworkPackageResources = (output: any, context: __SerdeContext)
 
 // de_ToscaOverride omitted.
 
+/**
+ * deserializeAws_restJson1UpdateNsMetadata
+ */
+const de_UpdateNsMetadata = (output: any, context: __SerdeContext): UpdateNsMetadata => {
+  return take(output, {
+    additionalParamsForNs: (_: any) => de_Document(_, context),
+    nsdInfoId: __expectString,
+  }) as any;
+};
+
 // de_ValidateSolFunctionPackageContentMetadata omitted.
 
 // de_ValidateSolNetworkPackageContentMetadata omitted.
 
 // de_VnfPkgIdList omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2077,13 +2135,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _a = "accept";
 const _cT = "contentType";
 const _ct = "content-type";
@@ -2091,6 +2142,7 @@ const _dR = "dryRun";
 const _dr = "dry_run";
 const _mR = "maxResults";
 const _mr = "max_results";
+const _nII = "nsInstanceId";
 const _nT = "nextToken";
 const _nom = "nextpage_opaque_marker";
 const _tK = "tagKeys";

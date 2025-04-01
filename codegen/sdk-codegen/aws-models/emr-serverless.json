@@ -134,6 +134,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The interactive configuration object that enables the interactive use cases for an application.</p>"
           }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
+          }
         }
       },
       "traits": {
@@ -1489,6 +1495,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The interactive configuration object that enables the interactive use cases \n      to use when running an application.</p>"
           }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
+          }
         }
       }
     },
@@ -1600,7 +1612,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\\-]*:(\\d{12})?:key\\/[a-zA-Z0-9-]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\\-]*:([0-9]{12}):key\\/[a-zA-Z0-9-]+$"
       }
     },
     "com.amazonaws.emrserverless#EngineType": {
@@ -1634,7 +1646,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 256
+          "max": 4096
         },
         "smithy.api#pattern": ".*\\S.*",
         "smithy.api#sensitive": {}
@@ -1748,6 +1760,13 @@
           "traits": {
             "smithy.api#documentation": "<p>An optimal parameter that indicates the amount of attempts for the job. If not specified,\n         this value defaults to the attempt of the latest job.</p>",
             "smithy.api#httpQuery": "attempt"
+          }
+        },
+        "accessSystemProfileLogs": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</p>",
+            "smithy.api#httpQuery": "accessSystemProfileLogs"
           }
         }
       }
@@ -1881,7 +1900,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::([0-9]{12}):(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$"
       }
     },
     "com.amazonaws.emrserverless#ImageConfiguration": {
@@ -1932,7 +1951,7 @@
           "min": 1,
           "max": 1024
         },
-        "smithy.api#pattern": "^([a-z0-9]+[a-z0-9-.]*)\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(?:\\:([a-zA-Z0-9_][a-zA-Z0-9-._]{0,299})|@(sha256:[0-9a-f]{64}))$"
+        "smithy.api#pattern": "^([0-9]{12})\\.dkr\\.ecr\\.([a-z0-9-]+).([a-z0-9._-]+)\\/((?:[a-z0-9]+(?:[-._][a-z0-9]+)*/)*[a-z0-9]+(?:[-._][a-z0-9]+)*)(?::([a-zA-Z0-9_]+[a-zA-Z0-9-._]*)|@(sha256:[0-9a-f]{64}))$"
       }
     },
     "com.amazonaws.emrserverless#InitScriptPath": {
@@ -2207,6 +2226,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time of when the job run attempt was last updated.</p>"
           }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.emrserverless#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the job moved to the RUNNING state.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.emrserverless#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the job was terminated.</p>"
+          }
+        },
+        "queuedDurationMilliseconds": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total time for a job in the QUEUED state in milliseconds.</p>"
+          }
         }
       },
       "traits": {
@@ -2421,6 +2458,10 @@
           {
             "value": "CANCELLED",
             "name": "CANCELLED"
+          },
+          {
+            "value": "QUEUED",
+            "name": "QUEUED"
           }
         ]
       }
@@ -3008,7 +3049,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The maximum allowed cumulative resources for an application. No new resources will be\n         created once the limit is hit.</p>"
+        "smithy.api#documentation": "<p>The maximum allowed cumulative resources for an application. No new resources will be created once the limit is hit.</p>"
       }
     },
     "com.amazonaws.emrserverless#MemorySize": {
@@ -3232,6 +3273,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs\n         to send log information to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.emrserverless#SchedulerConfiguration": {
+      "type": "structure",
+      "members": {
+        "queueTimeoutMinutes": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.</p>"
+          }
+        },
+        "maxConcurrentRuns": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
       }
     },
     "com.amazonaws.emrserverless#SecurityGroupIds": {
@@ -3885,6 +3946,12 @@
           "target": "com.amazonaws.emrserverless#MonitoringConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration setting for monitoring.</p>"
+          }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
           }
         }
       }

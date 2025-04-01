@@ -113,6 +113,7 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CancelServicePipelineDeploymentCommand extends $Command
@@ -123,9 +124,7 @@ export class CancelServicePipelineDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class CancelServicePipelineDeploymentCommand extends $Command
   .f(void 0, CancelServicePipelineDeploymentOutputFilterSensitiveLog)
   .ser(se_CancelServicePipelineDeploymentCommand)
   .de(de_CancelServicePipelineDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelServicePipelineDeploymentInput;
+      output: CancelServicePipelineDeploymentOutput;
+    };
+    sdk: {
+      input: CancelServicePipelineDeploymentCommandInput;
+      output: CancelServicePipelineDeploymentCommandOutput;
+    };
+  };
+}

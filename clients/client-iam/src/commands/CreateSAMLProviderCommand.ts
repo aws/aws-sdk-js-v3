@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateSAMLProviderRequest, CreateSAMLProviderResponse } from "../models/models_0";
+import {
+  CreateSAMLProviderRequest,
+  CreateSAMLProviderRequestFilterSensitiveLog,
+  CreateSAMLProviderResponse,
+} from "../models/models_0";
 import { de_CreateSAMLProviderCommand, se_CreateSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
@@ -61,6 +65,8 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   AssertionEncryptionMode: "Required" || "Allowed",
+ *   AddPrivateKey: "STRING_VALUE",
  * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
@@ -105,6 +111,7 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class CreateSAMLProviderCommand extends $Command
@@ -115,9 +122,7 @@ export class CreateSAMLProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,7 +131,19 @@ export class CreateSAMLProviderCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "CreateSAMLProvider", {})
   .n("IAMClient", "CreateSAMLProviderCommand")
-  .f(void 0, void 0)
+  .f(CreateSAMLProviderRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSAMLProviderCommand)
   .de(de_CreateSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSAMLProviderRequest;
+      output: CreateSAMLProviderResponse;
+    };
+    sdk: {
+      input: CreateSAMLProviderCommandInput;
+      output: CreateSAMLProviderCommandOutput;
+    };
+  };
+}

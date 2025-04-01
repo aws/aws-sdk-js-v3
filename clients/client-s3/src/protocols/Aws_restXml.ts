@@ -17,10 +17,12 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
+  isSerializableHeaderValue,
   map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
@@ -45,6 +47,10 @@ import {
 } from "../commands/CompleteMultipartUploadCommand";
 import { CopyObjectCommandInput, CopyObjectCommandOutput } from "../commands/CopyObjectCommand";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "../commands/CreateBucketCommand";
+import {
+  CreateBucketMetadataTableConfigurationCommandInput,
+  CreateBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/CreateBucketMetadataTableConfigurationCommand";
 import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
@@ -72,6 +78,10 @@ import {
   DeleteBucketLifecycleCommandInput,
   DeleteBucketLifecycleCommandOutput,
 } from "../commands/DeleteBucketLifecycleCommand";
+import {
+  DeleteBucketMetadataTableConfigurationCommandInput,
+  DeleteBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/DeleteBucketMetadataTableConfigurationCommand";
 import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
@@ -131,6 +141,10 @@ import {
 } from "../commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "../commands/GetBucketLocationCommand";
 import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "../commands/GetBucketLoggingCommand";
+import {
+  GetBucketMetadataTableConfigurationCommandInput,
+  GetBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/GetBucketMetadataTableConfigurationCommand";
 import {
   GetBucketMetricsConfigurationCommandInput,
   GetBucketMetricsConfigurationCommandOutput,
@@ -305,8 +319,6 @@ import {
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
   BucketInfo,
-  BucketLifecycleConfiguration,
-  BucketLoggingStatus,
   Checksum,
   ChecksumAlgorithm,
   CommonPrefix,
@@ -314,7 +326,6 @@ import {
   CompletedPart,
   Condition,
   CopyObjectResult,
-  CORSConfiguration,
   CORSRule,
   CreateBucketConfiguration,
   DefaultRetention,
@@ -324,11 +335,13 @@ import {
   DeleteMarkerReplication,
   Destination,
   EncryptionConfiguration,
+  ErrorDetails,
   ErrorDocument,
   Event,
   EventBridgeConfiguration,
   ExistingObjectReplication,
   FilterRule,
+  GetBucketMetadataTableConfigurationResult,
   GetObjectAttributesParts,
   Grant,
   Grantee,
@@ -352,6 +365,8 @@ import {
   LifecycleRuleFilter,
   LocationInfo,
   LoggingEnabled,
+  MetadataTableConfiguration,
+  MetadataTableConfigurationResult,
   Metrics,
   MetricsAndOperator,
   MetricsConfiguration,
@@ -393,6 +408,8 @@ import {
   RestoreStatus,
   RoutingRule,
   S3KeyFilter,
+  S3TablesDestination,
+  S3TablesDestinationResult,
   ServerSideEncryptionByDefault,
   ServerSideEncryptionConfiguration,
   ServerSideEncryptionRule,
@@ -412,14 +429,20 @@ import {
   Transition,
 } from "../models/models_0";
 import {
+  BucketLifecycleConfiguration,
+  BucketLoggingStatus,
   ContinuationEvent,
   CopyPartResult,
+  CORSConfiguration,
   CSVInput,
   CSVOutput,
   Encryption,
+  EncryptionTypeMismatch,
   EndEvent,
   GlacierJobParameters,
   InputSerialization,
+  InvalidRequest,
+  InvalidWriteOffset,
   JSONInput,
   JSONOutput,
   MetadataEntry,
@@ -440,6 +463,7 @@ import {
   Stats,
   StatsEvent,
   Tagging,
+  TooManyParts,
   VersioningConfiguration,
   WebsiteConfiguration,
 } from "../models/models_1";
@@ -456,6 +480,7 @@ export const se_AbortMultipartUploadCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
+    [_xaimit]: [() => isSerializableHeaderValue(input[_IMIT]), () => __dateToUtcString(input[_IMIT]!).toString()],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -481,10 +506,15 @@ export const se_CompleteMultipartUploadCommand = async (
     "content-type": "application/xml",
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
+    [_xact]: input[_CT]!,
+    [_xamos]: [() => isSerializableHeaderValue(input[_MOS]), () => input[_MOS]!.toString()],
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
+    [_im]: input[_IM]!,
+    [_inm]: input[_INM]!,
     [_xasseca]: input[_SSECA]!,
     [_xasseck]: input[_SSECK]!,
     [_xasseckm]: input[_SSECKMD]!,
@@ -523,7 +553,7 @@ export const se_CopyObjectCommand = async (
     [_cd]: input[_CD]!,
     [_ce]: input[_CE]!,
     [_cl]: input[_CL]!,
-    [_ct]: input[_CT]!,
+    [_ct]: input[_CTo]!,
     [_xacs__]: input[_CS]!,
     [_xacsim]: input[_CSIM]!,
     [_xacsims]: [() => isSerializableHeaderValue(input[_CSIMS]), () => __dateToUtcString(input[_CSIMS]!).toString()],
@@ -606,6 +636,37 @@ export const se_CreateBucketCommand = async (
 };
 
 /**
+ * serializeAws_restXmlCreateBucketMetadataTableConfigurationCommand
+ */
+export const se_CreateBucketMetadataTableConfigurationCommand = async (
+  input: CreateBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
+  });
+  let body: any;
+  let contents: any;
+  if (input.MetadataTableConfiguration !== undefined) {
+    contents = se_MetadataTableConfiguration(input.MetadataTableConfiguration, context);
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body += contents.toString();
+  }
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlCreateMultipartUploadCommand
  */
 export const se_CreateMultipartUploadCommand = async (
@@ -619,7 +680,7 @@ export const se_CreateMultipartUploadCommand = async (
     [_cd]: input[_CD]!,
     [_ce]: input[_CE]!,
     [_cl]: input[_CL]!,
-    [_ct]: input[_CT]!,
+    [_ct]: input[_CTo]!,
     [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
     [_xagfc]: input[_GFC]!,
     [_xagr]: input[_GR]!,
@@ -641,6 +702,7 @@ export const se_CreateMultipartUploadCommand = async (
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     [_xaca]: input[_CA]!,
+    [_xact]: input[_CT]!,
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
@@ -668,6 +730,10 @@ export const se_CreateSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xacsm]: input[_SM]!,
+    [_xasse]: input[_SSE]!,
+    [_xasseakki]: input[_SSEKMSKI]!,
+    [_xassec]: input[_SSEKMSEC]!,
+    [_xassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -825,6 +891,27 @@ export const se_DeleteBucketLifecycleCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteBucketMetadataTableConfigurationCommand
+ */
+export const se_DeleteBucketMetadataTableConfigurationCommand = async (
+  input: DeleteBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDeleteBucketMetricsConfigurationCommand
  */
 export const se_DeleteBucketMetricsConfigurationCommand = async (
@@ -964,6 +1051,9 @@ export const se_DeleteObjectCommand = async (
     [_xarp]: input[_RP]!,
     [_xabgr]: [() => isSerializableHeaderValue(input[_BGR]), () => input[_BGR]!.toString()],
     [_xaebo]: input[_EBO]!,
+    [_im]: input[_IM]!,
+    [_xaimlmt]: [() => isSerializableHeaderValue(input[_IMLMT]), () => __dateToUtcString(input[_IMLMT]!).toString()],
+    [_xaims]: [() => isSerializableHeaderValue(input[_IMS]), () => input[_IMS]!.toString()],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1270,6 +1360,27 @@ export const se_GetBucketLoggingCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetBucketMetadataTableConfigurationCommand
+ */
+export const se_GetBucketMetadataTableConfigurationCommand = async (
+  input: GetBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlGetBucketMetricsConfigurationCommand
  */
 export const se_GetBucketMetricsConfigurationCommand = async (
@@ -1491,7 +1602,7 @@ export const se_GetObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_im]: input[_IM]!,
-    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_ims]: [() => isSerializableHeaderValue(input[_IMSf]), () => __dateToUtcString(input[_IMSf]!).toString()],
     [_inm]: input[_INM]!,
     [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
     [_ra]: input[_R]!,
@@ -1561,10 +1672,7 @@ export const se_GetObjectAttributesCommand = async (
     [_xasseckm]: input[_SSECKMD]!,
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaoa]: [
-      () => isSerializableHeaderValue(input[_OA]),
-      () => (input[_OA]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xaoa]: [() => isSerializableHeaderValue(input[_OA]), () => (input[_OA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1743,7 +1851,7 @@ export const se_HeadObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_im]: input[_IM]!,
-    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_ims]: [() => isSerializableHeaderValue(input[_IMSf]), () => __dateToUtcString(input[_IMSf]!).toString()],
     [_inm]: input[_INM]!,
     [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
     [_ra]: input[_R]!,
@@ -1788,7 +1896,7 @@ export const se_ListBucketAnalyticsConfigurationsCommand = async (
   const query: any = map({
     [_a]: [, ""],
     [_xi]: [, "ListBucketAnalyticsConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1809,7 +1917,7 @@ export const se_ListBucketIntelligentTieringConfigurationsCommand = async (
   const query: any = map({
     [_it]: [, ""],
     [_xi]: [, "ListBucketIntelligentTieringConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1832,7 +1940,7 @@ export const se_ListBucketInventoryConfigurationsCommand = async (
   const query: any = map({
     [_in]: [, ""],
     [_xi]: [, "ListBucketInventoryConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1855,7 +1963,7 @@ export const se_ListBucketMetricsConfigurationsCommand = async (
   const query: any = map({
     [_m]: [, ""],
     [_xi]: [, "ListBucketMetricsConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1874,6 +1982,10 @@ export const se_ListBucketsCommand = async (
   b.bp("/");
   const query: any = map({
     [_xi]: [, "ListBuckets"],
+    [_mb]: [() => input.MaxBuckets !== void 0, () => input[_MB]!.toString()],
+    [_ct_]: [, input[_CTon]!],
+    [_pr]: [, input[_P]!],
+    [_br]: [, input[_BR]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1892,7 +2004,7 @@ export const se_ListDirectoryBucketsCommand = async (
   b.bp("/");
   const query: any = map({
     [_xi]: [, "ListDirectoryBuckets"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
     [_mdb]: [() => input.MaxDirectoryBuckets !== void 0, () => input[_MDB]!.toString()],
   });
   let body: any;
@@ -1939,10 +2051,7 @@ export const se_ListObjectsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaooa]: [
-      () => isSerializableHeaderValue(input[_OOA]),
-      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1969,10 +2078,7 @@ export const se_ListObjectsV2Command = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaooa]: [
-      () => isSerializableHeaderValue(input[_OOA]),
-      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1982,7 +2088,7 @@ export const se_ListObjectsV2Command = async (
     [_et]: [, input[_ET]!],
     [_mk]: [() => input.MaxKeys !== void 0, () => input[_MK]!.toString()],
     [_pr]: [, input[_P]!],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
     [_fo]: [() => input.FetchOwner !== void 0, () => input[_FO]!.toString()],
     [_sa]: [, input[_SA]!],
   });
@@ -2002,10 +2108,7 @@ export const se_ListObjectVersionsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xaebo]: input[_EBO]!,
     [_xarp]: input[_RP]!,
-    [_xaooa]: [
-      () => isSerializableHeaderValue(input[_OOA]),
-      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2282,6 +2385,7 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
     "content-type": "application/xml",
     [_xasca]: input[_CA]!,
     [_xaebo]: input[_EBO]!,
+    [_xatdmos]: input[_TDMOS]!,
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2618,7 +2722,7 @@ export const se_PutObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT] || "application/octet-stream",
+    [_ct]: input[_CTo] || "application/octet-stream",
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
     [_cd]: input[_CD]!,
@@ -2629,13 +2733,17 @@ export const se_PutObjectCommand = async (
     [_xasca]: input[_CA]!,
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
     [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
+    [_im]: input[_IM]!,
+    [_inm]: input[_INM]!,
     [_xagfc]: input[_GFC]!,
     [_xagr]: input[_GR]!,
     [_xagra]: input[_GRACP]!,
     [_xagwa]: input[_GWACP]!,
+    [_xawob]: [() => isSerializableHeaderValue(input[_WOB]), () => input[_WOB]!.toString()],
     [_xasse]: input[_SSE]!,
     [_xasc]: input[_SC]!,
     [_xawrl]: input[_WRL]!,
@@ -2975,6 +3083,7 @@ export const se_UploadPartCommand = async (
     [_xasca]: input[_CA]!,
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
     [_xasseca]: input[_SSECA]!,
@@ -3062,9 +3171,10 @@ export const se_WriteGetObjectResponseCommand = async (
     [_xafhcl]: input[_CL]!,
     [_cl_]: [() => isSerializableHeaderValue(input[_CLo]), () => input[_CLo]!.toString()],
     [_xafhcr]: input[_CR]!,
-    [_xafhct]: input[_CT]!,
+    [_xafhct]: input[_CTo]!,
     [_xafhxacc]: input[_CCRC]!,
     [_xafhxacc_]: input[_CCRCC]!,
+    [_xafhxacc__]: input[_CCRCNVME]!,
     [_xafhxacs]: input[_CSHA]!,
     [_xafhxacs_]: input[_CSHAh]!,
     [_xafhxadm]: [() => isSerializableHeaderValue(input[_DM]), () => input[_DM]!.toString()],
@@ -3167,11 +3277,17 @@ export const de_CompleteMultipartUploadCommand = async (
   if (data[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(data[_CCRCC]);
   }
+  if (data[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(data[_CCRCNVME]);
+  }
   if (data[_CSHA] != null) {
     contents[_CSHA] = __expectString(data[_CSHA]);
   }
   if (data[_CSHAh] != null) {
     contents[_CSHAh] = __expectString(data[_CSHAh]);
+  }
+  if (data[_CT] != null) {
+    contents[_CT] = __expectString(data[_CT]);
   }
   if (data[_ETa] != null) {
     contents[_ETa] = __expectString(data[_ETa]);
@@ -3232,6 +3348,23 @@ export const de_CreateBucketCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateBucketMetadataTableConfigurationCommand
+ */
+export const de_CreateBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBucketMetadataTableConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlCreateMultipartUploadCommand
  */
 export const de_CreateMultipartUploadCommand = async (
@@ -3256,6 +3389,7 @@ export const de_CreateMultipartUploadCommand = async (
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
     [_RC]: [, output.headers[_xarc]],
     [_CA]: [, output.headers[_xaca]],
+    [_CT]: [, output.headers[_xact]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data[_B] != null) {
@@ -3282,6 +3416,10 @@ export const de_CreateSessionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_SSEKMSEC]: [, output.headers[_xassec]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data[_C] != null) {
@@ -3399,6 +3537,23 @@ export const de_DeleteBucketLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketLifecycleCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteBucketMetadataTableConfigurationCommand
+ */
+export const de_DeleteBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBucketMetadataTableConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3746,6 +3901,7 @@ export const de_GetBucketLifecycleConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_TDMOS]: [, output.headers[_xatdmos]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Rule === "") {
@@ -3793,6 +3949,24 @@ export const de_GetBucketLoggingCommand = async (
   if (data[_LE] != null) {
     contents[_LE] = de_LoggingEnabled(data[_LE], context);
   }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetBucketMetadataTableConfigurationCommand
+ */
+export const de_GetBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketMetadataTableConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.GetBucketMetadataTableConfigurationResult = de_GetBucketMetadataTableConfigurationResult(data, context);
   return contents;
 };
 
@@ -4038,8 +4212,10 @@ export const de_GetObjectCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
     [_VI]: [, output.headers[_xavi]],
     [_CC]: [, output.headers[_cc]],
@@ -4047,7 +4223,7 @@ export const de_GetObjectCommand = async (
     [_CE]: [, output.headers[_ce]],
     [_CL]: [, output.headers[_cl]],
     [_CR]: [, output.headers[_cr]],
-    [_CT]: [, output.headers[_ct]],
+    [_CTo]: [, output.headers[_ct]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
     [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
@@ -4302,8 +4478,10 @@ export const de_HeadObjectCommand = async (
     [_CLo]: [() => void 0 !== output.headers[_cl_], () => __strictParseLong(output.headers[_cl_])],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_ETa]: [, output.headers[_eta]],
     [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
     [_VI]: [, output.headers[_xavi]],
@@ -4311,7 +4489,8 @@ export const de_HeadObjectCommand = async (
     [_CD]: [, output.headers[_cd]],
     [_CE]: [, output.headers[_ce]],
     [_CL]: [, output.headers[_cl]],
-    [_CT]: [, output.headers[_ct]],
+    [_CTo]: [, output.headers[_ct]],
+    [_CR]: [, output.headers[_cr]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
     [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
@@ -4363,8 +4542,8 @@ export const de_ListBucketAnalyticsConfigurationsCommand = async (
   } else if (data[_AC] != null) {
     contents[_ACLn] = de_AnalyticsConfigurationList(__getArrayIfSingleItem(data[_AC]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_IT] != null) {
     contents[_IT] = __parseBoolean(data[_IT]);
@@ -4389,8 +4568,8 @@ export const de_ListBucketIntelligentTieringConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data.IntelligentTieringConfiguration === "") {
     contents[_ITCL] = [];
@@ -4420,8 +4599,8 @@ export const de_ListBucketInventoryConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data.InventoryConfiguration === "") {
     contents[_ICL] = [];
@@ -4451,8 +4630,8 @@ export const de_ListBucketMetricsConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_IT] != null) {
     contents[_IT] = __parseBoolean(data[_IT]);
@@ -4487,8 +4666,14 @@ export const de_ListBucketsCommand = async (
   } else if (data[_Bu] != null && data[_Bu][_B] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
+  }
   if (data[_O] != null) {
     contents[_O] = de_Owner(data[_O], context);
+  }
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
   return contents;
 };
@@ -4512,8 +4697,8 @@ export const de_ListDirectoryBucketsCommand = async (
   } else if (data[_Bu] != null && data[_Bu][_B] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   return contents;
 };
@@ -4653,8 +4838,8 @@ export const de_ListObjectsV2Command = async (
   } else if (data[_Co] != null) {
     contents[_Co] = de_ObjectList(__getArrayIfSingleItem(data[_Co]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_D] != null) {
     contents[_D] = __expectString(data[_D]);
@@ -4774,6 +4959,9 @@ export const de_ListPartsCommand = async (
   }
   if (data[_CA] != null) {
     contents[_CA] = __expectString(data[_CA]);
+  }
+  if (data[_CT] != null) {
+    contents[_CT] = __expectString(data[_CT]);
   }
   if (data[_In] != null) {
     contents[_In] = de_Initiator(data[_In], context);
@@ -4941,6 +5129,7 @@ export const de_PutBucketLifecycleConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_TDMOS]: [, output.headers[_xatdmos]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -5132,8 +5321,10 @@ export const de_PutObjectCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_SSE]: [, output.headers[_xasse]],
     [_VI]: [, output.headers[_xavi]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -5141,6 +5332,7 @@ export const de_PutObjectCommand = async (
     [_SSEKMSKI]: [, output.headers[_xasseakki]],
     [_SSEKMSEC]: [, output.headers[_xassec]],
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_Si]: [() => void 0 !== output.headers[_xaos], () => __strictParseLong(output.headers[_xaos])],
     [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
@@ -5307,6 +5499,7 @@ export const de_UploadPartCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -5395,6 +5588,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NotFound":
     case "com.amazonaws.s3#NotFound":
       throw await de_NotFoundRes(parsedOutput, context);
+    case "EncryptionTypeMismatch":
+    case "com.amazonaws.s3#EncryptionTypeMismatch":
+      throw await de_EncryptionTypeMismatchRes(parsedOutput, context);
+    case "InvalidRequest":
+    case "com.amazonaws.s3#InvalidRequest":
+      throw await de_InvalidRequestRes(parsedOutput, context);
+    case "InvalidWriteOffset":
+    case "com.amazonaws.s3#InvalidWriteOffset":
+      throw await de_InvalidWriteOffsetRes(parsedOutput, context);
+    case "TooManyParts":
+    case "com.amazonaws.s3#TooManyParts":
+      throw await de_TooManyPartsRes(parsedOutput, context);
     case "ObjectAlreadyInActiveTierError":
     case "com.amazonaws.s3#ObjectAlreadyInActiveTierError":
       throw await de_ObjectAlreadyInActiveTierErrorRes(parsedOutput, context);
@@ -5439,6 +5644,22 @@ const de_BucketAlreadyOwnedByYouRes = async (
 };
 
 /**
+ * deserializeAws_restXmlEncryptionTypeMismatchRes
+ */
+const de_EncryptionTypeMismatchRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EncryptionTypeMismatch> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new EncryptionTypeMismatch({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restXmlInvalidObjectStateRes
  */
 const de_InvalidObjectStateRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidObjectState> => {
@@ -5451,6 +5672,32 @@ const de_InvalidObjectStateRes = async (parsedOutput: any, context: __SerdeConte
     contents[_SC] = __expectString(data[_SC]);
   }
   const exception = new InvalidObjectState({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlInvalidRequestRes
+ */
+const de_InvalidRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidRequest> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new InvalidRequest({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlInvalidWriteOffsetRes
+ */
+const de_InvalidWriteOffsetRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidWriteOffset> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new InvalidWriteOffset({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -5535,6 +5782,19 @@ const de_ObjectNotInActiveTierErrorRes = async (
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new ObjectNotInActiveTierError({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlTooManyPartsRes
+ */
+const de_TooManyPartsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyParts> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new TooManyParts({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -5823,6 +6083,7 @@ const se_CompletedPart = (input: CompletedPart, context: __SerdeContext): any =>
   bn.cc(input, _ETa);
   bn.cc(input, _CCRC);
   bn.cc(input, _CCRCC);
+  bn.cc(input, _CCRCNVME);
   bn.cc(input, _CSHA);
   bn.cc(input, _CSHAh);
   if (input[_PN] != null) {
@@ -6446,39 +6707,19 @@ const se_LifecycleRuleAndOperator = (input: LifecycleRuleAndOperator, context: _
  */
 const se_LifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
   const bn = new __XmlNode(_LRF);
-  LifecycleRuleFilter.visit(input, {
-    Prefix: (value) => {
-      if (input[_P] != null) {
-        bn.c(__XmlNode.of(_P, value).n(_P));
-      }
-    },
-    Tag: (value) => {
-      if (input[_Ta] != null) {
-        bn.c(se_Tag(value, context).n(_Ta));
-      }
-    },
-    ObjectSizeGreaterThan: (value) => {
-      if (input[_OSGT] != null) {
-        bn.c(__XmlNode.of(_OSGTB, String(value)).n(_OSGT));
-      }
-    },
-    ObjectSizeLessThan: (value) => {
-      if (input[_OSLT] != null) {
-        bn.c(__XmlNode.of(_OSLTB, String(value)).n(_OSLT));
-      }
-    },
-    And: (value) => {
-      if (input[_A] != null) {
-        bn.c(se_LifecycleRuleAndOperator(value, context).n(_A));
-      }
-    },
-    _: (name: string, value: any) => {
-      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
-        throw new Error("Unable to serialize unknown union members in XML.");
-      }
-      bn.c(new __XmlNode(name).c(value));
-    },
-  });
+  bn.cc(input, _P);
+  if (input[_Ta] != null) {
+    bn.c(se_Tag(input[_Ta], context).n(_Ta));
+  }
+  if (input[_OSGT] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGT])).n(_OSGT));
+  }
+  if (input[_OSLT] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLT])).n(_OSLT));
+  }
+  if (input[_A] != null) {
+    bn.c(se_LifecycleRuleAndOperator(input[_A], context).n(_A));
+  }
   return bn;
 };
 
@@ -6532,6 +6773,17 @@ const se_MetadataEntry = (input: MetadataEntry, context: __SerdeContext): any =>
   }
   if (input[_Va] != null) {
     bn.c(__XmlNode.of(_MV, input[_Va]).n(_Va));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlMetadataTableConfiguration
+ */
+const se_MetadataTableConfiguration = (input: MetadataTableConfiguration, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_MTC);
+  if (input[_STD] != null) {
+    bn.c(se_S3TablesDestination(input[_STD], context).n(_STD));
   }
   return bn;
 };
@@ -6691,6 +6943,13 @@ const se_ObjectIdentifier = (input: ObjectIdentifier, context: __SerdeContext): 
   }
   if (input[_VI] != null) {
     bn.c(__XmlNode.of(_OVI, input[_VI]).n(_VI));
+  }
+  bn.cc(input, _ETa);
+  if (input[_LMT] != null) {
+    bn.c(__XmlNode.of(_LMT, __dateToUtcString(input[_LMT]).toString()).n(_LMT));
+  }
+  if (input[_Si] != null) {
+    bn.c(__XmlNode.of(_Si, String(input[_Si])).n(_Si));
   }
   return bn;
 };
@@ -6977,29 +7236,13 @@ const se_ReplicationRuleAndOperator = (input: ReplicationRuleAndOperator, contex
  */
 const se_ReplicationRuleFilter = (input: ReplicationRuleFilter, context: __SerdeContext): any => {
   const bn = new __XmlNode(_RRF);
-  ReplicationRuleFilter.visit(input, {
-    Prefix: (value) => {
-      if (input[_P] != null) {
-        bn.c(__XmlNode.of(_P, value).n(_P));
-      }
-    },
-    Tag: (value) => {
-      if (input[_Ta] != null) {
-        bn.c(se_Tag(value, context).n(_Ta));
-      }
-    },
-    And: (value) => {
-      if (input[_A] != null) {
-        bn.c(se_ReplicationRuleAndOperator(value, context).n(_A));
-      }
-    },
-    _: (name: string, value: any) => {
-      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
-        throw new Error("Unable to serialize unknown union members in XML.");
-      }
-      bn.c(new __XmlNode(name).c(value));
-    },
-  });
+  bn.cc(input, _P);
+  if (input[_Ta] != null) {
+    bn.c(se_Tag(input[_Ta], context).n(_Ta));
+  }
+  if (input[_A] != null) {
+    bn.c(se_ReplicationRuleAndOperator(input[_A], context).n(_A));
+  }
   return bn;
 };
 
@@ -7141,6 +7384,20 @@ const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   }
   bn.lc(input, "UserMetadata", "UserMetadata", () => se_UserMetadata(input[_UM]!, context));
   bn.cc(input, _SC);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlS3TablesDestination
+ */
+const se_S3TablesDestination = (input: S3TablesDestination, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_STD);
+  if (input[_TBA] != null) {
+    bn.c(__XmlNode.of(_STBA, input[_TBA]).n(_TBA));
+  }
+  if (input[_TN] != null) {
+    bn.c(__XmlNode.of(_STN, input[_TN]).n(_TN));
+  }
   return bn;
 };
 
@@ -7672,6 +7929,9 @@ const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
   if (output[_CDr] != null) {
     contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
+  if (output[_BR] != null) {
+    contents[_BR] = __expectString(output[_BR]);
+  }
   return contents;
 };
 
@@ -7697,11 +7957,17 @@ const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
+  }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
   }
   if (output[_CSHAh] != null) {
     contents[_CSHAh] = __expectString(output[_CSHAh]);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -7772,11 +8038,17 @@ const de_CopyObjectResult = (output: any, context: __SerdeContext): CopyObjectRe
   if (output[_LM] != null) {
     contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
+  }
   if (output[_CCRC] != null) {
     contents[_CCRC] = __expectString(output[_CCRC]);
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -7803,6 +8075,9 @@ const de_CopyPartResult = (output: any, context: __SerdeContext): CopyPartResult
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -8020,6 +8295,20 @@ const de__Error = (output: any, context: __SerdeContext): _Error => {
 };
 
 /**
+ * deserializeAws_restXmlErrorDetails
+ */
+const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
+  const contents: any = {};
+  if (output[_EC] != null) {
+    contents[_EC] = __expectString(output[_EC]);
+  }
+  if (output[_EM] != null) {
+    contents[_EM] = __expectString(output[_EM]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlErrorDocument
  */
 const de_ErrorDocument = (output: any, context: __SerdeContext): ErrorDocument => {
@@ -8105,6 +8394,26 @@ const de_FilterRuleList = (output: any, context: __SerdeContext): FilterRule[] =
     .map((entry: any) => {
       return de_FilterRule(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlGetBucketMetadataTableConfigurationResult
+ */
+const de_GetBucketMetadataTableConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): GetBucketMetadataTableConfigurationResult => {
+  const contents: any = {};
+  if (output[_MTCR] != null) {
+    contents[_MTCR] = de_MetadataTableConfigurationResult(output[_MTCR], context);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_Er] != null) {
+    contents[_Er] = de_ErrorDetails(output[_Er], context);
+  }
+  return contents;
 };
 
 /**
@@ -8464,10 +8773,8 @@ const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule =
   if (output[_P] != null) {
     contents[_P] = __expectString(output[_P]);
   }
-  if (output.Filter === "") {
-    // Pass empty tags.
-  } else if (output[_F] != null) {
-    contents[_F] = de_LifecycleRuleFilter(__expectUnion(output[_F]), context);
+  if (output[_F] != null) {
+    contents[_F] = de_LifecycleRuleFilter(output[_F], context);
   }
   if (output[_S] != null) {
     contents[_S] = __expectString(output[_S]);
@@ -8517,32 +8824,23 @@ const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): Life
  * deserializeAws_restXmlLifecycleRuleFilter
  */
 const de_LifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
+  const contents: any = {};
   if (output[_P] != null) {
-    return {
-      Prefix: __expectString(output[_P]) as any,
-    };
+    contents[_P] = __expectString(output[_P]);
   }
   if (output[_Ta] != null) {
-    return {
-      Tag: de_Tag(output[_Ta], context),
-    };
+    contents[_Ta] = de_Tag(output[_Ta], context);
   }
   if (output[_OSGT] != null) {
-    return {
-      ObjectSizeGreaterThan: __strictParseLong(output[_OSGT]) as number,
-    };
+    contents[_OSGT] = __strictParseLong(output[_OSGT]) as number;
   }
   if (output[_OSLT] != null) {
-    return {
-      ObjectSizeLessThan: __strictParseLong(output[_OSLT]) as number,
-    };
+    contents[_OSLT] = __strictParseLong(output[_OSLT]) as number;
   }
   if (output[_A] != null) {
-    return {
-      And: de_LifecycleRuleAndOperator(output[_A], context),
-    };
+    contents[_A] = de_LifecycleRuleAndOperator(output[_A], context);
   }
-  return { $unknown: Object.entries(output)[0] };
+  return contents;
 };
 
 /**
@@ -8574,6 +8872,20 @@ const de_LoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled
   }
   if (output[_TOKF] != null) {
     contents[_TOKF] = de_TargetObjectKeyFormat(output[_TOKF], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlMetadataTableConfigurationResult
+ */
+const de_MetadataTableConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): MetadataTableConfigurationResult => {
+  const contents: any = {};
+  if (output[_STDR] != null) {
+    contents[_STDR] = de_S3TablesDestinationResult(output[_STDR], context);
   }
   return contents;
 };
@@ -8691,6 +9003,9 @@ const de_MultipartUpload = (output: any, context: __SerdeContext): MultipartUplo
   if (output[_CA] != null) {
     contents[_CA] = __expectString(output[_CA]);
   }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
+  }
   return contents;
 };
 
@@ -8776,6 +9091,9 @@ const de__Object = (output: any, context: __SerdeContext): _Object => {
     contents[_CA] = [];
   } else if (output[_CA] != null) {
     contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   if (output[_Si] != null) {
     contents[_Si] = __strictParseLong(output[_Si]) as number;
@@ -8870,6 +9188,9 @@ const de_ObjectPart = (output: any, context: __SerdeContext): ObjectPart => {
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
+  }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
   }
@@ -8891,6 +9212,9 @@ const de_ObjectVersion = (output: any, context: __SerdeContext): ObjectVersion =
     contents[_CA] = [];
   } else if (output[_CA] != null) {
     contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   if (output[_Si] != null) {
     contents[_Si] = __strictParseLong(output[_Si]) as number;
@@ -9001,6 +9325,9 @@ const de_Part = (output: any, context: __SerdeContext): Part => {
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -9203,10 +9530,8 @@ const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRu
   if (output[_P] != null) {
     contents[_P] = __expectString(output[_P]);
   }
-  if (output.Filter === "") {
-    // Pass empty tags.
-  } else if (output[_F] != null) {
-    contents[_F] = de_ReplicationRuleFilter(__expectUnion(output[_F]), context);
+  if (output[_F] != null) {
+    contents[_F] = de_ReplicationRuleFilter(output[_F], context);
   }
   if (output[_S] != null) {
     contents[_S] = __expectString(output[_S]);
@@ -9246,22 +9571,17 @@ const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): Re
  * deserializeAws_restXmlReplicationRuleFilter
  */
 const de_ReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
+  const contents: any = {};
   if (output[_P] != null) {
-    return {
-      Prefix: __expectString(output[_P]) as any,
-    };
+    contents[_P] = __expectString(output[_P]);
   }
   if (output[_Ta] != null) {
-    return {
-      Tag: de_Tag(output[_Ta], context),
-    };
+    contents[_Ta] = de_Tag(output[_Ta], context);
   }
   if (output[_A] != null) {
-    return {
-      And: de_ReplicationRuleAndOperator(output[_A], context),
-    };
+    contents[_A] = de_ReplicationRuleAndOperator(output[_A], context);
   }
-  return { $unknown: Object.entries(output)[0] };
+  return contents;
 };
 
 /**
@@ -9348,6 +9668,26 @@ const de_S3KeyFilter = (output: any, context: __SerdeContext): S3KeyFilter => {
     contents[_FRi] = [];
   } else if (output[_FR] != null) {
     contents[_FRi] = de_FilterRuleList(__getArrayIfSingleItem(output[_FR]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlS3TablesDestinationResult
+ */
+const de_S3TablesDestinationResult = (output: any, context: __SerdeContext): S3TablesDestinationResult => {
+  const contents: any = {};
+  if (output[_TBA] != null) {
+    contents[_TBA] = __expectString(output[_TBA]);
+  }
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
+  }
+  if (output[_TAa] != null) {
+    contents[_TAa] = __expectString(output[_TAa]);
+  }
+  if (output[_TNa] != null) {
+    contents[_TNa] = __expectString(output[_TNa]);
   }
   return contents;
 };
@@ -9683,13 +10023,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _A = "And";
 const _AAO = "AnalyticsAndOperator";
 const _AC = "AnalyticsConfiguration";
@@ -9752,6 +10085,7 @@ const _CBC = "CreateBucketConfiguration";
 const _CC = "CacheControl";
 const _CCRC = "ChecksumCRC32";
 const _CCRCC = "ChecksumCRC32C";
+const _CCRCNVME = "ChecksumCRC64NVME";
 const _CD = "ContentDisposition";
 const _CDr = "CreationDate";
 const _CE = "ContentEncoding";
@@ -9784,9 +10118,10 @@ const _CSV = "CSV";
 const _CSVI = "CopySourceVersionId";
 const _CSVIn = "CSVInput";
 const _CSVO = "CSVOutput";
-const _CT = "ContentType";
-const _CTo = "ContinuationToken";
+const _CT = "ChecksumType";
+const _CTo = "ContentType";
 const _CTom = "CompressionType";
+const _CTon = "ContinuationToken";
 const _Ch = "Checksum";
 const _Co = "Contents";
 const _Cod = "Code";
@@ -9878,7 +10213,10 @@ const _II = "InventoryId";
 const _IIOV = "InventoryIncludedObjectVersions";
 const _IL = "IsLatest";
 const _IM = "IfMatch";
-const _IMS = "IfModifiedSince";
+const _IMIT = "IfMatchInitiatedTime";
+const _IMLMT = "IfMatchLastModifiedTime";
+const _IMS = "IfMatchSize";
+const _IMSf = "IfModifiedSince";
 const _INM = "IfNoneMatch";
 const _IOF = "InventoryOptionalField";
 const _IOV = "IncludedObjectVersions";
@@ -9921,6 +10259,7 @@ const _LFC = "LambdaFunctionConfigurations";
 const _LFCa = "LambdaFunctionConfiguration";
 const _LI = "LocationInfo";
 const _LM = "LastModified";
+const _LMT = "LastModifiedTime";
 const _LNAS = "LocationNameAsString";
 const _LP = "LocationPrefix";
 const _LR = "LifecycleRule";
@@ -9930,6 +10269,7 @@ const _LT = "LocationType";
 const _M = "Marker";
 const _MAO = "MetricsAndOperator";
 const _MAS = "MaxAgeSeconds";
+const _MB = "MaxBuckets";
 const _MC = "MetricsConfiguration";
 const _MCL = "MetricsConfigurationList";
 const _MD = "MetadataDirective";
@@ -9943,8 +10283,11 @@ const _MI = "MetricsId";
 const _MK = "MaxKeys";
 const _MKe = "MetadataKey";
 const _MM = "MissingMeta";
+const _MOS = "MpuObjectSize";
 const _MP = "MaxParts";
 const _MS = "MetricsStatus";
+const _MTC = "MetadataTableConfiguration";
+const _MTCR = "MetadataTableConfigurationResult";
 const _MU = "MaxUploads";
 const _MV = "MetadataValue";
 const _Me = "Metrics";
@@ -10100,6 +10443,10 @@ const _SSEKMSKI = "SSEKMSKeyId";
 const _SSER = "ServerSideEncryptionRule";
 const _SSES = "SSES3";
 const _ST = "SessionToken";
+const _STBA = "S3TablesBucketArn";
+const _STD = "S3TablesDestination";
+const _STDR = "S3TablesDestinationResult";
+const _STN = "S3TablesName";
 const _S_ = "S3";
 const _Sc = "Schedule";
 const _Se = "Setting";
@@ -10108,13 +10455,18 @@ const _St = "Start";
 const _Su = "Suffix";
 const _T = "Tagging";
 const _TA = "TopicArn";
+const _TAa = "TableArn";
 const _TB = "TargetBucket";
+const _TBA = "TableBucketArn";
 const _TC = "TagCount";
 const _TCo = "TopicConfiguration";
 const _TCop = "TopicConfigurations";
 const _TD = "TaggingDirective";
+const _TDMOS = "TransitionDefaultMinimumObjectSize";
 const _TG = "TargetGrants";
 const _TGa = "TargetGrant";
+const _TN = "TableName";
+const _TNa = "TableNamespace";
 const _TOKF = "TargetObjectKeyFormat";
 const _TP = "TargetPrefix";
 const _TPC = "TotalPartsCount";
@@ -10145,6 +10497,7 @@ const _VIM = "VersionIdMarker";
 const _Va = "Value";
 const _Ve = "Versions";
 const _WC = "WebsiteConfiguration";
+const _WOB = "WriteOffsetBytes";
 const _WRL = "WebsiteRedirectLocation";
 const _Y = "Years";
 const _a = "analytics";
@@ -10152,6 +10505,7 @@ const _ac = "accelerate";
 const _acl = "acl";
 const _ar = "accept-ranges";
 const _at = "attributes";
+const _br = "bucket-region";
 const _c = "cors";
 const _cc = "cache-control";
 const _cd = "content-disposition";
@@ -10185,7 +10539,9 @@ const _lo = "location";
 const _log = "logging";
 const _lt = "list-type";
 const _m = "metrics";
+const _mT = "metadataTable";
 const _ma = "marker";
+const _mb = "max-buckets";
 const _mdb = "max-directory-buckets";
 const _me = "member";
 const _mk = "max-keys";
@@ -10241,6 +10597,7 @@ const _xabr = "x-amz-bucket-region";
 const _xaca = "x-amz-checksum-algorithm";
 const _xacc = "x-amz-checksum-crc32";
 const _xacc_ = "x-amz-checksum-crc32c";
+const _xacc__ = "x-amz-checksum-crc64nvme";
 const _xacm = "x-amz-checksum-mode";
 const _xacrsba = "x-amz-confirm-remove-self-bucket-access";
 const _xacs = "x-amz-checksum-sha1";
@@ -10256,6 +10613,7 @@ const _xacssseca = "x-amz-copy-source-server-side-encryption-customer-algorithm"
 const _xacssseck = "x-amz-copy-source-server-side-encryption-customer-key";
 const _xacssseckm = "x-amz-copy-source-server-side-encryption-customer-key-md5";
 const _xacsvi = "x-amz-copy-source-version-id";
+const _xact = "x-amz-checksum-type";
 const _xadm = "x-amz-delete-marker";
 const _xae = "x-amz-expiration";
 const _xaebo = "x-amz-expected-bucket-owner";
@@ -10273,6 +10631,7 @@ const _xafhe_ = "x-amz-fwd-header-expires";
 const _xafhlm = "x-amz-fwd-header-last-modified";
 const _xafhxacc = "x-amz-fwd-header-x-amz-checksum-crc32";
 const _xafhxacc_ = "x-amz-fwd-header-x-amz-checksum-crc32c";
+const _xafhxacc__ = "x-amz-fwd-header-x-amz-checksum-crc64nvme";
 const _xafhxacs = "x-amz-fwd-header-x-amz-checksum-sha1";
 const _xafhxacs_ = "x-amz-fwd-header-x-amz-checksum-sha256";
 const _xafhxadm = "x-amz-fwd-header-x-amz-delete-marker";
@@ -10299,9 +10658,13 @@ const _xagr = "x-amz-grant-read";
 const _xagra = "x-amz-grant-read-acp";
 const _xagw = "x-amz-grant-write";
 const _xagwa = "x-amz-grant-write-acp";
+const _xaimit = "x-amz-if-match-initiated-time";
+const _xaimlmt = "x-amz-if-match-last-modified-time";
+const _xaims = "x-amz-if-match-size";
 const _xam = "x-amz-mfa";
 const _xamd = "x-amz-metadata-directive";
 const _xamm = "x-amz-missing-meta";
+const _xamos = "x-amz-mp-object-size";
 const _xamp = "x-amz-max-parts";
 const _xampc = "x-amz-mp-parts-count";
 const _xaoa = "x-amz-object-attributes";
@@ -10310,6 +10673,7 @@ const _xaolm = "x-amz-object-lock-mode";
 const _xaolrud = "x-amz-object-lock-retain-until-date";
 const _xaoo = "x-amz-object-ownership";
 const _xaooa = "x-amz-optional-object-attributes";
+const _xaos = "x-amz-object-size";
 const _xapnm = "x-amz-part-number-marker";
 const _xar = "x-amz-restore";
 const _xarc = "x-amz-request-charged";
@@ -10332,6 +10696,8 @@ const _xasseckm = "x-amz-server-side-encryption-customer-key-md5";
 const _xat = "x-amz-tagging";
 const _xatc = "x-amz-tagging-count";
 const _xatd = "x-amz-tagging-directive";
+const _xatdmos = "x-amz-transition-default-minimum-object-size";
 const _xavi = "x-amz-version-id";
+const _xawob = "x-amz-write-offset-bytes";
 const _xawrl = "x-amz-website-redirect-location";
 const _xi = "x-id";

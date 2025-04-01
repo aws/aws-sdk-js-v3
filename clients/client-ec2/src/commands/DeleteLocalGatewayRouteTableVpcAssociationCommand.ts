@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DeleteLocalGatewayRouteTableVpcAssociationCommand,
   se_DeleteLocalGatewayRouteTableVpcAssociationCommand,
@@ -79,6 +79,7 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command
@@ -89,9 +90,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLocalGatewayRouteTableVpcAssociationCommand)
   .de(de_DeleteLocalGatewayRouteTableVpcAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLocalGatewayRouteTableVpcAssociationRequest;
+      output: DeleteLocalGatewayRouteTableVpcAssociationResult;
+    };
+    sdk: {
+      input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput;
+      output: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput;
+    };
+  };
+}

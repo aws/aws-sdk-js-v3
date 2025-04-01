@@ -9,7 +9,7 @@ import {
   UpdateWorkforceRequest,
   UpdateWorkforceRequestFilterSensitiveLog,
   UpdateWorkforceResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateWorkforceCommand, se_UpdateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -156,6 +156,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkforceCommand extends $Command
@@ -166,9 +167,7 @@ export class UpdateWorkforceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +179,16 @@ export class UpdateWorkforceCommand extends $Command
   .f(UpdateWorkforceRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateWorkforceCommand)
   .de(de_UpdateWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkforceRequest;
+      output: UpdateWorkforceResponse;
+    };
+    sdk: {
+      input: UpdateWorkforceCommandInput;
+      output: UpdateWorkforceCommandOutput;
+    };
+  };
+}

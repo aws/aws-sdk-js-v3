@@ -85,6 +85,7 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeDefaultEncryptionConfigurationCommand extends $Command
@@ -95,9 +96,7 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDefaultEncryptionConfigurationCommand)
   .de(de_DescribeDefaultEncryptionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeDefaultEncryptionConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeDefaultEncryptionConfigurationCommandInput;
+      output: DescribeDefaultEncryptionConfigurationCommandOutput;
+    };
+  };
+}

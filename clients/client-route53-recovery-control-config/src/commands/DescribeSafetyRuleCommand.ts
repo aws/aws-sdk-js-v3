@@ -99,6 +99,7 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class DescribeSafetyRuleCommand extends $Command
@@ -109,9 +110,7 @@ export class DescribeSafetyRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DescribeSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSafetyRuleCommand)
   .de(de_DescribeSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSafetyRuleRequest;
+      output: DescribeSafetyRuleResponse;
+    };
+    sdk: {
+      input: DescribeSafetyRuleCommandInput;
+      output: DescribeSafetyRuleCommandOutput;
+    };
+  };
+}

@@ -30,7 +30,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
 /**
  * <p>Returns a list of entities that have been affected by the specified events, based on the
  *          specified filter criteria. Entities can refer to individual customer resources, groups of
- *          customer resources, or any other construct, depending on the Amazon Web Service. Events that
+ *          customer resources, or any other construct, depending on the Amazon Web Services service. Events that
  *          have impact beyond that of the affected entities, or where the extent of impact is unknown,
  *          include at least one entity indicating this.</p>
  *          <p>At least one event ARN is required.</p>
@@ -96,6 +96,9 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       entityMetadata: { // entityMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -118,6 +121,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeAffectedEntitiesCommand extends $Command
@@ -128,9 +132,7 @@ export class DescribeAffectedEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +144,16 @@ export class DescribeAffectedEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAffectedEntitiesCommand)
   .de(de_DescribeAffectedEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAffectedEntitiesRequest;
+      output: DescribeAffectedEntitiesResponse;
+    };
+    sdk: {
+      input: DescribeAffectedEntitiesCommandInput;
+      output: DescribeAffectedEntitiesCommandOutput;
+    };
+  };
+}

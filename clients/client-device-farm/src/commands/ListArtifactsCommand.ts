@@ -78,19 +78,22 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To list artifacts for a resource
  * ```javascript
  * // The following example lists screenshot artifacts for a specific run.
  * const input = {
- *   "type": "SCREENSHOT",
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456",
+ *   type: "SCREENSHOT"
  * };
  * const command = new ListArtifactsCommand(input);
- * await client.send(command);
- * // example id: to-list-artifacts-for-a-resource-1471635409527
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ListArtifactsCommand extends $Command
   .classBuilder<
@@ -100,9 +103,7 @@ export class ListArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +115,16 @@ export class ListArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArtifactsCommand)
   .de(de_ListArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArtifactsRequest;
+      output: ListArtifactsResult;
+    };
+    sdk: {
+      input: ListArtifactsCommandInput;
+      output: ListArtifactsCommandOutput;
+    };
+  };
+}

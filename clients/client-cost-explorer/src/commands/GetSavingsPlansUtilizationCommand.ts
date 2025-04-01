@@ -182,6 +182,7 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetSavingsPlansUtilizationCommand extends $Command
@@ -192,9 +193,7 @@ export class GetSavingsPlansUtilizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +205,16 @@ export class GetSavingsPlansUtilizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSavingsPlansUtilizationCommand)
   .de(de_GetSavingsPlansUtilizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSavingsPlansUtilizationRequest;
+      output: GetSavingsPlansUtilizationResponse;
+    };
+    sdk: {
+      input: GetSavingsPlansUtilizationCommandInput;
+      output: GetSavingsPlansUtilizationCommandOutput;
+    };
+  };
+}

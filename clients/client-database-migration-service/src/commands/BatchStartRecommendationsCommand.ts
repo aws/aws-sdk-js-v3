@@ -88,6 +88,7 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class BatchStartRecommendationsCommand extends $Command
@@ -98,9 +99,7 @@ export class BatchStartRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class BatchStartRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStartRecommendationsCommand)
   .de(de_BatchStartRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStartRecommendationsRequest;
+      output: BatchStartRecommendationsResponse;
+    };
+    sdk: {
+      input: BatchStartRecommendationsCommandInput;
+      output: BatchStartRecommendationsCommandOutput;
+    };
+  };
+}

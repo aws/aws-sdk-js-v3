@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListImagesRequest, ListImagesResponse } from "../models/models_3";
+import { ListImagesRequest, ListImagesResponse } from "../models/models_4";
 import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -76,6 +76,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListImagesCommand extends $Command
@@ -86,9 +87,7 @@ export class ListImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ListImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagesCommand)
   .de(de_ListImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagesRequest;
+      output: ListImagesResponse;
+    };
+    sdk: {
+      input: ListImagesCommandInput;
+      output: ListImagesCommandOutput;
+    };
+  };
+}

@@ -96,6 +96,7 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ListSyncResourcesCommand extends $Command
@@ -106,9 +107,7 @@ export class ListSyncResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListSyncResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSyncResourcesCommand)
   .de(de_ListSyncResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSyncResourcesRequest;
+      output: ListSyncResourcesResponse;
+    };
+    sdk: {
+      input: ListSyncResourcesCommandInput;
+      output: ListSyncResourcesCommandOutput;
+    };
+  };
+}

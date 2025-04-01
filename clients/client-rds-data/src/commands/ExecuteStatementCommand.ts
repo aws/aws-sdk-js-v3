@@ -204,6 +204,11 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link DatabaseNotFoundException} (client fault)
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
+ * @throws {@link DatabaseResumingException} (client fault)
+ *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
+ *          The Data API request automatically resumes the DB instance. Wait a few seconds and
+ *          try again.</p>
+ *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
  *
@@ -215,6 +220,9 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
  *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
@@ -260,6 +268,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class ExecuteStatementCommand extends $Command
@@ -270,9 +279,7 @@ export class ExecuteStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -284,4 +291,16 @@ export class ExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteStatementCommand)
   .de(de_ExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteStatementRequest;
+      output: ExecuteStatementResponse;
+    };
+    sdk: {
+      input: ExecuteStatementCommandInput;
+      output: ExecuteStatementCommandOutput;
+    };
+  };
+}

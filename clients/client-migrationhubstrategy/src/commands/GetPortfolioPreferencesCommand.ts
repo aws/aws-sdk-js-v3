@@ -117,6 +117,7 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetPortfolioPreferencesCommand extends $Command
@@ -127,9 +128,7 @@ export class GetPortfolioPreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class GetPortfolioPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPortfolioPreferencesCommand)
   .de(de_GetPortfolioPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPortfolioPreferencesResponse;
+    };
+    sdk: {
+      input: GetPortfolioPreferencesCommandInput;
+      output: GetPortfolioPreferencesCommandOutput;
+    };
+  };
+}

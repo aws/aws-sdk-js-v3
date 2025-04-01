@@ -88,6 +88,7 @@ export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalCl
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class SwitchoverGlobalClusterCommand extends $Command
@@ -98,9 +99,7 @@ export class SwitchoverGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class SwitchoverGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwitchoverGlobalClusterCommand)
   .de(de_SwitchoverGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwitchoverGlobalClusterMessage;
+      output: SwitchoverGlobalClusterResult;
+    };
+    sdk: {
+      input: SwitchoverGlobalClusterCommandInput;
+      output: SwitchoverGlobalClusterCommandOutput;
+    };
+  };
+}

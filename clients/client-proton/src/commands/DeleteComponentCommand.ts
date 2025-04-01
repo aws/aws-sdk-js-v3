@@ -97,6 +97,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteComponentCommand extends $Command
@@ -107,9 +108,7 @@ export class DeleteComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class DeleteComponentCommand extends $Command
   .f(void 0, DeleteComponentOutputFilterSensitiveLog)
   .ser(se_DeleteComponentCommand)
   .de(de_DeleteComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComponentInput;
+      output: DeleteComponentOutput;
+    };
+    sdk: {
+      input: DeleteComponentCommandInput;
+      output: DeleteComponentCommandOutput;
+    };
+  };
+}

@@ -78,6 +78,7 @@ export interface GetIpamPoolCidrsCommandOutput extends GetIpamPoolCidrsResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetIpamPoolCidrsCommand extends $Command
@@ -88,9 +89,7 @@ export class GetIpamPoolCidrsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class GetIpamPoolCidrsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamPoolCidrsCommand)
   .de(de_GetIpamPoolCidrsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamPoolCidrsRequest;
+      output: GetIpamPoolCidrsResult;
+    };
+    sdk: {
+      input: GetIpamPoolCidrsCommandInput;
+      output: GetIpamPoolCidrsCommandOutput;
+    };
+  };
+}

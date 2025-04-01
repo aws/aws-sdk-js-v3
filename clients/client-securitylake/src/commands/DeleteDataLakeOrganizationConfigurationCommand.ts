@@ -99,6 +99,7 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
@@ -109,9 +110,7 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataLakeOrganizationConfigurationCommand)
   .de(de_DeleteDataLakeOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataLakeOrganizationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataLakeOrganizationConfigurationCommandInput;
+      output: DeleteDataLakeOrganizationConfigurationCommandOutput;
+    };
+  };
+}

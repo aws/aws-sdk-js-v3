@@ -80,6 +80,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class StopServerCommand extends $Command
@@ -90,9 +91,7 @@ export class StopServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class StopServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopServerCommand)
   .de(de_StopServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopServerCommandInput;
+      output: StopServerCommandOutput;
+    };
+  };
+}

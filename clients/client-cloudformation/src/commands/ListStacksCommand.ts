@@ -28,10 +28,11 @@ export interface ListStacksCommandInput extends ListStacksInput {}
 export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the summary information for stacks whose status matches the specified StackStatusFilter. Summary
- *    information for stacks that have been deleted is kept for 90 days after the stack is deleted. If no StackStatusFilter
- *    is specified, summary information for all stacks is returned (including existing stacks and stacks that have been
- *    deleted).</p>
+ * <p>Returns the summary information for stacks whose status matches the specified
+ *         <code>StackStatusFilter</code>. Summary information for stacks that have been deleted is
+ *       kept for 90 days after the stack is deleted. If no <code>StackStatusFilter</code> is
+ *       specified, summary information for all stacks is returned (including existing stacks and
+ *       stacks that have been deleted).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +80,7 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStacksCommand extends $Command
@@ -89,9 +91,7 @@ export class ListStacksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListStacksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStacksCommand)
   .de(de_ListStacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStacksInput;
+      output: ListStacksOutput;
+    };
+    sdk: {
+      input: ListStacksCommandInput;
+      output: ListStacksCommandOutput;
+    };
+  };
+}

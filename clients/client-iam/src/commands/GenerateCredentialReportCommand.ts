@@ -64,6 +64,7 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GenerateCredentialReportCommand extends $Command
@@ -74,9 +75,7 @@ export class GenerateCredentialReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +87,16 @@ export class GenerateCredentialReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateCredentialReportCommand)
   .de(de_GenerateCredentialReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GenerateCredentialReportResponse;
+    };
+    sdk: {
+      input: GenerateCredentialReportCommandInput;
+      output: GenerateCredentialReportCommandOutput;
+    };
+  };
+}

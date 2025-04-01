@@ -28,13 +28,31 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
+ * <p>Starts a query of one or more log groups using CloudWatch Logs Insights. You specify the log groups
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  *          <p>After you run a query using <code>StartQuery</code>, the query results are stored by CloudWatch Logs.
  *       You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a> to retrieve
  *       the results of a query, using the <code>queryId</code> that <code>StartQuery</code> returns.
  *     </p>
+ *          <note>
+ *             <p>To specify the log groups to query, a <code>StartQuery</code> operation must include one of the following:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Either exactly one of the following
+ *           parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or
+ *           <code>logGroupIdentifiers</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Or the <code>queryString</code> must include a <code>SOURCE</code> command to select log
+ *           groups for the query. The <code>SOURCE</code> command can select log groups based on log group name prefix, account ID,
+ *           and log class. </p>
+ *                   <p>For more information about the <code>SOURCE</code> command,
+ *           see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  *          <p>If you have associated a KMS key with the query results in this account,
  *     then
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> uses that key to
@@ -56,6 +74,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // StartQueryRequest
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  *   logGroupName: "STRING_VALUE",
  *   logGroupNames: [ // LogGroupNames
  *     "STRING_VALUE",
@@ -104,6 +123,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class StartQueryCommand extends $Command
@@ -114,9 +134,7 @@ export class StartQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +146,16 @@ export class StartQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartQueryCommand)
   .de(de_StartQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartQueryRequest;
+      output: StartQueryResponse;
+    };
+    sdk: {
+      input: StartQueryCommandInput;
+      output: StartQueryCommandOutput;
+    };
+  };
+}

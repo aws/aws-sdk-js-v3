@@ -91,6 +91,7 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  */
 export class GetRestApisCommand extends $Command
   .classBuilder<
@@ -108,4 +109,16 @@ export class GetRestApisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRestApisCommand)
   .de(de_GetRestApisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRestApisRequest;
+      output: RestApis;
+    };
+    sdk: {
+      input: GetRestApisCommandInput;
+      output: GetRestApisCommandOutput;
+    };
+  };
+}

@@ -108,6 +108,7 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class CreateRescoreExecutionPlanCommand extends $Command
@@ -118,9 +119,7 @@ export class CreateRescoreExecutionPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class CreateRescoreExecutionPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRescoreExecutionPlanCommand)
   .de(de_CreateRescoreExecutionPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRescoreExecutionPlanRequest;
+      output: CreateRescoreExecutionPlanResponse;
+    };
+    sdk: {
+      input: CreateRescoreExecutionPlanCommandInput;
+      output: CreateRescoreExecutionPlanCommandOutput;
+    };
+  };
+}

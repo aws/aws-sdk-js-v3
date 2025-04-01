@@ -44,7 +44,9 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *          <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
  *             file into an Amazon S3 bucket; you can then specify the Amazon S3
  *             location of the file using the <code>Media</code> parameter.</p>
- *          <p>Note that job queuing is enabled by default for Call Analytics jobs.</p>
+ *          <p>Job queuing is available for Call Analytics jobs. If you pass a <code>DataAccessRoleArn</code>
+ *             in your request and you exceed your Concurrent Job Limit, your job will automatically be
+ *             added to a queue to be processed once your concurrent job count is below the limit.</p>
  *          <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
  *             request:</p>
  *          <ul>
@@ -58,12 +60,6 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *                <p>
  *                   <code>CallAnalyticsJobName</code>: A custom name that you create for your
  *                     transcription job that's unique within your Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DataAccessRoleArn</code>: The Amazon Resource Name (ARN) of an IAM role
- *                     that has permissions to access the Amazon S3 bucket that contains your
- *                     input files.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -120,6 +116,12 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *       GenerateAbstractiveSummary: true || false, // required
  *     },
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   ChannelDefinitions: [ // ChannelDefinitions
  *     { // ChannelDefinition
  *       ChannelId: Number("int"),
@@ -191,6 +193,12 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * //         ParticipantRole: "AGENT" || "CUSTOMER",
  * //       },
  * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -223,6 +231,7 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class StartCallAnalyticsJobCommand extends $Command
@@ -233,9 +242,7 @@ export class StartCallAnalyticsJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -247,4 +254,16 @@ export class StartCallAnalyticsJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCallAnalyticsJobCommand)
   .de(de_StartCallAnalyticsJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCallAnalyticsJobRequest;
+      output: StartCallAnalyticsJobResponse;
+    };
+    sdk: {
+      input: StartCallAnalyticsJobCommandInput;
+      output: StartCallAnalyticsJobCommandOutput;
+    };
+  };
+}

@@ -96,6 +96,7 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class RegisterAgentCommand extends $Command
@@ -106,9 +107,7 @@ export class RegisterAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class RegisterAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterAgentCommand)
   .de(de_RegisterAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterAgentRequest;
+      output: RegisterAgentResponse;
+    };
+    sdk: {
+      input: RegisterAgentCommandInput;
+      output: RegisterAgentCommandOutput;
+    };
+  };
+}

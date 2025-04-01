@@ -32,7 +32,8 @@ export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRe
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
+ * <p>Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
+ *             information about user pool MFA, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding MFA</a>. For more information about WebAuthn passkeys see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html#amazon-cognito-user-pools-authentication-flow-methods-passkey">Authentication flows</a>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -41,7 +42,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -69,7 +70,15 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  *     Enabled: true || false,
  *   },
+ *   EmailMfaConfiguration: { // EmailMfaConfigType
+ *     Message: "STRING_VALUE",
+ *     Subject: "STRING_VALUE",
+ *   },
  *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ *   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ *     RelyingPartyId: "STRING_VALUE",
+ *     UserVerification: "required" || "preferred",
+ *   },
  * };
  * const command = new SetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
@@ -85,7 +94,15 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * //   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  * //     Enabled: true || false,
  * //   },
+ * //   EmailMfaConfiguration: { // EmailMfaConfigType
+ * //     Message: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //   },
  * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ * //     RelyingPartyId: "STRING_VALUE",
+ * //     UserVerification: "required" || "preferred",
+ * //   },
  * // };
  *
  * ```
@@ -99,6 +116,10 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -131,6 +152,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class SetUserPoolMfaConfigCommand extends $Command
@@ -141,9 +163,7 @@ export class SetUserPoolMfaConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +175,16 @@ export class SetUserPoolMfaConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetUserPoolMfaConfigCommand)
   .de(de_SetUserPoolMfaConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetUserPoolMfaConfigRequest;
+      output: SetUserPoolMfaConfigResponse;
+    };
+    sdk: {
+      input: SetUserPoolMfaConfigCommandInput;
+      output: SetUserPoolMfaConfigCommandOutput;
+    };
+  };
+}

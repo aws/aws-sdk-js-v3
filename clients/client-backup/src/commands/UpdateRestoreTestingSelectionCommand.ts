@@ -37,14 +37,10 @@ export interface UpdateRestoreTestingSelectionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Most elements except the <code>RestoreTestingSelectionName</code>
+ * <p>Updates the specified restore testing selection.</p>
+ *          <p>Most elements except the <code>RestoreTestingSelectionName</code>
  *          can be updated with this request.</p>
- *          <p>
- *             <code>RestoreTestingSelection</code> can use either protected
- *          resource ARNs or conditions, but not both. That is, if your selection
- *          has <code>ProtectedResourceArns</code>, requesting an update with the
- *          parameter <code>ProtectedResourceConditions</code> will be
- *          unsuccessful.</p>
+ *          <p>You can use either protected resource ARNs or conditions, but not both.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +113,7 @@ export interface UpdateRestoreTestingSelectionCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UpdateRestoreTestingSelectionCommand extends $Command
@@ -127,9 +124,7 @@ export class UpdateRestoreTestingSelectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +136,16 @@ export class UpdateRestoreTestingSelectionCommand extends $Command
   .f(UpdateRestoreTestingSelectionInputFilterSensitiveLog, void 0)
   .ser(se_UpdateRestoreTestingSelectionCommand)
   .de(de_UpdateRestoreTestingSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRestoreTestingSelectionInput;
+      output: UpdateRestoreTestingSelectionOutput;
+    };
+    sdk: {
+      input: UpdateRestoreTestingSelectionCommandInput;
+      output: UpdateRestoreTestingSelectionCommandOutput;
+    };
+  };
+}

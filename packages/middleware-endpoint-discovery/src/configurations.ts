@@ -5,6 +5,9 @@ const CONFIG_ENDPOINT_DISCOVERY = "endpoint_discovery_enabled";
 
 const isFalsy = (value: string) => ["false", "0"].indexOf(value) >= 0;
 
+/**
+ * @internal
+ */
 export const NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS: LoadedConfigSelectors<boolean | undefined> = {
   environmentVariableSelector: (env) => {
     for (let i = 0; i < ENV_ENDPOINT_DISCOVERY.length; i++) {

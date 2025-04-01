@@ -62,7 +62,8 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
+ *          or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
@@ -74,6 +75,7 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyspaceCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteKeyspaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteKeyspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKeyspaceCommand)
   .de(de_DeleteKeyspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKeyspaceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKeyspaceCommandInput;
+      output: DeleteKeyspaceCommandOutput;
+    };
+  };
+}

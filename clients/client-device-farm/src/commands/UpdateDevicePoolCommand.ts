@@ -93,32 +93,32 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To update a device pool
  * ```javascript
  * // The following example updates the specified device pool with a new name and description. It also enables remote access of devices in the device pool.
  * const input = {
- *   "name": "NewName",
- *   "arn": "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
- *   "description": "NewDescription",
- *   "rules": [
+ *   arn: "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
+ *   description: "NewDescription",
+ *   name: "NewName",
+ *   rules: [
  *     {
- *       "value": "True",
- *       "attribute": "REMOTE_ACCESS_ENABLED",
- *       "operator": "EQUALS"
+ *       attribute: "REMOTE_ACCESS_ENABLED",
+ *       operator: "EQUALS",
+ *       value: "True"
  *     }
  *   ]
  * };
  * const command = new UpdateDevicePoolCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "devicePool": {}
+ *   devicePool:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-update-a-device-pool-1472653887677
  * ```
  *
+ * @public
  */
 export class UpdateDevicePoolCommand extends $Command
   .classBuilder<
@@ -128,9 +128,7 @@ export class UpdateDevicePoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +140,16 @@ export class UpdateDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDevicePoolCommand)
   .de(de_UpdateDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDevicePoolRequest;
+      output: UpdateDevicePoolResult;
+    };
+    sdk: {
+      input: UpdateDevicePoolCommandInput;
+      output: UpdateDevicePoolCommandOutput;
+    };
+  };
+}

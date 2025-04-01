@@ -25,7 +25,7 @@ the SKU level. You can use the Amazon Web Services Price List to do the followin
 </li>
 </ul>
 <p>Use <code>GetServices</code> without a service code to retrieve the service codes for
-all Amazon Web Services, then <code>GetServices</code> with a service code to
+all Amazon Web Services services, then <code>GetServices</code> with a service code to
 retrieve the attribute names for that service. After you have the service code and
 attribute names, you can use <code>GetAttributeValues</code> to see what values are
 available for an attribute. With the service code and an attribute name and value, you can
@@ -38,7 +38,7 @@ Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pricing
+To install this package, simply type add or install @aws-sdk/client-pricing
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pricing`

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
+import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListVpcEndpointsCommand, se_ListVpcEndpointsCommand } from "../protocols/Aws_restJson1";
 
@@ -72,6 +72,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListVpcEndpointsCommand extends $Command
@@ -82,9 +83,7 @@ export class ListVpcEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +95,16 @@ export class ListVpcEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVpcEndpointsCommand)
   .de(de_ListVpcEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVpcEndpointsRequest;
+      output: ListVpcEndpointsResponse;
+    };
+    sdk: {
+      input: ListVpcEndpointsCommandInput;
+      output: ListVpcEndpointsCommandOutput;
+    };
+  };
+}

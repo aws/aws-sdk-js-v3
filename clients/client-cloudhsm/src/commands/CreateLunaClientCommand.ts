@@ -77,6 +77,7 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class CreateLunaClientCommand extends $Command
@@ -87,9 +88,7 @@ export class CreateLunaClientCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class CreateLunaClientCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLunaClientCommand)
   .de(de_CreateLunaClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLunaClientRequest;
+      output: CreateLunaClientResponse;
+    };
+    sdk: {
+      input: CreateLunaClientCommandInput;
+      output: CreateLunaClientCommandOutput;
+    };
+  };
+}

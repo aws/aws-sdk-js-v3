@@ -52,6 +52,7 @@ export interface MalformedBlobCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedBlobCommand extends $Command
   .classBuilder<
@@ -69,4 +70,16 @@ export class MalformedBlobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedBlobCommand)
   .de(de_MalformedBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedBlobInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedBlobCommandInput;
+      output: MalformedBlobCommandOutput;
+    };
+  };
+}

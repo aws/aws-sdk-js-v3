@@ -100,6 +100,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListModelsCommand extends $Command
@@ -110,9 +111,7 @@ export class ListModelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class ListModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelsCommand)
   .de(de_ListModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelsRequest;
+      output: ListModelsResponse;
+    };
+    sdk: {
+      input: ListModelsCommandInput;
+      output: ListModelsCommandOutput;
+    };
+  };
+}

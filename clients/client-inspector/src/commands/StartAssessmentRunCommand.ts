@@ -87,24 +87,24 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Start assessment run
  * ```javascript
  * // Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.
  * const input = {
- *   "assessmentRunName": "examplerun",
- *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+ *   assessmentRunName: "examplerun",
+ *   assessmentTemplateArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
  * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-jOoroxyY"
+ *   assessmentRunArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-jOoroxyY"
  * }
  * *\/
- * // example id: start-assessment-run-1481067407484
  * ```
  *
+ * @public
  */
 export class StartAssessmentRunCommand extends $Command
   .classBuilder<
@@ -114,9 +114,7 @@ export class StartAssessmentRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +126,16 @@ export class StartAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAssessmentRunCommand)
   .de(de_StartAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAssessmentRunRequest;
+      output: StartAssessmentRunResponse;
+    };
+    sdk: {
+      input: StartAssessmentRunCommandInput;
+      output: StartAssessmentRunCommandOutput;
+    };
+  };
+}

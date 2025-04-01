@@ -130,6 +130,7 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DescribeUpdateActionsCommand extends $Command
@@ -140,9 +141,7 @@ export class DescribeUpdateActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DescribeUpdateActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUpdateActionsCommand)
   .de(de_DescribeUpdateActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUpdateActionsMessage;
+      output: UpdateActionsMessage;
+    };
+    sdk: {
+      input: DescribeUpdateActionsCommandInput;
+      output: DescribeUpdateActionsCommandOutput;
+    };
+  };
+}

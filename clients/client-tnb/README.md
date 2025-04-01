@@ -6,11 +6,15 @@
 
 AWS SDK for JavaScript Tnb Client for Node.js, Browser and React Native.
 
-<p> Amazon Web Services Telco Network Builder (TNB) is a network automation service that helps you deploy and manage telecom networks. AWS TNB helps you with the lifecycle management of your telecommunication network functions throughout planning, deployment, and post-deployment activities.</p>
+<p>
+Amazon Web Services Telco Network Builder (TNB) is a network automation service that helps
+you deploy and manage telecom networks. AWS TNB helps you with the lifecycle management of
+your telecommunication network functions throughout planning, deployment, and
+post-deployment activities.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-tnb
+To install this package, simply type add or install @aws-sdk/client-tnb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-tnb`

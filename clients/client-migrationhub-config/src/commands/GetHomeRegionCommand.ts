@@ -79,6 +79,7 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class GetHomeRegionCommand extends $Command
@@ -89,9 +90,7 @@ export class GetHomeRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class GetHomeRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHomeRegionCommand)
   .de(de_GetHomeRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetHomeRegionResult;
+    };
+    sdk: {
+      input: GetHomeRegionCommandInput;
+      output: GetHomeRegionCommandOutput;
+    };
+  };
+}

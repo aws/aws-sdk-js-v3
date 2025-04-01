@@ -85,6 +85,7 @@ export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetSimilarProfilesCommand extends $Command
@@ -95,9 +96,7 @@ export class GetSimilarProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class GetSimilarProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSimilarProfilesCommand)
   .de(de_GetSimilarProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSimilarProfilesRequest;
+      output: GetSimilarProfilesResponse;
+    };
+    sdk: {
+      input: GetSimilarProfilesCommandInput;
+      output: GetSimilarProfilesCommandOutput;
+    };
+  };
+}

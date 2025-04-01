@@ -122,6 +122,7 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateLicenseVersionCommand extends $Command
@@ -132,9 +133,7 @@ export class CreateLicenseVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class CreateLicenseVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLicenseVersionCommand)
   .de(de_CreateLicenseVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLicenseVersionRequest;
+      output: CreateLicenseVersionResponse;
+    };
+    sdk: {
+      input: CreateLicenseVersionCommandInput;
+      output: CreateLicenseVersionCommandOutput;
+    };
+  };
+}

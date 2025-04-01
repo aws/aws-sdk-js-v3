@@ -84,6 +84,7 @@ export interface CreateGuardrailVersionCommandOutput extends CreateGuardrailVers
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateGuardrailVersionCommand extends $Command
@@ -94,9 +95,7 @@ export class CreateGuardrailVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class CreateGuardrailVersionCommand extends $Command
   .f(CreateGuardrailVersionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateGuardrailVersionCommand)
   .de(de_CreateGuardrailVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGuardrailVersionRequest;
+      output: CreateGuardrailVersionResponse;
+    };
+    sdk: {
+      input: CreateGuardrailVersionCommandInput;
+      output: CreateGuardrailVersionCommandOutput;
+    };
+  };
+}

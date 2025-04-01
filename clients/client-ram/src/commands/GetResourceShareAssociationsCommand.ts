@@ -107,6 +107,7 @@ export interface GetResourceShareAssociationsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class GetResourceShareAssociationsCommand extends $Command
@@ -117,9 +118,7 @@ export class GetResourceShareAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class GetResourceShareAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceShareAssociationsCommand)
   .de(de_GetResourceShareAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceShareAssociationsRequest;
+      output: GetResourceShareAssociationsResponse;
+    };
+    sdk: {
+      input: GetResourceShareAssociationsCommandInput;
+      output: GetResourceShareAssociationsCommandOutput;
+    };
+  };
+}

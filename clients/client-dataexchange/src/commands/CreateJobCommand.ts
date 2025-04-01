@@ -333,7 +333,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *  <p>Access to the resource is denied.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -350,6 +351,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class CreateJobCommand extends $Command
@@ -360,9 +362,7 @@ export class CreateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -374,4 +374,16 @@ export class CreateJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateJobCommand)
   .de(de_CreateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateJobRequest;
+      output: CreateJobResponse;
+    };
+    sdk: {
+      input: CreateJobCommandInput;
+      output: CreateJobCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,7 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateExplainabilityExportCommand extends $Command
@@ -109,9 +110,7 @@ export class CreateExplainabilityExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateExplainabilityExportCommand extends $Command
   .f(CreateExplainabilityExportRequestFilterSensitiveLog, void 0)
   .ser(se_CreateExplainabilityExportCommand)
   .de(de_CreateExplainabilityExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExplainabilityExportRequest;
+      output: CreateExplainabilityExportResponse;
+    };
+    sdk: {
+      input: CreateExplainabilityExportCommandInput;
+      output: CreateExplainabilityExportCommandOutput;
+    };
+  };
+}

@@ -55,6 +55,7 @@ export interface GetColumnStatisticsTaskRunCommandOutput extends GetColumnStatis
  * //     SecurityConfiguration: "STRING_VALUE",
  * //     NumberOfWorkers: Number("int"),
  * //     WorkerType: "STRING_VALUE",
+ * //     ComputationType: "FULL" || "INCREMENTAL",
  * //     Status: "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "STOPPED",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -85,6 +86,7 @@ export interface GetColumnStatisticsTaskRunCommandOutput extends GetColumnStatis
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetColumnStatisticsTaskRunCommand extends $Command
@@ -95,9 +97,7 @@ export class GetColumnStatisticsTaskRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class GetColumnStatisticsTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetColumnStatisticsTaskRunCommand)
   .de(de_GetColumnStatisticsTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetColumnStatisticsTaskRunRequest;
+      output: GetColumnStatisticsTaskRunResponse;
+    };
+    sdk: {
+      input: GetColumnStatisticsTaskRunCommandInput;
+      output: GetColumnStatisticsTaskRunCommandOutput;
+    };
+  };
+}

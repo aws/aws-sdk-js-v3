@@ -67,6 +67,7 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeLoaCommand extends $Command
@@ -77,9 +78,7 @@ export class DescribeLoaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DescribeLoaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoaCommand)
   .de(de_DescribeLoaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoaRequest;
+      output: Loa;
+    };
+    sdk: {
+      input: DescribeLoaCommandInput;
+      output: DescribeLoaCommandOutput;
+    };
+  };
+}

@@ -32,7 +32,10 @@ export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProvid
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Updates IdP information for a user pool.</p>
+ * <p>Modifies the configuration and trust relationship between a third-party identity
+ *             provider (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity
+ *             providers through managed login and OIDC relying-party libraries. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -129,6 +132,7 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateIdentityProviderCommand extends $Command
@@ -139,9 +143,7 @@ export class UpdateIdentityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +155,16 @@ export class UpdateIdentityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdentityProviderCommand)
   .de(de_UpdateIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentityProviderRequest;
+      output: UpdateIdentityProviderResponse;
+    };
+    sdk: {
+      input: UpdateIdentityProviderCommandInput;
+      output: UpdateIdentityProviderCommandOutput;
+    };
+  };
+}

@@ -91,6 +91,7 @@ export interface UpdateStorageProfileCommandOutput extends UpdateStorageProfileR
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateStorageProfileCommand extends $Command
@@ -101,9 +102,7 @@ export class UpdateStorageProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UpdateStorageProfileCommand extends $Command
   .f(UpdateStorageProfileRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateStorageProfileCommand)
   .de(de_UpdateStorageProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStorageProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStorageProfileCommandInput;
+      output: UpdateStorageProfileCommandOutput;
+    };
+  };
+}

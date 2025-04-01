@@ -68,25 +68,28 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a tag from an Auto Scaling group
  * ```javascript
  * // This example deletes the specified tag from the specified Auto Scaling group.
  * const input = {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Dept",
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "Research"
+ *       Key: "Dept",
+ *       ResourceId: "my-auto-scaling-group",
+ *       ResourceType: "auto-scaling-group",
+ *       Value: "Research"
  *     }
  *   ]
  * };
  * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<
@@ -96,9 +99,7 @@ export class DeleteTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class DeleteTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsCommand)
   .de(de_DeleteTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsCommandInput;
+      output: DeleteTagsCommandOutput;
+    };
+  };
+}

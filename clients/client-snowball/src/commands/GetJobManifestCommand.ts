@@ -78,29 +78,29 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To get the manifest for a job you've created for AWS Snowball
  * ```javascript
  * // Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified JobId value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the GetJobManifest action.
- * //
- * // The manifest is an encrypted file that you can download after your job enters the WithCustomer status. The manifest is decrypted by using the UnlockCode code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
- * //
- * // As a best practice, we recommend that you don't save a copy of an UnlockCode value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
- * //
- * // The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
+ *
+ * The manifest is an encrypted file that you can download after your job enters the WithCustomer status. The manifest is decrypted by using the UnlockCode code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
+ *
+ * As a best practice, we recommend that you don't save a copy of an UnlockCode value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+ *
+ * The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
  * const input = {
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ *   JobId: "JID123e4567-e89b-12d3-a456-426655440000"
  * };
  * const command = new GetJobManifestCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ManifestURI": "https://awsie-frosty-manifests-prod.s3.amazonaws.com/JID123e4567-e89b-12d3-a456-426655440000_manifest.bin?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20161224T005115Z&X-Amz-SignedHeaders=..."
+ *   ManifestURI: "https://awsie-frosty-manifests-prod.s3.amazonaws.com/JID123e4567-e89b-12d3-a456-426655440000_manifest.bin?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20161224T005115Z&X-Amz-SignedHeaders=..."
  * }
  * *\/
- * // example id: to-get-the-manifest-for-a-job-youve-created-for-aws-snowball-1482540389246
  * ```
  *
+ * @public
  */
 export class GetJobManifestCommand extends $Command
   .classBuilder<
@@ -110,9 +110,7 @@ export class GetJobManifestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +122,16 @@ export class GetJobManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobManifestCommand)
   .de(de_GetJobManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobManifestRequest;
+      output: GetJobManifestResult;
+    };
+    sdk: {
+      input: GetJobManifestCommandInput;
+      output: GetJobManifestCommandOutput;
+    };
+  };
+}

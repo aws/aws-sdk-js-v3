@@ -229,37 +229,37 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update a size constraint set
  * ```javascript
  * // The following example deletes a SizeConstraint object (filters) in a size constraint set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SizeConstraintSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "SizeConstraint": {
- *         "ComparisonOperator": "GT",
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *       Action: "DELETE",
+ *       SizeConstraint: {
+ *         ComparisonOperator: "GT",
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "Size": 0,
- *         "TextTransformation": "NONE"
+ *         Size: 0,
+ *         TextTransformation: "NONE"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatesizeconstraintset-1475531697891
  * ```
  *
+ * @public
  */
 export class UpdateSizeConstraintSetCommand extends $Command
   .classBuilder<
@@ -269,9 +269,7 @@ export class UpdateSizeConstraintSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -283,4 +281,16 @@ export class UpdateSizeConstraintSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSizeConstraintSetCommand)
   .de(de_UpdateSizeConstraintSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSizeConstraintSetRequest;
+      output: UpdateSizeConstraintSetResponse;
+    };
+    sdk: {
+      input: UpdateSizeConstraintSetCommandInput;
+      output: UpdateSizeConstraintSetCommandOutput;
+    };
+  };
+}

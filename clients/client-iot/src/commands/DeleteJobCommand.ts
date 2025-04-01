@@ -29,13 +29,12 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a job and its related job executions.</p>
- *          <p>Deleting a job may take time, depending on the number of job
- *         executions created for the job and various other factors. While the job
- *         is being deleted, the status of the job will be shown as
- *         "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
- *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
- *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
- *         a LimitExceededException will occur.</p>
+ *          <p>Deleting a job may take time, depending on the number of job executions created for
+ *             the job and various other factors. While the job is being deleted, the status of the job
+ *             will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose
+ *             status is already "DELETION_IN_PROGRESS" will result in an error.</p>
+ *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
+ *             LimitExceededException will occur.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteJobCommand extends $Command
@@ -93,9 +93,7 @@ export class DeleteJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +105,16 @@ export class DeleteJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteJobCommand)
   .de(de_DeleteJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteJobCommandInput;
+      output: DeleteJobCommandOutput;
+    };
+  };
+}

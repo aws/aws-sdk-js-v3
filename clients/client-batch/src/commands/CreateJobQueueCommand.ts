@@ -90,61 +90,60 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To create a job queue with a single compute environment
  * ```javascript
  * // This example creates a job queue called LowPriority that uses the M4Spot compute environment.
  * const input = {
- *   "computeEnvironmentOrder": [
+ *   computeEnvironmentOrder: [
  *     {
- *       "computeEnvironment": "M4Spot",
- *       "order": 1
+ *       computeEnvironment: "M4Spot",
+ *       order: 1
  *     }
  *   ],
- *   "jobQueueName": "LowPriority",
- *   "priority": 1,
- *   "state": "ENABLED"
+ *   jobQueueName: "LowPriority",
+ *   priority: 1,
+ *   state: "ENABLED"
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/LowPriority",
- *   "jobQueueName": "LowPriority"
+ *   jobQueueArn: "arn:aws:batch:us-east-1:012345678910:job-queue/LowPriority",
+ *   jobQueueName: "LowPriority"
  * }
  * *\/
- * // example id: to-create-a-job-queue-with-a-single-compute-environment-1481152967946
  * ```
  *
  * @example To create a job queue with multiple compute environments
  * ```javascript
  * // This example creates a job queue called HighPriority that uses the C4OnDemand compute environment with an order of 1 and the M4Spot compute environment with an order of 2.
  * const input = {
- *   "computeEnvironmentOrder": [
+ *   computeEnvironmentOrder: [
  *     {
- *       "computeEnvironment": "C4OnDemand",
- *       "order": 1
+ *       computeEnvironment: "C4OnDemand",
+ *       order: 1
  *     },
  *     {
- *       "computeEnvironment": "M4Spot",
- *       "order": 2
+ *       computeEnvironment: "M4Spot",
+ *       order: 2
  *     }
  *   ],
- *   "jobQueueName": "HighPriority",
- *   "priority": 10,
- *   "state": "ENABLED"
+ *   jobQueueName: "HighPriority",
+ *   priority: 10,
+ *   state: "ENABLED"
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
- *   "jobQueueName": "HighPriority"
+ *   jobQueueArn: "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+ *   jobQueueName: "HighPriority"
  * }
  * *\/
- * // example id: to-create-a-job-queue-with-multiple-compute-environments-1481153027051
  * ```
  *
+ * @public
  */
 export class CreateJobQueueCommand extends $Command
   .classBuilder<
@@ -154,9 +153,7 @@ export class CreateJobQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +165,16 @@ export class CreateJobQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateJobQueueCommand)
   .de(de_CreateJobQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateJobQueueRequest;
+      output: CreateJobQueueResponse;
+    };
+    sdk: {
+      input: CreateJobQueueCommandInput;
+      output: CreateJobQueueCommandOutput;
+    };
+  };
+}

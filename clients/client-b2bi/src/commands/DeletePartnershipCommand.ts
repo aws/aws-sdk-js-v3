@@ -72,18 +72,21 @@ export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample DeletePartnership call
  * ```javascript
  * //
  * const input = {
- *   "partnershipId": "ps-219fa02f5b4242af8"
+ *   partnershipId: "ps-219fa02f5b4242af8"
  * };
  * const command = new DeletePartnershipCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePartnershipCommand extends $Command
   .classBuilder<
@@ -93,9 +96,7 @@ export class DeletePartnershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class DeletePartnershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePartnershipCommand)
   .de(de_DeletePartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePartnershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePartnershipCommandInput;
+      output: DeletePartnershipCommandOutput;
+    };
+  };
+}

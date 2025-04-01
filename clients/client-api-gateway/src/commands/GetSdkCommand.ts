@@ -88,6 +88,7 @@ export interface GetSdkCommandOutput extends GetSdkCommandOutputType, __Metadata
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetSdkCommand extends $Command
@@ -98,9 +99,7 @@ export class GetSdkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class GetSdkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSdkCommand)
   .de(de_GetSdkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSdkRequest;
+      output: SdkResponse;
+    };
+    sdk: {
+      input: GetSdkCommandInput;
+      output: GetSdkCommandOutput;
+    };
+  };
+}

@@ -145,6 +145,7 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeDocumentClassifierCommand extends $Command
@@ -155,9 +156,7 @@ export class DescribeDocumentClassifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +168,16 @@ export class DescribeDocumentClassifierCommand extends $Command
   .f(void 0, DescribeDocumentClassifierResponseFilterSensitiveLog)
   .ser(se_DescribeDocumentClassifierCommand)
   .de(de_DescribeDocumentClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDocumentClassifierRequest;
+      output: DescribeDocumentClassifierResponse;
+    };
+    sdk: {
+      input: DescribeDocumentClassifierCommandInput;
+      output: DescribeDocumentClassifierCommandOutput;
+    };
+  };
+}

@@ -99,6 +99,7 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class DescribeICD10CMInferenceJobCommand extends $Command
@@ -109,9 +110,7 @@ export class DescribeICD10CMInferenceJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DescribeICD10CMInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeICD10CMInferenceJobCommand)
   .de(de_DescribeICD10CMInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeICD10CMInferenceJobRequest;
+      output: DescribeICD10CMInferenceJobResponse;
+    };
+    sdk: {
+      input: DescribeICD10CMInferenceJobCommandInput;
+      output: DescribeICD10CMInferenceJobCommandOutput;
+    };
+  };
+}

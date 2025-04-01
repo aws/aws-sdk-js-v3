@@ -144,6 +144,39 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list an index
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   IndexReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   }
+ * };
+ * const command = new ListIndexCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IndexAttachments: [
+ *     {
+ *       IndexedAttributes: [
+ *         {
+ *           Key: {
+ *             FacetName: "Organization",
+ *             Name: "description",
+ *             SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *           },
+ *           Value:           { /* empty *\/ }
+ *         }
+ *       ],
+ *       ObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIndexCommand extends $Command
@@ -154,9 +187,7 @@ export class ListIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +199,16 @@ export class ListIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndexCommand)
   .de(de_ListIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndexRequest;
+      output: ListIndexResponse;
+    };
+    sdk: {
+      input: ListIndexCommandInput;
+      output: ListIndexCommandOutput;
+    };
+  };
+}

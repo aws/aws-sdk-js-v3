@@ -74,7 +74,7 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  * //               environmentId: "STRING_VALUE", // required
  * //             },
  * //             taskRun: { // AssignedTaskRunSessionActionDefinition
- * //               taskId: "STRING_VALUE", // required
+ * //               taskId: "STRING_VALUE",
  * //               stepId: "STRING_VALUE", // required
  * //               parameters: { // TaskParameters // required
  * //                 "<keys>": { // TaskParameterValue Union: only one key present
@@ -143,6 +143,7 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkerScheduleCommand extends $Command
@@ -153,9 +154,7 @@ export class UpdateWorkerScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class UpdateWorkerScheduleCommand extends $Command
   .f(UpdateWorkerScheduleRequestFilterSensitiveLog, UpdateWorkerScheduleResponseFilterSensitiveLog)
   .ser(se_UpdateWorkerScheduleCommand)
   .de(de_UpdateWorkerScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkerScheduleRequest;
+      output: UpdateWorkerScheduleResponse;
+    };
+    sdk: {
+      input: UpdateWorkerScheduleCommandInput;
+      output: UpdateWorkerScheduleCommandOutput;
+    };
+  };
+}

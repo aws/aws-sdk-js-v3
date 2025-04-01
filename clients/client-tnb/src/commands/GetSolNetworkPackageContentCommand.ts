@@ -81,10 +81,29 @@ export interface GetSolNetworkPackageContentCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Get a network package Content
+ * ```javascript
+ * //
+ * const input = {
+ *   accept: "application/zip",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new GetSolNetworkPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "application/zip",
+ *   nsdContent: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -96,9 +115,7 @@ export class GetSolNetworkPackageContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +127,16 @@ export class GetSolNetworkPackageContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSolNetworkPackageContentCommand)
   .de(de_GetSolNetworkPackageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSolNetworkPackageContentInput;
+      output: GetSolNetworkPackageContentOutput;
+    };
+    sdk: {
+      input: GetSolNetworkPackageContentCommandInput;
+      output: GetSolNetworkPackageContentCommandOutput;
+    };
+  };
+}

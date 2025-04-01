@@ -80,6 +80,7 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteSmsTemplateCommand extends $Command
@@ -90,9 +91,7 @@ export class DeleteSmsTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class DeleteSmsTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSmsTemplateCommand)
   .de(de_DeleteSmsTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSmsTemplateRequest;
+      output: DeleteSmsTemplateResponse;
+    };
+    sdk: {
+      input: DeleteSmsTemplateCommandInput;
+      output: DeleteSmsTemplateCommandOutput;
+    };
+  };
+}

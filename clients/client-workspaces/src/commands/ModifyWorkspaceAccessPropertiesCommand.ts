@@ -53,6 +53,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *     DeviceTypeChromeOs: "ALLOW" || "DENY",
  *     DeviceTypeZeroClient: "ALLOW" || "DENY",
  *     DeviceTypeLinux: "ALLOW" || "DENY",
+ *     DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
  *   },
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
@@ -76,6 +77,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyWorkspaceAccessPropertiesCommand extends $Command
@@ -86,9 +88,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyWorkspaceAccessPropertiesCommand)
   .de(de_ModifyWorkspaceAccessPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyWorkspaceAccessPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyWorkspaceAccessPropertiesCommandInput;
+      output: ModifyWorkspaceAccessPropertiesCommandOutput;
+    };
+  };
+}

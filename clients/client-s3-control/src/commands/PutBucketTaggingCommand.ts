@@ -146,6 +146,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutBucketTaggingCommand extends $Command
@@ -175,4 +176,16 @@ export class PutBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketTaggingCommand)
   .de(de_PutBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketTaggingCommandInput;
+      output: PutBucketTaggingCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,7 @@ auditing.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-backup
+To install this package, simply type add or install @aws-sdk/client-backup
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-backup`
@@ -546,6 +546,14 @@ GetLegalHold
 </details>
 <details>
 <summary>
+GetRecoveryPointIndexDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/GetRecoveryPointIndexDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetRecoveryPointIndexDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetRecoveryPointIndexDetailsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRecoveryPointRestoreMetadata
 </summary>
 
@@ -670,6 +678,14 @@ ListFrameworks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListFrameworksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListFrameworksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListFrameworksCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIndexedRecoveryPoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListIndexedRecoveryPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListIndexedRecoveryPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListIndexedRecoveryPointsCommandOutput/)
 
 </details>
 <details>
@@ -894,6 +910,14 @@ UpdateGlobalSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateGlobalSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRecoveryPointIndexSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateRecoveryPointIndexSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRecoveryPointIndexSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRecoveryPointIndexSettingsCommandOutput/)
 
 </details>
 <details>
